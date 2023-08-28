@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-27 00:46+0000\n"
+"POT-Creation-Date: 2023-08-28 00:46+0000\n"
 "PO-Revision-Date: 2023-08-21 06:40+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "შესვლის შეცდომა: წვდომის კოდი არასწორი ან გაუქმებულია"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:90
+#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "შესვლის შეცდომა: %1"
@@ -117,7 +117,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "დანიშნულება"
 
-#: src/login.cpp:85 src/login.cpp:96
+#: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
 msgstr "ქსელის შეცდომა"
@@ -1072,12 +1072,12 @@ msgstr "განაახლა მდგომარეობა"
 msgid "started a poll"
 msgstr "დაიწყო გამოკითხვა"
 
-#: src/neochatroom.cpp:1631 src/neochatroom.cpp:1632
+#: src/neochatroom.cpp:1626 src/neochatroom.cpp:1627
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
 
-#: src/neochatroom.cpp:1928 src/neochatroom.cpp:1936
+#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1088,7 +1088,7 @@ msgstr "გან: %1, გრძ: %2"
 msgid "Encrypted Message"
 msgstr "დაშიფრული შეტყობინება"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1100,7 +1100,7 @@ msgstr "ამ ოთახში NeoChat-ის გახსნა"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
 msgstr "პასუხი"
@@ -1137,7 +1137,7 @@ msgstr "მიმაგრება:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:27
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1388,116 +1388,94 @@ msgid "Url:"
 msgstr "Url:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "გაგრძელება"
 
-#: src/qml/Component/Login/Loading.qml:17
+#: src/qml/Component/Login/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "მოითმინეთ. ამას საკმაო დრო შეიძლება დასჭირდეს."
 
-#: src/qml/Component/Login/Login.qml:19 src/qml/Component/Login/Sso.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Login"
-msgstr "შესვლა"
-
-#: src/qml/Component/Login/Login.qml:20
-#, kde-format
-msgid "Enter your Matrix ID"
-msgstr "შეიყვანეთ თქვენი Matrix ID"
-
-#: src/qml/Component/Login/Login.qml:29
+#: src/qml/Component/Login/Login.qml:25
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix ID:"
 
-#: src/qml/Component/Login/Login.qml:31
+#: src/qml/Component/Login/Login.qml:27
 #, kde-format
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
-#: src/qml/Page/LoadingPage.qml:9
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
 
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38
 #, kde-format
 msgid "Already logged in"
 msgstr "უკვე შესულია"
 
-#: src/qml/Component/Login/LoginMethod.qml:14
-#, kde-format
-msgid "Login Methods"
-msgstr "შესვლის მეთოდები"
-
 #: src/qml/Component/Login/LoginMethod.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Login with password"
+msgctxt "@action:button"
 msgid "Login with password"
 msgstr "პაროლით შესვლა"
 
-#: src/qml/Component/Login/LoginMethod.qml:27
-#: src/qml/Component/Login/Sso.qml:16
-#, kde-format
+#: src/qml/Component/Login/LoginMethod.qml:26
+#, fuzzy, kde-format
+#| msgid "Login with single sign-on"
+msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "SSO-ით შესვლა"
 
 #: src/qml/Component/Login/LoginRegister.qml:19
-#: src/qml/Component/Login/Sso.qml:25 src/qml/Component/Login/Sso.qml:41
-#, kde-format
-msgid "Login"
-msgstr "შესვლა"
-
-#: src/qml/Component/Login/LoginRegister.qml:26
-#, kde-format
-msgid "Register"
-msgstr "რესგისტრაცია"
-
-#: src/qml/Component/Login/LoginStep.qml:11
-#: src/qml/Component/Login/LoginStep.qml:12 src/qml/Page/WelcomePage.qml:17
-#, kde-format
-msgid "Welcome"
-msgstr "კეთილი იყოს თქვენი მობრძანება"
-
-#: src/qml/Component/Login/Password.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Password"
-msgstr "პაროლი"
-
-#: src/qml/Component/Login/Password.qml:16
-#, kde-format
-msgid "Enter your password"
-msgstr "შეიყვანეთ თქვენი პაროლი"
-
-#: src/qml/Component/Login/Password.qml:22
+#: src/qml/Component/Login/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "შესვლა"
 
-#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Component/Login/LoginRegister.qml:24
+#, fuzzy, kde-format
+#| msgid "Register"
+msgctxt "@action:button"
+msgid "Register"
+msgstr "რესგისტრაცია"
+
+#: src/qml/Component/Login/Password.qml:28 src/qml/Settings/DevicesPage.qml:73
+#, kde-format
+msgid "Password:"
+msgstr "პაროლი:"
+
+#: src/qml/Component/Login/Password.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
 msgstr "პაროლი"
 
-#: src/qml/Component/Login/Sso.qml:23
-#, kde-format
-msgid "Complete the authentication steps in your browser"
+#: src/qml/Component/Login/Password.qml:33
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Invalid username or password"
+msgstr "შეიყვანეთ თქვენი პაროლი"
+
+#: src/qml/Component/Login/Sso.qml:31
+#, fuzzy, kde-format
+#| msgid "Complete the authentication steps in your browser"
+msgid "Continue the login process in your browser."
 msgstr "დაასრულეთ ავთენტიკაციის ნაბიჯები თქვენს ბრაუზერში"
 
-#: src/qml/Component/Login/Sso.qml:33 src/qml/Page/WelcomePage.qml:72
+#: src/qml/Component/Login/Sso.qml:39
 #, kde-format
 msgctxt "@action:button"
-msgid "Back"
-msgstr "უკან"
+msgid "Re-open SSO URL"
+msgstr ""
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1616,7 +1594,7 @@ msgstr "უახლეს შეტყობინებებზე გად�
 msgid "Drag items here to share them"
 msgstr "გადმოათრიეთ საგნები აქ, მათ გასაზიარებლად"
 
-#: src/qml/Component/TimelineView.qml:235
+#: src/qml/Component/TimelineView.qml:229
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2007,18 +1985,18 @@ msgstr "პირადი საუბრის გახსნა"
 msgid "Copy link"
 msgstr "ბმულის კოპირება"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "სესიის გადამოწმება"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:304
 #, kde-format
 msgid "User consent"
 msgstr "მომხმარებლის თანხმობა"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:309
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2027,20 +2005,28 @@ msgstr ""
 "თქვენი სახლის სერვერის გამოყენებამდე საჭიროა მის პირობებს და ლიცენზიას "
 "დაეთანხმოთ. მის წასაკითხად ქვემოთ ღილაკს დააჭირეთ."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:314
 #, kde-format
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "საუბრის დაწყება"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "გნებავთ დაიწყოთ საუბარი %1-სთან?"
+
+#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
+#: src/qml/Page/RoomList/UserInfo.qml:235
+#, kde-format
+msgid "Configure"
+msgstr "მორგება"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2101,63 +2087,56 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "NeoChat-ის მორგება..."
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
-#: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:235
-#, kde-format
-msgid "Configure"
-msgstr "მორგება"
-
-#: src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Menu/GlobalMenu.qml:34
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "NeoChat-დან გასვლა"
 
-#: src/qml/Menu/GlobalMenu.qml:39
+#: src/qml/Menu/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "ფაილი"
 
-#: src/qml/Menu/GlobalMenu.qml:42
+#: src/qml/Menu/GlobalMenu.qml:44
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "ახალი პირადი ფანჯრის გახსნა…"
 
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "საუბრის დაწყება"
 
-#: src/qml/Menu/GlobalMenu.qml:47
+#: src/qml/Menu/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "ახალი ჯგუფი…"
 
-#: src/qml/Menu/GlobalMenu.qml:56
+#: src/qml/Menu/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "ჩატების დათვალიერება…"
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:63
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "ჩასწორება"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "ნახვა"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2165,31 +2144,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "სწრაფი გადამრთველის გახსნა"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "ფანჯარა"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "სრული ეკრანიდან გამოსვლა"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "სრული ეკრანი"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:89
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "დახმარება"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2250,26 +2229,26 @@ msgid "Save As"
 msgstr "შენახვა როგორც"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:54
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "Copy"
 msgstr "კოპირება"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgid "Remove"
 msgstr "წაშლა"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "შეტყობინების წაშლა"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
@@ -2278,35 +2257,49 @@ msgid "Report"
 msgstr "ანგარიში"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:63
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "შეტყობინების შესახებ ანგარიშის გაგზავნა"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "წყაროს ნახვა"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
 #, kde-format
 msgid "Message Source"
 msgstr "შეტყობინების წყარო"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:80
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#, kde-format
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "შეტყობინების შესახებ ანგარიშის გაგზავნა"
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:95
 #, kde-format
 msgid "Copy Link"
 msgstr "ბმულის კოპირება"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:144
 #, kde-format
 msgid "Search for '%1'"
 msgstr "%1-იs მოძებნა"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:150
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:165
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "ვებ მალსახმობების მორგება..."
@@ -2346,6 +2339,13 @@ msgstr "შეტყობინების შესახებ ანგა�
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "ამ შეტყობინების შესახებ ანგარიშის გაგზავნის მიზეზი"
+
+#: src/qml/Page/ChooseRoomDialog.qml:16
+#, fuzzy, kde-format
+#| msgid "Choose a Location"
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "აირჩიეთ მდებარეობა"
 
 #: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
@@ -2776,22 +2776,34 @@ msgstr "არსებულ ჩატში შესვლა"
 msgid "Create new chat"
 msgstr "ახალი ჩატის შექმნა"
 
-#: src/qml/Page/WelcomePage.qml:56
+#: src/qml/Page/WelcomePage.qml:18
 #, kde-format
-msgid "Welcome to Matrix"
-msgstr "კეთილი იყოს თქვენი მობრძანება Matrix-ში"
+msgid "Welcome"
+msgstr "კეთილი იყოს თქვენი მობრძანება"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgid "Log in to a different account."
+msgstr "შედით არსებულ ანგარიშზე"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, kde-format
+msgid "Welcome to NeoChat! Continue by logging in."
+msgstr ""
+
+#: src/qml/Page/WelcomePage.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
 
 #: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "სახელის გარეშე"
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:71
-#, kde-format
-msgid "No Canonical Alias"
-msgstr "კანონიკური მეტსახელების გარეშე"
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:82
 #, kde-format
 msgid "No Topic"
 msgstr "უსათაურო"
@@ -3580,11 +3592,6 @@ msgstr ""
 msgid "Remove device"
 msgstr "მოწყობილობის წაშლა"
 
-#: src/qml/Settings/DevicesPage.qml:73
-#, kde-format
-msgid "Password:"
-msgstr "პაროლი:"
-
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:55
 #, kde-format
@@ -4042,6 +4049,33 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgctxt "@title"
+#~ msgid "Login"
+#~ msgstr "შესვლა"
+
+#~ msgid "Enter your Matrix ID"
+#~ msgstr "შეიყვანეთ თქვენი Matrix ID"
+
+#~ msgid "Login Methods"
+#~ msgstr "შესვლის მეთოდები"
+
+#~ msgid "Login"
+#~ msgstr "შესვლა"
+
+#~ msgctxt "@title"
+#~ msgid "Password"
+#~ msgstr "პაროლი"
+
+#~ msgctxt "@action:button"
+#~ msgid "Back"
+#~ msgstr "უკან"
+
+#~ msgid "Welcome to Matrix"
+#~ msgstr "კეთილი იყოს თქვენი მობრძანება Matrix-ში"
+
+#~ msgid "No Canonical Alias"
+#~ msgstr "კანონიკური მეტსახელების გარეშე"
 
 #~ msgid ""
 #~ "This room is encrypted. Build libQuotient with encryption enabled to send "

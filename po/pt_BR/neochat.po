@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-27 00:46+0000\n"
+"POT-Creation-Date: 2023-08-28 00:46+0000\n"
 "PO-Revision-Date: 2023-07-05 18:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "O login falhou: Chave de acesso inválida ou revogada"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:90
+#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Falha ao entrar: %1"
@@ -119,7 +119,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Destino"
 
-#: src/login.cpp:85 src/login.cpp:96
+#: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
 msgstr "Erro de rede"
@@ -1163,13 +1163,13 @@ msgstr "atualizou o estado %1"
 msgid "started a poll"
 msgstr ""
 
-#: src/neochatroom.cpp:1631 src/neochatroom.cpp:1632
+#: src/neochatroom.cpp:1626 src/neochatroom.cpp:1627
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Senha alterada com sucesso"
 
-#: src/neochatroom.cpp:1928 src/neochatroom.cpp:1936
+#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1180,7 +1180,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Mensagem criptografada"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1192,7 +1192,7 @@ msgstr "Abrir o NeoChat nesta sala"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
@@ -1229,7 +1229,7 @@ msgstr "Anexo:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:27
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1503,101 +1503,72 @@ msgid "Url:"
 msgstr "URL:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/qml/Component/Login/Loading.qml:17
+#: src/qml/Component/Login/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "Aguarde. Isto poderá levar algum tempo."
 
-#: src/qml/Component/Login/Login.qml:19 src/qml/Component/Login/Sso.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Login"
-msgstr "Entrar"
-
-#: src/qml/Component/Login/Login.qml:20
-#, kde-format
-msgid "Enter your Matrix ID"
-msgstr "Digite seu ID do Matrix"
-
-#: src/qml/Component/Login/Login.qml:29
+#: src/qml/Component/Login/Login.qml:25
 #, kde-format
 msgid "Matrix ID:"
 msgstr "ID do Matrix:"
 
-#: src/qml/Component/Login/Login.qml:31
+#: src/qml/Component/Login/Login.qml:27
 #, fuzzy, kde-format
 #| msgid "Matrix ID:"
 msgid "Matrix ID"
 msgstr "ID do Matrix:"
 
-#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
-#: src/qml/Page/LoadingPage.qml:9
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Carregando..."
 
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38
 #, kde-format
 msgid "Already logged in"
 msgstr ""
 
-#: src/qml/Component/Login/LoginMethod.qml:14
-#, kde-format
-msgid "Login Methods"
-msgstr "Métodos de entrada"
-
 #: src/qml/Component/Login/LoginMethod.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Login with password"
+msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Entrar com senha"
 
-#: src/qml/Component/Login/LoginMethod.qml:27
-#: src/qml/Component/Login/Sso.qml:16
-#, kde-format
+#: src/qml/Component/Login/LoginMethod.qml:26
+#, fuzzy, kde-format
+#| msgid "Login with single sign-on"
+msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Entrar com autenticação única"
 
 #: src/qml/Component/Login/LoginRegister.qml:19
-#: src/qml/Component/Login/Sso.qml:25 src/qml/Component/Login/Sso.qml:41
-#, kde-format
-msgid "Login"
-msgstr "Entrar"
-
-#: src/qml/Component/Login/LoginRegister.qml:26
-#, kde-format
-msgid "Register"
-msgstr "Registrar"
-
-#: src/qml/Component/Login/LoginStep.qml:11
-#: src/qml/Component/Login/LoginStep.qml:12 src/qml/Page/WelcomePage.qml:17
-#, kde-format
-msgid "Welcome"
-msgstr "Bem-vindo"
-
-#: src/qml/Component/Login/Password.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Password"
-msgstr "Senha"
-
-#: src/qml/Component/Login/Password.qml:16
-#, kde-format
-msgid "Enter your password"
-msgstr "Digite sua senha"
-
-#: src/qml/Component/Login/Password.qml:22
+#: src/qml/Component/Login/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Entrar"
 
-#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Component/Login/LoginRegister.qml:24
+#, fuzzy, kde-format
+#| msgid "Register"
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Registrar"
+
+#: src/qml/Component/Login/Password.qml:28 src/qml/Settings/DevicesPage.qml:73
+#, kde-format
+msgid "Password:"
+msgstr "Senha:"
+
+#: src/qml/Component/Login/Password.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, fuzzy, kde-format
@@ -1606,16 +1577,23 @@ msgstr "Entrar"
 msgid "Password"
 msgstr "Senha"
 
-#: src/qml/Component/Login/Sso.qml:23
-#, kde-format
-msgid "Complete the authentication steps in your browser"
+#: src/qml/Component/Login/Password.qml:33
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Invalid username or password"
+msgstr "Digite sua senha"
+
+#: src/qml/Component/Login/Sso.qml:31
+#, fuzzy, kde-format
+#| msgid "Complete the authentication steps in your browser"
+msgid "Continue the login process in your browser."
 msgstr "Conclua os passos da autenticação em seu navegador"
 
-#: src/qml/Component/Login/Sso.qml:33 src/qml/Page/WelcomePage.qml:72
+#: src/qml/Component/Login/Sso.qml:39
 #, kde-format
 msgctxt "@action:button"
-msgid "Back"
-msgstr "Voltar"
+msgid "Re-open SSO URL"
+msgstr ""
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1736,7 +1714,7 @@ msgstr "Ir para a mensagem mais antiga"
 msgid "Drag items here to share them"
 msgstr "Arraste itens aqui para compartilhar"
 
-#: src/qml/Component/TimelineView.qml:235
+#: src/qml/Component/TimelineView.qml:229
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2131,19 +2109,19 @@ msgstr "Abrir um bate-papo privado:"
 msgid "Copy link"
 msgstr "Copiar"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:292
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Mostrar notificações"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:304
 #, kde-format
 msgid "User consent"
 msgstr "Consentimento do usuário"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:309
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2152,20 +2130,28 @@ msgstr ""
 "O seu homeserver requer que você concorde com seus termos e condições antes "
 "de ser usado. Clique no botão abaixo para lê-los."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:314
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "Iniciar um bate-papo"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Você gostaria de iniciar um bate-papo com %1?"
+
+#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
+#: src/qml/Page/RoomList/UserInfo.qml:235
+#, kde-format
+msgid "Configure"
+msgstr "Configurar"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2226,63 +2212,56 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Configurar NeoChat..."
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
-#: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:235
-#, kde-format
-msgid "Configure"
-msgstr "Configurar"
-
-#: src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Menu/GlobalMenu.qml:34
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Sair do NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:39
+#: src/qml/Menu/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Arquivo"
 
-#: src/qml/Menu/GlobalMenu.qml:42
+#: src/qml/Menu/GlobalMenu.qml:44
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "Novo bate-papo privado..."
 
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "Iniciar um bate-papo"
 
-#: src/qml/Menu/GlobalMenu.qml:47
+#: src/qml/Menu/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Novo grupo…"
 
-#: src/qml/Menu/GlobalMenu.qml:56
+#: src/qml/Menu/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Navegar nos bate-papos..."
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:63
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Editar"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Visualizar"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2290,31 +2269,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Abrir o Trocador instantâneo"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Janela"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Sair da tela inteira"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Entrar no modo tela inteira"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:89
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2377,19 +2356,19 @@ msgid "Save As"
 msgstr "Salvar como"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:54
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "Copy"
 msgstr "Copiar"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgid "Remove"
 msgstr "Remover"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
@@ -2397,7 +2376,7 @@ msgid "Remove Message"
 msgstr "Editar mensagem"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
@@ -2406,7 +2385,7 @@ msgid "Report"
 msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:63
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
@@ -2414,29 +2393,42 @@ msgid "Report Message"
 msgstr "Editar mensagem"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "Exibir origem"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
 #, kde-format
 msgid "Message Source"
 msgstr "Origem da mensagem"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:80
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#, kde-format
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "Editar mensagem"
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:95
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy Link"
 msgstr "Copiar"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:144
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Pesquisar por '%1'"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:150
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:165
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configurar os atalhos da Web..."
@@ -2480,6 +2472,13 @@ msgstr "Editar mensagem"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr ""
+
+#: src/qml/Page/ChooseRoomDialog.qml:16
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "Escolher arquivo local"
 
 #: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
@@ -2935,22 +2934,33 @@ msgstr ""
 msgid "Create new chat"
 msgstr "Salas e bate-papos privados:"
 
-#: src/qml/Page/WelcomePage.qml:56
+#: src/qml/Page/WelcomePage.qml:18
 #, kde-format
-msgid "Welcome to Matrix"
-msgstr "Bem-vindo ao Matrix"
+msgid "Welcome"
+msgstr "Bem-vindo"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, kde-format
+msgid "Log in to a different account."
+msgstr ""
+
+#: src/qml/Page/WelcomePage.qml:44
+#, kde-format
+msgid "Welcome to NeoChat! Continue by logging in."
+msgstr ""
+
+#: src/qml/Page/WelcomePage.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
 
 #: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "Sem nome"
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:71
-#, kde-format
-msgid "No Canonical Alias"
-msgstr "Sem apelido canônico"
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:82
 #, kde-format
 msgid "No Topic"
 msgstr "Nenhum assunto"
@@ -3800,11 +3810,6 @@ msgstr ""
 msgid "Remove device"
 msgstr "Remover dispositivo"
 
-#: src/qml/Settings/DevicesPage.qml:73
-#, kde-format
-msgid "Password:"
-msgstr "Senha:"
-
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:55
 #, fuzzy, kde-format
@@ -4306,6 +4311,33 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgctxt "@title"
+#~ msgid "Login"
+#~ msgstr "Entrar"
+
+#~ msgid "Enter your Matrix ID"
+#~ msgstr "Digite seu ID do Matrix"
+
+#~ msgid "Login Methods"
+#~ msgstr "Métodos de entrada"
+
+#~ msgid "Login"
+#~ msgstr "Entrar"
+
+#~ msgctxt "@title"
+#~ msgid "Password"
+#~ msgstr "Senha"
+
+#~ msgctxt "@action:button"
+#~ msgid "Back"
+#~ msgstr "Voltar"
+
+#~ msgid "Welcome to Matrix"
+#~ msgstr "Bem-vindo ao Matrix"
+
+#~ msgid "No Canonical Alias"
+#~ msgstr "Sem apelido canônico"
 
 #, fuzzy
 #~| msgctxt "their refers to a singular user"

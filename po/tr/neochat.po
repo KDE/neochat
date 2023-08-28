@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-27 00:46+0000\n"
-"PO-Revision-Date: 2023-08-20 11:45+0300\n"
+"POT-Creation-Date: 2023-08-28 00:46+0000\n"
+"PO-Revision-Date: 2023-08-27 21:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -24,7 +24,7 @@ msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Oturum açma başarısız: Erişim jetonu geçersiz veya yürürlükten kaldırılmış"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:90
+#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Oturum açma başarısız: %1"
@@ -118,7 +118,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Hedef"
 
-#: src/login.cpp:85 src/login.cpp:96
+#: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
 msgstr "Ağ Hatası"
@@ -1072,12 +1072,12 @@ msgstr "durumu güncelledi"
 msgid "started a poll"
 msgstr "bir anket başlattı"
 
-#: src/neochatroom.cpp:1631 src/neochatroom.cpp:1632
+#: src/neochatroom.cpp:1626 src/neochatroom.cpp:1627
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/neochatroom.cpp:1928 src/neochatroom.cpp:1936
+#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1088,7 +1088,7 @@ msgstr "Enlem: %1, Boylam: %2"
 msgid "Encrypted Message"
 msgstr "Şifreli İleti"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1100,7 +1100,7 @@ msgstr "Bu odada NeoChat'i açın"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
@@ -1137,7 +1137,7 @@ msgstr "İlişik:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:27
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1388,116 +1388,94 @@ msgid "Url:"
 msgstr "URL:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "Sürdür"
 
-#: src/qml/Component/Login/Loading.qml:17
+#: src/qml/Component/Login/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "Lütfen bekleyin. Bu, biraz sürebilir."
 
-#: src/qml/Component/Login/Login.qml:19 src/qml/Component/Login/Sso.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Login"
-msgstr "Oturum Aç"
-
-#: src/qml/Component/Login/Login.qml:20
-#, kde-format
-msgid "Enter your Matrix ID"
-msgstr "Matrix kimliğinizi girin"
-
-#: src/qml/Component/Login/Login.qml:29
+#: src/qml/Component/Login/Login.qml:25
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix kimliği:"
 
-#: src/qml/Component/Login/Login.qml:31
+#: src/qml/Component/Login/Login.qml:27
 #, kde-format
 msgid "Matrix ID"
 msgstr "Matrix Kimliği"
 
-#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
-#: src/qml/Page/LoadingPage.qml:9
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Yükleniyor…"
 
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38
 #, kde-format
 msgid "Already logged in"
 msgstr "Halihazırda oturum açıldı"
 
-#: src/qml/Component/Login/LoginMethod.qml:14
-#, kde-format
-msgid "Login Methods"
-msgstr "Oturum Açma Yöntemleri"
-
 #: src/qml/Component/Login/LoginMethod.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Login with password"
+msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Parola ile oturum aç"
 
-#: src/qml/Component/Login/LoginMethod.qml:27
-#: src/qml/Component/Login/Sso.qml:16
-#, kde-format
+#: src/qml/Component/Login/LoginMethod.qml:26
+#, fuzzy, kde-format
+#| msgid "Login with single sign-on"
+msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Tek giriş ile oturum aç"
 
 #: src/qml/Component/Login/LoginRegister.qml:19
-#: src/qml/Component/Login/Sso.qml:25 src/qml/Component/Login/Sso.qml:41
-#, kde-format
-msgid "Login"
-msgstr "Oturum Aç"
-
-#: src/qml/Component/Login/LoginRegister.qml:26
-#, kde-format
-msgid "Register"
-msgstr "Kaydol"
-
-#: src/qml/Component/Login/LoginStep.qml:11
-#: src/qml/Component/Login/LoginStep.qml:12 src/qml/Page/WelcomePage.qml:17
-#, kde-format
-msgid "Welcome"
-msgstr "Hoş Geldiniz"
-
-#: src/qml/Component/Login/Password.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Password"
-msgstr "Parola"
-
-#: src/qml/Component/Login/Password.qml:16
-#, kde-format
-msgid "Enter your password"
-msgstr "Parolanızı girin"
-
-#: src/qml/Component/Login/Password.qml:22
+#: src/qml/Component/Login/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Oturum Aç"
 
-#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Component/Login/LoginRegister.qml:24
+#, fuzzy, kde-format
+#| msgid "Register"
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Kaydol"
+
+#: src/qml/Component/Login/Password.qml:28 src/qml/Settings/DevicesPage.qml:73
+#, kde-format
+msgid "Password:"
+msgstr "Parola:"
+
+#: src/qml/Component/Login/Password.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
 msgstr "Parola"
 
-#: src/qml/Component/Login/Sso.qml:23
-#, kde-format
-msgid "Complete the authentication steps in your browser"
+#: src/qml/Component/Login/Password.qml:33
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Invalid username or password"
+msgstr "Parolanızı girin"
+
+#: src/qml/Component/Login/Sso.qml:31
+#, fuzzy, kde-format
+#| msgid "Complete the authentication steps in your browser"
+msgid "Continue the login process in your browser."
 msgstr "Kimlik doğrulama adımlarını tarayıcınızda tamamlayın"
 
-#: src/qml/Component/Login/Sso.qml:33 src/qml/Page/WelcomePage.qml:72
+#: src/qml/Component/Login/Sso.qml:39
 #, kde-format
 msgctxt "@action:button"
-msgid "Back"
-msgstr "Geri"
+msgid "Re-open SSO URL"
+msgstr ""
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1614,7 +1592,7 @@ msgstr "En son iletiye atla"
 msgid "Drag items here to share them"
 msgstr "Onları paylaşmak için ögeleri buraya sürükleyin"
 
-#: src/qml/Component/TimelineView.qml:235
+#: src/qml/Component/TimelineView.qml:229
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2018,18 +1996,18 @@ msgstr "Özel bir sohbet aç"
 msgid "Copy link"
 msgstr "Bağlantıyı kopyala"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:304
 #, kde-format
 msgid "User consent"
 msgstr "Kullanıcı onayı"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:309
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2038,20 +2016,28 @@ msgstr ""
 "Ana sunucunuz, kullanım öncesinde kullanım koşullarını kabul etmenizi "
 "gerektiriyor. Okumak için aşağıdaki düğmeye tıklayın."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:314
 #, kde-format
 msgid "Open"
 msgstr "Aç"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "Bir sohbet başlat"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"
+
+#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
+#: src/qml/Page/RoomList/UserInfo.qml:235
+#, kde-format
+msgid "Configure"
+msgstr "Yapılandır"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2112,63 +2098,56 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "NeoChat'i Yapılandır..."
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
-#: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:235
-#, kde-format
-msgid "Configure"
-msgstr "Yapılandır"
-
-#: src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Menu/GlobalMenu.qml:34
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "NeoChat'ten Çık"
 
-#: src/qml/Menu/GlobalMenu.qml:39
+#: src/qml/Menu/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Dosya"
 
-#: src/qml/Menu/GlobalMenu.qml:42
+#: src/qml/Menu/GlobalMenu.qml:44
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "Yeni Özel Sohbet…"
 
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "Bir Sohbet Başlat"
 
-#: src/qml/Menu/GlobalMenu.qml:47
+#: src/qml/Menu/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Yeni Grup…"
 
-#: src/qml/Menu/GlobalMenu.qml:56
+#: src/qml/Menu/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Sohbetlere Göz At…"
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:63
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Düzen"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Görünüm"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2176,31 +2155,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Tez Değiştiriciyi Aç"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Pencere"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Tam Ekrandan Çık"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Tam Ekrana Gir"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:89
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Yardım"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2261,26 +2240,26 @@ msgid "Save As"
 msgstr "Farklı Kaydet"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:54
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "Copy"
 msgstr "Kopyala"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgid "Remove"
 msgstr "Kaldır"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "İletiyi Kaldır"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
@@ -2289,35 +2268,49 @@ msgid "Report"
 msgstr "Bildir"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:63
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "Kaynağını Göster"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
 #, kde-format
 msgid "Message Source"
 msgstr "İleti Kaynağı"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:80
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#, kde-format
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "İletiyi Bildir"
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:95
 #, kde-format
 msgid "Copy Link"
 msgstr "Bağlantıyı Kopyala"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:144
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' ara"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:150
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:165
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Web Kısayollarını Yapılandır..."
@@ -2357,6 +2350,13 @@ msgstr "İletiyi Bildir"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Bu iletiyi bildirme nedeni"
+
+#: src/qml/Page/ChooseRoomDialog.qml:16
+#, fuzzy, kde-format
+#| msgid "Choose a Location"
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "Konum Seç"
 
 #: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
@@ -2787,22 +2787,34 @@ msgstr "Var olan sohbete katıl"
 msgid "Create new chat"
 msgstr "Yeni sohbet oluştur"
 
-#: src/qml/Page/WelcomePage.qml:56
+#: src/qml/Page/WelcomePage.qml:18
 #, kde-format
-msgid "Welcome to Matrix"
-msgstr "Matrix'e hoş geldiniz"
+msgid "Welcome"
+msgstr "Hoş Geldiniz"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgid "Log in to a different account."
+msgstr "Var olan bir hesaba oturum aç"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, kde-format
+msgid "Welcome to NeoChat! Continue by logging in."
+msgstr ""
+
+#: src/qml/Page/WelcomePage.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
 
 #: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "Adsız"
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:71
-#, kde-format
-msgid "No Canonical Alias"
-msgstr "Resmi Arma Yok"
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:82
 #, kde-format
 msgid "No Topic"
 msgstr "Konu Yok"
@@ -2818,11 +2830,10 @@ msgid "Room settings"
 msgstr "Oda ayarları"
 
 #: src/qml/RoomDrawer/RoomInformation.qml:38
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room information"
-msgstr "Oda bilgisi"
+msgstr "Oda Bilgisi"
 
 #: src/qml/RoomDrawer/RoomInformation.qml:59
 #, kde-format
@@ -3589,11 +3600,6 @@ msgstr "Hesabınıza oturum açmış aygıtları görüntülemek için oturum a�
 msgid "Remove device"
 msgstr "Aygıtı kaldır"
 
-#: src/qml/Settings/DevicesPage.qml:73
-#, kde-format
-msgid "Password:"
-msgstr "Parola:"
-
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:55
 #, kde-format
@@ -4052,6 +4058,33 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgctxt "@title"
+#~ msgid "Login"
+#~ msgstr "Oturum Aç"
+
+#~ msgid "Enter your Matrix ID"
+#~ msgstr "Matrix kimliğinizi girin"
+
+#~ msgid "Login Methods"
+#~ msgstr "Oturum Açma Yöntemleri"
+
+#~ msgid "Login"
+#~ msgstr "Oturum Aç"
+
+#~ msgctxt "@title"
+#~ msgid "Password"
+#~ msgstr "Parola"
+
+#~ msgctxt "@action:button"
+#~ msgid "Back"
+#~ msgstr "Geri"
+
+#~ msgid "Welcome to Matrix"
+#~ msgstr "Matrix'e hoş geldiniz"
+
+#~ msgid "No Canonical Alias"
+#~ msgstr "Resmi Arma Yok"
 
 #~ msgid ""
 #~ "This room is encrypted. Build libQuotient with encryption enabled to send "

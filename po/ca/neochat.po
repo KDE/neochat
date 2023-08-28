@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-27 00:46+0000\n"
-"PO-Revision-Date: 2023-08-20 10:04+0200\n"
+"POT-Creation-Date: 2023-08-28 00:46+0000\n"
+"PO-Revision-Date: 2023-08-27 10:59+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -26,7 +26,7 @@ msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Ha fallat l'inici de sessió: El testimoni d'accés no és vàlid o està revocat"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:90
+#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ha fallat l'inici de la sessió: %1"
@@ -121,7 +121,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Destinació"
 
-#: src/login.cpp:85 src/login.cpp:96
+#: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
 msgstr "Error de la xarxa"
@@ -1078,12 +1078,12 @@ msgstr "ha actualitzat l'estat"
 msgid "started a poll"
 msgstr "ha començat una enquesta"
 
-#: src/neochatroom.cpp:1631 src/neochatroom.cpp:1632
+#: src/neochatroom.cpp:1626 src/neochatroom.cpp:1627
 #, kde-format
 msgid "Report sent successfully."
 msgstr "L'informe s'ha enviat correctament."
 
-#: src/neochatroom.cpp:1928 src/neochatroom.cpp:1936
+#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1094,7 +1094,7 @@ msgstr "Lat.: %1, lon.: %2"
 msgid "Encrypted Message"
 msgstr "Missatge encriptat"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1106,7 +1106,7 @@ msgstr "Obre el NeoChat en aquesta sala"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
@@ -1143,7 +1143,7 @@ msgstr "Adjunt:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:27
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1394,116 +1394,94 @@ msgid "Url:"
 msgstr "URL:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "Continua"
 
-#: src/qml/Component/Login/Loading.qml:17
+#: src/qml/Component/Login/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "Espereu. Això pot trigar una mica."
 
-#: src/qml/Component/Login/Login.qml:19 src/qml/Component/Login/Sso.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Login"
-msgstr "Inici de sessió"
-
-#: src/qml/Component/Login/Login.qml:20
-#, kde-format
-msgid "Enter your Matrix ID"
-msgstr "Introduïu la vostra ID de Matrix"
-
-#: src/qml/Component/Login/Login.qml:29
+#: src/qml/Component/Login/Login.qml:25
 #, kde-format
 msgid "Matrix ID:"
 msgstr "ID de Matrix:"
 
-#: src/qml/Component/Login/Login.qml:31
+#: src/qml/Component/Login/Login.qml:27
 #, kde-format
 msgid "Matrix ID"
 msgstr "ID de Matrix"
 
-#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
-#: src/qml/Page/LoadingPage.qml:9
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "S'està carregant…"
 
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38
 #, kde-format
 msgid "Already logged in"
 msgstr "Ja heu iniciat la sessió"
 
-#: src/qml/Component/Login/LoginMethod.qml:14
-#, kde-format
-msgid "Login Methods"
-msgstr "Mètodes d'inici de sessió"
-
 #: src/qml/Component/Login/LoginMethod.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Login with password"
+msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Inici de sessió amb contrasenya"
 
-#: src/qml/Component/Login/LoginMethod.qml:27
-#: src/qml/Component/Login/Sso.qml:16
-#, kde-format
+#: src/qml/Component/Login/LoginMethod.qml:26
+#, fuzzy, kde-format
+#| msgid "Login with single sign-on"
+msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Inici de sessió amb entrada individual"
 
 #: src/qml/Component/Login/LoginRegister.qml:19
-#: src/qml/Component/Login/Sso.qml:25 src/qml/Component/Login/Sso.qml:41
-#, kde-format
-msgid "Login"
-msgstr "Inici de sessió"
-
-#: src/qml/Component/Login/LoginRegister.qml:26
-#, kde-format
-msgid "Register"
-msgstr "Registre"
-
-#: src/qml/Component/Login/LoginStep.qml:11
-#: src/qml/Component/Login/LoginStep.qml:12 src/qml/Page/WelcomePage.qml:17
-#, kde-format
-msgid "Welcome"
-msgstr "Us donem la benvinguda"
-
-#: src/qml/Component/Login/Password.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Password"
-msgstr "Contrasenya"
-
-#: src/qml/Component/Login/Password.qml:16
-#, kde-format
-msgid "Enter your password"
-msgstr "Introduïu la contrasenya"
-
-#: src/qml/Component/Login/Password.qml:22
+#: src/qml/Component/Login/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Inici de sessió"
 
-#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Component/Login/LoginRegister.qml:24
+#, fuzzy, kde-format
+#| msgid "Register"
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Registre"
+
+#: src/qml/Component/Login/Password.qml:28 src/qml/Settings/DevicesPage.qml:73
+#, kde-format
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: src/qml/Component/Login/Password.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
 msgstr "Contrasenya"
 
-#: src/qml/Component/Login/Sso.qml:23
-#, kde-format
-msgid "Complete the authentication steps in your browser"
+#: src/qml/Component/Login/Password.qml:33
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Invalid username or password"
+msgstr "Introduïu la contrasenya"
+
+#: src/qml/Component/Login/Sso.qml:31
+#, fuzzy, kde-format
+#| msgid "Complete the authentication steps in your browser"
+msgid "Continue the login process in your browser."
 msgstr "Completeu els passos d'autenticació al navegador"
 
-#: src/qml/Component/Login/Sso.qml:33 src/qml/Page/WelcomePage.qml:72
+#: src/qml/Component/Login/Sso.qml:39
 #, kde-format
 msgctxt "@action:button"
-msgid "Back"
-msgstr "Enrere"
+msgid "Re-open SSO URL"
+msgstr ""
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1622,7 +1600,7 @@ msgstr "Ves al darrer missatge"
 msgid "Drag items here to share them"
 msgstr "Arrossegueu aquí els elements per a compartir"
 
-#: src/qml/Component/TimelineView.qml:235
+#: src/qml/Component/TimelineView.qml:229
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2033,18 +2011,18 @@ msgstr "Obre en un xat privat"
 msgid "Copy link"
 msgstr "Copia l'enllaç"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificació de la sessió"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:304
 #, kde-format
 msgid "User consent"
 msgstr "Consentiment de l'usuari"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:309
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2053,20 +2031,28 @@ msgstr ""
 "El servidor domèstic requereix que accepteu els seus termes i condicions "
 "abans de poder-lo usar. Feu clic al botó de sota per a llegir-los."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:314
 #, kde-format
 msgid "Open"
 msgstr "Obre"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "Inicia un xat"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Voleu iniciar un xat amb %1?"
+
+#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
+#: src/qml/Page/RoomList/UserInfo.qml:235
+#, kde-format
+msgid "Configure"
+msgstr "Configura"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2127,63 +2113,56 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Configura el NeoChat..."
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
-#: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:235
-#, kde-format
-msgid "Configure"
-msgstr "Configura"
-
-#: src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Menu/GlobalMenu.qml:34
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Surt del NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:39
+#: src/qml/Menu/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Fitxer"
 
-#: src/qml/Menu/GlobalMenu.qml:42
+#: src/qml/Menu/GlobalMenu.qml:44
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "Xat privat nou…"
 
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "Inicia un xat"
 
-#: src/qml/Menu/GlobalMenu.qml:47
+#: src/qml/Menu/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Grup nou…"
 
-#: src/qml/Menu/GlobalMenu.qml:56
+#: src/qml/Menu/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Navega pels xats…"
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:63
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Edita"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Vista"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2191,31 +2170,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Obre el commutador ràpid"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Finestra"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Surt de pantalla completa"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Entra a pantalla completa"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:89
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2276,26 +2255,26 @@ msgid "Save As"
 msgstr "Desa com a"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:54
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "Copy"
 msgstr "Copia"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgid "Remove"
 msgstr "Elimina"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Eliminació d'un missatge"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
@@ -2304,35 +2283,49 @@ msgid "Report"
 msgstr "Informa"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:63
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Informa del missatge"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "Mostra el codi font"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
 #, kde-format
 msgid "Message Source"
 msgstr "Codi font del missatge"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:80
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#, kde-format
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "Informa del missatge"
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:95
 #, kde-format
 msgid "Copy Link"
 msgstr "Copia l'enllaç"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:144
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Cerca «%1»"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:150
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:165
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configura les dreceres web..."
@@ -2372,6 +2365,13 @@ msgstr "Informa del missatge"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Motiu per a informar d'aquest missatge"
+
+#: src/qml/Page/ChooseRoomDialog.qml:16
+#, fuzzy, kde-format
+#| msgid "Choose a Location"
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "Trieu una ubicació"
 
 #: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
@@ -2804,22 +2804,34 @@ msgstr "Uneix-te a un xat existent"
 msgid "Create new chat"
 msgstr "Crea un xat nou"
 
-#: src/qml/Page/WelcomePage.qml:56
+#: src/qml/Page/WelcomePage.qml:18
 #, kde-format
-msgid "Welcome to Matrix"
-msgstr "Us donem la benvinguda a Matrix"
+msgid "Welcome"
+msgstr "Us donem la benvinguda"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgid "Log in to a different account."
+msgstr "Inicia la sessió amb un compte existent"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, kde-format
+msgid "Welcome to NeoChat! Continue by logging in."
+msgstr ""
+
+#: src/qml/Page/WelcomePage.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
 
 #: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "Sense nom"
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:71
-#, kde-format
-msgid "No Canonical Alias"
-msgstr "Sense àlies canònic"
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:82
 #, kde-format
 msgid "No Topic"
 msgstr "Sense tema"
@@ -2835,8 +2847,7 @@ msgid "Room settings"
 msgstr "Configuració de la sala"
 
 #: src/qml/RoomDrawer/RoomInformation.qml:38
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "Informació de la sala"
@@ -3620,11 +3631,6 @@ msgstr ""
 msgid "Remove device"
 msgstr "Elimina el dispositiu"
 
-#: src/qml/Settings/DevicesPage.qml:73
-#, kde-format
-msgid "Password:"
-msgstr "Contrasenya:"
-
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:55
 #, kde-format
@@ -4086,6 +4092,33 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgctxt "@title"
+#~ msgid "Login"
+#~ msgstr "Inici de sessió"
+
+#~ msgid "Enter your Matrix ID"
+#~ msgstr "Introduïu la vostra ID de Matrix"
+
+#~ msgid "Login Methods"
+#~ msgstr "Mètodes d'inici de sessió"
+
+#~ msgid "Login"
+#~ msgstr "Inici de sessió"
+
+#~ msgctxt "@title"
+#~ msgid "Password"
+#~ msgstr "Contrasenya"
+
+#~ msgctxt "@action:button"
+#~ msgid "Back"
+#~ msgstr "Enrere"
+
+#~ msgid "Welcome to Matrix"
+#~ msgstr "Us donem la benvinguda a Matrix"
+
+#~ msgid "No Canonical Alias"
+#~ msgstr "Sense àlies canònic"
 
 #~ msgid ""
 #~ "This room is encrypted. Build libQuotient with encryption enabled to send "

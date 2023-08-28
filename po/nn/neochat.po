@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-23 00:46+0000\n"
+"POT-Creation-Date: 2023-08-27 00:46+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1095,7 +1095,7 @@ msgstr "Breiddegr.: %1 – lengdegr.: %2"
 msgid "Encrypted Message"
 msgstr "Kryptert melding"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:253
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1362,7 +1362,8 @@ msgstr "Avvis"
 msgid "Accept"
 msgstr "Godta"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:200
+#: src/qml/Component/LocationPage.qml:17
+#: src/qml/RoomDrawer/RoomInformation.qml:116
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1608,22 +1609,22 @@ msgstr "Lydstyrke"
 msgid "Maximize"
 msgstr "Maksimer"
 
-#: src/qml/Component/TimelineView.qml:153
+#: src/qml/Component/TimelineView.qml:160
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Gå til første ulesne melding"
 
-#: src/qml/Component/TimelineView.qml:176
+#: src/qml/Component/TimelineView.qml:183
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Gå til nyaste melding"
 
-#: src/qml/Component/TimelineView.qml:202
+#: src/qml/Component/TimelineView.qml:209
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Dra element her for å dela dei"
 
-#: src/qml/Component/TimelineView.qml:228
+#: src/qml/Component/TimelineView.qml:235
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1956,80 +1957,80 @@ msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Konto­detaljar"
 
-#: src/qml/Dialog/UserDetailDialog.qml:80
+#: src/qml/Dialog/UserDetailDialog.qml:81
 #, kde-format
 msgid "Unignore this user"
 msgstr "Avignorer brukaren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:80
+#: src/qml/Dialog/UserDetailDialog.qml:81
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ignorer brukaren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:92
+#: src/qml/Dialog/UserDetailDialog.qml:93
 #, kde-format
 msgid "Kick this user"
 msgstr "Kast ut brukaren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:105
+#: src/qml/Dialog/UserDetailDialog.qml:106
 #, kde-format
 msgid "Invite this user"
 msgstr "Inviter brukaren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:117
+#: src/qml/Dialog/UserDetailDialog.qml:118
 #, kde-format
 msgid "Ban this user"
 msgstr "Utesteng brukaren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:122
+#: src/qml/Dialog/UserDetailDialog.qml:123
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Utesteng brukar"
 
-#: src/qml/Dialog/UserDetailDialog.qml:133
+#: src/qml/Dialog/UserDetailDialog.qml:134
 #, kde-format
 msgid "Unban this user"
 msgstr "Opphev utestenging av brukaren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:145
+#: src/qml/Dialog/UserDetailDialog.qml:146
 #, kde-format
 msgid "Set user power level"
 msgstr "Vel maktnivå for brukar"
 
-#: src/qml/Dialog/UserDetailDialog.qml:169
+#: src/qml/Dialog/UserDetailDialog.qml:170
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Fjern nylege meldingar frå brukaren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:174
+#: src/qml/Dialog/UserDetailDialog.qml:175
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Fjern meldingar"
 
-#: src/qml/Dialog/UserDetailDialog.qml:184
+#: src/qml/Dialog/UserDetailDialog.qml:185
 #, kde-format
 msgid "Open a private chat"
 msgstr "Start privat prat"
 
-#: src/qml/Dialog/UserDetailDialog.qml:194
+#: src/qml/Dialog/UserDetailDialog.qml:195
 #, kde-format
 msgid "Copy link"
 msgstr "Kopier lenkje"
 
-#: src/qml/main.qml:293
+#: src/qml/main.qml:297
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Øktstadfesting"
 
-#: src/qml/main.qml:305
+#: src/qml/main.qml:309
 #, kde-format
 msgid "User consent"
 msgstr "Brukar­samtykke"
 
-#: src/qml/main.qml:310
+#: src/qml/main.qml:314
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2038,17 +2039,17 @@ msgstr ""
 "Heimetenaren krev at du godtek brukarvilkåra før du kan ta han i bruk. Trykk "
 "på knappen nedanfor for å lesa vilkåra."
 
-#: src/qml/main.qml:315
+#: src/qml/main.qml:319
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: src/qml/main.qml:350
+#: src/qml/main.qml:354
 #, kde-format
 msgid "Start a chat"
 msgstr "Start prat"
 
-#: src/qml/main.qml:352
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vil du starta ein prat med %1?"
@@ -2226,25 +2227,25 @@ msgstr "Feil ved deling"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Delt adresse for biletet er <a href='%1'>%1</a>"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:16
+#: src/qml/Menu/Timeline/BanSheet.qml:18
 #, kde-format
 msgid "Ban User"
 msgstr "Utesteng brukar"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:20
+#: src/qml/Menu/Timeline/BanSheet.qml:22
 #, kde-format
 msgid "Reason for banning this user"
 msgstr "Grunngjeving for utestenging av brukaren"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:32
+#: src/qml/Menu/Timeline/BanSheet.qml:34
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Utesteng"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:41
+#: src/qml/Menu/Timeline/BanSheet.qml:43
 #: src/qml/Menu/Timeline/RemoveSheet.qml:49
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:24
+#: src/qml/Menu/Timeline/ReportSheet.qml:43 src/qml/Page/InviteUserPage.qml:24
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -2281,7 +2282,7 @@ msgstr "Fjern melding"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/ReportSheet.qml:32
+#: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -2348,17 +2349,17 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:16
+#: src/qml/Menu/Timeline/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
 msgstr "Rapporter melding"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:20
+#: src/qml/Menu/Timeline/ReportSheet.qml:22
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Grunngjeving for rapportering av meldinga"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
 msgid "Developer Tools"
 msgstr "Utviklarverktøy"
@@ -2634,7 +2635,9 @@ msgstr "Av"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
-#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:105
+#: src/qml/Page/RoomList/ContextMenu.qml:186
+#: src/qml/RoomDrawer/RoomDrawer.qml:98
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:37
 #, kde-format
 msgid "Room Settings"
 msgstr "Romval"
@@ -2646,7 +2649,7 @@ msgid "Leave Room"
 msgstr "Forlat rommet"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:154
+#: src/qml/Page/RoomList/Page.qml:153
 #, kde-format
 msgid "Explore rooms"
 msgstr "Utforsk rom"
@@ -2657,28 +2660,28 @@ msgstr "Utforsk rom"
 msgid "Create rooms and chats"
 msgstr "Opprett rom og diskusjonar"
 
-#: src/qml/Page/RoomList/Page.qml:151
+#: src/qml/Page/RoomList/Page.qml:150
 #, kde-format
 msgid "No rooms found"
 msgstr "Fann ingen rom"
 
-#: src/qml/Page/RoomList/Page.qml:151
+#: src/qml/Page/RoomList/Page.qml:150
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Start ved å verta med i nokre rom"
 
-#: src/qml/Page/RoomList/Page.qml:154
+#: src/qml/Page/RoomList/Page.qml:153
 #, kde-format
 msgid "Search in room directory"
 msgstr "Søk i romkatalogen"
 
-#: src/qml/Page/RoomList/Page.qml:196
+#: src/qml/Page/RoomList/Page.qml:195
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Fald saman %1"
 
-#: src/qml/Page/RoomList/Page.qml:196
+#: src/qml/Page/RoomList/Page.qml:195
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -2750,7 +2753,7 @@ msgstr "Byt brukar"
 msgid "Open Settings"
 msgstr "Opna innstillingar"
 
-#: src/qml/Page/RoomPage.qml:42
+#: src/qml/Page/RoomPage.qml:50
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat er fråkopla. Sjå til at du er kopla til nettet."
@@ -2791,97 +2794,103 @@ msgstr "Start ny prat"
 msgid "Welcome to Matrix"
 msgstr "Velkommen til Matrix"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:62
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "Namnlaus"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:71
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:71
 #, kde-format
 msgid "No Canonical Alias"
 msgstr "Manglar kanonisk alias"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:81
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
 #, kde-format
 msgid "No Topic"
 msgstr "Manglar emne"
 
-#: src/qml/Panel/RoomDrawer.qml:95
+#: src/qml/RoomDrawer/RoomDrawer.qml:88
 #, kde-format
 msgid "Room information"
 msgstr "Rominformasjon"
 
-#: src/qml/Panel/RoomDrawer.qml:102
+#: src/qml/RoomDrawer/RoomDrawer.qml:95
 #, kde-format
 msgid "Room settings"
 msgstr "Romval"
 
+#: src/qml/RoomDrawer/RoomInformation.qml:38
+#, kde-format
+msgctxt "@action:title"
+msgid "Room information"
+msgstr ""
+
 # Er ulike handlingar ein kan gjera, for eksempel gjera rommet til favoritt. «Handlingar» fungerer derfor betre enn «Val» eller «Alternativ».
-#: src/qml/Panel/RoomDrawer.qml:143
+#: src/qml/RoomDrawer/RoomInformation.qml:59
 #, kde-format
 msgid "Options"
 msgstr "Handlingar"
 
-#: src/qml/Panel/RoomDrawer.qml:153
+#: src/qml/RoomDrawer/RoomInformation.qml:69
 #, kde-format
 msgid "Open developer tools"
 msgstr "Opna utviklarverktøy"
 
-#: src/qml/Panel/RoomDrawer.qml:167
+#: src/qml/RoomDrawer/RoomInformation.qml:83
 #, kde-format
 msgid "Search in this room"
 msgstr "Søk i rommet"
 
-#: src/qml/Panel/RoomDrawer.qml:175
+#: src/qml/RoomDrawer/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Søk"
 
-#: src/qml/Panel/RoomDrawer.qml:184
+#: src/qml/RoomDrawer/RoomInformation.qml:100
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Fjern rommet frå favorittar"
 
-#: src/qml/Panel/RoomDrawer.qml:184
+#: src/qml/RoomDrawer/RoomInformation.qml:100
 #, kde-format
 msgid "Make room favorite"
 msgstr "Gjer rommet til favoritt"
 
-#: src/qml/Panel/RoomDrawer.qml:195
+#: src/qml/RoomDrawer/RoomInformation.qml:111
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Vis posisjonar i rommet"
 
-#: src/qml/Panel/RoomDrawer.qml:207
+#: src/qml/RoomDrawer/RoomInformation.qml:123
 #, kde-format
 msgid "Members"
 msgstr "Medlemmar"
 
-#: src/qml/Panel/RoomDrawer.qml:218
+#: src/qml/RoomDrawer/RoomInformation.qml:134
 #, kde-format
 msgid "Search user in room"
 msgstr "Søk etter brukarar i rommet"
 
-#: src/qml/Panel/RoomDrawer.qml:231
+#: src/qml/RoomDrawer/RoomInformation.qml:147
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Inviter ein brukar"
 
-#: src/qml/Panel/RoomDrawer.qml:234
+#: src/qml/RoomDrawer/RoomInformation.qml:150
 #, kde-format
 msgid "Invite user to room"
 msgstr "Inviter brukar til rommet"
 
-#: src/qml/Panel/RoomDrawer.qml:241
+#: src/qml/RoomDrawer/RoomInformation.qml:157
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 medlem"
 msgstr[1] "%1 medlemmar"
 
-#: src/qml/Panel/RoomDrawer.qml:241
+#: src/qml/RoomDrawer/RoomInformation.qml:157
 #, kde-format
 msgid "No member count"
 msgstr "Manglar medlemstal"
