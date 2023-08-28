@@ -74,8 +74,6 @@ add_library(neochat STATIC
     blurhash.h
     blurhashimageprovider.cpp
     blurhashimageprovider.h
-    models/collapsestateproxymodel.cpp
-    models/collapsestateproxymodel.h
     models/mediamessagefiltermodel.cpp
     models/mediamessagefiltermodel.h
     urlhelper.cpp
