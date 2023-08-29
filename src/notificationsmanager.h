@@ -12,11 +12,7 @@
 #include <Quotient/csapi/notifications.h>
 #include <Quotient/jobs/basejob.h>
 
-namespace Quotient
-{
-class Connection;
-}
-
+class NeoChatConnection;
 class KNotification;
 class NeoChatRoom;
 
@@ -80,7 +76,7 @@ public:
     /**
      * @brief Handle the notifications for the given connection.
      */
-    void handleNotifications(QPointer<Quotient::Connection> connection);
+    void handleNotifications(QPointer<NeoChatConnection> connection);
 
 private:
     explicit NotificationsManager(QObject *parent = nullptr);
@@ -90,13 +86,13 @@ private:
 
     QStringList m_connActiveJob;
 
-    bool shouldPostNotification(QPointer<Quotient::Connection> connection, const QJsonValue &notification);
+    bool shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification);
 
     QHash<QString, KNotification *> m_notifications;
     QHash<QString, QPointer<KNotification>> m_invitations;
 
 private Q_SLOTS:
-    void processNotificationJob(QPointer<Quotient::Connection> connection, Quotient::GetNotificationsJob *job, bool initialization);
+    void processNotificationJob(QPointer<NeoChatConnection> connection, Quotient::GetNotificationsJob *job, bool initialization);
 
 private:
     QPixmap createNotificationImage(const QImage &icon, NeoChatRoom *room);

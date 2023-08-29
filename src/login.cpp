@@ -22,7 +22,7 @@ Login::Login(QObject *parent)
 void Login::init()
 {
     m_homeserverReachable = false;
-    m_connection = new Connection();
+    m_connection = new NeoChatConnection();
     m_matrixId = QString();
     m_password = QString();
     m_deviceName = QStringLiteral("NeoChat %1 %2 %3 %4")
@@ -51,7 +51,7 @@ void Login::init()
         m_testing = true;
         Q_EMIT testingChanged();
         if (!m_connection) {
-            m_connection = new Connection();
+            m_connection = new NeoChatConnection();
         }
         m_connection->resolveServer(m_matrixId);
         connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [this]() {

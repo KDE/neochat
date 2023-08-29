@@ -16,7 +16,7 @@ import org.kde.neochat 1.0
 Kirigami.ScrollablePage {
     id: root
     title: i18n("Edit Account")
-    property var connection
+    property NeoChatConnection connection
 
     readonly property bool compact: width > Kirigami.Units.gridUnit * 30 ? 2 : 1
 
@@ -114,7 +114,7 @@ Kirigami.ScrollablePage {
                 MobileForm.FormTextFieldDelegate {
                     id: accountLabel
                     label: i18n("Label:")
-                    text: root.connection ? Controller.activeAccountLabel : ""
+                    text: root.connection ? root.connection.label : ""
                 }
                 MobileForm.FormDelegateSeparator {}
                 MobileForm.AbstractFormDelegate {
@@ -130,14 +130,14 @@ Kirigami.ScrollablePage {
                             Layout.bottomMargin: Kirigami.Units.smallSpacing
                             Layout.topMargin: Kirigami.Units.smallSpacing
                             onClicked: {
-                                if (!Controller.setAvatar(root.connection, avatar.source)) {
+                                if (!root.connection.setAvatar(avatar.source)) {
                                     showPassiveNotification("The Avatar could not be set");
                                 }
                                 if (root.connection.localUser.displayName !== name.text) {
                                     root.connection.localUser.rename(name.text);
                                 }
-                                if (Controller.activeAccountLabel !== accountLabel.text) {
-                                    Controller.activeAccountLabel = accountLabel.text;
+                                if (root.connection.label !== accountLabel.text) {
+                                    root.connection.label = accountLabel.text;
                                 }
                             }
                         }
@@ -201,7 +201,7 @@ Kirigami.ScrollablePage {
                             enabled: currentPassword.text.length > 0 && newPassword.text.length > 0 && confirmPassword.text.length > 0
                             onClicked: {
                                 if (newPassword.text === confirmPassword.text) {
-                                    Controller.changePassword(root.connection, currentPassword.text, newPassword.text);
+                                    root.connection.changePassword(currentPassword.text, newPassword.text);
                                 } else {
                                     showPassiveNotification(i18n("Passwords do not match"));
                                 }
@@ -247,6 +247,21 @@ Kirigami.ScrollablePage {
                     text: i18n("Server version")
                     description: root.connection.homeserver
                 }*/
+            }
+        }
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18nc("@title", "Account Management")
+        }
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormButtonDelegate {
+                    id: deactivateAccountButton
+                    text: i18n("Deactivate Account")
+                    onClicked: pageStack.pushDialogLayer("qrc:/ConfirmDeactivateAccountDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Confirm Deactivating Account")})
+                }
             }
         }
     }

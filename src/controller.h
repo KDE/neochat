@@ -9,6 +9,7 @@
 
 #include <KFormat>
 
+#include "neochatconnection.h"
 #include <Quotient/accountregistry.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/settings.h>
@@ -20,7 +21,6 @@ class QQuickTextDocument;
 
 namespace Quotient
 {
-class Connection;
 class Room;
 class User;
 }
@@ -50,7 +50,7 @@ class Controller : public QObject
     /**
      * @brief The current connection for the rest of NeoChat to use.
      */
-    Q_PROPERTY(Quotient::Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
+    Q_PROPERTY(NeoChatConnection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
 
     /**
      * @brief The PushRuleModel that has the active connection's push rules.
@@ -61,16 +61,6 @@ class Controller : public QObject
      * @brief The row number in the accounts directory of the active connection.
      */
     Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex NOTIFY activeConnectionIndexChanged)
-
-    /**
-     * @brief The account label for the active account.
-     *
-     * Account labels are a concept specific to NeoChat, allowing accounts to be
-     * labelled, e.g. for "Work", "Private", etc.
-     *
-     * Set to an empty string to remove the label.
-     */
-    Q_PROPERTY(QString activeAccountLabel READ activeAccountLabel WRITE setActiveAccountLabel NOTIFY activeAccountLabelChanged)
 
     /**
      * @brief Whether the OS NeoChat is running on supports sytem tray icons.
@@ -109,45 +99,27 @@ public:
 
     [[nodiscard]] int accountCount() const;
 
-    void setActiveConnection(Quotient::Connection *connection);
-    [[nodiscard]] Quotient::Connection *activeConnection() const;
+    void setActiveConnection(NeoChatConnection *connection);
+    [[nodiscard]] NeoChatConnection *activeConnection() const;
 
     [[nodiscard]] PushRuleModel *pushRuleModel() const;
 
     /**
      * @brief Add a new connection to the account registry.
      */
-    void addConnection(Quotient::Connection *c);
+    void addConnection(NeoChatConnection *c);
 
     /**
      * @brief Drop a connection from the account registry.
      */
-    void dropConnection(Quotient::Connection *c);
+    void dropConnection(NeoChatConnection *c);
 
     int activeConnectionIndex() const;
-
-    [[nodiscard]] QString activeAccountLabel() const;
-    void setActiveAccountLabel(const QString &label);
 
     /**
      * @brief Save an access token to the keychain for the given account.
      */
     bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
-
-    /**
-     * @brief Change the password for an account.
-     *
-     * The function emits a passwordStatus signal with a PasswordStatus value when
-     * complete.
-     *
-     * @sa PasswordStatus, passwordStatus
-     */
-    Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
-
-    /**
-     * @brief Change the avatar for an account.
-     */
-    Q_INVOKABLE bool setAvatar(Quotient::Connection *connection, const QUrl &avatarSource);
 
     /**
      * @brief Create new room for a group chat.
@@ -210,14 +182,12 @@ public:
      */
     Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
 
-    Q_INVOKABLE QVariantList getSupportedRoomVersions(Quotient::Connection *connection);
-
     Quotient::AccountRegistry &accounts();
 
 private:
     explicit Controller(QObject *parent = nullptr);
 
-    QPointer<Quotient::Connection> m_connection;
+    QPointer<NeoChatConnection> m_connection;
     TrayIcon *m_trayIcon = nullptr;
 
     QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const Quotient::AccountSettings &account);
@@ -244,8 +214,8 @@ Q_SIGNALS:
     /// Error occurred because of server or bug in NeoChat
     void globalErrorOccured(QString error, QString detail);
     void syncDone();
-    void connectionAdded(Quotient::Connection *_t1);
-    void connectionDropped(Quotient::Connection *_t1);
+    void connectionAdded(NeoChatConnection *connection);
+    void connectionDropped(NeoChatConnection *connection);
     void accountCountChanged();
     void initiated();
     void notificationClicked(const QString &_t1, const QString &_t2);
@@ -256,18 +226,14 @@ Q_SIGNALS:
     void userConsentRequired(QUrl url);
     void testConnectionResult(const QString &connection, bool usable);
     void isOnlineChanged(bool isOnline);
-    void keyVerificationRequest(int timeLeft, Quotient::Connection *connection, const QString &transactionId, const QString &deviceId);
+    void keyVerificationRequest(int timeLeft, NeoChatConnection *connection, const QString &transactionId, const QString &deviceId);
     void keyVerificationStart();
     void keyVerificationAccept(const QString &commitment);
     void keyVerificationKey(const QString &sas);
     void activeConnectionIndexChanged();
     void roomAdded(NeoChatRoom *room);
-    void activeAccountLabelChanged();
 
 public Q_SLOTS:
-    void logout(Quotient::Connection *conn, bool serverSideLogout);
-    void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
-    static void markAllMessagesAsRead(Quotient::Connection *conn);
     void saveWindowGeometry();
 };
 
@@ -282,4 +248,10 @@ class NeochatDeleteDeviceJob : public Quotient::BaseJob
 {
 public:
     explicit NeochatDeleteDeviceJob(const QString &deviceId, const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
+};
+
+class NeoChatDeactivateAccountJob : public Quotient::BaseJob
+{
+public:
+    explicit NeoChatDeactivateAccountJob(const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
 };

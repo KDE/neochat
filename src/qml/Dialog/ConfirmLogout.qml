@@ -37,7 +37,7 @@ QQC2.Dialog {
             text: i18n("Sign out")
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             onClicked: {
-                Controller.logout(root.connection, true);
+                root.connection.logout(true);
                 root.close();
                 root.accepted();
             }

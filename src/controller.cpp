@@ -21,7 +21,6 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QGuiApplication>
-#include <QImageReader>
 #include <QNetworkProxy>
 #include <QQuickTextDocument>
 #include <QQuickWindow>
@@ -33,10 +32,8 @@
 
 #include <Quotient/accountregistry.h>
 #include <Quotient/connection.h>
-#include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/logout.h>
 #include <Quotient/csapi/notifications.h>
-#include <Quotient/csapi/profile.h>
 #include <Quotient/eventstats.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
@@ -105,8 +102,8 @@ Controller::Controller(QObject *parent)
     static int oldAccountCount = 0;
     connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, [this]() {
         if (m_accountRegistry.size() > oldAccountCount) {
-            auto connection = m_accountRegistry.accounts()[m_accountRegistry.size() - 1];
-            connect(connection, &Connection::syncDone, this, [connection]() {
+            auto connection = dynamic_cast<NeoChatConnection *>(m_accountRegistry.accounts()[m_accountRegistry.size() - 1]);
+            connect(connection, &NeoChatConnection::syncDone, this, [connection]() {
                 NotificationsManager::instance().handleNotifications(connection);
             });
         }
@@ -141,38 +138,7 @@ void Controller::toggleWindow()
     }
 }
 
-void Controller::logout(Connection *conn, bool serverSideLogout)
-{
-    if (!conn) {
-        qCritical() << "Attempt to logout null connection";
-        return;
-    }
-
-    SettingsGroup("Accounts"_ls).remove(conn->userId());
-
-    QKeychain::DeletePasswordJob job(qAppName());
-    job.setAutoDelete(true);
-    job.setKey(conn->userId());
-    QEventLoop loop;
-    QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
-    job.start();
-    loop.exec();
-
-    if (m_accountRegistry.count() > 1) {
-        // Only set the connection if the the account being logged out is currently active
-        if (conn == activeConnection()) {
-            setActiveConnection(m_accountRegistry.accounts()[0]);
-        }
-    } else {
-        setActiveConnection(nullptr);
-    }
-    if (!serverSideLogout) {
-        return;
-    }
-    conn->logout();
-}
-
-void Controller::addConnection(Connection *c)
+void Controller::addConnection(NeoChatConnection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
 
@@ -180,17 +146,17 @@ void Controller::addConnection(Connection *c)
 
     c->setLazyLoading(true);
 
-    connect(c, &Connection::syncDone, this, [this, c] {
+    connect(c, &NeoChatConnection::syncDone, this, [this, c] {
         Q_EMIT syncDone();
 
         c->sync(30000);
         c->saveState();
     });
-    connect(c, &Connection::loggedOut, this, [this, c] {
+    connect(c, &NeoChatConnection::loggedOut, this, [this, c] {
         dropConnection(c);
     });
 
-    connect(c, &Connection::requestFailed, this, [this](BaseJob *job) {
+    connect(c, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
         if (job->error() == BaseJob::UserConsentRequired) {
             Q_EMIT userConsentRequired(job->errorUrl());
         }
@@ -202,7 +168,7 @@ void Controller::addConnection(Connection *c)
     Q_EMIT accountCountChanged();
 }
 
-void Controller::dropConnection(Connection *c)
+void Controller::dropConnection(NeoChatConnection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
 
@@ -231,19 +197,19 @@ void Controller::invokeLogin()
                     return;
                 }
 
-                auto connection = new Connection(account.homeserver());
-                connect(connection, &Connection::connected, this, [this, connection, id] {
+                auto connection = new NeoChatConnection(account.homeserver());
+                connect(connection, &NeoChatConnection::connected, this, [this, connection, id] {
                     connection->loadState();
                     addConnection(connection);
                     if (connection->userId() == id) {
                         setActiveConnection(connection);
-                        connectSingleShot(connection, &Connection::syncDone, this, &Controller::initiated);
+                        connectSingleShot(connection, &NeoChatConnection::syncDone, this, &Controller::initiated);
                     }
                 });
-                connect(connection, &Connection::loginError, this, [this, connection](const QString &error, const QString &) {
+                connect(connection, &NeoChatConnection::loginError, this, [this, connection](const QString &error, const QString &) {
                     if (error == "Unrecognised access token"_ls) {
                         Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
-                        logout(connection, false);
+                        connection->logout(false);
                     } else if (error == "Connection closed"_ls) {
                         Q_EMIT errorOccured(i18n("Login Failed: %1", error));
                         // Failed due to network connection issue. This might happen when the homeserver is
@@ -251,11 +217,11 @@ void Controller::invokeLogin()
                         // connect to the homeserver. In this case, we don't want to do logout().
                     } else {
                         Q_EMIT errorOccured(i18n("Login Failed: %1", error));
-                        logout(connection, true);
+                        connection->logout(true);
                     }
                     Q_EMIT initiated();
                 });
-                connect(connection, &Connection::networkError, this, [this](const QString &error, const QString &, int, int) {
+                connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
                     Q_EMIT errorOccured(i18n("Network Error: %1", error));
                 });
                 connection->assumeIdentity(account.userId(), accessToken);
@@ -321,22 +287,6 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const
     return true;
 }
 
-void Controller::changeAvatar(Connection *conn, const QUrl &localFile)
-{
-    auto job = conn->uploadFile(localFile.toLocalFile());
-    connect(job, &BaseJob::success, this, [conn, job] {
-        conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri());
-    });
-}
-
-void Controller::markAllMessagesAsRead(Connection *conn)
-{
-    const auto rooms = conn->allRooms();
-    for (auto room : rooms) {
-        room->markAllMessagesAsRead();
-    }
-}
-
 bool Controller::supportSystemTray() const
 {
 #ifdef Q_OS_ANDROID
@@ -347,49 +297,6 @@ bool Controller::supportSystemTray() const
 #endif
 }
 
-void Controller::changePassword(Connection *connection, const QString &currentPassword, const QString &newPassword)
-{
-    NeochatChangePasswordJob *job = connection->callApi<NeochatChangePasswordJob>(newPassword, false);
-    connect(job, &BaseJob::result, this, [this, job, currentPassword, newPassword, connection] {
-        if (job->error() == 103) {
-            QJsonObject replyData = job->jsonData();
-            QJsonObject authData;
-            authData["session"_ls] = replyData["session"_ls];
-            authData["password"_ls] = currentPassword;
-            authData["type"_ls] = "m.login.password"_ls;
-            authData["user"_ls] = connection->user()->id();
-            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, connection->user()->id()}};
-            authData["identifier"_ls] = identifier;
-            NeochatChangePasswordJob *innerJob = connection->callApi<NeochatChangePasswordJob>(newPassword, false, authData);
-            connect(innerJob, &BaseJob::success, this, [this]() {
-                Q_EMIT passwordStatus(PasswordStatus::Success);
-            });
-            connect(innerJob, &BaseJob::failure, this, [innerJob, this]() {
-                if (innerJob->jsonData()["errcode"_ls] == "M_FORBIDDEN"_ls) {
-                    Q_EMIT passwordStatus(PasswordStatus::Wrong);
-                } else {
-                    Q_EMIT passwordStatus(PasswordStatus::Other);
-                }
-            });
-        }
-    });
-}
-
-bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
-{
-    User *localUser = connection->user();
-    QString decoded = avatarSource.path();
-    if (decoded.isEmpty()) {
-        connection->callApi<SetAvatarUrlJob>(localUser->id(), avatarSource);
-        return true;
-    }
-    if (QImageReader(decoded).read().isNull()) {
-        return false;
-    } else {
-        return localUser->setAvatar(decoded);
-    }
-}
-
 NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth)
     : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), "/_matrix/client/r0/account/password")
 {
@@ -398,6 +305,14 @@ NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, b
     addParam<IfNotEmpty>(_data, QStringLiteral("logout_devices"), logoutDevices);
     addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
     setRequestData(_data);
+}
+
+NeoChatDeactivateAccountJob::NeoChatDeactivateAccountJob(const Quotient::Omittable<QJsonObject> &auth)
+    : BaseJob(HttpVerb::Post, QStringLiteral("DisableDeviceJob"), "_matrix/client/v3/account/deactivate")
+{
+    QJsonObject data;
+    addParam<IfNotEmpty>(data, QStringLiteral("auth"), auth);
+    setRequestData(data);
 }
 
 int Controller::accountCount() const
@@ -425,7 +340,7 @@ void Controller::setQuitOnLastWindowClosed()
 #endif
 }
 
-Connection *Controller::activeConnection() const
+NeoChatConnection *Controller::activeConnection() const
 {
     if (m_connection.isNull()) {
         return nullptr;
@@ -433,40 +348,35 @@ Connection *Controller::activeConnection() const
     return m_connection;
 }
 
-void Controller::setActiveConnection(Connection *connection)
+void Controller::setActiveConnection(NeoChatConnection *connection)
 {
     if (connection == m_connection) {
         return;
     }
     if (m_connection != nullptr) {
-        disconnect(m_connection, &Connection::syncError, this, nullptr);
-        disconnect(m_connection, &Connection::accountDataChanged, this, nullptr);
+        disconnect(m_connection, &NeoChatConnection::syncError, this, nullptr);
+        disconnect(m_connection, &NeoChatConnection::accountDataChanged, this, nullptr);
     }
     m_connection = connection;
     if (connection != nullptr) {
         NeoChatConfig::self()->setActiveConnection(connection->userId());
-        connect(connection, &Connection::networkError, this, [this]() {
+        connect(connection, &NeoChatConnection::networkError, this, [this]() {
             if (!m_isOnline) {
                 return;
             }
             m_isOnline = false;
             Q_EMIT isOnlineChanged(false);
         });
-        connect(connection, &Connection::syncDone, this, [this] {
+        connect(connection, &NeoChatConnection::syncDone, this, [this] {
             if (m_isOnline) {
                 return;
             }
             m_isOnline = true;
             Q_EMIT isOnlineChanged(true);
         });
-        connect(connection, &Connection::requestFailed, this, [](BaseJob *job) {
+        connect(connection, &NeoChatConnection::requestFailed, this, [](BaseJob *job) {
             if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
                 RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
-            }
-        });
-        connect(connection, &Connection::accountDataChanged, this, [this](const QString &type) {
-            if (type == QLatin1String("org.kde.neochat.account_label")) {
-                Q_EMIT activeAccountLabelChanged();
             }
         });
     } else {
@@ -475,7 +385,6 @@ void Controller::setActiveConnection(Connection *connection)
     NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
     Q_EMIT activeConnectionIndexChanged();
-    Q_EMIT activeAccountLabelChanged();
 }
 
 PushRuleModel *Controller::pushRuleModel() const
@@ -644,41 +553,6 @@ bool Controller::isFlatpak() const
 #else
     return false;
 #endif
-}
-
-void Controller::setActiveAccountLabel(const QString &label)
-{
-    if (!m_connection) {
-        return;
-    }
-    QJsonObject json{
-        {"account_label"_ls, label},
-    };
-    m_connection->setAccountData("org.kde.neochat.account_label"_ls, json);
-}
-
-QString Controller::activeAccountLabel() const
-{
-    if (!m_connection) {
-        return {};
-    }
-    return m_connection->accountDataJson("org.kde.neochat.account_label"_ls)["account_label"_ls].toString();
-}
-
-QVariantList Controller::getSupportedRoomVersions(Quotient::Connection *connection)
-{
-    auto roomVersions = connection->availableRoomVersions();
-
-    QVariantList supportedRoomVersions;
-    for (const Quotient::Connection::SupportedRoomVersion &v : roomVersions) {
-        QVariantMap roomVersionMap;
-        roomVersionMap.insert("id"_ls, v.id);
-        roomVersionMap.insert("status"_ls, v.status);
-        roomVersionMap.insert("isStable"_ls, v.isStable());
-        supportedRoomVersions.append(roomVersionMap);
-    }
-
-    return supportedRoomVersions;
 }
 
 AccountRegistry &Controller::accounts()

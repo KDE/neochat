@@ -89,7 +89,7 @@ void Registration::registerAccount()
     connect(job, &BaseJob::result, this, [=]() {
         if (job->status() == BaseJob::Success) {
             setNextStep("loading"_ls);
-            auto connection = new Connection(this);
+            auto connection = new NeoChatConnection(this);
             auto matrixId = "@%1:%2"_ls.arg(m_username, m_homeserver);
             connection->resolveServer(matrixId);
 

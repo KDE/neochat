@@ -6,10 +6,7 @@
 #include <QObject>
 #include <QUrl>
 
-namespace Quotient
-{
-class Connection;
-}
+class NeoChatConnection;
 
 /**
  * @class Login
@@ -135,7 +132,7 @@ private:
     QString m_deviceName;
     bool m_supportsSso = false;
     bool m_supportsPassword = false;
-    Quotient::Connection *m_connection = nullptr;
+    NeoChatConnection *m_connection = nullptr;
     QUrl m_ssoUrl;
     bool m_testing = false;
     bool m_isLoggingIn = false;
