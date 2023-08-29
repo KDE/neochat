@@ -54,8 +54,9 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
     // Don't show state events that are not the first in a consecutive group on the
     // same day as they will be grouped as a single delegate.
     const bool notLastRow = sourceRow < sourceModel()->rowCount() - 1;
-    const bool previousEventIsState =
-        sourceModel()->data(sourceModel()->index(sourceRow + 1, 0), MessageEventModel::DelegateTypeRole) == MessageEventModel::DelegateType::State;
+    const bool previousEventIsState = notLastRow
+        ? sourceModel()->data(sourceModel()->index(sourceRow + 1, 0), MessageEventModel::DelegateTypeRole) == MessageEventModel::DelegateType::State
+        : false;
     const bool newDay = sourceModel()->data(sourceModel()->index(sourceRow, 0), MessageEventModel::ShowSectionRole).toBool();
     if (eventType == MessageEventModel::State && notLastRow && previousEventIsState && !newDay) {
         return false;
