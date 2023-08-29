@@ -302,7 +302,7 @@ QString Registration::statusString() const
     case InvalidServer:
         return i18n("This is not a valid server.");
     case ServerNoRegistration:
-        return i18n("Regisration for this server is disabled.");
+        return i18n("Registration for this server is disabled.");
     case NoUsername:
         return i18n("No username.");
     case TestingUsername:

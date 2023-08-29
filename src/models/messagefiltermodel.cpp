@@ -57,7 +57,7 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
     const bool previousEventIsState =
         sourceModel()->data(sourceModel()->index(sourceRow + 1, 0), MessageEventModel::DelegateTypeRole) == MessageEventModel::DelegateType::State;
     const bool newDay = sourceModel()->data(sourceModel()->index(sourceRow, 0), MessageEventModel::ShowSectionRole).toBool();
-    if (notLastRow && previousEventIsState && !newDay) {
+    if (eventType == MessageEventModel::State && notLastRow && previousEventIsState && !newDay) {
         return false;
     }
 
