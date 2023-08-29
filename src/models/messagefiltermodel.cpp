@@ -80,7 +80,7 @@ QVariant MessageFilterModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> MessageFilterModel::roleNames() const
 {
-    auto roles = sourceModel()->roleNames();
+    auto roles = sourceModel() ? sourceModel()->roleNames() : QHash<int, QByteArray>();
     roles[AggregateDisplayRole] = "aggregateDisplay";
     roles[StateEventsRole] = "stateEvents";
     roles[AuthorListRole] = "authorList";
