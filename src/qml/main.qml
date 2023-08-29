@@ -240,7 +240,7 @@ Kirigami.ApplicationWindow {
                 pageStack.replace("qrc:/WelcomePage.qml", {});
             } else if (!roomListLoaded) {
                 pageStack.replace(roomListComponent, {
-                    activeConnection: Controller.activeConnection
+                    connection: Controller.activeConnection
                 });
                 roomListLoaded = true;
                 roomListPage = pageStack.currentItem

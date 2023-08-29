@@ -26,8 +26,10 @@ Kirigami.Page {
     readonly property int currentWidth: _private.currentWidth + spaceListWidth
     readonly property alias spaceListWidth: spaceDrawer.width
 
+    required property NeoChatConnection connection
+
     readonly property RoomListModel roomListModel: RoomListModel {
-        connection: Controller.activeConnection
+        connection: root.connection
     }
 
     readonly property bool collapsed: Config.collapsed
