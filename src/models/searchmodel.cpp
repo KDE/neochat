@@ -118,12 +118,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
             return m_room->getUser(nullptr);
         }
     case ReplyRole:
-        if (role == ReplyRole) {
-            auto replyPtr = m_room->getReplyForEvent(event);
-            if (!replyPtr) {
-                return {};
-            }
-
+        if (auto replyPtr = m_room->getReplyForEvent(event)) {
             MessageEventModel::DelegateType type;
             if (auto e = eventCast<const RoomMessageEvent>(replyPtr)) {
                 switch (e->msgtype()) {
@@ -155,12 +150,12 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
             } else {
                 type = MessageEventModel::DelegateType::Other;
             }
-
             return QVariantMap{
                 {"display"_ls, m_room->eventToString(*replyPtr, Qt::RichText)},
                 {"type"_ls, type},
             };
         }
+        break;
     case IsPendingRole:
         return false;
     case ShowLinkPreviewRole:
