@@ -92,7 +92,7 @@ MessageDelegateContextMenu {
             icon.name: "code-context"
             onTriggered: {
                 applicationWindow().pageStack.pushDialogLayer('qrc:/MessageSourceSheet.qml', {
-                    sourceText: root.source
+                    sourceText: root.eventSource
                 }, {
                     title: i18n("Message Source"),
                     width: Kirigami.Units.gridUnit * 25

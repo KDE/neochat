@@ -16,7 +16,7 @@ Loader {
     required property var author
     required property string eventId
     property var eventType
-    required property string source
+    required property string eventSource
     property string selectedText: ""
     required property string plainText
     property string htmlText: undefined
@@ -85,7 +85,7 @@ Loader {
             icon.name: "code-context"
             onTriggered: {
                 applicationWindow().pageStack.pushDialogLayer('qrc:/MessageSourceSheet.qml', {
-                    sourceText: root.source
+                    sourceText: root.eventSource
                 }, {
                     title: i18n("Message Source"),
                     width: Kirigami.Units.gridUnit * 25

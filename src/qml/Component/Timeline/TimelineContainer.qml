@@ -622,7 +622,7 @@ ColumnLayout {
             selectedText: selectedText,
             author: root.author,
             eventId: root.eventId,
-            source: root.jsonSource,
+            eventSource: root.jsonSource,
             eventType: root.delegateType,
             plainText: root.plainText,
             htmlText: root.display,
