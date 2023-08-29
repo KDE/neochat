@@ -80,6 +80,7 @@
 #include "models/userlistmodel.h"
 #include "models/webshortcutmodel.h"
 #include "neochatconfig.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 #include "notificationsmanager.h"
 #include "pollhandler.h"
@@ -281,12 +282,12 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM"_ls);
     qmlRegisterUncreatableType<User>("org.kde.neochat", 1, 0, "User", {});
     qmlRegisterUncreatableType<NeoChatRoom>("org.kde.neochat", 1, 0, "NeoChatRoom", {});
+    qmlRegisterUncreatableType<NeoChatConnection>("org.kde.neochat", 1, 0, "NeoChatConnection", {});
 
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<User *>("const User*");
     qRegisterMetaType<User *>("const Quotient::User*");
     qRegisterMetaType<Room *>("Room*");
-    qRegisterMetaType<Connection *>("Connection*");
     qRegisterMetaType<MessageEventType>("MessageEventType");
     qRegisterMetaType<NeoChatRoom *>("NeoChatRoom*");
     qRegisterMetaType<User *>("User*");

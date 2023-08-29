@@ -124,6 +124,8 @@ add_library(neochat STATIC
     pollhandler.cpp
     utils.h
     registration.cpp
+    neochatconnection.cpp
+    neochatconnection.h
 )
 
 ecm_qt_declare_logging_category(neochat

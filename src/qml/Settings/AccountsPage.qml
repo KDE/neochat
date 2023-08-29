@@ -35,17 +35,19 @@ Kirigami.ScrollablePage {
                 Repeater {
                     model: AccountRegistry
                     delegate: MobileForm.AbstractFormDelegate {
+                        id: accountDelegate
+                        required property NeoChatConnection connection
                         Layout.fillWidth: true
                         onClicked: pageStack.layers.push("qrc:/AccountEditorPage.qml", {
-                            connection: model.connection
+                            connection: accountDelegate.connection
                         }, {
                             title: i18n("Account editor")
                         })
 
                         contentItem: RowLayout {
                             KirigamiComponents.Avatar {
-                                name: model.connection.localUser.displayName
-                                source: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : ""
+                                name: accountDelegate.connection.localUser.displayName
+                                source: accountDelegate.connection.localUser.avatarMediaId ? ("image://mxc/" + accountDelegate.connection.localUser.avatarMediaId) : ""
 
                                 Layout.rightMargin: Kirigami.Units.largeSpacing
                                 implicitWidth: Kirigami.Units.iconSizes.medium
@@ -58,7 +60,7 @@ Kirigami.ScrollablePage {
 
                                 QQC2.Label {
                                     Layout.fillWidth: true
-                                    text: model.connection.localUser.displayName
+                                    text: accountDelegate.connection.localUser.displayName
                                     textFormat: Text.PlainText
                                     elide: Text.ElideRight
                                     wrapMode: Text.Wrap
@@ -68,7 +70,7 @@ Kirigami.ScrollablePage {
 
                                 QQC2.Label {
                                     Layout.fillWidth: true
-                                    text: model.connection.localUserId
+                                    text: accountDelegate.connection.localUserId
                                     color: Kirigami.Theme.disabledTextColor
                                     font: Kirigami.Theme.smallFont
                                     elide: Text.ElideRight
@@ -78,7 +80,7 @@ Kirigami.ScrollablePage {
                             QQC2.ToolButton {
                                 text: i18n("Logout")
                                 icon.name: "im-kick-user"
-                                onClicked: confirmLogoutDialogComponent.createObject(QQC2.ApplicationWindow.overlay).open()
+                                onClicked: confirmLogoutDialogComponent.createObject(applicationWindow().overlay).open()
                             }
 
                             Component {

@@ -13,12 +13,12 @@
 
 #include <QPainter>
 #include <Quotient/accountregistry.h>
-#include <Quotient/connection.h>
 #include <Quotient/csapi/pushrules.h>
 #include <Quotient/user.h>
 
 #include "controller.h"
 #include "neochatconfig.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "texthandler.h"
@@ -37,7 +37,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-void NotificationsManager::handleNotifications(QPointer<Connection> connection)
+void NotificationsManager::handleNotifications(QPointer<NeoChatConnection> connection)
 {
     if (!m_connActiveJob.contains(connection->user()->id())) {
         auto job = connection->callApi<GetNotificationsJob>();
@@ -49,7 +49,7 @@ void NotificationsManager::handleNotifications(QPointer<Connection> connection)
     }
 }
 
-void NotificationsManager::processNotificationJob(QPointer<Quotient::Connection> connection, Quotient::GetNotificationsJob *job, bool initialization)
+void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> connection, Quotient::GetNotificationsJob *job, bool initialization)
 {
     if (job == nullptr) {
         return;
@@ -145,7 +145,7 @@ void NotificationsManager::processNotificationJob(QPointer<Quotient::Connection>
     }
 }
 
-bool NotificationsManager::shouldPostNotification(QPointer<Quotient::Connection> connection, const QJsonValue &notification)
+bool NotificationsManager::shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification)
 {
     if (connection == nullptr) {
         return false;
@@ -211,7 +211,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
             return;
         }
         if (room->localUser()->id() != Controller::instance().activeConnection()->userId()) {
-            Controller::instance().setActiveConnection(Controller::instance().accounts().get(room->localUser()->id()));
+            Controller::instance().setActiveConnection(dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localUser()->id())));
         }
         RoomManager::instance().enterRoom(room);
     });
