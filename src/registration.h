@@ -11,7 +11,6 @@
 #include <QVector>
 
 #include <Quotient/csapi/registration.h>
-#include <Task>
 
 #include <Quotient/connection.h>
 
@@ -156,7 +155,6 @@ private:
 
     void testHomeserver();
     void testUsername();
-    QCoro::Task<void> loadFlows();
     void setStatus(Status status);
 
     Registration();
