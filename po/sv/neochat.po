@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 00:46+0000\n"
-"PO-Revision-Date: 2023-08-27 07:18+0200\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"PO-Revision-Date: 2023-08-28 16:51+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -122,95 +122,95 @@ msgstr "Mål"
 msgid "Network Error"
 msgstr "Nätverksfel"
 
-#: src/main.cpp:171
+#: src/main.cpp:179
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:173
+#: src/main.cpp:181
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-klient"
 
-#: src/main.cpp:175
+#: src/main.cpp:183
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE-gemenskapen"
 
-#: src/main.cpp:176
+#: src/main.cpp:184
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:176 src/main.cpp:177 src/main.cpp:178
+#: src/main.cpp:184 src/main.cpp:185 src/main.cpp:186
 #, kde-format
 msgid "Maintainer"
 msgstr "Underhållsansvarig"
 
-#: src/main.cpp:177
+#: src/main.cpp:185
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:178
+#: src/main.cpp:186
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:179
+#: src/main.cpp:187
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:179
+#: src/main.cpp:187
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Ursprunglig upphovsman till Spectral"
 
-#: src/main.cpp:180
+#: src/main.cpp:188
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:180
+#: src/main.cpp:188
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Underhållsansvarig för Quotient"
 
-#: src/main.cpp:181
+#: src/main.cpp:189
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: src/main.cpp:181
+#: src/main.cpp:189
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@bredband.net"
 
-#: src/main.cpp:185
+#: src/main.cpp:193
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Att Qt5-bibliotek för att skriva Matrix-klienter för flera plattformar"
 
-#: src/main.cpp:187
+#: src/main.cpp:195
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (byggd med %2)"
 
-#: src/main.cpp:334
+#: src/main.cpp:342
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient för kommunikationsprotokollet Matrix"
 
-#: src/main.cpp:335
+#: src/main.cpp:343
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Stöder matrix: webbadresschema"
 
-#: src/main.cpp:336
+#: src/main.cpp:344
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorera alla SSL-fel, t.ex. osignerade certifikat."
@@ -533,40 +533,6 @@ msgstr "%1 kastades ut från rummet."
 msgid "Removes the user from the room"
 msgstr "Tar bort användaren från rummet"
 
-#: src/models/collapsestateproxymodel.cpp:74
-#, kde-format
-msgctxt "n times"
-msgid " %1 time "
-msgid_plural " %1 times "
-msgstr[0] "%1 gång"
-msgstr[1] "%1 gånger"
-
-#: src/models/collapsestateproxymodel.cpp:80
-#, kde-format
-msgctxt "n users"
-msgid " %1 user "
-msgid_plural " %1 users "
-msgstr[0] " %1 användare "
-msgstr[1] "%1 användare"
-
-#: src/models/collapsestateproxymodel.cpp:90
-#, kde-format
-msgctxt "[action 1], [action 2 and/or action 3]"
-msgid ", "
-msgstr ", "
-
-#: src/models/collapsestateproxymodel.cpp:93
-#, kde-format
-msgctxt "[action 1, action 2] or [action 3]"
-msgid " or "
-msgstr " eller "
-
-#: src/models/collapsestateproxymodel.cpp:93
-#, kde-format
-msgctxt "[action 1, action 2] and [action 3]"
-msgid " and "
-msgstr " och "
-
 #: src/models/emojimodel.cpp:149 src/models/emojimodel.cpp:207
 #, kde-format
 msgctxt "Previously used emojis"
@@ -677,6 +643,40 @@ msgstr[1] "%1 användare: "
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
+
+#: src/models/messagefiltermodel.cpp:122
+#, kde-format
+msgctxt "n times"
+msgid " %1 time "
+msgid_plural " %1 times "
+msgstr[0] "%1 gång"
+msgstr[1] "%1 gånger"
+
+#: src/models/messagefiltermodel.cpp:128
+#, kde-format
+msgctxt "n users"
+msgid " %1 user "
+msgid_plural " %1 users "
+msgstr[0] " %1 användare "
+msgstr[1] "%1 användare"
+
+#: src/models/messagefiltermodel.cpp:138
+#, kde-format
+msgctxt "[action 1], [action 2 and/or action 3]"
+msgid ", "
+msgstr ", "
+
+#: src/models/messagefiltermodel.cpp:141
+#, kde-format
+msgctxt "[action 1, action 2] or [action 3]"
+msgid " or "
+msgstr " eller "
+
+#: src/models/messagefiltermodel.cpp:141
+#, kde-format
+msgctxt "[action 1, action 2] and [action 3]"
+msgid " and "
+msgstr " och "
 
 #: src/models/reactionmodel.cpp:52
 #, kde-format
@@ -1365,33 +1365,47 @@ msgstr "Platser"
 msgid "There are no locations shared in this room."
 msgstr "Det finns inga platser delade i rummet."
 
-#: src/qml/Component/Login/Homeserver.qml:18
+#: src/qml/Component/Login/Email.qml:20
 #, kde-format
-msgctxt "@title"
-msgid "Select a Homeserver"
-msgstr "Välj en hemserver"
+msgid "Add an e-mail address:"
+msgstr ""
 
-#: src/qml/Component/Login/Homeserver.qml:38
-#, kde-format
-msgid "Homeserver:"
-msgstr "Hemserver:"
+#: src/qml/Component/Login/Email.qml:32
+#, fuzzy, kde-format
+#| msgid "Confirm new display name"
+msgid "Confirm e-mail address"
+msgstr "Bekräfta nytt visat namn"
 
-#: src/qml/Component/Login/Homeserver.qml:39
+#: src/qml/Component/Login/Email.qml:34
 #, kde-format
-msgid "Other..."
-msgstr "Annan..."
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
 
-#: src/qml/Component/Login/Homeserver.qml:45
+#: src/qml/Component/Login/Email.qml:39
 #, kde-format
-msgid "Url:"
-msgstr "Webbadress:"
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr ""
 
-#: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:95
+#: src/qml/Component/Login/Homeserver.qml:20
+#, fuzzy, kde-format
+#| msgid "Server URL"
+msgid "Server Url:"
+msgstr "Serverwebbadress"
+
+#: src/qml/Component/Login/Homeserver.qml:25
 #, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "Fortsätt"
+msgid "Registration is disabled on this server."
+msgstr ""
+
+#: src/qml/Component/Login/Homeserver.qml:40
+#: src/qml/Component/Login/Username.qml:37
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Läser in…"
 
 #: src/qml/Component/Login/Loading.qml:16
 #, kde-format
@@ -1408,6 +1422,12 @@ msgstr "Matrix-identifierare"
 msgid "Matrix ID"
 msgstr "Matrix-identifierare"
 
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:113
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "Fortsätt"
+
 #: src/qml/Component/Login/Login.qml:38 src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
@@ -1419,34 +1439,33 @@ msgid "Already logged in"
 msgstr "Redan inloggad"
 
 #: src/qml/Component/Login/LoginMethod.qml:20
-#, fuzzy, kde-format
-#| msgid "Login with password"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Logga in med lösenord"
 
 #: src/qml/Component/Login/LoginMethod.qml:26
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
-msgstr "Engångsinloggning"
+msgstr "Logga in med engångsinloggning"
 
-#: src/qml/Component/Login/LoginRegister.qml:19
+#: src/qml/Component/Login/LoginRegister.qml:22
 #: src/qml/Component/Login/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Logga in"
 
-#: src/qml/Component/Login/LoginRegister.qml:24
-#, fuzzy, kde-format
-#| msgid "Register"
+#: src/qml/Component/Login/LoginRegister.qml:27
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Registrera"
 
-#: src/qml/Component/Login/Password.qml:28 src/qml/Settings/DevicesPage.qml:73
+#: src/qml/Component/Login/Password.qml:28
+#: src/qml/Component/Login/RegisterPassword.qml:19
+#: src/qml/Settings/DevicesPage.qml:73
 #, kde-format
 msgid "Password:"
 msgstr "Lösenord:"
@@ -1459,22 +1478,56 @@ msgid "Password"
 msgstr "Lösenord"
 
 #: src/qml/Component/Login/Password.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter your password"
+#, kde-format
 msgid "Invalid username or password"
-msgstr "Ange ditt lösenord"
+msgstr "Ogiltigt användarnamn eller lösenord"
+
+#: src/qml/Component/Login/RegisterPassword.qml:29
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgid "Confirm Password:"
+msgstr "Bekräfta nytt lösenord:"
+
+#: src/qml/Component/Login/RegisterPassword.qml:32
+#, fuzzy, kde-format
+#| msgid "Passwords do not match"
+msgid "The passwords do not match."
+msgstr "Lösenord stämmer inte"
 
 #: src/qml/Component/Login/Sso.qml:31
-#, fuzzy, kde-format
-#| msgid "Complete the authentication steps in your browser"
+#, kde-format
 msgid "Continue the login process in your browser."
-msgstr "Slutför behörighetskontrollstegen i webbläsaren"
+msgstr "Fortsätt inloggningsprocessen i webbläsaren."
 
 #: src/qml/Component/Login/Sso.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
+msgstr "Öppna SSO-webbadress igen"
+
+#: src/qml/Component/Login/Terms.qml:19
+#, kde-format
+msgid "Terms & Conditions"
 msgstr ""
+
+#: src/qml/Component/Login/Terms.qml:20
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr ""
+
+#: src/qml/Component/Login/Username.qml:19
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Username:"
+msgstr "Användarnamn"
+
+#: src/qml/Component/Login/Username.qml:22
+#, fuzzy, kde-format
+#| msgid "No users available"
+msgid "Username unavailable"
+msgstr "Inga användare tillgängliga"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1578,22 +1631,22 @@ msgstr "Volym"
 msgid "Maximize"
 msgstr "Maximera"
 
-#: src/qml/Component/TimelineView.qml:160
+#: src/qml/Component/TimelineView.qml:157
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Gå till första olästa meddelande"
 
-#: src/qml/Component/TimelineView.qml:183
+#: src/qml/Component/TimelineView.qml:180
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Gå till sista meddelande"
 
-#: src/qml/Component/TimelineView.qml:209
+#: src/qml/Component/TimelineView.qml:206
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Dra objekt hit för att dela dem"
 
-#: src/qml/Component/TimelineView.qml:229
+#: src/qml/Component/TimelineView.qml:226
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2289,15 +2342,13 @@ msgstr "Meddelandekälla"
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
-msgstr ""
+msgstr "Vidarebefordra"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "Rapportera meddelande"
+msgstr "Vidarebefordra meddelande"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:95
 #, kde-format
@@ -2351,11 +2402,10 @@ msgid "Reason for reporting this message"
 msgstr "Anledning att meddelandet rapporteras"
 
 #: src/qml/Page/ChooseRoomDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Choose a Location"
+#, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
-msgstr "Välj en plats"
+msgstr "Välj ett rum"
 
 #: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
@@ -2793,20 +2843,21 @@ msgstr "Välkommen"
 
 #: src/qml/Page/WelcomePage.qml:44
 #, fuzzy, kde-format
-#| msgid "Log in to an existing account"
-msgid "Log in to a different account."
-msgstr "Logga in på ett befintligt konto"
+#| msgid "Log in to a different account."
+msgid "Log in to a different account or create a new account."
+msgstr "Logga in på ett annat konto."
 
 #: src/qml/Page/WelcomePage.qml:44
-#, kde-format
-msgid "Welcome to NeoChat! Continue by logging in."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Welcome to NeoChat! Continue by logging in."
+msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
+msgstr "Välkommen till NeoChat! Fortsätt med att logga in."
 
-#: src/qml/Page/WelcomePage.qml:103
+#: src/qml/Page/WelcomePage.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
-msgstr ""
+msgstr "Gå tillbaka"
 
 #: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
@@ -4001,6 +4052,58 @@ msgstr "Lägg till ord"
 msgid "Delete word"
 msgstr "Ta bort ord"
 
+#: src/registration.cpp:299
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add server"
+msgid "No server."
+msgstr "Lägg till server"
+
+#: src/registration.cpp:301
+#, kde-format
+msgid "Checking Server availability."
+msgstr ""
+
+#: src/registration.cpp:303
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "This is not a valid server."
+msgstr "Den angivna texten är inte en giltig webbadress"
+
+#: src/registration.cpp:305
+#, kde-format
+msgid "Regisration for this server is disabled."
+msgstr ""
+
+#: src/registration.cpp:307
+#, fuzzy, kde-format
+#| msgid "No name"
+msgid "No username."
+msgstr "Inget namn"
+
+#: src/registration.cpp:309
+#, kde-format
+msgid "Checking username availability."
+msgstr ""
+
+#: src/registration.cpp:311
+#, fuzzy, kde-format
+#| msgid "No users available"
+msgid "This username is not available."
+msgstr "Inga användare tillgängliga"
+
+#: src/registration.cpp:313
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Continue"
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: src/registration.cpp:315
+#, kde-format
+msgid "Working"
+msgstr ""
+
 #: src/roommanager.cpp:52
 #, kde-format
 msgid "Malformed or empty Matrix id"
@@ -4063,6 +4166,19 @@ msgstr "Visa"
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
+
+#~ msgctxt "@title"
+#~ msgid "Select a Homeserver"
+#~ msgstr "Välj en hemserver"
+
+#~ msgid "Homeserver:"
+#~ msgstr "Hemserver:"
+
+#~ msgid "Other..."
+#~ msgstr "Annan..."
+
+#~ msgid "Url:"
+#~ msgstr "Webbadress:"
 
 #~ msgctxt "@title"
 #~ msgid "Login"
@@ -4396,9 +4512,6 @@ msgstr "Avsluta"
 
 #~ msgid "Server Address"
 #~ msgstr "Serveradress"
-
-#~ msgid "Username"
-#~ msgstr "Användarnamn"
 
 #~ msgid "Device Name (Optional)"
 #~ msgstr "Enhetsnamn (valfritt)"
