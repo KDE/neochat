@@ -153,3 +153,5 @@ void NeoChatConnection::deactivateAccount(const QString &password)
         }
     });
 }
+
+#include "moc_neochatconnection.cpp"

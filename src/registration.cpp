@@ -336,3 +336,5 @@ void Registration::registerEmail()
         m_sid = job->jsonData()["sid"_ls].toString();
     });
 }
+
+#include "moc_registration.cpp"
