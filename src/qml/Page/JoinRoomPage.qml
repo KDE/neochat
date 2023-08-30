@@ -14,7 +14,8 @@ import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
     id: root
-    property var connection
+
+    required property NeoChatConnection connection
 
     property alias keyword: identifierField.text
     property string server

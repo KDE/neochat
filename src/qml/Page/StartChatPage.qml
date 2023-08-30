@@ -15,7 +15,7 @@ import org.kde.neochat 1.0
 Kirigami.ScrollablePage {
     id: root
 
-    property var connection
+    property NeoChatConnection connection
 
     title: i18n("Start a Chat")
 

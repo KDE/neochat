@@ -14,7 +14,7 @@ import org.kde.neochat 1.0
 FormCard.FormCardPage {
     id: root
 
-    property var connection
+    required property NeoChatConnection connection
 
     title: i18nc("@title", "Deactivate Account")
 

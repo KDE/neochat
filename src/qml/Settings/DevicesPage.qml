@@ -12,15 +12,18 @@ import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
+    id: root
+
     title: i18n("Devices")
 
-    property alias connection: devicesModel.connection
+    required property NeoChatConnection connection
 
     leftPadding: 0
     rightPadding: 0
 
     DevicesModel {
         id: devicesModel
+        connection: root.connection
     }
 
     ColumnLayout {

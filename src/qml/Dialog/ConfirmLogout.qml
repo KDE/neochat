@@ -11,7 +11,7 @@ import org.kde.neochat 1.0
 QQC2.Dialog {
     id: root
 
-    property var connection
+    required property NeoChatConnection connection
 
     ColumnLayout {
         Kirigami.Heading {

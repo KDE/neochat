@@ -100,7 +100,7 @@ QQC2.ToolBar {
             delegate: Delegates.RoundedItemDelegate {
                 id: userDelegate
 
-                required property var connection
+                required property NeoChatConnection connection
 
                 width: parent.width
                 text: connection.localUser.displayName
