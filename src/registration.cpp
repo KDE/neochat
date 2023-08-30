@@ -21,9 +21,9 @@ Registration::Registration()
 {
     auto server = new QTcpServer(this);
     server->listen(QHostAddress("127.0.0.1"_ls), 20847);
-    connect(server, &QTcpServer::newConnection, this, [=]() {
+    connect(server, &QTcpServer::newConnection, this, [this, server]() {
         auto conn = server->nextPendingConnection();
-        connect(conn, &QIODevice::readyRead, this, [=]() {
+        connect(conn, &QIODevice::readyRead, this, [this, conn]() {
             auto code =
                 "HTTP/1.0 200\nContent-type: text/html\n\n<html><head><script src=\"https://www.google.com/recaptcha/api.js\" async defer></script></head><body style=\"background: #00000000\"><center><div class=\"g-recaptcha\" data-sitekey=\"%1\"></div></center></body></html>"_ls
                     .arg(m_recaptchaSiteKey);
@@ -86,7 +86,7 @@ void Registration::registerAccount()
         };
     }
     auto job = m_connection->callApi<NeoChatRegisterJob>("user"_ls, authData, m_username, m_password, QString(), QString(), true);
-    connect(job, &BaseJob::result, this, [=]() {
+    connect(job, &BaseJob::result, this, [this, job]() {
         if (job->status() == BaseJob::Success) {
             setNextStep("loading"_ls);
             auto connection = new NeoChatConnection(this);
@@ -332,7 +332,7 @@ void Registration::registerEmail()
     data.sendAttempt = 0;
 
     auto job = m_connection->callApi<RequestTokenToRegisterEmailJob>(data);
-    connect(job, &BaseJob::finished, this, [=]() {
+    connect(job, &BaseJob::finished, this, [this, job]() {
         m_sid = job->jsonData()["sid"_ls].toString();
     });
 }
