@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
-"PO-Revision-Date: 2023-08-28 10:33+0200\n"
+"POT-Creation-Date: 2023-08-30 00:46+0000\n"
+"PO-Revision-Date: 2023-08-29 18:36+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -17,78 +17,78 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:211
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Aanmelden is mislukt: toegangstoken ongeldig of ingetrokken"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
+#: src/controller.cpp:214 src/controller.cpp:219 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Aanmelden mislukt: %1"
 
-#: src/controller.cpp:259
+#: src/controller.cpp:225
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Netwerkfout: %1"
 
-#: src/controller.cpp:284
+#: src/controller.cpp:250
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Toegangstoken is niet gevonden"
 
-#: src/controller.cpp:284
+#: src/controller.cpp:250
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Misschien is het verwijderd?"
 
-#: src/controller.cpp:288
+#: src/controller.cpp:254
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Toegang tot sleutelring is geweigerd."
 
-#: src/controller.cpp:288
+#: src/controller.cpp:254
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "laat NeoChat het toegangstoken lezen"
 
-#: src/controller.cpp:291
+#: src/controller.cpp:257
 #, kde-format
 msgid "No keychain available."
 msgstr "Geen sleutelring beschikbaar"
 
-#: src/controller.cpp:291
+#: src/controller.cpp:257
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installeer een sleutelring, bijv. KWallet of GNOME sleutelring op Linux"
 
-#: src/controller.cpp:294
+#: src/controller.cpp:260
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Lezen van toegangstoken lukt niet"
 
-#: src/controller.cpp:464
+#: src/controller.cpp:379
 #, kde-format
 msgid "File too large to download."
 msgstr "Bestand is te groot om te downloaden."
 
-#: src/controller.cpp:464
+#: src/controller.cpp:379
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Neem contact op met uw matrix-serverbeheerder voor ondersteuning."
 
-#: src/controller.cpp:503
+#: src/controller.cpp:412
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Aanmaken van room is mislukt: %1"
 
-#: src/controller.cpp:524
+#: src/controller.cpp:433
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ruimte aanmaken is mislukt: %1"
 
-#: src/controller.cpp:538
+#: src/controller.cpp:447
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Het room-id waaraan u mee wilt doen is niet geldig"
@@ -122,95 +122,95 @@ msgstr "Bestemming"
 msgid "Network Error"
 msgstr "Netwerkfout"
 
-#: src/main.cpp:179
+#: src/main.cpp:180
 #, kde-format
 msgid "NeoChat"
 msgstr "Neochat"
 
-#: src/main.cpp:181
+#: src/main.cpp:182
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-client"
 
-#: src/main.cpp:183
+#: src/main.cpp:184
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE-gemeenschap"
 
-#: src/main.cpp:184
+#: src/main.cpp:185
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:184 src/main.cpp:185 src/main.cpp:186
+#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
 #, kde-format
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:186
+#: src/main.cpp:187
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Oorspronkelijke auteur van Spectral"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Onderhouder van Quotient"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Freek de Kruijf - 2020 t/m 2022"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Een Qt5 bibliotheek om cross-platform clients voor Matrix te schrijven"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (gebouwd tegen %2)"
 
-#: src/main.cpp:342
+#: src/main.cpp:343
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client voor het matrix communicatieprotocol"
 
-#: src/main.cpp:343
+#: src/main.cpp:344
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Ondersteunt matrix: url schema"
 
-#: src/main.cpp:344
+#: src/main.cpp:345
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Negeer alle SSL fouten, bijv. niet ondertekende certificaten."
@@ -1368,13 +1368,12 @@ msgstr "Er worden geen locaties in deze room gedeeld."
 #: src/qml/Component/Login/Email.qml:20
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "Een e-mailadres toevoegen:"
 
 #: src/qml/Component/Login/Email.qml:32
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgid "Confirm e-mail address"
-msgstr "Nieuwe schermnaam bevestigen"
+msgstr "E-mailadres bevestigen"
 
 #: src/qml/Component/Login/Email.qml:34
 #, kde-format
@@ -1382,30 +1381,30 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"Een e-mail voor bevestiging is naar uw adres verzonden. Ga hier door <b>na</"
+"b> klikken op de koppeling voor bevestigen in de e-mail"
 
 #: src/qml/Component/Login/Email.qml:39
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "E-mail voor bevestiging nogmaals verzenden"
 
 #: src/qml/Component/Login/Homeserver.qml:20
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server Url:"
-msgstr "URL-adres server"
+msgstr "URL-adres server:"
 
 #: src/qml/Component/Login/Homeserver.qml:25
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "Registratie is uitgeschakeld op deze server."
 
 #: src/qml/Component/Login/Homeserver.qml:40
 #: src/qml/Component/Login/Username.qml:37
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading"
-msgstr "Laden…"
+msgstr "Laden"
 
 #: src/qml/Component/Login/Loading.qml:16
 #, kde-format
@@ -1471,6 +1470,7 @@ msgid "Password:"
 msgstr "Wachtwoord:"
 
 #: src/qml/Component/Login/Password.qml:32
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
@@ -1483,16 +1483,14 @@ msgid "Invalid username or password"
 msgstr "Ongeldige gebruikersnaam of wachtwoord"
 
 #: src/qml/Component/Login/RegisterPassword.qml:29
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "Nieuw wachtwoord bevestigen:"
+msgstr "Wachtwoord bevestigen:"
 
 #: src/qml/Component/Login/RegisterPassword.qml:32
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "The passwords do not match."
-msgstr "Wachtwoorden komen niet overeen"
+msgstr "Het wachtwoord komt niet overeen."
 
 #: src/qml/Component/Login/Sso.qml:31
 #, kde-format
@@ -1508,7 +1506,7 @@ msgstr "SSO URL opnieuw openen"
 #: src/qml/Component/Login/Terms.qml:19
 #, kde-format
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "Voorwaarden & bepalingen"
 
 #: src/qml/Component/Login/Terms.qml:20
 #, kde-format
@@ -1516,18 +1514,18 @@ msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
 msgstr ""
+"Door door te gaan met de registratie, gaat u akkoord met de volgende "
+"bepalingen en voorwaarden:"
 
 #: src/qml/Component/Login/Username.qml:19
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username:"
-msgstr "Gebruikersnaam"
+msgstr "Gebruikersnaam:"
 
 #: src/qml/Component/Login/Username.qml:22
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "Username unavailable"
-msgstr "Geen gebruikers beschikbaar"
+msgstr "Gebruikersnaam niet beschikbaar"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1653,6 +1651,36 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title"
+msgid "Deactivate Account"
+msgstr "Account bewerken"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
+#, fuzzy, kde-format
+#| msgid "Warning: %1"
+msgctxt "@title"
+msgid "Warning"
+msgstr "Waarschuwing: %1"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate account"
+msgstr "Account bewerken"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
@@ -2589,7 +2617,7 @@ msgid "Edit this account"
 msgstr "Dit account bewerken"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:42
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:44
 #, kde-format
 msgid "Account editor"
 msgstr "Accountbewerker"
@@ -2606,7 +2634,7 @@ msgid "Devices"
 msgstr "Apparaten"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
-#: src/qml/Settings/AccountsPage.qml:79
+#: src/qml/Settings/AccountsPage.qml:81
 #, kde-format
 msgid "Logout"
 msgstr "Afmelden"
@@ -2786,7 +2814,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Ruimte verlaten"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:107
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:109
 #, kde-format
 msgid "Add Account"
 msgstr "Account toevoegen"
@@ -2854,16 +2882,16 @@ msgid "Welcome"
 msgstr "Welkom"
 
 #: src/qml/Page/WelcomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Log in to a different account."
+#, kde-format
 msgid "Log in to a different account or create a new account."
-msgstr "Aanmelden met een ander account."
+msgstr "Aanmelden met een ander account of maak een nieuw account aan."
 
 #: src/qml/Page/WelcomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Welcome to NeoChat! Continue by logging in."
+#, kde-format
 msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr "Welkom bij NeoChat! Ga door door zich aan te melden."
+msgstr ""
+"Welkom bij NeoChat! Ga door door zich aan te melden of een nieuw account aan "
+"te maken."
 
 #: src/qml/Page/WelcomePage.qml:121
 #, kde-format
@@ -3505,23 +3533,42 @@ msgstr "Serverinformatie"
 msgid "Homeserver url"
 msgstr "Homeserver-url"
 
+#: src/qml/Settings/AccountEditorPage.qml:254
+#, fuzzy, kde-format
+#| msgid "Account editor"
+msgctxt "@title"
+msgid "Account Management"
+msgstr "Accountbewerker"
+
+#: src/qml/Settings/AccountEditorPage.qml:262
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate Account"
+msgstr "Account bewerken"
+
+#: src/qml/Settings/AccountEditorPage.qml:263
+#, kde-format
+msgctxt "@title"
+msgid "Confirm Deactivating Account"
+msgstr ""
+
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "Accounts"
 msgstr "Accounts"
 
-#: src/qml/Settings/AccountsPage.qml:124
+#: src/qml/Settings/AccountsPage.qml:126
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Wachtwoord is met succes gewijzigd"
 
-#: src/qml/Settings/AccountsPage.qml:126
+#: src/qml/Settings/AccountsPage.qml:128
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Verkeerde wachtwoord ingevoerd"
 
-#: src/qml/Settings/AccountsPage.qml:128
+#: src/qml/Settings/AccountsPage.qml:130
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Onbekend probleem bij poging het wachtwoord te wijzigen"
@@ -4069,56 +4116,50 @@ msgid "Delete word"
 msgstr "Woord verwijderen"
 
 #: src/registration.cpp:299
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgid "No server."
-msgstr "Server toevoegen"
+msgstr "Geen server."
 
 #: src/registration.cpp:301
 #, kde-format
 msgid "Checking Server availability."
-msgstr ""
+msgstr "Beschikbaarheid van server controleren."
 
 #: src/registration.cpp:303
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "This is not a valid server."
-msgstr "De ingevoerde tekst is geen geldige URL"
+msgstr "Dit is geen geldige server."
 
 #: src/registration.cpp:305
-#, kde-format
-msgid "Regisration for this server is disabled."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Regisration for this server is disabled."
+msgid "Registration for this server is disabled."
+msgstr "Registratie voor deze server is uitgeschakeld."
 
 #: src/registration.cpp:307
-#, fuzzy, kde-format
-#| msgid "No name"
+#, kde-format
 msgid "No username."
-msgstr "Geen naam"
+msgstr "Geen gebruikersnaam."
 
 #: src/registration.cpp:309
 #, kde-format
 msgid "Checking username availability."
-msgstr ""
+msgstr "Beschikbaarheid van gebruikersnaam controleren."
 
 #: src/registration.cpp:311
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "This username is not available."
-msgstr "Geen gebruikers beschikbaar"
+msgstr "Deze gebruikersnaam is niet beschikbaar."
 
 #: src/registration.cpp:313
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
+#, kde-format
 msgid "Continue"
 msgstr "Doorgaan"
 
 #: src/registration.cpp:315
 #, kde-format
 msgid "Working"
-msgstr ""
+msgstr "Werkend"
 
 #: src/roommanager.cpp:52
 #, kde-format
@@ -4281,9 +4322,6 @@ msgstr "Afsluiten"
 
 #~ msgid "%1 (%2)"
 #~ msgstr "%1 (%2)"
-
-#~ msgid "Warning: %1"
-#~ msgstr "Waarschuwing: %1"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "Een emoji toevoegen"

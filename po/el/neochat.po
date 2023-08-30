@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"POT-Creation-Date: 2023-08-30 00:46+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -17,81 +17,81 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:211
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Αποτυχία σύνδεσης: μη έγκυρο ενδεικτικό πρόσβασης ή έχει ανακληθεί"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
+#: src/controller.cpp:214 src/controller.cpp:219 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Αποτυχία σύνδεσης: %1"
 
-#: src/controller.cpp:259
+#: src/controller.cpp:225
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Σφάλμα δικτύου: %1"
 
-#: src/controller.cpp:284
+#: src/controller.cpp:250
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Το ενδεικτικό πρόσβασης δεν βρέθηκε"
 
-#: src/controller.cpp:284
+#: src/controller.cpp:250
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ίσως να έχει διαγραφεί;"
 
-#: src/controller.cpp:288
+#: src/controller.cpp:254
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Άρνηση πρόσβασης στα κλειδιά."
 
-#: src/controller.cpp:288
+#: src/controller.cpp:254
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Επίτρεψε στο NeoChat να διαβάσει το ενδεικτικό πρόσβασης"
 
-#: src/controller.cpp:291
+#: src/controller.cpp:257
 #, kde-format
 msgid "No keychain available."
 msgstr "Καμία διαθέσιμη αλυσίδα κλειδιών."
 
-#: src/controller.cpp:291
+#: src/controller.cpp:257
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Εγκατέστησε μια αλυσίδα κλειδιών. π.χ. το KWallet ή το GNOME keyring στο "
 "Linux"
 
-#: src/controller.cpp:294
+#: src/controller.cpp:260
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Αδυναμία ανάγνωσης του ενδεικτικού πρόσβασης"
 
-#: src/controller.cpp:464
+#: src/controller.cpp:379
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:464
+#: src/controller.cpp:379
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:503
+#: src/controller.cpp:412
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/controller.cpp:524
+#: src/controller.cpp:433
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/controller.cpp:538
+#: src/controller.cpp:447
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Προσπάθεια εισόδου με μη έγκυρο αναγνωριστικό αίθουσας"
@@ -125,98 +125,98 @@ msgstr "Προορισμός"
 msgid "Network Error"
 msgstr "Σφάλμα δικτύου"
 
-#: src/main.cpp:179
+#: src/main.cpp:180
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:181
+#: src/main.cpp:182
 #, kde-format
 msgid "Matrix client"
 msgstr "Πελάτης του Matrix"
 
-#: src/main.cpp:183
+#: src/main.cpp:184
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 
-#: src/main.cpp:184
+#: src/main.cpp:185
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:184 src/main.cpp:185 src/main.cpp:186
+#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
 #, kde-format
 msgid "Maintainer"
 msgstr "Συντηρητής"
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:186
+#: src/main.cpp:187
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Αρχικός συγγραφέας του Spectral"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Συντηρητής του Quotient"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stelios"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sstavra@gmail.com"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Μια βιβλιοθήκη Qt5 για τη συγγραφή πελατών ανεξάρτητων από πλατφόρμες για το "
 "Matrix"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (κατασκευάστηκε με τη %2)"
 
-#: src/main.cpp:342
+#: src/main.cpp:343
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Πελάτης για το πρωτόκολλο επικοινωνίας Matrix"
 
-#: src/main.cpp:343
+#: src/main.cpp:344
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Υποστηρίζει το matrix: url σχήμα"
 
-#: src/main.cpp:344
+#: src/main.cpp:345
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1536,6 +1536,7 @@ msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
 #: src/qml/Component/Login/Password.qml:32
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
@@ -1722,6 +1723,36 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 πληκτρολογεί"
 msgstr[1] "%2 πληκτρολογούν"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title"
+msgid "Deactivate Account"
+msgstr "Επεξεργασία λογαριασμού"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
+#, fuzzy, kde-format
+#| msgid "Warning: %1"
+msgctxt "@title"
+msgid "Warning"
+msgstr "Προειδοποίηση: %1"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate account"
+msgstr "Επεξεργασία λογαριασμού"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
@@ -2664,7 +2695,7 @@ msgid "Edit this account"
 msgstr "Επεξεργασία αυτού του λογαριασμού"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:42
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:44
 #, kde-format
 msgid "Account editor"
 msgstr "Συντάκτης λογαριασμού"
@@ -2682,7 +2713,7 @@ msgid "Devices"
 msgstr "Συσκευές"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
-#: src/qml/Settings/AccountsPage.qml:79
+#: src/qml/Settings/AccountsPage.qml:81
 #, kde-format
 msgid "Logout"
 msgstr "Αποσύνδεση"
@@ -2868,7 +2899,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:107
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:109
 #, kde-format
 msgid "Add Account"
 msgstr "Προσθήκη λογαριασμού"
@@ -3602,23 +3633,42 @@ msgstr "Πληροφορίες εξυπηρετητή"
 msgid "Homeserver url"
 msgstr "Url εξυπηρετητή"
 
+#: src/qml/Settings/AccountEditorPage.qml:254
+#, fuzzy, kde-format
+#| msgid "Account editor"
+msgctxt "@title"
+msgid "Account Management"
+msgstr "Συντάκτης λογαριασμού"
+
+#: src/qml/Settings/AccountEditorPage.qml:262
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate Account"
+msgstr "Επεξεργασία λογαριασμού"
+
+#: src/qml/Settings/AccountEditorPage.qml:263
+#, kde-format
+msgctxt "@title"
+msgid "Confirm Deactivating Account"
+msgstr ""
+
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "Accounts"
 msgstr "Λογαριασμοί"
 
-#: src/qml/Settings/AccountsPage.qml:124
+#: src/qml/Settings/AccountsPage.qml:126
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Επιτυχημένη αλλαγή κωδικού πρόσβασης"
 
-#: src/qml/Settings/AccountsPage.qml:126
+#: src/qml/Settings/AccountsPage.qml:128
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Δόθηκε λάθος κωδικός πρόσβασης"
 
-#: src/qml/Settings/AccountsPage.qml:128
+#: src/qml/Settings/AccountsPage.qml:130
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Άγνωστο πρόβλημα κατά την αλλαγή κωδικού πρόσβασης"
@@ -4207,7 +4257,7 @@ msgstr "Το δοσμένο κείμενο δεν είναι έγκυρο url"
 
 #: src/registration.cpp:305
 #, kde-format
-msgid "Regisration for this server is disabled."
+msgid "Registration for this server is disabled."
 msgstr ""
 
 #: src/registration.cpp:307
@@ -4394,9 +4444,6 @@ msgstr "Έξοδος"
 
 #~ msgid "%1 (%2)"
 #~ msgstr "%1 (%2)"
-
-#~ msgid "Warning: %1"
-#~ msgstr "Προειδοποίηση: %1"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "Προσθήκη εμότζι (εικονοχαρακτήρα)"

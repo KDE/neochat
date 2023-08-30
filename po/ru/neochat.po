@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"POT-Creation-Date: 2023-08-30 00:46+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -19,81 +19,81 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:211
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Ошибка входа в систему: токен доступа недействителен или отозван"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
+#: src/controller.cpp:214 src/controller.cpp:219 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ошибка входа в систему: %1"
 
-#: src/controller.cpp:259
+#: src/controller.cpp:225
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ошибка сети: %1"
 
-#: src/controller.cpp:284
+#: src/controller.cpp:250
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не найден токен доступа"
 
-#: src/controller.cpp:284
+#: src/controller.cpp:250
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Возможно, он был удалён."
 
-#: src/controller.cpp:288
+#: src/controller.cpp:254
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Не удалось получить доступ к связке ключей."
 
-#: src/controller.cpp:288
+#: src/controller.cpp:254
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Разрешите приложению NeoChat прочитать токен доступа"
 
-#: src/controller.cpp:291
+#: src/controller.cpp:257
 #, kde-format
 msgid "No keychain available."
 msgstr "Нет ни одной доступной связки ключей."
 
-#: src/controller.cpp:291
+#: src/controller.cpp:257
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Установите приложение, предоставляющее службу связки ключей, например "
 "KWallet или Gnome Keyring."
 
-#: src/controller.cpp:294
+#: src/controller.cpp:260
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не удалось прочитать токен доступа"
 
-#: src/controller.cpp:464
+#: src/controller.cpp:379
 #, kde-format
 msgid "File too large to download."
 msgstr "Слишком большой файл для загрузки."
 
-#: src/controller.cpp:464
+#: src/controller.cpp:379
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Обратитесь за помощью к администратору сервера Matrix."
 
-#: src/controller.cpp:503
+#: src/controller.cpp:412
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Не удалось создать комнату: «%1»"
 
-#: src/controller.cpp:524
+#: src/controller.cpp:433
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Не удалось создать комнату: «%1»"
 
-#: src/controller.cpp:538
+#: src/controller.cpp:447
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Недействительный идентификатор комнаты, в которую вы хотите войти"
@@ -127,17 +127,17 @@ msgstr "Назначение"
 msgid "Network Error"
 msgstr "Ошибка соединения"
 
-#: src/main.cpp:179
+#: src/main.cpp:180
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:181
+#: src/main.cpp:182
 #, kde-format
 msgid "Matrix client"
 msgstr "Клиент Matrix"
 
-#: src/main.cpp:183
+#: src/main.cpp:184
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
@@ -145,80 +145,80 @@ msgstr ""
 "© Black Hat 2018-2020\n"
 "© Сообщество KDE 2020-2022"
 
-#: src/main.cpp:184
+#: src/main.cpp:185
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:184 src/main.cpp:185 src/main.cpp:186
+#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
 #, kde-format
 msgid "Maintainer"
 msgstr "Сопровождающий"
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:186
+#: src/main.cpp:187
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Первоначальный автор Spectral"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Алексей Русаков"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Сопровождающий Quotient"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Александр Яворский, Павел Чернышов, Олеся Герасименко"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kekcuha@gmail.com, farline99@yandex.ru, translation-team@basealt.ru"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Библиотека Qt5 для написания кроссплатформенных клиентов Matrix"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (собрано с версией %2)"
 
-#: src/main.cpp:342
+#: src/main.cpp:343
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клиент для протокола связи Matrix"
 
-#: src/main.cpp:343
+#: src/main.cpp:344
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Адрес, соответствующий схеме Matrix"
 
-#: src/main.cpp:344
+#: src/main.cpp:345
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1508,6 +1508,7 @@ msgid "Password:"
 msgstr "Пароль:"
 
 #: src/qml/Component/Login/Password.qml:32
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
@@ -1696,6 +1697,36 @@ msgstr[0] "%2 набирают сообщение"
 msgstr[1] "%2 набирают сообщение"
 msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title"
+msgid "Deactivate Account"
+msgstr "Редактировать учётную запись"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
+#, fuzzy, kde-format
+#| msgid "Warning: %1"
+msgctxt "@title"
+msgid "Warning"
+msgstr "Предупреждение: %1"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate account"
+msgstr "Редактировать учётную запись"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
@@ -2618,7 +2649,7 @@ msgid "Edit this account"
 msgstr "Изменить эту учётную запись"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:42
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:44
 #, kde-format
 msgid "Account editor"
 msgstr "Редактирование учётной записи"
@@ -2635,7 +2666,7 @@ msgid "Devices"
 msgstr "Устройства"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
-#: src/qml/Settings/AccountsPage.qml:79
+#: src/qml/Settings/AccountsPage.qml:81
 #, kde-format
 msgid "Logout"
 msgstr "Завершить сеанс"
@@ -2818,7 +2849,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Покинуть пространство"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:107
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:109
 #, kde-format
 msgid "Add Account"
 msgstr "Добавить учётную запись"
@@ -3552,23 +3583,42 @@ msgstr "Информация о сервере"
 msgid "Homeserver url"
 msgstr "Адрес домашнего сервера"
 
+#: src/qml/Settings/AccountEditorPage.qml:254
+#, fuzzy, kde-format
+#| msgid "Account editor"
+msgctxt "@title"
+msgid "Account Management"
+msgstr "Редактирование учётной записи"
+
+#: src/qml/Settings/AccountEditorPage.qml:262
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate Account"
+msgstr "Редактировать учётную запись"
+
+#: src/qml/Settings/AccountEditorPage.qml:263
+#, kde-format
+msgctxt "@title"
+msgid "Confirm Deactivating Account"
+msgstr ""
+
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "Accounts"
 msgstr "Учётные записи"
 
-#: src/qml/Settings/AccountsPage.qml:124
+#: src/qml/Settings/AccountsPage.qml:126
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Пароль успешно изменён"
 
-#: src/qml/Settings/AccountsPage.qml:126
+#: src/qml/Settings/AccountsPage.qml:128
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Введён неверный пароль"
 
-#: src/qml/Settings/AccountsPage.qml:128
+#: src/qml/Settings/AccountsPage.qml:130
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "При попытке сменить пароль произошла ошибка"
@@ -4155,7 +4205,7 @@ msgstr "Введённый текст не является допустимым
 
 #: src/registration.cpp:305
 #, kde-format
-msgid "Regisration for this server is disabled."
+msgid "Registration for this server is disabled."
 msgstr ""
 
 #: src/registration.cpp:307
@@ -4347,9 +4397,6 @@ msgstr "Выход"
 
 #~ msgid "%1 (%2)"
 #~ msgstr "%1 (%2)"
-
-#~ msgid "Warning: %1"
-#~ msgstr "Предупреждение: %1"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "Эмодзи"

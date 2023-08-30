@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
-"PO-Revision-Date: 2023-08-28 06:42+0200\n"
+"POT-Creation-Date: 2023-08-30 00:46+0000\n"
+"PO-Revision-Date: 2023-08-29 10:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,77 +20,77 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:211
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Neuspela prijava: Žeton za dostop je neveljaven ali preklican"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
+#: src/controller.cpp:214 src/controller.cpp:219 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prijava je spodletela: %1"
 
-#: src/controller.cpp:259
+#: src/controller.cpp:225
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Napaka omrežja: %1"
 
-#: src/controller.cpp:284
+#: src/controller.cpp:250
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Žetona za dostop ni bilo mogoče najti"
 
-#: src/controller.cpp:284
+#: src/controller.cpp:250
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ali je bil mogoče izbrisan?"
 
-#: src/controller.cpp:288
+#: src/controller.cpp:254
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Dostop do verige ključev je bil zavrnjen."
 
-#: src/controller.cpp:288
+#: src/controller.cpp:254
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Dovolite, da NeoChat prebere žeton za dostop"
 
-#: src/controller.cpp:291
+#: src/controller.cpp:257
 #, kde-format
 msgid "No keychain available."
 msgstr "Nobene verige ključev ni na voljo."
 
-#: src/controller.cpp:291
+#: src/controller.cpp:257
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Namestite verigo ključev, npr. KWallet ali GNOME Keyring v Linux"
 
-#: src/controller.cpp:294
+#: src/controller.cpp:260
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Žetona za dostop ni mogoče prebrati"
 
-#: src/controller.cpp:464
+#: src/controller.cpp:379
 #, kde-format
 msgid "File too large to download."
 msgstr "Datoteka je prevelika za prenos."
 
-#: src/controller.cpp:464
+#: src/controller.cpp:379
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Stopite v stik za podporo z vašim skrbnikom matrixa."
 
-#: src/controller.cpp:503
+#: src/controller.cpp:412
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/controller.cpp:524
+#: src/controller.cpp:433
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
 
-#: src/controller.cpp:538
+#: src/controller.cpp:447
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikacija sobe, kamor se poskušate pridružiti, ni veljavna"
@@ -124,95 +124,95 @@ msgstr "Cilj"
 msgid "Network Error"
 msgstr "Napaka omrežja"
 
-#: src/main.cpp:179
+#: src/main.cpp:180
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:181
+#: src/main.cpp:182
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrixov odjemalec"
 
-#: src/main.cpp:183
+#: src/main.cpp:184
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 skupnost KDE"
 
-#: src/main.cpp:184
+#: src/main.cpp:185
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:184 src/main.cpp:185 src/main.cpp:186
+#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
 #, kde-format
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:186
+#: src/main.cpp:187
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Izvorni avtor programa Spectral"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Vzdrževalec programa Quotient"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Matjaž Jeran,Martin Srebotnjak"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Knjižnica Qt5 za pisanje odjemalcev za več platform za Matrix"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (zgrajeno na %2)"
 
-#: src/main.cpp:342
+#: src/main.cpp:343
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Odjemalec za komunikacijski protokol matrix"
 
-#: src/main.cpp:343
+#: src/main.cpp:344
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Podpira matriko: shema url"
 
-#: src/main.cpp:344
+#: src/main.cpp:345
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Prezri vse napake SSL npr. nepodpisana potrdila."
@@ -1380,13 +1380,12 @@ msgstr "Ni deljenih lokacij v tej sobi."
 #: src/qml/Component/Login/Email.qml:20
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "Dodaj naslov e-pošte:"
 
 #: src/qml/Component/Login/Email.qml:32
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgid "Confirm e-mail address"
-msgstr "Potrdi novo ime prikaza"
+msgstr "Potrdi naslov e-pošte"
 
 #: src/qml/Component/Login/Email.qml:34
 #, kde-format
@@ -1394,30 +1393,30 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"Na vaš naslov je bilo poslano potrditveno e-sporočilo. Nadaljujte tukaj "
+"<b>po</b> kliku na potrditveno povezavo v e-pošti"
 
 #: src/qml/Component/Login/Email.qml:39
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "Ponovno pošlji potrditveno e-pošto"
 
 #: src/qml/Component/Login/Homeserver.qml:20
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server Url:"
-msgstr "Strežnikov naslov url"
+msgstr "Strežnikov naslov Url:"
 
 #: src/qml/Component/Login/Homeserver.qml:25
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "Registracija je onemogočena na tem strežniku."
 
 #: src/qml/Component/Login/Homeserver.qml:40
 #: src/qml/Component/Login/Username.qml:37
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading"
-msgstr "Nalaganje…"
+msgstr "Nalaganje"
 
 #: src/qml/Component/Login/Loading.qml:16
 #, kde-format
@@ -1483,6 +1482,7 @@ msgid "Password:"
 msgstr "Geslo:"
 
 #: src/qml/Component/Login/Password.qml:32
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
@@ -1495,16 +1495,14 @@ msgid "Invalid username or password"
 msgstr "Neveljavno uporabniško ime ali geslo"
 
 #: src/qml/Component/Login/RegisterPassword.qml:29
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "Potrdi novo geslo:"
+msgstr "Potrdi geslo:"
 
 #: src/qml/Component/Login/RegisterPassword.qml:32
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "The passwords do not match."
-msgstr "Gesli se ne ujemata"
+msgstr "Gesli se ne ujemata."
 
 #: src/qml/Component/Login/Sso.qml:31
 #, kde-format
@@ -1520,26 +1518,24 @@ msgstr "Ponovno odpri URL za enovito prijavo"
 #: src/qml/Component/Login/Terms.qml:19
 #, kde-format
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "Pogoji uporabe"
 
 #: src/qml/Component/Login/Terms.qml:20
 #, kde-format
 msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
-msgstr ""
+msgstr "Z nadaljevanjem registracije se strinjate z naslednjimi pogoji:"
 
 #: src/qml/Component/Login/Username.qml:19
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgid "Username:"
-msgstr "Uporabnik"
+msgstr "Uporabniško ime:"
 
 #: src/qml/Component/Login/Username.qml:22
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "Username unavailable"
-msgstr "Nobenega uporabnika ni na voljo"
+msgstr "Uporabniško ime ni na voljo"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1668,6 +1664,36 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipkata"
 msgstr[2] "%2 tipkajo"
 msgstr[3] "%2 tipka"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title"
+msgid "Deactivate Account"
+msgstr "Uredi račun"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
+#, fuzzy, kde-format
+#| msgid "Warning: %1"
+msgctxt "@title"
+msgid "Warning"
+msgstr "Opozorilo: %1"
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate account"
+msgstr "Uredi račun"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
@@ -2593,7 +2619,7 @@ msgid "Edit this account"
 msgstr "Uredi ta račun"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:42
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:44
 #, kde-format
 msgid "Account editor"
 msgstr "Urejevalnik računa"
@@ -2610,7 +2636,7 @@ msgid "Devices"
 msgstr "Naprave"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
-#: src/qml/Settings/AccountsPage.qml:79
+#: src/qml/Settings/AccountsPage.qml:81
 #, kde-format
 msgid "Logout"
 msgstr "Odjavi se"
@@ -2790,7 +2816,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Zapusti prostor"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:107
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:109
 #, kde-format
 msgid "Add Account"
 msgstr "Dodaj račun"
@@ -2858,16 +2884,15 @@ msgid "Welcome"
 msgstr "Dobrodošli"
 
 #: src/qml/Page/WelcomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Log in to a different account."
+#, kde-format
 msgid "Log in to a different account or create a new account."
-msgstr "Prijavite se na drugi račun."
+msgstr "Prijavite se na drugi račun ali ustvarite novi račun."
 
 #: src/qml/Page/WelcomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Welcome to NeoChat! Continue by logging in."
+#, kde-format
 msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr "Dobrodošli v NeoChat! Nadaljuje s prijavo."
+msgstr ""
+"Dobrodošli v NeoChat! Nadaljuje s prijavo ali ustvarjanjem novega računa."
 
 #: src/qml/Page/WelcomePage.qml:121
 #, kde-format
@@ -3505,23 +3530,42 @@ msgstr "Informacije o strežniku"
 msgid "Homeserver url"
 msgstr "Url domačega strežnika"
 
+#: src/qml/Settings/AccountEditorPage.qml:254
+#, fuzzy, kde-format
+#| msgid "Account editor"
+msgctxt "@title"
+msgid "Account Management"
+msgstr "Urejevalnik računa"
+
+#: src/qml/Settings/AccountEditorPage.qml:262
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate Account"
+msgstr "Uredi račun"
+
+#: src/qml/Settings/AccountEditorPage.qml:263
+#, kde-format
+msgctxt "@title"
+msgid "Confirm Deactivating Account"
+msgstr ""
+
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "Accounts"
 msgstr "Računi"
 
-#: src/qml/Settings/AccountsPage.qml:124
+#: src/qml/Settings/AccountsPage.qml:126
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Uspešno zamenjano geslo"
 
-#: src/qml/Settings/AccountsPage.qml:126
+#: src/qml/Settings/AccountsPage.qml:128
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Vneseno napačno geslo"
 
-#: src/qml/Settings/AccountsPage.qml:128
+#: src/qml/Settings/AccountsPage.qml:130
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Neznana težava ob poskusu zamenjave gesla"
@@ -4068,56 +4112,50 @@ msgid "Delete word"
 msgstr "Izbriši besedo"
 
 #: src/registration.cpp:299
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgid "No server."
-msgstr "Dodaj strežnik"
+msgstr "Ni strežnika."
 
 #: src/registration.cpp:301
 #, kde-format
 msgid "Checking Server availability."
-msgstr ""
+msgstr "Preverjanje razpoložljivosti strežnika."
 
 #: src/registration.cpp:303
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "This is not a valid server."
-msgstr "Vneseno besedilo ni veljavni naslov url"
+msgstr "To ni veljavni strežnik."
 
 #: src/registration.cpp:305
-#, kde-format
-msgid "Regisration for this server is disabled."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Regisration for this server is disabled."
+msgid "Registration for this server is disabled."
+msgstr "Registracija za ta strežnik je onemogočena."
 
 #: src/registration.cpp:307
-#, fuzzy, kde-format
-#| msgid "No name"
+#, kde-format
 msgid "No username."
-msgstr "Brez imena"
+msgstr "Ni uporabniškega imena."
 
 #: src/registration.cpp:309
 #, kde-format
 msgid "Checking username availability."
-msgstr ""
+msgstr "Preverjanje razpoložljivosti uporabniškega imena."
 
 #: src/registration.cpp:311
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "This username is not available."
-msgstr "Nobenega uporabnika ni na voljo"
+msgstr "Tega uporabniškega imena ni na voljo."
 
 #: src/registration.cpp:313
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
+#, kde-format
 msgid "Continue"
 msgstr "Nadaljuj"
 
 #: src/registration.cpp:315
 #, kde-format
 msgid "Working"
-msgstr ""
+msgstr "V delovanju"
 
 #: src/roommanager.cpp:52
 #, kde-format
@@ -4278,9 +4316,6 @@ msgstr "Zapusti"
 
 #~ msgid "%1 (%2)"
 #~ msgstr "%1 (%2)"
-
-#~ msgid "Warning: %1"
-#~ msgstr "Opozorilo: %1"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "Dodaj čustvenčka"
