@@ -362,7 +362,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    if (parser.positionalArguments().length() > 0) {
+    if (!parser.positionalArguments().isEmpty()) {
         RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
     }
 
