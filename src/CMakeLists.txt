@@ -126,6 +126,12 @@ add_library(neochat STATIC
     registration.cpp
     neochatconnection.cpp
     neochatconnection.h
+    jobs/neochatdeactivateaccountjob.cpp
+    jobs/neochatdeactivateaccountjob.h
+    jobs/neochatdeletedevicejob.cpp
+    jobs/neochatdeletedevicejob.h
+    jobs/neochatchangepasswordjob.cpp
+    jobs/neochatchangepasswordjob.h
 )
 
 ecm_qt_declare_logging_category(neochat

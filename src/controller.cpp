@@ -297,24 +297,6 @@ bool Controller::supportSystemTray() const
 #endif
 }
 
-NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth)
-    : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), "/_matrix/client/r0/account/password")
-{
-    QJsonObject _data;
-    addParam<>(_data, QStringLiteral("new_password"), newPassword);
-    addParam<IfNotEmpty>(_data, QStringLiteral("logout_devices"), logoutDevices);
-    addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
-    setRequestData(_data);
-}
-
-NeoChatDeactivateAccountJob::NeoChatDeactivateAccountJob(const Quotient::Omittable<QJsonObject> &auth)
-    : BaseJob(HttpVerb::Post, QStringLiteral("DisableDeviceJob"), "_matrix/client/v3/account/deactivate")
-{
-    QJsonObject data;
-    addParam<IfNotEmpty>(data, QStringLiteral("auth"), auth);
-    setRequestData(data);
-}
-
 int Controller::accountCount() const
 {
     return m_accountRegistry.count();
@@ -395,14 +377,6 @@ PushRuleModel *Controller::pushRuleModel() const
 void Controller::saveWindowGeometry()
 {
     WindowController::instance().saveGeometry();
-}
-
-NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
-    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId).toLatin1())
-{
-    QJsonObject _data;
-    addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
-    setRequestData(std::move(_data));
 }
 
 void Controller::createRoom(const QString &name, const QString &topic)

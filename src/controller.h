@@ -236,22 +236,3 @@ Q_SIGNALS:
 public Q_SLOTS:
     void saveWindowGeometry();
 };
-
-// TODO libQuotient 0.7: Drop
-class NeochatChangePasswordJob : public Quotient::BaseJob
-{
-public:
-    explicit NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
-};
-
-class NeochatDeleteDeviceJob : public Quotient::BaseJob
-{
-public:
-    explicit NeochatDeleteDeviceJob(const QString &deviceId, const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
-};
-
-class NeoChatDeactivateAccountJob : public Quotient::BaseJob
-{
-public:
-    explicit NeoChatDeactivateAccountJob(const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
-};

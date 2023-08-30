@@ -4,6 +4,7 @@
 #include "devicesmodel.h"
 
 #include "controller.h"
+#include "jobs/neochatdeletedevicejob.h"
 
 #include <QDateTime>
 #include <QLocale>
