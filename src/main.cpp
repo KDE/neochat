@@ -146,6 +146,8 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_WEBVIEW
     QtWebView::initialize();
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+    QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGLRhi);
 #endif
 
 #ifdef Q_OS_ANDROID
