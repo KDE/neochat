@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 00:46+0000\n"
+"POT-Creation-Date: 2023-08-31 00:46+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -72,28 +72,28 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "File too large to download."
 msgstr "Datei zu groß für einen Download."
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:412
+#: src/controller.cpp:386
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/controller.cpp:433
+#: src/controller.cpp:407
 #, fuzzy, kde-format
 #| msgid "Room creation failed: %1"
 msgid "Space creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/controller.cpp:447
+#: src/controller.cpp:421
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Die Kennung des Raums, den Sie betreten möchten, ist nicht gültig"
@@ -1492,7 +1492,7 @@ msgstr "Registrieren"
 
 #: src/qml/Component/Login/Password.qml:28
 #: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:73
+#: src/qml/Settings/DevicesPage.qml:76
 #, kde-format
 msgid "Password:"
 msgstr "Passwort:"
@@ -1761,7 +1761,7 @@ msgstr "Raumname:"
 msgid "Room topic:"
 msgstr "Thema des Raumes:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2059,7 +2059,7 @@ msgid "Admin (100)"
 msgstr "Admin (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:77
+#: src/qml/Settings/DevicesPage.qml:80
 #, kde-format
 msgid "Confirm"
 msgstr "Bestätigen"
@@ -2580,79 +2580,79 @@ msgstr "Einladung versenden"
 msgid "User is either already a member or has been invited"
 msgstr ""
 
-#: src/qml/Page/JoinRoomPage.qml:22
+#: src/qml/Page/JoinRoomPage.qml:23
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Räume erkunden"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:46
 #, kde-format
 msgid "Find a room..."
 msgstr "Einen Raum suchen ..."
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "View"
 msgstr "Ansicht"
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "Join"
 msgstr "Betreten"
 
-#: src/qml/Page/JoinRoomPage.qml:82
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add New Server"
 msgstr "Neuen Server hinzufügen"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:84
 #, kde-format
 msgid "Home Server"
 msgstr "Heimserver"
 
-#: src/qml/Page/JoinRoomPage.qml:92
+#: src/qml/Page/JoinRoomPage.qml:93
 #, kde-format
 msgid "Add new server"
 msgstr "Neuen Server hinzufügen"
 
-#: src/qml/Page/JoinRoomPage.qml:123
+#: src/qml/Page/JoinRoomPage.qml:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Server hinzufügen"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Valid server entered"
 msgstr "Gültiger Server eingegeben"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr ""
 "Der Server kann nicht aufgelöst werden oder ist bereits hinzugefügt worden"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Der eingegebene Text ist keine gültige URL"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Server-URL eingeben, z. B. kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:144
+#: src/qml/Page/JoinRoomPage.qml:145
 #, kde-format
 msgid "Server URL"
 msgstr "Server-URL"
 
-#: src/qml/Page/JoinRoomPage.qml:245
+#: src/qml/Page/JoinRoomPage.qml:246
 #, kde-format
 msgid "Joined"
 msgstr "Betreten"
 
-#: src/qml/Page/JoinRoomPage.qml:299
+#: src/qml/Page/JoinRoomPage.qml:300
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -2676,8 +2676,8 @@ msgstr "Kontodetails"
 msgid "Notification settings"
 msgstr "Benachrichtigungseinstellungen"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
-#: src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:64
 #, kde-format
 msgid "Devices"
 msgstr "Geräte"
@@ -3051,7 +3051,7 @@ msgid "No member count"
 msgstr "Keine Mitgliederanzahl"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
-#: src/qml/Settings/SettingsPage.qml:18
+#: src/qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "General"
 msgstr "Allgemein"
@@ -3066,7 +3066,7 @@ msgstr "Sicherheit"
 msgid "Permissions"
 msgstr "Berechtigungen"
 
-#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:30
+#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
 msgstr "Benachrichtigungen"
@@ -3620,7 +3620,7 @@ msgid "Confirm Deactivating Account"
 msgstr ""
 
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
-#: src/qml/Settings/SettingsPage.qml:36
+#: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "Konten"
@@ -3752,37 +3752,37 @@ msgstr "Gerät verifizieren"
 msgid "Logout device"
 msgstr "Gerät abmelden"
 
-#: src/qml/Settings/DevicesPage.qml:28
+#: src/qml/Settings/DevicesPage.qml:31
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgid "This Device"
 msgstr "Geräte"
 
-#: src/qml/Settings/DevicesPage.qml:33
+#: src/qml/Settings/DevicesPage.qml:36
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgid "Verified Devices"
 msgstr "Gerät verifizieren"
 
-#: src/qml/Settings/DevicesPage.qml:38
+#: src/qml/Settings/DevicesPage.qml:41
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgid "Unverified Devices"
 msgstr "Gerät verifizieren"
 
-#: src/qml/Settings/DevicesPage.qml:43
+#: src/qml/Settings/DevicesPage.qml:46
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr ""
 
 # ich möchte zweimal „anmelden“ vermeiden. Bessere Vorschläge?
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:61
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
 "Bitte melden Sie sich an, um die Ihrem Konto zugeordneten Geräte anzusehen."
 
-#: src/qml/Settings/DevicesPage.qml:69
+#: src/qml/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Remove device"
 msgstr "Gerät entfernen"
@@ -3996,7 +3996,7 @@ msgid "Invites"
 msgstr "Einladungen"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "Netzwerk-Proxy"
@@ -4077,27 +4077,27 @@ msgstr "Nachrichtenhervorhebung aktivieren"
 msgid "Delete keyword"
 msgstr "Schlüsselwort löschen"
 
-#: src/qml/Settings/SettingsPage.qml:24
+#: src/qml/Settings/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: src/qml/Settings/SettingsPage.qml:42
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Sticker & Emojis"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Spell Checking"
 msgstr "Rechtschreibprüfung"
 
-#: src/qml/Settings/SettingsPage.qml:73
+#: src/qml/Settings/SettingsPage.qml:75
 #, kde-format
 msgid "About NeoChat"
 msgstr "Über NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:79
+#: src/qml/Settings/SettingsPage.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "Über KDE"

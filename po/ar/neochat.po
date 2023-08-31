@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 00:46+0000\n"
+"POT-Creation-Date: 2023-08-31 00:46+0000\n"
 "PO-Revision-Date: 2023-08-19 22:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -68,27 +68,27 @@ msgstr "الرجاء تثبيت حَمَّالَة مَفَاتِيح مثل م�
 msgid "Unable to read access token"
 msgstr "غير قادر على قراءة رقم النفاذ"
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "File too large to download."
 msgstr "الملف كبير جدًا لتنزيله."
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "راسل مدير خادوم ماتركس للدعم."
 
-#: src/controller.cpp:412
+#: src/controller.cpp:386
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "فشل إنشاء غرفة: %1"
 
-#: src/controller.cpp:433
+#: src/controller.cpp:407
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "فشل إنشاء فضاء: %1"
 
-#: src/controller.cpp:447
+#: src/controller.cpp:421
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "رقم التعريفي للغرفة التي تحاول الانضمام إليها غير صحيح"
@@ -1488,7 +1488,7 @@ msgstr "سجّل"
 
 #: src/qml/Component/Login/Password.qml:28
 #: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:73
+#: src/qml/Settings/DevicesPage.qml:76
 #, kde-format
 msgid "Password:"
 msgstr "كلمة السر:"
@@ -1761,7 +1761,7 @@ msgstr "اسم الغرفة:"
 msgid "Room topic:"
 msgstr "موضوع الغرفة:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2016,7 +2016,7 @@ msgid "Admin (100)"
 msgstr "مُشْرِف (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:77
+#: src/qml/Settings/DevicesPage.qml:80
 #, kde-format
 msgid "Confirm"
 msgstr "أكد"
@@ -2537,78 +2537,78 @@ msgstr "أرسل دعوة"
 msgid "User is either already a member or has been invited"
 msgstr "المستخدم مدعو أو أنه عضو بالفعل"
 
-#: src/qml/Page/JoinRoomPage.qml:22
+#: src/qml/Page/JoinRoomPage.qml:23
 #, kde-format
 msgid "Explore Rooms"
 msgstr "استكشف الغرف"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:46
 #, kde-format
 msgid "Find a room..."
 msgstr "اعثر على غرفة..."
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "View"
 msgstr "اعرض"
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "Join"
 msgstr "انضم"
 
-#: src/qml/Page/JoinRoomPage.qml:82
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add New Server"
 msgstr "أضف خادماً جديداً"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:84
 #, kde-format
 msgid "Home Server"
 msgstr "خادم المنزل"
 
-#: src/qml/Page/JoinRoomPage.qml:92
+#: src/qml/Page/JoinRoomPage.qml:93
 #, kde-format
 msgid "Add new server"
 msgstr "أضف خادماً جديداً"
 
-#: src/qml/Page/JoinRoomPage.qml:123
+#: src/qml/Page/JoinRoomPage.qml:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "أضف خادمًا"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Valid server entered"
 msgstr "أدخل خادم صحيح"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "لا يمكن التحقق من الخادم أو أنه مضاف فعلا"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "ليس النص المُدخَل رابطا صالحا"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "أدخل رابط الخادم مثل kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:144
+#: src/qml/Page/JoinRoomPage.qml:145
 #, kde-format
 msgid "Server URL"
 msgstr "رابط الخادم"
 
-#: src/qml/Page/JoinRoomPage.qml:245
+#: src/qml/Page/JoinRoomPage.qml:246
 #, kde-format
 msgid "Joined"
 msgstr "انضم"
 
-#: src/qml/Page/JoinRoomPage.qml:299
+#: src/qml/Page/JoinRoomPage.qml:300
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -2632,8 +2632,8 @@ msgstr "تفاصيل الحساب"
 msgid "Notification settings"
 msgstr "إعدادات الإشعارات"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
-#: src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:64
 #, kde-format
 msgid "Devices"
 msgstr "الأجهزة"
@@ -3004,7 +3004,7 @@ msgid "No member count"
 msgstr "بلا عدد أعضاء"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
-#: src/qml/Settings/SettingsPage.qml:18
+#: src/qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "General"
 msgstr "عامّ"
@@ -3019,7 +3019,7 @@ msgstr "الأمن"
 msgid "Permissions"
 msgstr "التّصاريح"
 
-#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:30
+#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
 msgstr "الإشعارات"
@@ -3547,7 +3547,7 @@ msgid "Confirm Deactivating Account"
 msgstr ""
 
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
-#: src/qml/Settings/SettingsPage.qml:36
+#: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "الحسابات"
@@ -3679,32 +3679,32 @@ msgstr "تَثَبّت من الجهاز"
 msgid "Logout device"
 msgstr "اخرج الجهاز"
 
-#: src/qml/Settings/DevicesPage.qml:28
+#: src/qml/Settings/DevicesPage.qml:31
 #, kde-format
 msgid "This Device"
 msgstr "هذا الجهاز"
 
-#: src/qml/Settings/DevicesPage.qml:33
+#: src/qml/Settings/DevicesPage.qml:36
 #, kde-format
 msgid "Verified Devices"
 msgstr "الأجهزة المتحقق منها"
 
-#: src/qml/Settings/DevicesPage.qml:38
+#: src/qml/Settings/DevicesPage.qml:41
 #, kde-format
 msgid "Unverified Devices"
 msgstr "الأجهزة غير المتحقق منها"
 
-#: src/qml/Settings/DevicesPage.qml:43
+#: src/qml/Settings/DevicesPage.qml:46
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr "الأجهزة التي دون دعم للتعمية"
 
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:61
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "فضلاً لج لترى الأجهزة المسجلة لحسابك."
 
-#: src/qml/Settings/DevicesPage.qml:69
+#: src/qml/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Remove device"
 msgstr "أزل الجهاز"
@@ -3913,7 +3913,7 @@ msgid "Invites"
 msgstr "الدعوات"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "وسيط الشّبكة"
@@ -3994,27 +3994,27 @@ msgstr "مكن إبرازات الرسالة"
 msgid "Delete keyword"
 msgstr "احذف الكلمة المفتاحية"
 
-#: src/qml/Settings/SettingsPage.qml:24
+#: src/qml/Settings/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "المظهر"
 
-#: src/qml/Settings/SettingsPage.qml:42
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "الملصقات والصور التعبيرية"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Spell Checking"
 msgstr "التدقيق الإملائي"
 
-#: src/qml/Settings/SettingsPage.qml:73
+#: src/qml/Settings/SettingsPage.qml:75
 #, kde-format
 msgid "About NeoChat"
 msgstr "عن نيوتشات"
 
-#: src/qml/Settings/SettingsPage.qml:79
+#: src/qml/Settings/SettingsPage.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "عن كِيدِي"

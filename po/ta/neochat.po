@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 00:46+0000\n"
+"POT-Creation-Date: 2023-08-31 00:46+0000\n"
 "PO-Revision-Date: 2023-08-20 15:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -69,27 +69,27 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "File too large to download."
 msgstr "கோப்பு பெரிதாக இருப்பதால் பதிவிறக்க முடியாது."
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக நிர்வாகியை தொடர்புகொள்ளுங்கள்."
 
-#: src/controller.cpp:412
+#: src/controller.cpp:386
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/controller.cpp:433
+#: src/controller.cpp:407
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/controller.cpp:447
+#: src/controller.cpp:421
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "நீங்கள் சேர முயற்சிக்கும் அரங்கு செல்லுபடியாகாதது"
@@ -1471,7 +1471,7 @@ msgstr "பதிவு செய்"
 
 #: src/qml/Component/Login/Password.qml:28
 #: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:73
+#: src/qml/Settings/DevicesPage.qml:76
 #, kde-format
 msgid "Password:"
 msgstr "கடவுச்சொல்:"
@@ -1737,7 +1737,7 @@ msgstr "அரங்கின் பெயர்:"
 msgid "Room topic:"
 msgstr "அரங்கின் தலைப்பு:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2001,7 +2001,7 @@ msgid "Admin (100)"
 msgstr "நிர்வாகி (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:77
+#: src/qml/Settings/DevicesPage.qml:80
 #, kde-format
 msgid "Confirm"
 msgstr "உறுதிசெய்"
@@ -2522,78 +2522,78 @@ msgstr "வரவழை"
 msgid "User is either already a member or has been invited"
 msgstr "பயனர் ஏற்கனவே இவ்வரங்குக்கு வரவழைக்கப்பட்டுள்ளார், அல்லது இவ்வரங்கில் உள்ளார்"
 
-#: src/qml/Page/JoinRoomPage.qml:22
+#: src/qml/Page/JoinRoomPage.qml:23
 #, kde-format
 msgid "Explore Rooms"
 msgstr "அரங்குகளை உலாவு"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:46
 #, kde-format
 msgid "Find a room..."
 msgstr "அரங்கைத் தேடு..."
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "View"
 msgstr "பார்"
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "Join"
 msgstr "சேர்"
 
-#: src/qml/Page/JoinRoomPage.qml:82
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add New Server"
 msgstr "புதிய சேவையகத்தை சேர்"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:84
 #, kde-format
 msgid "Home Server"
 msgstr "தாய் சேவையகம்"
 
-#: src/qml/Page/JoinRoomPage.qml:92
+#: src/qml/Page/JoinRoomPage.qml:93
 #, kde-format
 msgid "Add new server"
 msgstr "புதிய சேவையகத்தை சேர்"
 
-#: src/qml/Page/JoinRoomPage.qml:123
+#: src/qml/Page/JoinRoomPage.qml:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "சேவையகத்தைச் சேர்ப்பது"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Valid server entered"
 msgstr "செல்லுபடியாகும் சேவையகம் உள்ளிடப்பட்டது"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "உள்ளிட்ட உரை ஓர் முறையான முகவரி அல்ல"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "சேவையகத்தின் முகவரியை உள்ளிடவும், எ.கா. kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:144
+#: src/qml/Page/JoinRoomPage.qml:145
 #, kde-format
 msgid "Server URL"
 msgstr "சேவையக முகவரி"
 
-#: src/qml/Page/JoinRoomPage.qml:245
+#: src/qml/Page/JoinRoomPage.qml:246
 #, kde-format
 msgid "Joined"
 msgstr "சேர்ந்தவை"
 
-#: src/qml/Page/JoinRoomPage.qml:299
+#: src/qml/Page/JoinRoomPage.qml:300
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
@@ -2616,8 +2616,8 @@ msgstr "கணக்கு திருத்தி"
 msgid "Notification settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
-#: src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:64
 #, kde-format
 msgid "Devices"
 msgstr "சாதனங்கள்"
@@ -2984,7 +2984,7 @@ msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
-#: src/qml/Settings/SettingsPage.qml:18
+#: src/qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "General"
 msgstr "பொது"
@@ -2999,7 +2999,7 @@ msgstr "பாதுகாப்பு"
 msgid "Permissions"
 msgstr "அனுமதிகள்"
 
-#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:30
+#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
 msgstr "அறிவிப்புகள்"
@@ -3532,7 +3532,7 @@ msgid "Confirm Deactivating Account"
 msgstr ""
 
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
-#: src/qml/Settings/SettingsPage.qml:36
+#: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "கணக்குகள்"
@@ -3664,32 +3664,32 @@ msgstr "சாதனத்தை உறுதிப்படுத்து"
 msgid "Logout device"
 msgstr "சாதனத்தை வெளியேற்று"
 
-#: src/qml/Settings/DevicesPage.qml:28
+#: src/qml/Settings/DevicesPage.qml:31
 #, kde-format
 msgid "This Device"
 msgstr "இந்த சாதனம்"
 
-#: src/qml/Settings/DevicesPage.qml:33
+#: src/qml/Settings/DevicesPage.qml:36
 #, kde-format
 msgid "Verified Devices"
 msgstr "உறுதிப்படுத்தியுள்ள சாதனங்கள்"
 
-#: src/qml/Settings/DevicesPage.qml:38
+#: src/qml/Settings/DevicesPage.qml:41
 #, kde-format
 msgid "Unverified Devices"
 msgstr "உறுதிப்படுத்தாத சாதனங்கள்"
 
-#: src/qml/Settings/DevicesPage.qml:43
+#: src/qml/Settings/DevicesPage.qml:46
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr "மறையாக்கத்தை ஆதரிக்காத சாதனங்கள்"
 
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:61
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "உங்கள் கணக்கிலுள்ள சாதனங்களைக் காண உங்கள் கணக்கில் நுழையுங்கள்."
 
-#: src/qml/Settings/DevicesPage.qml:69
+#: src/qml/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Remove device"
 msgstr "சாதனத்தை நீக்கு"
@@ -3898,7 +3898,7 @@ msgid "Invites"
 msgstr "வரவழைப்புகள்"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "பிணைய பதிலி"
@@ -3979,27 +3979,27 @@ msgstr "பொருந்தும் செய்திகளை முன்�
 msgid "Delete keyword"
 msgstr "முதன்மைச்சொல்லை நீக்கு"
 
-#: src/qml/Settings/SettingsPage.qml:24
+#: src/qml/Settings/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "தோற்றம்"
 
-#: src/qml/Settings/SettingsPage.qml:42
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "ஒட்டிகளும் முகவடிகளும்"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Spell Checking"
 msgstr "சொல் திருத்தம்"
 
-#: src/qml/Settings/SettingsPage.qml:73
+#: src/qml/Settings/SettingsPage.qml:75
 #, kde-format
 msgid "About NeoChat"
 msgstr "நியோச்சாட் பற்றி"
 
-#: src/qml/Settings/SettingsPage.qml:79
+#: src/qml/Settings/SettingsPage.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "கே.டீ.யீ. பற்றி"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 00:46+0000\n"
+"POT-Creation-Date: 2023-08-31 00:46+0000\n"
 "PO-Revision-Date: 2023-08-27 00:31+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -67,27 +67,27 @@ msgstr "키체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "File too large to download."
 msgstr "파일이 다운로드하기에 너무 큽니다."
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/controller.cpp:412
+#: src/controller.cpp:386
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: %1"
 
-#: src/controller.cpp:433
+#: src/controller.cpp:407
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/controller.cpp:447
+#: src/controller.cpp:421
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
@@ -1464,7 +1464,7 @@ msgstr "등록"
 
 #: src/qml/Component/Login/Password.qml:28
 #: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:73
+#: src/qml/Settings/DevicesPage.qml:76
 #, kde-format
 msgid "Password:"
 msgstr "암호:"
@@ -1729,7 +1729,7 @@ msgstr "대화방 이름:"
 msgid "Room topic:"
 msgstr "대화방 주제:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1983,7 +1983,7 @@ msgid "Admin (100)"
 msgstr "관리자(100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:77
+#: src/qml/Settings/DevicesPage.qml:80
 #, kde-format
 msgid "Confirm"
 msgstr "확인"
@@ -2504,78 +2504,78 @@ msgstr "초대 보내기"
 msgid "User is either already a member or has been invited"
 msgstr "사용자가 이미 대화방에 소속되어 있거나 초대됨"
 
-#: src/qml/Page/JoinRoomPage.qml:22
+#: src/qml/Page/JoinRoomPage.qml:23
 #, kde-format
 msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:46
 #, kde-format
 msgid "Find a room..."
 msgstr "대화방 찾기..."
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "View"
 msgstr "보기"
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "Join"
 msgstr "입장"
 
-#: src/qml/Page/JoinRoomPage.qml:82
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add New Server"
 msgstr "새 서버 추가"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:84
 #, kde-format
 msgid "Home Server"
 msgstr "홈 서버"
 
-#: src/qml/Page/JoinRoomPage.qml:92
+#: src/qml/Page/JoinRoomPage.qml:93
 #, kde-format
 msgid "Add new server"
 msgstr "새 서버 추가"
 
-#: src/qml/Page/JoinRoomPage.qml:123
+#: src/qml/Page/JoinRoomPage.qml:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "서버 추가"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Valid server entered"
 msgstr "올바른 서버를 입력함"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "이 서버를 해석할 수 없거나 이미 추가됨"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "입력한 텍스트가 올바른 URL이 아님"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "서버 URL 입력(예: kde.org)"
 
-#: src/qml/Page/JoinRoomPage.qml:144
+#: src/qml/Page/JoinRoomPage.qml:145
 #, kde-format
 msgid "Server URL"
 msgstr "서버 URL"
 
-#: src/qml/Page/JoinRoomPage.qml:245
+#: src/qml/Page/JoinRoomPage.qml:246
 #, kde-format
 msgid "Joined"
 msgstr "입장함"
 
-#: src/qml/Page/JoinRoomPage.qml:299
+#: src/qml/Page/JoinRoomPage.qml:300
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
@@ -2598,8 +2598,8 @@ msgstr "계정 편집기"
 msgid "Notification settings"
 msgstr "알림 설정"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
-#: src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:64
 #, kde-format
 msgid "Devices"
 msgstr "장치"
@@ -2965,7 +2965,7 @@ msgid "No member count"
 msgstr "구성원 집계 없음"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
-#: src/qml/Settings/SettingsPage.qml:18
+#: src/qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "General"
 msgstr "일반"
@@ -2980,7 +2980,7 @@ msgstr "보안"
 msgid "Permissions"
 msgstr "권한"
 
-#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:30
+#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
 msgstr "알림"
@@ -3509,7 +3509,7 @@ msgid "Confirm Deactivating Account"
 msgstr ""
 
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
-#: src/qml/Settings/SettingsPage.qml:36
+#: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "계정"
@@ -3641,32 +3641,32 @@ msgstr "장치 확인"
 msgid "Logout device"
 msgstr "장치 로그아웃"
 
-#: src/qml/Settings/DevicesPage.qml:28
+#: src/qml/Settings/DevicesPage.qml:31
 #, kde-format
 msgid "This Device"
 msgstr "이 장치"
 
-#: src/qml/Settings/DevicesPage.qml:33
+#: src/qml/Settings/DevicesPage.qml:36
 #, kde-format
 msgid "Verified Devices"
 msgstr "확인된 장치"
 
-#: src/qml/Settings/DevicesPage.qml:38
+#: src/qml/Settings/DevicesPage.qml:41
 #, kde-format
 msgid "Unverified Devices"
 msgstr "확인되지 않은 장치"
 
-#: src/qml/Settings/DevicesPage.qml:43
+#: src/qml/Settings/DevicesPage.qml:46
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr "암호화를 지원하지 않는 장치"
 
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:61
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "계정에 등록된 장치를 보려면 로그인하십시오."
 
-#: src/qml/Settings/DevicesPage.qml:69
+#: src/qml/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Remove device"
 msgstr "장치 삭제"
@@ -3875,7 +3875,7 @@ msgid "Invites"
 msgstr "초대"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "네트워크 프록시"
@@ -3956,27 +3956,27 @@ msgstr "메시지 강조 사용"
 msgid "Delete keyword"
 msgstr "키워드 삭제"
 
-#: src/qml/Settings/SettingsPage.qml:24
+#: src/qml/Settings/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "모양"
 
-#: src/qml/Settings/SettingsPage.qml:42
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "스티커와 이모지"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Spell Checking"
 msgstr "맞춤법 검사"
 
-#: src/qml/Settings/SettingsPage.qml:73
+#: src/qml/Settings/SettingsPage.qml:75
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat 정보"
 
-#: src/qml/Settings/SettingsPage.qml:79
+#: src/qml/Settings/SettingsPage.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "KDE 정보"

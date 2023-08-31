@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 00:46+0000\n"
-"PO-Revision-Date: 2023-08-29 18:36+0200\n"
+"POT-Creation-Date: 2023-08-31 00:46+0000\n"
+"PO-Revision-Date: 2023-08-30 10:22+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -68,27 +68,27 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Lezen van toegangstoken lukt niet"
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "File too large to download."
 msgstr "Bestand is te groot om te downloaden."
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Neem contact op met uw matrix-serverbeheerder voor ondersteuning."
 
-#: src/controller.cpp:412
+#: src/controller.cpp:386
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Aanmaken van room is mislukt: %1"
 
-#: src/controller.cpp:433
+#: src/controller.cpp:407
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ruimte aanmaken is mislukt: %1"
 
-#: src/controller.cpp:447
+#: src/controller.cpp:421
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Het room-id waaraan u mee wilt doen is niet geldig"
@@ -1464,7 +1464,7 @@ msgstr "Registreren"
 
 #: src/qml/Component/Login/Password.qml:28
 #: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:73
+#: src/qml/Settings/DevicesPage.qml:76
 #, kde-format
 msgid "Password:"
 msgstr "Wachtwoord:"
@@ -1654,18 +1654,16 @@ msgstr[1] "%2 zijn bezig met het typen"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title"
 msgid "Deactivate Account"
-msgstr "Account bewerken"
+msgstr "Account deactiveren"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
+#, kde-format
 msgctxt "@title"
 msgid "Warning"
-msgstr "Waarschuwing: %1"
+msgstr "Waarschuwing"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
 #, kde-format
@@ -1675,12 +1673,15 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"Uw account zal permanent worden uitgeschakeld.\n"
+"Dit kan niet ongedaan worden gemaakt.\n"
+"Uw Matrix-ID zal niet beschikbaar zijn voor een nieuw account.\n"
+"Uw berichten zullen beschikbaar blijven."
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate account"
-msgstr "Account bewerken"
+msgstr "Account deactiveren"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
@@ -1729,7 +1730,7 @@ msgstr "Naam van room:"
 msgid "Room topic:"
 msgstr "Onderwerp van room:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2015,7 +2016,7 @@ msgid "Admin (100)"
 msgstr "Admin (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:77
+#: src/qml/Settings/DevicesPage.qml:80
 #, kde-format
 msgid "Confirm"
 msgstr "Bevestigen"
@@ -2533,78 +2534,78 @@ msgstr "Uitnodiging versturen"
 msgid "User is either already a member or has been invited"
 msgstr "Gebruiker is of al een lid of is uitgenodigd"
 
-#: src/qml/Page/JoinRoomPage.qml:22
+#: src/qml/Page/JoinRoomPage.qml:23
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Rooms verkennen"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:46
 #, kde-format
 msgid "Find a room..."
 msgstr "Een room zoeken..."
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "View"
 msgstr "Beeld"
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "Join"
 msgstr "Deelnemen"
 
-#: src/qml/Page/JoinRoomPage.qml:82
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add New Server"
 msgstr "Nieuwe server toevoegen"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:84
 #, kde-format
 msgid "Home Server"
 msgstr "Homeserver"
 
-#: src/qml/Page/JoinRoomPage.qml:92
+#: src/qml/Page/JoinRoomPage.qml:93
 #, kde-format
 msgid "Add new server"
 msgstr "Nieuwe server toevoegen"
 
-#: src/qml/Page/JoinRoomPage.qml:123
+#: src/qml/Page/JoinRoomPage.qml:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Server toevoegen"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Valid server entered"
 msgstr "Geldige server ingevoerd"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Deze server is niet te vinden of is al toegevoegd"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "De ingevoerde tekst is geen geldige URL"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Server-URL invoeren bijv. kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:144
+#: src/qml/Page/JoinRoomPage.qml:145
 #, kde-format
 msgid "Server URL"
 msgstr "URL-adres server"
 
-#: src/qml/Page/JoinRoomPage.qml:245
+#: src/qml/Page/JoinRoomPage.qml:246
 #, kde-format
 msgid "Joined"
 msgstr "Neemt deel aan"
 
-#: src/qml/Page/JoinRoomPage.qml:299
+#: src/qml/Page/JoinRoomPage.qml:300
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
@@ -2627,8 +2628,8 @@ msgstr "Accountbewerker"
 msgid "Notification settings"
 msgstr "Instellingen van meldingen"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
-#: src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:64
 #, kde-format
 msgid "Devices"
 msgstr "Apparaten"
@@ -2995,7 +2996,7 @@ msgid "No member count"
 msgstr "Geen aantal leden"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
-#: src/qml/Settings/SettingsPage.qml:18
+#: src/qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "General"
 msgstr "Algemeen"
@@ -3010,7 +3011,7 @@ msgstr "Beveiliging"
 msgid "Permissions"
 msgstr "Toegangsrechten"
 
-#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:30
+#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
 msgstr "Meldingen"
@@ -3534,26 +3535,24 @@ msgid "Homeserver url"
 msgstr "Homeserver-url"
 
 #: src/qml/Settings/AccountEditorPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title"
 msgid "Account Management"
-msgstr "Accountbewerker"
+msgstr "Accountbeheer"
 
 #: src/qml/Settings/AccountEditorPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate Account"
-msgstr "Account bewerken"
+msgstr "Account deactiveren"
 
 #: src/qml/Settings/AccountEditorPage.qml:263
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
-msgstr ""
+msgstr "Deactiveren van account bevestigen"
 
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
-#: src/qml/Settings/SettingsPage.qml:36
+#: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "Accounts"
@@ -3685,32 +3684,32 @@ msgstr "Apparaat verifiëren"
 msgid "Logout device"
 msgstr "Afmeldapparaat"
 
-#: src/qml/Settings/DevicesPage.qml:28
+#: src/qml/Settings/DevicesPage.qml:31
 #, kde-format
 msgid "This Device"
 msgstr "Dit apparaat"
 
-#: src/qml/Settings/DevicesPage.qml:33
+#: src/qml/Settings/DevicesPage.qml:36
 #, kde-format
 msgid "Verified Devices"
 msgstr "Geverifieerde apparaten"
 
-#: src/qml/Settings/DevicesPage.qml:38
+#: src/qml/Settings/DevicesPage.qml:41
 #, kde-format
 msgid "Unverified Devices"
 msgstr "Niet-geverifieerde apparaten"
 
-#: src/qml/Settings/DevicesPage.qml:43
+#: src/qml/Settings/DevicesPage.qml:46
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr "Apparaten zonder ondersteuning voor versleuteling"
 
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:61
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Meld u aan om de aangemelde apparaten voor uw account te bekijken."
 
-#: src/qml/Settings/DevicesPage.qml:69
+#: src/qml/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Remove device"
 msgstr "Apparaat verwijderen"
@@ -3922,7 +3921,7 @@ msgid "Invites"
 msgstr "Uitnodigingen"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "Netwerkproxy"
@@ -4003,27 +4002,27 @@ msgstr "Accentueringen van berichten inschakelen"
 msgid "Delete keyword"
 msgstr "Trefwoord verwijderen"
 
-#: src/qml/Settings/SettingsPage.qml:24
+#: src/qml/Settings/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "Uiterlijk"
 
-#: src/qml/Settings/SettingsPage.qml:42
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Stickers & Emoji's"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Spell Checking"
 msgstr "Spellingcontrole"
 
-#: src/qml/Settings/SettingsPage.qml:73
+#: src/qml/Settings/SettingsPage.qml:75
 #, kde-format
 msgid "About NeoChat"
 msgstr "Info over NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:79
+#: src/qml/Settings/SettingsPage.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "Over KDE"
@@ -4131,8 +4130,7 @@ msgid "This is not a valid server."
 msgstr "Dit is geen geldige server."
 
 #: src/registration.cpp:305
-#, fuzzy, kde-format
-#| msgid "Regisration for this server is disabled."
+#, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Registratie voor deze server is uitgeschakeld."
 

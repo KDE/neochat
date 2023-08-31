@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 00:46+0000\n"
-"PO-Revision-Date: 2023-08-28 05:34+0200\n"
+"POT-Creation-Date: 2023-08-31 00:46+0000\n"
+"PO-Revision-Date: 2023-08-30 08:36+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -68,27 +68,27 @@ msgstr "დააყენეთ ბრელოკი, მაგალითა
 msgid "Unable to read access token"
 msgstr "წვდომის კოდის წაკითხვის შეცდომა"
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "File too large to download."
 msgstr "ფაილი გადმოსაწერად ძალიან დიდია."
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "მხარდაჭერისთვის დაუკავშირდით თქვენი მატრიქსის სერვერის ადმინისტრატორს."
 
-#: src/controller.cpp:412
+#: src/controller.cpp:386
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/controller.cpp:433
+#: src/controller.cpp:407
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
 
-#: src/controller.cpp:447
+#: src/controller.cpp:421
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
@@ -1369,13 +1369,12 @@ msgstr "ამ ოთახში მდებარეობები გაზ
 #: src/qml/Component/Login/Email.qml:20
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "დამატეთ ელფოსტის მისამართი:"
 
 #: src/qml/Component/Login/Email.qml:32
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgid "Confirm e-mail address"
-msgstr "ახალი საჩვენებელი სახელის დადასტურება"
+msgstr "ელფოსტის მისამართის დადასტურება"
 
 #: src/qml/Component/Login/Email.qml:34
 #, kde-format
@@ -1383,30 +1382,30 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"დადასტურების ელფოსტა გამოგზავნილია თქვენს მისამართზე. გააგრძელეთ აქ "
+"ელფოსტაში არსებული ბმულის დადასტურების <b>შემდეგ</b>"
 
 #: src/qml/Component/Login/Email.qml:39
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "დადასტურების ელფოსტის ხელახალი გაგზავნა"
 
 #: src/qml/Component/Login/Homeserver.qml:20
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server Url:"
-msgstr "სერვერის URL"
+msgstr "სერვერის Url:"
 
 #: src/qml/Component/Login/Homeserver.qml:25
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "ამ სერვერზე რეგისტრაცია გამორთულია."
 
 #: src/qml/Component/Login/Homeserver.qml:40
 #: src/qml/Component/Login/Username.qml:37
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading"
-msgstr "ჩატვირთვა…"
+msgstr "იტვირთება"
 
 #: src/qml/Component/Login/Loading.qml:16
 #, kde-format
@@ -1466,7 +1465,7 @@ msgstr "რესგისტრაცია"
 
 #: src/qml/Component/Login/Password.qml:28
 #: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:73
+#: src/qml/Settings/DevicesPage.qml:76
 #, kde-format
 msgid "Password:"
 msgstr "პაროლი:"
@@ -1485,16 +1484,14 @@ msgid "Invalid username or password"
 msgstr "არასწორი მომხმარებელი ან პაროლი"
 
 #: src/qml/Component/Login/RegisterPassword.qml:29
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "დაადასტურეთ ახალი პაროლი:"
+msgstr "გაიმეორეთ პაროლი:"
 
 #: src/qml/Component/Login/RegisterPassword.qml:32
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "The passwords do not match."
-msgstr "პაროლები არ ემთხვევა"
+msgstr "პაროლები არ ემთხვევა."
 
 #: src/qml/Component/Login/Sso.qml:31
 #, kde-format
@@ -1510,7 +1507,7 @@ msgstr "SSO შესვლის ბმულის ხელახლა გ�
 #: src/qml/Component/Login/Terms.qml:19
 #, kde-format
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "წესები და პირობები"
 
 #: src/qml/Component/Login/Terms.qml:20
 #, kde-format
@@ -1518,18 +1515,18 @@ msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
 msgstr ""
+"რეგისტრაციის გაგრძელება ავტომატურად ნიშნავს, რომ თქვენ ეთანხმებით შემდეგ "
+"წესებსა და პირობებს:"
 
 #: src/qml/Component/Login/Username.qml:19
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgid "Username:"
-msgstr "მომხმარებელი"
+msgstr "მომხმარებელი:"
 
 #: src/qml/Component/Login/Username.qml:22
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "Username unavailable"
-msgstr "მომხმარებლები ხელმისაწვდომი არაა"
+msgstr "მომხმარებელი ხელმისაწვდომი არაა"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1658,18 +1655,16 @@ msgstr[1] "%2 კრეფს"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title"
 msgid "Deactivate Account"
-msgstr "ანგარიშის ჩასწორება"
+msgstr "ანგარიშის დეაქტივაცია"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
+#, kde-format
 msgctxt "@title"
 msgid "Warning"
-msgstr "გაფრთხილება: %1"
+msgstr "გაფრთხილება"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
 #, kde-format
@@ -1679,12 +1674,15 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"თქვენი ანგარიში სამუდამოდ გაითიშება.\n"
+"ეს ქმედება შეუქცევადია.\n"
+"თქვენი Matrx ID ახალი ანგარიშებისთვის ხელმისაწვდომი არ იქნება.\n"
+"თქვენი შეტყობინებები ხელმისაწვდომი იქნება."
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate account"
-msgstr "ანგარიშის ჩასწორება"
+msgstr "ანგარიშის დეაქტივაცია"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
@@ -1731,7 +1729,7 @@ msgstr "ოთახის სახელი:"
 msgid "Room topic:"
 msgstr "ოთახის თემა:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1996,7 +1994,7 @@ msgid "Admin (100)"
 msgstr "ადმინისტრატორი (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:77
+#: src/qml/Settings/DevicesPage.qml:80
 #, kde-format
 msgid "Confirm"
 msgstr "დადასტურება"
@@ -2514,78 +2512,78 @@ msgstr "მოსაწვევის გაგზავნა"
 msgid "User is either already a member or has been invited"
 msgstr "მომხმარებელი ან უკვე წევრია, ან მოწვეულია"
 
-#: src/qml/Page/JoinRoomPage.qml:22
+#: src/qml/Page/JoinRoomPage.qml:23
 #, kde-format
 msgid "Explore Rooms"
 msgstr "ოთახების დათვალიერება"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:46
 #, kde-format
 msgid "Find a room..."
 msgstr "ოთახის პოვნა..."
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "View"
 msgstr "ნახვა"
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "Join"
 msgstr "შეერთება"
 
-#: src/qml/Page/JoinRoomPage.qml:82
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add New Server"
 msgstr "ახალი სერვერის დამატება"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:84
 #, kde-format
 msgid "Home Server"
 msgstr "სახლის სერვერი"
 
-#: src/qml/Page/JoinRoomPage.qml:92
+#: src/qml/Page/JoinRoomPage.qml:93
 #, kde-format
 msgid "Add new server"
 msgstr "ახალი სერვერის დამატება"
 
-#: src/qml/Page/JoinRoomPage.qml:123
+#: src/qml/Page/JoinRoomPage.qml:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "სერვერის დამატება"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Valid server entered"
 msgstr "შეყვანილი სერვერი სწორია"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "სერვერის ამოხსნა შეუძლებელია ან ის უკვე დამატებულია"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "შეყვანილი ტექსტი სწორ URL-ს არ წარმოადგენს"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "შეიყვანეთ სერვერის URL. მაგ: kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:144
+#: src/qml/Page/JoinRoomPage.qml:145
 #, kde-format
 msgid "Server URL"
 msgstr "სერვერის URL"
 
-#: src/qml/Page/JoinRoomPage.qml:245
+#: src/qml/Page/JoinRoomPage.qml:246
 #, kde-format
 msgid "Joined"
 msgstr "შეერთებული"
 
-#: src/qml/Page/JoinRoomPage.qml:299
+#: src/qml/Page/JoinRoomPage.qml:300
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
@@ -2608,8 +2606,8 @@ msgstr "ანგარიშების რედაქტორი"
 msgid "Notification settings"
 msgstr "გაფრთხილებების მორგება"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
-#: src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:64
 #, kde-format
 msgid "Devices"
 msgstr "მოწყობილობები"
@@ -2863,16 +2861,15 @@ msgid "Welcome"
 msgstr "კეთილი იყოს თქვენი მობრძანება"
 
 #: src/qml/Page/WelcomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Log in to a different account."
+#, kde-format
 msgid "Log in to a different account or create a new account."
-msgstr "სხვა ანგარიშში შესვლა."
+msgstr "შედით სხვა ანგარიშით ან ახალი შექმენით."
 
 #: src/qml/Page/WelcomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Welcome to NeoChat! Continue by logging in."
+#, kde-format
 msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr "მოგესალმებათ NeoChat! გაგრძელებისთვის შედით."
+msgstr ""
+"მოგესალმებათ NeoChat! გაგრძელებისთვის შედით ან შექმენით ახალი ანგარიში."
 
 #: src/qml/Page/WelcomePage.qml:121
 #, kde-format
@@ -2976,7 +2973,7 @@ msgid "No member count"
 msgstr "წევრების რაოდენობის გარეშე"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
-#: src/qml/Settings/SettingsPage.qml:18
+#: src/qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "General"
 msgstr "ზოგადი"
@@ -2991,7 +2988,7 @@ msgstr "უსაფრთხოება"
 msgid "Permissions"
 msgstr "უფლებები"
 
-#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:30
+#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
 msgstr "გაფრთხილებები"
@@ -3510,26 +3507,24 @@ msgid "Homeserver url"
 msgstr "სახლის სერვერის URL"
 
 #: src/qml/Settings/AccountEditorPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title"
 msgid "Account Management"
-msgstr "ანგარიშების რედაქტორი"
+msgstr "ანგარიშის მართვა"
 
 #: src/qml/Settings/AccountEditorPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate Account"
-msgstr "ანგარიშის ჩასწორება"
+msgstr "ანგარიშის დეაქტივაცია"
 
 #: src/qml/Settings/AccountEditorPage.qml:263
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
-msgstr ""
+msgstr "დაადასტურეთ ანგარიშის დეაქტივაცია"
 
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
-#: src/qml/Settings/SettingsPage.qml:36
+#: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "ანგარიშები"
@@ -3661,33 +3656,33 @@ msgstr "მოწყობილობის შემოწმება"
 msgid "Logout device"
 msgstr "მოწყობილობიდან გასვლა"
 
-#: src/qml/Settings/DevicesPage.qml:28
+#: src/qml/Settings/DevicesPage.qml:31
 #, kde-format
 msgid "This Device"
 msgstr "ეს მოწყობილობა"
 
-#: src/qml/Settings/DevicesPage.qml:33
+#: src/qml/Settings/DevicesPage.qml:36
 #, kde-format
 msgid "Verified Devices"
 msgstr "გადამოწმებული მოწყობილობები"
 
-#: src/qml/Settings/DevicesPage.qml:38
+#: src/qml/Settings/DevicesPage.qml:41
 #, kde-format
 msgid "Unverified Devices"
 msgstr "გადაუმოწმებელი მოწყობილობები"
 
-#: src/qml/Settings/DevicesPage.qml:43
+#: src/qml/Settings/DevicesPage.qml:46
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr "მოწყობილობები დაშიფვრის მხარდაჭერის გარეშე"
 
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:61
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
 "თქვენი ანგარიშით შესული მოწყობილობების სანახავად საჭიროა შეხვიდეთ სისტემაში."
 
-#: src/qml/Settings/DevicesPage.qml:69
+#: src/qml/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Remove device"
 msgstr "მოწყობილობის წაშლა"
@@ -3896,7 +3891,7 @@ msgid "Invites"
 msgstr "მოსაწვევები"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "ქსელის პროქსი"
@@ -3977,27 +3972,27 @@ msgstr "შეტყობინებების გამოკვეთი�
 msgid "Delete keyword"
 msgstr "საკვანძო სიტყვის წაშლა"
 
-#: src/qml/Settings/SettingsPage.qml:24
+#: src/qml/Settings/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "გარემოს იერსახე"
 
-#: src/qml/Settings/SettingsPage.qml:42
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "ემოჯიები და სტიკერები"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Spell Checking"
 msgstr "მართლწერის შემოწმება"
 
-#: src/qml/Settings/SettingsPage.qml:73
+#: src/qml/Settings/SettingsPage.qml:75
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat-ს შესახებ"
 
-#: src/qml/Settings/SettingsPage.qml:79
+#: src/qml/Settings/SettingsPage.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "KDE-ს შესახებ"
@@ -4090,56 +4085,49 @@ msgid "Delete word"
 msgstr "სიტყვის წაშლა"
 
 #: src/registration.cpp:299
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgid "No server."
-msgstr "სერვერის დამატება"
+msgstr "სერვერის გარეშე."
 
 #: src/registration.cpp:301
 #, kde-format
 msgid "Checking Server availability."
-msgstr ""
+msgstr "სერვერის წვდომადობის შემოწმება."
 
 #: src/registration.cpp:303
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "This is not a valid server."
-msgstr "შეყვანილი ტექსტი სწორ URL-ს არ წარმოადგენს"
+msgstr "ეს სწორი სერვერი არაა."
 
 #: src/registration.cpp:305
 #, kde-format
 msgid "Registration for this server is disabled."
-msgstr ""
+msgstr "ამ სერვერისთვის რეგისტრაცია გამორთულია."
 
 #: src/registration.cpp:307
-#, fuzzy, kde-format
-#| msgid "No name"
+#, kde-format
 msgid "No username."
-msgstr "სახელის გარეშე"
+msgstr "მომხმარებლის სახელის გარეშე."
 
 #: src/registration.cpp:309
 #, kde-format
 msgid "Checking username availability."
-msgstr ""
+msgstr "მომხმარებლის სახელის წვდომადობის შემოწმება."
 
 #: src/registration.cpp:311
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "This username is not available."
-msgstr "მომხმარებლები ხელმისაწვდომი არაა"
+msgstr "ეს მომხმარებლის სახელი ხელმისაწვდომი არაა."
 
 #: src/registration.cpp:313
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
+#, kde-format
 msgid "Continue"
 msgstr "გაგრძელება"
 
 #: src/registration.cpp:315
 #, kde-format
 msgid "Working"
-msgstr ""
+msgstr "მუშაობს"
 
 #: src/roommanager.cpp:52
 #, kde-format

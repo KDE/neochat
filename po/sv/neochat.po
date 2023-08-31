@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 00:46+0000\n"
-"PO-Revision-Date: 2023-08-29 20:37+0200\n"
+"POT-Creation-Date: 2023-08-31 00:46+0000\n"
+"PO-Revision-Date: 2023-08-30 20:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -68,27 +68,27 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Kan inte läsa åtkomstsymbol"
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "File too large to download."
 msgstr "Filen är för stor att ladda ner"
 
-#: src/controller.cpp:379
+#: src/controller.cpp:361
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Kontakta matrix-serveradministratören för support."
 
-#: src/controller.cpp:412
+#: src/controller.cpp:386
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1"
 
-#: src/controller.cpp:433
+#: src/controller.cpp:407
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
 
-#: src/controller.cpp:447
+#: src/controller.cpp:421
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikationen för rummet som du försöker gå med i är inte giltig"
@@ -1464,7 +1464,7 @@ msgstr "Registrera"
 
 #: src/qml/Component/Login/Password.qml:28
 #: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:73
+#: src/qml/Settings/DevicesPage.qml:76
 #, kde-format
 msgid "Password:"
 msgstr "Lösenord:"
@@ -1654,18 +1654,16 @@ msgstr[1] "%2 skriver"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title"
 msgid "Deactivate Account"
-msgstr "Redigera konto"
+msgstr "Inaktivera konto"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
+#, kde-format
 msgctxt "@title"
 msgid "Warning"
-msgstr "Varning: %1"
+msgstr "Varning"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
 #, kde-format
@@ -1675,12 +1673,15 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"Ditt konto kommer att inaktiveras permanent.\n"
+"Det går inte att ångra.\n"
+"Din Matrix-identifierare kommer inte att vara tillgänglig för nya konton.\n"
+"Dina meddelanden förblir tillgängliga."
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate account"
-msgstr "Redigera konto"
+msgstr "Inaktivera konto"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
@@ -1727,7 +1728,7 @@ msgstr "Rummets namn:"
 msgid "Room topic:"
 msgstr "Rummets ämne:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2003,7 +2004,7 @@ msgid "Admin (100)"
 msgstr "Administratör (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:77
+#: src/qml/Settings/DevicesPage.qml:80
 #, kde-format
 msgid "Confirm"
 msgstr "Bekräfta"
@@ -2521,78 +2522,78 @@ msgstr "Skicka inbjudan"
 msgid "User is either already a member or has been invited"
 msgstr "Användaren är antingen redan en medlem eller har blivit inbjuden"
 
-#: src/qml/Page/JoinRoomPage.qml:22
+#: src/qml/Page/JoinRoomPage.qml:23
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Utforska rum"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:46
 #, kde-format
 msgid "Find a room..."
 msgstr "Sök efter ett rum..."
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "View"
 msgstr "Visa"
 
-#: src/qml/Page/JoinRoomPage.qml:53
+#: src/qml/Page/JoinRoomPage.qml:54
 #, kde-format
 msgid "Join"
 msgstr "Gå med"
 
-#: src/qml/Page/JoinRoomPage.qml:82
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add New Server"
 msgstr "Lägg till ny server"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:84
 #, kde-format
 msgid "Home Server"
 msgstr "Hemserver"
 
-#: src/qml/Page/JoinRoomPage.qml:92
+#: src/qml/Page/JoinRoomPage.qml:93
 #, kde-format
 msgid "Add new server"
 msgstr "Lägg till ny server"
 
-#: src/qml/Page/JoinRoomPage.qml:123
+#: src/qml/Page/JoinRoomPage.qml:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Lägg till server"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Valid server entered"
 msgstr "Giltig server angiven"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Servern kan inte lösas upp eller har redan lagts till"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Den angivna texten är inte en giltig webbadress"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:137
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Skriv in serverwebbadress t.ex. kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:144
+#: src/qml/Page/JoinRoomPage.qml:145
 #, kde-format
 msgid "Server URL"
 msgstr "Serverwebbadress"
 
-#: src/qml/Page/JoinRoomPage.qml:245
+#: src/qml/Page/JoinRoomPage.qml:246
 #, kde-format
 msgid "Joined"
 msgstr "Sammanfogat"
 
-#: src/qml/Page/JoinRoomPage.qml:299
+#: src/qml/Page/JoinRoomPage.qml:300
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
@@ -2615,8 +2616,8 @@ msgstr "Kontoeditor"
 msgid "Notification settings"
 msgstr "Underrättelseinställningar"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
-#: src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:64
 #, kde-format
 msgid "Devices"
 msgstr "Enheter"
@@ -2982,7 +2983,7 @@ msgid "No member count"
 msgstr "Ingen medlemsräkning"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
-#: src/qml/Settings/SettingsPage.qml:18
+#: src/qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "General"
 msgstr "Allmänt"
@@ -2997,7 +2998,7 @@ msgstr "Säkerhet"
 msgid "Permissions"
 msgstr "Rättigheter"
 
-#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:30
+#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
 msgstr "Underrättelser"
@@ -3518,26 +3519,24 @@ msgid "Homeserver url"
 msgstr "Webbadress för hemserver"
 
 #: src/qml/Settings/AccountEditorPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title"
 msgid "Account Management"
-msgstr "Kontoeditor"
+msgstr "Kontohantering"
 
 #: src/qml/Settings/AccountEditorPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate Account"
-msgstr "Redigera konto"
+msgstr "Inaktivera konto"
 
 #: src/qml/Settings/AccountEditorPage.qml:263
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
-msgstr ""
+msgstr "Bekräfta inaktivering av konto"
 
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
-#: src/qml/Settings/SettingsPage.qml:36
+#: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "Konton"
@@ -3669,32 +3668,32 @@ msgstr "Verifiera enhet"
 msgid "Logout device"
 msgstr "Logga ut från enhet"
 
-#: src/qml/Settings/DevicesPage.qml:28
+#: src/qml/Settings/DevicesPage.qml:31
 #, kde-format
 msgid "This Device"
 msgstr "Den här enheten"
 
-#: src/qml/Settings/DevicesPage.qml:33
+#: src/qml/Settings/DevicesPage.qml:36
 #, kde-format
 msgid "Verified Devices"
 msgstr "Verifierade enheter"
 
-#: src/qml/Settings/DevicesPage.qml:38
+#: src/qml/Settings/DevicesPage.qml:41
 #, kde-format
 msgid "Unverified Devices"
 msgstr "Overifierade enheter"
 
-#: src/qml/Settings/DevicesPage.qml:43
+#: src/qml/Settings/DevicesPage.qml:46
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr "Enhet utan krypteringsstöd"
 
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:61
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Logga in för att visa inloggade enheter för ditt konto."
 
-#: src/qml/Settings/DevicesPage.qml:69
+#: src/qml/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Remove device"
 msgstr "Ta bort enhet"
@@ -3905,7 +3904,7 @@ msgid "Invites"
 msgstr "Inbjudningar"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "Nätverksproxy"
@@ -3986,27 +3985,27 @@ msgstr "Aktivera meddelandefärgläggning"
 msgid "Delete keyword"
 msgstr "Ta bort nyckelord"
 
-#: src/qml/Settings/SettingsPage.qml:24
+#: src/qml/Settings/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "Utseende"
 
-#: src/qml/Settings/SettingsPage.qml:42
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Klistermärken och emoji"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Spell Checking"
 msgstr "Stavningskontroll"
 
-#: src/qml/Settings/SettingsPage.qml:73
+#: src/qml/Settings/SettingsPage.qml:75
 #, kde-format
 msgid "About NeoChat"
 msgstr "Om NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:79
+#: src/qml/Settings/SettingsPage.qml:81
 #, kde-format
 msgid "About KDE"
 msgstr "Om KDE"
@@ -4114,8 +4113,7 @@ msgid "This is not a valid server."
 msgstr "Det är inte en giltig server."
 
 #: src/registration.cpp:305
-#, fuzzy, kde-format
-#| msgid "Regisration for this server is disabled."
+#, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Registrering för servern är inaktiverad."
 
