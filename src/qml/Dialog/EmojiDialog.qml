@@ -66,7 +66,7 @@ QQC2.Popup {
         currentRoom: root.currentRoom
         includeCustom: emojiPopup.includeCustom
         showQuickReaction: emojiPopup.showQuickReaction
-        onChosen: {
+        onChosen: emoji => {
             emojiPopup.chosen(emoji)
             if (emojiPopup.closeOnChosen) emojiPopup.close()
         }

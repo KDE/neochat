@@ -116,7 +116,7 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
         withCustom: root.includeCustom
-        onChosen: root.chosen(unicode)
+        onChosen: unicode => root.chosen(unicode)
         header: categories
         Keys.forwardTo: searchField
         stickers: root.selectedType === 1

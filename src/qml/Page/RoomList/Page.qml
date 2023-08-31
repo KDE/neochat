@@ -161,7 +161,7 @@ Kirigami.Page {
                 ItemSelectionModel {
                     id: itemSelection
                     model: root.roomListModel
-                    onCurrentChanged: listView.currentIndex = sortFilterRoomListModel.mapFromSource(current).row
+                    onCurrentChanged: (current, previous) => listView.currentIndex = sortFilterRoomListModel.mapFromSource(current).row
                 }
 
                 model: SortFilterRoomListModel {

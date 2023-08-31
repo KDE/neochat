@@ -411,7 +411,7 @@ QQC2.Control {
 
             currentRoom: root.currentRoom
 
-            onChosen: insertText(emoji)
+            onChosen: emoji => insertText(emoji)
             onClosed: if (emojiAction.checked) emojiAction.checked = false
         }
     }
