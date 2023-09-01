@@ -7,64 +7,59 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
-Kirigami.ScrollablePage {
+FormCard.FormCardPage {
     id: root
 
     title: i18n("Devices")
 
     required property NeoChatConnection connection
 
-    leftPadding: 0
-    rightPadding: 0
-
-    DevicesModel {
+    property DevicesModel devicesModel: DevicesModel {
         id: devicesModel
         connection: root.connection
     }
 
-    ColumnLayout {
-        DevicesCard {
-            title: i18n("This Device")
-            type: DevicesModel.This
-            showVerifyButton: false
-        }
-        DevicesCard {
-            title: i18n("Verified Devices")
-            type: DevicesModel.Verified
-            showVerifyButton: true
-        }
-        DevicesCard {
-            title: i18n("Unverified Devices")
-            type: DevicesModel.Unverified
-            showVerifyButton: true
-        }
-        DevicesCard {
-            title: i18n("Devices without Encryption Support")
-            type: DevicesModel.Unencrypted
-            showVerifyButton: false
-        }
-
-        MobileForm.AbstractFormDelegate {
-            Layout.fillWidth: true
-            visible: Controller.activeConnection && devicesModel.count === 0 // We can assume 0 means loading since there is at least one device
-            contentItem: Kirigami.LoadingPlaceholder { }
-        }
-
-        Kirigami.InlineMessage {
-            Layout.fillWidth: true
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 30
-            Layout.alignment: Qt.AlignHCenter
-            text: i18n("Please login to view the signed-in devices for your account.")
-            type: Kirigami.MessageType.Information
-            visible: !Controller.activeConnection
-        }
+    DevicesCard {
+        title: i18n("This Device")
+        type: DevicesModel.This
+        showVerifyButton: false
+    }
+    DevicesCard {
+        title: i18n("Verified Devices")
+        type: DevicesModel.Verified
+        showVerifyButton: true
+    }
+    DevicesCard {
+        title: i18n("Unverified Devices")
+        type: DevicesModel.Unverified
+        showVerifyButton: true
+    }
+    DevicesCard {
+        title: i18n("Devices without Encryption Support")
+        type: DevicesModel.Unencrypted
+        showVerifyButton: false
     }
 
-    Kirigami.OverlaySheet {
+    FormCard.AbstractFormDelegate {
+        Layout.fillWidth: true
+        visible: Controller.activeConnection && devicesModel.count === 0 // We can assume 0 means loading since there is at least one device
+        contentItem: Kirigami.LoadingPlaceholder { }
+    }
+
+    Kirigami.InlineMessage {
+        Layout.fillWidth: true
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+        Layout.alignment: Qt.AlignHCenter
+        text: i18n("Please login to view the signed-in devices for your account.")
+        type: Kirigami.MessageType.Information
+        visible: !Controller.activeConnection
+    }
+
+    property Kirigami.OverlaySheet passwordSheet: Kirigami.OverlaySheet {
         id: passwordSheet
 
         property string deviceId

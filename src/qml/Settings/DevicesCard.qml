@@ -6,7 +6,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
@@ -18,38 +18,32 @@ ColumnLayout {
     required property bool showVerifyButton
 
     visible: deviceRepeater.count > 0
-    MobileForm.FormHeader {
+
+    FormCard.FormHeader {
         title: root.title
-        Layout.fillWidth: true
     }
 
-    MobileForm.FormCard {
+    FormCard.FormCard {
         id: devicesCard
 
-        Layout.fillWidth: true
+        Repeater {
+            id: deviceRepeater
+            model: DevicesProxyModel {
+                sourceModel: devicesModel
+                type: root.type
+            }
 
+            Kirigami.LoadingPlaceholder {
+                visible: deviceModel.count === 0 // We can assume 0 means loading since there is at least one device
+                anchors.centerIn: parent
+            }
 
-        contentItem: ColumnLayout {
-            spacing: 0
-
-            Repeater {
-                id: deviceRepeater
-                model: DevicesProxyModel {
-                    sourceModel: devicesModel
-                    type: root.type
-                }
-
-                Kirigami.LoadingPlaceholder {
-                    visible: deviceModel.count === 0 // We can assume 0 means loading since there is at least one device
-                    anchors.centerIn: parent
-                }
-
-                delegate: DeviceDelegate {
-                    showVerifyButton: root.showVerifyButton
-                }
+            delegate: DeviceDelegate {
+                showVerifyButton: root.showVerifyButton
             }
         }
     }
 }
+
 
 
