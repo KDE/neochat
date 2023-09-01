@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-31 00:46+0000\n"
+"POT-Creation-Date: 2023-09-01 00:46+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -661,7 +661,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:122
+#: src/models/messagefiltermodel.cpp:123
 #, fuzzy, kde-format
 #| msgctxt "[user did something] n times"
 #| msgid " %1 time"
@@ -672,7 +672,7 @@ msgid_plural " %1 times "
 msgstr[0] " %1 φορά"
 msgstr[1] " %1 φορές"
 
-#: src/models/messagefiltermodel.cpp:128
+#: src/models/messagefiltermodel.cpp:129
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -680,7 +680,7 @@ msgid_plural " %1 users "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messagefiltermodel.cpp:138
+#: src/models/messagefiltermodel.cpp:139
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -688,13 +688,13 @@ msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:141
+#: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:141
+#: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -752,17 +752,17 @@ msgstr "Χαμηλή προτεραιότητα"
 msgid "Spaces"
 msgstr "Χώροι"
 
-#: src/models/searchmodel.cpp:255
+#: src/models/searchmodel.cpp:250
 #, kde-format
 msgid "Today"
 msgstr "Σήμερα"
 
-#: src/models/searchmodel.cpp:258
+#: src/models/searchmodel.cpp:253
 #, kde-format
 msgid "Yesterday"
 msgstr "Χθες"
 
-#: src/models/searchmodel.cpp:261
+#: src/models/searchmodel.cpp:256
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Προχθές"
@@ -1537,7 +1537,7 @@ msgstr "Κωδικός πρόσβασης:"
 
 #: src/qml/Component/Login/Password.qml:32
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
-#: src/qml/Settings/AccountEditorPage.qml:151
+#: src/qml/Settings/AccountEditorPage.qml:134
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
@@ -1769,7 +1769,6 @@ msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
 #: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
-#: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "Ακύρωση"
@@ -2779,14 +2778,14 @@ msgid "Follow Global Setting"
 msgstr "Να ακολουθηθεί η γενική ρύθμιση"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:82
-#: src/qml/RoomSettings/PushNotification.qml:42
+#: src/qml/RoomSettings/PushNotification.qml:35
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Όλα"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:93
-#: src/qml/RoomSettings/PushNotification.qml:50
+#: src/qml/RoomSettings/PushNotification.qml:43
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -2795,7 +2794,7 @@ msgid "@Mentions and Keywords"
 msgstr "@Αναφορές και λέξεις κλειδιά"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:104
-#: src/qml/RoomSettings/PushNotification.qml:58
+#: src/qml/RoomSettings/PushNotification.qml:51
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -2817,7 +2816,7 @@ msgid "Leave Room"
 msgstr "Αποχώρηση από την αίθουσα"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:153
+#: src/qml/Page/RoomList/Page.qml:155
 #, kde-format
 msgid "Explore rooms"
 msgstr "Εξερεύνηση αιθουσών"
@@ -2829,28 +2828,28 @@ msgstr "Εξερεύνηση αιθουσών"
 msgid "Create rooms and chats"
 msgstr "Αίθουσες και ιδιωτικές συνομιλίες"
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:152
 #, kde-format
 msgid "No rooms found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:152
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Μπορείς να εισέλθεις σε κάποιες αίθουσες για να ξεκινήσεις"
 
-#: src/qml/Page/RoomList/Page.qml:153
+#: src/qml/Page/RoomList/Page.qml:155
 #, kde-format
 msgid "Search in room directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
-#: src/qml/Page/RoomList/Page.qml:195
+#: src/qml/Page/RoomList/Page.qml:197
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/Page/RoomList/Page.qml:195
+#: src/qml/Page/RoomList/Page.qml:197
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
@@ -3118,8 +3117,8 @@ msgid "Update avatar"
 msgstr "Ενημέρωση avatar"
 
 #: src/qml/RoomSettings/General.qml:114
-#: src/qml/Settings/AccountEditorPage.qml:129
-#: src/qml/Settings/AccountEditorPage.qml:198
+#: src/qml/Settings/AccountEditorPage.qml:118
+#: src/qml/Settings/AccountEditorPage.qml:171
 #: src/qml/Settings/EmoticonEditorPage.qml:121
 #, kde-format
 msgid "Save"
@@ -3375,29 +3374,29 @@ msgstr "Ρύθμισε τα παιδιά αυτού του χώρου"
 msgid "Set the parent space of this room"
 msgstr "Ρύθμισε τον γονεϊκό χώρο αυτής της αίθουσας"
 
-#: src/qml/RoomSettings/PushNotification.qml:27
+#: src/qml/RoomSettings/PushNotification.qml:22
 #, kde-format
 msgid "Room notifications setting"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
-#: src/qml/RoomSettings/PushNotification.qml:34
+#: src/qml/RoomSettings/PushNotification.qml:27
 #, kde-format
 msgid "Follow global setting"
 msgstr "Ακολούθησε τη γενική ρύθμιση"
 
-#: src/qml/RoomSettings/PushNotification.qml:75
+#: src/qml/RoomSettings/PushNotification.qml:61
 #: src/qml/Settings/GlobalNotificationsPage.qml:89
 #, kde-format
 msgid "Keywords"
 msgstr "Λέξεις κλειδιά"
 
-#: src/qml/RoomSettings/PushNotification.qml:99
+#: src/qml/RoomSettings/PushNotification.qml:96
 #: src/qml/Settings/GlobalNotificationsPage.qml:117
 #, kde-format
 msgid "Keyword…"
 msgstr "Λέξη κλειδί…"
 
-#: src/qml/RoomSettings/PushNotification.qml:118
+#: src/qml/RoomSettings/PushNotification.qml:115
 #: src/qml/Settings/GlobalNotificationsPage.qml:136
 #, kde-format
 msgid "Add keyword"
@@ -3562,18 +3561,18 @@ msgctxt "@title:window"
 msgid "About KDE"
 msgstr ""
 
-#: src/qml/Settings/AccountEditorPage.qml:18
+#: src/qml/Settings/AccountEditorPage.qml:19
 #, kde-format
 msgid "Edit Account"
 msgstr "Επεξεργασία λογαριασμού"
 
-#: src/qml/Settings/AccountEditorPage.qml:72
+#: src/qml/Settings/AccountEditorPage.qml:65
 #, fuzzy, kde-format
 #| msgid "Update avatar"
 msgid "Upload new avatar"
 msgstr "Ενημέρωση avatar"
 
-#: src/qml/Settings/AccountEditorPage.qml:89
+#: src/qml/Settings/AccountEditorPage.qml:82
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Αφαίρεση του τρέχοντος avatar"
@@ -3583,70 +3582,70 @@ msgstr "Αφαίρεση του τρέχοντος avatar"
 msgid "User information"
 msgstr "Πληροφορίες χρήστη"
 
-#: src/qml/Settings/AccountEditorPage.qml:110
+#: src/qml/Settings/AccountEditorPage.qml:107
 #, kde-format
 msgid "Name:"
 msgstr "Όνομα:"
 
-#: src/qml/Settings/AccountEditorPage.qml:116
+#: src/qml/Settings/AccountEditorPage.qml:113
 #, kde-format
 msgid "Label:"
 msgstr "Ετικέτα:"
 
-#: src/qml/Settings/AccountEditorPage.qml:159
+#: src/qml/Settings/AccountEditorPage.qml:139
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Ο εξυπηρετητής σου δεν υποστηρίζει αλλαγή κωδικού πρόσβασης"
 
-#: src/qml/Settings/AccountEditorPage.qml:164
+#: src/qml/Settings/AccountEditorPage.qml:144
 #, kde-format
 msgid "Current Password:"
 msgstr "Τρέχων κωδικός:"
 
-#: src/qml/Settings/AccountEditorPage.qml:171
+#: src/qml/Settings/AccountEditorPage.qml:151
 #, kde-format
 msgid "New Password:"
 msgstr "Νέος κωδικός:"
 
-#: src/qml/Settings/AccountEditorPage.qml:178
+#: src/qml/Settings/AccountEditorPage.qml:158
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Επιβεβαίωση νέου κωδικού:"
 
-#: src/qml/Settings/AccountEditorPage.qml:183
+#: src/qml/Settings/AccountEditorPage.qml:163
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
 
-#: src/qml/Settings/AccountEditorPage.qml:206
+#: src/qml/Settings/AccountEditorPage.qml:177
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
 
-#: src/qml/Settings/AccountEditorPage.qml:224
+#: src/qml/Settings/AccountEditorPage.qml:185
 #, kde-format
 msgid "Server Information"
 msgstr "Πληροφορίες εξυπηρετητή"
 
-#: src/qml/Settings/AccountEditorPage.qml:231
+#: src/qml/Settings/AccountEditorPage.qml:189
 #, kde-format
 msgid "Homeserver url"
 msgstr "Url εξυπηρετητή"
 
-#: src/qml/Settings/AccountEditorPage.qml:254
+#: src/qml/Settings/AccountEditorPage.qml:210
 #, fuzzy, kde-format
 #| msgid "Account editor"
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Συντάκτης λογαριασμού"
 
-#: src/qml/Settings/AccountEditorPage.qml:262
+#: src/qml/Settings/AccountEditorPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate Account"
 msgstr "Επεξεργασία λογαριασμού"
 
-#: src/qml/Settings/AccountEditorPage.qml:263
+#: src/qml/Settings/AccountEditorPage.qml:216
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"

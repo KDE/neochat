@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-31 00:46+0000\n"
+"POT-Creation-Date: 2023-09-01 00:46+0000\n"
 "PO-Revision-Date: 2023-05-09 22:36+0200\n"
 "Last-Translator: K. Áron <aronkvh@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -655,7 +655,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:122
+#: src/models/messagefiltermodel.cpp:123
 #, kde-format
 msgctxt "n times"
 msgid " %1 time "
@@ -663,7 +663,7 @@ msgid_plural " %1 times "
 msgstr[0] " 1% alkalommal "
 msgstr[1] " %1 alkalommal "
 
-#: src/models/messagefiltermodel.cpp:128
+#: src/models/messagefiltermodel.cpp:129
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -671,19 +671,19 @@ msgid_plural " %1 users "
 msgstr[0] " %1 felhasználó "
 msgstr[1] " %1 felhasználó "
 
-#: src/models/messagefiltermodel.cpp:138
+#: src/models/messagefiltermodel.cpp:139
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:141
+#: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " vagy "
 
-#: src/models/messagefiltermodel.cpp:141
+#: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -741,17 +741,17 @@ msgstr "Alacsony prioritás"
 msgid "Spaces"
 msgstr "Terek"
 
-#: src/models/searchmodel.cpp:255
+#: src/models/searchmodel.cpp:250
 #, kde-format
 msgid "Today"
 msgstr "Ma"
 
-#: src/models/searchmodel.cpp:258
+#: src/models/searchmodel.cpp:253
 #, kde-format
 msgid "Yesterday"
 msgstr "Tegnap"
 
-#: src/models/searchmodel.cpp:261
+#: src/models/searchmodel.cpp:256
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Tegnapelőtt"
@@ -1491,7 +1491,7 @@ msgstr "Jelszó:"
 
 #: src/qml/Component/Login/Password.qml:32
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
-#: src/qml/Settings/AccountEditorPage.qml:151
+#: src/qml/Settings/AccountEditorPage.qml:134
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
@@ -1720,7 +1720,6 @@ msgstr "A titkosítást nem lehet majd kikapcsolni, ha egyszer bekapcsolta."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
 #: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
-#: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "Mégsem"
@@ -2724,14 +2723,14 @@ msgid "Follow Global Setting"
 msgstr "Kövesse az általános beállítást"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:82
-#: src/qml/RoomSettings/PushNotification.qml:42
+#: src/qml/RoomSettings/PushNotification.qml:35
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Minden üzenet"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:93
-#: src/qml/RoomSettings/PushNotification.qml:50
+#: src/qml/RoomSettings/PushNotification.qml:43
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -2740,7 +2739,7 @@ msgid "@Mentions and Keywords"
 msgstr "@Megemlítések és kulcsszavak"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:104
-#: src/qml/RoomSettings/PushNotification.qml:58
+#: src/qml/RoomSettings/PushNotification.qml:51
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -2762,7 +2761,7 @@ msgid "Leave Room"
 msgstr "Szoba elhagyása"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:153
+#: src/qml/Page/RoomList/Page.qml:155
 #, kde-format
 msgid "Explore rooms"
 msgstr "Szobák felfedezése"
@@ -2773,28 +2772,28 @@ msgstr "Szobák felfedezése"
 msgid "Create rooms and chats"
 msgstr "Szobák és privát beszélgetések létrehozása"
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:152
 #, kde-format
 msgid "No rooms found"
 msgstr "Nem található szoba"
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:152
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Csatlakozz néhány szobához kezdésként"
 
-#: src/qml/Page/RoomList/Page.qml:153
+#: src/qml/Page/RoomList/Page.qml:155
 #, kde-format
 msgid "Search in room directory"
 msgstr "Keresés a szobakönyvtárban"
 
-#: src/qml/Page/RoomList/Page.qml:195
+#: src/qml/Page/RoomList/Page.qml:197
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/Page/RoomList/Page.qml:195
+#: src/qml/Page/RoomList/Page.qml:197
 #, fuzzy, kde-format
 #| msgid "Expand preview"
 msgctxt "Expand <section name"
@@ -3060,8 +3059,8 @@ msgid "Update avatar"
 msgstr "Profilkép frissítése"
 
 #: src/qml/RoomSettings/General.qml:114
-#: src/qml/Settings/AccountEditorPage.qml:129
-#: src/qml/Settings/AccountEditorPage.qml:198
+#: src/qml/Settings/AccountEditorPage.qml:118
+#: src/qml/Settings/AccountEditorPage.qml:171
 #: src/qml/Settings/EmoticonEditorPage.qml:121
 #, kde-format
 msgid "Save"
@@ -3307,29 +3306,29 @@ msgstr "A tér gyermekeinek beállítása"
 msgid "Set the parent space of this room"
 msgstr "A szoba szülő-terének beállítása"
 
-#: src/qml/RoomSettings/PushNotification.qml:27
+#: src/qml/RoomSettings/PushNotification.qml:22
 #, kde-format
 msgid "Room notifications setting"
 msgstr "A szoba értesítéseinek beállítása"
 
-#: src/qml/RoomSettings/PushNotification.qml:34
+#: src/qml/RoomSettings/PushNotification.qml:27
 #, kde-format
 msgid "Follow global setting"
 msgstr "Kövesse az általános beállítást"
 
-#: src/qml/RoomSettings/PushNotification.qml:75
+#: src/qml/RoomSettings/PushNotification.qml:61
 #: src/qml/Settings/GlobalNotificationsPage.qml:89
 #, kde-format
 msgid "Keywords"
 msgstr "Kulcsszavak"
 
-#: src/qml/RoomSettings/PushNotification.qml:99
+#: src/qml/RoomSettings/PushNotification.qml:96
 #: src/qml/Settings/GlobalNotificationsPage.qml:117
 #, kde-format
 msgid "Keyword…"
 msgstr "Kulcsszó..."
 
-#: src/qml/RoomSettings/PushNotification.qml:118
+#: src/qml/RoomSettings/PushNotification.qml:115
 #: src/qml/Settings/GlobalNotificationsPage.qml:136
 #, kde-format
 msgid "Add keyword"
@@ -3495,18 +3494,18 @@ msgctxt "@title:window"
 msgid "About KDE"
 msgstr "A KDE-ről"
 
-#: src/qml/Settings/AccountEditorPage.qml:18
+#: src/qml/Settings/AccountEditorPage.qml:19
 #, kde-format
 msgid "Edit Account"
 msgstr "Fiók szerkesztése"
 
-#: src/qml/Settings/AccountEditorPage.qml:72
+#: src/qml/Settings/AccountEditorPage.qml:65
 #, fuzzy, kde-format
 #| msgid "Update avatar"
 msgid "Upload new avatar"
 msgstr "Profilkép frissítése"
 
-#: src/qml/Settings/AccountEditorPage.qml:89
+#: src/qml/Settings/AccountEditorPage.qml:82
 #, kde-format
 msgid "Remove current avatar"
 msgstr "A jelenlegi profilkép eltávolítása"
@@ -3516,70 +3515,70 @@ msgstr "A jelenlegi profilkép eltávolítása"
 msgid "User information"
 msgstr "Felhasználóinformációk"
 
-#: src/qml/Settings/AccountEditorPage.qml:110
+#: src/qml/Settings/AccountEditorPage.qml:107
 #, kde-format
 msgid "Name:"
 msgstr "Név:"
 
-#: src/qml/Settings/AccountEditorPage.qml:116
+#: src/qml/Settings/AccountEditorPage.qml:113
 #, kde-format
 msgid "Label:"
 msgstr "Címke:"
 
-#: src/qml/Settings/AccountEditorPage.qml:159
+#: src/qml/Settings/AccountEditorPage.qml:139
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "A szerver nem támogatja a jelszó megváltoztatását"
 
-#: src/qml/Settings/AccountEditorPage.qml:164
+#: src/qml/Settings/AccountEditorPage.qml:144
 #, kde-format
 msgid "Current Password:"
 msgstr "Jelenlegi jelszó:"
 
-#: src/qml/Settings/AccountEditorPage.qml:171
+#: src/qml/Settings/AccountEditorPage.qml:151
 #, kde-format
 msgid "New Password:"
 msgstr "Új jelszó:"
 
-#: src/qml/Settings/AccountEditorPage.qml:178
+#: src/qml/Settings/AccountEditorPage.qml:158
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Új jelszó megerősítése:"
 
-#: src/qml/Settings/AccountEditorPage.qml:183
+#: src/qml/Settings/AccountEditorPage.qml:163
 #, kde-format
 msgid "Passwords don't match"
 msgstr "A jelszavak nem egyeznek"
 
-#: src/qml/Settings/AccountEditorPage.qml:206
+#: src/qml/Settings/AccountEditorPage.qml:177
 #, kde-format
 msgid "Passwords do not match"
 msgstr "A jelszavak nem egyeznek"
 
-#: src/qml/Settings/AccountEditorPage.qml:224
+#: src/qml/Settings/AccountEditorPage.qml:185
 #, kde-format
 msgid "Server Information"
 msgstr "Szerverinformációk"
 
-#: src/qml/Settings/AccountEditorPage.qml:231
+#: src/qml/Settings/AccountEditorPage.qml:189
 #, kde-format
 msgid "Homeserver url"
 msgstr "Elsődleges szerver"
 
-#: src/qml/Settings/AccountEditorPage.qml:254
+#: src/qml/Settings/AccountEditorPage.qml:210
 #, fuzzy, kde-format
 #| msgid "Account editor"
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Fiók szerkesztése"
 
-#: src/qml/Settings/AccountEditorPage.qml:262
+#: src/qml/Settings/AccountEditorPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate Account"
 msgstr "Fiók szerkesztése"
 
-#: src/qml/Settings/AccountEditorPage.qml:263
+#: src/qml/Settings/AccountEditorPage.qml:216
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"

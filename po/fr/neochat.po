@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-31 00:46+0000\n"
-"PO-Revision-Date: 2023-08-19 22:52+0200\n"
+"POT-Creation-Date: 2023-09-01 00:46+0000\n"
+"PO-Revision-Date: 2023-08-30 16:48+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.90\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #: src/controller.cpp:211
 #, kde-format
@@ -651,7 +651,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:122
+#: src/models/messagefiltermodel.cpp:123
 #, kde-format
 msgctxt "n times"
 msgid " %1 time "
@@ -659,7 +659,7 @@ msgid_plural " %1 times "
 msgstr[0] " %1 fois "
 msgstr[1] " %1 fois "
 
-#: src/models/messagefiltermodel.cpp:128
+#: src/models/messagefiltermodel.cpp:129
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -667,19 +667,19 @@ msgid_plural " %1 users "
 msgstr[0] " utilisateur %1 "
 msgstr[1] " %1 utilisateurs "
 
-#: src/models/messagefiltermodel.cpp:138
+#: src/models/messagefiltermodel.cpp:139
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:141
+#: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " ou "
 
-#: src/models/messagefiltermodel.cpp:141
+#: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -737,17 +737,17 @@ msgstr "Basse priorité"
 msgid "Spaces"
 msgstr "Espaces"
 
-#: src/models/searchmodel.cpp:255
+#: src/models/searchmodel.cpp:250
 #, kde-format
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: src/models/searchmodel.cpp:258
+#: src/models/searchmodel.cpp:253
 #, kde-format
 msgid "Yesterday"
 msgstr "Hier"
 
-#: src/models/searchmodel.cpp:261
+#: src/models/searchmodel.cpp:256
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Le jour avant hier"
@@ -1375,13 +1375,12 @@ msgstr "Il n'y a aucun emplacement partagé dans ce salon."
 #: src/qml/Component/Login/Email.qml:20
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "Ajouter une adresse de courriel :"
 
 #: src/qml/Component/Login/Email.qml:32
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgid "Confirm e-mail address"
-msgstr "Confirmer un nouveau nom pour affichage"
+msgstr "Confirmer un adresse de courriel"
 
 #: src/qml/Component/Login/Email.qml:34
 #, kde-format
@@ -1389,18 +1388,20 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"Un courriel de confirmation a été envoyé sur votre adresse de courriel. "
+"Veuillez continuer ici <b>après</b> avoir cliqué sur le lien de confirmation "
+"du courriel."
 
 #: src/qml/Component/Login/Email.qml:39
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "Ré-envoyer le courriel de confirmation"
 
 #: src/qml/Component/Login/Homeserver.qml:20
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server Url:"
-msgstr "URL du serveur"
+msgstr "URL du serveur :"
 
 #: src/qml/Component/Login/Homeserver.qml:25
 #, kde-format
@@ -1409,8 +1410,7 @@ msgstr ""
 
 #: src/qml/Component/Login/Homeserver.qml:40
 #: src/qml/Component/Login/Username.qml:37
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading"
 msgstr "Chargement..."
 
@@ -1446,8 +1446,7 @@ msgid "Already logged in"
 msgstr "Déjà connecté"
 
 #: src/qml/Component/Login/LoginMethod.qml:20
-#, fuzzy, kde-format
-#| msgid "Login with password"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Se connecter avec un mot de passe"
@@ -1467,8 +1466,7 @@ msgid "Login"
 msgstr "Connexion"
 
 #: src/qml/Component/Login/LoginRegister.qml:27
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "S'inscrire"
@@ -1482,46 +1480,42 @@ msgstr "Mot de passe :"
 
 #: src/qml/Component/Login/Password.qml:32
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
-#: src/qml/Settings/AccountEditorPage.qml:151
+#: src/qml/Settings/AccountEditorPage.qml:134
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
 msgstr "Mot de passe"
 
 #: src/qml/Component/Login/Password.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter your password"
+#, kde-format
 msgid "Invalid username or password"
-msgstr "Saisissez votre mot de passe"
+msgstr "Nom d'utilisateur ou mot de passe non valable"
 
 #: src/qml/Component/Login/RegisterPassword.qml:29
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "Confirmer le nouveau mot de passe :"
+msgstr "Confirmer le mot de passe :"
 
 #: src/qml/Component/Login/RegisterPassword.qml:32
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "The passwords do not match."
-msgstr "Les mots de passe ne correspondent pas"
+msgstr "Les mots de passe ne correspondent pas."
 
 #: src/qml/Component/Login/Sso.qml:31
-#, fuzzy, kde-format
-#| msgid "Complete the authentication steps in your browser"
+#, kde-format
 msgid "Continue the login process in your browser."
-msgstr "Terminer les étapes d'authentification dans votre navigateur"
+msgstr "Continuer le processus de connexion dans votre navigateur."
 
 #: src/qml/Component/Login/Sso.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
-msgstr ""
+msgstr "Ré-ouvrir l'URL « SSO »"
 
 #: src/qml/Component/Login/Terms.qml:19
 #, kde-format
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "Termes et conditions"
 
 #: src/qml/Component/Login/Terms.qml:20
 #, kde-format
@@ -1531,16 +1525,14 @@ msgid ""
 msgstr ""
 
 #: src/qml/Component/Login/Username.qml:19
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username:"
-msgstr "Nom d'utilisateur"
+msgstr "Nom d'utilisateur :"
 
 #: src/qml/Component/Login/Username.qml:22
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "Username unavailable"
-msgstr "Aucun utilisateur disponible"
+msgstr "Nom d'utilisateur indisponible"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1713,7 +1705,6 @@ msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
 #: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
-#: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "Annuler"
@@ -2398,15 +2389,13 @@ msgstr "Source du message"
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
-msgstr ""
+msgstr "Avancer"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "Signaler un message"
+msgstr "Transférer un message"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:95
 #, kde-format
@@ -2460,11 +2449,10 @@ msgid "Reason for reporting this message"
 msgstr "Raison pour signaler ce message"
 
 #: src/qml/Page/ChooseRoomDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Choose a Location"
+#, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
-msgstr "Sélectionner un emplacement"
+msgstr "Sélectionner un salon"
 
 #: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
@@ -2624,8 +2612,7 @@ msgid "Joined"
 msgstr "Joint"
 
 #: src/qml/Page/JoinRoomPage.qml:300
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Aucun salon n'a été trouvé."
@@ -2718,14 +2705,14 @@ msgid "Follow Global Setting"
 msgstr "Utiliser la configuration globale"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:82
-#: src/qml/RoomSettings/PushNotification.qml:42
+#: src/qml/RoomSettings/PushNotification.qml:35
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Tous"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:93
-#: src/qml/RoomSettings/PushNotification.qml:50
+#: src/qml/RoomSettings/PushNotification.qml:43
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -2734,7 +2721,7 @@ msgid "@Mentions and Keywords"
 msgstr "@Mentions et mots clé"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:104
-#: src/qml/RoomSettings/PushNotification.qml:58
+#: src/qml/RoomSettings/PushNotification.qml:51
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -2756,7 +2743,7 @@ msgid "Leave Room"
 msgstr "Quitter un salon"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:153
+#: src/qml/Page/RoomList/Page.qml:155
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explorer les salons"
@@ -2767,28 +2754,28 @@ msgstr "Explorer les salons"
 msgid "Create rooms and chats"
 msgstr "Créer des salons et des fils de discussions"
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:152
 #, kde-format
 msgid "No rooms found"
 msgstr "Aucun salon n'a été trouvé."
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:152
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Rejoindre certains salons pour vous lancer."
 
-#: src/qml/Page/RoomList/Page.qml:153
+#: src/qml/Page/RoomList/Page.qml:155
 #, kde-format
 msgid "Search in room directory"
 msgstr "Rechercher dans le dossier des salons"
 
-#: src/qml/Page/RoomList/Page.qml:195
+#: src/qml/Page/RoomList/Page.qml:197
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Réduire %1"
 
-#: src/qml/Page/RoomList/Page.qml:195
+#: src/qml/Page/RoomList/Page.qml:197
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -2902,21 +2889,22 @@ msgid "Welcome"
 msgstr "Bienvenu"
 
 #: src/qml/Page/WelcomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgid "Log in to a different account or create a new account."
-msgstr "Se connecter à un compte existant"
+msgstr "Se connecter à un compte différent ou créer un nouveau compte."
 
 #: src/qml/Page/WelcomePage.qml:44
 #, kde-format
 msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
 msgstr ""
+"Bienvenue dans NeoChat ! Veuillez poursuivre en vous connectant ou en créant "
+"un compte."
 
 #: src/qml/Page/WelcomePage.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
-msgstr ""
+msgstr "Revenir en arrière"
 
 #: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
@@ -2939,8 +2927,7 @@ msgid "Room settings"
 msgstr "Paramètres du salon"
 
 #: src/qml/RoomDrawer/RoomInformation.qml:38
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "Informations sur le salon"
@@ -3046,8 +3033,8 @@ msgid "Update avatar"
 msgstr "Mettre à jour un avatar"
 
 #: src/qml/RoomSettings/General.qml:114
-#: src/qml/Settings/AccountEditorPage.qml:129
-#: src/qml/Settings/AccountEditorPage.qml:198
+#: src/qml/Settings/AccountEditorPage.qml:118
+#: src/qml/Settings/AccountEditorPage.qml:171
 #: src/qml/Settings/EmoticonEditorPage.qml:121
 #, kde-format
 msgid "Save"
@@ -3295,29 +3282,29 @@ msgstr "Définir les enfants de cette espace"
 msgid "Set the parent space of this room"
 msgstr "Définir un espace parent de ce salon"
 
-#: src/qml/RoomSettings/PushNotification.qml:27
+#: src/qml/RoomSettings/PushNotification.qml:22
 #, kde-format
 msgid "Room notifications setting"
 msgstr "Configuration des notifications de salons"
 
-#: src/qml/RoomSettings/PushNotification.qml:34
+#: src/qml/RoomSettings/PushNotification.qml:27
 #, kde-format
 msgid "Follow global setting"
 msgstr "Utiliser la configuration globale"
 
-#: src/qml/RoomSettings/PushNotification.qml:75
+#: src/qml/RoomSettings/PushNotification.qml:61
 #: src/qml/Settings/GlobalNotificationsPage.qml:89
 #, kde-format
 msgid "Keywords"
 msgstr "Mots clé"
 
-#: src/qml/RoomSettings/PushNotification.qml:99
+#: src/qml/RoomSettings/PushNotification.qml:96
 #: src/qml/Settings/GlobalNotificationsPage.qml:117
 #, kde-format
 msgid "Keyword…"
 msgstr "Mot clé..."
 
-#: src/qml/RoomSettings/PushNotification.qml:118
+#: src/qml/RoomSettings/PushNotification.qml:115
 #: src/qml/Settings/GlobalNotificationsPage.qml:136
 #, kde-format
 msgid "Add keyword"
@@ -3488,17 +3475,17 @@ msgctxt "@title:window"
 msgid "About KDE"
 msgstr "À propos de KDE"
 
-#: src/qml/Settings/AccountEditorPage.qml:18
+#: src/qml/Settings/AccountEditorPage.qml:19
 #, kde-format
 msgid "Edit Account"
 msgstr "Modifier un compte"
 
-#: src/qml/Settings/AccountEditorPage.qml:72
+#: src/qml/Settings/AccountEditorPage.qml:65
 #, kde-format
 msgid "Upload new avatar"
 msgstr "Télécharger un nouvel avatar"
 
-#: src/qml/Settings/AccountEditorPage.qml:89
+#: src/qml/Settings/AccountEditorPage.qml:82
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Supprimer l'avatar courant"
@@ -3508,71 +3495,71 @@ msgstr "Supprimer l'avatar courant"
 msgid "User information"
 msgstr "Informations sur un utilisateur"
 
-#: src/qml/Settings/AccountEditorPage.qml:110
+#: src/qml/Settings/AccountEditorPage.qml:107
 #, kde-format
 msgid "Name:"
 msgstr "Nom :"
 
-#: src/qml/Settings/AccountEditorPage.qml:116
+#: src/qml/Settings/AccountEditorPage.qml:113
 #, kde-format
 msgid "Label:"
 msgstr "Libellé :"
 
-#: src/qml/Settings/AccountEditorPage.qml:159
+#: src/qml/Settings/AccountEditorPage.qml:139
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr ""
 "Votre serveur ne prend pas en charge la modification de votre mot de passe."
 
-#: src/qml/Settings/AccountEditorPage.qml:164
+#: src/qml/Settings/AccountEditorPage.qml:144
 #, kde-format
 msgid "Current Password:"
 msgstr "Mot de passe actuel :"
 
-#: src/qml/Settings/AccountEditorPage.qml:171
+#: src/qml/Settings/AccountEditorPage.qml:151
 #, kde-format
 msgid "New Password:"
 msgstr "Nouveau mot de passe :"
 
-#: src/qml/Settings/AccountEditorPage.qml:178
+#: src/qml/Settings/AccountEditorPage.qml:158
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Confirmer le nouveau mot de passe :"
 
-#: src/qml/Settings/AccountEditorPage.qml:183
+#: src/qml/Settings/AccountEditorPage.qml:163
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Les mots de passe ne correspondent pas"
 
-#: src/qml/Settings/AccountEditorPage.qml:206
+#: src/qml/Settings/AccountEditorPage.qml:177
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Les mots de passe ne correspondent pas"
 
-#: src/qml/Settings/AccountEditorPage.qml:224
+#: src/qml/Settings/AccountEditorPage.qml:185
 #, kde-format
 msgid "Server Information"
 msgstr "Informations sur le serveur"
 
-#: src/qml/Settings/AccountEditorPage.qml:231
+#: src/qml/Settings/AccountEditorPage.qml:189
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL du serveur d'accueil"
 
-#: src/qml/Settings/AccountEditorPage.qml:254
+#: src/qml/Settings/AccountEditorPage.qml:210
 #, fuzzy, kde-format
 #| msgid "Account editor"
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Éditeur de comptes"
 
-#: src/qml/Settings/AccountEditorPage.qml:262
+#: src/qml/Settings/AccountEditorPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate Account"
 msgstr "Modifier un compte"
 
-#: src/qml/Settings/AccountEditorPage.qml:263
+#: src/qml/Settings/AccountEditorPage.qml:216
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
@@ -4148,22 +4135,19 @@ msgid "Delete word"
 msgstr "Supprimer un mot"
 
 #: src/registration.cpp:299
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgid "No server."
-msgstr "Ajouter un serveur"
+msgstr "Aucun serveur."
 
 #: src/registration.cpp:301
 #, kde-format
 msgid "Checking Server availability."
-msgstr ""
+msgstr "Vérification de la disponibilité du serveur."
 
 #: src/registration.cpp:303
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "This is not a valid server."
-msgstr "Le texte saisi n'est pas une URL valable"
+msgstr "Ceci n'est pas un serveur valable."
 
 #: src/registration.cpp:305
 #, kde-format
@@ -4171,33 +4155,29 @@ msgid "Registration for this server is disabled."
 msgstr ""
 
 #: src/registration.cpp:307
-#, fuzzy, kde-format
-#| msgid "No name"
+#, kde-format
 msgid "No username."
-msgstr "Aucun nom"
+msgstr "Aucun nom d'utilisateur."
 
 #: src/registration.cpp:309
 #, kde-format
 msgid "Checking username availability."
-msgstr ""
+msgstr "Vérification de la disponibilité du nom d'utilisateur."
 
 #: src/registration.cpp:311
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "This username is not available."
-msgstr "Aucun utilisateur disponible"
+msgstr "Ce nom d'utilisateur est indisponible."
 
 #: src/registration.cpp:313
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
+#, kde-format
 msgid "Continue"
 msgstr "Continuer"
 
 #: src/registration.cpp:315
 #, kde-format
 msgid "Working"
-msgstr ""
+msgstr "De travail"
 
 #: src/roommanager.cpp:52
 #, kde-format
