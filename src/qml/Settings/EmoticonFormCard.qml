@@ -6,12 +6,12 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
-MobileForm.FormCard {
-    id: emoticonFormCard
+FormCard.FormCard {
+    id: root
 
     enum EmoticonType {
         Emojis,
@@ -20,101 +20,97 @@ MobileForm.FormCard {
 
     property var emoticonType
 
-    Layout.fillWidth: true
-    contentItem: ColumnLayout {
-        spacing: 0
-        Flow {
-            id: stickerFlow
-            Layout.fillWidth: true
-            Repeater {
-                model: EmoticonFilterModel {
-                    id: emoticonFilterModel
-                    sourceModel: AccountEmoticonModel {
-                        id: stickerModel
-                        connection: Controller.activeConnection
-                    }
-                    showStickers: emoticonFormCard.emoticonType === EmoticonFormCard.Stickers
-                    showEmojis: emoticonFormCard.emoticonType === EmoticonFormCard.Emojis
+    Flow {
+        id: stickerFlow
+        Layout.fillWidth: true
+        Repeater {
+            model: EmoticonFilterModel {
+                id: emoticonFilterModel
+                sourceModel: AccountEmoticonModel {
+                    id: stickerModel
+                    connection: Controller.activeConnection
                 }
-
-                delegate: MobileForm.AbstractFormDelegate {
-                    id: stickerDelegate
-
-                    width: stickerFlow.width / 4
-                    height: width
-
-                    onClicked: pageSettingStack.pushDialogLayer(emoticonEditorPage, {
-                        description: model.body ?? "",
-                        index: model.index,
-                        url: model.url,
-                        shortcode: model.shortcode,
-                        model: stickerModel,
-                        proxyModel: emoticonFilterModel,
-                        emoticonType: emoticonFormCard.emoticonType
-                    }, {
-                        title: emoticonFormCard.emoticonType === EmoticonFormCard.Emojis ? i18nc("@title", "Edit Emoji") : i18nc("@title", "Edit Sticker")
-                    });
-
-                    contentItem: ColumnLayout {
-                        Image {
-                            source: model.url
-                            Layout.fillWidth: true
-                            sourceSize.height: parent.width * 0.8
-                            fillMode: Image.PreserveAspectFit
-                            autoTransform: true
-                            Kirigami.Icon {
-                                source: emoticonFormCard.emoticonType === EmoticonFormCard.Emojis ? "preferences-desktop-emoticons" : "stickers"
-                                anchors.fill: parent
-                                visible: parent.status !== Image.Ready
-                            }
-                        }
-                        QQC2.Label {
-                            id: descriptionLabel
-                            text: model.body ?? i18nc("As in 'This sticker/emoji has no description'", "No Description")
-                            horizontalAlignment: Qt.AlignHCenter
-                            Layout.fillWidth: true
-                            wrapMode: Text.Wrap
-                            maximumLineCount: 2
-                            elide: Text.ElideRight
-                        }
-                    }
-                    QQC2.Button {
-                        icon.name: "edit-delete"
-                        anchors.top: parent.top
-                        anchors.right: parent.right
-                        anchors.margins: Kirigami.Units.smallSpacing
-                        z: 2
-                        onClicked: stickerModel.deleteEmoticon(emoticonFilterModel.mapToSource(emoticonFilterModel.index(model.index, 0)).row)
-                    }
-                }
+                showStickers: root.emoticonType === EmoticonFormCard.Stickers
+                showEmojis: root.emoticonType === EmoticonFormCard.Emojis
             }
-            MobileForm.AbstractFormDelegate {
+
+            delegate: FormCard.AbstractFormDelegate {
+                id: stickerDelegate
+
                 width: stickerFlow.width / 4
                 height: width
 
-                onClicked: pageSettingStack.pushDialogLayer(emoticonEditorPage, {
-                    description: "",
-                    index: -1,
-                    url: "",
-                    shortcode: "",
+                onClicked: pageStack.pushDialogLayer(emoticonEditorPage, {
+                    description: model.body ?? "",
+                    index: model.index,
+                    url: model.url,
+                    shortcode: model.shortcode,
                     model: stickerModel,
                     proxyModel: emoticonFilterModel,
-                    newEmoticon: true,
-                    emoticonType: emoticonFormCard.emoticonType
+                    emoticonType: root.emoticonType
                 }, {
-                    title: emoticonFormCard.emoticonType === EmoticonFormCard.Emojis ? i18nc("@title", "Add Emoji") : i18nc("@title", "Add Sticker")
+                    title: root.emoticonType === EmoticonFormCard.Emojis ? i18nc("@title", "Edit Emoji") : i18nc("@title", "Edit Sticker")
                 });
+
                 contentItem: ColumnLayout {
-                    spacing: 0
-                    Kirigami.Icon {
-                        source: "list-add"
+                    Image {
+                        source: model.url
                         Layout.fillWidth: true
+                        sourceSize.height: parent.width * 0.8
+                        fillMode: Image.PreserveAspectFit
+                        autoTransform: true
+                        Kirigami.Icon {
+                            source: root.emoticonType === EmoticonFormCard.Emojis ? "preferences-desktop-emoticons" : "stickers"
+                            anchors.fill: parent
+                            visible: parent.status !== Image.Ready
+                        }
                     }
                     QQC2.Label {
-                        text: emoticonFormCard.emoticonType === EmoticonFormCard.Emojis ? i18n("Add Emoji") : i18n("Add Sticker")
+                        id: descriptionLabel
+                        text: model.body ?? i18nc("As in 'This sticker/emoji has no description'", "No Description")
                         horizontalAlignment: Qt.AlignHCenter
                         Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        maximumLineCount: 2
+                        elide: Text.ElideRight
                     }
+                }
+                QQC2.Button {
+                    icon.name: "edit-delete"
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.margins: Kirigami.Units.smallSpacing
+                    z: 2
+                    onClicked: stickerModel.deleteEmoticon(emoticonFilterModel.mapToSource(emoticonFilterModel.index(model.index, 0)).row)
+                }
+            }
+        }
+        FormCard.AbstractFormDelegate {
+            width: stickerFlow.width / 4
+            height: width
+
+            onClicked: pageStack.pushDialogLayer(emoticonEditorPage, {
+                description: "",
+                index: -1,
+                url: "",
+                shortcode: "",
+                model: stickerModel,
+                proxyModel: emoticonFilterModel,
+                newEmoticon: true,
+                emoticonType: root.emoticonType
+            }, {
+                title: root.emoticonType === EmoticonFormCard.Emojis ? i18nc("@title", "Add Emoji") : i18nc("@title", "Add Sticker")
+            });
+            contentItem: ColumnLayout {
+                spacing: 0
+                Kirigami.Icon {
+                    source: "list-add"
+                    Layout.fillWidth: true
+                }
+                QQC2.Label {
+                    text: root.emoticonType === EmoticonFormCard.Emojis ? i18n("Add Emoji") : i18n("Add Sticker")
+                    horizontalAlignment: Qt.AlignHCenter
+                    Layout.fillWidth: true
                 }
             }
         }

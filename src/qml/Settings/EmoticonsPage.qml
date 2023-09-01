@@ -5,37 +5,31 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
-Kirigami.ScrollablePage {
+FormCard.FormCardPage {
     id: root
 
-    title: emoticonType === EmoticonFormCard.Emojis ? i18n("Emojis") : i18n("Stickers")
-    topPadding: 0
-    leftPadding: 0
-    rightPadding: 0
+    title: i18nc("@title", "Stickers & Emojis")
 
-    ColumnLayout {
-        spacing: 0
-        MobileForm.FormHeader {
-            Layout.fillWidth: true
-            title: i18n("Emojis")
-        }
-        EmoticonFormCard {
-            emoticonType: EmoticonFormCard.Emojis
-        }
-        MobileForm.FormHeader {
-            Layout.fillWidth: true
-            title: i18n("Stickers")
-        }
-        EmoticonFormCard {
-            emoticonType: EmoticonFormCard.Stickers
-        }
+    FormCard.FormHeader {
+        title: i18n("Emojis")
+    }
+    EmoticonFormCard {
+        emoticonType: EmoticonFormCard.Emojis
     }
 
-    Component {
+    FormCard.FormHeader {
+        title: i18n("Stickers")
+    }
+    EmoticonFormCard {
+        emoticonType: EmoticonFormCard.Stickers
+    }
+
+
+    property Component emoticonEditorPage: Component {
         id: emoticonEditorPage
         EmoticonEditorPage {}
     }
