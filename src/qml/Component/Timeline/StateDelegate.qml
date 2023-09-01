@@ -177,7 +177,7 @@ QQC2.Control {
                 text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${modelData.author.id}" style="color: ${modelData.author.color}">${modelData.authorDisplayName}</a> ${modelData.text}`
 
                 onAvatarClicked: RoomManager.openResource("https://matrix.to/#/" + modelData.author.id)
-                onLinkClicked: RoomManager.openResource(link)
+                onLinkClicked: link => RoomManager.openResource(link)
             }
         }
 

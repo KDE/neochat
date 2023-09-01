@@ -158,7 +158,7 @@ Loader {
                         icon.name: model.decoration
                         onTriggered: webshortcutmodel.trigger(model.edit)
                     }
-                    onObjectAdded: webshortcutmenu.insertItem(0, object)
+                    onObjectAdded: (index, object) => webshortcutmenu.insertItem(0, object)
                 }
                 QQC2.MenuSeparator {}
                 QQC2.MenuItem {

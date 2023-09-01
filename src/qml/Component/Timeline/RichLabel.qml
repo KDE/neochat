@@ -99,7 +99,7 @@ a{
     wrapMode: Text.Wrap
     textFormat: Text.RichText
 
-    onLinkActivated: {
+    onLinkActivated: link => {
         spoilerRevealed = true
         RoomManager.openResource(link)
     }

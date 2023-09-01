@@ -52,6 +52,6 @@ RowLayout {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
-        onLinkActivated: linkClicked(link)
+        onLinkActivated: link => linkClicked(link)
     }
 }
