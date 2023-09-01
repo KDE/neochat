@@ -30,36 +30,7 @@ Dependencies:
   'require':
     'frameworks/kdbusaddons': '@stable'
 
-- 'on': ['Linux/Qt6', 'Android/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
-  'require':
-    'frameworks/extra-cmake-modules': '@latest-kf6'
-    'frameworks/kcoreaddons': '@latest-kf6'
-    'frameworks/kirigami': '@latest-kf6'
-    'frameworks/ki18n': '@latest-kf6'
-    'frameworks/kconfig': '@latest-kf6'
-    'frameworks/syntax-highlighting': '@latest-kf6'
-    'frameworks/kitemmodels': '@latest-kf6'
-    'frameworks/kquickcharts': '@latest-kf6'
-    'frameworks/knotifications': '@latest-kf6'
-    'libraries/kquickimageeditor': '@latest-kf6'
-    'frameworks/sonnet': '@latest-kf6'
-    'libraries/kirigami-addons': '@latest-kf6'
-    'third-party/libquotient': '@latest'
-    'third-party/qtkeychain': '@latest'
-    'third-party/cmark': '@latest'
-    'third-party/qcoro': '@latest'
-- 'on': ['Windows/Qt6', 'Linux/Qt6', 'FreeBSD/Qt6']
-  'require':
-    'frameworks/qqc2-desktop-style': '@latest-kf6'
-    'frameworks/kio': '@latest-kf6'
-    'frameworks/kwindowsystem': '@latest-kf6'
-    'frameworks/kconfigwidgets': '@latest-kf6'
-- 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
-  'require':
-    'frameworks/kdbusaddons': '@latest-kf6'
-    'frameworks/kstatusnotifieritem': '@latest-kf6'
-
-- 'on': ['Linux/Qt6', 'Linux/Qt5']
+- 'on': ['Linux/Qt5']
   'require':
     'sdk/selenium-webdriver-at-spi': '@latest-kf6'
 
