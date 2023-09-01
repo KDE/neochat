@@ -1586,6 +1586,11 @@ void NeoChatRoom::updatePushNotificationState(QString type)
     for (const auto &i : roomRuleArray) {
         QJsonObject roomRule = i.toObject();
         if (roomRule["rule_id"_ls] == id()) {
+            if (roomRule["actions"_ls].toArray().size() == 0) {
+                m_currentPushNotificationState = PushNotificationState::MentionKeyword;
+                Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
+                return;
+            }
             QString notifyAction = roomRule["actions"_ls].toArray()[0].toString();
             if (notifyAction == "notify"_ls) {
                 m_currentPushNotificationState = PushNotificationState::All;
@@ -1604,6 +1609,10 @@ void NeoChatRoom::updatePushNotificationState(QString type)
     for (const auto &i : overrideRuleArray) {
         QJsonObject overrideRule = i.toObject();
         if (overrideRule["rule_id"_ls] == id()) {
+            if (overrideRule["actions"_ls].toArray().isEmpty()) {
+                m_currentPushNotificationState = PushNotificationState::Mute;
+                Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
+            }
             QString notifyAction = overrideRule["actions"_ls].toArray()[0].toString();
             if (notifyAction == "dont_notify"_ls) {
                 m_currentPushNotificationState = PushNotificationState::Mute;
