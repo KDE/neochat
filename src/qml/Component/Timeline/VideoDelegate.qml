@@ -46,11 +46,6 @@ TimelineContainer {
     property bool playOnFinished: false
 
     /**
-     * @brief Whether the video can be streamed.
-     */
-    property bool supportStreaming: true
-
-    /**
      * @brief The maximum width of the image.
      */
     readonly property var maxWidth: Kirigami.Units.gridUnit * 30
@@ -174,18 +169,6 @@ TimelineContainer {
                 }
             }
         ]
-
-        onDurationChanged: {
-            if (!duration) {
-                root.supportStreaming = false;
-            }
-        }
-
-        onErrorChanged: {
-            if (error != MediaPlayer.NoError) {
-                root.supportStreaming = false;
-            }
-        }
 
         Image {
             id: mediaThumbnail
@@ -391,7 +374,7 @@ TimelineContainer {
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onTapped: if (root.supportStreaming || root.progressInfo.completed) {
+            onTapped: if (root.progressInfo.completed) {
                 if (vid.playbackState == MediaPlayer.PlayingState) {
                     vid.pause()
                 } else {
