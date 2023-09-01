@@ -8,113 +8,102 @@ import QtQuick.Window 2.15
 import Qt.labs.platform 1.1
 
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 import 'Dialog' as Dialog
 
-Kirigami.ScrollablePage {
-    id: page
+FormCard.FormCardPage {
+    id: root
 
     title: i18n("Accounts")
-    topPadding: 0
-    leftPadding: 0
-    rightPadding: 0
 
-    ColumnLayout {
-        spacing: 0
-        MobileForm.FormHeader {
-            Layout.fillWidth: true
-            title: i18n("Accounts")
-        }
-        MobileForm.FormCard {
-            Layout.fillWidth: true
-            contentItem: ColumnLayout {
-                spacing: 0
-                Repeater {
-                    model: AccountRegistry
-                    delegate: MobileForm.AbstractFormDelegate {
-                        id: accountDelegate
-                        required property NeoChatConnection connection
+    FormCard.FormHeader {
+        title: i18n("Accounts")
+    }
+    FormCard.FormCard {
+        Repeater {
+            model: AccountRegistry
+            delegate: FormCard.AbstractFormDelegate {
+                id: accountDelegate
+                required property NeoChatConnection connection
+                Layout.fillWidth: true
+                onClicked: pageStack.layers.push("qrc:/AccountEditorPage.qml", {
+                    connection: accountDelegate.connection
+                }, {
+                    title: i18n("Account editor")
+                })
+
+                contentItem: RowLayout {
+                    KirigamiComponents.Avatar {
+                        name: accountDelegate.connection.localUser.displayName
+                        source: accountDelegate.connection.localUser.avatarMediaId ? ("image://mxc/" + accountDelegate.connection.localUser.avatarMediaId) : ""
+
+                        Layout.rightMargin: Kirigami.Units.largeSpacing
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+
+                    ColumnLayout {
                         Layout.fillWidth: true
-                        onClicked: pageStack.layers.push("qrc:/AccountEditorPage.qml", {
-                            connection: accountDelegate.connection
-                        }, {
-                            title: i18n("Account editor")
-                        })
+                        spacing: Kirigami.Units.smallSpacing
 
-                        contentItem: RowLayout {
-                            KirigamiComponents.Avatar {
-                                name: accountDelegate.connection.localUser.displayName
-                                source: accountDelegate.connection.localUser.avatarMediaId ? ("image://mxc/" + accountDelegate.connection.localUser.avatarMediaId) : ""
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            text: accountDelegate.connection.localUser.displayName
+                            textFormat: Text.PlainText
+                            elide: Text.ElideRight
+                            wrapMode: Text.Wrap
+                            maximumLineCount: 2
+                            color: Kirigami.Theme.textColor
+                        }
 
-                                Layout.rightMargin: Kirigami.Units.largeSpacing
-                                implicitWidth: Kirigami.Units.iconSizes.medium
-                                implicitHeight: Kirigami.Units.iconSizes.medium
-                            }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            text: accountDelegate.connection.localUserId
+                            color: Kirigami.Theme.disabledTextColor
+                            font: Kirigami.Theme.smallFont
+                            elide: Text.ElideRight
+                        }
+                    }
 
-                            ColumnLayout {
-                                Layout.fillWidth: true
-                                spacing: Kirigami.Units.smallSpacing
+                    QQC2.ToolButton {
+                        text: i18n("Logout")
+                        icon.name: "im-kick-user"
+                        onClicked: confirmLogoutDialogComponent.createObject(applicationWindow().overlay).open()
+                    }
 
-                                QQC2.Label {
-                                    Layout.fillWidth: true
-                                    text: accountDelegate.connection.localUser.displayName
-                                    textFormat: Text.PlainText
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                    maximumLineCount: 2
-                                    color: Kirigami.Theme.textColor
+                    Component {
+                        id: confirmLogoutDialogComponent
+                        Dialog.ConfirmLogout {
+                            connection: model.connection
+                            onAccepted: {
+                                if (Controller.accountCount === 1) {
+                                    root.Window.window.close()
                                 }
-
-                                QQC2.Label {
-                                    Layout.fillWidth: true
-                                    text: accountDelegate.connection.localUserId
-                                    color: Kirigami.Theme.disabledTextColor
-                                    font: Kirigami.Theme.smallFont
-                                    elide: Text.ElideRight
-                                }
-                            }
-
-                            QQC2.ToolButton {
-                                text: i18n("Logout")
-                                icon.name: "im-kick-user"
-                                onClicked: confirmLogoutDialogComponent.createObject(applicationWindow().overlay).open()
-                            }
-
-                            Component {
-                                id: confirmLogoutDialogComponent
-                                Dialog.ConfirmLogout {
-                                    connection: model.connection
-                                    onAccepted: {
-                                        if (Controller.accountCount === 1) {
-                                            page.Window.window.close()
-                                        }
-                                    }
-                                }
-                            }
-
-                            MobileForm.FormArrow {
-                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                                direction: MobileForm.FormArrow.Right
                             }
                         }
                     }
-                }
-                MobileForm.FormDelegateSeparator { below: addAccountDelegate }
 
-                MobileForm.FormButtonDelegate {
-                    id: addAccountDelegate
-                    text: i18n("Add Account")
-                    icon.name: "list-add"
-                    onClicked: pageStack.layers.push("qrc:/WelcomePage.qml")
+                    FormCard.FormArrow {
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        direction: FormCard.FormArrow.Right
+                    }
                 }
             }
         }
+        FormCard.FormDelegateSeparator { below: addAccountDelegate }
+
+        FormCard.FormButtonDelegate {
+            id: addAccountDelegate
+            text: i18n("Add Account")
+            icon.name: "list-add"
+            onClicked: pageStack.layers.push("qrc:/WelcomePage.qml")
+        }
     }
 
-    Connections {
+    property Connections connections: Connections {
         target: Controller
         function onConnectionAdded() {
             if (pageStack.layers.depth > 2) {
