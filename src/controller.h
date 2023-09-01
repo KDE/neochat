@@ -16,7 +16,6 @@
 
 class NeoChatRoom;
 class TrayIcon;
-class QWindow;
 class QQuickTextDocument;
 
 namespace Quotient

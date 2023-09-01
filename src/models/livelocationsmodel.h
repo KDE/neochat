@@ -10,11 +10,6 @@
 #include <QPointer>
 #include <QRectF>
 
-namespace Quotient
-{
-class RoomMessageEvent;
-}
-
 struct LiveLocationData {
     QString eventId;
     QString senderId;

@@ -13,8 +13,6 @@
 
 #include <Quotient/connection.h>
 
-class ImagePacksModel;
-
 /**
  * @class AccountEmoticonModel
  *

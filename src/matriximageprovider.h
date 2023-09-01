@@ -10,11 +10,6 @@
 
 #include <QReadWriteLock>
 
-namespace Quotient
-{
-class Connection;
-}
-
 /**
  * @class ThumbnailResponse
  *

@@ -10,7 +10,6 @@
 #include "models/completionmodel.h"
 #include "neochatroom.h"
 
-class QTextDocument;
 class NeoChatRoom;
 class SyntaxHighlighter;
 

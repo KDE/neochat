@@ -9,7 +9,6 @@
 
 #include "neochatroom.h"
 
-class CustomEmojiModel;
 class NeoChatRoom;
 
 /**
