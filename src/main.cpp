@@ -278,7 +278,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<AccountEmoticonModel>("org.kde.neochat", 1, 0, "AccountEmoticonModel");
     qmlRegisterType<EmoticonFilterModel>("org.kde.neochat", 1, 0, "EmoticonFilterModel");
     qmlRegisterType<DelegateSizeHelper>("org.kde.neochat", 1, 0, "DelegateSizeHelper");
-    qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM"_ls);
     qmlRegisterUncreatableType<PushNotificationKind>("org.kde.neochat", 1, 0, "PushNotificationKind", "ENUM"_ls);
     qmlRegisterUncreatableType<PushNotificationSection>("org.kde.neochat", 1, 0, "PushNotificationSection", "ENUM"_ls);
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM"_ls);
