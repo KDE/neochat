@@ -8,14 +8,14 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
-Kirigami.OverlaySheet {
+Kirigami.ScrollablePage {
     id: root
 
     parent: applicationWindow().overlay
 
     title: i18n("Create a Room")
 
-    contentItem: Kirigami.FormLayout {
+    Kirigami.FormLayout {
         QQC2.TextField {
             id: roomNameField
             Kirigami.FormData.label: i18n("Room name:")

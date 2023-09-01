@@ -9,7 +9,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
-Kirigami.OverlaySheet {
+Kirigami.ScrollablePage {
     id: root
 
     title: i18n("Create a Space")

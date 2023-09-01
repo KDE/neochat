@@ -19,20 +19,19 @@ RowLayout {
         text: i18n("Explore rooms")
         icon.name: "compass"
         onTriggered: {
-            applicationWindow().pushReplaceLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection})
+            pageStack.pushDialogLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection}, {title: i18nc("@title", "Explore Rooms")})
         }
     }
     property Kirigami.Action chatAction: Kirigami.Action {
         text: i18n("Start a Chat")
         icon.name: "list-add-user"
-        onTriggered: applicationWindow().pushReplaceLayer("qrc:/StartChatPage.qml", {connection: Controller.activeConnection})
+        onTriggered: pageStack.pushDialogLayer("qrc:/StartChatPage.qml", {connection: Controller.activeConnection}, {title: i18nc("@title", "Start a Chat")})
     }
     property Kirigami.Action roomAction: Kirigami.Action {
         text: i18n("Create a Room")
         icon.name: "system-users"
         onTriggered: {
-            let dialog = createRoomDialog.createObject(root.overlay);
-            dialog.open();
+            pageStack.pushDialogLayer("qrc:/CreateRoomDialog.qml", {}, {title: i18nc("@title", "Create a Room")})
         }
         shortcut: StandardKey.New
     }
@@ -40,8 +39,7 @@ RowLayout {
         text: i18n("Create a Space")
         icon.name: "list-add"
         onTriggered: {
-            let dialog = createSpaceDialog.createObject(root.overlay);
-            dialog.open()
+            pageStack.pushDialogLayer("qrc:/CreateSpaceDialog.qml", {}, {title: i18nc("@title", "Create a Space")})
         }
     }
 
