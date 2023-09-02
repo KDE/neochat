@@ -83,12 +83,16 @@ public:
         Keywords, /**< Global Keyword push rules. */
         RoomKeywords, /**< Keyword push rules that only apply to a specific room. */
         Invites, /**< Push rules relating to invites. */
+        Unknown, /**< New default push rules that have not been added to the model yet. */
         /**
          * @brief Push rules that should never be shown.
          *
          * There are numerous rules that get set that shouldn't be shown in the general
          * list e.g. The array of rules used to override global settings in individual
          * rooms.
+         *
+         * This is specifically different to unknown which are just new default push
+         * rule that haven't been added to the model yet.
          */
         Undefined,
     };

@@ -23,6 +23,9 @@ static const QHash<QString, QString> defaultRuleNames = {
     {QStringLiteral(".m.rule.encrypted"), QStringLiteral("Messages in encrypted group chats")},
     {QStringLiteral(".m.rule.tombstone"), QStringLiteral("Room upgrade messages")},
     {QStringLiteral(".m.rule.contains_display_name"), QStringLiteral("Messages containing my display name")},
+    {QStringLiteral(".m.rule.is_user_mention"), QStringLiteral("Messages which mention my Matrix user ID.")},
+    {QStringLiteral(".m.rule.is_room_mention"), QStringLiteral("Messages which mention a room.")},
+    {QStringLiteral(".m.rule.contains_user_name"), QStringLiteral("Messages containing the local part of my Matrix ID.")},
     {QStringLiteral(".m.rule.roomnotif"), QStringLiteral("Whole room (@room) notifications")},
     {QStringLiteral(".m.rule.invite_for_me"), QStringLiteral("Invites to a room")},
     {QStringLiteral(".m.rule.call"), QStringLiteral("Call invitation")},
@@ -37,6 +40,9 @@ static const QHash<QString, PushNotificationSection::Section> defaultSections = 
     {QStringLiteral(".m.rule.encrypted"), PushNotificationSection::Room},
     {QStringLiteral(".m.rule.tombstone"), PushNotificationSection::Room},
     {QStringLiteral(".m.rule.contains_display_name"), PushNotificationSection::Mentions},
+    {QStringLiteral(".m.rule.is_user_mention"), PushNotificationSection::Mentions},
+    {QStringLiteral(".m.rule.is_room_mention"), PushNotificationSection::Mentions},
+    {QStringLiteral(".m.rule.contains_user_name"), PushNotificationSection::Mentions},
     {QStringLiteral(".m.rule.roomnotif"), PushNotificationSection::Mentions},
     {QStringLiteral(".m.rule.invite_for_me"), PushNotificationSection::Invites},
     {QStringLiteral(".m.rule.call"), PushNotificationSection::Undefined}, // TODO: make invites when VOIP added.
@@ -140,6 +146,9 @@ PushNotificationSection::Section PushRuleModel::getSection(Quotient::PushRule ru
     if (defaultSections.contains(ruleId)) {
         return defaultSections.value(ruleId);
     } else {
+        if (rule.ruleId.startsWith(u'.')) {
+            return PushNotificationSection::Unknown;
+        }
         /**
          * If the rule name resolves to a matrix id for a room that the user is part
          * of it shouldn't appear in the global list as it's overriding the global

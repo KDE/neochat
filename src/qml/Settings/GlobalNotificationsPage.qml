@@ -176,6 +176,32 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Unknown")
+            visible: unknownModel.rowCount() > 0
+        }
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            visible: unknownModel.rowCount() > 0
+
+            contentItem: ColumnLayout {
+                spacing: 0
+                Repeater {
+                    model: KSortFilterProxyModel {
+                        id: unknownModel
+                        sourceModel: Controller.pushRuleModel
+                        filterRowCallback: function(source_row, source_parent) {
+                            let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
+                            return sectionRole == PushNotificationSection.Unknown;
+                        }
+                    }
+
+                    delegate: ruleDelegate
+                }
+            }
+        }
     }
 
     Component {
