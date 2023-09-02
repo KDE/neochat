@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 00:46+0000\n"
+"POT-Creation-Date: 2023-09-02 00:47+0000\n"
 "PO-Revision-Date: 2023-06-17 12:19+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -121,95 +121,95 @@ msgstr "Destination"
 msgid "Network Error"
 msgstr "Network Error"
 
-#: src/main.cpp:180
+#: src/main.cpp:184
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:182
+#: src/main.cpp:186
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix client"
 
-#: src/main.cpp:184
+#: src/main.cpp:188
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 
-#: src/main.cpp:185
+#: src/main.cpp:189
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
+#: src/main.cpp:189 src/main.cpp:190 src/main.cpp:191
 #, kde-format
 msgid "Maintainer"
 msgstr "Maintainer"
 
-#: src/main.cpp:186
+#: src/main.cpp:190
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:187
+#: src/main.cpp:191
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:188
+#: src/main.cpp:192
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:188
+#: src/main.cpp:192
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Original author of Spectral"
 
-#: src/main.cpp:189
+#: src/main.cpp:193
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:189
+#: src/main.cpp:193
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Maintainer of Quotient"
 
-#: src/main.cpp:190
+#: src/main.cpp:194
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Steve Allewell"
 
-#: src/main.cpp:190
+#: src/main.cpp:194
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "steve.allewell@gmail.com"
 
-#: src/main.cpp:194
+#: src/main.cpp:198
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "A Qt5 library to write cross-platform clients for Matrix"
 
-#: src/main.cpp:196
+#: src/main.cpp:200
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (built against %2)"
 
-#: src/main.cpp:343
+#: src/main.cpp:346
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client for the matrix communication protocol"
 
-#: src/main.cpp:344
+#: src/main.cpp:347
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Supports matrix: URL scheme"
 
-#: src/main.cpp:345
+#: src/main.cpp:348
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1070,12 +1070,12 @@ msgstr "updated the state"
 msgid "started a poll"
 msgstr "started a poll"
 
-#: src/neochatroom.cpp:1626 src/neochatroom.cpp:1627
+#: src/neochatroom.cpp:1635 src/neochatroom.cpp:1636
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Report sent successfully."
 
-#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
+#: src/neochatroom.cpp:1932 src/neochatroom.cpp:1940
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1624,18 +1624,18 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Last read: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:205
+#: src/qml/Component/Timeline/VideoDelegate.qml:188
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:269
+#: src/qml/Component/Timeline/VideoDelegate.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volume"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:353
+#: src/qml/Component/Timeline/VideoDelegate.qml:336
 #, kde-format
 msgid "Maximize"
 msgstr "Maximise"
@@ -1745,12 +1745,13 @@ msgid "Ok"
 msgstr "Ok"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
-#: src/qml/Page/RoomList/ExploreComponent.qml:40
+#: src/qml/Page/RoomList/ExploreComponent.qml:39
 #, kde-format
 msgid "Create a Space"
 msgstr "Create a Space"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
+#: src/qml/Page/RoomList/ExploreComponent.qml:42
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2748,8 +2749,29 @@ msgstr "Leave Room"
 msgid "Explore rooms"
 msgstr "Explore rooms"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:63
-#: src/qml/Page/RoomList/ExploreComponent.qml:117
+#: src/qml/Page/RoomList/ExploreComponent.qml:22
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Explore Rooms"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:28
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@title"
+msgid "Start a Chat"
+msgstr "Start a Chat"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:34
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "Create a Room"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:61
+#: src/qml/Page/RoomList/ExploreComponent.qml:115
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Create rooms and chats"
@@ -3648,7 +3670,7 @@ msgstr "In chat"
 msgid "In sidebar"
 msgstr "In sidebar"
 
-#: src/qml/Settings/ColorScheme.qml:15
+#: src/qml/Settings/ColorScheme.qml:16
 #, kde-format
 msgid "Color theme"
 msgstr "Colour theme"

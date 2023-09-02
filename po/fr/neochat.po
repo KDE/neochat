@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 00:46+0000\n"
-"PO-Revision-Date: 2023-08-30 16:48+0200\n"
+"POT-Creation-Date: 2023-09-02 00:47+0000\n"
+"PO-Revision-Date: 2023-08-31 10:57+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -122,96 +122,96 @@ msgstr "Destination"
 msgid "Network Error"
 msgstr "Erreur du réseau"
 
-#: src/main.cpp:180
+#: src/main.cpp:184
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:182
+#: src/main.cpp:186
 #, kde-format
 msgid "Matrix client"
 msgstr "Client « Matrix »"
 
-#: src/main.cpp:184
+#: src/main.cpp:188
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat 2020-2023 Communauté de KDE"
 
-#: src/main.cpp:185
+#: src/main.cpp:189
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
+#: src/main.cpp:189 src/main.cpp:190 src/main.cpp:191
 #, kde-format
 msgid "Maintainer"
 msgstr "Mainteneur"
 
-#: src/main.cpp:186
+#: src/main.cpp:190
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:187
+#: src/main.cpp:191
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:188
+#: src/main.cpp:192
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:188
+#: src/main.cpp:192
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Auteur initial de Spectral"
 
-#: src/main.cpp:189
+#: src/main.cpp:193
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:189
+#: src/main.cpp:193
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Mainteneur de Quotient"
 
-#: src/main.cpp:190
+#: src/main.cpp:194
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Xavier Besnard"
 
-#: src/main.cpp:190
+#: src/main.cpp:194
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@neuf.fr"
 
-#: src/main.cpp:194
+#: src/main.cpp:198
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Une bibliothèque Qt5 pour écrire des clients multi-plate-formes pour Matrix"
 
-#: src/main.cpp:196
+#: src/main.cpp:200
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilé en regard de %2)"
 
-#: src/main.cpp:343
+#: src/main.cpp:346
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Un client pour le protocole de communications  Matrix »"
 
-#: src/main.cpp:344
+#: src/main.cpp:347
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Prend en charge le thème d'URL « matrix : »"
 
-#: src/main.cpp:345
+#: src/main.cpp:348
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1078,12 +1078,12 @@ msgstr "État mis à jour"
 msgid "started a poll"
 msgstr "a démarré un vote"
 
-#: src/neochatroom.cpp:1626 src/neochatroom.cpp:1627
+#: src/neochatroom.cpp:1635 src/neochatroom.cpp:1636
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport envoyé avec succès."
 
-#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
+#: src/neochatroom.cpp:1932 src/neochatroom.cpp:1940
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1406,7 +1406,7 @@ msgstr "URL du serveur :"
 #: src/qml/Component/Login/Homeserver.qml:25
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "L’enregistrement est désactivé sur ce serveur."
 
 #: src/qml/Component/Login/Homeserver.qml:40
 #: src/qml/Component/Login/Username.qml:37
@@ -1452,11 +1452,10 @@ msgid "Login with password"
 msgstr "Se connecter avec un mot de passe"
 
 #: src/qml/Component/Login/LoginMethod.qml:26
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
-msgstr "Se connecter avec une seule signature"
+msgstr "Connexion avec une signature à usage unique"
 
 #: src/qml/Component/Login/LoginRegister.qml:22
 #: src/qml/Component/Login/Password.qml:41
@@ -1523,6 +1522,7 @@ msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
 msgstr ""
+"En poursuivant votre inscription, vous acceptez les conditions suivantes :"
 
 #: src/qml/Component/Login/Username.qml:19
 #, kde-format
@@ -1620,18 +1620,18 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Dernier lu : %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:205
+#: src/qml/Component/Timeline/VideoDelegate.qml:188
 #, kde-format
 msgid "Video"
 msgstr "Vidéo"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:269
+#: src/qml/Component/Timeline/VideoDelegate.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volume"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:353
+#: src/qml/Component/Timeline/VideoDelegate.qml:336
 #, kde-format
 msgid "Maximize"
 msgstr "Maximiser"
@@ -1661,18 +1661,16 @@ msgstr[1] "%2 sont entrain d'écrire"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title"
 msgid "Deactivate Account"
-msgstr "Modifier un compte"
+msgstr "Désactiver un compte"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
+#, kde-format
 msgctxt "@title"
 msgid "Warning"
-msgstr "Attention : %1"
+msgstr "Avertissement"
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
 #, kde-format
@@ -1682,12 +1680,15 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"Votre compte sera définitivement désactivé.  \n"
+"Cela ne peut pas être annulé.  \n"
+"Votre code Matrix ne sera pas disponible pour les nouveaux comptes. \n"
+"Vos messages resteront disponibles."
 
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate account"
-msgstr "Modifier un compte"
+msgstr "Désactiver un compte"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
@@ -1742,12 +1743,13 @@ msgid "Ok"
 msgstr "Ok"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
-#: src/qml/Page/RoomList/ExploreComponent.qml:40
+#: src/qml/Page/RoomList/ExploreComponent.qml:39
 #, kde-format
 msgid "Create a Space"
 msgstr "Créer un espace"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
+#: src/qml/Page/RoomList/ExploreComponent.qml:42
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2748,8 +2750,29 @@ msgstr "Quitter un salon"
 msgid "Explore rooms"
 msgstr "Explorer les salons"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:63
-#: src/qml/Page/RoomList/ExploreComponent.qml:117
+#: src/qml/Page/RoomList/ExploreComponent.qml:22
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Explorer les salons"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:28
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@title"
+msgid "Start a Chat"
+msgstr "Démarrer une conversation"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:34
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "Créer un salon"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:61
+#: src/qml/Page/RoomList/ExploreComponent.qml:115
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Créer des salons et des fils de discussions"
@@ -3547,23 +3570,21 @@ msgid "Homeserver url"
 msgstr "URL du serveur d'accueil"
 
 #: src/qml/Settings/AccountEditorPage.qml:210
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title"
 msgid "Account Management"
-msgstr "Éditeur de comptes"
+msgstr "Gestion des comptes"
 
 #: src/qml/Settings/AccountEditorPage.qml:215
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate Account"
-msgstr "Modifier un compte"
+msgstr "Désactiver un compte"
 
 #: src/qml/Settings/AccountEditorPage.qml:216
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
-msgstr ""
+msgstr "Confirmer la désactivation du compte"
 
 #: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:38
@@ -3658,7 +3679,7 @@ msgstr "Dans un salon"
 msgid "In sidebar"
 msgstr "Dans la barre latérale"
 
-#: src/qml/Settings/ColorScheme.qml:15
+#: src/qml/Settings/ColorScheme.qml:16
 #, kde-format
 msgid "Color theme"
 msgstr "Thème de couleurs"
@@ -4152,7 +4173,7 @@ msgstr "Ceci n'est pas un serveur valable."
 #: src/registration.cpp:305
 #, kde-format
 msgid "Registration for this server is disabled."
-msgstr ""
+msgstr "L’enregistrement avec ce serveur est désactivé."
 
 #: src/registration.cpp:307
 #, kde-format
