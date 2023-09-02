@@ -1,41 +1,42 @@
-// SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
+// SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-or-later OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15 as QQC2
-import QtQuick.Layouts 1.15
-import org.kde.kirigami 2.15 as Kirigami
+
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
-Kirigami.ScrollablePage {
+FormCard.FormCardPage {
     id: root
 
-    parent: applicationWindow().overlay
+    title: i18nc("@title", "Create a Room")
 
-    title: i18n("Create a Room")
+    Component.onCompleted: roomNameField.forceActiveFocus()
 
-    Kirigami.FormLayout {
-        QQC2.TextField {
+    FormCard.FormHeader {
+        title: i18nc("@title", "Room Information")
+    }
+    FormCard.FormCard {
+        FormCard.FormTextFieldDelegate {
             id: roomNameField
-            Kirigami.FormData.label: i18n("Room name:")
-            onAccepted: roomTopicField.forceActiveFocus();
+            label: i18n("Room name:")
+            onAccepted: if (roomNameField.text.length > 0) roomTopicField.forceActiveFocus();
         }
 
-        QQC2.TextField {
+        FormCard.FormTextFieldDelegate {
             id: roomTopicField
-            Kirigami.FormData.label: i18n("Room topic:")
-            onAccepted: okButton.forceActiveFocus();
+            label: i18n("Room topic:")
+            onAccepted: ok.clicked()
         }
 
-        QQC2.Button {
-            id: okButton
-
+        FormCard.FormButtonDelegate {
+            id: ok
             text: i18nc("@action:button", "Ok")
+            enabled: roomNameField.text.length > 0
             onClicked: {
                 Controller.createRoom(roomNameField.text, roomTopicField.text);
-                root.close();
-                root.destroy();
+                root.closeDialog()
             }
         }
     }
