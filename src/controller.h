@@ -209,18 +209,12 @@ Q_SIGNALS:
     void connectionAdded(NeoChatConnection *connection);
     void connectionDropped(NeoChatConnection *connection);
     void initiated();
-    void notificationClicked(const QString &_t1, const QString &_t2);
     void quitOnLastWindowClosedChanged();
     void unreadCountChanged();
     void activeConnectionChanged();
-    void passwordStatus(Controller::PasswordStatus _t1);
+    void passwordStatus(Controller::PasswordStatus status);
     void userConsentRequired(QUrl url);
-    void testConnectionResult(const QString &connection, bool usable);
     void isOnlineChanged(bool isOnline);
-    void keyVerificationRequest(int timeLeft, NeoChatConnection *connection, const QString &transactionId, const QString &deviceId);
-    void keyVerificationStart();
-    void keyVerificationAccept(const QString &commitment);
-    void keyVerificationKey(const QString &sas);
     void activeConnectionIndexChanged();
     void roomAdded(NeoChatRoom *room);
 
