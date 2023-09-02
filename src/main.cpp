@@ -53,6 +53,7 @@
 #include "logger.h"
 #include "login.h"
 #include "matriximageprovider.h"
+#include "mediasizehelper.h"
 #include "models/accountemoticonmodel.h"
 #include "models/customemojimodel.h"
 #include "models/devicesmodel.h"
@@ -278,6 +279,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<AccountEmoticonModel>("org.kde.neochat", 1, 0, "AccountEmoticonModel");
     qmlRegisterType<EmoticonFilterModel>("org.kde.neochat", 1, 0, "EmoticonFilterModel");
     qmlRegisterType<DelegateSizeHelper>("org.kde.neochat", 1, 0, "DelegateSizeHelper");
+    qmlRegisterType<MediaSizeHelper>("org.kde.neochat", 1, 0, "MediaSizeHelper");
     qmlRegisterUncreatableType<PushNotificationKind>("org.kde.neochat", 1, 0, "PushNotificationKind", "ENUM"_ls);
     qmlRegisterUncreatableType<PushNotificationSection>("org.kde.neochat", 1, 0, "PushNotificationSection", "ENUM"_ls);
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM"_ls);

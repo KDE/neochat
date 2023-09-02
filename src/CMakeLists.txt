@@ -132,6 +132,8 @@ add_library(neochat STATIC
     jobs/neochatdeletedevicejob.h
     jobs/neochatchangepasswordjob.cpp
     jobs/neochatchangepasswordjob.h
+    mediasizehelper.cpp
+    mediasizehelper.h
 )
 
 ecm_qt_declare_logging_category(neochat

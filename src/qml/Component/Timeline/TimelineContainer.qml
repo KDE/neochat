@@ -487,6 +487,7 @@ ColumnLayout {
                             type: root.reply.type
                             display: root.reply.display
                             mediaInfo: root.replyMediaInfo
+                            contentMaxWidth: bubbleSizeHelper.currentWidth
                         }
 
                         Connections {

@@ -67,6 +67,8 @@ Item {
      */
     required property var mediaInfo
 
+    required property real contentMaxWidth
+
     /**
      * @brief The reply has been clicked.
      */
@@ -167,27 +169,17 @@ Item {
         id: imageComponent
         Image {
             id: image
-
-            property var imageWidth: {
-                if (root.mediaInfo.width > 0) {
-                    return root.mediaInfo.width;
-                } else {
-                    return sourceSize.width;
-                }
-            }
-            property var imageHeight: {
-                if (root.mediaInfo.height > 0) {
-                    return root.mediaInfo.height;
-                } else {
-                    return sourceSize.height;
-                }
-            }
-
-            readonly property var aspectRatio: imageWidth / imageHeight
-
-            height: width / aspectRatio
+            width: mediaSizeHelper.currentSize.width
+            height: mediaSizeHelper.currentSize.height
             fillMode: Image.PreserveAspectFit
             source: root.mediaInfo.source
+
+            MediaSizeHelper {
+                id: mediaSizeHelper
+                contentMaxWidth: root.contentMaxWidth - verticalBorder.width - mainLayout.columnSpacing
+                mediaWidth: root.mediaInfo.width
+                mediaHeight: root.mediaInfo.height
+            }
         }
     }
     Component {

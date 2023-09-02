@@ -57,48 +57,8 @@ TimelineContainer {
 
     innerObject: Item {
         id: imageContainer
-
-        property var imageWidth: {
-            if (root.mediaInfo.width > 0) {
-                return root.mediaInfo.width;
-            } else {
-                return root.contentMaxWidth;
-            }
-        }
-        property var imageHeight: {
-            if (root.mediaInfo.height > 0) {
-                return root.mediaInfo.height;
-            } else {
-                // Default to a 16:9 placeholder
-                return root.contentMaxWidth / 16 * 9;
-            }
-        }
-
-        readonly property var aspectRatio: imageWidth / imageHeight
-        /**
-         * Whether the image should be limited by height or width.
-         * We need to prevent excessively tall as well as excessively wide media.
-         *
-         * @note In the case of a tie the media is width limited.
-         */
-        readonly property bool limitWidth: imageWidth >= imageHeight
-
-        readonly property size maxSize: {
-            if (limitWidth) {
-                let width = Math.min(root.contentMaxWidth, root.maxWidth);
-                let height = width / aspectRatio;
-                return Qt.size(width, height);
-            } else {
-                let height = Math.min(root.maxHeight, root.contentMaxWidth / aspectRatio);
-                let width = height * aspectRatio;
-                return Qt.size(width, height);
-            }
-        }
-
-        Layout.maximumWidth: maxSize.width
-        Layout.maximumHeight: maxSize.height
-        Layout.preferredWidth: imageWidth
-        Layout.preferredHeight: imageHeight
+        Layout.preferredWidth: mediaSizeHelper.currentSize.width
+        Layout.preferredHeight: mediaSizeHelper.currentSize.height
 
         property var imageItem: root.mediaInfo.animated ? animatedImageLoader.item : imageLoader.item
 
@@ -191,6 +151,13 @@ TimelineContainer {
         function openSavedFile() {
             if (UrlHelper.openUrl(root.progressInfo.localPath)) return;
             if (UrlHelper.openUrl(root.progressInfo.localDir)) return;
+        }
+
+        MediaSizeHelper {
+            id: mediaSizeHelper
+            contentMaxWidth: root.contentMaxWidth
+            mediaWidth: root.mediaInfo.width
+            mediaHeight: root.mediaInfo.height
         }
     }
 }

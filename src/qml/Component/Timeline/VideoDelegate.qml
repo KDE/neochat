@@ -69,53 +69,8 @@ TimelineContainer {
 
     innerObject: Video {
         id: vid
-
-        property var videoWidth: {
-            if (root.mediaInfo.width > 0) {
-                return root.mediaInfo.width;
-            } else if (metaData.resolution && metaData.resolution.width) {
-                return metaData.resolution.width;
-            } else {
-                return root.contentMaxWidth;
-            }
-        }
-        property var videoHeight: {
-            if (root.mediaInfo.height > 0) {
-                return root.mediaInfo.height;
-            } else if (metaData.resolution && metaData.resolution.height) {
-                return metaData.resolution.height;
-            } else {
-                // Default to a 16:9 placeholder
-                return root.contentMaxWidth / 16 * 9;
-            }
-        }
-
-        readonly property var aspectRatio: videoWidth / videoHeight
-        /**
-         * Whether the video should be limited by height or width.
-         * We need to prevent excessively tall as well as excessively wide media.
-         *
-         * @note In the case of a tie the media is width limited.
-         */
-        readonly property bool limitWidth: videoWidth >= videoHeight
-
-        readonly property size maxSize: {
-            if (limitWidth) {
-                let width = Math.min(root.contentMaxWidth, root.maxWidth);
-                let height = width / aspectRatio;
-                return Qt.size(width, height);
-            } else {
-                let height = Math.min(root.maxHeight, root.contentMaxWidth / aspectRatio);
-                let width = height * aspectRatio;
-                return Qt.size(width, height);
-            }
-        }
-
-        Layout.maximumWidth: maxSize.width
-        Layout.maximumHeight: maxSize.height
-
-        Layout.preferredWidth: videoWidth
-        Layout.preferredHeight: videoHeight
+        Layout.preferredWidth: mediaSizeHelper.currentSize.width
+        Layout.preferredHeight: mediaSizeHelper.currentSize.height
 
         fillMode: VideoOutput.PreserveAspectFit
         @QTMULTIMEDIA_VIDEO_FLUSHMODE@
@@ -382,6 +337,13 @@ TimelineContainer {
             } else {
                 root.downloadAndPlay()
             }
+        }
+
+        MediaSizeHelper {
+            id: mediaSizeHelper
+            contentMaxWidth: root.contentMaxWidth
+            mediaWidth: root.mediaInfo.width
+            mediaHeight: root.mediaInfo.height
         }
     }
 
