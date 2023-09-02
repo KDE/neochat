@@ -7,7 +7,6 @@ import QtQuick.Layouts 1.15
 import QtLocation 5.15
 import QtPositioning 5.15
 
-import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 

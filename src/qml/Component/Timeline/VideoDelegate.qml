@@ -8,7 +8,6 @@ import QtMultimedia @QTMULTIMEDIA_MODULE_QML_VERSION@
 import Qt.labs.platform 1.1 as Platform
 
 import org.kde.kirigami 2.13 as Kirigami
-import org.kde.kirigamiaddons.labs.components 1.0 as Components
 
 import org.kde.neochat 1.0
 

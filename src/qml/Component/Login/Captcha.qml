@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtWebView 1.15
 
