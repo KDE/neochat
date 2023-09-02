@@ -51,7 +51,7 @@ QQC2.TextArea {
             completionMenu.complete()
         }
     }
-    Keys.onPressed: {
+    Keys.onPressed: event => {
         if (event.key === Qt.Key_Up && completionMenu.visible) {
             completionMenu.decrementIndex()
         } else if (event.key === Qt.Key_Down && completionMenu.visible) {

@@ -82,6 +82,6 @@ ColumnLayout {
         readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
         textFormat: TextEdit.MarkdownText
         wrapMode: Text.Wrap
-        onLinkActivated: UrlHelper.openUrl(link)
+        onLinkActivated: link => UrlHelper.openUrl(link)
     }
 }

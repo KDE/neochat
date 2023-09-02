@@ -159,7 +159,7 @@ Kirigami.Page {
         }
     }
 
-    Keys.onPressed: {
+    Keys.onPressed: event => {
         if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
             chatBoxLoader.item.insertText(event.text);
