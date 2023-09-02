@@ -40,12 +40,12 @@ Labs.MenuBar {
 
         Labs.MenuItem {
             text: i18nc("menu", "New Private Chat…")
-            enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
+            enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && AccountRegistry.accountCount > 0
             onTriggered: pushReplaceLayer("qrc:/StartChatPage.qml", {connection: Controller.activeConnection})
         }
         Labs.MenuItem {
             text: i18nc("menu", "New Group…")
-            enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
+            enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && AccountRegistry.accountCount > 0
             shortcut: StandardKey.New
             onTriggered: {
                 const dialog = createRoomDialog.createObject(root.overlay)

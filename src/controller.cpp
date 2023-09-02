@@ -97,8 +97,6 @@ Controller::Controller(QObject *parent)
     }
 #endif
 
-    connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
-
     static int oldAccountCount = 0;
     connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, [this]() {
         if (m_accountRegistry.size() > oldAccountCount) {
@@ -165,15 +163,14 @@ void Controller::addConnection(NeoChatConnection *c)
     c->sync();
 
     Q_EMIT connectionAdded(c);
-    Q_EMIT accountCountChanged();
 }
 
 void Controller::dropConnection(NeoChatConnection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
 
+    m_accountRegistry.drop(c);
     Q_EMIT connectionDropped(c);
-    Q_EMIT accountCountChanged();
 }
 
 void Controller::invokeLogin()
@@ -295,11 +292,6 @@ bool Controller::supportSystemTray() const
     auto de = QString::fromLatin1(qgetenv("XDG_CURRENT_DESKTOP"));
     return de != QStringLiteral("GNOME") && de != QStringLiteral("Pantheon");
 #endif
-}
-
-int Controller::accountCount() const
-{
-    return m_accountRegistry.count();
 }
 
 void Controller::setQuitOnLastWindowClosed()

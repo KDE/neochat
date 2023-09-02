@@ -79,7 +79,7 @@ FormCard.FormCardPage {
                         Dialog.ConfirmLogout {
                             connection: model.connection
                             onAccepted: {
-                                if (Controller.accountCount === 1) {
+                                if (AccountRegistry.accountCount === 1) {
                                     root.Window.window.close()
                                 }
                             }

@@ -42,11 +42,6 @@ class Controller : public QObject
     Q_OBJECT
 
     /**
-     * @brief The number of logged in accounts.
-     */
-    Q_PROPERTY(int accountCount READ accountCount NOTIFY accountCountChanged)
-
-    /**
      * @brief The current connection for the rest of NeoChat to use.
      */
     Q_PROPERTY(NeoChatConnection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
@@ -95,8 +90,6 @@ public:
     Q_ENUM(PasswordStatus)
 
     static Controller &instance();
-
-    [[nodiscard]] int accountCount() const;
 
     void setActiveConnection(NeoChatConnection *connection);
     [[nodiscard]] NeoChatConnection *activeConnection() const;
@@ -215,7 +208,6 @@ Q_SIGNALS:
     void syncDone();
     void connectionAdded(NeoChatConnection *connection);
     void connectionDropped(NeoChatConnection *connection);
-    void accountCountChanged();
     void initiated();
     void notificationClicked(const QString &_t1, const QString &_t2);
     void quitOnLastWindowClosedChanged();
