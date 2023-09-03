@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 00:47+0000\n"
+"POT-Creation-Date: 2023-09-03 00:45+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -125,98 +125,98 @@ msgstr "Προορισμός"
 msgid "Network Error"
 msgstr "Σφάλμα δικτύου"
 
-#: src/main.cpp:184
+#: src/main.cpp:185
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:186
+#: src/main.cpp:187
 #, kde-format
 msgid "Matrix client"
 msgstr "Πελάτης του Matrix"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:189 src/main.cpp:190 src/main.cpp:191
+#: src/main.cpp:190 src/main.cpp:191 src/main.cpp:192
 #, kde-format
 msgid "Maintainer"
 msgstr "Συντηρητής"
 
-#: src/main.cpp:190
+#: src/main.cpp:191
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:191
+#: src/main.cpp:192
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:192
+#: src/main.cpp:193
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:192
+#: src/main.cpp:193
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Αρχικός συγγραφέας του Spectral"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Συντηρητής του Quotient"
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stelios"
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sstavra@gmail.com"
 
-#: src/main.cpp:198
+#: src/main.cpp:199
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Μια βιβλιοθήκη Qt5 για τη συγγραφή πελατών ανεξάρτητων από πλατφόρμες για το "
 "Matrix"
 
-#: src/main.cpp:200
+#: src/main.cpp:201
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (κατασκευάστηκε με τη %2)"
 
-#: src/main.cpp:346
+#: src/main.cpp:348
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Πελάτης για το πρωτόκολλο επικοινωνίας Matrix"
 
-#: src/main.cpp:347
+#: src/main.cpp:349
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Υποστηρίζει το matrix: url σχήμα"
 
-#: src/main.cpp:348
+#: src/main.cpp:350
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1294,58 +1294,72 @@ msgstr "Απάντηση στον %1:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
 #, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@title"
+msgid "Choose Room"
+msgstr "Επιλογή τοπικού αρχείου"
+
+#: src/qml/Component/Devtools/RoomData.qml:25
+#, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Room"
 msgstr "Αίθουσες"
 
-#: src/qml/Component/Devtools/RoomData.qml:31
+#: src/qml/Component/Devtools/RoomData.qml:37
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgid "Room Id: %1"
+msgstr "Room ID"
+
+#: src/qml/Component/Devtools/RoomData.qml:40
 #, fuzzy, kde-format
 #| msgid "Show name change events"
 msgid "Show m.room.member events"
 msgstr "Να εμφανίζονται γεγονότα αλλαγής ονομάτων"
 
-#: src/qml/Component/Devtools/RoomData.qml:43
+#: src/qml/Component/Devtools/RoomData.qml:52
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "Show room account data"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/Component/Devtools/RoomData.qml:54
-#, kde-format
-msgid "Room Account Data for %1 - %2"
-msgstr ""
+#: src/qml/Component/Devtools/RoomData.qml:58
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "Room Account Data"
+msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/Component/Devtools/RoomData.qml:64
-#: src/qml/Component/Devtools/RoomData.qml:106
+#: src/qml/Component/Devtools/RoomData.qml:69
+#: src/qml/Component/Devtools/RoomData.qml:95
 #: src/qml/Menu/Timeline/MessageSourceSheet.qml:20
 #, kde-format
 msgid "Event Source"
 msgstr "Πηγή γεγονότος"
 
-#: src/qml/Component/Devtools/RoomData.qml:78
+#: src/qml/Component/Devtools/RoomData.qml:77
 #, fuzzy, kde-format
 #| msgid "Room State - %1"
-msgid "Room State for %1"
+msgid "Room State"
 msgstr "Κατάσταση αίθουσας - %1"
 
-#: src/qml/Component/Devtools/ServerData.qml:20
+#: src/qml/Component/Devtools/ServerData.qml:16
 #, kde-format
 msgid "Server Capabilities"
 msgstr ""
 
-#: src/qml/Component/Devtools/ServerData.qml:23
+#: src/qml/Component/Devtools/ServerData.qml:20
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgid "Can change password"
 msgstr "Επιβεβαίωση νέου κωδικού:"
 
-#: src/qml/Component/Devtools/ServerData.qml:33
+#: src/qml/Component/Devtools/ServerData.qml:25
 #, fuzzy, kde-format
 #| msgid "Default permissions"
 msgid "Default Room Version"
 msgstr "Προκαθορισμένα δικαιώματα"
 
-#: src/qml/Component/Devtools/ServerData.qml:45
+#: src/qml/Component/Devtools/ServerData.qml:33
 #, fuzzy, kde-format
 #| msgid "Room version"
 msgid "Available Room Versions"
@@ -1363,14 +1377,14 @@ msgid "No emojis"
 msgstr "Χωρίς εμότζι"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:52
-#: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:25
+#: src/qml/Settings/EmoticonsPage.qml:18
 #, fuzzy, kde-format
 #| msgid "No emojis"
 msgid "Emojis"
 msgstr "Χωρίς εμότζι"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:59
-#: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:32
+#: src/qml/Settings/EmoticonsPage.qml:25
 #, kde-format
 msgid "Stickers"
 msgstr ""
@@ -1412,7 +1426,7 @@ msgstr "Απόρριψη"
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: src/qml/Component/LocationPage.qml:17
+#: src/qml/Component/LocationPage.qml:16
 #: src/qml/RoomDrawer/RoomInformation.qml:116
 #, fuzzy, kde-format
 #| msgid "Notifications"
@@ -1420,185 +1434,185 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Ειδοποιήσεις"
 
-#: src/qml/Component/LocationPage.qml:52
+#: src/qml/Component/LocationPage.qml:51
 #, fuzzy, kde-format
 #| msgid "You are already in this room."
 msgid "There are no locations shared in this room."
 msgstr "Είσαι ήδη σε αυτήν την αίθουσα."
 
-#: src/qml/Component/Login/Email.qml:20
+#: src/qml/Component/Login/Email.qml:19
 #, kde-format
 msgid "Add an e-mail address:"
 msgstr ""
 
-#: src/qml/Component/Login/Email.qml:32
+#: src/qml/Component/Login/Email.qml:31
 #, fuzzy, kde-format
 #| msgid "Confirm new display name"
 msgid "Confirm e-mail address"
 msgstr "Επιβεβαίωση νέου ονόματος"
 
-#: src/qml/Component/Login/Email.qml:34
+#: src/qml/Component/Login/Email.qml:33
 #, kde-format
 msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
 
-#: src/qml/Component/Login/Email.qml:39
+#: src/qml/Component/Login/Email.qml:38
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
 msgstr ""
 
-#: src/qml/Component/Login/Homeserver.qml:20
+#: src/qml/Component/Login/Homeserver.qml:19
 #, fuzzy, kde-format
 #| msgid "Server URL"
 msgid "Server Url:"
 msgstr "URL εξυπηρετητή"
 
-#: src/qml/Component/Login/Homeserver.qml:25
+#: src/qml/Component/Login/Homeserver.qml:24
 #, kde-format
 msgid "Registration is disabled on this server."
 msgstr ""
 
-#: src/qml/Component/Login/Homeserver.qml:40
-#: src/qml/Component/Login/Username.qml:37
+#: src/qml/Component/Login/Homeserver.qml:39
+#: src/qml/Component/Login/Username.qml:36
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
 msgstr "Φορτώνει…"
 
-#: src/qml/Component/Login/Loading.qml:16
+#: src/qml/Component/Login/Loading.qml:15
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "Περίμενε. Μπορεί να διαρκέσει λίγο παραπάνω."
 
-#: src/qml/Component/Login/Login.qml:25
+#: src/qml/Component/Login/Login.qml:24
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix ID:"
 
-#: src/qml/Component/Login/Login.qml:27
+#: src/qml/Component/Login/Login.qml:26
 #, fuzzy, kde-format
 #| msgid "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID:"
 
-#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:113
+#: src/qml/Component/Login/Login.qml:37 src/qml/Page/WelcomePage.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: src/qml/Component/Login/Login.qml:38 src/qml/Page/LoadingPage.qml:9
+#: src/qml/Component/Login/Login.qml:37 src/qml/Page/LoadingPage.qml:8
 #, kde-format
 msgid "Loading…"
 msgstr "Φορτώνει…"
 
-#: src/qml/Component/Login/Login.qml:38
+#: src/qml/Component/Login/Login.qml:37
 #, kde-format
 msgid "Already logged in"
 msgstr "Ήδη σε σύνδεση"
 
-#: src/qml/Component/Login/LoginMethod.qml:20
+#: src/qml/Component/Login/LoginMethod.qml:18
 #, fuzzy, kde-format
 #| msgid "Login with password"
 msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Σύνδεση με κωδικό πρόσβασης"
 
-#: src/qml/Component/Login/LoginMethod.qml:26
+#: src/qml/Component/Login/LoginMethod.qml:24
 #, fuzzy, kde-format
 #| msgid "Login with single sign-on"
 msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Σύνδεση με γενικό κωδικό"
 
-#: src/qml/Component/Login/LoginRegister.qml:22
-#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Component/Login/LoginRegister.qml:20
+#: src/qml/Component/Login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Σύνδεση"
 
-#: src/qml/Component/Login/LoginRegister.qml:27
+#: src/qml/Component/Login/LoginRegister.qml:25
 #, fuzzy, kde-format
 #| msgid "Register"
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Εγγραφή"
 
-#: src/qml/Component/Login/Password.qml:28
-#: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:76
+#: src/qml/Component/Login/Password.qml:27
+#: src/qml/Component/Login/RegisterPassword.qml:18
+#: src/qml/Settings/DevicesPage.qml:71
 #, kde-format
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/qml/Component/Login/Password.qml:32
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
+#: src/qml/Component/Login/Password.qml:31
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:30
 #: src/qml/Settings/AccountEditorPage.qml:134
-#: src/qml/Settings/NetworkProxyPage.qml:99
+#: src/qml/Settings/NetworkProxyPage.qml:88
 #, kde-format
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
-#: src/qml/Component/Login/Password.qml:33
+#: src/qml/Component/Login/Password.qml:32
 #, fuzzy, kde-format
 #| msgid "Enter your password"
 msgid "Invalid username or password"
 msgstr "Δώσε τον κωδικό πρόσβασης"
 
-#: src/qml/Component/Login/RegisterPassword.qml:29
+#: src/qml/Component/Login/RegisterPassword.qml:28
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgid "Confirm Password:"
 msgstr "Επιβεβαίωση νέου κωδικού:"
 
-#: src/qml/Component/Login/RegisterPassword.qml:32
+#: src/qml/Component/Login/RegisterPassword.qml:31
 #, fuzzy, kde-format
 #| msgid "Passwords do not match"
 msgid "The passwords do not match."
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
 
-#: src/qml/Component/Login/Sso.qml:31
+#: src/qml/Component/Login/Sso.qml:30
 #, fuzzy, kde-format
 #| msgid "Complete the authentication steps in your browser"
 msgid "Continue the login process in your browser."
 msgstr "Συμπλήρωσε τα βήματα ταυτοποίησης στον περιηγητή ιστού"
 
-#: src/qml/Component/Login/Sso.qml:39
+#: src/qml/Component/Login/Sso.qml:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
-#: src/qml/Component/Login/Terms.qml:19
+#: src/qml/Component/Login/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
 msgstr ""
 
-#: src/qml/Component/Login/Terms.qml:20
+#: src/qml/Component/Login/Terms.qml:19
 #, kde-format
 msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
 msgstr ""
 
-#: src/qml/Component/Login/Username.qml:19
+#: src/qml/Component/Login/Username.qml:18
 #, fuzzy, kde-format
 #| msgid "User"
 msgid "Username:"
 msgstr "Χρήστης"
 
-#: src/qml/Component/Login/Username.qml:22
+#: src/qml/Component/Login/Username.qml:21
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "Username unavailable"
 msgstr "Δεν υπάρχουν διαθέσιμοι χρήστες"
 
-#: src/qml/Component/Timeline/EncryptedDelegate.qml:20
-#: src/qml/Component/Timeline/ReplyComponent.qml:204
+#: src/qml/Component/Timeline/EncryptedDelegate.qml:19
+#: src/qml/Component/Timeline/ReplyComponent.qml:196
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1666,14 +1680,14 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Ακύρωση"
 
-#: src/qml/Component/Timeline/PollDelegate.qml:63
+#: src/qml/Component/Timeline/PollDelegate.qml:62
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Με βάση τις ψήφους %1 χρήστη"
 msgstr[1] "Με βάση τις ψήφους %1 χρηστών"
 
-#: src/qml/Component/Timeline/PollDelegate.qml:63
+#: src/qml/Component/Timeline/PollDelegate.qml:62
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -1685,18 +1699,18 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Τελευταία ανάγνωση: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:188
+#: src/qml/Component/Timeline/VideoDelegate.qml:142
 #, kde-format
 msgid "Video"
 msgstr "Βίντεο"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:252
+#: src/qml/Component/Timeline/VideoDelegate.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr ""
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:336
+#: src/qml/Component/Timeline/VideoDelegate.qml:290
 #, kde-format
 msgid "Maximize"
 msgstr ""
@@ -1724,22 +1738,22 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 πληκτρολογεί"
 msgstr[1] "%2 πληκτρολογούν"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:17
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:20
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@title"
 msgid "Deactivate Account"
 msgstr "Επεξεργασία λογαριασμού"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:24
 #, fuzzy, kde-format
 #| msgid "Warning: %1"
 msgctxt "@title"
 msgid "Warning"
 msgstr "Προειδοποίηση: %1"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:25
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -1748,7 +1762,7 @@ msgid ""
 "Your messages will stay available."
 msgstr ""
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:35
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate account"
@@ -1789,12 +1803,12 @@ msgstr "Θέλεις σίγουρα να αποσυνδεθείς;"
 msgid "Create a Room"
 msgstr "Δημιουργία μιας αίθουσας"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:80
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:71
 #, kde-format
 msgid "Room name:"
 msgstr "Όνομα αίθουσας:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:92
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:82
 #, kde-format
 msgid "Room topic:"
 msgstr "Θέμα αίθουσας:"
@@ -1805,7 +1819,7 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Εντάξει"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:15
+#: src/qml/Dialog/CreateSpaceDialog.qml:14
 #: src/qml/Page/RoomList/ExploreComponent.qml:39
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
@@ -1813,7 +1827,7 @@ msgstr "Εντάξει"
 msgid "Create a Space"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:23
+#: src/qml/Dialog/CreateSpaceDialog.qml:19
 #: src/qml/Page/RoomList/ExploreComponent.qml:42
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
@@ -1822,19 +1836,19 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:27
+#: src/qml/Dialog/CreateSpaceDialog.qml:24
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Space members"
 msgid "Space name"
 msgstr "Μέλη του χώρου"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:31
+#: src/qml/Dialog/CreateSpaceDialog.qml:28
 #, kde-format
 msgid "Space topic (optional)"
 msgstr ""
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:34
+#: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -1894,32 +1908,32 @@ msgstr "Επιτυχημένη επαλήθευση συσκευής **%1**"
 msgid "Decline"
 msgstr "Απόρριψη"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:21
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:19
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε για άγνωστη αιτία."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:23
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Η επαλήθευση συνεδρίας εξέπνευσε."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:25
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Η επαλήθευση συνεδρίας εξέπνευσε για την άλλη πλευρά."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:27
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Ακύρωσες τη επαλήθευση συνεδρίας."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:29
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:27
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Η άλλη πλευρά ακύρωσε τη επαλήθευση συνεδρίας."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:31
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -1927,7 +1941,7 @@ msgid ""
 msgstr ""
 "Η επαλήθευση συνεδρίας ακυρώθηκε επειδή λάβαμε ένα μη αναμενόμενο μήνυμα."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:33
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1936,7 +1950,7 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε τη επαλήθευση συνεδρίας επειδή έλαβε ένα μη "
 "αναμενόμενο μήνυμα."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:35
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -1945,7 +1959,7 @@ msgstr ""
 "Η επαλήθευση συνεδρίας ακυρώθηκε επειδή έλαβε ένα μήνυμα για άγνωστη "
 "συνεδρία."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:37
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -1954,7 +1968,7 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε τη επαλήθευση συνεδρίας επειδή έλαβε ένα μήνυμα για "
 "άγνωστη συνεδρία."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:39
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -1963,7 +1977,7 @@ msgstr ""
 "Η επαλήθευση συνεδρίας ακυρώθηκε εξαιτίας της αδυναμίας του NeoChat να "
 "χειριστεί αυτήν τη μέθοδο επαλήθευσης."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:41
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -1972,12 +1986,12 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας γιατί αδυνατεί να χειριστεί "
 "αυτήν τη μέθοδο επαλήθευσης."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:43
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε επειδή τα κλειδιά δεν είναι σωστά."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:45
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -1986,14 +2000,14 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας γιατί τα κλειδιά δεν είναι "
 "σωστά."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:47
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
 "Η επαλήθευση συνεδρίας ακυρώθηκε γιατί επαληθεύει έναν μη αναμενόμενο χρήστη."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:49
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -2002,13 +2016,13 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας γιατί επαληθεύει έναν μη "
 "αναμενόμενο χρήστη."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:51
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε γιατί λάβαμε ένα μη έγκυρο μήνυμα."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:53
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -2017,18 +2031,18 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας γιατί έλαβε ένα μη έγκυρο "
 "μήνυμα."
 
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:53
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:55
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Η συνεδρία έγινε δεκτή σε διαφορετική συσκευή"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:59
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε εξαιτίας ενός αταίριαστου κλειδιού."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:61
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -2037,12 +2051,12 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας εξαιτίας ενός αταίριαστου "
 "κλειδιού."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:63
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε επειδή τα κλειδιά δεν ταιριάζουν."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:65
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -2051,7 +2065,7 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας επειδή τα κλειδιά δεν "
 "ταιριάζουν."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:67
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε από άγνωστο σφάλμα."
@@ -2067,96 +2081,96 @@ msgid "Edit user power level"
 msgstr "Επεξεργασία επιπέδου δικαιωμάτων του χρήστη"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
-#: src/qml/RoomSettings/Permissions.qml:78
+#: src/qml/RoomSettings/Permissions.qml:69
 #, fuzzy, kde-format
 #| msgid "Member"
 msgid "Member (0)"
 msgstr "Μέλος"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
-#: src/qml/RoomSettings/Permissions.qml:79
+#: src/qml/RoomSettings/Permissions.qml:70
 #, kde-format
 msgid "Moderator (50)"
 msgstr ""
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
-#: src/qml/RoomSettings/Permissions.qml:80
+#: src/qml/RoomSettings/Permissions.qml:71
 #, fuzzy, kde-format
 #| msgid "Admin"
 msgid "Admin (100)"
 msgstr "Διαχειριστής"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:80
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:330
+#: src/qml/Settings/DevicesPage.qml:75
 #, kde-format
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
 
-#: src/qml/Dialog/UserDetailDialog.qml:32
+#: src/qml/Dialog/UserDetailDialog.qml:31
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Λεπτομέρειες λογαριασμού"
 
-#: src/qml/Dialog/UserDetailDialog.qml:81
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Unignore this user"
 msgstr "Αναίρεση αγνόησης αυτού του χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:81
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Ignore this user"
 msgstr "Αγνόηση αυτού του χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:93
+#: src/qml/Dialog/UserDetailDialog.qml:92
 #, kde-format
 msgid "Kick this user"
 msgstr "Διώξε αυτόν το χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:106
+#: src/qml/Dialog/UserDetailDialog.qml:105
 #, kde-format
 msgid "Invite this user"
 msgstr "Προσκάλεσε αυτόν τον χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:118
+#: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
 msgid "Ban this user"
 msgstr "Απόκλεισε αυτόν τον χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:123
+#: src/qml/Dialog/UserDetailDialog.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Αποκλεισμός χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:134
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Unban this user"
 msgstr "Αναίρεση αποκλεισμού αυτού του χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:146
+#: src/qml/Dialog/UserDetailDialog.qml:145
 #, fuzzy, kde-format
 #| msgid "Edit user power level"
 msgid "Set user power level"
 msgstr "Επεξεργασία επιπέδου δικαιωμάτων του χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:170
+#: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Αφαίρεση πρόσφατων μηνυμάτων αυτού του χρήστη"
 
-#: src/qml/Dialog/UserDetailDialog.qml:175
+#: src/qml/Dialog/UserDetailDialog.qml:174
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Αφαίρεση μηνυμάτων"
 
-#: src/qml/Dialog/UserDetailDialog.qml:185
+#: src/qml/Dialog/UserDetailDialog.qml:184
 #, kde-format
 msgid "Open a private chat"
 msgstr "Άνοιγμα ιδιωτικής συνομιλίας"
 
-#: src/qml/Dialog/UserDetailDialog.qml:195
+#: src/qml/Dialog/UserDetailDialog.qml:194
 #, kde-format
 msgid "Copy link"
 msgstr "Αντιγραφή συνδέσμου"
@@ -2197,7 +2211,7 @@ msgstr "Έναρξη συνομιλίας"
 msgid "Do you want to start a chat with %1?"
 msgstr "Θέλεις να ξεκινήσεις συνομιλία με τον %1;"
 
-#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:28
 #: src/qml/Page/RoomList/AccountMenu.qml:33
 #: src/qml/Page/RoomList/AccountMenu.qml:43
 #: src/qml/Page/RoomList/UserInfo.qml:235
@@ -2205,115 +2219,115 @@ msgstr "Θέλεις να ξεκινήσεις συνομιλία με τον %1
 msgid "Configure"
 msgstr "Διαμόρφωση"
 
-#: src/qml/Menu/EditMenu.qml:17
+#: src/qml/Menu/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: src/qml/Menu/EditMenu.qml:27
+#: src/qml/Menu/EditMenu.qml:25
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
 msgstr "Επανάληψη"
 
-#: src/qml/Menu/EditMenu.qml:40
+#: src/qml/Menu/EditMenu.qml:38
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
 msgstr "Αποκοπή"
 
-#: src/qml/Menu/EditMenu.qml:50
+#: src/qml/Menu/EditMenu.qml:48
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
 msgstr "Αντιγραφή"
 
-#: src/qml/Menu/EditMenu.qml:60
+#: src/qml/Menu/EditMenu.qml:58
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "Επικόλληση"
 
-#: src/qml/Menu/EditMenu.qml:70
+#: src/qml/Menu/EditMenu.qml:68
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: src/qml/Menu/EditMenu.qml:83
+#: src/qml/Menu/EditMenu.qml:81
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Επιλογή όλων"
 
-#: src/qml/Menu/GlobalMenu.qml:16
+#: src/qml/Menu/GlobalMenu.qml:14
 #, kde-format
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/Menu/GlobalMenu.qml:21
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Διαμόρφωση του NeoChat..."
 
-#: src/qml/Menu/GlobalMenu.qml:24
+#: src/qml/Menu/GlobalMenu.qml:22
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Διαμόρφωση του NeoChat..."
 
-#: src/qml/Menu/GlobalMenu.qml:34
+#: src/qml/Menu/GlobalMenu.qml:32
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Έξοδος από το NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:41
+#: src/qml/Menu/GlobalMenu.qml:39
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Αρχείο"
 
-#: src/qml/Menu/GlobalMenu.qml:44
+#: src/qml/Menu/GlobalMenu.qml:42
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "Νέα ιδιωτική συνομιλία…"
 
-#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
+#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "Έναρξη συνομιλίας"
 
-#: src/qml/Menu/GlobalMenu.qml:49
+#: src/qml/Menu/GlobalMenu.qml:47
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Νέα ομάδα…"
 
-#: src/qml/Menu/GlobalMenu.qml:58
+#: src/qml/Menu/GlobalMenu.qml:56
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Περιήγηση στις συνομιλίες…"
 
-#: src/qml/Menu/GlobalMenu.qml:63
+#: src/qml/Menu/GlobalMenu.qml:61
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: src/qml/Menu/GlobalMenu.qml:67
+#: src/qml/Menu/GlobalMenu.qml:65
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Προβολή"
 
-#: src/qml/Menu/GlobalMenu.qml:70
+#: src/qml/Menu/GlobalMenu.qml:68
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2321,42 +2335,42 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Άνοιγμα γρήγορου εναλλάκτη"
 
-#: src/qml/Menu/GlobalMenu.qml:76
+#: src/qml/Menu/GlobalMenu.qml:74
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Παράθυρο"
 
-#: src/qml/Menu/GlobalMenu.qml:83
+#: src/qml/Menu/GlobalMenu.qml:81
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Έξοδος από πλήρη οθόνη"
 
-#: src/qml/Menu/GlobalMenu.qml:83
+#: src/qml/Menu/GlobalMenu.qml:81
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Είσοδος σε πλήρη οθόνη"
 
-#: src/qml/Menu/GlobalMenu.qml:89
+#: src/qml/Menu/GlobalMenu.qml:87
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: src/qml/Menu/GlobalMenu.qml:92
+#: src/qml/Menu/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Matrix συχνές ερωτήσεις"
 
-#: src/qml/Menu/ShareAction.qml:19
+#: src/qml/Menu/ShareAction.qml:18
 #, kde-format
 msgid "Share"
 msgstr "Διαμοιρασμός"
 
-#: src/qml/Menu/ShareAction.qml:20
+#: src/qml/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share the selected media"
 msgstr "Διαμοιρασμός του επιλεγμένου μέσου"
@@ -2524,7 +2538,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Επιλογή τοπικού αρχείου"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
+#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
 msgid "Developer Tools"
 msgstr "Εργαλεία προγραμματιστή"
@@ -2695,7 +2709,7 @@ msgid "Edit this account"
 msgstr "Επεξεργασία αυτού του λογαριασμού"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:44
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
 msgstr "Συντάκτης λογαριασμού"
@@ -2713,7 +2727,7 @@ msgid "Devices"
 msgstr "Συσκευές"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
-#: src/qml/Settings/AccountsPage.qml:81
+#: src/qml/Settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Αποσύνδεση"
@@ -2804,8 +2818,8 @@ msgstr "Κανένα"
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
 #: src/qml/Page/RoomList/ContextMenu.qml:186
-#: src/qml/RoomDrawer/RoomDrawer.qml:98
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:37
+#: src/qml/RoomDrawer/RoomDrawer.qml:96
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:34
 #, kde-format
 msgid "Room Settings"
 msgstr "Ρυθμίσεις αίθουσας"
@@ -2888,7 +2902,7 @@ msgstr "Αίθουσα σε σίγαση"
 msgid "Configure room"
 msgstr "Διαμόρφωση αίθουσας"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:58
+#: src/qml/Page/RoomList/SpaceDrawer.qml:57
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show All Rooms"
@@ -2920,7 +2934,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:109
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Add Account"
 msgstr "Προσθήκη λογαριασμού"
@@ -3006,22 +3020,22 @@ msgctxt "@action:button"
 msgid "Go back"
 msgstr ""
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:61
 #, kde-format
 msgid "No name"
 msgstr "Χωρίς όνομα"
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:82
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
 #, kde-format
 msgid "No Topic"
 msgstr "Χωρίς θέμα"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:88
+#: src/qml/RoomDrawer/RoomDrawer.qml:86
 #, kde-format
 msgid "Room information"
 msgstr "Πληροφορίες αίθουσας"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:95
+#: src/qml/RoomDrawer/RoomDrawer.qml:93
 #, kde-format
 msgid "Room settings"
 msgstr "Ρυθμίσεις αίθουσας"
@@ -3128,176 +3142,176 @@ msgstr "Δικαιώματα"
 msgid "Notifications"
 msgstr "Ειδοποιήσεις"
 
-#: src/qml/RoomSettings/General.qml:29
+#: src/qml/RoomSettings/General.qml:24
 #, kde-format
 msgid "Room Information"
 msgstr "Πληροφορίες αίθουσας"
 
-#: src/qml/RoomSettings/General.qml:55
+#: src/qml/RoomSettings/General.qml:46
 #, kde-format
 msgid "Update avatar"
 msgstr "Ενημέρωση avatar"
 
-#: src/qml/RoomSettings/General.qml:114
+#: src/qml/RoomSettings/General.qml:103
 #: src/qml/Settings/AccountEditorPage.qml:118
 #: src/qml/Settings/AccountEditorPage.qml:171
-#: src/qml/Settings/EmoticonEditorPage.qml:121
+#: src/qml/Settings/EmoticonEditorPage.qml:110
 #, kde-format
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/qml/RoomSettings/General.qml:129
+#: src/qml/RoomSettings/General.qml:118
 #, kde-format
 msgid "Room ID"
 msgstr "Room ID"
 
-#: src/qml/RoomSettings/General.qml:134
+#: src/qml/RoomSettings/General.qml:123
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Address to Clipboard"
 msgid "Copy room ID to clipboard"
 msgstr "Αντιγραφή διεύθυνσης στο πρόχειρο"
 
-#: src/qml/RoomSettings/General.qml:148
+#: src/qml/RoomSettings/General.qml:137
 #, kde-format
 msgid "Room version"
 msgstr "Έκδοση αίθουσας"
 
-#: src/qml/RoomSettings/General.qml:154
+#: src/qml/RoomSettings/General.qml:143
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Αναβάθμιση αίθουσας"
 
-#: src/qml/RoomSettings/General.qml:175
+#: src/qml/RoomSettings/General.qml:162
 #, kde-format
 msgid "Aliases"
 msgstr "Συνώνυμα"
 
-#: src/qml/RoomSettings/General.qml:183
+#: src/qml/RoomSettings/General.qml:167
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Δεν ρυθμίστηκε κανονικό συνώνυμο"
 
-#: src/qml/RoomSettings/General.qml:196
+#: src/qml/RoomSettings/General.qml:180
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Να γίνει αυτό το συνώνυμο το κανονικό συνώνυμο της αίθουσας"
 
-#: src/qml/RoomSettings/General.qml:211
+#: src/qml/RoomSettings/General.qml:195
 #, kde-format
 msgid "Delete alias"
 msgstr "Διαγραφή συνωνύμου"
 
-#: src/qml/RoomSettings/General.qml:237
+#: src/qml/RoomSettings/General.qml:220
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:254
+#: src/qml/RoomSettings/General.qml:237
 #, kde-format
 msgid "Add new alias"
 msgstr "Προσθήκη νέου ψευδωνύμου"
 
-#: src/qml/RoomSettings/General.qml:275
+#: src/qml/RoomSettings/General.qml:256
 #, kde-format
 msgid "URL Previews"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:282
+#: src/qml/RoomSettings/General.qml:260
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:290
+#: src/qml/RoomSettings/General.qml:268
 #, kde-format
 msgid "Enable URL previews"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:292
+#: src/qml/RoomSettings/General.qml:270
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
 msgid "URL previews are enabled by default in this room"
 msgstr "%1 είναι ήδη σε αυτήν την αίθουσα."
 
-#: src/qml/RoomSettings/General.qml:292
+#: src/qml/RoomSettings/General.qml:270
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
 msgid "URL previews are disabled by default in this room"
 msgstr "%1 είναι ήδη σε αυτήν την αίθουσα."
 
-#: src/qml/RoomSettings/General.qml:305
+#: src/qml/RoomSettings/General.qml:281
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Σε αυτήν την αίθουσα συνεχίζεται μια άλλη συνομιλία."
 
-#: src/qml/RoomSettings/General.qml:309
+#: src/qml/RoomSettings/General.qml:285
 #, kde-format
 msgid "See older messages…"
 msgstr "Δες παλαιότερα μηνύματα…"
 
-#: src/qml/RoomSettings/General.qml:320
+#: src/qml/RoomSettings/General.qml:295
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Αυτή η αίθουσα έχει αντικατασταθεί."
 
-#: src/qml/RoomSettings/General.qml:324
+#: src/qml/RoomSettings/General.qml:299
 #, kde-format
 msgid "See new room…"
 msgstr "Δες τη νέα αίθουσα…"
 
-#: src/qml/RoomSettings/General.qml:345
+#: src/qml/RoomSettings/General.qml:320
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Αναβάθμιση της αίθουσας"
 
-#: src/qml/RoomSettings/General.qml:349
+#: src/qml/RoomSettings/General.qml:324
 #, kde-format
 msgid "Select new version"
 msgstr "Επιλογή νέας έκδοσης"
 
-#: src/qml/RoomSettings/Permissions.qml:39
+#: src/qml/RoomSettings/Permissions.qml:33
 #, kde-format
 msgid "Privileged Users"
 msgstr "Χρήστες με προνόμια"
 
-#: src/qml/RoomSettings/Permissions.qml:242
+#: src/qml/RoomSettings/Permissions.qml:230
 #, kde-format
 msgid "Default permissions"
 msgstr "Προκαθορισμένα δικαιώματα"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:235
 #, kde-format
 msgid "Default user power level"
 msgstr "Προκαθορισμένο επίπεδο δικαιωμάτων χρήστη"
 
-#: src/qml/RoomSettings/Permissions.qml:251
+#: src/qml/RoomSettings/Permissions.qml:236
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 "Αυτό είναι το επίπεδο δικαιωμάτων για όλους τους νέους χρήστες που "
 "εισέρχονται στην αίθουσα"
 
-#: src/qml/RoomSettings/Permissions.qml:259
+#: src/qml/RoomSettings/Permissions.qml:244
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr ""
 "Το προκαθορισμένο επίπεδο δικαιωμάτων για την κατάσταση αυτής της αίθουσας"
 
-#: src/qml/RoomSettings/Permissions.qml:260
+#: src/qml/RoomSettings/Permissions.qml:245
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Αυτό χρησιμοποιείται για όλα τα γεγονότα καταστάσεων τα οποία δεν έχουν εδώ "
 "δική τους θέση"
 
-#: src/qml/RoomSettings/Permissions.qml:268
+#: src/qml/RoomSettings/Permissions.qml:253
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Προκαθορισμένο επίπεδο δικαιωμάτων για αποστολή μηνυμάτων"
 
-#: src/qml/RoomSettings/Permissions.qml:269
+#: src/qml/RoomSettings/Permissions.qml:254
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -3305,93 +3319,93 @@ msgstr ""
 "Αυτό χρησιμοποιείται για όλα τα γεγονότα μηνυμάτων τα οποία δεν έχουν εδώ "
 "δική τους θέση"
 
-#: src/qml/RoomSettings/Permissions.qml:282
+#: src/qml/RoomSettings/Permissions.qml:265
 #, kde-format
 msgid "Basic permissions"
 msgstr "Βασικά δικαιώματα"
 
-#: src/qml/RoomSettings/Permissions.qml:290
+#: src/qml/RoomSettings/Permissions.qml:270
 #, kde-format
 msgid "Invite users"
 msgstr "Πρόσκληση χρηστών"
 
-#: src/qml/RoomSettings/Permissions.qml:298
+#: src/qml/RoomSettings/Permissions.qml:278
 #, kde-format
 msgid "Kick users"
 msgstr "Εκδίωξη χρηστών"
 
-#: src/qml/RoomSettings/Permissions.qml:306
+#: src/qml/RoomSettings/Permissions.qml:286
 #, kde-format
 msgid "Ban users"
 msgstr "Αποκλεισμός χρηστών"
 
-#: src/qml/RoomSettings/Permissions.qml:314
+#: src/qml/RoomSettings/Permissions.qml:294
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Αφαίρεση μηνύματος που εστάλη από άλλους χρήστες"
 
-#: src/qml/RoomSettings/Permissions.qml:327
+#: src/qml/RoomSettings/Permissions.qml:305
 #, kde-format
 msgid "Event permissions"
 msgstr "Δικαιώματα γεγονότος"
 
-#: src/qml/RoomSettings/Permissions.qml:335
+#: src/qml/RoomSettings/Permissions.qml:310
 #, kde-format
 msgid "Change user permissions"
 msgstr "Άλλαξε τα δικαιώματα χρήστη"
 
-#: src/qml/RoomSettings/Permissions.qml:344
+#: src/qml/RoomSettings/Permissions.qml:319
 #, kde-format
 msgid "Change the room name"
 msgstr "Άλλαξε το όνομα της αίθουσας"
 
-#: src/qml/RoomSettings/Permissions.qml:353
+#: src/qml/RoomSettings/Permissions.qml:328
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Άλλαξε το avatar της αίθουσας"
 
-#: src/qml/RoomSettings/Permissions.qml:362
+#: src/qml/RoomSettings/Permissions.qml:337
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Άλλαξε το κανονικό συνώνυμο της αίθουσας"
 
-#: src/qml/RoomSettings/Permissions.qml:371
+#: src/qml/RoomSettings/Permissions.qml:346
 #, kde-format
 msgid "Change the room topic"
 msgstr "Άλλαξε το θέμα της αίθουσας"
 
-#: src/qml/RoomSettings/Permissions.qml:380
+#: src/qml/RoomSettings/Permissions.qml:355
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Ενεργοποίησε την κρυπτογράφηση για την αίθουσα"
 
-#: src/qml/RoomSettings/Permissions.qml:389
+#: src/qml/RoomSettings/Permissions.qml:364
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Άλλαξε την ορατότητα του ιστορικού της αίθουσας"
 
-#: src/qml/RoomSettings/Permissions.qml:398
+#: src/qml/RoomSettings/Permissions.qml:373
 #, kde-format
 msgid "Set pinned events"
 msgstr "Ρύθμιση καρφιτσωμένων γεγονότων"
 
-#: src/qml/RoomSettings/Permissions.qml:407
+#: src/qml/RoomSettings/Permissions.qml:382
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Αναβάθμισε την αίθουσα"
 
-#: src/qml/RoomSettings/Permissions.qml:416
+#: src/qml/RoomSettings/Permissions.qml:391
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr ""
 "Ρύθμισε για την αίθουσα τη λίστα ελέγχου πρόσβασης (ACL) στον εξυπηρετητή"
 
-#: src/qml/RoomSettings/Permissions.qml:426
+#: src/qml/RoomSettings/Permissions.qml:401
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Ρύθμισε τα παιδιά αυτού του χώρου"
 
-#: src/qml/RoomSettings/Permissions.qml:435
+#: src/qml/RoomSettings/Permissions.qml:410
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Ρύθμισε τον γονεϊκό χώρο αυτής της αίθουσας"
@@ -3407,19 +3421,19 @@ msgid "Follow global setting"
 msgstr "Ακολούθησε τη γενική ρύθμιση"
 
 #: src/qml/RoomSettings/PushNotification.qml:61
-#: src/qml/Settings/GlobalNotificationsPage.qml:89
+#: src/qml/Settings/GlobalNotificationsPage.qml:67
 #, kde-format
 msgid "Keywords"
 msgstr "Λέξεις κλειδιά"
 
 #: src/qml/RoomSettings/PushNotification.qml:96
-#: src/qml/Settings/GlobalNotificationsPage.qml:117
+#: src/qml/Settings/GlobalNotificationsPage.qml:91
 #, kde-format
 msgid "Keyword…"
 msgstr "Λέξη κλειδί…"
 
 #: src/qml/RoomSettings/PushNotification.qml:115
-#: src/qml/Settings/GlobalNotificationsPage.qml:136
+#: src/qml/Settings/GlobalNotificationsPage.qml:110
 #, kde-format
 msgid "Add keyword"
 msgstr "Προσθήκη λέξης κλειδιού"
@@ -3432,100 +3446,100 @@ msgstr ""
 "Πρέπει να αναβαθμίσεις αυτήν την αίθουσα σε νεότερη έκδοση για να "
 "ενεργοποιηθεί αυτή η ρύθμιση."
 
-#: src/qml/RoomSettings/Security.qml:27
+#: src/qml/RoomSettings/Security.qml:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Κρυπτογράφηση"
 
-#: src/qml/RoomSettings/Security.qml:35
+#: src/qml/RoomSettings/Security.qml:27
 #, kde-format
 msgid "Enable encryption"
 msgstr "Ενεργοποίηση κρυπτογράφησης"
 
-#: src/qml/RoomSettings/Security.qml:36
+#: src/qml/RoomSettings/Security.qml:28
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Όταν ενεργοποιηθεί, η κρυπτογράφηση δεν απενεργοποιείται."
 
-#: src/qml/RoomSettings/Security.qml:49
+#: src/qml/RoomSettings/Security.qml:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Πρόσβαση"
 
-#: src/qml/RoomSettings/Security.qml:56
+#: src/qml/RoomSettings/Security.qml:43
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Ιδιωτική (με πρόσκληση μόνο)"
 
-#: src/qml/RoomSettings/Security.qml:57
+#: src/qml/RoomSettings/Security.qml:44
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Η είσοδος μόνο με πρόσκληση."
 
-#: src/qml/RoomSettings/Security.qml:65
+#: src/qml/RoomSettings/Security.qml:52
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Μέλη του χώρου"
 
-#: src/qml/RoomSettings/Security.qml:66
+#: src/qml/RoomSettings/Security.qml:53
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr "Οποιοσδήποτε σε έναν χώρο μπορεί να εισέλθει."
 
-#: src/qml/RoomSettings/Security.qml:75
+#: src/qml/RoomSettings/Security.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Χτύπα την πόρτα"
 
-#: src/qml/RoomSettings/Security.qml:76
+#: src/qml/RoomSettings/Security.qml:63
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Όσοι είναι εκτός αίθουσας πρέπει να ζητήσουν πρόσκληση για να εισέλθουν."
 
-#: src/qml/RoomSettings/Security.qml:86
+#: src/qml/RoomSettings/Security.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Δημόσια"
 
-#: src/qml/RoomSettings/Security.qml:87
+#: src/qml/RoomSettings/Security.qml:74
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Όποιος βλέπει φως, μπαίνει."
 
-#: src/qml/RoomSettings/Security.qml:99
+#: src/qml/RoomSettings/Security.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Ορατότητα ιστορικού μηνυμάτων"
 
-#: src/qml/RoomSettings/Security.qml:106
+#: src/qml/RoomSettings/Security.qml:88
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Οποιοσδήποτε"
 
-#: src/qml/RoomSettings/Security.qml:107
+#: src/qml/RoomSettings/Security.qml:89
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Οποιοσδήποτε, ανεξάρτητα αν έχει εισέλθει, μπορεί να δει το ιστορικό."
 
-#: src/qml/RoomSettings/Security.qml:115
+#: src/qml/RoomSettings/Security.qml:97
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Μέλη μόνο"
 
-#: src/qml/RoomSettings/Security.qml:116
+#: src/qml/RoomSettings/Security.qml:98
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3534,13 +3548,13 @@ msgstr ""
 "Όλα τα μέλη μπορούν να δουν όλο το ιστορικό των μηνυμάτων, ακόμη και πριν "
 "εισέλθουν."
 
-#: src/qml/RoomSettings/Security.qml:124
+#: src/qml/RoomSettings/Security.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Μέλη μόνο (αφού έχουν προσκληθεί)"
 
-#: src/qml/RoomSettings/Security.qml:125
+#: src/qml/RoomSettings/Security.qml:107
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3550,13 +3564,13 @@ msgstr ""
 "Τα νέα μέλη μπορούν να δουν το ιστορικό των μηνυμάτων από τη στιγμή που "
 "προσκλήθηκαν στην αίθουσα."
 
-#: src/qml/RoomSettings/Security.qml:133
+#: src/qml/RoomSettings/Security.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Μέλη μόνο (αφού έχουν εισέλθει)"
 
-#: src/qml/RoomSettings/Security.qml:134
+#: src/qml/RoomSettings/Security.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3565,13 +3579,13 @@ msgstr ""
 "Τα νέα μέλη μπορούν να δουν το ιστορικό των μηνυμάτων από τη στιγμή που "
 "εισήλθαν στην αίθουσα."
 
-#: src/qml/RoomSettings/Security.qml:153
-#: src/qml/Settings/NetworkProxyPage.qml:119
+#: src/qml/RoomSettings/Security.qml:133
+#: src/qml/Settings/NetworkProxyPage.qml:106
 #, kde-format
 msgid "Apply"
 msgstr "Εφαρμογή"
 
-#: src/qml/Settings/About.qml:11
+#: src/qml/Settings/About.qml:10
 #, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
@@ -3673,94 +3687,94 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
-#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
+#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:23
 #: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "Λογαριασμοί"
 
-#: src/qml/Settings/AccountsPage.qml:126
+#: src/qml/Settings/AccountsPage.qml:115
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Επιτυχημένη αλλαγή κωδικού πρόσβασης"
 
-#: src/qml/Settings/AccountsPage.qml:128
+#: src/qml/Settings/AccountsPage.qml:117
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Δόθηκε λάθος κωδικός πρόσβασης"
 
-#: src/qml/Settings/AccountsPage.qml:130
+#: src/qml/Settings/AccountsPage.qml:119
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Άγνωστο πρόβλημα κατά την αλλαγή κωδικού πρόσβασης"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:16
+#: src/qml/Settings/AppearanceSettingsPage.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
 msgstr "Εμφάνιση"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:24
+#: src/qml/Settings/AppearanceSettingsPage.qml:21
 #, kde-format
 msgid "General theme"
 msgstr "Γενικό θέμα"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:120
+#: src/qml/Settings/AppearanceSettingsPage.qml:113
 #, kde-format
 msgid "Bubbles"
 msgstr "Φούσκες"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:189
+#: src/qml/Settings/AppearanceSettingsPage.qml:182
 #, kde-format
 msgid "Compact"
 msgstr "Συμπαγής"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:209
+#: src/qml/Settings/AppearanceSettingsPage.qml:202
 #, kde-format
 msgid "Use compact room list"
 msgstr "Χρήση συμπαγούς λίστας αιθουσών"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:235
+#: src/qml/Settings/AppearanceSettingsPage.qml:224
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "Να εμφανίζονται χαρούμενα εφέ στη συνομιλία"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:249
+#: src/qml/Settings/AppearanceSettingsPage.qml:238
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Χρήση διαφανούς σελίδας συνομιλίας"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:268
+#: src/qml/Settings/AppearanceSettingsPage.qml:256
 #, kde-format
 msgid "Transparency"
 msgstr "Διαφάνεια"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:285
+#: src/qml/Settings/AppearanceSettingsPage.qml:273
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Να ενεργοποιείται μόνο αν η διάφανη σελίδα συνομιλίας είναι ενεργή."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:298
+#: src/qml/Settings/AppearanceSettingsPage.qml:286
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Να εμφανίζονται τα μηνύματά σου στα δεξιά"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:311
+#: src/qml/Settings/AppearanceSettingsPage.qml:299
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Να εμφανίζεται η προεπισκόπηση συνδέσμων στα μηνύματα της συνομιλίας"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:323
+#: src/qml/Settings/AppearanceSettingsPage.qml:310
 #, kde-format
 msgid "Show Avatar"
 msgstr "Εμφάνιση του avatar"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:330
+#: src/qml/Settings/AppearanceSettingsPage.qml:314
 #, kde-format
 msgid "In chat"
 msgstr "Στη συνομιλία"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:340
+#: src/qml/Settings/AppearanceSettingsPage.qml:324
 #, kde-format
 msgid "In sidebar"
 msgstr "Στην πλευρική μπάρα"
@@ -3770,141 +3784,141 @@ msgstr "Στην πλευρική μπάρα"
 msgid "Color theme"
 msgstr "Θέμα χρώματος"
 
-#: src/qml/Settings/DeviceDelegate.qml:52
+#: src/qml/Settings/DeviceDelegate.qml:50
 #, kde-format
 msgctxt "@label"
 msgid "%1, Last activity: %2"
 msgstr ""
 
-#: src/qml/Settings/DeviceDelegate.qml:61
+#: src/qml/Settings/DeviceDelegate.qml:59
 #, kde-format
 msgid "New device name"
 msgstr "Νέο όνομα συσκευής"
 
-#: src/qml/Settings/DeviceDelegate.qml:70
+#: src/qml/Settings/DeviceDelegate.qml:68
 #, kde-format
 msgid "Cancel editing display name"
 msgstr "Ακύρωση επεξεργασίας του ονόματος όπως εμφανίζεται"
 
-#: src/qml/Settings/DeviceDelegate.qml:77
+#: src/qml/Settings/DeviceDelegate.qml:75
 #, kde-format
 msgid "Confirm new display name"
 msgstr "Επιβεβαίωση νέου ονόματος"
 
-#: src/qml/Settings/DeviceDelegate.qml:92
+#: src/qml/Settings/DeviceDelegate.qml:90
 #, kde-format
 msgid "Edit device name"
 msgstr "Επεξεργασία ονόματος συσκευής"
 
-#: src/qml/Settings/DeviceDelegate.qml:106
+#: src/qml/Settings/DeviceDelegate.qml:104
 #, kde-format
 msgid "Verify device"
 msgstr "Επαλήθευση συσκευής"
 
-#: src/qml/Settings/DeviceDelegate.qml:121
+#: src/qml/Settings/DeviceDelegate.qml:119
 #, kde-format
 msgid "Logout device"
 msgstr "Αποσύνδεση από συσκευή"
 
-#: src/qml/Settings/DevicesPage.qml:31
+#: src/qml/Settings/DevicesPage.qml:27
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgid "This Device"
 msgstr "Συσκευές"
 
-#: src/qml/Settings/DevicesPage.qml:36
+#: src/qml/Settings/DevicesPage.qml:32
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgid "Verified Devices"
 msgstr "Επαλήθευση συσκευής"
 
-#: src/qml/Settings/DevicesPage.qml:41
+#: src/qml/Settings/DevicesPage.qml:37
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgid "Unverified Devices"
 msgstr "Επαλήθευση συσκευής"
 
-#: src/qml/Settings/DevicesPage.qml:46
+#: src/qml/Settings/DevicesPage.qml:42
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr ""
 
-#: src/qml/Settings/DevicesPage.qml:61
+#: src/qml/Settings/DevicesPage.qml:57
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Συνδέσου για να δεις τις εγγεγραμμένες συσκευές για το λογαριασμό σου."
 
-#: src/qml/Settings/DevicesPage.qml:72
+#: src/qml/Settings/DevicesPage.qml:67
 #, kde-format
 msgid "Remove device"
 msgstr "Αφαίρεση συσκευής"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#: src/qml/Settings/EmoticonFormCard.qml:55
+#: src/qml/Settings/EmoticonEditorPage.qml:27
+#: src/qml/Settings/EmoticonFormCard.qml:52
 #, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
 msgstr ""
 
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#: src/qml/Settings/EmoticonFormCard.qml:105
+#: src/qml/Settings/EmoticonEditorPage.qml:27
+#: src/qml/Settings/EmoticonFormCard.qml:102
 #, fuzzy, kde-format
 #| msgid "Add keyword"
 msgctxt "@title"
 msgid "Add Sticker"
 msgstr "Προσθήκη λέξης κλειδιού"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:32
-#: src/qml/Settings/EmoticonFormCard.qml:55
+#: src/qml/Settings/EmoticonEditorPage.qml:28
+#: src/qml/Settings/EmoticonFormCard.qml:52
 #, fuzzy, kde-format
 #| msgid "Add Emoji..."
 msgctxt "@title"
 msgid "Edit Emoji"
 msgstr "Προσθήκη εμότζι..."
 
-#: src/qml/Settings/EmoticonEditorPage.qml:32
-#: src/qml/Settings/EmoticonFormCard.qml:105
+#: src/qml/Settings/EmoticonEditorPage.qml:28
+#: src/qml/Settings/EmoticonFormCard.qml:102
 #, fuzzy, kde-format
 #| msgid "Add Emoji..."
 msgctxt "@title"
 msgid "Add Emoji"
 msgstr "Προσθήκη εμότζι..."
 
-#: src/qml/Settings/EmoticonEditorPage.qml:38
+#: src/qml/Settings/EmoticonEditorPage.qml:31
 #, kde-format
 msgid "Sticker"
 msgstr ""
 
-#: src/qml/Settings/EmoticonEditorPage.qml:38
+#: src/qml/Settings/EmoticonEditorPage.qml:31
 #, fuzzy, kde-format
 #| msgid "No emojis"
 msgid "Emoji"
 msgstr "Χωρίς εμότζι"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:71
+#: src/qml/Settings/EmoticonEditorPage.qml:60
 #, fuzzy, kde-format
 #| msgid "Change the room name"
 msgid "Change Image"
 msgstr "Άλλαξε το όνομα της αίθουσας"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:71
+#: src/qml/Settings/EmoticonEditorPage.qml:60
 #, kde-format
 msgid "Set Image"
 msgstr ""
 
-#: src/qml/Settings/EmoticonEditorPage.qml:111
+#: src/qml/Settings/EmoticonEditorPage.qml:100
 #, kde-format
 msgid "Shortcode:"
 msgstr ""
 
-#: src/qml/Settings/EmoticonEditorPage.qml:116
+#: src/qml/Settings/EmoticonEditorPage.qml:105
 #, fuzzy, kde-format
 #| msgctxt "The location being downloaded to"
 #| msgid "Destination"
 msgid "Description:"
 msgstr "Προορισμός"
 
-#: src/qml/Settings/EmoticonFormCard.qml:73
+#: src/qml/Settings/EmoticonFormCard.qml:70
 #, fuzzy, kde-format
 #| msgctxt "The location being downloaded to"
 #| msgid "Destination"
@@ -3912,118 +3926,124 @@ msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Προορισμός"
 
-#: src/qml/Settings/EmoticonFormCard.qml:114
+#: src/qml/Settings/EmoticonFormCard.qml:111
 #, fuzzy, kde-format
 #| msgid "Add Emoji..."
 msgid "Add Emoji"
 msgstr "Προσθήκη εμότζι..."
 
-#: src/qml/Settings/EmoticonFormCard.qml:114
+#: src/qml/Settings/EmoticonFormCard.qml:111
 #, fuzzy, kde-format
 #| msgid "Add keyword"
 msgid "Add Sticker"
 msgstr "Προσθήκη λέξης κλειδιού"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:15
-#: src/qml/Settings/NetworkProxyPage.qml:14
+#: src/qml/Settings/EmoticonsPage.qml:15
+#, kde-format
+msgctxt "@title"
+msgid "Stickers & Emojis"
+msgstr ""
+
+#: src/qml/Settings/GeneralSettingsPage.qml:14
+#: src/qml/Settings/NetworkProxyPage.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Γενικά"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:23
+#: src/qml/Settings/GeneralSettingsPage.qml:17
 #, kde-format
 msgid "General settings"
 msgstr "Γενικές ρυθμίσεις"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:33
+#: src/qml/Settings/GeneralSettingsPage.qml:23
 #, fuzzy, kde-format
 #| msgid "Close to system tray"
 msgid "Show in System Tray"
 msgstr "Κοντά στο πλαίσιο συστήματος"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:47
+#: src/qml/Settings/GeneralSettingsPage.qml:37
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Ελαχιστοποίηση του πλαισίου συστήματος στην εκκίνηση"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:61
+#: src/qml/Settings/GeneralSettingsPage.qml:51
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Να γίνεται αυτόματα απόκρυψη/εμφάνιση των πληροφοριών της αίθουσας με την "
 "αλλαγή μεγέθους του παραθύρου"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:74
+#: src/qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Timeline Events"
 msgstr "Γεγονότα χρονοδιαγράμματος"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:83
+#: src/qml/Settings/GeneralSettingsPage.qml:67
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Να εμφανίζονται τα διαγραμμένα μηνύματα"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:96
+#: src/qml/Settings/GeneralSettingsPage.qml:80
 #, fuzzy, kde-format
 #| msgid "Show avatar update events"
 msgid "Show state events"
 msgstr "Να εμφανίζονται γεγονότα ενημέρωσης των avatar"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:113
+#: src/qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Να εμφανίζονται γεγονότα αποχώρησης και εισόδου"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:131
+#: src/qml/Settings/GeneralSettingsPage.qml:115
 #, kde-format
 msgid "Show name change events"
 msgstr "Να εμφανίζονται γεγονότα αλλαγής ονομάτων"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:149
+#: src/qml/Settings/GeneralSettingsPage.qml:133
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Να εμφανίζονται γεγονότα ενημέρωσης των avatar"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:161
+#: src/qml/Settings/GeneralSettingsPage.qml:143
 #, kde-format
 msgid "Rooms and private chats"
 msgstr "Αίθουσες και ιδιωτικές συνομιλίες"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:168
+#: src/qml/Settings/GeneralSettingsPage.qml:147
 #, kde-format
 msgid "Separated"
 msgstr "Ξεχωριστά"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:177
+#: src/qml/Settings/GeneralSettingsPage.qml:156
 #, kde-format
 msgid "Intermixed"
 msgstr "Ανάμικτα"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:189
+#: src/qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Συντάκτης"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:197
+#: src/qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Με τη σύνταξη s/κείμενο/αντικατάσταση θα επεξεργαστείς το τελευταίο σου "
 "μήνυμα"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:208
+#: src/qml/Settings/GeneralSettingsPage.qml:182
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Αποστολή πληκτρολογημένων ειδοποιήσεων"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:220
+#: src/qml/Settings/GeneralSettingsPage.qml:192
 #, kde-format
 msgid "Developer Settings"
 msgstr "Ρυθμίσεις προγραμματιστή"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:227
+#: src/qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Ενεργοποίηση εργαλείων προγραμματιστή"
@@ -4034,93 +4054,99 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Ειδοποιήσεις"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:30
+#: src/qml/Settings/GlobalNotificationsPage.qml:22
 #, kde-format
 msgid "Enable notifications for this account"
 msgstr "Ενεργοποίηση των ειδοποιήσεων για αυτόν το λογαριασμό"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:31
+#: src/qml/Settings/GlobalNotificationsPage.qml:23
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:42
+#: src/qml/Settings/GlobalNotificationsPage.qml:33
 #, kde-format
 msgid "Room Notifications"
 msgstr "Ειδοποιήσεις αίθουσας"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:66
+#: src/qml/Settings/GlobalNotificationsPage.qml:50
 #, kde-format
 msgid "@Mentions"
 msgstr "@Αναφορές"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:159
+#: src/qml/Settings/GlobalNotificationsPage.qml:131
 #, kde-format
 msgid "Invites"
 msgstr "Προσκαλεί"
 
-#: src/qml/Settings/NetworkProxyPage.qml:25
+#: src/qml/Settings/GlobalNotificationsPage.qml:148
+#, fuzzy, kde-format
+#| msgid "Unknown event"
+msgid "Unknown"
+msgstr "Άγνωστο γεγονός"
+
+#: src/qml/Settings/NetworkProxyPage.qml:22
 #: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "Διαμεσολαβητής δικτύου"
 
-#: src/qml/Settings/NetworkProxyPage.qml:32
+#: src/qml/Settings/NetworkProxyPage.qml:26
 #, kde-format
 msgid "System Default"
 msgstr "Προκαθορισμένο συστήματος"
 
-#: src/qml/Settings/NetworkProxyPage.qml:40
+#: src/qml/Settings/NetworkProxyPage.qml:34
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/qml/Settings/NetworkProxyPage.qml:48
+#: src/qml/Settings/NetworkProxyPage.qml:42
 #, kde-format
 msgid "Socks5"
 msgstr "Sock5"
 
-#: src/qml/Settings/NetworkProxyPage.qml:60
+#: src/qml/Settings/NetworkProxyPage.qml:52
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Ρυθμίσεις διαμεσολαβητή"
 
-#: src/qml/Settings/NetworkProxyPage.qml:68
+#: src/qml/Settings/NetworkProxyPage.qml:57
 #, kde-format
 msgid "Host"
 msgstr "Υπολογιστής"
 
-#: src/qml/Settings/NetworkProxyPage.qml:77
+#: src/qml/Settings/NetworkProxyPage.qml:66
 #, kde-format
 msgid "Port"
 msgstr "Θύρα"
 
-#: src/qml/Settings/NetworkProxyPage.qml:90
+#: src/qml/Settings/NetworkProxyPage.qml:79
 #, kde-format
 msgid "User"
 msgstr "Χρήστης"
 
-#: src/qml/Settings/NotificationRuleItem.qml:71
+#: src/qml/Settings/NotificationRuleItem.qml:70
 #, kde-format
 msgid "Disable notifications"
 msgstr "Απενεργοποίηση ειδοποιήσεων"
 
-#: src/qml/Settings/NotificationRuleItem.qml:71
+#: src/qml/Settings/NotificationRuleItem.qml:70
 #, kde-format
 msgid "Enable notifications"
 msgstr "Ενεργοποίηση ειδοποιήσεων"
 
-#: src/qml/Settings/NotificationRuleItem.qml:93
+#: src/qml/Settings/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Mute notifications"
 msgstr "Σίγαση ειδοποιήσεων"
 
-#: src/qml/Settings/NotificationRuleItem.qml:93
+#: src/qml/Settings/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Unmute notifications"
 msgstr "Επαναφορά ήχου στις ειδοποιήσεις"
 
-#: src/qml/Settings/NotificationRuleItem.qml:114
+#: src/qml/Settings/NotificationRuleItem.qml:113
 #, kde-format
 msgctxt ""
 "As in clicking this button will switch off highlights for messages that "
@@ -4128,7 +4154,7 @@ msgctxt ""
 msgid "Disable message highlights"
 msgstr "Απενεργοποίηση τονισμού μηνυμάτων"
 
-#: src/qml/Settings/NotificationRuleItem.qml:114
+#: src/qml/Settings/NotificationRuleItem.qml:113
 #, kde-format
 msgctxt ""
 "As in clicking this button will switch on highlights for messages that match "
@@ -4136,7 +4162,7 @@ msgctxt ""
 msgid "Enable message highlights"
 msgstr "Ενεργοποίηση τονισμού μηνυμάτων"
 
-#: src/qml/Settings/NotificationRuleItem.qml:136
+#: src/qml/Settings/NotificationRuleItem.qml:135
 #, kde-format
 msgid "Delete keyword"
 msgstr "Διαγραφή λέξης κλειδιού"
@@ -4166,50 +4192,51 @@ msgstr "Σχετικά με το NeoChat"
 msgid "About KDE"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:22
+#: src/qml/Settings/SonnetConfigPage.qml:16
 #, fuzzy, kde-format
 #| msgctxt "@window:title"
 #| msgid "Spellchecking"
+msgctxt "@title"
 msgid "Spellchecking"
 msgstr "Ορθογραφικόςέλεγχος"
 
-#: src/qml/Settings/SonnetConfigPage.qml:37
+#: src/qml/Settings/SonnetConfigPage.qml:26
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "Ενεργοποίηση αυτόματου ορθογραφικού ελέγχου"
 
-#: src/qml/Settings/SonnetConfigPage.qml:49
+#: src/qml/Settings/SonnetConfigPage.qml:38
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Αγνόηση λέξεων με κεφαλαία"
 
-#: src/qml/Settings/SonnetConfigPage.qml:61
+#: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Αγνόηση λέξεων με παύλες"
 
-#: src/qml/Settings/SonnetConfigPage.qml:73
+#: src/qml/Settings/SonnetConfigPage.qml:62
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Αυτόματη ανίχνευση γλώσσας"
 
-#: src/qml/Settings/SonnetConfigPage.qml:84
+#: src/qml/Settings/SonnetConfigPage.qml:73
 #, kde-format
 msgid "Selected default language:"
 msgstr "Επιλεγμένη προκαθορισμένη γλώσσα:"
 
-#: src/qml/Settings/SonnetConfigPage.qml:85
+#: src/qml/Settings/SonnetConfigPage.qml:74
 #, kde-format
 msgid "None"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:104
+#: src/qml/Settings/SonnetConfigPage.qml:93
 #, fuzzy, kde-format
 #| msgid "Spell checking languages"
 msgid "Additional spell checking languages"
 msgstr "Γλώσσες με ορθογραφικό έλεγχο"
 
-#: src/qml/Settings/SonnetConfigPage.qml:105
+#: src/qml/Settings/SonnetConfigPage.qml:94
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -4218,42 +4245,42 @@ msgstr ""
 "Το %1 παρέχει ορθογραφικό έλεγχο και προτάσεις για τις γλώσσες της λίστας "
 "όταν η αυτόματη ανίχνευση είναι ενεργή."
 
-#: src/qml/Settings/SonnetConfigPage.qml:117
+#: src/qml/Settings/SonnetConfigPage.qml:106
 #, kde-format
 msgid "Open Personal Dictionary"
 msgstr "Άνοιγμα προσωπικού λεξικού"
 
-#: src/qml/Settings/SonnetConfigPage.qml:128
+#: src/qml/Settings/SonnetConfigPage.qml:117
 #, fuzzy, kde-format
 #| msgid "Spell checking languages"
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr "Γλώσσες με ορθογραφικό έλεγχο"
 
-#: src/qml/Settings/SonnetConfigPage.qml:137
-#: src/qml/Settings/SonnetConfigPage.qml:147
+#: src/qml/Settings/SonnetConfigPage.qml:126
+#: src/qml/Settings/SonnetConfigPage.qml:136
 #, fuzzy, kde-format
 #| msgid "Selected default language:"
 msgid "Default Language"
 msgstr "Επιλεγμένη προκαθορισμένη γλώσσα:"
 
-#: src/qml/Settings/SonnetConfigPage.qml:159
+#: src/qml/Settings/SonnetConfigPage.qml:148
 #, kde-format
 msgid "Spell checking dictionary"
 msgstr "Λεξικό με ορθογραφικό έλεγχο"
 
-#: src/qml/Settings/SonnetConfigPage.qml:166
+#: src/qml/Settings/SonnetConfigPage.qml:155
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "Προσθήκη νέας λέξης στο προσωπικό λεξικό…"
 
-#: src/qml/Settings/SonnetConfigPage.qml:169
+#: src/qml/Settings/SonnetConfigPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Προσθήκη λέξης"
 
-#: src/qml/Settings/SonnetConfigPage.qml:196
+#: src/qml/Settings/SonnetConfigPage.qml:185
 #, kde-format
 msgid "Delete word"
 msgstr "Διαγραφή λέξης"

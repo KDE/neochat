@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-02 00:47+0000\n"
+"POT-Creation-Date: 2023-09-03 00:45+0000\n"
 "PO-Revision-Date: 2023-04-29 11:30+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -125,96 +125,96 @@ msgstr "Miejsce docelowe"
 msgid "Network Error"
 msgstr "Błąd sieci"
 
-#: src/main.cpp:184
+#: src/main.cpp:185
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:186
+#: src/main.cpp:187
 #, kde-format
 msgid "Matrix client"
 msgstr "Klient Matrix"
 
-#: src/main.cpp:188
+#: src/main.cpp:189
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 Społeczność KDE"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:189 src/main.cpp:190 src/main.cpp:191
+#: src/main.cpp:190 src/main.cpp:191 src/main.cpp:192
 #, kde-format
 msgid "Maintainer"
 msgstr "Opiekun"
 
-#: src/main.cpp:190
+#: src/main.cpp:191
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:191
+#: src/main.cpp:192
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:192
+#: src/main.cpp:193
 #, kde-format
 msgid "Black Hat"
 msgstr "Czarny kapelusz"
 
-#: src/main.cpp:192
+#: src/main.cpp:193
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Pierwotny autor Spectral"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Opiekun Quotient"
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Karol Kosek, Łukasz Wojniłowicz"
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "krkk@krkk.ct8.pl, lukasz.wojnilowicz@gmail.com"
 
-#: src/main.cpp:198
+#: src/main.cpp:199
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Biblioteka Qt5 do pisania wieloplatformowych programów dla Matriksa"
 
-#: src/main.cpp:200
+#: src/main.cpp:201
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (zbudowane na %2)"
 
-#: src/main.cpp:346
+#: src/main.cpp:348
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Program do obsługi protokołu matrix"
 
-#: src/main.cpp:347
+#: src/main.cpp:349
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Obsługuje matriksa: schemat url"
 
-#: src/main.cpp:348
+#: src/main.cpp:350
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1256,58 +1256,72 @@ msgstr "Odpowiadanie na:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
 #, fuzzy, kde-format
+#| msgid "Choose a Location"
+msgctxt "@title"
+msgid "Choose Room"
+msgstr "Wybierz położenie"
+
+#: src/qml/Component/Devtools/RoomData.qml:25
+#, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Room"
 msgstr "Pokoje"
 
-#: src/qml/Component/Devtools/RoomData.qml:31
+#: src/qml/Component/Devtools/RoomData.qml:37
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgid "Room Id: %1"
+msgstr "ID pokoju"
+
+#: src/qml/Component/Devtools/RoomData.qml:40
 #, fuzzy, kde-format
 #| msgid "Show name change events"
 msgid "Show m.room.member events"
 msgstr "Pokaż zmiany nazw"
 
-#: src/qml/Component/Devtools/RoomData.qml:43
+#: src/qml/Component/Devtools/RoomData.qml:52
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "Show room account data"
 msgstr "Nie znaleziono pokojów"
 
-#: src/qml/Component/Devtools/RoomData.qml:54
-#, kde-format
-msgid "Room Account Data for %1 - %2"
-msgstr ""
+#: src/qml/Component/Devtools/RoomData.qml:58
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "Room Account Data"
+msgstr "Nie znaleziono pokojów"
 
-#: src/qml/Component/Devtools/RoomData.qml:64
-#: src/qml/Component/Devtools/RoomData.qml:106
+#: src/qml/Component/Devtools/RoomData.qml:69
+#: src/qml/Component/Devtools/RoomData.qml:95
 #: src/qml/Menu/Timeline/MessageSourceSheet.qml:20
 #, kde-format
 msgid "Event Source"
 msgstr "Źródło wydarzenia"
 
-#: src/qml/Component/Devtools/RoomData.qml:78
+#: src/qml/Component/Devtools/RoomData.qml:77
 #, fuzzy, kde-format
 #| msgid "Room State - %1"
-msgid "Room State for %1"
+msgid "Room State"
 msgstr "Stan pokoju — %1"
 
-#: src/qml/Component/Devtools/ServerData.qml:20
+#: src/qml/Component/Devtools/ServerData.qml:16
 #, kde-format
 msgid "Server Capabilities"
 msgstr ""
 
-#: src/qml/Component/Devtools/ServerData.qml:23
+#: src/qml/Component/Devtools/ServerData.qml:20
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgid "Can change password"
 msgstr "Potwierdź nowe hasło:"
 
-#: src/qml/Component/Devtools/ServerData.qml:33
+#: src/qml/Component/Devtools/ServerData.qml:25
 #, fuzzy, kde-format
 #| msgid "Default permissions"
 msgid "Default Room Version"
 msgstr "Domyślne uprawnienia"
 
-#: src/qml/Component/Devtools/ServerData.qml:45
+#: src/qml/Component/Devtools/ServerData.qml:33
 #, fuzzy, kde-format
 #| msgid "Room version"
 msgid "Available Room Versions"
@@ -1325,14 +1339,14 @@ msgid "No emojis"
 msgstr "Bez emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:52
-#: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:25
+#: src/qml/Settings/EmoticonsPage.qml:18
 #, fuzzy, kde-format
 #| msgid "No emojis"
 msgid "Emojis"
 msgstr "Bez emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:59
-#: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:32
+#: src/qml/Settings/EmoticonsPage.qml:25
 #, kde-format
 msgid "Stickers"
 msgstr ""
@@ -1374,7 +1388,7 @@ msgstr "Odrzuć"
 msgid "Accept"
 msgstr "Zaakceptuj"
 
-#: src/qml/Component/LocationPage.qml:17
+#: src/qml/Component/LocationPage.qml:16
 #: src/qml/RoomDrawer/RoomInformation.qml:116
 #, fuzzy, kde-format
 #| msgid "Notifications"
@@ -1382,185 +1396,185 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Powiadomienia"
 
-#: src/qml/Component/LocationPage.qml:52
+#: src/qml/Component/LocationPage.qml:51
 #, fuzzy, kde-format
 #| msgid "You are already in this room."
 msgid "There are no locations shared in this room."
 msgstr "Już jesteś w tym pokoju."
 
-#: src/qml/Component/Login/Email.qml:20
+#: src/qml/Component/Login/Email.qml:19
 #, kde-format
 msgid "Add an e-mail address:"
 msgstr ""
 
-#: src/qml/Component/Login/Email.qml:32
+#: src/qml/Component/Login/Email.qml:31
 #, fuzzy, kde-format
 #| msgid "Confirm new display name"
 msgid "Confirm e-mail address"
 msgstr "Potwierdź nową wyświetlaną nazwę"
 
-#: src/qml/Component/Login/Email.qml:34
+#: src/qml/Component/Login/Email.qml:33
 #, kde-format
 msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
 
-#: src/qml/Component/Login/Email.qml:39
+#: src/qml/Component/Login/Email.qml:38
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
 msgstr ""
 
-#: src/qml/Component/Login/Homeserver.qml:20
+#: src/qml/Component/Login/Homeserver.qml:19
 #, fuzzy, kde-format
 #| msgid "Server URL"
 msgid "Server Url:"
 msgstr "Adres URL serwera"
 
-#: src/qml/Component/Login/Homeserver.qml:25
+#: src/qml/Component/Login/Homeserver.qml:24
 #, kde-format
 msgid "Registration is disabled on this server."
 msgstr ""
 
-#: src/qml/Component/Login/Homeserver.qml:40
-#: src/qml/Component/Login/Username.qml:37
+#: src/qml/Component/Login/Homeserver.qml:39
+#: src/qml/Component/Login/Username.qml:36
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
 msgstr "Wczytywanie…"
 
-#: src/qml/Component/Login/Loading.qml:16
+#: src/qml/Component/Login/Loading.qml:15
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "Zaczekaj. To może zająć dłuższą chwilę."
 
-#: src/qml/Component/Login/Login.qml:25
+#: src/qml/Component/Login/Login.qml:24
 #, kde-format
 msgid "Matrix ID:"
 msgstr "ID Matriksa:"
 
-#: src/qml/Component/Login/Login.qml:27
+#: src/qml/Component/Login/Login.qml:26
 #, fuzzy, kde-format
 #| msgid "Matrix ID:"
 msgid "Matrix ID"
 msgstr "ID Matriksa:"
 
-#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:113
+#: src/qml/Component/Login/Login.qml:37 src/qml/Page/WelcomePage.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "Kontynuuj"
 
-#: src/qml/Component/Login/Login.qml:38 src/qml/Page/LoadingPage.qml:9
+#: src/qml/Component/Login/Login.qml:37 src/qml/Page/LoadingPage.qml:8
 #, kde-format
 msgid "Loading…"
 msgstr "Wczytywanie…"
 
-#: src/qml/Component/Login/Login.qml:38
+#: src/qml/Component/Login/Login.qml:37
 #, kde-format
 msgid "Already logged in"
 msgstr "Już zalogowany"
 
-#: src/qml/Component/Login/LoginMethod.qml:20
+#: src/qml/Component/Login/LoginMethod.qml:18
 #, fuzzy, kde-format
 #| msgid "Login with password"
 msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Wejdź na hasło"
 
-#: src/qml/Component/Login/LoginMethod.qml:26
+#: src/qml/Component/Login/LoginMethod.qml:24
 #, fuzzy, kde-format
 #| msgid "Login with single sign-on"
 msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Wejdź jednorazowo"
 
-#: src/qml/Component/Login/LoginRegister.qml:22
-#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Component/Login/LoginRegister.qml:20
+#: src/qml/Component/Login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Wejdź"
 
-#: src/qml/Component/Login/LoginRegister.qml:27
+#: src/qml/Component/Login/LoginRegister.qml:25
 #, fuzzy, kde-format
 #| msgid "Register"
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Zarejestruj"
 
-#: src/qml/Component/Login/Password.qml:28
-#: src/qml/Component/Login/RegisterPassword.qml:19
-#: src/qml/Settings/DevicesPage.qml:76
+#: src/qml/Component/Login/Password.qml:27
+#: src/qml/Component/Login/RegisterPassword.qml:18
+#: src/qml/Settings/DevicesPage.qml:71
 #, kde-format
 msgid "Password:"
 msgstr "Hasło:"
 
-#: src/qml/Component/Login/Password.qml:32
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:32
+#: src/qml/Component/Login/Password.qml:31
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:30
 #: src/qml/Settings/AccountEditorPage.qml:134
-#: src/qml/Settings/NetworkProxyPage.qml:99
+#: src/qml/Settings/NetworkProxyPage.qml:88
 #, kde-format
 msgid "Password"
 msgstr "Hasło"
 
-#: src/qml/Component/Login/Password.qml:33
+#: src/qml/Component/Login/Password.qml:32
 #, fuzzy, kde-format
 #| msgid "Enter your password"
 msgid "Invalid username or password"
 msgstr "Wpisz swoje hasło"
 
-#: src/qml/Component/Login/RegisterPassword.qml:29
+#: src/qml/Component/Login/RegisterPassword.qml:28
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgid "Confirm Password:"
 msgstr "Potwierdź nowe hasło:"
 
-#: src/qml/Component/Login/RegisterPassword.qml:32
+#: src/qml/Component/Login/RegisterPassword.qml:31
 #, fuzzy, kde-format
 #| msgid "Passwords do not match"
 msgid "The passwords do not match."
 msgstr "Hasła nie są sobie równe"
 
-#: src/qml/Component/Login/Sso.qml:31
+#: src/qml/Component/Login/Sso.qml:30
 #, fuzzy, kde-format
 #| msgid "Complete the authentication steps in your browser"
 msgid "Continue the login process in your browser."
 msgstr "Ukończ kroki uwierzytelniające w swojej przeglądarce sieciowej"
 
-#: src/qml/Component/Login/Sso.qml:39
+#: src/qml/Component/Login/Sso.qml:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
-#: src/qml/Component/Login/Terms.qml:19
+#: src/qml/Component/Login/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
 msgstr ""
 
-#: src/qml/Component/Login/Terms.qml:20
+#: src/qml/Component/Login/Terms.qml:19
 #, kde-format
 msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
 msgstr ""
 
-#: src/qml/Component/Login/Username.qml:19
+#: src/qml/Component/Login/Username.qml:18
 #, fuzzy, kde-format
 #| msgid "Username"
 msgid "Username:"
 msgstr "Nazwa użytkownika"
 
-#: src/qml/Component/Login/Username.qml:22
+#: src/qml/Component/Login/Username.qml:21
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "Username unavailable"
 msgstr "Brak dostępnych użytkowników"
 
-#: src/qml/Component/Timeline/EncryptedDelegate.qml:20
-#: src/qml/Component/Timeline/ReplyComponent.qml:204
+#: src/qml/Component/Timeline/EncryptedDelegate.qml:19
+#: src/qml/Component/Timeline/ReplyComponent.qml:196
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1626,7 +1640,7 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Anuluj edytowanie"
 
-#: src/qml/Component/Timeline/PollDelegate.qml:63
+#: src/qml/Component/Timeline/PollDelegate.qml:62
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -1634,7 +1648,7 @@ msgstr[0] "Na podstawie głosu %1 użytkownika"
 msgstr[1] "Na podstawie głosów %1 użytkowników"
 msgstr[2] "Na podstawie głosów %1 użytkowników"
 
-#: src/qml/Component/Timeline/PollDelegate.qml:63
+#: src/qml/Component/Timeline/PollDelegate.qml:62
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -1646,18 +1660,18 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Ostatnio odczytywany: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:188
+#: src/qml/Component/Timeline/VideoDelegate.qml:142
 #, kde-format
 msgid "Video"
 msgstr "Wideo"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:252
+#: src/qml/Component/Timeline/VideoDelegate.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Głośność"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:336
+#: src/qml/Component/Timeline/VideoDelegate.qml:290
 #, kde-format
 msgid "Maximize"
 msgstr "Zmaksymalizuj"
@@ -1686,22 +1700,22 @@ msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:22
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:17
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:20
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@title"
 msgid "Deactivate Account"
 msgstr "Edytuj konto"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:26
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:24
 #, fuzzy, kde-format
 #| msgid "Warning: %1"
 msgctxt "@title"
 msgid "Warning"
 msgstr "Ostrzeżenie: %1"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:27
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:25
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -1710,7 +1724,7 @@ msgid ""
 "Your messages will stay available."
 msgstr ""
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:37
+#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:35
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate account"
@@ -1750,12 +1764,12 @@ msgstr "Czy na pewno chcesz się wypisać?"
 msgid "Create a Room"
 msgstr "Stwórz pokój"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:80
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:71
 #, kde-format
 msgid "Room name:"
 msgstr "Nazwa pokoju:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:92
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:82
 #, kde-format
 msgid "Room topic:"
 msgstr "Temat pokoju:"
@@ -1766,7 +1780,7 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ok"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:15
+#: src/qml/Dialog/CreateSpaceDialog.qml:14
 #: src/qml/Page/RoomList/ExploreComponent.qml:39
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
@@ -1774,7 +1788,7 @@ msgstr "Ok"
 msgid "Create a Space"
 msgstr "Opuść Space"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:23
+#: src/qml/Dialog/CreateSpaceDialog.qml:19
 #: src/qml/Page/RoomList/ExploreComponent.qml:42
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
@@ -1783,19 +1797,19 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Opuść Space"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:27
+#: src/qml/Dialog/CreateSpaceDialog.qml:24
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Space members"
 msgid "Space name"
 msgstr "Członkowie przestrzeni"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:31
+#: src/qml/Dialog/CreateSpaceDialog.qml:28
 #, kde-format
 msgid "Space topic (optional)"
 msgstr ""
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:34
+#: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -1855,32 +1869,32 @@ msgstr "Pomyślnie sprawdzono urządzenie  **%1**"
 msgid "Decline"
 msgstr "Odmów"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:21
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:19
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Zaniechano sprawdzenia posiedzenia z nieznanego powodu."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:23
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Przekroczono czas na sprawdzenie posiedzenia."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:25
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Przekroczono czas na sprawdzenie posiedzenia dla strony zdalnej."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:27
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Zaniechałeś sprawdzenia posiedzenia."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:29
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:27
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Strona zdalna zaniechała sprawdzenia posiedzenia."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:31
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -1888,7 +1902,7 @@ msgid ""
 msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymaliśmy nieoczekiwaną wiadomość."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:33
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1897,7 +1911,7 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała nieoczekiwaną "
 "wiadomość."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:35
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -1906,7 +1920,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymała ona wiadomość z nieznanego "
 "powodu."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:37
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -1915,7 +1929,7 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała wiadomość dla "
 "nieznanej posiedzenia."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:39
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -1924,7 +1938,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo NeoChat nie jest w stanie obsłużyć "
 "tego sposobu sprawdzenia."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:41
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -1933,12 +1947,12 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo nie jest w stanie "
 "obsłużyć tego sposobu sprawdzenia."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:43
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Zaniechano sprawdzenia posiedzenia, bo klucze są niepoprawne."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:45
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -1946,7 +1960,7 @@ msgid ""
 msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo klucze są niepoprawne."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:47
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -1954,7 +1968,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo sprawdzała ona nieoczekiwanego "
 "użytkownika."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:49
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -1963,14 +1977,14 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo sprawdzała ona "
 "nieoczekiwanego użytkownika."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:51
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymaliśmy nieprawidłową wiadomość."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:53
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1979,18 +1993,18 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała nieprawidłową "
 "wiadomość."
 
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:53
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:55
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Posiedzenie zostało zatwierdzone na innym urządzeniu"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:59
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Zaniechano sprawdzenia posiedzenia ze względu na niezgodne klucze."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:61
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -1999,12 +2013,12 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia ze względu na niezgodne "
 "klucze."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:63
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Zaniechano sprawdzenia posiedzenia, bo klucze nie są zgodne."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:65
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -2012,7 +2026,7 @@ msgid ""
 msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo klucze nie są zgodne."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:67
+#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Zaniechano sprawdzenia posiedzenia ze względu na nieznany błąd."
@@ -2028,93 +2042,93 @@ msgid "Edit user power level"
 msgstr "Zmień uprawnienia użytkownika"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
-#: src/qml/RoomSettings/Permissions.qml:78
+#: src/qml/RoomSettings/Permissions.qml:69
 #, kde-format
 msgid "Member (0)"
 msgstr "Członek (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
-#: src/qml/RoomSettings/Permissions.qml:79
+#: src/qml/RoomSettings/Permissions.qml:70
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Moderator (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
-#: src/qml/RoomSettings/Permissions.qml:80
+#: src/qml/RoomSettings/Permissions.qml:71
 #, kde-format
 msgid "Admin (100)"
 msgstr "Administrator (100)"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
-#: src/qml/Settings/DevicesPage.qml:80
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:330
+#: src/qml/Settings/DevicesPage.qml:75
 #, kde-format
 msgid "Confirm"
 msgstr "Potwierdź"
 
-#: src/qml/Dialog/UserDetailDialog.qml:32
+#: src/qml/Dialog/UserDetailDialog.qml:31
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Szczegóły konta"
 
-#: src/qml/Dialog/UserDetailDialog.qml:81
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Unignore this user"
 msgstr "Usuń wyciszenie tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:81
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Ignore this user"
 msgstr "Wycisz tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:93
+#: src/qml/Dialog/UserDetailDialog.qml:92
 #, kde-format
 msgid "Kick this user"
 msgstr "Wyrzuć tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:106
+#: src/qml/Dialog/UserDetailDialog.qml:105
 #, kde-format
 msgid "Invite this user"
 msgstr "Zaproś tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:118
+#: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
 msgid "Ban this user"
 msgstr "Zbanuj tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:123
+#: src/qml/Dialog/UserDetailDialog.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Zbanuj użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:134
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Unban this user"
 msgstr "Odbanuj tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:146
+#: src/qml/Dialog/UserDetailDialog.qml:145
 #, kde-format
 msgid "Set user power level"
 msgstr "Ustaw poziom uprawnień użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:170
+#: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Usuń ostatnie wiadomości tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:175
+#: src/qml/Dialog/UserDetailDialog.qml:174
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Usuń wiadomości"
 
-#: src/qml/Dialog/UserDetailDialog.qml:185
+#: src/qml/Dialog/UserDetailDialog.qml:184
 #, kde-format
 msgid "Open a private chat"
 msgstr "Rozpocznij prywatną rozmowę"
 
-#: src/qml/Dialog/UserDetailDialog.qml:195
+#: src/qml/Dialog/UserDetailDialog.qml:194
 #, kde-format
 msgid "Copy link"
 msgstr "Skopiuj odnośnik"
@@ -2154,7 +2168,7 @@ msgstr "Rozpocznij rozmowę"
 msgid "Do you want to start a chat with %1?"
 msgstr "Czy chcesz rozpocząć rozmowę z %1?"
 
-#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:28
 #: src/qml/Page/RoomList/AccountMenu.qml:33
 #: src/qml/Page/RoomList/AccountMenu.qml:43
 #: src/qml/Page/RoomList/UserInfo.qml:235
@@ -2162,115 +2176,115 @@ msgstr "Czy chcesz rozpocząć rozmowę z %1?"
 msgid "Configure"
 msgstr "Ustawienia"
 
-#: src/qml/Menu/EditMenu.qml:17
+#: src/qml/Menu/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
 msgstr "Cofnij"
 
-#: src/qml/Menu/EditMenu.qml:27
+#: src/qml/Menu/EditMenu.qml:25
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
 msgstr "Przywróć"
 
-#: src/qml/Menu/EditMenu.qml:40
+#: src/qml/Menu/EditMenu.qml:38
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
 msgstr "Wytnij"
 
-#: src/qml/Menu/EditMenu.qml:50
+#: src/qml/Menu/EditMenu.qml:48
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: src/qml/Menu/EditMenu.qml:60
+#: src/qml/Menu/EditMenu.qml:58
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "Wklej"
 
-#: src/qml/Menu/EditMenu.qml:70
+#: src/qml/Menu/EditMenu.qml:68
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "Usuń"
 
-#: src/qml/Menu/EditMenu.qml:83
+#: src/qml/Menu/EditMenu.qml:81
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Zaznacz wszystko"
 
-#: src/qml/Menu/GlobalMenu.qml:16
+#: src/qml/Menu/GlobalMenu.qml:14
 #, kde-format
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/Menu/GlobalMenu.qml:21
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Ustawienia NeoChata..."
 
-#: src/qml/Menu/GlobalMenu.qml:24
+#: src/qml/Menu/GlobalMenu.qml:22
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Ustawienia NeoChata..."
 
-#: src/qml/Menu/GlobalMenu.qml:34
+#: src/qml/Menu/GlobalMenu.qml:32
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Zakończ NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:41
+#: src/qml/Menu/GlobalMenu.qml:39
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Plik"
 
-#: src/qml/Menu/GlobalMenu.qml:44
+#: src/qml/Menu/GlobalMenu.qml:42
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "Nowa rozmowa prywatna..."
 
-#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
+#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "Rozpocznij rozmowę"
 
-#: src/qml/Menu/GlobalMenu.qml:49
+#: src/qml/Menu/GlobalMenu.qml:47
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Nowa grupa..."
 
-#: src/qml/Menu/GlobalMenu.qml:58
+#: src/qml/Menu/GlobalMenu.qml:56
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Przeglądaj rozmowy..."
 
-#: src/qml/Menu/GlobalMenu.qml:63
+#: src/qml/Menu/GlobalMenu.qml:61
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Edytuj"
 
-#: src/qml/Menu/GlobalMenu.qml:67
+#: src/qml/Menu/GlobalMenu.qml:65
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Widok"
 
-#: src/qml/Menu/GlobalMenu.qml:70
+#: src/qml/Menu/GlobalMenu.qml:68
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2278,42 +2292,42 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Otwórz szybki przełącznik"
 
-#: src/qml/Menu/GlobalMenu.qml:76
+#: src/qml/Menu/GlobalMenu.qml:74
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Okno"
 
-#: src/qml/Menu/GlobalMenu.qml:83
+#: src/qml/Menu/GlobalMenu.qml:81
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Zakończ tryb pełnoekranowy"
 
-#: src/qml/Menu/GlobalMenu.qml:83
+#: src/qml/Menu/GlobalMenu.qml:81
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Przejdź w tryb pełnoekranowy"
 
-#: src/qml/Menu/GlobalMenu.qml:89
+#: src/qml/Menu/GlobalMenu.qml:87
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Pomoc"
 
-#: src/qml/Menu/GlobalMenu.qml:92
+#: src/qml/Menu/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "FAQ Matriksa"
 
-#: src/qml/Menu/ShareAction.qml:19
+#: src/qml/Menu/ShareAction.qml:18
 #, kde-format
 msgid "Share"
 msgstr "Udostępnij"
 
-#: src/qml/Menu/ShareAction.qml:20
+#: src/qml/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share the selected media"
 msgstr "Udostępnij zaznaczone treści"
@@ -2481,7 +2495,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Wybierz położenie"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
+#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
 msgid "Developer Tools"
 msgstr "Narzędzia programistów"
@@ -2652,7 +2666,7 @@ msgid "Edit this account"
 msgstr "Edytuj to konto"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:44
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
 msgstr "Edytor konta"
@@ -2669,7 +2683,7 @@ msgid "Devices"
 msgstr "Urządzenia"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
-#: src/qml/Settings/AccountsPage.qml:81
+#: src/qml/Settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Wyloguj"
@@ -2758,8 +2772,8 @@ msgstr "Wył."
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
 #: src/qml/Page/RoomList/ContextMenu.qml:186
-#: src/qml/RoomDrawer/RoomDrawer.qml:98
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:37
+#: src/qml/RoomDrawer/RoomDrawer.qml:96
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:34
 #, kde-format
 msgid "Room Settings"
 msgstr "Ustawienia pokoju"
@@ -2841,7 +2855,7 @@ msgstr "Wyciszony pokój"
 msgid "Configure room"
 msgstr "Ustawienia pokoju"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:58
+#: src/qml/Page/RoomList/SpaceDrawer.qml:57
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show All Rooms"
@@ -2873,7 +2887,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Opuść Space"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:109
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Add Account"
 msgstr "Dodaj konto"
@@ -2959,22 +2973,22 @@ msgctxt "@action:button"
 msgid "Go back"
 msgstr ""
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:61
 #, kde-format
 msgid "No name"
 msgstr "Brak nazwy"
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:82
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
 #, kde-format
 msgid "No Topic"
 msgstr "Brak tematu"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:88
+#: src/qml/RoomDrawer/RoomDrawer.qml:86
 #, kde-format
 msgid "Room information"
 msgstr "Informacje o pokoju"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:95
+#: src/qml/RoomDrawer/RoomDrawer.qml:93
 #, kde-format
 msgid "Room settings"
 msgstr "Ustawienia pokoju"
@@ -3079,169 +3093,169 @@ msgstr "Uprawnienia"
 msgid "Notifications"
 msgstr "Powiadomienia"
 
-#: src/qml/RoomSettings/General.qml:29
+#: src/qml/RoomSettings/General.qml:24
 #, kde-format
 msgid "Room Information"
 msgstr "Szczegóły pokoju"
 
-#: src/qml/RoomSettings/General.qml:55
+#: src/qml/RoomSettings/General.qml:46
 #, kde-format
 msgid "Update avatar"
 msgstr "Uaktualnij awatar"
 
-#: src/qml/RoomSettings/General.qml:114
+#: src/qml/RoomSettings/General.qml:103
 #: src/qml/Settings/AccountEditorPage.qml:118
 #: src/qml/Settings/AccountEditorPage.qml:171
-#: src/qml/Settings/EmoticonEditorPage.qml:121
+#: src/qml/Settings/EmoticonEditorPage.qml:110
 #, kde-format
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/qml/RoomSettings/General.qml:129
+#: src/qml/RoomSettings/General.qml:118
 #, kde-format
 msgid "Room ID"
 msgstr "ID pokoju"
 
-#: src/qml/RoomSettings/General.qml:134
+#: src/qml/RoomSettings/General.qml:123
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Skopiuj ID pokoju do schowka"
 
-#: src/qml/RoomSettings/General.qml:148
+#: src/qml/RoomSettings/General.qml:137
 #, kde-format
 msgid "Room version"
 msgstr "Wersja pokoju"
 
-#: src/qml/RoomSettings/General.qml:154
+#: src/qml/RoomSettings/General.qml:143
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Uaktualnij pokój"
 
-#: src/qml/RoomSettings/General.qml:175
+#: src/qml/RoomSettings/General.qml:162
 #, kde-format
 msgid "Aliases"
 msgstr "Aliasy"
 
-#: src/qml/RoomSettings/General.qml:183
+#: src/qml/RoomSettings/General.qml:167
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Nie ustawiono kanonicznego aliasu"
 
-#: src/qml/RoomSettings/General.qml:196
+#: src/qml/RoomSettings/General.qml:180
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Uczyń ten alias kanonicznym aliasem pokoju"
 
-#: src/qml/RoomSettings/General.qml:211
+#: src/qml/RoomSettings/General.qml:195
 #, kde-format
 msgid "Delete alias"
 msgstr "Usuń alias"
 
-#: src/qml/RoomSettings/General.qml:237
+#: src/qml/RoomSettings/General.qml:220
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:254
+#: src/qml/RoomSettings/General.qml:237
 #, kde-format
 msgid "Add new alias"
 msgstr "Dodaj nowy alias"
 
-#: src/qml/RoomSettings/General.qml:275
+#: src/qml/RoomSettings/General.qml:256
 #, kde-format
 msgid "URL Previews"
 msgstr "Podglądy adresów URL"
 
-#: src/qml/RoomSettings/General.qml:282
+#: src/qml/RoomSettings/General.qml:260
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "Domyślnie włącz podglądy URL dla członków pokoju"
 
-#: src/qml/RoomSettings/General.qml:290
+#: src/qml/RoomSettings/General.qml:268
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Włącz podglądy adresów URL"
 
-#: src/qml/RoomSettings/General.qml:292
+#: src/qml/RoomSettings/General.qml:270
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "Podglądy URL są domyślnie włączone w tym pokoju"
 
-#: src/qml/RoomSettings/General.qml:292
+#: src/qml/RoomSettings/General.qml:270
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "Podglądy URL są domyślnie wyłączone w tym pokoju"
 
-#: src/qml/RoomSettings/General.qml:305
+#: src/qml/RoomSettings/General.qml:281
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "W tym pokoju nadal toczona jest rozmowa."
 
-#: src/qml/RoomSettings/General.qml:309
+#: src/qml/RoomSettings/General.qml:285
 #, kde-format
 msgid "See older messages…"
 msgstr "Zobacz starsze wiadomości…"
 
-#: src/qml/RoomSettings/General.qml:320
+#: src/qml/RoomSettings/General.qml:295
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ten pokój został zastąpiony."
 
-#: src/qml/RoomSettings/General.qml:324
+#: src/qml/RoomSettings/General.qml:299
 #, kde-format
 msgid "See new room…"
 msgstr "Zobacz nowy pokój…"
 
-#: src/qml/RoomSettings/General.qml:345
+#: src/qml/RoomSettings/General.qml:320
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Uaktualnij pokój"
 
-#: src/qml/RoomSettings/General.qml:349
+#: src/qml/RoomSettings/General.qml:324
 #, kde-format
 msgid "Select new version"
 msgstr "Wybierz nową wersję"
 
-#: src/qml/RoomSettings/Permissions.qml:39
+#: src/qml/RoomSettings/Permissions.qml:33
 #, kde-format
 msgid "Privileged Users"
 msgstr "Uprzywilejowani użytkownicy"
 
-#: src/qml/RoomSettings/Permissions.qml:242
+#: src/qml/RoomSettings/Permissions.qml:230
 #, kde-format
 msgid "Default permissions"
 msgstr "Domyślne uprawnienia"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:235
 #, kde-format
 msgid "Default user power level"
 msgstr "Domyślny poziom uprawnień użytkownika"
 
-#: src/qml/RoomSettings/Permissions.qml:251
+#: src/qml/RoomSettings/Permissions.qml:236
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 "Jest to poziom uprawnień dla wszystkich nowych użytkowników dołączających do "
 "pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:259
+#: src/qml/RoomSettings/Permissions.qml:244
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Domyślny poziom uprawnień, na który ustawić pokój"
 
-#: src/qml/RoomSettings/Permissions.qml:260
+#: src/qml/RoomSettings/Permissions.qml:245
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Jest to używane do wszystkich wydarzeń stanu, które nie mają tutaj swojego "
 "wpisu"
 
-#: src/qml/RoomSettings/Permissions.qml:268
+#: src/qml/RoomSettings/Permissions.qml:253
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Domyślny poziom uprawnień do wysyłania wiadomości"
 
-#: src/qml/RoomSettings/Permissions.qml:269
+#: src/qml/RoomSettings/Permissions.qml:254
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -3249,92 +3263,92 @@ msgstr ""
 "Jest to używane do wszystkich wydarzeń-wiadomości, które nie mają tutaj "
 "swojego wpisu"
 
-#: src/qml/RoomSettings/Permissions.qml:282
+#: src/qml/RoomSettings/Permissions.qml:265
 #, kde-format
 msgid "Basic permissions"
 msgstr "Podstawowe uprawnienia"
 
-#: src/qml/RoomSettings/Permissions.qml:290
+#: src/qml/RoomSettings/Permissions.qml:270
 #, kde-format
 msgid "Invite users"
 msgstr "Zaproś użytkowników"
 
-#: src/qml/RoomSettings/Permissions.qml:298
+#: src/qml/RoomSettings/Permissions.qml:278
 #, kde-format
 msgid "Kick users"
 msgstr "Wykop użytkowników"
 
-#: src/qml/RoomSettings/Permissions.qml:306
+#: src/qml/RoomSettings/Permissions.qml:286
 #, kde-format
 msgid "Ban users"
 msgstr "Zbanuj użytkowników"
 
-#: src/qml/RoomSettings/Permissions.qml:314
+#: src/qml/RoomSettings/Permissions.qml:294
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Usuń wiadomości wysłane przez innych użytkowników"
 
-#: src/qml/RoomSettings/Permissions.qml:327
+#: src/qml/RoomSettings/Permissions.qml:305
 #, kde-format
 msgid "Event permissions"
 msgstr "Uprawnienia wydarzeń"
 
-#: src/qml/RoomSettings/Permissions.qml:335
+#: src/qml/RoomSettings/Permissions.qml:310
 #, kde-format
 msgid "Change user permissions"
 msgstr "Zmień uprawnienia użytkownika"
 
-#: src/qml/RoomSettings/Permissions.qml:344
+#: src/qml/RoomSettings/Permissions.qml:319
 #, kde-format
 msgid "Change the room name"
 msgstr "Zmień nazwę pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:353
+#: src/qml/RoomSettings/Permissions.qml:328
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Zmień awatar pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:362
+#: src/qml/RoomSettings/Permissions.qml:337
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Zmień alias kanoniczny pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:371
+#: src/qml/RoomSettings/Permissions.qml:346
 #, kde-format
 msgid "Change the room topic"
 msgstr "Zmień temat pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:380
+#: src/qml/RoomSettings/Permissions.qml:355
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Włącz szyfrowanie pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:389
+#: src/qml/RoomSettings/Permissions.qml:364
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Zmień widoczność historii pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:398
+#: src/qml/RoomSettings/Permissions.qml:373
 #, kde-format
 msgid "Set pinned events"
 msgstr "Ustaw przypięte wydarzenia"
 
-#: src/qml/RoomSettings/Permissions.qml:407
+#: src/qml/RoomSettings/Permissions.qml:382
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Uaktualnij pokój"
 
-#: src/qml/RoomSettings/Permissions.qml:416
+#: src/qml/RoomSettings/Permissions.qml:391
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Ustaw listę listę sterującą dostępem do tego serwera (ACL)"
 
-#: src/qml/RoomSettings/Permissions.qml:426
+#: src/qml/RoomSettings/Permissions.qml:401
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Ustaw przestrzeń podrzędną dla tej przestrzeni"
 
-#: src/qml/RoomSettings/Permissions.qml:435
+#: src/qml/RoomSettings/Permissions.qml:410
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Ustaw przestrzeń nadrzędną dla tego pokoju"
@@ -3350,19 +3364,19 @@ msgid "Follow global setting"
 msgstr "Zgodnie z ustawieniami ogólnymi"
 
 #: src/qml/RoomSettings/PushNotification.qml:61
-#: src/qml/Settings/GlobalNotificationsPage.qml:89
+#: src/qml/Settings/GlobalNotificationsPage.qml:67
 #, kde-format
 msgid "Keywords"
 msgstr "Słowa kluczowe"
 
 #: src/qml/RoomSettings/PushNotification.qml:96
-#: src/qml/Settings/GlobalNotificationsPage.qml:117
+#: src/qml/Settings/GlobalNotificationsPage.qml:91
 #, kde-format
 msgid "Keyword…"
 msgstr "Słowo kluczowe…"
 
 #: src/qml/RoomSettings/PushNotification.qml:115
-#: src/qml/Settings/GlobalNotificationsPage.qml:136
+#: src/qml/Settings/GlobalNotificationsPage.qml:110
 #, kde-format
 msgid "Add keyword"
 msgstr "Dodaj słowo kluczowe"
@@ -3374,101 +3388,101 @@ msgid ""
 msgstr ""
 "Aby móc włączyć to ustawienie, należy uaktualnić ten pokój do nowej wersji."
 
-#: src/qml/RoomSettings/Security.qml:27
+#: src/qml/RoomSettings/Security.qml:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Szyfrowanie"
 
-#: src/qml/RoomSettings/Security.qml:35
+#: src/qml/RoomSettings/Security.qml:27
 #, kde-format
 msgid "Enable encryption"
 msgstr "Włącz szyfrowanie"
 
-#: src/qml/RoomSettings/Security.qml:36
+#: src/qml/RoomSettings/Security.qml:28
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Po włączeniu, nie będzie można wyłączyć szyfrowania."
 
-#: src/qml/RoomSettings/Security.qml:49
+#: src/qml/RoomSettings/Security.qml:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Dostęp"
 
-#: src/qml/RoomSettings/Security.qml:56
+#: src/qml/RoomSettings/Security.qml:43
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Prywatny (tylko po zaproszeniu)"
 
-#: src/qml/RoomSettings/Security.qml:57
+#: src/qml/RoomSettings/Security.qml:44
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Tylko zaproszeni ludzie mogą dołączyć."
 
-#: src/qml/RoomSettings/Security.qml:65
+#: src/qml/RoomSettings/Security.qml:52
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Członkowie przestrzeni"
 
-#: src/qml/RoomSettings/Security.qml:66
+#: src/qml/RoomSettings/Security.qml:53
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr "Każdy w przestrzeni może odszukać i dołączyć."
 
-#: src/qml/RoomSettings/Security.qml:75
+#: src/qml/RoomSettings/Security.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Zapukaj"
 
-#: src/qml/RoomSettings/Security.qml:76
+#: src/qml/RoomSettings/Security.qml:63
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Ludzie, nie będący w pokoju, muszą poprosić o zaproszenie, aby do niego "
 "dołączyć."
 
-#: src/qml/RoomSettings/Security.qml:86
+#: src/qml/RoomSettings/Security.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Publiczny"
 
-#: src/qml/RoomSettings/Security.qml:87
+#: src/qml/RoomSettings/Security.qml:74
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Każdy może odszukać i dołączyć."
 
-#: src/qml/RoomSettings/Security.qml:99
+#: src/qml/RoomSettings/Security.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Widoczność historii wiadomości"
 
-#: src/qml/RoomSettings/Security.qml:106
+#: src/qml/RoomSettings/Security.qml:88
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Ktokolwiek"
 
-#: src/qml/RoomSettings/Security.qml:107
+#: src/qml/RoomSettings/Security.qml:89
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Historię może przeglądać ktokolwiek, niezależnie czy dołączył."
 
-#: src/qml/RoomSettings/Security.qml:115
+#: src/qml/RoomSettings/Security.qml:97
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Tylko członkowie"
 
-#: src/qml/RoomSettings/Security.qml:116
+#: src/qml/RoomSettings/Security.qml:98
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3477,13 +3491,13 @@ msgstr ""
 "Wszyscy członkowie mogą przeglądać całą historię rozmów, nawet tę sprzed ich "
 "dołączenia."
 
-#: src/qml/RoomSettings/Security.qml:124
+#: src/qml/RoomSettings/Security.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Tylko członkowie (od zaproszenia)"
 
-#: src/qml/RoomSettings/Security.qml:125
+#: src/qml/RoomSettings/Security.qml:107
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3492,13 +3506,13 @@ msgid ""
 msgstr ""
 "Nowi członkowie mogą przeglądać historię rozmów od czasu ich zaproszenia."
 
-#: src/qml/RoomSettings/Security.qml:133
+#: src/qml/RoomSettings/Security.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Tylko członkowie (od dołączenia)"
 
-#: src/qml/RoomSettings/Security.qml:134
+#: src/qml/RoomSettings/Security.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3506,13 +3520,13 @@ msgid ""
 msgstr ""
 "Nowi członkowie mogą przeglądać historię rozmów od czasu ich dołączenia."
 
-#: src/qml/RoomSettings/Security.qml:153
-#: src/qml/Settings/NetworkProxyPage.qml:119
+#: src/qml/RoomSettings/Security.qml:133
+#: src/qml/Settings/NetworkProxyPage.qml:106
 #, kde-format
 msgid "Apply"
 msgstr "Zastosuj"
 
-#: src/qml/Settings/About.qml:11
+#: src/qml/Settings/About.qml:10
 #, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
@@ -3614,94 +3628,94 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
-#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
+#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:23
 #: src/qml/Settings/SettingsPage.qml:38
 #, kde-format
 msgid "Accounts"
 msgstr "Konta"
 
-#: src/qml/Settings/AccountsPage.qml:126
+#: src/qml/Settings/AccountsPage.qml:115
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Hasło zmieniono pomyślnie"
 
-#: src/qml/Settings/AccountsPage.qml:128
+#: src/qml/Settings/AccountsPage.qml:117
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Wpisano złe hasło"
 
-#: src/qml/Settings/AccountsPage.qml:130
+#: src/qml/Settings/AccountsPage.qml:119
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Wystąpił nieznany problem podczas próby zmiany hasła"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:16
+#: src/qml/Settings/AppearanceSettingsPage.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
 msgstr "Wygląd"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:24
+#: src/qml/Settings/AppearanceSettingsPage.qml:21
 #, kde-format
 msgid "General theme"
 msgstr "Ogólny wygląd"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:120
+#: src/qml/Settings/AppearanceSettingsPage.qml:113
 #, kde-format
 msgid "Bubbles"
 msgstr "Bąbelki"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:189
+#: src/qml/Settings/AppearanceSettingsPage.qml:182
 #, kde-format
 msgid "Compact"
 msgstr "Zwarty"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:209
+#: src/qml/Settings/AppearanceSettingsPage.qml:202
 #, kde-format
 msgid "Use compact room list"
 msgstr "Użyj zwartego spisu pokojów"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:235
+#: src/qml/Settings/AppearanceSettingsPage.qml:224
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "Pokaż ciekawe efekty w rozmowie"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:249
+#: src/qml/Settings/AppearanceSettingsPage.qml:238
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Użyj przezroczystej strony rozmowy"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:268
+#: src/qml/Settings/AppearanceSettingsPage.qml:256
 #, kde-format
 msgid "Transparency"
 msgstr "Przezroczystość"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:285
+#: src/qml/Settings/AppearanceSettingsPage.qml:273
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Włączone tylko, gdy włączana jest przezroczysta strona rozmowy."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:298
+#: src/qml/Settings/AppearanceSettingsPage.qml:286
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Pokaż swoje wiadomości po prawej"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:311
+#: src/qml/Settings/AppearanceSettingsPage.qml:299
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Pokaż podglądy odnośników w wiadomościach rozmowy"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:323
+#: src/qml/Settings/AppearanceSettingsPage.qml:310
 #, kde-format
 msgid "Show Avatar"
 msgstr "Pokaż awatar"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:330
+#: src/qml/Settings/AppearanceSettingsPage.qml:314
 #, kde-format
 msgid "In chat"
 msgstr "W rozmowie"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:340
+#: src/qml/Settings/AppearanceSettingsPage.qml:324
 #, kde-format
 msgid "In sidebar"
 msgstr "Na pasku bocznym"
@@ -3711,144 +3725,144 @@ msgstr "Na pasku bocznym"
 msgid "Color theme"
 msgstr "Zestaw kolorów"
 
-#: src/qml/Settings/DeviceDelegate.qml:52
+#: src/qml/Settings/DeviceDelegate.qml:50
 #, kde-format
 msgctxt "@label"
 msgid "%1, Last activity: %2"
 msgstr ""
 
-#: src/qml/Settings/DeviceDelegate.qml:61
+#: src/qml/Settings/DeviceDelegate.qml:59
 #, kde-format
 msgid "New device name"
 msgstr "Nazwa nowego urządzenia"
 
-#: src/qml/Settings/DeviceDelegate.qml:70
+#: src/qml/Settings/DeviceDelegate.qml:68
 #, kde-format
 msgid "Cancel editing display name"
 msgstr "Przerwij zmianę wyświetlanej nazwy"
 
-#: src/qml/Settings/DeviceDelegate.qml:77
+#: src/qml/Settings/DeviceDelegate.qml:75
 #, kde-format
 msgid "Confirm new display name"
 msgstr "Potwierdź nową wyświetlaną nazwę"
 
-#: src/qml/Settings/DeviceDelegate.qml:92
+#: src/qml/Settings/DeviceDelegate.qml:90
 #, kde-format
 msgid "Edit device name"
 msgstr "Edytuj nazwę urządzenia"
 
-#: src/qml/Settings/DeviceDelegate.qml:106
+#: src/qml/Settings/DeviceDelegate.qml:104
 #, kde-format
 msgid "Verify device"
 msgstr "Sprawdź urządzenie"
 
-#: src/qml/Settings/DeviceDelegate.qml:121
+#: src/qml/Settings/DeviceDelegate.qml:119
 #, kde-format
 msgid "Logout device"
 msgstr "Wyloguj urządzenie"
 
-#: src/qml/Settings/DevicesPage.qml:31
+#: src/qml/Settings/DevicesPage.qml:27
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgid "This Device"
 msgstr "Urządzenia"
 
-#: src/qml/Settings/DevicesPage.qml:36
+#: src/qml/Settings/DevicesPage.qml:32
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgid "Verified Devices"
 msgstr "Sprawdź urządzenie"
 
-#: src/qml/Settings/DevicesPage.qml:41
+#: src/qml/Settings/DevicesPage.qml:37
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgid "Unverified Devices"
 msgstr "Sprawdź urządzenie"
 
-#: src/qml/Settings/DevicesPage.qml:46
+#: src/qml/Settings/DevicesPage.qml:42
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr ""
 
-#: src/qml/Settings/DevicesPage.qml:61
+#: src/qml/Settings/DevicesPage.qml:57
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
 "Zaloguj się, aby obejrzeć obecnie podłączone urządzenia dla swojego konta."
 
-#: src/qml/Settings/DevicesPage.qml:72
+#: src/qml/Settings/DevicesPage.qml:67
 #, kde-format
 msgid "Remove device"
 msgstr "Usuń urządzenie"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#: src/qml/Settings/EmoticonFormCard.qml:55
+#: src/qml/Settings/EmoticonEditorPage.qml:27
+#: src/qml/Settings/EmoticonFormCard.qml:52
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@title"
 msgid "Edit Sticker"
 msgstr "Edytuj urządzenie"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#: src/qml/Settings/EmoticonFormCard.qml:105
+#: src/qml/Settings/EmoticonEditorPage.qml:27
+#: src/qml/Settings/EmoticonFormCard.qml:102
 #, fuzzy, kde-format
 #| msgid "sent a sticker"
 msgctxt "@title"
 msgid "Add Sticker"
 msgstr "wysłał(a) naklejkę"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:32
-#: src/qml/Settings/EmoticonFormCard.qml:55
+#: src/qml/Settings/EmoticonEditorPage.qml:28
+#: src/qml/Settings/EmoticonFormCard.qml:52
 #, fuzzy, kde-format
 #| msgid "Add Emoji..."
 msgctxt "@title"
 msgid "Edit Emoji"
 msgstr "Dodaj Emoji..."
 
-#: src/qml/Settings/EmoticonEditorPage.qml:32
-#: src/qml/Settings/EmoticonFormCard.qml:105
+#: src/qml/Settings/EmoticonEditorPage.qml:28
+#: src/qml/Settings/EmoticonFormCard.qml:102
 #, fuzzy, kde-format
 #| msgid "Add Emoji..."
 msgctxt "@title"
 msgid "Add Emoji"
 msgstr "Dodaj Emoji..."
 
-#: src/qml/Settings/EmoticonEditorPage.qml:38
+#: src/qml/Settings/EmoticonEditorPage.qml:31
 #, fuzzy, kde-format
 #| msgid "sent a sticker"
 msgid "Sticker"
 msgstr "wysłał(a) naklejkę"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:38
+#: src/qml/Settings/EmoticonEditorPage.qml:31
 #, fuzzy, kde-format
 #| msgid "No emojis"
 msgid "Emoji"
 msgstr "Bez emoji"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:71
+#: src/qml/Settings/EmoticonEditorPage.qml:60
 #, fuzzy, kde-format
 #| msgid "Change the room name"
 msgid "Change Image"
 msgstr "Zmień nazwę pokoju"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:71
+#: src/qml/Settings/EmoticonEditorPage.qml:60
 #, kde-format
 msgid "Set Image"
 msgstr ""
 
-#: src/qml/Settings/EmoticonEditorPage.qml:111
+#: src/qml/Settings/EmoticonEditorPage.qml:100
 #, kde-format
 msgid "Shortcode:"
 msgstr ""
 
-#: src/qml/Settings/EmoticonEditorPage.qml:116
+#: src/qml/Settings/EmoticonEditorPage.qml:105
 #, fuzzy, kde-format
 #| msgctxt "The location being downloaded to"
 #| msgid "Destination"
 msgid "Description:"
 msgstr "Miejsce docelowe"
 
-#: src/qml/Settings/EmoticonFormCard.qml:73
+#: src/qml/Settings/EmoticonFormCard.qml:70
 #, fuzzy, kde-format
 #| msgctxt "The location being downloaded to"
 #| msgid "Destination"
@@ -3856,113 +3870,119 @@ msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Miejsce docelowe"
 
-#: src/qml/Settings/EmoticonFormCard.qml:114
+#: src/qml/Settings/EmoticonFormCard.qml:111
 #, fuzzy, kde-format
 #| msgid "Add Emoji..."
 msgid "Add Emoji"
 msgstr "Dodaj Emoji..."
 
-#: src/qml/Settings/EmoticonFormCard.qml:114
+#: src/qml/Settings/EmoticonFormCard.qml:111
 #, fuzzy, kde-format
 #| msgid "sent a sticker"
 msgid "Add Sticker"
 msgstr "wysłał(a) naklejkę"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:15
-#: src/qml/Settings/NetworkProxyPage.qml:14
+#: src/qml/Settings/EmoticonsPage.qml:15
+#, kde-format
+msgctxt "@title"
+msgid "Stickers & Emojis"
+msgstr ""
+
+#: src/qml/Settings/GeneralSettingsPage.qml:14
+#: src/qml/Settings/NetworkProxyPage.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Ogólne"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:23
+#: src/qml/Settings/GeneralSettingsPage.qml:17
 #, kde-format
 msgid "General settings"
 msgstr "Ustawienia ogólne"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:33
+#: src/qml/Settings/GeneralSettingsPage.qml:23
 #, fuzzy, kde-format
 #| msgid "Close to system tray"
 msgid "Show in System Tray"
 msgstr "Zamknij na tackę systemową"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:47
+#: src/qml/Settings/GeneralSettingsPage.qml:37
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Zminimalizuj na tackę systemową po uruchomieniu"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:61
+#: src/qml/Settings/GeneralSettingsPage.qml:51
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "Sam ukryj/odkryj szczegóły pokoju przy zmienianiu rozmiaru okna"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:74
+#: src/qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Timeline Events"
 msgstr "Wydarzenia na osi czasu"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:83
+#: src/qml/Settings/GeneralSettingsPage.qml:67
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Pokaż usunięte wiadomości"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:96
+#: src/qml/Settings/GeneralSettingsPage.qml:80
 #, kde-format
 msgid "Show state events"
 msgstr "Pokaż stany zdarzeń"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:113
+#: src/qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Pokaż dołączenia i opuszczania"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:131
+#: src/qml/Settings/GeneralSettingsPage.qml:115
 #, kde-format
 msgid "Show name change events"
 msgstr "Pokaż zmiany nazw"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:149
+#: src/qml/Settings/GeneralSettingsPage.qml:133
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Pokaż uaktualnienia awatarów"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:161
+#: src/qml/Settings/GeneralSettingsPage.qml:143
 #, kde-format
 msgid "Rooms and private chats"
 msgstr "Pokoje i prywatne rozmowy"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:168
+#: src/qml/Settings/GeneralSettingsPage.qml:147
 #, kde-format
 msgid "Separated"
 msgstr "Oddzielone"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:177
+#: src/qml/Settings/GeneralSettingsPage.qml:156
 #, kde-format
 msgid "Intermixed"
 msgstr "Złączone"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:189
+#: src/qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Edytor"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:197
+#: src/qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Użyj składni s/tekst/zastąpienie do zmiany swojej ostatniej wiadomości"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:208
+#: src/qml/Settings/GeneralSettingsPage.qml:182
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Powiadamiaj o pisaniu"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:220
+#: src/qml/Settings/GeneralSettingsPage.qml:192
 #, kde-format
 msgid "Developer Settings"
 msgstr "Ustawienia programisty"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:227
+#: src/qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Włącz narzędzia programistów"
@@ -3973,93 +3993,100 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Powiadomienia"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:30
+#: src/qml/Settings/GlobalNotificationsPage.qml:22
 #, kde-format
 msgid "Enable notifications for this account"
 msgstr "Włącz powiadomienia dla tego konta"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:31
+#: src/qml/Settings/GlobalNotificationsPage.qml:23
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Określa czy powiadomienia push są wysyłane przez twój serwer Matrix"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:42
+#: src/qml/Settings/GlobalNotificationsPage.qml:33
 #, kde-format
 msgid "Room Notifications"
 msgstr "Powiadomienia pokoju"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:66
+#: src/qml/Settings/GlobalNotificationsPage.qml:50
 #, kde-format
 msgid "@Mentions"
 msgstr "@Wspomnienia"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:159
+#: src/qml/Settings/GlobalNotificationsPage.qml:131
 #, kde-format
 msgid "Invites"
 msgstr "Zaproszenia"
 
-#: src/qml/Settings/NetworkProxyPage.qml:25
+#: src/qml/Settings/GlobalNotificationsPage.qml:148
+#, fuzzy, kde-format
+#| msgctxt "Unknown attachment size"
+#| msgid "Unknown"
+msgid "Unknown"
+msgstr "Nieznany"
+
+#: src/qml/Settings/NetworkProxyPage.qml:22
 #: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "Network Proxy"
 msgstr "Pośrednik sieciowy"
 
-#: src/qml/Settings/NetworkProxyPage.qml:32
+#: src/qml/Settings/NetworkProxyPage.qml:26
 #, kde-format
 msgid "System Default"
 msgstr "Domyślne systemowe"
 
-#: src/qml/Settings/NetworkProxyPage.qml:40
+#: src/qml/Settings/NetworkProxyPage.qml:34
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/qml/Settings/NetworkProxyPage.qml:48
+#: src/qml/Settings/NetworkProxyPage.qml:42
 #, kde-format
 msgid "Socks5"
 msgstr "SOCKS5"
 
-#: src/qml/Settings/NetworkProxyPage.qml:60
+#: src/qml/Settings/NetworkProxyPage.qml:52
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Ustawienia pośrednika"
 
-#: src/qml/Settings/NetworkProxyPage.qml:68
+#: src/qml/Settings/NetworkProxyPage.qml:57
 #, kde-format
 msgid "Host"
 msgstr "Gospodarz"
 
-#: src/qml/Settings/NetworkProxyPage.qml:77
+#: src/qml/Settings/NetworkProxyPage.qml:66
 #, kde-format
 msgid "Port"
 msgstr "Port"
 
-#: src/qml/Settings/NetworkProxyPage.qml:90
+#: src/qml/Settings/NetworkProxyPage.qml:79
 #, kde-format
 msgid "User"
 msgstr "Użytkownik"
 
-#: src/qml/Settings/NotificationRuleItem.qml:71
+#: src/qml/Settings/NotificationRuleItem.qml:70
 #, kde-format
 msgid "Disable notifications"
 msgstr "Wyłącz powiadomienia"
 
-#: src/qml/Settings/NotificationRuleItem.qml:71
+#: src/qml/Settings/NotificationRuleItem.qml:70
 #, kde-format
 msgid "Enable notifications"
 msgstr "Włącz powiadomienia"
 
-#: src/qml/Settings/NotificationRuleItem.qml:93
+#: src/qml/Settings/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Mute notifications"
 msgstr "Wycisz powiadomienia"
 
-#: src/qml/Settings/NotificationRuleItem.qml:93
+#: src/qml/Settings/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Unmute notifications"
 msgstr "Usuń wyciszenie powiadomień"
 
-#: src/qml/Settings/NotificationRuleItem.qml:114
+#: src/qml/Settings/NotificationRuleItem.qml:113
 #, kde-format
 msgctxt ""
 "As in clicking this button will switch off highlights for messages that "
@@ -4067,7 +4094,7 @@ msgctxt ""
 msgid "Disable message highlights"
 msgstr "Wyłącz skróty wiadomości"
 
-#: src/qml/Settings/NotificationRuleItem.qml:114
+#: src/qml/Settings/NotificationRuleItem.qml:113
 #, kde-format
 msgctxt ""
 "As in clicking this button will switch on highlights for messages that match "
@@ -4075,7 +4102,7 @@ msgctxt ""
 msgid "Enable message highlights"
 msgstr "Włącz skróty wiadomości"
 
-#: src/qml/Settings/NotificationRuleItem.qml:136
+#: src/qml/Settings/NotificationRuleItem.qml:135
 #, kde-format
 msgid "Delete keyword"
 msgstr "Usuń słowo kluczowe"
@@ -4105,47 +4132,49 @@ msgstr "O NeoChat"
 msgid "About KDE"
 msgstr "O KDE"
 
-#: src/qml/Settings/SonnetConfigPage.qml:22
-#, kde-format
+#: src/qml/Settings/SonnetConfigPage.qml:16
+#, fuzzy, kde-format
+#| msgid "Spellchecking"
+msgctxt "@title"
 msgid "Spellchecking"
 msgstr "Sprawdzanie pisowni"
 
-#: src/qml/Settings/SonnetConfigPage.qml:37
+#: src/qml/Settings/SonnetConfigPage.qml:26
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "Samoczynnie sprawdzaj pisownię"
 
-#: src/qml/Settings/SonnetConfigPage.qml:49
+#: src/qml/Settings/SonnetConfigPage.qml:38
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Pomiń słowa pisane wielkimi listerami"
 
-#: src/qml/Settings/SonnetConfigPage.qml:61
+#: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Pomiń zlepki słów"
 
-#: src/qml/Settings/SonnetConfigPage.qml:73
+#: src/qml/Settings/SonnetConfigPage.qml:62
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Sam wykryj język"
 
-#: src/qml/Settings/SonnetConfigPage.qml:84
+#: src/qml/Settings/SonnetConfigPage.qml:73
 #, kde-format
 msgid "Selected default language:"
 msgstr "Wybierz domyślny język:"
 
-#: src/qml/Settings/SonnetConfigPage.qml:85
+#: src/qml/Settings/SonnetConfigPage.qml:74
 #, kde-format
 msgid "None"
 msgstr "Brak"
 
-#: src/qml/Settings/SonnetConfigPage.qml:104
+#: src/qml/Settings/SonnetConfigPage.qml:93
 #, kde-format
 msgid "Additional spell checking languages"
 msgstr "Dodatkowe języki sprawdzania pisowni"
 
-#: src/qml/Settings/SonnetConfigPage.qml:105
+#: src/qml/Settings/SonnetConfigPage.qml:94
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -4154,40 +4183,40 @@ msgstr ""
 "%1 będzie sprawdzać poprawność pisowni i podpowiadać słowa dla języków "
 "wymienionych tutaj, jeśli samowykrywanie zostanie włączone."
 
-#: src/qml/Settings/SonnetConfigPage.qml:117
+#: src/qml/Settings/SonnetConfigPage.qml:106
 #, kde-format
 msgid "Open Personal Dictionary"
 msgstr "Otwórz katalog osobisty"
 
-#: src/qml/Settings/SonnetConfigPage.qml:128
+#: src/qml/Settings/SonnetConfigPage.qml:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr "Języki sprawdzania pisowni"
 
-#: src/qml/Settings/SonnetConfigPage.qml:137
-#: src/qml/Settings/SonnetConfigPage.qml:147
+#: src/qml/Settings/SonnetConfigPage.qml:126
+#: src/qml/Settings/SonnetConfigPage.qml:136
 #, kde-format
 msgid "Default Language"
 msgstr "Domyślny język"
 
-#: src/qml/Settings/SonnetConfigPage.qml:159
+#: src/qml/Settings/SonnetConfigPage.qml:148
 #, kde-format
 msgid "Spell checking dictionary"
 msgstr "Słownik sprawdzania pisowni"
 
-#: src/qml/Settings/SonnetConfigPage.qml:166
+#: src/qml/Settings/SonnetConfigPage.qml:155
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "Dodaj nowe słowo do swojego osobistego słownika..."
 
-#: src/qml/Settings/SonnetConfigPage.qml:169
+#: src/qml/Settings/SonnetConfigPage.qml:158
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Dodaj słowo"
 
-#: src/qml/Settings/SonnetConfigPage.qml:196
+#: src/qml/Settings/SonnetConfigPage.qml:185
 #, kde-format
 msgid "Delete word"
 msgstr "Usuń słowo"
@@ -4619,10 +4648,6 @@ msgstr "Zakończ"
 
 #~ msgid "Unknown duration"
 #~ msgstr "Nieznany czas trwania"
-
-#~ msgctxt "Unknown attachment size"
-#~ msgid "Unknown"
-#~ msgstr "Nieznany"
 
 #~ msgid "%1 byte"
 #~ msgid_plural "%1 bytes"
