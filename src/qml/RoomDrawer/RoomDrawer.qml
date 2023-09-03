@@ -65,15 +65,20 @@ Kirigami.OverlayDrawer {
     onAnimatingChanged: if (dim === false) dim = undefined
 
     topPadding: 0
+    bottomPadding: 0
     leftPadding: 0
     rightPadding: 0
+
     Kirigami.Theme.colorSet: Kirigami.Theme.View
+
     contentItem: Loader {
         id: loader
         active: root.drawerOpen
 
         sourceComponent: ColumnLayout {
             spacing: 0
+
+            Component.onCompleted: infoAction.toggle()
 
             QQC2.ToolBar {
                 Layout.fillWidth: true
@@ -83,7 +88,7 @@ Kirigami.OverlayDrawer {
                 contentItem: RowLayout {
                     Kirigami.Heading {
                         Layout.fillWidth: true
-                        text: i18n("Room information")
+                        text: drawerItemLoader.item ? drawerItemLoader.item.title : ""
                     }
 
                     QQC2.ToolButton {
@@ -102,17 +107,46 @@ Kirigami.OverlayDrawer {
                 }
             }
 
-            QQC2.ScrollView {
+            Loader {
+                id: drawerItemLoader
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                sourceComponent: roomInformation
+            }
 
-                // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-                QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
-
+            Component {
+                id: roomInformation
                 RoomInformation {
-                    id: roomInformation
                     room: root.room
                 }
+            }
+
+            Component {
+                id: roomMedia
+                RoomMedia {
+                    currentRoom: root.room
+                }
+            }
+
+            Kirigami.NavigationTabBar {
+                id: navigationBar
+                Layout.fillWidth: true
+                Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                Kirigami.Theme.inherit: false
+
+                actions: [
+                    Kirigami.Action {
+                        id: infoAction
+                        text: i18n("Information")
+                        icon.name: "documentinfo"
+                        onTriggered: drawerItemLoader.sourceComponent = roomInformation
+                    },
+                    Kirigami.Action {
+                        text: i18n("Media")
+                        icon.name: "mail-attachment-symbollic"
+                        onTriggered: drawerItemLoader.sourceComponent = roomMedia
+                    }
+                ]
             }
         }
     }

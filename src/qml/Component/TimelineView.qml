@@ -32,6 +32,9 @@ QQC2.ScrollView {
 
     ListView {
         id: messageListView
+        // So that delegates can access the current room properly.
+        readonly property NeoChatRoom currentRoom: root.currentRoom
+
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
         readonly property var sectionBannerItem: contentHeight >= height ? itemAtIndex(sectionBannerIndex()) : undefined
 
@@ -47,33 +50,23 @@ QQC2.ScrollView {
         interactive: Kirigami.Settings.isMobile
         bottomMargin: Kirigami.Units.largeSpacing + Math.round(Kirigami.Theme.defaultFont.pointSize * 2)
 
-        model: sortedMessageEventModel
-
-        MessageEventModel {
-            id: messageEventModel
-            room: root.currentRoom
-        }
-
-        MessageFilterModel {
-            id: sortedMessageEventModel
-            sourceModel: messageEventModel
-        }
+        model: RoomManager.messageFilterModel
 
         Timer {
             interval: 1000
             running: messageListView.atYBeginning
             triggeredOnStart: true
             onTriggered: {
-                if (messageListView.atYBeginning && messageEventModel.canFetchMore(messageEventModel.index(0, 0))) {
-                    messageEventModel.fetchMore(messageEventModel.index(0, 0));
+                if (messageListView.atYBeginning && RoomManager.messageEventModel.canFetchMore(RoomManager.messageEventModel.index(0, 0))) {
+                    RoomManager.messageEventModel.fetchMore(RoomManager.messageEventModel.index(0, 0));
                 }
             }
             repeat: true
         }
 
         // HACK: The view should do this automatically but doesn't.
-        onAtYBeginningChanged: if (atYBeginning && messageEventModel.canFetchMore(messageEventModel.index(0, 0))) {
-            messageEventModel.fetchMore(messageEventModel.index(0, 0));
+        onAtYBeginningChanged: if (atYBeginning && RoomManager.messageEventModel.canFetchMore(RoomManager.messageEventModel.index(0, 0))) {
+            RoomManager.messageEventModel.fetchMore(RoomManager.messageEventModel.index(0, 0));
         }
 
         Timer {
@@ -207,18 +200,6 @@ QQC2.ScrollView {
             }
         }
 
-        Component {
-            id: messageDelegateContextMenu
-
-            MessageDelegateContextMenu {}
-        }
-
-        Component {
-            id: fileDelegateContextMenu
-
-            FileDelegateContextMenu {}
-        }
-
         TypingPane {
             id: typingPane
             visible: root.currentRoom && root.currentRoom.usersTyping.length > 0
@@ -285,7 +266,7 @@ QQC2.ScrollView {
         }
 
         Connections {
-            target: messageEventModel
+            target: RoomManager.messageEventModel
 
             function onRowsInserted() {
                 markReadIfVisibleTimer.restart()
@@ -326,7 +307,7 @@ QQC2.ScrollView {
 
                 Connections {
                     //enabled: Config.showFancyEffects
-                    target: messageEventModel
+                    target: RoomManager.messageEventModel
 
                     function onFancyEffectsReasonFound(fancyEffect) {
                         fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
@@ -344,21 +325,23 @@ QQC2.ScrollView {
             }
         }
 
-        MediaMessageFilterModel {
-            id: mediaMessageFilterModel
-            sourceModel: sortedMessageEventModel
-        }
-
         Component {
             id: maximizeComponent
             NeochatMaximizeComponent {
-                model: mediaMessageFilterModel
+                model: RoomManager.mediaMessageFilterModel
+            }
+        }
+
+        Connections {
+            target: RoomManager
+            function onShowMaximizedMedia(index) {
+                messageListView.showMaximizedMedia(index)
             }
         }
 
         function showMaximizedMedia(index) {
             var popup = maximizeComponent.createObject(QQC2.ApplicationWindow.overlay, {
-                    initialIndex: index === -1 ? -1 : mediaMessageFilterModel.getRowForSourceItem(index)
+                    initialIndex: index
                 })
                 popup.closed.connect(() => {
                     messageListView.interactive = true
@@ -374,10 +357,10 @@ QQC2.ScrollView {
         }
 
         function eventToIndex(eventID) {
-            const index = messageEventModel.eventIdToRow(eventID)
+            const index = RoomManager.messageEventModel.eventIdToRow(eventID)
             if (index === -1)
                 return -1
-            return sortedMessageEventModel.mapFromSource(messageEventModel.index(index, 0)).row
+            return RoomManager.messageFilterModel.mapFromSource(RoomManager.messageEventModel.index(index, 0)).row
         }
 
         function firstVisibleIndex() {

@@ -10,9 +10,12 @@
 
 using namespace Quotient;
 
-MessageFilterModel::MessageFilterModel(QObject *parent)
+MessageFilterModel::MessageFilterModel(QObject *parent, MessageEventModel *sourceMessageModel)
     : QSortFilterProxyModel(parent)
 {
+    Q_ASSERT(sourceMessageModel);
+    setSourceModel(sourceMessageModel);
+
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowStateEventChanged, this, [this] {
         invalidateFilter();
     });

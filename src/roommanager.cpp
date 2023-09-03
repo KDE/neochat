@@ -5,6 +5,7 @@
 #include "roommanager.h"
 
 #include "controller.h"
+#include "models/messageeventmodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include <KLocalizedString>
@@ -26,8 +27,15 @@ RoomManager::RoomManager(QObject *parent)
     , m_currentRoom(nullptr)
     , m_lastCurrentRoom(nullptr)
     , m_config(KConfig(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation))
+    , m_messageEventModel(new MessageEventModel(this))
+    , m_messageFilterModel(new MessageFilterModel(this, m_messageEventModel))
+    , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
 {
     m_lastRoomConfig = m_config.group(QStringLiteral("LastOpenRoom"));
+
+    connect(this, &RoomManager::currentRoomChanged, this, [this]() {
+        m_messageEventModel->setRoom(m_currentRoom);
+    });
 }
 
 RoomManager::~RoomManager()
@@ -43,6 +51,21 @@ RoomManager &RoomManager::instance()
 NeoChatRoom *RoomManager::currentRoom() const
 {
     return m_currentRoom;
+}
+
+MessageEventModel *RoomManager::messageEventModel() const
+{
+    return m_messageEventModel;
+}
+
+MessageFilterModel *RoomManager::messageFilterModel() const
+{
+    return m_messageFilterModel;
+}
+
+MediaMessageFilterModel *RoomManager::mediaMessageFilterModel() const
+{
+    return m_mediaMessageFilterModel;
 }
 
 void RoomManager::openResource(const QString &idOrUri, const QString &action)
@@ -70,6 +93,14 @@ void RoomManager::openResource(const QString &idOrUri, const QString &action)
     } else { // Invalid cases should have been eliminated earlier
         Q_ASSERT(result == Quotient::UriResolved);
     }
+}
+
+void RoomManager::maximizeMedia(int index)
+{
+    if (index < -1 || index > m_mediaMessageFilterModel->rowCount()) {
+        return;
+    }
+    Q_EMIT showMaximizedMedia(index);
 }
 
 bool RoomManager::hasOpenRoom() const
@@ -266,7 +297,6 @@ void RoomManager::leaveRoom(NeoChatRoom *room)
     if (m_currentRoom && m_currentRoom->id() == room->id()) {
         m_currentRoom = m_lastCurrentRoom;
         m_lastCurrentRoom = nullptr;
-
         Q_EMIT currentRoomChanged();
     }
 

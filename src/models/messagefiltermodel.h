@@ -33,7 +33,7 @@ public:
         LastRole, // Keep this last
     };
 
-    explicit MessageFilterModel(QObject *parent = nullptr);
+    explicit MessageFilterModel(QObject *parent = nullptr, MessageEventModel *sourceMessageModel = nullptr);
 
     /**
      * @brief Custom filter function to remove hidden messages.

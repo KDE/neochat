@@ -24,7 +24,7 @@ import org.kde.neochat 1.0
  *
  * @sa RoomDrawer, RoomDrawerPage
  */
-ListView {
+QQC2.ScrollView {
     id: root
 
     /**
@@ -37,206 +37,212 @@ ListView {
      */
     readonly property string title: i18nc("@action:title", "Room information")
 
-    header: ColumnLayout {
-        id: columnLayout
+    // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+    QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
-        property alias userListSearchField: userListSearchField
+    ListView {
+        id: userList
+        header: ColumnLayout {
+            id: columnLayout
 
-        spacing: 0
-        width: root.width
+            property alias userListSearchField: userListSearchField
 
-        Loader {
-            active: true
-            Layout.fillWidth: true
-            Layout.topMargin: Kirigami.Units.smallSpacing
-            sourceComponent: root.room.isDirectChat() ? directChatDrawerHeader : groupChatDrawerHeader
-            onItemChanged: if (item) {
-                root.positionViewAtBeginning();
-            }
-        }
-
-        Kirigami.ListSectionHeader {
-            label: i18n("Options")
-            activeFocusOnTab: false
-
-            Layout.fillWidth: true
-        }
-
-        Delegates.RoundedItemDelegate {
-            id: devtoolsButton
-
-            icon.name: "tools"
-            text: i18n("Open developer tools")
-            visible: Config.developerTools
-
-            Layout.fillWidth: true
-
-            onClicked: {
-                applicationWindow().pageStack.pushDialogLayer("qrc:/DevtoolsPage.qml", {room: root.room}, {title: i18n("Developer Tools")})
-            }
-        }
-
-        Delegates.RoundedItemDelegate {
-            id: searchButton
-
-            icon.name: "search"
-            text: i18n("Search in this room")
-
-            Layout.fillWidth: true
-
-            onClicked: {
-                pageStack.pushDialogLayer("qrc:/SearchPage.qml", {
-                    currentRoom: root.room
-                }, {
-                    title: i18nc("@action:title", "Search")
-                })
-            }
-        }
-
-        Delegates.RoundedItemDelegate {
-            id: favouriteButton
-
-            icon.name: root.room && root.room.isFavourite ? "rating" : "rating-unrated"
-            text: root.room && root.room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
-
-            onClicked: root.room.isFavourite ? root.room.removeTag("m.favourite") : root.room.addTag("m.favourite", 1.0)
-
-            Layout.fillWidth: true
-        }
-
-        Delegates.RoundedItemDelegate {
-            id: locationsButton
-
-            icon.name: "map-flat"
-            text: i18n("Show locations for this room")
-
-            onClicked: pageStack.pushDialogLayer("qrc:/LocationsPage.qml", {
-                room: root.room
-            }, {
-                title: i18nc("Locations on a map", "Locations")
-            })
-
-            Layout.fillWidth: true
-        }
-
-        Kirigami.ListSectionHeader {
-            label: i18n("Members")
-            activeFocusOnTab: false
             spacing: 0
-            visible: !root.room.isDirectChat()
+            width: root.width
 
-            Layout.fillWidth: true
-
-            QQC2.ToolButton {
-                id: memberSearchToggle
-                checkable: true
-                icon.name: "search"
-                QQC2.ToolTip.text: i18n("Search user in room")
-                QQC2.ToolTip.visible: hovered
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                onToggled: {
-                    userListSearchField.text = "";
+            Loader {
+                active: true
+                Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.smallSpacing
+                sourceComponent: root.room.isDirectChat() ? directChatDrawerHeader : groupChatDrawerHeader
+                onItemChanged: if (item) {
+                    userList.positionViewAtBeginning();
                 }
             }
 
-            QQC2.ToolButton {
-                visible: root.room.canSendState("invite")
-                icon.name: "list-add-user"
-
-                onClicked: {
-                    applicationWindow().pageStack.pushDialogLayer("qrc:/InviteUserPage.qml", {room: root.room}, {title: i18nc("@title", "Invite a User")})
-                }
-
-                QQC2.ToolTip.text: i18n("Invite user to room")
-                QQC2.ToolTip.visible: hovered
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            }
-
-            QQC2.Label {
-                Layout.alignment: Qt.AlignRight
-                text: root.room ? i18np("%1 member", "%1 members", root.room.joinedCount) : i18n("No member count")
-            }
-        }
-
-        Kirigami.SearchField {
-            id: userListSearchField
-            visible: memberSearchToggle.checked
-
-            onVisibleChanged: if (visible) forceActiveFocus()
-            Layout.fillWidth: true
-            Layout.leftMargin: Kirigami.Units.largeSpacing - 1
-            Layout.rightMargin: Kirigami.Units.largeSpacing - 1
-            Layout.bottomMargin: Kirigami.Units.smallSpacing
-
-            focusSequence: "Ctrl+Shift+F"
-
-            onAccepted: sortedMessageEventModel.filterString = text;
-        }
-    }
-
-    KSortFilterProxyModel {
-        id: sortedMessageEventModel
-
-        sourceModel: UserListModel {
-            room: root.room
-        }
-
-        sortRole: "powerLevel"
-        sortOrder: Qt.DescendingOrder
-        filterRole: "name"
-        filterCaseSensitivity: Qt.CaseInsensitive
-    }
-
-    model: root.room.isDirectChat() ? 0 : sortedMessageEventModel
-
-    clip: true
-    activeFocusOnTab: true
-
-    delegate: Delegates.RoundedItemDelegate {
-        id: userDelegate
-
-        required property string name
-        required property string userId
-        required property string avatar
-        required property int powerLevel
-        required property string powerLevelString
-
-        implicitHeight: Kirigami.Units.gridUnit * 2
-
-        text: name
-
-        onClicked: {
-            userDelegate.highlighted = true;
-            RoomManager.visitUser(room.getUser(userDelegate.userId).object, "mention")
-        }
-
-        contentItem: RowLayout {
-            KirigamiComponents.Avatar {
-                implicitWidth: height
-                sourceSize {
-                    height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                    width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                }
-                source: userDelegate.avatar
-                name: userDelegate.userId
-
-                Layout.fillHeight: true
-            }
-
-            QQC2.Label {
-                text: userDelegate.name
-                textFormat: Text.PlainText
-                elide: Text.ElideRight
+            Kirigami.ListSectionHeader {
+                label: i18n("Options")
+                activeFocusOnTab: false
 
                 Layout.fillWidth: true
             }
 
-            QQC2.Label {
-                visible: userDelegate.powerLevel > 0
+            Delegates.RoundedItemDelegate {
+                id: devtoolsButton
 
-                text: userDelegate.powerLevelString
-                color: Kirigami.Theme.disabledTextColor
-                textFormat: Text.PlainText
+                icon.name: "tools"
+                text: i18n("Open developer tools")
+                visible: Config.developerTools
+
+                Layout.fillWidth: true
+
+                onClicked: {
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/DevtoolsPage.qml", {room: root.room}, {title: i18n("Developer Tools")})
+                }
+            }
+
+            Delegates.RoundedItemDelegate {
+                id: searchButton
+
+                icon.name: "search"
+                text: i18n("Search in this room")
+
+                Layout.fillWidth: true
+
+                onClicked: {
+                    pageStack.pushDialogLayer("qrc:/SearchPage.qml", {
+                        currentRoom: root.room
+                    }, {
+                        title: i18nc("@action:title", "Search")
+                    })
+                }
+            }
+
+            Delegates.RoundedItemDelegate {
+                id: favouriteButton
+
+                icon.name: root.room && root.room.isFavourite ? "rating" : "rating-unrated"
+                text: root.room && root.room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
+
+                onClicked: root.room.isFavourite ? root.room.removeTag("m.favourite") : root.room.addTag("m.favourite", 1.0)
+
+                Layout.fillWidth: true
+            }
+
+            Delegates.RoundedItemDelegate {
+                id: locationsButton
+
+                icon.name: "map-flat"
+                text: i18n("Show locations for this room")
+
+                onClicked: pageStack.pushDialogLayer("qrc:/LocationsPage.qml", {
+                    room: root.room
+                }, {
+                    title: i18nc("Locations on a map", "Locations")
+                })
+
+                Layout.fillWidth: true
+            }
+
+            Kirigami.ListSectionHeader {
+                label: i18n("Members")
+                activeFocusOnTab: false
+                spacing: 0
+                visible: !root.room.isDirectChat()
+
+                Layout.fillWidth: true
+
+                QQC2.ToolButton {
+                    id: memberSearchToggle
+                    checkable: true
+                    icon.name: "search"
+                    QQC2.ToolTip.text: i18n("Search user in room")
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    onToggled: {
+                        userListSearchField.text = "";
+                    }
+                }
+
+                QQC2.ToolButton {
+                    visible: root.room.canSendState("invite")
+                    icon.name: "list-add-user"
+
+                    onClicked: {
+                        applicationWindow().pageStack.pushDialogLayer("qrc:/InviteUserPage.qml", {room: root.room}, {title: i18nc("@title", "Invite a User")})
+                    }
+
+                    QQC2.ToolTip.text: i18n("Invite user to room")
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+
+                QQC2.Label {
+                    Layout.alignment: Qt.AlignRight
+                    text: root.room ? i18np("%1 member", "%1 members", root.room.joinedCount) : i18n("No member count")
+                }
+            }
+
+            Kirigami.SearchField {
+                id: userListSearchField
+                visible: memberSearchToggle.checked
+
+                onVisibleChanged: if (visible) forceActiveFocus()
+                Layout.fillWidth: true
+                Layout.leftMargin: Kirigami.Units.largeSpacing - 1
+                Layout.rightMargin: Kirigami.Units.largeSpacing - 1
+                Layout.bottomMargin: Kirigami.Units.smallSpacing
+
+                focusSequence: "Ctrl+Shift+F"
+
+                onAccepted: sortedMessageEventModel.filterString = text;
+            }
+        }
+
+        KSortFilterProxyModel {
+            id: sortedMessageEventModel
+
+            sourceModel: UserListModel {
+                room: root.room
+            }
+
+            sortRole: "powerLevel"
+            sortOrder: Qt.DescendingOrder
+            filterRole: "name"
+            filterCaseSensitivity: Qt.CaseInsensitive
+        }
+
+        model: root.room.isDirectChat() ? 0 : sortedMessageEventModel
+
+        clip: true
+        activeFocusOnTab: true
+
+        delegate: Delegates.RoundedItemDelegate {
+            id: userDelegate
+
+            required property string name
+            required property string userId
+            required property string avatar
+            required property int powerLevel
+            required property string powerLevelString
+
+            implicitHeight: Kirigami.Units.gridUnit * 2
+
+            text: name
+
+            onClicked: {
+                userDelegate.highlighted = true;
+                RoomManager.visitUser(room.getUser(userDelegate.userId).object, "mention")
+            }
+
+            contentItem: RowLayout {
+                KirigamiComponents.Avatar {
+                    implicitWidth: height
+                    sourceSize {
+                        height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                        width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                    }
+                    source: userDelegate.avatar
+                    name: userDelegate.userId
+
+                    Layout.fillHeight: true
+                }
+
+                QQC2.Label {
+                    text: userDelegate.name
+                    textFormat: Text.PlainText
+                    elide: Text.ElideRight
+
+                    Layout.fillWidth: true
+                }
+
+                QQC2.Label {
+                    visible: userDelegate.powerLevel > 0
+
+                    text: userDelegate.powerLevelString
+                    color: Kirigami.Theme.disabledTextColor
+                    textFormat: Text.PlainText
+                }
             }
         }
     }
@@ -255,6 +261,6 @@ ListView {
         if (root.headerItem) {
             root.headerItem.userListSearchField.text = "";
         }
-        root.currentIndex = -1
+        userList.currentIndex = -1
     }
 }

@@ -2,12 +2,17 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 
 #include "mediamessagefiltermodel.h"
-#include "models/messageeventmodel.h"
+
 #include <Quotient/room.h>
 
-MediaMessageFilterModel::MediaMessageFilterModel(QObject *parent)
+#include "messageeventmodel.h"
+#include "messagefiltermodel.h"
+
+MediaMessageFilterModel::MediaMessageFilterModel(QObject *parent, MessageFilterModel *sourceMediaModel)
     : QSortFilterProxyModel(parent)
 {
+    Q_ASSERT(sourceMediaModel);
+    setSourceModel(sourceMediaModel);
 }
 
 bool MediaMessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
@@ -43,9 +48,9 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
     }
     if (role == TypeRole) {
         if (mapToSource(index).data(MessageEventModel::DelegateTypeRole).toInt() == MessageEventModel::DelegateType::Image) {
-            return 0;
+            return MediaType::Image;
         } else {
-            return 1;
+            return MediaType::Video;
         }
     }
     if (role == CaptionRole) {
@@ -56,6 +61,13 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
     }
     if (role == SourceHeightRole) {
         return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("height")].toFloat();
+    }
+    // We need to catch this one and return true if the next media object was
+    // on a different day.
+    if (role == MessageEventModel::ShowSectionRole) {
+        const auto day = mapToSource(index).data(MessageEventModel::TimeRole).toDateTime().toLocalTime().date();
+        const auto previousEventDay = mapToSource(this->index(index.row() + 1, 0)).data(MessageEventModel::TimeRole).toDateTime().toLocalTime().date();
+        return day != previousEventDay;
     }
 
     return sourceModel()->data(mapToSource(index), role);

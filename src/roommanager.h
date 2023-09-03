@@ -9,6 +9,9 @@
 #include <Quotient/uriresolver.h>
 
 #include "chatdocumenthandler.h"
+#include "models/mediamessagefiltermodel.h"
+#include "models/messageeventmodel.h"
+#include "models/messagefiltermodel.h"
 
 class NeoChatRoom;
 
@@ -37,6 +40,34 @@ class RoomManager : public QObject, public UriResolverBase
     Q_PROPERTY(NeoChatRoom *currentRoom READ currentRoom NOTIFY currentRoomChanged)
 
     /**
+     * @brief The MessageEventModel that should be used for room message visualisation.
+     *
+     * The room object the model uses to get the data will be updated by this class
+     * so there is no need to do this manually or replace the model when a room
+     * changes.
+     *
+     * @note Available here so that the room page and drawer both have access to the
+     *       same model.
+     */
+    Q_PROPERTY(MessageEventModel *messageEventModel READ messageEventModel CONSTANT)
+
+    /**
+     * @brief The MessageFilterModel that should be used for room message visualisation.
+     *
+     * @note Available here so that the room page and drawer both have access to the
+     *       same model.
+     */
+    Q_PROPERTY(MessageFilterModel *messageFilterModel READ messageFilterModel CONSTANT)
+
+    /**
+     * @brief The MediaMessageFilterModel that should be used for room media message visualisation.
+     *
+     * @note Available here so that the room page and drawer both have access to the
+     *       same model.
+     */
+    Q_PROPERTY(MediaMessageFilterModel *mediaMessageFilterModel READ mediaMessageFilterModel CONSTANT)
+
+    /**
      * @brief Whether a room is currently open in NeoChat.
      *
      * @sa room
@@ -56,6 +87,10 @@ public:
     static RoomManager &instance();
 
     NeoChatRoom *currentRoom() const;
+
+    MessageEventModel *messageEventModel() const;
+    MessageFilterModel *messageFilterModel() const;
+    MediaMessageFilterModel *mediaMessageFilterModel() const;
 
     bool hasOpenRoom() const;
 
@@ -152,6 +187,15 @@ public:
     Q_INVOKABLE void openResource(const QString &idOrUri, const QString &action = {});
 
     /**
+     * @brief Show a media item maximized.
+     *
+     * @param index the index to open the maximize delegate model at. This is the
+     *        index in the MediaMessageFilterModel owned by this RoomManager. A value
+     *        of -1 opens a the default item.
+     */
+    Q_INVOKABLE void maximizeMedia(int index);
+
+    /**
      * @brief Call this when the current used connection is dropped.
      */
     Q_INVOKABLE void reset();
@@ -209,6 +253,15 @@ Q_SIGNALS:
     void showUserDetail(const Quotient::User *user);
 
     /**
+     * @brief Request a media item is shown maximized.
+     *
+     * @param index the index to open the maximize delegate model at. This is the
+     *        index in the MediaMessageFilterModel owned by this RoomManager. A value
+     *        of -1 opens a the default item.
+     */
+    void showMaximizedMedia(int index);
+
+    /**
      * @brief Show the direct chat confirmation dialog.
      *
      * Ask current room to show confirmation dialog to open direct chat.
@@ -232,4 +285,8 @@ private:
     KConfig m_config;
     KConfigGroup m_lastRoomConfig;
     QPointer<ChatDocumentHandler> m_chatDocumentHandler;
+
+    MessageEventModel *m_messageEventModel;
+    MessageFilterModel *m_messageFilterModel;
+    MediaMessageFilterModel *m_mediaMessageFilterModel;
 };

@@ -129,13 +129,19 @@ TimelineContainer {
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
+            gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
             onTapped: {
                 imageContainer.QQC2.ToolTip.hide()
                 if (root.mediaInfo.animated) {
                     imageContainer.imageItem.paused = true
                 }
                 root.ListView.view.interactive = false
-                root.ListView.view.showMaximizedMedia(root.index)
+                // We need to make sure the index is that of the MediaMessageFilterModel.
+                if (root.ListView.view.model instanceof MessageFilterModel) {
+                    RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index))
+                } else {
+                    RoomManager.maximizeMedia(root.index)
+                }
             }
         }
 
@@ -144,7 +150,7 @@ TimelineContainer {
                 openSavedFile()
             } else {
                 openOnFinished = true
-                currentRoom.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.eventId))
+                ListView.view.currentRoom.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + ListView.view.currentRoom.fileNameToDownload(root.eventId))
             }
         }
 

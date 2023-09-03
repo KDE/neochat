@@ -66,6 +66,16 @@ ColumnLayout {
     required property bool showAuthor
 
     /**
+     * @brief Whether the author should always be shown.
+     *
+     * This is primarily used when these delegates are used in a filtered list of
+     * events rather than a sequential timeline, e.g. the media model view.
+     *
+     * @note This setting still respects the avatar configuration settings.
+     */
+    property bool alwaysShowAuthor: false
+
+    /**
      * @brief The delegate type of the message.
      */
     required property int delegateType
@@ -263,11 +273,16 @@ ColumnLayout {
     property bool cardBackground: true
 
     /**
+     * @brief Whether the delegate should always stretch to the maximum availabel width.
+     */
+    property bool alwaysMaxWidth: false
+
+    /**
      * @brief Whether local user messages should be aligned right.
      *
      * TODO: make private
      */
-    property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout
+    property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !alwaysMaxWidth
 
     /**
      * @brief Whether the message should be highlighted.
@@ -296,7 +311,7 @@ ColumnLayout {
     width: parent ? timelineDelegateSizeHelper.currentWidth : 0
     spacing: Kirigami.Units.smallSpacing
 
-    state: Config.compactLayout ? "alignLeft" : "alignCenter"
+    state: Config.compactLayout || root.alwaysMaxWidth ? "alignLeft" : "alignCenter"
     // Align left when in compact mode and center when using bubbles
     states: [
         State {
@@ -325,21 +340,21 @@ ColumnLayout {
 
     SectionDelegate {
         id: sectionDelegate
-
         Layout.fillWidth: true
         visible: root.showSection
         labelText: root.section
+        colorSet: Config.compactLayout || root.alwaysMaxWidth ? Kirigami.Theme.View : Kirigami.Theme.Window
     }
 
     QQC2.ItemDelegate {
         id: mainContainer
 
         Layout.fillWidth: true
-        Layout.topMargin: root.showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
+        Layout.topMargin: root.showAuthor || root.alwaysShowAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
         Layout.leftMargin: Kirigami.Units.smallSpacing
         Layout.rightMargin: Kirigami.Units.smallSpacing
 
-        implicitHeight: Math.max(root.showAuthor ? avatar.implicitHeight : 0, bubble.height)
+        implicitHeight: Math.max(root.showAuthor || root.alwaysShowAuthor ? avatar.implicitHeight : 0, bubble.height)
 
         Component.onCompleted: {
             if (root.isReply && root.reply === undefined) {
@@ -365,7 +380,7 @@ ColumnLayout {
                 topMargin: Kirigami.Units.smallSpacing
             }
 
-            visible: root.showAuthor &&
+            visible: (root.showAuthor || root.alwaysShowAuthor) &&
                 Config.showAvatarInTimeline &&
                 (Config.compactLayout || !showUserMessageOnRight)
             name: root.author.displayName
@@ -395,7 +410,7 @@ ColumnLayout {
                 rightMargin: Kirigami.Units.largeSpacing
             }
             // HACK: anchoring didn't reset anchors.right when switching from parent.right to undefined reliably
-            width: Config.compactLayout ? mainContainer.width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) + Kirigami.Units.largeSpacing * 2 : implicitWidth
+            width: Config.compactLayout || root.alwaysMaxWidth ? mainContainer.width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) + Kirigami.Units.largeSpacing * 2 : implicitWidth
 
             state: showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
             // states for anchor animations on window resize
@@ -440,7 +455,7 @@ ColumnLayout {
                         id: rowLayout
 
                         spacing: Kirigami.Units.smallSpacing
-                        visible: root.showAuthor
+                        visible: root.showAuthor || root.alwaysShowAuthor
 
                         QQC2.Label {
                             id: nameLabel
@@ -535,7 +550,7 @@ ColumnLayout {
         }
 
         background: Rectangle {
-            visible: mainContainer.hovered && Config.compactLayout
+            visible: mainContainer.hovered && (Config.compactLayout || root.alwaysMaxWidth)
             color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
             radius: Kirigami.Units.smallSpacing
         }
@@ -577,6 +592,16 @@ ColumnLayout {
         return (yoff + height > 0 && yoff < ListView.view.height)
     }
 
+    Component {
+        id: messageDelegateContextMenu
+        MessageDelegateContextMenu {}
+    }
+
+    Component {
+        id: fileDelegateContextMenu
+        FileDelegateContextMenu {}
+    }
+
     /// Open message context dialog for file and videos
     function openFileContext(file) {
         const contextMenu = fileDelegateContextMenu.createObject(root, {
@@ -616,8 +641,8 @@ ColumnLayout {
         startBreakpoint: Kirigami.Units.gridUnit * 46
         endBreakpoint: Kirigami.Units.gridUnit * 66
         startPercentWidth: 100
-        endPercentWidth: Config.compactLayout ? 100 : 85
-        maxWidth: Config.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
+        endPercentWidth: Config.compactLayout || root.alwaysMaxWidth ? 100 : 85
+        maxWidth: Config.compactLayout || root.alwaysMaxWidth ? -1 : Kirigami.Units.gridUnit * 60
 
         parentWidth: root.parent ? root.parent.width - (Config.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : 0) : 0
     }
@@ -625,8 +650,8 @@ ColumnLayout {
         id: bubbleSizeHelper
         startBreakpoint: Kirigami.Units.gridUnit * 25
         endBreakpoint: Kirigami.Units.gridUnit * 40
-        startPercentWidth: Config.compactLayout ? 100 : 90
-        endPercentWidth: Config.compactLayout ? 100 : 60
+        startPercentWidth: Config.compactLayout || root.alwaysMaxWidth ? 100 : 90
+        endPercentWidth: Config.compactLayout || root.alwaysMaxWidth ? 100 : 60
 
         parentWidth: mainContainer.availableWidth - (Config.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
     }

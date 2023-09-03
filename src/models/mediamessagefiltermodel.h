@@ -4,8 +4,11 @@
 #pragma once
 
 #include <QSortFilterProxyModel>
+#include <qobjectdefs.h>
 
 #include "models/messagefiltermodel.h"
+
+class MessageFilterModel;
 
 /**
  * @class MediaMessageFilterModel
@@ -18,6 +21,12 @@ class MediaMessageFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
+    enum MediaType {
+        Image = 0,
+        Video,
+    };
+    Q_ENUM(MediaType)
+
     /**
      * @brief Defines the model roles.
      */
@@ -31,7 +40,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit MediaMessageFilterModel(QObject *parent = nullptr);
+    explicit MediaMessageFilterModel(QObject *parent = nullptr, MessageFilterModel *sourceMediaModel = nullptr);
 
     /**
      * @brief Custom filter to show only image and video messages.
@@ -43,7 +52,7 @@ public:
      *
      * @sa QSortFilterProxyModel::data
      */
-    [[nodiscard]] QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
      * @brief Returns a mapping from Role enum values to role names.

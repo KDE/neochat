@@ -292,7 +292,12 @@ TimelineContainer {
                         onTriggered: {
                             root.ListView.view.interactive = false
                             vid.pause()
-                            root.ListView.view.showMaximizedMedia(root.index)
+                            // We need to make sure the index is that of the MediaMessageFilterModel.
+                            if (root.ListView.view.model instanceof MessageFilterModel) {
+                                RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index))
+                            } else {
+                                RoomManager.maximizeMedia(root.index)
+                            }
                         }
                     }
                 }
@@ -328,6 +333,7 @@ TimelineContainer {
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
+            gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
             onTapped: if (root.progressInfo.completed) {
                 if (vid.playbackState == MediaPlayer.PlayingState) {
                     vid.pause()
@@ -352,7 +358,7 @@ TimelineContainer {
             playSavedFile()
         } else {
             playOnFinished = true
-            currentRoom.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.eventId))
+            ListView.view.currentRoom.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + ListView.view.currentRoom.fileNameToDownload(root.eventId))
         }
     }
 

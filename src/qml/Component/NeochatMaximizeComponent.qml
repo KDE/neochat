@@ -101,6 +101,11 @@ Components.AlbumMaximizeComponent {
     }
 
     Component {
+        id: fileDelegateContextMenu
+        FileDelegateContextMenu {}
+    }
+
+    Component {
         id: saveAsDialog
         Platform.FileDialog {
             fileMode: FileDialog.SaveFile

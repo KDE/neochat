@@ -16,6 +16,8 @@ QQC2.ItemDelegate {
     property alias labelText: sectionLabel.text
     property var maxWidth: Number.POSITIVE_INFINITY
 
+    property int colorSet: Kirigami.Theme.Window
+
     topPadding: Kirigami.Units.largeSpacing
     bottomPadding: 0 // Note not 0 by default
 
@@ -42,6 +44,6 @@ QQC2.ItemDelegate {
     background: Rectangle {
         color: Config.blur ? "transparent" : Kirigami.Theme.backgroundColor
         Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
+        Kirigami.Theme.colorSet: sectionDelegate.colorSet
     }
 }
