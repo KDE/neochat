@@ -133,18 +133,6 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 QQC2.ToolButton {
-                    id: memberSearchToggle
-                    checkable: true
-                    icon.name: "search"
-                    QQC2.ToolTip.text: i18n("Search user in room")
-                    QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                    onToggled: {
-                        userListSearchField.text = "";
-                    }
-                }
-
-                QQC2.ToolButton {
                     visible: root.room.canSendState("invite")
                     icon.name: "list-add-user"
 
@@ -165,7 +153,6 @@ QQC2.ScrollView {
 
             Kirigami.SearchField {
                 id: userListSearchField
-                visible: memberSearchToggle.checked
 
                 onVisibleChanged: if (visible) forceActiveFocus()
                 Layout.fillWidth: true
