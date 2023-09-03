@@ -122,19 +122,6 @@ FormCard.FormCardPage {
         }
     }
 
-    footer: QQC2.ToolBar {
-        contentItem: RowLayout {
-            Item {
-                Layout.fillWidth: true
-            }
-            QQC2.Button {
-                Layout.alignment: Qt.AlignRight
-                enabled: false
-                text: i18n("Apply")
-            }
-        }
-    }
-
     property Component confirmEncryptionDialog: Component {
         id: confirmEncryptionDialog
 
