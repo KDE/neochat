@@ -35,6 +35,8 @@ class LoginTest(unittest.TestCase):
         self.driver.quit()
 
     def test_login(self):
+        self.driver.find_element(by=AppiumBy.NAME, value="Login").click()
+
         self.driver.find_element(by=AppiumBy.NAME, value="Matrix ID").send_keys("@user:localhost:1234")
         self.driver.find_element(by=AppiumBy.NAME, value="Continue").click()
         self.driver.find_element(by=AppiumBy.NAME, value="Password").send_keys("1234")
