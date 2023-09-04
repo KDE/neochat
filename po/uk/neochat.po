@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 00:45+0000\n"
-"PO-Revision-Date: 2023-08-30 08:15+0300\n"
+"POT-Creation-Date: 2023-09-04 00:46+0000\n"
+"PO-Revision-Date: 2023-09-03 09:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -20,80 +20,80 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: src/controller.cpp:211
+#: src/controller.cpp:208
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Невдала спроба увійти: жетон доступу є некоректним або його відкликано"
 
-#: src/controller.cpp:214 src/controller.cpp:219 src/login.cpp:93
+#: src/controller.cpp:211 src/controller.cpp:216 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Невдала спроба увійти: %1"
 
-#: src/controller.cpp:225
+#: src/controller.cpp:222
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Помилка у мережі: %1"
 
-#: src/controller.cpp:250
+#: src/controller.cpp:247
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не знайдено жетона доступу"
 
-#: src/controller.cpp:250
+#: src/controller.cpp:247
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Можливо, його вилучено?"
 
-#: src/controller.cpp:254
+#: src/controller.cpp:251
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Відмовлено у доступі до засобу керування ключами."
 
-#: src/controller.cpp:254
+#: src/controller.cpp:251
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Будь ласка, дозвольте NeoChat читання жетона доступу"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:254
 #, kde-format
 msgid "No keychain available."
 msgstr "Немає доступних засобів керування ключами."
 
-#: src/controller.cpp:257
+#: src/controller.cpp:254
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Будь ласка, встановіть засіб керування ключами, наприклад KWallet або GNOME "
 "keyring у Linux"
 
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не вдалося прочитати жетон доступу"
 
-#: src/controller.cpp:361
+#: src/controller.cpp:353
 #, kde-format
 msgid "File too large to download."
 msgstr "Файл є надто великим для отримання."
 
-#: src/controller.cpp:361
+#: src/controller.cpp:353
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
 
-#: src/controller.cpp:386
+#: src/controller.cpp:378
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Не вдалося створити кімнату: %1"
 
-#: src/controller.cpp:407
+#: src/controller.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/controller.cpp:421
+#: src/controller.cpp:413
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
@@ -655,7 +655,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:123
+#: src/models/messagefiltermodel.cpp:126
 #, kde-format
 msgctxt "n times"
 msgid " %1 time "
@@ -665,7 +665,7 @@ msgstr[1] " %1 рази"
 msgstr[2] " %1 разів"
 msgstr[3] " один раз"
 
-#: src/models/messagefiltermodel.cpp:129
+#: src/models/messagefiltermodel.cpp:132
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -675,19 +675,19 @@ msgstr[1] " %1 користувачі "
 msgstr[2] " %1 користувачів "
 msgstr[3] " %1 користувач "
 
-#: src/models/messagefiltermodel.cpp:139
+#: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:145
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " або "
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:145
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -1263,9 +1263,7 @@ msgid "Replying to:"
 msgstr "Відповідаємо:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Choose Room"
 msgstr "Виберіть кімнату"
@@ -1276,10 +1274,9 @@ msgid "Room"
 msgstr "Кімната"
 
 #: src/qml/Component/Devtools/RoomData.qml:37
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgid "Room Id: %1"
-msgstr "Ід. кімнати"
+msgstr "Ід. кімнати: %1"
 
 #: src/qml/Component/Devtools/RoomData.qml:40
 #, kde-format
@@ -1292,10 +1289,9 @@ msgid "Show room account data"
 msgstr "Показати дані облікового запису кімнати"
 
 #: src/qml/Component/Devtools/RoomData.qml:58
-#, fuzzy, kde-format
-#| msgid "Room Account Data for %1 - %2"
+#, kde-format
 msgid "Room Account Data"
-msgstr "Дані облікового запису кімнати для %1 – %2"
+msgstr "Дані облікового запису кімнати"
 
 #: src/qml/Component/Devtools/RoomData.qml:69
 #: src/qml/Component/Devtools/RoomData.qml:95
@@ -1305,10 +1301,9 @@ msgid "Event Source"
 msgstr "Джерело подій"
 
 #: src/qml/Component/Devtools/RoomData.qml:77
-#, fuzzy, kde-format
-#| msgid "Room State for %1"
+#, kde-format
 msgid "Room State"
-msgstr "Стан кімнати для %1"
+msgstr "Стан кімнати"
 
 #: src/qml/Component/Devtools/ServerData.qml:16
 #, kde-format
@@ -1389,7 +1384,7 @@ msgid "Accept"
 msgstr "Прийняти"
 
 #: src/qml/Component/LocationPage.qml:16
-#: src/qml/RoomDrawer/RoomInformation.qml:116
+#: src/qml/RoomDrawer/RoomInformation.qml:121
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1665,22 +1660,22 @@ msgstr "Гучність"
 msgid "Maximize"
 msgstr "Максимізувати"
 
-#: src/qml/Component/TimelineView.qml:157
+#: src/qml/Component/TimelineView.qml:150
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Перейти до першого непрочитаного повідомлення"
 
-#: src/qml/Component/TimelineView.qml:180
+#: src/qml/Component/TimelineView.qml:173
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Перейти до останнього повідомлення"
 
-#: src/qml/Component/TimelineView.qml:206
+#: src/qml/Component/TimelineView.qml:199
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
-#: src/qml/Component/TimelineView.qml:226
+#: src/qml/Component/TimelineView.qml:207
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1750,23 +1745,31 @@ msgstr "Вийти"
 msgid "Are you sure you want to sign out?"
 msgstr "Ви справді хочете вийти?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:16
-#: src/qml/Page/RoomList/ExploreComponent.qml:31
+#: src/qml/Dialog/CreateRoomDialog.qml:13
+#: src/qml/Page/RoomList/ExploreComponent.qml:34
 #, kde-format
+msgctxt "@title"
 msgid "Create a Room"
-msgstr "Створити кімнату"
+msgstr "Створення кімнати"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:71
+#: src/qml/Dialog/CreateRoomDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Room Information"
+msgctxt "@title"
+msgid "Room Information"
+msgstr "Відомості щодо кімнати"
+
+#: src/qml/Dialog/CreateRoomDialog.qml:23 src/qml/RoomSettings/General.qml:71
 #, kde-format
 msgid "Room name:"
 msgstr "Назва кімнати:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:82
+#: src/qml/Dialog/CreateRoomDialog.qml:29 src/qml/RoomSettings/General.qml:82
 #, kde-format
 msgid "Room topic:"
 msgstr "Тема кімнати:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
+#: src/qml/Dialog/CreateRoomDialog.qml:35 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2478,7 +2481,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Виберіть кімнату"
 
-#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:75
+#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:80
 #, kde-format
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
@@ -2754,8 +2757,8 @@ msgstr "Вимкнено"
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
 #: src/qml/Page/RoomList/ContextMenu.qml:186
-#: src/qml/RoomDrawer/RoomDrawer.qml:96
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:34
+#: src/qml/RoomDrawer/RoomDrawer.qml:101
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:46
 #, kde-format
 msgid "Room Settings"
 msgstr "Параметри кімнати"
@@ -2773,23 +2776,19 @@ msgid "Explore rooms"
 msgstr "Ознайомитися з кімнатами"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:22
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Ознайомитися з кімнатами"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:28
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start a Chat"
-msgstr "Почати спілкування"
+msgstr "Початок спілкування"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:34
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
+#: src/qml/Page/RoomList/ExploreComponent.qml:31
+#, kde-format
 msgid "Create a Room"
 msgstr "Створити кімнату"
 
@@ -2963,14 +2962,28 @@ msgstr "Без назви"
 msgid "No Topic"
 msgstr "Немає теми"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:86
-#, kde-format
-msgid "Room information"
-msgstr "Відомості щодо кімнати"
-
-#: src/qml/RoomDrawer/RoomDrawer.qml:93
+#: src/qml/RoomDrawer/RoomDrawer.qml:98
 #, kde-format
 msgid "Room settings"
+msgstr "Параметри кімнати"
+
+#: src/qml/RoomDrawer/RoomDrawer.qml:140
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:79
+#, fuzzy, kde-format
+#| msgid "Room Information"
+msgid "Information"
+msgstr "Відомості щодо кімнати"
+
+#: src/qml/RoomDrawer/RoomDrawer.qml:145
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:84
+#, kde-format
+msgid "Media"
+msgstr ""
+
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:44
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgid "Settings"
 msgstr "Параметри кімнати"
 
 #: src/qml/RoomDrawer/RoomInformation.qml:38
@@ -2979,64 +2992,59 @@ msgctxt "@action:title"
 msgid "Room information"
 msgstr "Відомості щодо кімнати"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:59
+#: src/qml/RoomDrawer/RoomInformation.qml:64
 #, kde-format
 msgid "Options"
 msgstr "Параметри"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:69
+#: src/qml/RoomDrawer/RoomInformation.qml:74
 #, kde-format
 msgid "Open developer tools"
 msgstr "Відкрити інструменти розробника"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:83
+#: src/qml/RoomDrawer/RoomInformation.qml:88
 #, kde-format
 msgid "Search in this room"
 msgstr "Шукати у цій кімнаті"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:91
+#: src/qml/RoomDrawer/RoomInformation.qml:96
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Пошук"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:100
+#: src/qml/RoomDrawer/RoomInformation.qml:105
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Вилучити кімнату з улюблених"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:100
+#: src/qml/RoomDrawer/RoomInformation.qml:105
 #, kde-format
 msgid "Make room favorite"
 msgstr "Зробити кімнату улюбленою"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:111
+#: src/qml/RoomDrawer/RoomInformation.qml:116
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Показувати місця перебування для цієї кімнати"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:123
+#: src/qml/RoomDrawer/RoomInformation.qml:128
 #, kde-format
 msgid "Members"
 msgstr "Учасники"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:134
-#, kde-format
-msgid "Search user in room"
-msgstr "Шукати користувача у кімнаті"
-
-#: src/qml/RoomDrawer/RoomInformation.qml:147
+#: src/qml/RoomDrawer/RoomInformation.qml:140
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Запрошення користувача"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:150
+#: src/qml/RoomDrawer/RoomInformation.qml:143
 #, kde-format
 msgid "Invite user to room"
 msgstr "Запросити користувача до кімнати"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:157
+#: src/qml/RoomDrawer/RoomInformation.qml:150
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -3045,10 +3053,17 @@ msgstr[1] "%1 учасники"
 msgstr[2] "%1 учасників"
 msgstr[3] "%1 учасник"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:157
+#: src/qml/RoomDrawer/RoomInformation.qml:150
 #, kde-format
 msgid "No member count"
 msgstr "Немає лічильника учасників"
+
+#: src/qml/RoomDrawer/RoomMedia.qml:30
+#, fuzzy, kde-format
+#| msgid "Room version"
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "Версія кімнати"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
 #: src/qml/Settings/SettingsPage.qml:20
@@ -3846,8 +3861,7 @@ msgid "Add Sticker"
 msgstr "Додати наліпку"
 
 #: src/qml/Settings/EmoticonsPage.qml:15
-#, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
+#, kde-format
 msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "Наліпки та емоційки"
@@ -3985,9 +3999,7 @@ msgid "Invites"
 msgstr "Запрошення"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:148
-#, fuzzy, kde-format
-#| msgctxt "Unknown attachment size"
-#| msgid "Unknown"
+#, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
 
@@ -4099,8 +4111,7 @@ msgid "About KDE"
 msgstr "Про KDE"
 
 #: src/qml/Settings/SonnetConfigPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Spellchecking"
+#, kde-format
 msgctxt "@title"
 msgid "Spellchecking"
 msgstr "Перевірка правопису"
@@ -4232,22 +4243,22 @@ msgstr "Продовжити"
 msgid "Working"
 msgstr "Працюємо"
 
-#: src/roommanager.cpp:52
+#: src/roommanager.cpp:75
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Помилково форматований або порожній ідентифікатор Matrix"
 
-#: src/roommanager.cpp:52
+#: src/roommanager.cpp:75
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 не є правильним ідентифікатором Matrix"
 
-#: src/roommanager.cpp:69
+#: src/roommanager.cpp:92
 #, kde-format
 msgid "Room not found"
 msgstr "Кімнату не знайдено"
 
-#: src/roommanager.cpp:69
+#: src/roommanager.cpp:92
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -4255,34 +4266,34 @@ msgstr ""
 "У списку кімнат немає кімнати %1. Перевірте, чи правильно вписано обліковий "
 "запис."
 
-#: src/roommanager.cpp:212
+#: src/roommanager.cpp:243
 #, kde-format
 msgid "Failed to join room"
 msgstr "Не вдалося приєднатися до кімнати"
 
-#: src/roommanager.cpp:227
+#: src/roommanager.cpp:258
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Ви надіслали запит щодо долучення до «%1»"
 
-#: src/roommanager.cpp:230
+#: src/roommanager.cpp:261
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Не вдалося надіслати запит щодо долучення до кімнати"
 
-#: src/roommanager.cpp:239
+#: src/roommanager.cpp:270
 #, kde-format
 msgid "No application for the link"
 msgstr "Немає програми для обробки посилання"
 
-#: src/roommanager.cpp:239
+#: src/roommanager.cpp:270
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "Вашою операційною системою не знайдено програми, яка могла б обробити "
 "посилання."
 
-#: src/roommanager.cpp:245
+#: src/roommanager.cpp:276
 #, kde-format
 msgid "Could not open URL"
 msgstr "Не вдається відкрити адресу"
@@ -4296,6 +4307,12 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Room information"
+#~ msgstr "Відомості щодо кімнати"
+
+#~ msgid "Search user in room"
+#~ msgstr "Шукати користувача у кімнаті"
 
 #~ msgctxt "@title"
 #~ msgid "Select a Homeserver"

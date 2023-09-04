@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-03 00:45+0000\n"
+"POT-Creation-Date: 2023-09-04 00:46+0000\n"
 "PO-Revision-Date: 2023-09-02 02:57\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,79 +17,79 @@ msgstr ""
 "X-Crowdin-File: /kf5-trunk/messages/neochat/neochat.pot\n"
 "X-Crowdin-File-ID: 24924\n"
 
-#: src/controller.cpp:211
+#: src/controller.cpp:208
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:214 src/controller.cpp:219 src/login.cpp:93
+#: src/controller.cpp:211 src/controller.cpp:216 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "登录失败：%1"
 
-#: src/controller.cpp:225
+#: src/controller.cpp:222
 #, kde-format
 msgid "Network Error: %1"
 msgstr "网络错误：%1"
 
-#: src/controller.cpp:250
+#: src/controller.cpp:247
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:250
+#: src/controller.cpp:247
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:254
+#: src/controller.cpp:251
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:254
+#: src/controller.cpp:251
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "请允许 NeoChat 读取访问令牌"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:254
 #, kde-format
 msgid "No keychain available."
 msgstr "没有可用的钥匙环。"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:254
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "请安装一个钥匙环，例如 Linux 平台上的 KDE 密码库（KWallet）或 GNOME 钥匙圈"
 "（GNOME keyring）"
 
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Unable to read access token"
 msgstr "无法读取访问令牌"
 
-#: src/controller.cpp:361
+#: src/controller.cpp:353
 #, kde-format
 msgid "File too large to download."
 msgstr "文件太大，无法下载。"
 
-#: src/controller.cpp:361
+#: src/controller.cpp:353
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:386
+#: src/controller.cpp:378
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室创建失败：%1"
 
-#: src/controller.cpp:407
+#: src/controller.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
 
-#: src/controller.cpp:421
+#: src/controller.cpp:413
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr ""
@@ -648,33 +648,33 @@ msgctxt "list separator"
 msgid ", "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:123
+#: src/models/messagefiltermodel.cpp:126
 #, kde-format
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
 msgstr[0] ""
 
-#: src/models/messagefiltermodel.cpp:129
+#: src/models/messagefiltermodel.cpp:132
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
 msgstr[0] ""
 
-#: src/models/messagefiltermodel.cpp:139
+#: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:145
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:145
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -1369,7 +1369,7 @@ msgid "Accept"
 msgstr "接受"
 
 #: src/qml/Component/LocationPage.qml:16
-#: src/qml/RoomDrawer/RoomInformation.qml:116
+#: src/qml/RoomDrawer/RoomInformation.qml:121
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1637,22 +1637,22 @@ msgstr ""
 msgid "Maximize"
 msgstr ""
 
-#: src/qml/Component/TimelineView.qml:157
+#: src/qml/Component/TimelineView.qml:150
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "跳转到第一条未读消息"
 
-#: src/qml/Component/TimelineView.qml:180
+#: src/qml/Component/TimelineView.qml:173
 #, kde-format
 msgid "Jump to latest message"
 msgstr "跳转到最新消息"
 
-#: src/qml/Component/TimelineView.qml:206
+#: src/qml/Component/TimelineView.qml:199
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "拖动项目到此处来分享"
 
-#: src/qml/Component/TimelineView.qml:226
+#: src/qml/Component/TimelineView.qml:207
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1714,23 +1714,32 @@ msgstr "退出登录"
 msgid "Are you sure you want to sign out?"
 msgstr "您确定要退出登录吗?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:16
-#: src/qml/Page/RoomList/ExploreComponent.qml:31
-#, kde-format
+#: src/qml/Dialog/CreateRoomDialog.qml:13
+#: src/qml/Page/RoomList/ExploreComponent.qml:34
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
 msgid "Create a Room"
 msgstr "创建聊天室"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:71
+#: src/qml/Dialog/CreateRoomDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Room Information"
+msgctxt "@title"
+msgid "Room Information"
+msgstr "聊天室信息"
+
+#: src/qml/Dialog/CreateRoomDialog.qml:23 src/qml/RoomSettings/General.qml:71
 #, kde-format
 msgid "Room name:"
 msgstr "聊天室名称："
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:82
+#: src/qml/Dialog/CreateRoomDialog.qml:29 src/qml/RoomSettings/General.qml:82
 #, kde-format
 msgid "Room topic:"
 msgstr "聊天室话题："
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:169
+#: src/qml/Dialog/CreateRoomDialog.qml:35 src/qml/Page/JoinRoomPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2416,7 +2425,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr ""
 
-#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:75
+#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:80
 #, kde-format
 msgid "Developer Tools"
 msgstr "开发者工具"
@@ -2690,8 +2699,8 @@ msgstr "关闭"
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
 #: src/qml/Page/RoomList/ContextMenu.qml:186
-#: src/qml/RoomDrawer/RoomDrawer.qml:96
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:34
+#: src/qml/RoomDrawer/RoomDrawer.qml:101
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:46
 #, kde-format
 msgid "Room Settings"
 msgstr "聊天室设置"
@@ -2722,10 +2731,8 @@ msgctxt "@title"
 msgid "Start a Chat"
 msgstr "开始聊天"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:34
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
+#: src/qml/Page/RoomList/ExploreComponent.qml:31
+#, kde-format
 msgid "Create a Room"
 msgstr "创建聊天室"
 
@@ -2895,14 +2902,28 @@ msgstr "无名称"
 msgid "No Topic"
 msgstr "无话题"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:86
-#, kde-format
-msgid "Room information"
-msgstr "聊天室信息"
-
-#: src/qml/RoomDrawer/RoomDrawer.qml:93
+#: src/qml/RoomDrawer/RoomDrawer.qml:98
 #, kde-format
 msgid "Room settings"
+msgstr "聊天室设置"
+
+#: src/qml/RoomDrawer/RoomDrawer.qml:140
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:79
+#, fuzzy, kde-format
+#| msgid "Room Information"
+msgid "Information"
+msgstr "聊天室信息"
+
+#: src/qml/RoomDrawer/RoomDrawer.qml:145
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:84
+#, kde-format
+msgid "Media"
+msgstr ""
+
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:44
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgid "Settings"
 msgstr "聊天室设置"
 
 #: src/qml/RoomDrawer/RoomInformation.qml:38
@@ -2911,73 +2932,75 @@ msgctxt "@action:title"
 msgid "Room information"
 msgstr ""
 
-#: src/qml/RoomDrawer/RoomInformation.qml:59
+#: src/qml/RoomDrawer/RoomInformation.qml:64
 #, kde-format
 msgid "Options"
 msgstr "选项"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:69
+#: src/qml/RoomDrawer/RoomInformation.qml:74
 #, kde-format
 msgid "Open developer tools"
 msgstr "打开开发者工具"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:83
+#: src/qml/RoomDrawer/RoomInformation.qml:88
 #, kde-format
 msgid "Search in this room"
 msgstr "在此聊天室中搜索"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:91
+#: src/qml/RoomDrawer/RoomInformation.qml:96
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "搜索"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:100
+#: src/qml/RoomDrawer/RoomInformation.qml:105
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "从收藏夹中移除聊天室"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:100
+#: src/qml/RoomDrawer/RoomInformation.qml:105
 #, kde-format
 msgid "Make room favorite"
 msgstr "收藏聊天室"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:111
+#: src/qml/RoomDrawer/RoomInformation.qml:116
 #, kde-format
 msgid "Show locations for this room"
 msgstr ""
 
-#: src/qml/RoomDrawer/RoomInformation.qml:123
+#: src/qml/RoomDrawer/RoomInformation.qml:128
 #, kde-format
 msgid "Members"
 msgstr "成员"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:134
-#, kde-format
-msgid "Search user in room"
-msgstr ""
-
-#: src/qml/RoomDrawer/RoomInformation.qml:147
+#: src/qml/RoomDrawer/RoomInformation.qml:140
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr ""
 
-#: src/qml/RoomDrawer/RoomInformation.qml:150
+#: src/qml/RoomDrawer/RoomInformation.qml:143
 #, kde-format
 msgid "Invite user to room"
 msgstr "邀请用户到聊天室"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:157
+#: src/qml/RoomDrawer/RoomInformation.qml:150
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 
-#: src/qml/RoomDrawer/RoomInformation.qml:157
+#: src/qml/RoomDrawer/RoomInformation.qml:150
 #, kde-format
 msgid "No member count"
 msgstr ""
+
+#: src/qml/RoomDrawer/RoomMedia.qml:30
+#, fuzzy, kde-format
+#| msgid "Room version"
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "聊天室版本"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
 #: src/qml/Settings/SettingsPage.qml:20
@@ -4137,53 +4160,53 @@ msgstr ""
 msgid "Working"
 msgstr ""
 
-#: src/roommanager.cpp:52
+#: src/roommanager.cpp:75
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Matrix id 为空或格式错误"
 
-#: src/roommanager.cpp:52
+#: src/roommanager.cpp:75
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 不是正确的 Matrix 标识符"
 
-#: src/roommanager.cpp:69
+#: src/roommanager.cpp:92
 #, kde-format
 msgid "Room not found"
 msgstr "未找到聊天室"
 
-#: src/roommanager.cpp:69
+#: src/roommanager.cpp:92
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 
-#: src/roommanager.cpp:212
+#: src/roommanager.cpp:243
 #, kde-format
 msgid "Failed to join room"
 msgstr ""
 
-#: src/roommanager.cpp:227
+#: src/roommanager.cpp:258
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:230
+#: src/roommanager.cpp:261
 #, kde-format
 msgid "Failed to request joining room"
 msgstr ""
 
-#: src/roommanager.cpp:239
+#: src/roommanager.cpp:270
 #, kde-format
 msgid "No application for the link"
 msgstr "没有用于此链接的应用程序"
 
-#: src/roommanager.cpp:239
+#: src/roommanager.cpp:270
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "您的操作系统未找到用于此链接的应用程序。"
 
-#: src/roommanager.cpp:245
+#: src/roommanager.cpp:276
 #, kde-format
 msgid "Could not open URL"
 msgstr "无法打开 URL"
@@ -4197,3 +4220,6 @@ msgstr "显示"
 #, kde-format
 msgid "Quit"
 msgstr "退出"
+
+#~ msgid "Room information"
+#~ msgstr "聊天室信息"
