@@ -116,7 +116,7 @@ FormCard.FormCardPage {
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly
-                    enabled: NotificationsManager.keywordNotificationAction !== PushNotificationAction.Unknown
+                    enabled: NotificationsManager.keywordNotificationAction !== PushNotificationAction.Unknown && keywordAddField.text.length > 0
 
                     onClicked: {
                         Controller.pushRuleModel.addKeyword(keywordAddField.text, root.room.id)
