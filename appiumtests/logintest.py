@@ -8,6 +8,7 @@ import unittest
 from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.webdriver.support.ui import WebDriverWait
+import os
 import time
 import subprocess
 import sys
@@ -21,7 +22,7 @@ class LoginTest(unittest.TestCase):
         self.driver = webdriver.Remote(
             command_executor='http://127.0.0.1:4723',
             desired_capabilities=desired_caps)
-        subprocess.Popen([sys.executable, "login-server.py"])
+        subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), "login-server.py")])
 
     def setUp(self):
         pass
