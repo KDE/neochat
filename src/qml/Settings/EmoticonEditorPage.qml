@@ -109,7 +109,7 @@ FormCard.FormCardPage {
             id: save
             text: i18n("Save")
             icon.name: "document-save"
-            enabled: !root.newEmoticon || (image.source && shortcode.text && description.text)
+            enabled: !root.newEmoticon || (image.source.toString().length > 0 && shortcode.text && description.text)
             onClicked: {
                 if (root.newEmoticon) {
                     model.addEmoticon(image.source, shortcode.text, description.text, emoticonType === EmoticonFormCard.Stickers ? "sticker" : "emoticon")
