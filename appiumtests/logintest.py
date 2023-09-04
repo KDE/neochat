@@ -22,7 +22,7 @@ class LoginTest(unittest.TestCase):
         self.driver = webdriver.Remote(
             command_executor='http://127.0.0.1:4723',
             desired_capabilities=desired_caps)
-        subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), "login-server.py")])
+        self.mockServerProcess = subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), "login-server.py")])
 
     def setUp(self):
         pass
@@ -33,6 +33,7 @@ class LoginTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
+        self.mockServerProcess.terminate()
         self.driver.quit()
 
     def test_login(self):
