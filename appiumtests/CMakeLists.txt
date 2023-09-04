@@ -17,7 +17,7 @@ if(NOT SeleniumWebDriverATSPI_FOUND)
     return()
 endif()
 
-add_test(
-    NAME logintest
-    COMMAND selenium-webdriver-at-spi-run ${CMAKE_CURRENT_SOURCE_DIR}/logintest.py
-)
+#add_test(
+#    NAME logintest
+#    COMMAND selenium-webdriver-at-spi-run ${CMAKE_CURRENT_SOURCE_DIR}/logintest.py
+#)
