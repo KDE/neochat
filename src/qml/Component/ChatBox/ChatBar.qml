@@ -357,38 +357,26 @@ QQC2.Control {
         QQC2.ToolTip.text: text
         QQC2.ToolTip.visible: hovered
     }
-    Row {
+    RowLayout {
         id: actionsRow
-        padding: Kirigami.Units.smallSpacing
-        spacing: Kirigami.Units.smallSpacing
         anchors.right: parent.right
-        property var requiredMargin: (root.width - chatBarSizeHelper.currentWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBarSizeHelper.currentWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
+        anchors.bottom: parent.bottom
         anchors.leftMargin: layoutDirection === Qt.RightToLeft ? requiredMargin : 0
         anchors.rightMargin: layoutDirection === Qt.RightToLeft ? 0 : requiredMargin
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: Kirigami.Units.largeSpacing - 2
+        anchors.bottomMargin: Kirigami.Units.smallSpacing
+        spacing: 0
+        property var requiredMargin: (root.width - chatBarSizeHelper.currentWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBarSizeHelper.currentWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
 
         Repeater {
             model: root.actions
-            Kirigami.Icon {
-                implicitWidth: Kirigami.Units.iconSizes.smallMedium
-                implicitHeight: Kirigami.Units.iconSizes.smallMedium
+            delegate: QQC2.ToolButton {
+                Layout.alignment: Qt.AlignVCenter
+                icon.name: modelData.isBusy ? "" : (modelData.icon.name.length > 0 ? modelData.icon.name : modelData.icon.source)
+                onClicked: modelData.trigger()
 
-                source: modelData.isBusy ? "" : (modelData.icon.name.length > 0 ? modelData.icon.name : modelData.icon.source)
-                active: actionArea.containsPress
-                visible: modelData.visible
-                enabled: modelData.enabled
-                MouseArea {
-                    id: actionArea
-                    anchors.fill: parent
-                    onClicked: modelData.trigger()
-                    cursorShape: Qt.PointingHandCursor
-                }
-
-                QQC2.ToolTip.visible: modelData.tooltip !== "" && hoverHandler.hovered
+                QQC2.ToolTip.visible: hovered
                 QQC2.ToolTip.text: modelData.tooltip
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                HoverHandler { id: hoverHandler }
 
                 PieProgressBar {
                     visible: modelData.isBusy
