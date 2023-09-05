@@ -320,12 +320,16 @@ Kirigami.ApplicationWindow {
     Component {
         id: createRoomDialog
 
-        CreateRoomDialog {}
+        CreateRoomDialog {
+            connection: Controller.activeConnection
+        }
     }
 
     Component {
         id: createSpaceDialog
-        CreateSpaceDialog {}
+        CreateSpaceDialog {
+            connection: Controller.activeConnection
+        }
     }
 
     Component {

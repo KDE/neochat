@@ -48,6 +48,16 @@ public:
 
     Q_INVOKABLE void deactivateAccount(const QString &password);
 
+    /**
+     * @brief Create new room for a group chat.
+     */
+    Q_INVOKABLE void createRoom(const QString &name, const QString &topic);
+
+    /**
+     * @brief Create new space.
+     */
+    Q_INVOKABLE void createSpace(const QString &name, const QString &topic);
+
 Q_SIGNALS:
     void labelChanged();
 };

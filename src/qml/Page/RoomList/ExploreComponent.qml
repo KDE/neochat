@@ -14,6 +14,7 @@ RowLayout {
 
     property var desiredWidth
     property bool collapsed: false
+    required property NeoChatConnection connection
 
     property Kirigami.Action exploreAction: Kirigami.Action {
         text: i18n("Explore rooms")
@@ -38,7 +39,7 @@ RowLayout {
         text: i18n("Create a Room")
         icon.name: "system-users"
         onTriggered: {
-            pageStack.pushDialogLayer("qrc:/CreateRoomDialog.qml", {}, {title: i18nc("@title", "Create a Room")})
+            pageStack.pushDialogLayer("qrc:/CreateRoomDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Create a Room")})
         }
         shortcut: StandardKey.New
     }
@@ -46,7 +47,7 @@ RowLayout {
         text: i18n("Create a Space")
         icon.name: "list-add"
         onTriggered: {
-            pageStack.pushDialogLayer("qrc:/CreateSpaceDialog.qml", {}, {title: i18nc("@title", "Create a Space")})
+            pageStack.pushDialogLayer("qrc:/CreateSpaceDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Create a Space")})
         }
     }
 

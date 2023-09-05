@@ -371,36 +371,6 @@ void Controller::saveWindowGeometry()
     WindowController::instance().saveGeometry();
 }
 
-void Controller::createRoom(const QString &name, const QString &topic)
-{
-    auto createRoomJob = m_connection->createRoom(Connection::PublishRoom, QString(), name, topic, QStringList());
-    connect(createRoomJob, &CreateRoomJob::failure, this, [this, createRoomJob] {
-        Q_EMIT errorOccured(i18n("Room creation failed: %1", createRoomJob->errorString()));
-    });
-    connectSingleShot(this, &Controller::roomAdded, &RoomManager::instance(), &RoomManager::enterRoom, Qt::QueuedConnection);
-}
-
-void Controller::createSpace(const QString &name, const QString &topic)
-{
-    auto createRoomJob = m_connection->createRoom(Connection::UnpublishRoom,
-                                                  {},
-                                                  name,
-                                                  topic,
-                                                  QStringList(),
-                                                  {},
-                                                  {},
-                                                  false,
-                                                  {},
-                                                  {},
-                                                  QJsonObject{
-                                                      {"type"_ls, "m.space"_ls},
-                                                  });
-    connect(createRoomJob, &CreateRoomJob::failure, this, [this, createRoomJob] {
-        Q_EMIT errorOccured(i18n("Space creation failed: %1", createRoomJob->errorString()));
-    });
-    connectSingleShot(this, &Controller::roomAdded, &RoomManager::instance(), &RoomManager::enterRoom, Qt::QueuedConnection);
-}
-
 bool Controller::isOnline() const
 {
     return m_isOnline;

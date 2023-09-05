@@ -12,6 +12,8 @@ FormCard.FormCardPage {
 
     title: i18nc("@title", "Create a Room")
 
+    required property NeoChatConnection connection
+
     Component.onCompleted: roomNameField.forceActiveFocus()
 
     FormCard.FormHeader {
@@ -35,7 +37,7 @@ FormCard.FormCardPage {
             text: i18nc("@action:button", "Ok")
             enabled: roomNameField.text.length > 0
             onClicked: {
-                Controller.createRoom(roomNameField.text, roomTopicField.text);
+                root.connection.createRoom(roomNameField.text, roomTopicField.text);
                 root.closeDialog()
             }
         }

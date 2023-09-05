@@ -144,7 +144,6 @@ void RoomListModel::doAddRoom(Room *r)
         m_rooms.append(room);
         connectRoomSignals(room);
         Q_EMIT roomAdded(room);
-        Q_EMIT Controller::instance().roomAdded(room);
     } else {
         qCritical() << "Attempt to add nullptr to the room list";
         Q_ASSERT(false);

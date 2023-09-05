@@ -89,6 +89,7 @@ Kirigami.Page {
         Layout.fillWidth: true
         desiredWidth: root.width - Kirigami.Units.largeSpacing
         collapsed: root.collapsed
+        connection: root.connection
     }
 
     padding: 0

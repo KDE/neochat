@@ -11,6 +11,8 @@ import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 FormCard.FormCardPage {
     id: root
 
+    required property NeoChatConnection connection
+
     title: i18n("Create a Space")
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -30,7 +32,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             text: i18n("Create space")
             onClicked: {
-                Controller.createSpace(nameDelegate.text, topicDelegate.text)
+                root.connection.createSpace(nameDelegate.text, topicDelegate.text)
                 root.close()
                 root.destroy()
             }

@@ -114,16 +114,6 @@ public:
     bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
 
     /**
-     * @brief Create new room for a group chat.
-     */
-    Q_INVOKABLE void createRoom(const QString &name, const QString &topic);
-
-    /**
-     * @brief Create new space.
-     */
-    Q_INVOKABLE void createSpace(const QString &name, const QString &topic);
-
-    /**
      * @brief Join a room.
      */
     Q_INVOKABLE void joinRoom(const QString &alias);
@@ -216,7 +206,6 @@ Q_SIGNALS:
     void userConsentRequired(QUrl url);
     void isOnlineChanged(bool isOnline);
     void activeConnectionIndexChanged();
-    void roomAdded(NeoChatRoom *room);
 
 public Q_SLOTS:
     void saveWindowGeometry();

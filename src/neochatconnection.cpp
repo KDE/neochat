@@ -8,6 +8,7 @@
 #include "controller.h"
 #include "jobs/neochatchangepasswordjob.h"
 #include "jobs/neochatdeactivateaccountjob.h"
+#include "roommanager.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <qt5keychain/keychain.h>
@@ -15,8 +16,11 @@
 #include <qt6keychain/keychain.h>
 #endif
 
+#include <KLocalizedString>
+
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
+#include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 #include <Quotient/user.h>
 
@@ -153,6 +157,28 @@ void NeoChatConnection::deactivateAccount(const QString &password)
                 logout(false);
             });
         }
+    });
+}
+
+void NeoChatConnection::createRoom(const QString &name, const QString &topic)
+{
+    const auto job = Connection::createRoom(Connection::PublishRoom, {}, name, topic, {});
+    connect(job, &CreateRoomJob::failure, this, [this, job] {
+        Q_EMIT Controller::instance().errorOccured(i18n("Room creation failed: %1", job->errorString()));
+    });
+    connectSingleShot(this, &Connection::newRoom, this, [](Room *room) {
+        RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(room));
+    });
+}
+
+void NeoChatConnection::createSpace(const QString &name, const QString &topic)
+{
+    const auto job = Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, {}, {}, QJsonObject{{"type"_ls, "m.space"_ls}});
+    connect(job, &CreateRoomJob::failure, this, [this, job] {
+        Q_EMIT Controller::instance().errorOccured(i18n("Space creation failed: %1", job->errorString()));
+    });
+    connectSingleShot(this, &Connection::newRoom, this, [](Room *room) {
+        RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(room));
     });
 }
 
