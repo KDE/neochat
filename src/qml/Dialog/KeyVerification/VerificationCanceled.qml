@@ -7,14 +7,14 @@ import QtQml 2.15
 import org.kde.neochat 1.0
 
 Message {
-    id: verificationCanceled
+    id: root
 
     required property int reason
 
     anchors.centerIn: parent
     icon: "security-low"
     text: {
-        switch(verificationCanceled.reason) {
+        switch(root.reason) {
             case KeyVerificationSession.NONE:
                 return i18n("The session verification was canceled for unknown reason.");
             case KeyVerificationSession.TIMEOUT:

@@ -13,7 +13,8 @@ import org.kde.kirigami 2.14 as Kirigami
  * TODO add Android support
  */
 Kirigami.Action {
-    id: shareAction
+    id: root
+
     icon.name: "emblem-shared-symbolic"
     text: i18n("Share")
     tooltip: i18n("Share the selected media")
@@ -40,12 +41,12 @@ Kirigami.Action {
             const purposeModel = Qt.createQmlObject('import org.kde.purpose 1.0 as Purpose;
 Purpose.PurposeAlternativesModel {
     pluginType: "Export"
-}', shareAction._instantiator);
+}', root._instantiator);
             purposeModel.inputData = Qt.binding(function() {
-                return shareAction.inputData;
+                return root.inputData;
             });
             _instantiator.model = purposeModel;
-            shareAction.visible = true;
+            root.visible = true;
         }
 
         delegate: Kirigami.Action {
@@ -55,16 +56,16 @@ Purpose.PurposeAlternativesModel {
             onTriggered: {
                 doBeforeSharing();
                 applicationWindow().pageStack.pushDialogLayer('qrc:/ShareDialog.qml', {
-                    title: shareAction.tooltip,
+                    title: root.tooltip,
                     index: index,
-                    model: shareAction._instantiator.model
+                    model: root._instantiator.model
                 })
             }
         }
         onObjectAdded: (index, object) => {
             object.index = index;
-            shareAction.children.push(object)
+            root.children.push(object)
         }
-        onObjectRemoved: (index, object) => shareAction.children = Array.from(shareAction.children).filter(obj => obj.pluginId !== object.pluginId)
+        onObjectRemoved: (index, object) => root.children = Array.from(root.children).filter(obj => obj.pluginId !== object.pluginId)
     }
 }

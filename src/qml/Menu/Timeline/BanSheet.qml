@@ -10,7 +10,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.Page {
-    id: banSheet
+    id: root
 
     property NeoChatRoom room
     property string userId
@@ -35,14 +35,14 @@ Kirigami.Page {
                 icon.name: "im-ban-user"
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 onClicked: {
-                    banSheet.room.ban(banSheet.userId, reason.text)
-                    banSheet.closeDialog()
+                    root.room.ban(root.userId, reason.text)
+                    root.closeDialog()
                 }
             }
             QQC2.Button {
                 text: i18nc("@action", "Cancel")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
-                onClicked: banSheet.closeDialog()
+                onClicked: root.closeDialog()
             }
         }
     }

@@ -8,7 +8,7 @@ import QtQuick 2.15
 import org.kde.kirigami 2.15 as Kirigami
 
 Gradient {
-    id: gradient
+    id: root
 
     orientation: Gradient.Horizontal
 
@@ -25,7 +25,7 @@ Gradient {
             from: -2.0
             to: 2.0
             duration: 700
-            target: gradient
+            target: root
             properties: "pos"
         }
         PauseAnimation {
@@ -33,7 +33,7 @@ Gradient {
         }
     }
 
-    GradientStop { position: gradient.pos-gradient.offset; color: gradient.translucent }
-    GradientStop { position: gradient.pos; color: gradient.bright }
-    GradientStop { position: gradient.pos+gradient.offset; color: gradient.translucent }
+    GradientStop { position: root.pos-root.offset; color: root.translucent }
+    GradientStop { position: root.pos; color: root.bright }
+    GradientStop { position: root.pos+root.offset; color: root.translucent }
 }

@@ -9,7 +9,8 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.neochat 1.0
 
 Column {
-    id: message
+    id: root
+
     required property string icon
     required property string text
 
@@ -18,10 +19,10 @@ Column {
         width: Kirigami.Units.iconSizes.enormous
         height: width
         anchors.horizontalCenter: parent.horizontalCenter
-        source: message.icon
+        source: root.icon
     }
     QQC2.Label {
-        text: message.text
+        text: root.text
         textFormat: Text.MarkdownText
     }
 }

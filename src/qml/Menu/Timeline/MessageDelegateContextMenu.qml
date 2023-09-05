@@ -11,7 +11,7 @@ import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 import org.kde.neochat 1.0
 
 Loader {
-    id: loadRoot
+    id: root
 
     required property var author
     required property string eventId
@@ -31,7 +31,7 @@ Loader {
                 currentRoom.chatBoxEditId = eventId;
                 currentRoom.chatBoxReplyId = "";
             }
-            visible: author.id === Controller.activeConnection.localUserId && (loadRoot.eventType === DelegateType.Emote || loadRoot.eventType === DelegateType.Message)
+            visible: author.id === Controller.activeConnection.localUserId && (root.eventType === DelegateType.Emote || root.eventType === DelegateType.Message)
         },
         Kirigami.Action {
             text: i18n("Reply")
@@ -50,7 +50,7 @@ Loader {
                     width: Kirigami.Units.gridUnit * 25
                 })
                 page.chosen.connect(function(targetRoomId) {
-                    Controller.activeConnection.room(targetRoomId).postHtmlMessage(loadRoot.plainText, loadRoot.htmlText ? loadRoot.htmlText : loadRoot.plainText)
+                    Controller.activeConnection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText ? root.htmlText : root.plainText)
                     page.closeDialog()
                 })
             }
@@ -68,7 +68,7 @@ Loader {
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
-            onTriggered: Clipboard.saveText(loadRoot.selectedText === "" ? loadRoot.plainText : loadRoot.selectedText)
+            onTriggered: Clipboard.saveText(root.selectedText === "" ? root.plainText : root.selectedText)
         },
         Kirigami.Action {
             text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
@@ -84,7 +84,7 @@ Loader {
             icon.name: "code-context"
             onTriggered: {
                 applicationWindow().pageStack.pushDialogLayer('qrc:/MessageSourceSheet.qml', {
-                    sourceText: loadRoot.source
+                    sourceText: root.eventSource
                 }, {
                     title: i18n("Message Source"),
                     width: Kirigami.Units.gridUnit * 25
@@ -95,7 +95,7 @@ Loader {
             text: i18n("Copy Link")
             icon.name: "edit-copy"
             onTriggered: {
-                Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + loadRoot.eventId)
+                Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId)
             }
         }
     ]
@@ -106,7 +106,7 @@ Loader {
         QQC2.Menu {
             id: menu
             Instantiator {
-                model: loadRoot.nestedActions
+                model: root.nestedActions
                 delegate: QQC2.Menu {
                     id: menuItem
                     visible: modelData.visible
@@ -131,12 +131,12 @@ Loader {
             }
 
             Repeater {
-                model: loadRoot.actions
+                model: root.actions
                 QQC2.MenuItem {
                     id: menuItem
                     visible: modelData.visible
                     action: modelData
-                    onClicked: loadRoot.item.close();
+                    onClicked: root.item.close();
                 }
             }
             QQC2.Menu {
@@ -150,7 +150,7 @@ Loader {
                 Instantiator {
                     model: WebShortcutModel {
                         id: webshortcutmodel
-                        selectedText: loadRoot.selectedText ? loadRoot.selectedText : loadRoot.plainText
+                        selectedText: root.selectedText ? root.selectedText : root.plainText
                         onOpenUrl: RoomManager.visitNonMatrix(url)
                     }
                     delegate: QQC2.MenuItem {
@@ -222,7 +222,7 @@ Loader {
                                 text: modelData.text
                                 onClicked: {
                                     modelData.triggered()
-                                    loadRoot.item.close();
+                                    root.item.close();
                                 }
                                 implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                             }
@@ -285,7 +285,7 @@ Loader {
 
                                 onClicked: {
                                     currentRoom.toggleReaction(eventId, modelData);
-                                    loadRoot.item.close();
+                                    root.item.close();
                                 }
                             }
                         }
@@ -295,7 +295,7 @@ Loader {
                     }
                     Repeater {
                         id: listViewAction
-                        model: loadRoot.actions
+                        model: root.actions
 
                         Kirigami.BasicListItem {
                             icon: modelData.icon.name
@@ -305,14 +305,14 @@ Loader {
                             text: modelData.text
                             onClicked: {
                                 modelData.triggered()
-                                loadRoot.item.close();
+                                root.item.close();
                             }
                             implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                         }
                     }
 
                     Repeater {
-                        model: loadRoot.nestedActions
+                        model: root.nestedActions
 
                         Kirigami.BasicListItem {
                             action: modelData

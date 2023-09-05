@@ -10,7 +10,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.Page {
-    id: deleteSheet
+    id: root
 
     property NeoChatRoom room
     property string eventId
@@ -37,18 +37,18 @@ Kirigami.Page {
                 icon.name: "delete"
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 onClicked: {
-                    if (deleteSheet.userId.length > 0) {
-                        deleteSheet.room.deleteMessagesByUser(deleteSheet.userId, reason.text)
+                    if (root.userId.length > 0) {
+                        root.room.deleteMessagesByUser(root.userId, reason.text)
                     } else {
-                        deleteSheet.room.redactEvent(deleteSheet.eventId, reason.text);
+                        root.room.redactEvent(root.eventId, reason.text);
                     }
-                    deleteSheet.closeDialog()
+                    root.closeDialog()
                 }
             }
             QQC2.Button {
                 text: i18nc("@action", "Cancel")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
-                onClicked: deleteSheet.closeDialog()
+                onClicked: root.closeDialog()
             }
         }
     }

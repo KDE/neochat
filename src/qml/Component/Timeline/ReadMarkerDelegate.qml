@@ -11,7 +11,8 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 QQC2.ItemDelegate {
-    id: readMarkerDelegate
+    id: root
+
     padding: Kirigami.Units.largeSpacing
     topInset: Kirigami.Units.largeSpacing
     topPadding: Kirigami.Units.largeSpacing * 2
@@ -41,7 +42,7 @@ QQC2.ItemDelegate {
         State {
             name: "alignLeft"
             AnchorChanges {
-                target: readMarkerDelegate
+                target: root
                 anchors.horizontalCenter: undefined
                 anchors.left: parent ? parent.left : undefined
             }
@@ -49,7 +50,7 @@ QQC2.ItemDelegate {
         State {
             name: "alignCenter"
             AnchorChanges {
-                target: readMarkerDelegate
+                target: root
                 anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
                 anchors.left: undefined
             }
@@ -72,7 +73,7 @@ QQC2.ItemDelegate {
     background: Kirigami.ShadowedRectangle {
         id: readMarkerBackground
         color: {
-            if (readMarkerDelegate.isTemporaryHighlighted) {
+            if (root.isTemporaryHighlighted) {
                 return Kirigami.Theme.positiveBackgroundColor
             } else {
                 return Kirigami.Theme.backgroundColor
@@ -80,7 +81,7 @@ QQC2.ItemDelegate {
         }
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.View
-        opacity: readMarkerDelegate.isTemporaryHighlighted ? 1 : 0.6
+        opacity: root.isTemporaryHighlighted ? 1 : 0.6
         radius: Kirigami.Units.smallSpacing
         shadow.size: Kirigami.Units.smallSpacing
         shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)

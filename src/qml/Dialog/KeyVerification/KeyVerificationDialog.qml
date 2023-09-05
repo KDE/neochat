@@ -10,7 +10,8 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.Page {
-    id: dialog
+    id: root
+
     title: i18n("Session Verification")
 
     required property var session
@@ -18,31 +19,31 @@ Kirigami.Page {
     Item {
         anchors.fill: parent
         VerificationCanceled {
-            visible: dialog.session.state === KeyVerificationSession.CANCELED
+            visible: root.session.state === KeyVerificationSession.CANCELED
             anchors.centerIn: parent
-            reason: dialog.session.error
+            reason: root.session.error
         }
         EmojiSas {
             anchors.centerIn: parent
-            visible: dialog.session.state === KeyVerificationSession.WAITINGFORVERIFICATION
-            model: dialog.session.sasEmojis
-            onReject: dialog.session.cancelVerification(KeyVerificationSession.MISMATCHED_SAS)
-            onAccept: dialog.session.sendMac()
+            visible: root.session.state === KeyVerificationSession.WAITINGFORVERIFICATION
+            model: root.session.sasEmojis
+            onReject: root.session.cancelVerification(KeyVerificationSession.MISMATCHED_SAS)
+            onAccept: root.session.sendMac()
         }
         Message {
-            visible: dialog.session.state === KeyVerificationSession.WAITINGFORREADY
+            visible: root.session.state === KeyVerificationSession.WAITINGFORREADY
             anchors.centerIn: parent
             icon: "security-medium-symbolic"
             text: i18n("Waiting for device to accept verification.")
         }
         Message {
-            visible: dialog.session.state === KeyVerificationSession.INCOMING
+            visible: root.session.state === KeyVerificationSession.INCOMING
             anchors.centerIn: parent
             icon: "security-medium-symbolic"
-            text: i18n("Incoming key verification request from device **%1**", dialog.session.remoteDeviceId)
+            text: i18n("Incoming key verification request from device **%1**", root.session.remoteDeviceId)
         }
         Message {
-            visible: dialog.session.state === KeyVerificationSession.WAITINGFORMAC
+            visible: root.session.state === KeyVerificationSession.WAITINGFORMAC
             anchors.centerIn: parent
             icon: "security-medium-symbolic"
             text: i18n("Waiting for other party to verify.")
@@ -50,35 +51,35 @@ Kirigami.Page {
         Kirigami.BasicListItem {
             id: emojiVerification
             text: "Emoji Verification"
-            visible: dialog.session.state === KeyVerificationSession.READY
+            visible: root.session.state === KeyVerificationSession.READY
             subtitle: i18n("Compare a set of emoji on both devices")
             onClicked: {
-                dialog.session.sendStartSas()
+                root.session.sendStartSas()
             }
         }
         Message {
-            visible: dialog.session.state === KeyVerificationSession.DONE
+            visible: root.session.state === KeyVerificationSession.DONE
             anchors.centerIn: parent
-            text: i18n("Successfully verified device **%1**", dialog.session.remoteDeviceId)
+            text: i18n("Successfully verified device **%1**", root.session.remoteDeviceId)
             icon: "security-high"
         }
     }
 
     footer: QQC2.ToolBar {
-        visible: dialog.session.state === KeyVerificationSession.INCOMING
+        visible: root.session.state === KeyVerificationSession.INCOMING
         QQC2.DialogButtonBox {
             anchors.fill: parent
             Item { Layout.fillWidth: true }
             QQC2.Button {
                 text: i18n("Accept")
                 icon.name: "dialog-ok"
-                onClicked: dialog.session.sendReady()
+                onClicked: root.session.sendReady()
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             }
             QQC2.Button {
                 text: i18n("Decline")
                 icon.name: "dialog-cancel"
-                onClicked: dialog.session.cancelVerification("m.user", "Declined")
+                onClicked: root.session.cancelVerification("m.user", "Declined")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
             }
         }

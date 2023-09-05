@@ -7,7 +7,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 
 QQC2.ScrollView {
-    id: emojiGrid
+    id: root
 
     property alias model: emojis.model
     property alias count: emojis.count
@@ -40,10 +40,10 @@ QQC2.ScrollView {
         }
         onModelChanged: currentIndex = -1
 
-        cellWidth: emojis.width / emojiGrid.emojisPerRow
-        cellHeight: emojiGrid.targetIconSize
+        cellWidth: emojis.width / root.emojisPerRow
+        cellHeight: root.targetIconSize
 
-        KeyNavigation.up: emojiGrid.header
+        KeyNavigation.up: root.header
 
         clip: true
 
@@ -56,14 +56,14 @@ QQC2.ScrollView {
             width: emojis.cellWidth
             height: emojis.cellHeight
 
-            isImage: emojiGrid.stickers
+            isImage: root.stickers
             Keys.onEnterPressed: clicked()
             Keys.onReturnPressed: clicked()
             onClicked: {
-                if (emojiGrid.stickers) {
-                    emojiGrid.stickerChosen(model.index)
+                if (root.stickers) {
+                    root.stickerChosen(model.index)
                 }
-                emojiGrid.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode)
+                root.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode)
                 EmojiModel.emojiUsed(modelData)
             }
             Keys.onSpacePressed: pressAndHold()
@@ -71,7 +71,7 @@ QQC2.ScrollView {
                 if (EmojiModel.tones(modelData.shortName).length === 0) {
                     return;
                 }
-                let tones = tonesPopupComponent.createObject(emojiDelegate, {shortName: modelData.shortName, unicode: modelData.unicode, categoryIconSize: emojiGrid.targetIconSize})
+                let tones = tonesPopupComponent.createObject(emojiDelegate, {shortName: modelData.shortName, unicode: modelData.unicode, categoryIconSize: root.targetIconSize})
                 tones.open()
                 tones.forceActiveFocus()
             }
@@ -80,14 +80,14 @@ QQC2.ScrollView {
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
-            text: emojiGrid.stickers ? i18n("No stickers") : i18n("No emojis")
+            text: root.stickers ? i18n("No stickers") : i18n("No emojis")
             visible: emojis.count === 0
         }
     }
     Component {
         id: tonesPopupComponent
         EmojiTonesPicker {
-            onChosen: emojiGrid.chosen(emoji)
+            onChosen: root.chosen(emoji)
         }
     }
 }

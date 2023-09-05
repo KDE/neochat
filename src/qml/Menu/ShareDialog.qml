@@ -13,7 +13,7 @@ import org.kde.notification 1.0
 import org.kde.kirigami 2.14 as Kirigami
 
 Kirigami.Page {
-    id: window
+    id: root
 
     leftPadding: 0
     rightPadding: 0
@@ -25,7 +25,7 @@ Kirigami.Page {
 
     QQC2.Action {
         shortcut: 'Escape'
-        onTriggered: window.closeDialog()
+        onTriggered: root.closeDialog()
     }
 
     Notification {
@@ -54,15 +54,15 @@ Kirigami.Page {
                     sharingSuccess.sendEvent();
                     Clipboard.saveText(jobView.output.url);
                 }
-                window.closeDialog()
+                root.closeDialog()
             } else if (state === Purpose.PurposeJobController.Error) {
                 // Show failure notification
                 sharingFailed.sendEvent();
 
-                window.closeDialog()
+                root.closeDialog()
             } else if (state === Purpose.PurposeJobController.Cancelled) {
                 // Do nothing
-                window.closeDialog()
+                root.closeDialog()
             }
         }
     }

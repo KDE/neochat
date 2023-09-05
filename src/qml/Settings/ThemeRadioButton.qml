@@ -9,7 +9,7 @@ import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
 QQC2.RadioButton {
-    id: delegate
+    id: root
 
     implicitWidth: contentItem.implicitWidth
     implicitHeight: contentItem.implicitHeight
@@ -20,7 +20,7 @@ QQC2.RadioButton {
     contentItem: ColumnLayout {
         Kirigami.ShadowedRectangle {
             implicitWidth: implicitHeight * 1.6
-            implicitHeight: delegate.thin ? Kirigami.Units.gridUnit * 5 : Kirigami.Units.gridUnit * 6
+            implicitHeight: root.thin ? Kirigami.Units.gridUnit * 5 : Kirigami.Units.gridUnit * 6
             radius: Kirigami.Units.smallSpacing
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -31,9 +31,9 @@ QQC2.RadioButton {
             shadow.color: Qt.rgba(0, 0, 0, 0.3)
 
             color: {
-                if (delegate.checked) {
+                if (root.checked) {
                     return Kirigami.Theme.highlightColor;
-                } else if (delegate.hovered) {
+                } else if (root.hovered) {
                     // Match appearance of hovered list items
                     return Qt.rgba(Kirigami.Theme.highlightColor.r,
                                 Kirigami.Theme.highlightColor.g,
@@ -54,7 +54,7 @@ QQC2.RadioButton {
         QQC2.Label {
             id: label
             Layout.fillWidth: true
-            text: delegate.text
+            text: root.text
             horizontalAlignment: Text.AlignHCenter
         }
     }

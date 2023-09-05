@@ -9,7 +9,7 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.neochat 1.0
 
 Column {
-    id: emojiSas
+    id: root
 
     required property var model
 
@@ -25,12 +25,12 @@ Column {
     EmojiRow {
         anchors.horizontalCenter: parent.horizontalCenter
         height: Kirigami.Units.gridUnit * 4
-        model: emojiSas.model.slice(0, 4)
+        model: root.model.slice(0, 4)
     }
     EmojiRow {
         anchors.horizontalCenter: parent.horizontalCenter
         height: Kirigami.Units.gridUnit * 4
-        model: emojiSas.model.slice(4, 7)
+        model: root.model.slice(4, 7)
     }
     Row {
         anchors.horizontalCenter: parent.horizontalCenter
@@ -38,13 +38,13 @@ Column {
             anchors.bottom: parent.bottom
             text: i18n("They match")
             icon.name: "dialog-ok"
-            onClicked: emojiSas.accept()
+            onClicked: root.accept()
         }
         QQC2.Button {
             anchors.bottom: parent.bottom
             text: i18n("They don't match")
             icon.name: "dialog-cancel"
-            onClicked:  emojiSas.reject()
+            onClicked:  root.reject()
         }
     }
 }

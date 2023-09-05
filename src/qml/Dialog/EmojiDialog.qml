@@ -9,7 +9,7 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 QQC2.Popup {
-    id: emojiPopup
+    id: root
 
     /**
      * @brief The current room that user is viewing.
@@ -25,7 +25,7 @@ QQC2.Popup {
     Connections {
         target: RoomManager
         function onCurrentRoomChanged() {
-            emojiPopup.close()
+            root.close()
         }
     }
 
@@ -64,11 +64,11 @@ QQC2.Popup {
         id: emojiPicker
         height: 400
         currentRoom: root.currentRoom
-        includeCustom: emojiPopup.includeCustom
-        showQuickReaction: emojiPopup.showQuickReaction
+        includeCustom: root.includeCustom
+        showQuickReaction: root.showQuickReaction
         onChosen: emoji => {
-            emojiPopup.chosen(emoji)
-            if (emojiPopup.closeOnChosen) emojiPopup.close()
+            root.chosen(emoji)
+            if (root.closeOnChosen) root.close()
         }
     }
 }

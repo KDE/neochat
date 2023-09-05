@@ -11,7 +11,7 @@ import org.kde.kirigamiaddons.delegates 1.0 as Delegates
 import org.kde.neochat 1.0
 
 QQC2.ToolBar {
-    id: userInfo
+    id: root
 
     padding: 0
 
@@ -33,7 +33,7 @@ QQC2.ToolBar {
                 id: addButton
                 width: parent.width
                 highlighted: focus || (addAccount.highlighted || addAccount.ListView.isCurrentItem) && !addAccount.pressed
-                Component.onCompleted: userInfo.addAccount = this
+                Component.onCompleted: root.addAccount = this
                 icon {
                     name: "list-add"
                     width: Kirigami.Units.iconSizes.smallMedium

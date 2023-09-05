@@ -8,7 +8,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 
 QQC2.Popup {
-    id: tones
+    id: root
 
     signal chosen(string emoji)
 
@@ -20,14 +20,14 @@ QQC2.Popup {
     required property string shortName
     required property string unicode
     required property int categoryIconSize
-    width: tones.categoryIconSize * tonesList.count + 2 * padding
-    height: tones.categoryIconSize + 2 * padding
+    width: root.categoryIconSize * tonesList.count + 2 * padding
+    height: root.categoryIconSize + 2 * padding
     y: -height
     padding: 2
     modal: true
     dim: true
     clip: false
-    onOpened: x = Math.min(parent.mapFromGlobal(QQC2.Overlay.overlay.width - tones.width, 0).x, -(width - parent.width) / 2)
+    onOpened: x = Math.min(parent.mapFromGlobal(QQC2.Overlay.overlay.width - root.width, 0).x, -(width - parent.width) / 2)
     background: Kirigami.ShadowedRectangle {
         color: Kirigami.Theme.backgroundColor
         radius: Kirigami.Units.mediumSpacing
@@ -47,7 +47,7 @@ QQC2.Popup {
         width: parent.width
         height: parent.height
         orientation: Qt.Horizontal
-        model: EmojiModel.tones(tones.shortName)
+        model: EmojiModel.tones(root.shortName)
         keyNavigationEnabled: true
         keyNavigationWraps: true
 
@@ -57,15 +57,15 @@ QQC2.Popup {
             emoji: modelData.unicode
             name: modelData.shortName
 
-            width: tones.categoryIconSize
+            width: root.categoryIconSize
             height: width
 
             Keys.onEnterPressed: clicked()
             Keys.onReturnPressed: clicked()
             onClicked: {
-                tones.chosen(modelData.unicode)
+                root.chosen(modelData.unicode)
                 EmojiModel.emojiUsed(modelData)
-                tones.close()
+                root.close()
             }
         }
     }

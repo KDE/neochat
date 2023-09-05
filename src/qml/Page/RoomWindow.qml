@@ -10,23 +10,24 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.ApplicationWindow {
-    id: window
+    id: root
+
     required property NeoChatRoom currentRoom
     minimumWidth: Kirigami.Units.gridUnit * 10
     minimumHeight: Kirigami.Units.gridUnit * 15
 
     Shortcut {
         sequence: StandardKey.Cancel
-        onActivated: window.close()
+        onActivated: root.close()
     }
     pageStack.initialPage: RoomPage {
         visible: true
-        currentRoom: window.currentRoom
+        currentRoom: root.currentRoom
         disableCancelShortcut: true
     }
 
     onCurrentRoomChanged: if (!currentRoom) {
-        window.close()
+        root.close()
     }
 
     property Item hoverLinkIndicator: QQC2.Control {

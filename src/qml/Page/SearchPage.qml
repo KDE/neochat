@@ -10,7 +10,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
-    id: searchPage
+    id: root
 
     property NeoChatRoom currentRoom
 
@@ -22,7 +22,7 @@ Kirigami.ScrollablePage {
         id: searchModel
         connection: Controller.activeConnection
         searchText: searchField.text
-        room: searchPage.currentRoom
+        room: root.currentRoom
     }
 
     header: RowLayout {

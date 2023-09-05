@@ -9,7 +9,7 @@ import QtQuick.Layouts 1.15
 import org.kde.neochat 1.0
 
 KirigamiSettings.CategorizedSettings {
-    id: settingsPage
+    id: root
 
     required property NeoChatConnection connection
 
@@ -66,7 +66,7 @@ KirigamiSettings.CategorizedSettings {
             page: Qt.resolvedUrl("DevicesPage.qml")
             initialProperties: {
                 return {
-                    connection: settingsPage.connection
+                    connection: root.connection
                 }
             }
         },

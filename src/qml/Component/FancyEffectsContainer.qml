@@ -8,7 +8,7 @@ import QtQuick.Particles 2.15
 import org.kde.kirigami 2.15 as Kirigami
 
 Item {
-    id: item
+    id: root
     property bool enabled: false
     property int effectInterval: Kirigami.Units.veryLongDuration*10;
     property color darkSnowColor: "grey"
@@ -30,12 +30,12 @@ Item {
 
     Timer {
         id: confettiTimer
-        interval: item.effectInterval;
+        interval: root.effectInterval;
         running: false;
         repeat: false;
         triggeredOnStart: true;
         onTriggered: {
-            if (item.enabled) {
+            if (root.enabled) {
                 confettiSystem.running = !confettiSystem.running
             }
         }
@@ -92,12 +92,12 @@ Item {
 
     Timer {
         id: snowTimer
-        interval: item.effectInterval;
+        interval: root.effectInterval;
         running: false;
         repeat: false;
         triggeredOnStart: true;
         onTriggered: {
-            if (item.enabled) {
+            if (root.enabled) {
                 snowSystem.running = !snowSystem.running
             }
         }
@@ -127,7 +127,7 @@ Item {
                 width: 10
                 height: width
                 radius: width
-                color: item.isThemeDark ? "white" : darkSnowColor
+                color: root.isThemeDark ? "white" : darkSnowColor
                 scale: Math.random()
                 opacity: Math.random()
             }
@@ -157,12 +157,12 @@ Item {
 
     Timer {
         id: fireworksTimer
-        interval: item.effectInterval;
+        interval: root.effectInterval;
         running: false;
         repeat: false;
         triggeredOnStart: true;
         onTriggered: {
-            if (item.enabled) {
+            if (root.enabled) {
                 fireworksInternalTimer.running = !fireworksInternalTimer.running
             }
         }
@@ -206,8 +206,8 @@ Item {
         id: fireworksParticleA
         system: fireworksSystem
         source: "qrc:/glowdot.png"
-        alphaVariation: item.isThemeDark ? 0.1 : 0.1
-        alpha: item.isThemeDark ? 0.5 : 1
+        alphaVariation: root.isThemeDark ? 0.1 : 0.1
+        alpha: root.isThemeDark ? 0.5 : 1
         groups: ["a"]
         opacity: fireworksSystem.opacity
         entryEffect: ImageParticle.Scale
@@ -217,9 +217,9 @@ Item {
     ImageParticle {
         system: fireworksSystem
         source: "qrc:/glowdot.png"
-        color: item.isThemeDark ? "white" : "gold"
-        alphaVariation: item.isThemeDark ? 0.1 : 0.1
-        alpha: item.isThemeDark ? 0.5 : 1
+        color: root.isThemeDark ? "white" : "gold"
+        alphaVariation: root.isThemeDark ? 0.1 : 0.1
+        alpha: root.isThemeDark ? 0.5 : 1
         groups: ["light"]
         opacity: fireworksSystem.opacity
         entryEffect: ImageParticle.Scale
@@ -230,8 +230,8 @@ Item {
         id: fireworksParticleB
         system: fireworksSystem
         source: "qrc:/glowdot.png"
-        alphaVariation: item.isThemeDark ? 0.1 : 0.1
-        alpha: item.isThemeDark ? 0.5 : 1
+        alphaVariation: root.isThemeDark ? 0.1 : 0.1
+        alpha: root.isThemeDark ? 0.5 : 1
         groups: ["b"]
         opacity: fireworksSystem.opacity
         entryEffect: ImageParticle.Scale
@@ -257,7 +257,7 @@ Item {
                 onTriggered: {
                     container.destroy();
                     var randomHue = Math.random()
-                    var lightness = item.isThemeDark ? 0.8 : 0.7
+                    var lightness = root.isThemeDark ? 0.8 : 0.7
                     fireworksParticleA.color = Qt.hsla(randomHue, 0.8, lightness, 1)
                     fireworksParticleB.color = Qt.hsla(1-randomHue, 0.8, lightness, 1)
                 }

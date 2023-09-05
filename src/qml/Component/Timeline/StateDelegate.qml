@@ -11,7 +11,7 @@ import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 import org.kde.neochat 1.0
 
 QQC2.Control {
-    id: stateDelegate
+    id: root
 
     readonly property bool sectionVisible: model.showSection
 
@@ -23,7 +23,7 @@ QQC2.Control {
         State {
             name: "alignLeft"
             AnchorChanges {
-                target: stateDelegate
+                target: root
                 anchors.horizontalCenter: undefined
                 anchors.left: parent ? parent.left : undefined
             }
@@ -31,7 +31,7 @@ QQC2.Control {
         State {
             name: "alignCenter"
             AnchorChanges {
-                target: stateDelegate
+                target: root
                 anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
                 anchors.left: undefined
             }
@@ -204,6 +204,6 @@ QQC2.Control {
         endPercentWidth: Config.compactLayout ? 100 : 85
         maxWidth: Config.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
 
-        parentWidth: stateDelegate.parent ? stateDelegate.parent.width : 0
+        parentWidth: root.parent ? root.parent.width : 0
     }
 }

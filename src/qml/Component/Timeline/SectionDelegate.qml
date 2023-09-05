@@ -11,7 +11,7 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 QQC2.ItemDelegate {
-    id: sectionDelegate
+    id: root
 
     property alias labelText: sectionLabel.text
     property var maxWidth: Number.POSITIVE_INFINITY
@@ -44,6 +44,6 @@ QQC2.ItemDelegate {
     background: Rectangle {
         color: Config.blur ? "transparent" : Kirigami.Theme.backgroundColor
         Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: sectionDelegate.colorSet
+        Kirigami.Theme.colorSet: root.colorSet
     }
 }

@@ -9,7 +9,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.Page {
-    id: locationsPage
+    id: root
 
     required property var room
 
@@ -31,7 +31,7 @@ Kirigami.Page {
         MapItemView {
             model: LocationsModel {
                 id: locationsModel
-                room: locationsPage.room
+                room: root.room
             }
             delegate: LocationMapItem {
                 isLive: true
@@ -42,7 +42,7 @@ Kirigami.Page {
         MapItemView {
             model: LiveLocationsModel {
                 id: liveLocationsModel
-                room: locationsPage.room
+                room: root.room
             }
             delegate: LocationMapItem {}
         }

@@ -7,7 +7,7 @@ import QtQml 2.15
 import org.kde.neochat 1.0
 
 Row {
-    id: emojiRow
+    id: root
 
     property alias model: repeater.model
     anchors.horizontalCenter: parent.horizontalCenter
@@ -16,7 +16,7 @@ Row {
         delegate: EmojiItem {
             emoji: modelData.emoji
             description: modelData.description
-            width: emojiRow.height
+            width: root.height
             height: width
         }
     }

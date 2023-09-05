@@ -10,7 +10,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.Page {
-    id: reportSheet
+    id: root
 
     property NeoChatRoom room
     property string eventId
@@ -35,14 +35,14 @@ Kirigami.Page {
                 icon.name: "dialog-warning-symbolic"
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 onClicked: {
-                    reportSheet.room.reportEvent(eventId, reason.text)
-                    reportSheet.closeDialog()
+                    root.room.reportEvent(eventId, reason.text)
+                    root.closeDialog()
                 }
             }
             QQC2.Button {
                 text: i18nc("@action", "Cancel")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
-                onClicked: reportSheet.closeDialog()
+                onClicked: root.closeDialog()
             }
         }
     }

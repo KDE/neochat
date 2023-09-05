@@ -10,7 +10,7 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 QQC2.Dialog {
-    id: confirmEncryptionDialog
+    id: root
 
     property NeoChatRoom room
 
@@ -31,15 +31,15 @@ QQC2.Dialog {
         QQC2.Button {
             text: i18n("Cancel")
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
-            onClicked: confirmEncryptionDialog.close()
+            onClicked: root.close()
         }
 
         QQC2.Button {
             text: i18n("Activate Encryption")
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             onClicked: {
-                confirmEncryptionDialog.room.activateEncryption()
-                confirmEncryptionDialog.close();
+                root.room.activateEncryption()
+                root.close();
             }
         }
     }

@@ -12,7 +12,7 @@ import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 import org.kde.neochat 1.0
 
 FormCard.AbstractFormDelegate {
-    id: deviceDelegate
+    id: root
 
     required property string id
     required property string timestamp
@@ -21,7 +21,7 @@ FormCard.AbstractFormDelegate {
     property bool editDeviceName: false
     property bool showVerifyButton
 
-    onClicked: deviceDelegate.editDeviceName = true
+    onClicked: root.editDeviceName = true
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.largeSpacing
@@ -35,11 +35,11 @@ FormCard.AbstractFormDelegate {
             id: deviceLabel
             Layout.fillWidth: true
             spacing: Kirigami.Units.smallSpacing
-            visible: !deviceDelegate.editDeviceName
+            visible: !root.editDeviceName
 
             QQC2.Label {
                 Layout.fillWidth: true
-                text: deviceDelegate.displayName
+                text: root.displayName
                 elide: Text.ElideRight
                 wrapMode: Text.Wrap
                 maximumLineCount: 2
@@ -47,7 +47,7 @@ FormCard.AbstractFormDelegate {
 
             QQC2.Label {
                 Layout.fillWidth: true
-                text: i18nc("@label", "%1, Last activity: %2", deviceDelegate.id, deviceDelegate.timestamp)
+                text: i18nc("@label", "%1, Last activity: %2", root.id, root.timestamp)
                 color: Kirigami.Theme.disabledTextColor
                 font: Kirigami.Theme.smallFont
                 elide: Text.ElideRight
@@ -59,29 +59,29 @@ FormCard.AbstractFormDelegate {
             Accessible.description: i18n("New device name")
             Layout.fillWidth: true
             Layout.preferredHeight: deviceLabel.implicitHeight
-            visible: deviceDelegate.editDeviceName
+            visible: root.editDeviceName
 
-            text: deviceDelegate.displayName
+            text: root.displayName
 
             rightActions: [
                 Kirigami.Action {
                     text: i18n("Cancel editing display name")
                     icon.name: "edit-delete-remove"
                     onTriggered: {
-                        deviceDelegate.editDeviceName = false
+                        root.editDeviceName = false
                     }
                 },
                 Kirigami.Action {
                     text: i18n("Confirm new display name")
                     icon.name: "checkmark"
-                    visible: nameField.text !== deviceDelegate.displayName
+                    visible: nameField.text !== root.displayName
                     onTriggered: {
-                        devicesModel.setName(deviceDelegate.id, nameField.text)
+                        devicesModel.setName(root.id, nameField.text)
                     }
                 }
             ]
 
-            onAccepted: devicesModel.setName(deviceDelegate.id, nameField.text)
+            onAccepted: devicesModel.setName(root.id, nameField.text)
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
@@ -89,7 +89,7 @@ FormCard.AbstractFormDelegate {
                 id: editDeviceAction
                 text: i18n("Edit device name")
                 icon.name: "document-edit"
-                onTriggered: deviceDelegate.editDeviceName = true
+                onTriggered: root.editDeviceName = true
             }
             QQC2.ToolTip {
                 text: editDeviceAction.text
@@ -98,13 +98,13 @@ FormCard.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            visible: deviceDelegate.showVerifyButton
+            visible: root.showVerifyButton
             action: Kirigami.Action {
                 id: verifyDeviceAction
                 text: i18n("Verify device")
                 icon.name: "security-low-symbolic"
                 onTriggered: {
-                    devicesModel.connection.startKeyVerificationSession(devicesModel.connection.localUserId, deviceDelegate.id)
+                    devicesModel.connection.startKeyVerificationSession(devicesModel.connection.localUserId, root.id)
                 }
             }
             QQC2.ToolTip {
@@ -119,7 +119,7 @@ FormCard.AbstractFormDelegate {
                 text: i18n("Logout device")
                 icon.name: "edit-delete-remove"
                 onTriggered: {
-                    passwordSheet.deviceId = deviceDelegate.id
+                    passwordSheet.deviceId = root.id
                     passwordSheet.open()
                 }
             }

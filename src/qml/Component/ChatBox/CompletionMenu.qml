@@ -14,7 +14,7 @@ import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 import org.kde.neochat 1.0
 
 QQC2.Popup {
-    id: completionMenu
+    id: root
     width: parent.width
 
     visible: completions.count > 0
@@ -38,7 +38,7 @@ QQC2.Popup {
     }
 
     function complete() {
-        completionMenu.chatDocumentHandler.complete(completions.currentIndex)
+        root.chatDocumentHandler.complete(completions.currentIndex)
     }
 
     leftPadding: 0
@@ -52,7 +52,7 @@ QQC2.Popup {
         id: completions
 
         anchors.fill: parent
-        model: completionMenu.chatDocumentHandler.completionModel
+        model: root.chatDocumentHandler.completionModel
         currentIndex: 0
         keyNavigationWraps: true
         highlightMoveDuration: 100
@@ -81,7 +81,7 @@ QQC2.Popup {
                     subtitleItem.textFormat: Text.PlainText
                 }
             }
-            onClicked: completionMenu.chatDocumentHandler.complete(completionDelegate.index)
+            onClicked: root.chatDocumentHandler.complete(completionDelegate.index)
         }
     }
 

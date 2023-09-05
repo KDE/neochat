@@ -9,7 +9,7 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.neochat 1.0
 
 Column {
-    id: emojiItem
+    id: root
 
     property string emoji
     property string description
@@ -23,7 +23,7 @@ Column {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
 
-        text: emojiItem.emoji
+        text: root.emoji
         font.family: "emoji"
         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 4
     }
@@ -32,7 +32,7 @@ Column {
         y: parent.height * 0.75
         width: parent.width
         height: parent.height * 0.25
-        text: emojiItem.description
+        text: root.description
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
