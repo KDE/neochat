@@ -134,23 +134,25 @@ QQC2.ScrollView {
             implicitWidth: Kirigami.Units.gridUnit * 2
             implicitHeight: Kirigami.Units.gridUnit * 2
 
+            display: QQC2.AbstractButton.IconOnly
+            focusPolicy: Qt.NoFocus
+
             z: 2
             visible: root.currentRoom && root.currentRoom.hasUnreadMessages && root.currentRoom.readMarkerLoaded
             action: Kirigami.Action {
+                icon.name: "go-up"
+                shortcut: "Shift+PgUp"
+                text: i18n("Jump to first unread message")
+
                 onTriggered: {
                     if (!Kirigami.Settings.isMobile) {
                         root.focusChatBox();
                     }
                     messageListView.goToEvent(root.currentRoom.readMarkerEventId)
                 }
-                icon.name: "go-up"
-                shortcut: "Shift+PgUp"
-            }
-
-            QQC2.ToolTip {
-                text: i18n("Jump to first unread message")
             }
         }
+
         QQC2.RoundButton {
             id: goMarkAsReadFab
             anchors.right: parent.right
@@ -160,18 +162,19 @@ QQC2.ScrollView {
             implicitWidth: Kirigami.Units.gridUnit * 2
             implicitHeight: Kirigami.Units.gridUnit * 2
 
+            display: QQC2.AbstractButton.IconOnly
+            focusPolicy: Qt.NoFocus
+
             z: 2
             visible: !messageListView.atYEnd
             action: Kirigami.Action {
+                icon.name: "go-down"
+                text: i18n("Jump to latest message")
+
                 onTriggered: {
                     messageListView.goToLastMessage();
                     root.currentRoom.markAllMessagesAsRead();
                 }
-                icon.name: "go-down"
-            }
-
-            QQC2.ToolTip {
-                text: i18n("Jump to latest message")
             }
         }
 
