@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-04 00:46+0000\n"
+"POT-Creation-Date: 2023-09-06 00:46+0000\n"
 "PO-Revision-Date: 2023-09-04 08:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #: src/controller.cpp:208
@@ -3491,12 +3491,6 @@ msgstr ""
 "Novi člani lahko vidijo zgodovino sporočil od trenutka, ko so se pridružili "
 "sobi."
 
-#: src/qml/RoomSettings/Security.qml:133
-#: src/qml/Settings/NetworkProxyPage.qml:106
-#, kde-format
-msgid "Apply"
-msgstr "Uveljavi"
-
 #: src/qml/Settings/About.qml:10
 #, kde-format
 msgctxt "@title:window"
@@ -4015,6 +4009,11 @@ msgstr "Vrata"
 #, kde-format
 msgid "User"
 msgstr "Uporabnik"
+
+#: src/qml/Settings/NetworkProxyPage.qml:106
+#, kde-format
+msgid "Apply"
+msgstr "Uveljavi"
 
 #: src/qml/Settings/NotificationRuleItem.qml:70
 #, kde-format
