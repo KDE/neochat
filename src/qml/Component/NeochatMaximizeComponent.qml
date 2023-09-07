@@ -87,7 +87,6 @@ Components.AlbumMaximizeComponent {
             eventId: root.currentEventId,
             source: root.currentJsonSource,
             file: parent,
-            mimeType: root.currentMimeType,
             progressInfo: root.currentProgressInfo,
             plainText: root.currentPlainText
         });

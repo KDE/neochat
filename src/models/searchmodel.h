@@ -61,23 +61,25 @@ public:
         ShowSectionRole,
         SectionRole,
         TimeRole,
+        TimeStringRole,
         EventIdRole,
         ExcessReadMarkersRole,
         HighlightRole,
         ReadMarkersString,
         PlainTextRole,
         VerifiedRole,
-        ReplyAuthorRole,
         ProgressInfoRole,
-        IsReplyRole,
         ShowReactionsRole,
-        ReplyRole,
-        ReactionRole,
+        IsReplyRole,
+        ReplyAuthorRole,
+        ReplyIdRole,
+        ReplyDelegateTypeRole,
+        ReplyDisplayRole,
         ReplyMediaInfoRole,
+        ReactionRole,
         ReadMarkersRole,
         IsPendingRole,
         ShowReadMarkersRole,
-        ReplyIdRole,
         MimeTypeRole,
         ShowLinkPreviewRole,
         LinkPreviewRole,
@@ -139,5 +141,3 @@ private:
     Quotient::SearchJob *m_job = nullptr;
     bool m_searching = false;
 };
-
-QString renderDate(const QDateTime &dateTime);

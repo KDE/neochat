@@ -33,39 +33,14 @@ class MessageEventModel : public QAbstractListModel
 
 public:
     /**
-     * @brief The type of delegate that is needed for the event.
-     *
-     * @note While similar this is not the matrix event or message type. This is
-     *       to tell a QML ListView what delegate to show for each event. So while
-     *       similar to the spec it is not the same.
-     */
-    enum DelegateType {
-        Emote, /**< A message that begins with /me. */
-        Notice, /**< A notice event. */
-        Image, /**< A message that is an image. */
-        Audio, /**< A message that is an audio recording. */
-        Video, /**< A message that is a video. */
-        File, /**< A message that is a file. */
-        Message, /**< A text message. */
-        Sticker, /**< A message that is a sticker. */
-        State, /**< A state event in the room. */
-        Encrypted, /**< An encrypted message that cannot be decrypted. */
-        ReadMarker, /**< The local user read marker. */
-        Poll, /**< The initial event for a poll. */
-        Location, /**< A location event. */
-        LiveLocation, /**< The initial event of a shared live location (i.e., the place where this is supposed to be shown in the timeline). */
-        Other, /**< Anything that cannot be classified as another type. */
-    };
-    Q_ENUM(DelegateType)
-
-    /**
      * @brief Defines the model roles.
      */
     enum EventRoles {
         DelegateTypeRole = Qt::UserRole + 1, /**< The delegate type of the message. */
         PlainText, /**< Plain text representation of the message. */
         EventIdRole, /**< The matrix event ID of the event. */
-        TimeRole, /**< The timestamp for when the event was sent. */
+        TimeRole, /**< The timestamp for when the event was sent (as a QDateTime). */
+        TimeStringRole, /**< The timestamp for when the event was sent as a string (in QLocale::ShortFormat). */
         SectionRole, /**< The date of the event as a string. */
         AuthorRole, /**< The author of the event. */
         ContentRole, /**< The full message content. */
@@ -78,13 +53,13 @@ public:
         LinkPreviewRole, /**< The link preview details. */
 
         MediaInfoRole, /**< The media info for the event. */
-        MimeTypeRole, /**< The mime type of the message's file or media. */
 
         IsReplyRole, /**< Is the message a reply to another event. */
         ReplyAuthor, /**< The author of the event that was replied to. */
         ReplyIdRole, /**< The matrix ID of the message that was replied to. */
+        ReplyDelegateTypeRole, /**< The delegate type of the message that was replied to. */
+        ReplyDisplayRole, /**< The body of the message that was replied to. */
         ReplyMediaInfoRole, /**< The media info of the message that was replied to. */
-        ReplyRole, /**< The content data of the message that was replied to. */
 
         ShowAuthorRole, /**< Whether the author's name should be shown. */
         ShowSectionRole, /**< Whether the section header should be shown. */
@@ -100,7 +75,6 @@ public:
         AuthorIdRole, /**< Matrix ID of the message author. */
 
         VerifiedRole, /**< Whether an encrypted message is sent in a verified session. */
-        DisplayNameForInitialsRole, /**< Sender's displayname, always without the matrix id. */
         AuthorDisplayNameRole, /**< The displayname for the event's sender; for name change events, the old displayname. */
         IsRedactedRole, /**< Whether an event has been deleted. */
         IsPendingRole, /**< Whether an event is waiting to be accepted by the server. */
@@ -154,8 +128,8 @@ private:
     bool movingEvent = false;
     KFormat m_format;
 
-    QMap<QString, LinkPreviewer *> m_linkPreviewers;
-    QMap<QString, ReactionModel *> m_reactionModels;
+    QMap<QString, QSharedPointer<LinkPreviewer>> m_linkPreviewers;
+    QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     [[nodiscard]] int timelineBaseIndex() const;
     [[nodiscard]] QDateTime makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const;
@@ -168,10 +142,7 @@ private:
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
 
-    QVariantMap getMediaInfoForEvent(const Quotient::RoomEvent &event) const;
-    QVariantMap getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false) const;
-    void createLinkPreviewerForEvent(const Quotient::RoomMessageEvent *event);
-    void createReactionModelForEvent(const Quotient::RoomMessageEvent *event);
+    void createEventObjects(const Quotient::RoomMessageEvent *event);
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
     bool m_initialized = false;
 

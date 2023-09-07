@@ -45,7 +45,7 @@ class LinkPreviewer : public QObject
     Q_PROPERTY(QUrl imageSource READ imageSource NOTIFY imageSourceChanged)
 
 public:
-    explicit LinkPreviewer(QObject *parent = nullptr, NeoChatRoom *room = nullptr, const QUrl &url = {});
+    explicit LinkPreviewer(QObject *parent = nullptr, const NeoChatRoom *room = nullptr, const QUrl &url = {});
 
     [[nodiscard]] QUrl url() const;
     void setUrl(QUrl);
@@ -55,7 +55,7 @@ public:
     [[nodiscard]] QUrl imageSource() const;
 
 private:
-    NeoChatRoom *m_currentRoom = nullptr;
+    const NeoChatRoom *m_currentRoom = nullptr;
 
     bool m_loaded;
     QString m_title = QString();

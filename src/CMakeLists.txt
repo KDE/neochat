@@ -134,6 +134,8 @@ add_library(neochat STATIC
     jobs/neochatchangepasswordjob.h
     mediasizehelper.cpp
     mediasizehelper.h
+    eventhandler.cpp
+    enums/delegatetype.h
 )
 
 ecm_qt_declare_logging_category(neochat
@@ -143,6 +145,13 @@ ecm_qt_declare_logging_category(neochat
     DESCRIPTION "Neochat: messageeventmodel"
     DEFAULT_SEVERITY Info
     EXPORT NEOCHAT
+)
+
+ecm_qt_declare_logging_category(neochat
+    HEADER "eventhandler_logging.h"
+    IDENTIFIER "EventHandling"
+    CATEGORY_NAME "org.kde.neochat.eventhandler"
+    DEFAULT_SEVERITY Info
 )
 
 add_executable(neochat-app

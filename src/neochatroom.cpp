@@ -40,6 +40,7 @@
 #include <Quotient/qt_connection_util.h>
 
 #include "controller.h"
+#include "eventhandler.h"
 #include "events/joinrulesevent.h"
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
@@ -344,8 +345,18 @@ bool NeoChatRoom::lastEventIsSpoiler() const
 QString NeoChatRoom::lastEventToString(Qt::TextFormat format, bool stripNewlines) const
 {
     if (auto event = lastEvent()) {
-        return safeMemberName(event->senderId()) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": "))
-            + eventToString(*event, format, stripNewlines);
+        EventHandler eventHandler;
+        eventHandler.setRoom(this);
+        eventHandler.setEvent(event);
+
+        QString body;
+        if (format == Qt::TextFormat::RichText) {
+            body = eventHandler.getRichBody(stripNewlines);
+        } else {
+            body = eventHandler.getPlainBody(stripNewlines);
+        }
+
+        return safeMemberName(event->senderId()) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": ")) + body;
     }
     return {};
 }
@@ -483,318 +494,6 @@ QString NeoChatRoom::avatarMediaId() const
     return {};
 }
 
-QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, bool stripNewlines) const
-{
-    const bool prettyPrint = (format == Qt::RichText);
-
-    using namespace Quotient;
-    return switchOnType(
-        evt,
-        [this, format, stripNewlines](const RoomMessageEvent &e) {
-            using namespace MessageEventContent;
-
-            TextHandler textHandler;
-
-            if (e.hasFileContent()) {
-                auto fileCaption = e.content()->fileInfo()->originalName;
-                if (fileCaption.isEmpty()) {
-                    fileCaption = e.plainBody();
-                } else if (e.content()->fileInfo()->originalName != e.plainBody()) {
-                    fileCaption = e.plainBody() + " | "_ls + fileCaption;
-                }
-                textHandler.setData(fileCaption);
-                return !fileCaption.isEmpty() ? textHandler.handleRecievePlainText(Qt::PlainText, stripNewlines) : i18n("a file");
-            }
-
-            QString body;
-            if (e.hasTextContent() && e.content()) {
-                body = static_cast<const TextContent *>(e.content())->body;
-            } else {
-                body = e.plainBody();
-            }
-
-            textHandler.setData(body);
-
-            Qt::TextFormat inputFormat;
-            if (e.mimeType().name() == "text/plain"_ls) {
-                inputFormat = Qt::PlainText;
-            } else {
-                inputFormat = Qt::RichText;
-            }
-
-            if (format == Qt::RichText) {
-                return textHandler.handleRecieveRichText(inputFormat, this, &e, stripNewlines);
-            } else {
-                return textHandler.handleRecievePlainText(inputFormat, stripNewlines);
-            }
-        },
-        [](const StickerEvent &e) {
-            return e.body();
-        },
-        [this, prettyPrint](const RoomMemberEvent &e) {
-            // FIXME: Rewind to the name that was at the time of this event
-            auto subjectName = this->htmlSafeMemberName(e.userId());
-            if (e.membership() == Membership::Leave) {
-                if (e.prevContent() && e.prevContent()->displayName) {
-                    subjectName = sanitized(*e.prevContent()->displayName).toHtmlEscaped();
-                }
-            }
-
-            if (prettyPrint) {
-                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
-                                  .arg(e.userId(), Utils::getUserColor(user(e.userId())->hueF()).name(), subjectName);
-            }
-
-            // The below code assumes senderName output in AuthorRole
-            switch (e.membership()) {
-            case Membership::Invite:
-                if (e.repeatsState()) {
-                    auto text = i18n("reinvited %1 to the room", subjectName);
-                    if (!e.reason().isEmpty()) {
-                        text += i18nc("Optional reason for an invitation", ": %1") + e.reason().toHtmlEscaped();
-                    }
-                    return text;
-                }
-                Q_FALLTHROUGH();
-            case Membership::Join: {
-                QString text{};
-                // Part 1: invites and joins
-                if (e.repeatsState()) {
-                    text = i18n("joined the room (repeated)");
-                } else if (e.changesMembership()) {
-                    text = e.membership() == Membership::Invite ? i18n("invited %1 to the room", subjectName) : i18n("joined the room");
-                }
-                if (!text.isEmpty()) {
-                    if (!e.reason().isEmpty()) {
-                        text += i18n(": %1", e.reason().toHtmlEscaped());
-                    }
-                    return text;
-                }
-                // Part 2: profile changes of joined members
-                if (e.isRename()) {
-                    if (!e.newDisplayName()) {
-                        text = i18nc("their refers to a singular user", "cleared their display name");
-                    } else {
-                        text = i18nc("their refers to a singular user", "changed their display name to %1", e.newDisplayName()->toHtmlEscaped());
-                    }
-                }
-                if (e.isAvatarUpdate()) {
-                    if (!text.isEmpty()) {
-                        text += i18n(" and ");
-                    }
-                    if (!e.newAvatarUrl()) {
-                        text += i18nc("their refers to a singular user", "cleared their avatar");
-                    } else if (!e.prevContent()->avatarUrl) {
-                        text += i18n("set an avatar");
-                    } else {
-                        text += i18nc("their refers to a singular user", "updated their avatar");
-                    }
-                }
-                if (text.isEmpty()) {
-                    text = i18nc("<user> changed nothing", "changed nothing");
-                }
-                return text;
-            }
-            case Membership::Leave:
-                if (e.prevContent() && e.prevContent()->membership == Membership::Invite) {
-                    return (e.senderId() != e.userId()) ? i18n("withdrew %1's invitation", subjectName) : i18n("rejected the invitation");
-                }
-
-                if (e.prevContent() && e.prevContent()->membership == Membership::Ban) {
-                    return (e.senderId() != e.userId()) ? i18n("unbanned %1", subjectName) : i18n("self-unbanned");
-                }
-                return (e.senderId() != e.userId())
-                    ? i18n("has put %1 out of the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped())
-                    : i18n("left the room");
-            case Membership::Ban:
-                if (e.senderId() != e.userId()) {
-                    if (e.reason().isEmpty()) {
-                        return i18n("banned %1 from the room", subjectName);
-                    } else {
-                        return i18n("banned %1 from the room: %2", subjectName, e.reason().toHtmlEscaped());
-                    }
-                } else {
-                    return i18n("self-banned from the room");
-                }
-            case Membership::Knock: {
-                QString reason(e.contentJson()["reason"_ls].toString().toHtmlEscaped());
-                return reason.isEmpty() ? i18n("requested an invite") : i18n("requested an invite with reason: %1", reason);
-            }
-            default:;
-            }
-            return i18n("made something unknown");
-        },
-        [](const RoomCanonicalAliasEvent &e) {
-            return (e.alias().isEmpty()) ? i18n("cleared the room main alias") : i18n("set the room main alias to: %1", e.alias());
-        },
-        [](const RoomNameEvent &e) {
-            return (e.name().isEmpty()) ? i18n("cleared the room name") : i18n("set the room name to: %1", e.name().toHtmlEscaped());
-        },
-        [prettyPrint, stripNewlines](const RoomTopicEvent &e) {
-            return (e.topic().isEmpty()) ? i18n("cleared the topic")
-                                         : i18n("set the topic to: %1",
-                                                prettyPrint         ? Quotient::prettyPrint(e.topic())
-                                                    : stripNewlines ? e.topic().replace(u'\n', u' ')
-                                                                    : e.topic());
-        },
-        [](const RoomAvatarEvent &) {
-            return i18n("changed the room avatar");
-        },
-        [](const EncryptionEvent &) {
-            return i18n("activated End-to-End Encryption");
-        },
-        [](const RoomCreateEvent &e) {
-            return e.isUpgrade() ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1"_ls : e.version().toHtmlEscaped())
-                                 : i18n("created the room, version %1", e.version().isEmpty() ? "1"_ls : e.version().toHtmlEscaped());
-        },
-        [](const RoomPowerLevelsEvent &) {
-            return i18nc("'power level' means permission level", "changed the power levels for this room");
-        },
-        [](const StateEvent &e) {
-            if (e.matrixType() == QLatin1String("m.room.server_acl")) {
-                return i18n("changed the server access control lists for this room");
-            }
-            if (e.matrixType() == QLatin1String("im.vector.modular.widgets")) {
-                if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
-                    return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"_ls].toString());
-                }
-                if (e.contentJson().isEmpty()) {
-                    return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"_ls]["prev_content"_ls]["name"_ls].toString());
-                }
-                return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"_ls].toString());
-            }
-            if (e.matrixType() == "org.matrix.msc3672.beacon_info"_ls) {
-                return e.contentJson()["description"_ls].toString();
-            }
-            return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
-                                          : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
-        },
-        [](const PollStartEvent &e) {
-            return e.question();
-        },
-        i18n("Unknown event"));
-}
-
-QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
-{
-    return switchOnType(
-        evt,
-        [](const RoomMessageEvent &e) {
-            Q_UNUSED(e)
-            return i18n("sent a message");
-        },
-        [](const StickerEvent &e) {
-            Q_UNUSED(e)
-            return i18n("sent a sticker");
-        },
-        [](const RoomMemberEvent &e) {
-            switch (e.membership()) {
-            case Membership::Invite:
-                if (e.repeatsState()) {
-                    return i18n("reinvited someone to the room");
-                }
-                Q_FALLTHROUGH();
-            case Membership::Join: {
-                QString text{};
-                // Part 1: invites and joins
-                if (e.repeatsState()) {
-                    text = i18n("joined the room (repeated)");
-                } else if (e.changesMembership()) {
-                    text = e.membership() == Membership::Invite ? i18n("invited someone to the room") : i18n("joined the room");
-                }
-                if (!text.isEmpty()) {
-                    return text;
-                }
-                // Part 2: profile changes of joined members
-                if (e.isRename()) {
-                    if (!e.newDisplayName()) {
-                        text = i18nc("their refers to a singular user", "cleared their display name");
-                    } else {
-                        text = i18nc("their refers to a singular user", "changed their display name");
-                    }
-                }
-                if (e.isAvatarUpdate()) {
-                    if (!text.isEmpty()) {
-                        text += i18n(" and ");
-                    }
-                    if (!e.newAvatarUrl()) {
-                        text += i18nc("their refers to a singular user", "cleared their avatar");
-                    } else if (!e.prevContent()->avatarUrl) {
-                        text += i18n("set an avatar");
-                    } else {
-                        text += i18nc("their refers to a singular user", "updated their avatar");
-                    }
-                }
-                if (text.isEmpty()) {
-                    text = i18nc("<user> changed nothing", "changed nothing");
-                }
-                return text;
-            }
-            case Membership::Leave:
-                if (e.prevContent() && e.prevContent()->membership == Membership::Invite) {
-                    return (e.senderId() != e.userId()) ? i18n("withdrew a user's invitation") : i18n("rejected the invitation");
-                }
-
-                if (e.prevContent() && e.prevContent()->membership == Membership::Ban) {
-                    return (e.senderId() != e.userId()) ? i18n("unbanned a user") : i18n("self-unbanned");
-                }
-                return (e.senderId() != e.userId()) ? i18n("put a user out of the room") : i18n("left the room");
-            case Membership::Ban:
-                if (e.senderId() != e.userId()) {
-                    return i18n("banned a user from the room");
-                } else {
-                    return i18n("self-banned from the room");
-                }
-            case Membership::Knock: {
-                return i18n("requested an invite");
-            }
-            default:;
-            }
-            return i18n("made something unknown");
-        },
-        [](const RoomCanonicalAliasEvent &e) {
-            return (e.alias().isEmpty()) ? i18n("cleared the room main alias") : i18n("set the room main alias");
-        },
-        [](const RoomNameEvent &e) {
-            return (e.name().isEmpty()) ? i18n("cleared the room name") : i18n("set the room name");
-        },
-        [](const RoomTopicEvent &e) {
-            return (e.topic().isEmpty()) ? i18n("cleared the topic") : i18n("set the topic");
-        },
-        [](const RoomAvatarEvent &) {
-            return i18n("changed the room avatar");
-        },
-        [](const EncryptionEvent &) {
-            return i18n("activated End-to-End Encryption");
-        },
-        [](const RoomCreateEvent &e) {
-            return e.isUpgrade() ? i18n("upgraded the room version") : i18n("created the room");
-        },
-        [](const RoomPowerLevelsEvent &) {
-            return i18nc("'power level' means permission level", "changed the power levels for this room");
-        },
-        [](const StateEvent &e) {
-            if (e.matrixType() == QLatin1String("m.room.server_acl")) {
-                return i18n("changed the server access control lists for this room");
-            }
-            if (e.matrixType() == QLatin1String("im.vector.modular.widgets")) {
-                if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
-                    return i18n("added a widget");
-                }
-                if (e.contentJson().isEmpty()) {
-                    return i18n("removed a widget");
-                }
-                return i18n("configured a widget");
-            }
-            return i18n("updated the state");
-        },
-        [](const PollStartEvent &e) {
-            Q_UNUSED(e);
-            return i18n("started a poll");
-        },
-        i18n("Unknown event"));
-}
-
 void NeoChatRoom::changeAvatar(const QUrl &localFile)
 {
     const auto job = connection()->uploadFile(localFile.toLocalFile());
@@ -861,10 +560,14 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
     if (isReply) {
         const auto &replyEvt = **replyIt;
 
+        EventHandler eventHandler;
+        eventHandler.setRoom(this);
+        eventHandler.setEvent(&**replyIt);
+
         // clang-format off
         QJsonObject json{
           {"msgtype"_ls, msgTypeToString(type)},
-          {"body"_ls, "> <%1> %2\n\n%3"_ls.arg(replyEvt.senderId(), eventToString(replyEvt), text)},
+          {"body"_ls, "> <%1> %2\n\n%3"_ls.arg(replyEvt.senderId(), eventHandler.getPlainBody(), text)},
           {"format"_ls, "org.matrix.custom.html"_ls},
           {"m.relates_to"_ls,
             QJsonObject {
@@ -876,7 +579,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
             }
           },
           {"formatted_body"_ls,
-              "<mx-reply><blockquote><a href=\"https://matrix.to/#/%1/%2\">In reply to</a> <a href=\"https://matrix.to/#/%3\">%4</a><br>%5</blockquote></mx-reply>%6"_ls.arg(id(), replyEventId, replyEvt.senderId(), replyEvt.senderId(), eventToString(replyEvt, Qt::RichText), html)
+              "<mx-reply><blockquote><a href=\"https://matrix.to/#/%1/%2\">In reply to</a> <a href=\"https://matrix.to/#/%3\">%4</a><br>%5</blockquote></mx-reply>%6"_ls.arg(id(), replyEventId, replyEvt.senderId(), replyEvt.senderId(), eventHandler.getRichBody(), html)
           }
         };
         // clang-format on
@@ -1701,7 +1404,11 @@ QString NeoChatRoom::chatBoxReplyMessage() const
     if (m_chatBoxReplyId.isEmpty()) {
         return {};
     }
-    return eventToString(*static_cast<const RoomMessageEvent *>(&**findInTimeline(m_chatBoxReplyId)));
+
+    EventHandler eventhandler;
+    eventhandler.setRoom(this);
+    eventhandler.setEvent(&**findInTimeline(m_chatBoxReplyId));
+    return eventhandler.getPlainBody();
 }
 
 QVariantMap NeoChatRoom::chatBoxEditUser() const
@@ -1717,7 +1424,11 @@ QString NeoChatRoom::chatBoxEditMessage() const
     if (m_chatBoxEditId.isEmpty()) {
         return {};
     }
-    return eventToString(*static_cast<const RoomMessageEvent *>(&**findInTimeline(m_chatBoxEditId)));
+
+    EventHandler eventhandler;
+    eventhandler.setRoom(this);
+    eventhandler.setEvent(&**findInTimeline(m_chatBoxEditId));
+    return eventhandler.getPlainBody();
 }
 
 QString NeoChatRoom::chatBoxAttachmentPath() const

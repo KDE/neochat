@@ -5,6 +5,7 @@
 
 #include <KLocalizedString>
 
+#include "enums/delegatetype.h"
 #include "messageeventmodel.h"
 #include "neochatconfig.h"
 
@@ -50,7 +51,7 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
 
     // Don't show events with an unknown type.
     const auto eventType = index.data(MessageEventModel::DelegateTypeRole).toInt();
-    if (eventType == MessageEventModel::Other) {
+    if (eventType == DelegateType::Other) {
         return false;
     }
 
@@ -58,10 +59,10 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
     // same day as they will be grouped as a single delegate.
     const bool notLastRow = sourceRow < sourceModel()->rowCount() - 1;
     const bool previousEventIsState = notLastRow
-        ? sourceModel()->data(sourceModel()->index(sourceRow + 1, 0), MessageEventModel::DelegateTypeRole) == MessageEventModel::DelegateType::State
+        ? sourceModel()->data(sourceModel()->index(sourceRow + 1, 0), MessageEventModel::DelegateTypeRole) == DelegateType::State
         : false;
     const bool newDay = sourceModel()->data(sourceModel()->index(sourceRow, 0), MessageEventModel::ShowSectionRole).toBool();
-    if (eventType == MessageEventModel::State && notLastRow && previousEventIsState && !newDay) {
+    if (eventType == DelegateType::State && notLastRow && previousEventIsState && !newDay) {
         return false;
     }
 
@@ -103,8 +104,7 @@ QString MessageFilterModel::aggregateEventToString(int sourceRow) const
             uniqueAuthors.append(nextAuthor);
         }
         if (i > 0
-            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
-                    != MessageEventModel::DelegateType::State // If it's not a state event
+            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole) != DelegateType::State // If it's not a state event
                 || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
                 )) {
             break;
@@ -162,8 +162,7 @@ QVariantList MessageFilterModel::stateEventsList(int sourceRow) const
         };
         stateEvents.append(nextState);
         if (i > 0
-            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
-                    != MessageEventModel::DelegateType::State // If it's not a state event
+            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole) != DelegateType::State // If it's not a state event
                 || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
                 )) {
             break;
@@ -181,8 +180,7 @@ QVariantList MessageFilterModel::authorList(int sourceRow) const
             uniqueAuthors.append(nextAvatar);
         }
         if (i > 0
-            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
-                    != MessageEventModel::DelegateType::State // If it's not a state event
+            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole) != DelegateType::State // If it's not a state event
                 || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
                 )) {
             break;
@@ -204,8 +202,7 @@ QString MessageFilterModel::excessAuthors(int row) const
             uniqueAuthors.append(nextAvatar);
         }
         if (i > 0
-            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
-                    != MessageEventModel::DelegateType::State // If it's not a state event
+            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole) != DelegateType::State // If it's not a state event
                 || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
                 )) {
             break;

@@ -14,78 +14,78 @@ DelegateChooser {
     property var room
 
     DelegateChoice {
-        roleValue: MessageEventModel.State
+        roleValue: DelegateType.State
         delegate: StateDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Emote
+        roleValue: DelegateType.Emote
         delegate: MessageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Message
+        roleValue: DelegateType.Message
         delegate: MessageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Notice
+        roleValue: DelegateType.Notice
         delegate: MessageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Image
+        roleValue: DelegateType.Image
         delegate: ImageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Sticker
+        roleValue: DelegateType.Sticker
         delegate: ImageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Audio
+        roleValue: DelegateType.Audio
         delegate: AudioDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Video
+        roleValue: DelegateType.Video
         delegate: VideoDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.File
+        roleValue: DelegateType.File
         delegate: FileDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Encrypted
+        roleValue: DelegateType.Encrypted
         delegate: EncryptedDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.ReadMarker
+        roleValue: DelegateType.ReadMarker
         delegate: ReadMarkerDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Poll
+        roleValue: DelegateType.Poll
         delegate: PollDelegate {}
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Location
+        roleValue: DelegateType.Location
         delegate: LocationDelegate {}
     }
     DelegateChoice {
-        roleValue: MessageEventModel.LiveLocation
+        roleValue: DelegateType.LiveLocation
         delegate: LiveLocationDelegate {
             room: root.room
         }
     }
 
     DelegateChoice {
-        roleValue: MessageEventModel.Other
+        roleValue: DelegateType.Other
         delegate: Item {}
     }
 }

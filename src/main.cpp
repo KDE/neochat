@@ -47,6 +47,7 @@
 #include "clipboard.h"
 #include "controller.h"
 #include "delegatesizehelper.h"
+#include "enums/delegatetype.h"
 #include "filetypesingleton.h"
 #include "linkpreviewer.h"
 #include "locationhelper.h"
@@ -280,6 +281,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<EmoticonFilterModel>("org.kde.neochat", 1, 0, "EmoticonFilterModel");
     qmlRegisterType<DelegateSizeHelper>("org.kde.neochat", 1, 0, "DelegateSizeHelper");
     qmlRegisterType<MediaSizeHelper>("org.kde.neochat", 1, 0, "MediaSizeHelper");
+    qmlRegisterUncreatableType<DelegateType>("org.kde.neochat", 1, 0, "DelegateType", "ENUM"_ls);
     qmlRegisterUncreatableType<PushNotificationKind>("org.kde.neochat", 1, 0, "PushNotificationKind", "ENUM"_ls);
     qmlRegisterUncreatableType<PushNotificationSection>("org.kde.neochat", 1, 0, "PushNotificationSection", "ENUM"_ls);
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM"_ls);

@@ -117,22 +117,22 @@ Item {
             id: loader
 
             Layout.fillWidth: true
-            Layout.maximumHeight: loader.item && (root.type == MessageEventModel.Image || root.type == MessageEventModel.Sticker) ? loader.item.height : -1
+            Layout.maximumHeight: loader.item && (root.type == DelegateType.Image || root.type == DelegateType.Sticker) ? loader.item.height : -1
             Layout.columnSpan: 2
 
             sourceComponent: {
                 switch (root.type) {
-                    case MessageEventModel.Image:
-                    case MessageEventModel.Sticker:
+                    case DelegateType.Image:
+                    case DelegateType.Sticker:
                         return imageComponent;
-                    case MessageEventModel.Message:
-                    case MessageEventModel.Notice:
+                    case DelegateType.Message:
+                    case DelegateType.Notice:
                         return textComponent;
-                    case MessageEventModel.File:
-                    case MessageEventModel.Video:
-                    case MessageEventModel.Audio:
+                    case DelegateType.File:
+                    case DelegateType.Video:
+                    case DelegateType.Audio:
                         return mimeComponent;
-                    case MessageEventModel.Encrypted:
+                    case DelegateType.Encrypted:
                         return encryptedComponent;
                     default:
                         return textComponent;
@@ -187,7 +187,7 @@ Item {
         MimeComponent {
             mimeIconSource: root.mediaInfo.mimeIcon
             label: root.display
-            subLabel: root.type === MessageEventModel.File ? Controller.formatByteSize(root.mediaInfo.size) : Controller.formatDuration(root.mediaInfo.duration)
+            subLabel: root.type === DelegateType.File ? Controller.formatByteSize(root.mediaInfo.size) : Controller.formatDuration(root.mediaInfo.duration)
         }
     }
     Component {

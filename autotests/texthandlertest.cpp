@@ -363,6 +363,7 @@ void TextHandlerTest::receiveRichInPlainOut_data()
 
     QTest::newRow("ampersand") << QStringLiteral("a &amp; b") << QStringLiteral("a & b");
     QTest::newRow("quote") << QStringLiteral("&quot;a and b&quot;") << QStringLiteral("\"a and b\"");
+    QTest::newRow("new line") << QStringLiteral("new<br>line") << QStringLiteral("new\nline");
 }
 
 void TextHandlerTest::receiveRichInPlainOut()

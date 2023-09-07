@@ -43,6 +43,11 @@ ColumnLayout {
     required property var time
 
     /**
+     * @brief The timestamp of the message as a string.
+     */
+    required property string timeString
+
+    /**
      * @brief The message author.
      *
      * This should consist of the following:
@@ -154,13 +159,14 @@ ColumnLayout {
     required property var replyAuthor
 
     /**
-     * @brief The reply content.
-     *
-     * This should consist of the following:
-     *  - display - The display text of the reply.
-     *  - type - The delegate type of the reply.
+     * @brief The delegate type of the message replied to.
      */
-    required property var reply
+    required property int replyDelegateType
+
+    /**
+     * @brief The display text of the message replied to.
+     */
+    required property string replyDisplay
 
     /**
      * @brief The media info for the reply event.
@@ -205,11 +211,6 @@ ColumnLayout {
      * @brief Whether an encrypted message is sent in a verified session.
      */
     required property bool verified
-
-    /**
-     * @brief The mime type of the message's file or media.
-     */
-    required property var mimeType
 
     /**
      * @brief The full message source JSON.
@@ -357,7 +358,7 @@ ColumnLayout {
         implicitHeight: Math.max(root.showAuthor || root.alwaysShowAuthor ? avatar.implicitHeight : 0, bubble.height)
 
         Component.onCompleted: {
-            if (root.isReply && root.reply === undefined) {
+            if (root.isReply && root.replyDelegateType === DelegateType.Other) {
                 currentRoom.loadReply(root.eventId, root.replyId)
             }
         }
@@ -478,7 +479,7 @@ ColumnLayout {
                         QQC2.Label {
                             id: timeLabel
 
-                            text: visible ? root.time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
+                            text: root.timeString
                             color: Kirigami.Theme.disabledTextColor
                             QQC2.ToolTip.visible: hoverHandler.hovered
                             QQC2.ToolTip.text: root.time.toLocaleString(Qt.locale(), Locale.LongFormat)
@@ -494,13 +495,13 @@ ColumnLayout {
 
                         Layout.maximumWidth: contentMaxWidth
 
-                        active: root.isReply && root.reply
+                        active: root.isReply && root.replyDelegateType !== DelegateType.Other
                         visible: active
 
                         sourceComponent: ReplyComponent {
                             author: root.replyAuthor
-                            type: root.reply.type
-                            display: root.reply.display
+                            type: root.replyDelegateType
+                            display: root.replyDisplay
                             mediaInfo: root.replyMediaInfo
                             contentMaxWidth: bubbleSizeHelper.currentWidth
                         }
@@ -609,7 +610,6 @@ ColumnLayout {
             eventId: root.eventId,
             source: root.jsonSource,
             file: file,
-            mimeType: root.mimeType,
             progressInfo: root.progressInfo,
             plainText: root.plainText,
         });

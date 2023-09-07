@@ -8,15 +8,9 @@
 
 #include <Quotient/connection.h>
 #include <Quotient/csapi/rooms.h>
-#include <Quotient/events/reactionevent.h>
 #include <Quotient/events/redactionevent.h>
-#include <Quotient/events/roomavatarevent.h>
-#include <Quotient/events/roommemberevent.h>
-#include <Quotient/events/simplestateevents.h>
-#include <Quotient/user.h>
-
-#include "events/pollevent.h"
 #include <Quotient/events/stickerevent.h>
+#include <Quotient/user.h>
 
 #include <QDebug>
 #include <QGuiApplication>
@@ -25,8 +19,9 @@
 
 #include <KLocalizedString>
 
+#include "enums/delegatetype.h"
+#include "eventhandler.h"
 #include "models/reactionmodel.h"
-#include "texthandler.h"
 
 using namespace Quotient;
 
@@ -37,6 +32,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[PlainText] = "plainText";
     roles[EventIdRole] = "eventId";
     roles[TimeRole] = "time";
+    roles[TimeStringRole] = "timeString";
     roles[SectionRole] = "section";
     roles[AuthorRole] = "author";
     roles[ContentRole] = "content";
@@ -48,8 +44,9 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[MediaInfoRole] = "mediaInfo";
     roles[IsReplyRole] = "isReply";
     roles[ReplyAuthor] = "replyAuthor";
-    roles[ReplyRole] = "reply";
     roles[ReplyIdRole] = "replyId";
+    roles[ReplyDelegateTypeRole] = "replyDelegateType";
+    roles[ReplyDisplayRole] = "replyDisplay";
     roles[ReplyMediaInfoRole] = "replyMediaInfo";
     roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
@@ -60,10 +57,8 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ReactionRole] = "reaction";
     roles[ShowReactionsRole] = "showReactions";
     roles[SourceRole] = "jsonSource";
-    roles[MimeTypeRole] = "mimeType";
     roles[AuthorIdRole] = "authorId";
     roles[VerifiedRole] = "verified";
-    roles[DisplayNameForInitialsRole] = "displayNameForInitials";
     roles[AuthorDisplayNameRole] = "authorDisplayName";
     roles[IsRedactedRole] = "isRedacted";
     roles[GenericDisplayRole] = "genericDisplay";
@@ -97,7 +92,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
     if (m_currentRoom) {
         m_currentRoom->disconnect(this);
         m_linkPreviewers.clear();
-        qDeleteAll(m_reactionModels);
         m_reactionModels.clear();
     }
 
@@ -107,10 +101,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         room->setDisplayed();
 
         for (auto event = m_currentRoom->messageEvents().begin(); event != m_currentRoom->messageEvents().end(); ++event) {
-            if (auto e = &*event->viewAs<RoomMessageEvent>()) {
-                createLinkPreviewerForEvent(e);
-                createReactionModelForEvent(e);
-            }
+            createEventObjects(&*event->viewAs<RoomMessageEvent>());
         }
 
         if (m_currentRoom->timelineSize() < 10 && !room->allHistoryLoaded()) {
@@ -123,16 +114,16 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             if (row == -1) {
                 return;
             }
-            Q_EMIT dataChanged(index(row, 0), index(row, 0), {ReplyRole, ReplyMediaInfoRole, ReplyAuthor});
+            Q_EMIT dataChanged(index(row, 0), index(row, 0), {ReplyDelegateTypeRole, ReplyDisplayRole, ReplyMediaInfoRole, ReplyAuthor});
         });
 
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
             for (auto &&event : events) {
                 const RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
-                if (message != nullptr) {
-                    createLinkPreviewerForEvent(message);
-                    createReactionModelForEvent(message);
 
+                createEventObjects(message);
+
+                if (message != nullptr) {
                     if (NeoChatConfig::self()->showFancyEffects()) {
                         QString planBody = message->plainBody();
                         // snowflake
@@ -169,10 +160,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
             for (auto &event : events) {
                 RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
-                if (message) {
-                    createLinkPreviewerForEvent(message);
-                    createReactionModelForEvent(message);
-                }
+                createEventObjects(message);
             }
             if (rowCount() > 0) {
                 rowBelowInserted = rowCount() - 1; // See #312
@@ -241,7 +229,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             const auto eventIt = m_currentRoom->findInTimeline(eventId);
             if (eventIt != m_currentRoom->historyEdge()) {
-                createReactionModelForEvent(static_cast<const RoomMessageEvent *>(&**eventIt));
+                createEventObjects(static_cast<const RoomMessageEvent *>(&**eventIt));
             }
             refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole, Qt::DisplayRole});
         });
@@ -340,7 +328,7 @@ int MessageEventModel::refreshEventRoles(const QString &id, const QVector<int> &
             return -1;
         }
         row = int(timelineIt - m_currentRoom->messageEvents().rbegin()) + timelineBaseIndex();
-        if (data(index(row, 0), DelegateTypeRole).toInt() == ReadMarker || data(index(row, 0), DelegateTypeRole).toInt() == Other) {
+        if (data(index(row, 0), DelegateTypeRole).toInt() == DelegateType::ReadMarker || data(index(row, 0), DelegateTypeRole).toInt() == DelegateType::Other) {
             row++;
         }
     }
@@ -458,6 +446,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     const auto pendingIt = m_currentRoom->pendingEvents().crbegin() + std::min(row, timelineBaseIndex());
     const auto &evt = isPending ? **pendingIt : **timelineIt;
 
+    EventHandler eventHandler;
+    eventHandler.setRoom(m_currentRoom);
+    eventHandler.setEvent(&evt);
+
     if (role == Qt::DisplayRole) {
         if (evt.isRedacted()) {
             auto reason = evt.redactedBecause()->reason();
@@ -465,19 +457,15 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
                                       : i18n("<i>[This message was deleted: %1]</i>", evt.redactedBecause()->reason());
         }
 
-        return m_currentRoom->eventToString(evt, Qt::RichText);
+        return eventHandler.getRichBody();
     }
 
     if (role == GenericDisplayRole) {
-        if (evt.isRedacted()) {
-            return i18n("<i>[This message was deleted]</i>");
-        }
-
-        return m_currentRoom->eventToGenericString(evt);
+        return eventHandler.getGenericBody();
     }
 
     if (role == PlainText) {
-        return m_currentRoom->eventToString(evt);
+        return eventHandler.getPlainBody();
     }
 
     if (role == SourceRole) {
@@ -485,54 +473,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == DelegateTypeRole) {
-        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            switch (e->msgtype()) {
-            case MessageEventType::Emote:
-                return DelegateType::Emote;
-            case MessageEventType::Notice:
-                return DelegateType::Notice;
-            case MessageEventType::Image:
-                return DelegateType::Image;
-            case MessageEventType::Audio:
-                return DelegateType::Audio;
-            case MessageEventType::Video:
-                return DelegateType::Video;
-            case MessageEventType::Location:
-                return DelegateType::Location;
-            default:
-                break;
-            }
-            if (e->hasFileContent()) {
-                return DelegateType::File;
-            }
-
-            return DelegateType::Message;
-        }
-        if (is<const StickerEvent>(evt)) {
-            return DelegateType::Sticker;
-        }
-        if (evt.isStateEvent()) {
-            if (evt.matrixType() == "org.matrix.msc3672.beacon_info"_ls) {
-                return DelegateType::LiveLocation;
-            }
-            return DelegateType::State;
-        }
-        if (is<const EncryptedEvent>(evt)) {
-            return DelegateType::Encrypted;
-        }
-        if (is<PollStartEvent>(evt)) {
-            if (evt.isRedacted()) {
-                return DelegateType::Message;
-            }
-            return DelegateType::Poll;
-        }
-
-        return DelegateType::Other;
+        return eventHandler.getDelegateType();
     }
 
     if (role == AuthorRole) {
-        auto author = isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId());
-        return m_currentRoom->getUser(author);
+        return eventHandler.getAuthor(isPending);
     }
 
     if (role == ContentRole) {
@@ -558,21 +503,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == HighlightRole) {
-        return !m_currentRoom->isDirectChat() && m_currentRoom->isEventHighlighted(&evt);
-    }
-
-    if (role == MimeTypeRole) {
-        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            if (!e || !e->hasFileContent()) {
-                return QVariant();
-            }
-
-            return e->content()->fileInfo()->mimeType.name();
-        }
-
-        if (auto e = eventCast<const StickerEvent>(&evt)) {
-            return e->image().mimeType.name();
-        }
+        return eventHandler.isHighlighted();
     }
 
     if (role == SpecialMarksRole) {
@@ -585,46 +516,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return pendingIt->deliveryStatus();
         }
 
-        if (evt.isStateEvent() && !NeoChatConfig::self()->showStateEvent()) {
-            return EventStatus::Hidden;
-        }
-
-        if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(&evt)) {
-            if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent()) {
-                return EventStatus::Hidden;
-            } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::self()->showRename()) {
-                return EventStatus::Hidden;
-            } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
-                       && !NeoChatConfig::self()->showAvatarUpdate()) {
-                return EventStatus::Hidden;
-            }
-        }
-
-        // isReplacement?
-        if (auto e = eventCast<const RoomMessageEvent>(&evt))
-            if (!e->replacedEvent().isEmpty())
-                return EventStatus::Hidden;
-
-        if (is<RedactionEvent>(evt) || is<ReactionEvent>(evt)) {
-            return EventStatus::Hidden;
-        }
-
-        if (evt.isStateEvent() && static_cast<const StateEvent &>(evt).repeatsState()) {
-            return EventStatus::Hidden;
-        }
-
-        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            if (!e->replacedEvent().isEmpty() && e->replacedEvent() != e->id()) {
-                return EventStatus::Hidden;
-            }
-        }
-
-        if (m_currentRoom->connection()->isIgnored(m_currentRoom->user(evt.senderId()))) {
-            return EventStatus::Hidden;
-        }
-
-        // hide ending live location beacons
-        if (evt.isStateEvent() && evt.matrixType() == "org.matrix.msc3672.beacon_info"_ls && !evt.contentJson()["live"_ls].toBool()) {
+        if (eventHandler.isHidden()) {
             return EventStatus::Hidden;
         }
 
@@ -632,7 +524,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == EventIdRole) {
-        return !evt.id().isEmpty() ? evt.id() : evt.transactionId();
+        return eventHandler.getId();
     }
 
     if (role == ProgressInfoRole) {
@@ -646,9 +538,19 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
     }
 
-    if (role == TimeRole || role == SectionRole) {
-        auto ts = isPending ? pendingIt->lastUpdated() : makeMessageTimestamp(timelineIt);
-        return role == TimeRole ? QVariant(ts) : m_format.formatRelativeDate(ts.toLocalTime().date(), QLocale::ShortFormat);
+    if (role == TimeRole) {
+        auto lastUpdated = isPending ? pendingIt->lastUpdated() : QDateTime();
+        return eventHandler.getTime(isPending, lastUpdated);
+    }
+
+    if (role == TimeStringRole) {
+        auto lastUpdated = isPending ? pendingIt->lastUpdated() : QDateTime();
+        return eventHandler.getTimeString(false, QLocale::ShortFormat, isPending, lastUpdated);
+    }
+
+    if (role == SectionRole) {
+        auto lastUpdated = isPending ? pendingIt->lastUpdated() : QDateTime();
+        return eventHandler.getTimeString(true, QLocale::ShortFormat, isPending, lastUpdated);
     }
 
     if (role == ShowLinkPreviewRole) {
@@ -657,85 +559,38 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == LinkPreviewRole) {
         if (m_linkPreviewers.contains(evt.id())) {
-            return QVariant::fromValue<LinkPreviewer *>(m_linkPreviewers[evt.id()]);
+            return QVariant::fromValue<LinkPreviewer *>(m_linkPreviewers[evt.id()].data());
         } else {
             return QVariant::fromValue<LinkPreviewer *>(emptyLinkPreview);
         }
     }
 
     if (role == MediaInfoRole) {
-        return getMediaInfoForEvent(evt);
+        return eventHandler.getMediaInfo();
     }
 
     if (role == IsReplyRole) {
-        return !evt.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString().isEmpty();
+        return eventHandler.hasReply();
     }
 
     if (role == ReplyIdRole) {
-        return evt.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
+        return eventHandler.getReplyId();
+    }
+
+    if (role == ReplyDelegateTypeRole) {
+        return eventHandler.getReplyDelegateType();
     }
 
     if (role == ReplyAuthor) {
-        auto replyPtr = m_currentRoom->getReplyForEvent(evt);
+        return eventHandler.getReplyAuthor();
+    }
 
-        if (replyPtr) {
-            auto replyUser = m_currentRoom->user(replyPtr->senderId());
-            return m_currentRoom->getUser(replyUser);
-        } else {
-            return m_currentRoom->getUser(nullptr);
-        }
+    if (role == ReplyDisplayRole) {
+        return eventHandler.getReplyRichBody();
     }
 
     if (role == ReplyMediaInfoRole) {
-        auto replyPtr = m_currentRoom->getReplyForEvent(evt);
-        if (!replyPtr) {
-            return {};
-        }
-        return getMediaInfoForEvent(*replyPtr);
-    }
-
-    if (role == ReplyRole) {
-        auto replyPtr = m_currentRoom->getReplyForEvent(evt);
-        if (!replyPtr) {
-            return {};
-        }
-
-        DelegateType type;
-        if (auto e = eventCast<const RoomMessageEvent>(replyPtr)) {
-            switch (e->msgtype()) {
-            case MessageEventType::Emote:
-                type = DelegateType::Emote;
-                break;
-            case MessageEventType::Notice:
-                type = DelegateType::Notice;
-                break;
-            case MessageEventType::Image:
-                type = DelegateType::Image;
-                break;
-            case MessageEventType::Audio:
-                type = DelegateType::Audio;
-                break;
-            case MessageEventType::Video:
-                type = DelegateType::Video;
-                break;
-            default:
-                if (e->hasFileContent()) {
-                    type = DelegateType::File;
-                    break;
-                }
-                type = DelegateType::Message;
-            }
-
-        } else if (is<const StickerEvent>(*replyPtr)) {
-            type = DelegateType::Sticker;
-        } else {
-            type = DelegateType::Other;
-        }
-
-        return QVariantMap{
-            {"display"_ls, m_currentRoom->eventToString(*replyPtr, Qt::RichText)},
-            {"type"_ls, type},
-        };
+        return eventHandler.getReplyMediaInfo();
     }
 
     if (role == ShowAuthorRole) {
@@ -745,7 +600,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             // While the row is removed the subsequent row indexes are not changed so we need to skip over the removed index.
             // See - https://doc.qt.io/qt-5/qabstractitemmodel.html#beginRemoveRows
             if (data(i, SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
-                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, DelegateTypeRole) == MessageEventModel::State
+                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, DelegateTypeRole) == DelegateType::State
                     || data(i, TimeRole).toDateTime().msecsTo(data(idx, TimeRole).toDateTime()) > 600000
                     || data(i, TimeRole).toDateTime().toLocalTime().date().day() != data(idx, TimeRole).toDateTime().toLocalTime().date().day();
             }
@@ -771,87 +626,36 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == LatitudeRole) {
-        const auto geoUri = evt.contentJson()["geo_uri"_ls].toString();
-        if (geoUri.isEmpty()) {
-            return {};
-        }
-        const auto latitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[0];
-        return latitude.toFloat();
+        return eventHandler.getLatitude();
     }
 
     if (role == LongitudeRole) {
-        const auto geoUri = evt.contentJson()["geo_uri"_ls].toString();
-        if (geoUri.isEmpty()) {
-            return {};
-        }
-        const auto latitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[1];
-        return latitude.toFloat();
+        return eventHandler.getLongitude();
     }
 
     if (role == AssetRole) {
-        const auto assetType = evt.contentJson()["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
-        if (assetType.isEmpty()) {
-            return {};
-        }
-        return assetType;
+        return eventHandler.getLocationAssetType();
     }
 
     if (role == ReadMarkersRole) {
-        auto userIds_temp = room()->userIdsAtEvent(evt.id());
-        userIds_temp.remove(m_currentRoom->localUser()->id());
-
-        auto userIds = userIds_temp.values();
-        if (userIds.count() > 5) {
-            userIds = userIds.mid(0, 5);
-        }
-
-        QVariantList users;
-        users.reserve(userIds.size());
-        for (const auto &userId : userIds) {
-            auto user = m_currentRoom->user(userId);
-            users += m_currentRoom->getUser(user);
-        }
-
-        return users;
+        return eventHandler.getReadMarkers();
     }
 
     if (role == ExcessReadMarkersRole) {
-        auto userIds = room()->userIdsAtEvent(evt.id());
-        userIds.remove(m_currentRoom->localUser()->id());
-
-        if (userIds.count() > 5) {
-            return QStringLiteral("+ %1").arg(userIds.count() - 5);
-        } else {
-            return QString();
-        }
+        return eventHandler.getNumberExcessReadMarkers();
     }
 
     if (role == ReadMarkersStringRole) {
-        auto userIds = room()->userIdsAtEvent(evt.id());
-        userIds.remove(m_currentRoom->localUser()->id());
-
-        /**
-         * The string ends up in the form
-         * "x users: user1DisplayName, user2DisplayName, etc."
-         */
-        QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
-        for (const auto &userId : userIds) {
-            auto user = m_currentRoom->user(userId);
-            readMarkersString += user->displayname(m_currentRoom) + i18nc("list separator", ", ");
-        }
-        readMarkersString.chop(2);
-        return readMarkersString;
+        return eventHandler.getReadMarkersString();
     }
 
     if (role == ShowReadMarkersRole) {
-        auto userIds = room()->userIdsAtEvent(evt.id());
-        userIds.remove(m_currentRoom->localUser()->id());
-        return userIds.size() > 0;
+        return eventHandler.hasReadMarkers();
     }
 
     if (role == ReactionRole) {
         if (m_reactionModels.contains(evt.id())) {
-            return QVariant::fromValue<ReactionModel *>(m_reactionModels[evt.id()]);
+            return QVariant::fromValue<ReactionModel *>(m_reactionModels[evt.id()].data());
         } else {
             return QVariantList();
         }
@@ -874,22 +678,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return false;
     }
 
-    if (role == DisplayNameForInitialsRole) {
-        auto user = isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId());
-        return user->displayname(m_currentRoom).remove(QStringLiteral(" (%1)").arg(user->id()));
-    }
-
     if (role == AuthorDisplayNameRole) {
-        if (is<RoomMemberEvent>(evt) && !evt.unsignedJson()["prev_content"_ls]["displayname"_ls].isNull() && evt.stateKey() == evt.senderId()) {
-            auto previousDisplayName = evt.unsignedJson()["prev_content"_ls]["displayname"_ls].toString().toHtmlEscaped();
-            if (previousDisplayName.isEmpty()) {
-                previousDisplayName = evt.senderId();
-            }
-            return previousDisplayName;
-        } else {
-            auto author = isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId());
-            return m_currentRoom->htmlSafeMemberName(author->id());
-        }
+        return eventHandler.getAuthorDisplayName(isPending);
     }
 
     if (role == IsRedactedRole) {
@@ -913,195 +703,27 @@ int MessageEventModel::eventIdToRow(const QString &eventID) const
     return it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
 }
 
-QVariantMap MessageEventModel::getMediaInfoForEvent(const RoomEvent &event) const
-{
-    QVariantMap mediaInfo;
-
-    QString eventId = event.id();
-
-    // Get the file info for the event.
-    const EventContent::FileInfo *fileInfo;
-    if (event.is<RoomMessageEvent>()) {
-        auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event);
-        if (!roomMessageEvent->hasFileContent()) {
-            return {};
-        }
-        fileInfo = roomMessageEvent->content()->fileInfo();
-    } else if (event.is<StickerEvent>()) {
-        auto stickerEvent = eventCast<const StickerEvent>(&event);
-        fileInfo = &stickerEvent->image();
-    } else {
-        return {};
-    }
-
-    return getMediaInfoFromFileInfo(fileInfo, eventId);
-}
-
-QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail) const
-{
-    QVariantMap mediaInfo;
-
-    // Get the mxc URL for the media.
-    if (!fileInfo->url().isValid() || eventId.isEmpty()) {
-        mediaInfo["source"_ls] = QUrl();
-    } else {
-        QUrl source = m_currentRoom->makeMediaUrl(eventId, fileInfo->url());
-
-        if (source.isValid() && source.scheme() == QStringLiteral("mxc")) {
-            mediaInfo["source"_ls] = source;
-        } else {
-            mediaInfo["source"_ls] = QUrl();
-        }
-    }
-
-    auto mimeType = fileInfo->mimeType;
-    // Add the MIME type for the media if available.
-    mediaInfo["mimeType"_ls] = mimeType.name();
-
-    // Add the MIME type icon if available.
-    mediaInfo["mimeIcon"_ls] = mimeType.iconName();
-
-    // Add media size if available.
-    mediaInfo["size"_ls] = fileInfo->payloadSize;
-
-    // Add parameter depending on media type.
-    if (mimeType.name().contains(QStringLiteral("image"))) {
-        if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileInfo)) {
-            mediaInfo["width"_ls] = castInfo->imageSize.width();
-            mediaInfo["height"_ls] = castInfo->imageSize.height();
-
-            // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
-            mediaInfo["animated"_ls] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
-
-            if (!isThumbnail) {
-                QVariantMap tempInfo;
-                auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
-                if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
-                    tempInfo = thumbnailInfo;
-                } else {
-                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_ls].toString();
-                    if (blurhash.isEmpty()) {
-                        tempInfo["source"_ls] = QUrl();
-                    } else {
-                        tempInfo["source"_ls] = QUrl("image://blurhash/"_ls + blurhash);
-                    }
-                }
-                mediaInfo["tempInfo"_ls] = tempInfo;
-            }
-        }
-    }
-    if (mimeType.name().contains(QStringLiteral("video"))) {
-        if (auto castInfo = static_cast<const EventContent::VideoContent *>(fileInfo)) {
-            mediaInfo["width"_ls] = castInfo->imageSize.width();
-            mediaInfo["height"_ls] = castInfo->imageSize.height();
-            mediaInfo["duration"_ls] = castInfo->duration;
-
-            if (!isThumbnail) {
-                QVariantMap tempInfo;
-                auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
-                if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
-                    tempInfo = thumbnailInfo;
-                } else {
-                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_ls].toString();
-                    if (blurhash.isEmpty()) {
-                        tempInfo["source"_ls] = QUrl();
-                    } else {
-                        tempInfo["source"_ls] = QUrl("image://blurhash/"_ls + blurhash);
-                    }
-                }
-                mediaInfo["tempInfo"_ls] = tempInfo;
-            }
-        }
-    }
-    if (mimeType.name().contains(QStringLiteral("audio"))) {
-        if (auto castInfo = static_cast<const EventContent::AudioContent *>(fileInfo)) {
-            mediaInfo["duration"_ls] = castInfo->duration;
-        }
-    }
-
-    return mediaInfo;
-}
-
-void MessageEventModel::createLinkPreviewerForEvent(const Quotient::RoomMessageEvent *event)
-{
-    if (m_linkPreviewers.contains(event->id())) {
-        return;
-    } else {
-        QString text;
-        if (event->hasTextContent()) {
-            auto textContent = static_cast<const EventContent::TextContent *>(event->content());
-            if (textContent) {
-                text = textContent->body;
-            } else {
-                text = event->plainBody();
-            }
-        } else {
-            text = event->plainBody();
-        }
-        TextHandler textHandler;
-        textHandler.setData(text);
-
-        QList<QUrl> links = textHandler.getLinkPreviews();
-        if (links.size() > 0) {
-            m_linkPreviewers[event->id()] = new LinkPreviewer(nullptr, m_currentRoom, links.size() > 0 ? links[0] : QUrl());
-        }
-    }
-}
-
-void MessageEventModel::createReactionModelForEvent(const Quotient::RoomMessageEvent *event)
+void MessageEventModel::createEventObjects(const Quotient::RoomMessageEvent *event)
 {
     if (event == nullptr) {
         return;
     }
+
     auto eventId = event->id();
-    const auto &annotations = m_currentRoom->relatedEvents(eventId, EventRelation::AnnotationType);
-    if (annotations.isEmpty()) {
-        if (m_reactionModels.contains(eventId)) {
-            delete m_reactionModels[eventId];
-            m_reactionModels.remove(eventId);
-        }
-        return;
-    };
 
-    QMap<QString, QList<Quotient::User *>> reactions = {};
-    for (const auto &a : annotations) {
-        if (a->isRedacted()) { // Just in case?
-            continue;
-        }
-        if (const auto &e = eventCast<const ReactionEvent>(a)) {
-            reactions[e->key()].append(m_currentRoom->user(e->senderId()));
-        }
-    }
+    EventHandler eventHandler;
+    eventHandler.setRoom(m_currentRoom);
+    eventHandler.setEvent(event);
 
-    if (reactions.isEmpty()) {
-        if (m_reactionModels.contains(eventId)) {
-            delete m_reactionModels[eventId];
-            m_reactionModels.remove(eventId);
-        }
-        return;
-    }
-
-    QList<ReactionModel::Reaction> res;
-    auto i = reactions.constBegin();
-    while (i != reactions.constEnd()) {
-        QVariantList authors;
-        for (const auto &author : i.value()) {
-            authors.append(m_currentRoom->getUser(author));
-        }
-
-        res.append(ReactionModel::Reaction{i.key(), authors});
-        ++i;
-    }
-
-    if (m_reactionModels.contains(eventId)) {
-        m_reactionModels[eventId]->setReactions(res);
-    } else if (res.size() > 0) {
-        m_reactionModels[eventId] = new ReactionModel(this, res, m_currentRoom->localUser());
+    if (auto linkPreviewer = eventHandler.getLinkPreviewer()) {
+        m_linkPreviewers[eventId] = linkPreviewer;
     } else {
-        if (m_reactionModels.contains(eventId)) {
-            delete m_reactionModels[eventId];
-            m_reactionModels.remove(eventId);
-        }
+        m_linkPreviewers.remove(eventId);
+    }
+    if (auto reactionModel = eventHandler.getReactions()) {
+        m_reactionModels[eventId] = reactionModel;
+    } else {
+        m_reactionModels.remove(eventId);
     }
 }
 

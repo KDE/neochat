@@ -202,6 +202,9 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
      * arrive (e.g. in a caption body) it can then be stripped by the same code.
      */
     m_dataBuffer = markdownToHTML(m_dataBuffer);
+    // This is how \n is converted and for plain text we need it to just be <br>
+    // to prevent extra newlines being inserted.
+    m_dataBuffer.replace(QStringLiteral("<br />\n"), QStringLiteral("<br>"));
 
     if (stripNewlines) {
         m_dataBuffer.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
@@ -222,7 +225,11 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
         if (m_nextTokenType == Type::TextCode) {
             nextTokenBuffer = unescapeHtml(nextTokenBuffer);
         } else if (m_nextTokenType == Type::Tag) {
-            nextTokenBuffer = QString();
+            if (getTagType() == QStringLiteral("br") && !stripNewlines) {
+                nextTokenBuffer = u'\n';
+            } else {
+                nextTokenBuffer = QString();
+            }
         }
 
         outputString.append(nextTokenBuffer);

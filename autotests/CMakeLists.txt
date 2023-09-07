@@ -26,3 +26,9 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME mediasizehelpertest
 )
+
+ecm_add_test(
+    eventhandlertest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME eventhandlertest
+)

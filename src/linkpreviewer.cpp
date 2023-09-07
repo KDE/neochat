@@ -13,7 +13,7 @@
 
 using namespace Quotient;
 
-LinkPreviewer::LinkPreviewer(QObject *parent, NeoChatRoom *room, const QUrl &url)
+LinkPreviewer::LinkPreviewer(QObject *parent, const NeoChatRoom *room, const QUrl &url)
     : QObject(parent)
     , m_currentRoom(room)
     , m_loaded(false)

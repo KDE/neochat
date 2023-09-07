@@ -240,7 +240,7 @@ QQC2.ScrollView {
             currentRoom: root.currentRoom
             showActions: delegate && delegate.hovered
             verified: delegate && delegate.verified
-            editable: delegate && delegate.author.isLocalUser && (delegate.delegateType === MessageEventModel.Emote || delegate.delegateType === MessageEventModel.Message)
+            editable: delegate && delegate.author.isLocalUser && (delegate.delegateType === DelegateType.Emote || delegate.delegateType === DelegateType.Message)
 
             onReactClicked: (emoji) => {
                 root.currentRoom.toggleReaction(delegate.eventId, emoji);

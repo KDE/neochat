@@ -31,7 +31,7 @@ Loader {
                 currentRoom.chatBoxEditId = eventId;
                 currentRoom.chatBoxReplyId = "";
             }
-            visible: author.id === Controller.activeConnection.localUserId && (loadRoot.eventType === MessageEventModel.Emote || loadRoot.eventType === MessageEventModel.Message)
+            visible: author.id === Controller.activeConnection.localUserId && (loadRoot.eventType === DelegateType.Emote || loadRoot.eventType === DelegateType.Message)
         },
         Kirigami.Action {
             text: i18n("Reply")

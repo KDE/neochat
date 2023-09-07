@@ -16,7 +16,6 @@ MessageDelegateContextMenu {
 
     required property var file
     required property var progressInfo
-    required property string mimeType
 
     property list<Kirigami.Action> actions: [
         Kirigami.Action {
@@ -108,7 +107,7 @@ MessageDelegateContextMenu {
             id: shareAction
             inputData: {
                 'urls': [],
-                'mimeType': [mimeType]
+                'mimeType': [root.file.mediaInfo.mimeType]
             }
             property string filename: StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId);
 
@@ -118,7 +117,7 @@ MessageDelegateContextMenu {
             Component.onCompleted: {
                 shareAction.inputData = {
                     urls: [filename],
-                    mimeType: [mimeType]
+                    mimeType: [root.file.mediaInfo.mimeType]
                 };
             }
         }

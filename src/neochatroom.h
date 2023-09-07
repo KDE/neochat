@@ -476,39 +476,6 @@ public:
     [[nodiscard]] const Quotient::RoomEvent *lastEvent() const;
 
     /**
-     * @brief Output a string for the message content ready for display.
-     *
-     * The output string is dependant upon the event type and the desired output format.
-     *
-     * For most messages this is the body content of the message. For media messages
-     * This will be the caption and for state events it will be a string specific
-     * to that event with some dynamic details about the event added.
-     *
-     * E.g. For a room topic state event the text will be:
-     *      "set the topic to: <new topic text>"
-     *
-     * @param evt the event for which a string is desired.
-     * @param format the output format, usually Qt::PlainText or Qt::RichText.
-     * @param stripNewlines whether the output should have new lines in it.
-     */
-    [[nodiscard]] QString eventToString(const Quotient::RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool stripNewlines = false) const;
-
-    /**
-     * @brief Output a generic string for the message content ready for display.
-     *
-     * The output string is dependant upon the event type.
-     *
-     * Unlike NeoChatRoom::eventToString the string is the same for all events of
-     * the same type
-     *
-     * E.g. For a message the text will be:
-     *      "sent a message"
-     *
-     * @sa eventToString()
-     */
-    [[nodiscard]] QString eventToGenericString(const Quotient::RoomEvent &evt) const;
-
-    /**
      * @brief Convenient way to call eventToString on the last event.
      *
      * @sa lastEvent()

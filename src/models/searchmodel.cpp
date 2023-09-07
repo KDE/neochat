@@ -3,6 +3,7 @@
 
 #include "searchmodel.h"
 
+#include "eventhandler.h"
 #include "messageeventmodel.h"
 #include "neochatroom.h"
 
@@ -91,85 +92,55 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
 {
     auto row = index.row();
     const auto &event = *m_result->results[row].result;
+
+    EventHandler eventHandler;
+    eventHandler.setRoom(m_room);
+    eventHandler.setEvent(&event);
+
     switch (role) {
     case DisplayRole:
-        return m_room->eventToString(*m_result->results[row].result);
+        return eventHandler.getRichBody();
     case ShowAuthorRole:
         return true;
     case AuthorRole:
-        return m_room->getUser(event.senderId());
+        return eventHandler.getAuthor();
     case ShowSectionRole:
         if (row == 0) {
             return true;
         }
         return event.originTimestamp().date() != m_result->results[row - 1].result->originTimestamp().date();
     case SectionRole:
-        return renderDate(event.originTimestamp());
+        return eventHandler.getTimeString(true);
     case TimeRole:
-        return event.originTimestamp();
+        return eventHandler.getTime();
+    case TimeStringRole:
+        return eventHandler.getTimeString(false);
     case ShowReactionsRole:
         return false;
     case ShowReadMarkersRole:
         return false;
+    case IsReplyRole:
+        return eventHandler.hasReply();
+    case ReplyIdRole:
+        return eventHandler.hasReply();
     case ReplyAuthorRole:
-        if (const auto &replyPtr = m_room->getReplyForEvent(event)) {
-            return m_room->getUser(m_room->user(replyPtr->senderId()));
-        } else {
-            return m_room->getUser(nullptr);
-        }
-    case ReplyRole:
-        if (auto replyPtr = m_room->getReplyForEvent(event)) {
-            MessageEventModel::DelegateType type;
-            if (auto e = eventCast<const RoomMessageEvent>(replyPtr)) {
-                switch (e->msgtype()) {
-                case MessageEventType::Emote:
-                    type = MessageEventModel::DelegateType::Emote;
-                    break;
-                case MessageEventType::Notice:
-                    type = MessageEventModel::DelegateType::Notice;
-                    break;
-                case MessageEventType::Image:
-                    type = MessageEventModel::DelegateType::Image;
-                    break;
-                case MessageEventType::Audio:
-                    type = MessageEventModel::DelegateType::Audio;
-                    break;
-                case MessageEventType::Video:
-                    type = MessageEventModel::DelegateType::Video;
-                    break;
-                default:
-                    if (e->hasFileContent()) {
-                        type = MessageEventModel::DelegateType::File;
-                        break;
-                    }
-                    type = MessageEventModel::DelegateType::Message;
-                }
-
-            } else if (is<const StickerEvent>(*replyPtr)) {
-                type = MessageEventModel::DelegateType::Sticker;
-            } else {
-                type = MessageEventModel::DelegateType::Other;
-            }
-            return QVariantMap{
-                {"display"_ls, m_room->eventToString(*replyPtr, Qt::RichText)},
-                {"type"_ls, type},
-            };
-        }
-        break;
+        return eventHandler.getReplyAuthor();
+    case ReplyDelegateTypeRole:
+        return eventHandler.getReplyDelegateType();
+    case ReplyDisplayRole:
+        return eventHandler.getReplyRichBody();
+    case ReplyMediaInfoRole:
+        return eventHandler.getReplyMediaInfo();
     case IsPendingRole:
         return false;
     case ShowLinkPreviewRole:
         return false;
-    case IsReplyRole:
-        return !event.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString().isEmpty();
     case HighlightRole:
-        return !m_room->isDirectChat() && m_room->isEventHighlighted(&event);
+        return eventHandler.isHighlighted();
     case EventIdRole:
-        return event.id();
-    case ReplyIdRole:
-        return event.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
+        return eventHandler.getId();
     }
-    return MessageEventModel::DelegateType::Message;
+    return DelegateType::Message;
 }
 
 int SearchModel::rowCount(const QModelIndex &parent) const
@@ -190,6 +161,7 @@ QHash<int, QByteArray> SearchModel::roleNames() const
         {ShowSectionRole, "showSection"},
         {SectionRole, "section"},
         {TimeRole, "time"},
+        {TimeStringRole, "timeString"},
         {ShowAuthorRole, "showAuthor"},
         {EventIdRole, "eventId"},
         {ExcessReadMarkersRole, "excessReadMarkers"},
@@ -197,21 +169,22 @@ QHash<int, QByteArray> SearchModel::roleNames() const
         {ReadMarkersString, "readMarkersString"},
         {PlainTextRole, "plainText"},
         {VerifiedRole, "verified"},
-        {ReplyAuthorRole, "replyAuthor"},
         {ProgressInfoRole, "progressInfo"},
-        {IsReplyRole, "isReply"},
         {ShowReactionsRole, "showReactions"},
-        {ReplyRole, "reply"},
-        {ReactionRole, "reaction"},
+        {IsReplyRole, "isReply"},
+        {ReplyAuthorRole, "replyAuthor"},
+        {ReplyIdRole, "replyId"},
+        {ReplyDelegateTypeRole, "replyDelegateType"},
+        {ReplyDisplayRole, "replyDisplay"},
         {ReplyMediaInfoRole, "replyMediaInfo"},
+        {ReactionRole, "reaction"},
         {ReadMarkersRole, "readMarkers"},
         {IsPendingRole, "isPending"},
         {ShowReadMarkersRole, "showReadMarkers"},
-        {ReplyIdRole, "replyId"},
         {MimeTypeRole, "mimeType"},
         {ShowLinkPreviewRole, "showLinkPreview"},
         {LinkPreviewRole, "linkPreview"},
-        {SourceRole, "source"},
+        {SourceRole, "jsonSource"},
     };
 }
 
@@ -238,28 +211,8 @@ void SearchModel::setRoom(NeoChatRoom *room)
             return;
         }
         auto row = it - results.begin();
-        Q_EMIT dataChanged(index(row, 0), index(row, 0), {ReplyRole, ReplyMediaInfoRole, ReplyAuthorRole});
+        Q_EMIT dataChanged(index(row, 0), index(row, 0), {ReplyDelegateTypeRole, ReplyDisplayRole, ReplyMediaInfoRole, ReplyAuthorRole});
     });
-}
-
-// TODO deduplicate with messageeventmodel
-QString renderDate(const QDateTime &timestamp)
-{
-    auto date = timestamp.toLocalTime().date();
-    if (date == QDate::currentDate()) {
-        return i18n("Today");
-    }
-    if (date == QDate::currentDate().addDays(-1)) {
-        return i18n("Yesterday");
-    }
-    if (date == QDate::currentDate().addDays(-2)) {
-        return i18n("The day before yesterday");
-    }
-    if (date > QDate::currentDate().addDays(-7)) {
-        return date.toString("dddd"_ls);
-    }
-
-    return QLocale::system().toString(date, QLocale::ShortFormat);
 }
 
 bool SearchModel::searching() const
