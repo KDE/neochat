@@ -238,6 +238,7 @@ FormCard.FormCardPage {
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly
+                    enabled: aliasAddField.text.length > 0
 
                     onClicked: {
                         room.mapAlias(aliasAddField.text)
