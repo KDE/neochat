@@ -190,6 +190,8 @@ Kirigami.ApplicationWindow {
         RoomList.Page {
             id: roomList
 
+            connection: Controller.activeConnection
+
             Shortcut {
                 sequences: ["Ctrl+PgUp", "Ctrl+Backtab", "Alt+Up"]
                 onActivated: {
@@ -239,9 +241,7 @@ Kirigami.ApplicationWindow {
             if (AccountRegistry.accountCount === 0) {
                 pageStack.replace("qrc:/WelcomePage.qml", {});
             } else if (!roomListLoaded) {
-                pageStack.replace(roomListComponent, {
-                    connection: Controller.activeConnection
-                });
+                pageStack.replace(roomListComponent);
                 roomListLoaded = true;
                 roomListPage = pageStack.currentItem
                 RoomManager.loadInitialRoom();
