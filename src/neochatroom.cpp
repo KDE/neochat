@@ -1315,6 +1315,7 @@ void NeoChatRoom::updatePushNotificationState(QString type)
             if (overrideRule["actions"_ls].toArray().isEmpty()) {
                 m_currentPushNotificationState = PushNotificationState::Mute;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
+                return;
             }
             QString notifyAction = overrideRule["actions"_ls].toArray()[0].toString();
             if (notifyAction == "dont_notify"_ls) {
