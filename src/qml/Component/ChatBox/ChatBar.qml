@@ -217,7 +217,7 @@ QQC2.Control {
                     quickFormatBar.close()
                 }
             }
-            Keys.onEnterPressed: {
+            Keys.onEnterPressed: event => {
                 if (completionMenu.visible) {
                     completionMenu.complete()
                 } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
@@ -226,7 +226,7 @@ QQC2.Control {
                     root.postMessage();
                 }
             }
-            Keys.onReturnPressed: {
+            Keys.onReturnPressed: event => {
                 if (completionMenu.visible) {
                     completionMenu.complete()
                 } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
@@ -261,7 +261,7 @@ QQC2.Control {
                     }
                 }
             }
-            Keys.onShortcutOverride: {
+            Keys.onShortcutOverride: event => {
                 // Accept the event only when there was something to cancel. Otherwise, let the event go to the RoomPage.
                 if (cancelButton.visible && event.key === Qt.Key_Escape) {
                     cancelButton.action.trigger();
