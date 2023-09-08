@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 00:46+0000\n"
-"PO-Revision-Date: 2023-09-03 20:15+0200\n"
+"POT-Creation-Date: 2023-09-08 00:46+0000\n"
+"PO-Revision-Date: 2023-09-04 11:15+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -97,6 +97,356 @@ msgstr "La creación del espacio ha fallado: %1"
 msgid "The room id you are trying to join is not valid"
 msgstr "El ID de la sala a la que está intentando unirse no es válido"
 
+#: src/eventhandler.cpp:287 src/eventhandler.cpp:489
+#: src/models/messageeventmodel.cpp:456
+#, kde-format
+msgid "<i>[This message was deleted]</i>"
+msgstr "<i>[Este mensaje ha sido borrado]</i>"
+
+#: src/eventhandler.cpp:287 src/models/messageeventmodel.cpp:457
+#, kde-format
+msgid "<i>[This message was deleted: %1]</i>"
+msgstr "<i>[Este mensaje ha sido borrado: %1]</i>"
+
+#: src/eventhandler.cpp:318
+#, kde-format
+msgid "reinvited %1 to the room"
+msgstr "ha vuelto a invitar a %1 a la sala"
+
+#: src/eventhandler.cpp:320
+#, kde-format
+msgctxt "Optional reason for an invitation"
+msgid ": %1"
+msgstr ": %1"
+
+#: src/eventhandler.cpp:329 src/eventhandler.cpp:513
+#, kde-format
+msgid "joined the room (repeated)"
+msgstr "se ha unido a la sala (repetido)"
+
+#: src/eventhandler.cpp:331
+#, kde-format
+msgid "invited %1 to the room"
+msgstr "ha invitado a %1 a la sala"
+
+#: src/eventhandler.cpp:331 src/eventhandler.cpp:515
+#, kde-format
+msgid "joined the room"
+msgstr "se ha unido a la sala"
+
+#: src/eventhandler.cpp:335
+#, kde-format
+msgid ": %1"
+msgstr ": %1"
+
+#: src/eventhandler.cpp:342 src/eventhandler.cpp:523
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "cleared their display name"
+msgstr "ha borrado su nombre visible"
+
+#: src/eventhandler.cpp:344
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "changed their display name to %1"
+msgstr "ha cambiado su nombre visible a %1"
+
+#: src/eventhandler.cpp:349 src/eventhandler.cpp:530
+#, kde-format
+msgid " and "
+msgstr " y "
+
+#: src/eventhandler.cpp:352 src/eventhandler.cpp:533
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "cleared their avatar"
+msgstr "ha borrado su avatar"
+
+#: src/eventhandler.cpp:354 src/eventhandler.cpp:535
+#, kde-format
+msgid "set an avatar"
+msgstr "ha definido un avatar"
+
+#: src/eventhandler.cpp:356 src/eventhandler.cpp:537
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "updated their avatar"
+msgstr "ha actualizado su avatar"
+
+#: src/eventhandler.cpp:360 src/eventhandler.cpp:541
+#, kde-format
+msgctxt "<user> changed nothing"
+msgid "changed nothing"
+msgstr "no ha cambiado nada"
+
+#: src/eventhandler.cpp:366
+#, kde-format
+msgid "withdrew %1's invitation"
+msgstr "ha retirado la invitación de %1"
+
+#: src/eventhandler.cpp:366 src/eventhandler.cpp:547
+#, kde-format
+msgid "rejected the invitation"
+msgstr "ha rechazado la invitación"
+
+#: src/eventhandler.cpp:370
+#, kde-format
+msgid "unbanned %1"
+msgstr "ha habilitado a %1"
+
+#: src/eventhandler.cpp:370 src/eventhandler.cpp:551
+#, kde-format
+msgid "self-unbanned"
+msgstr "se ha habilitado a sí mismo"
+
+#: src/eventhandler.cpp:373
+#, kde-format
+msgid "has put %1 out of the room: %2"
+msgstr "ha echado a %1 de la sala: %2"
+
+#: src/eventhandler.cpp:374 src/eventhandler.cpp:553
+#, kde-format
+msgid "left the room"
+msgstr "ha salido de la sala"
+
+#: src/eventhandler.cpp:378
+#, kde-format
+msgid "banned %1 from the room"
+msgstr "ha inhabilitado a %1 en la sala"
+
+#: src/eventhandler.cpp:380
+#, kde-format
+msgid "banned %1 from the room: %2"
+msgstr "ha inhabilitado a %1 en la sala: %2"
+
+#: src/eventhandler.cpp:383 src/eventhandler.cpp:558
+#, kde-format
+msgid "self-banned from the room"
+msgstr "se ha inhabilitado a sí mismo en la sala"
+
+#: src/eventhandler.cpp:387 src/eventhandler.cpp:561
+#, kde-format
+msgid "requested an invite"
+msgstr "ha solicitado una invitación"
+
+#: src/eventhandler.cpp:387
+#, kde-format
+msgid "requested an invite with reason: %1"
+msgstr "ha solicitado una invitación con el motivo: %1"
+
+#: src/eventhandler.cpp:391 src/eventhandler.cpp:565
+#, kde-format
+msgid "made something unknown"
+msgstr "ha hecho algo desconocido"
+
+#: src/eventhandler.cpp:394 src/eventhandler.cpp:568
+#, kde-format
+msgid "cleared the room main alias"
+msgstr "ha borrado el alias principal de la sala"
+
+#: src/eventhandler.cpp:394
+#, kde-format
+msgid "set the room main alias to: %1"
+msgstr "ha definido el alias principal de la sala a: %1"
+
+#: src/eventhandler.cpp:397 src/eventhandler.cpp:571
+#, kde-format
+msgid "cleared the room name"
+msgstr "ha borrado el nombre de la sala"
+
+#: src/eventhandler.cpp:397
+#, kde-format
+msgid "set the room name to: %1"
+msgstr "ha definido el nombre de la sala a: %1"
+
+#: src/eventhandler.cpp:400 src/eventhandler.cpp:574
+#, kde-format
+msgid "cleared the topic"
+msgstr "ha borrado el tema"
+
+#: src/eventhandler.cpp:401
+#, kde-format
+msgid "set the topic to: %1"
+msgstr "ha definido el tema a: %1"
+
+#: src/eventhandler.cpp:407 src/eventhandler.cpp:577
+#, kde-format
+msgid "changed the room avatar"
+msgstr "ha cambiado el avatar de la sala"
+
+#: src/eventhandler.cpp:410 src/eventhandler.cpp:580
+#, kde-format
+msgid "activated End-to-End Encryption"
+msgstr "ha activado el cifrado de extremo a extremo"
+
+#: src/eventhandler.cpp:413
+#, kde-format
+msgid "upgraded the room to version %1"
+msgstr "ha actualizado la sala a la versión %1"
+
+#: src/eventhandler.cpp:414
+#, kde-format
+msgid "created the room, version %1"
+msgstr "ha creado la sala, versión %1"
+
+#: src/eventhandler.cpp:417 src/eventhandler.cpp:586
+#, kde-format
+msgctxt "'power level' means permission level"
+msgid "changed the power levels for this room"
+msgstr "ha cambiado los niveles de poder de esta sala"
+
+#: src/eventhandler.cpp:421 src/eventhandler.cpp:590
+#, kde-format
+msgid "changed the server access control lists for this room"
+msgstr "ha cambiado las listas de control de acceso al servidor para esta sala"
+
+#: src/eventhandler.cpp:425
+#, kde-format
+msgctxt "[User] added <name> widget"
+msgid "added %1 widget"
+msgstr "ha añadido el widget %1"
+
+#: src/eventhandler.cpp:428
+#, kde-format
+msgctxt "[User] removed <name> widget"
+msgid "removed %1 widget"
+msgstr "ha eliminado el widget %1"
+
+#: src/eventhandler.cpp:430
+#, kde-format
+msgctxt "[User] configured <name> widget"
+msgid "configured %1 widget"
+msgstr "ha configurado el widget %1"
+
+#: src/eventhandler.cpp:435
+#, kde-format
+msgid "updated %1 state"
+msgstr "ha actualizado el estado de %1"
+
+#: src/eventhandler.cpp:436
+#, kde-format
+msgid "updated %1 state for %2"
+msgstr "ha actualizado el estado de %1 para %2"
+
+#: src/eventhandler.cpp:441 src/eventhandler.cpp:607
+#, kde-format
+msgid "Unknown event"
+msgstr "Evento desconocido"
+
+#: src/eventhandler.cpp:456
+#, kde-format
+msgid "a file"
+msgstr "un archivo"
+
+#: src/eventhandler.cpp:496
+#, kde-format
+msgid "sent a message"
+msgstr "ha enviado un mensaje"
+
+#: src/eventhandler.cpp:500
+#, kde-format
+msgid "sent a sticker"
+msgstr "ha enviado una pegatina"
+
+#: src/eventhandler.cpp:506
+#, kde-format
+msgid "reinvited someone to the room"
+msgstr "ha vuelto a invitar a alguien a la sala"
+
+#: src/eventhandler.cpp:515
+#, kde-format
+msgid "invited someone to the room"
+msgstr "ha invitado a alguien a la sala"
+
+#: src/eventhandler.cpp:525
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "changed their display name"
+msgstr "ha cambiado su nombre visible"
+
+#: src/eventhandler.cpp:547
+#, kde-format
+msgid "withdrew a user's invitation"
+msgstr "ha retirado la invitación de un usuario"
+
+#: src/eventhandler.cpp:551
+#, kde-format
+msgid "unbanned a user"
+msgstr "ha habilitado a un usuario"
+
+#: src/eventhandler.cpp:553
+#, kde-format
+msgid "put a user out of the room"
+msgstr "ha echado a un usuario de la sala"
+
+#: src/eventhandler.cpp:556
+#, kde-format
+msgid "banned a user from the room"
+msgstr "ha inhabilitado a un usuario en la sala"
+
+#: src/eventhandler.cpp:568
+#, kde-format
+msgid "set the room main alias"
+msgstr "ha definido el alias principal de la sala"
+
+#: src/eventhandler.cpp:571
+#, kde-format
+msgid "set the room name"
+msgstr "ha definido el nombre de la sala"
+
+#: src/eventhandler.cpp:574
+#, kde-format
+msgid "set the topic"
+msgstr "ha definido el tema"
+
+#: src/eventhandler.cpp:583
+#, kde-format
+msgid "upgraded the room version"
+msgstr "ha actualizado la versión de la sala"
+
+#: src/eventhandler.cpp:583
+#, kde-format
+msgid "created the room"
+msgstr "ha creado la sala"
+
+#: src/eventhandler.cpp:594
+#, kde-format
+msgid "added a widget"
+msgstr "ha añadido un widget"
+
+#: src/eventhandler.cpp:597
+#, kde-format
+msgid "removed a widget"
+msgstr "ha eliminado un widget"
+
+#: src/eventhandler.cpp:599
+#, kde-format
+msgid "configured a widget"
+msgstr "ha configurado un widget"
+
+#: src/eventhandler.cpp:601
+#, kde-format
+msgid "updated the state"
+msgstr "ha actualizado el estado"
+
+#: src/eventhandler.cpp:605
+#, kde-format
+msgid "started a poll"
+msgstr "ha iniciado una encuesta"
+
+#: src/eventhandler.cpp:976
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "1 usuario: "
+msgstr[1] "%1 usuarios: "
+
+#: src/eventhandler.cpp:979
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
+
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
@@ -126,96 +476,96 @@ msgstr "Destino"
 msgid "Network Error"
 msgstr "Error de red"
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Matrix client"
 msgstr "Cliente para Matrix"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 La Comunidad KDE"
 
-#: src/main.cpp:190
+#: src/main.cpp:191
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:190 src/main.cpp:191 src/main.cpp:192
+#: src/main.cpp:191 src/main.cpp:192 src/main.cpp:193
 #, kde-format
 msgid "Maintainer"
 msgstr "Responsable"
 
-#: src/main.cpp:191
+#: src/main.cpp:192
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:192
+#: src/main.cpp:193
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Autor original de Spectral"
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Responsable de Quotient"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Eloy Cuadra"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
-#: src/main.cpp:199
+#: src/main.cpp:200
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Biblioteca Qt5 para la escritura de clientes multiplataforma para Matrix"
 
-#: src/main.cpp:201
+#: src/main.cpp:202
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilado con %2)"
 
-#: src/main.cpp:348
+#: src/main.cpp:350
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Cliente para el protocolo de comunicaciones Matrix"
 
-#: src/main.cpp:349
+#: src/main.cpp:351
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Permite el esquema de URL «matrix:»"
 
-#: src/main.cpp:350
+#: src/main.cpp:352
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -617,38 +967,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emojis propios"
 
-#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
-#, kde-format
-msgid "<i>[This message was deleted]</i>"
-msgstr "<i>[Este mensaje ha sido borrado]</i>"
-
-#: src/models/messageeventmodel.cpp:465
-#, kde-format
-msgid "<i>[This message was deleted: %1]</i>"
-msgstr "<i>[Este mensaje ha sido borrado: %1]</i>"
-
-#: src/models/messageeventmodel.cpp:541
+#: src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[CORREGIDO]"
 
-#: src/models/messageeventmodel.cpp:541
+#: src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[CORREGIDO: %1]"
-
-#: src/models/messageeventmodel.cpp:837
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "1 usuario: "
-msgstr[1] "%1 usuarios: "
-
-#: src/models/messageeventmodel.cpp:840
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
 
 #: src/models/messagefiltermodel.cpp:126
 #, kde-format
@@ -736,353 +1063,12 @@ msgstr "Baja prioridad"
 msgid "Spaces"
 msgstr "Espacios"
 
-#: src/models/searchmodel.cpp:250
-#, kde-format
-msgid "Today"
-msgstr "Hoy"
-
-#: src/models/searchmodel.cpp:253
-#, kde-format
-msgid "Yesterday"
-msgstr "Ayer"
-
-#: src/models/searchmodel.cpp:256
-#, kde-format
-msgid "The day before yesterday"
-msgstr "Anteayer"
-
-#: src/neochatroom.cpp:506
-#, kde-format
-msgid "a file"
-msgstr "un archivo"
-
-#: src/neochatroom.cpp:552
-#, kde-format
-msgid "reinvited %1 to the room"
-msgstr "ha vuelto a invitar a %1 a la sala"
-
-#: src/neochatroom.cpp:554
-#, kde-format
-msgctxt "Optional reason for an invitation"
-msgid ": %1"
-msgstr ": %1"
-
-#: src/neochatroom.cpp:563 src/neochatroom.cpp:701
-#, kde-format
-msgid "joined the room (repeated)"
-msgstr "se ha unido a la sala (repetido)"
-
-#: src/neochatroom.cpp:565
-#, kde-format
-msgid "invited %1 to the room"
-msgstr "ha invitado a %1 a la sala"
-
-#: src/neochatroom.cpp:565 src/neochatroom.cpp:703
-#, kde-format
-msgid "joined the room"
-msgstr "se ha unido a la sala"
-
-#: src/neochatroom.cpp:569
-#, kde-format
-msgid ": %1"
-msgstr ": %1"
-
-#: src/neochatroom.cpp:576 src/neochatroom.cpp:711
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "cleared their display name"
-msgstr "ha borrado su nombre visible"
-
-#: src/neochatroom.cpp:578
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "changed their display name to %1"
-msgstr "ha cambiado su nombre visible a %1"
-
-#: src/neochatroom.cpp:583 src/neochatroom.cpp:718
-#, kde-format
-msgid " and "
-msgstr " y "
-
-#: src/neochatroom.cpp:586 src/neochatroom.cpp:721
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "cleared their avatar"
-msgstr "ha borrado su avatar"
-
-#: src/neochatroom.cpp:588 src/neochatroom.cpp:723
-#, kde-format
-msgid "set an avatar"
-msgstr "ha definido un avatar"
-
-#: src/neochatroom.cpp:590 src/neochatroom.cpp:725
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "updated their avatar"
-msgstr "ha actualizado su avatar"
-
-#: src/neochatroom.cpp:594 src/neochatroom.cpp:729
-#, kde-format
-msgctxt "<user> changed nothing"
-msgid "changed nothing"
-msgstr "no ha cambiado nada"
-
-#: src/neochatroom.cpp:600
-#, kde-format
-msgid "withdrew %1's invitation"
-msgstr "ha retirado la invitación de %1"
-
-#: src/neochatroom.cpp:600 src/neochatroom.cpp:735
-#, kde-format
-msgid "rejected the invitation"
-msgstr "ha rechazado la invitación"
-
-#: src/neochatroom.cpp:604
-#, kde-format
-msgid "unbanned %1"
-msgstr "ha habilitado a %1"
-
-#: src/neochatroom.cpp:604 src/neochatroom.cpp:739
-#, kde-format
-msgid "self-unbanned"
-msgstr "se ha habilitado a sí mismo"
-
-#: src/neochatroom.cpp:607
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "ha echado a %1 de la sala: %2"
-
-#: src/neochatroom.cpp:608 src/neochatroom.cpp:741
-#, kde-format
-msgid "left the room"
-msgstr "ha salido de la sala"
-
-#: src/neochatroom.cpp:612
-#, kde-format
-msgid "banned %1 from the room"
-msgstr "ha inhabilitado a %1 en la sala"
-
-#: src/neochatroom.cpp:614
-#, kde-format
-msgid "banned %1 from the room: %2"
-msgstr "ha inhabilitado a %1 en la sala: %2"
-
-#: src/neochatroom.cpp:617 src/neochatroom.cpp:746
-#, kde-format
-msgid "self-banned from the room"
-msgstr "se ha inhabilitado a sí mismo en la sala"
-
-#: src/neochatroom.cpp:621 src/neochatroom.cpp:749
-#, kde-format
-msgid "requested an invite"
-msgstr "ha solicitado una invitación"
-
-#: src/neochatroom.cpp:621
-#, kde-format
-msgid "requested an invite with reason: %1"
-msgstr "ha solicitado una invitación con el motivo: %1"
-
-#: src/neochatroom.cpp:625 src/neochatroom.cpp:753
-#, kde-format
-msgid "made something unknown"
-msgstr "ha hecho algo desconocido"
-
-#: src/neochatroom.cpp:628 src/neochatroom.cpp:756
-#, kde-format
-msgid "cleared the room main alias"
-msgstr "ha borrado el alias principal de la sala"
-
-#: src/neochatroom.cpp:628
-#, kde-format
-msgid "set the room main alias to: %1"
-msgstr "ha definido el alias principal de la sala a: %1"
-
-#: src/neochatroom.cpp:631 src/neochatroom.cpp:759
-#, kde-format
-msgid "cleared the room name"
-msgstr "ha borrado el nombre de la sala"
-
-#: src/neochatroom.cpp:631
-#, kde-format
-msgid "set the room name to: %1"
-msgstr "ha definido el nombre de la sala a: %1"
-
-#: src/neochatroom.cpp:634 src/neochatroom.cpp:762
-#, kde-format
-msgid "cleared the topic"
-msgstr "ha borrado el tema"
-
-#: src/neochatroom.cpp:635
-#, kde-format
-msgid "set the topic to: %1"
-msgstr "ha definido el tema a: %1"
-
-#: src/neochatroom.cpp:641 src/neochatroom.cpp:765
-#, kde-format
-msgid "changed the room avatar"
-msgstr "ha cambiado el avatar de la sala"
-
-#: src/neochatroom.cpp:644 src/neochatroom.cpp:768
-#, kde-format
-msgid "activated End-to-End Encryption"
-msgstr "ha activado el cifrado de extremo a extremo"
-
-#: src/neochatroom.cpp:647
-#, kde-format
-msgid "upgraded the room to version %1"
-msgstr "ha actualizado la sala a la versión %1"
-
-#: src/neochatroom.cpp:648
-#, kde-format
-msgid "created the room, version %1"
-msgstr "ha creado la sala, versión %1"
-
-#: src/neochatroom.cpp:651 src/neochatroom.cpp:774
-#, kde-format
-msgctxt "'power level' means permission level"
-msgid "changed the power levels for this room"
-msgstr "ha cambiado los niveles de poder de esta sala"
-
-#: src/neochatroom.cpp:655 src/neochatroom.cpp:778
-#, kde-format
-msgid "changed the server access control lists for this room"
-msgstr "ha cambiado las listas de control de acceso al servidor para esta sala"
-
-#: src/neochatroom.cpp:659
-#, kde-format
-msgctxt "[User] added <name> widget"
-msgid "added %1 widget"
-msgstr "ha añadido el widget %1"
-
-#: src/neochatroom.cpp:662
-#, kde-format
-msgctxt "[User] removed <name> widget"
-msgid "removed %1 widget"
-msgstr "ha eliminado el widget %1"
-
-#: src/neochatroom.cpp:664
-#, kde-format
-msgctxt "[User] configured <name> widget"
-msgid "configured %1 widget"
-msgstr "ha configurado el widget %1"
-
-#: src/neochatroom.cpp:669
-#, kde-format
-msgid "updated %1 state"
-msgstr "ha actualizado el estado de %1"
-
-#: src/neochatroom.cpp:670
-#, kde-format
-msgid "updated %1 state for %2"
-msgstr "ha actualizado el estado de %1 para %2"
-
-#: src/neochatroom.cpp:675 src/neochatroom.cpp:795
-#, kde-format
-msgid "Unknown event"
-msgstr "Evento desconocido"
-
-#: src/neochatroom.cpp:684
-#, kde-format
-msgid "sent a message"
-msgstr "ha enviado un mensaje"
-
-#: src/neochatroom.cpp:688
-#, kde-format
-msgid "sent a sticker"
-msgstr "ha enviado una pegatina"
-
-#: src/neochatroom.cpp:694
-#, kde-format
-msgid "reinvited someone to the room"
-msgstr "ha vuelto a invitar a alguien a la sala"
-
-#: src/neochatroom.cpp:703
-#, kde-format
-msgid "invited someone to the room"
-msgstr "ha invitado a alguien a la sala"
-
-#: src/neochatroom.cpp:713
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "changed their display name"
-msgstr "ha cambiado su nombre visible"
-
-#: src/neochatroom.cpp:735
-#, kde-format
-msgid "withdrew a user's invitation"
-msgstr "ha retirado la invitación de un usuario"
-
-#: src/neochatroom.cpp:739
-#, kde-format
-msgid "unbanned a user"
-msgstr "ha habilitado a un usuario"
-
-#: src/neochatroom.cpp:741
-#, kde-format
-msgid "put a user out of the room"
-msgstr "ha echado a un usuario de la sala"
-
-#: src/neochatroom.cpp:744
-#, kde-format
-msgid "banned a user from the room"
-msgstr "ha inhabilitado a un usuario en la sala"
-
-#: src/neochatroom.cpp:756
-#, kde-format
-msgid "set the room main alias"
-msgstr "ha definido el alias principal de la sala"
-
-#: src/neochatroom.cpp:759
-#, kde-format
-msgid "set the room name"
-msgstr "ha definido el nombre de la sala"
-
-#: src/neochatroom.cpp:762
-#, kde-format
-msgid "set the topic"
-msgstr "ha definido el tema"
-
-#: src/neochatroom.cpp:771
-#, kde-format
-msgid "upgraded the room version"
-msgstr "ha actualizado la versión de la sala"
-
-#: src/neochatroom.cpp:771
-#, kde-format
-msgid "created the room"
-msgstr "ha creado la sala"
-
-#: src/neochatroom.cpp:782
-#, kde-format
-msgid "added a widget"
-msgstr "ha añadido un widget"
-
-#: src/neochatroom.cpp:785
-#, kde-format
-msgid "removed a widget"
-msgstr "ha eliminado un widget"
-
-#: src/neochatroom.cpp:787
-#, kde-format
-msgid "configured a widget"
-msgstr "ha configurado un widget"
-
-#: src/neochatroom.cpp:789
-#, kde-format
-msgid "updated the state"
-msgstr "ha actualizado el estado"
-
-#: src/neochatroom.cpp:793
-#, kde-format
-msgid "started a poll"
-msgstr "ha iniciado una encuesta"
-
-#: src/neochatroom.cpp:1635 src/neochatroom.cpp:1636
+#: src/neochatroom.cpp:1338 src/neochatroom.cpp:1339
 #, kde-format
 msgid "Report sent successfully."
 msgstr "La denuncia se ha enviado correctamente."
 
-#: src/neochatroom.cpp:1932 src/neochatroom.cpp:1940
+#: src/neochatroom.cpp:1643 src/neochatroom.cpp:1651
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1104,7 +1090,7 @@ msgid "Open NeoChat in this room"
 msgstr "Abrir NeoChat en esta sala"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
@@ -1735,8 +1721,7 @@ msgid "Create a Room"
 msgstr "Crear una sala"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@title"
 msgid "Room Information"
 msgstr "Información de la sala"
@@ -2038,7 +2023,7 @@ msgstr "Moderador (50)"
 msgid "Admin (100)"
 msgstr "Administrador (100)"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:330
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:331
 #: src/qml/Settings/DevicesPage.qml:75
 #, kde-format
 msgid "Confirm"
@@ -2345,36 +2330,36 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:22
 #, kde-format
 msgid "Open Externally"
 msgstr "Abrir externamente"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:41
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:40
 #, kde-format
 msgid "Save As"
 msgstr "Guardar como"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgid "Remove"
 msgstr "Eliminar"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:77
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Eliminar mensaje"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:82
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
@@ -2383,20 +2368,20 @@ msgctxt ""
 msgid "Report"
 msgstr "Denunciar"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:86
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Denunciar mensaje"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:91
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "Ver fuente"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
 #, kde-format
 msgid "Message Source"
@@ -2956,22 +2941,20 @@ msgstr "Preferencias de la sala"
 
 #: src/qml/RoomDrawer/RoomDrawer.qml:140
 #: src/qml/RoomDrawer/RoomDrawerPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "Information"
-msgstr "Información de la sala"
+msgstr "Información"
 
 #: src/qml/RoomDrawer/RoomDrawer.qml:145
 #: src/qml/RoomDrawer/RoomDrawerPage.qml:84
 #, kde-format
 msgid "Media"
-msgstr ""
+msgstr "Multimedia"
 
 #: src/qml/RoomDrawer/RoomDrawerPage.qml:44
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Preferencias de la sala"
+msgstr "Preferencias"
 
 #: src/qml/RoomDrawer/RoomInformation.qml:38
 #, kde-format
@@ -3044,11 +3027,10 @@ msgid "No member count"
 msgstr "Sin contador de miembros"
 
 #: src/qml/RoomDrawer/RoomMedia.qml:30
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Media"
-msgstr "Versión de la sala"
+msgstr "Multimedia de la sala"
 
 #: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
 #: src/qml/Settings/SettingsPage.qml:20
@@ -3139,63 +3121,63 @@ msgstr "#nuevo_alias:servidor.org"
 msgid "Add new alias"
 msgstr "Añadir nuevo alias"
 
-#: src/qml/RoomSettings/General.qml:256
+#: src/qml/RoomSettings/General.qml:257
 #, kde-format
 msgid "URL Previews"
 msgstr "Vistas previas de URL"
 
-#: src/qml/RoomSettings/General.qml:260
+#: src/qml/RoomSettings/General.qml:261
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 "Activar las vistas previas de URL de forma predeterminada para los miembros "
 "de la sala"
 
-#: src/qml/RoomSettings/General.qml:268
+#: src/qml/RoomSettings/General.qml:269
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Activar vistas previas de URL"
 
-#: src/qml/RoomSettings/General.qml:270
+#: src/qml/RoomSettings/General.qml:271
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr ""
 "Las vistas previas de URL están activadas de forma predeterminada en esta "
 "sala"
 
-#: src/qml/RoomSettings/General.qml:270
+#: src/qml/RoomSettings/General.qml:271
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr ""
 "Las vistas previas de URL están desactivadas de forma predeterminada en esta "
 "sala"
 
-#: src/qml/RoomSettings/General.qml:281
+#: src/qml/RoomSettings/General.qml:282
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Esta sala continúa otra conversación."
 
-#: src/qml/RoomSettings/General.qml:285
+#: src/qml/RoomSettings/General.qml:286
 #, kde-format
 msgid "See older messages…"
 msgstr "Ver mensajes antiguos..."
 
-#: src/qml/RoomSettings/General.qml:295
+#: src/qml/RoomSettings/General.qml:296
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Se ha sustituido esta sala."
 
-#: src/qml/RoomSettings/General.qml:299
+#: src/qml/RoomSettings/General.qml:300
 #, kde-format
 msgid "See new room…"
 msgstr "Ver la nueva sala..."
 
-#: src/qml/RoomSettings/General.qml:320
+#: src/qml/RoomSettings/General.qml:321
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Actualizar la sala"
 
-#: src/qml/RoomSettings/General.qml:324
+#: src/qml/RoomSettings/General.qml:325
 #, kde-format
 msgid "Select new version"
 msgstr "Seleccionar nueva versión"
@@ -4293,6 +4275,15 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Salir"
+
+#~ msgid "Today"
+#~ msgstr "Hoy"
+
+#~ msgid "Yesterday"
+#~ msgstr "Ayer"
+
+#~ msgid "The day before yesterday"
+#~ msgstr "Anteayer"
 
 #~ msgid "Room information"
 #~ msgstr "Información de la sala"

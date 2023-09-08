@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 00:46+0000\n"
+"POT-Creation-Date: 2023-09-08 00:46+0000\n"
 "PO-Revision-Date: 2023-09-04 09:05+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -98,6 +98,358 @@ msgstr "Не вдалося створити простір: %1"
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
 
+#: src/eventhandler.cpp:287 src/eventhandler.cpp:489
+#: src/models/messageeventmodel.cpp:456
+#, kde-format
+msgid "<i>[This message was deleted]</i>"
+msgstr "<i>[Це повідомлення було вилучено]</i>"
+
+#: src/eventhandler.cpp:287 src/models/messageeventmodel.cpp:457
+#, kde-format
+msgid "<i>[This message was deleted: %1]</i>"
+msgstr "<i>[Це повідомлення було вилучено: %1]</i>"
+
+#: src/eventhandler.cpp:318
+#, kde-format
+msgid "reinvited %1 to the room"
+msgstr "повторно запрошено %1 до кімнати"
+
+#: src/eventhandler.cpp:320
+#, kde-format
+msgctxt "Optional reason for an invitation"
+msgid ": %1"
+msgstr ": %1"
+
+#: src/eventhandler.cpp:329 src/eventhandler.cpp:513
+#, kde-format
+msgid "joined the room (repeated)"
+msgstr "долучається до кімнати (повторно)"
+
+#: src/eventhandler.cpp:331
+#, kde-format
+msgid "invited %1 to the room"
+msgstr "запрошено %1 до кімнати"
+
+#: src/eventhandler.cpp:331 src/eventhandler.cpp:515
+#, kde-format
+msgid "joined the room"
+msgstr "долучається до кімнати"
+
+#: src/eventhandler.cpp:335
+#, kde-format
+msgid ": %1"
+msgstr ": %1"
+
+#: src/eventhandler.cpp:342 src/eventhandler.cpp:523
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "cleared their display name"
+msgstr "вилучено своє показане ім'я"
+
+#: src/eventhandler.cpp:344
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "changed their display name to %1"
+msgstr "змінено своє показане ім'я на %1"
+
+#: src/eventhandler.cpp:349 src/eventhandler.cpp:530
+#, kde-format
+msgid " and "
+msgstr " і "
+
+#: src/eventhandler.cpp:352 src/eventhandler.cpp:533
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "cleared their avatar"
+msgstr "вилучено свій аватар"
+
+#: src/eventhandler.cpp:354 src/eventhandler.cpp:535
+#, kde-format
+msgid "set an avatar"
+msgstr "встановлено аватар"
+
+#: src/eventhandler.cpp:356 src/eventhandler.cpp:537
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "updated their avatar"
+msgstr "оновлено свій аватар"
+
+#: src/eventhandler.cpp:360 src/eventhandler.cpp:541
+#, kde-format
+msgctxt "<user> changed nothing"
+msgid "changed nothing"
+msgstr "нічого не змінено"
+
+#: src/eventhandler.cpp:366
+#, kde-format
+msgid "withdrew %1's invitation"
+msgstr "відкликано запрошення %1"
+
+#: src/eventhandler.cpp:366 src/eventhandler.cpp:547
+#, kde-format
+msgid "rejected the invitation"
+msgstr "відкинуто запрошення"
+
+#: src/eventhandler.cpp:370
+#, kde-format
+msgid "unbanned %1"
+msgstr "розблоковано %1"
+
+#: src/eventhandler.cpp:370 src/eventhandler.cpp:551
+#, kde-format
+msgid "self-unbanned"
+msgstr "саморозблоковується"
+
+#: src/eventhandler.cpp:373
+#, kde-format
+msgid "has put %1 out of the room: %2"
+msgstr "викинуто %1 з кімнати: %2"
+
+#: src/eventhandler.cpp:374 src/eventhandler.cpp:553
+#, kde-format
+msgid "left the room"
+msgstr "полишає кімнату"
+
+#: src/eventhandler.cpp:378
+#, kde-format
+msgid "banned %1 from the room"
+msgstr "заблоковано %1 у кімнаті"
+
+#: src/eventhandler.cpp:380
+#, kde-format
+msgid "banned %1 from the room: %2"
+msgstr "заблоковано %1 у кімнаті: %2"
+
+#: src/eventhandler.cpp:383 src/eventhandler.cpp:558
+#, kde-format
+msgid "self-banned from the room"
+msgstr "самозаблоковується у кімнаті"
+
+#: src/eventhandler.cpp:387 src/eventhandler.cpp:561
+#, kde-format
+msgid "requested an invite"
+msgstr "надіслано запит щодо запрошення"
+
+#: src/eventhandler.cpp:387
+#, kde-format
+msgid "requested an invite with reason: %1"
+msgstr "надіслано запит щодо запрошення з поясненням причини: %1"
+
+#: src/eventhandler.cpp:391 src/eventhandler.cpp:565
+#, kde-format
+msgid "made something unknown"
+msgstr "виконано щось невідоме"
+
+#: src/eventhandler.cpp:394 src/eventhandler.cpp:568
+#, kde-format
+msgid "cleared the room main alias"
+msgstr "вилучено основний варіант назви кімнати"
+
+#: src/eventhandler.cpp:394
+#, kde-format
+msgid "set the room main alias to: %1"
+msgstr "встановлено основний варіант назви кімнати: %1"
+
+#: src/eventhandler.cpp:397 src/eventhandler.cpp:571
+#, kde-format
+msgid "cleared the room name"
+msgstr "вилучено назву кімнати"
+
+#: src/eventhandler.cpp:397
+#, kde-format
+msgid "set the room name to: %1"
+msgstr "встановлено назву кімнати: %1"
+
+#: src/eventhandler.cpp:400 src/eventhandler.cpp:574
+#, kde-format
+msgid "cleared the topic"
+msgstr "вилучено тему"
+
+#: src/eventhandler.cpp:401
+#, kde-format
+msgid "set the topic to: %1"
+msgstr "встановлено тему: %1"
+
+#: src/eventhandler.cpp:407 src/eventhandler.cpp:577
+#, kde-format
+msgid "changed the room avatar"
+msgstr "змінено аватар кімнати"
+
+#: src/eventhandler.cpp:410 src/eventhandler.cpp:580
+#, kde-format
+msgid "activated End-to-End Encryption"
+msgstr "активовано наскрізне шифрування"
+
+#: src/eventhandler.cpp:413
+#, kde-format
+msgid "upgraded the room to version %1"
+msgstr "оновлено версію кімнати до %1"
+
+#: src/eventhandler.cpp:414
+#, kde-format
+msgid "created the room, version %1"
+msgstr "створено кімнату, версія %1"
+
+#: src/eventhandler.cpp:417 src/eventhandler.cpp:586
+#, kde-format
+msgctxt "'power level' means permission level"
+msgid "changed the power levels for this room"
+msgstr "змінено рівні прав доступу для цієї кімнати"
+
+#: src/eventhandler.cpp:421 src/eventhandler.cpp:590
+#, kde-format
+msgid "changed the server access control lists for this room"
+msgstr "Для цієї кімнати змінено списки керування доступом на сервері"
+
+#: src/eventhandler.cpp:425
+#, kde-format
+msgctxt "[User] added <name> widget"
+msgid "added %1 widget"
+msgstr "додано віджет %1"
+
+#: src/eventhandler.cpp:428
+#, kde-format
+msgctxt "[User] removed <name> widget"
+msgid "removed %1 widget"
+msgstr "вилучено віджет %1"
+
+#: src/eventhandler.cpp:430
+#, kde-format
+msgctxt "[User] configured <name> widget"
+msgid "configured %1 widget"
+msgstr "налаштовано віджет %1"
+
+#: src/eventhandler.cpp:435
+#, kde-format
+msgid "updated %1 state"
+msgstr "оновлено стан %1"
+
+#: src/eventhandler.cpp:436
+#, kde-format
+msgid "updated %1 state for %2"
+msgstr "оновлено стан %1 для %2"
+
+#: src/eventhandler.cpp:441 src/eventhandler.cpp:607
+#, kde-format
+msgid "Unknown event"
+msgstr "Невідома подія"
+
+#: src/eventhandler.cpp:456
+#, kde-format
+msgid "a file"
+msgstr "файл"
+
+#: src/eventhandler.cpp:496
+#, kde-format
+msgid "sent a message"
+msgstr "надіслав повідомлення"
+
+#: src/eventhandler.cpp:500
+#, kde-format
+msgid "sent a sticker"
+msgstr "надіслати наліпку"
+
+#: src/eventhandler.cpp:506
+#, kde-format
+msgid "reinvited someone to the room"
+msgstr "повторно запросив когось до кімнати"
+
+#: src/eventhandler.cpp:515
+#, kde-format
+msgid "invited someone to the room"
+msgstr "запросив когось до кімнати"
+
+#: src/eventhandler.cpp:525
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "changed their display name"
+msgstr "змінив власне показане ім'я"
+
+#: src/eventhandler.cpp:547
+#, kde-format
+msgid "withdrew a user's invitation"
+msgstr "відкликав запрошення користувача"
+
+#: src/eventhandler.cpp:551
+#, kde-format
+msgid "unbanned a user"
+msgstr "розблокував користувача"
+
+#: src/eventhandler.cpp:553
+#, kde-format
+msgid "put a user out of the room"
+msgstr "викинув користувача з кімнати"
+
+#: src/eventhandler.cpp:556
+#, kde-format
+msgid "banned a user from the room"
+msgstr "заблокував користувача у кімнаті"
+
+#: src/eventhandler.cpp:568
+#, kde-format
+msgid "set the room main alias"
+msgstr "встановив основний варіант назви кімнати"
+
+#: src/eventhandler.cpp:571
+#, kde-format
+msgid "set the room name"
+msgstr "встановив назву кімнати"
+
+#: src/eventhandler.cpp:574
+#, kde-format
+msgid "set the topic"
+msgstr "встановив тему"
+
+#: src/eventhandler.cpp:583
+#, kde-format
+msgid "upgraded the room version"
+msgstr "оновив версію кімнати"
+
+#: src/eventhandler.cpp:583
+#, kde-format
+msgid "created the room"
+msgstr "створив кімнату"
+
+#: src/eventhandler.cpp:594
+#, kde-format
+msgid "added a widget"
+msgstr "додав віджет"
+
+#: src/eventhandler.cpp:597
+#, kde-format
+msgid "removed a widget"
+msgstr "вилучив віджет"
+
+#: src/eventhandler.cpp:599
+#, kde-format
+msgid "configured a widget"
+msgstr "налаштував віджет"
+
+#: src/eventhandler.cpp:601
+#, kde-format
+msgid "updated the state"
+msgstr "оновив стан"
+
+#: src/eventhandler.cpp:605
+#, kde-format
+msgid "started a poll"
+msgstr "почав голосування"
+
+#: src/eventhandler.cpp:976
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "%1 користувач: "
+msgstr[1] "%1 користувачі: "
+msgstr[2] "%1 користувачів: "
+msgstr[3] "%1 користувач: "
+
+#: src/eventhandler.cpp:979
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
+
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
@@ -127,97 +479,97 @@ msgstr "Призначення"
 msgid "Network Error"
 msgstr "Помилка у мережі"
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Matrix client"
 msgstr "Клієнт Matrix"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© Black Hat, 2018-2020, Спільнота KDE, 2020–2023"
 
-#: src/main.cpp:190
+#: src/main.cpp:191
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:190 src/main.cpp:191 src/main.cpp:192
+#: src/main.cpp:191 src/main.cpp:192 src/main.cpp:193
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: src/main.cpp:191
+#: src/main.cpp:192
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:192
+#: src/main.cpp:193
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Перший автор Spectral"
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Супровідник Quotient"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: src/main.cpp:199
+#: src/main.cpp:200
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Бібліотека Qt5 для написання багатоплатформових клієнтських програм для "
 "Matrix"
 
-#: src/main.cpp:201
+#: src/main.cpp:202
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (зібрано з %2)"
 
-#: src/main.cpp:348
+#: src/main.cpp:350
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клієнт для протоколу обміну даними matrix"
 
-#: src/main.cpp:349
+#: src/main.cpp:351
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Передбачає підтримку схеми адрес matrix:"
 
-#: src/main.cpp:350
+#: src/main.cpp:352
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ігнорувати усі помилки SSL, наприклад непідписані сертифікати."
@@ -620,40 +972,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Власні емоційки"
 
-#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
-#, kde-format
-msgid "<i>[This message was deleted]</i>"
-msgstr "<i>[Це повідомлення було вилучено]</i>"
-
-#: src/models/messageeventmodel.cpp:465
-#, kde-format
-msgid "<i>[This message was deleted: %1]</i>"
-msgstr "<i>[Це повідомлення було вилучено: %1]</i>"
-
-#: src/models/messageeventmodel.cpp:541
+#: src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ЗМІНЕНО]"
 
-#: src/models/messageeventmodel.cpp:541
+#: src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ЗМІНЕНО: %1]"
-
-#: src/models/messageeventmodel.cpp:837
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "%1 користувач: "
-msgstr[1] "%1 користувачі: "
-msgstr[2] "%1 користувачів: "
-msgstr[3] "%1 користувач: "
-
-#: src/models/messageeventmodel.cpp:840
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
 
 #: src/models/messagefiltermodel.cpp:126
 #, kde-format
@@ -749,353 +1076,12 @@ msgstr "Низький пріоритет"
 msgid "Spaces"
 msgstr "Простори"
 
-#: src/models/searchmodel.cpp:250
-#, kde-format
-msgid "Today"
-msgstr "Сьогодні"
-
-#: src/models/searchmodel.cpp:253
-#, kde-format
-msgid "Yesterday"
-msgstr "Вчора"
-
-#: src/models/searchmodel.cpp:256
-#, kde-format
-msgid "The day before yesterday"
-msgstr "Позавчора"
-
-#: src/neochatroom.cpp:506
-#, kde-format
-msgid "a file"
-msgstr "файл"
-
-#: src/neochatroom.cpp:552
-#, kde-format
-msgid "reinvited %1 to the room"
-msgstr "повторно запрошено %1 до кімнати"
-
-#: src/neochatroom.cpp:554
-#, kde-format
-msgctxt "Optional reason for an invitation"
-msgid ": %1"
-msgstr ": %1"
-
-#: src/neochatroom.cpp:563 src/neochatroom.cpp:701
-#, kde-format
-msgid "joined the room (repeated)"
-msgstr "долучається до кімнати (повторно)"
-
-#: src/neochatroom.cpp:565
-#, kde-format
-msgid "invited %1 to the room"
-msgstr "запрошено %1 до кімнати"
-
-#: src/neochatroom.cpp:565 src/neochatroom.cpp:703
-#, kde-format
-msgid "joined the room"
-msgstr "долучається до кімнати"
-
-#: src/neochatroom.cpp:569
-#, kde-format
-msgid ": %1"
-msgstr ": %1"
-
-#: src/neochatroom.cpp:576 src/neochatroom.cpp:711
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "cleared their display name"
-msgstr "вилучено своє показане ім'я"
-
-#: src/neochatroom.cpp:578
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "changed their display name to %1"
-msgstr "змінено своє показане ім'я на %1"
-
-#: src/neochatroom.cpp:583 src/neochatroom.cpp:718
-#, kde-format
-msgid " and "
-msgstr " і "
-
-#: src/neochatroom.cpp:586 src/neochatroom.cpp:721
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "cleared their avatar"
-msgstr "вилучено свій аватар"
-
-#: src/neochatroom.cpp:588 src/neochatroom.cpp:723
-#, kde-format
-msgid "set an avatar"
-msgstr "встановлено аватар"
-
-#: src/neochatroom.cpp:590 src/neochatroom.cpp:725
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "updated their avatar"
-msgstr "оновлено свій аватар"
-
-#: src/neochatroom.cpp:594 src/neochatroom.cpp:729
-#, kde-format
-msgctxt "<user> changed nothing"
-msgid "changed nothing"
-msgstr "нічого не змінено"
-
-#: src/neochatroom.cpp:600
-#, kde-format
-msgid "withdrew %1's invitation"
-msgstr "відкликано запрошення %1"
-
-#: src/neochatroom.cpp:600 src/neochatroom.cpp:735
-#, kde-format
-msgid "rejected the invitation"
-msgstr "відкинуто запрошення"
-
-#: src/neochatroom.cpp:604
-#, kde-format
-msgid "unbanned %1"
-msgstr "розблоковано %1"
-
-#: src/neochatroom.cpp:604 src/neochatroom.cpp:739
-#, kde-format
-msgid "self-unbanned"
-msgstr "саморозблоковується"
-
-#: src/neochatroom.cpp:607
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "викинуто %1 з кімнати: %2"
-
-#: src/neochatroom.cpp:608 src/neochatroom.cpp:741
-#, kde-format
-msgid "left the room"
-msgstr "полишає кімнату"
-
-#: src/neochatroom.cpp:612
-#, kde-format
-msgid "banned %1 from the room"
-msgstr "заблоковано %1 у кімнаті"
-
-#: src/neochatroom.cpp:614
-#, kde-format
-msgid "banned %1 from the room: %2"
-msgstr "заблоковано %1 у кімнаті: %2"
-
-#: src/neochatroom.cpp:617 src/neochatroom.cpp:746
-#, kde-format
-msgid "self-banned from the room"
-msgstr "самозаблоковується у кімнаті"
-
-#: src/neochatroom.cpp:621 src/neochatroom.cpp:749
-#, kde-format
-msgid "requested an invite"
-msgstr "надіслано запит щодо запрошення"
-
-#: src/neochatroom.cpp:621
-#, kde-format
-msgid "requested an invite with reason: %1"
-msgstr "надіслано запит щодо запрошення з поясненням причини: %1"
-
-#: src/neochatroom.cpp:625 src/neochatroom.cpp:753
-#, kde-format
-msgid "made something unknown"
-msgstr "виконано щось невідоме"
-
-#: src/neochatroom.cpp:628 src/neochatroom.cpp:756
-#, kde-format
-msgid "cleared the room main alias"
-msgstr "вилучено основний варіант назви кімнати"
-
-#: src/neochatroom.cpp:628
-#, kde-format
-msgid "set the room main alias to: %1"
-msgstr "встановлено основний варіант назви кімнати: %1"
-
-#: src/neochatroom.cpp:631 src/neochatroom.cpp:759
-#, kde-format
-msgid "cleared the room name"
-msgstr "вилучено назву кімнати"
-
-#: src/neochatroom.cpp:631
-#, kde-format
-msgid "set the room name to: %1"
-msgstr "встановлено назву кімнати: %1"
-
-#: src/neochatroom.cpp:634 src/neochatroom.cpp:762
-#, kde-format
-msgid "cleared the topic"
-msgstr "вилучено тему"
-
-#: src/neochatroom.cpp:635
-#, kde-format
-msgid "set the topic to: %1"
-msgstr "встановлено тему: %1"
-
-#: src/neochatroom.cpp:641 src/neochatroom.cpp:765
-#, kde-format
-msgid "changed the room avatar"
-msgstr "змінено аватар кімнати"
-
-#: src/neochatroom.cpp:644 src/neochatroom.cpp:768
-#, kde-format
-msgid "activated End-to-End Encryption"
-msgstr "активовано наскрізне шифрування"
-
-#: src/neochatroom.cpp:647
-#, kde-format
-msgid "upgraded the room to version %1"
-msgstr "оновлено версію кімнати до %1"
-
-#: src/neochatroom.cpp:648
-#, kde-format
-msgid "created the room, version %1"
-msgstr "створено кімнату, версія %1"
-
-#: src/neochatroom.cpp:651 src/neochatroom.cpp:774
-#, kde-format
-msgctxt "'power level' means permission level"
-msgid "changed the power levels for this room"
-msgstr "змінено рівні прав доступу для цієї кімнати"
-
-#: src/neochatroom.cpp:655 src/neochatroom.cpp:778
-#, kde-format
-msgid "changed the server access control lists for this room"
-msgstr "Для цієї кімнати змінено списки керування доступом на сервері"
-
-#: src/neochatroom.cpp:659
-#, kde-format
-msgctxt "[User] added <name> widget"
-msgid "added %1 widget"
-msgstr "додано віджет %1"
-
-#: src/neochatroom.cpp:662
-#, kde-format
-msgctxt "[User] removed <name> widget"
-msgid "removed %1 widget"
-msgstr "вилучено віджет %1"
-
-#: src/neochatroom.cpp:664
-#, kde-format
-msgctxt "[User] configured <name> widget"
-msgid "configured %1 widget"
-msgstr "налаштовано віджет %1"
-
-#: src/neochatroom.cpp:669
-#, kde-format
-msgid "updated %1 state"
-msgstr "оновлено стан %1"
-
-#: src/neochatroom.cpp:670
-#, kde-format
-msgid "updated %1 state for %2"
-msgstr "оновлено стан %1 для %2"
-
-#: src/neochatroom.cpp:675 src/neochatroom.cpp:795
-#, kde-format
-msgid "Unknown event"
-msgstr "Невідома подія"
-
-#: src/neochatroom.cpp:684
-#, kde-format
-msgid "sent a message"
-msgstr "надіслав повідомлення"
-
-#: src/neochatroom.cpp:688
-#, kde-format
-msgid "sent a sticker"
-msgstr "надіслати наліпку"
-
-#: src/neochatroom.cpp:694
-#, kde-format
-msgid "reinvited someone to the room"
-msgstr "повторно запросив когось до кімнати"
-
-#: src/neochatroom.cpp:703
-#, kde-format
-msgid "invited someone to the room"
-msgstr "запросив когось до кімнати"
-
-#: src/neochatroom.cpp:713
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "changed their display name"
-msgstr "змінив власне показане ім'я"
-
-#: src/neochatroom.cpp:735
-#, kde-format
-msgid "withdrew a user's invitation"
-msgstr "відкликав запрошення користувача"
-
-#: src/neochatroom.cpp:739
-#, kde-format
-msgid "unbanned a user"
-msgstr "розблокував користувача"
-
-#: src/neochatroom.cpp:741
-#, kde-format
-msgid "put a user out of the room"
-msgstr "викинув користувача з кімнати"
-
-#: src/neochatroom.cpp:744
-#, kde-format
-msgid "banned a user from the room"
-msgstr "заблокував користувача у кімнаті"
-
-#: src/neochatroom.cpp:756
-#, kde-format
-msgid "set the room main alias"
-msgstr "встановив основний варіант назви кімнати"
-
-#: src/neochatroom.cpp:759
-#, kde-format
-msgid "set the room name"
-msgstr "встановив назву кімнати"
-
-#: src/neochatroom.cpp:762
-#, kde-format
-msgid "set the topic"
-msgstr "встановив тему"
-
-#: src/neochatroom.cpp:771
-#, kde-format
-msgid "upgraded the room version"
-msgstr "оновив версію кімнати"
-
-#: src/neochatroom.cpp:771
-#, kde-format
-msgid "created the room"
-msgstr "створив кімнату"
-
-#: src/neochatroom.cpp:782
-#, kde-format
-msgid "added a widget"
-msgstr "додав віджет"
-
-#: src/neochatroom.cpp:785
-#, kde-format
-msgid "removed a widget"
-msgstr "вилучив віджет"
-
-#: src/neochatroom.cpp:787
-#, kde-format
-msgid "configured a widget"
-msgstr "налаштував віджет"
-
-#: src/neochatroom.cpp:789
-#, kde-format
-msgid "updated the state"
-msgstr "оновив стан"
-
-#: src/neochatroom.cpp:793
-#, kde-format
-msgid "started a poll"
-msgstr "почав голосування"
-
-#: src/neochatroom.cpp:1635 src/neochatroom.cpp:1636
+#: src/neochatroom.cpp:1338 src/neochatroom.cpp:1339
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1932 src/neochatroom.cpp:1940
+#: src/neochatroom.cpp:1643 src/neochatroom.cpp:1651
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1117,7 +1103,7 @@ msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
@@ -2046,7 +2032,7 @@ msgstr "Модератор (50)"
 msgid "Admin (100)"
 msgstr "Адміністратор (100)"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:330
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:331
 #: src/qml/Settings/DevicesPage.qml:75
 #, kde-format
 msgid "Confirm"
@@ -2354,36 +2340,36 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:22
 #, kde-format
 msgid "Open Externally"
 msgstr "Відкрити у сторонній програмі"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:41
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:40
 #, kde-format
 msgid "Save As"
 msgstr "Зберегти як"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "Copy"
 msgstr "Копіювати"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:77
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Вилучення повідомлення"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:82
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
@@ -2392,20 +2378,20 @@ msgctxt ""
 msgid "Report"
 msgstr "Поскаржитися"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:86
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:91
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "Переглянути джерело"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
 #, kde-format
 msgid "Message Source"
@@ -3150,58 +3136,58 @@ msgstr "#нова_альтернатива:сервер.org"
 msgid "Add new alias"
 msgstr "Додати новий псевдонім"
 
-#: src/qml/RoomSettings/General.qml:256
+#: src/qml/RoomSettings/General.qml:257
 #, kde-format
 msgid "URL Previews"
 msgstr "Перегляд вмісту адрес"
 
-#: src/qml/RoomSettings/General.qml:260
+#: src/qml/RoomSettings/General.qml:261
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 "Увімкнути типовий попередній перегляд вмісту адрес для учасників кімнати"
 
-#: src/qml/RoomSettings/General.qml:268
+#: src/qml/RoomSettings/General.qml:269
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Увімкнути перегляд вмісту адрес"
 
-#: src/qml/RoomSettings/General.qml:270
+#: src/qml/RoomSettings/General.qml:271
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "У цій кімнаті типово увімкнено попередній перегляд вмісту адрес"
 
-#: src/qml/RoomSettings/General.qml:270
+#: src/qml/RoomSettings/General.qml:271
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "У цій кімнаті типово вимкнено попередній перегляд вмісту адрес"
 
-#: src/qml/RoomSettings/General.qml:281
+#: src/qml/RoomSettings/General.qml:282
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "У цій кімнаті продовжується інше спілкування."
 
-#: src/qml/RoomSettings/General.qml:285
+#: src/qml/RoomSettings/General.qml:286
 #, kde-format
 msgid "See older messages…"
 msgstr "Переглянути старі повідомлення…"
 
-#: src/qml/RoomSettings/General.qml:295
+#: src/qml/RoomSettings/General.qml:296
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Цю кімнат було замінено."
 
-#: src/qml/RoomSettings/General.qml:299
+#: src/qml/RoomSettings/General.qml:300
 #, kde-format
 msgid "See new room…"
 msgstr "Переглянути нову кімнату…"
 
-#: src/qml/RoomSettings/General.qml:320
+#: src/qml/RoomSettings/General.qml:321
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Оновити кімнату"
 
-#: src/qml/RoomSettings/General.qml:324
+#: src/qml/RoomSettings/General.qml:325
 #, kde-format
 msgid "Select new version"
 msgstr "Виберіть нову версію"
@@ -4302,6 +4288,15 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Today"
+#~ msgstr "Сьогодні"
+
+#~ msgid "Yesterday"
+#~ msgstr "Вчора"
+
+#~ msgid "The day before yesterday"
+#~ msgstr "Позавчора"
 
 #~ msgid "Room information"
 #~ msgstr "Відомості щодо кімнати"

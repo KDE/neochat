@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-06 00:46+0000\n"
+"POT-Creation-Date: 2023-09-08 00:46+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -96,6 +96,374 @@ msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr ""
 
+#: src/eventhandler.cpp:287 src/eventhandler.cpp:489
+#: src/models/messageeventmodel.cpp:456
+#, kde-format
+msgid "<i>[This message was deleted]</i>"
+msgstr "<i>[ਇਹ ਸੁਨੇਹਾ ਹਟਾਇਆ ਗਿਆ ਸੀ]</i>"
+
+#: src/eventhandler.cpp:287 src/models/messageeventmodel.cpp:457
+#, kde-format
+msgid "<i>[This message was deleted: %1]</i>"
+msgstr "<i>[ਇਹ ਸੁਨੇਹਾ ਹਟਾਇਆ ਗਿਆ ਸੀ: %1]</i>"
+
+#: src/eventhandler.cpp:318
+#, kde-format
+msgid "reinvited %1 to the room"
+msgstr ""
+
+#: src/eventhandler.cpp:320
+#, kde-format
+msgctxt "Optional reason for an invitation"
+msgid ": %1"
+msgstr ": %1"
+
+#: src/eventhandler.cpp:329 src/eventhandler.cpp:513
+#, kde-format
+msgid "joined the room (repeated)"
+msgstr "ਰੂਮ ਜੁਆਇੰਨ ਕੀਤਾ (ਦੁਹਰਾਇਆ)"
+
+#: src/eventhandler.cpp:331
+#, kde-format
+msgid "invited %1 to the room"
+msgstr "%1 ਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
+
+#: src/eventhandler.cpp:331 src/eventhandler.cpp:515
+#, kde-format
+msgid "joined the room"
+msgstr "ਰੂਮ 'ਚ ਦਾਖਲ ਹੋਏ"
+
+#: src/eventhandler.cpp:335
+#, kde-format
+msgid ": %1"
+msgstr ": %1"
+
+#: src/eventhandler.cpp:342 src/eventhandler.cpp:523
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "cleared their display name"
+msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
+
+#: src/eventhandler.cpp:344
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "changed their display name to %1"
+msgstr ""
+
+#: src/eventhandler.cpp:349 src/eventhandler.cpp:530
+#, kde-format
+msgid " and "
+msgstr " ਅਤੇ "
+
+#: src/eventhandler.cpp:352 src/eventhandler.cpp:533
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "cleared their avatar"
+msgstr "ਉਹਨਾਂ ਦੇ ਅਵਤਾਰ ਮਿਟਾਏ"
+
+#: src/eventhandler.cpp:354 src/eventhandler.cpp:535
+#, kde-format
+msgid "set an avatar"
+msgstr "ਅਵਤਾਰ ਨਿਯਤ ਕਰੋ"
+
+#: src/eventhandler.cpp:356 src/eventhandler.cpp:537
+#, kde-format
+msgctxt "their refers to a singular user"
+msgid "updated their avatar"
+msgstr "ਆਪਣੇ ਅਵਤਾਰ ਅੱਪਡੇਟ ਕੀਤੇ"
+
+#: src/eventhandler.cpp:360 src/eventhandler.cpp:541
+#, kde-format
+msgctxt "<user> changed nothing"
+msgid "changed nothing"
+msgstr ""
+
+#: src/eventhandler.cpp:366
+#, kde-format
+msgid "withdrew %1's invitation"
+msgstr "%1 ਲਈ ਸੱਦਾ ਵਾਪਸ ਲਵੋ"
+
+#: src/eventhandler.cpp:366 src/eventhandler.cpp:547
+#, kde-format
+msgid "rejected the invitation"
+msgstr "ਸੱਦੇ ਲਈ ਨਾਂਹ ਕੀਤੀ"
+
+#: src/eventhandler.cpp:370
+#, kde-format
+msgid "unbanned %1"
+msgstr "%1 ਪਾਬੰਦੀ ਹਟਾਈ"
+
+#: src/eventhandler.cpp:370 src/eventhandler.cpp:551
+#, kde-format
+msgid "self-unbanned"
+msgstr ""
+
+#: src/eventhandler.cpp:373
+#, kde-format
+msgid "has put %1 out of the room: %2"
+msgstr ""
+
+#: src/eventhandler.cpp:374 src/eventhandler.cpp:553
+#, kde-format
+msgid "left the room"
+msgstr "ਰੂਮ ਛੱਡਿਆ"
+
+#: src/eventhandler.cpp:378
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "banned %1 from the room"
+msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
+
+#: src/eventhandler.cpp:380
+#, kde-format
+msgid "banned %1 from the room: %2"
+msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
+
+#: src/eventhandler.cpp:383 src/eventhandler.cpp:558
+#, kde-format
+msgid "self-banned from the room"
+msgstr ""
+
+#: src/eventhandler.cpp:387 src/eventhandler.cpp:561
+#, kde-format
+msgid "requested an invite"
+msgstr "ਸੱਦੇ ਲਈ ਬੇਨਤੀ ਕਰੋ"
+
+#: src/eventhandler.cpp:387
+#, fuzzy, kde-format
+#| msgid "requested an invite"
+msgid "requested an invite with reason: %1"
+msgstr "ਸੱਦੇ ਲਈ ਬੇਨਤੀ ਕਰੋ"
+
+#: src/eventhandler.cpp:391 src/eventhandler.cpp:565
+#, kde-format
+msgid "made something unknown"
+msgstr ""
+
+#: src/eventhandler.cpp:394 src/eventhandler.cpp:568
+#, kde-format
+msgid "cleared the room main alias"
+msgstr ""
+
+#: src/eventhandler.cpp:394
+#, kde-format
+msgid "set the room main alias to: %1"
+msgstr ""
+
+#: src/eventhandler.cpp:397 src/eventhandler.cpp:571
+#, kde-format
+msgid "cleared the room name"
+msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
+
+#: src/eventhandler.cpp:397
+#, kde-format
+msgid "set the room name to: %1"
+msgstr ""
+
+#: src/eventhandler.cpp:400 src/eventhandler.cpp:574
+#, kde-format
+msgid "cleared the topic"
+msgstr "ਵਿਸ਼ੇ ਨੂੰ ਮਿਟਾਇਆ"
+
+#: src/eventhandler.cpp:401
+#, kde-format
+msgid "set the topic to: %1"
+msgstr "ਵਿਸ਼ਾ ਨਿਯਤ ਕੀਤਾ: %1"
+
+#: src/eventhandler.cpp:407 src/eventhandler.cpp:577
+#, kde-format
+msgid "changed the room avatar"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/eventhandler.cpp:410 src/eventhandler.cpp:580
+#, kde-format
+msgid "activated End-to-End Encryption"
+msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
+
+#: src/eventhandler.cpp:413
+#, kde-format
+msgid "upgraded the room to version %1"
+msgstr "ਰੂਮ ਨੂੰ %1 ਵਰਜ਼ਨ ਲਈ ਅੱਪਗਰੇਡ ਕੀਤਾ"
+
+#: src/eventhandler.cpp:414
+#, kde-format
+msgid "created the room, version %1"
+msgstr "ਰੂਮ ਬਣਾਇਆ, ਵਰਜ਼ਨ %1"
+
+#: src/eventhandler.cpp:417 src/eventhandler.cpp:586
+#, kde-format
+msgctxt "'power level' means permission level"
+msgid "changed the power levels for this room"
+msgstr ""
+
+#: src/eventhandler.cpp:421 src/eventhandler.cpp:590
+#, kde-format
+msgid "changed the server access control lists for this room"
+msgstr ""
+
+#: src/eventhandler.cpp:425
+#, kde-format
+msgctxt "[User] added <name> widget"
+msgid "added %1 widget"
+msgstr ""
+
+#: src/eventhandler.cpp:428
+#, kde-format
+msgctxt "[User] removed <name> widget"
+msgid "removed %1 widget"
+msgstr ""
+
+#: src/eventhandler.cpp:430
+#, kde-format
+msgctxt "[User] configured <name> widget"
+msgid "configured %1 widget"
+msgstr ""
+
+#: src/eventhandler.cpp:435
+#, kde-format
+msgid "updated %1 state"
+msgstr "%1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
+
+#: src/eventhandler.cpp:436
+#, kde-format
+msgid "updated %1 state for %2"
+msgstr "%2 ਲਈ %1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
+
+#: src/eventhandler.cpp:441 src/eventhandler.cpp:607
+#, kde-format
+msgid "Unknown event"
+msgstr "ਅਣਪਛਾਤਾ ਈਵੈਂਟ"
+
+#: src/eventhandler.cpp:456
+#, kde-format
+msgid "a file"
+msgstr "ਫਾਇਲ"
+
+#: src/eventhandler.cpp:496
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "sent a message"
+msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#: src/eventhandler.cpp:500
+#, kde-format
+msgid "sent a sticker"
+msgstr ""
+
+#: src/eventhandler.cpp:506
+#, fuzzy, kde-format
+#| msgid "invited %1 to the room"
+msgid "reinvited someone to the room"
+msgstr "%1 ਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
+
+#: src/eventhandler.cpp:515
+#, fuzzy, kde-format
+#| msgid "invited %1 to the room"
+msgid "invited someone to the room"
+msgstr "%1 ਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
+
+#: src/eventhandler.cpp:525
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgctxt "their refers to a singular user"
+msgid "changed their display name"
+msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
+
+#: src/eventhandler.cpp:547
+#, fuzzy, kde-format
+#| msgid "withdrew %1's invitation"
+msgid "withdrew a user's invitation"
+msgstr "%1 ਲਈ ਸੱਦਾ ਵਾਪਸ ਲਵੋ"
+
+#: src/eventhandler.cpp:551
+#, fuzzy, kde-format
+#| msgid "unbanned %1"
+msgid "unbanned a user"
+msgstr "%1 ਪਾਬੰਦੀ ਹਟਾਈ"
+
+#: src/eventhandler.cpp:553
+#, fuzzy, kde-format
+#| msgid "%1 invited you to a room"
+msgid "put a user out of the room"
+msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
+
+#: src/eventhandler.cpp:556
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "banned a user from the room"
+msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
+
+#: src/eventhandler.cpp:568
+#, fuzzy, kde-format
+#| msgid "changed the room avatar"
+msgid "set the room main alias"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/eventhandler.cpp:571
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgid "set the room name"
+msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
+
+#: src/eventhandler.cpp:574
+#, fuzzy, kde-format
+#| msgid "set the topic to: %1"
+msgid "set the topic"
+msgstr "ਵਿਸ਼ਾ ਨਿਯਤ ਕੀਤਾ: %1"
+
+#: src/eventhandler.cpp:583
+#, fuzzy, kde-format
+#| msgid "upgraded the room to version %1"
+msgid "upgraded the room version"
+msgstr "ਰੂਮ ਨੂੰ %1 ਵਰਜ਼ਨ ਲਈ ਅੱਪਗਰੇਡ ਕੀਤਾ"
+
+#: src/eventhandler.cpp:583
+#, fuzzy, kde-format
+#| msgid "left the room"
+msgid "created the room"
+msgstr "ਰੂਮ ਛੱਡਿਆ"
+
+#: src/eventhandler.cpp:594
+#, kde-format
+msgid "added a widget"
+msgstr ""
+
+#: src/eventhandler.cpp:597
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "removed a widget"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/eventhandler.cpp:599
+#, kde-format
+msgid "configured a widget"
+msgstr ""
+
+#: src/eventhandler.cpp:601
+#, fuzzy, kde-format
+#| msgid "updated %1 state"
+msgid "updated the state"
+msgstr "%1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
+
+#: src/eventhandler.cpp:605
+#, kde-format
+msgid "started a poll"
+msgstr ""
+
+#: src/eventhandler.cpp:976
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/eventhandler.cpp:979
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ""
+
 #: src/filetransferpseudojob.cpp:48
 #, fuzzy, kde-format
 #| msgctxt ""
@@ -131,96 +499,96 @@ msgstr "ਸੱਦਾ ਭੇਜੋ"
 msgid "Network Error"
 msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ"
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "NeoChat"
 msgstr "ਨਿਓ-ਚੈਟ"
 
-#: src/main.cpp:187
+#: src/main.cpp:188
 #, kde-format
 msgid "Matrix client"
 msgstr "ਮੈਟਰਿਕਸ ਕਲਾਈਂਟ"
 
-#: src/main.cpp:189
+#: src/main.cpp:190
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 
-#: src/main.cpp:190
+#: src/main.cpp:191
 #, kde-format
 msgid "Carl Schwan"
 msgstr "ਕਾਰਲ ਸਚਵਾਨ"
 
-#: src/main.cpp:190 src/main.cpp:191 src/main.cpp:192
+#: src/main.cpp:191 src/main.cpp:192 src/main.cpp:193
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: src/main.cpp:191
+#: src/main.cpp:192
 #, kde-format
 msgid "Tobias Fella"
 msgstr "ਟੋਬਿਸ ਫੇਲਾ"
 
-#: src/main.cpp:192
+#: src/main.cpp:193
 #, kde-format
 msgid "James Graham"
 msgstr ""
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:193
+#: src/main.cpp:194
 #, kde-format
 msgid "Original author of Spectral"
 msgstr ""
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr ""
 
-#: src/main.cpp:194
+#: src/main.cpp:195
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr ""
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "ਅ.ਸ.ਆਲਮ ੨੦੨੧"
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alam.yellow@gmail.com"
 
-#: src/main.cpp:199
+#: src/main.cpp:200
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 
-#: src/main.cpp:201
+#: src/main.cpp:202
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:348
+#: src/main.cpp:350
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr ""
 
-#: src/main.cpp:349
+#: src/main.cpp:351
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr ""
 
-#: src/main.cpp:350
+#: src/main.cpp:352
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -681,37 +1049,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "ਕਸਟਮ"
 
-#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
-#, kde-format
-msgid "<i>[This message was deleted]</i>"
-msgstr "<i>[ਇਹ ਸੁਨੇਹਾ ਹਟਾਇਆ ਗਿਆ ਸੀ]</i>"
-
-#: src/models/messageeventmodel.cpp:465
-#, kde-format
-msgid "<i>[This message was deleted: %1]</i>"
-msgstr "<i>[ਇਹ ਸੁਨੇਹਾ ਹਟਾਇਆ ਗਿਆ ਸੀ: %1]</i>"
-
-#: src/models/messageeventmodel.cpp:541
+#: src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "[REDACTED]"
 msgstr ""
 
-#: src/models/messageeventmodel.cpp:541
+#: src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "[REDACTED: %1]"
-msgstr ""
-
-#: src/models/messageeventmodel.cpp:837
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/models/messageeventmodel.cpp:840
-#, kde-format
-msgctxt "list separator"
-msgid ", "
 msgstr ""
 
 #: src/models/messagefiltermodel.cpp:126
@@ -801,372 +1146,13 @@ msgstr "ਘੱਟ ਤਰਜੀਹ"
 msgid "Spaces"
 msgstr ""
 
-#: src/models/searchmodel.cpp:250
-#, kde-format
-msgid "Today"
-msgstr "ਅੱਜ"
-
-#: src/models/searchmodel.cpp:253
-#, kde-format
-msgid "Yesterday"
-msgstr "ਕਲ੍ਹ"
-
-#: src/models/searchmodel.cpp:256
-#, kde-format
-msgid "The day before yesterday"
-msgstr "ਪਰਸੋਂ"
-
-#: src/neochatroom.cpp:506
-#, kde-format
-msgid "a file"
-msgstr "ਫਾਇਲ"
-
-#: src/neochatroom.cpp:552
-#, kde-format
-msgid "reinvited %1 to the room"
-msgstr ""
-
-#: src/neochatroom.cpp:554
-#, kde-format
-msgctxt "Optional reason for an invitation"
-msgid ": %1"
-msgstr ": %1"
-
-#: src/neochatroom.cpp:563 src/neochatroom.cpp:701
-#, kde-format
-msgid "joined the room (repeated)"
-msgstr "ਰੂਮ ਜੁਆਇੰਨ ਕੀਤਾ (ਦੁਹਰਾਇਆ)"
-
-#: src/neochatroom.cpp:565
-#, kde-format
-msgid "invited %1 to the room"
-msgstr "%1 ਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
-
-#: src/neochatroom.cpp:565 src/neochatroom.cpp:703
-#, kde-format
-msgid "joined the room"
-msgstr "ਰੂਮ 'ਚ ਦਾਖਲ ਹੋਏ"
-
-#: src/neochatroom.cpp:569
-#, kde-format
-msgid ": %1"
-msgstr ": %1"
-
-#: src/neochatroom.cpp:576 src/neochatroom.cpp:711
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "cleared their display name"
-msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
-
-#: src/neochatroom.cpp:578
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "changed their display name to %1"
-msgstr ""
-
-#: src/neochatroom.cpp:583 src/neochatroom.cpp:718
-#, kde-format
-msgid " and "
-msgstr " ਅਤੇ "
-
-#: src/neochatroom.cpp:586 src/neochatroom.cpp:721
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "cleared their avatar"
-msgstr "ਉਹਨਾਂ ਦੇ ਅਵਤਾਰ ਮਿਟਾਏ"
-
-#: src/neochatroom.cpp:588 src/neochatroom.cpp:723
-#, kde-format
-msgid "set an avatar"
-msgstr "ਅਵਤਾਰ ਨਿਯਤ ਕਰੋ"
-
-#: src/neochatroom.cpp:590 src/neochatroom.cpp:725
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "updated their avatar"
-msgstr "ਆਪਣੇ ਅਵਤਾਰ ਅੱਪਡੇਟ ਕੀਤੇ"
-
-#: src/neochatroom.cpp:594 src/neochatroom.cpp:729
-#, kde-format
-msgctxt "<user> changed nothing"
-msgid "changed nothing"
-msgstr ""
-
-#: src/neochatroom.cpp:600
-#, kde-format
-msgid "withdrew %1's invitation"
-msgstr "%1 ਲਈ ਸੱਦਾ ਵਾਪਸ ਲਵੋ"
-
-#: src/neochatroom.cpp:600 src/neochatroom.cpp:735
-#, kde-format
-msgid "rejected the invitation"
-msgstr "ਸੱਦੇ ਲਈ ਨਾਂਹ ਕੀਤੀ"
-
-#: src/neochatroom.cpp:604
-#, kde-format
-msgid "unbanned %1"
-msgstr "%1 ਪਾਬੰਦੀ ਹਟਾਈ"
-
-#: src/neochatroom.cpp:604 src/neochatroom.cpp:739
-#, kde-format
-msgid "self-unbanned"
-msgstr ""
-
-#: src/neochatroom.cpp:607
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr ""
-
-#: src/neochatroom.cpp:608 src/neochatroom.cpp:741
-#, kde-format
-msgid "left the room"
-msgstr "ਰੂਮ ਛੱਡਿਆ"
-
-#: src/neochatroom.cpp:612
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
-msgid "banned %1 from the room"
-msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
-
-#: src/neochatroom.cpp:614
-#, kde-format
-msgid "banned %1 from the room: %2"
-msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
-
-#: src/neochatroom.cpp:617 src/neochatroom.cpp:746
-#, kde-format
-msgid "self-banned from the room"
-msgstr ""
-
-#: src/neochatroom.cpp:621 src/neochatroom.cpp:749
-#, kde-format
-msgid "requested an invite"
-msgstr "ਸੱਦੇ ਲਈ ਬੇਨਤੀ ਕਰੋ"
-
-#: src/neochatroom.cpp:621
-#, fuzzy, kde-format
-#| msgid "requested an invite"
-msgid "requested an invite with reason: %1"
-msgstr "ਸੱਦੇ ਲਈ ਬੇਨਤੀ ਕਰੋ"
-
-#: src/neochatroom.cpp:625 src/neochatroom.cpp:753
-#, kde-format
-msgid "made something unknown"
-msgstr ""
-
-#: src/neochatroom.cpp:628 src/neochatroom.cpp:756
-#, kde-format
-msgid "cleared the room main alias"
-msgstr ""
-
-#: src/neochatroom.cpp:628
-#, kde-format
-msgid "set the room main alias to: %1"
-msgstr ""
-
-#: src/neochatroom.cpp:631 src/neochatroom.cpp:759
-#, kde-format
-msgid "cleared the room name"
-msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
-
-#: src/neochatroom.cpp:631
-#, kde-format
-msgid "set the room name to: %1"
-msgstr ""
-
-#: src/neochatroom.cpp:634 src/neochatroom.cpp:762
-#, kde-format
-msgid "cleared the topic"
-msgstr "ਵਿਸ਼ੇ ਨੂੰ ਮਿਟਾਇਆ"
-
-#: src/neochatroom.cpp:635
-#, kde-format
-msgid "set the topic to: %1"
-msgstr "ਵਿਸ਼ਾ ਨਿਯਤ ਕੀਤਾ: %1"
-
-#: src/neochatroom.cpp:641 src/neochatroom.cpp:765
-#, kde-format
-msgid "changed the room avatar"
-msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
-
-#: src/neochatroom.cpp:644 src/neochatroom.cpp:768
-#, kde-format
-msgid "activated End-to-End Encryption"
-msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
-
-#: src/neochatroom.cpp:647
-#, kde-format
-msgid "upgraded the room to version %1"
-msgstr "ਰੂਮ ਨੂੰ %1 ਵਰਜ਼ਨ ਲਈ ਅੱਪਗਰੇਡ ਕੀਤਾ"
-
-#: src/neochatroom.cpp:648
-#, kde-format
-msgid "created the room, version %1"
-msgstr "ਰੂਮ ਬਣਾਇਆ, ਵਰਜ਼ਨ %1"
-
-#: src/neochatroom.cpp:651 src/neochatroom.cpp:774
-#, kde-format
-msgctxt "'power level' means permission level"
-msgid "changed the power levels for this room"
-msgstr ""
-
-#: src/neochatroom.cpp:655 src/neochatroom.cpp:778
-#, kde-format
-msgid "changed the server access control lists for this room"
-msgstr ""
-
-#: src/neochatroom.cpp:659
-#, kde-format
-msgctxt "[User] added <name> widget"
-msgid "added %1 widget"
-msgstr ""
-
-#: src/neochatroom.cpp:662
-#, kde-format
-msgctxt "[User] removed <name> widget"
-msgid "removed %1 widget"
-msgstr ""
-
-#: src/neochatroom.cpp:664
-#, kde-format
-msgctxt "[User] configured <name> widget"
-msgid "configured %1 widget"
-msgstr ""
-
-#: src/neochatroom.cpp:669
-#, kde-format
-msgid "updated %1 state"
-msgstr "%1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
-
-#: src/neochatroom.cpp:670
-#, kde-format
-msgid "updated %1 state for %2"
-msgstr "%2 ਲਈ %1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
-
-#: src/neochatroom.cpp:675 src/neochatroom.cpp:795
-#, kde-format
-msgid "Unknown event"
-msgstr "ਅਣਪਛਾਤਾ ਈਵੈਂਟ"
-
-#: src/neochatroom.cpp:684
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "sent a message"
-msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
-
-#: src/neochatroom.cpp:688
-#, kde-format
-msgid "sent a sticker"
-msgstr ""
-
-#: src/neochatroom.cpp:694
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
-msgid "reinvited someone to the room"
-msgstr "%1 ਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
-
-#: src/neochatroom.cpp:703
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
-msgid "invited someone to the room"
-msgstr "%1 ਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
-
-#: src/neochatroom.cpp:713
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
-msgctxt "their refers to a singular user"
-msgid "changed their display name"
-msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
-
-#: src/neochatroom.cpp:735
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
-msgid "withdrew a user's invitation"
-msgstr "%1 ਲਈ ਸੱਦਾ ਵਾਪਸ ਲਵੋ"
-
-#: src/neochatroom.cpp:739
-#, fuzzy, kde-format
-#| msgid "unbanned %1"
-msgid "unbanned a user"
-msgstr "%1 ਪਾਬੰਦੀ ਹਟਾਈ"
-
-#: src/neochatroom.cpp:741
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
-msgid "put a user out of the room"
-msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
-
-#: src/neochatroom.cpp:744
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
-msgid "banned a user from the room"
-msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
-
-#: src/neochatroom.cpp:756
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
-msgid "set the room main alias"
-msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
-
-#: src/neochatroom.cpp:759
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
-msgid "set the room name"
-msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
-
-#: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "set the topic to: %1"
-msgid "set the topic"
-msgstr "ਵਿਸ਼ਾ ਨਿਯਤ ਕੀਤਾ: %1"
-
-#: src/neochatroom.cpp:771
-#, fuzzy, kde-format
-#| msgid "upgraded the room to version %1"
-msgid "upgraded the room version"
-msgstr "ਰੂਮ ਨੂੰ %1 ਵਰਜ਼ਨ ਲਈ ਅੱਪਗਰੇਡ ਕੀਤਾ"
-
-#: src/neochatroom.cpp:771
-#, fuzzy, kde-format
-#| msgid "left the room"
-msgid "created the room"
-msgstr "ਰੂਮ ਛੱਡਿਆ"
-
-#: src/neochatroom.cpp:782
-#, kde-format
-msgid "added a widget"
-msgstr ""
-
-#: src/neochatroom.cpp:785
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgid "removed a widget"
-msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
-
-#: src/neochatroom.cpp:787
-#, kde-format
-msgid "configured a widget"
-msgstr ""
-
-#: src/neochatroom.cpp:789
-#, fuzzy, kde-format
-#| msgid "updated %1 state"
-msgid "updated the state"
-msgstr "%1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
-
-#: src/neochatroom.cpp:793
-#, kde-format
-msgid "started a poll"
-msgstr ""
-
-#: src/neochatroom.cpp:1635 src/neochatroom.cpp:1636
+#: src/neochatroom.cpp:1338 src/neochatroom.cpp:1339
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
 
-#: src/neochatroom.cpp:1932 src/neochatroom.cpp:1940
+#: src/neochatroom.cpp:1643 src/neochatroom.cpp:1651
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1189,7 +1175,7 @@ msgid "Open NeoChat in this room"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
@@ -2141,7 +2127,7 @@ msgstr ""
 msgid "Admin (100)"
 msgstr "ਐਡਮਿਨ"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:330
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:331
 #: src/qml/Settings/DevicesPage.qml:75
 #, kde-format
 msgid "Confirm"
@@ -2455,29 +2441,29 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:22
 #, kde-format
 msgid "Open Externally"
 msgstr "ਬਾਹਰ ਖੋਲ੍ਹੋ"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:41
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:40
 #, kde-format
 msgid "Save As"
 msgstr "ਇੰਝ ਸੰਭਾਲੋ"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:77
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, fuzzy, kde-format
 #| msgid "Edit Message"
@@ -2485,7 +2471,7 @@ msgctxt "@title"
 msgid "Remove Message"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:82
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
@@ -2494,7 +2480,7 @@ msgctxt ""
 msgid "Report"
 msgstr ""
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:86
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #, fuzzy, kde-format
 #| msgid "Edit Message"
@@ -2502,13 +2488,13 @@ msgctxt "@title"
 msgid "Report Message"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:91
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "ਸਰੋਤ ਵੇਖੋ"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
 #, kde-format
 msgid "Message Source"
@@ -3301,62 +3287,62 @@ msgstr ""
 msgid "Add new alias"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:256
+#: src/qml/RoomSettings/General.qml:257
 #, kde-format
 msgid "URL Previews"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:260
+#: src/qml/RoomSettings/General.qml:261
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:268
+#: src/qml/RoomSettings/General.qml:269
 #, kde-format
 msgid "Enable URL previews"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:270
+#: src/qml/RoomSettings/General.qml:271
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "URL previews are enabled by default in this room"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/qml/RoomSettings/General.qml:270
+#: src/qml/RoomSettings/General.qml:271
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "URL previews are disabled by default in this room"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/qml/RoomSettings/General.qml:281
+#: src/qml/RoomSettings/General.qml:282
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "ਇਹ ਰੂਮ ਹੋਰ ਗੱਲਬਾਤ ਜਾਰੀ ਰੱਖਦਾ ਹੈ।"
 
-#: src/qml/RoomSettings/General.qml:285
+#: src/qml/RoomSettings/General.qml:286
 #, fuzzy, kde-format
 #| msgid "See older messages..."
 msgid "See older messages…"
 msgstr "...ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਵੇਖੋ"
 
-#: src/qml/RoomSettings/General.qml:295
+#: src/qml/RoomSettings/General.qml:296
 #, kde-format
 msgid "This room has been replaced."
 msgstr "ਇਸ ਰੂਮ ਨੂੰ ਬਦਲਿਆ ਗਿਆ ਹੈ।"
 
-#: src/qml/RoomSettings/General.qml:299
+#: src/qml/RoomSettings/General.qml:300
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgid "See new room…"
 msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
 
-#: src/qml/RoomSettings/General.qml:320
+#: src/qml/RoomSettings/General.qml:321
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "Upgrade the Room"
 msgstr "ਰੂਮ ਛੱਡਿਆ"
 
-#: src/qml/RoomSettings/General.qml:324
+#: src/qml/RoomSettings/General.qml:325
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgid "Select new version"
@@ -4514,6 +4500,15 @@ msgstr "ਵੇਖਾਓ"
 #, kde-format
 msgid "Quit"
 msgstr "ਬਾਹਰ"
+
+#~ msgid "Today"
+#~ msgstr "ਅੱਜ"
+
+#~ msgid "Yesterday"
+#~ msgstr "ਕਲ੍ਹ"
+
+#~ msgid "The day before yesterday"
+#~ msgstr "ਪਰਸੋਂ"
 
 #~ msgid "Room information"
 #~ msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
