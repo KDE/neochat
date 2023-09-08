@@ -61,10 +61,10 @@ Purpose.PurposeAlternativesModel {
                 })
             }
         }
-        onObjectAdded: {
+        onObjectAdded: (index, object) => {
             object.index = index;
             shareAction.children.push(object)
         }
-        onObjectRemoved: shareAction.children = Array.from(shareAction.children).filter(obj => obj.pluginId !== object.pluginId)
+        onObjectRemoved: (index, object) => shareAction.children = Array.from(shareAction.children).filter(obj => obj.pluginId !== object.pluginId)
     }
 }
