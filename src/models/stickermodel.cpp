@@ -109,7 +109,7 @@ void StickerModel::setRoom(NeoChatRoom *room)
 void StickerModel::postSticker(int index)
 {
     const auto &image = m_images[index];
-    const auto &body = image.body ? *image.body : QString();
+    const auto &body = image.body ? *image.body : image.shortcode;
     QJsonObject infoJson;
     if (image.info) {
         infoJson["w"] = image.info->imageSize.width();
