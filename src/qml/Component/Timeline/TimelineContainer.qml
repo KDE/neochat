@@ -258,7 +258,7 @@ ColumnLayout {
      */
     signal replyClicked(string eventID)
 
-    onReplyClicked: ListView.view.goToEvent(eventID)
+    onReplyClicked: eventID => ListView.view.goToEvent(eventID)
 
     /**
      * @brief The component to display the delegate type.
