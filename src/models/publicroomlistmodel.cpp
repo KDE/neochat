@@ -171,7 +171,7 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
         return {};
     }
     auto room = rooms.at(index.row());
-    if (role == NameRole) {
+    if (role == DisplayNameRole) {
         auto displayName = room.name;
         if (!displayName.isEmpty()) {
             return displayName;
@@ -188,18 +188,17 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
 
         return room.roomId;
     }
-    if (role == AvatarRole) {
+    if (role == AvatarUrlRole) {
         auto avatarUrl = room.avatarUrl;
-
-        if (avatarUrl.isEmpty()) {
-            return {};
+        if (avatarUrl.isEmpty() || !m_connection) {
+            return QUrl();
         }
-        return avatarUrl.url().remove(0, 6);
+        return m_connection->makeMediaUrl(avatarUrl);
     }
     if (role == TopicRole) {
         return room.topic;
     }
-    if (role == RoomIDRole) {
+    if (role == RoomIdRole) {
         return room.roomId;
     }
     if (role == AliasRole) {
@@ -232,10 +231,10 @@ QHash<int, QByteArray> PublicRoomListModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
 
-    roles[NameRole] = "name";
-    roles[AvatarRole] = "avatar";
+    roles[DisplayNameRole] = "displayName";
+    roles[AvatarUrlRole] = "avatarUrl";
     roles[TopicRole] = "topic";
-    roles[RoomIDRole] = "roomID";
+    roles[RoomIdRole] = "roomId";
     roles[MemberCountRole] = "memberCount";
     roles[AllowGuestsRole] = "allowGuests";
     roles[WorldReadableRole] = "worldReadable";
