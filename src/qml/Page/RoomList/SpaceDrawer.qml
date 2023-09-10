@@ -41,6 +41,11 @@ QQC2.Control {
                 QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
                 contentWidth: -1 // disable horizontal scroll
 
+                background: Rectangle {
+                    color: Kirigami.Theme.backgroundColor
+                    Kirigami.Theme.colorSet: Kirigami.Theme.View
+                }
+
                 ColumnLayout {
                     id: column
                     width: scrollView.width

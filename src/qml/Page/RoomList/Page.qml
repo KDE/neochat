@@ -96,12 +96,17 @@ Kirigami.Page {
 
     RowLayout {
         anchors.fill: parent
-        spacing: 1
+        spacing: 0
 
         NeoChat.SpaceDrawer {
             id: spaceDrawer
             Layout.preferredWidth: spaceDrawer.enabled ? Kirigami.Units.gridUnit * 3 : 0
             Layout.fillHeight: true
+        }
+
+        Kirigami.Separator {
+            Layout.fillHeight: true
+            Layout.preferredWidth: 1
         }
 
         QQC2.ScrollView {
