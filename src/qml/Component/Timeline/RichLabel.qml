@@ -103,7 +103,7 @@ a{
         RoomManager.openResource(link)
     }
     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
-        applicationWindow().hoverLinkIndicator.text = hoveredLink;
+        // applicationWindow().hoverLinkIndicator.text = hoveredLink;
     } else {
         applicationWindow().hoverLinkIndicator.text = "";
     }

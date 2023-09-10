@@ -550,11 +550,7 @@ ColumnLayout {
             }
         }
 
-        background: Rectangle {
-            visible: mainContainer.hovered && (Config.compactLayout || root.alwaysMaxWidth)
-            color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
-            radius: Kirigami.Units.smallSpacing
-        }
+        background: Item {}
 
         TapHandler {
             acceptedDevices: PointerDevice.Mouse

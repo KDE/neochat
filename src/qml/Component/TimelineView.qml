@@ -238,7 +238,8 @@ QQC2.ScrollView {
             width: delegate ? delegate.bubbleWidth : Kirigami.Units.gridUnit * 4
 
             currentRoom: root.currentRoom
-            showActions: delegate && delegate.hovered
+            visible: false
+            showActions: false
             verified: delegate && delegate.verified
             editable: delegate && delegate.author.isLocalUser && (delegate.delegateType === DelegateType.Emote || delegate.delegateType === DelegateType.Message)
 

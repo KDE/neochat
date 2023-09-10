@@ -93,7 +93,7 @@ Delegates.RoundedItemDelegate {
             enabled: false
             implicitWidth: Kirigami.Units.iconSizes.smallMedium
             implicitHeight: Kirigami.Units.iconSizes.smallMedium
-            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && !hasNotifications
+            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !hasNotifications
             Accessible.name: i18n("Muted room")
             Layout.rightMargin: Kirigami.Units.smallSpacing
         }
@@ -122,16 +122,6 @@ Delegates.RoundedItemDelegate {
                 text: notificationCountLabel.text
             }
         }
-
-        QQC2.Button {
-            id: configButton
-            visible: root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList
-            text: i18n("Configure room")
-            display: QQC2.Button.IconOnly
-
-            icon.name: "configure"
-            onClicked: createRoomListContextMenu()
-        }
     }
 
     function createRoomListContextMenu() {
@@ -139,17 +129,6 @@ Delegates.RoundedItemDelegate {
         const menu = component.createObject(root, {
             room: root.currentRoom,
         });
-        if (!Kirigami.Settings.isMobile && !Config.compactRoomList) {
-            configButton.visible = true;
-            configButton.down = true;
-        }
-        menu.closed.connect(function() {
-            configButton.down = undefined;
-            configButton.visible = Qt.binding(() => {
-                return root.hovered && !Kirigami.Settings.isMobile
-                    && !Config.compactRoomList;
-            });
-        })
         menu.open()
     }
 }

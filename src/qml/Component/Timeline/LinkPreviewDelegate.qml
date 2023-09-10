@@ -108,7 +108,7 @@ Loader {
                 id: maximizeButton
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
-                visible: componentRoot.hovered && (componentRoot.truncated || checked)
+                visible: false
                 checkable: true
                 icon.name: checked ? "go-up" : "go-down"
 
