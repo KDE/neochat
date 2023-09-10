@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-28 03:11+0000\n"
-"PO-Revision-Date: 2023-04-29 11:30+0200\n"
+"PO-Revision-Date: 2023-09-09 10:37+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: src/controller.cpp:234
 #, kde-format
@@ -80,16 +80,14 @@ msgid "Contact your matrix server administrator for support."
 msgstr "Napisz do obsługi twojego serwera Matriksa z prośbą o pomoc."
 
 #: src/controller.cpp:492
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#, kde-format
 msgid "Room creation failed: %1"
-msgstr "Nie udało się utworzyć pokoju: \"%1\""
+msgstr "Nie udało się utworzyć pokoju: %1"
 
 #: src/controller.cpp:513
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#, kde-format
 msgid "Space creation failed: %1"
-msgstr "Nie udało się utworzyć pokoju: \"%1\""
+msgstr "Nie udało się utworzyć przestrzeni: %1"
 
 #: src/controller.cpp:527
 #, kde-format
@@ -136,10 +134,9 @@ msgid "Matrix client"
 msgstr "Klient Matrix"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2022 Społeczność KDE"
+msgstr "© 2018-2020 Black Hat, 2020-2023 społeczność KDE"
 
 #: src/main.cpp:165
 #, kde-format
@@ -635,18 +632,16 @@ msgid "Custom"
 msgstr "Własne"
 
 #: src/models/imagepacksmodel.cpp:86
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr "wysłał(a) naklejkę"
+msgstr "Własne naklejki"
 
 #: src/models/imagepacksmodel.cpp:86
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "Bez emoji"
+msgstr "Własne emoji"
 
 #: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
 #, kde-format
@@ -1161,7 +1156,7 @@ msgstr "Załącz obraz lub plik"
 #: src/qml/Component/ChatBox/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "Emoji i naklejki"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:106
 #, kde-format
@@ -1249,27 +1244,24 @@ msgid "Replying to:"
 msgstr "Odpowiadanie na:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Pokoje"
+msgstr "Pokój"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Pokaż zmiany nazw"
+msgstr "Pokaż wydarzenia m.room.member"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Nie znaleziono pokojów"
+msgstr "Pokaż dane konta pokoju"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Dane konta pokoju dla %1 - %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1279,39 +1271,34 @@ msgid "Event Source"
 msgstr "Źródło wydarzenia"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
-msgstr "Stan pokoju — %1"
+msgstr "Stan pokoju dla %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Możliwości serwera"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Potwierdź nowe hasło:"
+msgstr "Może zmienić hasło"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Domyślne uprawnienia"
+msgstr "Domyślna wersja pokoju"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Wersja pokoju"
+msgstr "Dostępne wersja pokojów"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "No stickers"
-msgstr "wysłał(a) naklejkę"
+msgstr "Nie ma żadnych naklejek"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1320,22 +1307,20 @@ msgstr "Bez emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
 #: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Bez emoji"
+msgstr "Emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
 #: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:32
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Naklejki"
 
 #: src/qml/Component/FullScreenMap.qml:23
-#, fuzzy, kde-format
-#| msgid "Send a Location"
+#, kde-format
 msgid "View Location"
-msgstr "Wyślij położenie"
+msgstr "Obejrzyj położenie"
 
 #: src/qml/Component/FullScreenMap.qml:64
 #, kde-format
@@ -1369,17 +1354,15 @@ msgid "Accept"
 msgstr "Zaakceptuj"
 
 #: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
-msgstr "Powiadomienia"
+msgstr "Miejsca"
 
 #: src/qml/Component/LocationPage.qml:51
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgid "There are no locations shared in this room."
-msgstr "Już jesteś w tym pokoju."
+msgstr "Nie udostępniono żadnych miejsc w tym pokoju."
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1694,38 +1677,30 @@ msgstr "Ok"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
 #: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create a Space"
-msgstr "Opuść Space"
+msgstr "Utwórz przestrzeń"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "Opuść Space"
+msgstr "Utwórz przestrzeń"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgid "Space name"
-msgstr "Członkowie przestrzeni"
+msgstr "Nazwa przestrzeni"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, kde-format
 msgid "Space topic (optional)"
-msgstr ""
+msgstr "Temat przestrzeni (niewymagany)"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create space"
-msgstr "Opuść Space"
+msgstr "Utwórz przestrzeń"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
@@ -2469,7 +2444,7 @@ msgstr "Wyślij zaproszenie"
 #: src/qml/Page/InviteUserPage.qml:114
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Użytkownik jest już członkiem lub został zaproszony"
 
 #: src/qml/Page/JoinRoomPage.qml:22
 #, kde-format
@@ -2702,11 +2677,9 @@ msgid "Configure room"
 msgstr "Ustawienia pokoju"
 
 #: src/qml/Page/RoomList/SpaceDrawer.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show All Rooms"
+#, kde-format
 msgid "All Rooms"
-msgstr "Pokaż wszystkie pokoje"
+msgstr "Wszystkie pokoje"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:26
 #, kde-format
@@ -2786,16 +2759,14 @@ msgid "Chat"
 msgstr "Rozmowa"
 
 #: src/qml/Page/StartChatPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgid "Join existing chat"
-msgstr "Wejdź na istniejące konto"
+msgstr "Dołącz do istniejącej rozmowy"
 
 #: src/qml/Page/StartChatPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Create rooms and chats"
+#, kde-format
 msgid "Create new chat"
-msgstr "Twórz pokoje i rozmowy"
+msgstr "Utwórz nową rozmowę"
 
 #: src/qml/Page/WelcomePage.qml:56
 #, kde-format
@@ -2859,10 +2830,9 @@ msgid "Make room favorite"
 msgstr "Dodaj pokój do ulubionych"
 
 #: src/qml/Panel/RoomDrawer.qml:196
-#, fuzzy, kde-format
-#| msgid "Search in this room"
+#, kde-format
 msgid "Show locations for this room"
-msgstr "Poszukaj w tym pokoju"
+msgstr "Pokaż miejsca dla tego pokoju"
 
 #: src/qml/Panel/RoomDrawer.qml:208
 #, kde-format
@@ -3364,10 +3334,9 @@ msgid "Edit Account"
 msgstr "Edytuj konto"
 
 #: src/qml/Settings/AccountEditorPage.qml:72
-#, fuzzy, kde-format
-#| msgid "Update avatar"
+#, kde-format
 msgid "Upload new avatar"
-msgstr "Uaktualnij awatar"
+msgstr "Wyślij nowy awatar"
 
 #: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
@@ -3536,7 +3505,7 @@ msgstr "Zestaw kolorów"
 #, kde-format
 msgctxt "@label"
 msgid "%1, Last activity: %2"
-msgstr ""
+msgstr "%1, ostatnia aktywność: %2"
 
 #: src/qml/Settings/DeviceDelegate.qml:61
 #, kde-format
@@ -3569,27 +3538,24 @@ msgid "Logout device"
 msgstr "Wyloguj urządzenie"
 
 #: src/qml/Settings/DevicesPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "This Device"
-msgstr "Urządzenia"
+msgstr "To urządzenie"
 
 #: src/qml/Settings/DevicesPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgid "Verified Devices"
-msgstr "Sprawdź urządzenie"
+msgstr "Sprawdzone urządzenia"
 
 #: src/qml/Settings/DevicesPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgid "Unverified Devices"
-msgstr "Sprawdź urządzenie"
+msgstr "Niesprawdzone urządzenia"
 
 #: src/qml/Settings/DevicesPage.qml:43
 #, kde-format
 msgid "Devices without Encryption Support"
-msgstr ""
+msgstr "Urządzenia nieobsługujące szyfrowania"
 
 #: src/qml/Settings/DevicesPage.qml:58
 #, kde-format
@@ -3609,90 +3575,77 @@ msgstr "Hasło:"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:55
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "Edytuj urządzenie"
+msgstr "Edytuj naklejkę"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:105
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "wysłał(a) naklejkę"
+msgstr "Dodaj naklejkę"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:32
 #: src/qml/Settings/EmoticonFormCard.qml:55
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
-msgstr "Dodaj Emoji..."
+msgstr "Edytuj emoji"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:32
 #: src/qml/Settings/EmoticonFormCard.qml:105
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
-msgstr "Dodaj Emoji..."
+msgstr "Dodaj emoji"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:38
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Sticker"
-msgstr "wysłał(a) naklejkę"
+msgstr "Naklejka"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:38
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emoji"
-msgstr "Bez emoji"
+msgstr "Emoji"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:71
-#, fuzzy, kde-format
-#| msgid "Change the room name"
+#, kde-format
 msgid "Change Image"
-msgstr "Zmień nazwę pokoju"
+msgstr "Zmień obraz"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:71
 #, kde-format
 msgid "Set Image"
-msgstr ""
+msgstr "Ustaw obraz"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "Krótki kod:"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgid "Description:"
-msgstr "Miejsce docelowe"
+msgstr "Opis:"
 
 #: src/qml/Settings/EmoticonFormCard.qml:73
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
-msgstr "Miejsce docelowe"
+msgstr "Brak opisu"
 
 #: src/qml/Settings/EmoticonFormCard.qml:114
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgid "Add Emoji"
-msgstr "Dodaj Emoji..."
+msgstr "Dodaj emoji"
 
 #: src/qml/Settings/EmoticonFormCard.qml:114
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Add Sticker"
-msgstr "wysłał(a) naklejkę"
+msgstr "Dodaj naklejkę"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3913,7 +3866,7 @@ msgstr "Wygląd"
 #: src/qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "Stickers & Emojis"
-msgstr ""
+msgstr "Naklejki i emoji"
 
 #: src/qml/Settings/SettingsPage.qml:48
 #, kde-format
