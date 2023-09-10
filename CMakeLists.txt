@@ -141,6 +141,7 @@ set_package_properties(cmark PROPERTIES
 ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
 ecm_find_qmlmodule(org.kde.kitemmodels 1.0)
 ecm_find_qmlmodule(org.kde.quickcharts 1.0)
+ecm_find_qmlmodule(QtLocation ${QTLOCATION_MODULE_QML_VERSION})
 
 find_package(KQuickImageEditor COMPONENTS)
 set_package_properties(KQuickImageEditor PROPERTIES
