@@ -35,8 +35,8 @@ FormCard.FormCardPage {
                     Layout.alignment: Qt.AlignRight
                     name: room.name
                     source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
-                    implicitWidth: Kirigami.Units.iconSizes.medium
-                    implicitHeight: Kirigami.Units.iconSizes.medium
+                    implicitWidth: Kirigami.Units.iconSizes.enormous
+                    implicitHeight: Kirigami.Units.iconSizes.enormous
                 }
                 QQC2.Button {
                     Layout.alignment: Qt.AlignLeft
