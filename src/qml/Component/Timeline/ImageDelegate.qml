@@ -73,8 +73,8 @@ TimelineContainer {
             active: !root.mediaInfo.animated
             sourceComponent: Image {
                 source: root.mediaInfo.source
-                sourceSize.width: imageContainer.maxSize.width * Screen.devicePixelRatio
-                sourceSize.height: imageContainer.maxSize.height * Screen.devicePixelRatio
+                sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
+                sourceSize.height: mediaSizeHelper.currentSize.height * Screen.devicePixelRatio
 
                 fillMode: Image.PreserveAspectFit
             }

@@ -14,7 +14,6 @@
 
 #include <QDebug>
 #include <QGuiApplication>
-#include <QMovie>
 #include <QTimeZone>
 
 #include <KLocalizedString>
