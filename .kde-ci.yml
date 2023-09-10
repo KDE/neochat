@@ -2,35 +2,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 Dependencies:
-- 'on': ['Linux/Qt5', 'Android/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kirigami': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/syntax-highlighting': '@stable'
-    'frameworks/kitemmodels': '@stable'
-    'frameworks/kquickcharts': '@stable'
-    'frameworks/knotifications': '@stable'
-    'libraries/kquickimageeditor': '@stable'
-    'frameworks/sonnet': '@stable'
-    'libraries/kirigami-addons': '@latest'
-    'third-party/libquotient': '@latest'
-    'third-party/qtkeychain': '@latest'
-    'third-party/cmark': '@latest'
-    'third-party/qcoro': '@latest'
-- 'on': ['Windows/Qt5', 'Linux/Qt5', 'FreeBSD/Qt5']
-  'require':
-    'frameworks/qqc2-desktop-style': '@stable'
-    'frameworks/kio': '@stable'
-    'frameworks/kwindowsystem': '@stable'
-    'frameworks/kconfigwidgets': '@stable'
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
-  'require':
-    'frameworks/kdbusaddons': '@stable'
-
-- 'on': ['Linux/Qt6', 'Android/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+- 'on': ['Linux', 'Android', 'FreeBSD', 'Windows']
   'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'
     'frameworks/kcoreaddons': '@latest-kf6'
@@ -48,21 +20,21 @@ Dependencies:
     'third-party/qtkeychain': '@latest'
     'third-party/cmark': '@latest'
     'third-party/qcoro': '@latest'
-- 'on': ['Windows/Qt6', 'Linux/Qt6', 'FreeBSD/Qt6']
+- 'on': ['Windows', 'Linux', 'FreeBSD']
   'require':
     'frameworks/qqc2-desktop-style': '@latest-kf6'
     'frameworks/kio': '@latest-kf6'
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/kconfigwidgets': '@latest-kf6'
-- 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
+- 'on': ['Linux', 'FreeBSD']
   'require':
     'frameworks/kdbusaddons': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
 
-- 'on': ['Linux/Qt6', 'Linux/Qt5']
+- 'on': ['Linux']
   'require':
     'sdk/selenium-webdriver-at-spi': '@latest-kf6'
 
 Options:
   per-test-timeout: 90
-  require-passing-tests-on: [ 'Linux/Qt5', 'FreeBSD', 'Windows' ]
+  require-passing-tests-on: [ 'FreeBSD', 'Windows' ]
