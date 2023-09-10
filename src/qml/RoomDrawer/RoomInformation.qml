@@ -48,7 +48,7 @@ QQC2.ScrollView {
             property alias userListSearchField: userListSearchField
 
             spacing: 0
-            width: root.width
+            width: ListView.view ? ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin : 0
 
             Loader {
                 active: true
@@ -156,8 +156,8 @@ QQC2.ScrollView {
 
                 onVisibleChanged: if (visible) forceActiveFocus()
                 Layout.fillWidth: true
-                Layout.leftMargin: Kirigami.Units.largeSpacing - 1
-                Layout.rightMargin: Kirigami.Units.largeSpacing - 1
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.rightMargin: Kirigami.Units.largeSpacing
                 Layout.bottomMargin: Kirigami.Units.smallSpacing
 
                 focusSequence: "Ctrl+Shift+F"
