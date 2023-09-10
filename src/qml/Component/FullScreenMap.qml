@@ -1,12 +1,12 @@
 // SPDX-FileCopyrightText: 2021 Tobias Fella <fella@posteo.de>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtLocation 5.15
-import QtPositioning 5.15
+import QtQuick
+import QtQuick.Controls
+import QtLocation
+import QtPositioning
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami as Kirigami
 
 ApplicationWindow {
     id: root

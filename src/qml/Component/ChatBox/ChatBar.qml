@@ -2,14 +2,14 @@
 // SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15 as QQC2
-import QtQuick.Window 2.15
-import Qt.labs.platform 1.1 as Platform
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import QtQuick.Window
+import Qt.labs.platform as Platform
 
 import org.kde.kirigami as Kirigami
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 /**
  * @brief The component which handles the message sending.

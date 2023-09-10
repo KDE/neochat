@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: 2021 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 
-import QtQuick 2.7
-import QtQuick.Layouts 1.3
-import org.kde.kirigami 2.14 as Kirigami
+import QtQuick
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 
 /**
  * Action that allows an user to share data with other apps and service
@@ -38,7 +38,7 @@ Kirigami.Action {
 
     property Instantiator _instantiator: Instantiator {
         Component.onCompleted: {
-            const purposeModel = Qt.createQmlObject('import org.kde.purpose 1.0 as Purpose;
+            const purposeModel = Qt.createQmlObject('import org.kde.purpose as Purpose;
 Purpose.PurposeAlternativesModel {
     pluginType: "Export"
 }', root._instantiator);

@@ -1,13 +1,13 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Layouts
 
-import org.kde.kirigami 2.20 as Kirigami
-import org.kde.kitemmodels 1.0
+import org.kde.kirigami as Kirigami
+import org.kde.kitemmodels
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 /**
  * @brief Page for holding a room drawer component.

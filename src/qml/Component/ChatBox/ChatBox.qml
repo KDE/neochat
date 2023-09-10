@@ -2,11 +2,11 @@
 // SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Layouts
 
-import org.kde.kirigami 2.15 as Kirigami
-import org.kde.neochat 1.0
+import org.kde.kirigami as Kirigami
+import org.kde.neochat
 
 /**
  * @brief A component for typing and sending chat messages.

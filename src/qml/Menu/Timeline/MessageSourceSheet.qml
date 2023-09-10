@@ -2,12 +2,13 @@
 // SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-3.0-only
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15 as QQC2
+import QtQuick
+import QtQuick.Controls as QQC2
 
-import org.kde.syntaxhighlighting 1.0
 import org.kde.kirigami as Kirigami
-import org.kde.neochat 1.0
+import org.kde.syntaxhighlighting
+
+import org.kde.neochat
 
 Kirigami.Page {
     property string sourceText

@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.de>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as QQC2
-import QtQuick.Layouts 1.14
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
 /// Step for the login/registration flow
 ColumnLayout {

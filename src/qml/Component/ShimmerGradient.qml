@@ -4,8 +4,8 @@
 // Not to be confused with the Shimmer project.
 // I like their gradiented GTK themes though.
 
-import QtQuick 2.15
-import org.kde.kirigami 2.15 as Kirigami
+import QtQuick
+import org.kde.kirigami as Kirigami
 
 Gradient {
     id: root

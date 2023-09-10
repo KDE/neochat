@@ -1,15 +1,15 @@
 // SPDX-FileCopyrightText: 2018-2020 Black Hat <bhat@encom.eu.org>
 // SPDX-License-Identifier: GPL-3.0-only
 
-import QtQuick 2.15
-import QtQuick.Window 2.15
-import QtQuick.Controls 2.15 as QQC2
-import QtQuick.Layouts 1.15
-import QtQml.Models 2.15
+import QtQuick
+import QtQuick.Window
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import QtQml.Models
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami as Kirigami
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 /**
  * @brief A timeline delegate for an image message.

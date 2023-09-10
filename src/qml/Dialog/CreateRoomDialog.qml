@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-or-later OR LicenseRef-KDE-Accepted-GPL
 
-import QtQuick 2.15
+import QtQuick
 
-import org.kde.kirigamiaddons.formcard 1.0 as FormCard
+import org.kde.kirigamiaddons.formcard as FormCard
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 FormCard.FormCardPage {
     id: root

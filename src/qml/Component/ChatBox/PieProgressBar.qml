@@ -1,10 +1,10 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-import QtQuick 2.15
+import QtQuick
 
-import org.kde.kirigami 2.18 as Kirigami
-import org.kde.quickcharts 1.0 as Charts
+import org.kde.kirigami as Kirigami
+import org.kde.quickcharts as Charts
 
 /**
  * @brief A circular progress bar that fills an arc as progress goes up.

@@ -1,14 +1,13 @@
 // SPDX-FileCopyrightText: 2021 Tobias Fella <fella@posteo.de>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
-import QtLocation 5.15
-import QtPositioning 5.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtLocation
+import QtPositioning
 
-
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 /**
  * @brief A timeline delegate for a location message.

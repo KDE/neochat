@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
-import Qt.labs.platform 1.1 as Labs
-import QtQuick 2.15
-import QtQuick.Layouts 1.10
+import Qt.labs.platform as Labs
+import QtQuick
+import QtQuick.Layouts
 
 Labs.Menu {
     id: root

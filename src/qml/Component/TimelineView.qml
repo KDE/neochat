@@ -1,16 +1,16 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15 as QQC2
-import QtQuick.Layouts 1.15
-import Qt.labs.qmlmodels 1.0
-import QtQuick.Window 2.15
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import Qt.labs.qmlmodels
+import QtQuick.Window
 
-import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kitemmodels 1.0
+import org.kde.kirigami as Kirigami
+import org.kde.kitemmodels
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 QQC2.ScrollView {
     id: root

@@ -6,9 +6,9 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
-import org.kde.kirigami 2 as Kirigami
-import org.kde.kirigamiaddons.components 1 as KirigamiComponents
-import org.kde.kirigamiaddons.delegates 1 as Delegates
+import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 

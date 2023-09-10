@@ -1,12 +1,12 @@
 // SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.15
-import QtLocation 5.15
-import QtPositioning 5.15
+import QtQuick
+import QtLocation
+import QtPositioning
 
-import org.kde.kirigami 2.20 as Kirigami
-import org.kde.neochat 1.0
+import org.kde.kirigami as Kirigami
+import org.kde.neochat
 
 Kirigami.Page {
     id: root

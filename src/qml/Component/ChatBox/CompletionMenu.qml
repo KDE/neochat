@@ -2,16 +2,16 @@
 // SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15 as QQC2
-import Qt.labs.qmlmodels 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import Qt.labs.qmlmodels
 
-import org.kde.kirigami 2.15 as Kirigami
-import org.kde.kirigamiaddons.delegates 1.0 as Delegates
-import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
+import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.delegates as Delegates
+import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 QQC2.Popup {
     id: root

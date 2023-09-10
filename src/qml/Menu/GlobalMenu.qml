@@ -1,13 +1,13 @@
 // SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import Qt.labs.platform 1.1 as Labs
+import Qt.labs.platform as Labs
 
-import QtQuick 2.15
-import QtQuick.Window 2.15
-import QtQuick.Layouts 1.10
+import QtQuick
+import QtQuick.Window
+import QtQuick.Layouts
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 Labs.MenuBar {
     id: root

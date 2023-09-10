@@ -5,12 +5,12 @@
  * SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
  */
 
-import QtQuick 2.7
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.15 as QQC2
-import org.kde.purpose 1.0 as Purpose
-import org.kde.notification 1.0
-import org.kde.kirigami 2.14 as Kirigami
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.purpose as Purpose
+import org.kde.notification
+import org.kde.kirigami as Kirigami
 
 Kirigami.Page {
     id: root

@@ -1,12 +1,12 @@
 // SPDX-FileCopyrightText: 2021 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-3.0-only
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Layouts
 
-import Qt.labs.qmlmodels 1.0
+import Qt.labs.qmlmodels
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 DelegateChooser {
     id: root
