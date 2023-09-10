@@ -55,6 +55,7 @@ RowLayout {
 
     QQC2.ToolButton {
         id: menuButton
+        Accessible.role: Accessible.ButtonMenu
         display: QQC2.AbstractButton.IconOnly
         checkable: true
         action: Kirigami.Action {
@@ -62,10 +63,10 @@ RowLayout {
             icon.name: "irc-join-channel"
             onTriggered: {
                 if (Kirigami.isMobile) {
-                    let menu = mobileMenu.createObject();
+                    const menu = mobileMenu.createObject();
                     menu.open();
                 } else {
-                    let menu = desktopMenu.createObject(menuButton, {y: menuButton.height});
+                    const menu = desktopMenu.createObject(menuButton);
                     menu.closed.connect(menuButton.toggle)
                     menu.open();
                 }
@@ -80,6 +81,12 @@ RowLayout {
     Component {
         id: desktopMenu
         QQC2.Menu {
+            x: mirrored ? parent.width - width : 0
+            y: parent ? parent.height : 0
+
+            modal: true
+            dim: false
+
             QQC2.MenuItem {
                 action: exploreAction
             }
