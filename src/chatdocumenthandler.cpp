@@ -134,7 +134,7 @@ int ChatDocumentHandler::completionStartIndex() const
         return 0;
     }
 
-#if !defined(Q_OS_ANDROID) && QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+#if !defined(Q_OS_ANDROID)
     const long long cursor = cursorPosition();
 #else
     const auto cursor = cursorPosition();

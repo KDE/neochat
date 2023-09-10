@@ -22,11 +22,7 @@ bool CompletionProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &so
             && sourceModel()
                    ->data(sourceModel()->index(sourceRow, 0), secondaryFilterRole())
                    .toString()
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
                    .startsWith(QStringView(m_filterText).sliced(1), Qt::CaseInsensitive));
-#else
-                   .startsWith(m_filterText.midRef(1), Qt::CaseInsensitive));
-#endif
 }
 
 bool CompletionProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const

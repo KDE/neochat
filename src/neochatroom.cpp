@@ -178,17 +178,9 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
     } else if (mime.name().startsWith("video/"_ls)) {
         QMediaPlayer player;
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         player.setSource(url);
-#else
-        player.setMedia(url);
-#endif
         co_await qCoro(&player, &QMediaPlayer::mediaStatusChanged);
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         auto resolution = player.metaData().value(QMediaMetaData::Resolution).toSize();
-#else
-        auto resolution = player.metaData(QMediaMetaData::Resolution).toSize();
-#endif
         content = new EventContent::VideoContent(url, fileInfo.size(), mime, resolution, fileInfo.fileName());
     } else {
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());

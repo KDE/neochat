@@ -17,11 +17,7 @@ TrayIcon::TrayIcon(QObject *parent)
     });
 
     connect(&WindowController::instance(), &WindowController::windowChanged, this, [this] {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         setAssociatedWindow(WindowController::instance().window());
-#else
-        Q_UNUSED(this);
-#endif
     });
 }
 

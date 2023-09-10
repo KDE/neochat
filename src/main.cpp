@@ -140,18 +140,12 @@ Q_DECL_EXPORT
 #endif
 int main(int argc, char *argv[])
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
-
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 
 #ifdef HAVE_WEBVIEW
     QtWebView::initialize();
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGLRhi);
-#endif
 #endif
 
 #ifdef Q_OS_ANDROID
@@ -310,10 +304,6 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonType("org.kde.neochat", 1, 0, "LocationHelper", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
         return engine->toScriptValue(LocationHelper());
     });
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qRegisterMetaTypeStreamOperators<Emoji>();
-#endif
 
     QQmlApplicationEngine engine;
 
