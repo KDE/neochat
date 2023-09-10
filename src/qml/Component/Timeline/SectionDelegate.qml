@@ -19,6 +19,8 @@ QQC2.ItemDelegate {
     property int colorSet: Kirigami.Theme.Window
 
     topPadding: Kirigami.Units.largeSpacing
+    leftPadding: 0
+    rightPadding: 0
     bottomPadding: 0 // Note not 0 by default
 
     contentItem: ColumnLayout {

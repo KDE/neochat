@@ -342,6 +342,8 @@ ColumnLayout {
     SectionDelegate {
         id: sectionDelegate
         Layout.fillWidth: true
+        // Fill ListView width without affecting size helper and the rest of components too much
+        Layout.rightMargin: root.parent ? root.width - root.parent.width : 0
         visible: root.showSection
         labelText: root.section
         colorSet: Config.compactLayout || root.alwaysMaxWidth ? Kirigami.Theme.View : Kirigami.Theme.Window

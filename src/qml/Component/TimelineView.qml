@@ -36,7 +36,7 @@ QQC2.ScrollView {
         readonly property NeoChatRoom currentRoom: root.currentRoom
 
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
-        readonly property var sectionBannerItem: contentHeight >= height ? itemAtIndex(sectionBannerIndex()) : undefined
+        readonly property Item sectionBannerItem: contentHeight >= height ? itemAtIndex(sectionBannerIndex()) : null
 
         // Spacing needs to be zero or the top sectionLabel overlay will be disrupted.
         // This is because itemAt returns null in the spaces.
@@ -108,13 +108,11 @@ QQC2.ScrollView {
         footer: SectionDelegate {
             id: sectionBanner
 
-            anchors.left: parent.left
-            anchors.leftMargin: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.x : 0
-            anchors.right: parent.right
+            width: ListView.view ? ListView.view.width : 0
 
             maxWidth: Config.compactLayout ? messageListView.width : (messageListView.sectionBannerItem ? messageListView.sectionBannerItem.width - Kirigami.Units.largeSpacing * 2 : 0)
             z: 3
-            visible: !!messageListView.sectionBannerItem && messageListView.sectionBannerItem.ListView.section !== "" && !Config.blur
+            visible: messageListView.sectionBannerItem && messageListView.sectionBannerItem.ListView.section !== "" && !Config.blur
             labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
             colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
         }
