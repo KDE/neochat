@@ -14,11 +14,8 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(NeoChat VERSION ${RELEASE_SERVICE_VERSION})
 
-set(KF_MIN_VERSION "5.105.0")
-set(QT_MIN_VERSION "5.15.2")
-if (ANDROID)
-    set(QT_MIN_VERSION "5.15.10")
-endif()
+set(KF_MIN_VERSION "5.240.0")
+set(QT_MIN_VERSION "6.5")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -48,28 +45,6 @@ if(NEOCHAT_FLATPAK)
     include(cmake/Flatpak.cmake)
 endif()
 
-if(QT_MAJOR_VERSION STREQUAL "6")
-    set(BASICLISTITEM_BOLD "font.bold")
-    set(OVERLAYSHEET_OPEN "onOpened")
-    set(QTQUICK_MODULE_QML_VERSION "")
-    set(QTLOCATION_MODULE_QML_VERSION "")
-    set(QTMULTIMEDIA_MODULE_QML_VERSION "")
-    set(QTMULTIMEDIA_AUDIO "MediaPlayer")
-    # in Audio qt6 we don't have it but we disable it in qt5 => it seems ok
-    set(QTMULTIMEDIA_AUDIO_AUTOLOAD "")
-    # In Video qml qt6 we don't have it.
-    set(QTMULTIMEDIA_VIDEO_FLUSHMODE "")
-else()
-    set(BASICLISTITEM_BOLD "bold")
-    set(OVERLAYSHEET_OPEN "onSheetOpenChanged")
-    set(QTQUICK_MODULE_QML_VERSION "2.15")
-    set(QTLOCATION_MODULE_QML_VERSION "5.15")
-    set(QTMULTIMEDIA_MODULE_QML_VERSION "5.15")
-    set(QTMULTIMEDIA_AUDIO "Audio")
-    set(QTMULTIMEDIA_AUDIO_AUTOLOAD "autoLoad: false")
-    set(QTMULTIMEDIA_VIDEO_FLUSHMODE "flushMode: VideoOutput.FirstFrame")
-endif()
-
 set(QUOTIENT_FORCE_NAMESPACED_INCLUDES TRUE)
 
 ecm_setup_version(${PROJECT_VERSION}
@@ -77,25 +52,21 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
 )
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg WebView)
-set_package_properties(Qt${QT_MAJOR_VERSION} PROPERTIES
+find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg WebView)
+set_package_properties(Qt6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
-find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} COMPONENTS Kirigami2 I18n Notifications Config CoreAddons Sonnet ItemModels)
-set_package_properties(KF${QT_MAJOR_VERSION} PROPERTIES
+find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami2 I18n Notifications Config CoreAddons Sonnet ItemModels StatusNotifierItem)
+set_package_properties(KF6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
-set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
+set_package_properties(KF6Kirigami2 PROPERTIES
         TYPE REQUIRED
         PURPOSE "Kirigami application UI framework"
         )
-find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.7.2 REQUIRED)
-
-if(QT_MAJOR_VERSION STREQUAL "6")
-    find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
-endif()
+find_package(KF6KirigamiAddons 0.7.2 REQUIRED)
 
 if(ANDROID)
     find_package(OpenSSL)
@@ -104,24 +75,20 @@ if(ANDROID)
         PURPOSE "Encrypted communications"
     )
 else()
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} COMPONENTS Widgets)
-    find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle ConfigWidgets KIO WindowSystem)
-    set_package_properties(KF${QT_MAJOR_VERSION}QQC2DesktopStyle PROPERTIES
+    find_package(Qt6 ${QT_MIN_VERSION} COMPONENTS Widgets)
+    find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle ConfigWidgets KIO WindowSystem)
+    set_package_properties(KF6QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME
     )
     ecm_find_qmlmodule(org.kde.syntaxhighlighting 1.0)
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
-    find_package(KF${QT_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} REQUIRED)
+    find_package(KF6DBusAddons ${KF_MIN_VERSION} REQUIRED)
 endif()
 
-if(QT_MAJOR_VERSION STREQUAL "6" AND NOT ANDROID AND NOT WIN32)
-    set(QUOTIENT_SUFFIX "Qt6")
-endif()
-
-find_package(Quotient${QUOTIENT_SUFFIX} 0.7)
-set_package_properties(Quotient${QUOTIENT_SUFFIX} PROPERTIES
+find_package(QuotientQt6 0.7)
+set_package_properties(QuotientQt6 PROPERTIES
     TYPE REQUIRED
     DESCRIPTION "Qt wrapper around Matrix API"
     URL "https://github.com/quotient-im/libQuotient/"
@@ -154,12 +121,12 @@ set_package_properties(KQuickImageEditor PROPERTIES
     PURPOSE "Add image editing capability to image attachments"
 )
 
-find_package(QCoro${QT_MAJOR_VERSION} 0.4 COMPONENTS Core REQUIRED)
+find_package(QCoro6 0.4 COMPONENTS Core REQUIRED)
 
 qcoro_enable_coroutines()
 
-find_package(KF${QT_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
-set_package_properties(KF${QT_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
+find_package(KF6DocTools ${KF_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -181,12 +148,12 @@ add_definitions(-DQT_NO_FOREACH)
 add_subdirectory(src)
 
 if (BUILD_TESTING)
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
+    find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
     add_subdirectory(autotests)
     add_subdirectory(appiumtests)
 endif()
 
-if(KF${QT_MAJOR_VERSION}DocTools_FOUND)
+if(KF6DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()

@@ -3,15 +3,6 @@
 # SPDX-FileCopyrightText: 2020-2021 Tobias Fella <tobias.fella@kde.org>
 # SPDX-License-Identifier: BSD-2-Clause
 
-configure_file(qml/Page/RoomList/RoomDelegate.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Page/RoomList/RoomDelegate.qml)
-configure_file(qml/Component/QuickSwitcher.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/QuickSwitcher.qml)
-configure_file(qml/Dialog/PowerLevelDialog.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Dialog/PowerLevelDialog.qml)
-configure_file(qml/Component/Timeline/AudioDelegate.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/AudioDelegate.qml)
-configure_file(qml/Component/Timeline/VideoDelegate.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/VideoDelegate.qml)
-configure_file(qml/Component/Timeline/OsmLocationPlugin.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/OsmLocationPlugin.qml)
-
-configure_file(res.qrc ${CMAKE_CURRENT_SOURCE_DIR}/res.generated.qrc)
-
 add_library(neochat STATIC
     controller.cpp
     controller.h
@@ -156,7 +147,7 @@ ecm_qt_declare_logging_category(neochat
 
 add_executable(neochat-app
     main.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/res.generated.qrc
+    res.qrc
 )
 
 if(TARGET Qt::WebView)
@@ -178,13 +169,11 @@ if(NOT ANDROID)
     target_sources(neochat PRIVATE colorschemer.cpp colorschemer.h)
     if (NOT WIN32 AND NOT APPLE)
         target_sources(neochat PRIVATE trayicon_sni.cpp trayicon_sni.h)
-        if(QT_MAJOR_VERSION STREQUAL "6")
-            target_link_libraries(neochat PRIVATE KF6::StatusNotifierItem)
-        endif()
+        target_link_libraries(neochat PRIVATE KF6::StatusNotifierItem)
     else()
         target_sources(neochat PRIVATE trayicon.cpp trayicon.h)
     endif()
-    target_link_libraries(neochat PUBLIC KF${QT_MAJOR_VERSION}::ConfigWidgets KF${QT_MAJOR_VERSION}::WindowSystem)
+    target_link_libraries(neochat PUBLIC KF6::ConfigWidgets KF6::WindowSystem)
     target_compile_definitions(neochat PUBLIC -DHAVE_COLORSCHEME)
     target_compile_definitions(neochat PUBLIC -DHAVE_WINDOWSYSTEM)
 endif()
@@ -199,7 +188,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Kirigami2 KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::ConfigCore KF${QT_MAJOR_VERSION}::ConfigGui KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::SonnetCore  KF${QT_MAJOR_VERSION}::ItemModels Quotient${QUOTIENT_SUFFIX} cmark::cmark QCoro::Core)
+target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF6::I18n KF6::Kirigami2 KF6::Notifications KF6::ConfigCore KF6::ConfigGui KF6::CoreAddons KF6::SonnetCore  KF6::ItemModels QuotientQt6 cmark::cmark QCoro::Core)
 
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
@@ -287,7 +276,7 @@ if(ANDROID)
         "gps"
     )
 else()
-    target_link_libraries(neochat PUBLIC Qt::Widgets KF${QT_MAJOR_VERSION}::KIOWidgets)
+    target_link_libraries(neochat PUBLIC Qt::Widgets KF6::KIOWidgets)
     install(FILES neochat.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 endif()
 
@@ -295,12 +284,12 @@ if(NOT ANDROID)
     set_target_properties(neochat-app PROPERTIES OUTPUT_NAME "neochat")
 endif()
 
-if(TARGET KF${QT_MAJOR_VERSION}::DBusAddons)
-    target_link_libraries(neochat PUBLIC KF${QT_MAJOR_VERSION}::DBusAddons)
+if(TARGET KF6::DBusAddons)
+    target_link_libraries(neochat PUBLIC KF6::DBusAddons)
     target_compile_definitions(neochat PUBLIC -DHAVE_KDBUSADDONS)
 endif()
 
-if (TARGET KF${QT_MAJOR_VERSION}::KIOWidgets)
+if (TARGET KF6::KIOWidgets)
     target_compile_definitions(neochat PUBLIC -DHAVE_KIO)
 endif()
 
