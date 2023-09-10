@@ -70,11 +70,10 @@ FormCard.FormCardPage {
             id: roomNameField
             label: i18n("Room name:")
             text: room.name
-            enabled: room.canSendState("m.room.name")
+            readOnly: !room.canSendState("m.room.name")
         }
         FormCard.AbstractFormDelegate {
             id: roomTopicField
-            enabled: room.canSendState("m.room.topic")
             background: Item {}
             contentItem: ColumnLayout {
                 QQC2.Label {
@@ -83,14 +82,17 @@ FormCard.FormCardPage {
                     Layout.fillWidth: true
                 }
                 QQC2.TextArea {
+                    id: roomTopicTextArea
                     Accessible.description: roomTopicLabel.text
                     Layout.fillWidth: true
                     text: room.topic
+                    readOnly: !room.canSendState("m.room.topic")
                     onTextChanged: roomTopicField.text = text
                 }
             }
         }
         FormCard.AbstractFormDelegate {
+            visible: !roomNameField.readOnly || !roomTopicTextArea.readOnly
             background: Item {}
             contentItem: RowLayout {
                 Item {
