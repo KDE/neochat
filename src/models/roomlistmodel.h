@@ -85,6 +85,7 @@ public:
     void setConnection(Quotient::Connection *connection);
 
     [[nodiscard]] int notificationCount() const;
+    [[nodiscard]] int highlightCount() const;
 
     /**
      * @brief Get the given role value at the given index.
@@ -155,6 +156,7 @@ private Q_SLOTS:
     void deleteRoom(Quotient::Room *room);
     void refresh(NeoChatRoom *room, const QVector<int> &roles = {});
     void refreshNotificationCount();
+    void refreshHighlightCount();
 
 private:
     Quotient::Connection *m_connection = nullptr;
@@ -163,6 +165,7 @@ private:
     QMap<int, bool> m_categoryVisibility;
 
     int m_notificationCount = 0;
+    int m_highlightCount = 0;
     QString m_activeSpaceId;
 
     void connectRoomSignals(NeoChatRoom *room);
@@ -170,6 +173,7 @@ private:
 Q_SIGNALS:
     void connectionChanged();
     void notificationCountChanged();
+    void highlightCountChanged();
 
     void roomAdded(NeoChatRoom *_t1);
 };

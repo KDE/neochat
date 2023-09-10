@@ -36,13 +36,13 @@ RoomListModel::RoomListModel(QObject *parent)
         m_categoryVisibility[collapsedSection] = false;
     }
 
-    connect(this, &RoomListModel::notificationCountChanged, this, [this]() {
+    connect(this, &RoomListModel::highlightCountChanged, this, [this]() {
 #if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
 #ifndef Q_OS_ANDROID
         // copied from Telegram desktop
         const auto launcherUrl = "application://org.kde.neochat.desktop"_ls;
         // Gnome requires that count is a 64bit integer
-        const qint64 counterSlice = std::min(m_notificationCount, 9999);
+        const qint64 counterSlice = std::min(m_highlightCount, 9999);
         QVariantMap dbusUnityProperties;
 
         if (counterSlice > 0) {
@@ -59,7 +59,7 @@ RoomListModel::RoomListModel(QObject *parent)
         QDBusConnection::sessionBus().send(signal);
 #endif // Q_OS_ANDROID
 #else
-        qGuiApp->setBadgeNumber(m_notificationCount);
+        qGuiApp->setBadgeNumber(m_highlightCount);
 #endif // QT_VERSION_CHECK(6, 6, 0)
     });
     connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
@@ -162,6 +162,9 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::notificationCountChanged, this, [this, room] {
         refresh(room);
     });
+    connect(room, &Room::highlightCountChanged, this, [this, room] {
+        refresh(room);
+    });
     connect(room, &Room::avatarChanged, this, [this, room] {
         refresh(room, {AvatarRole});
     });
@@ -178,11 +181,17 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         refresh(room, {LastEventRole, SubtitleTextRole});
     });
     connect(room, &Room::unreadStatsChanged, this, &RoomListModel::refreshNotificationCount);
+    connect(room, &Room::highlightCountChanged, this, &RoomListModel::refreshHighlightCount);
 }
 
 int RoomListModel::notificationCount() const
 {
     return m_notificationCount;
+}
+
+int RoomListModel::highlightCount() const
+{
+    return m_highlightCount;
 }
 
 void RoomListModel::refreshNotificationCount()
@@ -196,6 +205,19 @@ void RoomListModel::refreshNotificationCount()
     }
     m_notificationCount = count;
     Q_EMIT notificationCountChanged();
+}
+
+void RoomListModel::refreshHighlightCount()
+{
+    int count = 0;
+    for (auto room : std::as_const(m_rooms)) {
+        count += room->highlightCount();
+    }
+    if (m_highlightCount == count) {
+        return;
+    }
+    m_highlightCount = count;
+    Q_EMIT highlightCountChanged();
 }
 
 void RoomListModel::updateRoom(Room *room, Room *prev)
