@@ -9,8 +9,8 @@ import Qt.labs.platform 1.1
 import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.components 1.0 as KirigamiComponents
 import org.kde.kirigamiaddons.formcard 1.0 as FormCard
-import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 import org.kde.neochat 1.0
 
 FormCard.FormCardPage {
@@ -19,8 +19,10 @@ FormCard.FormCardPage {
     title: i18n("Edit Account")
     property NeoChatConnection connection
 
-    QQC2.RoundButton {
-        property var fileDialog: null;
+    KirigamiComponents.AvatarButton {
+        id: avatar
+
+        property OpenFileDialog fileDialog: null
 
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         Layout.topMargin: Kirigami.Units.largeSpacing
@@ -31,26 +33,20 @@ FormCard.FormCardPage {
 
         padding: 0
 
-        contentItem: KirigamiComponents.Avatar {
-            id: avatar
-            source: root.connection && root.connection.localUser.avatarMediaId ? ("image://mxc/" + root.connection.localUser.avatarMediaId) : ""
-            name: root.connection.localUser.displayName
-        }
+        source: root.connection && root.connection.localUser.avatarMediaId ? ("image://mxc/" + root.connection.localUser.avatarMediaId) : ""
+        name: root.connection.localUser.displayName
 
         onClicked: {
-            if (fileDialog != null) {
+            if (fileDialog) {
                 return;
             }
 
-            fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.Overlay)
-            fileDialog.chosen.connect(function(receivedSource) {
+            fileDialog = openFileDialog.createObject(this);
+            fileDialog.chosen.connect((receivedSource) => {
                 if (!receivedSource) {
                     return;
                 }
-                avatar.source = receivedSource;
-            });
-            fileDialog.onRejected.connect(function() {
-                mouseArea.fileDialog = null;
+                source = receivedSource;
             });
             fileDialog.open();
         }
@@ -94,6 +90,9 @@ FormCard.FormCardPage {
             OpenFileDialog {
                 folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
                 parentWindow: root.Window.window
+
+                onAccepted: destroy()
+                onRejected: destroy()
             }
         }
     }
