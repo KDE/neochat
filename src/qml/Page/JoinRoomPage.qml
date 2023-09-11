@@ -20,6 +20,21 @@ Kirigami.ScrollablePage {
     property alias keyword: identifierField.text
     property string server
 
+    /**
+     * @brief Signal emitted when a room is selected.
+     *
+     * The signal contains all the room's info so that it can be acted
+     * upon as required, e.g. joinng or entering the room or adding the room as
+     * the child of a space.
+     */
+    signal roomSelected(string roomId,
+                        string displayName,
+                        url avatarUrl,
+                        string alias,
+                        string topic,
+                        int memberCount,
+                        bool isJoined)
+
     title: i18n("Explore Rooms")
 
     Component.onCompleted: identifierField.forceActiveFocus()
@@ -211,7 +226,10 @@ Kirigami.ScrollablePage {
         }
         delegate: ExplorerDelegate {
             connection: root.connection
-            onRoomSelected: root.closeDialog()
+            onRoomSelected: (roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
+                root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
+                root.closeDialog();
+            }
         }
 
         footer: RowLayout {

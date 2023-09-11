@@ -14,7 +14,6 @@ import org.kde.neochat 1.0
 Delegates.RoundedItemDelegate {
     id: root
 
-    required property NeoChatConnection connection
     required property string roomId
     required property string displayName
     required property url avatarUrl
@@ -24,16 +23,32 @@ Delegates.RoundedItemDelegate {
     required property bool isJoined
     property bool justJoined: false
 
-    signal roomSelected()
+    /**
+     * @brief Signal emitted when a room delegate is selected.
+     *
+     * The signal contains all the delegate's model info so that it can be acted
+     * upon as required, e.g. joining or entering the room or adding the room as
+     * the child of a space.
+     */
+    signal roomSelected(string roomId,
+                        string displayName,
+                        url avatarUrl,
+                        string alias,
+                        string topic,
+                        int memberCount,
+                        bool isJoined)
 
     onClicked: {
         if (!isJoined) {
-            Controller.joinRoom(root.roomId)
             justJoined = true;
-        } else {
-            RoomManager.enterRoom(root.connection.room(root.roomId))
         }
-        root.roomSelected()
+        root.roomSelected(root.roomId,
+                          root.displayName,
+                          root.avatarUrl,
+                          root.alias,
+                          root.topic,
+                          root.memberCount,
+                          root.isJoined)
     }
 
     contentItem: RowLayout {

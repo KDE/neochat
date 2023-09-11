@@ -153,10 +153,21 @@ Kirigami.Page {
                     helpfulAction: Kirigami.Action {
                         icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
                         text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
-                        onTriggered: pageStack.layers.push("qrc:/JoinRoomPage.qml", {
-                            connection: Controller.activeConnection,
-                            keyword: sortFilterRoomListModel.filterText
-                        })
+                        onTriggered: {
+                            let dialog = pageStack.layers.push("qrc:/JoinRoomPage.qml", {
+                                connection: Controller.activeConnection,
+                                keyword: sortFilterRoomListModel.filterText
+                            }, {
+                                title: i18nc("@title", "Explore Rooms")
+                            })
+                            dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
+                                if (isJoined) {
+                                    RoomManager.enterRoom(Controller.activeConnection.room(roomId))
+                                } else {
+                                    Controller.joinRoom(roomId)
+                                }
+                            })
+                        }
                     }
                 }
 

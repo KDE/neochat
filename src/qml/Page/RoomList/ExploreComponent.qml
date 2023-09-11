@@ -19,7 +19,14 @@ RowLayout {
         text: i18n("Explore rooms")
         icon.name: "compass"
         onTriggered: {
-            pageStack.pushDialogLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection}, {title: i18nc("@title", "Explore Rooms")})
+            let dialog = pageStack.pushDialogLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection}, {title: i18nc("@title", "Explore Rooms")})
+            dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
+                if (isJoined) {
+                    RoomManager.enterRoom(Controller.activeConnection.room(roomId))
+                } else {
+                    Controller.joinRoom(roomId)
+                }
+            })
         }
     }
     property Kirigami.Action chatAction: Kirigami.Action {

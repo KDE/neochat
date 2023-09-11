@@ -54,7 +54,16 @@ Labs.MenuBar {
         }
         Labs.MenuItem {
             text: i18nc("menu", "Browse Chats…")
-            onTriggered: pushReplaceLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection})
+            onTriggered: {
+                let dialog = pageStack.pushDialogLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection}, {title: i18nc("@title", "Explore Rooms")})
+                dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
+                    if (isJoined) {
+                        RoomManager.enterRoom(Controller.activeConnection.room(roomId))
+                    } else {
+                        Controller.joinRoom(roomId)
+                    }
+                })
+            }
         }
     }
     EditMenu {
