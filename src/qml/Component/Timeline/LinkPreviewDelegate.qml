@@ -23,7 +23,7 @@ Loader {
      *  - description - the description of the URL preview.
      *  - imageSource - a source URL for the preview image.
      */
-    property var linkPreviewer
+    required property var linkPreviewer
 
     /**
      * @brief Standard height for the link preview.
@@ -39,7 +39,7 @@ Loader {
     property bool indicatorEnabled: false
 
     visible: active
-    sourceComponent: linkPreviewer.loaded ? linkPreviewComponent : loadingComponent
+    sourceComponent: linkPreviewer && linkPreviewer.loaded ? linkPreviewComponent : loadingComponent
 
     Component {
         id: linkPreviewComponent
@@ -61,10 +61,10 @@ Loader {
                     color: Kirigami.Theme.highlightColor
                 }
                 Image {
-                    visible: linkPreviewer.imageSource
+                    visible: root.linkPreviewer.imageSource
                     Layout.maximumHeight: root.defaultHeight
                     Layout.maximumWidth: root.defaultHeight
-                    source: linkPreviewer.imageSource
+                    source: root.linkPreviewer.imageSource
                     fillMode: Image.PreserveAspectFit
                 }
                 ColumnLayout {

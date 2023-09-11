@@ -68,7 +68,7 @@ TimelineContainer {
         }
         LinkPreviewDelegate {
             Layout.fillWidth: true
-            active: !currentRoom.usesEncryption && currentRoom.urlPreviewEnabled && Config.showLinkPreview && root.showLinkPreview
+            active: !currentRoom.usesEncryption && currentRoom.urlPreviewEnabled && Config.showLinkPreview && root.showLinkPreview && !root.linkPreview.empty
             linkPreviewer: root.linkPreview
             indicatorEnabled: root.isVisibleInTimeline()
         }

@@ -93,4 +93,9 @@ void LinkPreviewer::loadUrlPreview()
     }
 }
 
+bool LinkPreviewer::empty() const
+{
+    return m_url.isEmpty();
+}
+
 #include "moc_linkpreviewer.cpp"

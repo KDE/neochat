@@ -44,6 +44,13 @@ class LinkPreviewer : public QObject
      */
     Q_PROPERTY(QUrl imageSource READ imageSource NOTIFY imageSourceChanged)
 
+    /**
+     * @brief Whether the there is a link to preview.
+     *
+     * A linkPreviwer is empty if the URL is empty.
+     */
+    Q_PROPERTY(bool empty READ empty NOTIFY emptyChanged)
+
 public:
     explicit LinkPreviewer(QObject *parent = nullptr, const NeoChatRoom *room = nullptr, const QUrl &url = {});
 
@@ -53,6 +60,7 @@ public:
     [[nodiscard]] QString title() const;
     [[nodiscard]] QString description() const;
     [[nodiscard]] QUrl imageSource() const;
+    [[nodiscard]] bool empty() const;
 
 private:
     const NeoChatRoom *m_currentRoom = nullptr;
@@ -71,5 +79,6 @@ Q_SIGNALS:
     void descriptionChanged();
     void imageSourceChanged();
     void urlChanged();
+    void emptyChanged();
 };
 Q_DECLARE_METATYPE(LinkPreviewer *)
