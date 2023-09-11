@@ -62,6 +62,7 @@ QQC2.Control {
             Layout.fillWidth: true
             visible: sectionVisible
             labelText: sectionVisible ? section : ""
+            colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
         }
         RowLayout {
             Layout.fillWidth: true

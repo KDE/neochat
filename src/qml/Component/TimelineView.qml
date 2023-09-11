@@ -116,6 +116,7 @@ QQC2.ScrollView {
             z: 3
             visible: !!messageListView.sectionBannerItem && messageListView.sectionBannerItem.ListView.section !== "" && !Config.blur
             labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
+            colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
         }
         footerPositioning: ListView.OverlayHeader
 
