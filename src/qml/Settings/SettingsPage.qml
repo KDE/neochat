@@ -44,6 +44,11 @@ KirigamiSettings.CategorizedSettings {
             text: i18n("Stickers & Emojis")
             icon.name: "preferences-desktop-emoticons"
             page: Qt.resolvedUrl("EmoticonsPage.qml")
+            initialProperties: {
+                return {
+                    connection: root.connection
+                }
+            }
         },
 
         KirigamiSettings.SettingAction {

@@ -11,6 +11,8 @@ import org.kde.neochat 1.0
 FormCard.FormCardPage {
     id: root
 
+    required property NeoChatConnection connection
+
     title: i18nc("@title", "Stickers & Emojis")
 
     FormCard.FormHeader {
@@ -18,6 +20,7 @@ FormCard.FormCardPage {
     }
     EmoticonFormCard {
         emoticonType: EmoticonFormCard.Emojis
+        connection: root.connection
     }
 
     FormCard.FormHeader {
@@ -25,6 +28,7 @@ FormCard.FormCardPage {
     }
     EmoticonFormCard {
         emoticonType: EmoticonFormCard.Stickers
+        connection: root.connection
     }
 
 

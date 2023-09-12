@@ -19,6 +19,7 @@ FormCard.FormCard {
     }
 
     property var emoticonType
+    required property NeoChatConnection connection
 
     Flow {
         id: stickerFlow
@@ -28,7 +29,7 @@ FormCard.FormCard {
                 id: emoticonFilterModel
                 sourceModel: AccountEmoticonModel {
                     id: stickerModel
-                    connection: Controller.activeConnection
+                    connection: root.connection
                 }
                 showStickers: root.emoticonType === EmoticonFormCard.Stickers
                 showEmojis: root.emoticonType === EmoticonFormCard.Emojis

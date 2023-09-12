@@ -14,6 +14,8 @@ import './RoomList' as RoomList
 QQC2.Dialog {
     id: root
 
+    required property NeoChatConnection connection
+
     parent: applicationWindow().overlay
     width: Math.min(700, parent.width)
     height: 400
@@ -84,12 +86,14 @@ QQC2.Dialog {
                 filterText: searchField.text
                 sourceModel: RoomListModel {
                     id: roomListModel
-                    connection: Controller.activeConnection
+                    connection: root.connection
                 }
             }
 
             delegate: RoomList.RoomDelegate {
                 filterText: searchField.text
+
+                connection: root.connection
 
                 onClicked: {
                     RoomManager.enterRoom(currentRoom);

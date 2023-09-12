@@ -12,13 +12,17 @@ import org.kde.kitemmodels 1.0
 import org.kde.neochat 1.0
 
 ColumnLayout {
+    id: root
+
+    required property NeoChatConnection connection
+
     FormCard.FormHeader {
         title: i18n("Server Capabilities")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
             text: i18n("Can change password")
-            description: Controller.activeConnection.canChangePassword
+            description: root.connection.canChangePassword
         }
     }
     FormCard.FormHeader {
@@ -26,7 +30,7 @@ ColumnLayout {
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            text: Controller.activeConnection.defaultRoomVersion
+            text: root.connection.defaultRoomVersion
         }
     }
     FormCard.FormHeader {

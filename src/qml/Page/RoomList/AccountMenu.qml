@@ -12,13 +12,16 @@ import '../Dialog' as Dialog
 
 QQC2.Menu {
     id: root
+
+    required property NeoChatConnection connection
+
     margins: Kirigami.Units.smallSpacing
 
     QQC2.MenuItem {
         text: i18n("Edit this account")
         icon.name: "document-edit"
         onTriggered: pageStack.pushDialogLayer("qrc:/AccountEditorPage.qml", {
-            connection: Controller.activeConnection
+            connection: root.connection
         }, {
             title: i18n("Account editor")
         });
@@ -28,7 +31,7 @@ QQC2.Menu {
         icon.name: "notifications"
         onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {
             defaultPage: "notifications",
-            connection: Controller.activeConnection,
+            connection: root.connection,
         }, {
             title: i18n("Configure")
         });
@@ -38,7 +41,7 @@ QQC2.Menu {
         icon.name: "computer-symbolic"
         onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {
             defaultPage: "devices",
-            connection: Controller.activeConnection,
+            connection: root.connection,
         }, {
             title: i18n("Configure")
         })
@@ -52,7 +55,7 @@ QQC2.Menu {
     Component {
         id: confirmLogoutDialogComponent
         Dialog.ConfirmLogout {
-            connection: Controller.activeConnection
+            connection: root.connection
         }
     }
 }

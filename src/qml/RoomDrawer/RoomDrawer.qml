@@ -13,7 +13,9 @@ import org.kde.neochat 1.0
 
 Kirigami.OverlayDrawer {
     id: root
+
     readonly property NeoChatRoom room: RoomManager.currentRoom
+    required property NeoChatConnection connection
 
     width: actualWidth
 
@@ -98,7 +100,7 @@ Kirigami.OverlayDrawer {
                         text: i18n("Room settings")
                         display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Room Settings") })
+                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room, connection: root.connection}, { title: i18n("Room Settings") })
 
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -118,6 +120,7 @@ Kirigami.OverlayDrawer {
                 id: roomInformation
                 RoomInformation {
                     room: root.room
+                    connection: root.connection
                 }
             }
 
@@ -125,6 +128,7 @@ Kirigami.OverlayDrawer {
                 id: roomMedia
                 RoomMedia {
                     currentRoom: root.room
+                    connection: root.connection
                 }
             }
 

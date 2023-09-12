@@ -13,6 +13,8 @@ Kirigami.ApplicationWindow {
     id: root
 
     required property NeoChatRoom currentRoom
+    required property NeoChatConnection connection
+
     minimumWidth: Kirigami.Units.gridUnit * 10
     minimumHeight: Kirigami.Units.gridUnit * 15
 
@@ -24,6 +26,7 @@ Kirigami.ApplicationWindow {
         visible: true
         currentRoom: root.currentRoom
         disableCancelShortcut: true
+        connection: root.connection
     }
 
     onCurrentRoomChanged: if (!currentRoom) {

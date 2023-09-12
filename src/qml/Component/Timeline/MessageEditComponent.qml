@@ -12,6 +12,7 @@ QQC2.TextArea {
     id: root
 
     property NeoChatRoom room
+    required property NeoChatConnection connection
     onRoomChanged: room.chatBoxEditIdChanged.connect(updateEditText)
 
     property string messageId
@@ -101,6 +102,7 @@ QQC2.TextArea {
         height: implicitHeight
         y: -height - 5
         z: 10
+        connection: root.connection
         chatDocumentHandler: documentHandler
         Behavior on height {
             NumberAnimation {

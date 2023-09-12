@@ -10,7 +10,9 @@ import org.kde.neochat 1.0
 
 KirigamiSettings.CategorizedSettings {
     id: root
+
     property NeoChatRoom room
+    required property NeoChatConnection connection
 
     objectName: "settingsPage"
     actions: [
@@ -21,7 +23,8 @@ KirigamiSettings.CategorizedSettings {
             page: Qt.resolvedUrl("General.qml")
             initialProperties: {
                 return {
-                    room: root.room
+                    room: root.room,
+                    connection: root.connection
                 }
             }
         },

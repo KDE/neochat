@@ -22,6 +22,7 @@ Delegates.RoundedItemDelegate {
     required property int notificationCount
     required property int highlightCount
     required property NeoChatRoom currentRoom
+    required property NeoChatConnection connection
     required property bool categoryVisible
     required property string filterText
     required property string avatar
@@ -138,6 +139,7 @@ Delegates.RoundedItemDelegate {
         const component = Qt.createComponent(Qt.resolvedUrl("./ContextMenu.qml"))
         const menu = component.createObject(root, {
             room: root.currentRoom,
+            connection: root.connection,
         });
         if (!Kirigami.Settings.isMobile && !Config.compactRoomList) {
             configButton.visible = true;

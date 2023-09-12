@@ -102,6 +102,8 @@ Kirigami.Page {
             id: spaceDrawer
             Layout.preferredWidth: spaceDrawer.enabled ? Kirigami.Units.gridUnit * 3 : 0
             Layout.fillHeight: true
+
+            connection: root.connection
         }
 
         Kirigami.Separator {
@@ -161,14 +163,14 @@ Kirigami.Page {
                         text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
                         onTriggered: {
                             let dialog = pageStack.layers.push("qrc:/JoinRoomPage.qml", {
-                                connection: Controller.activeConnection,
+                                connection: root.connection,
                                 keyword: sortFilterRoomListModel.filterText
                             }, {
                                 title: i18nc("@title", "Explore Rooms")
                             })
                             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                                 if (isJoined) {
-                                    RoomManager.enterRoom(Controller.activeConnection.room(roomId))
+                                    RoomManager.enterRoom(root.connection.room(roomId))
                                 } else {
                                     Controller.joinRoom(roomId)
                                 }
@@ -265,6 +267,8 @@ Kirigami.Page {
                     RoomList.RoomDelegate {
                         filterText: sortFilterRoomListModel.filterText
 
+                        connection: root.connection
+
                         height: visible ? implicitHeight : 0
 
                         visible: categoryVisible || filterText.length > 0 || Config.mergeRoomList
@@ -282,6 +286,7 @@ Kirigami.Page {
     footer: UserInfo {
         width: parent.width
         visible: !root.collapsed
+        connection: root.connection
     }
 
     MouseArea {

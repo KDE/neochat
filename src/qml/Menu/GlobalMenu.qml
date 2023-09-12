@@ -10,6 +10,10 @@ import QtQuick.Layouts 1.10
 import org.kde.neochat 1.0
 
 Labs.MenuBar {
+    id: root
+
+    required property NeoChatConnection connection
+
     Labs.Menu {
         title: i18nc("menu", "NeoChat")
 
@@ -23,7 +27,7 @@ Labs.MenuBar {
 
             shortcut: StandardKey.Preferences
             onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {
-                connection: Controller.activeConnection
+                connection: root.connection
             }, {
                 title: i18n("Configure")
             })
@@ -41,7 +45,7 @@ Labs.MenuBar {
         Labs.MenuItem {
             text: i18nc("menu", "New Private Chat…")
             enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && AccountRegistry.accountCount > 0
-            onTriggered: pushReplaceLayer("qrc:/StartChatPage.qml", {connection: Controller.activeConnection})
+            onTriggered: pushReplaceLayer("qrc:/StartChatPage.qml", {connection: root.connection})
         }
         Labs.MenuItem {
             text: i18nc("menu", "New Group…")
@@ -55,10 +59,10 @@ Labs.MenuBar {
         Labs.MenuItem {
             text: i18nc("menu", "Browse Chats…")
             onTriggered: {
-                let dialog = pageStack.pushDialogLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection}, {title: i18nc("@title", "Explore Rooms")})
+                let dialog = pageStack.pushDialogLayer("qrc:/JoinRoomPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     if (isJoined) {
-                        RoomManager.enterRoom(Controller.activeConnection.room(roomId))
+                        RoomManager.enterRoom(root.connection.room(roomId))
                     } else {
                         Controller.joinRoom(roomId)
                     }

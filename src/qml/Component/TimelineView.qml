@@ -122,6 +122,7 @@ QQC2.ScrollView {
 
         delegate: EventDelegate {
             room: root.currentRoom
+            connection: root.connection
         }
 
         QQC2.RoundButton {

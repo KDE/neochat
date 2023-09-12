@@ -22,6 +22,8 @@ Kirigami.ApplicationWindow {
 
     property RoomPage roomPage
 
+    property NeoChatConnection connection: Controller.activeConnection
+
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 15
 
@@ -47,7 +49,9 @@ Kirigami.ApplicationWindow {
 
     Loader {
         active: Kirigami.Settings.hasPlatformMenuBar && !Kirigami.Settings.isMobile
-        source: Qt.resolvedUrl("qrc:/GlobalMenu.qml")
+        sourceComponent: GlobalMenu {
+            connection: root.connection
+        }
     }
 
     // This timer allows to batch update the window size change to reduce
@@ -76,14 +80,16 @@ Kirigami.ApplicationWindow {
     Loader {
         id: quickView
         active: !Kirigami.Settings.isMobile
-        sourceComponent: QuickSwitcher { }
+        sourceComponent: QuickSwitcher {
+            connection: root.connection
+        }
     }
 
     Connections {
         target: RoomManager
 
         function onPushRoom(room, event) {
-            root.roomPage = pageStack.push("qrc:/RoomPage.qml");
+            root.roomPage = pageStack.push("qrc:/RoomPage.qml", {connection: root.connection});
             root.roomPage.forceActiveFocus();
             if (event.length > 0) {
                 roomPage.goToEvent(event);
@@ -107,7 +113,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onOpenRoomInNewWindow(room) {
-            const secondaryWindow = roomWindow.createObject(undefined, {currentRoom: room});
+            const secondaryWindow = roomWindow.createObject(undefined, {currentRoom: room, connection: root.connection});
             secondaryWindow.width = root.width - pageStack.get(0).width;
             secondaryWindow.show();
         }
@@ -128,7 +134,9 @@ Kirigami.ApplicationWindow {
     }
 
     function openRoomDrawer() {
-        pageStack.push("qrc:/RoomDrawerPage.qml")
+        pageStack.push("qrc:/RoomDrawerPage.qml", {
+            connection: root.connection
+        })
     }
 
     contextDrawer: RoomDrawer {
@@ -137,6 +145,8 @@ Kirigami.ApplicationWindow {
         // This is a memory for all user initiated actions on the drawer, i.e. clicking the button
         // It is used to ensure that user choice is remembered when changing pages and expanding and contracting the window width
         property bool drawerUserState: Config.autoRoomInfoDrawer
+
+        connection: root.connection
 
         // Connect to the onClicked function of the RoomDrawer handle button
         Connections {
@@ -190,7 +200,7 @@ Kirigami.ApplicationWindow {
         RoomList.Page {
             id: roomList
 
-            connection: Controller.activeConnection
+            connection: root.connection
 
             Shortcut {
                 sequences: ["Ctrl+PgUp", "Ctrl+Backtab", "Alt+Up"]
@@ -280,10 +290,10 @@ Kirigami.ApplicationWindow {
     }
 
     Connections {
-        target: Controller.activeConnection
+        target: root.connection
 
         function onDirectChatAvailable(directChat) {
-            RoomManager.enterRoom(Controller.activeConnection.room(directChat.id));
+            RoomManager.enterRoom(root.connection.room(directChat.id));
         }
         function onNewKeyVerificationSession(session) {
             applicationWindow().pageStack.pushDialogLayer(keyVerificationDialogComponent, {
@@ -321,14 +331,14 @@ Kirigami.ApplicationWindow {
         id: createRoomDialog
 
         CreateRoomDialog {
-            connection: Controller.activeConnection
+            connection: root.connection
         }
     }
 
     Component {
         id: createSpaceDialog
         CreateSpaceDialog {
-            connection: Controller.activeConnection
+            connection: root.connection
         }
     }
 
@@ -382,7 +392,7 @@ Kirigami.ApplicationWindow {
     Shortcut {
         sequence: "Ctrl+Shift+,"
         onActivated: {
-            pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {connection: Controller.activeConnection}, { title: i18n("Configure") })
+            pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {connection: root.connection}, { title: i18n("Configure") })
         }
     }
 }

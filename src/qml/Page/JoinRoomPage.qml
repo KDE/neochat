@@ -225,7 +225,6 @@ Kirigami.ScrollablePage {
                 publicRoomListModel.next();
         }
         delegate: ExplorerDelegate {
-            connection: root.connection
             onRoomSelected: (roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                 root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
                 root.closeDialog();

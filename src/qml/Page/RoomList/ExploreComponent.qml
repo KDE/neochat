@@ -20,10 +20,10 @@ RowLayout {
         text: i18n("Explore rooms")
         icon.name: "compass"
         onTriggered: {
-            let dialog = pageStack.pushDialogLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection}, {title: i18nc("@title", "Explore Rooms")})
+            let dialog = pageStack.pushDialogLayer("qrc:/JoinRoomPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                 if (isJoined) {
-                    RoomManager.enterRoom(Controller.activeConnection.room(roomId))
+                    RoomManager.enterRoom(root.connection.room(roomId))
                 } else {
                     Controller.joinRoom(roomId)
                 }
@@ -33,7 +33,7 @@ RowLayout {
     property Kirigami.Action chatAction: Kirigami.Action {
         text: i18n("Start a Chat")
         icon.name: "list-add-user"
-        onTriggered: pageStack.pushDialogLayer("qrc:/StartChatPage.qml", {connection: Controller.activeConnection}, {title: i18nc("@title", "Start a Chat")})
+        onTriggered: pageStack.pushDialogLayer("qrc:/StartChatPage.qml", {connection: root.connection}, {title: i18nc("@title", "Start a Chat")})
     }
     property Kirigami.Action roomAction: Kirigami.Action {
         text: i18n("Create a Room")

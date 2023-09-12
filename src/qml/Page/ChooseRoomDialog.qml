@@ -17,6 +17,8 @@ Kirigami.ScrollablePage {
 
     signal chosen(string roomId)
 
+    required property NeoChatConnection connection
+
     header: Kirigami.SearchField {
         onTextChanged: sortModel.filterText = text
     }
@@ -25,7 +27,7 @@ Kirigami.ScrollablePage {
         model: SortFilterRoomListModel {
             id: sortModel
             sourceModel: RoomListModel {
-                connection: Controller.activeConnection
+                connection: root.connection
             }
         }
         delegate: RoomDelegate {
@@ -34,6 +36,7 @@ Kirigami.ScrollablePage {
             onClicked: {
                 root.chosen(roomDelegate.currentRoom.id)
             }
+            connection: root.connection
         }
     }
 }

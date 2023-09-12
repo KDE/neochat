@@ -13,6 +13,7 @@ FormCard.FormCardPage {
     id: root
 
     property NeoChatRoom room
+    required property NeoChatConnection connection
 
     title: i18n("Developer Tools")
 
@@ -37,7 +38,10 @@ FormCard.FormCardPage {
 
         RoomData {
             room: root.room
+            connection: root.connection
         }
-        ServerData {}
+        ServerData {
+            connection: root.connection
+        }
     }
 }

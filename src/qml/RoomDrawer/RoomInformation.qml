@@ -32,6 +32,8 @@ QQC2.ScrollView {
      */
     required property NeoChatRoom room
 
+    required property NeoChatConnection connection
+
     /**
      * @brief The title that should be displayed for this component if available.
      */
@@ -77,7 +79,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    applicationWindow().pageStack.pushDialogLayer("qrc:/DevtoolsPage.qml", {room: root.room}, {title: i18n("Developer Tools")})
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/DevtoolsPage.qml", {room: root.room, connection: root.connection}, {title: i18n("Developer Tools")})
                 }
             }
 
@@ -91,7 +93,8 @@ QQC2.ScrollView {
 
                 onClicked: {
                     pageStack.pushDialogLayer("qrc:/SearchPage.qml", {
-                        currentRoom: root.room
+                        currentRoom: root.room,
+                        connection: root.connection
                     }, {
                         title: i18nc("@action:title", "Search")
                     })

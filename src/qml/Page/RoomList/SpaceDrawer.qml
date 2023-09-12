@@ -17,6 +17,8 @@ QQC2.Control {
     readonly property real pinnedWidth: Kirigami.Units.gridUnit * 6
     property bool drawerEnabled: true
 
+    required property NeoChatConnection connection
+
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
@@ -73,12 +75,12 @@ QQC2.Control {
                     Repeater {
                         model: SortFilterSpaceListModel {
                             sourceModel: RoomListModel {
-                                connection: Controller.activeConnection
+                                connection: root.connection
                             }
                         }
                         onCountChanged: {
                             root.enabled = count > 0
-                            if (!Controller.activeConnection.room(root.selectedSpaceId)) {
+                            if (!root.connection.room(root.selectedSpaceId)) {
                                 root.selectedSpaceId = ""
                             }
                         }
@@ -111,7 +113,8 @@ QQC2.Control {
 
     function createContextMenu(room) {
         let context = spaceListContextMenu.createObject(root, {
-            room: room
+            room: room,
+            connection: root.connection
         });
         context.open()
     }

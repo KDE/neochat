@@ -46,7 +46,7 @@ FormCard.FormCardPage {
 
     FormCard.AbstractFormDelegate {
         Layout.fillWidth: true
-        visible: Controller.activeConnection && devicesModel.count === 0 // We can assume 0 means loading since there is at least one device
+        visible: root.connection && devicesModel.count === 0 // We can assume 0 means loading since there is at least one device
         contentItem: Kirigami.LoadingPlaceholder { }
     }
 
@@ -56,7 +56,7 @@ FormCard.FormCardPage {
         Layout.alignment: Qt.AlignHCenter
         text: i18n("Please login to view the signed-in devices for your account.")
         type: Kirigami.MessageType.Information
-        visible: !Controller.activeConnection
+        visible: !root.connection
     }
 
     property Kirigami.OverlaySheet passwordSheet: Kirigami.OverlaySheet {

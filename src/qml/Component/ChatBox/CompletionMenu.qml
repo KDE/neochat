@@ -17,11 +17,13 @@ QQC2.Popup {
     id: root
     width: parent.width
 
+    required property NeoChatConnection connection
+
     visible: completions.count > 0
 
     RoomListModel {
         id: roomListModel
-        connection: Controller.activeConnection
+        connection: root.connection
     }
 
     property var chatDocumentHandler

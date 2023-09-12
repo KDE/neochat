@@ -17,6 +17,7 @@ FormCard.FormCardPage {
     id: root
 
     property NeoChatRoom room
+    required property NeoChatConnection connection
 
     title: i18n("General")
 
@@ -287,7 +288,7 @@ FormCard.FormCardPage {
         actions: Kirigami.Action {
             text: i18n("See older messages…")
             onTriggered: {
-                RoomManager.enterRoom(Controller.activeConnection.room(room.predecessorId));
+                RoomManager.enterRoom(root.connection.room(room.predecessorId));
                 root.close();
             }
         }
@@ -301,7 +302,7 @@ FormCard.FormCardPage {
         actions: Kirigami.Action {
             text: i18n("See new room…")
             onTriggered: {
-                RoomManager.enterRoom(Controller.activeConnection.room(room.successorId));
+                RoomManager.enterRoom(root.connection.room(room.successorId));
                 root.close();
             }
         }

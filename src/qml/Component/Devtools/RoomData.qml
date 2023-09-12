@@ -14,6 +14,7 @@ ColumnLayout {
     id: root
 
     required property NeoChatRoom room
+    required property NeoChatConnection connection
 
     FormCard.FormHeader {
         title: i18nc("@title", "Choose Room")
@@ -26,7 +27,7 @@ ColumnLayout {
             valueRole: "roomId"
             model: RoomListModel {
                 id: roomListModel
-                connection: Controller.activeConnection
+                connection: root.connection
             }
             currentIndex: -1
             Component.onCompleted: currentIndex = roomListModel.rowForRoom(root.room)

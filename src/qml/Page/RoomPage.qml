@@ -18,6 +18,8 @@ Kirigami.Page {
 
     /// Not readonly because of the separate window view.
     property NeoChatRoom currentRoom: RoomManager.currentRoom
+
+    required property NeoChatConnection connection
     property bool loading: !root.currentRoom || (root.currentRoom.timelineSize === 0 && !root.currentRoom.allHistoryLoaded)
 
     /// Disable cancel shortcut. Used by the separate window since it provides its own cancel implementation.
@@ -109,6 +111,7 @@ Kirigami.Page {
             id: chatBox
             width: parent.width
             currentRoom: root.currentRoom
+            connection: root.connection
             onMessageSent: {
                 if (!timelineViewLoader.item.atYEnd) {
                     timelineViewLoader.item.goToLastMessage();
@@ -153,7 +156,7 @@ Kirigami.Page {
     }
 
     Connections {
-        target: Controller.activeConnection
+        target: root.connection
         function onJoinedRoom(room, invited) {
             if(root.currentRoom.id === invited.id) {
                 RoomManager.enterRoom(room);

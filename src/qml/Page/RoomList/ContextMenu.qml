@@ -16,7 +16,10 @@ import org.kde.neochat 1.0
  */
 Loader {
     id: root
+
     property NeoChatRoom room
+    required property NeoChatConnection connection
+
     signal closed()
 
     Component {
@@ -116,7 +119,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18n("Room Settings")
                 icon.name: "configure"
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Room Settings") })
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room, connection: connection}, { title: i18n("Room Settings") })
             }
 
             QQC2.MenuSeparator {}
@@ -183,7 +186,7 @@ Loader {
                     QQC2.ToolButton {
                         icon.name: 'settings-configure'
                         onClicked: {
-                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Room Settings") })
+                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room, connection: root.connection}, { title: i18n("Room Settings") })
                             drawer.close()
                         }
                     }

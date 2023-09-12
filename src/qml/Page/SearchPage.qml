@@ -13,6 +13,7 @@ Kirigami.ScrollablePage {
     id: root
 
     property NeoChatRoom currentRoom
+    required property NeoChatConnection connection
 
     title: i18nc("@action:title", "Search Messages")
 
@@ -20,7 +21,7 @@ Kirigami.ScrollablePage {
 
     SearchModel {
         id: searchModel
-        connection: Controller.activeConnection
+        connection: root.connection
         searchText: searchField.text
         room: root.currentRoom
     }
@@ -71,6 +72,8 @@ Kirigami.ScrollablePage {
         }
 
         model: searchModel
-        delegate: EventDelegate {}
+        delegate: EventDelegate {
+            connection: root.connection
+        }
     }
 }

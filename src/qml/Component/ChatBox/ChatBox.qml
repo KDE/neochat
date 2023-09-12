@@ -36,6 +36,8 @@ ColumnLayout {
      */
     required property NeoChatRoom currentRoom
 
+    required property NeoChatConnection connection
+
     /**
      * @brief A message has been sent from the chat bar.
      */
@@ -61,6 +63,8 @@ ColumnLayout {
 
     ChatBar {
         id: chatBar
+
+        connection: root.connection
 
         visible: root.currentRoom.canSendEvent("m.room.message")
 

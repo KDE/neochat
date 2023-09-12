@@ -46,6 +46,8 @@ QQC2.Control {
      */
     property alias textField: textField
 
+    property NeoChatConnection connection
+
     /**
      * @brief The list of actions in the ChatBar.
      *
@@ -414,6 +416,7 @@ QQC2.Control {
         y: -height - 5
         z: 1
         chatDocumentHandler: documentHandler
+        connection: root.connection
         Behavior on height {
             NumberAnimation {
                 property: "height"

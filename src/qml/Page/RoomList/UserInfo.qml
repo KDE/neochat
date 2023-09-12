@@ -15,6 +15,8 @@ QQC2.ToolBar {
 
     padding: 0
 
+    required property NeoChatConnection connection
+
     property var addAccount
 
     contentItem: ColumnLayout {
@@ -126,7 +128,7 @@ QQC2.ToolBar {
                 }
 
                 onClicked: {
-                    Controller.activeConnection = userDelegate.connection
+                    root.connection = userDelegate.connection
                     if (switchUserButton.checked) {
                         switchUserButton.checked = false
                     }
@@ -164,7 +166,7 @@ QQC2.ToolBar {
                             accountMenu.open();
                         } else {
                             pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/AccountEditorPage.qml'), {
-                                connection: Controller.activeConnection
+                                connection: root.connection
                             }, {
                                 title: i18n("Account editor")
                             });
@@ -175,10 +177,10 @@ QQC2.ToolBar {
                 text: i18n("Edit this account")
 
                 contentItem: KirigamiComponents.Avatar {
-                    readonly property string mediaId: Controller.activeConnection.localUser.avatarMediaId
+                    readonly property string mediaId: root.connection.localUser.avatarMediaId
 
                     source: mediaId ? ("image://mxc/" + mediaId) : ""
-                    name: Controller.activeConnection.localUser.displayName ?? Controller.activeConnection.localUser.id
+                    name: root.connection.localUser.displayName ?? root.connection.localUser.id
                 }
             }
 
@@ -187,13 +189,13 @@ QQC2.ToolBar {
                 spacing: 0
                 QQC2.Label {
                     id: displayNameLabel
-                    text: Controller.activeConnection.localUser.displayName
+                    text: root.connection.localUser.displayName
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
                     Layout.fillWidth: true
                 }
                 QQC2.Label {
-                    text: (Controller.activeConnection.label.length > 0 ? (Controller.activeConnection.label + " ") : "") + Controller.activeConnection.localUser.id
+                    text: (root.connection.label.length > 0 ? (root.connection.label + " ") : "") + root.connection.localUser.id
                     font.pointSize: displayNameLabel.font.pointSize * 0.8
                     opacity: 0.7
                     textFormat: Text.PlainText
@@ -232,7 +234,7 @@ QQC2.ToolBar {
             }
             QQC2.ToolButton {
                 icon.name: "settings-configure"
-                onClicked: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {connection: Controller.activeConnection}, { title: i18n("Configure") })
+                onClicked: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {connection: root.connection}, { title: i18n("Configure") })
                 text: i18n("Open Settings")
                 display: QQC2.AbstractButton.IconOnly
                 Layout.minimumWidth: Layout.preferredWidth
@@ -249,6 +251,7 @@ QQC2.ToolBar {
             AccountMenu {
                 id: accountMenu
                 y: -height
+                connection: root.connection
             }
         }
     }

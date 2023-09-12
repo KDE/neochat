@@ -21,6 +21,8 @@ Loader {
     required property string plainText
     property string htmlText: undefined
 
+    required property NeoChatConnection connection
+
     property list<Kirigami.Action> nestedActions
 
     property list<Kirigami.Action> actions: [
@@ -31,7 +33,7 @@ Loader {
                 currentRoom.chatBoxEditId = eventId;
                 currentRoom.chatBoxReplyId = "";
             }
-            visible: author.id === Controller.activeConnection.localUserId && (root.eventType === DelegateType.Emote || root.eventType === DelegateType.Message)
+            visible: author.id === root.connection.localUserId && (root.eventType === DelegateType.Emote || root.eventType === DelegateType.Message)
         },
         Kirigami.Action {
             text: i18n("Reply")
@@ -45,12 +47,14 @@ Loader {
             text: i18nc("@action:inmenu As in 'Forward this message'", "Forward")
             icon.name: "mail-forward-symbolic"
             onTriggered: {
-                let page = applicationWindow().pageStack.pushDialogLayer("qrc:/ChooseRoomDialog.qml", {}, {
+                let page = applicationWindow().pageStack.pushDialogLayer("qrc:/ChooseRoomDialog.qml", {
+                    connection: root.connection
+                }, {
                     title: i18nc("@title", "Forward Message"),
                     width: Kirigami.Units.gridUnit * 25
                 })
                 page.chosen.connect(function(targetRoomId) {
-                    Controller.activeConnection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText ? root.htmlText : root.plainText)
+                    root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText ? root.htmlText : root.plainText)
                     page.closeDialog()
                 })
             }

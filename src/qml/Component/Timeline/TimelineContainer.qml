@@ -243,6 +243,8 @@ ColumnLayout {
      */
     readonly property alias hovered: bubble.hovered
 
+    required property NeoChatConnection connection
+
     /**
      * @brief Open the context menu for the message.
      */
@@ -612,6 +614,7 @@ ColumnLayout {
             file: file,
             progressInfo: root.progressInfo,
             plainText: root.plainText,
+            connection: root.connection,
         });
         contextMenu.open();
     }
@@ -626,6 +629,7 @@ ColumnLayout {
             eventType: root.delegateType,
             plainText: root.plainText,
             htmlText: root.display,
+            connection: root.connection,
         });
         contextMenu.open();
     }
