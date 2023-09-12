@@ -80,6 +80,7 @@ Loader {
             })
         },
         Kirigami.Action {
+            visible: Config.developerTools
             text: i18n("View Source")
             icon.name: "code-context"
             onTriggered: {
