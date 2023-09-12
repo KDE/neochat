@@ -84,7 +84,7 @@ Loader {
             icon.name: "code-context"
             onTriggered: {
                 applicationWindow().pageStack.pushDialogLayer('qrc:/MessageSourceSheet.qml', {
-                    sourceText: root.eventSource
+                    sourceText: root.source
                 }, {
                     title: i18n("Message Source"),
                     width: Kirigami.Units.gridUnit * 25
