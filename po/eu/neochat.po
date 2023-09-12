@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-11 00:46+0000\n"
+"POT-Creation-Date: 2023-09-12 00:46+0000\n"
 "PO-Revision-Date: 2023-09-05 07:53+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -83,17 +83,7 @@ msgstr ""
 "Jar zaitez zure matrix zerbitzariaren administratzailearekin harremanean "
 "euskarria lortzeko."
 
-#: src/controller.cpp:378
-#, kde-format
-msgid "Room creation failed: %1"
-msgstr "Gela sortzea huts egin du: %1"
-
-#: src/controller.cpp:399
-#, kde-format
-msgid "Space creation failed: %1"
-msgstr "Tokia sortzea huts egin du: %1"
-
-#: src/controller.cpp:413
+#: src/controller.cpp:383
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Batzen saiatzen ari zaren gelaren IDa ez da baliozkoa"
@@ -1034,35 +1024,45 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2en erreakzioa %3 izan da"
 msgstr[1] "%2(r)en erreakzioa %3 izan da"
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:412
 #, kde-format
 msgid "Invited"
 msgstr "Gonbidatuta"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:414
 #, kde-format
 msgid "Favorite"
 msgstr "Gogokoak"
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:416
 #, kde-format
 msgid "Direct Messages"
 msgstr "Zuzeneko mezua"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:418
 #, kde-format
 msgid "Normal"
 msgstr "Arrunta"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:420
 #, kde-format
 msgid "Low priority"
 msgstr "Lehentasun txikia"
 
-#: src/models/roomlistmodel.cpp:423
+#: src/models/roomlistmodel.cpp:422
 #, kde-format
 msgid "Spaces"
 msgstr "Tokiak"
+
+#: src/neochatconnection.cpp:167
+#, kde-format
+msgid "Room creation failed: %1"
+msgstr "Gela sortzea huts egin du: %1"
+
+#: src/neochatconnection.cpp:178
+#, kde-format
+msgid "Space creation failed: %1"
+msgstr "Tokia sortzea huts egin du: %1"
 
 #: src/neochatroom.cpp:1339 src/neochatroom.cpp:1340
 #, kde-format
@@ -1181,12 +1181,12 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Utzi erantzuna bertan behera"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:555
+#: src/qml/Component/ChatBox/ChatBar.qml:543
 #, kde-format
 msgid "Choose local file"
 msgstr "Hautatu tokiko fitxategia"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:583
+#: src/qml/Component/ChatBox/ChatBar.qml:571
 #, kde-format
 msgid "Clipboard image"
 msgstr "Arbelako irudia"
@@ -1352,7 +1352,7 @@ msgid "Reject"
 msgstr "Errefusatu"
 
 #: src/qml/Component/InvitationView.qml:28
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
@@ -1475,7 +1475,7 @@ msgstr "Pasahitza:"
 
 #: src/qml/Component/Login/Password.qml:31
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:30
-#: src/qml/Settings/AccountEditorPage.qml:134
+#: src/qml/Settings/AccountEditorPage.qml:133
 #: src/qml/Settings/NetworkProxyPage.qml:87
 #, kde-format
 msgid "Password"
@@ -1610,7 +1610,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Amaituta)"
 
-#: src/qml/Component/Timeline/ReadMarkerDelegate.qml:69
+#: src/qml/Component/Timeline/ReadMarkerDelegate.qml:70
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
@@ -1632,22 +1632,22 @@ msgstr "Bolumena"
 msgid "Maximize"
 msgstr "Maximizatu"
 
-#: src/qml/Component/TimelineView.qml:150
+#: src/qml/Component/TimelineView.qml:151
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Jauzi irakurri gabeko lehenengo mezura"
 
-#: src/qml/Component/TimelineView.qml:173
+#: src/qml/Component/TimelineView.qml:174
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Jauzi azken mezura"
 
-#: src/qml/Component/TimelineView.qml:199
+#: src/qml/Component/TimelineView.qml:200
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrastatu elementuak hona haiek partekatzeko"
 
-#: src/qml/Component/TimelineView.qml:207
+#: src/qml/Component/TimelineView.qml:208
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1715,58 +1715,58 @@ msgid "Are you sure you want to sign out?"
 msgstr "Ziur zaude saio-itxi nahi duzula?"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:13
-#: src/qml/Page/RoomList/ExploreComponent.qml:34
+#: src/qml/Page/RoomList/ExploreComponent.qml:42
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Sortu gela bat"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:18
+#: src/qml/Dialog/CreateRoomDialog.qml:20
 #, kde-format
 msgctxt "@title"
 msgid "Room Information"
 msgstr "Gelaren informazioa"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:23 src/qml/RoomSettings/General.qml:71
+#: src/qml/Dialog/CreateRoomDialog.qml:25 src/qml/RoomSettings/General.qml:71
 #, kde-format
 msgid "Room name:"
 msgstr "Gelaren izena:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:29 src/qml/RoomSettings/General.qml:81
+#: src/qml/Dialog/CreateRoomDialog.qml:31 src/qml/RoomSettings/General.qml:81
 #, kde-format
 msgid "Room topic:"
 msgstr "Gelaren gaia:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:35 src/qml/Page/JoinRoomPage.qml:169
+#: src/qml/Dialog/CreateRoomDialog.qml:37 src/qml/Page/JoinRoomPage.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ados"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:14
-#: src/qml/Page/RoomList/ExploreComponent.qml:39
+#: src/qml/Dialog/CreateSpaceDialog.qml:16
+#: src/qml/Page/RoomList/ExploreComponent.qml:47
 #, kde-format
 msgid "Create a Space"
 msgstr "Sortu toki bat"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:19
-#: src/qml/Page/RoomList/ExploreComponent.qml:42
+#: src/qml/Dialog/CreateSpaceDialog.qml:21
+#: src/qml/Page/RoomList/ExploreComponent.qml:50
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "Sortu toki bat"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:24
+#: src/qml/Dialog/CreateSpaceDialog.qml:26
 #, kde-format
 msgid "Space name"
 msgstr "Tokiaren izena"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:28
+#: src/qml/Dialog/CreateSpaceDialog.qml:30
 #, kde-format
 msgid "Space topic (optional)"
 msgstr "Tokiaren gaia (aukerakoa)"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:31
+#: src/qml/Dialog/CreateSpaceDialog.qml:33
 #, kde-format
 msgid "Create space"
 msgstr "Sortu tokia"
@@ -1788,37 +1788,37 @@ msgstr "Bat datoz"
 msgid "They don't match"
 msgstr "Ez datoz bat"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:14
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:15
 #, kde-format
 msgid "Session Verification"
 msgstr "Saioa egiaztatzea"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:36
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:37
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Gailuak egiaztapena onartzeko zain."
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:42
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:43
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Gakoa egiaztatzeko **%1** gailuaren sarrerako eskaera"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:48
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:49
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Beste aldea egiaztatzeko zain."
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:54
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:55
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Konparatu emoji multzo bat bi gailuetan"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:62
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:63
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** gailuaren egiaztatze arrakastatsua"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:79
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:80
 #, kde-format
 msgid "Decline"
 msgstr "Uko egin"
@@ -2115,17 +2115,17 @@ msgstr ""
 msgid "Open"
 msgstr "Ireki"
 
-#: src/qml/main.qml:344
+#: src/qml/main.qml:348
 #, kde-format
 msgid "Start a chat"
 msgstr "Hasi berriketa bat"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:350
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1(r)ekin berriketa bat abiatu nahi duzu?"
 
-#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/main.qml:385 src/qml/Menu/GlobalMenu.qml:28
 #: src/qml/Page/RoomList/AccountMenu.qml:33
 #: src/qml/Page/RoomList/AccountMenu.qml:43
 #: src/qml/Page/RoomList/UserInfo.qml:235
@@ -2211,7 +2211,7 @@ msgid "New Private Chat…"
 msgstr "Berriketa pribatu berria..."
 
 #: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
-#: src/qml/Page/RoomList/ExploreComponent.qml:26
+#: src/qml/Page/RoomList/ExploreComponent.qml:34
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
@@ -2229,19 +2229,26 @@ msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Berriketak arakatu..."
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:58 src/qml/Page/RoomList/ExploreComponent.qml:23
+#: src/qml/Page/RoomList/Page.qml:167
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Esploratu gelak"
+
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Editatu"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:74
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Ikuspegia"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:77
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2249,42 +2256,42 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Ireki aldatzaile azkarra"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Leihoa"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Irten pantaila-betetik"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Sartu pantaila-betean"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Laguntza"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:99
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Matrix MEG"
 
-#: src/qml/Menu/ShareAction.qml:18
+#: src/qml/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share"
 msgstr "Partekatu"
 
-#: src/qml/Menu/ShareAction.qml:19
+#: src/qml/Menu/ShareAction.qml:20
 #, kde-format
 msgid "Share the selected media"
 msgstr "Partekatu hautatutako hedabideak"
@@ -2454,7 +2461,7 @@ msgstr "Hautatu gela bat"
 msgid "Developer Tools"
 msgstr "Garatzailearen tresnak"
 
-#: src/qml/Page/ExplorerDelegate.qml:62
+#: src/qml/Page/ExplorerDelegate.qml:77
 #, kde-format
 msgid "Joined"
 msgstr "Batu da"
@@ -2540,73 +2547,73 @@ msgstr "Bidali gonbita"
 msgid "User is either already a member or has been invited"
 msgstr "Erabiltzailea dagoeneko partaidea da edo gonbidapena jaso du"
 
-#: src/qml/Page/JoinRoomPage.qml:23
+#: src/qml/Page/JoinRoomPage.qml:38
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Esploratu gelak"
 
-#: src/qml/Page/JoinRoomPage.qml:46
+#: src/qml/Page/JoinRoomPage.qml:61
 #, kde-format
 msgid "Find a room..."
 msgstr "Bilatu gela bat..."
 
-#: src/qml/Page/JoinRoomPage.qml:54
+#: src/qml/Page/JoinRoomPage.qml:69
 #, kde-format
 msgid "View"
 msgstr "Ikusi"
 
-#: src/qml/Page/JoinRoomPage.qml:54
+#: src/qml/Page/JoinRoomPage.qml:69
 #, kde-format
 msgid "Join"
 msgstr "Elkartu"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:98
 #, kde-format
 msgid "Add New Server"
 msgstr "Gehitu zerbitzari berria"
 
-#: src/qml/Page/JoinRoomPage.qml:84
+#: src/qml/Page/JoinRoomPage.qml:99
 #, kde-format
 msgid "Home Server"
 msgstr "Etxeko zerbitzaria"
 
-#: src/qml/Page/JoinRoomPage.qml:93
+#: src/qml/Page/JoinRoomPage.qml:108
 #, kde-format
 msgid "Add new server"
 msgstr "Gehitu zerbitzari berria"
 
-#: src/qml/Page/JoinRoomPage.qml:124
+#: src/qml/Page/JoinRoomPage.qml:139
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Gehitu zerbitzaria"
 
-#: src/qml/Page/JoinRoomPage.qml:137
+#: src/qml/Page/JoinRoomPage.qml:152
 #, kde-format
 msgid "Valid server entered"
 msgstr "Zerbitzari balioduna sartu da"
 
-#: src/qml/Page/JoinRoomPage.qml:137
+#: src/qml/Page/JoinRoomPage.qml:152
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Zerbitzari hori ezin da ebatzi edo dagoeneko gehitu da"
 
-#: src/qml/Page/JoinRoomPage.qml:137
+#: src/qml/Page/JoinRoomPage.qml:152
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Sartutako testua ez da URL baliodun bat"
 
-#: src/qml/Page/JoinRoomPage.qml:137
+#: src/qml/Page/JoinRoomPage.qml:152
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Sartu zerbitzariaren URLa, adib. kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:145
+#: src/qml/Page/JoinRoomPage.qml:160
 #, kde-format
 msgid "Server URL"
 msgstr "Zerbitzariaren URLa"
 
-#: src/qml/Page/JoinRoomPage.qml:240
+#: src/qml/Page/JoinRoomPage.qml:258
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
@@ -2737,57 +2744,51 @@ msgstr "Gelaren ezarpenak"
 msgid "Leave Room"
 msgstr "Irten gelatik"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:155
+#: src/qml/Page/RoomList/ExploreComponent.qml:20
+#: src/qml/Page/RoomList/Page.qml:161
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esploratu gelak"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:22
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Esploratu gelak"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:28
+#: src/qml/Page/RoomList/ExploreComponent.qml:36
 #, kde-format
 msgctxt "@title"
 msgid "Start a Chat"
 msgstr "Hasi berriketa bat"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:31
+#: src/qml/Page/RoomList/ExploreComponent.qml:39
 #, kde-format
 msgid "Create a Room"
 msgstr "Sortu gela bat"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:62
-#: src/qml/Page/RoomList/ExploreComponent.qml:122
+#: src/qml/Page/RoomList/ExploreComponent.qml:70
+#: src/qml/Page/RoomList/ExploreComponent.qml:130
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Gelak eta berriketak sortzea"
 
-#: src/qml/Page/RoomList/Page.qml:152
+#: src/qml/Page/RoomList/Page.qml:158
 #, kde-format
 msgid "No rooms found"
 msgstr "Ez da gelarik aurkitu"
 
-#: src/qml/Page/RoomList/Page.qml:152
+#: src/qml/Page/RoomList/Page.qml:158
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Hasteko, batu gela batzuetara"
 
-#: src/qml/Page/RoomList/Page.qml:155
+#: src/qml/Page/RoomList/Page.qml:161
 #, kde-format
 msgid "Search in room directory"
 msgstr "Bilatu gelen direktorioan"
 
-#: src/qml/Page/RoomList/Page.qml:197
+#: src/qml/Page/RoomList/Page.qml:214
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Tolestu %1"
 
-#: src/qml/Page/RoomList/Page.qml:197
+#: src/qml/Page/RoomList/Page.qml:214
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -2803,7 +2804,7 @@ msgstr "Isilarazitako gela"
 msgid "Configure room"
 msgstr "Konfiguratu gela"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:57
+#: src/qml/Page/RoomList/SpaceDrawer.qml:62
 #, kde-format
 msgid "All Rooms"
 msgstr "Gela guztiak"
@@ -3057,8 +3058,8 @@ msgid "Update avatar"
 msgstr "Eguneratu abatarra"
 
 #: src/qml/RoomSettings/General.qml:105
-#: src/qml/Settings/AccountEditorPage.qml:118
-#: src/qml/Settings/AccountEditorPage.qml:171
+#: src/qml/Settings/AccountEditorPage.qml:117
+#: src/qml/Settings/AccountEditorPage.qml:170
 #: src/qml/Settings/EmoticonEditorPage.qml:110
 #, kde-format
 msgid "Save"
@@ -3485,83 +3486,83 @@ msgstr "KDEri buruz"
 msgid "Edit Account"
 msgstr "Editatu kontua"
 
-#: src/qml/Settings/AccountEditorPage.qml:65
+#: src/qml/Settings/AccountEditorPage.qml:61
 #, kde-format
 msgid "Upload new avatar"
 msgstr "Zama-igo abatar berria"
 
-#: src/qml/Settings/AccountEditorPage.qml:82
+#: src/qml/Settings/AccountEditorPage.qml:78
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Kendu uneko abatarra"
 
-#: src/qml/Settings/AccountEditorPage.qml:102
+#: src/qml/Settings/AccountEditorPage.qml:101
 #, kde-format
 msgid "User information"
 msgstr "Erabiltzailearen informazioa"
 
-#: src/qml/Settings/AccountEditorPage.qml:107
+#: src/qml/Settings/AccountEditorPage.qml:106
 #, kde-format
 msgid "Name:"
 msgstr "Izena:"
 
-#: src/qml/Settings/AccountEditorPage.qml:113
+#: src/qml/Settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "Labela:"
 
-#: src/qml/Settings/AccountEditorPage.qml:139
+#: src/qml/Settings/AccountEditorPage.qml:138
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Zure zerbitzariak ez du onartzen zure pasahitza aldatzea"
 
-#: src/qml/Settings/AccountEditorPage.qml:144
+#: src/qml/Settings/AccountEditorPage.qml:143
 #, kde-format
 msgid "Current Password:"
 msgstr "Uneko pasahitza:"
 
-#: src/qml/Settings/AccountEditorPage.qml:151
+#: src/qml/Settings/AccountEditorPage.qml:150
 #, kde-format
 msgid "New Password:"
 msgstr "Pasahitz berria:"
 
-#: src/qml/Settings/AccountEditorPage.qml:158
+#: src/qml/Settings/AccountEditorPage.qml:157
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Berretsi pasahitza:"
 
-#: src/qml/Settings/AccountEditorPage.qml:163
+#: src/qml/Settings/AccountEditorPage.qml:162
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Pasahitzak ez datoz bat"
 
-#: src/qml/Settings/AccountEditorPage.qml:177
+#: src/qml/Settings/AccountEditorPage.qml:176
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Pasahitzak ez datoz bat"
 
-#: src/qml/Settings/AccountEditorPage.qml:185
+#: src/qml/Settings/AccountEditorPage.qml:184
 #, kde-format
 msgid "Server Information"
 msgstr "Zerbitzariaren informazioa"
 
-#: src/qml/Settings/AccountEditorPage.qml:189
+#: src/qml/Settings/AccountEditorPage.qml:188
 #, kde-format
 msgid "Homeserver url"
 msgstr "Etxeko zerbitzariaren URLa"
 
-#: src/qml/Settings/AccountEditorPage.qml:210
+#: src/qml/Settings/AccountEditorPage.qml:209
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Kontu kudeaketa"
 
-#: src/qml/Settings/AccountEditorPage.qml:215
+#: src/qml/Settings/AccountEditorPage.qml:214
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Desaktibatu kontua"
 
-#: src/qml/Settings/AccountEditorPage.qml:216
+#: src/qml/Settings/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"

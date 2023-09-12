@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-11 00:46+0000\n"
+"POT-Creation-Date: 2023-09-12 00:46+0000\n"
 "PO-Revision-Date: 2023-09-04 09:05+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -83,17 +83,7 @@ msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
 
-#: src/controller.cpp:378
-#, kde-format
-msgid "Room creation failed: %1"
-msgstr "Не вдалося створити кімнату: %1"
-
-#: src/controller.cpp:399
-#, kde-format
-msgid "Space creation failed: %1"
-msgstr "Не вдалося створити простір: %1"
-
-#: src/controller.cpp:413
+#: src/controller.cpp:383
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
@@ -1046,35 +1036,45 @@ msgstr[1] "Реакція %2 — %3"
 msgstr[2] "Реакція %2 — %3"
 msgstr[3] "Реакція %2 — %3"
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:412
 #, kde-format
 msgid "Invited"
 msgstr "Запрошено"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:414
 #, kde-format
 msgid "Favorite"
 msgstr "Улюблене"
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:416
 #, kde-format
 msgid "Direct Messages"
 msgstr "Безпосередні повідомлення"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:418
 #, kde-format
 msgid "Normal"
 msgstr "Звичайні"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:420
 #, kde-format
 msgid "Low priority"
 msgstr "Низький пріоритет"
 
-#: src/models/roomlistmodel.cpp:423
+#: src/models/roomlistmodel.cpp:422
 #, kde-format
 msgid "Spaces"
 msgstr "Простори"
+
+#: src/neochatconnection.cpp:167
+#, kde-format
+msgid "Room creation failed: %1"
+msgstr "Не вдалося створити кімнату: %1"
+
+#: src/neochatconnection.cpp:178
+#, kde-format
+msgid "Space creation failed: %1"
+msgstr "Не вдалося створити простір: %1"
 
 #: src/neochatroom.cpp:1339 src/neochatroom.cpp:1340
 #, kde-format
@@ -1193,12 +1193,12 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Скасувати відповідь"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:555
+#: src/qml/Component/ChatBox/ChatBar.qml:543
 #, kde-format
 msgid "Choose local file"
 msgstr "Виберіть локальний файл"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:583
+#: src/qml/Component/ChatBox/ChatBar.qml:571
 #, kde-format
 msgid "Clipboard image"
 msgstr "Зображення з буфера"
@@ -1364,7 +1364,7 @@ msgid "Reject"
 msgstr "Відкинути"
 
 #: src/qml/Component/InvitationView.qml:28
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
@@ -1488,7 +1488,7 @@ msgstr "Пароль:"
 
 #: src/qml/Component/Login/Password.qml:31
 #: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:30
-#: src/qml/Settings/AccountEditorPage.qml:134
+#: src/qml/Settings/AccountEditorPage.qml:133
 #: src/qml/Settings/NetworkProxyPage.qml:87
 #, kde-format
 msgid "Password"
@@ -1624,7 +1624,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Завершено)"
 
-#: src/qml/Component/Timeline/ReadMarkerDelegate.qml:69
+#: src/qml/Component/Timeline/ReadMarkerDelegate.qml:70
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
@@ -1646,22 +1646,22 @@ msgstr "Гучність"
 msgid "Maximize"
 msgstr "Максимізувати"
 
-#: src/qml/Component/TimelineView.qml:150
+#: src/qml/Component/TimelineView.qml:151
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Перейти до першого непрочитаного повідомлення"
 
-#: src/qml/Component/TimelineView.qml:173
+#: src/qml/Component/TimelineView.qml:174
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Перейти до останнього повідомлення"
 
-#: src/qml/Component/TimelineView.qml:199
+#: src/qml/Component/TimelineView.qml:200
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
-#: src/qml/Component/TimelineView.qml:207
+#: src/qml/Component/TimelineView.qml:208
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1732,58 +1732,58 @@ msgid "Are you sure you want to sign out?"
 msgstr "Ви справді хочете вийти?"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:13
-#: src/qml/Page/RoomList/ExploreComponent.qml:34
+#: src/qml/Page/RoomList/ExploreComponent.qml:42
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Створення кімнати"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:18
+#: src/qml/Dialog/CreateRoomDialog.qml:20
 #, kde-format
 msgctxt "@title"
 msgid "Room Information"
 msgstr "Відомості щодо кімнати"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:23 src/qml/RoomSettings/General.qml:71
+#: src/qml/Dialog/CreateRoomDialog.qml:25 src/qml/RoomSettings/General.qml:71
 #, kde-format
 msgid "Room name:"
 msgstr "Назва кімнати:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:29 src/qml/RoomSettings/General.qml:81
+#: src/qml/Dialog/CreateRoomDialog.qml:31 src/qml/RoomSettings/General.qml:81
 #, kde-format
 msgid "Room topic:"
 msgstr "Тема кімнати:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:35 src/qml/Page/JoinRoomPage.qml:169
+#: src/qml/Dialog/CreateRoomDialog.qml:37 src/qml/Page/JoinRoomPage.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Гаразд"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:14
-#: src/qml/Page/RoomList/ExploreComponent.qml:39
+#: src/qml/Dialog/CreateSpaceDialog.qml:16
+#: src/qml/Page/RoomList/ExploreComponent.qml:47
 #, kde-format
 msgid "Create a Space"
 msgstr "Створити простір"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:19
-#: src/qml/Page/RoomList/ExploreComponent.qml:42
+#: src/qml/Dialog/CreateSpaceDialog.qml:21
+#: src/qml/Page/RoomList/ExploreComponent.qml:50
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "Створити простір"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:24
+#: src/qml/Dialog/CreateSpaceDialog.qml:26
 #, kde-format
 msgid "Space name"
 msgstr "Назва простору"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:28
+#: src/qml/Dialog/CreateSpaceDialog.qml:30
 #, kde-format
 msgid "Space topic (optional)"
 msgstr "Тема простору (необов'язкова)"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:31
+#: src/qml/Dialog/CreateSpaceDialog.qml:33
 #, kde-format
 msgid "Create space"
 msgstr "Створити простір"
@@ -1806,37 +1806,37 @@ msgstr "Збігаються"
 msgid "They don't match"
 msgstr "Не збігаються"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:14
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:15
 #, kde-format
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:36
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:37
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Очікуємо на прийняття пристроєм підтвердження."
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:42
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:43
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Вхідний запит щодо перевірки ключа від пристрою **%1**"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:48
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:49
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Очікування на перевірку з іншого боку"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:54
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:55
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Порівняйте набір емоційок на обох пристроях"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:62
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:63
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Успішно перевірено пристрій **%1**"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:79
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:80
 #, kde-format
 msgid "Decline"
 msgstr "Відхилити"
@@ -2132,17 +2132,17 @@ msgstr ""
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/qml/main.qml:344
+#: src/qml/main.qml:348
 #, kde-format
 msgid "Start a chat"
 msgstr "Почати спілкування"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:350
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Хочете розпочати спілкування з %1?"
 
-#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/main.qml:385 src/qml/Menu/GlobalMenu.qml:28
 #: src/qml/Page/RoomList/AccountMenu.qml:33
 #: src/qml/Page/RoomList/AccountMenu.qml:43
 #: src/qml/Page/RoomList/UserInfo.qml:235
@@ -2228,7 +2228,7 @@ msgid "New Private Chat…"
 msgstr "Створити особисте спілкування…"
 
 #: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
-#: src/qml/Page/RoomList/ExploreComponent.qml:26
+#: src/qml/Page/RoomList/ExploreComponent.qml:34
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
@@ -2246,19 +2246,26 @@ msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Навігація спілкуваннями…"
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:58 src/qml/Page/RoomList/ExploreComponent.qml:23
+#: src/qml/Page/RoomList/Page.qml:167
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Ознайомитися з кімнатами"
+
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Зміни"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:74
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Перегляд"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:77
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2266,42 +2273,42 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Відкрити «Швидкий перемикач»"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Вікно"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Вийти з повноекранного режиму"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Увійти до повноекранного режиму"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Довідка"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:99
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Поширені питання щодо Matrix"
 
-#: src/qml/Menu/ShareAction.qml:18
+#: src/qml/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share"
 msgstr "Оприлюднити"
 
-#: src/qml/Menu/ShareAction.qml:19
+#: src/qml/Menu/ShareAction.qml:20
 #, kde-format
 msgid "Share the selected media"
 msgstr "Оприлюднити позначені мультимедійні дані"
@@ -2471,7 +2478,7 @@ msgstr "Виберіть кімнату"
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
-#: src/qml/Page/ExplorerDelegate.qml:62
+#: src/qml/Page/ExplorerDelegate.qml:77
 #, kde-format
 msgid "Joined"
 msgstr "Долучення виконано"
@@ -2557,73 +2564,73 @@ msgstr "Надіслати запрошення"
 msgid "User is either already a member or has been invited"
 msgstr "Користувач або вже є учасником або його вже запрошено"
 
-#: src/qml/Page/JoinRoomPage.qml:23
+#: src/qml/Page/JoinRoomPage.qml:38
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Ознайомитися з кімнатами"
 
-#: src/qml/Page/JoinRoomPage.qml:46
+#: src/qml/Page/JoinRoomPage.qml:61
 #, kde-format
 msgid "Find a room..."
 msgstr "Знайти кімнату…"
 
-#: src/qml/Page/JoinRoomPage.qml:54
+#: src/qml/Page/JoinRoomPage.qml:69
 #, kde-format
 msgid "View"
 msgstr "Переглянути"
 
-#: src/qml/Page/JoinRoomPage.qml:54
+#: src/qml/Page/JoinRoomPage.qml:69
 #, kde-format
 msgid "Join"
 msgstr "Долучитися"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:98
 #, kde-format
 msgid "Add New Server"
 msgstr "Додавання нового сервера"
 
-#: src/qml/Page/JoinRoomPage.qml:84
+#: src/qml/Page/JoinRoomPage.qml:99
 #, kde-format
 msgid "Home Server"
 msgstr "Домашній сервер"
 
-#: src/qml/Page/JoinRoomPage.qml:93
+#: src/qml/Page/JoinRoomPage.qml:108
 #, kde-format
 msgid "Add new server"
 msgstr "Додати новий сервер"
 
-#: src/qml/Page/JoinRoomPage.qml:124
+#: src/qml/Page/JoinRoomPage.qml:139
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Додавання сервера"
 
-#: src/qml/Page/JoinRoomPage.qml:137
+#: src/qml/Page/JoinRoomPage.qml:152
 #, kde-format
 msgid "Valid server entered"
 msgstr "Введено коректний сервер"
 
-#: src/qml/Page/JoinRoomPage.qml:137
+#: src/qml/Page/JoinRoomPage.qml:152
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Цей сервер не вдалося визначити або сервер уже було додано"
 
-#: src/qml/Page/JoinRoomPage.qml:137
+#: src/qml/Page/JoinRoomPage.qml:152
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Введений текст не є коректною адресою"
 
-#: src/qml/Page/JoinRoomPage.qml:137
+#: src/qml/Page/JoinRoomPage.qml:152
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Введіть адресу сервера. Приклад: kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:145
+#: src/qml/Page/JoinRoomPage.qml:160
 #, kde-format
 msgid "Server URL"
 msgstr "Адреса сервера"
 
-#: src/qml/Page/JoinRoomPage.qml:240
+#: src/qml/Page/JoinRoomPage.qml:258
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
@@ -2754,57 +2761,51 @@ msgstr "Параметри кімнати"
 msgid "Leave Room"
 msgstr "Полишити кімнату"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:155
+#: src/qml/Page/RoomList/ExploreComponent.qml:20
+#: src/qml/Page/RoomList/Page.qml:161
 #, kde-format
 msgid "Explore rooms"
 msgstr "Ознайомитися з кімнатами"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:22
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Ознайомитися з кімнатами"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:28
+#: src/qml/Page/RoomList/ExploreComponent.qml:36
 #, kde-format
 msgctxt "@title"
 msgid "Start a Chat"
 msgstr "Початок спілкування"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:31
+#: src/qml/Page/RoomList/ExploreComponent.qml:39
 #, kde-format
 msgid "Create a Room"
 msgstr "Створити кімнату"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:62
-#: src/qml/Page/RoomList/ExploreComponent.qml:122
+#: src/qml/Page/RoomList/ExploreComponent.qml:70
+#: src/qml/Page/RoomList/ExploreComponent.qml:130
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Створити кімнати і спілкування"
 
-#: src/qml/Page/RoomList/Page.qml:152
+#: src/qml/Page/RoomList/Page.qml:158
 #, kde-format
 msgid "No rooms found"
 msgstr "Не знайдено кімнат"
 
-#: src/qml/Page/RoomList/Page.qml:152
+#: src/qml/Page/RoomList/Page.qml:158
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Спочатку, приєднайтеся до кімнат"
 
-#: src/qml/Page/RoomList/Page.qml:155
+#: src/qml/Page/RoomList/Page.qml:161
 #, kde-format
 msgid "Search in room directory"
 msgstr "Шукати у каталозі кімнат"
 
-#: src/qml/Page/RoomList/Page.qml:197
+#: src/qml/Page/RoomList/Page.qml:214
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Згорнути %1"
 
-#: src/qml/Page/RoomList/Page.qml:197
+#: src/qml/Page/RoomList/Page.qml:214
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -2820,7 +2821,7 @@ msgstr "Кімната із вимкненим спілкуванням"
 msgid "Configure room"
 msgstr "Налаштувати кімнату"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:57
+#: src/qml/Page/RoomList/SpaceDrawer.qml:62
 #, kde-format
 msgid "All Rooms"
 msgstr "Усі кімнати"
@@ -3079,8 +3080,8 @@ msgid "Update avatar"
 msgstr "Оновити аватар"
 
 #: src/qml/RoomSettings/General.qml:105
-#: src/qml/Settings/AccountEditorPage.qml:118
-#: src/qml/Settings/AccountEditorPage.qml:171
+#: src/qml/Settings/AccountEditorPage.qml:117
+#: src/qml/Settings/AccountEditorPage.qml:170
 #: src/qml/Settings/EmoticonEditorPage.qml:110
 #, kde-format
 msgid "Save"
@@ -3515,83 +3516,83 @@ msgstr "Про KDE"
 msgid "Edit Account"
 msgstr "Зміна облікового запису"
 
-#: src/qml/Settings/AccountEditorPage.qml:65
+#: src/qml/Settings/AccountEditorPage.qml:61
 #, kde-format
 msgid "Upload new avatar"
 msgstr "Вивантажити новий аватар"
 
-#: src/qml/Settings/AccountEditorPage.qml:82
+#: src/qml/Settings/AccountEditorPage.qml:78
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Вилучити поточний аватар"
 
-#: src/qml/Settings/AccountEditorPage.qml:102
+#: src/qml/Settings/AccountEditorPage.qml:101
 #, kde-format
 msgid "User information"
 msgstr "Відомості про користувача"
 
-#: src/qml/Settings/AccountEditorPage.qml:107
+#: src/qml/Settings/AccountEditorPage.qml:106
 #, kde-format
 msgid "Name:"
 msgstr "Ім'я:"
 
-#: src/qml/Settings/AccountEditorPage.qml:113
+#: src/qml/Settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "Мітка:"
 
-#: src/qml/Settings/AccountEditorPage.qml:139
+#: src/qml/Settings/AccountEditorPage.qml:138
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "На вашому сервері не передбачено підтримки зміни вашого пароля"
 
-#: src/qml/Settings/AccountEditorPage.qml:144
+#: src/qml/Settings/AccountEditorPage.qml:143
 #, kde-format
 msgid "Current Password:"
 msgstr "Поточний пароль:"
 
-#: src/qml/Settings/AccountEditorPage.qml:151
+#: src/qml/Settings/AccountEditorPage.qml:150
 #, kde-format
 msgid "New Password:"
 msgstr "Новий пароль:"
 
-#: src/qml/Settings/AccountEditorPage.qml:158
+#: src/qml/Settings/AccountEditorPage.qml:157
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Підтвердження нового пароля:"
 
-#: src/qml/Settings/AccountEditorPage.qml:163
+#: src/qml/Settings/AccountEditorPage.qml:162
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Паролі не збігаються"
 
-#: src/qml/Settings/AccountEditorPage.qml:177
+#: src/qml/Settings/AccountEditorPage.qml:176
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Паролі не збігаються"
 
-#: src/qml/Settings/AccountEditorPage.qml:185
+#: src/qml/Settings/AccountEditorPage.qml:184
 #, kde-format
 msgid "Server Information"
 msgstr "Інформація про сервер"
 
-#: src/qml/Settings/AccountEditorPage.qml:189
+#: src/qml/Settings/AccountEditorPage.qml:188
 #, kde-format
 msgid "Homeserver url"
 msgstr "Адреса домашнього сервера"
 
-#: src/qml/Settings/AccountEditorPage.qml:210
+#: src/qml/Settings/AccountEditorPage.qml:209
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Керування обліковими записами"
 
-#: src/qml/Settings/AccountEditorPage.qml:215
+#: src/qml/Settings/AccountEditorPage.qml:214
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Деактивувати обліковий запис"
 
-#: src/qml/Settings/AccountEditorPage.qml:216
+#: src/qml/Settings/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
