@@ -3,8 +3,8 @@
 
 pragma Singleton
 
-import QtQuick @QTQUICK_MODULE_QML_VERSION@
-import QtLocation @QTLOCATION_MODULE_QML_VERSION@
+import QtQuick
+import QtLocation
 
 QtObject {
     property var plugin: Plugin {

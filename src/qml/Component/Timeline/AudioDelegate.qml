@@ -4,7 +4,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
-import QtMultimedia @QTMULTIMEDIA_MODULE_QML_VERSION@ 
+import QtMultimedia
 
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -42,10 +42,9 @@ TimelineContainer {
         Layout.fillWidth: true
         Layout.maximumWidth: root.contentMaxWidth
 
-        @QTMULTIMEDIA_AUDIO@ {
+        MediaPlayer {
             id: audio
             source: root.progressInfo.localPath
-            @QTMULTIMEDIA_AUDIO_AUTOLOAD@
         }
 
         states: [

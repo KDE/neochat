@@ -4,7 +4,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
-import QtMultimedia @QTMULTIMEDIA_MODULE_QML_VERSION@ 
+import QtMultimedia
 import Qt.labs.platform 1.1 as Platform
 
 import org.kde.kirigami 2.13 as Kirigami
@@ -73,7 +73,6 @@ TimelineContainer {
         Layout.preferredHeight: mediaSizeHelper.currentSize.height
 
         fillMode: VideoOutput.PreserveAspectFit
-        @QTMULTIMEDIA_VIDEO_FLUSHMODE@
 
         states: [
             State {

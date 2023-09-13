@@ -17,7 +17,7 @@ Kirigami.OverlaySheet {
     property var userId
     property int powerLevel
 
-    @OVERLAYSHEET_OPEN@: {
+    onOpened: {
         if (sheetOpen) {
             powerLevelComboBox.currentIndex = powerLevelComboBox.indexOfValue(root.powerLevel)
         }
