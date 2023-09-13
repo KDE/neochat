@@ -38,14 +38,14 @@ Kirigami.Page {
 
     Component.onCompleted: infoAction.toggle()
 
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             displayHint: Kirigami.DisplayHint.IconOnly
             text: i18n("Settings")
             icon.name: "settings-configure"
             onTriggered: applicationWindow().pageStack.pushDialogLayer('qrc:/Categories.qml', {room: root.room}, { title: i18n("Room Settings") })
         }
-    }
+    ]
 
     Loader {
         id: drawerItemLoader

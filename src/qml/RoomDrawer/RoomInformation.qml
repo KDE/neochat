@@ -173,9 +173,9 @@ QQC2.ScrollView {
                 room: root.room
             }
 
-            sortRole: "powerLevel"
+            sortRoleName: "powerLevel"
             sortOrder: Qt.DescendingOrder
-            filterRole: "name"
+            filterRoleName: "name"
             filterCaseSensitivity: Qt.CaseInsensitive
         }
 

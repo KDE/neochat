@@ -31,15 +31,15 @@ Kirigami.Page {
         imageDoc.crop(selectionTool.selectionX / ratioX, selectionTool.selectionY / ratioY, selectionTool.selectionWidth / ratioX, selectionTool.selectionHeight / ratioY);
     }
 
-    actions {
-        left: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             id: undoAction
             text: i18nc("@action:button Undo modification", "Undo")
             icon.name: "edit-undo"
             onTriggered: imageDoc.undo();
             visible: imageDoc.edited
-        }
-        main: Kirigami.Action {
+        },
+        Kirigami.Action {
             id: okAction
             text: i18nc("@action:button Accept image modification", "Accept")
             icon.name: "dialog-ok"
@@ -54,7 +54,7 @@ Kirigami.Page {
                 }
             }
         }
-    }
+    ]
 
 
 
