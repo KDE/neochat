@@ -64,7 +64,7 @@ struct RemoteImage {
     // iiibiiay (matching notification spec image-data attribute)
     int width;
     int height;
-    int rowStride;
+    qsizetype rowStride;
     bool hasAlpha;
     int bitsPerSample;
     int channels;
