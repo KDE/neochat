@@ -609,10 +609,11 @@ ColumnLayout {
         const contextMenu = fileDelegateContextMenu.createObject(root, {
             author: root.author,
             eventId: root.eventId,
-            source: root.jsonSource,
+            eventSource: root.jsonSource,
             file: file,
             progressInfo: root.progressInfo,
             plainText: root.plainText,
+            htmlText: root.display,
             connection: root.connection,
         });
         contextMenu.open();
