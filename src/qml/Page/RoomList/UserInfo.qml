@@ -156,7 +156,6 @@ QQC2.ToolBar {
 
                 TapHandler {
                     acceptedButtons: Qt.RightButton | Qt.LeftButton
-                   acceptedDevices: PointerDevice.Mouse
                     onTapped: (eventPoint, button) => {
                         // TODO Qt6 remove
                         if (!button) {
