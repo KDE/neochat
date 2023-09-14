@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-12 00:46+0000\n"
+"POT-Creation-Date: 2023-09-14 01:54+0000\n"
 "PO-Revision-Date: 2023-08-27 00:31+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,67 +17,67 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:208
+#: src/controller.cpp:204
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "로그인 실패: 접근 토큰이 잘못되었거나 취소됨"
 
-#: src/controller.cpp:211 src/controller.cpp:216 src/login.cpp:93
+#: src/controller.cpp:207 src/controller.cpp:212 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "로그인 실패: %1"
 
-#: src/controller.cpp:222
+#: src/controller.cpp:218
 #, kde-format
 msgid "Network Error: %1"
 msgstr "네트워크 오류: %1"
 
-#: src/controller.cpp:247
+#: src/controller.cpp:243
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "접근 토큰을 찾을 수 없음"
 
-#: src/controller.cpp:247
+#: src/controller.cpp:243
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "삭제되었을 수도 있습니다."
 
-#: src/controller.cpp:251
+#: src/controller.cpp:247
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "키체인 접근이 거부되었습니다."
 
-#: src/controller.cpp:251
+#: src/controller.cpp:247
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat에서 접근 토큰 사용을 허용하십시오"
 
-#: src/controller.cpp:254
+#: src/controller.cpp:250
 #, kde-format
 msgid "No keychain available."
 msgstr "키체인을 사용할 수 없습니다."
 
-#: src/controller.cpp:254
+#: src/controller.cpp:250
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "키체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모음 등이 있습니다"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:253
 #, kde-format
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:353
+#: src/controller.cpp:349
 #, kde-format
 msgid "File too large to download."
 msgstr "파일이 다운로드하기에 너무 큽니다."
 
-#: src/controller.cpp:353
+#: src/controller.cpp:349
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/controller.cpp:383
+#: src/controller.cpp:379
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
@@ -462,95 +462,95 @@ msgstr "대상"
 msgid "Network Error"
 msgstr "네트워크 오류"
 
-#: src/main.cpp:186
+#: src/main.cpp:180
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:188
+#: src/main.cpp:182
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix 클라이언트"
 
-#: src/main.cpp:190
+#: src/main.cpp:184
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 
-#: src/main.cpp:191
+#: src/main.cpp:185
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:191 src/main.cpp:192 src/main.cpp:193
+#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"
 
-#: src/main.cpp:192
+#: src/main.cpp:186
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:193
+#: src/main.cpp:187
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:194
+#: src/main.cpp:188
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:194
+#: src/main.cpp:188
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral의 원 작성자"
 
-#: src/main.cpp:195
+#: src/main.cpp:189
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:195
+#: src/main.cpp:189
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Quotient 관리자"
 
-#: src/main.cpp:196
+#: src/main.cpp:190
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "박신조"
 
-#: src/main.cpp:196
+#: src/main.cpp:190
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: src/main.cpp:200
+#: src/main.cpp:194
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "크로스 플랫폼 Matrix 클라이언트를 작성할 수 있는 Qt5 라이브러리"
 
-#: src/main.cpp:202
+#: src/main.cpp:196
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1(%2(으)로 빌드됨)"
 
-#: src/main.cpp:350
+#: src/main.cpp:340
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 대화 프로토콜 클라이언트"
 
-#: src/main.cpp:351
+#: src/main.cpp:341
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: URL 형식 지원"
 
-#: src/main.cpp:352
+#: src/main.cpp:342
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "모든 SSL 오류(예: 서명되지 않은 인증서)를 무시합니다."
@@ -1043,22 +1043,22 @@ msgstr "낮은 우선 순위"
 msgid "Spaces"
 msgstr "스페이스"
 
-#: src/neochatconnection.cpp:167
+#: src/neochatconnection.cpp:163
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: %1"
 
-#: src/neochatconnection.cpp:178
+#: src/neochatconnection.cpp:174
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/neochatroom.cpp:1339 src/neochatroom.cpp:1340
+#: src/neochatroom.cpp:1331 src/neochatroom.cpp:1332
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/neochatroom.cpp:1644 src/neochatroom.cpp:1652
+#: src/neochatroom.cpp:1636 src/neochatroom.cpp:1644
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1069,7 +1069,7 @@ msgstr "위도: %1, 경도: %2"
 msgid "Encrypted Message"
 msgstr "암호화된 메시지"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:252
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:262
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1081,7 +1081,7 @@ msgstr "이 대화방에서 NeoChat 열기"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:39
 #, kde-format
 msgid "Reply"
 msgstr "답장"
@@ -1118,7 +1118,7 @@ msgstr "첨부:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:30
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1129,53 +1129,53 @@ msgstr "편집"
 msgid "Cancel sending attachment"
 msgstr "첨부 전송 취소"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:64
+#: src/qml/Component/ChatBox/ChatBar.qml:66
 #, kde-format
 msgid "Attach an image or file"
 msgstr "그림이나 파일 첨부"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:91
+#: src/qml/Component/ChatBox/ChatBar.qml:93
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "이모지와 스티커"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:108
+#: src/qml/Component/ChatBox/ChatBar.qml:110
 #, kde-format
 msgid "Send a Location"
 msgstr "위치 보내기"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:122
+#: src/qml/Component/ChatBox/ChatBar.qml:124
 #, kde-format
 msgid "Send message"
 msgstr "메시지 보내기"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:169
+#: src/qml/Component/ChatBox/ChatBar.qml:171
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "암호화된 메시지 보내기…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:169
+#: src/qml/Component/ChatBox/ChatBar.qml:171
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "첨부 파일 캡션 설정..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:169
+#: src/qml/Component/ChatBox/ChatBar.qml:171
 #, kde-format
 msgid "Send a message…"
 msgstr "메시지 보내기…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:349
+#: src/qml/Component/ChatBox/ChatBar.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "답장 취소"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:543
+#: src/qml/Component/ChatBox/ChatBar.qml:546
 #, kde-format
 msgid "Choose local file"
 msgstr "로컬 파일 선택"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:571
+#: src/qml/Component/ChatBox/ChatBar.qml:574
 #, kde-format
 msgid "Clipboard image"
 msgstr "클립보드의 그림"
@@ -1225,69 +1225,69 @@ msgstr "링크 삽입"
 msgid "Replying to:"
 msgstr "답장 대상:"
 
-#: src/qml/Component/Devtools/RoomData.qml:19
+#: src/qml/Component/Devtools/RoomData.qml:20
 #, fuzzy, kde-format
 #| msgid "Choose a Location"
 msgctxt "@title"
 msgid "Choose Room"
 msgstr "위치 선택"
 
-#: src/qml/Component/Devtools/RoomData.qml:24
+#: src/qml/Component/Devtools/RoomData.qml:25
 #, kde-format
 msgid "Room"
 msgstr "대화방"
 
-#: src/qml/Component/Devtools/RoomData.qml:36
+#: src/qml/Component/Devtools/RoomData.qml:37
 #, fuzzy, kde-format
 #| msgid "Room ID"
 msgid "Room Id: %1"
 msgstr "대화방 ID"
 
-#: src/qml/Component/Devtools/RoomData.qml:39
+#: src/qml/Component/Devtools/RoomData.qml:40
 #, kde-format
 msgid "Show m.room.member events"
 msgstr "m.room.member 이벤트 표시"
 
-#: src/qml/Component/Devtools/RoomData.qml:51
+#: src/qml/Component/Devtools/RoomData.qml:52
 #, kde-format
 msgid "Show room account data"
 msgstr "대화방 계정 데이터 표시"
 
-#: src/qml/Component/Devtools/RoomData.qml:57
+#: src/qml/Component/Devtools/RoomData.qml:58
 #, fuzzy, kde-format
 #| msgid "Room Account Data for %1 - %2"
 msgid "Room Account Data"
 msgstr "%1 - %2의 대화방 계정 데이터"
 
-#: src/qml/Component/Devtools/RoomData.qml:68
-#: src/qml/Component/Devtools/RoomData.qml:94
+#: src/qml/Component/Devtools/RoomData.qml:69
+#: src/qml/Component/Devtools/RoomData.qml:95
 #: src/qml/Menu/Timeline/MessageSourceSheet.qml:20
 #, kde-format
 msgid "Event Source"
 msgstr "이벤트 소스"
 
-#: src/qml/Component/Devtools/RoomData.qml:76
+#: src/qml/Component/Devtools/RoomData.qml:77
 #, fuzzy, kde-format
 #| msgid "Room State for %1"
 msgid "Room State"
 msgstr "%1의 대화방 상태"
 
-#: src/qml/Component/Devtools/ServerData.qml:16
+#: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
 msgstr "서버 기능"
 
-#: src/qml/Component/Devtools/ServerData.qml:20
+#: src/qml/Component/Devtools/ServerData.qml:24
 #, kde-format
 msgid "Can change password"
 msgstr "암호 변경 가능"
 
-#: src/qml/Component/Devtools/ServerData.qml:25
+#: src/qml/Component/Devtools/ServerData.qml:29
 #, kde-format
 msgid "Default Room Version"
 msgstr "기본 대화방 버전"
 
-#: src/qml/Component/Devtools/ServerData.qml:33
+#: src/qml/Component/Devtools/ServerData.qml:37
 #, kde-format
 msgid "Available Room Versions"
 msgstr "사용 가능한 대화방 버전"
@@ -1303,13 +1303,13 @@ msgid "No emojis"
 msgstr "이모지 없음"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:52
-#: src/qml/Settings/EmoticonsPage.qml:17
+#: src/qml/Settings/EmoticonsPage.qml:19
 #, kde-format
 msgid "Emojis"
 msgstr "이모지"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:59
-#: src/qml/Settings/EmoticonsPage.qml:24
+#: src/qml/Settings/EmoticonsPage.qml:27
 #, kde-format
 msgid "Stickers"
 msgstr "스티커"
@@ -1351,7 +1351,7 @@ msgid "Accept"
 msgstr "수락"
 
 #: src/qml/Component/LocationPage.qml:16
-#: src/qml/RoomDrawer/RoomInformation.qml:121
+#: src/qml/RoomDrawer/RoomInformation.qml:124
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1587,13 +1587,13 @@ msgstr "미리 보기 확장"
 msgid "Loading URL preview"
 msgstr "URL 미리 보기 불러오는 중"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:75
+#: src/qml/Component/Timeline/MessageEditComponent.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "편집 확인"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:87
+#: src/qml/Component/Timeline/MessageEditComponent.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -1617,38 +1617,38 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "마지막 읽음: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:142
+#: src/qml/Component/Timeline/VideoDelegate.qml:141
 #, kde-format
 msgid "Video"
 msgstr "비디오"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:206
+#: src/qml/Component/Timeline/VideoDelegate.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "음량"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:290
+#: src/qml/Component/Timeline/VideoDelegate.qml:289
 #, kde-format
 msgid "Maximize"
 msgstr "최대화"
 
-#: src/qml/Component/TimelineView.qml:151
+#: src/qml/Component/TimelineView.qml:152
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "첫 읽지 않은 메시지로 이동"
 
-#: src/qml/Component/TimelineView.qml:174
+#: src/qml/Component/TimelineView.qml:175
 #, kde-format
 msgid "Jump to latest message"
 msgstr "최신 메시지로 이동"
 
-#: src/qml/Component/TimelineView.qml:200
+#: src/qml/Component/TimelineView.qml:201
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "공유할 항목을 여기에 드래그"
 
-#: src/qml/Component/TimelineView.qml:208
+#: src/qml/Component/TimelineView.qml:209
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1728,12 +1728,12 @@ msgctxt "@title"
 msgid "Room Information"
 msgstr "대화방 정보"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:25 src/qml/RoomSettings/General.qml:71
+#: src/qml/Dialog/CreateRoomDialog.qml:25 src/qml/RoomSettings/General.qml:72
 #, kde-format
 msgid "Room name:"
 msgstr "대화방 이름:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:31 src/qml/RoomSettings/General.qml:81
+#: src/qml/Dialog/CreateRoomDialog.qml:31 src/qml/RoomSettings/General.qml:82
 #, kde-format
 msgid "Room topic:"
 msgstr "대화방 주제:"
@@ -1992,7 +1992,7 @@ msgstr "중재자(50)"
 msgid "Admin (100)"
 msgstr "관리자(100)"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:333
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:334
 #: src/qml/Settings/DevicesPage.qml:75
 #, kde-format
 msgid "Confirm"
@@ -2066,18 +2066,18 @@ msgstr "개인 대화 열기"
 msgid "Copy link"
 msgstr "링크 복사"
 
-#: src/qml/main.qml:292
+#: src/qml/main.qml:302
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/qml/main.qml:304
+#: src/qml/main.qml:314
 #, kde-format
 msgid "User consent"
 msgstr "사용자 동의"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:319
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2086,25 +2086,25 @@ msgstr ""
 "홈 서버를 사용하기 전에 사용 조건에 동의해야 합니다. 아래 단추를 클릭하여 읽"
 "으십시오."
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:324
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/qml/main.qml:348
+#: src/qml/main.qml:358
 #, kde-format
 msgid "Start a chat"
 msgstr "대화 시작"
 
-#: src/qml/main.qml:350
+#: src/qml/main.qml:360
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
 
-#: src/qml/main.qml:385 src/qml/Menu/GlobalMenu.qml:28
-#: src/qml/Page/RoomList/AccountMenu.qml:33
-#: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:235
+#: src/qml/main.qml:395 src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Page/RoomList/AccountMenu.qml:36
+#: src/qml/Page/RoomList/AccountMenu.qml:46
+#: src/qml/Page/RoomList/UserInfo.qml:236
 #, kde-format
 msgid "Configure"
 msgstr "설정"
@@ -2151,81 +2151,81 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "모두 선택"
 
-#: src/qml/Menu/GlobalMenu.qml:14
+#: src/qml/Menu/GlobalMenu.qml:18
 #, kde-format
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:21
+#: src/qml/Menu/GlobalMenu.qml:25
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "NeoChat 설정..."
 
-#: src/qml/Menu/GlobalMenu.qml:22
+#: src/qml/Menu/GlobalMenu.qml:26
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "NeoChat 설정..."
 
-#: src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Menu/GlobalMenu.qml:36
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "NeoChat 끝내기"
 
-#: src/qml/Menu/GlobalMenu.qml:39
+#: src/qml/Menu/GlobalMenu.qml:43
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "파일"
 
-#: src/qml/Menu/GlobalMenu.qml:42
+#: src/qml/Menu/GlobalMenu.qml:46
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "새 개인 대화…"
 
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Menu/GlobalMenu.qml:47 src/qml/Menu/GlobalMenu.qml:52
 #: src/qml/Page/RoomList/ExploreComponent.qml:34
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "대화 시작"
 
-#: src/qml/Menu/GlobalMenu.qml:47
+#: src/qml/Menu/GlobalMenu.qml:51
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "새 그룹…"
 
-#: src/qml/Menu/GlobalMenu.qml:56
+#: src/qml/Menu/GlobalMenu.qml:60
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "대화 탐색…"
 
-#: src/qml/Menu/GlobalMenu.qml:58 src/qml/Page/RoomList/ExploreComponent.qml:23
-#: src/qml/Page/RoomList/Page.qml:167
+#: src/qml/Menu/GlobalMenu.qml:62 src/qml/Page/RoomList/ExploreComponent.qml:23
+#: src/qml/Page/RoomList/Page.qml:169
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
-#: src/qml/Menu/GlobalMenu.qml:70
+#: src/qml/Menu/GlobalMenu.qml:74
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "편집"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:78
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "보기"
 
-#: src/qml/Menu/GlobalMenu.qml:77
+#: src/qml/Menu/GlobalMenu.qml:81
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2233,31 +2233,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "빠른 전환기 열기"
 
-#: src/qml/Menu/GlobalMenu.qml:83
+#: src/qml/Menu/GlobalMenu.qml:87
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "창"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:94
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "전체 화면 나가기"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:94
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "전체 화면으로 전환"
 
-#: src/qml/Menu/GlobalMenu.qml:96
+#: src/qml/Menu/GlobalMenu.qml:100
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "도움말"
 
-#: src/qml/Menu/GlobalMenu.qml:99
+#: src/qml/Menu/GlobalMenu.qml:103
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2318,26 +2318,26 @@ msgid "Save As"
 msgstr "다른 이름으로 저장"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:73
 #, kde-format
 msgid "Copy"
 msgstr "복사"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgid "Remove"
 msgstr "삭제"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:77
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "메시지 삭제"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:82
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
@@ -2346,31 +2346,31 @@ msgid "Report"
 msgstr "신고"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:86
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "메시지 신고"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:91
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:88
 #, kde-format
 msgid "View Source"
 msgstr "소스 보기"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:97
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:94
 #, kde-format
 msgid "Message Source"
 msgstr "메시지 소스"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:47
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:53
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -2378,17 +2378,17 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "메시지 신고"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:95
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:100
 #, kde-format
 msgid "Copy Link"
 msgstr "링크 복사"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:144
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' 검색"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:165
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:170
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "웹 바로 가기 설정..."
@@ -2436,7 +2436,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "위치 선택"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:80
+#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:82
 #, kde-format
 msgid "Developer Tools"
 msgstr "개발자 도구"
@@ -2507,7 +2507,7 @@ msgstr "사용자 초대"
 msgid "Find a user..."
 msgstr "사용자 찾기..."
 
-#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:224
+#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:225
 #, kde-format
 msgid "Add"
 msgstr "추가"
@@ -2593,107 +2593,107 @@ msgstr "서버 URL 입력(예: kde.org)"
 msgid "Server URL"
 msgstr "서버 URL"
 
-#: src/qml/Page/JoinRoomPage.qml:258
+#: src/qml/Page/JoinRoomPage.qml:257
 #, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "대화방을 찾을 수 없음"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:18
-#: src/qml/Page/RoomList/UserInfo.qml:175
+#: src/qml/Page/RoomList/AccountMenu.qml:21
+#: src/qml/Page/RoomList/UserInfo.qml:176
 #, kde-format
 msgid "Edit this account"
 msgstr "이 계정 편집"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Page/RoomList/AccountMenu.qml:26
+#: src/qml/Page/RoomList/UserInfo.qml:170 src/qml/Settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
 msgstr "계정 편집기"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:27
+#: src/qml/Page/RoomList/AccountMenu.qml:30
 #, kde-format
 msgid "Notification settings"
 msgstr "알림 설정"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:17
-#: src/qml/Settings/SettingsPage.qml:64
+#: src/qml/Page/RoomList/AccountMenu.qml:40 src/qml/Settings/DevicesPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:69
 #, kde-format
 msgid "Devices"
 msgstr "장치"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:47
+#: src/qml/Page/RoomList/AccountMenu.qml:50
 #: src/qml/Settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "로그아웃"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:27
+#: src/qml/Page/RoomList/ContextMenu.qml:30
 #, kde-format
 msgid "Open in New Window"
 msgstr "새 창으로 열기"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:38
-#: src/qml/Page/RoomList/ContextMenu.qml:179
+#: src/qml/Page/RoomList/ContextMenu.qml:41
+#: src/qml/Page/RoomList/ContextMenu.qml:182
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "책갈피에서 삭제"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:38
-#: src/qml/Page/RoomList/ContextMenu.qml:179
+#: src/qml/Page/RoomList/ContextMenu.qml:41
+#: src/qml/Page/RoomList/ContextMenu.qml:182
 #, kde-format
 msgid "Add to Favourites"
 msgstr "책갈피에 추가"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:44
-#: src/qml/Page/RoomList/ContextMenu.qml:193
+#: src/qml/Page/RoomList/ContextMenu.qml:47
+#: src/qml/Page/RoomList/ContextMenu.qml:196
 #, kde-format
 msgid "Reprioritize"
 msgstr "우선 순위 증가"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:44
-#: src/qml/Page/RoomList/ContextMenu.qml:193
+#: src/qml/Page/RoomList/ContextMenu.qml:47
+#: src/qml/Page/RoomList/ContextMenu.qml:196
 #, kde-format
 msgid "Deprioritize"
 msgstr "우선 순위 감소"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:50
-#: src/qml/Page/RoomList/ContextMenu.qml:200
+#: src/qml/Page/RoomList/ContextMenu.qml:53
+#: src/qml/Page/RoomList/ContextMenu.qml:203
 #, kde-format
 msgid "Mark as Read"
 msgstr "읽은 상태로 표시"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:56
+#: src/qml/Page/RoomList/ContextMenu.qml:59
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "클립보드에 사용자의 Matrix ID 복사"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:56
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:32
+#: src/qml/Page/RoomList/ContextMenu.qml:59
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:35
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "클립보드에 주소 복사"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:68
+#: src/qml/Page/RoomList/ContextMenu.qml:71
 #, kde-format
 msgid "Notification State"
 msgstr "알림 상태"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:71
+#: src/qml/Page/RoomList/ContextMenu.qml:74
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "전역 설정 사용"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:82
+#: src/qml/Page/RoomList/ContextMenu.qml:85
 #: src/qml/RoomSettings/PushNotification.qml:35
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "모두"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:93
+#: src/qml/Page/RoomList/ContextMenu.qml:96
 #: src/qml/RoomSettings/PushNotification.qml:43
 #, kde-format
 msgctxt ""
@@ -2702,30 +2702,30 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@멘션과 키워드"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:104
+#: src/qml/Page/RoomList/ContextMenu.qml:107
 #: src/qml/RoomSettings/PushNotification.qml:51
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "끔"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:117
-#: src/qml/Page/RoomList/ContextMenu.qml:119
-#: src/qml/Page/RoomList/ContextMenu.qml:186
-#: src/qml/RoomDrawer/RoomDrawer.qml:101
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:46
+#: src/qml/Page/RoomList/ContextMenu.qml:120
+#: src/qml/Page/RoomList/ContextMenu.qml:122
+#: src/qml/Page/RoomList/ContextMenu.qml:189
+#: src/qml/RoomDrawer/RoomDrawer.qml:103
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:47
 #, kde-format
 msgid "Room Settings"
 msgstr "대화방 설정"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:125
-#: src/qml/Page/RoomList/ContextMenu.qml:206
+#: src/qml/Page/RoomList/ContextMenu.qml:128
+#: src/qml/Page/RoomList/ContextMenu.qml:209
 #, kde-format
 msgid "Leave Room"
 msgstr "대화방 떠나기"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:20
-#: src/qml/Page/RoomList/Page.qml:161
+#: src/qml/Page/RoomList/Page.qml:163
 #, kde-format
 msgid "Explore rooms"
 msgstr "대화방 탐색"
@@ -2748,116 +2748,116 @@ msgstr "대화방 만들기"
 msgid "Create rooms and chats"
 msgstr "대화방과 개인 대화 만들기"
 
-#: src/qml/Page/RoomList/Page.qml:158
+#: src/qml/Page/RoomList/Page.qml:160
 #, kde-format
 msgid "No rooms found"
 msgstr "대화방을 찾을 수 없음"
 
-#: src/qml/Page/RoomList/Page.qml:158
+#: src/qml/Page/RoomList/Page.qml:160
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "시작하려면 대화방에 입장하십시오"
 
-#: src/qml/Page/RoomList/Page.qml:161
+#: src/qml/Page/RoomList/Page.qml:163
 #, kde-format
 msgid "Search in room directory"
 msgstr "대화방 디렉터리에서 검색"
 
-#: src/qml/Page/RoomList/Page.qml:214
+#: src/qml/Page/RoomList/Page.qml:216
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "%1 접기"
 
-#: src/qml/Page/RoomList/Page.qml:214
+#: src/qml/Page/RoomList/Page.qml:216
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "%1 펼치기"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:97
+#: src/qml/Page/RoomList/RoomDelegate.qml:98
 #, kde-format
 msgid "Muted room"
 msgstr "대화방 음소거됨"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:129
+#: src/qml/Page/RoomList/RoomDelegate.qml:130
 #, kde-format
 msgid "Configure room"
 msgstr "대화방 설정"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:62
+#: src/qml/Page/RoomList/SpaceDrawer.qml:64
 #, kde-format
 msgid "All Rooms"
 msgstr "모든 대화방"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:26
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:29
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "스페이스 보기"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:42
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:45
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "스페이스 설정"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:44
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:102
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:47
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:105
 #, kde-format
 msgid "Space Settings"
 msgstr "스페이스 설정"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:50
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:106
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:53
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:109
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "스페이스 떠나기"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:100
+#: src/qml/Page/RoomList/UserInfo.qml:44 src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Add Account"
 msgstr "계정 추가"
 
-#: src/qml/Page/RoomList/UserInfo.qml:45
+#: src/qml/Page/RoomList/UserInfo.qml:47
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "기존 계정에 로그인"
 
-#: src/qml/Page/RoomList/UserInfo.qml:52
+#: src/qml/Page/RoomList/UserInfo.qml:54
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "로그인"
 
-#: src/qml/Page/RoomList/UserInfo.qml:208
+#: src/qml/Page/RoomList/UserInfo.qml:209
 #, kde-format
 msgid "Switch User"
 msgstr "사용자 전환"
 
-#: src/qml/Page/RoomList/UserInfo.qml:236
+#: src/qml/Page/RoomList/UserInfo.qml:237
 #, kde-format
 msgid "Open Settings"
 msgstr "설정 열기"
 
-#: src/qml/Page/RoomPage.qml:50
+#: src/qml/Page/RoomPage.qml:52
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."
 
-#: src/qml/Page/SearchPage.qml:17
+#: src/qml/Page/SearchPage.qml:18
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "메시지 검색"
 
-#: src/qml/Page/SearchPage.qml:59
+#: src/qml/Page/SearchPage.qml:60
 #, kde-format
 msgid "Enter a text to start searching"
 msgstr "검색을 시작하려면 텍스트를 입력하십시오"
 
-#: src/qml/Page/SearchPage.qml:65
+#: src/qml/Page/SearchPage.qml:66
 #, kde-format
 msgid "No results found"
 msgstr "결과 없음"
@@ -2909,96 +2909,96 @@ msgstr "이름 없음"
 msgid "No Topic"
 msgstr "주제 없음"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:98
+#: src/qml/RoomDrawer/RoomDrawer.qml:100
 #, kde-format
 msgid "Room settings"
 msgstr "대화방 설정"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:140
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:79
+#: src/qml/RoomDrawer/RoomDrawer.qml:144
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:82
 #, fuzzy, kde-format
 #| msgid "Room Information"
 msgid "Information"
 msgstr "대화방 정보"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:145
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:84
+#: src/qml/RoomDrawer/RoomDrawer.qml:149
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:87
 #, kde-format
 msgid "Media"
 msgstr ""
 
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:44
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:45
 #, fuzzy, kde-format
 #| msgid "Room Settings"
 msgid "Settings"
 msgstr "대화방 설정"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:38
+#: src/qml/RoomDrawer/RoomInformation.qml:40
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "대화방 정보"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:64
+#: src/qml/RoomDrawer/RoomInformation.qml:66
 #, kde-format
 msgid "Options"
 msgstr "옵션"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:74
+#: src/qml/RoomDrawer/RoomInformation.qml:76
 #, kde-format
 msgid "Open developer tools"
 msgstr "개발자 도구 열기"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:88
+#: src/qml/RoomDrawer/RoomInformation.qml:90
 #, kde-format
 msgid "Search in this room"
 msgstr "이 대화방에서 검색"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:96
+#: src/qml/RoomDrawer/RoomInformation.qml:99
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:105
+#: src/qml/RoomDrawer/RoomInformation.qml:108
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "책갈피에서 대화방 삭제"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:105
+#: src/qml/RoomDrawer/RoomInformation.qml:108
 #, kde-format
 msgid "Make room favorite"
 msgstr "책갈피에 대화방 추가"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:116
+#: src/qml/RoomDrawer/RoomInformation.qml:119
 #, kde-format
 msgid "Show locations for this room"
 msgstr "이 대화방에서 위치 표시"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:128
+#: src/qml/RoomDrawer/RoomInformation.qml:131
 #, kde-format
 msgid "Members"
 msgstr "구성원"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:140
+#: src/qml/RoomDrawer/RoomInformation.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "사용자 초대"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:143
+#: src/qml/RoomDrawer/RoomInformation.qml:146
 #, kde-format
 msgid "Invite user to room"
 msgstr "대화방에 사용자 초대"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:150
+#: src/qml/RoomDrawer/RoomInformation.qml:153
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "구성원 %1명"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:150
+#: src/qml/RoomDrawer/RoomInformation.qml:153
 #, kde-format
 msgid "No member count"
 msgstr "구성원 집계 없음"
@@ -3010,38 +3010,38 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "대화방 버전"
 
-#: src/qml/RoomSettings/Categories.qml:19 src/qml/RoomSettings/General.qml:21
+#: src/qml/RoomSettings/Categories.qml:21 src/qml/RoomSettings/General.qml:22
 #: src/qml/Settings/SettingsPage.qml:20
 #, kde-format
 msgid "General"
 msgstr "일반"
 
-#: src/qml/RoomSettings/Categories.qml:30 src/qml/RoomSettings/Security.qml:17
+#: src/qml/RoomSettings/Categories.qml:33 src/qml/RoomSettings/Security.qml:17
 #, kde-format
 msgid "Security"
 msgstr "보안"
 
-#: src/qml/RoomSettings/Categories.qml:41
+#: src/qml/RoomSettings/Categories.qml:44
 #, kde-format
 msgid "Permissions"
 msgstr "권한"
 
-#: src/qml/RoomSettings/Categories.qml:52 src/qml/Settings/SettingsPage.qml:32
+#: src/qml/RoomSettings/Categories.qml:55 src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
 msgstr "알림"
 
-#: src/qml/RoomSettings/General.qml:24
+#: src/qml/RoomSettings/General.qml:25
 #, kde-format
 msgid "Room Information"
 msgstr "대화방 정보"
 
-#: src/qml/RoomSettings/General.qml:46
+#: src/qml/RoomSettings/General.qml:47
 #, kde-format
 msgid "Update avatar"
 msgstr "아바타 업데이트"
 
-#: src/qml/RoomSettings/General.qml:105
+#: src/qml/RoomSettings/General.qml:106
 #: src/qml/Settings/AccountEditorPage.qml:117
 #: src/qml/Settings/AccountEditorPage.qml:170
 #: src/qml/Settings/EmoticonEditorPage.qml:110
@@ -3049,107 +3049,107 @@ msgstr "아바타 업데이트"
 msgid "Save"
 msgstr "저장"
 
-#: src/qml/RoomSettings/General.qml:120
+#: src/qml/RoomSettings/General.qml:121
 #, kde-format
 msgid "Room ID"
 msgstr "대화방 ID"
 
-#: src/qml/RoomSettings/General.qml:125
+#: src/qml/RoomSettings/General.qml:126
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "클립보드에 대화방 ID 복사"
 
-#: src/qml/RoomSettings/General.qml:139
+#: src/qml/RoomSettings/General.qml:140
 #, kde-format
 msgid "Room version"
 msgstr "대화방 버전"
 
-#: src/qml/RoomSettings/General.qml:145
+#: src/qml/RoomSettings/General.qml:146
 #, kde-format
 msgid "Upgrade Room"
 msgstr "대화방 업그레이드"
 
-#: src/qml/RoomSettings/General.qml:164
+#: src/qml/RoomSettings/General.qml:165
 #, kde-format
 msgid "Aliases"
 msgstr "별칭"
 
-#: src/qml/RoomSettings/General.qml:169
+#: src/qml/RoomSettings/General.qml:170
 #, kde-format
 msgid "No canonical alias set"
 msgstr "주 별명이 설정되지 않음"
 
-#: src/qml/RoomSettings/General.qml:182
+#: src/qml/RoomSettings/General.qml:183
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "이 별명을 대화방의 주 별명으로 설정"
 
-#: src/qml/RoomSettings/General.qml:197
+#: src/qml/RoomSettings/General.qml:198
 #, kde-format
 msgid "Delete alias"
 msgstr "별명 삭제"
 
-#: src/qml/RoomSettings/General.qml:222
+#: src/qml/RoomSettings/General.qml:223
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:239
+#: src/qml/RoomSettings/General.qml:240
 #, kde-format
 msgid "Add new alias"
 msgstr "새 별명 추가"
 
-#: src/qml/RoomSettings/General.qml:259
+#: src/qml/RoomSettings/General.qml:260
 #, kde-format
 msgid "URL Previews"
 msgstr "URL 미리 보기"
 
-#: src/qml/RoomSettings/General.qml:263
+#: src/qml/RoomSettings/General.qml:264
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "기본값으로 대화방 구성원에 대하여 URL 미리 보기 활성화"
 
-#: src/qml/RoomSettings/General.qml:271
+#: src/qml/RoomSettings/General.qml:272
 #, kde-format
 msgid "Enable URL previews"
 msgstr "URL 미리 보기 활성화"
 
-#: src/qml/RoomSettings/General.qml:273
+#: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "이 대화방에는 URL 미리 보기가 기본값으로 활성화되어 있음"
 
-#: src/qml/RoomSettings/General.qml:273
+#: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "이 대화방에는 URL 미리 보기가 기본값으로 비활성화되어 있음"
 
-#: src/qml/RoomSettings/General.qml:284
+#: src/qml/RoomSettings/General.qml:285
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "이 대화방에서 다른 대화가 진행 중입니다."
 
-#: src/qml/RoomSettings/General.qml:288
+#: src/qml/RoomSettings/General.qml:289
 #, kde-format
 msgid "See older messages…"
 msgstr "이전 메시지 보기…"
 
-#: src/qml/RoomSettings/General.qml:298
+#: src/qml/RoomSettings/General.qml:299
 #, kde-format
 msgid "This room has been replaced."
 msgstr "이 대화방이 대체되었습니다."
 
-#: src/qml/RoomSettings/General.qml:302
+#: src/qml/RoomSettings/General.qml:303
 #, kde-format
 msgid "See new room…"
 msgstr "새 대화방 보기…"
 
-#: src/qml/RoomSettings/General.qml:323
+#: src/qml/RoomSettings/General.qml:324
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "대화방 업그레이드"
 
-#: src/qml/RoomSettings/General.qml:327
+#: src/qml/RoomSettings/General.qml:328
 #, kde-format
 msgid "Select new version"
 msgstr "새 버전 선택"
@@ -3712,28 +3712,28 @@ msgid "Remove device"
 msgstr "장치 삭제"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:27
-#: src/qml/Settings/EmoticonFormCard.qml:52
+#: src/qml/Settings/EmoticonFormCard.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
 msgstr "스티커 편집"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:27
-#: src/qml/Settings/EmoticonFormCard.qml:102
+#: src/qml/Settings/EmoticonFormCard.qml:103
 #, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
 msgstr "스티커 추가"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:28
-#: src/qml/Settings/EmoticonFormCard.qml:52
+#: src/qml/Settings/EmoticonFormCard.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
 msgstr "이모지 편집"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:28
-#: src/qml/Settings/EmoticonFormCard.qml:102
+#: src/qml/Settings/EmoticonFormCard.qml:103
 #, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
@@ -3769,23 +3769,23 @@ msgstr "단축 코드:"
 msgid "Description:"
 msgstr "설명:"
 
-#: src/qml/Settings/EmoticonFormCard.qml:70
+#: src/qml/Settings/EmoticonFormCard.qml:71
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "설명 없음"
 
-#: src/qml/Settings/EmoticonFormCard.qml:111
+#: src/qml/Settings/EmoticonFormCard.qml:112
 #, kde-format
 msgid "Add Emoji"
 msgstr "이모지 추가"
 
-#: src/qml/Settings/EmoticonFormCard.qml:111
+#: src/qml/Settings/EmoticonFormCard.qml:112
 #, kde-format
 msgid "Add Sticker"
 msgstr "스티커 추가"
 
-#: src/qml/Settings/EmoticonsPage.qml:14
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, fuzzy, kde-format
 #| msgid "Stickers & Emojis"
 msgctxt "@title"
@@ -3928,7 +3928,7 @@ msgid "Unknown"
 msgstr "알 수 없는 이벤트"
 
 #: src/qml/Settings/NetworkProxyPage.qml:21
-#: src/qml/Settings/SettingsPage.qml:58
+#: src/qml/Settings/SettingsPage.qml:63
 #, kde-format
 msgid "Network Proxy"
 msgstr "네트워크 프록시"
@@ -4024,17 +4024,17 @@ msgstr "모양"
 msgid "Stickers & Emojis"
 msgstr "스티커와 이모지"
 
-#: src/qml/Settings/SettingsPage.qml:51
+#: src/qml/Settings/SettingsPage.qml:56
 #, kde-format
 msgid "Spell Checking"
 msgstr "맞춤법 검사"
 
-#: src/qml/Settings/SettingsPage.qml:75
+#: src/qml/Settings/SettingsPage.qml:80
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat 정보"
 
-#: src/qml/Settings/SettingsPage.qml:81
+#: src/qml/Settings/SettingsPage.qml:86
 #, kde-format
 msgid "About KDE"
 msgstr "KDE 정보"
