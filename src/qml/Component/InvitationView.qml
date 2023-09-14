@@ -17,6 +17,15 @@ Kirigami.PlaceholderMessage {
     text: i18n("Accept this invitation?")
     RowLayout {
         QQC2.Button {
+            Layout.alignment: Qt.AlignHCenter
+            text: i18nc("@action:button The thing being rejected is an invitation to chat", "Reject and ignore user")
+
+            onClicked: {
+                RoomManager.leaveRoom(root.currentRoom);
+                root.currentRoom.connection.addToIgnoredUsers(root.currentRoom.invitingUser());
+            }
+        }
+        QQC2.Button {
             Layout.alignment : Qt.AlignHCenter
             text: i18n("Reject")
 

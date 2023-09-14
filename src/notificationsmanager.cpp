@@ -246,7 +246,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
         notification->close();
         RoomManager::instance().enterRoom(room);
     });
-    notification->setActions({i18n("Accept Invitation"), i18n("Reject Invitation")});
+    notification->setActions({i18nc("@action:button The thing being accepted is an invitation to chat", "Accept"), i18nc("@action:button The thing being rejected is an invitation to chat", "Reject"), i18nc("@action:button The thing being rejected is an invitation to chat", "Reject and Ignore User")});
     connect(notification, &KNotification::action1Activated, this, [room, notification]() {
         if (!room) {
             return;
@@ -259,6 +259,14 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
             return;
         }
         RoomManager::instance().leaveRoom(room);
+        notification->close();
+    });
+    connect(notification, &KNotification::action3Activated, this, [room, notification]() {
+        if (!room) {
+            return;
+        }
+        RoomManager::instance().leaveRoom(room);
+        room->connection()->addToIgnoredUsers(room->invitingUser());
         notification->close();
     });
     connect(notification, &KNotification::closed, this, [this, room]() {

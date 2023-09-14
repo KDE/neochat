@@ -794,6 +794,11 @@ public:
      */
     Q_INVOKABLE void loadReply(const QString &eventId, const QString &replyId);
 
+    /**
+     * If we're invited to this room, the user that invited us. Undefined in other cases.
+     */
+    Q_INVOKABLE Quotient::User *invitingUser() const;
+
 private:
     QSet<const Quotient::RoomEvent *> highlights;
 

@@ -1694,4 +1694,9 @@ void NeoChatRoom::loadReply(const QString &eventId, const QString &replyId)
     });
 }
 
+User *NeoChatRoom::invitingUser() const
+{
+    return connection()->user(currentState().get<RoomMemberEvent>(connection()->userId())->senderId());
+}
+
 #include "moc_neochatroom.cpp"
