@@ -15,6 +15,7 @@ import org.kde.neochat 1.0
 QQC2.ScrollView {
     id: root
     required property NeoChatRoom currentRoom
+    required property NeoChatConnection connection
     onCurrentRoomChanged: {
         roomChanging = true;
         roomChangingTimer.restart()

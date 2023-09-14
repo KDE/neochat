@@ -77,6 +77,7 @@ Kirigami.Page {
                     chatBoxLoader.item.forceActiveFocus()
                 }
             }
+            connection: root.connection
         }
     }
 
