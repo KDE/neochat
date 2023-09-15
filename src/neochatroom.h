@@ -553,6 +553,20 @@ public:
 
     Q_INVOKABLE QByteArray getEventJsonSource(const QString &eventId);
 
+    /**
+     * @brief Open the media for the given event in an appropriate external app.
+     *
+     * Will do nothing if the event has no media.
+     */
+    Q_INVOKABLE void openEventMediaExternally(const QString &eventId);
+
+    /**
+     * @brief Copy the media for the given event to the clipboard.
+     *
+     * Will do nothing if the event has no media.
+     */
+    Q_INVOKABLE void copyEventMedia(const QString &eventId);
+
     [[nodiscard]] bool readMarkerLoaded() const;
 
     /**

@@ -43,7 +43,7 @@ TimelineContainer {
         openSavedFile();
     }
 
-    onOpenContextMenu: openFileContext(root)
+    onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
     function saveFileAs() {
         const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)

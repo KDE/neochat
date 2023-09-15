@@ -54,7 +54,7 @@ TimelineContainer {
      */
     readonly property var maxHeight: Kirigami.Units.gridUnit * 30
 
-    onOpenContextMenu: openFileContext(vid)
+    onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
     onDownloadedChanged: {
         if (downloaded) {

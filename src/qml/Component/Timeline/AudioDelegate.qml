@@ -36,7 +36,7 @@ TimelineContainer {
     readonly property bool downloaded: root.progressInfo && root.progressInfo.completed
     onDownloadedChanged: audio.play()
 
-    onOpenContextMenu: openFileContext(root)
+    onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
     innerObject: ColumnLayout {
         Layout.fillWidth: true

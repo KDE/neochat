@@ -208,6 +208,30 @@ Kirigami.Page {
                 width: Kirigami.Units.gridUnit * 25
             });
         }
+
+        function onShowMessageMenu(eventId, author, delegateType, plainText, htmlText, selectedText) {
+            const contextMenu = messageDelegateContextMenu.createObject(root, {
+                selectedText: selectedText,
+                author: author,
+                eventId: eventId,
+                delegateType: delegateType,
+                plainText: plainText,
+                htmlText: htmlText
+            });
+            contextMenu.open();
+        }
+
+        function onShowFileMenu(eventId, author, delegateType, plainText, mimeType, progressInfo) {
+            const contextMenu = fileDelegateContextMenu.createObject(root, {
+                author: author,
+                eventId: eventId,
+                delegateType: delegateType,
+                plainText: plainText,
+                mimeType: mimeType,
+                progressInfo: progressInfo
+            });
+            contextMenu.open();
+        }
     }
 
     function showUserDetail(user) {
@@ -220,5 +244,19 @@ Kirigami.Page {
     Component {
         id: userDetailDialog
         UserDetailDialog {}
+    }
+
+    Component {
+        id: messageDelegateContextMenu
+        MessageDelegateContextMenu {
+            connection: root.connection
+        }
+    }
+
+    Component {
+        id: fileDelegateContextMenu
+        FileDelegateContextMenu {
+            connection: root.connection
+        }
     }
 }

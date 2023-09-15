@@ -589,44 +589,6 @@ ColumnLayout {
         return (yoff + height > 0 && yoff < ListView.view.height)
     }
 
-    Component {
-        id: messageDelegateContextMenu
-        MessageDelegateContextMenu {}
-    }
-
-    Component {
-        id: fileDelegateContextMenu
-        FileDelegateContextMenu {}
-    }
-
-    /// Open message context dialog for file and videos
-    function openFileContext(file) {
-        const contextMenu = fileDelegateContextMenu.createObject(root, {
-            author: root.author,
-            eventId: root.eventId,
-            file: file,
-            progressInfo: root.progressInfo,
-            plainText: root.plainText,
-            htmlText: root.display,
-            connection: root.connection,
-        });
-        contextMenu.open();
-    }
-
-    /// Open context menu for normal message
-    function openMessageContext(selectedText) {
-        const contextMenu = messageDelegateContextMenu.createObject(root, {
-            selectedText: selectedText,
-            author: root.author,
-            eventId: root.eventId,
-            eventType: root.delegateType,
-            plainText: root.plainText,
-            htmlText: root.display,
-            connection: root.connection,
-        });
-        contextMenu.open();
-    }
-
     function setHoverActionsToDelegate() {
         if (ListView.view.setHoverActionsToDelegate) {
             ListView.view.setHoverActionsToDelegate(root)

@@ -10,20 +10,82 @@ import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief The base menu for most message types.
+ *
+ * This menu supports showing a list of actions to be shown for a particular event
+ * delegate in a message timeline. The menu supports both desktop and mobile menus
+ * with different visuals appropriate to the platform.
+ *
+ * The menu supports both a list of main actions and the ability to define sub menus
+ * using the nested action parameter.
+ *
+ * For event types that need alternate actions this class can be used as a base and
+ * the actions and nested actions can be overwritten to show the alternate items.
+ */
 Loader {
     id: root
 
-    required property var author
-    required property string eventId
-    property var eventType
-    property string selectedText: ""
-    required property string plainText
-    property string htmlText: undefined
-
+    /**
+     * @brief The curent connection for the account accessing the event.
+     */
     required property NeoChatConnection connection
 
+    /**
+     * @brief The matrix ID of the message event.
+     */
+    required property string eventId
+
+    /**
+     * @brief The message author.
+     *
+     * This should consist of the following:
+     *  - id - The matrix ID of the author.
+     *  - isLocalUser - Whether the author is the local user.
+     *  - avatarSource - The mxc URL for the author's avatar in the current room.
+     *  - avatarMediaId - The media ID of the author's avatar.
+     *  - avatarUrl - The mxc URL for the author's avatar.
+     *  - displayName - The display name of the author.
+     *  - display - The name of the author.
+     *  - color - The color for the author.
+     *  - object - The Quotient::User object for the author.
+     *
+     * @sa Quotient::User
+     */
+    required property var author
+
+    /**
+     * @brief The delegate type of the message.
+     */
+    required property int delegateType
+
+    /**
+     * @brief The display text of the message as plain text.
+     */
+    required property string plainText
+
+    /**
+     * @brief The display text of the message as rich text.
+     */
+    property string htmlText: ""
+
+    /**
+     * @brief The text the user currently has selected.
+     */
+    property string selectedText: ""
+
+    /**
+     * @brief The list of menu item actions that have sub-actions.
+     *
+     * Each action will be instantiated as a single line that open a sub menu.
+     */
     property list<Kirigami.Action> nestedActions
 
+    /**
+     * @brief The main list of menu item actions.
+     *
+     * Each action will be instantiated as a single line in the menu.
+     */
     property list<Kirigami.Action> actions: [
         Kirigami.Action {
             text: i18n("Edit")
@@ -32,7 +94,7 @@ Loader {
                 currentRoom.chatBoxEditId = eventId;
                 currentRoom.chatBoxReplyId = "";
             }
-            visible: author.id === root.connection.localUserId && (root.eventType === DelegateType.Emote || root.eventType === DelegateType.Message)
+            visible: author.isLocalUser && (root.delegateType === DelegateType.Emote || root.delegateType === DelegateType.Message)
         },
         Kirigami.Action {
             text: i18n("Reply")
@@ -53,13 +115,13 @@ Loader {
                     width: Kirigami.Units.gridUnit * 25
                 })
                 page.chosen.connect(function(targetRoomId) {
-                    root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText ? root.htmlText : root.plainText)
+                    root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText.length > 0 ? root.htmlText : root.plainText)
                     page.closeDialog()
                 })
             }
         },
         Kirigami.Action {
-            visible: author.id === currentRoom.localUser.id || currentRoom.canSendState("redact")
+            visible: author.isLocalUser || currentRoom.canSendState("redact")
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
             icon.color: "red"
@@ -71,12 +133,12 @@ Loader {
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
-            onTriggered: Clipboard.saveText(root.selectedText === "" ? root.plainText : root.selectedText)
+            onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.plainText : root.selectedText)
         },
         Kirigami.Action {
             text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
             icon.name: "dialog-warning-symbolic"
-            visible: author.id !== currentRoom.localUser.id
+            visible: author.isLocalUser
             onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/ReportSheet.qml", {room: currentRoom, eventId: eventId}, {
                 title: i18nc("@title", "Report Message"),
                 width: Kirigami.Units.gridUnit * 25
@@ -116,12 +178,10 @@ Loader {
                             icon.name: modelData.icon.name
                             onTriggered: modelData.trigger()
                         }
-                        onObjectAdded: {
-                            menuItem.insertItem(0, object)
-                        }
+                        onObjectAdded: (index, object) => {menuItem.insertItem(0, object)}
                     }
                 }
-                onObjectAdded: {
+                onObjectAdded: (index, object) => {
                     object.visible = false;
                     menu.addMenu(object)
                 }
@@ -130,7 +190,6 @@ Loader {
             Repeater {
                 model: root.actions
                 QQC2.MenuItem {
-                    id: menuItem
                     visible: modelData.visible
                     action: modelData
                     onClicked: root.item.close();
@@ -147,7 +206,7 @@ Loader {
                 Instantiator {
                     model: WebShortcutModel {
                         id: webshortcutmodel
-                        selectedText: root.selectedText ? root.selectedText : root.plainText
+                        selectedText: root.selectedText.length > 0 ? root.selectedText : root.plainText
                         onOpenUrl: RoomManager.visitNonMatrix(url)
                     }
                     delegate: QQC2.MenuItem {

@@ -9,36 +9,40 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief The menu for media messages.
+ *
+ * This component just overloads the actions and nested actions of the base menu
+ * to what is required for a media item.
+ *
+ * @sa MessageDelegateContextMenu
+ */
 MessageDelegateContextMenu {
     id: root
-
-    signal closeFullscreen
 
     /**
      * @brief The MIME type of the media.
      */
     property string mimeType
 
-    required property var file
+    /**
+     * @brief Progress info when downloading files.
+     *
+     * @sa Quotient::FileTransferInfo
+     */
     required property var progressInfo
 
+    /**
+     * @brief The main list of menu item actions.
+     *
+     * Each action will be instantiated as a single line in the menu.
+     */
     property list<Kirigami.Action> actions: [
         Kirigami.Action {
             text: i18n("Open Externally")
             icon.name: "document-open"
             onTriggered: {
-                if (file.downloaded) {
-                    if (!UrlHelper.openUrl(progressInfo.localPath)) {
-                        UrlHelper.openUrl(progressInfo.localDir);
-                    }
-                } else {
-                    file.onDownloadedChanged.connect(function() {
-                        if (!UrlHelper.openUrl(progressInfo.localPath)) {
-                            UrlHelper.openUrl(progressInfo.localDir);
-                        }
-                    });
-                    currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
-                }
+                currentRoom.openEventMediaExternally(root.eventId)
             }
         },
         Kirigami.Action {
@@ -56,21 +60,14 @@ MessageDelegateContextMenu {
             onTriggered: {
                 currentRoom.chatBoxReplyId = eventId
                 currentRoom.chatBoxEditId = ""
-                root.closeFullscreen()
+                RoomManager.requestFullScreenClose()
             }
         },
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
             onTriggered: {
-                if(file.downloaded) {
-                    Clipboard.setImage(progressInfo.localPath)
-                } else {
-                    file.onDownloadedChanged.connect(function() {
-                        Clipboard.setImage(progressInfo.localPath)
-                    });
-                    currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
-                }
+                currentRoom.copyEventMedia(root.eventId)
             }
         },
         Kirigami.Action {
@@ -99,12 +96,17 @@ MessageDelegateContextMenu {
         }
     ]
 
+    /**
+     * @brief The list of menu item actions that have sub-actions.
+     *
+     * Each action will be instantiated as a single line that opens a sub menu.
+     */
     property list<Kirigami.Action> nestedActions: [
         ShareAction {
             id: shareAction
             inputData: {
                 'urls': [],
-                'mimeType': [root.mimeType ? root.mimeType : root.file.mediaINfo.mimeType]
+                'mimeType': [root.mimeType]
             }
             property string filename: StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId);
 
@@ -114,11 +116,12 @@ MessageDelegateContextMenu {
             Component.onCompleted: {
                 shareAction.inputData = {
                     urls: [filename],
-                    mimeType: [root.mimeType ? root.mimeType : root.file.mediaINfo.mimeType]
+                    mimeType: [root.mimeType]
                 };
             }
         }
     ]
+
     Component {
         id: saveAsDialog
         FileDialog {

@@ -36,7 +36,7 @@ TimelineContainer {
      */
     required property bool showLinkPreview
 
-    onOpenContextMenu: openMessageContext(label.selectedText)
+    onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, display, label.selectedText)
 
     innerObject: ColumnLayout {
         Layout.maximumWidth: root.contentMaxWidth

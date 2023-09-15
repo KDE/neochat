@@ -25,6 +25,8 @@ Components.AlbumMaximizeComponent {
 
     readonly property var currentTime: model.data(model.index(content.currentIndex, 0), MessageEventModel.TimeRole)
 
+    readonly property var currentDelegateType: model.data(model.index(content.currentIndex, 0), MessageEventModel.DelegateTypeRole)
+
     readonly property string currentPlainText: model.data(model.index(content.currentIndex, 0), MessageEventModel.PlainText)
 
     readonly property var currentMimeType: model.data(model.index(content.currentIndex, 0), MessageEventModel.MimeTypeRole)
@@ -84,28 +86,26 @@ Components.AlbumMaximizeComponent {
             }
         }
     }
-    onItemRightClicked: {
-        const contextMenu = fileDelegateContextMenu.createObject(parent, {
-            author: root.currentAuthor,
-            eventId: root.currentEventId,
-            file: parent,
-            mimeType: root.currentMimeType,
-            progressInfo: root.currentProgressInfo,
-            plainText: root.currentPlainText,
-            connection: root.currentRoom.connection
-        });
-        contextMenu.closeFullscreen.connect(root.close)
-        contextMenu.open();
-    }
+    onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId,
+                                                  root.currentAuthor,
+                                                  root.currentDelegateType,
+                                                  root.currentPlainText,
+                                                  "",
+                                                  "",
+                                                  root.currentMimeType,
+                                                  root.currentProgressInfo)
+
     onSaveItem: {
         var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay)
         dialog.open()
         dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.currentEventId)
     }
 
-    Component {
-        id: fileDelegateContextMenu
-        FileDelegateContextMenu {}
+    Connections {
+        target: RoomManager
+        function onCloseFullScreen() {
+            root.close()
+        }
     }
 
     Component {

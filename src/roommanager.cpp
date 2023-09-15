@@ -5,6 +5,7 @@
 #include "roommanager.h"
 
 #include "controller.h"
+#include "enums/delegatetype.h"
 #include "models/messageeventmodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
@@ -103,9 +104,32 @@ void RoomManager::maximizeMedia(int index)
     Q_EMIT showMaximizedMedia(index);
 }
 
+void RoomManager::requestFullScreenClose()
+{
+    Q_EMIT closeFullScreen();
+}
+
 void RoomManager::viewEventSource(const QString &eventId)
 {
     Q_EMIT showEventSource(eventId);
+}
+
+void RoomManager::viewEventMenu(const QString &eventId,
+                                const QVariantMap &author,
+                                DelegateType::Type delegateType,
+                                const QString &plainText,
+                                const QString &htmlText,
+                                const QString &selectedText,
+                                const QString &mimeType,
+                                const FileTransferInfo &progressInfo)
+{
+    if (delegateType == DelegateType::Image || delegateType == DelegateType::Video || delegateType == DelegateType::Audio
+        || delegateType == DelegateType::File) {
+        Q_EMIT showFileMenu(eventId, author, delegateType, plainText, mimeType, progressInfo);
+        return;
+    }
+
+    Q_EMIT showMessageMenu(eventId, author, delegateType, plainText, htmlText, selectedText);
 }
 
 bool RoomManager::hasOpenRoom() const

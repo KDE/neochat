@@ -39,6 +39,7 @@
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
 
+#include "clipboard.h"
 #include "controller.h"
 #include "eventhandler.h"
 #include "events/joinrulesevent.h"
@@ -47,6 +48,7 @@
 #include "neochatconfig.h"
 #include "notificationsmanager.h"
 #include "texthandler.h"
+#include "urlhelper.h"
 #include "utils.h"
 
 #include <KConfig>
@@ -1342,6 +1344,62 @@ QByteArray NeoChatRoom::getEventJsonSource(const QString &eventId)
         return QJsonDocument(event->fullJson()).toJson();
     }
     return {};
+}
+
+void NeoChatRoom::openEventMediaExternally(const QString &eventId)
+{
+    const auto evtIt = findInTimeline(eventId);
+    if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
+        const auto event = evtIt->viewAs<RoomMessageEvent>();
+        if (event->hasFileContent()) {
+            const auto transferInfo = fileTransferInfo(eventId);
+            if (transferInfo.completed()) {
+                UrlHelper helper;
+                helper.openUrl(transferInfo.localPath);
+            } else {
+                downloadFile(eventId,
+                             QUrl(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/'
+                                  + event->id().replace(u':', u'_').replace(u'/', u'_').replace(u'+', u'_') + fileNameToDownload(eventId)));
+                connect(this, &Room::fileTransferCompleted, this, [this, eventId](QString id, QUrl localFile, FileSourceInfo fileMetadata) {
+                    Q_UNUSED(localFile);
+                    Q_UNUSED(fileMetadata);
+                    if (id == eventId) {
+                        auto transferInfo = fileTransferInfo(eventId);
+                        UrlHelper helper;
+                        helper.openUrl(transferInfo.localPath);
+                    }
+                });
+            }
+        }
+    }
+}
+
+void NeoChatRoom::copyEventMedia(const QString &eventId)
+{
+    const auto evtIt = findInTimeline(eventId);
+    if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
+        const auto event = evtIt->viewAs<RoomMessageEvent>();
+        if (event->hasFileContent()) {
+            const auto transferInfo = fileTransferInfo(eventId);
+            if (transferInfo.completed()) {
+                Clipboard clipboard;
+                clipboard.setImage(transferInfo.localPath);
+            } else {
+                downloadFile(eventId,
+                             QUrl(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/'
+                                  + event->id().replace(u':', u'_').replace(u'/', u'_').replace(u'+', u'_') + fileNameToDownload(eventId)));
+                connect(this, &Room::fileTransferCompleted, this, [this, eventId](QString id, QUrl localFile, FileSourceInfo fileMetadata) {
+                    Q_UNUSED(localFile);
+                    Q_UNUSED(fileMetadata);
+                    if (id == eventId) {
+                        auto transferInfo = fileTransferInfo(eventId);
+                        Clipboard clipboard;
+                        clipboard.setImage(transferInfo.localPath);
+                    }
+                });
+            }
+        }
+    }
 }
 
 QString NeoChatRoom::chatBoxText() const

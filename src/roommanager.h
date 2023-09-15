@@ -6,9 +6,11 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <QObject>
+#include <Quotient/room.h>
 #include <Quotient/uriresolver.h>
 
 #include "chatdocumenthandler.h"
+#include "enums/delegatetype.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messageeventmodel.h"
 #include "models/messagefiltermodel.h"
@@ -196,9 +198,26 @@ public:
     Q_INVOKABLE void maximizeMedia(int index);
 
     /**
+     * @brief Request that any full screen overlay currently open closes.
+     */
+    Q_INVOKABLE void requestFullScreenClose();
+
+    /**
      * @brief Show the JSON source for the given event Matrix ID
      */
     Q_INVOKABLE void viewEventSource(const QString &eventId);
+
+    /**
+     * @brief Show a conterxt menu for the given event.
+     */
+    Q_INVOKABLE void viewEventMenu(const QString &eventId,
+                                   const QVariantMap &author,
+                                   DelegateType::Type delegateType,
+                                   const QString &plainText,
+                                   const QString &htmlText = {},
+                                   const QString &selectedText = {},
+                                   const QString &mimeType = {},
+                                   const FileTransferInfo &progressInfo = {});
 
     /**
      * @brief Call this when the current used connection is dropped.
@@ -267,9 +286,34 @@ Q_SIGNALS:
     void showMaximizedMedia(int index);
 
     /**
+     * @brief Request that any full screen overlay closes.
+     */
+    void closeFullScreen();
+
+    /**
      * @brief Request the JSON source for the given event ID is shown.
      */
     void showEventSource(const QString &eventId);
+
+    /**
+     * @brief Request to show a menu for the given event.
+     */
+    void showMessageMenu(const QString &eventId,
+                         const QVariantMap &author,
+                         DelegateType::Type delegateType,
+                         const QString &plainText,
+                         const QString &htmlText,
+                         const QString &selectedText);
+
+    /**
+     * @brief Request to show a menu for the given media event.
+     */
+    void showFileMenu(const QString &eventId,
+                      const QVariantMap &author,
+                      DelegateType::Type delegateType,
+                      const QString &plainText,
+                      const QString &mimeType,
+                      const FileTransferInfo &progressInfo);
 
     /**
      * @brief Show the direct chat confirmation dialog.
