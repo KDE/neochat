@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-28 03:11+0000\n"
-"PO-Revision-Date: 2023-07-27 11:39+0200\n"
+"PO-Revision-Date: 2023-09-14 12:53+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -353,7 +353,7 @@ msgstr "Uni sala %1"
 
 #: src/models/actionsmodel.cpp:241 src/models/actionsmodel.cpp:296
 msgid "<room alias or id>"
-msgstr ""
+msgstr "<room alias or id>"
 
 #: src/models/actionsmodel.cpp:242 src/models/actionsmodel.cpp:297
 msgid "Joins the given room"
@@ -367,7 +367,7 @@ msgstr "Colpar sala %1."
 
 #: src/models/actionsmodel.cpp:273
 msgid "<room alias or id> [<reason>]"
-msgstr ""
+msgstr "<room alias or id> [<reason>]"
 
 #: src/models/actionsmodel.cpp:274
 msgid "Requests to join the given room"
@@ -381,7 +381,7 @@ msgstr "Tu es preste in sala %1."
 
 #: src/models/actionsmodel.cpp:304 src/models/actionsmodel.cpp:312
 msgid "[<room alias or id>]"
-msgstr ""
+msgstr "[<room alias or id>]"
 
 #: src/models/actionsmodel.cpp:305 src/models/actionsmodel.cpp:313
 msgid "Leaves the given room or this room, if there is none given"
@@ -390,7 +390,7 @@ msgstr "Abandona le date sala o iste sala, si nulle es date"
 #: src/models/actionsmodel.cpp:327 src/models/actionsmodel.cpp:335
 #: src/models/actionsmodel.cpp:343
 msgid "<display name>"
-msgstr ""
+msgstr "<display name>"
 
 #: src/models/actionsmodel.cpp:328
 msgid "Changes your global display name"
@@ -1179,7 +1179,7 @@ msgstr "Invia un message cryptate ..."
 #: src/qml/Component/ChatBox/ChatBar.qml:167
 #, kde-format
 msgid "Set an attachment caption..."
-msgstr ""
+msgstr "Assigan un caption de attachamento..."
 
 #: src/qml/Component/ChatBox/ChatBar.qml:167
 #, kde-format
@@ -1255,7 +1255,7 @@ msgstr "Monstra datos de conto de sala"
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Datos de Conto de Sala per %1 - %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1324,7 +1324,7 @@ msgstr "Claude"
 #: src/qml/Component/HoverActions.qml:79
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr ""
+msgstr "Iste message esseva inviate ex un dispositivo verificate"
 
 #: src/qml/Component/HoverActions.qml:92
 #, kde-format
@@ -1522,7 +1522,7 @@ msgstr "Stoppa discargamento"
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:115
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "Comprime vista preliminar"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:115
 #, kde-format
@@ -1550,8 +1550,8 @@ msgstr "Cancella modificar"
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Basate sur votos per %1 usator"
+msgstr[1] "Basate sur votos per %1 usatores"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:63
 #, kde-format
@@ -1625,6 +1625,7 @@ msgstr "Activa cryptation"
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr ""
+"Il non essera possibile deactivar le cryptationj post que il es habilitate."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
 #: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:126
@@ -1638,12 +1639,12 @@ msgstr "Cancella"
 #: src/qml/Settings/AccountEditorPage.qml:263
 #, kde-format
 msgid "Sign out"
-msgstr ""
+msgstr "Exir"
 
 #: src/qml/Dialog/ConfirmLogout.qml:19
 #, kde-format
 msgid "Are you sure you want to sign out?"
-msgstr ""
+msgstr "Tu es secur que tu vole exir?"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:16
 #: src/qml/Page/RoomList/ExploreComponent.qml:31
@@ -1687,7 +1688,7 @@ msgstr "Nomine de spatio"
 #: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, kde-format
 msgid "Space topic (optional)"
-msgstr ""
+msgstr "Argomento de spatio (optional)"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:34
 #, kde-format
@@ -1699,6 +1700,8 @@ msgstr "Crea spatio"
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
+"Confirma que le emoji a basso es monstrate sur ambes le dispositivos, in le "
+"mesme ordine."
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:39
 #, kde-format
@@ -1718,27 +1721,27 @@ msgstr "Veification de Session"
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:36
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr ""
+msgstr "Attendente que le dispositivo accepta verification."
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:42
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr ""
+msgstr "Requesta de Verification de Clave in arrivata ex le dispositivo **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:48
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr ""
+msgstr "Attendente altere parte a verificar."
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr ""
+msgstr "Compara un insimul de emoji sur ambes dispositivos"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:62
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr ""
+msgstr "Dispositivo **%1** verificato con successo"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:79
 #, kde-format
@@ -1748,27 +1751,27 @@ msgstr "Declina"
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
-msgstr ""
+msgstr "Le verification de session esseva cancellate per motivos incognite."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
-msgstr ""
+msgstr "Le verification de session terminava."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
-msgstr ""
+msgstr "Le verification de session terminava per un parte remote."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
-msgstr ""
+msgstr "Tu cancellava le verification de session."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr ""
+msgstr "Le parte remote cancellava le verification de session."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
@@ -1776,6 +1779,8 @@ msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr ""
+"Le verification de session esseva cancellate perque nos recipeva un message "
+"impreviste."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:33
 #, kde-format
@@ -1783,6 +1788,8 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr ""
+"Le parte remote cancellava le verification de session perque il recipeva un "
+"message impreviste."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
@@ -1790,6 +1797,8 @@ msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr ""
+"Le verification de session esseva cancellate perque il recipeva un message "
+"per un session incognite."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
@@ -1797,6 +1806,8 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
+"Le parte remote cancellava le verification de session perque il recipeva un "
+"message per un session incognite."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
@@ -1804,6 +1815,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
+"Le verification de session esseva cancellate proque NeoChat es incapace a "
+"manear iste methodo de verification."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
@@ -1811,11 +1824,14 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
+"Le parte remote cancellava le verification de session  proque il es incapace "
+"a manear iste methodo de verification."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr ""
+"Le verification de sessionj esseva cancellate proque le claves es incorrecte."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
@@ -1823,12 +1839,16 @@ msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect."
 msgstr ""
+"Le parte remote cancellava le verification de session proque le claves es "
+"incorrecte."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
+"Le verification de session esseva cancellate proque il verifica un usator "
+"impreviste."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
@@ -1836,12 +1856,16 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
+"Le parte remote cancellava le verification de session proque il verifica un "
+"usator impreviste."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
+"Le verification de session esseva cancellate proque nos recipeva un message "
+"invalide."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:53
 #, kde-format
@@ -1849,17 +1873,20 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr ""
+"Le parte remote cancellava le verification de session proque il recipeva un "
+"message invalide."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:55
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "Le session esseva acceptate sur un dispositivo differente"
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr ""
+"Le verification de session esseva cancellate perun clave non correspondente."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
@@ -1867,11 +1894,15 @@ msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr ""
+"Le parte remote cancellava le verification de session per un clave non "
+"correspondente."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr ""
+"Le verification de session esseva cancellate proque le claves non "
+"corresponde."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
@@ -1879,11 +1910,14 @@ msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr ""
+"Le parte remote cancellava le verification de session proque le claves non "
+"corresponde."
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr ""
+"Le verification de session esseva cancellate debite a un error incognite."
 
 #: src/qml/Dialog/OpenFileDialog.qml:12
 #, kde-format
@@ -1893,7 +1927,7 @@ msgstr "Pro favor tu selige un file"
 #: src/qml/Dialog/PowerLevelDialog.qml:14
 #, kde-format
 msgid "Edit user power level"
-msgstr ""
+msgstr "Modifica le nivello de fortia de un usator"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:78
@@ -1964,7 +1998,7 @@ msgstr "Leva prohibition (unban) ab iste usator"
 #: src/qml/Dialog/UserDetailDialog.qml:143
 #, kde-format
 msgid "Set user power level"
-msgstr ""
+msgstr "Assigna le nivello de fortia de usator"
 
 #: src/qml/Dialog/UserDetailDialog.qml:167
 #, kde-format
@@ -2306,12 +2340,12 @@ msgstr "Remove  message"
 #: src/qml/Menu/Timeline/RemoveSheet.qml:24
 #, kde-format
 msgid "Reason for removing this user's recent messages"
-msgstr ""
+msgstr "Motivo per remover messages recente de iste usator"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:24
 #, kde-format
 msgid "Reason for removing this message"
-msgstr ""
+msgstr "Motivo per remover iste message"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:36
 #, kde-format
@@ -2327,7 +2361,7 @@ msgstr "Reporta Message"
 #: src/qml/Menu/Timeline/ReportSheet.qml:22
 #, kde-format
 msgid "Reason for reporting this message"
-msgstr ""
+msgstr "Motivo per reportar iste message"
 
 #: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
 #, kde-format
@@ -2413,7 +2447,7 @@ msgstr "Invia invitation"
 #: src/qml/Page/InviteUserPage.qml:114
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Usatoir o ja es un membro o ja ha  essite invitate"
 
 #: src/qml/Page/JoinRoomPage.qml:22
 #, kde-format
@@ -2459,22 +2493,22 @@ msgstr "Adde Servitor"
 #: src/qml/Page/JoinRoomPage.qml:128
 #, kde-format
 msgid "Valid server entered"
-msgstr ""
+msgstr "Servitor valide insertate"
 
 #: src/qml/Page/JoinRoomPage.qml:128
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
-msgstr ""
+msgstr "Iste servitor non pote esser resolvite o ha ja essite addite"
 
 #: src/qml/Page/JoinRoomPage.qml:128
 #, kde-format
 msgid "The entered text is not a valid url"
-msgstr ""
+msgstr "Le texto insertate non es un url valide"
 
 #: src/qml/Page/JoinRoomPage.qml:128
 #, kde-format
 msgid "Enter server url e.g. kde.org"
-msgstr ""
+msgstr "Inserta usr de servitor p.ex. kde.org"
 
 #: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
@@ -2570,7 +2604,7 @@ msgstr "Stato de  notification"
 #: src/qml/Page/RoomList/ContextMenu.qml:71
 #, kde-format
 msgid "Follow Global Setting"
-msgstr ""
+msgstr "Seque Preferentias Global"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:82
 #: src/qml/RoomSettings/PushNotification.qml:42
@@ -2586,7 +2620,7 @@ msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
 "keyword'"
 msgid "@Mentions and Keywords"
-msgstr ""
+msgstr "@Mentiones e Parolas Claves"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:104
 #: src/qml/RoomSettings/PushNotification.qml:58
@@ -2683,7 +2717,7 @@ msgstr "Adde conto"
 #: src/qml/Page/RoomList/UserInfo.qml:45
 #, kde-format
 msgid "Log in to an existing account"
-msgstr ""
+msgstr "Accede a un conto existente"
 
 #: src/qml/Page/RoomList/UserInfo.qml:52
 #, kde-format
@@ -2715,7 +2749,7 @@ msgstr "Cerca Messages"
 #: src/qml/Page/SearchPage.qml:59
 #, kde-format
 msgid "Enter a text to start searching"
-msgstr ""
+msgstr "Inserta un texto per initiar a cercar"
 
 #: src/qml/Page/SearchPage.qml:65
 #, kde-format
@@ -2730,7 +2764,7 @@ msgstr "Conversation in directo"
 #: src/qml/Page/StartChatPage.qml:93
 #, kde-format
 msgid "Join existing chat"
-msgstr ""
+msgstr "Unite a conversation in directo existente "
 
 #: src/qml/Page/StartChatPage.qml:114
 #, kde-format
@@ -2775,7 +2809,7 @@ msgstr "Optiones"
 #: src/qml/Panel/RoomDrawer.qml:153
 #, kde-format
 msgid "Open developer tools"
-msgstr ""
+msgstr "Aperi instrumentos de disveloppator"
 
 #: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
@@ -2902,7 +2936,7 @@ msgstr "Necun Alias canonic fixate"
 #: src/qml/RoomSettings/General.qml:196
 #, kde-format
 msgid "Make this alias the room's canonical alias"
-msgstr ""
+msgstr "Face iste alias le alias canonic de sala"
 
 #: src/qml/RoomSettings/General.qml:211
 #, kde-format
@@ -2912,7 +2946,7 @@ msgstr "Dele alias"
 #: src/qml/RoomSettings/General.qml:237
 #, kde-format
 msgid "#new_alias:server.org"
-msgstr ""
+msgstr "#new_alias:server.org"
 
 #: src/qml/RoomSettings/General.qml:254
 #, kde-format
@@ -2927,12 +2961,12 @@ msgstr "Vistas preliminar de URL"
 #: src/qml/RoomSettings/General.qml:282
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Habilita vistas preliminar de URL predefinite per membros de sala"
 
 #: src/qml/RoomSettings/General.qml:290
 #, kde-format
 msgid "Enable URL previews"
-msgstr ""
+msgstr "Habilita vista preliminar de URL"
 
 #: src/qml/RoomSettings/General.qml:292
 #, kde-format
@@ -2977,22 +3011,22 @@ msgstr "Selige nove version"
 #: src/qml/RoomSettings/Permissions.qml:39
 #, kde-format
 msgid "Privileged Users"
-msgstr ""
+msgstr "Usatores privilegiate"
 
 #: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid "Default permissions"
-msgstr ""
+msgstr "Permissiones predefinite"
 
 #: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid "Default user power level"
-msgstr ""
+msgstr "Nivellko de fortia de usator predefinite"
 
 #: src/qml/RoomSettings/Permissions.qml:251
 #, kde-format
 msgid "This is power level for all new users when joining the room"
-msgstr ""
+msgstr "Iste es le nivello de fortia per omnes usatores quando uni al sala"
 
 #: src/qml/RoomSettings/Permissions.qml:259
 #, kde-format
@@ -3003,17 +3037,19 @@ msgstr "Nivello de potentia predefinite a fixar le stato de sala"
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
+"Isto es usate per omne eventos de stato que non ha su proprie entrata hic"
 
 #: src/qml/RoomSettings/Permissions.qml:268
 #, kde-format
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "Nivello de fortia predefinite per inviar message"
 
 #: src/qml/RoomSettings/Permissions.qml:269
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
+"Isto es usate per omne eventos de message que non ha su proprie entrata hic"
 
 #: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
@@ -3043,12 +3079,12 @@ msgstr "Remove messages inviate per altere usatores"
 #: src/qml/RoomSettings/Permissions.qml:327
 #, kde-format
 msgid "Event permissions"
-msgstr ""
+msgstr "Permissiones de evento"
 
 #: src/qml/RoomSettings/Permissions.qml:335
 #, kde-format
 msgid "Change user permissions"
-msgstr ""
+msgstr "Cambia permissiones de usator"
 
 #: src/qml/RoomSettings/Permissions.qml:344
 #, kde-format
@@ -3073,12 +3109,12 @@ msgstr "Cambia le argumento de sala"
 #: src/qml/RoomSettings/Permissions.qml:380
 #, kde-format
 msgid "Enable encryption for the room"
-msgstr ""
+msgstr "Habilita cryptation per le sala"
 
 #: src/qml/RoomSettings/Permissions.qml:389
 #, kde-format
 msgid "Change the room history visibility"
-msgstr ""
+msgstr "Cambia la visibilitate de chronolgia de sala"
 
 #: src/qml/RoomSettings/Permissions.qml:398
 #, kde-format
@@ -3098,7 +3134,7 @@ msgstr "Fixa le listas de controlo de accesso de servitor (ACL)  per iste sala"
 #: src/qml/RoomSettings/Permissions.qml:426
 #, kde-format
 msgid "Set the children of this space"
-msgstr ""
+msgstr "Assigna le filios de iste spatio"
 
 #: src/qml/RoomSettings/Permissions.qml:435
 #, kde-format
@@ -3113,7 +3149,7 @@ msgstr "Monstra preferentias de  notificationes"
 #: src/qml/RoomSettings/PushNotification.qml:34
 #, kde-format
 msgid "Follow global setting"
-msgstr ""
+msgstr "Seque Preferentias Global"
 
 #: src/qml/RoomSettings/PushNotification.qml:75
 #: src/qml/Settings/GlobalNotificationsPage.qml:89
@@ -3138,6 +3174,8 @@ msgstr "Adde parola clave"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
+"Tu necessita actualisar iste sala a un version plus nove pro habilitar iste "
+"preferentia."
 
 #: src/qml/RoomSettings/Security.qml:27
 #, kde-format
@@ -3148,7 +3186,7 @@ msgstr "Encryption"
 #: src/qml/RoomSettings/Security.qml:36
 #, kde-format
 msgid "Enable encryption"
-msgstr ""
+msgstr "Habilita cryptation"
 
 #: src/qml/RoomSettings/Security.qml:37
 #, kde-format
@@ -3194,6 +3232,7 @@ msgstr "Colpa (knock)"
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
+"Personas non in le sala necessita requirer un invitation pro uner al sala."
 
 #: src/qml/RoomSettings/Security.qml:87
 #, kde-format
@@ -3211,7 +3250,7 @@ msgstr "Alcun pote trvar e unir."
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
-msgstr ""
+msgstr "Visibilitate de chronologia de message"
 
 #: src/qml/RoomSettings/Security.qml:107
 #, kde-format
@@ -3224,6 +3263,7 @@ msgstr "Quicunque"
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
+"Quicunque, indifferentemente si illo se ha unite , pote vider le chronologia."
 
 #: src/qml/RoomSettings/Security.qml:116
 #, kde-format
@@ -3237,12 +3277,14 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
+"Omne membros pote vider lechronologia de message complete, anque ante que "
+"lor se ha unite."
 
 #: src/qml/RoomSettings/Security.qml:125
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr ""
+msgstr "Solmente per membros (usque invitation)"
 
 #: src/qml/RoomSettings/Security.qml:126
 #, kde-format
@@ -3251,12 +3293,14 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
+"Nove membros pote vider le chronologia de messages ab le puncto de lor "
+"invitation al sala."
 
 #: src/qml/RoomSettings/Security.qml:134
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr ""
+msgstr "Solmente per membros (usque unir se)"
 
 #: src/qml/RoomSettings/Security.qml:135
 #, kde-format
@@ -3264,6 +3308,8 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
+"Nove membros pote vider le chronologia de messages ab le puncto de lor union "
+"al sala."
 
 #: src/qml/RoomSettings/Security.qml:154
 #: src/qml/Settings/NetworkProxyPage.qml:119
@@ -3296,7 +3342,7 @@ msgstr "Incarga nove avatar"
 #: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
 msgid "Remove current avatar"
-msgstr ""
+msgstr "Remove avatar currente"
 
 #: src/qml/Settings/AccountEditorPage.qml:102
 #, kde-format
@@ -3322,7 +3368,7 @@ msgstr "Contrasigno"
 #: src/qml/Settings/AccountEditorPage.qml:159
 #, kde-format
 msgid "Your server doesn't support changing your password"
-msgstr ""
+msgstr "Tu servitor nonsupporta que tu pote cambiar tu contrasigno"
 
 #: src/qml/Settings/AccountEditorPage.qml:164
 #, kde-format
@@ -3404,7 +3450,7 @@ msgstr "Compacte"
 #: src/qml/Settings/AppearanceSettingsPage.qml:209
 #, kde-format
 msgid "Use compact room list"
-msgstr ""
+msgstr "Usa lista de sala compacte"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
@@ -3435,6 +3481,8 @@ msgstr "Monstra tu message a dextera"
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr ""
+"Monstra vista preliminar de ligamines in le message de conversation in "
+"directo"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:323
 #, kde-format
@@ -3460,7 +3508,7 @@ msgstr "Thema de color"
 #, kde-format
 msgctxt "@label"
 msgid "%1, Last activity: %2"
-msgstr ""
+msgstr "%1, Ultime activitate: %2"
 
 #: src/qml/Settings/DeviceDelegate.qml:61
 #, kde-format
@@ -3510,12 +3558,12 @@ msgstr "Dispositivos non verificate"
 #: src/qml/Settings/DevicesPage.qml:43
 #, kde-format
 msgid "Devices without Encryption Support"
-msgstr ""
+msgstr "Dispositivos sin Supporte de Cryptation"
 
 #: src/qml/Settings/DevicesPage.qml:58
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
-msgstr ""
+msgstr "Pro favor tu accede per vider le dispositivos accedite per tu conto."
 
 #: src/qml/Settings/DevicesPage.qml:69
 #, kde-format
@@ -3578,7 +3626,7 @@ msgstr "Fixa imagine"
 #: src/qml/Settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "Codice breve:"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:116
 #, kde-format
@@ -3627,6 +3675,8 @@ msgstr "Minimisa a tabuliero de systema quando il starta"
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
+"Automaticamente Cela/Monstra information de sala quando redimensiona le "
+"fenestra"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
@@ -3697,7 +3747,7 @@ msgstr " de disviluppatorPreferentias"
 #: src/qml/Settings/GeneralSettingsPage.qml:227
 #, kde-format
 msgid "Enable developer tools"
-msgstr ""
+msgstr "Habilita instrumentos de disveloppator"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:17
 #, kde-format
@@ -3708,12 +3758,12 @@ msgstr "Notificationes"
 #: src/qml/Settings/GlobalNotificationsPage.qml:30
 #, kde-format
 msgid "Enable notifications for this account"
-msgstr ""
+msgstr "Habilita notificatione per iste conto"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:31
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
-msgstr ""
+msgstr "Si pulsar notificationes es generate per tu servitor de Matrix"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:42
 #, kde-format
