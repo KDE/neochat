@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1166,14 +1166,24 @@ msgid "Open this invitation in NeoChat"
 msgstr "Aperter NeoChat in ti chambre"
 
 #: src/notificationsmanager.cpp:249
-#, kde-format
-msgid "Accept Invitation"
-msgstr "Acceptar li invitation"
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
+msgstr "Acceptar"
+
+#: src/notificationsmanager.cpp:249
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
+msgstr "Rejecter"
 
 #: src/notificationsmanager.cpp:249
 #, kde-format
-msgid "Reject Invitation"
-msgstr "Rejecter li invitation"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr ""
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
@@ -1415,11 +1425,17 @@ msgid "Accept this invitation?"
 msgstr "Acceptar ti invitation?"
 
 #: src/qml/Component/InvitationView.qml:21
+#, fuzzy, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr "Usator: "
+
+#: src/qml/Component/InvitationView.qml:30
 #, kde-format
 msgid "Reject"
 msgstr "Rejecter"
 
-#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Component/InvitationView.qml:37
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"
@@ -4399,6 +4415,12 @@ msgstr "Monstrar"
 #, kde-format
 msgid "Quit"
 msgstr "Surtir"
+
+#~ msgid "Accept Invitation"
+#~ msgstr "Acceptar li invitation"
+
+#~ msgid "Reject Invitation"
+#~ msgstr "Rejecter li invitation"
 
 #~ msgid "Today"
 #~ msgstr "Hodie"

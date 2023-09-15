@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -1197,14 +1197,24 @@ msgid "Open this invitation in NeoChat"
 msgstr "ਇਹ ਸੱਦਾ ਨਿਓ-ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
 #: src/notificationsmanager.cpp:249
-#, kde-format
-msgid "Accept Invitation"
-msgstr "ਸੱਦਾ ਮਨਜ਼ੂਰ ਕਰੋ"
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
+msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
+
+#: src/notificationsmanager.cpp:249
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
+msgstr "ਰੱਦ ਕਰੋ"
 
 #: src/notificationsmanager.cpp:249
 #, kde-format
-msgid "Reject Invitation"
-msgstr "ਸੱਦਾ ਰੱਦ ਕਰੋ"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr ""
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
@@ -1456,11 +1466,18 @@ msgid "Accept this invitation?"
 msgstr "ਇਹ ਸੱਦਾ ਮਨਜ਼ੂਰ ਕਰਨਾ ਹੈ?"
 
 #: src/qml/Component/InvitationView.qml:21
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
+
+#: src/qml/Component/InvitationView.qml:30
 #, kde-format
 msgid "Reject"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Component/InvitationView.qml:37
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"
@@ -4501,6 +4518,12 @@ msgstr "ਵੇਖਾਓ"
 #, kde-format
 msgid "Quit"
 msgstr "ਬਾਹਰ"
+
+#~ msgid "Accept Invitation"
+#~ msgstr "ਸੱਦਾ ਮਨਜ਼ੂਰ ਕਰੋ"
+
+#~ msgid "Reject Invitation"
+#~ msgstr "ਸੱਦਾ ਰੱਦ ਕਰੋ"
 
 #~ msgid "Today"
 #~ msgstr "ਅੱਜ"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2023-09-04 12:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1107,14 +1107,24 @@ msgid "Open this invitation in NeoChat"
 msgstr "Bu daveti NeoChat'te aç"
 
 #: src/notificationsmanager.cpp:249
-#, kde-format
-msgid "Accept Invitation"
-msgstr "Daveti Kabul Et"
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
+msgstr "Kabul Et"
+
+#: src/notificationsmanager.cpp:249
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
+msgstr "Reddet"
 
 #: src/notificationsmanager.cpp:249
 #, kde-format
-msgid "Reject Invitation"
-msgstr "Daveti Reddet"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr ""
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
@@ -1341,11 +1351,18 @@ msgid "Accept this invitation?"
 msgstr "Bu davet kabul edilsin mi?"
 
 #: src/qml/Component/InvitationView.qml:21
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr "Bu kullanıcıyı yok saymayı durdur"
+
+#: src/qml/Component/InvitationView.qml:30
 #, kde-format
 msgid "Reject"
 msgstr "Reddet"
 
-#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Component/InvitationView.qml:37
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"
@@ -4245,6 +4262,12 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgid "Accept Invitation"
+#~ msgstr "Daveti Kabul Et"
+
+#~ msgid "Reject Invitation"
+#~ msgstr "Daveti Reddet"
 
 #~ msgid "Today"
 #~ msgstr "Bugün"

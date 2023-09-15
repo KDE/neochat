@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2023-09-05 06:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1107,14 +1107,24 @@ msgid "Open this invitation in NeoChat"
 msgstr "ამ მოსაწვევის NeoChat-ში გახსნა"
 
 #: src/notificationsmanager.cpp:249
-#, kde-format
-msgid "Accept Invitation"
-msgstr "მოსაწვევის მიღება"
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
+msgstr "დასტური"
+
+#: src/notificationsmanager.cpp:249
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
+msgstr "უარყოფა"
 
 #: src/notificationsmanager.cpp:249
 #, kde-format
-msgid "Reject Invitation"
-msgstr "მოსაწვევის უარყოფა"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr ""
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
@@ -1341,11 +1351,18 @@ msgid "Accept this invitation?"
 msgstr "დავეთანხმო მოსაწვევს?"
 
 #: src/qml/Component/InvitationView.qml:21
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr "ამ მომხმარებლის იგნორის გაუქმება"
+
+#: src/qml/Component/InvitationView.qml:30
 #, kde-format
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Component/InvitationView.qml:37
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"
@@ -4235,6 +4252,12 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgid "Accept Invitation"
+#~ msgstr "მოსაწვევის მიღება"
+
+#~ msgid "Reject Invitation"
+#~ msgstr "მოსაწვევის უარყოფა"
 
 #~ msgid "Today"
 #~ msgstr "დღეს"

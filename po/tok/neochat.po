@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -1145,12 +1145,20 @@ msgstr ""
 
 #: src/notificationsmanager.cpp:249
 #, kde-format
-msgid "Accept Invitation"
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
 msgstr ""
 
 #: src/notificationsmanager.cpp:249
 #, kde-format
-msgid "Reject Invitation"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
+msgstr ""
+
+#: src/notificationsmanager.cpp:249
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
 msgstr ""
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:30
@@ -1389,11 +1397,18 @@ msgid "Accept this invitation?"
 msgstr ""
 
 #: src/qml/Component/InvitationView.qml:21
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr "o weka e len pi jan ni"
+
+#: src/qml/Component/InvitationView.qml:30
 #, kde-format
 msgid "Reject"
 msgstr ""
 
-#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Component/InvitationView.qml:37
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"

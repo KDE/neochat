@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1227,15 +1227,24 @@ msgid "Open this invitation in NeoChat"
 msgstr "Otvoriť súkromný chat"
 
 #: src/notificationsmanager.cpp:249
-#, kde-format
-msgid "Accept Invitation"
-msgstr "Prijať pozvánku"
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
+msgstr "Prijať"
 
 #: src/notificationsmanager.cpp:249
 #, fuzzy, kde-format
 #| msgid "Reject"
-msgid "Reject Invitation"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
 msgstr "Odmietnuť"
+
+#: src/notificationsmanager.cpp:249
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr ""
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
@@ -1487,11 +1496,18 @@ msgid "Accept this invitation?"
 msgstr "Prijať pozvanie?"
 
 #: src/qml/Component/InvitationView.qml:21
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr "Prestať ignorovať tohto požívateľa"
+
+#: src/qml/Component/InvitationView.qml:30
 #, kde-format
 msgid "Reject"
 msgstr "Odmietnuť"
 
-#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Component/InvitationView.qml:37
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"
@@ -4545,6 +4561,14 @@ msgstr "Zobraziť"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
+
+#~ msgid "Accept Invitation"
+#~ msgstr "Prijať pozvánku"
+
+#, fuzzy
+#~| msgid "Reject"
+#~ msgid "Reject Invitation"
+#~ msgstr "Odmietnuť"
 
 #~ msgid "Today"
 #~ msgstr "Dnes"

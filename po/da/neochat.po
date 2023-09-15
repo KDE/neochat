@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -1124,14 +1124,22 @@ msgstr ""
 #: src/notificationsmanager.cpp:249
 #, fuzzy, kde-format
 #| msgid "Accept"
-msgid "Accept Invitation"
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
 msgstr "Acceptér"
 
 #: src/notificationsmanager.cpp:249
 #, fuzzy, kde-format
 #| msgid "Reject"
-msgid "Reject Invitation"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
 msgstr "Afvis"
+
+#: src/notificationsmanager.cpp:249
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr ""
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
@@ -1372,10 +1380,16 @@ msgstr ""
 
 #: src/qml/Component/InvitationView.qml:21
 #, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr ""
+
+#: src/qml/Component/InvitationView.qml:30
+#, kde-format
 msgid "Reject"
 msgstr "Afvis"
 
-#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Component/InvitationView.qml:37
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
 #, kde-format
 msgid "Accept"
@@ -4322,6 +4336,16 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Accept"
+#~ msgid "Accept Invitation"
+#~ msgstr "Acceptér"
+
+#, fuzzy
+#~| msgid "Reject"
+#~ msgid "Reject Invitation"
+#~ msgstr "Afvis"
 
 #~ msgid "Today"
 #~ msgstr "I dag"
