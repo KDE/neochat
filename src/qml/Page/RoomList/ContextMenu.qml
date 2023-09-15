@@ -194,20 +194,20 @@ Loader {
 
                 Kirigami.BasicListItem {
                     text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
-                    icon: room.isLowPriority ? "arrow-up" : "arrow-down"
+                    icon.name: room.isLowPriority ? "arrow-up" : "arrow-down"
                     onClicked: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
                     implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                 }
 
                 Kirigami.BasicListItem {
                     text: i18n("Mark as Read")
-                    icon: "checkmark"
+                    icon.name: "checkmark"
                     onClicked: room.markAllMessagesAsRead()
                     implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                 }
                 Kirigami.BasicListItem {
                     text: i18n("Leave Room")
-                    icon: "go-previous"
+                    icon.name: "go-previous"
                     onClicked: {
                         RoomManager.leaveRoom(room)
                         drawer.close()

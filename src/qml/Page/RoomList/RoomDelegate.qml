@@ -136,10 +136,10 @@ Delegates.RoundedItemDelegate {
     }
 
     function createRoomListContextMenu() {
-        const component = Qt.createComponent(Qt.resolvedUrl("./ContextMenu.qml"))
+        const component = Qt.createComponent("qrc:/RoomList/ContextMenu.qml")
         const menu = component.createObject(root, {
             room: root.currentRoom,
-            connection: root.connection,
+            connection: root.connection
         });
         if (!Kirigami.Settings.isMobile && !Config.compactRoomList) {
             configButton.visible = true;
