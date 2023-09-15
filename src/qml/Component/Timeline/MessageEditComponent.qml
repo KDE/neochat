@@ -11,8 +11,7 @@ import org.kde.neochat 1.0
 QQC2.TextArea {
     id: root
 
-    property NeoChatRoom room
-    required property NeoChatConnection connection
+    required property NeoChatRoom room
     onRoomChanged: room.chatBoxEditIdChanged.connect(updateEditText)
 
     property string messageId
@@ -102,7 +101,7 @@ QQC2.TextArea {
         height: implicitHeight
         y: -height - 5
         z: 10
-        connection: root.connection
+        connection: root.room.connection
         chatDocumentHandler: documentHandler
         Behavior on height {
             NumberAnimation {
