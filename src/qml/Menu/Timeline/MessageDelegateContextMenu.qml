@@ -16,7 +16,6 @@ Loader {
     required property var author
     required property string eventId
     property var eventType
-    required property string eventSource
     property string selectedText: ""
     required property string plainText
     property string htmlText: undefined
@@ -87,14 +86,7 @@ Loader {
             visible: Config.developerTools
             text: i18n("View Source")
             icon.name: "code-context"
-            onTriggered: {
-                applicationWindow().pageStack.pushDialogLayer('qrc:/MessageSourceSheet.qml', {
-                    sourceText: root.eventSource
-                }, {
-                    title: i18n("Message Source"),
-                    width: Kirigami.Units.gridUnit * 25
-                });
-            }
+            onTriggered: RoomManager.viewEventSource(root.eventId)
         },
         Kirigami.Action {
             text: i18n("Copy Link")

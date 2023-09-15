@@ -551,6 +551,8 @@ public:
      */
     Q_INVOKABLE void reportEvent(const QString &eventId, const QString &reason);
 
+    Q_INVOKABLE QByteArray getEventJsonSource(const QString &eventId);
+
     [[nodiscard]] bool readMarkerLoaded() const;
 
     /**

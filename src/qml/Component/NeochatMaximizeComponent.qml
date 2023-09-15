@@ -26,8 +26,6 @@ Components.AlbumMaximizeComponent {
 
     readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), MessageEventModel.ProgressInfoRole)
 
-    readonly property var currentJsonSource: model.data(model.index(content.currentIndex, 0), MessageEventModel.SourceRole)
-
     downloadAction: Components.DownloadAction {
         id: downloadAction
         onTriggered: {
@@ -85,7 +83,6 @@ Components.AlbumMaximizeComponent {
         const contextMenu = fileDelegateContextMenu.createObject(parent, {
             author: root.currentAuthor,
             eventId: root.currentEventId,
-            source: root.currentJsonSource,
             file: parent,
             progressInfo: root.currentProgressInfo,
             plainText: root.currentPlainText

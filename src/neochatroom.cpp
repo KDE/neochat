@@ -1334,6 +1334,16 @@ void NeoChatRoom::reportEvent(const QString &eventId, const QString &reason)
     });
 }
 
+QByteArray NeoChatRoom::getEventJsonSource(const QString &eventId)
+{
+    auto evtIt = findInTimeline(eventId);
+    if (evtIt != messageEvents().rend() && is<RoomEvent>(**evtIt)) {
+        const auto event = evtIt->viewAs<RoomEvent>();
+        return QJsonDocument(event->fullJson()).toJson();
+    }
+    return {};
+}
+
 QString NeoChatRoom::chatBoxText() const
 {
     return m_chatBoxText;

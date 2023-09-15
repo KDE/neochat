@@ -213,11 +213,6 @@ ColumnLayout {
     required property bool verified
 
     /**
-     * @brief The full message source JSON.
-     */
-    required property var jsonSource
-
-    /**
      * @brief The x position of the message bubble.
      *
      * @note Used for positioning the hover actions.
@@ -609,7 +604,6 @@ ColumnLayout {
         const contextMenu = fileDelegateContextMenu.createObject(root, {
             author: root.author,
             eventId: root.eventId,
-            eventSource: root.jsonSource,
             file: file,
             progressInfo: root.progressInfo,
             plainText: root.plainText,
@@ -625,7 +619,6 @@ ColumnLayout {
             selectedText: selectedText,
             author: root.author,
             eventId: root.eventId,
-            eventSource: root.jsonSource,
             eventType: root.delegateType,
             plainText: root.plainText,
             htmlText: root.display,

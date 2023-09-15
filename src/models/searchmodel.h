@@ -83,7 +83,6 @@ public:
         MimeTypeRole,
         ShowLinkPreviewRole,
         LinkPreviewRole,
-        SourceRole,
     };
     Q_ENUM(Roles)
     explicit SearchModel(QObject *parent = nullptr);

@@ -103,6 +103,11 @@ void RoomManager::maximizeMedia(int index)
     Q_EMIT showMaximizedMedia(index);
 }
 
+void RoomManager::viewEventSource(const QString &eventId)
+{
+    Q_EMIT showEventSource(eventId);
+}
+
 bool RoomManager::hasOpenRoom() const
 {
     return m_currentRoom != nullptr;

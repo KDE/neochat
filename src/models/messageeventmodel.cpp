@@ -55,7 +55,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ShowReadMarkersRole] = "showReadMarkers";
     roles[ReactionRole] = "reaction";
     roles[ShowReactionsRole] = "showReactions";
-    roles[SourceRole] = "jsonSource";
     roles[AuthorIdRole] = "authorId";
     roles[VerifiedRole] = "verified";
     roles[AuthorDisplayNameRole] = "authorDisplayName";
@@ -465,10 +464,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == PlainText) {
         return eventHandler.getPlainBody();
-    }
-
-    if (role == SourceRole) {
-        return QJsonDocument(evt.fullJson()).toJson();
     }
 
     if (role == DelegateTypeRole) {

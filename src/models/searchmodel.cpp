@@ -184,7 +184,6 @@ QHash<int, QByteArray> SearchModel::roleNames() const
         {MimeTypeRole, "mimeType"},
         {ShowLinkPreviewRole, "showLinkPreview"},
         {LinkPreviewRole, "linkPreview"},
-        {SourceRole, "jsonSource"},
     };
 }
 

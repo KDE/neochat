@@ -199,6 +199,15 @@ Kirigami.Page {
         function onShowUserDetail(user) {
             root.showUserDetail(user)
         }
+
+        function onShowEventSource(eventId) {
+            applicationWindow().pageStack.pushDialogLayer('qrc:/MessageSourceSheet.qml', {
+                sourceText: root.currentRoom.getEventJsonSource(eventId)
+            }, {
+                title: i18n("Message Source"),
+                width: Kirigami.Units.gridUnit * 25
+            });
+        }
     }
 
     function showUserDetail(user) {

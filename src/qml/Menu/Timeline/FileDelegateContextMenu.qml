@@ -90,15 +90,7 @@ MessageDelegateContextMenu {
         Kirigami.Action {
             text: i18n("View Source")
             icon.name: "code-context"
-            onTriggered: {
-                applicationWindow().pageStack.pushDialogLayer('qrc:/MessageSourceSheet.qml', {
-                    sourceText: root.eventSource
-                }, {
-                    title: i18n("Message Source"),
-                    width: Kirigami.Units.gridUnit * 25
-                });
-                root.closeFullscreen()
-            }
+            onTriggered: RoomManager.viewEventSource(root.eventId)
         }
     ]
 

@@ -70,7 +70,6 @@ public:
         ShowReadMarkersRole, /**< Whether there are any other user read markers to be shown. */
         ReactionRole, /**< List model for this event. */
         ShowReactionsRole, /**< Whether there are any reactions to be shown. */
-        SourceRole, /**< The full message source JSON. */
 
         AuthorIdRole, /**< Matrix ID of the message author. */
 

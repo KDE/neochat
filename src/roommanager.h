@@ -196,6 +196,11 @@ public:
     Q_INVOKABLE void maximizeMedia(int index);
 
     /**
+     * @brief Show the JSON source for the given event Matrix ID
+     */
+    Q_INVOKABLE void viewEventSource(const QString &eventId);
+
+    /**
      * @brief Call this when the current used connection is dropped.
      */
     Q_INVOKABLE void reset();
@@ -260,6 +265,11 @@ Q_SIGNALS:
      *        of -1 opens a the default item.
      */
     void showMaximizedMedia(int index);
+
+    /**
+     * @brief Request the JSON source for the given event ID is shown.
+     */
+    void showEventSource(const QString &eventId);
 
     /**
      * @brief Show the direct chat confirmation dialog.
