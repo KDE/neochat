@@ -330,6 +330,7 @@ QQC2.ScrollView {
         Component {
             id: maximizeComponent
             NeochatMaximizeComponent {
+                currentRoom: root.currentRoom
                 model: RoomManager.mediaMessageFilterModel
             }
         }

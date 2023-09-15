@@ -14,6 +14,11 @@ import org.kde.neochat 1.0
 Components.AlbumMaximizeComponent {
     id: root
 
+    /**
+     * @brief The current room that user is viewing.
+     */
+    required property NeoChatRoom currentRoom
+
     readonly property string currentEventId: model.data(model.index(content.currentIndex, 0), MessageEventModel.EventIdRole)
 
     readonly property var currentAuthor: model.data(model.index(content.currentIndex, 0), MessageEventModel.AuthorRole)
@@ -84,8 +89,10 @@ Components.AlbumMaximizeComponent {
             author: root.currentAuthor,
             eventId: root.currentEventId,
             file: parent,
+            mimeType: root.currentMimeType,
             progressInfo: root.currentProgressInfo,
-            plainText: root.currentPlainText
+            plainText: root.currentPlainText,
+            connection: root.currentRoom.connection
         });
         contextMenu.closeFullscreen.connect(root.close)
         contextMenu.open();

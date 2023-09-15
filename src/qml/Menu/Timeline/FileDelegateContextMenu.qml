@@ -14,6 +14,11 @@ MessageDelegateContextMenu {
 
     signal closeFullscreen
 
+    /**
+     * @brief The MIME type of the media.
+     */
+    property string mimeType
+
     required property var file
     required property var progressInfo
 
@@ -99,7 +104,7 @@ MessageDelegateContextMenu {
             id: shareAction
             inputData: {
                 'urls': [],
-                'mimeType': [root.file.mediaInfo.mimeType]
+                'mimeType': [root.mimeType ? root.mimeType : root.file.mediaINfo.mimeType]
             }
             property string filename: StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId);
 
@@ -109,7 +114,7 @@ MessageDelegateContextMenu {
             Component.onCompleted: {
                 shareAction.inputData = {
                     urls: [filename],
-                    mimeType: [root.file.mediaInfo.mimeType]
+                    mimeType: [root.mimeType ? root.mimeType : root.file.mediaINfo.mimeType]
                 };
             }
         }
