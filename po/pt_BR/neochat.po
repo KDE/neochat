@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:53+0000\n"
+"POT-Creation-Date: 2023-09-16 01:55+0000\n"
 "PO-Revision-Date: 2023-07-05 18:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -84,12 +84,12 @@ msgid "The room id you are trying to join is not valid"
 msgstr "O id da sala em que você está tentando entrar não é válido"
 
 #: src/eventhandler.cpp:289 src/eventhandler.cpp:491
-#: src/models/messageeventmodel.cpp:455
+#: src/models/messageeventmodel.cpp:454
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Esta mensagem foi excluída]</i>"
 
-#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:456
+#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:455
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Esta mensagem foi excluída: %1]</i>"
@@ -1036,12 +1036,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emoji personalizado"
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[CENSURADO]"
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[CENSURADO: %1]"
@@ -1149,13 +1149,13 @@ msgstr "Criação de sala falhou: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Criação de sala falhou: \"%1\""
 
-#: src/neochatroom.cpp:1331 src/neochatroom.cpp:1332
+#: src/neochatroom.cpp:1333 src/neochatroom.cpp:1334
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Senha alterada com sucesso"
 
-#: src/neochatroom.cpp:1636 src/neochatroom.cpp:1644
+#: src/neochatroom.cpp:1704 src/neochatroom.cpp:1712
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1177,8 +1177,8 @@ msgid "Open NeoChat in this room"
 msgstr "Abrir o NeoChat nesta sala"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:39
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:100
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
@@ -1225,7 +1225,7 @@ msgstr "Anexo:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:30
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:91
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1727,14 +1727,14 @@ msgstr ""
 msgid "Loading URL preview"
 msgstr ""
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:76
+#: src/qml/Component/Timeline/MessageEditComponent.qml:75
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Confirmar"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:88
+#: src/qml/Component/Timeline/MessageEditComponent.qml:87
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -1776,22 +1776,22 @@ msgstr ""
 msgid "Maximize"
 msgstr ""
 
-#: src/qml/Component/TimelineView.qml:152
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Ir para primeira mensagem não lida"
 
-#: src/qml/Component/TimelineView.qml:175
+#: src/qml/Component/TimelineView.qml:176
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Ir para a mensagem mais antiga"
 
-#: src/qml/Component/TimelineView.qml:201
+#: src/qml/Component/TimelineView.qml:202
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arraste itens aqui para compartilhar"
 
-#: src/qml/Component/TimelineView.qml:209
+#: src/qml/Component/TimelineView.qml:210
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2469,38 +2469,38 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:22
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:42
 #, kde-format
 msgid "Open Externally"
 msgstr "Abrir externamente"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:40
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
 #, kde-format
 msgid "Save As"
 msgstr "Salvar como"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:73
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:67
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:134
 #, kde-format
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:75
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:125
 #, kde-format
 msgid "Remove"
 msgstr "Remover"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:77
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:79
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Editar mensagem"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:82
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:139
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
@@ -2508,51 +2508,45 @@ msgctxt ""
 msgid "Report"
 msgstr ""
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:86
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:82
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:88
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:143
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Editar mensagem"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:91
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:88
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:93
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
 #, kde-format
 msgid "View Source"
 msgstr "Exibir origem"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:97
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:94
-#, kde-format
-msgid "Message Source"
-msgstr "Origem da mensagem"
-
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:47
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:108
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:53
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:114
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Editar mensagem"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:100
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:154
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy Link"
 msgstr "Copiar"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:200
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Pesquisar por '%1'"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:170
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:221
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configurar os atalhos da Web..."
@@ -3035,6 +3029,11 @@ msgstr "Configurações"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está offline. Verifique sua conexão de rede."
+
+#: src/qml/Page/RoomPage.qml:208
+#, kde-format
+msgid "Message Source"
+msgstr "Origem da mensagem"
 
 #: src/qml/Page/SearchPage.qml:18
 #, fuzzy, kde-format
@@ -4480,58 +4479,58 @@ msgstr "Continuar"
 msgid "Working"
 msgstr ""
 
-#: src/roommanager.cpp:75
+#: src/roommanager.cpp:76
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "ID da Matrix errado ou vazio"
 
-#: src/roommanager.cpp:75
+#: src/roommanager.cpp:76
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 não é um ID correto da Matrix"
 
-#: src/roommanager.cpp:92
+#: src/roommanager.cpp:93
 #, kde-format
 msgid "Room not found"
 msgstr "Sala não encontrada"
 
-#: src/roommanager.cpp:92
+#: src/roommanager.cpp:93
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 "A sala %1 não consta na lista de salas. Verifique o nome da sala e da conta."
 
-#: src/roommanager.cpp:243
+#: src/roommanager.cpp:272
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to join room"
 msgstr "%1 convidou você para uma sala"
 
-#: src/roommanager.cpp:258
+#: src/roommanager.cpp:287
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:261
+#: src/roommanager.cpp:290
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to request joining room"
 msgstr "%1 convidou você para uma sala"
 
-#: src/roommanager.cpp:270
+#: src/roommanager.cpp:299
 #, kde-format
 msgid "No application for the link"
 msgstr "Nenhum aplicativo achado para este link"
 
-#: src/roommanager.cpp:270
+#: src/roommanager.cpp:299
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "O seu sistema operacional não conseguiu encontrar um aplicativo para este "
 "link."
 
-#: src/roommanager.cpp:276
+#: src/roommanager.cpp:305
 #, kde-format
 msgid "Could not open URL"
 msgstr "Não foi possível abrir a URL"

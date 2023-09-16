@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:53+0000\n"
-"PO-Revision-Date: 2023-09-04 10:51+0200\n"
+"POT-Creation-Date: 2023-09-16 01:55+0000\n"
+"PO-Revision-Date: 2023-09-15 10:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -88,12 +88,12 @@ msgid "The room id you are trying to join is not valid"
 msgstr "L'ID de la sala a la qual esteu intentant unir-vos no és vàlida"
 
 #: src/eventhandler.cpp:289 src/eventhandler.cpp:491
-#: src/models/messageeventmodel.cpp:455
+#: src/models/messageeventmodel.cpp:454
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Aquest missatge s'ha suprimit]</i>"
 
-#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:456
+#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:455
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Aquest missatge s'ha suprimit: %1]</i>"
@@ -958,12 +958,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emojis propis"
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REDACTAT]"
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REDACTAT: %1]"
@@ -1064,12 +1064,12 @@ msgstr "Ha fallat la creació de la sala: %1"
 msgid "Space creation failed: %1"
 msgstr "Ha fallat la creació de l'espai: %1"
 
-#: src/neochatroom.cpp:1331 src/neochatroom.cpp:1332
+#: src/neochatroom.cpp:1333 src/neochatroom.cpp:1334
 #, kde-format
 msgid "Report sent successfully."
 msgstr "L'informe s'ha enviat correctament."
 
-#: src/neochatroom.cpp:1636 src/neochatroom.cpp:1644
+#: src/neochatroom.cpp:1704 src/neochatroom.cpp:1712
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1091,8 +1091,8 @@ msgid "Open NeoChat in this room"
 msgstr "Obre el NeoChat en aquesta sala"
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:39
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:100
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
@@ -1113,15 +1113,13 @@ msgid "Open this invitation in NeoChat"
 msgstr "Obre aquesta invitació en el NeoChat"
 
 #: src/notificationsmanager.cpp:249
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Accepta"
 
 #: src/notificationsmanager.cpp:249
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rebutja"
@@ -1130,7 +1128,7 @@ msgstr "Rebutja"
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
-msgstr ""
+msgstr "Rebutja i ignora l'usuari"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
@@ -1139,7 +1137,7 @@ msgstr "Adjunt:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:30
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:91
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1357,11 +1355,10 @@ msgid "Accept this invitation?"
 msgstr "Accepteu aquesta invitació?"
 
 #: src/qml/Component/InvitationView.qml:21
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr "No ignoris aquest usuari"
+msgstr "Rebutja i ignora l'usuari"
 
 #: src/qml/Component/InvitationView.qml:30
 #, kde-format
@@ -1603,13 +1600,13 @@ msgstr "Expandeix la vista prèvia"
 msgid "Loading URL preview"
 msgstr "S'està carregant la vista prèvia de l'URL"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:76
+#: src/qml/Component/Timeline/MessageEditComponent.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Confirma l'edició"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:88
+#: src/qml/Component/Timeline/MessageEditComponent.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -1650,22 +1647,22 @@ msgstr "Volum"
 msgid "Maximize"
 msgstr "Maximitza"
 
-#: src/qml/Component/TimelineView.qml:152
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Ves al primer missatge sense llegir"
 
-#: src/qml/Component/TimelineView.qml:175
+#: src/qml/Component/TimelineView.qml:176
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Ves al darrer missatge"
 
-#: src/qml/Component/TimelineView.qml:201
+#: src/qml/Component/TimelineView.qml:202
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrossegueu aquí els elements per a compartir"
 
-#: src/qml/Component/TimelineView.qml:209
+#: src/qml/Component/TimelineView.qml:210
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2354,37 +2351,37 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:22
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:42
 #, kde-format
 msgid "Open Externally"
 msgstr "Obre externament"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:40
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
 #, kde-format
 msgid "Save As"
 msgstr "Desa com a"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:73
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:67
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:134
 #, kde-format
 msgid "Copy"
 msgstr "Copia"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:75
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:125
 #, kde-format
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:77
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:79
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Eliminació d'un missatge"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:82
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:139
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
@@ -2392,48 +2389,42 @@ msgctxt ""
 msgid "Report"
 msgstr "Informa"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:86
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:82
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:88
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:91
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:88
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:93
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
 #, kde-format
 msgid "View Source"
 msgstr "Mostra el codi font"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:97
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:94
-#, kde-format
-msgid "Message Source"
-msgstr "Codi font del missatge"
-
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:47
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:108
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr "Reenvia"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:53
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:114
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Reenviament de missatge"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:100
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:154
 #, kde-format
 msgid "Copy Link"
 msgstr "Copia l'enllaç"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:200
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Cerca «%1»"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:170
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:221
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configura les dreceres web..."
@@ -2890,6 +2881,11 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "El NeoChat està en fora de línia. Comproveu l'estat de la vostra connexió de "
 "xarxa."
+
+#: src/qml/Page/RoomPage.qml:208
+#, kde-format
+msgid "Message Source"
+msgstr "Codi font del missatge"
 
 #: src/qml/Page/SearchPage.qml:18
 #, kde-format
@@ -4235,22 +4231,22 @@ msgstr "Continua"
 msgid "Working"
 msgstr "En funcionament"
 
-#: src/roommanager.cpp:75
+#: src/roommanager.cpp:76
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "ID de Matrix amb format incorrecte o buida"
 
-#: src/roommanager.cpp:75
+#: src/roommanager.cpp:76
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 no és cap identificador correcte de Matrix"
 
-#: src/roommanager.cpp:92
+#: src/roommanager.cpp:93
 #, kde-format
 msgid "Room not found"
 msgstr "No s'ha trobat la sala"
 
-#: src/roommanager.cpp:92
+#: src/roommanager.cpp:93
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -4258,32 +4254,32 @@ msgstr ""
 "No hi ha cap sala %1 a la llista de sales. Comproveu l'ortografia i el "
 "compte."
 
-#: src/roommanager.cpp:243
+#: src/roommanager.cpp:272
 #, kde-format
 msgid "Failed to join room"
 msgstr "Ha fallat en unir-se a la sala"
 
-#: src/roommanager.cpp:258
+#: src/roommanager.cpp:287
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Heu sol·licitat unir-vos a «%1»"
 
-#: src/roommanager.cpp:261
+#: src/roommanager.cpp:290
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Ha fallat en sol·licitar unir-vos a la sala"
 
-#: src/roommanager.cpp:270
+#: src/roommanager.cpp:299
 #, kde-format
 msgid "No application for the link"
 msgstr "No hi ha cap aplicació per a l'enllaç"
 
-#: src/roommanager.cpp:270
+#: src/roommanager.cpp:299
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "El sistema operatiu no ha pogut trobar cap aplicació per a l'enllaç."
 
-#: src/roommanager.cpp:276
+#: src/roommanager.cpp:305
 #, kde-format
 msgid "Could not open URL"
 msgstr "No s'ha pogut obrir l'URL"
@@ -4297,71 +4293,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
-
-#~ msgid "Accept Invitation"
-#~ msgstr "Accepta la invitació"
-
-#~ msgid "Reject Invitation"
-#~ msgstr "Rebutja la invitació"
-
-#~ msgid "Today"
-#~ msgstr "Avui"
-
-#~ msgid "Yesterday"
-#~ msgstr "Ahir"
-
-#~ msgid "The day before yesterday"
-#~ msgstr "Abans-d'ahir"
-
-#~ msgid "Room information"
-#~ msgstr "Informació de la sala"
-
-#~ msgid "Search user in room"
-#~ msgstr "Cerca un usuari en aquesta sala"
-
-#~ msgctxt "@title"
-#~ msgid "Select a Homeserver"
-#~ msgstr "Selecció d'un servidor domèstic"
-
-#~ msgid "Homeserver:"
-#~ msgstr "Servidor domèstic:"
-
-#~ msgid "Other..."
-#~ msgstr "Altres..."
-
-#~ msgid "Url:"
-#~ msgstr "URL:"
-
-#~ msgctxt "@title"
-#~ msgid "Login"
-#~ msgstr "Inici de sessió"
-
-#~ msgid "Enter your Matrix ID"
-#~ msgstr "Introduïu la vostra ID de Matrix"
-
-#~ msgid "Login Methods"
-#~ msgstr "Mètodes d'inici de sessió"
-
-#~ msgid "Login"
-#~ msgstr "Inici de sessió"
-
-#~ msgctxt "@title"
-#~ msgid "Password"
-#~ msgstr "Contrasenya"
-
-#~ msgctxt "@action:button"
-#~ msgid "Back"
-#~ msgstr "Enrere"
-
-#~ msgid "Welcome to Matrix"
-#~ msgstr "Us donem la benvinguda a Matrix"
-
-#~ msgid "No Canonical Alias"
-#~ msgstr "Sense àlies canònic"
-
-#~ msgid ""
-#~ "This room is encrypted. Build libQuotient with encryption enabled to send "
-#~ "encrypted messages."
-#~ msgstr ""
-#~ "Aquesta sala està encriptada. Construïu la «libQuotient» amb "
-#~ "l'encriptatge habilitat per a enviar missatges xifrats."
