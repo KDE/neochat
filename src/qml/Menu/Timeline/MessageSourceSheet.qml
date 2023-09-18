@@ -6,7 +6,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 
 import org.kde.syntaxhighlighting 1.0
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.Page {
@@ -37,6 +37,9 @@ Kirigami.Page {
                 Kirigami.Theme.inherit: false
                 color: Kirigami.Theme.backgroundColor
             }
+
+            // opt-out of whatever spell checker a styled TextArea might come with
+            Kirigami.SpellCheck.enabled: false
 
             SyntaxHighlighter {
                 textEdit: sourceTextArea

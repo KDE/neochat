@@ -8,7 +8,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Window 2.15
 import Qt.labs.platform 1.1 as Platform
 
-import org.kde.kirigami 2.18 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.neochat 1.0
 
 /**
@@ -173,6 +173,9 @@ QQC2.Control {
             wrapMode: Text.Wrap
 
             Accessible.description: placeholderText
+
+            // opt-out of whatever spell checker a styled TextArea might come with
+            Kirigami.SpellCheck.enabled: false
 
             Timer {
                 id: repeatTimer
