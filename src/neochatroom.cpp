@@ -1488,8 +1488,11 @@ QString NeoChatRoom::chatBoxEditMessage() const
 
     EventHandler eventhandler;
     eventhandler.setRoom(this);
-    eventhandler.setEvent(&**findInTimeline(m_chatBoxEditId));
-    return eventhandler.getPlainBody();
+    if (auto event = findInTimeline(m_chatBoxEditId); event != historyEdge()) {
+        eventhandler.setEvent(&**event);
+        return eventhandler.getPlainBody();
+    }
+    return {};
 }
 
 QString NeoChatRoom::chatBoxAttachmentPath() const
