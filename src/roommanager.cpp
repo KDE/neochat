@@ -320,6 +320,9 @@ void RoomManager::reset()
 
 void RoomManager::leaveRoom(NeoChatRoom *room)
 {
+    if (!room) {
+        return;
+    }
     if (m_lastCurrentRoom && room->id() == m_lastCurrentRoom->id()) {
         m_lastCurrentRoom = nullptr;
     }
