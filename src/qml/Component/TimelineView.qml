@@ -88,7 +88,7 @@ QQC2.ScrollView {
             }
         }
 
-        // Not rendered because the sections are part of the TimelineContainer.qml, this is only so that items have the section property available for use by sectionBanner.
+        // Not rendered because the sections are part of the MessageDelegate.qml, this is only so that items have the section property available for use by sectionBanner.
         // This is due to the fact that the ListView verticalLayout is BottomToTop.
         // This also flips the sections which would appear at the bottom but for a timeline they still need to be at the top (bottom from the qml perspective).
         // There is currently no option to put section headings at the bottom in qml.
@@ -110,10 +110,10 @@ QQC2.ScrollView {
             id: sectionBanner
 
             anchors.left: parent.left
-            anchors.leftMargin: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.x : 0
+            anchors.leftMargin: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.contentItem.parent.x : 0
             anchors.right: parent.right
 
-            maxWidth: Config.compactLayout ? messageListView.width : (messageListView.sectionBannerItem ? messageListView.sectionBannerItem.width - Kirigami.Units.largeSpacing * 2 : 0)
+            maxWidth: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.contentItem.width : 0
             z: 3
             visible: !!messageListView.sectionBannerItem && messageListView.sectionBannerItem.ListView.section !== "" && !Config.blur
             labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""

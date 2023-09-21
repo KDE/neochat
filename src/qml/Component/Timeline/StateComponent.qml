@@ -10,17 +10,44 @@ import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A component for visualising a single state event
+ */
 RowLayout {
     id: root
-    property var name
-    property alias avatar: stateAvatar.source
-    property var color
-    property alias text: label.text
 
-    signal avatarClicked()
-    signal linkClicked(string link)
+    /**
+     * @brief All model roles as a map with the property names as the keys.
+     */
+    required property var modelData
 
-    implicitHeight: Math.max(label.contentHeight, stateAvatar.implicitHeight)
+    /**
+     * @brief The message author.
+     *
+     * This should consist of the following:
+     *  - id - The matrix ID of the author.
+     *  - isLocalUser - Whether the author is the local user.
+     *  - avatarSource - The mxc URL for the author's avatar in the current room.
+     *  - avatarMediaId - The media ID of the author's avatar.
+     *  - avatarUrl - The mxc URL for the author's avatar.
+     *  - displayName - The display name of the author.
+     *  - display - The name of the author.
+     *  - color - The color for the author.
+     *  - object - The Quotient::User object for the author.
+     *
+     * @sa Quotient::User
+     */
+    property var author: modelData.author
+
+    /**
+     * @brief The displayname for the event's sender; for name change events, the old displayname.
+     */
+    property string authorDisplayName: modelData.authorDisplayName
+
+    /**
+     * @brief The display text for the state event.
+     */
+    property string text: modelData.text
 
     KirigamiComponents.Avatar {
         id: stateAvatar
@@ -28,21 +55,22 @@ RowLayout {
         Layout.preferredWidth: Kirigami.Units.iconSizes.small
         Layout.preferredHeight: Kirigami.Units.iconSizes.small
 
-        name: root.name
-        color: root.color
+        source: root.author?.avatarUrl ?? ""
+        name: root.author?.displayName ?? ""
+        color: root.author?.color ?? undefined
 
         Rectangle {
             radius: height
             height: 4
             width: 4
-            color: root.color
+            color: root.author.color
             anchors.centerIn: parent
         }
 
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onClicked: avatarClicked()
+            onClicked: RoomManager.openResource("https://matrix.to/#/" + root.author.id)
         }
     }
 
@@ -50,8 +78,9 @@ RowLayout {
         id: label
         Layout.alignment: Qt.AlignVCenter
         Layout.fillWidth: true
+        text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${root.author.id}" style="color: ${root.author.color}">${root.authorDisplayName}</a> ${root.text}`
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
-        onLinkActivated: link => linkClicked(link)
+        onLinkActivated: link => RoomManager.openResource(link)
     }
 }

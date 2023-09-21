@@ -14,9 +14,9 @@ import org.kde.neochat 1.0
 /**
  * @brief A timeline delegate for a location message.
  *
- * @inherit TimelineContainer
+ * @inherit MessageDelegate
  */
-TimelineContainer {
+MessageDelegate {
     id: root
 
     property alias room: liveLocationModel.room

@@ -12,9 +12,9 @@ import org.kde.neochat 1.0
 /**
  * @brief A timeline delegate for a poll message.
  *
- * @inherit TimelineContainer
+ * @inherit MessageDelegate
  */
-TimelineContainer {
+MessageDelegate {
     id: root
 
     /**

@@ -22,21 +22,21 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.Emote
-        delegate: MessageDelegate {
+        delegate: TextDelegate {
             connection: root.connection
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Message
-        delegate: MessageDelegate {
+        delegate: TextDelegate {
             connection: root.connection
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Notice
-        delegate: MessageDelegate {
+        delegate: TextDelegate {
             connection: root.connection
         }
     }

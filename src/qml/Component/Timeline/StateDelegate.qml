@@ -10,72 +10,88 @@ import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
-QQC2.Control {
+/**
+ * @brief A timeline delegate for visualising an aggregated list of consecutive state events.
+ *
+ * @inherit TimelineDelegate
+ */
+TimelineDelegate {
     id: root
 
-    readonly property bool sectionVisible: model.showSection
+    /**
+     * @brief List of the first 5 unique authors of the aggregated state event.
+     */
+    required property var authorList
 
-    width: stateDelegateSizeHelper.currentWidth
+    /**
+     * @brief The number of unique authors beyond the first 5.
+     */
+    required property string excessAuthors
 
-    state: Config.compactLayout ? "alignLeft" : "alignCenter"
-    // Align left when in compact mode and center when using bubbles
-    states: [
-        State {
-            name: "alignLeft"
-            AnchorChanges {
-                target: root
-                anchors.horizontalCenter: undefined
-                anchors.left: parent ? parent.left : undefined
-            }
-        },
-        State {
-            name: "alignCenter"
-            AnchorChanges {
-                target: root
-                anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
-                anchors.left: undefined
-            }
-        }
-    ]
+    /**
+     * @brief Single line aggregation of all the state events.
+     */
+    required property string aggregateDisplay
 
-    transitions: [
-        Transition {
-            AnchorAnimation{duration: Kirigami.Units.longDuration; easing.type: Easing.OutCubic}
-        }
-    ]
+    /**
+     * @brief List of state events in the aggregated state.
+     */
+    required property var stateEvents
 
-    height: columnLayout.implicitHeight + columnLayout.anchors.topMargin
+    /**
+     * @brief Whether the section header should be shown.
+     */
+    required property bool showSection
 
-    ColumnLayout {
-        id: columnLayout
+    /**
+     * @brief The date of the event as a string.
+     */
+    required property string section
 
-        property bool folded: true
+    /**
+     * @brief A model with the first 5 other user read markers for this message.
+     */
+    required property var readMarkers
 
-        spacing: sectionVisible ? Kirigami.Units.largeSpacing : 0
-        anchors.top: parent.top
-        anchors.topMargin: sectionVisible ? 0 : Kirigami.Units.largeSpacing
-        anchors.left: parent.left
-        anchors.right: parent.right
+    /**
+     * @brief String with the display name and matrix ID of the other user read markers.
+     */
+    required property string readMarkersString
 
+    /**
+     * @brief The number of other users at the event after the first 5.
+     */
+    required property var excessReadMarkers
+
+    /**
+     * @brief Whether the other user read marker component should be shown.
+     */
+    required property bool showReadMarkers
+
+    /**
+     * @brief Whether the state event is folded to a single line.
+     */
+    property bool folded: true
+
+    contentItem: ColumnLayout {
         SectionDelegate {
-            id: sectionDelegate
             Layout.fillWidth: true
-            visible: sectionVisible
-            labelText: sectionVisible ? section : ""
+            visible: root.showSection
+            labelText: root.section
             colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
         }
         RowLayout {
             Layout.fillWidth: true
-            Layout.leftMargin: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing * 1.5 + (Config.compactLayout ? Kirigami.Units.largeSpacing * 1.25 : 0)
-            Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.leftMargin: Kirigami.Units.largeSpacing * 1.5
+            Layout.rightMargin: Kirigami.Units.largeSpacing * 1.5
             visible: stateEventRepeater.count !== 1
 
             Flow {
-                visible: columnLayout.folded
+                visible: root.folded
                 spacing: -Kirigami.Units.iconSizes.small / 2
 
                 Repeater {
-                    model: authorList
+                    model: root.authorList
                     delegate: Item {
                         id: avatarDelegate
 
@@ -108,8 +124,8 @@ QQC2.Control {
                 QQC2.Label {
                     id: excessAuthorsLabel
 
-                    text: model.excessAuthors
-                    visible: model.excessAuthors !== ""
+                    text: root.excessAuthors
+                    visible: root.excessAuthors !== ""
                     color: Kirigami.Theme.textColor
                     horizontalAlignment: Text.AlignHCenter
                     background: Kirigami.ShadowedRectangle {
@@ -141,9 +157,9 @@ QQC2.Control {
             }
             QQC2.Label {
                 Layout.fillWidth: true
-                visible: columnLayout.folded
+                visible: root.folded
 
-                text: aggregateDisplay
+                text: root.aggregateDisplay
                 elide: Qt.ElideRight
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
@@ -151,59 +167,41 @@ QQC2.Control {
             }
             Item {
                 Layout.fillWidth: true
-                visible: !columnLayout.folded
+                implicitHeight: foldButton.implicitHeight
+                visible: !root.folded
             }
             QQC2.ToolButton {
+                id: foldButton
                 icon {
-                    name: (!columnLayout.folded ? "go-up" : "go-down")
+                    name: (!root.folded ? "go-up" : "go-down")
                     width: Kirigami.Units.iconSizes.small
                     height: Kirigami.Units.iconSizes.small
                 }
 
-                onClicked: columnLayout.toggleFolded()
+                onClicked: root.toggleFolded()
             }
         }
         Repeater {
             id: stateEventRepeater
-            model: stateEvents
+            model: root.stateEvents
             delegate: StateComponent {
                 Layout.fillWidth: true
-                Layout.leftMargin: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing * 1.5 + (Config.compactLayout ? Kirigami.Units.largeSpacing * 1.25 : 0)
-                Layout.rightMargin: Kirigami.Units.largeSpacing
-                visible: !columnLayout.folded || stateEventRepeater.count === 1
-
-                name: modelData.author.displayName
-                avatar: modelData.author.avatarSource
-                color: modelData.author.color
-                text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${modelData.author.id}" style="color: ${modelData.author.color}">${modelData.authorDisplayName}</a> ${modelData.text}`
-
-                onAvatarClicked: RoomManager.openResource("https://matrix.to/#/" + modelData.author.id)
-                onLinkClicked: link => RoomManager.openResource(link)
+                Layout.leftMargin: Kirigami.Units.largeSpacing * 1.5
+                Layout.rightMargin: Kirigami.Units.largeSpacing * 1.5
+                visible: !root.folded || stateEventRepeater.count === 1
             }
-        }
-
-        function toggleFolded() {
-            folded = !folded
-            foldedChanged()
         }
         AvatarFlow {
             Layout.alignment: Qt.AlignRight
-            Layout.rightMargin: Kirigami.Units.largeSpacing
-            visible: showReadMarkers
-            model: readMarkers
-            toolTipText: readMarkersString
-            excessAvatars: excessReadMarkers
+            visible: root.showReadMarkers
+            model: root.readMarkers
+            toolTipText: root.readMarkersString
+            excessAvatars: root.excessReadMarkers
         }
     }
 
-    DelegateSizeHelper {
-        id: stateDelegateSizeHelper
-        startBreakpoint: Kirigami.Units.gridUnit * 46
-        endBreakpoint: Kirigami.Units.gridUnit * 66
-        startPercentWidth: 100
-        endPercentWidth: Config.compactLayout ? 100 : 85
-        maxWidth: Config.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
-
-        parentWidth: root.parent ? root.parent.width : 0
+    function toggleFolded() {
+        folded = !folded
+        foldedChanged()
     }
 }
