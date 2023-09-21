@@ -59,7 +59,7 @@ QQC2.Control {
                         Layout.fillWidth: true
                         Layout.preferredHeight: width - Kirigami.Units.smallSpacing
                         Layout.maximumHeight: width - Kirigami.Units.smallSpacing
-                        Layout.topMargin: Kirigami.Units.smallSpacing
+                        Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
                         text: i18n("All Rooms")
                         source: "globe"
