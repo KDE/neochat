@@ -127,6 +127,8 @@ Kirigami.Page {
                 activeFocusOnTab: true
                 clip: AccountRegistry.count > 1
 
+                topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
+
                 header: QQC2.ItemDelegate {
                     width: visible ? ListView.view.width : 0
                     height: visible ? Kirigami.Units.gridUnit * 2 : 0
