@@ -137,6 +137,9 @@ Delegates.RoundedItemDelegate {
 
     function createRoomListContextMenu() {
         const component = Qt.createComponent("qrc:/RoomList/ContextMenu.qml")
+        if (component.status === Component.Error) {
+            console.error(component.errorString());
+        }
         const menu = component.createObject(root, {
             room: root.currentRoom,
             connection: root.connection

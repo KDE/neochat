@@ -1,13 +1,14 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15 as QQC2
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2 as Kirigami
+import org.kde.kirigamiaddons.delegates 1 as Delegates
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 RowLayout {
     id: root
@@ -114,13 +115,14 @@ RowLayout {
 
         Kirigami.OverlayDrawer {
             id: menuRoot
+
             edge: Qt.BottomEdge
+            parent: applicationWindow().overlay
+
             leftPadding: 0
             rightPadding: 0
             bottomPadding: 0
             topPadding: 0
-
-            parent: applicationWindow().overlay
 
             ColumnLayout {
                 width: parent.width
@@ -129,25 +131,29 @@ RowLayout {
                 Kirigami.ListSectionHeader {
                     label: i18n("Create rooms and chats")
                 }
-                Kirigami.BasicListItem {
-                    implicitHeight: Kirigami.Units.gridUnit * 3
+
+                Delegates.RoundedItemDelegate {
                     action: exploreAction
                     onClicked: menuRoot.close()
+                    Layout.fillWidth: true
                 }
-                Kirigami.BasicListItem {
-                    implicitHeight: Kirigami.Units.gridUnit * 3
+
+                Delegates.RoundedItemDelegate {
                     action: chatAction
                     onClicked: menuRoot.close()
+                    Layout.fillWidth: true
                 }
-                Kirigami.BasicListItem {
-                    implicitHeight: Kirigami.Units.gridUnit * 3
+
+                Delegates.RoundedItemDelegate {
                     action: roomAction
                     onClicked: menuRoot.close()
+                    Layout.fillWidth: true
                 }
-                Kirigami.BasicListItem {
-                    implicitHeight: Kirigami.Units.gridUnit * 3
+
+                Delegates.RoundedItemDelegate {
                     action: roomAction
                     onClicked: menuRoot.close()
+                    Layout.fillWidth: true
                 }
             }
         }

@@ -2,14 +2,15 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-3.0-only
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15 as QQC2
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
-import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
+import org.kde.kirigami 2 as Kirigami
+import org.kde.kirigamiaddons.components 1 as KirigamiComponents
+import org.kde.kirigamiaddons.delegates 1 as Delegates
 
-import org.kde.neochat 1.0
+import org.kde.neochat
 
 /**
  * Context menu when clicking on a room in the room list
@@ -142,20 +143,23 @@ Loader {
 
         Kirigami.OverlayDrawer {
             id: drawer
-            height: popupContent.implicitHeight
+
+            parent: applicationWindow().overlay
             edge: Qt.BottomEdge
-            padding: 0
+
+            height: popupContent.implicitHeight
+
             leftPadding: 0
             rightPadding: 0
             bottomPadding: 0
             topPadding: 0
 
-            parent: applicationWindow().overlay
-
             ColumnLayout {
                 id: popupContent
+
                 width: parent.width
                 spacing: 0
+
                 RowLayout {
                     id: headerLayout
                     Layout.fillWidth: true
@@ -192,29 +196,31 @@ Loader {
                     }
                 }
 
-                Kirigami.BasicListItem {
+                Delegates.RoundedItemDelegate {
                     text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
                     icon.name: room.isLowPriority ? "arrow-up" : "arrow-down"
                     onClicked: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
-                    implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
+                    Layout.fillWidth: true
                 }
 
-                Kirigami.BasicListItem {
+                Delegates.RoundedItemDelegate {
                     text: i18n("Mark as Read")
                     icon.name: "checkmark"
                     onClicked: room.markAllMessagesAsRead()
-                    implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
+                    Layout.fillWidth: true
                 }
-                Kirigami.BasicListItem {
+
+                Delegates.RoundedItemDelegate {
                     text: i18n("Leave Room")
                     icon.name: "go-previous"
                     onClicked: {
                         RoomManager.leaveRoom(room)
                         drawer.close()
                     }
-                    implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
+                    Layout.fillWidth: true
                 }
             }
+
             onClosed: root.closed()
         }
     }
