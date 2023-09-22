@@ -67,7 +67,7 @@ Item {
      */
     required property var mediaInfo
 
-    required property real contentMaxWidth
+    property real contentMaxWidth
 
     /**
      * @brief The reply has been clicked.
@@ -79,8 +79,8 @@ Item {
 
     GridLayout {
         id: mainLayout
-
         anchors.fill: parent
+        implicitHeight: Math.max(replyAvatar.implicitHeight, replyName.implicitHeight) + loader.implicitHeight
 
         rows: 2
         columns: 3
@@ -107,6 +107,7 @@ Item {
             color: root.author.color
         }
         QQC2.Label {
+            id: replyName
             Layout.fillWidth: true
 
             color: root.author.color
@@ -117,7 +118,7 @@ Item {
             id: loader
 
             Layout.fillWidth: true
-            Layout.maximumHeight: loader.item && (root.type == DelegateType.Image || root.type == DelegateType.Sticker) ? loader.item.height : -1
+            Layout.maximumHeight: loader.item && (root.type == DelegateType.Image || root.type == DelegateType.Sticker) ? loader.item.height : loader.item.implicitHeight
             Layout.columnSpan: 2
 
             sourceComponent: {
@@ -152,7 +153,6 @@ Item {
         id: textComponent
         RichLabel {
             textMessage: root.display
-            textFormat: Text.RichText
 
             HoverHandler {
                 enabled: !hoveredLink

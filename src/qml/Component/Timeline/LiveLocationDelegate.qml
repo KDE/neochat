@@ -20,9 +20,7 @@ MessageDelegate {
 
     property alias room: liveLocationModel.room
 
-    ColumnLayout {
-        Layout.maximumWidth: root.contentMaxWidth
-        Layout.preferredWidth: root.contentMaxWidth
+    bubbleContent: ColumnLayout {
         LiveLocationsModel {
             id: liveLocationModel
             eventId: root.eventId

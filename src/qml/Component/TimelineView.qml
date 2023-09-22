@@ -43,10 +43,7 @@ QQC2.ScrollView {
         // This is because itemAt returns null in the spaces.
         // All spacing should be handled by the delegates themselves
         spacing: 0
-        // Ensures that the top item is not covered by sectionBanner if the page is scrolled all the way up
-        // topMargin: sectionBanner.height
         verticalLayoutDirection: ListView.BottomToTop
-        highlightMoveDuration: 500
         clip: true
         interactive: Kirigami.Settings.isMobile
         bottomMargin: Kirigami.Units.largeSpacing + Math.round(Kirigami.Theme.defaultFont.pointSize * 2)

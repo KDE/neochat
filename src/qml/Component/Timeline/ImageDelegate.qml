@@ -55,15 +55,13 @@ MessageDelegate {
 
     onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
-    innerObject: Item {
+    bubbleContent: Item {
         id: imageContainer
-        Layout.preferredWidth: mediaSizeHelper.currentSize.width
-        Layout.preferredHeight: mediaSizeHelper.currentSize.height
 
         property var imageItem: root.mediaInfo.animated ? animatedImageLoader.item : imageLoader.item
 
-        implicitWidth: root.mediaInfo.animated ? animatedImageLoader.width : imageLoader.width
-        implicitHeight: root.mediaInfo.animated ? animatedImageLoader.height : imageLoader.height
+        implicitWidth: mediaSizeHelper.currentSize.width
+        implicitHeight: mediaSizeHelper.currentSize.height
 
         Loader {
             id: imageLoader

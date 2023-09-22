@@ -29,7 +29,7 @@ MessageDelegate {
      */
     property var pollHandler: currentRoom.poll(root.eventId)
 
-    innerObject: ColumnLayout {
+    bubbleContent: ColumnLayout {
         Label {
             id: questionLabel
             text: root.content["org.matrix.msc3381.poll.start"]["question"]["body"]
@@ -37,7 +37,6 @@ MessageDelegate {
         Repeater {
             model: root.content["org.matrix.msc3381.poll.start"]["answers"]
             delegate: RowLayout {
-                width: root.innerObject.width
                 CheckBox {
                     checked: root.pollHandler.answers[currentRoom.localUser.id] ? root.pollHandler.answers[currentRoom.localUser.id].includes(modelData["id"]) : false
                     onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])

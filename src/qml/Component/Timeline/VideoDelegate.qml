@@ -67,10 +67,10 @@ MessageDelegate {
         }
     }
 
-    innerObject: Video {
+    bubbleContent: Video {
         id: vid
-        Layout.preferredWidth: mediaSizeHelper.currentSize.width
-        Layout.preferredHeight: mediaSizeHelper.currentSize.height
+        implicitWidth: mediaSizeHelper.currentSize.width
+        implicitHeight: mediaSizeHelper.currentSize.height
 
         fillMode: VideoOutput.PreserveAspectFit
 

@@ -29,271 +29,260 @@ TimelineDelegate {
     id: root
 
     /**
-    * @brief The index of the delegate in the model.
-    */
+     * @brief The index of the delegate in the model.
+     */
     required property var index
 
     /**
-    * @brief The matrix ID of the message event.
-    */
+     * @brief The matrix ID of the message event.
+     */
     required property string eventId
 
     /**
-    * @brief The timestamp of the message.
-    */
+     * @brief The timestamp of the message.
+     */
     required property var time
 
     /**
-    * @brief The timestamp of the message as a string.
-    */
+     * @brief The timestamp of the message as a string.
+     */
     required property string timeString
 
     /**
-    * @brief The message author.
-    *
-    * This should consist of the following:
-    *  - id - The matrix ID of the author.
-    *  - isLocalUser - Whether the author is the local user.
-    *  - avatarSource - The mxc URL for the author's avatar in the current room.
-    *  - avatarMediaId - The media ID of the author's avatar.
-    *  - avatarUrl - The mxc URL for the author's avatar.
-    *  - displayName - The display name of the author.
-    *  - display - The name of the author.
-    *  - color - The color for the author.
-    *  - object - The Quotient::User object for the author.
-    *
-    * @sa Quotient::User
-    */
+     * @brief The message author.
+     *
+     * This should consist of the following:
+     *  - id - The matrix ID of the author.
+     *  - isLocalUser - Whether the author is the local user.
+     *  - avatarSource - The mxc URL for the author's avatar in the current room.
+     *  - avatarMediaId - The media ID of the author's avatar.
+     *  - avatarUrl - The mxc URL for the author's avatar.
+     *  - displayName - The display name of the author.
+     *  - display - The name of the author.
+     *  - color - The color for the author.
+     *  - object - The Quotient::User object for the author.
+     *
+     * @sa Quotient::User
+     */
     required property var author
 
     /**
-    * @brief Whether the author should be shown.
-    */
+     * @brief Whether the author should be shown.
+     */
     required property bool showAuthor
 
     /**
-    * @brief Whether the author should always be shown.
-    *
-    * This is primarily used when these delegates are used in a filtered list of
-    * events rather than a sequential timeline, e.g. the media model view.
-    *
-    * @note This setting still respects the avatar configuration settings.
-    */
+     * @brief Whether the author should always be shown.
+     *
+     * This is primarily used when these delegates are used in a filtered list of
+     * events rather than a sequential timeline, e.g. the media model view.
+     *
+     * @note This setting still respects the avatar configuration settings.
+     */
     property bool alwaysShowAuthor: false
 
     /**
-    * @brief The delegate type of the message.
-    */
+     * @brief The delegate type of the message.
+     */
     required property int delegateType
 
     /**
-    * @brief The display text of the message.
-    */
+     * @brief The display text of the message.
+     */
     required property string display
 
     /**
-    * @brief The display text of the message as plain text.
-    */
+     * @brief The display text of the message as plain text.
+     */
     required property string plainText
 
     /**
-    * @brief The date of the event as a string.
-    */
+     * @brief The date of the event as a string.
+     */
     required property string section
 
     /**
-    * @brief Whether the section header should be shown.
-    */
+     * @brief Whether the section header should be shown.
+     */
     required property bool showSection
 
     /**
-    * @brief A model with the reactions to the message in.
-    */
+     * @brief A model with the reactions to the message in.
+     */
     required property var reaction
 
     /**
-    * @brief Whether the reaction component should be shown.
-    */
+     * @brief Whether the reaction component should be shown.
+     */
     required property bool showReactions
 
     /**
-    * @brief A model with the first 5 other user read markers for this message.
-    */
+     * @brief A model with the first 5 other user read markers for this message.
+     */
     required property var readMarkers
 
     /**
-    * @brief String with the display name and matrix ID of the other user read markers.
-    */
+     * @brief String with the display name and matrix ID of the other user read markers.
+     */
     required property string readMarkersString
 
     /**
-    * @brief The number of other users at the event after the first 5.
-    */
+     * @brief The number of other users at the event after the first 5.
+     */
     required property var excessReadMarkers
 
     /**
-    * @brief Whether the other user read marker component should be shown.
-    */
+     * @brief Whether the other user read marker component should be shown.
+     */
     required property bool showReadMarkers
 
     /**
-    * @brief The matrix ID of the reply event.
-    */
+     * @brief The matrix ID of the reply event.
+     */
     required property var replyId
 
     /**
-    * @brief The reply author.
-    *
-    * This should consist of the following:
-    *  - id - The matrix ID of the reply author.
-    *  - isLocalUser - Whether the reply author is the local user.
-    *  - avatarSource - The mxc URL for the reply author's avatar in the current room.
-    *  - avatarMediaId - The media ID of the reply author's avatar.
-    *  - avatarUrl - The mxc URL for the reply author's avatar.
-    *  - displayName - The display name of the reply author.
-    *  - display - The name of the reply author.
-    *  - color - The color for the reply author.
-    *  - object - The Quotient::User object for the reply author.
-    *
-    * @sa Quotient::User
-    */
+     * @brief The reply author.
+     *
+     * This should consist of the following:
+     *  - id - The matrix ID of the reply author.
+     *  - isLocalUser - Whether the reply author is the local user.
+     *  - avatarSource - The mxc URL for the reply author's avatar in the current room.
+     *  - avatarMediaId - The media ID of the reply author's avatar.
+     *  - avatarUrl - The mxc URL for the reply author's avatar.
+     *  - displayName - The display name of the reply author.
+     *  - display - The name of the reply author.
+     *  - color - The color for the reply author.
+     *  - object - The Quotient::User object for the reply author.
+     *
+     * @sa Quotient::User
+     */
     required property var replyAuthor
 
     /**
-    * @brief The delegate type of the message replied to.
-    */
+     * @brief The delegate type of the message replied to.
+     */
     required property int replyDelegateType
 
     /**
-    * @brief The display text of the message replied to.
-    */
+     * @brief The display text of the message replied to.
+     */
     required property string replyDisplay
 
     /**
-    * @brief The media info for the reply event.
-    *
-    * This could be an image, audio, video or file.
-    *
-    * This should consist of the following:
-    *  - source - The mxc URL for the media.
-    *  - mimeType - The MIME type of the media.
-    *  - mimeIcon - The MIME icon name.
-    *  - size - The file size in bytes.
-    *  - duration - The length in seconds of the audio media (audio/video only).
-    *  - width - The width in pixels of the audio media (image/video only).
-    *  - height - The height in pixels of the audio media (image/video only).
-    *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads (image/video only).
-    */
+     * @brief The media info for the reply event.
+     *
+     * This could be an image, audio, video or file.
+     *
+     * This should consist of the following:
+     *  - source - The mxc URL for the media.
+     *  - mimeType - The MIME type of the media.
+     *  - mimeIcon - The MIME icon name.
+     *  - size - The file size in bytes.
+     *  - duration - The length in seconds of the audio media (audio/video only).
+     *  - width - The width in pixels of the audio media (image/video only).
+     *  - height - The height in pixels of the audio media (image/video only).
+     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads (image/video only).
+     */
     required property var replyMediaInfo
 
     /**
-    * @brief Whether this message is replying to another.
-    */
+     * @brief Whether this message is replying to another.
+     */
     required property bool isReply
 
     /**
-    * @brief Whether this message has a local user mention.
-    */
+     * @brief Whether this message has a local user mention.
+     */
     required property bool isHighlighted
 
     /**
-    * @brief Whether an event is waiting to be accepted by the server.
-    */
+     * @brief Whether an event is waiting to be accepted by the server.
+     */
     required property bool isPending
 
     /**
-    * @brief Progress info when downloading files.
-    *
-    * @sa Quotient::FileTransferInfo
-    */
+     * @brief Progress info when downloading files.
+     *
+     * @sa Quotient::FileTransferInfo
+     */
     required property var progressInfo
 
     /**
-    * @brief Whether an encrypted message is sent in a verified session.
-    */
+     * @brief Whether an encrypted message is sent in a verified session.
+     */
     required property bool verified
 
     /**
-    * @brief The x position of the message bubble.
-    *
-    * @note Used for positioning the hover actions.
-    */
+     * @brief The x position of the message bubble.
+     *
+     * @note Used for positioning the hover actions.
+     */
     readonly property real bubbleX: bubble.x + bubble.anchors.leftMargin
 
     /**
-    * @brief The y position of the message bubble.
-    *
-    * @note Used for positioning the hover actions.
-    */
+     * @brief The y position of the message bubble.
+     *
+     * @note Used for positioning the hover actions.
+     */
     readonly property alias bubbleY: mainContainer.y
 
     /**
-    * @brief The width of the message bubble.
-    *
-    * @note Used for sizing the hover actions.
-    */
+     * @brief The width of the message bubble.
+     *
+     * @note Used for sizing the hover actions.
+     */
     readonly property alias bubbleWidth: bubble.width
 
     /**
-    * @brief Whether this message is hovered.
-    */
+     * @brief Whether this message is hovered.
+     */
     readonly property alias hovered: bubble.hovered
 
     required property NeoChatConnection connection
 
     /**
-    * @brief Open the context menu for the message.
-    */
+     * @brief Open the context menu for the message.
+     */
     signal openContextMenu
 
     /**
-    * @brief Open the any message media externally.
-    */
+     * @brief Open the any message media externally.
+     */
     signal openExternally()
 
     /**
-    * @brief The reply has been clicked.
-    */
+     * @brief The reply has been clicked.
+     */
     signal replyClicked(string eventID)
-
     onReplyClicked: eventID => ListView.view.goToEvent(eventID)
 
     /**
-    * @brief The component to display the delegate type.
-    *
-    * This is used by the inherited delegates to assign a component to visualise
-    * the message content for that delegate type.
-    */
-    default property alias innerObject : column.children
+     * @brief The main delegate content item to show in the bubble.
+     */
+    property alias bubbleContent: bubble.content
 
     /**
-    * @brief Whether the bubble background is enabled.
-    */
+     * @brief Whether the bubble background is enabled.
+     */
     property bool cardBackground: true
 
     /**
-    * @brief Whether the delegate should always stretch to the maximum availabel width.
-    */
+     * @brief Whether the delegate should always stretch to the maximum availabel width.
+     */
     property bool alwaysMaxWidth: false
 
     /**
-    * @brief Whether local user messages should be aligned right.
-    *
-    * TODO: make private
-    */
-    property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !alwaysMaxWidth
-
-    /**
-    * @brief Whether the message should be highlighted.
-    */
+     * @brief Whether the message should be highlighted.
+     */
     property bool showHighlight: root.isHighlighted || isTemporaryHighlighted
 
     /**
-    * @brief Whether the message should temporarily be highlighted.
-    *
-    * Normally triggered when jumping to the event in the timeline, e.g. when a reply
-    * is clicked.
-    */
+     * @brief Whether the message should temporarily be highlighted.
+     *
+     * Normally triggered when jumping to the event in the timeline, e.g. when a reply
+     * is clicked.
+     */
     property bool isTemporaryHighlighted: false
 
     onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) temporaryHighlightTimer.start()
@@ -308,7 +297,7 @@ TimelineDelegate {
     /**
      * @brief The width available to the bubble content.
      */
-    property alias contentMaxWidth: bubbleSizeHelper.currentWidth
+    property real contentMaxWidth: bubbleSizeHelper.currentWidth - bubble.leftPadding - bubble.rightPadding
 
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
@@ -356,7 +345,7 @@ TimelineDelegate {
 
                 visible: (root.showAuthor || root.alwaysShowAuthor) &&
                     Config.showAvatarInTimeline &&
-                    (Config.compactLayout || !showUserMessageOnRight)
+                    (Config.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
                 source: root.author.avatarSource
                 color: root.author.color
@@ -369,24 +358,19 @@ TimelineDelegate {
                     cursorShape: Qt.PointingHandCursor
                 }
             }
-
-            QQC2.Control {
+            Bubble {
                 id: bubble
+                anchors.left: avatar.right
+                anchors.leftMargin: Kirigami.Units.largeSpacing
+                anchors.rightMargin: Kirigami.Units.largeSpacing
+                maxContentWidth: root.contentMaxWidth
+
                 topPadding: Config.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
                 bottomPadding: Config.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
                 leftPadding: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
                 rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-                hoverEnabled: true
 
-                anchors {
-                    left: avatar.right
-                    leftMargin: Kirigami.Units.largeSpacing
-                    rightMargin: Kirigami.Units.largeSpacing
-                }
-                // HACK: anchoring didn't reset anchors.right when switching from parent.right to undefined reliably
-                width: Config.compactLayout || root.alwaysMaxWidth ? mainContainer.width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) + Kirigami.Units.largeSpacing * 2 : implicitWidth
-
-                state: showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
+                state: _private.showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
                 // states for anchor animations on window resize
                 // as setting anchors to undefined did not work reliably
                 states: [
@@ -408,119 +392,22 @@ TimelineDelegate {
                     }
                 ]
 
-                transitions: [
-                    Transition {
-                        AnchorAnimation{duration: Kirigami.Units.longDuration; easing.type: Easing.OutCubic}
-                    }
-                ]
+                author: root.author
+                time: root.time
+                timeString: root.timeString
 
-                contentItem: RowLayout {
-                    Kirigami.Icon {
-                        source: "content-loading-symbolic"
-                        width: height
-                        Layout.preferredWidth: Kirigami.Units.iconSizes.small
-                        Layout.preferredHeight: Kirigami.Units.iconSizes.small
-                        visible: root.isPending && Config.showLocalMessagesOnRight
-                    }
-                    ColumnLayout {
-                        id: column
-                        spacing: Kirigami.Units.smallSpacing
-                        RowLayout {
-                            id: rowLayout
+                showHighlight: root.showHighlight
 
-                            spacing: Kirigami.Units.smallSpacing
-                            visible: root.showAuthor || root.alwaysShowAuthor
+                isReply: root.isReply
+                replyId: root.replyId
+                replyAuthor: root.replyAuthor
+                replyDelegateType: root.replyDelegateType
+                replyDisplay: root.replyDisplay
+                replyMediaInfo: root.replyMediaInfo
 
-                            QQC2.Label {
-                                id: nameLabel
+                onReplyClicked: (eventId) => {root.replyClicked(eventId)}
 
-                                Layout.maximumWidth: contentMaxWidth - timeLabel.implicitWidth - rowLayout.spacing
-
-                                text: visible ? root.author.displayName : ""
-                                textFormat: Text.PlainText
-                                font.weight: Font.Bold
-                                color: root.author.color
-                                elide: Text.ElideRight
-                                MouseArea {
-                                    anchors.fill: parent
-                                    cursorShape: Qt.PointingHandCursor
-                                    onClicked: {
-                                        RoomManager.visitUser(root.author.object, "mention")
-                                    }
-                                }
-                            }
-                            QQC2.Label {
-                                id: timeLabel
-
-                                text: root.timeString
-                                color: Kirigami.Theme.disabledTextColor
-                                QQC2.ToolTip.visible: hoverHandler.hovered
-                                QQC2.ToolTip.text: root.time.toLocaleString(Qt.locale(), Locale.LongFormat)
-                                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-
-                                HoverHandler {
-                                    id: hoverHandler
-                                }
-                            }
-                        }
-                        Loader {
-                            id: replyLoader
-
-                            Layout.maximumWidth: contentMaxWidth
-
-                            active: root.isReply && root.replyDelegateType !== DelegateType.Other
-                            visible: active
-
-                            sourceComponent: ReplyComponent {
-                                author: root.replyAuthor
-                                type: root.replyDelegateType
-                                display: root.replyDisplay
-                                mediaInfo: root.replyMediaInfo
-                                contentMaxWidth: bubbleSizeHelper.currentWidth
-                            }
-
-                            Connections {
-                                target: replyLoader.item
-                                function onReplyClicked() {
-                                    replyClicked(root.replyId)
-                                }
-                            }
-                        }
-                    }
-                    Kirigami.Icon {
-                        source: "content-loading-symbolic"
-                        width: height
-                        Layout.preferredWidth: Kirigami.Units.iconSizes.small
-                        Layout.preferredHeight: Kirigami.Units.iconSizes.small
-                        visible: root.isPending && !Config.showLocalMessagesOnRight
-                    }
-                }
-
-                background: Item {
-                    Kirigami.ShadowedRectangle {
-                        id: bubbleBackground
-                        visible: cardBackground && !Config.compactLayout
-                        anchors.fill: parent
-                        Kirigami.Theme.colorSet: Kirigami.Theme.View
-                        Kirigami.Theme.inherit: false
-                        color: if (root.author.isLocalUser) {
-                            return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
-                        } else if (root.showHighlight) {
-                            return Kirigami.Theme.positiveBackgroundColor
-                        } else {
-                            return Kirigami.Theme.backgroundColor
-                        }
-                        radius: Kirigami.Units.smallSpacing
-                        shadow {
-                            size:  Kirigami.Units.smallSpacing
-                            color: root.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
-                        }
-
-                        Behavior on color {
-                            ColorAnimation { duration: Kirigami.Units.shortDuration }
-                        }
-                    }
-                }
+                showBackground: root.cardBackground && !Config.compactLayout
             }
 
             background: Rectangle {
@@ -542,9 +429,9 @@ TimelineDelegate {
 
         ReactionDelegate {
             Layout.maximumWidth: root.width - Kirigami.Units.largeSpacing * 2
-            Layout.alignment: showUserMessageOnRight ? Qt.AlignRight : Qt.AlignLeft
-            Layout.leftMargin: showUserMessageOnRight ? 0 : bubble.x + bubble.anchors.leftMargin
-            Layout.rightMargin: showUserMessageOnRight ? Kirigami.Units.largeSpacing : 0
+            Layout.alignment: _private.showUserMessageOnRight ? Qt.AlignRight : Qt.AlignLeft
+            Layout.leftMargin: _private.showUserMessageOnRight ? 0 : bubble.x + bubble.anchors.leftMargin
+            Layout.rightMargin: _private.showUserMessageOnRight ? Kirigami.Units.largeSpacing : 0
 
             visible: root.showReactions
             model: root.reaction
@@ -580,5 +467,14 @@ TimelineDelegate {
         if (ListView.view.setHoverActionsToDelegate) {
             ListView.view.setHoverActionsToDelegate(root)
         }
+    }
+
+    QtObject {
+        id: _private
+
+        /**
+         * @brief Whether local user messages should be aligned right.
+         */
+        property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !root.alwaysMaxWidth
     }
 }

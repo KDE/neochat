@@ -15,7 +15,7 @@ import org.kde.neochat
 MessageDelegate {
     id: encryptedDelegate
 
-    innerObject: TextEdit {
+    bubbleContent: TextEdit {
         text: i18n("This message is encrypted and the sender has not shared the key with this device.")
         color: Kirigami.Theme.disabledTextColor
         selectedTextColor: Kirigami.Theme.highlightedTextColor
@@ -25,7 +25,6 @@ MessageDelegate {
         readOnly: true
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
-        Layout.maximumWidth: encryptedDelegate.contentMaxWidth
         Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
     }
 }

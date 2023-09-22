@@ -38,8 +38,7 @@ MessageDelegate {
 
     onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, display, label.selectedText)
 
-    innerObject: ColumnLayout {
-        Layout.maximumWidth: root.contentMaxWidth
+    bubbleContent: ColumnLayout {
         RichLabel {
             id: label
             Layout.fillWidth: true

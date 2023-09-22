@@ -38,10 +38,7 @@ MessageDelegate {
 
     onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
-    innerObject: ColumnLayout {
-        Layout.fillWidth: true
-        Layout.maximumWidth: root.contentMaxWidth
-
+    bubbleContent: ColumnLayout {
         MediaPlayer {
             id: audio
             source: root.progressInfo.localPath

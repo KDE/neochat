@@ -35,9 +35,7 @@ MessageDelegate {
      */
     required property string asset
 
-    ColumnLayout {
-        Layout.maximumWidth: root.contentMaxWidth
-        Layout.preferredWidth: root.contentMaxWidth
+    bubbleContent: ColumnLayout {
         Map {
             id: map
             Layout.fillWidth: true

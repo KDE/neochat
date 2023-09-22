@@ -55,9 +55,7 @@ MessageDelegate {
         UrlHelper.openUrl(root.progressInfo.localPath);
     }
 
-    innerObject: RowLayout {
-        Layout.maximumWidth: Math.min(root.contentMaxWidth, implicitWidth)
-
+    bubbleContent: RowLayout {
         spacing: Kirigami.Units.largeSpacing
 
         states: [
