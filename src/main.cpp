@@ -34,69 +34,25 @@
 
 #include "neochat-version.h"
 
-#include <Quotient/accountregistry.h>
-#include <Quotient/keyverificationsession.h>
 #include <Quotient/networkaccessmanager.h>
-#include <Quotient/room.h>
-#include <Quotient/user.h>
 #include <Quotient/util.h>
 
-#include "actionshandler.h"
 #include "blurhashimageprovider.h"
-#include "chatdocumenthandler.h"
 #include "controller.h"
-#include "delegatesizehelper.h"
-#include "enums/delegatetype.h"
-#include "linkpreviewer.h"
-#include "locationhelper.h"
 #include "logger.h"
-#include "login.h"
 #include "matriximageprovider.h"
-#include "mediasizehelper.h"
-#include "models/accountemoticonmodel.h"
-#include "models/customemojimodel.h"
-#include "models/devicesmodel.h"
-#include "models/devicesproxymodel.h"
-#include "models/emojimodel.h"
-#include "models/emoticonfiltermodel.h"
-#include "models/imagepacksmodel.h"
-#include "models/livelocationsmodel.h"
-#include "models/locationsmodel.h"
-#include "models/mediamessagefiltermodel.h"
-#include "models/messageeventmodel.h"
-#include "models/messagefiltermodel.h"
-#include "models/publicroomlistmodel.h"
-#include "models/pushrulemodel.h"
-#include "models/reactionmodel.h"
-#include "models/roomlistmodel.h"
-#include "models/searchmodel.h"
-#include "models/serverlistmodel.h"
-#include "models/sortfilterroomlistmodel.h"
-#include "models/sortfilterspacelistmodel.h"
-#include "models/statefiltermodel.h"
-#include "models/stickermodel.h"
-#include "models/userdirectorylistmodel.h"
-#include "models/userfiltermodel.h"
-#include "models/userlistmodel.h"
-#include "models/webshortcutmodel.h"
 #include "neochatconfig.h"
-#include "pollhandler.h"
 #include "roommanager.h"
-#include "spacehierarchycache.h"
-#include "urlhelper.h"
 #include "windowcontroller.h"
 
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
-#include "models/completionmodel.h"
-#include "models/statemodel.h"
 
 #ifdef HAVE_RUNNER
 #include "runner.h"
 #include <QDBusConnection>
 #endif
-#include "registration.h"
 
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>
