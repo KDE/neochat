@@ -5,6 +5,7 @@
 
 #include <QAbstractListModel>
 #include <QObject>
+#include <QQmlEngine>
 #include <QSettings>
 
 struct Emoji {
@@ -59,6 +60,8 @@ Q_DECLARE_METATYPE(Emoji)
 class EmojiModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     /**
      * @brief Return a list of recently used emojis.
@@ -82,6 +85,10 @@ public:
     {
         static EmojiModel _instance;
         return _instance;
+    }
+    static EmojiModel *create(QQmlEngine *, QJSEngine *)
+    {
+        return &instance();
     }
 
     /**

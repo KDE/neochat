@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
 /**
@@ -27,6 +28,7 @@
 class SortFilterRoomListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The order by which the rooms will be sorted.

@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 #include <QUrl>
 
 class NeoChatRoom;
@@ -19,6 +20,8 @@ class NeoChatRoom;
 class LinkPreviewer : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+
     /**
      * @brief The URL to get the preview for.
      */

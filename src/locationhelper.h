@@ -2,14 +2,17 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 #pragma once
 
-#include "linkpreviewer.h"
 #include <QMetaType>
+#include <QObject>
+#include <QQmlEngine>
 #include <QRectF>
 
 /** Location related helper functions for QML. */
-class LocationHelper
+class LocationHelper : public QObject
 {
-    Q_GADGET
+    Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 public:
     /** Unite two rectanlges. */
     Q_INVOKABLE static QRectF unite(const QRectF &r1, const QRectF &r2);

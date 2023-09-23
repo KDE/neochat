@@ -5,6 +5,7 @@
 
 #include <QAbstractListModel>
 #include <QPointer>
+#include <QQmlEngine>
 #include <QRectF>
 
 #include "neochatroom.h"
@@ -15,6 +16,7 @@
 class LocationsModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     enum Roles {

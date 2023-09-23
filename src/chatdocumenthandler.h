@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
@@ -58,6 +59,7 @@ class SyntaxHighlighter;
 class ChatDocumentHandler : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief Is the instance being used to handle an edit message.

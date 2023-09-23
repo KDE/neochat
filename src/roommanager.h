@@ -6,6 +6,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <QObject>
+#include <QQmlEngine>
 #include <Quotient/room.h>
 #include <Quotient/uriresolver.h>
 
@@ -33,6 +34,8 @@ using namespace Quotient;
 class RoomManager : public QObject, public UriResolverBase
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     /**
      * @brief The current open room in NeoChat, if any.
@@ -87,6 +90,10 @@ public:
     explicit RoomManager(QObject *parent = nullptr);
     virtual ~RoomManager();
     static RoomManager &instance();
+    static RoomManager *create(QQmlEngine *, QJSEngine *)
+    {
+        return &instance();
+    }
 
     NeoChatRoom *currentRoom() const;
 

@@ -5,6 +5,7 @@
 
 #include <QAbstractListModel>
 #include <QObject>
+#include <QQmlEngine>
 
 #include <Quotient/csapi/users.h>
 
@@ -26,6 +27,7 @@ class Connection;
 class UserDirectoryListModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current connection that the model is getting users from.

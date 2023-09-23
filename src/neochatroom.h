@@ -7,6 +7,7 @@
 
 #include <QCache>
 #include <QObject>
+#include <QQmlEngine>
 #include <QTextCursor>
 
 #include <QCoroTask>
@@ -22,6 +23,8 @@ class User;
 class PushNotificationState : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     /**
@@ -63,6 +66,8 @@ struct Mention {
 class NeoChatRoom : public Quotient::Room
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
     /**
      * @brief A list of users currently typing in the room.

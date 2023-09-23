@@ -5,6 +5,7 @@
 
 #include <QHash>
 #include <QObject>
+#include <QQmlEngine>
 #include <QString>
 #include <QVector>
 
@@ -23,12 +24,18 @@ class Room;
 class SpaceHierarchyCache : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
 public:
     static SpaceHierarchyCache &instance()
     {
         static SpaceHierarchyCache _instance;
         return _instance;
+    }
+    static SpaceHierarchyCache *create(QQmlEngine *, QJSEngine *)
+    {
+        return &instance();
     }
 
     /**

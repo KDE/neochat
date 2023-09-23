@@ -13,13 +13,13 @@
 
 using namespace Quotient;
 
-Login::Login(QObject *parent)
+LoginHelper::LoginHelper(QObject *parent)
     : QObject(parent)
 {
     init();
 }
 
-void Login::init()
+void LoginHelper::init()
 {
     m_homeserverReachable = false;
     m_connection = new NeoChatConnection();
@@ -31,7 +31,7 @@ void Login::init()
     m_supportsPassword = false;
     m_ssoUrl = QUrl();
 
-    connect(this, &Login::matrixIdChanged, this, [this]() {
+    connect(this, &LoginHelper::matrixIdChanged, this, [this]() {
         setHomeserverReachable(false);
         QRegularExpression validator(QStringLiteral("^\\@?[a-zA-Z0-9\\._=\\-/]+\\:[a-zA-Z0-9\\-]+(\\.[a-zA-Z0-9\\-]+)*(\\:[0-9]+)?$"));
         if (!validator.match(m_matrixId).hasMatch()) {
@@ -105,23 +105,23 @@ void Login::init()
     });
 }
 
-void Login::setHomeserverReachable(bool reachable)
+void LoginHelper::setHomeserverReachable(bool reachable)
 {
     m_homeserverReachable = reachable;
     Q_EMIT homeserverReachableChanged();
 }
 
-bool Login::homeserverReachable() const
+bool LoginHelper::homeserverReachable() const
 {
     return m_homeserverReachable;
 }
 
-QString Login::matrixId() const
+QString LoginHelper::matrixId() const
 {
     return m_matrixId;
 }
 
-void Login::setMatrixId(const QString &matrixId)
+void LoginHelper::setMatrixId(const QString &matrixId)
 {
     m_matrixId = matrixId;
     if (!m_matrixId.startsWith(QLatin1Char('@'))) {
@@ -130,30 +130,30 @@ void Login::setMatrixId(const QString &matrixId)
     Q_EMIT matrixIdChanged();
 }
 
-QString Login::password() const
+QString LoginHelper::password() const
 {
     return m_password;
 }
 
-void Login::setPassword(const QString &password)
+void LoginHelper::setPassword(const QString &password)
 {
     setInvalidPassword(false);
     m_password = password;
     Q_EMIT passwordChanged();
 }
 
-QString Login::deviceName() const
+QString LoginHelper::deviceName() const
 {
     return m_deviceName;
 }
 
-void Login::setDeviceName(const QString &deviceName)
+void LoginHelper::setDeviceName(const QString &deviceName)
 {
     m_deviceName = deviceName;
     Q_EMIT deviceNameChanged();
 }
 
-void Login::login()
+void LoginHelper::login()
 {
     m_isLoggingIn = true;
     Q_EMIT isLoggingInChanged();
@@ -164,22 +164,22 @@ void Login::login()
     m_connection->loginWithPassword(username, m_password, m_deviceName, QString());
 }
 
-bool Login::supportsPassword() const
+bool LoginHelper::supportsPassword() const
 {
     return m_supportsPassword;
 }
 
-bool Login::supportsSso() const
+bool LoginHelper::supportsSso() const
 {
     return m_supportsSso;
 }
 
-QUrl Login::ssoUrl() const
+QUrl LoginHelper::ssoUrl() const
 {
     return m_ssoUrl;
 }
 
-void Login::loginWithSso()
+void LoginHelper::loginWithSso()
 {
     m_connection->resolveServer(m_matrixId);
     connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [this]() {
@@ -189,28 +189,28 @@ void Login::loginWithSso()
     });
 }
 
-bool Login::testing() const
+bool LoginHelper::testing() const
 {
     return m_testing;
 }
 
-bool Login::isLoggingIn() const
+bool LoginHelper::isLoggingIn() const
 {
     return m_isLoggingIn;
 }
 
-bool Login::isLoggedIn() const
+bool LoginHelper::isLoggedIn() const
 {
     return m_isLoggedIn;
 }
 
-void Login::setInvalidPassword(bool invalid)
+void LoginHelper::setInvalidPassword(bool invalid)
 {
     m_invalidPassword = invalid;
     Q_EMIT isInvalidPasswordChanged();
 }
 
-bool Login::isInvalidPassword() const
+bool LoginHelper::isInvalidPassword() const
 {
     return m_invalidPassword;
 }

@@ -4,12 +4,13 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QQmlEngine>
 #include <memory>
 
-struct KWebShortcutModelPrivate;
+struct WebShortcutModelPrivate;
 
 /**
- * @class KWebShortcutModel
+ * @class WebShortcutModel
  *
  * This class defines the model for listing web shortcuts for a specified selectedText.
  *
@@ -45,9 +46,10 @@ struct KWebShortcutModelPrivate;
  *  }
  *  ```
  */
-class KWebShortcutModel : public QAbstractListModel
+class WebShortcutModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The text to find web shortcuts for.
@@ -64,8 +66,8 @@ class KWebShortcutModel : public QAbstractListModel
      */
     Q_PROPERTY(bool enabled READ enabled CONSTANT)
 public:
-    explicit KWebShortcutModel(QObject *parent = nullptr);
-    ~KWebShortcutModel();
+    explicit WebShortcutModel(QObject *parent = nullptr);
+    ~WebShortcutModel();
 
     QString selectedText() const;
     void setSelectedText(const QString &selectedText);
@@ -103,5 +105,5 @@ Q_SIGNALS:
     void openUrl(const QUrl &url);
 
 private:
-    std::unique_ptr<KWebShortcutModelPrivate> d;
+    std::unique_ptr<WebShortcutModelPrivate> d;
 };

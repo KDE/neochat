@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QQmlEngine>
 #include <QString>
 
 #include <Quotient/csapi/search.h>
@@ -23,6 +24,7 @@ class NeoChatRoom;
 class SearchModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The text to search messages for.

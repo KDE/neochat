@@ -9,15 +9,15 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
-import './RoomList' as RoomList
-import './Dialog' as Dialog
+import org.kde.neochat.config
+import org.kde.neochat.accounts
 
 Kirigami.ApplicationWindow {
     id: root
 
     property int columnWidth: Kirigami.Units.gridUnit * 13
 
-    property RoomList.Page roomListPage
+    property RoomListPage roomListPage
     property bool roomListLoaded: false
 
     property RoomPage roomPage
@@ -89,7 +89,7 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onPushRoom(room, event) {
-            root.roomPage = pageStack.push("qrc:/RoomPage.qml", {connection: root.connection});
+            root.roomPage = pageStack.push("qrc:/org/kde/neochat/qml/RoomPage.qml", {connection: root.connection});
             root.roomPage.forceActiveFocus();
             if (event.length > 0) {
                 roomPage.goToEvent(event);
@@ -134,7 +134,7 @@ Kirigami.ApplicationWindow {
     }
 
     function openRoomDrawer() {
-        pageStack.push("qrc:/RoomDrawerPage.qml", {
+        pageStack.push("qrc:/org/kde/neochat/qml/RoomDrawerPage.qml", {
             connection: root.connection
         })
     }
@@ -197,7 +197,7 @@ Kirigami.ApplicationWindow {
     
     Component {
         id: roomListComponent
-        RoomList.Page {
+        RoomListPage {
             id: roomList
 
             connection: root.connection
@@ -239,7 +239,7 @@ Kirigami.ApplicationWindow {
                 RoomManager.reset();
                 pageStack.clear();
                 roomListLoaded = false;
-                pageStack.push("qrc:/WelcomePage.qml");
+                pageStack.push("qrc:/org/kde/neochat/qml/WelcomePage.qml");
             }
         }
     }
@@ -249,7 +249,7 @@ Kirigami.ApplicationWindow {
 
         function onInitiated() {
             if (AccountRegistry.accountCount === 0) {
-                pageStack.replace("qrc:/WelcomePage.qml", {});
+                pageStack.replace("qrc:/org/kde/neochat/qml/WelcomePage.qml", {});
             } else if (!roomListLoaded) {
                 pageStack.replace(roomListComponent);
                 roomListLoaded = true;
@@ -392,7 +392,7 @@ Kirigami.ApplicationWindow {
     Shortcut {
         sequence: "Ctrl+Shift+,"
         onActivated: {
-            pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {connection: root.connection}, { title: i18n("Configure") })
+            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {connection: root.connection}, { title: i18n("Configure") })
         }
     }
 }

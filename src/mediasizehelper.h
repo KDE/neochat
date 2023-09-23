@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 #include <QSize>
 
 /**
@@ -28,6 +29,7 @@
 class MediaSizeHelper : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The maximum width (in px) the media can be.

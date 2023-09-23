@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QQmlEngine>
 
 #include <Quotient/csapi/definitions/push_rule.h>
 
@@ -20,6 +21,8 @@
 class PushNotificationKind : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     /**
@@ -71,6 +74,8 @@ public:
 class PushNotificationSection : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     /**
@@ -130,6 +135,7 @@ public:
 class PushRuleModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The default state for any newly created keyword rule.

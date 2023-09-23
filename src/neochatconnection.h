@@ -4,12 +4,15 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 #include <Quotient/connection.h>
 
 class NeoChatConnection : public Quotient::Connection
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
     /**
      * @brief The account label for this account.

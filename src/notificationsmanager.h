@@ -8,6 +8,7 @@
 #include <QMap>
 #include <QObject>
 #include <QPointer>
+#include <QQmlEngine>
 #include <QString>
 #include <Quotient/csapi/notifications.h>
 #include <Quotient/jobs/basejob.h>
@@ -19,6 +20,8 @@ class NeoChatRoom;
 class PushNotificationAction : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     /**
@@ -51,9 +54,15 @@ public:
 class NotificationsManager : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
 public:
     static NotificationsManager &instance();
+    static NotificationsManager *create(QQmlEngine *, QJSEngine *)
+    {
+        return &instance();
+    }
 
     /**
      * @brief Display a native notification for an message.

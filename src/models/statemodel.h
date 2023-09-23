@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QQmlEngine>
 
 #include "neochatroom.h"
 
@@ -15,6 +16,7 @@
 class StateModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current room that the model is getting its state events from.

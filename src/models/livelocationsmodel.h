@@ -8,6 +8,7 @@
 
 #include <QAbstractListModel>
 #include <QPointer>
+#include <QQmlEngine>
 #include <QRectF>
 
 struct LiveLocationData {
@@ -24,6 +25,8 @@ bool operator<(const LiveLocationData &lhs, const LiveLocationData &rhs);
 class LiveLocationsModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
     Q_PROPERTY(NeoChatRoom *room MEMBER m_room NOTIFY roomChanged)
     /** The event id of the beacon start event, ie. the one all suspequent
      *  events use to relate to the same beacon.

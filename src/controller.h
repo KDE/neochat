@@ -5,6 +5,7 @@
 
 #include "models/pushrulemodel.h"
 #include <QObject>
+#include <QQmlEngine>
 #include <QQuickItem>
 
 #include <KFormat>
@@ -40,6 +41,8 @@ class ReadPasswordJob;
 class Controller : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     /**
      * @brief The current connection for the rest of NeoChat to use.
@@ -90,6 +93,10 @@ public:
     Q_ENUM(PasswordStatus)
 
     static Controller &instance();
+    static Controller *create(QQmlEngine *, QJSEngine *)
+    {
+        return &instance();
+    }
 
     void setActiveConnection(NeoChatConnection *connection);
     [[nodiscard]] NeoChatConnection *activeConnection() const;

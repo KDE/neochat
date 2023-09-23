@@ -10,7 +10,7 @@
 #endif
 #include <KStringHandler>
 
-struct KWebShortcutModelPrivate {
+struct WebShortcutModelPrivate {
     QString selectedText;
 #ifdef HAVE_KIO
     KUriFilterData filterData;
@@ -18,27 +18,27 @@ struct KWebShortcutModelPrivate {
     QStringList searchProviders;
 };
 
-KWebShortcutModel::KWebShortcutModel(QObject *parent)
+WebShortcutModel::WebShortcutModel(QObject *parent)
     : QAbstractListModel(parent)
-    , d(new KWebShortcutModelPrivate)
+    , d(new WebShortcutModelPrivate)
 {
 }
 
-KWebShortcutModel::~KWebShortcutModel()
+WebShortcutModel::~WebShortcutModel()
 {
 }
 
-QString KWebShortcutModel::selectedText() const
+QString WebShortcutModel::selectedText() const
 {
     return d->selectedText;
 }
 
-QString KWebShortcutModel::trunkatedSearchText() const
+QString WebShortcutModel::trunkatedSearchText() const
 {
     return KStringHandler::rsqueeze(d->selectedText, 21);
 }
 
-bool KWebShortcutModel::enabled() const
+bool WebShortcutModel::enabled() const
 {
 #ifdef HAVE_KIO
     return true;
@@ -47,7 +47,7 @@ bool KWebShortcutModel::enabled() const
 #endif
 }
 
-void KWebShortcutModel::setSelectedText(const QString &selectedText)
+void WebShortcutModel::setSelectedText(const QString &selectedText)
 {
     if (d->selectedText == selectedText) {
         return;
@@ -80,7 +80,7 @@ void KWebShortcutModel::setSelectedText(const QString &selectedText)
     Q_EMIT selectedTextChanged();
 }
 
-int KWebShortcutModel::rowCount(const QModelIndex &parent) const
+int WebShortcutModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
 #ifdef HAVE_KIO
@@ -91,7 +91,7 @@ int KWebShortcutModel::rowCount(const QModelIndex &parent) const
     return 0;
 }
 
-QVariant KWebShortcutModel::data(const QModelIndex &index, int role) const
+QVariant WebShortcutModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         return {};
@@ -110,7 +110,7 @@ QVariant KWebShortcutModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-void KWebShortcutModel::trigger(const QString &data)
+void WebShortcutModel::trigger(const QString &data)
 {
 #ifdef HAVE_KIO
     KUriFilterData filterData(data);
@@ -122,7 +122,7 @@ void KWebShortcutModel::trigger(const QString &data)
 #endif
 }
 
-void KWebShortcutModel::configureWebShortcuts()
+void WebShortcutModel::configureWebShortcuts()
 {
 #ifdef HAVE_KIO
     auto job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), QStringList() << QStringLiteral("webshortcuts"), this);

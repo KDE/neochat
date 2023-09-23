@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QConcatenateTablesProxyModel>
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
 #include "roomlistmodel.h"
@@ -24,6 +25,7 @@ class RoomListModel;
 class CompletionModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current text to search for completions.

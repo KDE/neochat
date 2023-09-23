@@ -4,15 +4,18 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 /**
  * @class DelegateType
  *
  * This class is designed to define the DelegateType enumeration.
  */
-class DelegateType
+class DelegateType : public QObject
 {
-    Q_GADGET
+    Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     /**

@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 #include <QUrl>
 
 /**
@@ -14,6 +15,9 @@
 class UrlHelper : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
+
 public:
     /**
      * @brief Open the given URL in an appropriate app.

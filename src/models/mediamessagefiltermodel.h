@@ -3,8 +3,8 @@
 
 #pragma once
 
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
-#include <qobjectdefs.h>
 
 #include "models/messagefiltermodel.h"
 
@@ -20,6 +20,8 @@ class MessageFilterModel;
 class MediaMessageFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
 public:
     enum MediaType {
         Image = 0,

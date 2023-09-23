@@ -5,6 +5,7 @@
 
 #include <QAbstractListModel>
 #include <QObject>
+#include <QQmlEngine>
 
 #include <Quotient/csapi/list_public_rooms.h>
 
@@ -27,6 +28,7 @@ class Connection;
 class PublicRoomListModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current connection that the model is getting its rooms from.

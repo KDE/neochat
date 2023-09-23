@@ -9,6 +9,7 @@
 #include <QCoroTask>
 #include <QObject>
 #include <QPointer>
+#include <QQmlEngine>
 #include <QVector>
 
 #include <Quotient/connection.h>
@@ -23,6 +24,8 @@
 class AccountEmoticonModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
     /**
      * @brief The connection to get emoticons from.
      */

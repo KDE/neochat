@@ -5,6 +5,7 @@
 
 #include <KFormat>
 #include <QAbstractListModel>
+#include <QQmlEngine>
 
 #include "linkpreviewer.h"
 #include "neochatroom.h"
@@ -25,6 +26,7 @@ class ReactionModel;
 class MessageEventModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current room that the model is getting its messages from.

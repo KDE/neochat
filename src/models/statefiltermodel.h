@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
 /**
@@ -14,6 +15,7 @@
 class StateFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     /**

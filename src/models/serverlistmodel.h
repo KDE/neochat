@@ -7,6 +7,7 @@
 
 #include <QAbstractListModel>
 #include <QPointer>
+#include <QQmlEngine>
 #include <QUrl>
 
 /**
@@ -24,6 +25,7 @@
 class ServerListModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     /**

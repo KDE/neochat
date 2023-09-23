@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
 #include "messageeventmodel.h"
@@ -21,6 +22,8 @@
 class MessageFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
 public:
     /**
      * @brief Defines the model roles.

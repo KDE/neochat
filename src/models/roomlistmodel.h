@@ -6,6 +6,7 @@
 #include <Quotient/events/roomevent.h>
 
 #include <QAbstractListModel>
+#include <QQmlEngine>
 
 class NeoChatRoom;
 
@@ -18,6 +19,8 @@ class Room;
 class NeoChatRoomType : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     /**
@@ -42,6 +45,7 @@ public:
 class RoomListModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current connection that the model is getting its rooms from.

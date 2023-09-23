@@ -4,18 +4,21 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 #include <QUrl>
 
 class NeoChatConnection;
 
 /**
- * @class Login
+ * @class LoginHelper
  *
  * A helper class for logging into a Matrix account.
  */
-class Login : public QObject
+class LoginHelper : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     /**
      * @brief Whether the home server for the account is reachable.
@@ -76,7 +79,7 @@ class Login : public QObject
     Q_PROPERTY(bool isInvalidPassword READ isInvalidPassword NOTIFY isInvalidPasswordChanged)
 
 public:
-    explicit Login(QObject *parent = nullptr);
+    explicit LoginHelper(QObject *parent = nullptr);
 
     Q_INVOKABLE void init();
 

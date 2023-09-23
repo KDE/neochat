@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QQmlEngine>
 #include <QRegularExpression>
 #include <memory>
 
@@ -27,6 +28,8 @@ struct CustomEmoji {
 class CustomEmojiModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
 public:
     /**
@@ -47,6 +50,10 @@ public:
     {
         static CustomEmojiModel _instance;
         return _instance;
+    }
+    static CustomEmojiModel *create(QQmlEngine *, QJSEngine *)
+    {
+        return &instance();
     }
 
     /**

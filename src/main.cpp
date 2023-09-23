@@ -44,11 +44,9 @@
 #include "actionshandler.h"
 #include "blurhashimageprovider.h"
 #include "chatdocumenthandler.h"
-#include "clipboard.h"
 #include "controller.h"
 #include "delegatesizehelper.h"
 #include "enums/delegatetype.h"
-#include "filetypesingleton.h"
 #include "linkpreviewer.h"
 #include "locationhelper.h"
 #include "logger.h"
@@ -82,9 +80,6 @@
 #include "models/userlistmodel.h"
 #include "models/webshortcutmodel.h"
 #include "neochatconfig.h"
-#include "neochatconnection.h"
-#include "neochatroom.h"
-#include "notificationsmanager.h"
 #include "pollhandler.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
@@ -108,6 +103,8 @@
 #endif
 
 using namespace Quotient;
+
+void qml_register_types_org_kde_neochat();
 
 class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
 {
@@ -215,95 +212,18 @@ int main(int argc, char *argv[])
                 QStringLiteral("/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf"));
 #endif
 
-    Clipboard clipboard;
-    auto config = NeoChatConfig::self();
-    FileTypeSingleton fileTypeSingleton;
-
-    Login *login = new Login();
-    UrlHelper urlHelper;
-
 #ifdef HAVE_COLORSCHEME
     ColorSchemer colorScheme;
-    qmlRegisterSingletonInstance<ColorSchemer>("org.kde.neochat", 1, 0, "ColorSchemer", &colorScheme);
-    if (!config->colorScheme().isEmpty()) {
-        colorScheme.apply(config->colorScheme());
+    if (!NeoChatConfig::self()->colorScheme().isEmpty()) {
+        colorScheme.apply(NeoChatConfig::self()->colorScheme());
     }
 #endif
 
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "NotificationsManager", &NotificationsManager::instance());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "RoomManager", &RoomManager::instance());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "UrlHelper", &urlHelper);
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", &EmojiModel::instance());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Controller::instance().accounts());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &SpaceHierarchyCache::instance());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CustomEmojiModel", &CustomEmojiModel::instance());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Registration", &Registration::instance());
-    qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
-    qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
-    qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
-    qmlRegisterType<KWebShortcutModel>("org.kde.neochat", 1, 0, "WebShortcutModel");
-    qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
-    qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
-    qmlRegisterType<ReactionModel>("org.kde.neochat", 1, 0, "ReactionModel");
-    qmlRegisterType<MediaMessageFilterModel>("org.kde.neochat", 1, 0, "MediaMessageFilterModel");
-    qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
-    qmlRegisterType<UserFilterModel>("org.kde.neochat", 1, 0, "UserFilterModel");
-    qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
-    qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
-    qmlRegisterType<ServerListModel>("org.kde.neochat", 1, 0, "ServerListModel");
-    qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
-    qmlRegisterType<SortFilterSpaceListModel>("org.kde.neochat", 1, 0, "SortFilterSpaceListModel");
-    qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
-    qmlRegisterType<DevicesProxyModel>("org.kde.neochat", 1, 0, "DevicesProxyModel");
-    qmlRegisterType<LinkPreviewer>("org.kde.neochat", 1, 0, "LinkPreviewer");
-    qmlRegisterType<CompletionModel>("org.kde.neochat", 1, 0, "CompletionModel");
-    qmlRegisterType<StateModel>("org.kde.neochat", 1, 0, "StateModel");
-    qmlRegisterType<StateFilterModel>("org.kde.neochat", 1, 0, "StateFilterModel");
-    qmlRegisterType<SearchModel>("org.kde.neochat", 1, 0, "SearchModel");
-    qmlRegisterType<LiveLocationsModel>("org.kde.neochat", 1, 0, "LiveLocationsModel");
-    qmlRegisterType<LocationsModel>("org.kde.neochat", 1, 0, "LocationsModel");
-    qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
-    qmlRegisterType<PushRuleModel>("org.kde.neochat", 1, 0, "PushRuleModel");
-    qmlRegisterType<StickerModel>("org.kde.neochat", 1, 0, "StickerModel");
-    qmlRegisterType<ImagePacksModel>("org.kde.neochat", 1, 0, "ImagePacksModel");
-    qmlRegisterType<AccountEmoticonModel>("org.kde.neochat", 1, 0, "AccountEmoticonModel");
-    qmlRegisterType<EmoticonFilterModel>("org.kde.neochat", 1, 0, "EmoticonFilterModel");
-    qmlRegisterType<DelegateSizeHelper>("org.kde.neochat", 1, 0, "DelegateSizeHelper");
-    qmlRegisterType<MediaSizeHelper>("org.kde.neochat", 1, 0, "MediaSizeHelper");
-    qmlRegisterUncreatableType<DelegateType>("org.kde.neochat", 1, 0, "DelegateType", "ENUM"_ls);
-    qmlRegisterUncreatableType<PushNotificationKind>("org.kde.neochat", 1, 0, "PushNotificationKind", "ENUM"_ls);
-    qmlRegisterUncreatableType<PushNotificationSection>("org.kde.neochat", 1, 0, "PushNotificationSection", "ENUM"_ls);
-    qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM"_ls);
-    qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM"_ls);
-    qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM"_ls);
-    qmlRegisterUncreatableType<User>("org.kde.neochat", 1, 0, "User", {});
-    qmlRegisterUncreatableType<NeoChatRoom>("org.kde.neochat", 1, 0, "NeoChatRoom", {});
-    qmlRegisterUncreatableType<NeoChatConnection>("org.kde.neochat", 1, 0, "NeoChatConnection", {});
+    qml_register_types_org_kde_neochat();
+    qmlRegisterSingletonInstance("org.kde.neochat.config", 1, 0, "Config", NeoChatConfig::self());
+    qmlRegisterSingletonInstance("org.kde.neochat.accounts", 1, 0, "AccountRegistry", &Controller::instance().accounts());
 
-    qRegisterMetaType<User *>("User*");
-    qRegisterMetaType<User *>("const User*");
-    qRegisterMetaType<User *>("const Quotient::User*");
-    qRegisterMetaType<Room *>("Room*");
-    qRegisterMetaType<MessageEventType>("MessageEventType");
-    qRegisterMetaType<NeoChatRoom *>("NeoChatRoom*");
-    qRegisterMetaType<User *>("User*");
-    qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
-    qRegisterMetaType<QMimeType>("QMimeType");
-    qRegisterMetaType<KeyVerificationSession *>("KeyVerificationSession*");
-    qmlRegisterUncreatableType<KeyVerificationSession>("org.kde.neochat", 1, 0, "KeyVerificationSession", {});
-    qRegisterMetaType<QVector<EmojiEntry>>("QVector<EmojiEntry>");
-    qmlRegisterSingletonType("org.kde.neochat", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
-        return engine->toScriptValue(KAboutData::applicationData());
-    });
-    qmlRegisterSingletonType(QUrl("qrc:/OsmLocationPlugin.qml"_ls), "org.kde.neochat", 1, 0, "OsmLocationPlugin");
-    qmlRegisterSingletonType("org.kde.neochat", 1, 0, "LocationHelper", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
-        return engine->toScriptValue(LocationHelper());
-    });
+    // qmlRegisterUncreatableType<KeyVerificationSession>("org.kde.neochat", 1, 0, "KeyVerificationSession", {});
 
     QQmlApplicationEngine engine;
 
@@ -354,7 +274,7 @@ int main(int argc, char *argv[])
     engine.addImageProvider(QLatin1String("mxc"), new MatrixImageProvider);
     engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/org/kde/neochat/qml/main.qml")));
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }

@@ -6,6 +6,7 @@
 #include <QJsonObject>
 #include <QObject>
 #include <QPointer>
+#include <QQmlEngine>
 #include <QString>
 #include <QVariantMap>
 #include <QVector>
@@ -58,6 +59,8 @@ public:
 class Registration : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(QString homeserver READ homeserver WRITE setHomeserver NOTIFY homeserverChanged)
     Q_PROPERTY(QString username READ username WRITE setUsername NOTIFY usernameChanged)
@@ -87,6 +90,10 @@ public:
     {
         static Registration _instance;
         return _instance;
+    }
+    static Registration *create(QQmlEngine *, QJSEngine *)
+    {
+        return &instance();
     }
 
     Q_INVOKABLE void registerAccount();

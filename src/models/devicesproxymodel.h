@@ -3,11 +3,14 @@
 
 #pragma once
 
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
 class DevicesProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
     Q_PROPERTY(int type READ type WRITE setType NOTIFY typeChanged)
 
 public:

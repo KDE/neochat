@@ -8,6 +8,7 @@
 #include <QAbstractListModel>
 #include <QObject>
 #include <QPointer>
+#include <QQmlEngine>
 
 class NeoChatRoom;
 
@@ -29,6 +30,7 @@ class User;
 class UserListModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The room that the model is getting its users from.

@@ -6,6 +6,7 @@
 #include <QJsonObject>
 #include <QObject>
 #include <QPair>
+#include <QQmlEngine>
 
 class NeoChatRoom;
 
@@ -23,6 +24,7 @@ class NeoChatRoom;
 class PollHandler : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current room for the poll.

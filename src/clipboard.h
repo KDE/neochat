@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 class QClipboard;
 class QImage;
@@ -18,6 +19,8 @@ class QImage;
 class Clipboard : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     /**
      * @brief Whether the current clipboard content is an image.

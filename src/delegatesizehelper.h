@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 /**
  * @class DelegateSizeHelper
@@ -23,6 +24,7 @@
 class DelegateSizeHelper : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The width of the component's parent.

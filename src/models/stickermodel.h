@@ -7,6 +7,7 @@
 #include "neochatroom.h"
 #include <QAbstractListModel>
 #include <QObject>
+#include <QQmlEngine>
 #include <QVector>
 
 class ImagePacksModel;
@@ -22,6 +23,7 @@ class ImagePacksModel;
 class StickerModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The image pack that the stickers come from.

@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 #include <Quotient/events/roommessageevent.h>
 
@@ -32,6 +33,7 @@ class NeoChatRoom;
 class ActionsHandler : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The room that messages will be sent to.

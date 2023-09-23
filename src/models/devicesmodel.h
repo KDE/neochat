@@ -5,6 +5,7 @@
 
 #include <QAbstractListModel>
 #include <QPointer>
+#include <QQmlEngine>
 
 #include <Quotient/csapi/definitions/client_device.h>
 
@@ -25,6 +26,7 @@ class Connection;
 class DevicesModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current connection that the model is getting its devices from.

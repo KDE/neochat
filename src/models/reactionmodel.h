@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QQmlEngine>
 
 namespace Quotient
 {
@@ -18,6 +19,7 @@ class User;
 class ReactionModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     /**

@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
 /**
@@ -14,6 +15,7 @@
 class EmoticonFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief Whether stickers should be shown

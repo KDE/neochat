@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
 /**
@@ -16,6 +17,8 @@
 class SortFilterSpaceListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
     /**
      * @brief The number of spaces in the model.
      */

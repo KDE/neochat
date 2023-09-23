@@ -55,8 +55,8 @@ add_library(neochat STATIC
     models/devicesmodel.cpp
     models/devicesmodel.h
     models/devicesproxymodel.cpp
-    filetypesingleton.cpp
-    filetypesingleton.h
+    filetype.cpp
+    filetype.h
     login.cpp
     login.h
     models/webshortcutmodel.cpp
@@ -129,6 +129,153 @@ add_library(neochat STATIC
     enums/delegatetype.h
 )
 
+qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
+    QML_FILES
+        qml/main.qml
+        qml/AccountMenu.qml
+        qml/ExploreComponent.qml
+        qml/ContextMenu.qml
+        qml/CollapsedRoomDelegate.qml
+        qml/RoomDelegate.qml
+        qml/RoomListPage.qml
+        qml/SpaceListContextMenu.qml
+        qml/UserInfo.qml
+        qml/LoadingPage.qml
+        qml/RoomPage.qml
+        qml/RoomWindow.qml
+        qml/JoinRoomPage.qml
+        qml/ExplorerDelegate.qml
+        qml/InviteUserPage.qml
+        qml/StartChatPage.qml
+        qml/ImageEditorPage.qml
+        qml/WelcomePage.qml
+        qml/General.qml
+        qml/Security.qml
+        qml/PushNotification.qml
+        qml/Categories.qml
+        qml/Permissions.qml
+        qml/NeochatMaximizeComponent.qml
+        qml/FancyEffectsContainer.qml
+        qml/TypingPane.qml
+        qml/ShimmerGradient.qml
+        qml/QuickSwitcher.qml
+        qml/HoverActions.qml
+        qml/ChatBox.qml
+        qml/ChatBar.qml
+        qml/AttachmentPane.qml
+        qml/ReplyPane.qml
+        qml/CompletionMenu.qml
+        qml/PieProgressBar.qml
+        qml/QuickFormatBar.qml
+        qml/RoomData.qml
+        qml/ServerData.qml
+        qml/EmojiPicker.qml
+        qml/TimelineDelegate.qml
+        qml/ReplyComponent.qml
+        qml/StateDelegate.qml
+        qml/RichLabel.qml
+        qml/MessageDelegate.qml
+        qml/Bubble.qml
+        qml/SectionDelegate.qml
+        qml/VideoDelegate.qml
+        qml/ReactionDelegate.qml
+        qml/LinkPreviewDelegate.qml
+        qml/AudioDelegate.qml
+        qml/FileDelegate.qml
+        qml/ImageDelegate.qml
+        qml/EncryptedDelegate.qml
+        qml/EventDelegate.qml
+        qml/TextDelegate.qml
+        qml/ReadMarkerDelegate.qml
+        qml/PollDelegate.qml
+        qml/MimeComponent.qml
+        qml/StateComponent.qml
+        qml/MessageEditComponent.qml
+        qml/AvatarFlow.qml
+        qml/LoginStep.qml
+        qml/Login.qml
+        qml/Homeserver.qml
+        qml/Username.qml
+        qml/RegisterPassword.qml
+        qml/Captcha.qml
+        qml/Terms.qml
+        qml/Email.qml
+        qml/Password.qml
+        qml/LoginRegister.qml
+        qml/Loading.qml
+        qml/LoginMethod.qml
+        qml/Sso.qml
+        qml/UserDetailDialog.qml
+        qml/CreateRoomDialog.qml
+        qml/CreateSpaceDialog.qml
+        qml/EmojiDialog.qml
+        qml/OpenFileDialog.qml
+        qml/KeyVerificationDialog.qml
+        qml/ConfirmLogoutDialog.qml
+        qml/PowerLevelDialog.qml
+        qml/Message.qml
+        qml/EmojiItem.qml
+        qml/EmojiRow.qml
+        qml/EmojiSas.qml
+        qml/ConfirmDeactivateAccountDialog.qml
+        qml/VerificationCanceled.qml
+        qml/GlobalMenu.qml
+        qml/EditMenu.qml
+        qml/MessageDelegateContextMenu.qml
+        qml/FileDelegateContextMenu.qml
+        qml/MessageSourceSheet.qml
+        qml/ReportSheet.qml
+        qml/SettingsPage.qml
+        qml/ThemeRadioButton.qml
+        qml/ColorScheme.qml
+        qml/GeneralSettingsPage.qml
+        qml/EmoticonsPage.qml
+        qml/EmoticonEditorPage.qml
+        qml/EmoticonFormCard.qml
+        qml/GlobalNotificationsPage.qml
+        qml/NotificationRuleItem.qml
+        qml/AppearanceSettingsPage.qml
+        qml/AccountsPage.qml
+        qml/AccountEditorPage.qml
+        qml/DevicesPage.qml
+        qml/DeviceDelegate.qml
+        qml/DevicesCard.qml
+        qml/About.qml
+        qml/AboutKDE.qml
+        qml/SonnetConfigPage.qml
+        qml/NetworkProxyPage.qml
+        qml/DevtoolsPage.qml
+        qml/ConfirmEncryptionDialog.qml
+        qml/RemoveSheet.qml
+        qml/BanSheet.qml
+        qml/EmojiTonesPicker.qml
+        qml/EmojiDelegate.qml
+        qml/EmojiGrid.qml
+        qml/SearchPage.qml
+        qml/LocationDelegate.qml
+        qml/LocationChooser.qml
+        qml/TimelineView.qml
+        qml/InvitationView.qml
+        qml/AvatarTabButton.qml
+        qml/SpaceDrawer.qml
+        qml/OsmLocationPlugin.qml
+        qml/LiveLocationDelegate.qml
+        qml/FullScreenMap.qml
+        qml/LocationsPage.qml
+        qml/LocationMapItem.qml
+        qml/RoomDrawer.qml
+        qml/RoomDrawerPage.qml
+        qml/DirectChatDrawerHeader.qml
+        qml/GroupChatDrawerHeader.qml
+        qml/RoomInformation.qml
+        qml/RoomMedia.qml
+        qml/ChooseRoomDialog.qml
+        qml/ShareAction.qml
+    RESOURCES
+        qml/confetti.png
+        qml/glowdot.png
+)
+
 ecm_qt_declare_logging_category(neochat
     HEADER "messageeventmodel_logging.h"
     IDENTIFIER "MessageEvent"
@@ -147,7 +294,6 @@ ecm_qt_declare_logging_category(neochat
 
 add_executable(neochat-app
     main.cpp
-    res.qrc
 )
 
 if(TARGET Qt::WebView)
@@ -179,15 +325,12 @@ if(NOT ANDROID)
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
-    target_sources(neochat-app PRIVATE res_desktop.qrc)
     target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
     target_compile_definitions(neochat PUBLIC -DHAVE_X11)
     target_sources(neochat PRIVATE runner.cpp)
-else()
-    target_sources(neochat-app PRIVATE res_android.qrc)
 endif()
 
-target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
+target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
 target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF6::I18n KF6::Kirigami2 KF6::Notifications KF6::ConfigCore KF6::ConfigGui KF6::CoreAddons KF6::SonnetCore  KF6::ItemModels QuotientQt6 cmark::cmark QCoro::Core)
 
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)

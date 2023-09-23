@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
 /**
@@ -15,6 +16,7 @@
 class UserFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief This property hold the text of the filter.

@@ -6,6 +6,7 @@
 #include "events/imagepackevent.h"
 #include <QAbstractListModel>
 #include <QPointer>
+#include <QQmlEngine>
 #include <QVector>
 
 class NeoChatRoom;
@@ -21,6 +22,7 @@ class NeoChatRoom;
 class ImagePacksModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     /**
      * @brief The current room that the model is being used in.

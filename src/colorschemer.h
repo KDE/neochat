@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 class QAbstractItemModel;
 class KColorSchemeManager;
@@ -19,6 +20,8 @@ class KColorSchemeManager;
 class ColorSchemer : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     /**
      * @brief A QAbstractItemModel of all available color schemes.
