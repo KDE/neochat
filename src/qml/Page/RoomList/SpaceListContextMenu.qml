@@ -7,7 +7,8 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
@@ -79,13 +80,16 @@ Loader {
 
             ColumnLayout {
                 id: popupContent
+
                 width: parent.width
                 spacing: 0
+
                 RowLayout {
                     id: headerLayout
                     Layout.fillWidth: true
                     Layout.margins: Kirigami.Units.largeSpacing
                     spacing: Kirigami.Units.largeSpacing
+
                     KirigamiComponents.Avatar {
                         id: avatar
                         source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
@@ -93,22 +97,40 @@ Loader {
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3
                         Layout.alignment: Qt.AlignTop
                     }
+
                     Kirigami.Heading {
                         level: 5
                         Layout.fillWidth: true
                         text: room.displayName
                         wrapMode: Text.WordWrap
                     }
+                }
 
-                    QQC2.ToolButton {
-                        icon.name: 'settings-configure'
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room, connection: root.connection}, { title: i18n("Space Settings") })
+                FormCard.FormButtonDelegate {
+                    text: i18nc("'Space' is a matrix space", "View Space")
+                    icon.name: "view-list-details"
+                    onClicked: RoomManager.enterRoom(room);
+                }
+
+                FormCard.FormButtonDelegate {
+                    text: i18nc("@action:inmenu", "Copy Address to Clipboard")
+                    icon.name: "edit-copy"
+                    onClicked: if (room.canonicalAlias.length === 0) {
+                        Clipboard.saveText(room.id);
+                    } else {
+                        Clipboard.saveText(room.canonicalAlias);
                     }
                 }
-                Kirigami.BasicListItem {
+
+                FormCard.FormButtonDelegate {
+                    text: i18nc("'Space' is a matrix space", "Space Settings")
+                    icon.name: 'settings-configure'
+                    onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room, connection: connection}, { title: i18n("Space Settings") })
+                }
+
+                FormCard.FormButtonDelegate {
                     text: i18nc("'Space' is a matrix space", "Leave Space")
                     onClicked: RoomManager.leaveRoom(room)
-                    implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                 }
             }
             onClosed: root.closed()

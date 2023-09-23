@@ -6,7 +6,8 @@ import QtQuick
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
@@ -20,8 +21,8 @@ Kirigami.Dialog {
 
     parent: applicationWindow().overlay
 
-    leftPadding: Kirigami.Units.smallSpacing
-    rightPadding: Kirigami.Units.smallSpacing
+    leftPadding: 0
+    rightPadding: 0
     topPadding: 0
     bottomPadding: 0
 
@@ -74,7 +75,7 @@ Kirigami.Dialog {
             Layout.fillWidth: true
         }
 
-        Kirigami.BasicListItem {
+        FormCard.FormButtonDelegate {
             visible: !root.user.isLocalUser
             action: Kirigami.Action {
                 text: room.connection.isIgnored(root.user.object) ? i18n("Unignore this user") : i18n("Ignore this user")
@@ -85,7 +86,8 @@ Kirigami.Dialog {
                 }
             }
         }
-        Kirigami.BasicListItem {
+
+        FormCard.FormButtonDelegate {
             visible: !root.user.isLocalUser && room.canSendState("kick") && room.containsUser(root.user.id)
 
             action: Kirigami.Action {
@@ -97,7 +99,8 @@ Kirigami.Dialog {
                 }
             }
         }
-        Kirigami.BasicListItem {
+
+        FormCard.FormButtonDelegate {
             visible: !root.user.isLocalUser && room.canSendState("invite") && !room.containsUser(root.user.id)
 
             action: Kirigami.Action {
@@ -110,7 +113,8 @@ Kirigami.Dialog {
                 }
             }
         }
-        Kirigami.BasicListItem {
+
+        FormCard.FormButtonDelegate {
             visible: !root.user.isLocalUser && room.canSendState("ban") && !room.isUserBanned(root.user.id)
 
             action: Kirigami.Action {
@@ -126,7 +130,8 @@ Kirigami.Dialog {
                 }
             }
         }
-        Kirigami.BasicListItem {
+
+        FormCard.FormButtonDelegate {
             visible: !root.user.isLocalUser && room.canSendState("ban") && room.isUserBanned(root.user.id)
 
             action: Kirigami.Action {
@@ -139,7 +144,8 @@ Kirigami.Dialog {
                 }
             }
         }
-        Kirigami.BasicListItem {
+
+        FormCard.FormButtonDelegate {
             visible: room.canSendState("m.room.power_levels")
             action: Kirigami.Action {
                 text: i18n("Set user power level")
@@ -162,7 +168,8 @@ Kirigami.Dialog {
                 }
             }
         }
-        Kirigami.BasicListItem {
+
+        FormCard.FormButtonDelegate {
             visible: root.user.isLocalUser || room.canSendState("redact")
 
             action: Kirigami.Action {
@@ -178,7 +185,8 @@ Kirigami.Dialog {
                 }
             }
         }
-        Kirigami.BasicListItem {
+
+        FormCard.FormButtonDelegate {
             visible: !root.user.isLocalUser
             action: Kirigami.Action {
                 text: i18n("Open a private chat")
@@ -189,7 +197,8 @@ Kirigami.Dialog {
                 }
             }
         }
-        Kirigami.BasicListItem {
+
+        FormCard.FormButtonDelegate {
             action: Kirigami.Action {
                 text: i18n("Copy link")
                 icon.name: "username-copy"

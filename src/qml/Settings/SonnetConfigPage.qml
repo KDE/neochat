@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.sonnet as Sonnet
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.kirigamiaddons.delegates as Delegates
 
 Kirigami.ScrollablePage {
     id: root
@@ -170,19 +171,39 @@ Kirigami.ScrollablePage {
                 }
             }
             ListView {
+                topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
+                bottomMargin: Math.round(Kirigami.Units.smallSpacing / 2)
+
                 model: settings.currentIgnoreList
-                delegate: Kirigami.BasicListItem {
-                    label: model.modelData
-                    trailing: QQC2.ToolButton {
-                        icon.name: "delete"
-                        onClicked: {
-                            remove(modelData)
-                            if (instantApply) {
-                                settings.save();
-                            }
+                delegate: Delegates.RoundedItemDelegate {
+                    id: wordDelegate
+
+                    required property var modelData
+
+                    text: modelData
+
+                    contentItem: RowLayout {
+                        spacing: Kirigami.Units.smallSpacing
+
+                        Delegates.DefaultContentItem {
+                            itemDelegate: wordDelegate
+                            Layout.fillWidth: true
                         }
-                        QQC2.ToolTip {
-                            text: i18n("Delete word")
+
+                        QQC2.ToolButton {
+                            text: i18nc("@action:button", "Delete word")
+                            icon.name: "delete"
+                            display: QQC2.ToolButton.IconOnly
+                            onClicked: {
+                                remove(wordDelegate.modelData);
+                                if (instantApply) {
+                                    settings.save();
+                                }
+                            }
+
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.visible: hovered
+                            QQC2.ToolTip.delay: Kirigami.ToolTip.toolTipDelay
                         }
                     }
                 }

@@ -52,13 +52,17 @@ Delegates.RoundedItemDelegate {
     }
 
     contentItem: RowLayout {
+        spacing: Kirigami.Units.smallSpacing
+
         Components.Avatar {
             Layout.preferredWidth: Kirigami.Units.gridUnit * 2
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+            Layout.alignment: Qt.AlignTop
 
             source: root.avatarUrl
             name: root.displayName
         }
+
         ColumnLayout {
             Layout.fillWidth: true
             RowLayout {

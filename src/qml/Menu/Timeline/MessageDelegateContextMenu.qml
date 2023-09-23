@@ -6,7 +6,8 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
@@ -270,9 +271,9 @@ Loader {
                             id: listViewAction
                             model: actionLayout.actions
 
-                            Kirigami.BasicListItem {
-                                icon: modelData.icon.name
-                                iconColor: modelData.icon.color ?? undefined
+                            FormCard.FormButtonDelegate {
+                                icon.name: modelData.icon.name
+                                icon.color: modelData.icon.color ?? undefined
                                 enabled: modelData.enabled
                                 visible: modelData.visible
                                 text: modelData.text
@@ -280,7 +281,6 @@ Loader {
                                     modelData.triggered()
                                     root.item.close();
                                 }
-                                implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                             }
                         }
                     }
@@ -353,9 +353,9 @@ Loader {
                         id: listViewAction
                         model: root.actions
 
-                        Kirigami.BasicListItem {
-                            icon: modelData.icon.name
-                            iconColor: modelData.icon.color ?? undefined
+                        FormCard.FormButtonDelegate {
+                            icon.name: modelData.icon.name
+                            icon.color: modelData.icon.color ?? undefined
                             enabled: modelData.enabled
                             visible: modelData.visible
                             text: modelData.text
@@ -363,17 +363,15 @@ Loader {
                                 modelData.triggered()
                                 root.item.close();
                             }
-                            implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                         }
                     }
 
                     Repeater {
                         model: root.nestedActions
 
-                        Kirigami.BasicListItem {
+                        FormCard.FormButtonDelegate {
                             action: modelData
                             visible: modelData.visible
-                            implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                             onClicked: {
                                 stackView.push(nestedActionsComponent, {
                                     title: modelData.text,

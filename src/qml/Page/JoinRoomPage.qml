@@ -8,7 +8,7 @@ import QtQuick.Layouts
 import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -92,34 +92,53 @@ Kirigami.ScrollablePage {
                     id: serverListModel
                 }
 
-                delegate: Kirigami.BasicListItem {
+                delegate: Delegates.RoundedItemDelegate {
                     id: serverItem
 
-                    label: isAddServerDelegate ? i18n("Add New Server") : url
-                    subtitle: isHomeServer ? i18n("Home Server") : ""
+                    required property int index
+                    required property string url
+                    required property bool isAddServerDelegate
+                    required property bool isHomeServer
+                    required property bool isDeletable
+
+                    text: isAddServerDelegate ? i18n("Add New Server") : url
+                    highlighted: false
+
+                    topInset: index === 0 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
+                    bottomInset: index === ListView.view.count - 1 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
 
                     onClicked: if (isAddServerDelegate) {
                         addServerSheet.open()
                     }
 
-                    trailing: QQC2.ToolButton {
-                        visible: isAddServerDelegate || isDeletable
-                        icon.name: isAddServerDelegate ? "list-add" : "dialog-close"
-                        text: i18n("Add new server")
-                        Accessible.name: text
-                        display: QQC2.AbstractButton.IconOnly
+                    contentItem: RowLayout {
+                        spacing: Kirigami.Units.smallSpacing
 
-                        onClicked: {
-                            if (serverField.currentIndex === index && isDeletable) {
-                                serverField.currentIndex = 0
-                                server = serverField.currentValue
-                                serverField.popup.close()
-                            }
-                            if (isAddServerDelegate) {
-                                addServerSheet.open()
-                                serverItem.clicked()
-                            } else {
-                                serverListModel.removeServerAtIndex(index)
+                        Delegates.SubtitleContentItem {
+                            itemDelegate: serverItem
+                            subtitle: serverItem.isHomeServer ? i18n("Home Server") : ""
+                            Layout.fillWidth: true
+                        }
+
+                        QQC2.ToolButton {
+                            visible: serverItem.isAddServerDelegate || serverItem.isDeletable
+                            icon.name: serverItem.isAddServerDelegate ? "list-add" : "dialog-close"
+                            text: i18nc("@action:button", "Add new server")
+                            Accessible.name: text
+                            display: QQC2.AbstractButton.IconOnly
+
+                            onClicked: {
+                                if (serverField.currentIndex === serverItem.index && serverItem.isDeletable) {
+                                    serverField.currentIndex = 0;
+                                    server = serverField.currentValue;
+                                    serverField.popup.close();
+                                }
+                                if (serverItem.isAddServerDelegate) {
+                                    addServerSheet.open();
+                                    serverItem.clicked();
+                                } else {
+                                    serverListModel.removeServerAtIndex(serverItem.index);
+                                }
                             }
                         }
                     }
@@ -210,8 +229,10 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: publicRoomsListView
-        topMargin: Kirigami.Units.smallSpacing
-        clip: true
+
+        topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
+        bottomMargin: Math.round(Kirigami.Units.smallSpacing / 2)
+
         model: PublicRoomListModel {
             id: publicRoomListModel
 

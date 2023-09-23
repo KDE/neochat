@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import QtQml
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.neochat
 
 Kirigami.Page {
@@ -48,14 +49,16 @@ Kirigami.Page {
             icon: "security-medium-symbolic"
             text: i18n("Waiting for other party to verify.")
         }
-        Kirigami.BasicListItem {
+        Delegates.RoundedItemDelegate {
             id: emojiVerification
-            text: "Emoji Verification"
+            text: i18n("Emoji Verification")
             visible: root.session.state === KeyVerificationSession.READY
-            subtitle: i18n("Compare a set of emoji on both devices")
-            onClicked: {
-                root.session.sendStartSas()
+            contentItem: Delegates.SubtitleContentItem {
+                subtitle: i18n("Compare a set of emoji on both devices")
+                itemDelegate: emojiVerification
             }
+            onClicked: root.session.sendStartSas()
+            anchors.centerIn: parent
         }
         Message {
             visible: root.session.state === KeyVerificationSession.DONE

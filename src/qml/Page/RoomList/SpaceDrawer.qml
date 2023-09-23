@@ -100,7 +100,7 @@ QQC2.Control {
                             text: displayName
                             source: avatar ? ("image://mxc/" + avatar) : ""
 
-                            onClicked: root.selectedSpaceId = roomId
+                            onSelected: root.selectedSpaceId = roomId
                             checked: root.selectedSpaceId === roomId
                             onContextMenuRequested: root.createContextMenu(currentRoom)
                         }

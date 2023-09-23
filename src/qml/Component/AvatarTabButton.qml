@@ -16,6 +16,7 @@ Delegates.RoundedItemDelegate {
     required property url source
 
     signal contextMenuRequested()
+    signal selected()
 
     padding: Kirigami.Units.largeSpacing
 
@@ -23,14 +24,21 @@ Delegates.RoundedItemDelegate {
     QQC2.ToolTip.text: text
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
+    Accessible.onPressAction: selected();
+    Keys.onSpacePressed: selected();
+    Keys.onEnterPressed: selected();
+
     onPressAndHold: root.contextMenuRequested()
 
     TapHandler {
-        acceptedButtons: Qt.RightButton
-        acceptedDevices: PointerDevice.Mouse
-        grabPermissions: PointerHandler.TakeOverForbidden
-        gesturePolicy: TapHandler.WithinBounds
-        onTapped: root.contextMenuRequested()
+        acceptedButtons: Qt.RightButton | Qt.LeftButton
+        onTapped: (eventPoint, button) => {
+            if (button === Qt.RightButton) {
+                root.contextMenuRequested();
+            } else {
+                root.selected();
+            }
+        }
     }
 
     contentItem: KirigamiComponents.Avatar {
