@@ -10,9 +10,9 @@
  *
  * This class is designed to define the DelegateType enumeration.
  */
-class DelegateType
+class DelegateType : public QObject
 {
-    Q_GADGET
+    Q_OBJECT
 
 public:
     /**
