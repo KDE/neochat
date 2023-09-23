@@ -171,7 +171,7 @@ PushNotificationSection::Section PushRuleModel::getSection(Quotient::PushRule ru
         if (!testUserId.startsWith(u'@')) {
             testUserId.prepend(u'@');
         }
-        if (connection->user(testUserId) != nullptr) {
+        if (testUserId.startsWith(u'@') && !Quotient::serverPart(testUserId).isEmpty() && connection->user(testUserId) != nullptr) {
             return PushNotificationSection::Undefined;
         }
         // If the rule has push conditions and one is a room ID it is a room only keyword.
