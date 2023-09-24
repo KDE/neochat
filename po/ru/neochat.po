@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 01:45+0000\n"
+"POT-Creation-Date: 2023-09-24 01:43+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -467,17 +467,17 @@ msgstr "Назначение"
 msgid "Network Error"
 msgstr "Ошибка соединения"
 
-#: src/main.cpp:180
+#: src/main.cpp:133
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:182
+#: src/main.cpp:135
 #, kde-format
 msgid "Matrix client"
 msgstr "Клиент Matrix"
 
-#: src/main.cpp:184
+#: src/main.cpp:137
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
@@ -485,80 +485,80 @@ msgstr ""
 "© Black Hat 2018-2020\n"
 "© Сообщество KDE 2020-2022"
 
-#: src/main.cpp:185
+#: src/main.cpp:138
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
+#: src/main.cpp:138 src/main.cpp:139 src/main.cpp:140
 #, kde-format
 msgid "Maintainer"
 msgstr "Сопровождающий"
 
-#: src/main.cpp:186
+#: src/main.cpp:139
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:187
+#: src/main.cpp:140
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:188
+#: src/main.cpp:141
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:188
+#: src/main.cpp:141
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Первоначальный автор Spectral"
 
-#: src/main.cpp:189
+#: src/main.cpp:142
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Алексей Русаков"
 
-#: src/main.cpp:189
+#: src/main.cpp:142
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Сопровождающий Quotient"
 
-#: src/main.cpp:190
+#: src/main.cpp:143
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Александр Яворский, Павел Чернышов, Олеся Герасименко"
 
-#: src/main.cpp:190
+#: src/main.cpp:143
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kekcuha@gmail.com, farline99@yandex.ru, translation-team@basealt.ru"
 
-#: src/main.cpp:194
+#: src/main.cpp:147
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Библиотека Qt5 для написания кроссплатформенных клиентов Matrix"
 
-#: src/main.cpp:196
+#: src/main.cpp:149
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (собрано с версией %2)"
 
-#: src/main.cpp:340
+#: src/main.cpp:216
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клиент для протокола связи Matrix"
 
-#: src/main.cpp:341
+#: src/main.cpp:217
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Адрес, соответствующий схеме Matrix"
 
-#: src/main.cpp:342
+#: src/main.cpp:218
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1011,13 +1011,13 @@ msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " и"
 
-#: src/models/reactionmodel.cpp:52
+#: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " и "
 
-#: src/models/reactionmodel.cpp:59
+#: src/models/reactionmodel.cpp:92
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1027,7 +1027,7 @@ msgstr[1] " и ещё %1"
 msgstr[2] " и ещё %1"
 msgstr[3] " и ещё %1"
 
-#: src/models/reactionmodel.cpp:63
+#: src/models/reactionmodel.cpp:96
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1105,9 +1105,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:100
+#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
+#: src/qml/HoverActions.qml:109 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
@@ -1147,589 +1146,388 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr ""
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:30
+#: src/qml/About.qml:10
+#, kde-format
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "О приложении NeoChat"
+
+#: src/qml/AboutKDE.qml:7
+#, kde-format
+msgctxt "@title:window"
+msgid "About KDE"
+msgstr "О KDE"
+
+#: src/qml/AccountEditorPage.qml:19
+#, kde-format
+msgid "Edit Account"
+msgstr "Редактировать учётную запись"
+
+#: src/qml/AccountEditorPage.qml:61
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgid "Upload new avatar"
+msgstr "Изменить изображение"
+
+#: src/qml/AccountEditorPage.qml:78
+#, kde-format
+msgid "Remove current avatar"
+msgstr "Убрать текущее изображение"
+
+#: src/qml/AccountEditorPage.qml:101
+#, kde-format
+msgid "User information"
+msgstr "Информация о пользователе"
+
+#: src/qml/AccountEditorPage.qml:106
+#, kde-format
+msgid "Name:"
+msgstr "Имя:"
+
+#: src/qml/AccountEditorPage.qml:112
+#, kde-format
+msgid "Label:"
+msgstr "Метка:"
+
+#: src/qml/AccountEditorPage.qml:117 src/qml/AccountEditorPage.qml:170
+#: src/qml/EmoticonEditorPage.qml:110 src/qml/General.qml:106
+#, kde-format
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/qml/AccountEditorPage.qml:133
+#: src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/qml/NetworkProxyPage.qml:88 src/qml/Password.qml:31
+#, kde-format
+msgid "Password"
+msgstr "Пароль"
+
+#: src/qml/AccountEditorPage.qml:138
+#, kde-format
+msgid "Your server doesn't support changing your password"
+msgstr "Сервер не позволяет сменить пароль"
+
+#: src/qml/AccountEditorPage.qml:143
+#, kde-format
+msgid "Current Password:"
+msgstr "Текущий пароль:"
+
+#: src/qml/AccountEditorPage.qml:150
+#, kde-format
+msgid "New Password:"
+msgstr "Новый пароль:"
+
+#: src/qml/AccountEditorPage.qml:157
+#, kde-format
+msgid "Confirm new Password:"
+msgstr "Проверка нового пароля:"
+
+#: src/qml/AccountEditorPage.qml:162
+#, kde-format
+msgid "Passwords don't match"
+msgstr "Пароли не совпадают"
+
+#: src/qml/AccountEditorPage.qml:176
+#, kde-format
+msgid "Passwords do not match"
+msgstr "Пароли не совпадают"
+
+#: src/qml/AccountEditorPage.qml:184
+#, kde-format
+msgid "Server Information"
+msgstr "Информация о сервере"
+
+#: src/qml/AccountEditorPage.qml:188
+#, kde-format
+msgid "Homeserver url"
+msgstr "Адрес домашнего сервера"
+
+#: src/qml/AccountEditorPage.qml:209
+#, fuzzy, kde-format
+#| msgid "Account editor"
+msgctxt "@title"
+msgid "Account Management"
+msgstr "Редактирование учётной записи"
+
+#: src/qml/AccountEditorPage.qml:214
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate Account"
+msgstr "Редактировать учётную запись"
+
+#: src/qml/AccountEditorPage.qml:215
+#, kde-format
+msgctxt "@title"
+msgid "Confirm Deactivating Account"
+msgstr ""
+
+#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:178
+#, kde-format
+msgid "Edit this account"
+msgstr "Изменить эту учётную запись"
+
+#: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
+#: src/qml/UserInfo.qml:172
+#, kde-format
+msgid "Account editor"
+msgstr "Редактирование учётной записи"
+
+#: src/qml/AccountMenu.qml:30
+#, fuzzy, kde-format
+msgid "Notification settings"
+msgstr "Уведомления комнаты"
+
+#: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:395 src/qml/UserInfo.qml:238
+#, kde-format
+msgid "Configure"
+msgstr "Параметры"
+
+#: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
+#: src/qml/SettingsPage.qml:69
+#, kde-format
+msgid "Devices"
+msgstr "Устройства"
+
+#: src/qml/AccountMenu.qml:50 src/qml/AccountsPage.qml:72
+#, kde-format
+msgid "Logout"
+msgstr "Завершить сеанс"
+
+#: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
+#: src/qml/SettingsPage.qml:38
+#, kde-format
+msgid "Accounts"
+msgstr "Учётные записи"
+
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Add Account"
+msgstr "Добавить учётную запись"
+
+#: src/qml/AccountsPage.qml:115
+#, kde-format
+msgid "Password changed successfully"
+msgstr "Пароль успешно изменён"
+
+#: src/qml/AccountsPage.qml:117
+#, kde-format
+msgid "Wrong password entered"
+msgstr "Введён неверный пароль"
+
+#: src/qml/AccountsPage.qml:119
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "При попытке сменить пароль произошла ошибка"
+
+#: src/qml/AppearanceSettingsPage.qml:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "Внешний вид"
+
+#: src/qml/AppearanceSettingsPage.qml:22
+#, kde-format
+msgid "General theme"
+msgstr "Общее оформление"
+
+#: src/qml/AppearanceSettingsPage.qml:114
+#, kde-format
+msgid "Bubbles"
+msgstr "Пузыри"
+
+#: src/qml/AppearanceSettingsPage.qml:183
+#, kde-format
+msgid "Compact"
+msgstr "Компактное"
+
+#: src/qml/AppearanceSettingsPage.qml:203
+#, kde-format
+msgid "Use compact room list"
+msgstr "Компактный список комнат"
+
+#: src/qml/AppearanceSettingsPage.qml:225
+#, kde-format
+msgid "Show fancy effects in chat"
+msgstr "Графические эффекты в чате"
+
+#: src/qml/AppearanceSettingsPage.qml:239
+#, kde-format
+msgid "Use transparent chat page"
+msgstr "Прозрачная страница чата"
+
+#: src/qml/AppearanceSettingsPage.qml:257
+#, kde-format
+msgid "Transparency"
+msgstr "Прозрачность"
+
+#: src/qml/AppearanceSettingsPage.qml:274
+#, kde-format
+msgid "Only enabled if the transparent chat page is enabled."
+msgstr "Доступно только при включении параметра «прозрачная страница чата»"
+
+#: src/qml/AppearanceSettingsPage.qml:287
+#, kde-format
+msgid "Show your messages on the right"
+msgstr "Свои сообщения справа"
+
+#: src/qml/AppearanceSettingsPage.qml:300
+#, kde-format
+msgid "Show links preview in the chat messages"
+msgstr "Предварительный просмотр ссылок из сообщений"
+
+#: src/qml/AppearanceSettingsPage.qml:311
+#, kde-format
+msgid "Show Avatar"
+msgstr "Изображение пользователя"
+
+#: src/qml/AppearanceSettingsPage.qml:315
+#, kde-format
+msgid "In chat"
+msgstr "В чате"
+
+#: src/qml/AppearanceSettingsPage.qml:325
+#, kde-format
+msgid "In sidebar"
+msgstr "В боковой панели"
+
+#: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "Вложение:"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:91
-#: src/qml/Page/ImageEditorPage.qml:21
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:103
+#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:93
 #, kde-format
 msgid "Edit"
 msgstr "Изменить"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:62
+#: src/qml/AttachmentPane.qml:62
 #, kde-format
 msgid "Cancel sending attachment"
 msgstr "Отменить отправку вложения"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:66
+#: src/qml/BanSheet.qml:18
+#, kde-format
+msgid "Ban User"
+msgstr "Заблокировать пользователя"
+
+#: src/qml/BanSheet.qml:22
+#, kde-format
+msgid "Reason for banning this user"
+msgstr "Причина для блокировки этого пользователя"
+
+#: src/qml/BanSheet.qml:34
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "Заблокировать"
+
+#: src/qml/BanSheet.qml:43 src/qml/InviteUserPage.qml:24
+#: src/qml/RemoveSheet.qml:49 src/qml/ReportSheet.qml:43
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/qml/Categories.qml:21 src/qml/General.qml:22 src/qml/SettingsPage.qml:20
+#, kde-format
+msgid "General"
+msgstr "Общие"
+
+#: src/qml/Categories.qml:33 src/qml/Security.qml:17
+#, kde-format
+msgid "Security"
+msgstr "Безопасность"
+
+#: src/qml/Categories.qml:44
+#, kde-format
+msgid "Permissions"
+msgstr "Разрешения"
+
+#: src/qml/Categories.qml:55 src/qml/SettingsPage.qml:32
+#, kde-format
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: src/qml/ChatBar.qml:67
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Вложить изображение или файл"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:93
+#: src/qml/ChatBar.qml:94
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:110
+#: src/qml/ChatBar.qml:111
 #, fuzzy, kde-format
 msgid "Send a Location"
 msgstr "Отправить приглашение"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:124
+#: src/qml/ChatBar.qml:125
 #, kde-format
 msgid "Send message"
 msgstr "Отправить сообщение"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:171
+#: src/qml/ChatBar.qml:172
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Отправить зашифрованное сообщение…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:171
+#: src/qml/ChatBar.qml:172
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Задать подпись для вложения…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:171
+#: src/qml/ChatBar.qml:172
 #, kde-format
 msgid "Send a message…"
 msgstr "Введите текст сообщения…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:354
+#: src/qml/ChatBar.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Отменить ответ"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:549
+#: src/qml/ChatBar.qml:550
 #, kde-format
 msgid "Choose local file"
 msgstr "Выберите файл на компьютере"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:577
+#: src/qml/ChatBar.qml:578
 #, kde-format
 msgid "Clipboard image"
 msgstr "Изображение из буфера обмена"
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:22
-#, fuzzy, kde-format
-msgid "Choose a Location"
-msgstr "Выберите файл на компьютере"
-
-#: src/qml/Component/ChatBox/LocationChooser.qml:27
-#, fuzzy, kde-format
-msgid "Send this location"
-msgstr "Отправлять уведомления о наборе текста"
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:23
-#, kde-format
-msgid "Bold"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:42
-#, kde-format
-msgid "Italic"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:61
-#, kde-format
-msgid "Strikethrough"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:80
-#, kde-format
-msgid "Code block"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:99
-#, kde-format
-msgid "Quote"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:118
-#, kde-format
-msgid "Insert link"
-msgstr ""
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:33
-#, kde-format
-msgid "Replying to:"
-msgstr "Ответ на:"
-
-#: src/qml/Component/Devtools/RoomData.qml:20
+#: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
 msgctxt "@title"
-msgid "Choose Room"
+msgid "Choose a Room"
 msgstr "Выберите файл на компьютере"
 
-#: src/qml/Component/Devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room"
-msgstr "Комнаты"
-
-#: src/qml/Component/Devtools/RoomData.qml:37
-#, fuzzy, kde-format
-#| msgid "Room ID"
-msgid "Room Id: %1"
-msgstr "Идентификатор комнаты"
-
-#: src/qml/Component/Devtools/RoomData.qml:40
-#, fuzzy, kde-format
-#| msgid "Show name change events"
-msgid "Show m.room.member events"
-msgstr "Показывать смену имён"
-
-#: src/qml/Component/Devtools/RoomData.qml:52
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "Show room account data"
-msgstr "Не найдено ни одной комнаты"
-
-#: src/qml/Component/Devtools/RoomData.qml:58
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "Room Account Data"
-msgstr "Не найдено ни одной комнаты"
-
-#: src/qml/Component/Devtools/RoomData.qml:69
-#: src/qml/Component/Devtools/RoomData.qml:95
-#: src/qml/Menu/Timeline/MessageSourceSheet.qml:21
+#: src/qml/ColorScheme.qml:15
 #, kde-format
-msgid "Event Source"
-msgstr "Исходный код события"
-
-#: src/qml/Component/Devtools/RoomData.qml:77
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
-msgid "Room State"
-msgstr "Просмотр событий комнаты «%1»"
-
-#: src/qml/Component/Devtools/ServerData.qml:20
-#, kde-format
-msgid "Server Capabilities"
-msgstr ""
-
-#: src/qml/Component/Devtools/ServerData.qml:24
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
-msgid "Can change password"
-msgstr "Проверка нового пароля:"
-
-#: src/qml/Component/Devtools/ServerData.qml:29
-#, fuzzy, kde-format
-#| msgid "Default permissions"
-msgid "Default Room Version"
-msgstr "Стандартные разрешения"
-
-#: src/qml/Component/Devtools/ServerData.qml:37
-#, fuzzy, kde-format
-#| msgid "Room version"
-msgid "Available Room Versions"
-msgstr "Версия комнаты"
-
-#: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
-msgid "No stickers"
-msgstr "отправил(а) наклейку"
-
-#: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, kde-format
-msgid "No emojis"
-msgstr "Не найдено ни одного эмодзи"
-
-#: src/qml/Component/Emoji/EmojiPicker.qml:52
-#: src/qml/Settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "No emojis"
-msgid "Emojis"
-msgstr "Не найдено ни одного эмодзи"
-
-#: src/qml/Component/Emoji/EmojiPicker.qml:59
-#: src/qml/Settings/EmoticonsPage.qml:27
-#, kde-format
-msgid "Stickers"
-msgstr ""
-
-#: src/qml/Component/FullScreenMap.qml:23
-#, fuzzy, kde-format
-msgid "View Location"
-msgstr "Отправить приглашение"
-
-#: src/qml/Component/FullScreenMap.qml:65
-#, kde-format
-msgid "Close"
-msgstr "Закрыть"
-
-#: src/qml/Component/HoverActions.qml:85
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Это сообщение было отправлено с проверенного устройства"
-
-#: src/qml/Component/HoverActions.qml:98
-#, kde-format
-msgid "React"
-msgstr "Реакция"
-
-#: src/qml/Component/InvitationView.qml:17
-#, kde-format
-msgid "Accept this invitation?"
-msgstr "Принять приглашение?"
-
-#: src/qml/Component/InvitationView.qml:21
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject and ignore user"
-msgstr "Перестать игнорировать этого пользователя"
-
-#: src/qml/Component/InvitationView.qml:30
-#, kde-format
-msgid "Reject"
-msgstr "Отклонить"
-
-#: src/qml/Component/InvitationView.qml:37
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
-#, kde-format
-msgid "Accept"
-msgstr "Принять"
-
-#: src/qml/Component/LocationPage.qml:16
-#: src/qml/RoomDrawer/RoomInformation.qml:124
-#, fuzzy, kde-format
-#| msgid "Notifications"
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "Уведомления"
-
-#: src/qml/Component/LocationPage.qml:51
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
-msgid "There are no locations shared in this room."
-msgstr "Вы уже находитесь в этой комнате."
-
-#: src/qml/Component/Login/Email.qml:19
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr ""
-
-#: src/qml/Component/Login/Email.qml:31
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
-msgid "Confirm e-mail address"
-msgstr "Подтвердить новое отображаемое имя"
-
-#: src/qml/Component/Login/Email.qml:33
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-
-#: src/qml/Component/Login/Email.qml:38
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr ""
-
-#: src/qml/Component/Login/Homeserver.qml:19
-#, fuzzy, kde-format
-#| msgid "Server URL"
-msgid "Server Url:"
-msgstr "Адрес сервера"
-
-#: src/qml/Component/Login/Homeserver.qml:24
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr ""
-
-#: src/qml/Component/Login/Homeserver.qml:39
-#: src/qml/Component/Login/Username.qml:36
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgid "Loading"
-msgstr "Загрузка..."
-
-#: src/qml/Component/Login/Loading.qml:15
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr "Дождитесь завершения выполняемого действия…"
-
-#: src/qml/Component/Login/Login.qml:24
-#, kde-format
-msgid "Matrix ID:"
-msgstr "Идентификатор Matrix:"
-
-#: src/qml/Component/Login/Login.qml:26
-#, fuzzy, kde-format
-#| msgid "Matrix ID:"
-msgid "Matrix ID"
-msgstr "Идентификатор Matrix:"
-
-#: src/qml/Component/Login/Login.qml:37 src/qml/Page/WelcomePage.qml:113
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "Продолжить"
-
-#: src/qml/Component/Login/Login.qml:37 src/qml/Page/LoadingPage.qml:8
-#, kde-format
-msgid "Loading…"
-msgstr "Загрузка..."
-
-#: src/qml/Component/Login/Login.qml:37
-#, kde-format
-msgid "Already logged in"
-msgstr "Вход уже выполнен"
-
-#: src/qml/Component/Login/LoginMethod.qml:18
-#, fuzzy, kde-format
-#| msgid "Login with password"
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "Войти по паролю"
-
-#: src/qml/Component/Login/LoginMethod.qml:24
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr "Использовать SSO"
-
-#: src/qml/Component/Login/LoginRegister.qml:20
-#: src/qml/Component/Login/Password.qml:40
-#, kde-format
-msgctxt "@action:button"
-msgid "Login"
-msgstr "Войти"
-
-#: src/qml/Component/Login/LoginRegister.qml:25
-#, fuzzy, kde-format
-#| msgid "Register"
-msgctxt "@action:button"
-msgid "Register"
-msgstr "Зарегистрироваться"
-
-#: src/qml/Component/Login/Password.qml:27
-#: src/qml/Component/Login/RegisterPassword.qml:18
-#: src/qml/Settings/DevicesPage.qml:71
-#, kde-format
-msgid "Password:"
-msgstr "Пароль:"
-
-#: src/qml/Component/Login/Password.qml:31
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:29
-#: src/qml/Settings/AccountEditorPage.qml:133
-#: src/qml/Settings/NetworkProxyPage.qml:87
-#, kde-format
-msgid "Password"
-msgstr "Пароль"
-
-#: src/qml/Component/Login/Password.qml:32
-#, fuzzy, kde-format
-#| msgid "Enter your password"
-msgid "Invalid username or password"
-msgstr "Введите свой пароль:"
-
-#: src/qml/Component/Login/RegisterPassword.qml:28
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
-msgid "Confirm Password:"
-msgstr "Проверка нового пароля:"
-
-#: src/qml/Component/Login/RegisterPassword.qml:31
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
-msgid "The passwords do not match."
-msgstr "Пароли не совпадают"
-
-#: src/qml/Component/Login/Sso.qml:30
-#, fuzzy, kde-format
-#| msgid "Complete the authentication steps in your browser"
-msgid "Continue the login process in your browser."
-msgstr "Завершите вход в браузере"
-
-#: src/qml/Component/Login/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr ""
-
-#: src/qml/Component/Login/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr ""
-
-#: src/qml/Component/Login/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr ""
-
-#: src/qml/Component/Login/Username.qml:18
-#, fuzzy, kde-format
-#| msgid "User"
-msgid "Username:"
-msgstr "Пользователь"
-
-#: src/qml/Component/Login/Username.qml:21
-#, fuzzy, kde-format
-#| msgid "No users available"
-msgid "Username unavailable"
-msgstr "Нет ни одного пользователя"
-
-#: src/qml/Component/Timeline/EncryptedDelegate.qml:19
-#: src/qml/Component/Timeline/ReplyComponent.qml:196
-#, kde-format
-msgid ""
-"This message is encrypted and the sender has not shared the key with this "
-"device."
-msgstr ""
-"Это сообщение зашифровано, и отправитель не поделился ключом с этим "
-"устройством."
-
-#: src/qml/Component/Timeline/FileDelegate.qml:75
-#: src/qml/Component/Timeline/FileDelegate.qml:166
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to download its file"
-msgid "Download"
-msgstr "Загрузить"
-
-#: src/qml/Component/Timeline/FileDelegate.qml:91
-#: src/qml/Component/Timeline/FileDelegate.qml:157
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to open its downloaded "
-"file with an appropriate application"
-msgid "Open File"
-msgstr "Открыть файл"
-
-#: src/qml/Component/Timeline/FileDelegate.qml:106
-#, kde-format
-msgctxt "file download progress"
-msgid "%1 / %2"
-msgstr "%1 / %2"
-
-#: src/qml/Component/Timeline/FileDelegate.qml:111
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; stops downloading the message's file"
-msgid "Stop Download"
-msgstr "Остановить загрузку"
-
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:115
-#, kde-format
-msgid "Shrink preview"
-msgstr "Уменьшить область предварительного просмотра"
-
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:115
-#, kde-format
-msgid "Expand preview"
-msgstr "Увеличить область предварительного просмотра"
-
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:140
-#, kde-format
-msgid "Loading URL preview"
-msgstr "Загрузка предпросмотра содержимого по ссылке"
-
-#: src/qml/Component/Timeline/MessageEditComponent.qml:76
-#, kde-format
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "Подтвердить изменение"
-
-#: src/qml/Component/Timeline/MessageEditComponent.qml:88
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel edit"
-msgstr "Отменить изменение"
-
-#: src/qml/Component/Timeline/PollDelegate.qml:60
-#, kde-format
-msgid "Based on votes by %1 user"
-msgid_plural "Based on votes by %1 users"
-msgstr[0] "Основано на голосах %1 пользователя"
-msgstr[1] "Основано на голосах %1 пользователей"
-msgstr[2] "Основано на голосах %1 пользователей"
-msgstr[3] "Основано на голосе %1 пользователя"
-
-#: src/qml/Component/Timeline/PollDelegate.qml:60
-#, kde-format
-msgctxt "as in 'this vote has ended'"
-msgid "(Ended)"
-msgstr "(Завершено)"
-
-#: src/qml/Component/Timeline/ReadMarkerDelegate.qml:32
-#, kde-format
-msgctxt "Relative time since the room was last read"
-msgid "Last read: %1"
-msgstr "Последнее сообщение прочитано: %1"
-
-#: src/qml/Component/Timeline/VideoDelegate.qml:141
-#, kde-format
-msgid "Video"
-msgstr "Видео"
-
-#: src/qml/Component/Timeline/VideoDelegate.qml:205
-#, kde-format
-msgctxt "@action:button"
-msgid "Volume"
-msgstr "Громкость"
-
-#: src/qml/Component/Timeline/VideoDelegate.qml:289
-#, kde-format
-msgid "Maximize"
-msgstr ""
-
-#: src/qml/Component/TimelineView.qml:150
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "Перейти к первому непрочитанному сообщению"
-
-#: src/qml/Component/TimelineView.qml:173
-#, kde-format
-msgid "Jump to latest message"
-msgstr "Перейти к последнему сообщению"
-
-#: src/qml/Component/TimelineView.qml:199
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "Чтобы опубликовать файла, перетащите их сюда"
-
-#: src/qml/Component/TimelineView.qml:207
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 набирают сообщение"
-msgstr[1] "%2 набирают сообщение"
-msgstr[2] "%2 набирают сообщение"
-msgstr[3] "%2 набирает сообщение"
-
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:16
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
+msgid "Color theme"
+msgstr "Цветовая схема"
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:16
+#: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@title"
 msgid "Deactivate Account"
 msgstr "Редактировать учётную запись"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:23
+#: src/qml/ConfirmDeactivateAccountDialog.qml:23
 #, fuzzy, kde-format
 #| msgid "Warning: %1"
 msgctxt "@title"
 msgid "Warning"
 msgstr "Предупреждение: %1"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:24
+#: src/qml/ConfirmDeactivateAccountDialog.qml:24
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -1738,81 +1536,163 @@ msgid ""
 "Your messages will stay available."
 msgstr ""
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:34
+#: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate account"
 msgstr "Редактировать учётную запись"
 
-#: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
-#: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
+#: src/qml/ConfirmEncryptionDialog.qml:19
+#: src/qml/ConfirmEncryptionDialog.qml:38
 #, kde-format
 msgid "Activate Encryption"
 msgstr "Включить шифрование"
 
-#: src/qml/Dialog/ConfirmEncryptionDialog.qml:22
+#: src/qml/ConfirmEncryptionDialog.qml:22
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr "Отключить шифрование после его включения будет невозможно."
 
-#: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
-#: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
+#: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
+#: src/qml/ImageEditorPage.qml:126
 #, kde-format
 msgid "Cancel"
 msgstr "Отмена"
 
-#: src/qml/Dialog/ConfirmLogout.qml:18 src/qml/Dialog/ConfirmLogout.qml:37
+#: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
 #, kde-format
 msgid "Sign out"
 msgstr "Выход из учётной записи"
 
-#: src/qml/Dialog/ConfirmLogout.qml:21
+#: src/qml/ConfirmLogoutDialog.qml:21
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Выйти из учётной записи?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:13
-#: src/qml/Page/RoomList/ExploreComponent.qml:43
+#: src/qml/ContextMenu.qml:31
+#, kde-format
+msgid "Open in New Window"
+msgstr "Открыть в новом окне"
+
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "Убрать из избранного"
+
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
+#, kde-format
+msgid "Add to Favourites"
+msgstr "Добавить в избранное"
+
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
+#, kde-format
+msgid "Reprioritize"
+msgstr "Повысить приоритет"
+
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
+#, kde-format
+msgid "Deprioritize"
+msgstr "Понизить приоритет"
+
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
+#, kde-format
+msgid "Mark as Read"
+msgstr "Отметить как прочитанное"
+
+#: src/qml/ContextMenu.qml:60
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "Скопировать идентификатор Matrix пользователя в буфер обмена"
+
+#: src/qml/ContextMenu.qml:60 src/qml/SpaceListContextMenu.qml:36
+#: src/qml/SpaceListContextMenu.qml:116
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Скопировать адрес в буфер обмена"
+
+#: src/qml/ContextMenu.qml:72
+#, kde-format
+msgid "Notification State"
+msgstr "Уведомления"
+
+#: src/qml/ContextMenu.qml:75
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "По умолчанию"
+
+#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:35
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "Все уведомления"
+
+#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:43
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "Упоминания (@) и ключевые слова"
+
+#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:51
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "Отключить уведомления"
+
+#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
+#: src/qml/RoomDrawerPage.qml:47
+#, kde-format
+msgid "Room Settings"
+msgstr "Параметры комнаты"
+
+#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:214
+#, kde-format
+msgid "Leave Room"
+msgstr "Покинуть комнату"
+
+#: src/qml/CreateRoomDialog.qml:13 src/qml/ExploreComponent.qml:43
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Создать комнату"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:20
+#: src/qml/CreateRoomDialog.qml:20
 #, fuzzy, kde-format
 #| msgid "Room Information"
 msgctxt "@title"
 msgid "Room Information"
 msgstr "Информация о комнате"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:25 src/qml/RoomSettings/General.qml:72
+#: src/qml/CreateRoomDialog.qml:25 src/qml/General.qml:72
 #, kde-format
 msgid "Room name:"
 msgstr "Название комнаты:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:31 src/qml/RoomSettings/General.qml:82
+#: src/qml/CreateRoomDialog.qml:31 src/qml/General.qml:82
 #, kde-format
 msgid "Room topic:"
 msgstr "Тема комнаты:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:37 src/qml/Page/JoinRoomPage.qml:184
+#: src/qml/CreateRoomDialog.qml:37 src/qml/JoinRoomPage.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "ОК"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:16
-#: src/qml/Page/RoomList/ExploreComponent.qml:48
+#: src/qml/CreateSpaceDialog.qml:16 src/qml/ExploreComponent.qml:48
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
 msgid "Create a Space"
 msgstr "Покинуть пространство"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:21
-#: src/qml/Page/RoomList/ExploreComponent.qml:51
+#: src/qml/CreateSpaceDialog.qml:21 src/qml/ExploreComponent.qml:51
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -1820,26 +1700,202 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Покинуть пространство"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:26
+#: src/qml/CreateSpaceDialog.qml:26
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Space members"
 msgid "Space name"
 msgstr "Участники пространства"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:30
+#: src/qml/CreateSpaceDialog.qml:30
 #, kde-format
 msgid "Space topic (optional)"
 msgstr ""
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:33
+#: src/qml/CreateSpaceDialog.qml:33
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
 msgid "Create space"
 msgstr "Покинуть пространство"
 
-#: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
+#: src/qml/DeviceDelegate.qml:50
+#, kde-format
+msgctxt "@label"
+msgid "%1, Last activity: %2"
+msgstr ""
+
+#: src/qml/DeviceDelegate.qml:59
+#, kde-format
+msgid "New device name"
+msgstr "Новое имя устройства"
+
+#: src/qml/DeviceDelegate.qml:68
+#, kde-format
+msgid "Cancel editing display name"
+msgstr "Отменить изменение отображаемого имени"
+
+#: src/qml/DeviceDelegate.qml:75
+#, kde-format
+msgid "Confirm new display name"
+msgstr "Подтвердить новое отображаемое имя"
+
+#: src/qml/DeviceDelegate.qml:90
+#, kde-format
+msgid "Edit device name"
+msgstr "Редактировать имя устройства"
+
+#: src/qml/DeviceDelegate.qml:104
+#, kde-format
+msgid "Verify device"
+msgstr "Верифицировать устройство"
+
+#: src/qml/DeviceDelegate.qml:119
+#, kde-format
+msgid "Logout device"
+msgstr "Отключить устройство от учётной записи"
+
+#: src/qml/DevicesPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "This Device"
+msgstr "Устройства"
+
+#: src/qml/DevicesPage.qml:32
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgid "Verified Devices"
+msgstr "Верифицировать устройство"
+
+#: src/qml/DevicesPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgid "Unverified Devices"
+msgstr "Верифицировать устройство"
+
+#: src/qml/DevicesPage.qml:42
+#, kde-format
+msgid "Devices without Encryption Support"
+msgstr ""
+
+#: src/qml/DevicesPage.qml:57
+#, kde-format
+msgid "Please login to view the signed-in devices for your account."
+msgstr ""
+"Для просмотра списка устройств, подключённых к учётной записи, необходимо "
+"войти в систему."
+
+#: src/qml/DevicesPage.qml:67
+#, kde-format
+msgid "Remove device"
+msgstr "Удалить устройство"
+
+#: src/qml/DevicesPage.qml:71 src/qml/Password.qml:27
+#: src/qml/RegisterPassword.qml:18
+#, kde-format
+msgid "Password:"
+msgstr "Пароль:"
+
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:334
+#: src/qml/PowerLevelDialog.qml:43
+#, kde-format
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:83
+#, kde-format
+msgid "Developer Tools"
+msgstr "Инструменты разработчика"
+
+#: src/qml/EditMenu.qml:15
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Undo"
+msgstr "Отменить"
+
+#: src/qml/EditMenu.qml:25
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Redo"
+msgstr "Повторить"
+
+#: src/qml/EditMenu.qml:38
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Cut"
+msgstr "Вырезать"
+
+#: src/qml/EditMenu.qml:48
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Copy"
+msgstr "Копировать"
+
+#: src/qml/EditMenu.qml:58
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Paste"
+msgstr "Вставить"
+
+#: src/qml/EditMenu.qml:68
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Delete"
+msgstr "Удалить"
+
+#: src/qml/EditMenu.qml:81
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Select All"
+msgstr "Выделить все"
+
+#: src/qml/Email.qml:19
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr ""
+
+#: src/qml/Email.qml:31
+#, fuzzy, kde-format
+#| msgid "Confirm new display name"
+msgid "Confirm e-mail address"
+msgstr "Подтвердить новое отображаемое имя"
+
+#: src/qml/Email.qml:33
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+
+#: src/qml/Email.qml:38
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr ""
+
+#: src/qml/EmojiGrid.qml:83
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "No stickers"
+msgstr "отправил(а) наклейку"
+
+#: src/qml/EmojiGrid.qml:83
+#, kde-format
+msgid "No emojis"
+msgstr "Не найдено ни одного эмодзи"
+
+#: src/qml/EmojiPicker.qml:52 src/qml/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "No emojis"
+msgid "Emojis"
+msgstr "Не найдено ни одного эмодзи"
+
+#: src/qml/EmojiPicker.qml:59 src/qml/EmoticonsPage.qml:27
+#, kde-format
+msgid "Stickers"
+msgstr ""
+
+#: src/qml/EmojiSas.qml:23
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -1847,297 +1903,967 @@ msgstr ""
 "Подтвердите, что приведённые ниже эмодзи отображаются на обоих устройствах в "
 "одинаковом порядке."
 
-#: src/qml/Dialog/KeyVerification/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
 msgstr "Они совпадают"
 
-#: src/qml/Dialog/KeyVerification/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
 msgstr "Они не совпадают"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:15
+#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "отправил(а) наклейку"
+
+#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "отправил(а) наклейку"
+
+#: src/qml/EmoticonEditorPage.qml:28 src/qml/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Добавить эмоджи..."
+
+#: src/qml/EmoticonEditorPage.qml:28 src/qml/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Добавить эмоджи..."
+
+#: src/qml/EmoticonEditorPage.qml:31
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "Sticker"
+msgstr "отправил(а) наклейку"
+
+#: src/qml/EmoticonEditorPage.qml:31
+#, fuzzy, kde-format
+#| msgid "No emojis"
+msgid "Emoji"
+msgstr "Не найдено ни одного эмодзи"
+
+#: src/qml/EmoticonEditorPage.qml:60
+#, fuzzy, kde-format
+#| msgid "Change the room name"
+msgid "Change Image"
+msgstr "Изменять имя комнаты"
+
+#: src/qml/EmoticonEditorPage.qml:60
+#, kde-format
+msgid "Set Image"
+msgstr ""
+
+#: src/qml/EmoticonEditorPage.qml:100
+#, kde-format
+msgid "Shortcode:"
+msgstr ""
+
+#: src/qml/EmoticonEditorPage.qml:105
+#, fuzzy, kde-format
+#| msgctxt "The location being downloaded to"
+#| msgid "Destination"
+msgid "Description:"
+msgstr "Назначение"
+
+#: src/qml/EmoticonFormCard.qml:71
+#, fuzzy, kde-format
+#| msgctxt "The location being downloaded to"
+#| msgid "Destination"
+msgctxt "As in 'This sticker/emoji has no description'"
+msgid "No Description"
+msgstr "Назначение"
+
+#: src/qml/EmoticonFormCard.qml:112
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgid "Add Emoji"
+msgstr "Добавить эмоджи..."
+
+#: src/qml/EmoticonFormCard.qml:112
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "Add Sticker"
+msgstr "отправил(а) наклейку"
+
+#: src/qml/EmoticonsPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Stickers & Emojis"
+msgstr ""
+
+#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:196
+#, kde-format
+msgid ""
+"This message is encrypted and the sender has not shared the key with this "
+"device."
+msgstr ""
+"Это сообщение зашифровано, и отправитель не поделился ключом с этим "
+"устройством."
+
+#: src/qml/ExploreComponent.qml:21 src/qml/RoomListPage.qml:164
+#, kde-format
+msgid "Explore rooms"
+msgstr "Просмотреть комнаты"
+
+#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/RoomListPage.qml:170
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Обзор комнат"
+
+#: src/qml/ExploreComponent.qml:35 src/qml/GlobalMenu.qml:49
+#: src/qml/GlobalMenu.qml:54 src/qml/StartChatPage.qml:20
+#, kde-format
+msgid "Start a Chat"
+msgstr "Начать чат"
+
+#: src/qml/ExploreComponent.qml:37
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@title"
+msgid "Start a Chat"
+msgstr "Начать чат"
+
+#: src/qml/ExploreComponent.qml:40
+#, kde-format
+msgid "Create a Room"
+msgstr "Создать комнату"
+
+#: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
+#, kde-format
+msgid "Create rooms and chats"
+msgstr "Создать комнаты и чаты"
+
+#: src/qml/ExplorerDelegate.qml:81
+#, kde-format
+msgid "Joined"
+msgstr "Присоединился(лась)"
+
+#: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to download its file"
+msgid "Download"
+msgstr "Загрузить"
+
+#: src/qml/FileDelegate.qml:92 src/qml/FileDelegate.qml:158
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to open its downloaded "
+"file with an appropriate application"
+msgid "Open File"
+msgstr "Открыть файл"
+
+#: src/qml/FileDelegate.qml:107
+#, kde-format
+msgctxt "file download progress"
+msgid "%1 / %2"
+msgstr "%1 / %2"
+
+#: src/qml/FileDelegate.qml:112
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; stops downloading the message's file"
+msgid "Stop Download"
+msgstr "Остановить загрузку"
+
+#: src/qml/FileDelegateContextMenu.qml:43
+#, kde-format
+msgid "Open Externally"
+msgstr "Открывать во внешней программе"
+
+#: src/qml/FileDelegateContextMenu.qml:50
+#, kde-format
+msgid "Save As"
+msgstr "Сохранить как"
+
+#: src/qml/FileDelegateContextMenu.qml:68
+#: src/qml/MessageDelegateContextMenu.qml:136
+#, kde-format
+msgid "Copy"
+msgstr "Копировать"
+
+#: src/qml/FileDelegateContextMenu.qml:76
+#: src/qml/MessageDelegateContextMenu.qml:127
+#, kde-format
+msgid "Remove"
+msgstr "Удалить"
+
+#: src/qml/FileDelegateContextMenu.qml:80
+#: src/qml/MessageDelegateContextMenu.qml:131
+#, kde-format
+msgctxt "@title"
+msgid "Remove Message"
+msgstr "Удаление сообщения"
+
+#: src/qml/FileDelegateContextMenu.qml:85
+#: src/qml/MessageDelegateContextMenu.qml:141 src/qml/ReportSheet.qml:34
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "Пожаловаться"
+
+#: src/qml/FileDelegateContextMenu.qml:89
+#: src/qml/MessageDelegateContextMenu.qml:145
+#, kde-format
+msgctxt "@title"
+msgid "Report Message"
+msgstr "Жалоба на сообщение"
+
+#: src/qml/FileDelegateContextMenu.qml:94
+#: src/qml/MessageDelegateContextMenu.qml:151
+#, kde-format
+msgid "View Source"
+msgstr "Исходный код"
+
+#: src/qml/FullScreenMap.qml:23
+#, fuzzy, kde-format
+msgid "View Location"
+msgstr "Отправить приглашение"
+
+#: src/qml/FullScreenMap.qml:65
+#, kde-format
+msgid "Close"
+msgstr "Закрыть"
+
+#: src/qml/General.qml:25
+#, kde-format
+msgid "Room Information"
+msgstr "Информация о комнате"
+
+#: src/qml/General.qml:47
+#, kde-format
+msgid "Update avatar"
+msgstr "Изменить изображение"
+
+#: src/qml/General.qml:121
+#, kde-format
+msgid "Room ID"
+msgstr "Идентификатор комнаты"
+
+#: src/qml/General.qml:126
+#, kde-format
+msgid "Copy room ID to clipboard"
+msgstr "Скопировать идентификатор комнаты в буфер обмена"
+
+#: src/qml/General.qml:140
+#, kde-format
+msgid "Room version"
+msgstr "Версия комнаты"
+
+#: src/qml/General.qml:146
+#, kde-format
+msgid "Upgrade Room"
+msgstr "Обновить комнату"
+
+#: src/qml/General.qml:165
+#, kde-format
+msgid "Aliases"
+msgstr "Псевдонимы"
+
+#: src/qml/General.qml:170
+#, kde-format
+msgid "No canonical alias set"
+msgstr "Канонический псевдоним не задан"
+
+#: src/qml/General.qml:183
+#, kde-format
+msgid "Make this alias the room's canonical alias"
+msgstr "Назначить этот псевдоним каноническим псевдонимом комнаты"
+
+#: src/qml/General.qml:198
+#, kde-format
+msgid "Delete alias"
+msgstr "Удалить псевдоним"
+
+#: src/qml/General.qml:223
+#, kde-format
+msgid "#new_alias:server.org"
+msgstr "#новый_псевдоним:server.org"
+
+#: src/qml/General.qml:240
+#, kde-format
+msgid "Add new alias"
+msgstr "Создать псевдоним"
+
+#: src/qml/General.qml:260
+#, kde-format
+msgid "URL Previews"
+msgstr "Предпросмотр содержимого по ссылкам"
+
+#: src/qml/General.qml:264
+#, kde-format
+msgid "Enable URL previews by default for room members"
+msgstr ""
+"По умолчанию включить предпросмотр содержимого по ссылкам для участников "
+"комнат"
+
+#: src/qml/General.qml:272
+#, kde-format
+msgid "Enable URL previews"
+msgstr "Включить предпросмотр содержимого по ссылкам"
+
+#: src/qml/General.qml:274
+#, kde-format
+msgid "URL previews are enabled by default in this room"
+msgstr ""
+"Для этой комнаты по умолчанию включён предпросмотр содержимого по ссылкам"
+
+#: src/qml/General.qml:274
+#, kde-format
+msgid "URL previews are disabled by default in this room"
+msgstr ""
+"Для этой комнаты по умолчанию отключён предпросмотр содержимого по ссылкам"
+
+#: src/qml/General.qml:285
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "В этой комнате продолжается другой разговор."
+
+#: src/qml/General.qml:289
+#, kde-format
+msgid "See older messages…"
+msgstr "Посмотреть более старые сообщения…"
+
+#: src/qml/General.qml:299
+#, kde-format
+msgid "This room has been replaced."
+msgstr "Эта комната была заменена."
+
+#: src/qml/General.qml:303
+#, kde-format
+msgid "See new room…"
+msgstr "Посмотреть новую комнату…"
+
+#: src/qml/General.qml:324
+#, kde-format
+msgid "Upgrade the Room"
+msgstr "Обновление комнаты"
+
+#: src/qml/General.qml:328
+#, kde-format
+msgid "Select new version"
+msgstr "Выберите новую версию"
+
+#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "General"
+msgstr "Общие"
+
+#: src/qml/GeneralSettingsPage.qml:18
+#, kde-format
+msgid "General settings"
+msgstr "Основные параметры"
+
+#: src/qml/GeneralSettingsPage.qml:24
+#, fuzzy, kde-format
+#| msgid "Close to system tray"
+msgid "Show in System Tray"
+msgstr "Сворачивать в системный лоток"
+
+#: src/qml/GeneralSettingsPage.qml:38
+#, kde-format
+msgid "Minimize to system tray on startup"
+msgstr "Сворачивать в системный лоток при запуске"
+
+#: src/qml/GeneralSettingsPage.qml:52
+#, kde-format
+msgid "Automatically hide/unhide the room information when resizing the window"
+msgstr ""
+"Автоматически показывать и скрывать информацию о комнате при изменении "
+"размера окна"
+
+#: src/qml/GeneralSettingsPage.qml:63
+#, kde-format
+msgid "Timeline Events"
+msgstr "Лента событий"
+
+#: src/qml/GeneralSettingsPage.qml:68
+#, kde-format
+msgid "Show deleted messages"
+msgstr "Показывать удалённые сообщения"
+
+#: src/qml/GeneralSettingsPage.qml:81
+#, kde-format
+msgid "Show state events"
+msgstr "Показывать события состояния"
+
+#: src/qml/GeneralSettingsPage.qml:98
+#, kde-format
+msgid "Show leave and join events"
+msgstr "Показывать входы и выходы"
+
+#: src/qml/GeneralSettingsPage.qml:116
+#, kde-format
+msgid "Show name change events"
+msgstr "Показывать смену имён"
+
+#: src/qml/GeneralSettingsPage.qml:134
+#, kde-format
+msgid "Show avatar update events"
+msgstr "Показывать обновления изображений пользователей"
+
+#: src/qml/GeneralSettingsPage.qml:144
+#, kde-format
+msgid "Rooms and private chats"
+msgstr "Комнаты и личные чаты"
+
+#: src/qml/GeneralSettingsPage.qml:148
+#, kde-format
+msgid "Separated"
+msgstr "Раздельно"
+
+#: src/qml/GeneralSettingsPage.qml:157
+#, kde-format
+msgid "Intermixed"
+msgstr "Вместе"
+
+#: src/qml/GeneralSettingsPage.qml:167
+#, kde-format
+msgctxt "Chat Editor"
+msgid "Editor"
+msgstr "Редактор"
+
+#: src/qml/GeneralSettingsPage.qml:172
+#, kde-format
+msgid "Use s/text/replacement syntax to edit your last message"
+msgstr ""
+"Использовать синтаксис «s/текст/замена» для редактирования последнего "
+"сообщения"
+
+#: src/qml/GeneralSettingsPage.qml:183
+#, kde-format
+msgid "Send typing notifications"
+msgstr "Отправлять уведомления о наборе текста"
+
+#: src/qml/GeneralSettingsPage.qml:193
+#, kde-format
+msgid "Developer Settings"
+msgstr "Параметры для разработчиков"
+
+#: src/qml/GeneralSettingsPage.qml:197
+#, kde-format
+msgid "Enable developer tools"
+msgstr "Включить инструменты для разработчиков"
+
+#: src/qml/GlobalMenu.qml:20
+#, kde-format
+msgctxt "menu"
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/qml/GlobalMenu.qml:27
+#, kde-format
+msgid "Configure NeoChat..."
+msgstr "Настроить NeoChat…"
+
+#: src/qml/GlobalMenu.qml:28
+#, kde-format
+msgctxt "menu"
+msgid "Configure NeoChat..."
+msgstr "Настроить NeoChat…"
+
+#: src/qml/GlobalMenu.qml:38
+#, kde-format
+msgctxt "menu"
+msgid "Quit NeoChat"
+msgstr "Выйти из NeoChat"
+
+#: src/qml/GlobalMenu.qml:45
+#, kde-format
+msgctxt "menu"
+msgid "File"
+msgstr "Файл"
+
+#: src/qml/GlobalMenu.qml:48
+#, kde-format
+msgctxt "menu"
+msgid "New Private Chat…"
+msgstr "Новый личный чат…"
+
+#: src/qml/GlobalMenu.qml:53
+#, kde-format
+msgctxt "menu"
+msgid "New Group…"
+msgstr "Создать группу…"
+
+#: src/qml/GlobalMenu.qml:62
+#, kde-format
+msgctxt "menu"
+msgid "Browse Chats…"
+msgstr "Обзор чатов…"
+
+#: src/qml/GlobalMenu.qml:76
+#, kde-format
+msgctxt "menu"
+msgid "Edit"
+msgstr "Изменить"
+
+#: src/qml/GlobalMenu.qml:80
+#, kde-format
+msgctxt "menu"
+msgid "View"
+msgstr "Вид"
+
+#: src/qml/GlobalMenu.qml:83
+#, kde-format
+msgctxt ""
+"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"a fast keyboard-based interface for switching in between chats."
+msgid "Open Quick Switcher"
+msgstr "Открыть диалог быстрого переключения"
+
+#: src/qml/GlobalMenu.qml:89
+#, kde-format
+msgctxt "menu"
+msgid "Window"
+msgstr "Окно"
+
+#: src/qml/GlobalMenu.qml:96
+#, kde-format
+msgctxt "menu"
+msgid "Exit Full Screen"
+msgstr "Выйти из полноэкранного режима"
+
+#: src/qml/GlobalMenu.qml:96
+#, kde-format
+msgctxt "menu"
+msgid "Enter Full Screen"
+msgstr "Полноэкранный режим"
+
+#: src/qml/GlobalMenu.qml:102
+#, kde-format
+msgctxt "menu"
+msgid "Help"
+msgstr "Справка"
+
+#: src/qml/GlobalMenu.qml:105
+#, kde-format
+msgctxt "menu"
+msgid "Matrix FAQ"
+msgstr "Часто задаваемые вопросы о Matrix"
+
+#: src/qml/GlobalNotificationsPage.qml:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: src/qml/GlobalNotificationsPage.qml:22
+#, kde-format
+msgid "Enable notifications for this account"
+msgstr "Включить уведомления для этой учётной записи"
+
+#: src/qml/GlobalNotificationsPage.qml:23
+#, kde-format
+msgid "Whether push notifications are generated by your Matrix server"
+msgstr "Создаёт ли сервер Matrix push-уведомления"
+
+#: src/qml/GlobalNotificationsPage.qml:33
+#, kde-format
+msgid "Room Notifications"
+msgstr "Уведомления в комнатах"
+
+#: src/qml/GlobalNotificationsPage.qml:50
+#, kde-format
+msgid "@Mentions"
+msgstr "Упоминания (@)"
+
+#: src/qml/GlobalNotificationsPage.qml:67 src/qml/PushNotification.qml:61
+#, kde-format
+msgid "Keywords"
+msgstr "Ключевые слова"
+
+#: src/qml/GlobalNotificationsPage.qml:91 src/qml/PushNotification.qml:96
+#, kde-format
+msgid "Keyword…"
+msgstr "Добавить ключевое слово…"
+
+#: src/qml/GlobalNotificationsPage.qml:110 src/qml/PushNotification.qml:115
+#, kde-format
+msgid "Add keyword"
+msgstr "Добавить ключевое слово"
+
+#: src/qml/GlobalNotificationsPage.qml:131
+#, kde-format
+msgid "Invites"
+msgstr "Приглашения"
+
+#: src/qml/GlobalNotificationsPage.qml:148
+#, fuzzy, kde-format
+#| msgid "Unknown event"
+msgid "Unknown"
+msgstr "Неизвестное событие"
+
+#: src/qml/GroupChatDrawerHeader.qml:61
+#, kde-format
+msgid "No name"
+msgstr "Без имени"
+
+#: src/qml/GroupChatDrawerHeader.qml:81
+#, kde-format
+msgid "No Topic"
+msgstr "Тема не задана"
+
+#: src/qml/Homeserver.qml:19
+#, fuzzy, kde-format
+#| msgid "Server URL"
+msgid "Server Url:"
+msgstr "Адрес сервера"
+
+#: src/qml/Homeserver.qml:24
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr ""
+
+#: src/qml/Homeserver.qml:39 src/qml/Username.qml:36
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Загрузка..."
+
+#: src/qml/HoverActions.qml:85
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Это сообщение было отправлено с проверенного устройства"
+
+#: src/qml/HoverActions.qml:98
+#, kde-format
+msgid "React"
+msgstr "Реакция"
+
+#: src/qml/ImageEditorPage.qml:37
+#, kde-format
+msgctxt "@action:button Undo modification"
+msgid "Undo"
+msgstr "Отменить"
+
+#: src/qml/ImageEditorPage.qml:44
+#, kde-format
+msgctxt "@action:button Accept image modification"
+msgid "Accept"
+msgstr "Принять"
+
+#: src/qml/ImageEditorPage.qml:52
+#, kde-format
+msgid ""
+"Unable to save file. Check if you have the correct permission to edit the "
+"cache directory."
+msgstr ""
+"Не удалось сохранить файл. Проверьте, достаточно ли прав доступа для "
+"редактирования файлов в каталоге кэша."
+
+#: src/qml/ImageEditorPage.qml:126 src/qml/ImageEditorPage.qml:143
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "Кадрировать"
+
+#: src/qml/ImageEditorPage.qml:148
+#, kde-format
+msgctxt "@action:button Rotate an image to the left"
+msgid "Rotate left"
+msgstr "Повернуть влево"
+
+#: src/qml/ImageEditorPage.qml:154
+#, kde-format
+msgctxt "@action:button Rotate an image to the right"
+msgid "Rotate right"
+msgstr "Повернуть вправо"
+
+#: src/qml/ImageEditorPage.qml:160
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Перевернуть"
+
+#: src/qml/ImageEditorPage.qml:166
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Отразить"
+
+#: src/qml/InvitationView.qml:17
+#, kde-format
+msgid "Accept this invitation?"
+msgstr "Принять приглашение?"
+
+#: src/qml/InvitationView.qml:21
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr "Перестать игнорировать этого пользователя"
+
+#: src/qml/InvitationView.qml:30
+#, kde-format
+msgid "Reject"
+msgstr "Отклонить"
+
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#, kde-format
+msgid "Accept"
+msgstr "Принять"
+
+#: src/qml/InviteUserPage.qml:19
+#, kde-format
+msgid "Invite a User"
+msgstr "Пригласить пользователя"
+
+#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#, kde-format
+msgid "Find a user..."
+msgstr "Введите имя пользователя…"
+
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:227
+#, kde-format
+msgid "Add"
+msgstr "Добавить"
+
+#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:134
+#, kde-format
+msgid "No users available"
+msgstr "Нет ни одного пользователя"
+
+#: src/qml/InviteUserPage.qml:100
+#, kde-format
+msgid "Send invitation"
+msgstr "Отправить приглашение"
+
+#: src/qml/InviteUserPage.qml:114
+#, kde-format
+msgid "User is either already a member or has been invited"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:38
+#, kde-format
+msgid "Explore Rooms"
+msgstr "Обзор комнат"
+
+#: src/qml/JoinRoomPage.qml:61
+#, kde-format
+msgid "Find a room..."
+msgstr "Введите название комнаты…"
+
+#: src/qml/JoinRoomPage.qml:69
+#, kde-format
+msgid "View"
+msgstr "Просмотреть"
+
+#: src/qml/JoinRoomPage.qml:69
+#, kde-format
+msgid "Join"
+msgstr "Присоединиться"
+
+#: src/qml/JoinRoomPage.qml:104
+#, kde-format
+msgid "Add New Server"
+msgstr "Добавить сервер"
+
+#: src/qml/JoinRoomPage.qml:119
+#, kde-format
+msgid "Home Server"
+msgstr "Домашний сервер"
+
+#: src/qml/JoinRoomPage.qml:126
+#, fuzzy, kde-format
+#| msgid "Add new server"
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "Добавить сервер"
+
+#: src/qml/JoinRoomPage.qml:158
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "Добавление сервера"
+
+#: src/qml/JoinRoomPage.qml:171
+#, kde-format
+msgid "Valid server entered"
+msgstr "Введено допустимое имя сервера"
+
+#: src/qml/JoinRoomPage.qml:171
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr ""
+"Не удалось разрешить имя этого сервера в ip-адрес или этот сервер уже "
+"добавлен"
+
+#: src/qml/JoinRoomPage.qml:171
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "Введённый текст не является допустимым URL"
+
+#: src/qml/JoinRoomPage.qml:171
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr "Введите адрес сервера, например: kde.org"
+
+#: src/qml/JoinRoomPage.qml:179
+#, kde-format
+msgid "Server URL"
+msgstr "Адрес сервера"
+
+#: src/qml/JoinRoomPage.qml:278
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms found"
+msgstr "Не найдено ни одной комнаты"
+
+#: src/qml/KeyVerificationDialog.qml:16
 #, kde-format
 msgid "Session Verification"
 msgstr "Проверка сеанса"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:37
+#: src/qml/KeyVerificationDialog.qml:38
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Ожидается принятие верификации на этом устройстве."
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:43
+#: src/qml/KeyVerificationDialog.qml:44
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Входящий запрос на проверку ключа с устройства **%1**"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:49
+#: src/qml/KeyVerificationDialog.qml:50
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Ожидание подтверждения другой стороной."
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:55
+#: src/qml/KeyVerificationDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Session Verification"
+msgid "Emoji Verification"
+msgstr "Проверка сеанса"
+
+#: src/qml/KeyVerificationDialog.qml:57
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Сравните набор значков на обоих устройствах"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:63
+#: src/qml/KeyVerificationDialog.qml:66
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Устройство **%1** успешно проверено."
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:80
+#: src/qml/KeyVerificationDialog.qml:83
 #, kde-format
 msgid "Decline"
 msgstr "Отказаться"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:19
+#: src/qml/LinkPreviewDelegate.qml:115
 #, kde-format
-msgid "The session verification was canceled for unknown reason."
-msgstr "Проверка сеанса была отменена по неизвестной причине."
+msgid "Shrink preview"
+msgstr "Уменьшить область предварительного просмотра"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:21
+#: src/qml/LinkPreviewDelegate.qml:115
 #, kde-format
-msgid "The session verification timed out."
-msgstr "Истекло допустимое время проверки."
+msgid "Expand preview"
+msgstr "Увеличить область предварительного просмотра"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:23
+#: src/qml/LinkPreviewDelegate.qml:140
 #, kde-format
-msgid "The session verification timed out for remote party."
-msgstr "Истекло допустимое время проверки для удалённой стороны."
+msgid "Loading URL preview"
+msgstr "Загрузка предпросмотра содержимого по ссылке"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:25
+#: src/qml/Loading.qml:15
 #, kde-format
-msgid "You canceled the session verification."
-msgstr "Вы отменили проверку."
+msgid "Please wait. This might take a little while."
+msgstr "Дождитесь завершения выполняемого действия…"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:27
+#: src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
 #, kde-format
-msgid "The remote party canceled the session verification."
-msgstr "Удалённая сторона отменила проверку."
+msgid "Loading…"
+msgstr "Загрузка..."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:29
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an unexpected "
-"message."
-msgstr "Проверка отменена: получено неожиданное сообщение."
+#: src/qml/LocationChooser.qml:22
+#, fuzzy, kde-format
+msgid "Choose a Location"
+msgstr "Выберите файл на компьютере"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:31
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"unexpected message."
-msgstr "Удалённая сторона отменила проверку сеанса: неожиданное сообщение."
+#: src/qml/LocationChooser.qml:27
+#, fuzzy, kde-format
+msgid "Send this location"
+msgstr "Отправлять уведомления о наборе текста"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:33
-#, kde-format
-msgid ""
-"The session verification was canceled because it received a message for an "
-"unknown session."
-msgstr "Проверка отменена: получено сообщение для неизвестного сеанса."
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "Уведомления"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:35
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received a "
-"message for an unknown session."
-msgstr ""
-"Удалённая сторона отменила проверку: получено сообщение для неизвестного "
-"сеанса."
+#: src/qml/LocationsPage.qml:51
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgid "There are no locations shared in this room."
+msgstr "Вы уже находитесь в этой комнате."
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:37
+#: src/qml/Login.qml:24
 #, kde-format
-msgid ""
-"The session verification was canceled because NeoChat is unable to handle "
-"this verification method."
-msgstr "Проверка отменена: NeoChat не может обработать этот метод проверки."
+msgid "Matrix ID:"
+msgstr "Идентификатор Matrix:"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:39
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it is unable to "
-"handle this verification method."
-msgstr ""
-"Удалённая сторона отменила проверку: используемый метод проверки не "
-"поддерживается."
+#: src/qml/Login.qml:26
+#, fuzzy, kde-format
+#| msgid "Matrix ID:"
+msgid "Matrix ID"
+msgstr "Идентификатор Matrix:"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:41
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:114
 #, kde-format
-msgid "The session verification was canceled because the keys are incorrect."
-msgstr "Проверка сеанса была отменена: неверные ключи."
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "Продолжить"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:43
+#: src/qml/Login.qml:37
 #, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys are "
-"incorrect."
-msgstr "Удалённая сторона отменила проверку: неверные ключи."
+msgid "Already logged in"
+msgstr "Вход уже выполнен"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:45
-#, kde-format
-msgid ""
-"The session verification was canceled because it verifies an unexpected user."
-msgstr "Проверка отменена: проверяется неожиданный пользователь."
+#: src/qml/LoginMethod.qml:18
+#, fuzzy, kde-format
+#| msgid "Login with password"
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "Войти по паролю"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:47
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it verifies an "
-"unexpected user."
-msgstr ""
-"Удалённая сторона отменила проверку: проверяется неожиданный пользователь."
+#: src/qml/LoginMethod.qml:24
+#, fuzzy, kde-format
+#| msgid "Login with single sign-on"
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr "Использовать SSO"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:49
+#: src/qml/LoginRegister.qml:20 src/qml/Password.qml:40
 #, kde-format
-msgid ""
-"The session verification was canceled because we received an invalid message."
-msgstr "Проверка отменена: получено недопустимое сообщение."
+msgctxt "@action:button"
+msgid "Login"
+msgstr "Войти"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:51
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"invalid message."
-msgstr "Удалённая сторона отменила проверку: получено недопустимое сообщение."
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:53
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:55
-#, kde-format
-msgid "The session was accepted on a different device"
-msgstr "Сеанс был принят на другом устройстве"
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:57
-#, kde-format
-msgid "The session verification was canceled because of a mismatched key."
-msgstr "Проверка отменена: несоответствующий ключ."
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:59
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because of a mismatched "
-"key."
-msgstr "Удалённая сторона отменила проверку: несоответствующий ключ."
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:61
-#, kde-format
-msgid "The session verification was canceled because the keys do not match."
-msgstr "Проверка отменена: ключи не совпадают."
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:63
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys do not "
-"match."
-msgstr "Удалённая сторона отменила проверку: ключи не совпадают."
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:65
-#, kde-format
-msgid "The session verification was canceled due to an unknown error."
-msgstr "Проверка отменена: произошла неизвестная ошибка."
-
-#: src/qml/Dialog/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Выбор файла"
-
-#: src/qml/Dialog/PowerLevelDialog.qml:14
-#, kde-format
-msgid "Edit user power level"
-msgstr "Изменить уровень возможностей пользователя"
-
-#: src/qml/Dialog/PowerLevelDialog.qml:37
-#: src/qml/RoomSettings/Permissions.qml:69
-#, kde-format
-msgid "Member (0)"
-msgstr "Участник (0)"
-
-#: src/qml/Dialog/PowerLevelDialog.qml:38
-#: src/qml/RoomSettings/Permissions.qml:70
-#, kde-format
-msgid "Moderator (50)"
-msgstr "Модератор (50)"
-
-#: src/qml/Dialog/PowerLevelDialog.qml:39
-#: src/qml/RoomSettings/Permissions.qml:71
-#, kde-format
-msgid "Admin (100)"
-msgstr "Администратор (100)"
-
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:334
-#: src/qml/Settings/DevicesPage.qml:75
-#, kde-format
-msgid "Confirm"
-msgstr "Подтвердить"
-
-#: src/qml/Dialog/UserDetailDialog.qml:31
-#, kde-format
-msgctxt "@title:menu Account detail dialog"
-msgid "Account detail"
-msgstr "Информация о учётной записи"
-
-#: src/qml/Dialog/UserDetailDialog.qml:80
-#, kde-format
-msgid "Unignore this user"
-msgstr "Перестать игнорировать этого пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:80
-#, kde-format
-msgid "Ignore this user"
-msgstr "Игнорировать этого пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:92
-#, kde-format
-msgid "Kick this user"
-msgstr "Выгнать этого пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:105
-#, kde-format
-msgid "Invite this user"
-msgstr "Пригласить этого пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:117
-#, kde-format
-msgid "Ban this user"
-msgstr "Заблокировать этого пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:122
-#, kde-format
-msgctxt "@title"
-msgid "Ban User"
-msgstr "Блокирование пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:133
-#, kde-format
-msgid "Unban this user"
-msgstr "Разблокировать этого пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:145
-#, kde-format
-msgid "Set user power level"
-msgstr "Установить уровень возможностей пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:169
-#, kde-format
-msgid "Remove recent messages by this user"
-msgstr "Удалить последние сообщения этого пользователя"
-
-#: src/qml/Dialog/UserDetailDialog.qml:174
-#, kde-format
-msgctxt "@title"
-msgid "Remove Messages"
-msgstr "Удаление сообщений"
-
-#: src/qml/Dialog/UserDetailDialog.qml:184
-#, kde-format
-msgid "Open a private chat"
-msgstr "Открыть личный чат"
-
-#: src/qml/Dialog/UserDetailDialog.qml:194
-#, kde-format
-msgid "Copy link"
-msgstr "Копировать ссылку"
+#: src/qml/LoginRegister.qml:25
+#, fuzzy, kde-format
+#| msgid "Register"
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Зарегистрироваться"
 
 #: src/qml/main.qml:302
 #, kde-format
@@ -2175,270 +2901,13 @@ msgstr "Начать общение"
 msgid "Do you want to start a chat with %1?"
 msgstr "Начать чат с %1?"
 
-#: src/qml/main.qml:395 src/qml/Menu/GlobalMenu.qml:32
-#: src/qml/Page/RoomList/AccountMenu.qml:36
-#: src/qml/Page/RoomList/AccountMenu.qml:46
-#: src/qml/Page/RoomList/UserInfo.qml:236
-#, kde-format
-msgid "Configure"
-msgstr "Параметры"
-
-#: src/qml/Menu/EditMenu.qml:15
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Undo"
-msgstr "Отменить"
-
-#: src/qml/Menu/EditMenu.qml:25
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Redo"
-msgstr "Повторить"
-
-#: src/qml/Menu/EditMenu.qml:38
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Cut"
-msgstr "Вырезать"
-
-#: src/qml/Menu/EditMenu.qml:48
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Copy"
-msgstr "Копировать"
-
-#: src/qml/Menu/EditMenu.qml:58
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Paste"
-msgstr "Вставить"
-
-#: src/qml/Menu/EditMenu.qml:68
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Delete"
-msgstr "Удалить"
-
-#: src/qml/Menu/EditMenu.qml:81
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Select All"
-msgstr "Выделить все"
-
-#: src/qml/Menu/GlobalMenu.qml:18
-#, kde-format
-msgctxt "menu"
-msgid "NeoChat"
-msgstr "NeoChat"
-
-#: src/qml/Menu/GlobalMenu.qml:25
-#, kde-format
-msgid "Configure NeoChat..."
-msgstr "Настроить NeoChat…"
-
-#: src/qml/Menu/GlobalMenu.qml:26
-#, kde-format
-msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "Настроить NeoChat…"
-
-#: src/qml/Menu/GlobalMenu.qml:36
-#, kde-format
-msgctxt "menu"
-msgid "Quit NeoChat"
-msgstr "Выйти из NeoChat"
-
-#: src/qml/Menu/GlobalMenu.qml:43
-#, kde-format
-msgctxt "menu"
-msgid "File"
-msgstr "Файл"
-
-#: src/qml/Menu/GlobalMenu.qml:46
-#, kde-format
-msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "Новый личный чат…"
-
-#: src/qml/Menu/GlobalMenu.qml:47 src/qml/Menu/GlobalMenu.qml:52
-#: src/qml/Page/RoomList/ExploreComponent.qml:35
-#: src/qml/Page/StartChatPage.qml:20
-#, kde-format
-msgid "Start a Chat"
-msgstr "Начать чат"
-
-#: src/qml/Menu/GlobalMenu.qml:51
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "Создать группу…"
-
-#: src/qml/Menu/GlobalMenu.qml:60
-#, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "Обзор чатов…"
-
-#: src/qml/Menu/GlobalMenu.qml:62 src/qml/Page/RoomList/ExploreComponent.qml:24
-#: src/qml/Page/RoomList/Page.qml:171
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Обзор комнат"
-
-#: src/qml/Menu/GlobalMenu.qml:74
-#, kde-format
-msgctxt "menu"
-msgid "Edit"
-msgstr "Изменить"
-
-#: src/qml/Menu/GlobalMenu.qml:78
-#, kde-format
-msgctxt "menu"
-msgid "View"
-msgstr "Вид"
-
-#: src/qml/Menu/GlobalMenu.qml:81
-#, kde-format
-msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
-"a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "Открыть диалог быстрого переключения"
-
-#: src/qml/Menu/GlobalMenu.qml:87
-#, kde-format
-msgctxt "menu"
-msgid "Window"
-msgstr "Окно"
-
-#: src/qml/Menu/GlobalMenu.qml:94
-#, kde-format
-msgctxt "menu"
-msgid "Exit Full Screen"
-msgstr "Выйти из полноэкранного режима"
-
-#: src/qml/Menu/GlobalMenu.qml:94
-#, kde-format
-msgctxt "menu"
-msgid "Enter Full Screen"
-msgstr "Полноэкранный режим"
-
-#: src/qml/Menu/GlobalMenu.qml:100
-#, kde-format
-msgctxt "menu"
-msgid "Help"
-msgstr "Справка"
-
-#: src/qml/Menu/GlobalMenu.qml:103
-#, kde-format
-msgctxt "menu"
-msgid "Matrix FAQ"
-msgstr "Часто задаваемые вопросы о Matrix"
-
-#: src/qml/Menu/ShareAction.qml:19
-#, kde-format
-msgid "Share"
-msgstr "Опубликовать"
-
-#: src/qml/Menu/ShareAction.qml:20
-#, kde-format
-msgid "Share the selected media"
-msgstr "Опубликовать выбранные файлы"
-
-#: src/qml/Menu/ShareDialog.qml:34
-#, kde-format
-msgid "Sharing failed"
-msgstr "Ошибка публикации"
-
-#: src/qml/Menu/ShareDialog.qml:53
-#, kde-format
-msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr "Ссылка общего доступа для изображения: <a href='%1'>%1</a>"
-
-#: src/qml/Menu/Timeline/BanSheet.qml:18
-#, kde-format
-msgid "Ban User"
-msgstr "Заблокировать пользователя"
-
-#: src/qml/Menu/Timeline/BanSheet.qml:22
-#, kde-format
-msgid "Reason for banning this user"
-msgstr "Причина для блокировки этого пользователя"
-
-#: src/qml/Menu/Timeline/BanSheet.qml:34
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "Заблокировать"
-
-#: src/qml/Menu/Timeline/BanSheet.qml:43
-#: src/qml/Menu/Timeline/RemoveSheet.qml:49
-#: src/qml/Menu/Timeline/ReportSheet.qml:43 src/qml/Page/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Отмена"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:42
-#, kde-format
-msgid "Open Externally"
-msgstr "Открывать во внешней программе"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
-#, kde-format
-msgid "Save As"
-msgstr "Сохранить как"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:67
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:134
-#, kde-format
-msgid "Copy"
-msgstr "Копировать"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:75
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:125
-#, kde-format
-msgid "Remove"
-msgstr "Удалить"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:79
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
-#, kde-format
-msgctxt "@title"
-msgid "Remove Message"
-msgstr "Удаление сообщения"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:139
-#: src/qml/Menu/Timeline/ReportSheet.qml:34
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr "Пожаловаться"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:88
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:143
-#, kde-format
-msgctxt "@title"
-msgid "Report Message"
-msgstr "Жалоба на сообщение"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:93
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
-#, kde-format
-msgid "View Source"
-msgstr "Исходный код"
-
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:108
+#: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:114
+#: src/qml/MessageDelegateContextMenu.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -2446,636 +2915,544 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "Жалоба на сообщение"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:154
+#: src/qml/MessageDelegateContextMenu.qml:156
 #, kde-format
 msgid "Copy Link"
 msgstr "Копировать ссылку"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:200
+#: src/qml/MessageDelegateContextMenu.qml:202
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Поиск «%1»"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:221
+#: src/qml/MessageDelegateContextMenu.qml:223
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Настроить веб-сокращения…"
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:20
+#: src/qml/MessageEditComponent.qml:76
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "Подтвердить изменение"
+
+#: src/qml/MessageEditComponent.qml:88
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "Отменить изменение"
+
+#: src/qml/MessageSourceSheet.qml:21 src/qml/RoomData.qml:69
+#: src/qml/RoomData.qml:95
+#, kde-format
+msgid "Event Source"
+msgstr "Исходный код события"
+
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:63
+#, kde-format
+msgid "Network Proxy"
+msgstr "Тип прокси"
+
+#: src/qml/NetworkProxyPage.qml:26
+#, kde-format
+msgid "System Default"
+msgstr "Заданный в системе"
+
+#: src/qml/NetworkProxyPage.qml:34
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: src/qml/NetworkProxyPage.qml:42
+#, kde-format
+msgid "Socks5"
+msgstr "Socks5"
+
+#: src/qml/NetworkProxyPage.qml:52
+#, kde-format
+msgid "Proxy Settings"
+msgstr "Параметры прокси"
+
+#: src/qml/NetworkProxyPage.qml:57
+#, kde-format
+msgid "Host"
+msgstr "Хост"
+
+#: src/qml/NetworkProxyPage.qml:66
+#, kde-format
+msgid "Port"
+msgstr "Порт"
+
+#: src/qml/NetworkProxyPage.qml:79
+#, kde-format
+msgid "User"
+msgstr "Пользователь"
+
+#: src/qml/NetworkProxyPage.qml:106
+#, kde-format
+msgid "Apply"
+msgstr "Применить"
+
+#: src/qml/NotificationRuleItem.qml:70
+#, kde-format
+msgid "Disable notifications"
+msgstr "Отключить уведомления"
+
+#: src/qml/NotificationRuleItem.qml:70
+#, kde-format
+msgid "Enable notifications"
+msgstr "Включить уведомления"
+
+#: src/qml/NotificationRuleItem.qml:92
+#, kde-format
+msgid "Mute notifications"
+msgstr "Отключить звук уведомлений"
+
+#: src/qml/NotificationRuleItem.qml:92
+#, kde-format
+msgid "Unmute notifications"
+msgstr "Включить звук уведомлений"
+
+#: src/qml/NotificationRuleItem.qml:113
+#, kde-format
+msgctxt ""
+"As in clicking this button will switch off highlights for messages that "
+"match this rule"
+msgid "Disable message highlights"
+msgstr "Отключить подсветку сообщений"
+
+#: src/qml/NotificationRuleItem.qml:113
+#, kde-format
+msgctxt ""
+"As in clicking this button will switch on highlights for messages that match "
+"this rule"
+msgid "Enable message highlights"
+msgstr "Включить подсветку сообщений"
+
+#: src/qml/NotificationRuleItem.qml:135
+#, kde-format
+msgid "Delete keyword"
+msgstr "Удалить ключевое слово"
+
+#: src/qml/OpenFileDialog.qml:12
+#, kde-format
+msgid "Please choose a file"
+msgstr "Выбор файла"
+
+#: src/qml/Password.qml:32
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Invalid username or password"
+msgstr "Введите свой пароль:"
+
+#: src/qml/Permissions.qml:33
+#, kde-format
+msgid "Privileged Users"
+msgstr "Привилегированные пользователи"
+
+#: src/qml/Permissions.qml:69 src/qml/PowerLevelDialog.qml:37
+#, kde-format
+msgid "Member (0)"
+msgstr "Участник (0)"
+
+#: src/qml/Permissions.qml:70 src/qml/PowerLevelDialog.qml:38
+#, kde-format
+msgid "Moderator (50)"
+msgstr "Модератор (50)"
+
+#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:39
+#, kde-format
+msgid "Admin (100)"
+msgstr "Администратор (100)"
+
+#: src/qml/Permissions.qml:230
+#, kde-format
+msgid "Default permissions"
+msgstr "Стандартные разрешения"
+
+#: src/qml/Permissions.qml:235
+#, kde-format
+msgid "Default user power level"
+msgstr "Стандартный уровень возможностей пользователя"
+
+#: src/qml/Permissions.qml:236
+#, kde-format
+msgid "This is power level for all new users when joining the room"
+msgstr ""
+"Это уровень возможностей, предоставляемый всем новым пользователям при входе "
+"в комнату"
+
+#: src/qml/Permissions.qml:244
+#, kde-format
+msgid "Default power level to set the room state"
+msgstr "Стандартный уровень возможностей по установке состояния комнаты"
+
+#: src/qml/Permissions.qml:245
+#, kde-format
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Используется для всех событий состояния, у которых здесь нет своей "
+"собственной записи"
+
+#: src/qml/Permissions.qml:253
+#, kde-format
+msgid "Default power level to send messages"
+msgstr "Стандартный уровень возможностей по отправке сообщений"
+
+#: src/qml/Permissions.qml:254
+#, kde-format
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Используется для всех событий сообщения, у которых здесь нет своей "
+"собственной записи"
+
+#: src/qml/Permissions.qml:265
+#, kde-format
+msgid "Basic permissions"
+msgstr "Базовые разрешения"
+
+#: src/qml/Permissions.qml:270
+#, kde-format
+msgid "Invite users"
+msgstr "Приглашать пользователей"
+
+#: src/qml/Permissions.qml:278
+#, kde-format
+msgid "Kick users"
+msgstr "Выгонять пользователей"
+
+#: src/qml/Permissions.qml:286
+#, kde-format
+msgid "Ban users"
+msgstr "Блокировать пользователей"
+
+#: src/qml/Permissions.qml:294
+#, kde-format
+msgid "Remove message sent by other users"
+msgstr "Удалять сообщения, отправленные другими пользователями"
+
+#: src/qml/Permissions.qml:305
+#, kde-format
+msgid "Event permissions"
+msgstr "Разрешения событий"
+
+#: src/qml/Permissions.qml:310
+#, kde-format
+msgid "Change user permissions"
+msgstr "Изменять разрешения пользователей"
+
+#: src/qml/Permissions.qml:319
+#, kde-format
+msgid "Change the room name"
+msgstr "Изменять имя комнаты"
+
+#: src/qml/Permissions.qml:328
+#, kde-format
+msgid "Change the room avatar"
+msgstr "Изменять изображение комнаты"
+
+#: src/qml/Permissions.qml:337
+#, kde-format
+msgid "Change the room canonical alias"
+msgstr "Изменять канонический псевдоним комнаты"
+
+#: src/qml/Permissions.qml:346
+#, kde-format
+msgid "Change the room topic"
+msgstr "Изменять тему комнаты"
+
+#: src/qml/Permissions.qml:355
+#, kde-format
+msgid "Enable encryption for the room"
+msgstr "Включать шифрование для комнаты"
+
+#: src/qml/Permissions.qml:364
+#, kde-format
+msgid "Change the room history visibility"
+msgstr "Изменять видимость истории комнаты"
+
+#: src/qml/Permissions.qml:373
+#, kde-format
+msgid "Set pinned events"
+msgstr "Устанавливать закреплённые события"
+
+#: src/qml/Permissions.qml:382
+#, kde-format
+msgid "Upgrade the room"
+msgstr "Обновлять комнату"
+
+#: src/qml/Permissions.qml:391
+#, kde-format
+msgid "Set the room server access control list (ACL)"
+msgstr ""
+"Устанавливать список контроля доступа (ACL) для этой комнаты на сервере"
+
+#: src/qml/Permissions.qml:401
+#, kde-format
+msgid "Set the children of this space"
+msgstr "Устанавливать дочерние элементы этого пространства"
+
+#: src/qml/Permissions.qml:410
+#, kde-format
+msgid "Set the parent space of this room"
+msgstr "Устанавливать родительское пространство этой комнаты"
+
+#: src/qml/PollDelegate.qml:60
+#, kde-format
+msgid "Based on votes by %1 user"
+msgid_plural "Based on votes by %1 users"
+msgstr[0] "Основано на голосах %1 пользователя"
+msgstr[1] "Основано на голосах %1 пользователей"
+msgstr[2] "Основано на голосах %1 пользователей"
+msgstr[3] "Основано на голосе %1 пользователя"
+
+#: src/qml/PollDelegate.qml:60
+#, kde-format
+msgctxt "as in 'this vote has ended'"
+msgid "(Ended)"
+msgstr "(Завершено)"
+
+#: src/qml/PowerLevelDialog.qml:14
+#, kde-format
+msgid "Edit user power level"
+msgstr "Изменить уровень возможностей пользователя"
+
+#: src/qml/PushNotification.qml:22
+#, kde-format
+msgid "Room notifications setting"
+msgstr "Уведомления комнаты"
+
+#: src/qml/PushNotification.qml:27
+#, kde-format
+msgid "Follow global setting"
+msgstr "По умолчанию"
+
+#: src/qml/QuickFormatBar.qml:23
+#, kde-format
+msgid "Bold"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:42
+#, kde-format
+msgid "Italic"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:61
+#, kde-format
+msgid "Strikethrough"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:80
+#, kde-format
+msgid "Code block"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:99
+#, kde-format
+msgid "Quote"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:118
+#, kde-format
+msgid "Insert link"
+msgstr ""
+
+#: src/qml/ReadMarkerDelegate.qml:32
+#, kde-format
+msgctxt "Relative time since the room was last read"
+msgid "Last read: %1"
+msgstr "Последнее сообщение прочитано: %1"
+
+#: src/qml/RegisterPassword.qml:28
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgid "Confirm Password:"
+msgstr "Проверка нового пароля:"
+
+#: src/qml/RegisterPassword.qml:31
+#, fuzzy, kde-format
+#| msgid "Passwords do not match"
+msgid "The passwords do not match."
+msgstr "Пароли не совпадают"
+
+#: src/qml/RemoveSheet.qml:20
 #, kde-format
 msgid "Remove Messages"
 msgstr "Удалить сообщения"
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:20
+#: src/qml/RemoveSheet.qml:20
 #, kde-format
 msgid "Remove Message"
 msgstr "Удалить сообщение"
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:24
+#: src/qml/RemoveSheet.qml:24
 #, kde-format
 msgid "Reason for removing this user's recent messages"
 msgstr "Причина удаления последних сообщений этого пользователя"
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:24
+#: src/qml/RemoveSheet.qml:24
 #, kde-format
 msgid "Reason for removing this message"
 msgstr "Причина удаления этого сообщения"
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:36
+#: src/qml/RemoveSheet.qml:36
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:18
+#: src/qml/ReplyPane.qml:33
+#, kde-format
+msgid "Replying to:"
+msgstr "Ответ на:"
+
+#: src/qml/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
 msgstr "Жалоба на сообщение"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:22
+#: src/qml/ReportSheet.qml:22
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Причина жалобы на это сообщение"
 
-#: src/qml/Page/ChooseRoomDialog.qml:16
+#: src/qml/RoomData.qml:20
 #, fuzzy, kde-format
 msgctxt "@title"
-msgid "Choose a Room"
+msgid "Choose Room"
 msgstr "Выберите файл на компьютере"
 
-#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:82
-#, kde-format
-msgid "Developer Tools"
-msgstr "Инструменты разработчика"
+#: src/qml/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room"
+msgstr "Комнаты"
 
-#: src/qml/Page/ExplorerDelegate.qml:77
-#, kde-format
-msgid "Joined"
-msgstr "Присоединился(лась)"
+#: src/qml/RoomData.qml:37
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgid "Room Id: %1"
+msgstr "Идентификатор комнаты"
 
-#: src/qml/Page/ImageEditorPage.qml:37
-#, kde-format
-msgctxt "@action:button Undo modification"
-msgid "Undo"
-msgstr "Отменить"
+#: src/qml/RoomData.qml:40
+#, fuzzy, kde-format
+#| msgid "Show name change events"
+msgid "Show m.room.member events"
+msgstr "Показывать смену имён"
 
-#: src/qml/Page/ImageEditorPage.qml:44
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Принять"
-
-#: src/qml/Page/ImageEditorPage.qml:52
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Не удалось сохранить файл. Проверьте, достаточно ли прав доступа для "
-"редактирования файлов в каталоге кэша."
-
-#: src/qml/Page/ImageEditorPage.qml:126 src/qml/Page/ImageEditorPage.qml:143
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "Кадрировать"
-
-#: src/qml/Page/ImageEditorPage.qml:148
-#, kde-format
-msgctxt "@action:button Rotate an image to the left"
-msgid "Rotate left"
-msgstr "Повернуть влево"
-
-#: src/qml/Page/ImageEditorPage.qml:154
-#, kde-format
-msgctxt "@action:button Rotate an image to the right"
-msgid "Rotate right"
-msgstr "Повернуть вправо"
-
-#: src/qml/Page/ImageEditorPage.qml:160
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "Перевернуть"
-
-#: src/qml/Page/ImageEditorPage.qml:166
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "Отразить"
-
-#: src/qml/Page/InviteUserPage.qml:19
-#, kde-format
-msgid "Invite a User"
-msgstr "Пригласить пользователя"
-
-#: src/qml/Page/InviteUserPage.qml:37 src/qml/Page/StartChatPage.qml:32
-#, kde-format
-msgid "Find a user..."
-msgstr "Введите имя пользователя…"
-
-#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:225
-#, kde-format
-msgid "Add"
-msgstr "Добавить"
-
-#: src/qml/Page/InviteUserPage.qml:70 src/qml/Page/StartChatPage.qml:134
-#, kde-format
-msgid "No users available"
-msgstr "Нет ни одного пользователя"
-
-#: src/qml/Page/InviteUserPage.qml:100
-#, kde-format
-msgid "Send invitation"
-msgstr "Отправить приглашение"
-
-#: src/qml/Page/InviteUserPage.qml:114
-#, kde-format
-msgid "User is either already a member or has been invited"
-msgstr ""
-
-#: src/qml/Page/JoinRoomPage.qml:38
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Обзор комнат"
-
-#: src/qml/Page/JoinRoomPage.qml:61
-#, kde-format
-msgid "Find a room..."
-msgstr "Введите название комнаты…"
-
-#: src/qml/Page/JoinRoomPage.qml:69
-#, kde-format
-msgid "View"
-msgstr "Просмотреть"
-
-#: src/qml/Page/JoinRoomPage.qml:69
-#, kde-format
-msgid "Join"
-msgstr "Присоединиться"
-
-#: src/qml/Page/JoinRoomPage.qml:98
-#, kde-format
-msgid "Add New Server"
-msgstr "Добавить сервер"
-
-#: src/qml/Page/JoinRoomPage.qml:99
-#, kde-format
-msgid "Home Server"
-msgstr "Домашний сервер"
-
-#: src/qml/Page/JoinRoomPage.qml:108
-#, kde-format
-msgid "Add new server"
-msgstr "Добавить сервер"
-
-#: src/qml/Page/JoinRoomPage.qml:139
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "Добавление сервера"
-
-#: src/qml/Page/JoinRoomPage.qml:152
-#, kde-format
-msgid "Valid server entered"
-msgstr "Введено допустимое имя сервера"
-
-#: src/qml/Page/JoinRoomPage.qml:152
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr ""
-"Не удалось разрешить имя этого сервера в ip-адрес или этот сервер уже "
-"добавлен"
-
-#: src/qml/Page/JoinRoomPage.qml:152
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "Введённый текст не является допустимым URL"
-
-#: src/qml/Page/JoinRoomPage.qml:152
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "Введите адрес сервера, например: kde.org"
-
-#: src/qml/Page/JoinRoomPage.qml:160
-#, kde-format
-msgid "Server URL"
-msgstr "Адрес сервера"
-
-#: src/qml/Page/JoinRoomPage.qml:257
+#: src/qml/RoomData.qml:52
 #, fuzzy, kde-format
 #| msgid "No rooms found"
-msgctxt "@info:label"
-msgid "No rooms found"
+msgid "Show room account data"
 msgstr "Не найдено ни одной комнаты"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:21
-#: src/qml/Page/RoomList/UserInfo.qml:176
-#, kde-format
-msgid "Edit this account"
-msgstr "Изменить эту учётную запись"
-
-#: src/qml/Page/RoomList/AccountMenu.qml:26
-#: src/qml/Page/RoomList/UserInfo.qml:170 src/qml/Settings/AccountsPage.qml:35
-#, kde-format
-msgid "Account editor"
-msgstr "Редактирование учётной записи"
-
-#: src/qml/Page/RoomList/AccountMenu.qml:30
+#: src/qml/RoomData.qml:58
 #, fuzzy, kde-format
-msgid "Notification settings"
-msgstr "Уведомления комнаты"
-
-#: src/qml/Page/RoomList/AccountMenu.qml:40 src/qml/Settings/DevicesPage.qml:17
-#: src/qml/Settings/SettingsPage.qml:69
-#, kde-format
-msgid "Devices"
-msgstr "Устройства"
-
-#: src/qml/Page/RoomList/AccountMenu.qml:50
-#: src/qml/Settings/AccountsPage.qml:72
-#, kde-format
-msgid "Logout"
-msgstr "Завершить сеанс"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:31
-#, kde-format
-msgid "Open in New Window"
-msgstr "Открыть в новом окне"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:42
-#: src/qml/Page/RoomList/ContextMenu.qml:186
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "Убрать из избранного"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:42
-#: src/qml/Page/RoomList/ContextMenu.qml:186
-#, kde-format
-msgid "Add to Favourites"
-msgstr "Добавить в избранное"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:48
-#: src/qml/Page/RoomList/ContextMenu.qml:200
-#, kde-format
-msgid "Reprioritize"
-msgstr "Повысить приоритет"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:48
-#: src/qml/Page/RoomList/ContextMenu.qml:200
-#, kde-format
-msgid "Deprioritize"
-msgstr "Понизить приоритет"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:54
-#: src/qml/Page/RoomList/ContextMenu.qml:207
-#, kde-format
-msgid "Mark as Read"
-msgstr "Отметить как прочитанное"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:60
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Скопировать идентификатор Matrix пользователя в буфер обмена"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:60
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:35
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Скопировать адрес в буфер обмена"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:72
-#, kde-format
-msgid "Notification State"
-msgstr "Уведомления"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:75
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "По умолчанию"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:86
-#: src/qml/RoomSettings/PushNotification.qml:35
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Все уведомления"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:97
-#: src/qml/RoomSettings/PushNotification.qml:43
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "Упоминания (@) и ключевые слова"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:108
-#: src/qml/RoomSettings/PushNotification.qml:51
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Отключить уведомления"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:121
-#: src/qml/Page/RoomList/ContextMenu.qml:123
-#: src/qml/Page/RoomList/ContextMenu.qml:193
-#: src/qml/RoomDrawer/RoomDrawer.qml:103
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:47
-#, kde-format
-msgid "Room Settings"
-msgstr "Параметры комнаты"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:129
-#: src/qml/Page/RoomList/ContextMenu.qml:214
-#, kde-format
-msgid "Leave Room"
-msgstr "Покинуть комнату"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:21
-#: src/qml/Page/RoomList/Page.qml:165
-#, kde-format
-msgid "Explore rooms"
-msgstr "Просмотреть комнаты"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:37
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
-msgctxt "@title"
-msgid "Start a Chat"
-msgstr "Начать чат"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, kde-format
-msgid "Create a Room"
-msgstr "Создать комнату"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:71
-#: src/qml/Page/RoomList/ExploreComponent.qml:132
-#, kde-format
-msgid "Create rooms and chats"
-msgstr "Создать комнаты и чаты"
-
-#: src/qml/Page/RoomList/Page.qml:162
-#, kde-format
-msgid "No rooms found"
+#| msgid "No rooms found"
+msgid "Room Account Data"
 msgstr "Не найдено ни одной комнаты"
 
-#: src/qml/Page/RoomList/Page.qml:162
-#, kde-format
-msgid "Join some rooms to get started"
-msgstr "Чтобы начать, войдите в комнату"
-
-#: src/qml/Page/RoomList/Page.qml:165
-#, kde-format
-msgid "Search in room directory"
-msgstr "Искать в каталоге комнат"
-
-#: src/qml/Page/RoomList/Page.qml:218
-#, kde-format
-msgctxt "Collapse <section name>"
-msgid "Collapse %1"
-msgstr ""
-
-#: src/qml/Page/RoomList/Page.qml:218
+#: src/qml/RoomData.qml:77
 #, fuzzy, kde-format
-#| msgid "Expand preview"
-msgctxt "Expand <section name"
-msgid "Expand %1"
-msgstr "Увеличить область предварительного просмотра"
+#| msgid "Room State - %1"
+msgid "Room State"
+msgstr "Просмотр событий комнаты «%1»"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:98
+#: src/qml/RoomDelegate.qml:97
 #, kde-format
 msgid "Muted room"
 msgstr "Уведомления отключены"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:130
+#: src/qml/RoomDelegate.qml:129
 #, kde-format
 msgid "Configure room"
 msgstr "Настроить комнату"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show All Rooms"
-msgid "All Rooms"
-msgstr "Показать все комнаты"
-
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:29
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "View Space"
-msgstr "Просмотреть пространство"
-
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:45
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "Параметры пространств"
-
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:47
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:105
-#, kde-format
-msgid "Space Settings"
-msgstr "Параметры пространств"
-
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:53
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:109
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr "Покинуть пространство"
-
-#: src/qml/Page/RoomList/UserInfo.qml:44 src/qml/Settings/AccountsPage.qml:100
-#, kde-format
-msgid "Add Account"
-msgstr "Добавить учётную запись"
-
-#: src/qml/Page/RoomList/UserInfo.qml:47
-#, kde-format
-msgid "Log in to an existing account"
-msgstr "Войти в существующую учётную запись"
-
-#: src/qml/Page/RoomList/UserInfo.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "Вход в систему"
-
-#: src/qml/Page/RoomList/UserInfo.qml:209
-#, kde-format
-msgid "Switch User"
-msgstr "Сменить учётную запись"
-
-#: src/qml/Page/RoomList/UserInfo.qml:237
-#, kde-format
-msgid "Open Settings"
-msgstr "Настроить"
-
-#: src/qml/Page/RoomPage.qml:52
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr ""
-"NeoChat находится в автономном режиме. Проверьте своё сетевое подключение."
-
-#: src/qml/Page/RoomPage.qml:208
-#, kde-format
-msgid "Message Source"
-msgstr "Исходный код сообщения"
-
-#: src/qml/Page/SearchPage.qml:18
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Поиск сообщений"
-
-#: src/qml/Page/SearchPage.qml:60
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr "Введите текст чтобы начать поиск"
-
-#: src/qml/Page/SearchPage.qml:66
-#, kde-format
-msgid "No results found"
-msgstr "Ничего не найдено"
-
-#: src/qml/Page/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "Чат"
-
-#: src/qml/Page/StartChatPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
-msgid "Join existing chat"
-msgstr "Войти в существующую учётную запись"
-
-#: src/qml/Page/StartChatPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Create rooms and chats"
-msgid "Create new chat"
-msgstr "Создать комнаты и чаты"
-
-#: src/qml/Page/WelcomePage.qml:18
-#, kde-format
-msgid "Welcome"
-msgstr "Добро пожаловать"
-
-#: src/qml/Page/WelcomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
-msgid "Log in to a different account or create a new account."
-msgstr "Войти в существующую учётную запись"
-
-#: src/qml/Page/WelcomePage.qml:44
-#, kde-format
-msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr ""
-
-#: src/qml/Page/WelcomePage.qml:121
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr ""
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:61
-#, kde-format
-msgid "No name"
-msgstr "Без имени"
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
-#, kde-format
-msgid "No Topic"
-msgstr "Тема не задана"
-
-#: src/qml/RoomDrawer/RoomDrawer.qml:100
+#: src/qml/RoomDrawer.qml:101
 #, kde-format
 msgid "Room settings"
 msgstr "Параметры комнаты"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:144
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:82
+#: src/qml/RoomDrawer.qml:145 src/qml/RoomDrawerPage.qml:82
 #, fuzzy, kde-format
 #| msgid "Room Information"
 msgid "Information"
 msgstr "Информация о комнате"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:149
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:87
+#: src/qml/RoomDrawer.qml:150 src/qml/RoomDrawerPage.qml:87
 #, kde-format
 msgid "Media"
 msgstr ""
 
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:45
+#: src/qml/RoomDrawerPage.qml:45
 #, fuzzy, kde-format
 #| msgid "Room Settings"
 msgid "Settings"
 msgstr "Параметры комнаты"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:40
+#: src/qml/RoomInformation.qml:41
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "Информация о комнате"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:66
+#: src/qml/RoomInformation.qml:67
 #, kde-format
 msgid "Options"
 msgstr "Параметры"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:76
+#: src/qml/RoomInformation.qml:77
 #, kde-format
 msgid "Open developer tools"
 msgstr "Открыть инструменты разработчика"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:90
+#: src/qml/RoomInformation.qml:91
 #, kde-format
 msgid "Search in this room"
 msgstr "Искать в этой комнате"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:99
+#: src/qml/RoomInformation.qml:100
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:108
+#: src/qml/RoomInformation.qml:109
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Убрать комнату из избранного"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:108
+#: src/qml/RoomInformation.qml:109
 #, kde-format
 msgid "Make room favorite"
 msgstr "Добавить комнату в избранное"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:120
 #, fuzzy, kde-format
 #| msgid "Search in this room"
 msgid "Show locations for this room"
 msgstr "Искать в этой комнате"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:131
+#: src/qml/RoomInformation.qml:132
 #, kde-format
 msgid "Members"
 msgstr "Участники"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:143
+#: src/qml/RoomInformation.qml:144
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Пригласить пользователя"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:146
+#: src/qml/RoomInformation.qml:147
 #, kde-format
 msgid "Invite user to room"
 msgstr "Пригласить пользователя в комнату"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:153
+#: src/qml/RoomInformation.qml:154
 #, fuzzy, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -3084,333 +3461,74 @@ msgstr[1] "%1 участника"
 msgstr[2] "%1 участников"
 msgstr[3] "%1 участник"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:153
+#: src/qml/RoomInformation.qml:154
 #, fuzzy, kde-format
 msgid "No member count"
 msgstr "Количество участников не подсчитывается"
 
-#: src/qml/RoomDrawer/RoomMedia.qml:28
+#: src/qml/RoomListPage.qml:161
+#, kde-format
+msgid "No rooms found"
+msgstr "Не найдено ни одной комнаты"
+
+#: src/qml/RoomListPage.qml:161
+#, kde-format
+msgid "Join some rooms to get started"
+msgstr "Чтобы начать, войдите в комнату"
+
+#: src/qml/RoomListPage.qml:164
+#, kde-format
+msgid "Search in room directory"
+msgstr "Искать в каталоге комнат"
+
+#: src/qml/RoomListPage.qml:217
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/RoomListPage.qml:217
+#, fuzzy, kde-format
+#| msgid "Expand preview"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Увеличить область предварительного просмотра"
+
+#: src/qml/RoomMedia.qml:28
 #, fuzzy, kde-format
 #| msgid "Room version"
 msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Версия комнаты"
 
-#: src/qml/RoomSettings/Categories.qml:21 src/qml/RoomSettings/General.qml:22
-#: src/qml/Settings/SettingsPage.qml:20
+#: src/qml/RoomPage.qml:53
 #, kde-format
-msgid "General"
-msgstr "Общие"
-
-#: src/qml/RoomSettings/Categories.qml:33 src/qml/RoomSettings/Security.qml:17
-#, kde-format
-msgid "Security"
-msgstr "Безопасность"
-
-#: src/qml/RoomSettings/Categories.qml:44
-#, kde-format
-msgid "Permissions"
-msgstr "Разрешения"
-
-#: src/qml/RoomSettings/Categories.qml:55 src/qml/Settings/SettingsPage.qml:32
-#, kde-format
-msgid "Notifications"
-msgstr "Уведомления"
-
-#: src/qml/RoomSettings/General.qml:25
-#, kde-format
-msgid "Room Information"
-msgstr "Информация о комнате"
-
-#: src/qml/RoomSettings/General.qml:47
-#, kde-format
-msgid "Update avatar"
-msgstr "Изменить изображение"
-
-#: src/qml/RoomSettings/General.qml:106
-#: src/qml/Settings/AccountEditorPage.qml:117
-#: src/qml/Settings/AccountEditorPage.qml:170
-#: src/qml/Settings/EmoticonEditorPage.qml:110
-#, kde-format
-msgid "Save"
-msgstr "Сохранить"
-
-#: src/qml/RoomSettings/General.qml:121
-#, kde-format
-msgid "Room ID"
-msgstr "Идентификатор комнаты"
-
-#: src/qml/RoomSettings/General.qml:126
-#, kde-format
-msgid "Copy room ID to clipboard"
-msgstr "Скопировать идентификатор комнаты в буфер обмена"
-
-#: src/qml/RoomSettings/General.qml:140
-#, kde-format
-msgid "Room version"
-msgstr "Версия комнаты"
-
-#: src/qml/RoomSettings/General.qml:146
-#, kde-format
-msgid "Upgrade Room"
-msgstr "Обновить комнату"
-
-#: src/qml/RoomSettings/General.qml:165
-#, kde-format
-msgid "Aliases"
-msgstr "Псевдонимы"
-
-#: src/qml/RoomSettings/General.qml:170
-#, kde-format
-msgid "No canonical alias set"
-msgstr "Канонический псевдоним не задан"
-
-#: src/qml/RoomSettings/General.qml:183
-#, kde-format
-msgid "Make this alias the room's canonical alias"
-msgstr "Назначить этот псевдоним каноническим псевдонимом комнаты"
-
-#: src/qml/RoomSettings/General.qml:198
-#, kde-format
-msgid "Delete alias"
-msgstr "Удалить псевдоним"
-
-#: src/qml/RoomSettings/General.qml:223
-#, kde-format
-msgid "#new_alias:server.org"
-msgstr "#новый_псевдоним:server.org"
-
-#: src/qml/RoomSettings/General.qml:240
-#, kde-format
-msgid "Add new alias"
-msgstr "Создать псевдоним"
-
-#: src/qml/RoomSettings/General.qml:260
-#, kde-format
-msgid "URL Previews"
-msgstr "Предпросмотр содержимого по ссылкам"
-
-#: src/qml/RoomSettings/General.qml:264
-#, kde-format
-msgid "Enable URL previews by default for room members"
+msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
-"По умолчанию включить предпросмотр содержимого по ссылкам для участников "
-"комнат"
+"NeoChat находится в автономном режиме. Проверьте своё сетевое подключение."
 
-#: src/qml/RoomSettings/General.qml:272
+#: src/qml/RoomPage.qml:209
 #, kde-format
-msgid "Enable URL previews"
-msgstr "Включить предпросмотр содержимого по ссылкам"
+msgid "Message Source"
+msgstr "Исходный код сообщения"
 
-#: src/qml/RoomSettings/General.qml:274
+#: src/qml/SearchPage.qml:18
 #, kde-format
-msgid "URL previews are enabled by default in this room"
-msgstr ""
-"Для этой комнаты по умолчанию включён предпросмотр содержимого по ссылкам"
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Поиск сообщений"
 
-#: src/qml/RoomSettings/General.qml:274
+#: src/qml/SearchPage.qml:60
 #, kde-format
-msgid "URL previews are disabled by default in this room"
-msgstr ""
-"Для этой комнаты по умолчанию отключён предпросмотр содержимого по ссылкам"
+msgid "Enter a text to start searching"
+msgstr "Введите текст чтобы начать поиск"
 
-#: src/qml/RoomSettings/General.qml:285
+#: src/qml/SearchPage.qml:66
 #, kde-format
-msgid "This room continues another conversation."
-msgstr "В этой комнате продолжается другой разговор."
+msgid "No results found"
+msgstr "Ничего не найдено"
 
-#: src/qml/RoomSettings/General.qml:289
-#, kde-format
-msgid "See older messages…"
-msgstr "Посмотреть более старые сообщения…"
-
-#: src/qml/RoomSettings/General.qml:299
-#, kde-format
-msgid "This room has been replaced."
-msgstr "Эта комната была заменена."
-
-#: src/qml/RoomSettings/General.qml:303
-#, kde-format
-msgid "See new room…"
-msgstr "Посмотреть новую комнату…"
-
-#: src/qml/RoomSettings/General.qml:324
-#, kde-format
-msgid "Upgrade the Room"
-msgstr "Обновление комнаты"
-
-#: src/qml/RoomSettings/General.qml:328
-#, kde-format
-msgid "Select new version"
-msgstr "Выберите новую версию"
-
-#: src/qml/RoomSettings/Permissions.qml:33
-#, kde-format
-msgid "Privileged Users"
-msgstr "Привилегированные пользователи"
-
-#: src/qml/RoomSettings/Permissions.qml:230
-#, kde-format
-msgid "Default permissions"
-msgstr "Стандартные разрешения"
-
-#: src/qml/RoomSettings/Permissions.qml:235
-#, kde-format
-msgid "Default user power level"
-msgstr "Стандартный уровень возможностей пользователя"
-
-#: src/qml/RoomSettings/Permissions.qml:236
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-"Это уровень возможностей, предоставляемый всем новым пользователям при входе "
-"в комнату"
-
-#: src/qml/RoomSettings/Permissions.qml:244
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr "Стандартный уровень возможностей по установке состояния комнаты"
-
-#: src/qml/RoomSettings/Permissions.qml:245
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Используется для всех событий состояния, у которых здесь нет своей "
-"собственной записи"
-
-#: src/qml/RoomSettings/Permissions.qml:253
-#, kde-format
-msgid "Default power level to send messages"
-msgstr "Стандартный уровень возможностей по отправке сообщений"
-
-#: src/qml/RoomSettings/Permissions.qml:254
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Используется для всех событий сообщения, у которых здесь нет своей "
-"собственной записи"
-
-#: src/qml/RoomSettings/Permissions.qml:265
-#, kde-format
-msgid "Basic permissions"
-msgstr "Базовые разрешения"
-
-#: src/qml/RoomSettings/Permissions.qml:270
-#, kde-format
-msgid "Invite users"
-msgstr "Приглашать пользователей"
-
-#: src/qml/RoomSettings/Permissions.qml:278
-#, kde-format
-msgid "Kick users"
-msgstr "Выгонять пользователей"
-
-#: src/qml/RoomSettings/Permissions.qml:286
-#, kde-format
-msgid "Ban users"
-msgstr "Блокировать пользователей"
-
-#: src/qml/RoomSettings/Permissions.qml:294
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr "Удалять сообщения, отправленные другими пользователями"
-
-#: src/qml/RoomSettings/Permissions.qml:305
-#, kde-format
-msgid "Event permissions"
-msgstr "Разрешения событий"
-
-#: src/qml/RoomSettings/Permissions.qml:310
-#, kde-format
-msgid "Change user permissions"
-msgstr "Изменять разрешения пользователей"
-
-#: src/qml/RoomSettings/Permissions.qml:319
-#, kde-format
-msgid "Change the room name"
-msgstr "Изменять имя комнаты"
-
-#: src/qml/RoomSettings/Permissions.qml:328
-#, kde-format
-msgid "Change the room avatar"
-msgstr "Изменять изображение комнаты"
-
-#: src/qml/RoomSettings/Permissions.qml:337
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr "Изменять канонический псевдоним комнаты"
-
-#: src/qml/RoomSettings/Permissions.qml:346
-#, kde-format
-msgid "Change the room topic"
-msgstr "Изменять тему комнаты"
-
-#: src/qml/RoomSettings/Permissions.qml:355
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr "Включать шифрование для комнаты"
-
-#: src/qml/RoomSettings/Permissions.qml:364
-#, kde-format
-msgid "Change the room history visibility"
-msgstr "Изменять видимость истории комнаты"
-
-#: src/qml/RoomSettings/Permissions.qml:373
-#, kde-format
-msgid "Set pinned events"
-msgstr "Устанавливать закреплённые события"
-
-#: src/qml/RoomSettings/Permissions.qml:382
-#, kde-format
-msgid "Upgrade the room"
-msgstr "Обновлять комнату"
-
-#: src/qml/RoomSettings/Permissions.qml:391
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr ""
-"Устанавливать список контроля доступа (ACL) для этой комнаты на сервере"
-
-#: src/qml/RoomSettings/Permissions.qml:401
-#, kde-format
-msgid "Set the children of this space"
-msgstr "Устанавливать дочерние элементы этого пространства"
-
-#: src/qml/RoomSettings/Permissions.qml:410
-#, kde-format
-msgid "Set the parent space of this room"
-msgstr "Устанавливать родительское пространство этой комнаты"
-
-#: src/qml/RoomSettings/PushNotification.qml:22
-#, kde-format
-msgid "Room notifications setting"
-msgstr "Уведомления комнаты"
-
-#: src/qml/RoomSettings/PushNotification.qml:27
-#, kde-format
-msgid "Follow global setting"
-msgstr "По умолчанию"
-
-#: src/qml/RoomSettings/PushNotification.qml:61
-#: src/qml/Settings/GlobalNotificationsPage.qml:67
-#, kde-format
-msgid "Keywords"
-msgstr "Ключевые слова"
-
-#: src/qml/RoomSettings/PushNotification.qml:96
-#: src/qml/Settings/GlobalNotificationsPage.qml:91
-#, kde-format
-msgid "Keyword…"
-msgstr "Добавить ключевое слово…"
-
-#: src/qml/RoomSettings/PushNotification.qml:115
-#: src/qml/Settings/GlobalNotificationsPage.qml:110
-#, kde-format
-msgid "Add keyword"
-msgstr "Добавить ключевое слово"
-
-#: src/qml/RoomSettings/Security.qml:15
+#: src/qml/Security.qml:15
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
@@ -3418,89 +3536,89 @@ msgstr ""
 "Чтобы включить этот параметр, необходимо обновить комнату до более новой "
 "версии."
 
-#: src/qml/RoomSettings/Security.qml:20
+#: src/qml/Security.qml:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Шифрование"
 
-#: src/qml/RoomSettings/Security.qml:25
+#: src/qml/Security.qml:25
 #, kde-format
 msgid "Enable encryption"
 msgstr "Включить шифрование"
 
-#: src/qml/RoomSettings/Security.qml:26
+#: src/qml/Security.qml:26
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "После включения шифрование уже нельзя будет отключить."
 
-#: src/qml/RoomSettings/Security.qml:37
+#: src/qml/Security.qml:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Доступ"
 
-#: src/qml/RoomSettings/Security.qml:41
+#: src/qml/Security.qml:41
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Частная комната (только по приглашению)"
 
-#: src/qml/RoomSettings/Security.qml:42
+#: src/qml/Security.qml:42
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Присоединиться к комнате возможно только по приглашению."
 
-#: src/qml/RoomSettings/Security.qml:50
+#: src/qml/Security.qml:50
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Участники пространства"
 
-#: src/qml/RoomSettings/Security.qml:51
+#: src/qml/Security.qml:51
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr "Любой желающий в пространстве может найти и присоединиться."
 
-#: src/qml/RoomSettings/Security.qml:60
+#: src/qml/Security.qml:60
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Стук"
 
-#: src/qml/RoomSettings/Security.qml:61
+#: src/qml/Security.qml:61
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Людям, которые не находятся в комнате, необходимо запросить приглашение для "
 "присоединения к ней."
 
-#: src/qml/RoomSettings/Security.qml:71
+#: src/qml/Security.qml:71
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Общедоступная"
 
-#: src/qml/RoomSettings/Security.qml:72
+#: src/qml/Security.qml:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Любой желающий может найти и присоединиться."
 
-#: src/qml/RoomSettings/Security.qml:82
+#: src/qml/Security.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Доступ к истории сообщений"
 
-#: src/qml/RoomSettings/Security.qml:86
+#: src/qml/Security.qml:86
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Без ограничений"
 
-#: src/qml/RoomSettings/Security.qml:87
+#: src/qml/Security.qml:87
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
@@ -3508,13 +3626,13 @@ msgstr ""
 "Любой желающий, независимо от того, присоединился он или нет, может "
 "просматривать историю."
 
-#: src/qml/RoomSettings/Security.qml:95
+#: src/qml/Security.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Только для участников"
 
-#: src/qml/RoomSettings/Security.qml:96
+#: src/qml/Security.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3523,13 +3641,13 @@ msgstr ""
 "Все участники могут просматривать всю историю сообщений, даже до того, как "
 "они присоединились."
 
-#: src/qml/RoomSettings/Security.qml:104
+#: src/qml/Security.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Только для участников с момента приглашения"
 
-#: src/qml/RoomSettings/Security.qml:105
+#: src/qml/Security.qml:105
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3539,13 +3657,13 @@ msgstr ""
 "Новые участники могут просматривать историю сообщений с того момента, как "
 "они были приглашены в комнату."
 
-#: src/qml/RoomSettings/Security.qml:113
+#: src/qml/Security.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Только для участников с момента присоединения"
 
-#: src/qml/RoomSettings/Security.qml:114
+#: src/qml/Security.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3554,663 +3672,116 @@ msgstr ""
 "Новые участники могут просматривать историю сообщений с того момента, как "
 "они присоединились к комнате."
 
-#: src/qml/Settings/About.qml:10
+#: src/qml/ServerData.qml:20
 #, kde-format
-msgctxt "@title:window"
-msgid "About NeoChat"
-msgstr "О приложении NeoChat"
+msgid "Server Capabilities"
+msgstr ""
 
-#: src/qml/Settings/AboutKDE.qml:7
-#, kde-format
-msgctxt "@title:window"
-msgid "About KDE"
-msgstr "О KDE"
-
-#: src/qml/Settings/AccountEditorPage.qml:19
-#, kde-format
-msgid "Edit Account"
-msgstr "Редактировать учётную запись"
-
-#: src/qml/Settings/AccountEditorPage.qml:61
+#: src/qml/ServerData.qml:24
 #, fuzzy, kde-format
-#| msgid "Update avatar"
-msgid "Upload new avatar"
-msgstr "Изменить изображение"
-
-#: src/qml/Settings/AccountEditorPage.qml:78
-#, kde-format
-msgid "Remove current avatar"
-msgstr "Убрать текущее изображение"
-
-#: src/qml/Settings/AccountEditorPage.qml:101
-#, kde-format
-msgid "User information"
-msgstr "Информация о пользователе"
-
-#: src/qml/Settings/AccountEditorPage.qml:106
-#, kde-format
-msgid "Name:"
-msgstr "Имя:"
-
-#: src/qml/Settings/AccountEditorPage.qml:112
-#, kde-format
-msgid "Label:"
-msgstr "Метка:"
-
-#: src/qml/Settings/AccountEditorPage.qml:138
-#, kde-format
-msgid "Your server doesn't support changing your password"
-msgstr "Сервер не позволяет сменить пароль"
-
-#: src/qml/Settings/AccountEditorPage.qml:143
-#, kde-format
-msgid "Current Password:"
-msgstr "Текущий пароль:"
-
-#: src/qml/Settings/AccountEditorPage.qml:150
-#, kde-format
-msgid "New Password:"
-msgstr "Новый пароль:"
-
-#: src/qml/Settings/AccountEditorPage.qml:157
-#, kde-format
-msgid "Confirm new Password:"
+#| msgid "Confirm new Password:"
+msgid "Can change password"
 msgstr "Проверка нового пароля:"
 
-#: src/qml/Settings/AccountEditorPage.qml:162
-#, kde-format
-msgid "Passwords don't match"
-msgstr "Пароли не совпадают"
-
-#: src/qml/Settings/AccountEditorPage.qml:176
-#, kde-format
-msgid "Passwords do not match"
-msgstr "Пароли не совпадают"
-
-#: src/qml/Settings/AccountEditorPage.qml:184
-#, kde-format
-msgid "Server Information"
-msgstr "Информация о сервере"
-
-#: src/qml/Settings/AccountEditorPage.qml:188
-#, kde-format
-msgid "Homeserver url"
-msgstr "Адрес домашнего сервера"
-
-#: src/qml/Settings/AccountEditorPage.qml:209
+#: src/qml/ServerData.qml:29
 #, fuzzy, kde-format
-#| msgid "Account editor"
-msgctxt "@title"
-msgid "Account Management"
-msgstr "Редактирование учётной записи"
+#| msgid "Default permissions"
+msgid "Default Room Version"
+msgstr "Стандартные разрешения"
 
-#: src/qml/Settings/AccountEditorPage.qml:214
+#: src/qml/ServerData.qml:37
 #, fuzzy, kde-format
-#| msgid "Edit Account"
-msgid "Deactivate Account"
-msgstr "Редактировать учётную запись"
-
-#: src/qml/Settings/AccountEditorPage.qml:215
-#, kde-format
-msgctxt "@title"
-msgid "Confirm Deactivating Account"
-msgstr ""
-
-#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:23
-#: src/qml/Settings/SettingsPage.qml:38
-#, kde-format
-msgid "Accounts"
-msgstr "Учётные записи"
-
-#: src/qml/Settings/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr "Пароль успешно изменён"
-
-#: src/qml/Settings/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr "Введён неверный пароль"
-
-#: src/qml/Settings/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "При попытке сменить пароль произошла ошибка"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:18
-#, kde-format
-msgctxt "@title:window"
-msgid "Appearance"
-msgstr "Внешний вид"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgid "General theme"
-msgstr "Общее оформление"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:113
-#, kde-format
-msgid "Bubbles"
-msgstr "Пузыри"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:182
-#, kde-format
-msgid "Compact"
-msgstr "Компактное"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:202
-#, kde-format
-msgid "Use compact room list"
-msgstr "Компактный список комнат"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:224
-#, kde-format
-msgid "Show fancy effects in chat"
-msgstr "Графические эффекты в чате"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:238
-#, kde-format
-msgid "Use transparent chat page"
-msgstr "Прозрачная страница чата"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:256
-#, kde-format
-msgid "Transparency"
-msgstr "Прозрачность"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:273
-#, kde-format
-msgid "Only enabled if the transparent chat page is enabled."
-msgstr "Доступно только при включении параметра «прозрачная страница чата»"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:286
-#, kde-format
-msgid "Show your messages on the right"
-msgstr "Свои сообщения справа"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:299
-#, kde-format
-msgid "Show links preview in the chat messages"
-msgstr "Предварительный просмотр ссылок из сообщений"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:310
-#, kde-format
-msgid "Show Avatar"
-msgstr "Изображение пользователя"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:314
-#, kde-format
-msgid "In chat"
-msgstr "В чате"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:324
-#, kde-format
-msgid "In sidebar"
-msgstr "В боковой панели"
-
-#: src/qml/Settings/ColorScheme.qml:14
-#, kde-format
-msgid "Color theme"
-msgstr "Цветовая схема"
-
-#: src/qml/Settings/DeviceDelegate.qml:50
-#, kde-format
-msgctxt "@label"
-msgid "%1, Last activity: %2"
-msgstr ""
-
-#: src/qml/Settings/DeviceDelegate.qml:59
-#, kde-format
-msgid "New device name"
-msgstr "Новое имя устройства"
-
-#: src/qml/Settings/DeviceDelegate.qml:68
-#, kde-format
-msgid "Cancel editing display name"
-msgstr "Отменить изменение отображаемого имени"
-
-#: src/qml/Settings/DeviceDelegate.qml:75
-#, kde-format
-msgid "Confirm new display name"
-msgstr "Подтвердить новое отображаемое имя"
-
-#: src/qml/Settings/DeviceDelegate.qml:90
-#, kde-format
-msgid "Edit device name"
-msgstr "Редактировать имя устройства"
-
-#: src/qml/Settings/DeviceDelegate.qml:104
-#, kde-format
-msgid "Verify device"
-msgstr "Верифицировать устройство"
-
-#: src/qml/Settings/DeviceDelegate.qml:119
-#, kde-format
-msgid "Logout device"
-msgstr "Отключить устройство от учётной записи"
-
-#: src/qml/Settings/DevicesPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Devices"
-msgid "This Device"
-msgstr "Устройства"
-
-#: src/qml/Settings/DevicesPage.qml:32
-#, fuzzy, kde-format
-#| msgid "Verify device"
-msgid "Verified Devices"
-msgstr "Верифицировать устройство"
-
-#: src/qml/Settings/DevicesPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Verify device"
-msgid "Unverified Devices"
-msgstr "Верифицировать устройство"
-
-#: src/qml/Settings/DevicesPage.qml:42
-#, kde-format
-msgid "Devices without Encryption Support"
-msgstr ""
-
-#: src/qml/Settings/DevicesPage.qml:57
-#, kde-format
-msgid "Please login to view the signed-in devices for your account."
-msgstr ""
-"Для просмотра списка устройств, подключённых к учётной записи, необходимо "
-"войти в систему."
-
-#: src/qml/Settings/DevicesPage.qml:67
-#, kde-format
-msgid "Remove device"
-msgstr "Удалить устройство"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:27
-#: src/qml/Settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "отправил(а) наклейку"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:27
-#: src/qml/Settings/EmoticonFormCard.qml:103
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
-msgctxt "@title"
-msgid "Add Sticker"
-msgstr "отправил(а) наклейку"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:28
-#: src/qml/Settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Добавить эмоджи..."
-
-#: src/qml/Settings/EmoticonEditorPage.qml:28
-#: src/qml/Settings/EmoticonFormCard.qml:103
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Добавить эмоджи..."
-
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
-msgid "Sticker"
-msgstr "отправил(а) наклейку"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#, fuzzy, kde-format
-#| msgid "No emojis"
-msgid "Emoji"
-msgstr "Не найдено ни одного эмодзи"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Change the room name"
-msgid "Change Image"
-msgstr "Изменять имя комнаты"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:60
-#, kde-format
-msgid "Set Image"
-msgstr ""
-
-#: src/qml/Settings/EmoticonEditorPage.qml:100
-#, kde-format
-msgid "Shortcode:"
-msgstr ""
-
-#: src/qml/Settings/EmoticonEditorPage.qml:105
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
-msgid "Description:"
-msgstr "Назначение"
-
-#: src/qml/Settings/EmoticonFormCard.qml:71
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
-msgctxt "As in 'This sticker/emoji has no description'"
-msgid "No Description"
-msgstr "Назначение"
-
-#: src/qml/Settings/EmoticonFormCard.qml:112
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgid "Add Emoji"
-msgstr "Добавить эмоджи..."
-
-#: src/qml/Settings/EmoticonFormCard.qml:112
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
-msgid "Add Sticker"
-msgstr "отправил(а) наклейку"
-
-#: src/qml/Settings/EmoticonsPage.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Stickers & Emojis"
-msgstr ""
-
-#: src/qml/Settings/GeneralSettingsPage.qml:14
-#: src/qml/Settings/NetworkProxyPage.qml:15
-#, kde-format
-msgctxt "@title:window"
-msgid "General"
-msgstr "Общие"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:17
-#, kde-format
-msgid "General settings"
-msgstr "Основные параметры"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
-msgid "Show in System Tray"
-msgstr "Сворачивать в системный лоток"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:37
-#, kde-format
-msgid "Minimize to system tray on startup"
-msgstr "Сворачивать в системный лоток при запуске"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:51
-#, kde-format
-msgid "Automatically hide/unhide the room information when resizing the window"
-msgstr ""
-"Автоматически показывать и скрывать информацию о комнате при изменении "
-"размера окна"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:62
-#, kde-format
-msgid "Timeline Events"
-msgstr "Лента событий"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:67
-#, kde-format
-msgid "Show deleted messages"
-msgstr "Показывать удалённые сообщения"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:80
-#, kde-format
-msgid "Show state events"
-msgstr "Показывать события состояния"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:97
-#, kde-format
-msgid "Show leave and join events"
-msgstr "Показывать входы и выходы"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:115
-#, kde-format
-msgid "Show name change events"
-msgstr "Показывать смену имён"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:133
-#, kde-format
-msgid "Show avatar update events"
-msgstr "Показывать обновления изображений пользователей"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:143
-#, kde-format
-msgid "Rooms and private chats"
-msgstr "Комнаты и личные чаты"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:147
-#, kde-format
-msgid "Separated"
-msgstr "Раздельно"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:156
-#, kde-format
-msgid "Intermixed"
-msgstr "Вместе"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:166
-#, kde-format
-msgctxt "Chat Editor"
-msgid "Editor"
-msgstr "Редактор"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:171
-#, kde-format
-msgid "Use s/text/replacement syntax to edit your last message"
-msgstr ""
-"Использовать синтаксис «s/текст/замена» для редактирования последнего "
-"сообщения"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:182
-#, kde-format
-msgid "Send typing notifications"
-msgstr "Отправлять уведомления о наборе текста"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:192
-#, kde-format
-msgid "Developer Settings"
-msgstr "Параметры для разработчиков"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:196
-#, kde-format
-msgid "Enable developer tools"
-msgstr "Включить инструменты для разработчиков"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:17
-#, kde-format
-msgctxt "@title:window"
-msgid "Notifications"
-msgstr "Уведомления"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:22
-#, kde-format
-msgid "Enable notifications for this account"
-msgstr "Включить уведомления для этой учётной записи"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:23
-#, kde-format
-msgid "Whether push notifications are generated by your Matrix server"
-msgstr "Создаёт ли сервер Matrix push-уведомления"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:33
-#, kde-format
-msgid "Room Notifications"
-msgstr "Уведомления в комнатах"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:50
-#, kde-format
-msgid "@Mentions"
-msgstr "Упоминания (@)"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:131
-#, kde-format
-msgid "Invites"
-msgstr "Приглашения"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:148
-#, fuzzy, kde-format
-#| msgid "Unknown event"
-msgid "Unknown"
-msgstr "Неизвестное событие"
-
-#: src/qml/Settings/NetworkProxyPage.qml:21
-#: src/qml/Settings/SettingsPage.qml:63
-#, kde-format
-msgid "Network Proxy"
-msgstr "Тип прокси"
-
-#: src/qml/Settings/NetworkProxyPage.qml:25
-#, kde-format
-msgid "System Default"
-msgstr "Заданный в системе"
-
-#: src/qml/Settings/NetworkProxyPage.qml:33
-#, kde-format
-msgid "HTTP"
-msgstr "HTTP"
-
-#: src/qml/Settings/NetworkProxyPage.qml:41
-#, kde-format
-msgid "Socks5"
-msgstr "Socks5"
-
-#: src/qml/Settings/NetworkProxyPage.qml:51
-#, kde-format
-msgid "Proxy Settings"
-msgstr "Параметры прокси"
-
-#: src/qml/Settings/NetworkProxyPage.qml:56
-#, kde-format
-msgid "Host"
-msgstr "Хост"
-
-#: src/qml/Settings/NetworkProxyPage.qml:65
-#, kde-format
-msgid "Port"
-msgstr "Порт"
-
-#: src/qml/Settings/NetworkProxyPage.qml:78
-#, kde-format
-msgid "User"
-msgstr "Пользователь"
-
-#: src/qml/Settings/NetworkProxyPage.qml:105
-#, kde-format
-msgid "Apply"
-msgstr "Применить"
-
-#: src/qml/Settings/NotificationRuleItem.qml:70
-#, kde-format
-msgid "Disable notifications"
-msgstr "Отключить уведомления"
-
-#: src/qml/Settings/NotificationRuleItem.qml:70
-#, kde-format
-msgid "Enable notifications"
-msgstr "Включить уведомления"
-
-#: src/qml/Settings/NotificationRuleItem.qml:92
-#, kde-format
-msgid "Mute notifications"
-msgstr "Отключить звук уведомлений"
-
-#: src/qml/Settings/NotificationRuleItem.qml:92
-#, kde-format
-msgid "Unmute notifications"
-msgstr "Включить звук уведомлений"
-
-#: src/qml/Settings/NotificationRuleItem.qml:113
-#, kde-format
-msgctxt ""
-"As in clicking this button will switch off highlights for messages that "
-"match this rule"
-msgid "Disable message highlights"
-msgstr "Отключить подсветку сообщений"
-
-#: src/qml/Settings/NotificationRuleItem.qml:113
-#, kde-format
-msgctxt ""
-"As in clicking this button will switch on highlights for messages that match "
-"this rule"
-msgid "Enable message highlights"
-msgstr "Включить подсветку сообщений"
-
-#: src/qml/Settings/NotificationRuleItem.qml:135
-#, kde-format
-msgid "Delete keyword"
-msgstr "Удалить ключевое слово"
-
-#: src/qml/Settings/SettingsPage.qml:26
+#| msgid "Room version"
+msgid "Available Room Versions"
+msgstr "Версия комнаты"
+
+#: src/qml/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: src/qml/Settings/SettingsPage.qml:44
+#: src/qml/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr ""
 
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/SettingsPage.qml:56
 #, kde-format
 msgid "Spell Checking"
 msgstr "Проверка орфографии"
 
-#: src/qml/Settings/SettingsPage.qml:80
+#: src/qml/SettingsPage.qml:80
 #, kde-format
 msgid "About NeoChat"
 msgstr "О программе NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:86
+#: src/qml/SettingsPage.qml:86
 #, kde-format
 msgid "About KDE"
 msgstr "О KDE"
 
-#: src/qml/Settings/SonnetConfigPage.qml:16
+#: src/qml/ShareAction.qml:19
+#, kde-format
+msgid "Share"
+msgstr "Опубликовать"
+
+#: src/qml/ShareAction.qml:20
+#, kde-format
+msgid "Share the selected media"
+msgstr "Опубликовать выбранные файлы"
+
+#: src/qml/ShareDialog.qml:34
+#, kde-format
+msgid "Sharing failed"
+msgstr "Ошибка публикации"
+
+#: src/qml/ShareDialog.qml:53
+#, kde-format
+msgid "Shared url for image is <a href='%1'>%1</a>"
+msgstr "Ссылка общего доступа для изображения: <a href='%1'>%1</a>"
+
+#: src/qml/SonnetConfigPage.qml:17
 #, fuzzy, kde-format
 msgctxt "@title"
 msgid "Spellchecking"
 msgstr "Проверка орфографии"
 
-#: src/qml/Settings/SonnetConfigPage.qml:26
+#: src/qml/SonnetConfigPage.qml:27
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "Включить автоматическую проверку орфографии"
 
-#: src/qml/Settings/SonnetConfigPage.qml:38
+#: src/qml/SonnetConfigPage.qml:39
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Игнорировать слова в верхнем регистре"
 
-#: src/qml/Settings/SonnetConfigPage.qml:50
+#: src/qml/SonnetConfigPage.qml:51
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Игнорировать слова, написанные через дефис"
 
-#: src/qml/Settings/SonnetConfigPage.qml:62
+#: src/qml/SonnetConfigPage.qml:63
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Определять язык автоматически"
 
-#: src/qml/Settings/SonnetConfigPage.qml:73
+#: src/qml/SonnetConfigPage.qml:74
 #, kde-format
 msgid "Selected default language:"
 msgstr "Язык по умолчанию:"
 
-#: src/qml/Settings/SonnetConfigPage.qml:74
+#: src/qml/SonnetConfigPage.qml:75
 #, kde-format
 msgid "None"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:93
+#: src/qml/SonnetConfigPage.qml:94
 #, fuzzy, kde-format
 msgid "Additional spell checking languages"
 msgstr "Языки с поддержкой проверки орфографии"
 
-#: src/qml/Settings/SonnetConfigPage.qml:94
+#: src/qml/SonnetConfigPage.qml:95
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -4219,43 +3790,423 @@ msgstr ""
 "%1 обеспечит проверку орфографии и рекомендации для перечисленных здесь "
 "языков, если включена опция автоматического определения языка."
 
-#: src/qml/Settings/SonnetConfigPage.qml:106
+#: src/qml/SonnetConfigPage.qml:107
 #, kde-format
 msgid "Open Personal Dictionary"
 msgstr "Открыть личный словарь"
 
-#: src/qml/Settings/SonnetConfigPage.qml:117
+#: src/qml/SonnetConfigPage.qml:118
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr "Языки с поддержкой проверки орфографии"
 
-#: src/qml/Settings/SonnetConfigPage.qml:126
-#: src/qml/Settings/SonnetConfigPage.qml:136
+#: src/qml/SonnetConfigPage.qml:127 src/qml/SonnetConfigPage.qml:137
 #, fuzzy, kde-format
 msgid "Default Language"
 msgstr "Язык по умолчанию:"
 
-#: src/qml/Settings/SonnetConfigPage.qml:148
+#: src/qml/SonnetConfigPage.qml:149
 #, kde-format
 msgid "Spell checking dictionary"
 msgstr "Словарь для проверки орфографии"
 
-#: src/qml/Settings/SonnetConfigPage.qml:155
+#: src/qml/SonnetConfigPage.qml:156
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "Добавить новое слово в личный словарь…"
 
-#: src/qml/Settings/SonnetConfigPage.qml:158
+#: src/qml/SonnetConfigPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Добавить слово"
 
-#: src/qml/Settings/SonnetConfigPage.qml:185
-#, kde-format
+#: src/qml/SonnetConfigPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Delete word"
+msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Удалить слово"
+
+#: src/qml/SpaceDrawer.qml:63
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show All Rooms"
+msgid "All Rooms"
+msgstr "Показать все комнаты"
+
+#: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "View Space"
+msgstr "Просмотреть пространство"
+
+#: src/qml/SpaceListContextMenu.qml:46 src/qml/SpaceListContextMenu.qml:126
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Параметры пространств"
+
+#: src/qml/SpaceListContextMenu.qml:48 src/qml/SpaceListContextMenu.qml:128
+#, kde-format
+msgid "Space Settings"
+msgstr "Параметры пространств"
+
+#: src/qml/SpaceListContextMenu.qml:54 src/qml/SpaceListContextMenu.qml:132
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr "Покинуть пространство"
+
+#: src/qml/Sso.qml:30
+#, fuzzy, kde-format
+#| msgid "Complete the authentication steps in your browser"
+msgid "Continue the login process in your browser."
+msgstr "Завершите вход в браузере"
+
+#: src/qml/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr ""
+
+#: src/qml/StartChatPage.qml:40
+#, kde-format
+msgid "Chat"
+msgstr "Чат"
+
+#: src/qml/StartChatPage.qml:93
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgid "Join existing chat"
+msgstr "Войти в существующую учётную запись"
+
+#: src/qml/StartChatPage.qml:114
+#, fuzzy, kde-format
+#| msgid "Create rooms and chats"
+msgid "Create new chat"
+msgstr "Создать комнаты и чаты"
+
+#: src/qml/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr ""
+
+#: src/qml/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr ""
+
+#: src/qml/TimelineView.qml:151
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "Перейти к первому непрочитанному сообщению"
+
+#: src/qml/TimelineView.qml:174
+#, kde-format
+msgid "Jump to latest message"
+msgstr "Перейти к последнему сообщению"
+
+#: src/qml/TimelineView.qml:200
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "Чтобы опубликовать файла, перетащите их сюда"
+
+#: src/qml/TimelineView.qml:208
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 набирают сообщение"
+msgstr[1] "%2 набирают сообщение"
+msgstr[2] "%2 набирают сообщение"
+msgstr[3] "%2 набирает сообщение"
+
+#: src/qml/UserDetailDialog.qml:32
+#, kde-format
+msgctxt "@title:menu Account detail dialog"
+msgid "Account detail"
+msgstr "Информация о учётной записи"
+
+#: src/qml/UserDetailDialog.qml:81
+#, kde-format
+msgid "Unignore this user"
+msgstr "Перестать игнорировать этого пользователя"
+
+#: src/qml/UserDetailDialog.qml:81
+#, kde-format
+msgid "Ignore this user"
+msgstr "Игнорировать этого пользователя"
+
+#: src/qml/UserDetailDialog.qml:94
+#, kde-format
+msgid "Kick this user"
+msgstr "Выгнать этого пользователя"
+
+#: src/qml/UserDetailDialog.qml:108
+#, kde-format
+msgid "Invite this user"
+msgstr "Пригласить этого пользователя"
+
+#: src/qml/UserDetailDialog.qml:121
+#, kde-format
+msgid "Ban this user"
+msgstr "Заблокировать этого пользователя"
+
+#: src/qml/UserDetailDialog.qml:126
+#, kde-format
+msgctxt "@title"
+msgid "Ban User"
+msgstr "Блокирование пользователя"
+
+#: src/qml/UserDetailDialog.qml:138
+#, kde-format
+msgid "Unban this user"
+msgstr "Разблокировать этого пользователя"
+
+#: src/qml/UserDetailDialog.qml:151
+#, kde-format
+msgid "Set user power level"
+msgstr "Установить уровень возможностей пользователя"
+
+#: src/qml/UserDetailDialog.qml:176
+#, kde-format
+msgid "Remove recent messages by this user"
+msgstr "Удалить последние сообщения этого пользователя"
+
+#: src/qml/UserDetailDialog.qml:181
+#, kde-format
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "Удаление сообщений"
+
+#: src/qml/UserDetailDialog.qml:192
+#, kde-format
+msgid "Open a private chat"
+msgstr "Открыть личный чат"
+
+#: src/qml/UserDetailDialog.qml:203
+#, kde-format
+msgid "Copy link"
+msgstr "Копировать ссылку"
+
+#: src/qml/UserInfo.qml:49
+#, kde-format
+msgid "Log in to an existing account"
+msgstr "Войти в существующую учётную запись"
+
+#: src/qml/UserInfo.qml:56
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr "Вход в систему"
+
+#: src/qml/UserInfo.qml:211
+#, kde-format
+msgid "Switch User"
+msgstr "Сменить учётную запись"
+
+#: src/qml/UserInfo.qml:239
+#, kde-format
+msgid "Open Settings"
+msgstr "Настроить"
+
+#: src/qml/Username.qml:18
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "Username:"
+msgstr "Пользователь"
+
+#: src/qml/Username.qml:21
+#, fuzzy, kde-format
+#| msgid "No users available"
+msgid "Username unavailable"
+msgstr "Нет ни одного пользователя"
+
+#: src/qml/VerificationCanceled.qml:19
+#, kde-format
+msgid "The session verification was canceled for unknown reason."
+msgstr "Проверка сеанса была отменена по неизвестной причине."
+
+#: src/qml/VerificationCanceled.qml:21
+#, kde-format
+msgid "The session verification timed out."
+msgstr "Истекло допустимое время проверки."
+
+#: src/qml/VerificationCanceled.qml:23
+#, kde-format
+msgid "The session verification timed out for remote party."
+msgstr "Истекло допустимое время проверки для удалённой стороны."
+
+#: src/qml/VerificationCanceled.qml:25
+#, kde-format
+msgid "You canceled the session verification."
+msgstr "Вы отменили проверку."
+
+#: src/qml/VerificationCanceled.qml:27
+#, kde-format
+msgid "The remote party canceled the session verification."
+msgstr "Удалённая сторона отменила проверку."
+
+#: src/qml/VerificationCanceled.qml:29
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an unexpected "
+"message."
+msgstr "Проверка отменена: получено неожиданное сообщение."
+
+#: src/qml/VerificationCanceled.qml:31
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"unexpected message."
+msgstr "Удалённая сторона отменила проверку сеанса: неожиданное сообщение."
+
+#: src/qml/VerificationCanceled.qml:33
+#, kde-format
+msgid ""
+"The session verification was canceled because it received a message for an "
+"unknown session."
+msgstr "Проверка отменена: получено сообщение для неизвестного сеанса."
+
+#: src/qml/VerificationCanceled.qml:35
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received a "
+"message for an unknown session."
+msgstr ""
+"Удалённая сторона отменила проверку: получено сообщение для неизвестного "
+"сеанса."
+
+#: src/qml/VerificationCanceled.qml:37
+#, kde-format
+msgid ""
+"The session verification was canceled because NeoChat is unable to handle "
+"this verification method."
+msgstr "Проверка отменена: NeoChat не может обработать этот метод проверки."
+
+#: src/qml/VerificationCanceled.qml:39
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it is unable to "
+"handle this verification method."
+msgstr ""
+"Удалённая сторона отменила проверку: используемый метод проверки не "
+"поддерживается."
+
+#: src/qml/VerificationCanceled.qml:41
+#, kde-format
+msgid "The session verification was canceled because the keys are incorrect."
+msgstr "Проверка сеанса была отменена: неверные ключи."
+
+#: src/qml/VerificationCanceled.qml:43
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys are "
+"incorrect."
+msgstr "Удалённая сторона отменила проверку: неверные ключи."
+
+#: src/qml/VerificationCanceled.qml:45
+#, kde-format
+msgid ""
+"The session verification was canceled because it verifies an unexpected user."
+msgstr "Проверка отменена: проверяется неожиданный пользователь."
+
+#: src/qml/VerificationCanceled.qml:47
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it verifies an "
+"unexpected user."
+msgstr ""
+"Удалённая сторона отменила проверку: проверяется неожиданный пользователь."
+
+#: src/qml/VerificationCanceled.qml:49
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an invalid message."
+msgstr "Проверка отменена: получено недопустимое сообщение."
+
+#: src/qml/VerificationCanceled.qml:51
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"invalid message."
+msgstr "Удалённая сторона отменила проверку: получено недопустимое сообщение."
+
+#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#, kde-format
+msgid "The session was accepted on a different device"
+msgstr "Сеанс был принят на другом устройстве"
+
+#: src/qml/VerificationCanceled.qml:57
+#, kde-format
+msgid "The session verification was canceled because of a mismatched key."
+msgstr "Проверка отменена: несоответствующий ключ."
+
+#: src/qml/VerificationCanceled.qml:59
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because of a mismatched "
+"key."
+msgstr "Удалённая сторона отменила проверку: несоответствующий ключ."
+
+#: src/qml/VerificationCanceled.qml:61
+#, kde-format
+msgid "The session verification was canceled because the keys do not match."
+msgstr "Проверка отменена: ключи не совпадают."
+
+#: src/qml/VerificationCanceled.qml:63
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys do not "
+"match."
+msgstr "Удалённая сторона отменила проверку: ключи не совпадают."
+
+#: src/qml/VerificationCanceled.qml:65
+#, kde-format
+msgid "The session verification was canceled due to an unknown error."
+msgstr "Проверка отменена: произошла неизвестная ошибка."
+
+#: src/qml/VideoDelegate.qml:141
+#, kde-format
+msgid "Video"
+msgstr "Видео"
+
+#: src/qml/VideoDelegate.qml:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Volume"
+msgstr "Громкость"
+
+#: src/qml/VideoDelegate.qml:289
+#, kde-format
+msgid "Maximize"
+msgstr ""
+
+#: src/qml/WelcomePage.qml:19
+#, kde-format
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+#: src/qml/WelcomePage.qml:45
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgid "Log in to a different account or create a new account."
+msgstr "Войти в существующую учётную запись"
+
+#: src/qml/WelcomePage.qml:45
+#, kde-format
+msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
+msgstr ""
+
+#: src/qml/WelcomePage.qml:122
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
 
 #: src/registration.cpp:299
 #, fuzzy, kde-format

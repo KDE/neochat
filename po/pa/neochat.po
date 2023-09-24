@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 01:45+0000\n"
+"POT-Creation-Date: 2023-09-24 01:43+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -487,96 +487,96 @@ msgstr "ਸੱਦਾ ਭੇਜੋ"
 msgid "Network Error"
 msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ"
 
-#: src/main.cpp:180
+#: src/main.cpp:133
 #, kde-format
 msgid "NeoChat"
 msgstr "ਨਿਓ-ਚੈਟ"
 
-#: src/main.cpp:182
+#: src/main.cpp:135
 #, kde-format
 msgid "Matrix client"
 msgstr "ਮੈਟਰਿਕਸ ਕਲਾਈਂਟ"
 
-#: src/main.cpp:184
+#: src/main.cpp:137
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 
-#: src/main.cpp:185
+#: src/main.cpp:138
 #, kde-format
 msgid "Carl Schwan"
 msgstr "ਕਾਰਲ ਸਚਵਾਨ"
 
-#: src/main.cpp:185 src/main.cpp:186 src/main.cpp:187
+#: src/main.cpp:138 src/main.cpp:139 src/main.cpp:140
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: src/main.cpp:186
+#: src/main.cpp:139
 #, kde-format
 msgid "Tobias Fella"
 msgstr "ਟੋਬਿਸ ਫੇਲਾ"
 
-#: src/main.cpp:187
+#: src/main.cpp:140
 #, kde-format
 msgid "James Graham"
 msgstr ""
 
-#: src/main.cpp:188
+#: src/main.cpp:141
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:188
+#: src/main.cpp:141
 #, kde-format
 msgid "Original author of Spectral"
 msgstr ""
 
-#: src/main.cpp:189
+#: src/main.cpp:142
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr ""
 
-#: src/main.cpp:189
+#: src/main.cpp:142
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr ""
 
-#: src/main.cpp:190
+#: src/main.cpp:143
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "ਅ.ਸ.ਆਲਮ ੨੦੨੧"
 
-#: src/main.cpp:190
+#: src/main.cpp:143
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alam.yellow@gmail.com"
 
-#: src/main.cpp:194
+#: src/main.cpp:147
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 
-#: src/main.cpp:196
+#: src/main.cpp:149
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:340
+#: src/main.cpp:216
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr ""
 
-#: src/main.cpp:341
+#: src/main.cpp:217
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr ""
 
-#: src/main.cpp:342
+#: src/main.cpp:218
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1082,13 +1082,13 @@ msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " ਅਤੇ "
 
-#: src/models/reactionmodel.cpp:52
+#: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " ਅਤੇ "
 
-#: src/models/reactionmodel.cpp:59
+#: src/models/reactionmodel.cpp:92
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1096,7 +1096,7 @@ msgid_plural " and %1 others"
 msgstr[0] " ਅਤੇ %1 ਹੋਰ"
 msgstr[1] " ਅਤੇ %1 ਹੋਰ"
 
-#: src/models/reactionmodel.cpp:63
+#: src/models/reactionmodel.cpp:96
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1174,9 +1174,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:58
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:100
+#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
+#: src/qml/HoverActions.qml:109 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "ਜਵਾਬ ਦਿਓ"
@@ -1216,603 +1215,418 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr ""
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "ਨੱਥੀ:"
-
-#: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:91
-#: src/qml/Page/ImageEditorPage.qml:21
-#, kde-format
-msgid "Edit"
-msgstr "ਸੋਧੋ"
-
-#: src/qml/Component/ChatBox/AttachmentPane.qml:62
+#: src/qml/About.qml:10
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
-msgid "Cancel sending attachment"
-msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
+#| msgid "About NeoChat"
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "ਨਿਓ-ਚੈਟ ਬਾਰੇ"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:66
-#, kde-format
-msgid "Attach an image or file"
-msgstr "ਚਿੱਤਰ ਜਾਂ ਫਾਇਲ ਨੱਥੀ ਕਰੋ"
+#: src/qml/AboutKDE.qml:7
+#, fuzzy, kde-format
+#| msgid "About"
+msgctxt "@title:window"
+msgid "About KDE"
+msgstr "ਇਸ ਬਾਰੇ"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:93
+#: src/qml/AccountEditorPage.qml:19
 #, kde-format
-msgid "Emojis & Stickers"
+msgid "Edit Account"
+msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/AccountEditorPage.qml:61
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgid "Upload new avatar"
+msgstr "ਅਵਤਾਰ ਅੱਪਡੇਟ ਕਰੋ"
+
+#: src/qml/AccountEditorPage.qml:78
+#, kde-format
+msgid "Remove current avatar"
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:110
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgid "Send a Location"
-msgstr "ਸੱਦਾ ਭੇਜੋ"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:124
-#, kde-format
-msgid "Send message"
-msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:171
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "Send an encrypted message…"
-msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:171
-#, kde-format
-msgid "Set an attachment caption..."
-msgstr ""
-
-#: src/qml/Component/ChatBox/ChatBar.qml:171
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "Send a message…"
-msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:354
-#, fuzzy, kde-format
-#| msgid "Cancel"
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "ਰੱਦ ਕਰੋ"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:549
-#, kde-format
-msgid "Choose local file"
-msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:577
-#, kde-format
-msgid "Clipboard image"
-msgstr "ਕਲਿੱਪਬੋਰਡ ਚਿੱਤਰ"
-
-#: src/qml/Component/ChatBox/LocationChooser.qml:22
-#, fuzzy, kde-format
-#| msgid "Choose local file"
-msgid "Choose a Location"
-msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
-
-#: src/qml/Component/ChatBox/LocationChooser.qml:27
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Send this location"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:23
-#, kde-format
-msgid "Bold"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:42
-#, kde-format
-msgid "Italic"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:61
-#, kde-format
-msgid "Strikethrough"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:80
-#, kde-format
-msgid "Code block"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:99
-#, kde-format
-msgid "Quote"
-msgstr ""
-
-#: src/qml/Component/ChatBox/QuickFormatBar.qml:118
-#, kde-format
-msgid "Insert link"
-msgstr ""
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:33
-#, fuzzy, kde-format
-#| msgid "Replying to %1:"
-msgid "Replying to:"
-msgstr "%1 ਨੂੰ ਜਵਾਬ ਦਿੱਤਾ ਜਾ ਰਿਹਾ ਹੈ:"
-
-#: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Choose local file"
-msgctxt "@title"
-msgid "Choose Room"
-msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
-
-#: src/qml/Component/Devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room"
-msgstr "ਰੂਮ"
-
-#: src/qml/Component/Devtools/RoomData.qml:37
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room Id: %1"
-msgstr "ਰੂਮ"
-
-#: src/qml/Component/Devtools/RoomData.qml:40
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
-msgid "Show m.room.member events"
-msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
-
-#: src/qml/Component/Devtools/RoomData.qml:52
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "Show room account data"
-msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
-
-#: src/qml/Component/Devtools/RoomData.qml:58
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "Room Account Data"
-msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
-
-#: src/qml/Component/Devtools/RoomData.qml:69
-#: src/qml/Component/Devtools/RoomData.qml:95
-#: src/qml/Menu/Timeline/MessageSourceSheet.qml:21
-#, fuzzy, kde-format
-#| msgid "View Source"
-msgid "Event Source"
-msgstr "ਸਰੋਤ ਵੇਖੋ"
-
-#: src/qml/Component/Devtools/RoomData.qml:77
-#, fuzzy, kde-format
-#| msgctxt "%1 is the room name"
-#| msgid "Room Settings - %1"
-msgid "Room State"
-msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ - %1"
-
-#: src/qml/Component/Devtools/ServerData.qml:20
-#, kde-format
-msgid "Server Capabilities"
-msgstr ""
-
-#: src/qml/Component/Devtools/ServerData.qml:24
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
-msgid "Can change password"
-msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਤਸਦੀਕ:"
-
-#: src/qml/Component/Devtools/ServerData.qml:29
+#: src/qml/AccountEditorPage.qml:101
 #, fuzzy, kde-format
 #| msgid "Room information"
-msgid "Default Room Version"
+msgid "User information"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/qml/Component/Devtools/ServerData.qml:37
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgid "Available Room Versions"
-msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
-
-#: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgid "No stickers"
-msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "Custom"
-msgid "No emojis"
-msgstr "ਕਸਟਮ"
-
-#: src/qml/Component/Emoji/EmojiPicker.qml:52
-#: src/qml/Settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "Custom"
-msgid "Emojis"
-msgstr "ਕਸਟਮ"
-
-#: src/qml/Component/Emoji/EmojiPicker.qml:59
-#: src/qml/Settings/EmoticonsPage.qml:27
+#: src/qml/AccountEditorPage.qml:106
 #, kde-format
-msgid "Stickers"
+msgid "Name:"
+msgstr "ਨਾਂ:"
+
+#: src/qml/AccountEditorPage.qml:112
+#, kde-format
+msgid "Label:"
 msgstr ""
 
-#: src/qml/Component/FullScreenMap.qml:23
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgid "View Location"
-msgstr "ਸੱਦਾ ਭੇਜੋ"
-
-#: src/qml/Component/FullScreenMap.qml:65
+#: src/qml/AccountEditorPage.qml:117 src/qml/AccountEditorPage.qml:170
+#: src/qml/EmoticonEditorPage.qml:110 src/qml/General.qml:106
 #, kde-format
-msgid "Close"
-msgstr "ਬੰਦ ਕਰੋ"
+msgid "Save"
+msgstr "ਸੰਭਾਲੋ"
 
-#: src/qml/Component/HoverActions.qml:85
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr ""
-
-#: src/qml/Component/HoverActions.qml:98
-#, kde-format
-msgid "React"
-msgstr "ਅਸਰ"
-
-#: src/qml/Component/InvitationView.qml:17
-#, kde-format
-msgid "Accept this invitation?"
-msgstr "ਇਹ ਸੱਦਾ ਮਨਜ਼ੂਰ ਕਰਨਾ ਹੈ?"
-
-#: src/qml/Component/InvitationView.qml:21
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject and ignore user"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
-
-#: src/qml/Component/InvitationView.qml:30
-#, kde-format
-msgid "Reject"
-msgstr "ਰੱਦ ਕਰੋ"
-
-#: src/qml/Component/InvitationView.qml:37
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:74
-#, kde-format
-msgid "Accept"
-msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
-
-#: src/qml/Component/LocationPage.qml:16
-#: src/qml/RoomDrawer/RoomInformation.qml:124
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Component/LocationPage.qml:51
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "There are no locations shared in this room."
-msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
-
-#: src/qml/Component/Login/Email.qml:19
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr ""
-
-#: src/qml/Component/Login/Email.qml:31
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
-msgid "Confirm e-mail address"
-msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
-
-#: src/qml/Component/Login/Email.qml:33
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-
-#: src/qml/Component/Login/Email.qml:38
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr ""
-
-#: src/qml/Component/Login/Homeserver.qml:19
-#, fuzzy, kde-format
-#| msgid "Server Address"
-msgid "Server Url:"
-msgstr "ਸਰਵਰ ਦਾ ਸਿਰਨਾਵਾਂ"
-
-#: src/qml/Component/Login/Homeserver.qml:24
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr ""
-
-#: src/qml/Component/Login/Homeserver.qml:39
-#: src/qml/Component/Login/Username.qml:36
-#, fuzzy, kde-format
-#| msgid "Loading"
-msgid "Loading"
-msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
-
-#: src/qml/Component/Login/Loading.qml:15
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr "ਉਡੀਕੋ। ਇਸ ਨੂੰ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"
-
-#: src/qml/Component/Login/Login.qml:24
-#, kde-format
-msgid "Matrix ID:"
-msgstr "ਮੈਟਰਿਕਸ ID:"
-
-#: src/qml/Component/Login/Login.qml:26
-#, fuzzy, kde-format
-#| msgid "Matrix ID:"
-msgid "Matrix ID"
-msgstr "ਮੈਟਰਿਕਸ ID:"
-
-#: src/qml/Component/Login/Login.qml:37 src/qml/Page/WelcomePage.qml:113
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "ਜਾਰੀ ਰੱਖੋ"
-
-#: src/qml/Component/Login/Login.qml:37 src/qml/Page/LoadingPage.qml:8
-#, fuzzy, kde-format
-#| msgid "Loading"
-msgid "Loading…"
-msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
-
-#: src/qml/Component/Login/Login.qml:37
-#, kde-format
-msgid "Already logged in"
-msgstr ""
-
-#: src/qml/Component/Login/LoginMethod.qml:18
-#, fuzzy, kde-format
-#| msgid "Login with password"
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "ਪਾਸਵਰਡ ਨਾਲ ਲਾਗਇਨ"
-
-#: src/qml/Component/Login/LoginMethod.qml:24
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr "ਇਕਹੇਰੇ ਸਾਈਨ-ਔਨ ਨਾਲ ਲਾਗਇਨ ਕਰੋ"
-
-#: src/qml/Component/Login/LoginRegister.qml:20
-#: src/qml/Component/Login/Password.qml:40
-#, kde-format
-msgctxt "@action:button"
-msgid "Login"
-msgstr "ਲਾਗਇਨ"
-
-#: src/qml/Component/Login/LoginRegister.qml:25
-#, fuzzy, kde-format
-#| msgid "Register"
-msgctxt "@action:button"
-msgid "Register"
-msgstr "ਰਜਿਸਟਰ ਕਰੋ"
-
-#: src/qml/Component/Login/Password.qml:27
-#: src/qml/Component/Login/RegisterPassword.qml:18
-#: src/qml/Settings/DevicesPage.qml:71
-#, kde-format
-msgid "Password:"
-msgstr "ਪਾਸਵਰਡ:"
-
-#: src/qml/Component/Login/Password.qml:31
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:29
-#: src/qml/Settings/AccountEditorPage.qml:133
-#: src/qml/Settings/NetworkProxyPage.qml:87
+#: src/qml/AccountEditorPage.qml:133
+#: src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/qml/NetworkProxyPage.qml:88 src/qml/Password.qml:31
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
 msgid "Password"
 msgstr "ਪਾਸਵਰਡ"
 
-#: src/qml/Component/Login/Password.qml:32
-#, fuzzy, kde-format
-#| msgid "Enter your password"
-msgid "Invalid username or password"
-msgstr "ਆਪਣਾ ਪਾਸਵਰਡ ਦਿਓ"
+#: src/qml/AccountEditorPage.qml:138
+#, kde-format
+msgid "Your server doesn't support changing your password"
+msgstr ""
 
-#: src/qml/Component/Login/RegisterPassword.qml:28
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
-msgid "Confirm Password:"
+#: src/qml/AccountEditorPage.qml:143
+#, kde-format
+msgid "Current Password:"
+msgstr "ਮੌਜੂਦਾ ਪਾਸਵਰਡ:"
+
+#: src/qml/AccountEditorPage.qml:150
+#, kde-format
+msgid "New Password:"
+msgstr "ਨਵਾਂ ਪਾਸਵਰਡ:"
+
+#: src/qml/AccountEditorPage.qml:157
+#, kde-format
+msgid "Confirm new Password:"
 msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਤਸਦੀਕ:"
 
-#: src/qml/Component/Login/RegisterPassword.qml:31
+#: src/qml/AccountEditorPage.qml:162
 #, fuzzy, kde-format
 #| msgid "Passwords do not match"
-msgid "The passwords do not match."
+msgid "Passwords don't match"
 msgstr "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ"
 
-#: src/qml/Component/Login/Sso.qml:30
+#: src/qml/AccountEditorPage.qml:176
+#, kde-format
+msgid "Passwords do not match"
+msgstr "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ"
+
+#: src/qml/AccountEditorPage.qml:184
 #, fuzzy, kde-format
-#| msgid "Complete the authentication steps in your browser"
-msgid "Continue the login process in your browser."
-msgstr "ਪਰਮਾਣਕਿਤਾ ਪੜਾਅ ਆਪਣੇ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਪੂਰੇ ਕਰੋ"
+#| msgid "Room information"
+msgid "Server Information"
+msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/qml/Component/Login/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr ""
-
-#: src/qml/Component/Login/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr ""
-
-#: src/qml/Component/Login/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr ""
-
-#: src/qml/Component/Login/Username.qml:18
+#: src/qml/AccountEditorPage.qml:188
 #, fuzzy, kde-format
-#| msgid "Username"
-msgid "Username:"
-msgstr "ਵਰਤੋਂਕਾਰ-ਨਾਂ"
+#| msgid "Homeserver:"
+msgid "Homeserver url"
+msgstr "ਹੋਮ-ਸਰਵਰ:"
 
-#: src/qml/Component/Login/Username.qml:21
+#: src/qml/AccountEditorPage.qml:209
 #, fuzzy, kde-format
-#| msgid "No users available"
-msgid "Username unavailable"
-msgstr "ਕੋਈ ਵਰਤੋਂਕਾਰ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgctxt "@title"
+msgid "Account Management"
+msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
 
-#: src/qml/Component/Timeline/EncryptedDelegate.qml:19
-#: src/qml/Component/Timeline/ReplyComponent.qml:196
-#, kde-format
-msgid ""
-"This message is encrypted and the sender has not shared the key with this "
-"device."
-msgstr ""
-
-#: src/qml/Component/Timeline/FileDelegate.qml:75
-#: src/qml/Component/Timeline/FileDelegate.qml:166
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to download its file"
-msgid "Download"
-msgstr "ਡਾਊਨਲੋਡ"
-
-#: src/qml/Component/Timeline/FileDelegate.qml:91
-#: src/qml/Component/Timeline/FileDelegate.qml:157
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to open its downloaded "
-"file with an appropriate application"
-msgid "Open File"
-msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ"
-
-#: src/qml/Component/Timeline/FileDelegate.qml:106
-#, kde-format
-msgctxt "file download progress"
-msgid "%1 / %2"
-msgstr "%1 / %2"
-
-#: src/qml/Component/Timeline/FileDelegate.qml:111
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; stops downloading the message's file"
-msgid "Stop Download"
-msgstr "ਡਾਊਨਲੋਡ ਨੂੰ ਰੋਕੋ"
-
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:115
-#, kde-format
-msgid "Shrink preview"
-msgstr ""
-
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:115
-#, kde-format
-msgid "Expand preview"
-msgstr ""
-
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:140
-#, kde-format
-msgid "Loading URL preview"
-msgstr ""
-
-#: src/qml/Component/Timeline/MessageEditComponent.qml:76
+#: src/qml/AccountEditorPage.qml:214
 #, fuzzy, kde-format
-#| msgid "Confirm"
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "ਤਸਦੀਕ ਕਰੋ"
+#| msgid "Edit Account"
+msgid "Deactivate Account"
+msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:88
+#: src/qml/AccountEditorPage.qml:215
+#, kde-format
+msgctxt "@title"
+msgid "Confirm Deactivating Account"
+msgstr ""
+
+#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:178
+#, kde-format
+msgid "Edit this account"
+msgstr "ਇਹ ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
+#: src/qml/UserInfo.qml:172
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgid "Account editor"
+msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
+
+#: src/qml/AccountMenu.qml:30
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notification settings"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:395 src/qml/UserInfo.qml:238
+#, fuzzy, kde-format
+#| msgid "Configure room"
+msgid "Configure"
+msgstr "ਰੂਮ ਦੀ ਸੰਰਚਨਾ"
+
+#: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
+#: src/qml/SettingsPage.qml:69
+#, kde-format
+msgid "Devices"
+msgstr "ਡਿਵਾਈਸ"
+
+#: src/qml/AccountMenu.qml:50 src/qml/AccountsPage.qml:72
+#, kde-format
+msgid "Logout"
+msgstr "ਲਾਗ ਆਉਟ"
+
+#: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
+#: src/qml/SettingsPage.qml:38
+#, kde-format
+msgid "Accounts"
+msgstr "ਖਾਤੇ"
+
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:46
+#, fuzzy, kde-format
+#| msgid "Add an account"
+msgid "Add Account"
+msgstr "ਖਾਤਾ ਜੋੜੋ"
+
+#: src/qml/AccountsPage.qml:115
+#, kde-format
+msgid "Password changed successfully"
+msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
+
+#: src/qml/AccountsPage.qml:117
+#, kde-format
+msgid "Wrong password entered"
+msgstr "ਗਲਤ ਪਾਸਵਰਡ ਦਿੱਤਾ"
+
+#: src/qml/AccountsPage.qml:119
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "ਪਾਸਵਰਡ ਬਦਲਣ ਦੇ ਦੌਰਾਨ ਅਣਪਛਾਤੀ ਗਲਤੀ ਆਈ"
+
+#: src/qml/AppearanceSettingsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "ਦਿੱਖ"
+
+#: src/qml/AppearanceSettingsPage.qml:22
+#, fuzzy, kde-format
+#| msgid "General"
+msgid "General theme"
+msgstr "ਆਮ"
+
+#: src/qml/AppearanceSettingsPage.qml:114
+#, kde-format
+msgid "Bubbles"
+msgstr "ਬੁਲਬੁਲੇ"
+
+#: src/qml/AppearanceSettingsPage.qml:183
+#, kde-format
+msgid "Compact"
+msgstr "ਸੰਖੇਪ"
+
+#: src/qml/AppearanceSettingsPage.qml:203
+#, kde-format
+msgid "Use compact room list"
+msgstr ""
+
+#: src/qml/AppearanceSettingsPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
+msgstr "ਹਾਸੇ ਠੱਠੇ ਵਾਲੇ ਪਰਭਾਵ ਵੇਖਾਓ"
+
+#: src/qml/AppearanceSettingsPage.qml:239
+#, kde-format
+msgid "Use transparent chat page"
+msgstr "ਪਾਰਦਰਸ਼ੀ ਗੱਲਬਾਤ ਸਫ਼ੇ ਵਰਤੋਂ"
+
+#: src/qml/AppearanceSettingsPage.qml:257
+#, fuzzy, kde-format
+#| msgid "Transparency:"
+msgid "Transparency"
+msgstr "ਪਾਦਰਸ਼ਤਾ:"
+
+#: src/qml/AppearanceSettingsPage.qml:274
+#, kde-format
+msgid "Only enabled if the transparent chat page is enabled."
+msgstr ""
+
+#: src/qml/AppearanceSettingsPage.qml:287
+#, kde-format
+msgid "Show your messages on the right"
+msgstr ""
+
+#: src/qml/AppearanceSettingsPage.qml:300
+#, kde-format
+msgid "Show links preview in the chat messages"
+msgstr ""
+
+#: src/qml/AppearanceSettingsPage.qml:311
+#, fuzzy, kde-format
+#| msgid "Show User Avatar"
+msgid "Show Avatar"
+msgstr "ਵਰਤੋਂਕਾਰ ਅਵਤਾਰ ਵੇਖਾਓ"
+
+#: src/qml/AppearanceSettingsPage.qml:315
+#, kde-format
+msgid "In chat"
+msgstr ""
+
+#: src/qml/AppearanceSettingsPage.qml:325
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
+msgstr "ਬਾਹੀ ਵਿੱਚ"
+
+#: src/qml/AttachmentPane.qml:30
+#, kde-format
+msgid "Attachment:"
+msgstr "ਨੱਥੀ:"
+
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:103
+#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:93
+#, kde-format
+msgid "Edit"
+msgstr "ਸੋਧੋ"
+
+#: src/qml/AttachmentPane.qml:62
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel sending attachment"
+msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
+
+#: src/qml/BanSheet.qml:18
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgid "Ban User"
+msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
+
+#: src/qml/BanSheet.qml:22
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgid "Reason for banning this user"
+msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਤੋਂ ਪਾਬੰਦੀ ਹਟਾਓ"
+
+#: src/qml/BanSheet.qml:34
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr ""
+
+#: src/qml/BanSheet.qml:43 src/qml/InviteUserPage.qml:24
+#: src/qml/RemoveSheet.qml:49 src/qml/ReportSheet.qml:43
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#: src/qml/Categories.qml:21 src/qml/General.qml:22 src/qml/SettingsPage.qml:20
+#, kde-format
+msgid "General"
+msgstr "ਆਮ"
+
+#: src/qml/Categories.qml:33 src/qml/Security.qml:17
+#, kde-format
+msgid "Security"
+msgstr "ਸੁਰੱਖਿਆ"
+
+#: src/qml/Categories.qml:44
+#, kde-format
+msgid "Permissions"
+msgstr ""
+
+#: src/qml/Categories.qml:55 src/qml/SettingsPage.qml:32
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notifications"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/ChatBar.qml:67
+#, kde-format
+msgid "Attach an image or file"
+msgstr "ਚਿੱਤਰ ਜਾਂ ਫਾਇਲ ਨੱਥੀ ਕਰੋ"
+
+#: src/qml/ChatBar.qml:94
+#, kde-format
+msgid "Emojis & Stickers"
+msgstr ""
+
+#: src/qml/ChatBar.qml:111
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgid "Send a Location"
+msgstr "ਸੱਦਾ ਭੇਜੋ"
+
+#: src/qml/ChatBar.qml:125
+#, kde-format
+msgid "Send message"
+msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#: src/qml/ChatBar.qml:172
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Send an encrypted message…"
+msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#: src/qml/ChatBar.qml:172
+#, kde-format
+msgid "Set an attachment caption..."
+msgstr ""
+
+#: src/qml/ChatBar.qml:172
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Send a message…"
+msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#: src/qml/ChatBar.qml:355
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
-msgid "Cancel edit"
+msgid "Cancel reply"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/qml/Component/Timeline/PollDelegate.qml:60
+#: src/qml/ChatBar.qml:550
 #, kde-format
-msgid "Based on votes by %1 user"
-msgid_plural "Based on votes by %1 users"
-msgstr[0] ""
-msgstr[1] ""
+msgid "Choose local file"
+msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
 
-#: src/qml/Component/Timeline/PollDelegate.qml:60
+#: src/qml/ChatBar.qml:578
 #, kde-format
-msgctxt "as in 'this vote has ended'"
-msgid "(Ended)"
+msgid "Clipboard image"
+msgstr "ਕਲਿੱਪਬੋਰਡ ਚਿੱਤਰ"
+
+#: src/qml/ChooseRoomDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
+
+#: src/qml/ColorScheme.qml:15
+#, kde-format
+msgid "Color theme"
 msgstr ""
 
-#: src/qml/Component/Timeline/ReadMarkerDelegate.qml:32
-#, kde-format
-msgctxt "Relative time since the room was last read"
-msgid "Last read: %1"
-msgstr "ਆਖਰੀ ਪੜ੍ਹੇ: %1"
-
-#: src/qml/Component/Timeline/VideoDelegate.qml:141
-#, kde-format
-msgid "Video"
-msgstr "ਵੀਡੀਓ"
-
-#: src/qml/Component/Timeline/VideoDelegate.qml:205
-#, kde-format
-msgctxt "@action:button"
-msgid "Volume"
-msgstr ""
-
-#: src/qml/Component/Timeline/VideoDelegate.qml:289
-#, kde-format
-msgid "Maximize"
-msgstr ""
-
-#: src/qml/Component/TimelineView.qml:150
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "ਪਹਿਲੇ ਨਾ-ਪੜ੍ਹੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
-
-#: src/qml/Component/TimelineView.qml:173
-#, kde-format
-msgid "Jump to latest message"
-msgstr "ਸਭ ਤੋਂ ਨਵੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
-
-#: src/qml/Component/TimelineView.qml:199
-#, kde-format
-msgid "Drag items here to share them"
-msgstr ""
-
-#: src/qml/Component/TimelineView.qml:207
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 ਲਿਖ ਰਹੇ ਹਨ"
-msgstr[1] "%2 ਲਿਖ ਰਹੇ ਹਨ"
-
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:16
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:19
+#: src/qml/ConfirmDeactivateAccountDialog.qml:16
+#: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@title"
 msgid "Deactivate Account"
 msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:23
+#: src/qml/ConfirmDeactivateAccountDialog.qml:23
 #, fuzzy, kde-format
 #| msgid "Warning: %1"
 msgctxt "@title"
 msgid "Warning"
 msgstr "ਸਾਵਾਧਾਨ: %1"
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:24
+#: src/qml/ConfirmDeactivateAccountDialog.qml:24
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -1821,406 +1635,1363 @@ msgid ""
 "Your messages will stay available."
 msgstr ""
 
-#: src/qml/Dialog/ConfirmDeactivateAccountDialog.qml:34
+#: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate account"
 msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Dialog/ConfirmEncryptionDialog.qml:19
-#: src/qml/Dialog/ConfirmEncryptionDialog.qml:38
+#: src/qml/ConfirmEncryptionDialog.qml:19
+#: src/qml/ConfirmEncryptionDialog.qml:38
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgid "Activate Encryption"
 msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
 
-#: src/qml/Dialog/ConfirmEncryptionDialog.qml:22
+#: src/qml/ConfirmEncryptionDialog.qml:22
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr ""
 
-#: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
-#: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
+#: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
+#: src/qml/ImageEditorPage.qml:126
 #, kde-format
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/qml/Dialog/ConfirmLogout.qml:18 src/qml/Dialog/ConfirmLogout.qml:37
+#: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
 #, kde-format
 msgid "Sign out"
 msgstr ""
 
-#: src/qml/Dialog/ConfirmLogout.qml:21
+#: src/qml/ConfirmLogoutDialog.qml:21
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/Dialog/CreateRoomDialog.qml:13
-#: src/qml/Page/RoomList/ExploreComponent.qml:43
+#: src/qml/ContextMenu.qml:31
+#, fuzzy, kde-format
+#| msgid "Open in new window"
+msgid "Open in New Window"
+msgstr "ਨਵੀਂ ਵਿੰਡੋ ਵਿੱਚ ਖੋਲ੍ਹੋ"
+
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "ਮਨਪਸੰਦ ਵਿੱਚੋਂ ਹਟਾਓ"
+
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
+#, kde-format
+msgid "Add to Favourites"
+msgstr "ਮਨਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
+
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
+#, kde-format
+msgid "Reprioritize"
+msgstr "ਮੁੜ ਤਰਜੀਹ ਦਿਓ"
+
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
+#, kde-format
+msgid "Deprioritize"
+msgstr "ਤਰਜੀਹ ਘਟਾਓ"
+
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
+#, kde-format
+msgid "Mark as Read"
+msgstr "ਪੜ੍ਹਿਆ ਵਜੋਂ ਨਿਸ਼ਾਨੀ ਲਾਓ"
+
+#: src/qml/ContextMenu.qml:60
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
+
+#: src/qml/ContextMenu.qml:60 src/qml/SpaceListContextMenu.qml:36
+#: src/qml/SpaceListContextMenu.qml:116
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
+
+#: src/qml/ContextMenu.qml:72
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notification State"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/ContextMenu.qml:75
+#, kde-format
+msgid "Follow Global Setting"
+msgstr ""
+
+#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:35
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr ""
+
+#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:43
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr ""
+
+#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:51
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr ""
+
+#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
+#: src/qml/RoomDrawerPage.qml:47
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgid "Room Settings"
+msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
+
+#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:214
+#, kde-format
+msgid "Leave Room"
+msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
+
+#: src/qml/CreateRoomDialog.qml:13 src/qml/ExploreComponent.qml:43
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:20
+#: src/qml/CreateRoomDialog.qml:20
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title"
 msgid "Room Information"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:25 src/qml/RoomSettings/General.qml:72
+#: src/qml/CreateRoomDialog.qml:25 src/qml/General.qml:72
 #, fuzzy, kde-format
 #| msgid "Room Name:"
 msgid "Room name:"
 msgstr "ਰੂਮ ਦਾ ਨਾਂ:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:31 src/qml/RoomSettings/General.qml:82
+#: src/qml/CreateRoomDialog.qml:31 src/qml/General.qml:82
 #, kde-format
 msgid "Room topic:"
 msgstr "ਰੂਮ ਦਾ ਵਿਸ਼ਾ:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:37 src/qml/Page/JoinRoomPage.qml:184
+#: src/qml/CreateRoomDialog.qml:37 src/qml/JoinRoomPage.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "ਠੀਕ ਹੈ"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:16
-#: src/qml/Page/RoomList/ExploreComponent.qml:48
+#: src/qml/CreateSpaceDialog.qml:16 src/qml/ExploreComponent.qml:48
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Create a Space"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:21
-#: src/qml/Page/RoomList/ExploreComponent.qml:51
+#: src/qml/CreateSpaceDialog.qml:21 src/qml/ExploreComponent.qml:51
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:26
+#: src/qml/CreateSpaceDialog.qml:26
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Space members"
 msgid "Space name"
 msgstr "ਥਾਂ ਦੇ ਮੈਂਬਰ"
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:30
+#: src/qml/CreateSpaceDialog.qml:30
 #, kde-format
 msgid "Space topic (optional)"
 msgstr ""
 
-#: src/qml/Dialog/CreateSpaceDialog.qml:33
+#: src/qml/CreateSpaceDialog.qml:33
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Create space"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
+#: src/qml/DeviceDelegate.qml:50
+#, kde-format
+msgctxt "@label"
+msgid "%1, Last activity: %2"
+msgstr ""
+
+#: src/qml/DeviceDelegate.qml:59
+#, fuzzy, kde-format
+#| msgid "Edit device name"
+msgid "New device name"
+msgstr "ਡਿਵਾਈਸ ਦਾ ਨਾਂ ਸੋਧੋ"
+
+#: src/qml/DeviceDelegate.qml:68
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
+
+#: src/qml/DeviceDelegate.qml:75
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
+
+#: src/qml/DeviceDelegate.qml:90
+#, kde-format
+msgid "Edit device name"
+msgstr "ਡਿਵਾਈਸ ਦਾ ਨਾਂ ਸੋਧੋ"
+
+#: src/qml/DeviceDelegate.qml:104
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgid "Verify device"
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/DeviceDelegate.qml:119
+#, kde-format
+msgid "Logout device"
+msgstr "ਡਿਵਾਈਸ ਤੋਂ ਲਾਗ ਆਉਟ"
+
+#: src/qml/DevicesPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "This Device"
+msgstr "ਡਿਵਾਈਸ"
+
+#: src/qml/DevicesPage.qml:32
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgid "Verified Devices"
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/DevicesPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgid "Unverified Devices"
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/DevicesPage.qml:42
+#, kde-format
+msgid "Devices without Encryption Support"
+msgstr ""
+
+#: src/qml/DevicesPage.qml:57
+#, kde-format
+msgid "Please login to view the signed-in devices for your account."
+msgstr ""
+
+#: src/qml/DevicesPage.qml:67
+#, kde-format
+msgid "Remove device"
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
+
+#: src/qml/DevicesPage.qml:71 src/qml/Password.qml:27
+#: src/qml/RegisterPassword.qml:18
+#, kde-format
+msgid "Password:"
+msgstr "ਪਾਸਵਰਡ:"
+
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:334
+#: src/qml/PowerLevelDialog.qml:43
+#, kde-format
+msgid "Confirm"
+msgstr "ਤਸਦੀਕ ਕਰੋ"
+
+#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:83
+#, kde-format
+msgid "Developer Tools"
+msgstr ""
+
+#: src/qml/EditMenu.qml:15
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Undo"
+msgstr "ਵਾਪਸ ਲਵੋ"
+
+#: src/qml/EditMenu.qml:25
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Redo"
+msgstr "ਪਰਤਾਓ"
+
+#: src/qml/EditMenu.qml:38
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Cut"
+msgstr "ਕੱਟੋ"
+
+#: src/qml/EditMenu.qml:48
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Copy"
+msgstr "ਕਾਪੀ ਕਰੋ"
+
+#: src/qml/EditMenu.qml:58
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Paste"
+msgstr "ਚੇਪੋ"
+
+#: src/qml/EditMenu.qml:68
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Delete"
+msgstr "ਹਟਾਓ"
+
+#: src/qml/EditMenu.qml:81
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Select All"
+msgstr "ਸਭ ਚੁਣੋ"
+
+#: src/qml/Email.qml:19
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr ""
+
+#: src/qml/Email.qml:31
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm e-mail address"
+msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
+
+#: src/qml/Email.qml:33
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+
+#: src/qml/Email.qml:38
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr ""
+
+#: src/qml/EmojiGrid.qml:83
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgid "No stickers"
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/EmojiGrid.qml:83
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgid "No emojis"
+msgstr "ਕਸਟਮ"
+
+#: src/qml/EmojiPicker.qml:52 src/qml/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgid "Emojis"
+msgstr "ਕਸਟਮ"
+
+#: src/qml/EmojiPicker.qml:59 src/qml/EmoticonsPage.qml:27
+#, kde-format
+msgid "Stickers"
+msgstr ""
+
+#: src/qml/EmojiSas.qml:23
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:15
+#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr ""
+
+#: src/qml/EmoticonEditorPage.qml:28 src/qml/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "...ਈਮੋਜ਼ੀ ਜੋੜੋ"
+
+#: src/qml/EmoticonEditorPage.qml:28 src/qml/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "...ਈਮੋਜ਼ੀ ਜੋੜੋ"
+
+#: src/qml/EmoticonEditorPage.qml:31
+#, kde-format
+msgid "Sticker"
+msgstr ""
+
+#: src/qml/EmoticonEditorPage.qml:31
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgid "Emoji"
+msgstr "ਕਸਟਮ"
+
+#: src/qml/EmoticonEditorPage.qml:60
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgid "Change Image"
+msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
+
+#: src/qml/EmoticonEditorPage.qml:60
+#, kde-format
+msgid "Set Image"
+msgstr ""
+
+#: src/qml/EmoticonEditorPage.qml:100
+#, kde-format
+msgid "Shortcode:"
+msgstr ""
+
+#: src/qml/EmoticonEditorPage.qml:105
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgid "Description:"
+msgstr "ਸੱਦਾ ਭੇਜੋ"
+
+#: src/qml/EmoticonFormCard.qml:71
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgctxt "As in 'This sticker/emoji has no description'"
+msgid "No Description"
+msgstr "ਸੱਦਾ ਭੇਜੋ"
+
+#: src/qml/EmoticonFormCard.qml:112
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgid "Add Emoji"
+msgstr "...ਈਮੋਜ਼ੀ ਜੋੜੋ"
+
+#: src/qml/EmoticonFormCard.qml:112
+#, kde-format
+msgid "Add Sticker"
+msgstr ""
+
+#: src/qml/EmoticonsPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Stickers & Emojis"
+msgstr ""
+
+#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:196
+#, kde-format
+msgid ""
+"This message is encrypted and the sender has not shared the key with this "
+"device."
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:21 src/qml/RoomListPage.qml:164
+#, kde-format
+msgid "Explore rooms"
+msgstr "ਰੂਮ ਛਾਣੋ"
+
+#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/RoomListPage.qml:170
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "ਰੂਮ ਛਾਣੋ"
+
+#: src/qml/ExploreComponent.qml:35 src/qml/GlobalMenu.qml:49
+#: src/qml/GlobalMenu.qml:54 src/qml/StartChatPage.qml:20
+#, kde-format
+msgid "Start a Chat"
+msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
+
+#: src/qml/ExploreComponent.qml:37
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@title"
+msgid "Start a Chat"
+msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
+
+#: src/qml/ExploreComponent.qml:40
+#, kde-format
+msgid "Create a Room"
+msgstr "ਰੂਮ ਬਣਾਓ"
+
+#: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats:"
+msgid "Create rooms and chats"
+msgstr "ਰੂਮ ਤੇ ਪ੍ਰਾਈਵੇਟ ਚੈਟ:"
+
+#: src/qml/ExplorerDelegate.qml:81
+#, kde-format
+msgid "Joined"
+msgstr "ਦਾਖਲ ਹੋਏ"
+
+#: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to download its file"
+msgid "Download"
+msgstr "ਡਾਊਨਲੋਡ"
+
+#: src/qml/FileDelegate.qml:92 src/qml/FileDelegate.qml:158
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to open its downloaded "
+"file with an appropriate application"
+msgid "Open File"
+msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ"
+
+#: src/qml/FileDelegate.qml:107
+#, kde-format
+msgctxt "file download progress"
+msgid "%1 / %2"
+msgstr "%1 / %2"
+
+#: src/qml/FileDelegate.qml:112
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; stops downloading the message's file"
+msgid "Stop Download"
+msgstr "ਡਾਊਨਲੋਡ ਨੂੰ ਰੋਕੋ"
+
+#: src/qml/FileDelegateContextMenu.qml:43
+#, kde-format
+msgid "Open Externally"
+msgstr "ਬਾਹਰ ਖੋਲ੍ਹੋ"
+
+#: src/qml/FileDelegateContextMenu.qml:50
+#, kde-format
+msgid "Save As"
+msgstr "ਇੰਝ ਸੰਭਾਲੋ"
+
+#: src/qml/FileDelegateContextMenu.qml:68
+#: src/qml/MessageDelegateContextMenu.qml:136
+#, kde-format
+msgid "Copy"
+msgstr "ਕਾਪੀ ਕਰੋ"
+
+#: src/qml/FileDelegateContextMenu.qml:76
+#: src/qml/MessageDelegateContextMenu.qml:127
+#, kde-format
+msgid "Remove"
+msgstr "ਹਟਾਓ"
+
+#: src/qml/FileDelegateContextMenu.qml:80
+#: src/qml/MessageDelegateContextMenu.qml:131
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Remove Message"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/FileDelegateContextMenu.qml:85
+#: src/qml/MessageDelegateContextMenu.qml:141 src/qml/ReportSheet.qml:34
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr ""
+
+#: src/qml/FileDelegateContextMenu.qml:89
+#: src/qml/MessageDelegateContextMenu.qml:145
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Report Message"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/FileDelegateContextMenu.qml:94
+#: src/qml/MessageDelegateContextMenu.qml:151
+#, kde-format
+msgid "View Source"
+msgstr "ਸਰੋਤ ਵੇਖੋ"
+
+#: src/qml/FullScreenMap.qml:23
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgid "View Location"
+msgstr "ਸੱਦਾ ਭੇਜੋ"
+
+#: src/qml/FullScreenMap.qml:65
+#, kde-format
+msgid "Close"
+msgstr "ਬੰਦ ਕਰੋ"
+
+#: src/qml/General.qml:25
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room Information"
+msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
+
+#: src/qml/General.qml:47
+#, kde-format
+msgid "Update avatar"
+msgstr "ਅਵਤਾਰ ਅੱਪਡੇਟ ਕਰੋ"
+
+#: src/qml/General.qml:121
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room ID"
+msgstr "ਰੂਮ"
+
+#: src/qml/General.qml:126
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
+msgid "Copy room ID to clipboard"
+msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
+
+#: src/qml/General.qml:140
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room version"
+msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
+
+#: src/qml/General.qml:146
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgid "Upgrade Room"
+msgstr "ਰੂਮ ਛਾਣੋ"
+
+#: src/qml/General.qml:165
+#, kde-format
+msgid "Aliases"
+msgstr ""
+
+#: src/qml/General.qml:170
+#, kde-format
+msgid "No canonical alias set"
+msgstr ""
+
+#: src/qml/General.qml:183
+#, kde-format
+msgid "Make this alias the room's canonical alias"
+msgstr ""
+
+#: src/qml/General.qml:198
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgid "Delete alias"
+msgstr "ਹਟਾਓ"
+
+#: src/qml/General.qml:223
+#, kde-format
+msgid "#new_alias:server.org"
+msgstr ""
+
+#: src/qml/General.qml:240
+#, kde-format
+msgid "Add new alias"
+msgstr ""
+
+#: src/qml/General.qml:260
+#, kde-format
+msgid "URL Previews"
+msgstr ""
+
+#: src/qml/General.qml:264
+#, kde-format
+msgid "Enable URL previews by default for room members"
+msgstr ""
+
+#: src/qml/General.qml:272
+#, kde-format
+msgid "Enable URL previews"
+msgstr ""
+
+#: src/qml/General.qml:274
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "URL previews are enabled by default in this room"
+msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+
+#: src/qml/General.qml:274
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "URL previews are disabled by default in this room"
+msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+
+#: src/qml/General.qml:285
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "ਇਹ ਰੂਮ ਹੋਰ ਗੱਲਬਾਤ ਜਾਰੀ ਰੱਖਦਾ ਹੈ।"
+
+#: src/qml/General.qml:289
+#, fuzzy, kde-format
+#| msgid "See older messages..."
+msgid "See older messages…"
+msgstr "...ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਵੇਖੋ"
+
+#: src/qml/General.qml:299
+#, kde-format
+msgid "This room has been replaced."
+msgstr "ਇਸ ਰੂਮ ਨੂੰ ਬਦਲਿਆ ਗਿਆ ਹੈ।"
+
+#: src/qml/General.qml:303
+#, fuzzy, kde-format
+#| msgid "See new room..."
+msgid "See new room…"
+msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
+
+#: src/qml/General.qml:324
+#, fuzzy, kde-format
+#| msgid "left the room"
+msgid "Upgrade the Room"
+msgstr "ਰੂਮ ਛੱਡਿਆ"
+
+#: src/qml/General.qml:328
+#, fuzzy, kde-format
+#| msgid "See new room..."
+msgid "Select new version"
+msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
+
+#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:window"
+msgid "General"
+msgstr "ਆਮ"
+
+#: src/qml/GeneralSettingsPage.qml:18
+#, fuzzy, kde-format
+#| msgid "General settings:"
+msgid "General settings"
+msgstr "ਆਮ ਸੈਟਿੰਗਾਂ:"
+
+#: src/qml/GeneralSettingsPage.qml:24
+#, fuzzy, kde-format
+#| msgid "Close to system tray"
+msgid "Show in System Tray"
+msgstr "ਸਿਸਟਮ ਟਰੇ ਵਿੱਚ ਭੇਜੋ"
+
+#: src/qml/GeneralSettingsPage.qml:38
+#, kde-format
+msgid "Minimize to system tray on startup"
+msgstr ""
+
+#: src/qml/GeneralSettingsPage.qml:52
+#, kde-format
+msgid "Automatically hide/unhide the room information when resizing the window"
+msgstr ""
+
+#: src/qml/GeneralSettingsPage.qml:63
+#, kde-format
+msgid "Timeline Events"
+msgstr ""
+
+#: src/qml/GeneralSettingsPage.qml:68
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Show deleted messages"
+msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#: src/qml/GeneralSettingsPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Show leave and join events"
+msgid "Show state events"
+msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
+
+#: src/qml/GeneralSettingsPage.qml:98
+#, kde-format
+msgid "Show leave and join events"
+msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
+
+#: src/qml/GeneralSettingsPage.qml:116
+#, fuzzy, kde-format
+#| msgid "Show leave and join events"
+msgid "Show name change events"
+msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
+
+#: src/qml/GeneralSettingsPage.qml:134
+#, fuzzy, kde-format
+#| msgid "Show leave and join events"
+msgid "Show avatar update events"
+msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
+
+#: src/qml/GeneralSettingsPage.qml:144
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats:"
+msgid "Rooms and private chats"
+msgstr "ਰੂਮ ਤੇ ਪ੍ਰਾਈਵੇਟ ਚੈਟ:"
+
+#: src/qml/GeneralSettingsPage.qml:148
+#, kde-format
+msgid "Separated"
+msgstr "ਵੱਖ ਕੀਤੇ"
+
+#: src/qml/GeneralSettingsPage.qml:157
+#, kde-format
+msgid "Intermixed"
+msgstr "ਆਪਸ 'ਚ ਮਿਲਾਏ"
+
+#: src/qml/GeneralSettingsPage.qml:167
+#, fuzzy, kde-format
+#| msgid "Edit"
+msgctxt "Chat Editor"
+msgid "Editor"
+msgstr "ਸੋਧੋ"
+
+#: src/qml/GeneralSettingsPage.qml:172
+#, kde-format
+msgid "Use s/text/replacement syntax to edit your last message"
+msgstr ""
+
+#: src/qml/GeneralSettingsPage.qml:183
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Send typing notifications"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/GeneralSettingsPage.qml:193
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Developer Settings"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
+#: src/qml/GeneralSettingsPage.qml:197
+#, kde-format
+msgid "Enable developer tools"
+msgstr ""
+
+#: src/qml/GlobalMenu.qml:20
+#, kde-format
+msgctxt "menu"
+msgid "NeoChat"
+msgstr "ਨਿਓ-ਚੈਟ"
+
+#: src/qml/GlobalMenu.qml:27
+#, kde-format
+msgid "Configure NeoChat..."
+msgstr "...ਨਿਓਚੈਟ ਸੰਰਚਨਾ ਕਰੋ"
+
+#: src/qml/GlobalMenu.qml:28
+#, kde-format
+msgctxt "menu"
+msgid "Configure NeoChat..."
+msgstr "...ਨਿਓਚੈਟ ਸੰਰਚਨਾ ਕਰੋ"
+
+#: src/qml/GlobalMenu.qml:38
+#, kde-format
+msgctxt "menu"
+msgid "Quit NeoChat"
+msgstr "ਨਿਓ-ਚੈਟ ਤੋਂ ਬਾਹਰ"
+
+#: src/qml/GlobalMenu.qml:45
+#, kde-format
+msgctxt "menu"
+msgid "File"
+msgstr "ਫਾਇਲ"
+
+#: src/qml/GlobalMenu.qml:48
+#, kde-format
+msgctxt "menu"
+msgid "New Private Chat…"
+msgstr "...ਨਵੀਂ ਪ੍ਰਾਈਵੇਟ ਚੈਟ"
+
+#: src/qml/GlobalMenu.qml:53
+#, kde-format
+msgctxt "menu"
+msgid "New Group…"
+msgstr "...ਨਵਾਂ ਗਰੁੱਪ"
+
+#: src/qml/GlobalMenu.qml:62
+#, kde-format
+msgctxt "menu"
+msgid "Browse Chats…"
+msgstr "...ਚੈਟਾਂ ਦੀ ਝਲਕ"
+
+#: src/qml/GlobalMenu.qml:76
+#, kde-format
+msgctxt "menu"
+msgid "Edit"
+msgstr "ਸੋਧੋ"
+
+#: src/qml/GlobalMenu.qml:80
+#, kde-format
+msgctxt "menu"
+msgid "View"
+msgstr "ਵੇਖੋ"
+
+#: src/qml/GlobalMenu.qml:83
+#, kde-format
+msgctxt ""
+"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"a fast keyboard-based interface for switching in between chats."
+msgid "Open Quick Switcher"
+msgstr "ਫ਼ੌਰੀ ਸਵਿੱਚਰ ਖੋਲ੍ਹੋ"
+
+#: src/qml/GlobalMenu.qml:89
+#, kde-format
+msgctxt "menu"
+msgid "Window"
+msgstr "ਵਿੰਡੋ"
+
+#: src/qml/GlobalMenu.qml:96
+#, kde-format
+msgctxt "menu"
+msgid "Exit Full Screen"
+msgstr "ਪੂਰੀ ਸਕਰੀਨ ਤੋਂ ਬਾਹਰ ਜਾਓ"
+
+#: src/qml/GlobalMenu.qml:96
+#, kde-format
+msgctxt "menu"
+msgid "Enter Full Screen"
+msgstr "ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
+
+#: src/qml/GlobalMenu.qml:102
+#, kde-format
+msgctxt "menu"
+msgid "Help"
+msgstr "ਮਦਦ"
+
+#: src/qml/GlobalMenu.qml:105
+#, kde-format
+msgctxt "menu"
+msgid "Matrix FAQ"
+msgstr "ਮੈਟਰਿਕਸ ਸਵਾਲ-ਜਵਾਬ"
+
+#: src/qml/GlobalNotificationsPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgctxt "@title:window"
+msgid "Notifications"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/GlobalNotificationsPage.qml:22
+#, kde-format
+msgid "Enable notifications for this account"
+msgstr ""
+
+#: src/qml/GlobalNotificationsPage.qml:23
+#, kde-format
+msgid "Whether push notifications are generated by your Matrix server"
+msgstr ""
+
+#: src/qml/GlobalNotificationsPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Room Notifications"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/GlobalNotificationsPage.qml:50
+#, kde-format
+msgid "@Mentions"
+msgstr ""
+
+#: src/qml/GlobalNotificationsPage.qml:67 src/qml/PushNotification.qml:61
+#, kde-format
+msgid "Keywords"
+msgstr ""
+
+#: src/qml/GlobalNotificationsPage.qml:91 src/qml/PushNotification.qml:96
+#, kde-format
+msgid "Keyword…"
+msgstr ""
+
+#: src/qml/GlobalNotificationsPage.qml:110 src/qml/PushNotification.qml:115
+#, kde-format
+msgid "Add keyword"
+msgstr ""
+
+#: src/qml/GlobalNotificationsPage.qml:131
+#, fuzzy, kde-format
+#| msgid "Invite"
+msgid "Invites"
+msgstr "ਸੱਦਾ"
+
+#: src/qml/GlobalNotificationsPage.qml:148
+#, fuzzy, kde-format
+#| msgctxt "Unknown attachment size"
+#| msgid "Unknown"
+msgid "Unknown"
+msgstr "ਅਣਪਛਾਤਾ"
+
+#: src/qml/GroupChatDrawerHeader.qml:61
+#, kde-format
+msgid "No name"
+msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
+
+#: src/qml/GroupChatDrawerHeader.qml:81
+#, kde-format
+msgid "No Topic"
+msgstr "ਕੋਈ ਵਿਸ਼ਾ ਨਹੀਂ"
+
+#: src/qml/Homeserver.qml:19
+#, fuzzy, kde-format
+#| msgid "Server Address"
+msgid "Server Url:"
+msgstr "ਸਰਵਰ ਦਾ ਸਿਰਨਾਵਾਂ"
+
+#: src/qml/Homeserver.qml:24
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr ""
+
+#: src/qml/Homeserver.qml:39 src/qml/Username.qml:36
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgid "Loading"
+msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: src/qml/HoverActions.qml:85
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr ""
+
+#: src/qml/HoverActions.qml:98
+#, kde-format
+msgid "React"
+msgstr "ਅਸਰ"
+
+#: src/qml/ImageEditorPage.qml:37
+#, kde-format
+msgctxt "@action:button Undo modification"
+msgid "Undo"
+msgstr "ਵਾਪਸ ਲਵੋ"
+
+#: src/qml/ImageEditorPage.qml:44
+#, kde-format
+msgctxt "@action:button Accept image modification"
+msgid "Accept"
+msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
+
+#: src/qml/ImageEditorPage.qml:52
+#, kde-format
+msgid ""
+"Unable to save file. Check if you have the correct permission to edit the "
+"cache directory."
+msgstr ""
+"ਫਾਇਲ ਸੰਭਾਲਣ ਲਈ ਅਸਮਰੱਥ। ਜਾਂਚ ਕਰੋ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਕੈਸ਼ ਡਾਇਰੈਕਟਰੀ ਨੂੰ ਸੋਧਣ ਲਈ ਠੀਕ ਇਜਾਜ਼ਤਾਂ ਹਨ।"
+
+#: src/qml/ImageEditorPage.qml:126 src/qml/ImageEditorPage.qml:143
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "ਕਰੋਪ"
+
+#: src/qml/ImageEditorPage.qml:148
+#, kde-format
+msgctxt "@action:button Rotate an image to the left"
+msgid "Rotate left"
+msgstr "ਖੱਬੇ ਘੁੰਮਾਓ"
+
+#: src/qml/ImageEditorPage.qml:154
+#, kde-format
+msgctxt "@action:button Rotate an image to the right"
+msgid "Rotate right"
+msgstr "ਸੱਜੇ ਘੁੰਮਾਓ"
+
+#: src/qml/ImageEditorPage.qml:160
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "ਪਲਟੋ"
+
+#: src/qml/ImageEditorPage.qml:166
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "ਮਿੱਰਰ"
+
+#: src/qml/InvitationView.qml:17
+#, kde-format
+msgid "Accept this invitation?"
+msgstr "ਇਹ ਸੱਦਾ ਮਨਜ਼ੂਰ ਕਰਨਾ ਹੈ?"
+
+#: src/qml/InvitationView.qml:21
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and ignore user"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
+
+#: src/qml/InvitationView.qml:30
+#, kde-format
+msgid "Reject"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#, kde-format
+msgid "Accept"
+msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
+
+#: src/qml/InviteUserPage.qml:19
+#, kde-format
+msgid "Invite a User"
+msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
+
+#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#, kde-format
+msgid "Find a user..."
+msgstr "...ਵਰਤੋਂਕਾਰ ਲੱਭੋ"
+
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:227
+#, kde-format
+msgid "Add"
+msgstr "ਜੋੜੋ"
+
+#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:134
+#, kde-format
+msgid "No users available"
+msgstr "ਕੋਈ ਵਰਤੋਂਕਾਰ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+
+#: src/qml/InviteUserPage.qml:100
+#, kde-format
+msgid "Send invitation"
+msgstr "ਸੱਦਾ ਭੇਜੋ"
+
+#: src/qml/InviteUserPage.qml:114
+#, kde-format
+msgid "User is either already a member or has been invited"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:38
+#, kde-format
+msgid "Explore Rooms"
+msgstr "ਰੂਮ ਛਾਣੋ"
+
+#: src/qml/JoinRoomPage.qml:61
+#, kde-format
+msgid "Find a room..."
+msgstr "ਰੂਮ ਲੱਭੋ..."
+
+#: src/qml/JoinRoomPage.qml:69
+#, kde-format
+msgid "View"
+msgstr "ਵੇਖੋ"
+
+#: src/qml/JoinRoomPage.qml:69
+#, kde-format
+msgid "Join"
+msgstr "ਜੁਆਇੰਨ"
+
+#: src/qml/JoinRoomPage.qml:104
+#, kde-format
+msgid "Add New Server"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:119
+#, fuzzy, kde-format
+#| msgid "Homeserver:"
+msgid "Home Server"
+msgstr "ਹੋਮ-ਸਰਵਰ:"
+
+#: src/qml/JoinRoomPage.qml:126
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:158
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:171
+#, kde-format
+msgid "Valid server entered"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:171
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:171
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:171
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:179
+#, kde-format
+msgid "Server URL"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:278
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms found"
+msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/qml/KeyVerificationDialog.qml:16
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Session Verification"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:37
+#: src/qml/KeyVerificationDialog.qml:38
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:43
+#: src/qml/KeyVerificationDialog.qml:44
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:49
+#: src/qml/KeyVerificationDialog.qml:50
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:55
+#: src/qml/KeyVerificationDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Emoji Verification"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/KeyVerificationDialog.qml:57
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:63
+#: src/qml/KeyVerificationDialog.qml:66
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:80
+#: src/qml/KeyVerificationDialog.qml:83
 #, fuzzy, kde-format
 #| msgid "Timeline:"
 msgid "Decline"
 msgstr "ਸਮਾਂ-ਲਾਈਨ:"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:19
+#: src/qml/LinkPreviewDelegate.qml:115
 #, kde-format
-msgid "The session verification was canceled for unknown reason."
+msgid "Shrink preview"
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:21
+#: src/qml/LinkPreviewDelegate.qml:115
 #, kde-format
-msgid "The session verification timed out."
+msgid "Expand preview"
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:23
+#: src/qml/LinkPreviewDelegate.qml:140
 #, kde-format
-msgid "The session verification timed out for remote party."
+msgid "Loading URL preview"
 msgstr ""
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:25
+#: src/qml/Loading.qml:15
 #, kde-format
-msgid "You canceled the session verification."
-msgstr ""
+msgid "Please wait. This might take a little while."
+msgstr "ਉਡੀਕੋ। ਇਸ ਨੂੰ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"
 
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:27
-#, kde-format
-msgid "The remote party canceled the session verification."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:29
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an unexpected "
-"message."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:31
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"unexpected message."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:33
-#, kde-format
-msgid ""
-"The session verification was canceled because it received a message for an "
-"unknown session."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:35
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received a "
-"message for an unknown session."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:37
-#, kde-format
-msgid ""
-"The session verification was canceled because NeoChat is unable to handle "
-"this verification method."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:39
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it is unable to "
-"handle this verification method."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:41
-#, kde-format
-msgid "The session verification was canceled because the keys are incorrect."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:43
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys are "
-"incorrect."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:45
-#, kde-format
-msgid ""
-"The session verification was canceled because it verifies an unexpected user."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:47
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it verifies an "
-"unexpected user."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:49
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an invalid message."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:51
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"invalid message."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:53
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:55
-#, kde-format
-msgid "The session was accepted on a different device"
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:57
-#, kde-format
-msgid "The session verification was canceled because of a mismatched key."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:59
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because of a mismatched "
-"key."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:61
-#, kde-format
-msgid "The session verification was canceled because the keys do not match."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:63
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys do not "
-"match."
-msgstr ""
-
-#: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:65
-#, kde-format
-msgid "The session verification was canceled due to an unknown error."
-msgstr ""
-
-#: src/qml/Dialog/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "ਫਾਇਲ ਚੁਣੋ ਜੀ"
-
-#: src/qml/Dialog/PowerLevelDialog.qml:14
-#, kde-format
-msgid "Edit user power level"
-msgstr ""
-
-#: src/qml/Dialog/PowerLevelDialog.qml:37
-#: src/qml/RoomSettings/Permissions.qml:69
+#: src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
 #, fuzzy, kde-format
-#| msgid "Members"
-msgid "Member (0)"
-msgstr "ਮੈਂਬਰ"
+#| msgid "Loading"
+msgid "Loading…"
+msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:38
-#: src/qml/RoomSettings/Permissions.qml:70
+#: src/qml/LocationChooser.qml:22
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgid "Choose a Location"
+msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
+
+#: src/qml/LocationChooser.qml:27
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Send this location"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/LocationsPage.qml:51
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "There are no locations shared in this room."
+msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+
+#: src/qml/Login.qml:24
 #, kde-format
-msgid "Moderator (50)"
+msgid "Matrix ID:"
+msgstr "ਮੈਟਰਿਕਸ ID:"
+
+#: src/qml/Login.qml:26
+#, fuzzy, kde-format
+#| msgid "Matrix ID:"
+msgid "Matrix ID"
+msgstr "ਮੈਟਰਿਕਸ ID:"
+
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:114
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "ਜਾਰੀ ਰੱਖੋ"
+
+#: src/qml/Login.qml:37
+#, kde-format
+msgid "Already logged in"
 msgstr ""
 
-#: src/qml/Dialog/PowerLevelDialog.qml:39
-#: src/qml/RoomSettings/Permissions.qml:71
+#: src/qml/LoginMethod.qml:18
 #, fuzzy, kde-format
-#| msgid "Admin"
-msgid "Admin (100)"
-msgstr "ਐਡਮਿਨ"
+#| msgid "Login with password"
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "ਪਾਸਵਰਡ ਨਾਲ ਲਾਗਇਨ"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:334
-#: src/qml/Settings/DevicesPage.qml:75
-#, kde-format
-msgid "Confirm"
-msgstr "ਤਸਦੀਕ ਕਰੋ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:31
-#, kde-format
-msgctxt "@title:menu Account detail dialog"
-msgid "Account detail"
-msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:80
-#, kde-format
-msgid "Unignore this user"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:80
-#, kde-format
-msgid "Ignore this user"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:92
-#, kde-format
-msgid "Kick this user"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿੱਕ ਕਰੋ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:105
+#: src/qml/LoginMethod.qml:24
 #, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgid "Invite this user"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
+#| msgid "Login with single sign-on"
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr "ਇਕਹੇਰੇ ਸਾਈਨ-ਔਨ ਨਾਲ ਲਾਗਇਨ ਕਰੋ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:117
+#: src/qml/LoginRegister.qml:20 src/qml/Password.qml:40
 #, kde-format
-msgid "Ban this user"
-msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
+msgctxt "@action:button"
+msgid "Login"
+msgstr "ਲਾਗਇਨ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:122
+#: src/qml/LoginRegister.qml:25
 #, fuzzy, kde-format
-#| msgid "Ban this user"
-msgctxt "@title"
-msgid "Ban User"
-msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:133
-#, kde-format
-msgid "Unban this user"
-msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਤੋਂ ਪਾਬੰਦੀ ਹਟਾਓ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:145
-#, kde-format
-msgid "Set user power level"
-msgstr ""
-
-#: src/qml/Dialog/UserDetailDialog.qml:169
-#, kde-format
-msgid "Remove recent messages by this user"
-msgstr ""
-
-#: src/qml/Dialog/UserDetailDialog.qml:174
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgctxt "@title"
-msgid "Remove Messages"
-msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:184
-#, kde-format
-msgid "Open a private chat"
-msgstr "ਪ੍ਰਾਈਵੇਟ ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
-
-#: src/qml/Dialog/UserDetailDialog.qml:194
-#, fuzzy, kde-format
-#| msgid "Copy"
-msgid "Copy link"
-msgstr "ਕਾਪੀ ਕਰੋ"
+#| msgid "Register"
+msgctxt "@action:button"
+msgid "Register"
+msgstr "ਰਜਿਸਟਰ ਕਰੋ"
 
 #: src/qml/main.qml:302
 #, fuzzy, kde-format
@@ -2256,935 +3027,585 @@ msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
 msgid "Do you want to start a chat with %1?"
 msgstr "ਕੀ ਤੁਸੀਂ %1 ਨਾਲ ਗੱਲਬਾਤ ਕਰਨੀ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: src/qml/main.qml:395 src/qml/Menu/GlobalMenu.qml:32
-#: src/qml/Page/RoomList/AccountMenu.qml:36
-#: src/qml/Page/RoomList/AccountMenu.qml:46
-#: src/qml/Page/RoomList/UserInfo.qml:236
-#, fuzzy, kde-format
-#| msgid "Configure room"
-msgid "Configure"
-msgstr "ਰੂਮ ਦੀ ਸੰਰਚਨਾ"
-
-#: src/qml/Menu/EditMenu.qml:15
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Undo"
-msgstr "ਵਾਪਸ ਲਵੋ"
-
-#: src/qml/Menu/EditMenu.qml:25
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Redo"
-msgstr "ਪਰਤਾਓ"
-
-#: src/qml/Menu/EditMenu.qml:38
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Cut"
-msgstr "ਕੱਟੋ"
-
-#: src/qml/Menu/EditMenu.qml:48
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Copy"
-msgstr "ਕਾਪੀ ਕਰੋ"
-
-#: src/qml/Menu/EditMenu.qml:58
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Paste"
-msgstr "ਚੇਪੋ"
-
-#: src/qml/Menu/EditMenu.qml:68
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Delete"
-msgstr "ਹਟਾਓ"
-
-#: src/qml/Menu/EditMenu.qml:81
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Select All"
-msgstr "ਸਭ ਚੁਣੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:18
-#, kde-format
-msgctxt "menu"
-msgid "NeoChat"
-msgstr "ਨਿਓ-ਚੈਟ"
-
-#: src/qml/Menu/GlobalMenu.qml:25
-#, kde-format
-msgid "Configure NeoChat..."
-msgstr "...ਨਿਓਚੈਟ ਸੰਰਚਨਾ ਕਰੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:26
-#, kde-format
-msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "...ਨਿਓਚੈਟ ਸੰਰਚਨਾ ਕਰੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:36
-#, kde-format
-msgctxt "menu"
-msgid "Quit NeoChat"
-msgstr "ਨਿਓ-ਚੈਟ ਤੋਂ ਬਾਹਰ"
-
-#: src/qml/Menu/GlobalMenu.qml:43
-#, kde-format
-msgctxt "menu"
-msgid "File"
-msgstr "ਫਾਇਲ"
-
-#: src/qml/Menu/GlobalMenu.qml:46
-#, kde-format
-msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "...ਨਵੀਂ ਪ੍ਰਾਈਵੇਟ ਚੈਟ"
-
-#: src/qml/Menu/GlobalMenu.qml:47 src/qml/Menu/GlobalMenu.qml:52
-#: src/qml/Page/RoomList/ExploreComponent.qml:35
-#: src/qml/Page/StartChatPage.qml:20
-#, kde-format
-msgid "Start a Chat"
-msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:51
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "...ਨਵਾਂ ਗਰੁੱਪ"
-
-#: src/qml/Menu/GlobalMenu.qml:60
-#, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "...ਚੈਟਾਂ ਦੀ ਝਲਕ"
-
-#: src/qml/Menu/GlobalMenu.qml:62 src/qml/Page/RoomList/ExploreComponent.qml:24
-#: src/qml/Page/RoomList/Page.qml:171
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "ਰੂਮ ਛਾਣੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:74
-#, kde-format
-msgctxt "menu"
-msgid "Edit"
-msgstr "ਸੋਧੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:78
-#, kde-format
-msgctxt "menu"
-msgid "View"
-msgstr "ਵੇਖੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:81
-#, kde-format
-msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
-"a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "ਫ਼ੌਰੀ ਸਵਿੱਚਰ ਖੋਲ੍ਹੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:87
-#, kde-format
-msgctxt "menu"
-msgid "Window"
-msgstr "ਵਿੰਡੋ"
-
-#: src/qml/Menu/GlobalMenu.qml:94
-#, kde-format
-msgctxt "menu"
-msgid "Exit Full Screen"
-msgstr "ਪੂਰੀ ਸਕਰੀਨ ਤੋਂ ਬਾਹਰ ਜਾਓ"
-
-#: src/qml/Menu/GlobalMenu.qml:94
-#, kde-format
-msgctxt "menu"
-msgid "Enter Full Screen"
-msgstr "ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
-
-#: src/qml/Menu/GlobalMenu.qml:100
-#, kde-format
-msgctxt "menu"
-msgid "Help"
-msgstr "ਮਦਦ"
-
-#: src/qml/Menu/GlobalMenu.qml:103
-#, kde-format
-msgctxt "menu"
-msgid "Matrix FAQ"
-msgstr "ਮੈਟਰਿਕਸ ਸਵਾਲ-ਜਵਾਬ"
-
-#: src/qml/Menu/ShareAction.qml:19
-#, kde-format
-msgid "Share"
-msgstr ""
-
-#: src/qml/Menu/ShareAction.qml:20
-#, kde-format
-msgid "Share the selected media"
-msgstr ""
-
-#: src/qml/Menu/ShareDialog.qml:34
-#, fuzzy, kde-format
-#| msgid "Login Failed"
-msgid "Sharing failed"
-msgstr "ਲਾਗਇਨ ਫੇਲ੍ਹ ਹੈ"
-
-#: src/qml/Menu/ShareDialog.qml:53
-#, kde-format
-msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr ""
-
-#: src/qml/Menu/Timeline/BanSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgid "Ban User"
-msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
-
-#: src/qml/Menu/Timeline/BanSheet.qml:22
-#, fuzzy, kde-format
-#| msgid "Unban this user"
-msgid "Reason for banning this user"
-msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਤੋਂ ਪਾਬੰਦੀ ਹਟਾਓ"
-
-#: src/qml/Menu/Timeline/BanSheet.qml:34
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr ""
-
-#: src/qml/Menu/Timeline/BanSheet.qml:43
-#: src/qml/Menu/Timeline/RemoveSheet.qml:49
-#: src/qml/Menu/Timeline/ReportSheet.qml:43 src/qml/Page/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:42
-#, kde-format
-msgid "Open Externally"
-msgstr "ਬਾਹਰ ਖੋਲ੍ਹੋ"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:49
-#, kde-format
-msgid "Save As"
-msgstr "ਇੰਝ ਸੰਭਾਲੋ"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:67
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:134
-#, kde-format
-msgid "Copy"
-msgstr "ਕਾਪੀ ਕਰੋ"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:75
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:125
-#, kde-format
-msgid "Remove"
-msgstr "ਹਟਾਓ"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:79
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgctxt "@title"
-msgid "Remove Message"
-msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:139
-#: src/qml/Menu/Timeline/ReportSheet.qml:34
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr ""
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:88
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:143
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgctxt "@title"
-msgid "Report Message"
-msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:93
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
-#, kde-format
-msgid "View Source"
-msgstr "ਸਰੋਤ ਵੇਖੋ"
-
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:108
+#: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:114
+#: src/qml/MessageDelegateContextMenu.qml:116
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:154
+#: src/qml/MessageDelegateContextMenu.qml:156
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy Link"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:200
+#: src/qml/MessageDelegateContextMenu.qml:202
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' ਲਈ ਖੋਜੋ"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:221
+#: src/qml/MessageDelegateContextMenu.qml:223
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "...ਵੈੱਬ ਸ਼ਾਰਟਕੱਟਾਂ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:20
+#: src/qml/MessageEditComponent.qml:76
+#, fuzzy, kde-format
+#| msgid "Confirm"
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "ਤਸਦੀਕ ਕਰੋ"
+
+#: src/qml/MessageEditComponent.qml:88
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#: src/qml/MessageSourceSheet.qml:21 src/qml/RoomData.qml:69
+#: src/qml/RoomData.qml:95
+#, fuzzy, kde-format
+#| msgid "View Source"
+msgid "Event Source"
+msgstr "ਸਰੋਤ ਵੇਖੋ"
+
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:63
+#, fuzzy, kde-format
+#| msgid "Network Error"
+msgid "Network Proxy"
+msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ"
+
+#: src/qml/NetworkProxyPage.qml:26
+#, kde-format
+msgid "System Default"
+msgstr ""
+
+#: src/qml/NetworkProxyPage.qml:34
+#, kde-format
+msgid "HTTP"
+msgstr ""
+
+#: src/qml/NetworkProxyPage.qml:42
+#, kde-format
+msgid "Socks5"
+msgstr ""
+
+#: src/qml/NetworkProxyPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgid "Proxy Settings"
+msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
+
+#: src/qml/NetworkProxyPage.qml:57
+#, kde-format
+msgid "Host"
+msgstr ""
+
+#: src/qml/NetworkProxyPage.qml:66
+#, kde-format
+msgid "Port"
+msgstr ""
+
+#: src/qml/NetworkProxyPage.qml:79
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgid "User"
+msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
+
+#: src/qml/NetworkProxyPage.qml:106
+#, kde-format
+msgid "Apply"
+msgstr "ਲਾਗੂ ਕਰੋ"
+
+#: src/qml/NotificationRuleItem.qml:70
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Disable notifications"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/NotificationRuleItem.qml:70
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Enable notifications"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/NotificationRuleItem.qml:92
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Mute notifications"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/NotificationRuleItem.qml:92
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Unmute notifications"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/NotificationRuleItem.qml:113
+#, kde-format
+msgctxt ""
+"As in clicking this button will switch off highlights for messages that "
+"match this rule"
+msgid "Disable message highlights"
+msgstr ""
+
+#: src/qml/NotificationRuleItem.qml:113
+#, kde-format
+msgctxt ""
+"As in clicking this button will switch on highlights for messages that match "
+"this rule"
+msgid "Enable message highlights"
+msgstr ""
+
+#: src/qml/NotificationRuleItem.qml:135
+#, fuzzy, kde-format
+#| msgid "Delete word"
+msgid "Delete keyword"
+msgstr "ਸ਼ਬਦ ਹਟਾਓ"
+
+#: src/qml/OpenFileDialog.qml:12
+#, kde-format
+msgid "Please choose a file"
+msgstr "ਫਾਇਲ ਚੁਣੋ ਜੀ"
+
+#: src/qml/Password.qml:32
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Invalid username or password"
+msgstr "ਆਪਣਾ ਪਾਸਵਰਡ ਦਿਓ"
+
+#: src/qml/Permissions.qml:33
+#, kde-format
+msgid "Privileged Users"
+msgstr ""
+
+#: src/qml/Permissions.qml:69 src/qml/PowerLevelDialog.qml:37
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member (0)"
+msgstr "ਮੈਂਬਰ"
+
+#: src/qml/Permissions.qml:70 src/qml/PowerLevelDialog.qml:38
+#, kde-format
+msgid "Moderator (50)"
+msgstr ""
+
+#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:39
+#, fuzzy, kde-format
+#| msgid "Admin"
+msgid "Admin (100)"
+msgstr "ਐਡਮਿਨ"
+
+#: src/qml/Permissions.qml:230
+#, kde-format
+msgid "Default permissions"
+msgstr ""
+
+#: src/qml/Permissions.qml:235
+#, kde-format
+msgid "Default user power level"
+msgstr ""
+
+#: src/qml/Permissions.qml:236
+#, kde-format
+msgid "This is power level for all new users when joining the room"
+msgstr ""
+
+#: src/qml/Permissions.qml:244
+#, kde-format
+msgid "Default power level to set the room state"
+msgstr ""
+
+#: src/qml/Permissions.qml:245
+#, kde-format
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+
+#: src/qml/Permissions.qml:253
+#, kde-format
+msgid "Default power level to send messages"
+msgstr ""
+
+#: src/qml/Permissions.qml:254
+#, kde-format
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+
+#: src/qml/Permissions.qml:265
+#, kde-format
+msgid "Basic permissions"
+msgstr ""
+
+#: src/qml/Permissions.qml:270
+#, fuzzy, kde-format
+#| msgid "Invite a User"
+msgid "Invite users"
+msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
+
+#: src/qml/Permissions.qml:278
+#, fuzzy, kde-format
+#| msgid "Kick this user"
+msgid "Kick users"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿੱਕ ਕਰੋ"
+
+#: src/qml/Permissions.qml:286
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgid "Ban users"
+msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
+
+#: src/qml/Permissions.qml:294
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgid "Remove message sent by other users"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
+
+#: src/qml/Permissions.qml:305
+#, kde-format
+msgid "Event permissions"
+msgstr ""
+
+#: src/qml/Permissions.qml:310
+#, kde-format
+msgid "Change user permissions"
+msgstr ""
+
+#: src/qml/Permissions.qml:319
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgid "Change the room name"
+msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
+
+#: src/qml/Permissions.qml:328
+#, fuzzy, kde-format
+#| msgid "changed the room avatar"
+msgid "Change the room avatar"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/qml/Permissions.qml:337
+#, fuzzy, kde-format
+#| msgid "changed the room avatar"
+msgid "Change the room canonical alias"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/qml/Permissions.qml:346
+#, fuzzy, kde-format
+#| msgid "changed the room avatar"
+msgid "Change the room topic"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/qml/Permissions.qml:355
+#, kde-format
+msgid "Enable encryption for the room"
+msgstr ""
+
+#: src/qml/Permissions.qml:364
+#, kde-format
+msgid "Change the room history visibility"
+msgstr ""
+
+#: src/qml/Permissions.qml:373
+#, fuzzy, kde-format
+#| msgid "Show leave and join events"
+msgid "Set pinned events"
+msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
+
+#: src/qml/Permissions.qml:382
+#, fuzzy, kde-format
+#| msgid "left the room"
+msgid "Upgrade the room"
+msgstr "ਰੂਮ ਛੱਡਿਆ"
+
+#: src/qml/Permissions.qml:391
+#, kde-format
+msgid "Set the room server access control list (ACL)"
+msgstr ""
+
+#: src/qml/Permissions.qml:401
+#, kde-format
+msgid "Set the children of this space"
+msgstr ""
+
+#: src/qml/Permissions.qml:410
+#, fuzzy, kde-format
+#| msgid "%1 invited you to a room"
+msgid "Set the parent space of this room"
+msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
+
+#: src/qml/PollDelegate.qml:60
+#, kde-format
+msgid "Based on votes by %1 user"
+msgid_plural "Based on votes by %1 users"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/qml/PollDelegate.qml:60
+#, kde-format
+msgctxt "as in 'this vote has ended'"
+msgid "(Ended)"
+msgstr ""
+
+#: src/qml/PowerLevelDialog.qml:14
+#, kde-format
+msgid "Edit user power level"
+msgstr ""
+
+#: src/qml/PushNotification.qml:22
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Room notifications setting"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/PushNotification.qml:27
+#, kde-format
+msgid "Follow global setting"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:23
+#, kde-format
+msgid "Bold"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:42
+#, kde-format
+msgid "Italic"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:61
+#, kde-format
+msgid "Strikethrough"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:80
+#, kde-format
+msgid "Code block"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:99
+#, kde-format
+msgid "Quote"
+msgstr ""
+
+#: src/qml/QuickFormatBar.qml:118
+#, kde-format
+msgid "Insert link"
+msgstr ""
+
+#: src/qml/ReadMarkerDelegate.qml:32
+#, kde-format
+msgctxt "Relative time since the room was last read"
+msgid "Last read: %1"
+msgstr "ਆਖਰੀ ਪੜ੍ਹੇ: %1"
+
+#: src/qml/RegisterPassword.qml:28
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgid "Confirm Password:"
+msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਤਸਦੀਕ:"
+
+#: src/qml/RegisterPassword.qml:31
+#, fuzzy, kde-format
+#| msgid "Passwords do not match"
+msgid "The passwords do not match."
+msgstr "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ"
+
+#: src/qml/RemoveSheet.qml:20
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Remove Messages"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:20
+#: src/qml/RemoveSheet.qml:20
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Remove Message"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:24
+#: src/qml/RemoveSheet.qml:24
 #, kde-format
 msgid "Reason for removing this user's recent messages"
 msgstr ""
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:24
+#: src/qml/RemoveSheet.qml:24
 #, kde-format
 msgid "Reason for removing this message"
 msgstr ""
 
-#: src/qml/Menu/Timeline/RemoveSheet.qml:36
+#: src/qml/RemoveSheet.qml:36
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:18
+#: src/qml/ReplyPane.qml:33
+#, fuzzy, kde-format
+#| msgid "Replying to %1:"
+msgid "Replying to:"
+msgstr "%1 ਨੂੰ ਜਵਾਬ ਦਿੱਤਾ ਜਾ ਰਿਹਾ ਹੈ:"
+
+#: src/qml/ReportSheet.qml:18
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Report Message"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:22
+#: src/qml/ReportSheet.qml:22
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr ""
 
-#: src/qml/Page/ChooseRoomDialog.qml:16
+#: src/qml/RoomData.qml:20
 #, fuzzy, kde-format
 #| msgid "Choose local file"
 msgctxt "@title"
-msgid "Choose a Room"
+msgid "Choose Room"
 msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
 
-#: src/qml/Page/DevtoolsPage.qml:18 src/qml/RoomDrawer/RoomInformation.qml:82
-#, kde-format
-msgid "Developer Tools"
-msgstr ""
-
-#: src/qml/Page/ExplorerDelegate.qml:77
-#, kde-format
-msgid "Joined"
-msgstr "ਦਾਖਲ ਹੋਏ"
-
-#: src/qml/Page/ImageEditorPage.qml:37
-#, kde-format
-msgctxt "@action:button Undo modification"
-msgid "Undo"
-msgstr "ਵਾਪਸ ਲਵੋ"
-
-#: src/qml/Page/ImageEditorPage.qml:44
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
-
-#: src/qml/Page/ImageEditorPage.qml:52
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"ਫਾਇਲ ਸੰਭਾਲਣ ਲਈ ਅਸਮਰੱਥ। ਜਾਂਚ ਕਰੋ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਕੈਸ਼ ਡਾਇਰੈਕਟਰੀ ਨੂੰ ਸੋਧਣ ਲਈ ਠੀਕ ਇਜਾਜ਼ਤਾਂ ਹਨ।"
-
-#: src/qml/Page/ImageEditorPage.qml:126 src/qml/Page/ImageEditorPage.qml:143
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "ਕਰੋਪ"
-
-#: src/qml/Page/ImageEditorPage.qml:148
-#, kde-format
-msgctxt "@action:button Rotate an image to the left"
-msgid "Rotate left"
-msgstr "ਖੱਬੇ ਘੁੰਮਾਓ"
-
-#: src/qml/Page/ImageEditorPage.qml:154
-#, kde-format
-msgctxt "@action:button Rotate an image to the right"
-msgid "Rotate right"
-msgstr "ਸੱਜੇ ਘੁੰਮਾਓ"
-
-#: src/qml/Page/ImageEditorPage.qml:160
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "ਪਲਟੋ"
-
-#: src/qml/Page/ImageEditorPage.qml:166
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "ਮਿੱਰਰ"
-
-#: src/qml/Page/InviteUserPage.qml:19
-#, kde-format
-msgid "Invite a User"
-msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
-
-#: src/qml/Page/InviteUserPage.qml:37 src/qml/Page/StartChatPage.qml:32
-#, kde-format
-msgid "Find a user..."
-msgstr "...ਵਰਤੋਂਕਾਰ ਲੱਭੋ"
-
-#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:225
-#, kde-format
-msgid "Add"
-msgstr "ਜੋੜੋ"
-
-#: src/qml/Page/InviteUserPage.qml:70 src/qml/Page/StartChatPage.qml:134
-#, kde-format
-msgid "No users available"
-msgstr "ਕੋਈ ਵਰਤੋਂਕਾਰ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
-
-#: src/qml/Page/InviteUserPage.qml:100
-#, kde-format
-msgid "Send invitation"
-msgstr "ਸੱਦਾ ਭੇਜੋ"
-
-#: src/qml/Page/InviteUserPage.qml:114
-#, kde-format
-msgid "User is either already a member or has been invited"
-msgstr ""
-
-#: src/qml/Page/JoinRoomPage.qml:38
-#, kde-format
-msgid "Explore Rooms"
-msgstr "ਰੂਮ ਛਾਣੋ"
-
-#: src/qml/Page/JoinRoomPage.qml:61
-#, kde-format
-msgid "Find a room..."
-msgstr "ਰੂਮ ਲੱਭੋ..."
-
-#: src/qml/Page/JoinRoomPage.qml:69
-#, kde-format
-msgid "View"
-msgstr "ਵੇਖੋ"
-
-#: src/qml/Page/JoinRoomPage.qml:69
-#, kde-format
-msgid "Join"
-msgstr "ਜੁਆਇੰਨ"
-
-#: src/qml/Page/JoinRoomPage.qml:98
-#, kde-format
-msgid "Add New Server"
-msgstr ""
-
-#: src/qml/Page/JoinRoomPage.qml:99
+#: src/qml/RoomData.qml:25
 #, fuzzy, kde-format
-#| msgid "Homeserver:"
-msgid "Home Server"
-msgstr "ਹੋਮ-ਸਰਵਰ:"
+#| msgid "Rooms"
+msgid "Room"
+msgstr "ਰੂਮ"
 
-#: src/qml/Page/JoinRoomPage.qml:108
-#, kde-format
-msgid "Add new server"
-msgstr ""
+#: src/qml/RoomData.qml:37
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room Id: %1"
+msgstr "ਰੂਮ"
 
-#: src/qml/Page/JoinRoomPage.qml:139
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr ""
+#: src/qml/RoomData.qml:40
+#, fuzzy, kde-format
+#| msgid "Show leave and join events"
+msgid "Show m.room.member events"
+msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
 
-#: src/qml/Page/JoinRoomPage.qml:152
-#, kde-format
-msgid "Valid server entered"
-msgstr ""
-
-#: src/qml/Page/JoinRoomPage.qml:152
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr ""
-
-#: src/qml/Page/JoinRoomPage.qml:152
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr ""
-
-#: src/qml/Page/JoinRoomPage.qml:152
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr ""
-
-#: src/qml/Page/JoinRoomPage.qml:160
-#, kde-format
-msgid "Server URL"
-msgstr ""
-
-#: src/qml/Page/JoinRoomPage.qml:257
+#: src/qml/RoomData.qml:52
 #, fuzzy, kde-format
 #| msgid "No rooms found"
-msgctxt "@info:label"
-msgid "No rooms found"
+msgid "Show room account data"
 msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:21
-#: src/qml/Page/RoomList/UserInfo.qml:176
-#, kde-format
-msgid "Edit this account"
-msgstr "ਇਹ ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Page/RoomList/AccountMenu.qml:26
-#: src/qml/Page/RoomList/UserInfo.qml:170 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/RoomData.qml:58
 #, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
-msgid "Account editor"
-msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
-
-#: src/qml/Page/RoomList/AccountMenu.qml:30
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Notification settings"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Page/RoomList/AccountMenu.qml:40 src/qml/Settings/DevicesPage.qml:17
-#: src/qml/Settings/SettingsPage.qml:69
-#, kde-format
-msgid "Devices"
-msgstr "ਡਿਵਾਈਸ"
-
-#: src/qml/Page/RoomList/AccountMenu.qml:50
-#: src/qml/Settings/AccountsPage.qml:72
-#, kde-format
-msgid "Logout"
-msgstr "ਲਾਗ ਆਉਟ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Open in new window"
-msgid "Open in New Window"
-msgstr "ਨਵੀਂ ਵਿੰਡੋ ਵਿੱਚ ਖੋਲ੍ਹੋ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:42
-#: src/qml/Page/RoomList/ContextMenu.qml:186
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "ਮਨਪਸੰਦ ਵਿੱਚੋਂ ਹਟਾਓ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:42
-#: src/qml/Page/RoomList/ContextMenu.qml:186
-#, kde-format
-msgid "Add to Favourites"
-msgstr "ਮਨਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:48
-#: src/qml/Page/RoomList/ContextMenu.qml:200
-#, kde-format
-msgid "Reprioritize"
-msgstr "ਮੁੜ ਤਰਜੀਹ ਦਿਓ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:48
-#: src/qml/Page/RoomList/ContextMenu.qml:200
-#, kde-format
-msgid "Deprioritize"
-msgstr "ਤਰਜੀਹ ਘਟਾਓ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:54
-#: src/qml/Page/RoomList/ContextMenu.qml:207
-#, kde-format
-msgid "Mark as Read"
-msgstr "ਪੜ੍ਹਿਆ ਵਜੋਂ ਨਿਸ਼ਾਨੀ ਲਾਓ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:60
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy address to clipboard"
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:60
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy address to clipboard"
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Notification State"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:75
-#, kde-format
-msgid "Follow Global Setting"
-msgstr ""
-
-#: src/qml/Page/RoomList/ContextMenu.qml:86
-#: src/qml/RoomSettings/PushNotification.qml:35
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr ""
-
-#: src/qml/Page/RoomList/ContextMenu.qml:97
-#: src/qml/RoomSettings/PushNotification.qml:43
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr ""
-
-#: src/qml/Page/RoomList/ContextMenu.qml:108
-#: src/qml/RoomSettings/PushNotification.qml:51
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr ""
-
-#: src/qml/Page/RoomList/ContextMenu.qml:121
-#: src/qml/Page/RoomList/ContextMenu.qml:123
-#: src/qml/Page/RoomList/ContextMenu.qml:193
-#: src/qml/RoomDrawer/RoomDrawer.qml:103
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:47
-#, fuzzy, kde-format
-#| msgid "Room settings"
-msgid "Room Settings"
-msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
-
-#: src/qml/Page/RoomList/ContextMenu.qml:129
-#: src/qml/Page/RoomList/ContextMenu.qml:214
-#, kde-format
-msgid "Leave Room"
-msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:21
-#: src/qml/Page/RoomList/Page.qml:165
-#, kde-format
-msgid "Explore rooms"
-msgstr "ਰੂਮ ਛਾਣੋ"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:37
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
-msgctxt "@title"
-msgid "Start a Chat"
-msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, kde-format
-msgid "Create a Room"
-msgstr "ਰੂਮ ਬਣਾਓ"
-
-#: src/qml/Page/RoomList/ExploreComponent.qml:71
-#: src/qml/Page/RoomList/ExploreComponent.qml:132
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
-msgid "Create rooms and chats"
-msgstr "ਰੂਮ ਤੇ ਪ੍ਰਾਈਵੇਟ ਚੈਟ:"
-
-#: src/qml/Page/RoomList/Page.qml:162
-#, kde-format
-msgid "No rooms found"
+#| msgid "No rooms found"
+msgid "Room Account Data"
 msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/qml/Page/RoomList/Page.qml:162
-#, kde-format
-msgid "Join some rooms to get started"
-msgstr "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਰੂਮ ਜੁਆਇੰਨ ਕਰੋ"
-
-#: src/qml/Page/RoomList/Page.qml:165
-#, kde-format
-msgid "Search in room directory"
-msgstr "ਰੂਮ ਦੀ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਖੋਜੋ"
-
-#: src/qml/Page/RoomList/Page.qml:218
-#, kde-format
-msgctxt "Collapse <section name>"
-msgid "Collapse %1"
-msgstr ""
-
-#: src/qml/Page/RoomList/Page.qml:218
+#: src/qml/RoomData.qml:77
 #, fuzzy, kde-format
-#| msgid "unbanned %1"
-msgctxt "Expand <section name"
-msgid "Expand %1"
-msgstr "%1 ਪਾਬੰਦੀ ਹਟਾਈ"
+#| msgctxt "%1 is the room name"
+#| msgid "Room Settings - %1"
+msgid "Room State"
+msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ - %1"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:98
+#: src/qml/RoomDelegate.qml:97
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "ਮੌਨ ਕੀਤਾ"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:130
+#: src/qml/RoomDelegate.qml:129
 #, kde-format
 msgid "Configure room"
 msgstr "ਰੂਮ ਦੀ ਸੰਰਚਨਾ"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:63
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
-msgid "All Rooms"
-msgstr "ਰੂਮ ਛਾਣੋ"
-
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:29
-#, fuzzy, kde-format
-#| msgid "View Source"
-msgctxt "'Space' is a matrix space"
-msgid "View Space"
-msgstr "ਸਰੋਤ ਵੇਖੋ"
-
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:45
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "ਸੈਟਿੰਗਾਂ"
-
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:47
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:105
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgid "Space Settings"
-msgstr "ਸੈਟਿੰਗਾਂ"
-
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:53
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:109
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr ""
-
-#: src/qml/Page/RoomList/UserInfo.qml:44 src/qml/Settings/AccountsPage.qml:100
-#, fuzzy, kde-format
-#| msgid "Add an account"
-msgid "Add Account"
-msgstr "ਖਾਤਾ ਜੋੜੋ"
-
-#: src/qml/Page/RoomList/UserInfo.qml:47
-#, kde-format
-msgid "Log in to an existing account"
-msgstr ""
-
-#: src/qml/Page/RoomList/UserInfo.qml:54
-#, fuzzy, kde-format
-#| msgid "Login"
-msgctxt "@title:window"
-msgid "Login"
-msgstr "ਲਾਗਇਨ"
-
-#: src/qml/Page/RoomList/UserInfo.qml:209
-#, kde-format
-msgid "Switch User"
-msgstr ""
-
-#: src/qml/Page/RoomList/UserInfo.qml:237
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgid "Open Settings"
-msgstr "ਸੈਟਿੰਗਾਂ"
-
-#: src/qml/Page/RoomPage.qml:52
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "ਨਿਓਚੈਟ ਆਫ਼ਲਾਈਨ ਹੈ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
-
-#: src/qml/Page/RoomPage.qml:208
-#, kde-format
-msgid "Message Source"
-msgstr "ਸੁਨੇਹੇ ਦਾ ਸਰੋਤ"
-
-#: src/qml/Page/SearchPage.qml:18
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "ਸਿੱਧਾ ਸੁਨੇਹਾ ਭੇਜੋ"
-
-#: src/qml/Page/SearchPage.qml:60
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr ""
-
-#: src/qml/Page/SearchPage.qml:66
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "No results found"
-msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
-
-#: src/qml/Page/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "ਚੈਟ"
-
-#: src/qml/Page/StartChatPage.qml:93
-#, kde-format
-msgid "Join existing chat"
-msgstr ""
-
-#: src/qml/Page/StartChatPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
-msgid "Create new chat"
-msgstr "ਰੂਮ ਤੇ ਪ੍ਰਾਈਵੇਟ ਚੈਟ:"
-
-#: src/qml/Page/WelcomePage.qml:18
-#, kde-format
-msgid "Welcome"
-msgstr "ਜੀ ਆਇਆਂ ਨੂੰ"
-
-#: src/qml/Page/WelcomePage.qml:44
-#, kde-format
-msgid "Log in to a different account or create a new account."
-msgstr ""
-
-#: src/qml/Page/WelcomePage.qml:44
-#, kde-format
-msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr ""
-
-#: src/qml/Page/WelcomePage.qml:121
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr ""
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:61
-#, kde-format
-msgid "No name"
-msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
-#, kde-format
-msgid "No Topic"
-msgstr "ਕੋਈ ਵਿਸ਼ਾ ਨਹੀਂ"
-
-#: src/qml/RoomDrawer/RoomDrawer.qml:100
+#: src/qml/RoomDrawer.qml:101
 #, kde-format
 msgid "Room settings"
 msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:144
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:82
+#: src/qml/RoomDrawer.qml:145 src/qml/RoomDrawerPage.qml:82
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "Information"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/qml/RoomDrawer/RoomDrawer.qml:149
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:87
+#: src/qml/RoomDrawer.qml:150 src/qml/RoomDrawerPage.qml:87
 #, kde-format
 msgid "Media"
 msgstr ""
 
-#: src/qml/RoomDrawer/RoomDrawerPage.qml:45
+#: src/qml/RoomDrawerPage.qml:45
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Settings"
 msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:40
+#: src/qml/RoomInformation.qml:41
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:66
+#: src/qml/RoomInformation.qml:67
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgid "Options"
 msgstr "ਚੋਣਾਂ:"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:76
+#: src/qml/RoomInformation.qml:77
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
 
-#: src/qml/RoomDrawer/RoomInformation.qml:90
+#: src/qml/RoomInformation.qml:91
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Search in this room"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:99
+#: src/qml/RoomInformation.qml:100
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/qml/RoomDrawer/RoomInformation.qml:108
+#: src/qml/RoomInformation.qml:109
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "ਪਸੰਦ ਵਿੱਚੋਂ ਰੂਮ ਹਟਾਓ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:108
+#: src/qml/RoomInformation.qml:109
 #, kde-format
 msgid "Make room favorite"
 msgstr "ਰੂਮ ਪਸੰਦੀਦਾ ਬਣਾਓ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:120
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Show locations for this room"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:131
+#: src/qml/RoomInformation.qml:132
 #, kde-format
 msgid "Members"
 msgstr "ਮੈਂਬਰ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:143
+#: src/qml/RoomInformation.qml:144
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:146
+#: src/qml/RoomInformation.qml:147
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Invite user to room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:153
+#: src/qml/RoomInformation.qml:154
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3193,374 +3614,100 @@ msgid_plural "%1 members"
 msgstr[0] "%1 ਮੈਂਬਰ"
 msgstr[1] "%1 ਮੈਂਬਰ"
 
-#: src/qml/RoomDrawer/RoomInformation.qml:153
+#: src/qml/RoomInformation.qml:154
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
 msgstr "ਕੋਈ ਮੈਂਬਰ ਗਿਣਤੀ ਨਹੀਂ"
 
-#: src/qml/RoomDrawer/RoomMedia.qml:28
+#: src/qml/RoomListPage.qml:161
+#, kde-format
+msgid "No rooms found"
+msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/qml/RoomListPage.qml:161
+#, kde-format
+msgid "Join some rooms to get started"
+msgstr "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਰੂਮ ਜੁਆਇੰਨ ਕਰੋ"
+
+#: src/qml/RoomListPage.qml:164
+#, kde-format
+msgid "Search in room directory"
+msgstr "ਰੂਮ ਦੀ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਖੋਜੋ"
+
+#: src/qml/RoomListPage.qml:217
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/RoomListPage.qml:217
+#, fuzzy, kde-format
+#| msgid "unbanned %1"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "%1 ਪਾਬੰਦੀ ਹਟਾਈ"
+
+#: src/qml/RoomMedia.qml:28
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:title"
 msgid "Room Media"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/qml/RoomSettings/Categories.qml:21 src/qml/RoomSettings/General.qml:22
-#: src/qml/Settings/SettingsPage.qml:20
+#: src/qml/RoomPage.qml:53
 #, kde-format
-msgid "General"
-msgstr "ਆਮ"
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "ਨਿਓਚੈਟ ਆਫ਼ਲਾਈਨ ਹੈ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: src/qml/RoomSettings/Categories.qml:33 src/qml/RoomSettings/Security.qml:17
+#: src/qml/RoomPage.qml:209
 #, kde-format
-msgid "Security"
-msgstr "ਸੁਰੱਖਿਆ"
+msgid "Message Source"
+msgstr "ਸੁਨੇਹੇ ਦਾ ਸਰੋਤ"
 
-#: src/qml/RoomSettings/Categories.qml:44
-#, kde-format
-msgid "Permissions"
-msgstr ""
-
-#: src/qml/RoomSettings/Categories.qml:55 src/qml/Settings/SettingsPage.qml:32
+#: src/qml/SearchPage.qml:18
 #, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Notifications"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+#| msgid "Direct Messages"
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "ਸਿੱਧਾ ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/qml/RoomSettings/General.qml:25
+#: src/qml/SearchPage.qml:60
+#, kde-format
+msgid "Enter a text to start searching"
+msgstr ""
+
+#: src/qml/SearchPage.qml:66
 #, fuzzy, kde-format
-#| msgid "Room information"
-msgid "Room Information"
-msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
+#| msgid "No rooms found"
+msgid "No results found"
+msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/qml/RoomSettings/General.qml:47
-#, kde-format
-msgid "Update avatar"
-msgstr "ਅਵਤਾਰ ਅੱਪਡੇਟ ਕਰੋ"
-
-#: src/qml/RoomSettings/General.qml:106
-#: src/qml/Settings/AccountEditorPage.qml:117
-#: src/qml/Settings/AccountEditorPage.qml:170
-#: src/qml/Settings/EmoticonEditorPage.qml:110
-#, kde-format
-msgid "Save"
-msgstr "ਸੰਭਾਲੋ"
-
-#: src/qml/RoomSettings/General.qml:121
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room ID"
-msgstr "ਰੂਮ"
-
-#: src/qml/RoomSettings/General.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy address to clipboard"
-msgid "Copy room ID to clipboard"
-msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
-
-#: src/qml/RoomSettings/General.qml:140
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgid "Room version"
-msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
-
-#: src/qml/RoomSettings/General.qml:146
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
-msgid "Upgrade Room"
-msgstr "ਰੂਮ ਛਾਣੋ"
-
-#: src/qml/RoomSettings/General.qml:165
-#, kde-format
-msgid "Aliases"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:170
-#, kde-format
-msgid "No canonical alias set"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:183
-#, kde-format
-msgid "Make this alias the room's canonical alias"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:198
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
-msgid "Delete alias"
-msgstr "ਹਟਾਓ"
-
-#: src/qml/RoomSettings/General.qml:223
-#, kde-format
-msgid "#new_alias:server.org"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:240
-#, kde-format
-msgid "Add new alias"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:260
-#, kde-format
-msgid "URL Previews"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:264
-#, kde-format
-msgid "Enable URL previews by default for room members"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:272
-#, kde-format
-msgid "Enable URL previews"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:274
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "URL previews are enabled by default in this room"
-msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
-
-#: src/qml/RoomSettings/General.qml:274
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "URL previews are disabled by default in this room"
-msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
-
-#: src/qml/RoomSettings/General.qml:285
-#, kde-format
-msgid "This room continues another conversation."
-msgstr "ਇਹ ਰੂਮ ਹੋਰ ਗੱਲਬਾਤ ਜਾਰੀ ਰੱਖਦਾ ਹੈ।"
-
-#: src/qml/RoomSettings/General.qml:289
-#, fuzzy, kde-format
-#| msgid "See older messages..."
-msgid "See older messages…"
-msgstr "...ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਵੇਖੋ"
-
-#: src/qml/RoomSettings/General.qml:299
-#, kde-format
-msgid "This room has been replaced."
-msgstr "ਇਸ ਰੂਮ ਨੂੰ ਬਦਲਿਆ ਗਿਆ ਹੈ।"
-
-#: src/qml/RoomSettings/General.qml:303
-#, fuzzy, kde-format
-#| msgid "See new room..."
-msgid "See new room…"
-msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
-
-#: src/qml/RoomSettings/General.qml:324
-#, fuzzy, kde-format
-#| msgid "left the room"
-msgid "Upgrade the Room"
-msgstr "ਰੂਮ ਛੱਡਿਆ"
-
-#: src/qml/RoomSettings/General.qml:328
-#, fuzzy, kde-format
-#| msgid "See new room..."
-msgid "Select new version"
-msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
-
-#: src/qml/RoomSettings/Permissions.qml:33
-#, kde-format
-msgid "Privileged Users"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:230
-#, kde-format
-msgid "Default permissions"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:235
-#, kde-format
-msgid "Default user power level"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:236
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:244
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:245
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:253
-#, kde-format
-msgid "Default power level to send messages"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:254
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:265
-#, kde-format
-msgid "Basic permissions"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:270
-#, fuzzy, kde-format
-#| msgid "Invite a User"
-msgid "Invite users"
-msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
-
-#: src/qml/RoomSettings/Permissions.qml:278
-#, fuzzy, kde-format
-#| msgid "Kick this user"
-msgid "Kick users"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿੱਕ ਕਰੋ"
-
-#: src/qml/RoomSettings/Permissions.qml:286
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgid "Ban users"
-msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
-
-#: src/qml/RoomSettings/Permissions.qml:294
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgid "Remove message sent by other users"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
-
-#: src/qml/RoomSettings/Permissions.qml:305
-#, kde-format
-msgid "Event permissions"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:310
-#, kde-format
-msgid "Change user permissions"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:319
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
-msgid "Change the room name"
-msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
-
-#: src/qml/RoomSettings/Permissions.qml:328
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
-msgid "Change the room avatar"
-msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
-
-#: src/qml/RoomSettings/Permissions.qml:337
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
-msgid "Change the room canonical alias"
-msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
-
-#: src/qml/RoomSettings/Permissions.qml:346
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
-msgid "Change the room topic"
-msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
-
-#: src/qml/RoomSettings/Permissions.qml:355
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:364
-#, kde-format
-msgid "Change the room history visibility"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:373
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
-msgid "Set pinned events"
-msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
-
-#: src/qml/RoomSettings/Permissions.qml:382
-#, fuzzy, kde-format
-#| msgid "left the room"
-msgid "Upgrade the room"
-msgstr "ਰੂਮ ਛੱਡਿਆ"
-
-#: src/qml/RoomSettings/Permissions.qml:391
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:401
-#, kde-format
-msgid "Set the children of this space"
-msgstr ""
-
-#: src/qml/RoomSettings/Permissions.qml:410
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
-msgid "Set the parent space of this room"
-msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
-
-#: src/qml/RoomSettings/PushNotification.qml:22
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Room notifications setting"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/RoomSettings/PushNotification.qml:27
-#, kde-format
-msgid "Follow global setting"
-msgstr ""
-
-#: src/qml/RoomSettings/PushNotification.qml:61
-#: src/qml/Settings/GlobalNotificationsPage.qml:67
-#, kde-format
-msgid "Keywords"
-msgstr ""
-
-#: src/qml/RoomSettings/PushNotification.qml:96
-#: src/qml/Settings/GlobalNotificationsPage.qml:91
-#, kde-format
-msgid "Keyword…"
-msgstr ""
-
-#: src/qml/RoomSettings/PushNotification.qml:115
-#: src/qml/Settings/GlobalNotificationsPage.qml:110
-#, kde-format
-msgid "Add keyword"
-msgstr ""
-
-#: src/qml/RoomSettings/Security.qml:15
+#: src/qml/Security.qml:15
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:20
+#: src/qml/Security.qml:20
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
 
-#: src/qml/RoomSettings/Security.qml:25
+#: src/qml/Security.qml:25
 #, kde-format
 msgid "Enable encryption"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:26
+#: src/qml/Security.qml:26
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:37
+#: src/qml/Security.qml:37
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Access:"
@@ -3568,91 +3715,91 @@ msgctxt "@option:check"
 msgid "Access"
 msgstr "ਪਹੁੰਚ:"
 
-#: src/qml/RoomSettings/Security.qml:41
+#: src/qml/Security.qml:41
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "ਪ੍ਰਾਈਵੇਟ (ਸਿਰਫ਼ ਸੱਦੇ ਰਾਹੀਂ)"
 
-#: src/qml/RoomSettings/Security.qml:42
+#: src/qml/Security.qml:42
 #, kde-format
 msgid "Only invited people can join."
 msgstr "ਸਿਰਫ਼ ਸੱਦਾ ਪ੍ਰਾਪਤ ਲੋਕ ਹੀ ਜੁਆਇੰਨ ਕਰ ਸਕਦੇ ਹਨ।"
 
-#: src/qml/RoomSettings/Security.qml:50
+#: src/qml/Security.qml:50
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "ਥਾਂ ਦੇ ਮੈਂਬਰ"
 
-#: src/qml/RoomSettings/Security.qml:51
+#: src/qml/Security.qml:51
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:60
+#: src/qml/Security.qml:60
 #, fuzzy, kde-format
 #| msgid "knocked"
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "ਕਿੱਕ ਕੀਤਾ"
 
-#: src/qml/RoomSettings/Security.qml:61
+#: src/qml/Security.qml:61
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:71
+#: src/qml/Security.qml:71
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "ਪਬਲਿਕ"
 
-#: src/qml/RoomSettings/Security.qml:72
+#: src/qml/Security.qml:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "ਕੋਈ ਵੀ ਲੱਭ ਤੇ ਜੁਆਇੰਨ ਕਰ ਸਕਦਾ ਹੈ।"
 
-#: src/qml/RoomSettings/Security.qml:82
+#: src/qml/Security.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:86
+#: src/qml/Security.qml:86
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:87
+#: src/qml/Security.qml:87
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:95
+#: src/qml/Security.qml:95
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "ਮੈਂਬਰ"
 
-#: src/qml/RoomSettings/Security.qml:96
+#: src/qml/Security.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:104
+#: src/qml/Security.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:105
+#: src/qml/Security.qml:105
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3660,750 +3807,553 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:113
+#: src/qml/Security.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:114
+#: src/qml/Security.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
 
-#: src/qml/Settings/About.qml:10
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
-msgctxt "@title:window"
-msgid "About NeoChat"
-msgstr "ਨਿਓ-ਚੈਟ ਬਾਰੇ"
-
-#: src/qml/Settings/AboutKDE.qml:7
-#, fuzzy, kde-format
-#| msgid "About"
-msgctxt "@title:window"
-msgid "About KDE"
-msgstr "ਇਸ ਬਾਰੇ"
-
-#: src/qml/Settings/AccountEditorPage.qml:19
+#: src/qml/ServerData.qml:20
 #, kde-format
-msgid "Edit Account"
-msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Settings/AccountEditorPage.qml:61
-#, fuzzy, kde-format
-#| msgid "Update avatar"
-msgid "Upload new avatar"
-msgstr "ਅਵਤਾਰ ਅੱਪਡੇਟ ਕਰੋ"
-
-#: src/qml/Settings/AccountEditorPage.qml:78
-#, kde-format
-msgid "Remove current avatar"
+msgid "Server Capabilities"
 msgstr ""
 
-#: src/qml/Settings/AccountEditorPage.qml:101
+#: src/qml/ServerData.qml:24
 #, fuzzy, kde-format
-#| msgid "Room information"
-msgid "User information"
-msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
-
-#: src/qml/Settings/AccountEditorPage.qml:106
-#, kde-format
-msgid "Name:"
-msgstr "ਨਾਂ:"
-
-#: src/qml/Settings/AccountEditorPage.qml:112
-#, kde-format
-msgid "Label:"
-msgstr ""
-
-#: src/qml/Settings/AccountEditorPage.qml:138
-#, kde-format
-msgid "Your server doesn't support changing your password"
-msgstr ""
-
-#: src/qml/Settings/AccountEditorPage.qml:143
-#, kde-format
-msgid "Current Password:"
-msgstr "ਮੌਜੂਦਾ ਪਾਸਵਰਡ:"
-
-#: src/qml/Settings/AccountEditorPage.qml:150
-#, kde-format
-msgid "New Password:"
-msgstr "ਨਵਾਂ ਪਾਸਵਰਡ:"
-
-#: src/qml/Settings/AccountEditorPage.qml:157
-#, kde-format
-msgid "Confirm new Password:"
+#| msgid "Confirm new Password:"
+msgid "Can change password"
 msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਤਸਦੀਕ:"
 
-#: src/qml/Settings/AccountEditorPage.qml:162
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
-msgid "Passwords don't match"
-msgstr "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ"
-
-#: src/qml/Settings/AccountEditorPage.qml:176
-#, kde-format
-msgid "Passwords do not match"
-msgstr "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ"
-
-#: src/qml/Settings/AccountEditorPage.qml:184
+#: src/qml/ServerData.qml:29
 #, fuzzy, kde-format
 #| msgid "Room information"
-msgid "Server Information"
+msgid "Default Room Version"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/qml/Settings/AccountEditorPage.qml:188
+#: src/qml/ServerData.qml:37
 #, fuzzy, kde-format
-#| msgid "Homeserver:"
-msgid "Homeserver url"
-msgstr "ਹੋਮ-ਸਰਵਰ:"
-
-#: src/qml/Settings/AccountEditorPage.qml:209
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
-msgctxt "@title"
-msgid "Account Management"
-msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
-
-#: src/qml/Settings/AccountEditorPage.qml:214
-#, fuzzy, kde-format
-#| msgid "Edit Account"
-msgid "Deactivate Account"
-msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Settings/AccountEditorPage.qml:215
-#, kde-format
-msgctxt "@title"
-msgid "Confirm Deactivating Account"
-msgstr ""
-
-#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:23
-#: src/qml/Settings/SettingsPage.qml:38
-#, kde-format
-msgid "Accounts"
-msgstr "ਖਾਤੇ"
-
-#: src/qml/Settings/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
-
-#: src/qml/Settings/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr "ਗਲਤ ਪਾਸਵਰਡ ਦਿੱਤਾ"
-
-#: src/qml/Settings/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "ਪਾਸਵਰਡ ਬਦਲਣ ਦੇ ਦੌਰਾਨ ਅਣਪਛਾਤੀ ਗਲਤੀ ਆਈ"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:18
-#, fuzzy, kde-format
-#| msgid "Appearance"
-msgctxt "@title:window"
-msgid "Appearance"
-msgstr "ਦਿੱਖ"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General"
-msgid "General theme"
-msgstr "ਆਮ"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:113
-#, kde-format
-msgid "Bubbles"
-msgstr "ਬੁਲਬੁਲੇ"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:182
-#, kde-format
-msgid "Compact"
-msgstr "ਸੰਖੇਪ"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:202
-#, kde-format
-msgid "Use compact room list"
-msgstr ""
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:224
-#, fuzzy, kde-format
-#| msgid "Show Fancy Effects"
-msgid "Show fancy effects in chat"
-msgstr "ਹਾਸੇ ਠੱਠੇ ਵਾਲੇ ਪਰਭਾਵ ਵੇਖਾਓ"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:238
-#, kde-format
-msgid "Use transparent chat page"
-msgstr "ਪਾਰਦਰਸ਼ੀ ਗੱਲਬਾਤ ਸਫ਼ੇ ਵਰਤੋਂ"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:256
-#, fuzzy, kde-format
-#| msgid "Transparency:"
-msgid "Transparency"
-msgstr "ਪਾਦਰਸ਼ਤਾ:"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:273
-#, kde-format
-msgid "Only enabled if the transparent chat page is enabled."
-msgstr ""
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:286
-#, kde-format
-msgid "Show your messages on the right"
-msgstr ""
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:299
-#, kde-format
-msgid "Show links preview in the chat messages"
-msgstr ""
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Show User Avatar"
-msgid "Show Avatar"
-msgstr "ਵਰਤੋਂਕਾਰ ਅਵਤਾਰ ਵੇਖਾਓ"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:314
-#, kde-format
-msgid "In chat"
-msgstr ""
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:324
-#, fuzzy, kde-format
-#| msgid "In Sidebar"
-msgid "In sidebar"
-msgstr "ਬਾਹੀ ਵਿੱਚ"
-
-#: src/qml/Settings/ColorScheme.qml:14
-#, kde-format
-msgid "Color theme"
-msgstr ""
-
-#: src/qml/Settings/DeviceDelegate.qml:50
-#, kde-format
-msgctxt "@label"
-msgid "%1, Last activity: %2"
-msgstr ""
-
-#: src/qml/Settings/DeviceDelegate.qml:59
-#, fuzzy, kde-format
-#| msgid "Edit device name"
-msgid "New device name"
-msgstr "ਡਿਵਾਈਸ ਦਾ ਨਾਂ ਸੋਧੋ"
-
-#: src/qml/Settings/DeviceDelegate.qml:68
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
-msgid "Cancel editing display name"
-msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
-
-#: src/qml/Settings/DeviceDelegate.qml:75
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
-msgid "Confirm new display name"
-msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
-
-#: src/qml/Settings/DeviceDelegate.qml:90
-#, kde-format
-msgid "Edit device name"
-msgstr "ਡਿਵਾਈਸ ਦਾ ਨਾਂ ਸੋਧੋ"
-
-#: src/qml/Settings/DeviceDelegate.qml:104
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgid "Verify device"
-msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Settings/DeviceDelegate.qml:119
-#, kde-format
-msgid "Logout device"
-msgstr "ਡਿਵਾਈਸ ਤੋਂ ਲਾਗ ਆਉਟ"
-
-#: src/qml/Settings/DevicesPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Devices"
-msgid "This Device"
-msgstr "ਡਿਵਾਈਸ"
-
-#: src/qml/Settings/DevicesPage.qml:32
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgid "Verified Devices"
-msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Settings/DevicesPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgid "Unverified Devices"
-msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Settings/DevicesPage.qml:42
-#, kde-format
-msgid "Devices without Encryption Support"
-msgstr ""
-
-#: src/qml/Settings/DevicesPage.qml:57
-#, kde-format
-msgid "Please login to view the signed-in devices for your account."
-msgstr ""
-
-#: src/qml/Settings/DevicesPage.qml:67
-#, kde-format
-msgid "Remove device"
-msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:27
-#: src/qml/Settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:27
-#: src/qml/Settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Sticker"
-msgstr ""
-
-#: src/qml/Settings/EmoticonEditorPage.qml:28
-#: src/qml/Settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "...ਈਮੋਜ਼ੀ ਜੋੜੋ"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:28
-#: src/qml/Settings/EmoticonFormCard.qml:103
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "...ਈਮੋਜ਼ੀ ਜੋੜੋ"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#, kde-format
-msgid "Sticker"
-msgstr ""
-
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#, fuzzy, kde-format
-#| msgid "Custom"
-msgid "Emoji"
-msgstr "ਕਸਟਮ"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:60
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
-msgid "Change Image"
-msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
-
-#: src/qml/Settings/EmoticonEditorPage.qml:60
-#, kde-format
-msgid "Set Image"
-msgstr ""
-
-#: src/qml/Settings/EmoticonEditorPage.qml:100
-#, kde-format
-msgid "Shortcode:"
-msgstr ""
-
-#: src/qml/Settings/EmoticonEditorPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgid "Description:"
-msgstr "ਸੱਦਾ ਭੇਜੋ"
-
-#: src/qml/Settings/EmoticonFormCard.qml:71
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgctxt "As in 'This sticker/emoji has no description'"
-msgid "No Description"
-msgstr "ਸੱਦਾ ਭੇਜੋ"
-
-#: src/qml/Settings/EmoticonFormCard.qml:112
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgid "Add Emoji"
-msgstr "...ਈਮੋਜ਼ੀ ਜੋੜੋ"
-
-#: src/qml/Settings/EmoticonFormCard.qml:112
-#, kde-format
-msgid "Add Sticker"
-msgstr ""
-
-#: src/qml/Settings/EmoticonsPage.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Stickers & Emojis"
-msgstr ""
-
-#: src/qml/Settings/GeneralSettingsPage.qml:14
-#: src/qml/Settings/NetworkProxyPage.qml:15
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title:window"
-msgid "General"
-msgstr "ਆਮ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:17
-#, fuzzy, kde-format
-#| msgid "General settings:"
-msgid "General settings"
-msgstr "ਆਮ ਸੈਟਿੰਗਾਂ:"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
-msgid "Show in System Tray"
-msgstr "ਸਿਸਟਮ ਟਰੇ ਵਿੱਚ ਭੇਜੋ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:37
-#, kde-format
-msgid "Minimize to system tray on startup"
-msgstr ""
-
-#: src/qml/Settings/GeneralSettingsPage.qml:51
-#, kde-format
-msgid "Automatically hide/unhide the room information when resizing the window"
-msgstr ""
-
-#: src/qml/Settings/GeneralSettingsPage.qml:62
-#, kde-format
-msgid "Timeline Events"
-msgstr ""
-
-#: src/qml/Settings/GeneralSettingsPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "Show deleted messages"
-msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:80
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
-msgid "Show state events"
-msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:97
-#, kde-format
-msgid "Show leave and join events"
-msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
-msgid "Show name change events"
-msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
-msgid "Show avatar update events"
-msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:143
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
-msgid "Rooms and private chats"
-msgstr "ਰੂਮ ਤੇ ਪ੍ਰਾਈਵੇਟ ਚੈਟ:"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:147
-#, kde-format
-msgid "Separated"
-msgstr "ਵੱਖ ਕੀਤੇ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:156
-#, kde-format
-msgid "Intermixed"
-msgstr "ਆਪਸ 'ਚ ਮਿਲਾਏ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Edit"
-msgctxt "Chat Editor"
-msgid "Editor"
-msgstr "ਸੋਧੋ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:171
-#, kde-format
-msgid "Use s/text/replacement syntax to edit your last message"
-msgstr ""
-
-#: src/qml/Settings/GeneralSettingsPage.qml:182
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Send typing notifications"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:192
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgid "Developer Settings"
-msgstr "ਸੈਟਿੰਗਾਂ"
-
-#: src/qml/Settings/GeneralSettingsPage.qml:196
-#, kde-format
-msgid "Enable developer tools"
-msgstr ""
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgctxt "@title:window"
-msgid "Notifications"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:22
-#, kde-format
-msgid "Enable notifications for this account"
-msgstr ""
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:23
-#, kde-format
-msgid "Whether push notifications are generated by your Matrix server"
-msgstr ""
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Room Notifications"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:50
-#, kde-format
-msgid "@Mentions"
-msgstr ""
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:131
-#, fuzzy, kde-format
-#| msgid "Invite"
-msgid "Invites"
-msgstr "ਸੱਦਾ"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:148
-#, fuzzy, kde-format
-#| msgctxt "Unknown attachment size"
-#| msgid "Unknown"
-msgid "Unknown"
-msgstr "ਅਣਪਛਾਤਾ"
-
-#: src/qml/Settings/NetworkProxyPage.qml:21
-#: src/qml/Settings/SettingsPage.qml:63
-#, fuzzy, kde-format
-#| msgid "Network Error"
-msgid "Network Proxy"
-msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ"
-
-#: src/qml/Settings/NetworkProxyPage.qml:25
-#, kde-format
-msgid "System Default"
-msgstr ""
-
-#: src/qml/Settings/NetworkProxyPage.qml:33
-#, kde-format
-msgid "HTTP"
-msgstr ""
-
-#: src/qml/Settings/NetworkProxyPage.qml:41
-#, kde-format
-msgid "Socks5"
-msgstr ""
-
-#: src/qml/Settings/NetworkProxyPage.qml:51
-#, fuzzy, kde-format
-#| msgid "Room settings"
-msgid "Proxy Settings"
-msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
-
-#: src/qml/Settings/NetworkProxyPage.qml:56
-#, kde-format
-msgid "Host"
-msgstr ""
-
-#: src/qml/Settings/NetworkProxyPage.qml:65
-#, kde-format
-msgid "Port"
-msgstr ""
-
-#: src/qml/Settings/NetworkProxyPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgid "User"
-msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
-
-#: src/qml/Settings/NetworkProxyPage.qml:105
-#, kde-format
-msgid "Apply"
-msgstr "ਲਾਗੂ ਕਰੋ"
-
-#: src/qml/Settings/NotificationRuleItem.qml:70
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Disable notifications"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Settings/NotificationRuleItem.qml:70
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Enable notifications"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Settings/NotificationRuleItem.qml:92
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Mute notifications"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Settings/NotificationRuleItem.qml:92
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Unmute notifications"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
-
-#: src/qml/Settings/NotificationRuleItem.qml:113
-#, kde-format
-msgctxt ""
-"As in clicking this button will switch off highlights for messages that "
-"match this rule"
-msgid "Disable message highlights"
-msgstr ""
-
-#: src/qml/Settings/NotificationRuleItem.qml:113
-#, kde-format
-msgctxt ""
-"As in clicking this button will switch on highlights for messages that match "
-"this rule"
-msgid "Enable message highlights"
-msgstr ""
-
-#: src/qml/Settings/NotificationRuleItem.qml:135
-#, fuzzy, kde-format
-#| msgid "Delete word"
-msgid "Delete keyword"
-msgstr "ਸ਼ਬਦ ਹਟਾਓ"
-
-#: src/qml/Settings/SettingsPage.qml:26
+#| msgid "Room information"
+msgid "Available Room Versions"
+msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
+
+#: src/qml/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
 msgstr "ਦਿੱਖ"
 
-#: src/qml/Settings/SettingsPage.qml:44
+#: src/qml/SettingsPage.qml:44
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr ""
 
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/SettingsPage.qml:56
 #, kde-format
 msgid "Spell Checking"
 msgstr ""
 
-#: src/qml/Settings/SettingsPage.qml:80
+#: src/qml/SettingsPage.qml:80
 #, kde-format
 msgid "About NeoChat"
 msgstr "ਨਿਓ-ਚੈਟ ਬਾਰੇ"
 
-#: src/qml/Settings/SettingsPage.qml:86
+#: src/qml/SettingsPage.qml:86
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: src/qml/Settings/SonnetConfigPage.qml:16
+#: src/qml/ShareAction.qml:19
+#, kde-format
+msgid "Share"
+msgstr ""
+
+#: src/qml/ShareAction.qml:20
+#, kde-format
+msgid "Share the selected media"
+msgstr ""
+
+#: src/qml/ShareDialog.qml:34
+#, fuzzy, kde-format
+#| msgid "Login Failed"
+msgid "Sharing failed"
+msgstr "ਲਾਗਇਨ ਫੇਲ੍ਹ ਹੈ"
+
+#: src/qml/ShareDialog.qml:53
+#, kde-format
+msgid "Shared url for image is <a href='%1'>%1</a>"
+msgstr ""
+
+#: src/qml/SonnetConfigPage.qml:17
 #, kde-format
 msgctxt "@title"
 msgid "Spellchecking"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:26
+#: src/qml/SonnetConfigPage.qml:27
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:38
+#: src/qml/SonnetConfigPage.qml:39
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:50
+#: src/qml/SonnetConfigPage.qml:51
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:62
+#: src/qml/SonnetConfigPage.qml:63
 #, kde-format
 msgid "Detect language automatically"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:73
+#: src/qml/SonnetConfigPage.qml:74
 #, kde-format
 msgid "Selected default language:"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:74
+#: src/qml/SonnetConfigPage.qml:75
 #, kde-format
 msgid "None"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:93
+#: src/qml/SonnetConfigPage.qml:94
 #, kde-format
 msgid "Additional spell checking languages"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:94
+#: src/qml/SonnetConfigPage.qml:95
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
 "when autodetection is enabled."
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:106
+#: src/qml/SonnetConfigPage.qml:107
 #, kde-format
 msgid "Open Personal Dictionary"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:117
+#: src/qml/SonnetConfigPage.qml:118
 #, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:126
-#: src/qml/Settings/SonnetConfigPage.qml:136
+#: src/qml/SonnetConfigPage.qml:127 src/qml/SonnetConfigPage.qml:137
 #, kde-format
 msgid "Default Language"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:148
+#: src/qml/SonnetConfigPage.qml:149
 #, kde-format
 msgid "Spell checking dictionary"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:155
+#: src/qml/SonnetConfigPage.qml:156
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:158
+#: src/qml/SonnetConfigPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:185
-#, kde-format
+#: src/qml/SonnetConfigPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Delete word"
+msgctxt "@action:button"
 msgid "Delete word"
 msgstr "ਸ਼ਬਦ ਹਟਾਓ"
+
+#: src/qml/SpaceDrawer.qml:63
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgid "All Rooms"
+msgstr "ਰੂਮ ਛਾਣੋ"
+
+#: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
+#, fuzzy, kde-format
+#| msgid "View Source"
+msgctxt "'Space' is a matrix space"
+msgid "View Space"
+msgstr "ਸਰੋਤ ਵੇਖੋ"
+
+#: src/qml/SpaceListContextMenu.qml:46 src/qml/SpaceListContextMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
+#: src/qml/SpaceListContextMenu.qml:48 src/qml/SpaceListContextMenu.qml:128
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Space Settings"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
+#: src/qml/SpaceListContextMenu.qml:54 src/qml/SpaceListContextMenu.qml:132
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr ""
+
+#: src/qml/Sso.qml:30
+#, fuzzy, kde-format
+#| msgid "Complete the authentication steps in your browser"
+msgid "Continue the login process in your browser."
+msgstr "ਪਰਮਾਣਕਿਤਾ ਪੜਾਅ ਆਪਣੇ ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਪੂਰੇ ਕਰੋ"
+
+#: src/qml/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr ""
+
+#: src/qml/StartChatPage.qml:40
+#, kde-format
+msgid "Chat"
+msgstr "ਚੈਟ"
+
+#: src/qml/StartChatPage.qml:93
+#, kde-format
+msgid "Join existing chat"
+msgstr ""
+
+#: src/qml/StartChatPage.qml:114
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats:"
+msgid "Create new chat"
+msgstr "ਰੂਮ ਤੇ ਪ੍ਰਾਈਵੇਟ ਚੈਟ:"
+
+#: src/qml/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr ""
+
+#: src/qml/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr ""
+
+#: src/qml/TimelineView.qml:151
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "ਪਹਿਲੇ ਨਾ-ਪੜ੍ਹੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
+
+#: src/qml/TimelineView.qml:174
+#, kde-format
+msgid "Jump to latest message"
+msgstr "ਸਭ ਤੋਂ ਨਵੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
+
+#: src/qml/TimelineView.qml:200
+#, kde-format
+msgid "Drag items here to share them"
+msgstr ""
+
+#: src/qml/TimelineView.qml:208
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 ਲਿਖ ਰਹੇ ਹਨ"
+msgstr[1] "%2 ਲਿਖ ਰਹੇ ਹਨ"
+
+#: src/qml/UserDetailDialog.qml:32
+#, kde-format
+msgctxt "@title:menu Account detail dialog"
+msgid "Account detail"
+msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
+
+#: src/qml/UserDetailDialog.qml:81
+#, kde-format
+msgid "Unignore this user"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
+
+#: src/qml/UserDetailDialog.qml:81
+#, kde-format
+msgid "Ignore this user"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
+
+#: src/qml/UserDetailDialog.qml:94
+#, kde-format
+msgid "Kick this user"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿੱਕ ਕਰੋ"
+
+#: src/qml/UserDetailDialog.qml:108
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgid "Invite this user"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
+
+#: src/qml/UserDetailDialog.qml:121
+#, kde-format
+msgid "Ban this user"
+msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
+
+#: src/qml/UserDetailDialog.qml:126
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@title"
+msgid "Ban User"
+msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
+
+#: src/qml/UserDetailDialog.qml:138
+#, kde-format
+msgid "Unban this user"
+msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਤੋਂ ਪਾਬੰਦੀ ਹਟਾਓ"
+
+#: src/qml/UserDetailDialog.qml:151
+#, kde-format
+msgid "Set user power level"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:176
+#, kde-format
+msgid "Remove recent messages by this user"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:181
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/UserDetailDialog.qml:192
+#, kde-format
+msgid "Open a private chat"
+msgstr "ਪ੍ਰਾਈਵੇਟ ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
+
+#: src/qml/UserDetailDialog.qml:203
+#, fuzzy, kde-format
+#| msgid "Copy"
+msgid "Copy link"
+msgstr "ਕਾਪੀ ਕਰੋ"
+
+#: src/qml/UserInfo.qml:49
+#, kde-format
+msgid "Log in to an existing account"
+msgstr ""
+
+#: src/qml/UserInfo.qml:56
+#, fuzzy, kde-format
+#| msgid "Login"
+msgctxt "@title:window"
+msgid "Login"
+msgstr "ਲਾਗਇਨ"
+
+#: src/qml/UserInfo.qml:211
+#, kde-format
+msgid "Switch User"
+msgstr ""
+
+#: src/qml/UserInfo.qml:239
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Open Settings"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
+#: src/qml/Username.qml:18
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Username:"
+msgstr "ਵਰਤੋਂਕਾਰ-ਨਾਂ"
+
+#: src/qml/Username.qml:21
+#, fuzzy, kde-format
+#| msgid "No users available"
+msgid "Username unavailable"
+msgstr "ਕੋਈ ਵਰਤੋਂਕਾਰ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+
+#: src/qml/VerificationCanceled.qml:19
+#, kde-format
+msgid "The session verification was canceled for unknown reason."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:21
+#, kde-format
+msgid "The session verification timed out."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:23
+#, kde-format
+msgid "The session verification timed out for remote party."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:25
+#, kde-format
+msgid "You canceled the session verification."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:27
+#, kde-format
+msgid "The remote party canceled the session verification."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:29
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an unexpected "
+"message."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:31
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"unexpected message."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:33
+#, kde-format
+msgid ""
+"The session verification was canceled because it received a message for an "
+"unknown session."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:35
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received a "
+"message for an unknown session."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:37
+#, kde-format
+msgid ""
+"The session verification was canceled because NeoChat is unable to handle "
+"this verification method."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:39
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it is unable to "
+"handle this verification method."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:41
+#, kde-format
+msgid "The session verification was canceled because the keys are incorrect."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:43
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys are "
+"incorrect."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:45
+#, kde-format
+msgid ""
+"The session verification was canceled because it verifies an unexpected user."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:47
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it verifies an "
+"unexpected user."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:49
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an invalid message."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:51
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"invalid message."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#, kde-format
+msgid "The session was accepted on a different device"
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:57
+#, kde-format
+msgid "The session verification was canceled because of a mismatched key."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:59
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because of a mismatched "
+"key."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:61
+#, kde-format
+msgid "The session verification was canceled because the keys do not match."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:63
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys do not "
+"match."
+msgstr ""
+
+#: src/qml/VerificationCanceled.qml:65
+#, kde-format
+msgid "The session verification was canceled due to an unknown error."
+msgstr ""
+
+#: src/qml/VideoDelegate.qml:141
+#, kde-format
+msgid "Video"
+msgstr "ਵੀਡੀਓ"
+
+#: src/qml/VideoDelegate.qml:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Volume"
+msgstr ""
+
+#: src/qml/VideoDelegate.qml:289
+#, kde-format
+msgid "Maximize"
+msgstr ""
+
+#: src/qml/WelcomePage.qml:19
+#, kde-format
+msgid "Welcome"
+msgstr "ਜੀ ਆਇਆਂ ਨੂੰ"
+
+#: src/qml/WelcomePage.qml:45
+#, kde-format
+msgid "Log in to a different account or create a new account."
+msgstr ""
+
+#: src/qml/WelcomePage.qml:45
+#, kde-format
+msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
+msgstr ""
+
+#: src/qml/WelcomePage.qml:122
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
 
 #: src/registration.cpp:299
 #, fuzzy, kde-format
