@@ -139,6 +139,10 @@ add_library(neochat STATIC
     chatbarcache.h
     colorschemer.cpp
     colorschemer.h
+    models/threadmodel.cpp
+    models/threadmodel.h
+    models/roomthreadsmodel.cpp
+    models/roomthreadsmodel.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
@@ -286,6 +290,8 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/SpaceHierarchyDelegate.qml
         qml/RemoveChildDialog.qml
         qml/SelectParentDialog.qml
+        qml/ThreadRootDelegate.qml
+        qml/RoomThreads.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

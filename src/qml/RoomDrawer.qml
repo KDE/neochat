@@ -133,6 +133,14 @@ Kirigami.OverlayDrawer {
                 }
             }
 
+            Component {
+                id: roomThreads
+                RoomThreads {
+                    currentRoom: root.room
+                    connection: root.connection
+                }
+            }
+
             Kirigami.NavigationTabBar {
                 id: navigationBar
                 Layout.fillWidth: true
@@ -151,6 +159,11 @@ Kirigami.OverlayDrawer {
                         text: i18n("Media")
                         icon.name: "mail-attachment-symbollic"
                         onTriggered: drawerItemLoader.sourceComponent = roomMedia
+                    },
+                    Kirigami.Action {
+                        text: i18n("Threads")
+                        icon.name: "mail-attachment-symbollic"
+                        onTriggered: drawerItemLoader.sourceComponent = roomThreads
                     }
                 ]
             }
