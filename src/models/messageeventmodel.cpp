@@ -55,7 +55,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ShowReadMarkersRole] = "showReadMarkers";
     roles[ReactionRole] = "reaction";
     roles[ShowReactionsRole] = "showReactions";
-    roles[AuthorIdRole] = "authorId";
     roles[VerifiedRole] = "verified";
     roles[AuthorDisplayNameRole] = "authorDisplayName";
     roles[IsRedactedRole] = "isRedacted";
@@ -657,10 +656,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == ShowReactionsRole) {
         return m_reactionModels.contains(evt.id());
-    }
-
-    if (role == AuthorIdRole) {
-        return evt.senderId();
     }
 
     if (role == VerifiedRole) {

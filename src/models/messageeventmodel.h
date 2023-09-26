@@ -73,8 +73,6 @@ public:
         ReactionRole, /**< List model for this event. */
         ShowReactionsRole, /**< Whether there are any reactions to be shown. */
 
-        AuthorIdRole, /**< Matrix ID of the message author. */
-
         VerifiedRole, /**< Whether an encrypted message is sent in a verified session. */
         AuthorDisplayNameRole, /**< The displayname for the event's sender; for name change events, the old displayname. */
         IsRedactedRole, /**< Whether an event has been deleted. */
