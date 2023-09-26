@@ -47,6 +47,7 @@
 #include "filetransferpseudojob.h"
 #include "neochatconfig.h"
 #include "notificationsmanager.h"
+#include "roomlastmessageprovider.h"
 #include "texthandler.h"
 #include "urlhelper.h"
 #include "utils.h"
@@ -72,12 +73,10 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
 
     connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
 
-    // Load cached event if available.
-    KConfig dataResource("data"_ls, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup eventCacheGroup(&dataResource, "EventCache"_ls);
+    const auto &roomLastMessageProvider = RoomLastMessageProvider::self();
 
-    if (eventCacheGroup.hasKey(id())) {
-        auto eventJson = QJsonDocument::fromJson(eventCacheGroup.readEntry(id(), QByteArray())).object();
+    if (roomLastMessageProvider.hasKey(id())) {
+        auto eventJson = QJsonDocument::fromJson(roomLastMessageProvider.read(id())).object();
         if (!eventJson.isEmpty()) {
             auto event = loadEvent<RoomEvent>(eventJson);
 
@@ -309,11 +308,10 @@ void NeoChatRoom::cacheLastEvent()
 {
     auto event = lastEvent();
     if (event != nullptr) {
-        KConfig dataResource("data"_ls, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-        KConfigGroup eventCacheGroup(&dataResource, "EventCache"_ls);
+        auto &roomLastMessageProvider = RoomLastMessageProvider::self();
 
         auto eventJson = QJsonDocument(event->fullJson()).toJson();
-        eventCacheGroup.writeEntry(id(), eventJson);
+        roomLastMessageProvider.write(id(), eventJson);
 
         auto uniqueEvent = loadEvent<RoomEvent>(event->fullJson());
 

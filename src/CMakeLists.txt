@@ -127,6 +127,8 @@ add_library(neochat STATIC
     mediasizehelper.h
     eventhandler.cpp
     enums/delegatetype.h
+    roomlastmessageprovider.cpp
+    roomlastmessageprovider.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
