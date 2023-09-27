@@ -179,7 +179,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat.config", 1, 0, "Config", NeoChatConfig::self());
     qmlRegisterSingletonInstance("org.kde.neochat.accounts", 1, 0, "AccountRegistry", &Controller::instance().accounts());
 
-    // qmlRegisterUncreatableType<KeyVerificationSession>("org.kde.neochat", 1, 0, "KeyVerificationSession", {});
+    qmlRegisterUncreatableType<KeyVerificationSession>("com.github.quotient_im.libquotient", 1, 0, "KeyVerificationSession", {});
 
     QQmlApplicationEngine engine;
 

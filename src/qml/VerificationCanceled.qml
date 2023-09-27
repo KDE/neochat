@@ -4,6 +4,8 @@
 import QtQuick
 import QtQml
 
+import com.github.quotient_im.libquotient
+
 import org.kde.neochat
 
 Message {

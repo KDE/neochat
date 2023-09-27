@@ -6,6 +6,8 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQml
 
+import com.github.quotient_im.libquotient
+
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.neochat
