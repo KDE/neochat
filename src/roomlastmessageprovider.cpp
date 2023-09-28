@@ -5,34 +5,34 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-RoomLastMessageState::RoomLastMessageState()
+RoomLastMessageProvider::RoomLastMessageProvider()
     : m_config(KSharedConfig::openConfig(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation))
     , m_configGroup(KConfigGroup(m_config, u"EventCache"_s))
 {
 }
 
-RoomLastMessageState::~RoomLastMessageState()
+RoomLastMessageProvider::~RoomLastMessageProvider()
 {
     m_config->sync();
 }
 
-RoomLastMessageState &RoomLastMessageState::self()
+RoomLastMessageProvider &RoomLastMessageProvider::self()
 {
-    static RoomLastMessageState instance;
+    static RoomLastMessageProvider instance;
     return instance;
 }
 
-bool RoomLastMessageState::hasKey(const QString &roomId) const
+bool RoomLastMessageProvider::hasKey(const QString &roomId) const
 {
     return m_configGroup.hasKey(roomId);
 }
 
-QByteArray RoomLastMessageState::read(const QString &roomId) const
+QByteArray RoomLastMessageProvider::read(const QString &roomId) const
 {
     return m_configGroup.readEntry(roomId, QByteArray{});
 }
 
-void RoomLastMessageState::write(const QString &roomId, const QByteArray &json)
+void RoomLastMessageProvider::write(const QString &roomId, const QByteArray &json)
 {
     m_configGroup.writeEntry(roomId, json);
 }
