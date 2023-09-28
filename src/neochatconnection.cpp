@@ -156,9 +156,30 @@ void NeoChatConnection::deactivateAccount(const QString &password)
     });
 }
 
-void NeoChatConnection::createRoom(const QString &name, const QString &topic)
+void NeoChatConnection::createRoom(const QString &name, const QString &topic, const QString &parent, bool setChildParent)
 {
-    const auto job = Connection::createRoom(Connection::PublishRoom, {}, name, topic, {});
+    QVector<CreateRoomJob::StateEvent> initialStateEvents;
+    if (!parent.isEmpty()) {
+        initialStateEvents.append(CreateRoomJob::StateEvent{
+            "m.space.parent"_ls,
+            QJsonObject{
+                {"canonical"_ls, true},
+                {"via"_ls, QJsonArray{domain()}},
+            },
+            parent,
+        });
+    }
+
+    const auto job = Connection::createRoom(Connection::PublishRoom, QString(), name, topic, QStringList(), {}, {}, {}, initialStateEvents);
+    if (!parent.isEmpty()) {
+        connect(job, &Quotient::CreateRoomJob::success, this, [this, parent, setChildParent, job]() {
+            if (setChildParent) {
+                if (auto parentRoom = room(parent)) {
+                    parentRoom->setState(QLatin1String("m.space.child"), job->roomId(), QJsonObject{{QLatin1String("via"), QJsonArray{domain()}}});
+                }
+            }
+        });
+    }
     connect(job, &CreateRoomJob::failure, this, [this, job] {
         Q_EMIT Controller::instance().errorOccured(i18n("Room creation failed: %1", job->errorString()));
     });
@@ -167,9 +188,30 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic)
     });
 }
 
-void NeoChatConnection::createSpace(const QString &name, const QString &topic)
+void NeoChatConnection::createSpace(const QString &name, const QString &topic, const QString &parent, bool setChildParent)
 {
-    const auto job = Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, {}, {}, QJsonObject{{"type"_ls, "m.space"_ls}});
+    QVector<CreateRoomJob::StateEvent> initialStateEvents;
+    if (!parent.isEmpty()) {
+        initialStateEvents.append(CreateRoomJob::StateEvent{
+            "m.space.parent"_ls,
+            QJsonObject{
+                {"canonical"_ls, true},
+                {"via"_ls, QJsonArray{domain()}},
+            },
+            parent,
+        });
+    }
+
+    const auto job = Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, initialStateEvents, {}, QJsonObject{{"type"_ls, "m.space"_ls}});
+    if (!parent.isEmpty()) {
+        connect(job, &Quotient::CreateRoomJob::success, this, [this, parent, setChildParent, job]() {
+            if (setChildParent) {
+                if (auto parentRoom = room(parent)) {
+                    parentRoom->setState(QLatin1String("m.space.child"), job->roomId(), QJsonObject{{QLatin1String("via"), QJsonArray{domain()}}});
+                }
+            }
+        });
+    }
     connect(job, &CreateRoomJob::failure, this, [this, job] {
         Q_EMIT Controller::instance().errorOccured(i18n("Space creation failed: %1", job->errorString()));
     });

@@ -54,12 +54,12 @@ public:
     /**
      * @brief Create new room for a group chat.
      */
-    Q_INVOKABLE void createRoom(const QString &name, const QString &topic);
+    Q_INVOKABLE void createRoom(const QString &name, const QString &topic, const QString &parent = {}, bool setChildParent = false);
 
     /**
      * @brief Create new space.
      */
-    Q_INVOKABLE void createSpace(const QString &name, const QString &topic);
+    Q_INVOKABLE void createSpace(const QString &name, const QString &topic, const QString &parent = {}, bool setChildParent = false);
 
 Q_SIGNALS:
     void labelChanged();

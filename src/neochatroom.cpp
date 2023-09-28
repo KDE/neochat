@@ -1109,6 +1109,25 @@ bool NeoChatRoom::isSpace()
     return creationEvent->roomType() == RoomType::Space;
 }
 
+void NeoChatRoom::addChild(const QString &childId, bool setChildParent)
+{
+    if (!isSpace()) {
+        return;
+    }
+    if (!canSendEvent("m.space.child"_ls)) {
+        return;
+    }
+    setState("m.space.child"_ls, childId, QJsonObject{{QLatin1String("via"), QJsonArray{connection()->domain()}}});
+
+    if (setChildParent) {
+        if (auto child = static_cast<NeoChatRoom *>(connection()->room(childId))) {
+            if (child->canSendState("m.space.parent"_ls)) {
+                child->setState("m.space.parent"_ls, id(), QJsonObject{{"canonical"_ls, true}, {"via"_ls, QJsonArray{connection()->domain()}}});
+            }
+        }
+    }
+}
+
 PushNotificationState::State NeoChatRoom::pushNotificationState() const
 {
     return m_currentPushNotificationState;

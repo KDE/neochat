@@ -127,6 +127,13 @@ public:
      */
     Q_INVOKABLE void leaveRoom(NeoChatRoom *room);
 
+    /**
+     * @brief Enter the home page of the given space.
+     *
+     * This method will tell NeoChat to open the home page for the given space.
+     */
+    Q_INVOKABLE void enterSpaceHome(NeoChatRoom *spaceRoom);
+
     // Overrided methods from UriResolverBase
     /**
      * @brief Resolve a user URI.
@@ -262,6 +269,26 @@ Q_SIGNALS:
      * @param event the event to got to if available.
      */
     void replaceRoom(NeoChatRoom *room, const QString &event);
+
+    /**
+     * @brief Push a new space home page.
+     *
+     * Signal triggered when the main window pageStack should push a new page with
+     * the space home for the given space room.
+     *
+     * @param spaceRoom the space room to be shown on the new page.
+     */
+    void pushSpaceHome(NeoChatRoom *spaceRoom);
+
+    /**
+     * @brief Replace the existing space home.
+     *
+     * Signal triggered when the currently displayed room page should be changed
+     * to the space home for the given space room.
+     *
+     * @param spaceRoom the space room to be shown on the new page.
+     */
+    void replaceSpaceHome(NeoChatRoom *spaceRoom);
 
     /**
      * @brief Go to the specified event in the current room.

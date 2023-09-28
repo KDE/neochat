@@ -48,7 +48,7 @@ RowLayout {
         text: i18n("Create a Space")
         icon.name: "list-add"
         onTriggered: {
-            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateSpaceDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Create a Space")})
+            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {connection: root.connection, isSpace: true, title: i18nc("@title", "Create a Space")}, {title: i18nc("@title", "Create a Space")})
         }
     }
 

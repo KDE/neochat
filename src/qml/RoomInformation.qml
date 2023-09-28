@@ -38,7 +38,7 @@ QQC2.ScrollView {
     /**
      * @brief The title that should be displayed for this component if available.
      */
-    readonly property string title: i18nc("@action:title", "Room information")
+    readonly property string title: root.room.isSpace ? i18nc("@action:title", "Space Members") : i18nc("@action:title", "Room information")
 
     // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
     QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
@@ -57,6 +57,7 @@ QQC2.ScrollView {
                 active: true
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
+                visible: !root.room.isSpace
                 sourceComponent: root.room.isDirectChat() ? directChatDrawerHeader : groupChatDrawerHeader
                 onItemChanged: if (item) {
                     userList.positionViewAtBeginning();
@@ -64,6 +65,7 @@ QQC2.ScrollView {
             }
 
             Kirigami.ListSectionHeader {
+                visible: !root.room.isSpace
                 label: i18n("Options")
                 activeFocusOnTab: false
 
@@ -75,7 +77,7 @@ QQC2.ScrollView {
 
                 icon.name: "tools"
                 text: i18n("Open developer tools")
-                visible: Config.developerTools
+                visible: Config.developerTools && !root.room.isSpace
 
                 Layout.fillWidth: true
 
@@ -86,7 +88,7 @@ QQC2.ScrollView {
 
             Delegates.RoundedItemDelegate {
                 id: searchButton
-
+                visible: !root.room.isSpace
                 icon.name: "search"
                 text: i18n("Search in this room")
 
@@ -104,7 +106,7 @@ QQC2.ScrollView {
 
             Delegates.RoundedItemDelegate {
                 id: favouriteButton
-
+                visible: !root.room.isSpace
                 icon.name: root.room && root.room.isFavourite ? "rating" : "rating-unrated"
                 text: root.room && root.room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
 
@@ -115,7 +117,7 @@ QQC2.ScrollView {
 
             Delegates.RoundedItemDelegate {
                 id: locationsButton
-
+                visible: !root.room.isSpace
                 icon.name: "map-flat"
                 text: i18n("Show locations for this room")
 
@@ -240,7 +242,9 @@ QQC2.ScrollView {
 
     Component {
         id: groupChatDrawerHeader
-        GroupChatDrawerHeader {}
+        GroupChatDrawerHeader {
+            room: root.room
+        }
     }
 
     Component {

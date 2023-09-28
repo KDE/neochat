@@ -136,6 +136,7 @@ Kirigami.OverlayDrawer {
             Kirigami.NavigationTabBar {
                 id: navigationBar
                 Layout.fillWidth: true
+                visible: !root.room.isSpace
                 Kirigami.Theme.colorSet: Kirigami.Theme.Window
                 Kirigami.Theme.inherit: false
 

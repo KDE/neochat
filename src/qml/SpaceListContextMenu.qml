@@ -29,7 +29,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "View Space")
                 icon.name: "view-list-details"
-                onTriggered: RoomManager.enterRoom(room);
+                onTriggered: RoomManager.enterSpaceHome(room);
             }
 
             QQC2.MenuItem {

@@ -73,6 +73,7 @@ Kirigami.Page {
 
     footer: Kirigami.NavigationTabBar {
         id: navigationBar
+        visible: !root.room.isSpace
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         Kirigami.Theme.inherit: false
 

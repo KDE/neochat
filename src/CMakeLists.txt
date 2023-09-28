@@ -40,6 +40,12 @@ add_library(neochat STATIC
     models/userfiltermodel.h
     models/publicroomlistmodel.cpp
     models/publicroomlistmodel.h
+    models/spacechildrenmodel.cpp
+    models/spacechildrenmodel.h
+    models/spacechildsortfiltermodel.cpp
+    models/spacechildsortfiltermodel.h
+    models/spacetreeitem.cpp
+    models/spacetreeitem.h
     models/userdirectorylistmodel.cpp
     models/userdirectorylistmodel.h
     models/pushrulemodel.cpp
@@ -209,7 +215,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/Sso.qml
         qml/UserDetailDialog.qml
         qml/CreateRoomDialog.qml
-        qml/CreateSpaceDialog.qml
         qml/EmojiDialog.qml
         qml/OpenFileDialog.qml
         qml/KeyVerificationDialog.qml
@@ -273,6 +278,8 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/RoomMedia.qml
         qml/ChooseRoomDialog.qml
         qml/ShareAction.qml
+        qml/SpaceHomePage.qml
+        qml/SpaceHierarchyDelegate.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

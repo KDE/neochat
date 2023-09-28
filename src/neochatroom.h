@@ -589,6 +589,8 @@ public:
 
     [[nodiscard]] bool isSpace();
 
+    Q_INVOKABLE void addChild(const QString &childId, bool setChildParent = false);
+
     bool isInvite() const;
 
     Q_INVOKABLE void clearInvitationNotification();

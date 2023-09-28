@@ -179,7 +179,11 @@ void RoomManager::openRoomForActiveConnection()
         const auto room = qobject_cast<NeoChatRoom *>(Controller::instance().activeConnection()->room(roomId));
 
         if (room) {
-            enterRoom(room);
+            if (room->isSpace()) {
+                enterSpaceHome(room);
+            } else {
+                enterRoom(room);
+            }
         }
     }
 }
@@ -220,6 +224,34 @@ void RoomManager::openWindow(NeoChatRoom *room)
 {
     // forward the call to QML
     Q_EMIT openRoomInNewWindow(room);
+}
+
+void RoomManager::enterSpaceHome(NeoChatRoom *spaceRoom)
+{
+    if (!spaceRoom->isSpace()) {
+        return;
+    }
+    // If replacing a normal room message timeline make sure any edit is cancelled.
+    if (m_currentRoom && !m_currentRoom->chatBoxEditId().isEmpty()) {
+        m_currentRoom->setChatBoxEditId({});
+    }
+    // Save the chatbar text for the current room if any before switching
+    if (m_currentRoom && m_chatDocumentHandler) {
+        if (m_chatDocumentHandler->document()) {
+            m_currentRoom->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
+        }
+    }
+    m_lastCurrentRoom = std::exchange(m_currentRoom, spaceRoom);
+    Q_EMIT currentRoomChanged();
+
+    if (!m_lastCurrentRoom) {
+        Q_EMIT pushSpaceHome(spaceRoom);
+    } else {
+        Q_EMIT replaceSpaceHome(m_currentRoom);
+    }
+
+    // Save last open room
+    m_lastRoomConfig.writeEntry(Controller::instance().activeConnection()->userId(), spaceRoom->id());
 }
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)

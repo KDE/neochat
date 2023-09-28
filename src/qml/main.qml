@@ -21,6 +21,7 @@ Kirigami.ApplicationWindow {
     property bool roomListLoaded: false
 
     property RoomPage roomPage
+    property SpaceHomePage spaceHomePage
 
     property NeoChatConnection connection: Controller.activeConnection
 
@@ -96,13 +97,34 @@ Kirigami.ApplicationWindow {
             }
         }
 
+        function onPushSpaceHome(room) {
+            root.spaceHomePage = pageStack.push("qrc:/org/kde/neochat/qml/SpaceHomePage.qml");
+            root.spaceHomePage.forceActiveFocus();
+        }
+
         function onReplaceRoom(room, event) {
-            const roomItem = pageStack.get(pageStack.depth - 1);
-            pageStack.currentIndex = pageStack.depth - 1;
+            if (root.roomPage) {
+                pageStack.currentIndex = pageStack.depth - 1;
+            } else {
+                pageStack.pop();
+                root.roomPage = pageStack.push("qrc:/org/kde/neochat/qml/RoomPage.qml", {connection: root.connection});
+                root.spaceHomePage = null;
+            }
             root.roomPage.forceActiveFocus();
             if (event.length > 0) {
-                roomItem.goToEvent(event);
+                root.roomPage.goToEvent(event);
             }
+        }
+
+        function onReplaceSpaceHome(room) {
+            if (root.spaceHomePage) {
+                pageStack.currentIndex = pageStack.depth - 1;
+            } else {
+                pageStack.pop();
+                root.spaceHomePage = pageStack.push("qrc:/org/kde/neochat/qml/SpaceHomePage.qml");
+                root.roomPage = null;
+            }
+            root.spaceHomePage.forceActiveFocus();
         }
 
         function goToEvent(event) {
@@ -331,13 +353,6 @@ Kirigami.ApplicationWindow {
         id: createRoomDialog
 
         CreateRoomDialog {
-            connection: root.connection
-        }
-    }
-
-    Component {
-        id: createSpaceDialog
-        CreateSpaceDialog {
             connection: root.connection
         }
     }
