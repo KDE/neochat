@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 01:41+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -4103,10 +4103,15 @@ msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Проверка сеанса была отменена: неверные ключи."
 
 #: src/qml/VerificationCanceled.qml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The remote party canceled the session verification because the keys are "
+#| "incorrect."
 msgid ""
 "The remote party canceled the session verification because the keys are "
-"incorrect."
+"incorrect.\n"
+"\n"
+"**Please log out and log back in, your session is broken/corrupt.**"
 msgstr "Удалённая сторона отменила проверку: неверные ключи."
 
 #: src/qml/VerificationCanceled.qml:45

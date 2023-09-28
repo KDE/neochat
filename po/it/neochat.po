@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 01:41+0000\n"
-"PO-Revision-Date: 2023-09-15 16:42+0200\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"PO-Revision-Date: 2023-09-24 19:21+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2627,8 +2627,7 @@ msgid "Home Server"
 msgstr "Server principale"
 
 #: src/qml/JoinRoomPage.qml:126
-#, fuzzy, kde-format
-#| msgid "Add new server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Aggiungi nuovo server"
@@ -2691,10 +2690,9 @@ msgid "Waiting for other party to verify."
 msgstr "In attesa che l'altra parte verifichi."
 
 #: src/qml/KeyVerificationDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Session Verification"
+#, kde-format
 msgid "Emoji Verification"
-msgstr "Verifica della sessione"
+msgstr "Verifica emoji"
 
 #: src/qml/KeyVerificationDialog.qml:57
 #, kde-format
@@ -3732,8 +3730,7 @@ msgid "Add word"
 msgstr "Aggiungi la parola"
 
 #: src/qml/SonnetConfigPage.qml:194
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Elimina la parola"
@@ -4014,10 +4011,15 @@ msgstr ""
 "corrette."
 
 #: src/qml/VerificationCanceled.qml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The remote party canceled the session verification because the keys are "
+#| "incorrect."
 msgid ""
 "The remote party canceled the session verification because the keys are "
-"incorrect."
+"incorrect.\n"
+"\n"
+"**Please log out and log back in, your session is broken/corrupt.**"
 msgstr ""
 "La parte remota ha annullato la verifica della sessione perché le chiavi non "
 "sono corrette."

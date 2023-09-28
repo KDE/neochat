@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-27 01:41+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2023-08-27 00:31+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3991,10 +3991,15 @@ msgid "The session verification was canceled because the keys are incorrect."
 msgstr "키가 잘못되어서 세션 확인을 취소했습니다."
 
 #: src/qml/VerificationCanceled.qml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The remote party canceled the session verification because the keys are "
+#| "incorrect."
 msgid ""
 "The remote party canceled the session verification because the keys are "
-"incorrect."
+"incorrect.\n"
+"\n"
+"**Please log out and log back in, your session is broken/corrupt.**"
 msgstr "원격지에서 키가 잘못되어서 세션 확인을 취소했습니다."
 
 #: src/qml/VerificationCanceled.qml:45
