@@ -591,6 +591,8 @@ public:
 
     Q_INVOKABLE void addChild(const QString &childId, bool setChildParent = false);
 
+    Q_INVOKABLE void removeChild(const QString &childId, bool unsetChildParent = false);
+
     bool isInvite() const;
 
     Q_INVOKABLE void clearInvitationNotification();

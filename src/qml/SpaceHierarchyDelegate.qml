@@ -26,6 +26,11 @@ Item {
     required property string topic
     required property bool isJoined
     required property bool canAddChildren
+    required property string parentDisplayName
+    required property bool canSetParent
+    required property bool isDeclaredParent
+    required property bool canRemove
+    required property NeoChatRoom parentRoom
 
     signal createRoom()
     signal enterRoom()
@@ -95,7 +100,28 @@ Item {
                 visible: root.isSpace && root.canAddChildren
                 text: i18nc("@button", "Add new child")
                 icon.name: "list-add"
+                display: QQC2.AbstractButton.IconOnly
                 onClicked: root.createRoom()
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            QQC2.ToolButton {
+                visible: root.canRemove
+                text: i18nc("@button", "Remove")
+                icon.name: "list-remove"
+                display: QQC2.AbstractButton.IconOnly
+                onClicked: {
+                    removeChildDialog.createObject(QQC2.ApplicationWindow.overlay, {
+                        parentRoom: root.parentRoom,
+                        roomId: root.roomId,
+                        displayName: root.displayName,
+                        parentDisplayName: root.parentDisplayName,
+                        canSetParent: root.canSetParent,
+                        isDeclaredParent: root.isDeclaredParent
+                    }).open();
+                }
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
@@ -127,5 +153,10 @@ Item {
         maxWidth: Kirigami.Units.gridUnit * 60
 
         parentWidth: root.treeView ? root.treeView.width : 0
+    }
+
+    Component {
+        id: removeChildDialog
+        RemoveChildDialog {}
     }
 }

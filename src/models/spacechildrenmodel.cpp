@@ -71,7 +71,7 @@ void SpaceChildrenModel::refreshModel()
     delete m_rootItem;
     m_loading = true;
     Q_EMIT loadingChanged();
-    m_rootItem = new SpaceTreeItem();
+    m_rootItem = new SpaceTreeItem(nullptr, m_space->id(), m_space->displayName(), m_space->canonicalAlias());
     endResetModel();
     auto job = m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), Quotient::none, Quotient::none, 1);
     m_currentJobs.append(job);
@@ -193,11 +193,49 @@ QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
         return child->isSpace();
     }
     if (role == CanAddChildrenRole) {
-        auto connection = Controller::instance().activeConnection();
-        if (const auto room = static_cast<NeoChatRoom *>(connection->room(child->id()))) {
+        if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(child->id()))) {
             return room->canSendState(QLatin1String("m.space.child"));
         }
         return false;
+    }
+    if (role == ParentDisplayNameRole) {
+        const auto parent = child->parentItem();
+        auto displayName = parent->name();
+        if (!displayName.isEmpty()) {
+            return displayName;
+        }
+
+        displayName = parent->canonicalAlias();
+        if (!displayName.isEmpty()) {
+            return displayName;
+        }
+
+        return parent->id();
+    }
+    if (role == CanSetParentRole) {
+        if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(child->id()))) {
+            return room->canSendState(QLatin1String("m.space.parent"));
+        }
+        return false;
+    }
+    if (role == IsDeclaredParentRole) {
+        if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(child->id()))) {
+            return room->currentState().contains(QLatin1String("m.space.parent"), child->parentItem()->id());
+        }
+        return false;
+    }
+    if (role == CanRemove) {
+        const auto parent = child->parentItem();
+        if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(parent->id()))) {
+            return room->canSendState(QLatin1String("m.space.child"));
+        }
+        return false;
+    }
+    if (role == ParentRoomRole) {
+        if (const auto parentRoom = static_cast<NeoChatRoom *>(m_space->connection()->room(child->parentItem()->id()))) {
+            return QVariant::fromValue(parentRoom);
+        }
+        return QVariant::fromValue(nullptr);
     }
 
     return {};
@@ -274,6 +312,11 @@ QHash<int, QByteArray> SpaceChildrenModel::roleNames() const
     roles[AliasRole] = "alias";
     roles[IsSpaceRole] = "isSpace";
     roles[CanAddChildrenRole] = "canAddChildren";
+    roles[ParentDisplayNameRole] = "parentDisplayName";
+    roles[CanSetParentRole] = "canSetParent";
+    roles[IsDeclaredParentRole] = "isDeclaredParent";
+    roles[CanRemove] = "canRemove";
+    roles[ParentRoomRole] = "parentRoom";
 
     return roles;
 }

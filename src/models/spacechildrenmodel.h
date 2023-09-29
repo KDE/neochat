@@ -45,6 +45,11 @@ public:
         IsJoinedRole,
         IsSpaceRole,
         CanAddChildrenRole,
+        ParentDisplayNameRole,
+        CanSetParentRole,
+        IsDeclaredParentRole,
+        CanRemove,
+        ParentRoomRole,
     };
 
     explicit SpaceChildrenModel(QObject *parent = nullptr);

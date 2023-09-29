@@ -1128,6 +1128,25 @@ void NeoChatRoom::addChild(const QString &childId, bool setChildParent)
     }
 }
 
+void NeoChatRoom::removeChild(const QString &childId, bool unsetChildParent)
+{
+    if (!isSpace()) {
+        return;
+    }
+    if (!canSendEvent("m.space.child"_ls)) {
+        return;
+    }
+    setState("m.space.child"_ls, childId, {});
+
+    if (unsetChildParent) {
+        if (auto child = static_cast<NeoChatRoom *>(connection()->room(childId))) {
+            if (child->canSendState("m.space.parent"_ls) && child->currentState().contains("m.space.parent"_ls, id())) {
+                child->setState("m.space.parent"_ls, id(), {});
+            }
+        }
+    }
+}
+
 PushNotificationState::State NeoChatRoom::pushNotificationState() const
 {
     return m_currentPushNotificationState;
