@@ -95,7 +95,7 @@ FormCard.FormCardPage {
     }
     FormCard.FormHeader {
         visible: root.showChildType
-        title: i18n("Select Exisiting Room")
+        title: i18n("Select Existing Room")
     }
     FormCard.FormCard {
         visible: root.showChildType
@@ -196,7 +196,7 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormCheckDelegate {
-            id: exisitingOfficialCheck
+            id: existingOfficialCheck
             visible: root.parentId.length > 0
             text: i18n("Make this parent official")
             description: enabled ? i18n("You have the required privilege level in the child to set this state") : i18n("You do not have a high enough privilege level in the child to set this state")
@@ -218,7 +218,7 @@ FormCard.FormCardPage {
             text: i18nc("@action:button", "Ok")
             enabled: chosenRoomDelegate.visible
             onClicked: {
-                root.addChild(chosenRoomDelegate.roomId, exisitingOfficialCheck.checked);
+                root.addChild(chosenRoomDelegate.roomId, existingOfficialCheck.checked);
                 root.closeDialog();
             }
         }

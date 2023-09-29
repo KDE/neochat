@@ -1151,9 +1151,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
     m_pushNotificationStateUpdating = true;
 
     /**
-     * First remove any exisiting room rules of the wrong type.
+     * First remove any existing room rules of the wrong type.
      * Note to prevent race conditions any rule that is going ot be overridden later is not removed.
-     * If the default push notification state is chosen any exisiting rule needs to be removed.
+     * If the default push notification state is chosen any existing rule needs to be removed.
      */
     QJsonObject accountData = connection()->accountDataJson("m.push_rules"_ls);
 
