@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:39+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1055,22 +1055,22 @@ msgstr "Lågt prioriterte"
 msgid "Spaces"
 msgstr "Område"
 
-#: src/neochatconnection.cpp:163
+#: src/neochatconnection.cpp:184
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Feil ved romregistrering: %1"
 
-#: src/neochatconnection.cpp:174
+#: src/neochatconnection.cpp:216
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/neochatroom.cpp:1333 src/neochatroom.cpp:1334
+#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/neochatroom.cpp:1707 src/neochatroom.cpp:1715
+#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1081,7 +1081,7 @@ msgstr "Breiddegr.: %1 – lengdegr.: %2"
 msgid "Encrypted Message"
 msgstr "Kryptert melding"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:262
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:284
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1164,7 +1164,7 @@ msgstr "Fjern gjeldande avatar"
 msgid "User information"
 msgstr "Brukarinformasjon"
 
-#: src/qml/AccountEditorPage.qml:106
+#: src/qml/AccountEditorPage.qml:106 src/qml/CreateRoomDialog.qml:66
 #, kde-format
 msgid "Name:"
 msgstr "Namn:"
@@ -1261,7 +1261,7 @@ msgid "Notification settings"
 msgstr "Varslings­innstillingar"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:395 src/qml/UserInfo.qml:238
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:410 src/qml/UserInfo.qml:238
 #, kde-format
 msgid "Configure"
 msgstr "Set opp"
@@ -1627,7 +1627,7 @@ msgstr "Av"
 
 #: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
 #: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
-#: src/qml/RoomDrawerPage.qml:47
+#: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, kde-format
 msgid "Room Settings"
 msgstr "Romval"
@@ -1637,59 +1637,101 @@ msgstr "Romval"
 msgid "Leave Room"
 msgstr "Forlat rommet"
 
-#: src/qml/CreateRoomDialog.qml:13 src/qml/ExploreComponent.qml:43
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Opprett område"
+
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:20
+#: src/qml/CreateRoomDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgid "New Space Information"
+msgstr "Tenarinformasjon"
+
+#: src/qml/CreateRoomDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Room Information"
+msgid "New Room Information"
+msgstr "Rominformasjon"
+
+#: src/qml/CreateRoomDialog.qml:44
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select type"
+msgstr "Merk alt"
+
+#: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
-msgctxt "@title"
-msgid "Room Information"
+msgid "Room"
+msgstr "Rom"
+
+#: src/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Spaces"
+msgid "Space"
+msgstr "Område"
+
+#: src/qml/CreateRoomDialog.qml:72
+#, fuzzy, kde-format
+#| msgid "No Topic"
+msgid "Topic:"
+msgstr "Manglar emne"
+
+#: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
+#, kde-format
+msgid "Make this parent official"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:25 src/qml/General.qml:72
-#, kde-format
-msgid "Room name:"
-msgstr "Namn på rommet:"
-
-#: src/qml/CreateRoomDialog.qml:31 src/qml/General.qml:82
-#, kde-format
-msgid "Room topic:"
-msgstr "Emne for rommet:"
-
-#: src/qml/CreateRoomDialog.qml:37 src/qml/JoinRoomPage.qml:203
+#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
+#: src/qml/JoinRoomPage.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "OK"
 
-#: src/qml/CreateSpaceDialog.qml:16 src/qml/ExploreComponent.qml:48
+#: src/qml/CreateRoomDialog.qml:98
 #, kde-format
-msgid "Create a Space"
-msgstr "Opprett område"
+msgid "Select Exisiting Room"
+msgstr ""
 
-#: src/qml/CreateSpaceDialog.qml:21 src/qml/ExploreComponent.qml:51
+#: src/qml/CreateRoomDialog.qml:104
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
+#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/RoomListPage.qml:170
 #, kde-format
 msgctxt "@title"
-msgid "Create a Space"
-msgstr "Opprett område"
+msgid "Explore Rooms"
+msgstr ""
 
-#: src/qml/CreateSpaceDialog.qml:26
+#: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
+#: src/qml/SpaceHierarchyDelegate.qml:78
 #, kde-format
-msgid "Space name"
-msgstr "Områdenamn"
+msgid "Joined"
+msgstr "Vart med"
 
-#: src/qml/CreateSpaceDialog.qml:30
+#: src/qml/CreateRoomDialog.qml:202
 #, kde-format
-msgid "Space topic (optional)"
-msgstr "Emne for området (kan stå tomt)"
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
 
-#: src/qml/CreateSpaceDialog.qml:33
+#: src/qml/CreateRoomDialog.qml:202
 #, kde-format
-msgid "Create space"
-msgstr "Opprett område"
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1769,7 +1811,7 @@ msgstr "Passord:"
 msgid "Confirm"
 msgstr "Stadfest"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:83
+#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:85
 #, kde-format
 msgid "Developer Tools"
 msgstr "Utviklarverktøy"
@@ -1967,13 +2009,6 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "Utforsk rom"
 
-#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
-#: src/qml/RoomListPage.qml:170
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr ""
-
 #: src/qml/ExploreComponent.qml:35 src/qml/GlobalMenu.qml:49
 #: src/qml/GlobalMenu.qml:54 src/qml/StartChatPage.qml:20
 #, kde-format
@@ -1991,15 +2026,15 @@ msgstr ""
 msgid "Create a Room"
 msgstr "Opprett rom"
 
+#: src/qml/ExploreComponent.qml:48
+#, kde-format
+msgid "Create a Space"
+msgstr "Opprett område"
+
 #: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Opprett rom og diskusjonar"
-
-#: src/qml/ExplorerDelegate.qml:81
-#, kde-format
-msgid "Joined"
-msgstr "Vart med"
 
 #: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
 #, kde-format
@@ -2098,6 +2133,16 @@ msgstr "Rominformasjon"
 #, kde-format
 msgid "Update avatar"
 msgstr "Oppdater avatar"
+
+#: src/qml/General.qml:72
+#, kde-format
+msgid "Room name:"
+msgstr "Namn på rommet:"
+
+#: src/qml/General.qml:82
+#, kde-format
+msgid "Room topic:"
+msgstr "Emne for rommet:"
 
 #: src/qml/General.qml:121
 #, kde-format
@@ -2452,12 +2497,12 @@ msgstr "Invitasjonar"
 msgid "Unknown"
 msgstr ""
 
-#: src/qml/GroupChatDrawerHeader.qml:61
+#: src/qml/GroupChatDrawerHeader.qml:65
 #, kde-format
 msgid "No name"
 msgstr "Namnlaus"
 
-#: src/qml/GroupChatDrawerHeader.qml:81
+#: src/qml/GroupChatDrawerHeader.qml:85
 #, kde-format
 msgid "No Topic"
 msgstr "Manglar emne"
@@ -2740,7 +2785,7 @@ msgstr "Vel posisjon"
 msgid "Send this location"
 msgstr "Send denne posisjonen"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -2796,18 +2841,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr ""
 
-#: src/qml/main.qml:302
+#: src/qml/main.qml:324
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Øktstadfesting"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:336
 #, kde-format
 msgid "User consent"
 msgstr "Brukar­samtykke"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:341
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2816,17 +2861,17 @@ msgstr ""
 "Heimetenaren krev at du godtek brukarvilkåra før du kan ta han i bruk. Trykk "
 "på knappen nedanfor for å lesa vilkåra."
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:373
 #, kde-format
 msgid "Start a chat"
 msgstr "Start prat"
 
-#: src/qml/main.qml:360
+#: src/qml/main.qml:375
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vil du starta ein prat med %1?"
@@ -3247,11 +3292,6 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr ""
 
-#: src/qml/RoomData.qml:25
-#, kde-format
-msgid "Room"
-msgstr "Rom"
-
 #: src/qml/RoomData.qml:37
 #, kde-format
 msgid "Room Id: %1"
@@ -3292,12 +3332,12 @@ msgstr "Set opp rommet"
 msgid "Room settings"
 msgstr "Romval"
 
-#: src/qml/RoomDrawer.qml:145 src/qml/RoomDrawerPage.qml:82
+#: src/qml/RoomDrawer.qml:146 src/qml/RoomDrawerPage.qml:83
 #, kde-format
 msgid "Information"
 msgstr ""
 
-#: src/qml/RoomDrawer.qml:150 src/qml/RoomDrawerPage.qml:87
+#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Media"
 msgstr ""
@@ -3308,72 +3348,80 @@ msgid "Settings"
 msgstr ""
 
 #: src/qml/RoomInformation.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Space members"
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Områdemedlemmar"
+
+#: src/qml/RoomInformation.qml:41
 #, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr ""
 
 # Er ulike handlingar ein kan gjera, for eksempel gjera rommet til favoritt. «Handlingar» fungerer derfor betre enn «Val» eller «Alternativ».
-#: src/qml/RoomInformation.qml:67
+#: src/qml/RoomInformation.qml:69
 #, kde-format
 msgid "Options"
 msgstr "Handlingar"
 
-#: src/qml/RoomInformation.qml:77
+#: src/qml/RoomInformation.qml:79
 #, kde-format
 msgid "Open developer tools"
 msgstr "Opna utviklarverktøy"
 
-#: src/qml/RoomInformation.qml:91
+#: src/qml/RoomInformation.qml:93
 #, kde-format
 msgid "Search in this room"
 msgstr "Søk i rommet"
 
-#: src/qml/RoomInformation.qml:100
+#: src/qml/RoomInformation.qml:102
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Søk"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:111
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Fjern rommet frå favorittar"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:111
 #, kde-format
 msgid "Make room favorite"
 msgstr "Gjer rommet til favoritt"
 
-#: src/qml/RoomInformation.qml:120
+#: src/qml/RoomInformation.qml:122
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Vis posisjonar i rommet"
 
-#: src/qml/RoomInformation.qml:132
+#: src/qml/RoomInformation.qml:134
 #, kde-format
 msgid "Members"
 msgstr "Medlemmar"
 
-#: src/qml/RoomInformation.qml:144
+#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Inviter ein brukar"
 
-#: src/qml/RoomInformation.qml:147
+#: src/qml/RoomInformation.qml:149
 #, kde-format
 msgid "Invite user to room"
 msgstr "Inviter brukar til rommet"
 
-#: src/qml/RoomInformation.qml:154
+#: src/qml/RoomInformation.qml:156
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 medlem"
 msgstr[1] "%1 medlemmar"
 
-#: src/qml/RoomInformation.qml:154
+#: src/qml/RoomInformation.qml:156
 #, kde-format
 msgid "No member count"
 msgstr "Manglar medlemstal"
@@ -3734,6 +3782,58 @@ msgstr "Fjern ord"
 #, kde-format
 msgid "All Rooms"
 msgstr "Alle rom"
+
+#: src/qml/SpaceHierarchyDelegate.qml:87
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
+msgctxt "number of room members"
+msgid " members - "
+msgstr "%1 medlem"
+
+#: src/qml/SpaceHierarchyDelegate.qml:87
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
+msgctxt "number of room members"
+msgid " members"
+msgstr "%1 medlem"
+
+#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgctxt "@button"
+msgid "Add new child"
+msgstr "Registrer nytt alias"
+
+#: src/qml/SpaceHomePage.qml:47
+#, fuzzy, kde-format
+#| msgid "Invite user to room"
+msgctxt "@button"
+msgid "Invite user to space"
+msgstr "Inviter brukar til rommet"
+
+#: src/qml/SpaceHomePage.qml:58
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgctxt "@button"
+msgid "Leave the space"
+msgstr "Forlat område"
+
+#: src/qml/SpaceHomePage.qml:66
+#, fuzzy, kde-format
+#| msgid "Space Settings"
+msgctxt "@button"
+msgid "Space settings"
+msgstr "Område­innstillingar"
+
+#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Child"
+msgstr "Opprett rom"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4181,32 +4281,32 @@ msgstr ""
 "Det finst ikkje noko rom %1 i romlista. Sjå til at du har skrive romnamnet "
 "rett og brukar rett konto."
 
-#: src/roommanager.cpp:272
+#: src/roommanager.cpp:304
 #, kde-format
 msgid "Failed to join room"
 msgstr "Klarte ikkje verta med i rommet"
 
-#: src/roommanager.cpp:287
+#: src/roommanager.cpp:319
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du har bedt om å få verta med i «%1»"
 
-#: src/roommanager.cpp:290
+#: src/roommanager.cpp:322
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Klarte ikkje be om å få verta med i rommet"
 
-#: src/roommanager.cpp:299
+#: src/roommanager.cpp:331
 #, kde-format
 msgid "No application for the link"
 msgstr "Manglar program for opning av lenkja"
 
-#: src/roommanager.cpp:299
+#: src/roommanager.cpp:331
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Operativsystemet fann ikkje noko program som kan opna lenkja."
 
-#: src/roommanager.cpp:305
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Could not open URL"
 msgstr "Klarte ikkje opna lenkja"
@@ -4220,3 +4320,12 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr "Avslutt"
+
+#~ msgid "Space name"
+#~ msgstr "Områdenamn"
+
+#~ msgid "Space topic (optional)"
+#~ msgstr "Emne for området (kan stå tomt)"
+
+#~ msgid "Create space"
+#~ msgstr "Opprett område"

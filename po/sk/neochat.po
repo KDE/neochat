@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:39+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1162,25 +1162,25 @@ msgstr "Nízka priorita"
 msgid "Spaces"
 msgstr "Medzery"
 
-#: src/neochatconnection.cpp:163
+#: src/neochatconnection.cpp:184
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/neochatconnection.cpp:174
+#: src/neochatconnection.cpp:216
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/neochatroom.cpp:1333 src/neochatroom.cpp:1334
+#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Heslo úspešne zmenené"
 
-#: src/neochatroom.cpp:1707 src/neochatroom.cpp:1715
+#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1192,7 +1192,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Upraviť správu"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:262
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:284
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1282,7 +1282,7 @@ msgstr ""
 msgid "User information"
 msgstr "Informácie o miestnosti"
 
-#: src/qml/AccountEditorPage.qml:106
+#: src/qml/AccountEditorPage.qml:106 src/qml/CreateRoomDialog.qml:66
 #, kde-format
 msgid "Name:"
 msgstr "Meno:"
@@ -1390,7 +1390,7 @@ msgid "Notification settings"
 msgstr "Zobraziť upozornenia"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:395 src/qml/UserInfo.qml:238
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:410 src/qml/UserInfo.qml:238
 #, kde-format
 msgid "Configure"
 msgstr "Nastaviť"
@@ -1776,7 +1776,7 @@ msgstr ""
 
 #: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
 #: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
-#: src/qml/RoomDrawerPage.qml:47
+#: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Room Settings"
@@ -1787,66 +1787,105 @@ msgstr "Nastavenia miestnosti"
 msgid "Leave Room"
 msgstr "Opustiť miestnosť"
 
-#: src/qml/CreateRoomDialog.qml:13 src/qml/ExploreComponent.qml:43
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Vytvoriť miestnosť"
+
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Vytvoriť miestnosť"
 
-#: src/qml/CreateRoomDialog.qml:20
+#: src/qml/CreateRoomDialog.qml:35
 #, fuzzy, kde-format
 #| msgid "Room information"
-msgctxt "@title"
-msgid "Room Information"
+msgid "New Space Information"
 msgstr "Informácie o miestnosti"
 
-#: src/qml/CreateRoomDialog.qml:25 src/qml/General.qml:72
+#: src/qml/CreateRoomDialog.qml:35
 #, fuzzy, kde-format
-#| msgid "Room Name:"
-msgid "Room name:"
-msgstr "Názov miestnosti:"
+#| msgid "Room information"
+msgid "New Room Information"
+msgstr "Informácie o miestnosti"
 
-#: src/qml/CreateRoomDialog.qml:31 src/qml/General.qml:82
+#: src/qml/CreateRoomDialog.qml:44
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select type"
+msgstr "Vybrať všetko"
+
+#: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room"
+msgstr "Miestnosti"
+
+#: src/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Spaces"
+msgid "Space"
+msgstr "Medzery"
+
+#: src/qml/CreateRoomDialog.qml:72
+#, fuzzy, kde-format
+#| msgid "No Topic"
+msgid "Topic:"
+msgstr "Žiadna téma"
+
+#: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
-msgid "Room topic:"
-msgstr "Téma miestnosti:"
+msgid "Make this parent official"
+msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:37 src/qml/JoinRoomPage.qml:203
+#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
+#: src/qml/JoinRoomPage.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ok"
 
-#: src/qml/CreateSpaceDialog.qml:16 src/qml/ExploreComponent.qml:48
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgid "Create a Space"
-msgstr "Vytvoriť miestnosť"
-
-#: src/qml/CreateSpaceDialog.qml:21 src/qml/ExploreComponent.qml:51
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Vytvoriť miestnosť"
-
-#: src/qml/CreateSpaceDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Members"
-msgid "Space name"
-msgstr "Členovia"
-
-#: src/qml/CreateSpaceDialog.qml:30
+#: src/qml/CreateRoomDialog.qml:98
 #, kde-format
-msgid "Space topic (optional)"
+msgid "Select Exisiting Room"
 msgstr ""
 
-#: src/qml/CreateSpaceDialog.qml:33
+#: src/qml/CreateRoomDialog.qml:104
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
+#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/RoomListPage.qml:170
 #, fuzzy, kde-format
-#| msgid "Create a Room"
-msgid "Create space"
-msgstr "Vytvoriť miestnosť"
+#| msgid "Explore Rooms"
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Prehliadať miestnosti"
+
+#: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
+#: src/qml/SpaceHierarchyDelegate.qml:78
+#, kde-format
+msgid "Joined"
+msgstr "Pripojil sa"
+
+#: src/qml/CreateRoomDialog.qml:202
+#, kde-format
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:202
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1935,7 +1974,7 @@ msgstr "Heslo:"
 msgid "Confirm"
 msgstr "Potvrdiť"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:83
+#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:85
 #, kde-format
 msgid "Developer Tools"
 msgstr ""
@@ -2142,14 +2181,6 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "Prehliadať miestnosti"
 
-#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
-#: src/qml/RoomListPage.qml:170
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Prehliadať miestnosti"
-
 #: src/qml/ExploreComponent.qml:35 src/qml/GlobalMenu.qml:49
 #: src/qml/GlobalMenu.qml:54 src/qml/StartChatPage.qml:20
 #, kde-format
@@ -2168,16 +2199,17 @@ msgstr "Začať rozhovor"
 msgid "Create a Room"
 msgstr "Vytvoriť miestnosť"
 
+#: src/qml/ExploreComponent.qml:48
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Create a Space"
+msgstr "Vytvoriť miestnosť"
+
 #: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create rooms and chats"
 msgstr "Miestnosti a súkromné chaty:"
-
-#: src/qml/ExplorerDelegate.qml:81
-#, kde-format
-msgid "Joined"
-msgstr "Pripojil sa"
 
 #: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
 #, kde-format
@@ -2282,6 +2314,17 @@ msgstr "Informácie o miestnosti"
 #| msgid "updated their avatar"
 msgid "Update avatar"
 msgstr "aktualizovali avatara"
+
+#: src/qml/General.qml:72
+#, fuzzy, kde-format
+#| msgid "Room Name:"
+msgid "Room name:"
+msgstr "Názov miestnosti:"
+
+#: src/qml/General.qml:82
+#, kde-format
+msgid "Room topic:"
+msgstr "Téma miestnosti:"
 
 #: src/qml/General.qml:121
 #, fuzzy, kde-format
@@ -2667,12 +2710,12 @@ msgstr "Pozvať"
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: src/qml/GroupChatDrawerHeader.qml:61
+#: src/qml/GroupChatDrawerHeader.qml:65
 #, kde-format
 msgid "No name"
 msgstr "Žiadne meno"
 
-#: src/qml/GroupChatDrawerHeader.qml:81
+#: src/qml/GroupChatDrawerHeader.qml:85
 #, kde-format
 msgid "No Topic"
 msgstr "Žiadna téma"
@@ -2962,7 +3005,7 @@ msgstr "Vybrať miestny súbor"
 msgid "Send this location"
 msgstr "Zobraziť upozornenia"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "Locations on a map"
@@ -3024,19 +3067,19 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registrovať sa"
 
-#: src/qml/main.qml:302
+#: src/qml/main.qml:324
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Zobraziť upozornenia"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:336
 #, kde-format
 msgid "User consent"
 msgstr "Používateľský súhlas"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:341
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -3046,17 +3089,17 @@ msgstr ""
 "zmluvnými podmienkami. Ak si ich chcete prečítať, kliknite na tlačidlo "
 "nižšie."
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:373
 #, kde-format
 msgid "Start a chat"
 msgstr "Začať rozhovor"
 
-#: src/qml/main.qml:360
+#: src/qml/main.qml:375
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Chcete začať rozhovor s %1?"
@@ -3507,12 +3550,6 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Vybrať miestny súbor"
 
-#: src/qml/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room"
-msgstr "Miestnosti"
-
 #: src/qml/RoomData.qml:37
 #, fuzzy, kde-format
 #| msgid "Rooms"
@@ -3560,13 +3597,13 @@ msgstr "Nastaviť miestnosť"
 msgid "Room settings"
 msgstr "Nastavenia miestnosti"
 
-#: src/qml/RoomDrawer.qml:145 src/qml/RoomDrawerPage.qml:82
+#: src/qml/RoomDrawer.qml:146 src/qml/RoomDrawerPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "Information"
 msgstr "Informácie o miestnosti"
 
-#: src/qml/RoomDrawer.qml:150 src/qml/RoomDrawerPage.qml:87
+#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Media"
 msgstr ""
@@ -3579,69 +3616,76 @@ msgstr "Nastavenia miestnosti"
 
 #: src/qml/RoomInformation.qml:41
 #, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Členovia"
+
+#: src/qml/RoomInformation.qml:41
+#, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "Informácie o miestnosti"
 
-#: src/qml/RoomInformation.qml:67
+#: src/qml/RoomInformation.qml:69
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgid "Options"
 msgstr "Voľby:"
 
-#: src/qml/RoomInformation.qml:77
+#: src/qml/RoomInformation.qml:79
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:91
+#: src/qml/RoomInformation.qml:93
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Search in this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/qml/RoomInformation.qml:100
+#: src/qml/RoomInformation.qml:102
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:111
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Odstrániť miestnosť z obľúbených"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:111
 #, kde-format
 msgid "Make room favorite"
 msgstr "Nastaviť miestnosť ako pbľúbenú"
 
-#: src/qml/RoomInformation.qml:120
+#: src/qml/RoomInformation.qml:122
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Show locations for this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/qml/RoomInformation.qml:132
+#: src/qml/RoomInformation.qml:134
 #, kde-format
 msgid "Members"
 msgstr "Členovia"
 
-#: src/qml/RoomInformation.qml:144
+#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Pozvať používateľa"
 
-#: src/qml/RoomInformation.qml:147
+#: src/qml/RoomInformation.qml:149
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Invite user to room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/qml/RoomInformation.qml:154
+#: src/qml/RoomInformation.qml:156
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3651,7 +3695,7 @@ msgstr[0] "%1 Člen"
 msgstr[1] "%1 Členovia"
 msgstr[2] "%1 Členov"
 
-#: src/qml/RoomInformation.qml:154
+#: src/qml/RoomInformation.qml:156
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
@@ -4022,6 +4066,56 @@ msgstr "Vymazať"
 #| msgid "Explore Rooms"
 msgid "All Rooms"
 msgstr "Prehliadať miestnosti"
+
+#: src/qml/SpaceHierarchyDelegate.qml:87
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgctxt "number of room members"
+msgid " members - "
+msgstr "%1 Člen"
+
+#: src/qml/SpaceHierarchyDelegate.qml:87
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgctxt "number of room members"
+msgid " members"
+msgstr "%1 Člen"
+
+#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
+#, kde-format
+msgctxt "@button"
+msgid "Add new child"
+msgstr ""
+
+#: src/qml/SpaceHomePage.qml:47
+#, fuzzy, kde-format
+#| msgid "invited %1 to the room"
+msgctxt "@button"
+msgid "Invite user to space"
+msgstr "pozval %1 do miestnosti"
+
+#: src/qml/SpaceHomePage.qml:58
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@button"
+msgid "Leave the space"
+msgstr "Vytvoriť miestnosť"
+
+#: src/qml/SpaceHomePage.qml:66
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@button"
+msgid "Space settings"
+msgstr "Nastavenia"
+
+#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Child"
+msgstr "Vytvoriť miestnosť"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, fuzzy, kde-format
@@ -4470,34 +4564,34 @@ msgid ""
 msgstr ""
 "V zozname izieb nie je žiadna miestnosť %1. Skontrolujte pravopis a účet."
 
-#: src/roommanager.cpp:272
+#: src/roommanager.cpp:304
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Failed to join room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/roommanager.cpp:287
+#: src/roommanager.cpp:319
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:290
+#: src/roommanager.cpp:322
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Failed to request joining room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/roommanager.cpp:299
+#: src/roommanager.cpp:331
 #, kde-format
 msgid "No application for the link"
 msgstr "Žiadna aplikácia pre odkaz"
 
-#: src/roommanager.cpp:299
+#: src/roommanager.cpp:331
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Váš operačný systém nemohol nájsť aplikáciu pre odkaz."
 
-#: src/roommanager.cpp:305
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Could not open URL"
 msgstr ""
@@ -4511,6 +4605,17 @@ msgstr "Zobraziť"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
+
+#, fuzzy
+#~| msgid "Room information"
+#~ msgctxt "@title"
+#~ msgid "Room Information"
+#~ msgstr "Informácie o miestnosti"
+
+#, fuzzy
+#~| msgid "Members"
+#~ msgid "Space name"
+#~ msgstr "Členovia"
 
 #~ msgid "Accept Invitation"
 #~ msgstr "Prijať pozvánku"

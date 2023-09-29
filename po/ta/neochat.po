@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:39+0000\n"
 "PO-Revision-Date: 2023-09-10 17:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1050,22 +1050,22 @@ msgstr "முக்கியமில்லாதவை"
 msgid "Spaces"
 msgstr "இடங்கள்"
 
-#: src/neochatconnection.cpp:163
+#: src/neochatconnection.cpp:184
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatconnection.cpp:174
+#: src/neochatconnection.cpp:216
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1333 src/neochatroom.cpp:1334
+#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1707 src/neochatroom.cpp:1715
+#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1076,7 +1076,7 @@ msgstr "அட்ச: %1, தீர்க்க: %2"
 msgid "Encrypted Message"
 msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:262
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:284
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1159,7 +1159,7 @@ msgstr "தற்போதைய சின்னத்தை நீக்கு"
 msgid "User information"
 msgstr "பயனரின் விவரங்கள்"
 
-#: src/qml/AccountEditorPage.qml:106
+#: src/qml/AccountEditorPage.qml:106 src/qml/CreateRoomDialog.qml:66
 #, kde-format
 msgid "Name:"
 msgstr "பெயர்:"
@@ -1256,7 +1256,7 @@ msgid "Notification settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:395 src/qml/UserInfo.qml:238
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:410 src/qml/UserInfo.qml:238
 #, kde-format
 msgid "Configure"
 msgstr "அமை"
@@ -1624,7 +1624,7 @@ msgstr "முடக்கு"
 
 #: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
 #: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
-#: src/qml/RoomDrawerPage.qml:47
+#: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, kde-format
 msgid "Room Settings"
 msgstr "அரங்கின் அமைப்புகள்"
@@ -1634,59 +1634,101 @@ msgstr "அரங்கின் அமைப்புகள்"
 msgid "Leave Room"
 msgstr "அரங்கிலிருந்து வெளியேறு"
 
-#: src/qml/CreateRoomDialog.qml:13 src/qml/ExploreComponent.qml:43
-#, kde-format
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "அரங்கை உருவாக்கு"
-
-#: src/qml/CreateRoomDialog.qml:20
-#, kde-format
-msgctxt "@title"
-msgid "Room Information"
-msgstr "அரங்கின் விவரங்கள்"
-
-#: src/qml/CreateRoomDialog.qml:25 src/qml/General.qml:72
-#, kde-format
-msgid "Room name:"
-msgstr "அரங்கின் பெயர்:"
-
-#: src/qml/CreateRoomDialog.qml:31 src/qml/General.qml:82
-#, kde-format
-msgid "Room topic:"
-msgstr "அரங்கின் தலைப்பு:"
-
-#: src/qml/CreateRoomDialog.qml:37 src/qml/JoinRoomPage.qml:203
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "சரி"
-
-#: src/qml/CreateSpaceDialog.qml:16 src/qml/ExploreComponent.qml:48
-#, kde-format
-msgid "Create a Space"
-msgstr "இடத்தை உருவாக்கு"
-
-#: src/qml/CreateSpaceDialog.qml:21 src/qml/ExploreComponent.qml:51
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "இடத்தை உருவாக்குவது"
 
-#: src/qml/CreateSpaceDialog.qml:26
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
 #, kde-format
-msgid "Space name"
-msgstr "இடத்தின் பெயர்"
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "அரங்கை உருவாக்கு"
 
-#: src/qml/CreateSpaceDialog.qml:30
-#, kde-format
-msgid "Space topic (optional)"
-msgstr "இடத்தின் தலைப்பு (கட்டாயமில்லை)"
+#: src/qml/CreateRoomDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgid "New Space Information"
+msgstr "சேவையக விவரங்கள்"
 
-#: src/qml/CreateSpaceDialog.qml:33
+#: src/qml/CreateRoomDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Room Information"
+msgid "New Room Information"
+msgstr "அரங்கின் விவரங்கள்"
+
+#: src/qml/CreateRoomDialog.qml:44
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select type"
+msgstr "அனைத்தையும் தேர்ந்தெடு"
+
+#: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
-msgid "Create space"
-msgstr "இடத்தை உருவாக்கு"
+msgid "Room"
+msgstr "அரங்கு"
+
+#: src/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Spaces"
+msgid "Space"
+msgstr "இடங்கள்"
+
+#: src/qml/CreateRoomDialog.qml:72
+#, fuzzy, kde-format
+#| msgid "No Topic"
+msgid "Topic:"
+msgstr "தலைப்பு இல்லை"
+
+#: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
+#, kde-format
+msgid "Make this parent official"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
+#: src/qml/JoinRoomPage.qml:203
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "சரி"
+
+#: src/qml/CreateRoomDialog.qml:98
+#, kde-format
+msgid "Select Exisiting Room"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:104
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
+#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/RoomListPage.qml:170
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "அரங்குப்பட்டியலில் உலாவுங்கள்"
+
+#: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
+#: src/qml/SpaceHierarchyDelegate.qml:78
+#, kde-format
+msgid "Joined"
+msgstr "சேர்ந்தவை"
+
+#: src/qml/CreateRoomDialog.qml:202
+#, kde-format
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:202
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1766,7 +1808,7 @@ msgstr "கடவுச்சொல்:"
 msgid "Confirm"
 msgstr "உறுதிசெய்"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:83
+#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:85
 #, kde-format
 msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
@@ -1965,13 +2007,6 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "அரங்குப்பட்டியலில் உலாவுங்கள்"
 
-#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
-#: src/qml/RoomListPage.qml:170
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "அரங்குப்பட்டியலில் உலாவுங்கள்"
-
 #: src/qml/ExploreComponent.qml:35 src/qml/GlobalMenu.qml:49
 #: src/qml/GlobalMenu.qml:54 src/qml/StartChatPage.qml:20
 #, kde-format
@@ -1989,15 +2024,15 @@ msgstr "உரையாடலைத் துவக்கு"
 msgid "Create a Room"
 msgstr "அரங்கை உருவாக்கு"
 
+#: src/qml/ExploreComponent.qml:48
+#, kde-format
+msgid "Create a Space"
+msgstr "இடத்தை உருவாக்கு"
+
 #: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"
-
-#: src/qml/ExplorerDelegate.qml:81
-#, kde-format
-msgid "Joined"
-msgstr "சேர்ந்தவை"
 
 #: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
 #, kde-format
@@ -2096,6 +2131,16 @@ msgstr "அரங்கின் விவரங்கள்"
 #, kde-format
 msgid "Update avatar"
 msgstr "சின்னத்தை மாற்று"
+
+#: src/qml/General.qml:72
+#, kde-format
+msgid "Room name:"
+msgstr "அரங்கின் பெயர்:"
+
+#: src/qml/General.qml:82
+#, kde-format
+msgid "Room topic:"
+msgstr "அரங்கின் தலைப்பு:"
 
 #: src/qml/General.qml:121
 #, kde-format
@@ -2447,12 +2492,12 @@ msgstr "வரவழைப்புகள்"
 msgid "Unknown"
 msgstr "தெரியாதது"
 
-#: src/qml/GroupChatDrawerHeader.qml:61
+#: src/qml/GroupChatDrawerHeader.qml:65
 #, kde-format
 msgid "No name"
 msgstr "பெயரில்லாதது"
 
-#: src/qml/GroupChatDrawerHeader.qml:81
+#: src/qml/GroupChatDrawerHeader.qml:85
 #, kde-format
 msgid "No Topic"
 msgstr "தலைப்பு இல்லை"
@@ -2735,7 +2780,7 @@ msgstr "இடத்தை தேர்வு செய்"
 msgid "Send this location"
 msgstr "இவ்விடத்தை அனுப்பு"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -2791,18 +2836,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "கணக்குருவாக்கு"
 
-#: src/qml/main.qml:302
+#: src/qml/main.qml:324
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "அமர்வு உறுதிப்பாடு"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:336
 #, kde-format
 msgid "User consent"
 msgstr "பயனர் ஒப்புதல்"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:341
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2811,17 +2856,17 @@ msgstr ""
 "பயன்படுத்துமுன் அதன் விதிமுறைகளை ஏற்குமாறு உங்கள் தாய் சேவையகம் உங்களை "
 "கட்டாயப்படுத்துகிறது. அவற்றைப் படிக்க கீழுள்ள பட்டனைத் தட்டுங்கள்."
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Open"
 msgstr "திற"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:373
 #, kde-format
 msgid "Start a chat"
 msgstr "உரையாடலைத் துவக்கு"
 
-#: src/qml/main.qml:360
+#: src/qml/main.qml:375
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "உறுதியாக %1 என்பவருடன் உரையாடலைத் துவக்க வேண்டுமா?"
@@ -3236,11 +3281,6 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "அரங்கைத் தேர்வு செய்தல்"
 
-#: src/qml/RoomData.qml:25
-#, kde-format
-msgid "Room"
-msgstr "அரங்கு"
-
 #: src/qml/RoomData.qml:37
 #, kde-format
 msgid "Room Id: %1"
@@ -3281,12 +3321,12 @@ msgstr "அரங்கை அமை"
 msgid "Room settings"
 msgstr "அரங்கின் அமைப்புகள்"
 
-#: src/qml/RoomDrawer.qml:145 src/qml/RoomDrawerPage.qml:82
+#: src/qml/RoomDrawer.qml:146 src/qml/RoomDrawerPage.qml:83
 #, kde-format
 msgid "Information"
 msgstr "விவரங்கள்"
 
-#: src/qml/RoomDrawer.qml:150 src/qml/RoomDrawerPage.qml:87
+#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Media"
 msgstr "படங்கள்"
@@ -3297,71 +3337,79 @@ msgid "Settings"
 msgstr "அமைப்புகள்"
 
 #: src/qml/RoomInformation.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Space members"
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "இடத்தின் உறுப்பினர்கள்"
+
+#: src/qml/RoomInformation.qml:41
 #, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "அரங்கின் விவரங்கள்"
 
-#: src/qml/RoomInformation.qml:67
+#: src/qml/RoomInformation.qml:69
 #, kde-format
 msgid "Options"
 msgstr "விருப்பங்கள்"
 
-#: src/qml/RoomInformation.qml:77
+#: src/qml/RoomInformation.qml:79
 #, kde-format
 msgid "Open developer tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
 
-#: src/qml/RoomInformation.qml:91
+#: src/qml/RoomInformation.qml:93
 #, kde-format
 msgid "Search in this room"
 msgstr "இவ்வரங்கில் தேடு"
 
-#: src/qml/RoomInformation.qml:100
+#: src/qml/RoomInformation.qml:102
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "தேடல்"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:111
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "பிடித்தவற்றிலிருந்து அரங்கை நீக்கு"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:111
 #, kde-format
 msgid "Make room favorite"
 msgstr "அரங்கைப் பிடித்ததாகக் குறி"
 
-#: src/qml/RoomInformation.qml:120
+#: src/qml/RoomInformation.qml:122
 #, kde-format
 msgid "Show locations for this room"
 msgstr "இவ்வரங்கிலுள்ள இருப்பிடங்களைக் காட்டு"
 
-#: src/qml/RoomInformation.qml:132
+#: src/qml/RoomInformation.qml:134
 #, kde-format
 msgid "Members"
 msgstr "உறுப்பினர்கள்"
 
-#: src/qml/RoomInformation.qml:144
+#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "பயனரை வரவழைப்பது"
 
-#: src/qml/RoomInformation.qml:147
+#: src/qml/RoomInformation.qml:149
 #, kde-format
 msgid "Invite user to room"
 msgstr "பயனரை ஓர் அரங்குக்கு வரவழை"
 
-#: src/qml/RoomInformation.qml:154
+#: src/qml/RoomInformation.qml:156
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 உறுப்பினர்"
 msgstr[1] "%1 உறுப்பினர்கள்"
 
-#: src/qml/RoomInformation.qml:154
+#: src/qml/RoomInformation.qml:156
 #, kde-format
 msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
@@ -3719,6 +3767,59 @@ msgstr "சொல்லை நீக்கு"
 #, kde-format
 msgid "All Rooms"
 msgstr "அனைத்து அரங்குகள்"
+
+#: src/qml/SpaceHierarchyDelegate.qml:87
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
+msgctxt "number of room members"
+msgid " members - "
+msgstr "%1 உறுப்பினர்"
+
+#: src/qml/SpaceHierarchyDelegate.qml:87
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
+msgctxt "number of room members"
+msgid " members"
+msgstr "%1 உறுப்பினர்"
+
+#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgctxt "@button"
+msgid "Add new child"
+msgstr "புதிய மாற்றுப்பெயரைச் சேர்"
+
+#: src/qml/SpaceHomePage.qml:47
+#, fuzzy, kde-format
+#| msgid "Invite user to room"
+msgctxt "@button"
+msgid "Invite user to space"
+msgstr "பயனரை ஓர் அரங்குக்கு வரவழை"
+
+#: src/qml/SpaceHomePage.qml:58
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgctxt "@button"
+msgid "Leave the space"
+msgstr "இடத்திலிருந்து வெளியேறு"
+
+#: src/qml/SpaceHomePage.qml:66
+#, fuzzy, kde-format
+#| msgid "Space Settings"
+msgctxt "@button"
+msgid "Space settings"
+msgstr "இடத்திற்கான அமைப்புகள்"
+
+#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Child"
+msgstr "அரங்கை உருவாக்கு"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4161,33 +4262,33 @@ msgid ""
 msgstr ""
 "அரங்குகளின் பட்டியலில் %1 என்று எந்த அரங்கும் இல்லை. எழுத்தாக்கம் மற்றும் கணக்கை சரிபாருங்கள்."
 
-#: src/roommanager.cpp:272
+#: src/roommanager.cpp:304
 #, kde-format
 msgid "Failed to join room"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:287
+#: src/roommanager.cpp:319
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/roommanager.cpp:290
+#: src/roommanager.cpp:322
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:299
+#: src/roommanager.cpp:331
 #, kde-format
 msgid "No application for the link"
 msgstr "இணைப்புக்கேற்ற செயலி இல்லை"
 
-#: src/roommanager.cpp:299
+#: src/roommanager.cpp:331
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "இந்த இணைப்பைத் திறக்கக் கூடிய செயலியை உங்கள் இயக்குதளத்தால் கண்டுபிடிக்க முடியவில்லை."
 
-#: src/roommanager.cpp:305
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Could not open URL"
 msgstr "முகவரியைத் திறக்க முடியவில்லை"
@@ -4201,6 +4302,19 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgctxt "@title"
+#~ msgid "Room Information"
+#~ msgstr "அரங்கின் விவரங்கள்"
+
+#~ msgid "Space name"
+#~ msgstr "இடத்தின் பெயர்"
+
+#~ msgid "Space topic (optional)"
+#~ msgstr "இடத்தின் தலைப்பு (கட்டாயமில்லை)"
+
+#~ msgid "Create space"
+#~ msgstr "இடத்தை உருவாக்கு"
 
 #~ msgid "Accept Invitation"
 #~ msgstr "அழைப்பை ஏற்"

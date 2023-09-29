@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
+"POT-Creation-Date: 2023-09-29 01:39+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1107,22 +1107,22 @@ msgstr "Bass prioritá"
 msgid "Spaces"
 msgstr "Spacies"
 
-#: src/neochatconnection.cpp:163
+#: src/neochatconnection.cpp:184
 #, fuzzy, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
 
-#: src/neochatconnection.cpp:174
+#: src/neochatconnection.cpp:216
 #, fuzzy, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
 
-#: src/neochatroom.cpp:1333 src/neochatroom.cpp:1334
+#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raport sta inviat successosimen."
 
-#: src/neochatroom.cpp:1707 src/neochatroom.cpp:1715
+#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1133,7 +1133,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Ciffrat missage"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:262
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:284
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1217,7 +1217,7 @@ msgstr ""
 msgid "User information"
 msgstr "Information pri li chambre"
 
-#: src/qml/AccountEditorPage.qml:106
+#: src/qml/AccountEditorPage.qml:106 src/qml/CreateRoomDialog.qml:66
 #, kde-format
 msgid "Name:"
 msgstr "Nómine:"
@@ -1318,7 +1318,7 @@ msgid "Notification settings"
 msgstr "Notificationes:"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:395 src/qml/UserInfo.qml:238
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:410 src/qml/UserInfo.qml:238
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
@@ -1694,7 +1694,7 @@ msgstr "No"
 
 #: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
 #: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
-#: src/qml/RoomDrawerPage.qml:47
+#: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, fuzzy, kde-format
 msgid "Room Settings"
 msgstr "Parametres del chambre"
@@ -1704,67 +1704,105 @@ msgstr "Parametres del chambre"
 msgid "Leave Room"
 msgstr "Forlassar li chambre"
 
-#: src/qml/CreateRoomDialog.qml:13 src/qml/ExploreComponent.qml:43
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Crear un chambre"
+
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Crear un chambre"
 
-#: src/qml/CreateRoomDialog.qml:20
+#: src/qml/CreateRoomDialog.qml:35
 #, fuzzy, kde-format
 #| msgid "Room information"
-msgctxt "@title"
-msgid "Room Information"
+msgid "New Space Information"
 msgstr "Information pri li chambre"
 
-#: src/qml/CreateRoomDialog.qml:25 src/qml/General.qml:72
+#: src/qml/CreateRoomDialog.qml:35
 #, fuzzy, kde-format
-#| msgid "Room Name:"
-msgid "Room name:"
-msgstr "Nómine del chambre:"
+#| msgid "Room information"
+msgid "New Room Information"
+msgstr "Information pri li chambre"
 
-#: src/qml/CreateRoomDialog.qml:31 src/qml/General.qml:82
+#: src/qml/CreateRoomDialog.qml:44
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select type"
+msgstr "Select omnicos"
+
+#: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room"
+msgstr "Chambres"
+
+#: src/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Spaces"
+msgid "Space"
+msgstr "Spacies"
+
+#: src/qml/CreateRoomDialog.qml:72
+#, fuzzy, kde-format
+#| msgid "No Topic"
+msgid "Topic:"
+msgstr "Sin tema"
+
+#: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
-msgid "Room topic:"
-msgstr "Tema del chambre:"
+msgid "Make this parent official"
+msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:37 src/qml/JoinRoomPage.qml:203
+#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
+#: src/qml/JoinRoomPage.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "OK"
 
-#: src/qml/CreateSpaceDialog.qml:16 src/qml/ExploreComponent.qml:48
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgid "Create a Space"
-msgstr "Crear un chambre"
-
-#: src/qml/CreateSpaceDialog.qml:21 src/qml/ExploreComponent.qml:51
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Crear un chambre"
-
-#: src/qml/CreateSpaceDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
-msgid "Space name"
-msgstr "Membres del spacie"
-
-#: src/qml/CreateSpaceDialog.qml:30
+#: src/qml/CreateRoomDialog.qml:98
 #, kde-format
-msgid "Space topic (optional)"
+msgid "Select Exisiting Room"
 msgstr ""
 
-#: src/qml/CreateSpaceDialog.qml:33
+#: src/qml/CreateRoomDialog.qml:104
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
+#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/RoomListPage.qml:170
 #, fuzzy, kde-format
-#| msgid "Create a Room"
-msgid "Create space"
-msgstr "Crear un chambre"
+#| msgid "Explore Rooms"
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Explorar chambres"
+
+#: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
+#: src/qml/SpaceHierarchyDelegate.qml:78
+#, kde-format
+msgid "Joined"
+msgstr "Adheret"
+
+#: src/qml/CreateRoomDialog.qml:202
+#, kde-format
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:202
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1847,7 +1885,7 @@ msgstr "Contrasigne:"
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:83
+#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:85
 #, kde-format
 msgid "Developer Tools"
 msgstr ""
@@ -2052,14 +2090,6 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "Explorar chambres"
 
-#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
-#: src/qml/RoomListPage.qml:170
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Explorar chambres"
-
 #: src/qml/ExploreComponent.qml:35 src/qml/GlobalMenu.qml:49
 #: src/qml/GlobalMenu.qml:54 src/qml/StartChatPage.qml:20
 #, kde-format
@@ -2078,16 +2108,17 @@ msgstr "Iniciar conversation"
 msgid "Create a Room"
 msgstr "Crear un chambre"
 
+#: src/qml/ExploreComponent.qml:48
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Create a Space"
+msgstr "Crear un chambre"
+
 #: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create rooms and chats"
 msgstr "Chambres e privat conversationes:"
-
-#: src/qml/ExplorerDelegate.qml:81
-#, kde-format
-msgid "Joined"
-msgstr "Adheret"
 
 #: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
 #, kde-format
@@ -2190,6 +2221,17 @@ msgstr "Information pri li chambre"
 #, fuzzy, kde-format
 msgid "Update avatar"
 msgstr "Avatar:"
+
+#: src/qml/General.qml:72
+#, fuzzy, kde-format
+#| msgid "Room Name:"
+msgid "Room name:"
+msgstr "Nómine del chambre:"
+
+#: src/qml/General.qml:82
+#, kde-format
+msgid "Room topic:"
+msgstr "Tema del chambre:"
 
 #: src/qml/General.qml:121
 #, fuzzy, kde-format
@@ -2565,12 +2607,12 @@ msgstr "Invitat"
 msgid "Unknown"
 msgstr "Ínconosset eveniment"
 
-#: src/qml/GroupChatDrawerHeader.qml:61
+#: src/qml/GroupChatDrawerHeader.qml:65
 #, kde-format
 msgid "No name"
 msgstr "Sin nómine"
 
-#: src/qml/GroupChatDrawerHeader.qml:81
+#: src/qml/GroupChatDrawerHeader.qml:85
 #, kde-format
 msgid "No Topic"
 msgstr "Sin tema"
@@ -2854,7 +2896,7 @@ msgstr "Selecter un local file"
 msgid "Send this location"
 msgstr "Inviar notificationes pri li tippada"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "Locations on a map"
@@ -2914,35 +2956,35 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registrar se"
 
-#: src/qml/main.qml:302
+#: src/qml/main.qml:324
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verification del session"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:336
 #, kde-format
 msgid "User consent"
 msgstr "Consente del usator"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:341
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Open"
 msgstr "Aperter"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:373
 #, kde-format
 msgid "Start a chat"
 msgstr "Iniciar conversation"
 
-#: src/qml/main.qml:360
+#: src/qml/main.qml:375
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Esque vu vole iniciar un conversation con %1?"
@@ -3380,12 +3422,6 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Selecter un local file"
 
-#: src/qml/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room"
-msgstr "Chambres"
-
 #: src/qml/RoomData.qml:37
 #, fuzzy, kde-format
 #| msgid "Rooms"
@@ -3429,13 +3465,13 @@ msgstr "Configurar"
 msgid "Room settings"
 msgstr "Parametres del chambre"
 
-#: src/qml/RoomDrawer.qml:145 src/qml/RoomDrawerPage.qml:82
+#: src/qml/RoomDrawer.qml:146 src/qml/RoomDrawerPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "Information"
 msgstr "Information pri li chambre"
 
-#: src/qml/RoomDrawer.qml:150 src/qml/RoomDrawerPage.qml:87
+#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Media"
 msgstr ""
@@ -3447,66 +3483,74 @@ msgstr "Parametres del chambre"
 
 #: src/qml/RoomInformation.qml:41
 #, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Space members"
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Membres del spacie"
+
+#: src/qml/RoomInformation.qml:41
+#, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "Information pri li chambre"
 
-#: src/qml/RoomInformation.qml:67
+#: src/qml/RoomInformation.qml:69
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgid "Options"
 msgstr "Optiones:"
 
-#: src/qml/RoomInformation.qml:77
+#: src/qml/RoomInformation.qml:79
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:91
+#: src/qml/RoomInformation.qml:93
 #, fuzzy, kde-format
 msgid "Search in this room"
 msgstr "Saliente Cinnamon"
 
-#: src/qml/RoomInformation.qml:100
+#: src/qml/RoomInformation.qml:102
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:111
 #, fuzzy, kde-format
 msgid "Remove room from favorites"
 msgstr "Remover ex li preferat"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:111
 #, fuzzy, kde-format
 msgid "Make room favorite"
 msgstr "chambre"
 
-#: src/qml/RoomInformation.qml:120
+#: src/qml/RoomInformation.qml:122
 #, fuzzy, kde-format
 msgid "Show locations for this room"
 msgstr "Saliente Cinnamon"
 
-#: src/qml/RoomInformation.qml:132
+#: src/qml/RoomInformation.qml:134
 #, kde-format
 msgid "Members"
 msgstr "Membres"
 
-#: src/qml/RoomInformation.qml:144
+#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Invitar un usator"
 
-#: src/qml/RoomInformation.qml:147
+#: src/qml/RoomInformation.qml:149
 #, fuzzy, kde-format
 msgid "Invite user to room"
 msgstr "Invitar un usator"
 
-#: src/qml/RoomInformation.qml:154
+#: src/qml/RoomInformation.qml:156
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3515,7 +3559,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 membre"
 msgstr[1] "%1 membres"
 
-#: src/qml/RoomInformation.qml:154
+#: src/qml/RoomInformation.qml:156
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
@@ -3884,6 +3928,54 @@ msgstr "Remover li parol"
 #| msgid "Show All Rooms"
 msgid "All Rooms"
 msgstr "Monstrar omni chambres"
+
+#: src/qml/SpaceHierarchyDelegate.qml:87
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgctxt "number of room members"
+msgid " members - "
+msgstr "%1 membre"
+
+#: src/qml/SpaceHierarchyDelegate.qml:87
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgctxt "number of room members"
+msgid " members"
+msgstr "%1 membre"
+
+#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
+#, kde-format
+msgctxt "@button"
+msgid "Add new child"
+msgstr ""
+
+#: src/qml/SpaceHomePage.qml:47
+#, fuzzy, kde-format
+msgctxt "@button"
+msgid "Invite user to space"
+msgstr "Invitar un usator"
+
+#: src/qml/SpaceHomePage.qml:58
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@button"
+msgid "Leave the space"
+msgstr "Crear un chambre"
+
+#: src/qml/SpaceHomePage.qml:66
+#, fuzzy, kde-format
+msgctxt "@button"
+msgid "Space settings"
+msgstr "Parametres del chambre"
+
+#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Child"
+msgstr "Crear un chambre"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, fuzzy, kde-format
@@ -4327,32 +4419,32 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 
-#: src/roommanager.cpp:272
+#: src/roommanager.cpp:304
 #, fuzzy, kde-format
 msgid "Failed to join room"
 msgstr "Invitar un usator"
 
-#: src/roommanager.cpp:287
+#: src/roommanager.cpp:319
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:290
+#: src/roommanager.cpp:322
 #, fuzzy, kde-format
 msgid "Failed to request joining room"
 msgstr "Invitar un usator"
 
-#: src/roommanager.cpp:299
+#: src/roommanager.cpp:331
 #, fuzzy, kde-format
 msgid "No application for the link"
 msgstr "Tip de file desktop a crear (Application o Link)"
 
-#: src/roommanager.cpp:299
+#: src/roommanager.cpp:331
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 
-#: src/roommanager.cpp:305
+#: src/roommanager.cpp:337
 #, fuzzy, kde-format
 msgid "Could not open URL"
 msgstr "Ne succesat monstrar ti-ci URL"
@@ -4366,6 +4458,18 @@ msgstr "Monstrar"
 #, kde-format
 msgid "Quit"
 msgstr "Surtir"
+
+#, fuzzy
+#~| msgid "Room information"
+#~ msgctxt "@title"
+#~ msgid "Room Information"
+#~ msgstr "Information pri li chambre"
+
+#, fuzzy
+#~| msgctxt "@option:check"
+#~| msgid "Space members"
+#~ msgid "Space name"
+#~ msgstr "Membres del spacie"
 
 #~ msgid "Accept Invitation"
 #~ msgstr "Acceptar li invitation"
