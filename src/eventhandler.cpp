@@ -986,3 +986,5 @@ QString EventHandler::getReadMarkersString() const
     readMarkersString.chop(2);
     return readMarkersString;
 }
+
+#include "moc_eventhandler.cpp"

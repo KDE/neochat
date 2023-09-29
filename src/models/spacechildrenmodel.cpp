@@ -287,3 +287,5 @@ void SpaceChildrenModel::addPendingChild(const QString &childName)
 {
     m_pendingChildren += childName;
 }
+
+#include "moc_spacechildrenmodel.cpp"
