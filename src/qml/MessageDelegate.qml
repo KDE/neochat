@@ -394,6 +394,7 @@ TimelineDelegate {
                 ]
 
                 author: root.author
+                showAuthor: root.showAuthor || root.alwaysShowAuthor
                 time: root.time
                 timeString: root.timeString
 

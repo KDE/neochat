@@ -41,6 +41,11 @@ QQC2.Control {
     property var author
 
     /**
+     * @brief Whether the author should be shown.
+     */
+    required property bool showAuthor
+
+    /**
      * @brief The timestamp of the message.
      */
     property var time
@@ -133,6 +138,7 @@ QQC2.Control {
     contentItem: ColumnLayout {
         RowLayout {
             Layout.maximumWidth: root.maxContentWidth
+            visible: root.showAuthor
             QQC2.Label {
                 Layout.fillWidth: true
                 text: root.author.displayName
