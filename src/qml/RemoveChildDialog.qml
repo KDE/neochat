@@ -38,7 +38,7 @@ Kirigami.Dialog {
         FormCard.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing
             FormCard.FormTextDelegate {
-                text: i18n("The child ") + root.displayName + i18n(" will be removed from the space ") + root.parentDisplayName
+                text: i18n("The child %1 will be removed from the space %2", root.displayName, root.parentDisplayName)
                 textItem.wrapMode: Text.Wrap
             }
             FormCard.FormCheckDelegate {
