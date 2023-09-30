@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-09-30 01:42+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1065,12 +1065,12 @@ msgstr "Feil ved romregistrering: %1"
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
+#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1699,7 +1699,7 @@ msgstr "OK"
 
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
-msgid "Select Exisiting Room"
+msgid "Select Existing Room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:104
@@ -1717,7 +1717,7 @@ msgid "Explore Rooms"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:78
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Vart med"
@@ -1901,7 +1901,7 @@ msgstr "Emojiar"
 msgid "Stickers"
 msgstr "Klistremerke"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -1909,12 +1909,12 @@ msgstr ""
 "Stadfest at emojien nedanfor vert viste på begge einingar og i same "
 "rekkjefølgje."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
 msgstr "Dei er like"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
 msgstr "Det er ikkje like"
@@ -2600,7 +2600,7 @@ msgstr "Avignorer brukaren"
 msgid "Reject"
 msgstr "Avvis"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "Godta"
@@ -2709,43 +2709,43 @@ msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Fann ingen rom"
 
-#: src/qml/KeyVerificationDialog.qml:16
+#: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
 msgstr "Øktstadfesting"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Ventar på at eininga skal godta stadfestinga."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Fått førespurnad om nøkkel­stadfesting frå eininga **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Ventar på at motparten skal stadfesta."
 
-#: src/qml/KeyVerificationDialog.qml:54
+#: src/qml/KeyVerificationDialog.qml:56
 #, fuzzy, kde-format
 #| msgid "Session Verification"
 msgid "Emoji Verification"
 msgstr "Øktstadfesting"
 
-#: src/qml/KeyVerificationDialog.qml:57
+#: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Samanlikn eit sett emojiar på begge einingar"
 
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Eininga **%1** er no stadfesta"
 
-#: src/qml/KeyVerificationDialog.qml:83
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "Avvis"
@@ -3243,6 +3243,31 @@ msgstr ""
 #: src/qml/RegisterPassword.qml:31
 #, kde-format
 msgid "The passwords do not match."
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Fjern"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgid "The child "
+msgstr "Registrer nytt alias"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, kde-format
+msgid " will be removed from the space "
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:48
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
 msgstr ""
 
 #: src/qml/RemoveSheet.qml:20
@@ -3783,7 +3808,7 @@ msgstr "Fjern ord"
 msgid "All Rooms"
 msgstr "Alle rom"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -3791,7 +3816,7 @@ msgctxt "number of room members"
 msgid " members - "
 msgstr "%1 medlem"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -3799,12 +3824,19 @@ msgctxt "number of room members"
 msgid " members"
 msgstr "%1 medlem"
 
-#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Registrer nytt alias"
+
+#: src/qml/SpaceHierarchyDelegate.qml:112
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove"
+msgstr "Fjern"
 
 #: src/qml/SpaceHomePage.qml:47
 #, fuzzy, kde-format
@@ -4018,39 +4050,39 @@ msgstr ""
 msgid "Username unavailable"
 msgstr ""
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Stadfestinga av økta vart av ukjend grunn avbroten."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Stadfestinga av økta vart tidsavbroten."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Stadfestinga av økta vart tidsavbroten ved venting på motparten."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Du avbraut stadfestinga av økta."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Motparten avbraut stadfestinga av økta."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "Stadfestinga av økta vart avbroten fordi me fekk ei uventa melding."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4058,7 +4090,7 @@ msgid ""
 msgstr ""
 "Motparten avbraut stadfestinga av økta fordi han fekk ei uventa meldinga."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -4067,7 +4099,7 @@ msgstr ""
 "Stadfestinga av økta vart avbroten på grunn av mottak av ei melding for ei "
 "ukjend økt."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -4076,7 +4108,7 @@ msgstr ""
 "Motparten avbraut stadfestinga av økta fordi han mottak ei melding for ei "
 "ukjend økt."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -4085,7 +4117,7 @@ msgstr ""
 "Stadfestinga av økta vart avbroten fordi NeoChat ikkje støttar denne "
 "stadfestingsmetoden."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -4094,12 +4126,12 @@ msgstr ""
 "Motparten avbraut stadfestinga av økta fordi han ikkje støttar denne "
 "stadfestingsmetoden."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Stadfestinga av økta vart avbroten fordi nøklane er feil."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:45
 #, fuzzy, kde-format
 #| msgid ""
 #| "The remote party canceled the session verification because the keys are "
@@ -4111,14 +4143,14 @@ msgid ""
 "**Please log out and log back in, your session is broken/corrupt.**"
 msgstr "Motparten avbraut stadfestinga av økta fordi nøklane er feil."
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
 "Stadfestinga av økta vart avbroten fordi ho stadfestar ein uventa brukar."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -4126,13 +4158,13 @@ msgid ""
 msgstr ""
 "Motparten avbraut stadfestinga av økta fordi ho stadfestar ein uventa brukar."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "Stadfestinga av økta vart avbroten fordi me fekk ei ugyldig melding."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4141,29 +4173,29 @@ msgstr ""
 "Motparten avbraut stadfestinga av økta fordi han tok imot ei ugyldig "
 "meldinga."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Økta har blitt stadfesta på ei anna eining."
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Stadfestinga av økta vart avbroten fordi ein nøkkel ikkje passar."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr "Motparten avbraut stadfestinga av økta fordi ein nøkkel ikkje passar."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Stadfestinga av økta vart avbroten fordi nøklane ikkje passar saman."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -4171,7 +4203,7 @@ msgid ""
 msgstr ""
 "Motparten avbraut stadfestinga av økta fordi nøklane ikkje passar saman."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Stadfestinga av økta vart av ukjend grunn avbroten."
@@ -4320,12 +4352,3 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr "Avslutt"
-
-#~ msgid "Space name"
-#~ msgstr "Områdenamn"
-
-#~ msgid "Space topic (optional)"
-#~ msgstr "Emne for området (kan stå tomt)"
-
-#~ msgid "Create space"
-#~ msgstr "Opprett område"

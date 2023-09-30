@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
-"PO-Revision-Date: 2023-09-25 08:03+0200\n"
+"POT-Creation-Date: 2023-09-30 01:42+0000\n"
+"PO-Revision-Date: 2023-09-29 05:05+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1058,12 +1058,12 @@ msgstr "ოთახის შექმნის შეცდომა: %1"
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
 
-#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
+#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1643,23 +1643,19 @@ msgid "Create a Room"
 msgstr "ოთახის შექმნა"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgid "New Space Information"
-msgstr "ინფორმაცია სერვერის შესახებ"
+msgstr "ახალი ადგილის ინფორმაცია"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "New Room Information"
-msgstr "ინფორმაცია ოთახის შესახებ"
+msgstr "ახალი ოთახს ინფორმაცია"
 
 #: src/qml/CreateRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select type"
-msgstr "ყველაფრის მონიშვნა"
+msgstr "ტიპის არჩევა"
 
 #: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
@@ -1667,21 +1663,19 @@ msgid "Room"
 msgstr "ოთახი"
 
 #: src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Space"
-msgstr "სივრცეები"
+msgstr "სივრცე"
 
 #: src/qml/CreateRoomDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "No Topic"
+#, kde-format
 msgid "Topic:"
-msgstr "უსათაურო"
+msgstr "თემა:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
 msgid "Make this parent official"
-msgstr ""
+msgstr "ამ მშობლის გაოფიციალურება"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
 #: src/qml/JoinRoomPage.qml:203
@@ -1691,15 +1685,16 @@ msgid "Ok"
 msgstr "Ok"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, kde-format
-msgid "Select Exisiting Room"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Exisiting Room"
+msgid "Select Existing Room"
+msgstr "აირჩიეთ არსებული ოთახი"
 
 #: src/qml/CreateRoomDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
-msgstr ""
+msgstr "აირჩიეთ ოთახი"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
@@ -1710,7 +1705,7 @@ msgid "Explore Rooms"
 msgstr "ოთახების დათვალიერება"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:78
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "შეერთებული"
@@ -1718,13 +1713,14 @@ msgstr "შეერთებული"
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
-msgstr ""
+msgstr "ამ მდგომარეობის დასაყენებლად შვილში საჭირო პრივილეგიის დონე გაგაჩნიათ"
 
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
+"ამ მდგომარეობის დასაყენებლად შვილში საჭირო პრივილეგიის დონეები არ გაგაჩნიათ"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1897,19 +1893,19 @@ msgstr "ემოჯიები"
 msgid "Stickers"
 msgstr "სტიკერები"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
 "დაადასტურეთ, რომ ეს ემოჯი ორივე მოწყობილობაზე ერთი და იგივე მიმდევრობით ჩანს."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
 msgstr "ისინი ემთხვევა"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
 msgstr "ისინი არ ემთხვევა"
@@ -2591,7 +2587,7 @@ msgstr "მომხმარებლის უარყოფა და იგ
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
@@ -2699,42 +2695,42 @@ msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "ოთახები ვერ ვიპოვე"
 
-#: src/qml/KeyVerificationDialog.qml:16
+#: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
 msgstr "სესიის გადამოწმება"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "მოწყობილობის მიერ გადამოწმების დადასტურების მოლოდინი."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "შემომავალი გასაღების გადამოწმების მოთხოვნა მოწყობილობიდან **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "მეორე მხარის მოლოდინი გადამოწმებისთვის."
 
-#: src/qml/KeyVerificationDialog.qml:54
+#: src/qml/KeyVerificationDialog.qml:56
 #, kde-format
 msgid "Emoji Verification"
 msgstr "ემოჯის გადამოწმება"
 
-#: src/qml/KeyVerificationDialog.qml:57
+#: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "შეადარეთ ემოჯიების სეტი ორივე მოწყობილობაზე"
 
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "მოწყობილობა **%1** წარმატებით გადამოწმდა"
 
-#: src/qml/KeyVerificationDialog.qml:83
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "უარყოფა"
@@ -3230,6 +3226,32 @@ msgstr "გაიმეორეთ პაროლი:"
 msgid "The passwords do not match."
 msgstr "პაროლები არ ემთხვევა."
 
+#: src/qml/RemoveChildDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "წაშლა"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add new child"
+msgid "The child "
+msgstr "ახალი შვილის დამატება"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, kde-format
+msgid " will be removed from the space "
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:48
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
+
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
 msgid "Remove Messages"
@@ -3333,9 +3355,7 @@ msgid "Settings"
 msgstr "მორგება"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "სივრცის წევრები"
@@ -3766,58 +3786,54 @@ msgstr "სიტყვის წაშლა"
 msgid "All Rooms"
 msgstr "ყველა ოთახი"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#: src/qml/SpaceHierarchyDelegate.qml:92
+#, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr "%1 წევრი"
+msgstr " წევრი - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#: src/qml/SpaceHierarchyDelegate.qml:92
+#, kde-format
 msgctxt "number of room members"
 msgid " members"
-msgstr "%1 წევრი"
+msgstr " წევრი"
 
-#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
+#, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "ახალი მეტსახელის დამატება"
+msgstr "ახალი შვილის დამატება"
+
+#: src/qml/SpaceHierarchyDelegate.qml:112
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove"
+msgstr "წაშლა"
 
 #: src/qml/SpaceHomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "მომხმარებლის ოთახში მოწვევა"
+msgstr "მომხმარებლის სივრცეში მოწვევა"
 
 #: src/qml/SpaceHomePage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
-msgstr "ოთახიდან გასვლა"
+msgstr "სივრციდან გასვლა"
 
 #: src/qml/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@button"
 msgid "Space settings"
 msgstr "სივრცის მორგება"
 
 #: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "ოთახის შექმნა"
+msgstr "შვილის შექმნა"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4004,39 +4020,39 @@ msgstr "მომხმარებელი:"
 msgid "Username unavailable"
 msgstr "მომხმარებელი ხელმისაწვდომი არაა"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "სესიის გადამოწმების გაუქმების მიზეზი უცნობია."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
 msgstr "სესიის შემოწმების დრო გავიდა."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "სესიის გადამოწმების ვადა გავიდა დაშორებულებისთვის."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "სესიის გადამოწმება გააუქმეთ."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "დაშორებულმა სესიის გადამოწმება გააუქმა."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "სესიის გადამოწმება გაუქმდა მოულოდნელი შეტყობინების მიღების გამო."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4044,7 +4060,7 @@ msgid ""
 msgstr ""
 "დაშორებულმა სესიის გადამოწმება მოულოდნელი შეტყობინების მიღების გამო გააუქმა."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -4052,7 +4068,7 @@ msgid ""
 msgstr ""
 "სესიის გადამოწმება მის მიერ უცნობი მიზეზით შეტყობინების მიღების გამო გაუქმდა."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -4061,7 +4077,7 @@ msgstr ""
 "დაშორებულმა სესიის გადამოწმება მის მიერ უცნობი მიზეზით შეტყობინების მიღების "
 "გამო გააუქმა."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -4070,7 +4086,7 @@ msgstr ""
 "სესიის გადამოწმება NeoChat-ის მიერ ამ გადამოწმების მეთოდის დამმუშავებლის "
 "არქონის გამო გაუქმდა."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -4079,44 +4095,44 @@ msgstr ""
 "დაშორებულმა სესიის გადამოწმება მის მიერ ამ გადამოწმების მეთოდის "
 "დამმუშავებლის არქონის გამო გააუქმა."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "სესიის გადამოწმება არასწორი გასაღებების გამო გაუქმდა."
 
-#: src/qml/VerificationCanceled.qml:43
-#, fuzzy, kde-format
-#| msgid ""
-#| "The remote party canceled the session verification because the keys are "
-#| "incorrect."
+#: src/qml/VerificationCanceled.qml:45
+#, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect.\n"
 "\n"
 "**Please log out and log back in, your session is broken/corrupt.**"
-msgstr "დაშორებულმა სესიის გადამოწმება გასაღებების არასწორობის გამო გააუქმა."
+msgstr ""
+"დაშორებულმა სესიის გადამოწმება გასაღებების არასწორობის გამო გააუქმა.\n"
+"\n"
+"** გამოდით და თავიდან შედით. თქვენი სესია გატეხილი/დაზიანებულია.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
 "სესიის გადამოწმება გაუქმდა გადასამოწმებელი მომხმარებლის მოულოდნელობის გამო."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr "დაშორებულმა სესიის გადამოწმება მოულოდნელი მომხმარებლის გამო გააუქმა."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "სესიის გადამოწმება მიღებული არასწორი შეტყობინების გამო გაუქმდა."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4125,36 +4141,36 @@ msgstr ""
 "დაშორებულმა სესიის გადამოწმება მის მიერ არასწორი შეტყობინების მიღების გამო "
 "გააუქმა."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "სესია სხვა მოწყობილობაზეა მიღებული"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "სესიის გადამოწმება გასაღებების არ-დამთხვევის გამო გაუქმდა."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr "დაშორებულმა სესიის გადამოწმება გასაღებების არ-დამთხვევის გამო გააუქმა."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "სესიის გადამოწმება გასაღებების არ-დამთხვევის გამო გაუქმდა."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr "დაშორებულმა სესიის გადამოწმება გასაღებების არ-დამთხვევის გამო გააუქმა."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "სესიის გადამოწმება უცნობი შეცდომის გამო გაუქმდა."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-09-30 01:42+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1061,12 +1061,12 @@ msgstr "Pembuatan ruangan gagal: %1"
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
 
-#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
+#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1701,7 +1701,7 @@ msgstr "Oke"
 
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
-msgid "Select Exisiting Room"
+msgid "Select Existing Room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:104
@@ -1720,7 +1720,7 @@ msgid "Explore Rooms"
 msgstr "Jelajahi Ruangan"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:78
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Tergabung"
@@ -1909,7 +1909,7 @@ msgstr "Emoji"
 msgid "Stickers"
 msgstr "Stiker"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -1917,12 +1917,12 @@ msgstr ""
 "Konfirmasi emoji di bawah ditampilkan pada kedua peranti, dalam urutan yang "
 "sama."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
 msgstr "Mereka cocok"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
 msgstr "Mereka tidak cocok"
@@ -2613,7 +2613,7 @@ msgstr "Hilangkan pengabaian pengguna ini"
 msgid "Reject"
 msgstr "Tolak"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "Terima"
@@ -2723,43 +2723,43 @@ msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Tidak ada ruangan yang ditemukan"
 
-#: src/qml/KeyVerificationDialog.qml:16
+#: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
 msgstr "Verifikasi Sesi"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Menunggu peranti untuk menerima verifikasi."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Permintaan verifikasi kunci dari peranti **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Menunggu pihak lain untuk memverifikasi."
 
-#: src/qml/KeyVerificationDialog.qml:54
+#: src/qml/KeyVerificationDialog.qml:56
 #, fuzzy, kde-format
 #| msgid "Session Verification"
 msgid "Emoji Verification"
 msgstr "Verifikasi Sesi"
 
-#: src/qml/KeyVerificationDialog.qml:57
+#: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Bandingkan emoji pada kedua peranti"
 
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Berhasil memverifikasi peranti **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:83
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "Tolak"
@@ -3266,6 +3266,31 @@ msgstr "Konfirmasi Kata Sandi baru:"
 #| msgid "Passwords do not match"
 msgid "The passwords do not match."
 msgstr "Kata sandi tidak cocok"
+
+#: src/qml/RemoveChildDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Hapus"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgid "The child "
+msgstr "Tambahkan alias baru"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, kde-format
+msgid " will be removed from the space "
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:48
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3819,7 +3844,7 @@ msgstr "Hapus kata"
 msgid "All Rooms"
 msgstr "Semua Ruangan"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -3827,7 +3852,7 @@ msgctxt "number of room members"
 msgid " members - "
 msgstr "%1 anggota"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -3835,12 +3860,19 @@ msgctxt "number of room members"
 msgid " members"
 msgstr "%1 anggota"
 
-#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Tambahkan alias baru"
+
+#: src/qml/SpaceHierarchyDelegate.qml:112
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove"
+msgstr "Hapus"
 
 #: src/qml/SpaceHomePage.qml:47
 #, fuzzy, kde-format
@@ -4059,32 +4091,32 @@ msgstr "Pengguna"
 msgid "Username unavailable"
 msgstr "Tidak ada pengguna yang tersedia"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Verifikasi sesi dibatalkan karena alasan yang tidak diketahui."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Verifikasi sesi kehabisan waktu."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Verifikasi sesi kehabisan waktu untuk pihak jarak jauh."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Anda membatalkan verifikasi sesi."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Pihak jarak jauh membatalkan verifikasi sesi."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -4092,7 +4124,7 @@ msgid ""
 msgstr ""
 "Verifikasi sesi dibatalkan karena kami menerima pesan yang tidak diduga."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4101,7 +4133,7 @@ msgstr ""
 "Pihak jarak jauh membatalkan verifikasi sesi karena menerima pesan yang "
 "tidak diduga."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -4110,7 +4142,7 @@ msgstr ""
 "Verifikasi sesi dibatalkan karena menerima pesan untuk sesi yang tidak "
 "diketahui."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -4119,7 +4151,7 @@ msgstr ""
 "Pihak jarak jauh membatalkan verifikasi sesi karena menerima pesan untuk "
 "sesi yang tidak diketahui."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -4128,7 +4160,7 @@ msgstr ""
 "Verifikasi sesi dibatalkan karena NeoChat tidak dapat menangani metode "
 "verifikasi ini."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -4137,12 +4169,12 @@ msgstr ""
 "Pihak jarak jauh membatalkan verifikasi sesi karena tidak dapat menangani "
 "metode verifikasi ini."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Verifikasi sesi dibatalkan karena kunci tidak benar."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:45
 #, fuzzy, kde-format
 #| msgid ""
 #| "The remote party canceled the session verification because the keys are "
@@ -4154,14 +4186,14 @@ msgid ""
 "**Please log out and log back in, your session is broken/corrupt.**"
 msgstr "Pihak jarak jauh membatalkan verifikasi sesi karena kunci tidak benar."
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
 "Verifikasi sesi dibatalkan karena memverifikasi pengguna yang tidak diduga."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -4170,14 +4202,14 @@ msgstr ""
 "Pihak jarak jauh membatalkan verifikasi sesi karena memverifikasi pengguna "
 "yang tidak diduga."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
 "Verifikasi sesi dibatalkan karena kami menerima pesan yang tidak absah."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4186,17 +4218,17 @@ msgstr ""
 "Pihak jarak jauh membatalkan verifikasi sesi karena menerima pesan yang "
 "tidak absah."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Sesi diterima pada peranti yang lain"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Verifikasi sesi dibatalkan karena sebuah kunci yang tidak cocok."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -4205,19 +4237,19 @@ msgstr ""
 "Pihak jarak jauh membatalkan verifikasi sesi karena sebuah kunci yang tidak "
 "cocok."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Verifikasi sesi dibatalkan karena kunci tidak cocok."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr "Pihak jarak jauh membatalkan verifikasi sesi karena kunci tidak cocok."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verifikasi sesi dibatalkan karena kesalahan yang tidak diketahui."

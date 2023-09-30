@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
-"PO-Revision-Date: 2023-09-28 07:45+0100\n"
+"POT-Creation-Date: 2023-09-30 01:42+0000\n"
+"PO-Revision-Date: 2023-09-29 06:55+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1058,12 +1058,12 @@ msgstr "Kreado de ĉambro malsukcesis: %1"
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
 
-#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
+#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raporto sukcese sendita."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1643,23 +1643,19 @@ msgid "Create a Room"
 msgstr "Krei Ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgid "New Space Information"
-msgstr "Servila Informo"
+msgstr "Informo pri Nova Spaco"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "New Room Information"
-msgstr "Informoj pri Ĉambro"
+msgstr "Informo pri Nova Ĉambro"
 
 #: src/qml/CreateRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select type"
-msgstr "Elekti ĉiujn"
+msgstr "Elekti tipon"
 
 #: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
@@ -1667,21 +1663,19 @@ msgid "Room"
 msgstr "Ĉambro"
 
 #: src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Space"
-msgstr "Spacoj"
+msgstr "Spaco"
 
 #: src/qml/CreateRoomDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "No Topic"
+#, kde-format
 msgid "Topic:"
-msgstr "Neniu Temo"
+msgstr "Temo:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
 msgid "Make this parent official"
-msgstr ""
+msgstr "Oficialigi tiun gepatron"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
 #: src/qml/JoinRoomPage.qml:203
@@ -1691,15 +1685,16 @@ msgid "Ok"
 msgstr "Bone"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, kde-format
-msgid "Select Exisiting Room"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Exisiting Room"
+msgid "Select Existing Room"
+msgstr "Elekti Ekzistantan Ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
-msgstr ""
+msgstr "Elekti ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
@@ -1710,7 +1705,7 @@ msgid "Explore Rooms"
 msgstr "Esplori Ĉambrojn"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:78
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Aliĝis"
@@ -1718,13 +1713,14 @@ msgstr "Aliĝis"
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
-msgstr ""
+msgstr "Vi havas la bezonatan privilegian nivelon en la ido por meti ĉi staton"
 
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
+"Vi ne havas sufiĉe altan privilegionivelon en la ido por meti ĉi tiun staton"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1896,7 +1892,7 @@ msgstr "Emojis"
 msgid "Stickers"
 msgstr "Glumarkoj"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -1904,12 +1900,12 @@ msgstr ""
 "Konfirmi, ke la subaj emoji estas montritaj sur ambaŭ aparatoj, en la sama "
 "ordo."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
 msgstr "Ili egalas"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
 msgstr "Ili ne kongruas"
@@ -2592,7 +2588,7 @@ msgstr "Malignori kaj ignori uzanton"
 msgid "Reject"
 msgstr "Malakcepti"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "Akcepti"
@@ -2700,42 +2696,42 @@ msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Neniuj ĉambroj trovitaj"
 
-#: src/qml/KeyVerificationDialog.qml:16
+#: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
 msgstr "Seanca Kontrolo"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Atendante ke aparato akceptu konfirmon."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Envenanta ŝlosila konfirmpeto de aparato **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Atendante la kontrolon de alia partio."
 
-#: src/qml/KeyVerificationDialog.qml:54
+#: src/qml/KeyVerificationDialog.qml:56
 #, kde-format
 msgid "Emoji Verification"
 msgstr "Emoĝi-Kontrolo"
 
-#: src/qml/KeyVerificationDialog.qml:57
+#: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Kompari aron da emoji sur ambaŭ aparatoj"
 
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Sukcese kontrolita aparato **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:83
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "Malkresko"
@@ -3233,6 +3229,32 @@ msgstr "Konfirmi pasvorton:"
 msgid "The passwords do not match."
 msgstr "La pasvortoj ne kongruas."
 
+#: src/qml/RemoveChildDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Forigi"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add new child"
+msgid "The child "
+msgstr "Aldoni novan idon"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, kde-format
+msgid " will be removed from the space "
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:48
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
+
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
 msgid "Remove Messages"
@@ -3336,12 +3358,10 @@ msgid "Settings"
 msgstr "Agordoj"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
-msgstr "Spacaj membroj"
+msgstr "Membroj de Spaco"
 
 #: src/qml/RoomInformation.qml:41
 #, kde-format
@@ -3769,58 +3789,54 @@ msgstr "Forigi vorton"
 msgid "All Rooms"
 msgstr "Ĉiuj Ĉambroj"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#: src/qml/SpaceHierarchyDelegate.qml:92
+#, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr "%1 membro"
+msgstr "membroj - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#: src/qml/SpaceHierarchyDelegate.qml:92
+#, kde-format
 msgctxt "number of room members"
 msgid " members"
-msgstr "%1 membro"
+msgstr " membroj"
 
-#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
+#, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "Aldoni novan kaŝnomon"
+msgstr "Aldoni novan idon"
+
+#: src/qml/SpaceHierarchyDelegate.qml:112
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove"
+msgstr "Forigi"
 
 #: src/qml/SpaceHomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "Inviti uzanton al ĉambro"
+msgstr "Inviti uzanton al spaco"
 
 #: src/qml/SpaceHomePage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
-msgstr "Forlasi Spacon"
+msgstr "Forlasi la spacon"
 
 #: src/qml/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@button"
 msgid "Space settings"
-msgstr "Spacaj Agordoj"
+msgstr "Spacaj agordoj"
 
 #: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "Krei Ĉambron"
+msgstr "Krei Idon"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4006,39 +4022,39 @@ msgstr "Uzantnomo:"
 msgid "Username unavailable"
 msgstr "Uzantnomo nedisponebla"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "La seanckontrolo estis nuligita pro nekonata kialo."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
 msgstr "La seancokontrolo elĉerpiĝis."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "La seanckontrolo finiĝis por fora festo."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Vi nuligis la seancan kontrolon."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "La fora partio nuligis la seancan kontrolon."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "La seancokontrolo estis nuligita ĉar ni ricevis neatenditan mesaĝon."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4046,7 +4062,7 @@ msgid ""
 msgstr ""
 "La fora partio nuligis la seanckontrolon ĉar ĝi ricevis neatenditan mesaĝon."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -4054,7 +4070,7 @@ msgid ""
 msgstr ""
 "La seancokontrolo estis nuligita ĉar ĝi ricevis mesaĝon por nekonata sesio."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -4063,7 +4079,7 @@ msgstr ""
 "La fora partio nuligis la seanckontrolon ĉar ĝi ricevis mesaĝon por nekonata "
 "sesio."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -4072,7 +4088,7 @@ msgstr ""
 "La seancokontrolo estis nuligita ĉar NeoChat ne kapablas trakti ĉi tiun "
 "kontrolmetodon."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -4081,12 +4097,12 @@ msgstr ""
 "La fora partio nuligis la sean konfirmon ĉar ĝi ne povas trakti ĉi tiun "
 "konfirmmetodon."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "La seancokontrolo estis nuligita ĉar la ŝlosiloj estas malĝustaj."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:45
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -4098,13 +4114,13 @@ msgstr ""
 "\n"
 "**Bonvolu elsaluti kaj reensaluti, via seanco estas rompita/korupta.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr "La seancokontrolo estis nuligita ĉar ĝi kontrolas neatenditan uzanton."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -4113,13 +4129,13 @@ msgstr ""
 "La fora partio nuligis la sean konfirmon ĉar ĝi kontrolas neatenditan "
 "uzanton."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "La seancokontrolo estis nuligita ĉar ni ricevis nevalidan mesaĝon."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4127,36 +4143,36 @@ msgid ""
 msgstr ""
 "La fora partio nuligis la sean konfirmon ĉar ĝi ricevis nevalidan mesaĝon."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "La seanco estis akceptita sur alia aparato"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "La seancokontrolo estis nuligita pro miskongrua ŝlosilo."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr "La fora partio nuligis la sean konfirmon pro miskongrua ŝlosilo."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "La seancokontrolo estis nuligita ĉar la ŝlosiloj ne kongruas."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr "La fora partio nuligis la sean konfirmon ĉar la ŝlosiloj ne kongruas."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "La seancokontrolo estis nuligita pro nekonata eraro."
@@ -4304,16 +4320,3 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
-
-#~ msgctxt "@title"
-#~ msgid "Room Information"
-#~ msgstr "Informoj pri Ĉambro"
-
-#~ msgid "Space name"
-#~ msgstr "Spacnomo"
-
-#~ msgid "Space topic (optional)"
-#~ msgstr "Spaca temo (laŭvola)"
-
-#~ msgid "Create space"
-#~ msgstr "Krei spacon"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-09-30 01:42+0000\n"
 "PO-Revision-Date: 2023-08-26 18:43+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1057,12 +1057,12 @@ msgstr "Huoneen luominen epäonnistui: %1"
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
 
-#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
+#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ilmoituksen lähettäminen onnistui."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1696,7 +1696,7 @@ msgstr "OK"
 
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
-msgid "Select Exisiting Room"
+msgid "Select Existing Room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:104
@@ -1715,7 +1715,7 @@ msgid "Explore Rooms"
 msgstr "Tutki huoneita"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:78
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Liitytty"
@@ -1901,7 +1901,7 @@ msgstr "Emojit"
 msgid "Stickers"
 msgstr "Tarrat"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -1909,12 +1909,12 @@ msgstr ""
 "Vahvista, että alla olevat emojit näkyvät samassa järjestyksessä kummassakin "
 "laitteessa."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
 msgstr "Vastaavat toisiaan"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
 msgstr "Eivät vastaa toisiaan"
@@ -2604,7 +2604,7 @@ msgstr "Peru tämän käyttäjän sivuuttaminen"
 msgid "Reject"
 msgstr "Hylkää"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "Hyväksy"
@@ -2714,43 +2714,43 @@ msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Huoneita ei löytynyt"
 
-#: src/qml/KeyVerificationDialog.qml:16
+#: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
 msgstr "Istunnon todennus"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Odotetaan laitteen hyväksyvän todennus."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Saapuva avaintodennuspyyntö laitteelta **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Odotetaan toisen osapuolen todennusta."
 
-#: src/qml/KeyVerificationDialog.qml:54
+#: src/qml/KeyVerificationDialog.qml:56
 #, fuzzy, kde-format
 #| msgid "Session Verification"
 msgid "Emoji Verification"
 msgstr "Istunnon todennus"
 
-#: src/qml/KeyVerificationDialog.qml:57
+#: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Vertaa emojeja kummallakin laitteella"
 
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Laitteen **%1** todennus onnistui"
 
-#: src/qml/KeyVerificationDialog.qml:83
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "Hylkää"
@@ -3251,6 +3251,31 @@ msgstr "Vahvista uusi salasana:"
 #| msgid "Passwords do not match"
 msgid "The passwords do not match."
 msgstr "Salasanat eivät täsmää"
+
+#: src/qml/RemoveChildDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Poista"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgid "The child "
+msgstr "Lisää uusi alias"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, kde-format
+msgid " will be removed from the space "
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:48
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
 
 # Voisi olla myös ”Poista viestejä”, jos on valikossa…
 #: src/qml/RemoveSheet.qml:20
@@ -3792,7 +3817,7 @@ msgstr "Poista sana"
 msgid "All Rooms"
 msgstr "Kaikki huoneet"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -3800,7 +3825,7 @@ msgctxt "number of room members"
 msgid " members - "
 msgstr "%1 jäsen"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -3808,12 +3833,19 @@ msgctxt "number of room members"
 msgid " members"
 msgstr "%1 jäsen"
 
-#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Lisää uusi alias"
+
+#: src/qml/SpaceHierarchyDelegate.qml:112
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove"
+msgstr "Poista"
 
 #: src/qml/SpaceHomePage.qml:47
 #, fuzzy, kde-format
@@ -4030,39 +4062,39 @@ msgstr "Käyttäjätunnus"
 msgid "Username unavailable"
 msgstr "Käyttäjiä ei ole saatavilla"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Istunnon todennus peruttiin tuntemattomasta syystä."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Istunnon todennus aikakatkaistiin."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Etäosapuoli aikakatkaisi istunnon todennuksen."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Peruit istunnon todennuksen."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Etäosapuoli perui istunnon todennuksen."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "Istunnon todennus peruttiin, koska vastaanotettiin odottamaton viesti."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4071,7 +4103,7 @@ msgstr ""
 "Etäosapuoli perui istunnon todennuksen, koska vastaanotti odottamattoman "
 "viestin."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -4080,7 +4112,7 @@ msgstr ""
 "Istunnon todennus peruttiin, koska vastaanotettiin viesti tuntemattomaan "
 "istuntoon."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -4089,7 +4121,7 @@ msgstr ""
 "Etäosapuoli perui istunnon todennuksen, koska vastaanotti viestin "
 "tuntemattomaan istuntoon."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -4098,7 +4130,7 @@ msgstr ""
 "Istunnon todennus peruttiin, koska NeoChat ei pysty käsittelemään tätä "
 "todennustapaa."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -4107,12 +4139,12 @@ msgstr ""
 "Etäosapuoli perui istunnon todennuksen, koska ei pysty käsittelemään tätä "
 "todennustapaa."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Istunnon todennus peruttiin, koska avaimet eivät kelpaa."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:45
 #, fuzzy, kde-format
 #| msgid ""
 #| "The remote party canceled the session verification because the keys are "
@@ -4124,14 +4156,14 @@ msgid ""
 "**Please log out and log back in, your session is broken/corrupt.**"
 msgstr "Etäosapuoli perui istunnon todennuksen, koska avaimet eivät kelpaa."
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
 "Istunnon todennus peruttiin, koska se todentaisi odottamattoman käyttäjän."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -4140,14 +4172,14 @@ msgstr ""
 "Etäosapuoli perui istunnon todennuksen, koska se todentaisi odottamattoman "
 "käyttäjän."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
 "Istunnon todennus peruttiin, koska vastaanotettiin virheellinen viesti."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4156,36 +4188,36 @@ msgstr ""
 "Etäosapuoli perui istunnon todennuksen, koska vastaanotti virheellisen "
 "viestin."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Istunto hyväksyttiin eri laitteella"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Istunnon todennus peruttiin, koska avain ei täsmää."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr "Etäosapuoli perui istunnon todennuksen, koska avain ei täsmää."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Istunnon todennus peruttiin, koska avaimet eivät täsmää."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr "Etäosapuoli perui istunnon todennuksen, koska avaimet eivät täsmää."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Istunnon todennus peruttiin tuntemattomasta syystä."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-09-30 01:42+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1101,12 +1101,12 @@ msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
+#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1750,7 +1750,7 @@ msgstr "Εντάξει"
 
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
-msgid "Select Exisiting Room"
+msgid "Select Existing Room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:104
@@ -1769,7 +1769,7 @@ msgid "Explore Rooms"
 msgstr "Εξερεύνηση αιθουσών"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:78
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Εισήλθε"
@@ -1959,7 +1959,7 @@ msgstr "Χωρίς εμότζι"
 msgid "Stickers"
 msgstr ""
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -1967,12 +1967,12 @@ msgstr ""
 "Επιβεβαίωσε ότι τα παρακάτω εμότζι εμφανίζονται και στις δύο συσκευές με την "
 "ίδια σειρά."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
 msgstr "Ταιριάζουν"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
 msgstr "Δεν ταιριάζουν"
@@ -2686,7 +2686,7 @@ msgstr "Αναίρεση αγνόησης αυτού του χρήστη"
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "Αποδοχή"
@@ -2796,43 +2796,43 @@ msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/KeyVerificationDialog.qml:16
+#: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
 msgstr "Επαλήθευση συνεδρίας"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Αναμονή για την αποδοχή επαλήθευσης από τη συσκευή."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Εισέρχεται αίτημα επαλήθευσης κλειδιού από τη συσκευή **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Αναμονή επαλήθευσης από την άλλη πλευρά."
 
-#: src/qml/KeyVerificationDialog.qml:54
+#: src/qml/KeyVerificationDialog.qml:56
 #, fuzzy, kde-format
 #| msgid "Session Verification"
 msgid "Emoji Verification"
 msgstr "Επαλήθευση συνεδρίας"
 
-#: src/qml/KeyVerificationDialog.qml:57
+#: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Σύγκρινε ένα σύνολο από εμότζι και στις δύο συσκευές"
 
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Επιτυχημένη επαλήθευση συσκευής **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:83
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "Απόρριψη"
@@ -3349,6 +3349,31 @@ msgstr "Επιβεβαίωση νέου κωδικού:"
 #| msgid "Passwords do not match"
 msgid "The passwords do not match."
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
+
+#: src/qml/RemoveChildDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Αφαίρεση"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgid "The child "
+msgstr "Προσθήκη νέου ψευδωνύμου"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, kde-format
+msgid " will be removed from the space "
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:48
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3916,7 +3941,7 @@ msgstr "Διαγραφή λέξης"
 msgid "All Rooms"
 msgstr "Εμφάνιση όλων των αιθουσών"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3924,7 +3949,7 @@ msgctxt "number of room members"
 msgid " members - "
 msgstr "%1 μέλος"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3932,12 +3957,19 @@ msgctxt "number of room members"
 msgid " members"
 msgstr "%1 μέλος"
 
-#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Προσθήκη νέου ψευδωνύμου"
+
+#: src/qml/SpaceHierarchyDelegate.qml:112
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove"
+msgstr "Αφαίρεση"
 
 #: src/qml/SpaceHomePage.qml:47
 #, fuzzy, kde-format
@@ -4157,32 +4189,32 @@ msgstr "Χρήστης"
 msgid "Username unavailable"
 msgstr "Δεν υπάρχουν διαθέσιμοι χρήστες"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε για άγνωστη αιτία."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Η επαλήθευση συνεδρίας εξέπνευσε."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Η επαλήθευση συνεδρίας εξέπνευσε για την άλλη πλευρά."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Ακύρωσες τη επαλήθευση συνεδρίας."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Η άλλη πλευρά ακύρωσε τη επαλήθευση συνεδρίας."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -4190,7 +4222,7 @@ msgid ""
 msgstr ""
 "Η επαλήθευση συνεδρίας ακυρώθηκε επειδή λάβαμε ένα μη αναμενόμενο μήνυμα."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4199,7 +4231,7 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε τη επαλήθευση συνεδρίας επειδή έλαβε ένα μη "
 "αναμενόμενο μήνυμα."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -4208,7 +4240,7 @@ msgstr ""
 "Η επαλήθευση συνεδρίας ακυρώθηκε επειδή έλαβε ένα μήνυμα για άγνωστη "
 "συνεδρία."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -4217,7 +4249,7 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε τη επαλήθευση συνεδρίας επειδή έλαβε ένα μήνυμα για "
 "άγνωστη συνεδρία."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -4226,7 +4258,7 @@ msgstr ""
 "Η επαλήθευση συνεδρίας ακυρώθηκε εξαιτίας της αδυναμίας του NeoChat να "
 "χειριστεί αυτήν τη μέθοδο επαλήθευσης."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -4235,12 +4267,12 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας γιατί αδυνατεί να χειριστεί "
 "αυτήν τη μέθοδο επαλήθευσης."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε επειδή τα κλειδιά δεν είναι σωστά."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:45
 #, fuzzy, kde-format
 #| msgid ""
 #| "The remote party canceled the session verification because the keys are "
@@ -4254,14 +4286,14 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας γιατί τα κλειδιά δεν είναι "
 "σωστά."
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
 "Η επαλήθευση συνεδρίας ακυρώθηκε γιατί επαληθεύει έναν μη αναμενόμενο χρήστη."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -4270,13 +4302,13 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας γιατί επαληθεύει έναν μη "
 "αναμενόμενο χρήστη."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε γιατί λάβαμε ένα μη έγκυρο μήνυμα."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4285,17 +4317,17 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας γιατί έλαβε ένα μη έγκυρο "
 "μήνυμα."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Η συνεδρία έγινε δεκτή σε διαφορετική συσκευή"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε εξαιτίας ενός αταίριαστου κλειδιού."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -4304,12 +4336,12 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας εξαιτίας ενός αταίριαστου "
 "κλειδιού."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε επειδή τα κλειδιά δεν ταιριάζουν."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -4318,7 +4350,7 @@ msgstr ""
 "Η άλλη πλευρά ακύρωσε την επαλήθευση συνεδρίας επειδή τα κλειδιά δεν "
 "ταιριάζουν."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε από άγνωστο σφάλμα."

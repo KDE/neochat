@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
-"PO-Revision-Date: 2023-09-28 10:37+0300\n"
+"POT-Creation-Date: 2023-09-30 01:42+0000\n"
+"PO-Revision-Date: 2023-09-29 14:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1058,12 +1058,12 @@ msgstr "Oda oluşturulamadı: %1"
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
 
-#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
+#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1645,23 +1645,19 @@ msgid "Create a Room"
 msgstr "Bir Oda Oluştur"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgid "New Space Information"
-msgstr "Sunucu Bilgisi"
+msgstr "Yeni Alan Bilgisi"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "New Room Information"
-msgstr "Oda Bilgisi"
+msgstr "Yeni Oda Bilgisi"
 
 #: src/qml/CreateRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select type"
-msgstr "Tümünü Seç"
+msgstr "Tür seç"
 
 #: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
@@ -1669,21 +1665,19 @@ msgid "Room"
 msgstr "Oda"
 
 #: src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Space"
-msgstr "Alanlar"
+msgstr "Alan"
 
 #: src/qml/CreateRoomDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "No Topic"
+#, kde-format
 msgid "Topic:"
-msgstr "Konu Yok"
+msgstr "Konu:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
 msgid "Make this parent official"
-msgstr ""
+msgstr "Bu üst ögeyi resmi yap"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
 #: src/qml/JoinRoomPage.qml:203
@@ -1693,15 +1687,16 @@ msgid "Ok"
 msgstr "Tamam"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, kde-format
-msgid "Select Exisiting Room"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Exisiting Room"
+msgid "Select Existing Room"
+msgstr "Var Olan Odayı Seç"
 
 #: src/qml/CreateRoomDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
-msgstr ""
+msgstr "Oda seç"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
@@ -1712,7 +1707,7 @@ msgid "Explore Rooms"
 msgstr "Odaları Keşfet"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:78
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Katılınan"
@@ -1720,13 +1715,14 @@ msgstr "Katılınan"
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
-msgstr ""
+msgstr "Bu durumu ayarlamak için alt ögede yeterli izin düzeyine sahipsiniz"
 
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
+"Bu durumu ayarlamak için alt ögede yeterli izin düzeyine sahip değilsiniz"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1898,19 +1894,19 @@ msgstr "Emojiler"
 msgid "Stickers"
 msgstr "Yapışkanlar"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
 "Aşağıdaki emojinin her iki aygıtta da aynı sırada gösterildiğini onaylayın."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
 msgstr "Eşleşiyorlar"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
 msgstr "Eşleşmiyorlar"
@@ -2591,7 +2587,7 @@ msgstr "Kullanıcıyı Reddet ve Yok Say"
 msgid "Reject"
 msgstr "Reddet"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "Kabul Et"
@@ -2699,42 +2695,42 @@ msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Oda bulunamadı"
 
-#: src/qml/KeyVerificationDialog.qml:16
+#: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Aygıtın doğrulamayı kabul etmesi bekleniyor."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "**%1** aygıtından gelen anahtar doğrulama isteği"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Diğer tarafın doğrulaması bekleniyor."
 
-#: src/qml/KeyVerificationDialog.qml:54
+#: src/qml/KeyVerificationDialog.qml:56
 #, kde-format
 msgid "Emoji Verification"
 msgstr "Emoji Doğrulama"
 
-#: src/qml/KeyVerificationDialog.qml:57
+#: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Her iki aygıttaki bir emoji kümesini karşılaştırın"
 
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** aygıtı başarıyla doğrulandı"
 
-#: src/qml/KeyVerificationDialog.qml:83
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "Reddet"
@@ -3228,6 +3224,32 @@ msgstr "Parolayı onayla:"
 msgid "The passwords do not match."
 msgstr "Parolalar uyuşmuyor."
 
+#: src/qml/RemoveChildDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Kaldır"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add new child"
+msgid "The child "
+msgstr "Yeni Alt Öge Ekle"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, kde-format
+msgid " will be removed from the space "
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:48
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
+
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
 msgid "Remove Messages"
@@ -3331,12 +3353,10 @@ msgid "Settings"
 msgstr "Ayarlar"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
-msgstr "Alan üyeleri"
+msgstr "Alan Üyeleri"
 
 #: src/qml/RoomInformation.qml:41
 #, kde-format
@@ -3389,12 +3409,12 @@ msgstr "Üyeler"
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
-msgstr "Bir Kullanıcıyı Davet Et"
+msgstr "Kullanıcıyı Davet Et"
 
 #: src/qml/RoomInformation.qml:149
 #, kde-format
 msgid "Invite user to room"
-msgstr "Kullanıcıyı odaya davet et"
+msgstr "Kullanıcıyı Odaya Davet Et"
 
 #: src/qml/RoomInformation.qml:156
 #, kde-format
@@ -3765,58 +3785,54 @@ msgstr "Sözcüğü Sil"
 msgid "All Rooms"
 msgstr "Tüm Odalar"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#: src/qml/SpaceHierarchyDelegate.qml:92
+#, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr "%1 üye"
+msgstr " üye - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#: src/qml/SpaceHierarchyDelegate.qml:92
+#, kde-format
 msgctxt "number of room members"
 msgid " members"
-msgstr "%1 üye"
+msgstr " üye"
 
-#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
+#, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "Yeni arma ekle"
+msgstr "Yeni Alt Öge Ekle"
+
+#: src/qml/SpaceHierarchyDelegate.qml:112
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove"
+msgstr "Kaldır"
 
 #: src/qml/SpaceHomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "Kullanıcıyı odaya davet et"
+msgstr "Kullanıcıyı Alana Davet Et"
 
 #: src/qml/SpaceHomePage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "Alandan Ayrıl"
 
 #: src/qml/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@button"
 msgid "Space settings"
 msgstr "Alan Ayarları"
 
 #: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "Bir Oda Oluştur"
+msgstr "Alt Öge Oluştur"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4002,39 +4018,39 @@ msgstr "Kullanıcı adı:"
 msgid "Username unavailable"
 msgstr "Kullanıcı adı kullanılabilir değil"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Oturum doğrulama, bilinmeyen bir nedenle iptal edildi."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Oturum doğrulama, zaman aşımına uğradı."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Oturum doğrulama, diğer taraf için zaman aşımına uğradı."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Oturum doğrulamasını iptal ettiniz."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Oturum doğrulaması, diğer taraf tarafından iptal edildi."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "Oturum doğrulaması iptal edildi; çünkü beklenmeyen bir ileti aldık."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4043,7 +4059,7 @@ msgstr ""
 "Oturum doğrulaması iptal edildi; çünkü diğer taraf beklenmedik bir ileti "
 "aldı."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -4052,7 +4068,7 @@ msgstr ""
 "Oturum doğrulaması iptal edildi; çünkü bilinmeyen bir oturum için bir ileti "
 "alındı."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -4061,7 +4077,7 @@ msgstr ""
 "Oturum doğrulama diğer taraf tarafından iptal edildi; çünkü bilinmeyen bir "
 "oturum için bir ileti aldı."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -4070,7 +4086,7 @@ msgstr ""
 "Oturum doğrulaması iptal edildi; çünkü NeoChat bu doğrulama yöntemini "
 "işleyemiyor."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -4079,12 +4095,12 @@ msgstr ""
 "Oturum doğrulaması diğer taraf tarafından iptal edlidi; çünkü bu doğrulama "
 "yöntemini işleyemiyor."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Oturum doğrulaması iptal edlidi; çünkü anahtarlar yanlış."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:45
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -4097,7 +4113,7 @@ msgstr ""
 "**Lütfen oturumunuzu kapatıp yeniden açın, oturumunuz şu haliyle hatalı/"
 "bozuk.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -4105,7 +4121,7 @@ msgstr ""
 "Oturum doğrulaması iptal edildi; çünkü beklenmedik bir kullanıcıyı "
 "doğruluyor."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -4114,13 +4130,13 @@ msgstr ""
 "Oturum doğrulaması diğer taraf tarafından iptal edildi; çünkü beklenmedik "
 "bir kullanıcıyı doğruluyor."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "Oturum doğrulaması iptal edildi; çünkü geçersiz bir ileti aldık."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4129,17 +4145,17 @@ msgstr ""
 "Oturum doğrulaması diğer taraf tarafından iptal edildi; çünkü beklenmedik "
 "bir ileti aldı."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Oturum, başka bir aygıtta kabul edildi"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Oturum doğrulaması, eşleşmeyen bir anahtar yüzünden iptal edildi."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -4148,12 +4164,12 @@ msgstr ""
 "Oturum doğrulaması, eşleşmeyen bir anahtar yüzünden diğer taraf tarafından "
 "iptal edildi."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Oturum doğrulaması iptal edildi; çünkü anahtarlar eşleşmiyor."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -4162,7 +4178,7 @@ msgstr ""
 "Oturum doğrulaması diğer taraf tarafından iptal edildi; çünkü anahtarlar "
 "eşleşmiyor."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Oturum doğrulaması, bilinmeyen bir hata yüzünden iptal edildi."

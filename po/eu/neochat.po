@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
-"PO-Revision-Date: 2023-09-28 19:08+0200\n"
+"POT-Creation-Date: 2023-09-30 01:42+0000\n"
+"PO-Revision-Date: 2023-09-29 19:10+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1064,12 +1064,12 @@ msgstr "Gela sortzea huts egin du: %1"
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/neochatroom.cpp:1350 src/neochatroom.cpp:1351
+#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1649,23 +1649,19 @@ msgid "Create a Room"
 msgstr "Sortu gela bat"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgid "New Space Information"
-msgstr "Zerbitzariaren informazioa"
+msgstr "Toki berriaren informazioa"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "New Room Information"
-msgstr "Gelaren informazioa"
+msgstr "Gela berriaren informazioa"
 
 #: src/qml/CreateRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select type"
-msgstr "Hautatu denak"
+msgstr "Aukeratu mota"
 
 #: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
@@ -1673,10 +1669,9 @@ msgid "Room"
 msgstr "Gela"
 
 #: src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Space"
-msgstr "Tokiak"
+msgstr "Tokia"
 
 #: src/qml/CreateRoomDialog.qml:72
 #, kde-format
@@ -1686,7 +1681,7 @@ msgstr "Gaia:"
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
 msgid "Make this parent official"
-msgstr ""
+msgstr "Egin guraso hori ofiziala"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
 #: src/qml/JoinRoomPage.qml:203
@@ -1696,15 +1691,16 @@ msgid "Ok"
 msgstr "Ados"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, kde-format
-msgid "Select Exisiting Room"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Exisiting Room"
+msgid "Select Existing Room"
+msgstr "Aukeratu dagoen gela"
 
 #: src/qml/CreateRoomDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
-msgstr ""
+msgstr "Hautatu gela"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
@@ -1715,7 +1711,7 @@ msgid "Explore Rooms"
 msgstr "Esploratu gelak"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:78
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Batu da"
@@ -1723,13 +1719,14 @@ msgstr "Batu da"
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
-msgstr ""
+msgstr "Egoera hori ezartzeko, haurrarekiko beharrezko pribilegio maila duzu"
 
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
+"Ez duzu egoera hori ezartzeko, haurrarekiko beharrezko pribilegio maila "
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1901,19 +1898,19 @@ msgstr "Emojiak"
 msgid "Stickers"
 msgstr "Eranskailuak"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
 "Baieztatu beheko emojiak bi galuetan azaltzen direla, hurrenkera berean."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
 msgstr "Bat datoz"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
 msgstr "Ez datoz bat"
@@ -2200,7 +2197,7 @@ msgstr "URL aurreikuspegiak"
 #: src/qml/General.qml:264
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr "Gaitu URL aurreikuspegiak, era lehenetsian, gelako partaideentzat"
+msgstr "Gaitu URL aurreikuspegiak, era lehenetsian, gelako bazkideentzat"
 
 #: src/qml/General.qml:272
 #, kde-format
@@ -2596,7 +2593,7 @@ msgstr "Errefusatu eta erabiltzailea ezikusi"
 msgid "Reject"
 msgstr "Errefusatu"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:77
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
@@ -2629,7 +2626,7 @@ msgstr "Bidali gonbita"
 #: src/qml/InviteUserPage.qml:114
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr "Erabiltzailea dagoeneko partaidea da edo gonbidapena jaso du"
+msgstr "Erabiltzailea dagoeneko bazkidea da edo gonbidapena jaso du"
 
 #: src/qml/JoinRoomPage.qml:38
 #, kde-format
@@ -2704,42 +2701,42 @@ msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Ez da gelarik aurkitu"
 
-#: src/qml/KeyVerificationDialog.qml:16
+#: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
 msgstr "Saioa egiaztatzea"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Gailuak egiaztapena onartzeko zain."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Gakoa egiaztatzeko **%1** gailuaren sarrerako eskaera"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Beste aldea egiaztatzeko zain."
 
-#: src/qml/KeyVerificationDialog.qml:54
+#: src/qml/KeyVerificationDialog.qml:56
 #, kde-format
 msgid "Emoji Verification"
 msgstr "Emoji egiaztatzea"
 
-#: src/qml/KeyVerificationDialog.qml:57
+#: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Konparatu emoji multzo bat bi gailuetan"
 
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** gailuaren egiaztatze arrakastatsua"
 
-#: src/qml/KeyVerificationDialog.qml:83
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "Uko egin"
@@ -3020,7 +3017,7 @@ msgstr "Pribilegiodun erabiltzaileak"
 #: src/qml/Permissions.qml:69 src/qml/PowerLevelDialog.qml:37
 #, kde-format
 msgid "Member (0)"
-msgstr "Partaidea (0)"
+msgstr "Bazkidea (0)"
 
 #: src/qml/Permissions.qml:70 src/qml/PowerLevelDialog.qml:38
 #, kde-format
@@ -3152,7 +3149,7 @@ msgstr "Gelako zerbitzariaren sarbide kontrolerako zerrenda (ACL) ezartzea"
 #: src/qml/Permissions.qml:401
 #, kde-format
 msgid "Set the children of this space"
-msgstr "Toki honen haurra ezartzea"
+msgstr "Toki honen haurrak ezartzea"
 
 #: src/qml/Permissions.qml:410
 #, kde-format
@@ -3232,6 +3229,32 @@ msgstr "Baieztatu pasahitza:"
 #, kde-format
 msgid "The passwords do not match."
 msgstr "Pasahitzak ez datoz bat."
+
+#: src/qml/RemoveChildDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Kendu"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add new child"
+msgid "The child "
+msgstr "Gehitu haur berria"
+
+#: src/qml/RemoveChildDialog.qml:41
+#, kde-format
+msgid " will be removed from the space "
+msgstr ""
+
+#: src/qml/RemoveChildDialog.qml:48
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3336,12 +3359,10 @@ msgid "Settings"
 msgstr "Ezarpenak"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
-msgstr "Tokiko partaideak"
+msgstr "Tokiko bazkideak"
 
 #: src/qml/RoomInformation.qml:41
 #, kde-format
@@ -3388,7 +3409,7 @@ msgstr "Erakutsi gela honetarako kokalekuak"
 #: src/qml/RoomInformation.qml:134
 #, kde-format
 msgid "Members"
-msgstr "Partaideak"
+msgstr "Bazkideak"
 
 #: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
 #, kde-format
@@ -3405,13 +3426,13 @@ msgstr "Gonbidatu erabiltzaile bat gelara"
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "Partaide %1"
-msgstr[1] "%1 partaide"
+msgstr[0] "Bazkide %1"
+msgstr[1] "%1 bazkide"
 
 #: src/qml/RoomInformation.qml:156
 #, kde-format
 msgid "No member count"
-msgstr "Ez dago partaide kopururik"
+msgstr "Ez dago bazkide zenbaketarik"
 
 #: src/qml/RoomListPage.qml:161
 #, kde-format
@@ -3518,7 +3539,7 @@ msgstr "Gonbidatutako jendea bakarrik batu daiteke."
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
-msgstr "Tokiko partaideak"
+msgstr "Tokiko bazkideak"
 
 #: src/qml/Security.qml:51
 #, kde-format
@@ -3570,7 +3591,7 @@ msgstr "Edonork, batu gabekoak ere, historia ikus dezake."
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "Partaideak bakarrik"
+msgstr "Bazkideak bakarrik"
 
 #: src/qml/Security.qml:96
 #, kde-format
@@ -3578,13 +3599,13 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
-"Partaide guztiek ikus dezakete mezuen historia osoa, baita batu aurrekoa ere."
+"Bazkide guztiek ikus dezakete mezuen historia osoa, baita batu aurrekoa ere."
 
 #: src/qml/Security.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr "Partaideak bakarrik (gonbitetik aurrera)"
+msgstr "Bazkideak bakarrik (gonbitetik aurrera)"
 
 #: src/qml/Security.qml:105
 #, kde-format
@@ -3593,14 +3614,14 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
-"Partaide berriek mezuen historia ikus dezakete, gelara gonbidatu zituzten "
+"Bazkide berriek mezuen historia ikus dezakete, gelara gonbidatu zituzten "
 "unetik aurrera."
 
 #: src/qml/Security.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr "Partaideak bakarrik (batzetik aurrera)"
+msgstr "Bazkideak bakarrik (batzetik aurrera)"
 
 #: src/qml/Security.qml:114
 #, kde-format
@@ -3608,7 +3629,7 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
-"Partaide berriek mezuen historia ikus dezakete, gelara batu ziren unetik "
+"Bazkide berriek mezuen historia ikus dezakete, gelara batu ziren unetik "
 "aurrera."
 
 #: src/qml/ServerData.qml:20
@@ -3769,58 +3790,54 @@ msgstr "Ezabatu hitza"
 msgid "All Rooms"
 msgstr "Gela guztiak"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#: src/qml/SpaceHierarchyDelegate.qml:92
+#, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr "Partaide %1"
+msgstr " bazkide -"
 
-#: src/qml/SpaceHierarchyDelegate.qml:87
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#: src/qml/SpaceHierarchyDelegate.qml:92
+#, kde-format
 msgctxt "number of room members"
 msgid " members"
-msgstr "Partaide %1"
+msgstr " bazkide"
 
-#: src/qml/SpaceHierarchyDelegate.qml:96 src/qml/SpaceHomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
+#, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "Gehitu ezizen berria"
+msgstr "Gehitu haur berria"
+
+#: src/qml/SpaceHierarchyDelegate.qml:112
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove"
+msgstr "Kendu"
 
 #: src/qml/SpaceHomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "Gonbidatu erabiltzaile bat gelara"
+msgstr "Gonbidatu erabiltzailea tokira"
 
 #: src/qml/SpaceHomePage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "Utzi tokia"
 
 #: src/qml/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@button"
 msgid "Space settings"
-msgstr "Tokien ezarpenak"
+msgstr "Tokiaren ezarpenak"
 
 #: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "Sortu gela bat"
+msgstr "Sortu haur bat"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4007,32 +4024,32 @@ msgstr "Erabiltzaile-izena:"
 msgid "Username unavailable"
 msgstr "Erabiltzaile-izena ez dago erabilgarri"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Saioa egiaztatzea bertan behera utzi da, arrazoi ezezagunengatik."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Saioa egiaztatzeko denbora-muga gainditu da."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Saioa egiaztatzeko denbora-muga gainditu da urrutiko alderdian."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Saioa egiaztatzea bertan behera utzi duzu."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Urrutiko aldeak saioa egiaztatzea bertan behera utzi du."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -4040,7 +4057,7 @@ msgid ""
 msgstr ""
 "Saioa egiaztatzea bertan behera utzi da, ustekabeko mezu bat jaso dugulako."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4049,7 +4066,7 @@ msgstr ""
 "Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, ustekabeko mezu bat "
 "jaso duelako."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -4058,7 +4075,7 @@ msgstr ""
 "Saioa egiaztatzea bertan behera utzi da, saio ezezagun baterako mezu bat "
 "jaso duelako."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -4067,7 +4084,7 @@ msgstr ""
 "Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, saio ezezagun "
 "beterako mezua bat jaso duelako."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -4076,7 +4093,7 @@ msgstr ""
 "Saioa egiaztatzea bertan behera utzi da, NeoChat ez delako egiaztatzeko "
 "metodo hau maneiatzeko gai."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -4085,12 +4102,12 @@ msgstr ""
 "Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, ez delako "
 "egiaztatzeko metodo hau maneiatzeko gai."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Saioa egiaztatzea bertan behera utzi da, gakoak okerrak direlako."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:45
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -4104,7 +4121,7 @@ msgstr ""
 "**Mesedez, saioa itxi eta saioa berriz ireki, zure saioa hautsita/hondatuta "
 "dago.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -4112,7 +4129,7 @@ msgstr ""
 "Saioa egiaztatzea bertan behera utzi da, ustekabeko erabiltzaile bat "
 "egiaztatzen duelako."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -4121,14 +4138,14 @@ msgstr ""
 "Urrutiko aldeak saioa bertan behera utzi du, ustekabeko erabiltzaile bat "
 "egiaztatzen duelako."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
 "Saioa egiaztatzea bertan behera utzi da, mezu baliogabe bat jaso dugulako."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -4137,17 +4154,17 @@ msgstr ""
 "Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, mezu baliogabe bat "
 "jaso duelako."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Saioa beste gailu batean onartu da"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Saioa egiaztatzea bertan behera utzi da gakoa bat ez etortzeagatik."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -4156,12 +4173,12 @@ msgstr ""
 "Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, gakoa bat ez "
 "etortzeagatik."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Saioa egiaztatzea bertan behera utzi da, gakoak ez datozelako bat."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -4170,7 +4187,7 @@ msgstr ""
 "Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, gakoak ez "
 "datozelako bat."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Saioa egiaztatzea bertan behera utzi da, errore ezezagun bat dela eta."
