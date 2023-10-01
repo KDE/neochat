@@ -86,8 +86,9 @@ public:
         static EmojiModel _instance;
         return _instance;
     }
-    static EmojiModel *create(QQmlEngine *, QJSEngine *)
+    static EmojiModel *create(QQmlEngine *engine, QJSEngine *)
     {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
 

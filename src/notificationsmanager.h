@@ -59,8 +59,9 @@ class NotificationsManager : public QObject
 
 public:
     static NotificationsManager &instance();
-    static NotificationsManager *create(QQmlEngine *, QJSEngine *)
+    static NotificationsManager *create(QQmlEngine *engine, QJSEngine *)
     {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
 

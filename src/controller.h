@@ -93,8 +93,9 @@ public:
     Q_ENUM(PasswordStatus)
 
     static Controller &instance();
-    static Controller *create(QQmlEngine *, QJSEngine *)
+    static Controller *create(QQmlEngine *engine, QJSEngine *)
     {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
 

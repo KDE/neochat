@@ -51,8 +51,9 @@ public:
         static CustomEmojiModel _instance;
         return _instance;
     }
-    static CustomEmojiModel *create(QQmlEngine *, QJSEngine *)
+    static CustomEmojiModel *create(QQmlEngine *engine, QJSEngine *)
     {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
 

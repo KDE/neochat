@@ -91,8 +91,9 @@ public:
         static Registration _instance;
         return _instance;
     }
-    static Registration *create(QQmlEngine *, QJSEngine *)
+    static Registration *create(QQmlEngine *engine, QJSEngine *)
     {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
 

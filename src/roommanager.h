@@ -90,8 +90,9 @@ public:
     explicit RoomManager(QObject *parent = nullptr);
     virtual ~RoomManager();
     static RoomManager &instance();
-    static RoomManager *create(QQmlEngine *, QJSEngine *)
+    static RoomManager *create(QQmlEngine *engine, QJSEngine *)
     {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
 
