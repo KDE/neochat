@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-29 19:40+0200\n"
+"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"PO-Revision-Date: 2023-09-30 04:32+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1690,8 +1690,7 @@ msgid "Ok"
 msgstr "Aceptar"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, fuzzy, kde-format
-#| msgid "Select Exisiting Room"
+#, kde-format
 msgid "Select Existing Room"
 msgstr "Seleccione sala existente"
 
@@ -3246,30 +3245,23 @@ msgid "The passwords do not match."
 msgstr "Las contraseñas no coinciden."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Eliminar"
+msgstr "Eliminar hijo"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new child"
-msgid "The child "
-msgstr "Añadir nuevo espacio hijo"
-
-#: src/qml/RemoveChildDialog.qml:41
-#, kde-format
-msgid " will be removed from the space "
-msgstr ""
+#| msgid " will be removed from the space "
+msgid "The child %1 will be removed from the space %2"
+msgstr " se eliminará del espacio "
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr ""
+msgstr "El espacio actual es el padre oficial de esta sala. ¿Debería borrarse?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3827,8 +3819,7 @@ msgid "Add new child"
 msgstr "Añadir nuevo espacio hijo"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Eliminar"
@@ -4362,6 +4353,11 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Salir"
+
+#~| msgctxt "@button"
+#~| msgid "Add new child"
+#~ msgid "The child "
+#~ msgstr "El hijo "
 
 #~ msgctxt "@title"
 #~ msgid "Room Information"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-29 10:21+0200\n"
+"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"PO-Revision-Date: 2023-09-30 11:24+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1686,10 +1686,9 @@ msgid "Ok"
 msgstr "OK"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, fuzzy, kde-format
-#| msgid "Select Exisiting Room"
+#, kde-format
 msgid "Select Existing Room"
-msgstr "Bestande room selecteren"
+msgstr "Bestaande room selecteren"
 
 #: src/qml/CreateRoomDialog.qml:104
 #, kde-format
@@ -3234,23 +3233,16 @@ msgid "The passwords do not match."
 msgstr "Het wachtwoord komt niet overeen."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Verwijderen"
+msgstr "Kind verwijderen"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new child"
-msgid "The child "
-msgstr "Nieuw kind toevoegen"
-
-#: src/qml/RemoveChildDialog.qml:41
-#, kde-format
-msgid " will be removed from the space "
-msgstr ""
+#| msgid " will be removed from the space "
+msgid "The child %1 will be removed from the space %2"
+msgstr " zal uit de ruimte worden verwijderd"
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
@@ -3258,6 +3250,8 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
+"De huidige ruimte is de officiële ouder van deze room, moet dit gewist "
+"worden?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3816,8 +3810,7 @@ msgid "Add new child"
 msgstr "Nieuw kind toevoegen"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Verwijderen"
@@ -4351,6 +4344,11 @@ msgstr "Tonen"
 #, kde-format
 msgid "Quit"
 msgstr "Afsluiten"
+
+#~| msgctxt "@button"
+#~| msgid "Add new child"
+#~ msgid "The child "
+#~ msgstr "Het kind "
 
 #~ msgctxt "@title"
 #~ msgid "Room Information"

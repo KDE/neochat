@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-29 14:18+0300\n"
+"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"PO-Revision-Date: 2023-09-30 11:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -633,7 +633,7 @@ msgstr "Verilen iletiyi düz metin olarak gönderir"
 
 #: src/models/actionsmodel.cpp:163
 msgid "Sends the given message as a spoiler"
-msgstr "Verilen iletiyi tatkaçıran olarak gönderir"
+msgstr "Verilen iletiyi sürprizbozan olarak gönderir"
 
 #: src/models/actionsmodel.cpp:173
 msgid "Sends the given emote"
@@ -1687,8 +1687,7 @@ msgid "Ok"
 msgstr "Tamam"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, fuzzy, kde-format
-#| msgid "Select Exisiting Room"
+#, kde-format
 msgid "Select Existing Room"
 msgstr "Var Olan Odayı Seç"
 
@@ -3225,30 +3224,23 @@ msgid "The passwords do not match."
 msgstr "Parolalar uyuşmuyor."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Kaldır"
+msgstr "Alt Ögeyi Kaldır"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new child"
-msgid "The child "
-msgstr "Yeni Alt Öge Ekle"
-
-#: src/qml/RemoveChildDialog.qml:41
-#, kde-format
-msgid " will be removed from the space "
-msgstr ""
+#| msgid " will be removed from the space "
+msgid "The child %1 will be removed from the space %2"
+msgstr " alandan kaldırılacak "
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr ""
+msgstr "Geçerli alan, bu odanın resmi üst ögesi, bu da temizlenmeli mi?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3804,8 +3796,7 @@ msgid "Add new child"
 msgstr "Yeni Alt Öge Ekle"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Kaldır"
@@ -4327,6 +4318,11 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
+
+#~| msgctxt "@button"
+#~| msgid "Add new child"
+#~ msgid "The child "
+#~ msgstr "Alt öge "
 
 #~ msgctxt "@title"
 #~ msgid "Room Information"

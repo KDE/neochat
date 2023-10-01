@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-24 08:05+0200\n"
+"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"PO-Revision-Date: 2023-09-30 10:19+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1648,23 +1648,19 @@ msgid "Create a Room"
 msgstr "Utwórz pokój"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgid "New Space Information"
-msgstr "Szczegóły serwera"
+msgstr "Szczegóły o nowej przestrzeni"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "New Room Information"
-msgstr "Szczegóły pokoju"
+msgstr "Szczegóły o nowym pokoju"
 
 #: src/qml/CreateRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select type"
-msgstr "Zaznacz wszystko"
+msgstr "Wybór rodzaju"
 
 #: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
@@ -1672,21 +1668,19 @@ msgid "Room"
 msgstr "Pokój"
 
 #: src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Space"
-msgstr "Odstępy"
+msgstr "Przestrzeń"
 
 #: src/qml/CreateRoomDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "No Topic"
+#, kde-format
 msgid "Topic:"
-msgstr "Brak tematu"
+msgstr "Temat:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
 msgid "Make this parent official"
-msgstr ""
+msgstr "Uczyń tego podrzędnego oficjalnym"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
 #: src/qml/JoinRoomPage.qml:203
@@ -1698,13 +1692,13 @@ msgstr "Ok"
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
 msgid "Select Existing Room"
-msgstr ""
+msgstr "Wybierz istniejący pokój"
 
 #: src/qml/CreateRoomDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
-msgstr ""
+msgstr "Wybierz pokój"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
@@ -1724,12 +1718,16 @@ msgstr "Dołączono"
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
+"Masz wystarczający poziom uprawnień w przestrzeni podrzędnej, aby ustawić "
+"ten stan"
 
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
+"Nie masz wystarczającego poziomu uprawnień w przestrzeni podrzędnej, aby "
+"ustawić ten stan"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -3240,22 +3238,16 @@ msgid "The passwords do not match."
 msgstr "Hasła nie są sobie równe."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Usuń"
+msgstr "Usuń podrzędną"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, fuzzy, kde-format
-#| msgid "Add new alias"
-msgid "The child "
-msgstr "Dodaj nowy alias"
-
-#: src/qml/RemoveChildDialog.qml:41
-#, kde-format
-msgid " will be removed from the space "
-msgstr ""
+#| msgid " will be removed from the space "
+msgid "The child %1 will be removed from the space %2"
+msgstr " zostanie usunięty z przestrzeni "
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
@@ -3263,6 +3255,7 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
+"Bieżąca przestrzeń jest oficjalną podrzędną tego pokoju, czy wyczyścić to?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3367,9 +3360,7 @@ msgid "Settings"
 msgstr "Ustawienia"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "Członkowie przestrzeni"
@@ -3802,64 +3793,52 @@ msgid "All Rooms"
 msgstr "Wszystkie pokoje"
 
 #: src/qml/SpaceHierarchyDelegate.qml:92
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr "%1 członek"
+msgstr " członkowie - "
 
 #: src/qml/SpaceHierarchyDelegate.qml:92
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "number of room members"
 msgid " members"
-msgstr "%1 członek"
+msgstr " członkowie"
 
 #: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "Dodaj nowy alias"
+msgstr "Dodaj nową podrzędną"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Usuń"
 
 #: src/qml/SpaceHomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "Zaproś użytkownika do pokoju"
+msgstr "Zaproś użytkownika do przestrzeni"
 
 #: src/qml/SpaceHomePage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
-msgstr "Opuść Space"
+msgstr "Opuść przestrzeń"
 
 #: src/qml/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@button"
 msgid "Space settings"
 msgstr "Ustawienia przestrzeni"
 
 #: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "Utwórz pokój"
+msgstr "Utwórz podrzędną"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4129,17 +4108,18 @@ msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Zaniechano sprawdzenia posiedzenia, bo klucze są niepoprawne."
 
 #: src/qml/VerificationCanceled.qml:45
-#, fuzzy, kde-format
-#| msgid ""
-#| "The remote party canceled the session verification because the keys are "
-#| "incorrect."
+#, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect.\n"
 "\n"
 "**Please log out and log back in, your session is broken/corrupt.**"
 msgstr ""
-"Strona zdalna zaniechała sprawdzenia posiedzenia, bo klucze są niepoprawne."
+"Osoba po drugiej stronie zaniechała sprawdzania posiedzenia, bo klucze są "
+"niepoprawne\n"
+"\n"
+"**Spróbuj wyjść i wejść ponownie, bo twoje obecne posiedzenie jest "
+"uszkodzone.**"
 
 #: src/qml/VerificationCanceled.qml:47
 #, kde-format
@@ -4355,6 +4335,10 @@ msgstr "Pokaż"
 #, kde-format
 msgid "Quit"
 msgstr "Zakończ"
+
+#~| msgid "Add new alias"
+#~ msgid "The child "
+#~ msgstr "Podrzędna"
 
 #~ msgctxt "@title"
 #~ msgid "Room Information"

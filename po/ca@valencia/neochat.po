@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-29 12:57+0200\n"
+"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"PO-Revision-Date: 2023-09-30 14:02+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1690,8 +1690,7 @@ msgid "Ok"
 msgstr "D'acord"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, fuzzy, kde-format
-#| msgid "Select Exisiting Room"
+#, kde-format
 msgid "Select Existing Room"
 msgstr "Selecciona una sala existent"
 
@@ -3248,30 +3247,23 @@ msgid "The passwords do not match."
 msgstr "Les contrasenyes no coincidixen."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Elimina"
+msgstr "Elimina un fill"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new child"
-msgid "The child "
-msgstr "Afig un fill nou"
-
-#: src/qml/RemoveChildDialog.qml:41
-#, kde-format
-msgid " will be removed from the space "
-msgstr ""
+#| msgid " will be removed from the space "
+msgid "The child %1 will be removed from the space %2"
+msgstr " s'eliminarà de l'espai "
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr ""
+msgstr "L'espai actual és el pare oficial d'esta sala, s'hauria de netejar?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3830,8 +3822,7 @@ msgid "Add new child"
 msgstr "Afig un fill nou"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Elimina"
@@ -4364,3 +4355,6 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
+
+#~ msgid "The child "
+#~ msgstr "El fill "

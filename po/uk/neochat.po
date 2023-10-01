@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-29 09:02+0300\n"
+"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"PO-Revision-Date: 2023-09-30 08:58+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1704,10 +1704,9 @@ msgid "Ok"
 msgstr "Гаразд"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, fuzzy, kde-format
-#| msgid "Select Exisiting Room"
+#, kde-format
 msgid "Select Existing Room"
-msgstr "Вибір наявної кімнати"
+msgstr "Виберіть наявну кімнату"
 
 #: src/qml/CreateRoomDialog.qml:104
 #, kde-format
@@ -3260,23 +3259,16 @@ msgid "The passwords do not match."
 msgstr "Паролі не збігаються."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Вилучити"
+msgstr "Вилучення дочірнього запису"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new child"
-msgid "The child "
-msgstr "Додати новий дочірній запис"
-
-#: src/qml/RemoveChildDialog.qml:41
-#, kde-format
-msgid " will be removed from the space "
-msgstr ""
+#| msgid " will be removed from the space "
+msgid "The child %1 will be removed from the space %2"
+msgstr " буде вилучено з простору "
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
@@ -3284,6 +3276,7 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
+"Поточний простір є офіційним батьківським для цієї кімнати. Вилучити ці дані?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3845,8 +3838,7 @@ msgid "Add new child"
 msgstr "Додати новий дочірній запис"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Вилучити"
@@ -4375,6 +4367,11 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~| msgctxt "@button"
+#~| msgid "Add new child"
+#~ msgid "The child "
+#~ msgstr "Дочірній запис "
 
 #~ msgctxt "@title"
 #~ msgid "Room Information"

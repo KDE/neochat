@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-29 07:31+0200\n"
+"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"PO-Revision-Date: 2023-09-30 08:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1696,8 +1696,7 @@ msgid "Ok"
 msgstr "V redu"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, fuzzy, kde-format
-#| msgid "Select Exisiting Room"
+#, kde-format
 msgid "Select Existing Room"
 msgstr "Izberite obstoječo sobo"
 
@@ -3237,30 +3236,23 @@ msgid "The passwords do not match."
 msgstr "Gesli se ne ujemata."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Odstrani"
+msgstr "Odstrani otroka"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new child"
-msgid "The child "
-msgstr "Dodaj novega otroka"
-
-#: src/qml/RemoveChildDialog.qml:41
-#, kde-format
-msgid " will be removed from the space "
-msgstr ""
+#| msgid " will be removed from the space "
+msgid "The child %1 will be removed from the space %2"
+msgstr " bo odstranjen iz prostora "
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr ""
+msgstr "Trenutni prostor je uradni prednik od te sobe, ali naj bo izpraznjen?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3819,8 +3811,7 @@ msgid "Add new child"
 msgstr "Dodaj novega otroka"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Odstrani"
@@ -4342,6 +4333,9 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "The child "
+#~ msgstr "Otrok "
 
 #~ msgctxt "@title"
 #~ msgid "Room Information"

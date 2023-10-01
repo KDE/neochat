@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-29 19:10+0200\n"
+"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"PO-Revision-Date: 2023-09-30 13:49+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1691,8 +1691,7 @@ msgid "Ok"
 msgstr "Ados"
 
 #: src/qml/CreateRoomDialog.qml:98
-#, fuzzy, kde-format
-#| msgid "Select Exisiting Room"
+#, kde-format
 msgid "Select Existing Room"
 msgstr "Aukeratu dagoen gela"
 
@@ -3231,23 +3230,16 @@ msgid "The passwords do not match."
 msgstr "Pasahitzak ez datoz bat."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Kendu"
+msgstr "Kendu haurra"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new child"
-msgid "The child "
-msgstr "Gehitu haur berria"
-
-#: src/qml/RemoveChildDialog.qml:41
-#, kde-format
-msgid " will be removed from the space "
-msgstr ""
+#| msgid " will be removed from the space "
+msgid "The child %1 will be removed from the space %2"
+msgstr " tokitik kenduko da"
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
@@ -3255,6 +3247,7 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
+"Uneko tokia gela horren guraso ofiziala da, hori garbitu beharko litzateke?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3809,8 +3802,7 @@ msgid "Add new child"
 msgstr "Gehitu haur berria"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Kendu"
@@ -4336,6 +4328,11 @@ msgstr "Erakutsi"
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
+
+#~| msgctxt "@button"
+#~| msgid "Add new child"
+#~ msgid "The child "
+#~ msgstr "Haurra"
 
 #~ msgctxt "@title"
 #~ msgid "Room Information"
