@@ -127,6 +127,13 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(Quotient::User *directChatRemoteUser READ directChatRemoteUser CONSTANT)
 
     /**
+     * @brief The Matrix IDs of this room's parents.
+     *
+     * Empty if no parent space is set.
+     */
+    Q_PROPERTY(QVector<QString> parentIds READ parentIds NOTIFY parentIdsChanged)
+
+    /**
      * @brief If the room is a space.
      */
     Q_PROPERTY(bool isSpace READ isSpace CONSTANT)
@@ -587,10 +594,62 @@ public:
 
     Quotient::User *directChatRemoteUser() const;
 
+    /**
+     * @brief Whether this room has one or more parent spaces set.
+     */
+    Q_INVOKABLE bool hasParent() const;
+
+    QVector<QString> parentIds() const;
+
+    /**
+     * @brief Whether the given parent is the canonical parent of the room.
+     */
+    Q_INVOKABLE bool isCanonicalParent(const QString &parentId) const;
+
+    /**
+     * @brief Whether the local user has permission to set the given space as a parent.
+     *
+     * @note This follows the rules determined in the Matrix spec
+     *       https://spec.matrix.org/v1.7/client-server-api/#mspaceparent-relationships
+     */
+    Q_INVOKABLE bool canModifyParent(const QString &parentId) const;
+
+    /**
+     * @brief Add the given room as a parent.
+     *
+     * Will fail if the user doesn't have the required privileges (see
+     * canModifyParent()).
+     *
+     * @sa canModifyParent()
+     */
+    Q_INVOKABLE void addParent(const QString &parentId);
+
+    /**
+     * @brief Remove the given room as a parent.
+     *
+     * Will fail if the user doesn't have the required privileges (see
+     * canModifyParent()).
+     *
+     * @sa canModifyParent()
+     */
+    Q_INVOKABLE void removeParent(const QString &parentId);
+
     [[nodiscard]] bool isSpace();
 
+    /**
+     * @brief Add the given room as a child.
+     *
+     * Will fail if the user doesn't have the required privileges or this room is
+     * not a space.
+     */
     Q_INVOKABLE void addChild(const QString &childId, bool setChildParent = false);
 
+    /**
+     * @brief Remove the given room as a child.
+     *
+     * Will fail if the user doesn't have the required privileges or this room is
+     * not a space.
+     */
     Q_INVOKABLE void removeChild(const QString &childId, bool unsetChildParent = false);
 
     bool isInvite() const;
@@ -867,6 +926,7 @@ Q_SIGNALS:
     void fileUploadingProgressChanged();
     void backgroundChanged();
     void readMarkerLoadedChanged();
+    void parentIdsChanged();
     void lastActiveTimeChanged();
     void isInviteChanged();
     void displayNameChanged();

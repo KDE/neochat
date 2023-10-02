@@ -117,6 +117,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     });
     connect(this, &Room::changed, this, [this] {
         Q_EMIT canEncryptRoomChanged();
+        Q_EMIT parentIdsChanged();
     });
     connect(connection, &Connection::capabilitiesLoaded, this, &NeoChatRoom::maxRoomVersionChanged);
     connect(this, &Room::changed, this, [this]() {
@@ -1097,6 +1098,80 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QStri
 void NeoChatRoom::clearInvitationNotification()
 {
     NotificationsManager::instance().clearInvitationNotification(id());
+}
+
+bool NeoChatRoom::hasParent() const
+{
+    return currentState().eventsOfType("m.space.parent"_ls).size() > 0;
+}
+
+QVector<QString> NeoChatRoom::parentIds() const
+{
+    auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
+    QVector<QString> parentIds;
+    for (const auto &parentEvent : parentEvents) {
+        if (parentEvent->contentJson().contains("via"_ls) && !parentEvent->contentPart<QJsonArray>("via"_ls).isEmpty()) {
+            parentIds += parentEvent->stateKey();
+        }
+    }
+    return parentIds;
+}
+
+bool NeoChatRoom::isCanonicalParent(const QString &parentId) const
+{
+    if (auto parentEvent = currentState().get("m.space.parent"_ls, parentId)) {
+        return parentEvent->contentPart<bool>("canonical"_ls);
+    }
+    return false;
+}
+
+bool NeoChatRoom::canModifyParent(const QString &parentId) const
+{
+    if (!canSendState("m.space.parent"_ls)) {
+        return false;
+    }
+    // If we can't peek the parent we assume that we neither have permission nor is
+    // there an existing space child event for this room.
+    if (auto parent = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
+        if (!parent->isSpace()) {
+            return false;
+        }
+        // If the user is allowed to set space child events in the parent they are
+        // allowed to set the space as a parent (even if a space child event doesn't
+        // exist).
+        if (parent->canSendState("m.space.child"_ls)) {
+            return true;
+        }
+        // If the parent has a space child event the user can set as a parent (even
+        // if they don't have permission to set space child events in that parent).
+        if (parent->currentState().contains("m.space.child"_ls, id())) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void NeoChatRoom::addParent(const QString &parentId)
+{
+    if (!canModifyParent(parentId)) {
+        return;
+    }
+    if (auto parent = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
+        setState("m.space.parent"_ls, parentId, QJsonObject{{"canonical"_ls, true}, {"via"_ls, QJsonArray{connection()->domain()}}});
+    }
+}
+
+void NeoChatRoom::removeParent(const QString &parentId)
+{
+    if (!canModifyParent(parentId)) {
+        return;
+    }
+    if (!currentState().contains("m.space.parent"_ls, parentId)) {
+        return;
+    }
+    if (auto parent = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
+        setState("m.space.parent"_ls, parentId, {});
+    }
 }
 
 bool NeoChatRoom::isSpace()
