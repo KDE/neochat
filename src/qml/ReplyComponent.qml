@@ -80,7 +80,7 @@ Item {
     GridLayout {
         id: mainLayout
         anchors.fill: parent
-        implicitHeight: Math.max(replyAvatar.implicitHeight, replyName.implicitHeight) + loader.implicitHeight
+        implicitHeight: Math.max(replyAvatar.implicitHeight, replyName.implicitHeight) + loader.height
 
         rows: 2
         columns: 3
