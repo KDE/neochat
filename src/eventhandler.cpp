@@ -231,8 +231,11 @@ bool EventHandler::isHidden()
         }
     }
 
-    if (m_event->isStateEvent() && eventCast<const StateEvent>(m_event)->repeatsState()) {
-        return true;
+    if (m_event->isStateEvent()) {
+        auto *stateEvent = eventCast<const StateEvent>(m_event);
+        if (stateEvent && stateEvent->repeatsState()) {
+            return true;
+        }
     }
 
     // isReplacement?
