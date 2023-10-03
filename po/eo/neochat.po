@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"POT-Creation-Date: 2023-10-03 01:38+0000\n"
 "PO-Revision-Date: 2023-10-01 05:27+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -1058,12 +1058,12 @@ msgstr "Kreado de ĉambro malsukcesis: %1"
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
 
-#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
+#: src/neochatroom.cpp:1444 src/neochatroom.cpp:1445
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raporto sukcese sendita."
 
-#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
+#: src/neochatroom.cpp:1818 src/neochatroom.cpp:1826
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1678,7 +1678,7 @@ msgid "Make this parent official"
 msgstr "Oficialigi tiun gepatron"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/JoinRoomPage.qml:203
+#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1689,14 +1689,15 @@ msgstr "Bone"
 msgid "Select Existing Room"
 msgstr "Elekti Ekzistantan Ĉambron"
 
-#: src/qml/CreateRoomDialog.qml:104
+#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "Elekti ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:343
+#: src/qml/General.qml:422 src/qml/GlobalMenu.qml:64
 #: src/qml/RoomListPage.qml:170
 #, kde-format
 msgctxt "@title"
@@ -1704,7 +1705,7 @@ msgid "Explore Rooms"
 msgstr "Esplori Ĉambrojn"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/General.qml:391 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Aliĝis"
@@ -1793,7 +1794,7 @@ msgstr "Forigi aparaton"
 msgid "Password:"
 msgstr "Pasvorto:"
 
-#: src/qml/DevicesPage.qml:75 src/qml/General.qml:334
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:509
 #: src/qml/PowerLevelDialog.qml:43
 #, kde-format
 msgid "Confirm"
@@ -2209,32 +2210,84 @@ msgstr "URL-antaŭrigardoj estas ebligitaj defaŭlte en ĉi tiu ĉambro"
 msgid "URL previews are disabled by default in this room"
 msgstr "URL-antaŭrigardoj estas defaŭlte malŝaltitaj en ĉi tiu ĉambro"
 
-#: src/qml/General.qml:285
+#: src/qml/General.qml:282
+#, kde-format
+msgid "Official Parent Spaces"
+msgstr ""
+
+#: src/qml/General.qml:317
+#, fuzzy, kde-format
+#| msgid "Remove Message"
+msgid "Remove parent"
+msgstr "Forigi Mesaĝon"
+
+#: src/qml/General.qml:330
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgid "This room has no official parent spaces."
+msgstr "Ĉi tiu ĉambro estis anstataŭigita."
+
+#: src/qml/General.qml:335
+#, kde-format
+msgid "Add Offical Parent Space"
+msgstr ""
+
+#: src/qml/General.qml:438
+#, fuzzy, kde-format
+#| msgid "Set the children of this space"
+msgid "Set this room as a child of the space %1"
+msgstr "Agordi la infanojn de ĉi tiu spaco"
+
+#: src/qml/General.qml:445
+#, fuzzy, kde-format
+#| msgid ""
+#| "You do not have a high enough privilege level in the child to set this "
+#| "state"
+msgid ""
+"You do not have a high enough privilege level in the parent to set this state"
+msgstr ""
+"Vi ne havas sufiĉe altan privilegionivelon en la ido por meti ĉi tiun staton"
+
+#: src/qml/General.qml:445
+#, kde-format
+msgid "The selected room is not a space"
+msgstr ""
+
+#: src/qml/General.qml:445
+#, fuzzy, kde-format
+#| msgid ""
+#| "You do not have a high enough privilege level in the child to set this "
+#| "state"
+msgid "You do not have the privileges to complete this action"
+msgstr ""
+"Vi ne havas sufiĉe altan privilegionivelon en la ido por meti ĉi tiun staton"
+
+#: src/qml/General.qml:460
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Ĉi tiu ĉambro daŭrigas alian konversacion."
 
-#: src/qml/General.qml:289
+#: src/qml/General.qml:464
 #, kde-format
 msgid "See older messages…"
 msgstr "Vidi pli malnovajn mesaĝojn…"
 
-#: src/qml/General.qml:299
+#: src/qml/General.qml:474
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ĉi tiu ĉambro estis anstataŭigita."
 
-#: src/qml/General.qml:303
+#: src/qml/General.qml:478
 #, kde-format
 msgid "See new room…"
 msgstr "Vidi novan ĉambron…"
 
-#: src/qml/General.qml:324
+#: src/qml/General.qml:499
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Altrangigi la Ĉambron"
 
-#: src/qml/General.qml:328
+#: src/qml/General.qml:503
 #, kde-format
 msgid "Select new version"
 msgstr "Elekti novan version"

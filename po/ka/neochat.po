@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"POT-Creation-Date: 2023-10-03 01:38+0000\n"
 "PO-Revision-Date: 2023-10-01 15:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1058,12 +1058,12 @@ msgstr "ოთახის შექმნის შეცდომა: %1"
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
 
-#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
+#: src/neochatroom.cpp:1444 src/neochatroom.cpp:1445
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
 
-#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
+#: src/neochatroom.cpp:1818 src/neochatroom.cpp:1826
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1678,7 +1678,7 @@ msgid "Make this parent official"
 msgstr "ამ მშობლის გაოფიციალურება"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/JoinRoomPage.qml:203
+#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1689,14 +1689,15 @@ msgstr "Ok"
 msgid "Select Existing Room"
 msgstr "აირჩიეთ არსებული ოთახი"
 
-#: src/qml/CreateRoomDialog.qml:104
+#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "აირჩიეთ ოთახი"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:343
+#: src/qml/General.qml:422 src/qml/GlobalMenu.qml:64
 #: src/qml/RoomListPage.qml:170
 #, kde-format
 msgctxt "@title"
@@ -1704,7 +1705,7 @@ msgid "Explore Rooms"
 msgstr "ოთახების დათვალიერება"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/General.qml:391 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "შეერთებული"
@@ -1794,7 +1795,7 @@ msgstr "მოწყობილობის წაშლა"
 msgid "Password:"
 msgstr "პაროლი:"
 
-#: src/qml/DevicesPage.qml:75 src/qml/General.qml:334
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:509
 #: src/qml/PowerLevelDialog.qml:43
 #, kde-format
 msgid "Confirm"
@@ -2209,32 +2210,84 @@ msgstr "ამ ოთახში ბმულების ავტომატ
 msgid "URL previews are disabled by default in this room"
 msgstr "ამ ოთახში ბმულების ავტომატური მინიატურები ნაგულისხმევად გამორთულია"
 
-#: src/qml/General.qml:285
+#: src/qml/General.qml:282
+#, kde-format
+msgid "Official Parent Spaces"
+msgstr ""
+
+#: src/qml/General.qml:317
+#, fuzzy, kde-format
+#| msgid "Remove Message"
+msgid "Remove parent"
+msgstr "შეტყობინების წაშლა"
+
+#: src/qml/General.qml:330
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgid "This room has no official parent spaces."
+msgstr "ეს ოთახი გამოცვლილია."
+
+#: src/qml/General.qml:335
+#, kde-format
+msgid "Add Offical Parent Space"
+msgstr ""
+
+#: src/qml/General.qml:438
+#, fuzzy, kde-format
+#| msgid "Set the children of this space"
+msgid "Set this room as a child of the space %1"
+msgstr "ამ სივრცის შვილების დაყენება"
+
+#: src/qml/General.qml:445
+#, fuzzy, kde-format
+#| msgid ""
+#| "You do not have a high enough privilege level in the child to set this "
+#| "state"
+msgid ""
+"You do not have a high enough privilege level in the parent to set this state"
+msgstr ""
+"ამ მდგომარეობის დასაყენებლად შვილში საჭირო პრივილეგიის დონეები არ გაგაჩნიათ"
+
+#: src/qml/General.qml:445
+#, kde-format
+msgid "The selected room is not a space"
+msgstr ""
+
+#: src/qml/General.qml:445
+#, fuzzy, kde-format
+#| msgid ""
+#| "You do not have a high enough privilege level in the child to set this "
+#| "state"
+msgid "You do not have the privileges to complete this action"
+msgstr ""
+"ამ მდგომარეობის დასაყენებლად შვილში საჭირო პრივილეგიის დონეები არ გაგაჩნიათ"
+
+#: src/qml/General.qml:460
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "ოთახი საუბრის შემდეგ გრძელდება."
 
-#: src/qml/General.qml:289
+#: src/qml/General.qml:464
 #, kde-format
 msgid "See older messages…"
 msgstr "ძველი შეტყობინებების ნახვა…"
 
-#: src/qml/General.qml:299
+#: src/qml/General.qml:474
 #, kde-format
 msgid "This room has been replaced."
 msgstr "ეს ოთახი გამოცვლილია."
 
-#: src/qml/General.qml:303
+#: src/qml/General.qml:478
 #, kde-format
 msgid "See new room…"
 msgstr "ახალი ოთახის ნახვა…"
 
-#: src/qml/General.qml:324
+#: src/qml/General.qml:499
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "ოთახის გაუმჯობესება"
 
-#: src/qml/General.qml:328
+#: src/qml/General.qml:503
 #, kde-format
 msgid "Select new version"
 msgstr "აირჩიეთ ახალი ვერსია"

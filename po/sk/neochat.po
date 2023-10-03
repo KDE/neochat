@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-01 01:54+0000\n"
+"POT-Creation-Date: 2023-10-03 01:38+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1174,13 +1174,13 @@ msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/neochatroom.cpp:1369 src/neochatroom.cpp:1370
+#: src/neochatroom.cpp:1444 src/neochatroom.cpp:1445
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Heslo úspešne zmenené"
 
-#: src/neochatroom.cpp:1743 src/neochatroom.cpp:1751
+#: src/neochatroom.cpp:1818 src/neochatroom.cpp:1826
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1844,7 +1844,7 @@ msgid "Make this parent official"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/JoinRoomPage.qml:203
+#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1855,14 +1855,15 @@ msgstr "Ok"
 msgid "Select Existing Room"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:104
+#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
+#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:343
+#: src/qml/General.qml:422 src/qml/GlobalMenu.qml:64
 #: src/qml/RoomListPage.qml:170
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -1871,7 +1872,7 @@ msgid "Explore Rooms"
 msgstr "Prehliadať miestnosti"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/General.qml:391 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Pripojil sa"
@@ -1968,7 +1969,7 @@ msgstr "Odstrániť zariadenie"
 msgid "Password:"
 msgstr "Heslo:"
 
-#: src/qml/DevicesPage.qml:75 src/qml/General.qml:334
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:509
 #: src/qml/PowerLevelDialog.qml:43
 #, kde-format
 msgid "Confirm"
@@ -2410,35 +2411,78 @@ msgstr "Otvoriť NeoChat v tejto miestnosti"
 msgid "URL previews are disabled by default in this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/qml/General.qml:285
+#: src/qml/General.qml:282
+#, kde-format
+msgid "Official Parent Spaces"
+msgstr ""
+
+#: src/qml/General.qml:317
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "Remove parent"
+msgstr "Upraviť správu"
+
+#: src/qml/General.qml:330
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgid "This room has no official parent spaces."
+msgstr "Táto miestnosť bola nahradená."
+
+#: src/qml/General.qml:335
+#, kde-format
+msgid "Add Offical Parent Space"
+msgstr ""
+
+#: src/qml/General.qml:438
+#, kde-format
+msgid "Set this room as a child of the space %1"
+msgstr ""
+
+#: src/qml/General.qml:445
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the parent to set this state"
+msgstr ""
+
+#: src/qml/General.qml:445
+#, kde-format
+msgid "The selected room is not a space"
+msgstr ""
+
+#: src/qml/General.qml:445
+#, kde-format
+msgid "You do not have the privileges to complete this action"
+msgstr ""
+
+#: src/qml/General.qml:460
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Táto miestnosť pokračuje v ďalšej konverzácii."
 
-#: src/qml/General.qml:289
+#: src/qml/General.qml:464
 #, fuzzy, kde-format
 #| msgid "See older messages..."
 msgid "See older messages…"
 msgstr "Zobraziť staršie správy"
 
-#: src/qml/General.qml:299
+#: src/qml/General.qml:474
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Táto miestnosť bola nahradená."
 
-#: src/qml/General.qml:303
+#: src/qml/General.qml:478
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgid "See new room…"
 msgstr "Zobraziť novú miestnosť..."
 
-#: src/qml/General.qml:324
+#: src/qml/General.qml:499
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "Upgrade the Room"
 msgstr "opustil miestnosť"
 
-#: src/qml/General.qml:328
+#: src/qml/General.qml:503
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgid "Select new version"
