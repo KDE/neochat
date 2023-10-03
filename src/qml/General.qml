@@ -332,7 +332,7 @@ FormCard.FormCardPage {
     }
     FormCard.FormHeader {
         visible: root.room.canSendState("m.space.parent")
-        title: i18n("Add Offical Parent Space")
+        title: i18n("Add Official Parent Space")
     }
     FormCard.FormCard {
         visible: root.room.canSendState("m.space.parent")
