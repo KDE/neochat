@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-03 01:38+0000\n"
-"PO-Revision-Date: 2023-10-01 06:42+0200\n"
+"POT-Creation-Date: 2023-10-04 01:39+0000\n"
+"PO-Revision-Date: 2023-10-03 09:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1686,7 +1686,7 @@ msgstr "Tema:"
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
 msgid "Make this parent official"
-msgstr "Uradno postavi tega starša"
+msgstr "Naj bo to uradni nadrejeni"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
 #: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
@@ -1724,13 +1724,13 @@ msgstr "Pridružen"
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
-msgstr "Imate zahtevane pravice otroka, da nastavite to stanje"
+msgstr "Imate zahtevane pravice odvisnega, da nastavite to stanje"
 
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
-msgstr "Nimate dovolj pravic otroka, da nastavite to stanje"
+msgstr "Nimate dovolj pravic odvisnega, da nastavite to stanje"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2222,52 +2222,46 @@ msgstr "Predogledi URL so privzeto onemogočeni v tej sobi"
 #: src/qml/General.qml:282
 #, kde-format
 msgid "Official Parent Spaces"
-msgstr ""
+msgstr "Uradni nadrejeni prostori"
 
 #: src/qml/General.qml:317
-#, fuzzy, kde-format
-#| msgid "Remove Message"
+#, kde-format
 msgid "Remove parent"
-msgstr "Odstrani sporočilo"
+msgstr "Odstrani nadrejenega"
 
 #: src/qml/General.qml:330
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgid "This room has no official parent spaces."
-msgstr "Ta soba je bila zamenjana."
+msgstr "Ta soba nima uradnih nadrejenih prostorov."
 
 #: src/qml/General.qml:335
-#, kde-format
-msgid "Add Offical Parent Space"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Add Offical Parent Space"
+msgid "Add Official Parent Space"
+msgstr "Dodaj uradni nadrejeni prostor"
 
 #: src/qml/General.qml:438
-#, fuzzy, kde-format
-#| msgid "Set the children of this space"
+#, kde-format
 msgid "Set this room as a child of the space %1"
-msgstr "Nastavi otroke tega prostora"
+msgstr "Nastavi sobo kot odvisno od prostora %1"
 
 #: src/qml/General.qml:445
-#, fuzzy, kde-format
-#| msgid ""
-#| "You do not have a high enough privilege level in the child to set this "
-#| "state"
+#, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
-msgstr "Nimate dovolj pravic otroka, da nastavite to stanje"
+msgstr ""
+"V nadrejenem sistemu nimate dovolj visoke ravni pravic, da bi lahko "
+"nastavili to stanje"
 
 #: src/qml/General.qml:445
 #, kde-format
 msgid "The selected room is not a space"
-msgstr ""
+msgstr "Izbrana sobi ni prostor"
 
 #: src/qml/General.qml:445
-#, fuzzy, kde-format
-#| msgid ""
-#| "You do not have a high enough privilege level in the child to set this "
-#| "state"
+#, kde-format
 msgid "You do not have the privileges to complete this action"
-msgstr "Nimate dovolj pravic otroka, da nastavite to stanje"
+msgstr "Nimate pravic za dokončanje tega dejanja"
 
 #: src/qml/General.qml:460
 #, kde-format
@@ -3203,12 +3197,12 @@ msgstr "Nastavi seznam nadzora dostopa do strežnika za to sobo"
 #: src/qml/Permissions.qml:401
 #, kde-format
 msgid "Set the children of this space"
-msgstr "Nastavi otroke tega prostora"
+msgstr "Nastavi odvisne tega prostora"
 
 #: src/qml/Permissions.qml:410
 #, kde-format
 msgid "Set the parent space of this room"
-msgstr "Nastavi starševski prostor te sobe"
+msgstr "Nastavi nadrejeni prostor te sobe"
 
 #: src/qml/PollDelegate.qml:60
 #, kde-format
@@ -3290,19 +3284,19 @@ msgstr "Gesli se ne ujemata."
 #, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Odstrani otroka"
+msgstr "Odstrani odvisnega"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
-msgstr "Otrok %1bo odstranjen iz prostora %2"
+msgstr "Odvisni %1bo odstranjen iz prostora %2"
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr "Trenutni prostor je uradni prednik od te sobe, ali naj bo izpraznjen?"
+msgstr "Trenutni prostor je uradni nadrejeni te sobe, ali naj bo izpraznjen?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3858,7 +3852,7 @@ msgstr " člani"
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "Dodaj novega otroka"
+msgstr "Dodaj novega odvisnega"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
 #, kde-format
@@ -3888,7 +3882,7 @@ msgstr "Nastavitve prostora"
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "Ustvari otroka"
+msgstr "Ustvari odvisnega"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
