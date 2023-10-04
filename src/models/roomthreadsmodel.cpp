@@ -7,6 +7,7 @@
 #include <Quotient/jobs/basejob.h>
 
 #include "eventhandler.h"
+#include "threadmodel.h"
 
 RoomThreadsModel::RoomThreadsModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -22,8 +23,15 @@ void RoomThreadsModel::initializeModel()
     auto connection = m_room->connection();
     auto threadsJob = connection->callApi<Quotient::GetThreadRootsJob>(m_room->id());
     connect(threadsJob, &Quotient::BaseJob::success, this, [this, threadsJob]() {
+        qDeleteAll(m_threads);
+        m_threads.clear();
+
         beginResetModel();
         m_threads = threadsJob->chunk();
+
+        for (const auto &thread : m_threads) {
+            m_threadModels.insert(thread->id(), new ThreadModel(m_room, thread->id(), this));
+        }
         endResetModel();
     });
 }

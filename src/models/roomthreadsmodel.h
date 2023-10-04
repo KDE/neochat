@@ -10,6 +10,7 @@
 #include <Quotient/events/roommessageevent.h>
 
 #include "neochatroom.h"
+#include "threadmodel.h"
 
 /**
  * @class RoomThreadsModel
@@ -100,6 +101,7 @@ Q_SIGNALS:
 private:
     NeoChatRoom *m_room;
     Quotient::RoomEvents m_threads;
+    QHash<QString, ThreadModel *> m_threadModels;
 
     void initializeModel();
 };

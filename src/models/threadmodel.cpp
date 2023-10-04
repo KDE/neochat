@@ -9,22 +9,22 @@
 #include "eventhandler.h"
 #include "neochatroom.h"
 
-ThreadModel::ThreadModel(const NeoChatRoom *room, Quotient::RoomMessageEvent *threadRoot, QObject *parent)
+ThreadModel::ThreadModel(const NeoChatRoom *room, const QString &threadRootId, QObject *parent)
     : QAbstractListModel(parent)
     , m_room(room)
-    , m_threadRoot(threadRoot)
+    , m_threadRootId(threadRootId)
 {
     intializeModel();
 }
 
 void ThreadModel::intializeModel()
 {
-    if (m_threadRoot == nullptr || m_room == nullptr) {
+    if (m_threadRootId.isEmpty() || m_room == nullptr) {
         return;
     }
 
     auto connection = m_room->connection();
-    auto threadEventsJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(m_room->id(), m_threadRoot->id(), QLatin1String("m.thread"));
+    auto threadEventsJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(m_room->id(), m_threadRootId, QLatin1String("m.thread"));
     connect(threadEventsJob, &Quotient::BaseJob::success, this, [this, threadEventsJob]() {
         beginResetModel();
         m_events = threadEventsJob->chunk();

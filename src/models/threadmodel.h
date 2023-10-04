@@ -63,7 +63,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit ThreadModel(const NeoChatRoom *room, Quotient::RoomMessageEvent *threadRoot, QObject *parent = nullptr);
+    explicit ThreadModel(const NeoChatRoom *room, const QString &threadRootId, QObject *parent = nullptr);
 
     /**
      * @brief Get the given role value at the given index.
@@ -88,7 +88,7 @@ public:
 
 private:
     const NeoChatRoom *m_room;
-    Quotient::RoomMessageEvent *m_threadRoot;
+    const QString m_threadRootId;
 
     Quotient::RoomEvents m_events;
 

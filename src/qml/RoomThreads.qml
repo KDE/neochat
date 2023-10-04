@@ -19,12 +19,12 @@ import org.kde.neochat
  *
  * @sa RoomDrawer, RoomDrawerPage
  */
-QQC2.ScrollView {
+QQC2.StackView {
     id: root
 
     /**
-    * @brief The title that should be displayed for this component if available.
-    */
+     * @brief The title that should be displayed for this component if available.
+     */
     readonly property string title: i18nc("@action:title", "Room Threads")
 
     /**
@@ -34,20 +34,22 @@ QQC2.ScrollView {
 
     required property NeoChatConnection connection
 
-    // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-    QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
+    initialItem: QQC2.ScrollView {
+        // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+        QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
-    ListView {
-        // So that delegates can access current room properly.
-        readonly property NeoChatRoom currentRoom: root.currentRoom
+        ListView {
+            // So that delegates can access current room properly.
+            readonly property NeoChatRoom currentRoom: root.currentRoom
 
-        clip: true
-        verticalLayoutDirection: ListView.BottomToTop
+            clip: true
+            verticalLayoutDirection: ListView.BottomToTop
 
-        model: RoomThreadsModel {
-            room: root.currentRoom
+            model: RoomThreadsModel {
+                room: root.currentRoom
+            }
+
+            delegate: ThreadRootDelegate {}
         }
-
-        delegate: ThreadRootDelegate {}
     }
 }
