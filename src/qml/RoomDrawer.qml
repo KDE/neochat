@@ -89,11 +89,16 @@ Kirigami.OverlayDrawer {
                 Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
 
                 contentItem: RowLayout {
+                    Item {
+                        id: leadingParent
+                        Layout.preferredWidth: drawerItemLoader.item.leading ? drawerItemLoader.item.leading.implicitWidth : 0
+                        Layout.preferredHeight: drawerItemLoader.item.leading ? drawerItemLoader.item.leading.implicitHeight : 0
+                        visible: drawerItemLoader.item.leading && drawerItemLoader.item.leading.enabled
+                    }
                     Kirigami.Heading {
                         Layout.fillWidth: true
                         text: drawerItemLoader.item ? drawerItemLoader.item.title : ""
                     }
-
                     QQC2.ToolButton {
                         id: settingsButton
 
@@ -137,7 +142,6 @@ Kirigami.OverlayDrawer {
                 id: roomThreads
                 RoomThreads {
                     currentRoom: root.room
-                    connection: root.connection
                 }
             }
 
@@ -163,7 +167,13 @@ Kirigami.OverlayDrawer {
                     Kirigami.Action {
                         text: i18n("Threads")
                         icon.name: "mail-attachment-symbollic"
-                        onTriggered: drawerItemLoader.sourceComponent = roomThreads
+                        onTriggered: {
+                            drawerItemLoader.sourceComponent = roomThreads;
+                            if (drawerItemLoader.item.leading) {
+                                drawerItemLoader.item.leading.parent = leadingParent;
+                                drawerItemLoader.item.leading.anchors.fill = leadingParent;
+                            }
+                        }
                     }
                 ]
             }

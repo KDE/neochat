@@ -292,6 +292,8 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/SelectParentDialog.qml
         qml/ThreadRootDelegate.qml
         qml/RoomThreads.qml
+        qml/SimpleTimelineView.qml
+        qml/ThreadPage.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

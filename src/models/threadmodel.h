@@ -21,6 +21,11 @@ class ThreadModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
 
+    /**
+     * @brief Whether the model is currently loading messages.
+     */
+    Q_PROPERTY(bool loading READ loading NOTIFY loadingChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -65,6 +70,8 @@ public:
 
     explicit ThreadModel(const NeoChatRoom *room, const QString &threadRootId, QObject *parent = nullptr);
 
+    bool loading() const;
+
     /**
      * @brief Get the given role value at the given index.
      *
@@ -86,11 +93,16 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+Q_SIGNALS:
+    void loadingChanged();
+
 private:
     const NeoChatRoom *m_room;
     const QString m_threadRootId;
 
     Quotient::RoomEvents m_events;
+
+    bool m_loading = false;
 
     void intializeModel();
 };

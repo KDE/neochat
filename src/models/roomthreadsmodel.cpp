@@ -5,6 +5,7 @@
 
 #include <Quotient/csapi/threads_list.h>
 #include <Quotient/jobs/basejob.h>
+#include <qvariant.h>
 
 #include "eventhandler.h"
 #include "threadmodel.h"
@@ -23,8 +24,8 @@ void RoomThreadsModel::initializeModel()
     auto connection = m_room->connection();
     auto threadsJob = connection->callApi<Quotient::GetThreadRootsJob>(m_room->id());
     connect(threadsJob, &Quotient::BaseJob::success, this, [this, threadsJob]() {
-        qDeleteAll(m_threads);
-        m_threads.clear();
+        qDeleteAll(m_threadModels);
+        m_threadModels.clear();
 
         beginResetModel();
         m_threads = threadsJob->chunk();
@@ -103,6 +104,8 @@ QVariant RoomThreadsModel::data(const QModelIndex &index, int role) const
         return eventHandler.isHighlighted();
     case EventIdRole:
         return eventHandler.getId();
+    case ThreadModelRole:
+        return QVariant::fromValue<ThreadModel *>(m_threadModels.value(event->id()));
     }
     return DelegateType::Message;
 }
@@ -145,5 +148,6 @@ QHash<int, QByteArray> RoomThreadsModel::roleNames() const
         {MimeTypeRole, "mimeType"},
         {ShowLinkPreviewRole, "showLinkPreview"},
         {LinkPreviewRole, "linkPreview"},
+        {ThreadModelRole, "threadModel"},
     };
 }

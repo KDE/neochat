@@ -66,6 +66,7 @@ public:
         MimeTypeRole,
         ShowLinkPreviewRole,
         LinkPreviewRole,
+        ThreadModelRole,
     };
     Q_ENUM(Roles)
 

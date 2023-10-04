@@ -52,7 +52,7 @@ Delegates.RoundedItemDelegate {
      */
     required property string displayText
 
-    onClicked: RoomManager.viewEventSource(root.eventId)
+    // onClicked: RoomManager.viewEventSource(root.eventId)
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.smallSpacing

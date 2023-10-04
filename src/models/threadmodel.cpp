@@ -17,6 +17,11 @@ ThreadModel::ThreadModel(const NeoChatRoom *room, const QString &threadRootId, Q
     intializeModel();
 }
 
+bool ThreadModel::loading() const
+{
+    return m_loading;
+}
+
 void ThreadModel::intializeModel()
 {
     if (m_threadRootId.isEmpty() || m_room == nullptr) {
@@ -29,7 +34,9 @@ void ThreadModel::intializeModel()
         beginResetModel();
         m_events = threadEventsJob->chunk();
         endResetModel();
+        m_loading = false;
     });
+    m_loading = true;
 }
 
 QVariant ThreadModel::data(const QModelIndex &index, int role) const
@@ -127,3 +134,4 @@ QHash<int, QByteArray> ThreadModel::roleNames() const
         {LinkPreviewRole, "linkPreview"},
     };
 }
+#include "moc_threadmodel.cpp"

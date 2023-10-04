@@ -6,6 +6,8 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import Qt.labs.qmlmodels
 
+import org.kde.kirigami as Kirigami
+
 import org.kde.neochat
 
 /**
@@ -28,11 +30,34 @@ QQC2.StackView {
     readonly property string title: i18nc("@action:title", "Room Threads")
 
     /**
+     * @brief The item to the left of the title.
+     *
+     * Setting Enabled dictates the visibility of the item (i.e. parent visibility
+     * is set false when Enabled is false).
+     */
+    property Item leading: QQC2.ToolButton {
+        id: backButton
+        enabled: false
+
+        icon.name: "arrow-left"
+        text: i18n("Back to thread list")
+        display: QQC2.AbstractButton.IconOnly
+
+        onClicked: {
+            root.pop()
+            enabled = false;
+        }
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        QQC2.ToolTip.visible: hovered
+    }
+
+    /**
      * @brief The current room that user is viewing.
      */
     required property NeoChatRoom currentRoom
-
-    required property NeoChatConnection connection
+    onCurrentRoomChanged: root.pop()
 
     initialItem: QQC2.ScrollView {
         // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
@@ -42,14 +67,29 @@ QQC2.StackView {
             // So that delegates can access current room properly.
             readonly property NeoChatRoom currentRoom: root.currentRoom
 
-            clip: true
+            bottomMargin: Kirigami.Units.largeSpacing
             verticalLayoutDirection: ListView.BottomToTop
+            clip: true
 
             model: RoomThreadsModel {
                 room: root.currentRoom
             }
 
-            delegate: ThreadRootDelegate {}
+            delegate: ThreadRootDelegate {
+                required property var threadModel
+                onClicked: {
+                    let view = threadPage.createObject(this, {model: threadModel});
+                    root.push(view);
+                    backButton.enabled = true;
+                }
+            }
+        }
+    }
+
+    Component {
+        id: threadPage
+        ThreadPage {
+            room: root.currentRoom
         }
     }
 }
