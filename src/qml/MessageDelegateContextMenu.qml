@@ -120,7 +120,7 @@ Loader {
                     root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText.length > 0 ? root.htmlText : root.plainText)
                     page.closeDialog()
                 })
-            g
+            }
         },
         Kirigami.Action {
             visible: author.isLocalUser || currentRoom.canSendState("redact")
