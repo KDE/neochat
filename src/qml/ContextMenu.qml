@@ -133,7 +133,6 @@ Loader {
 
             onClosed: {
                 root.closed()
-                destroy()
             }
         }
     }
