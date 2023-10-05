@@ -37,7 +37,6 @@ Delegates.RoundedItemDelegate {
 
     TapHandler {
         acceptedButtons: Qt.RightButton
-        acceptedDevices: PointerDevice.Mouse
         onTapped: createRoomListContextMenu()
     }
 
