@@ -89,7 +89,7 @@ else()
     )
 endif()
 
-if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
+if (NOT ANDROID AND NOT APPLE)
     find_package(KF6DBusAddons ${KF_MIN_VERSION} REQUIRED)
 endif()
 

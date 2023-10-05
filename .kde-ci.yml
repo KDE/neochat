@@ -20,15 +20,17 @@ Dependencies:
     'third-party/qtkeychain': '@latest'
     'third-party/cmark': '@latest'
     'third-party/qcoro': '@latest'
+
 - 'on': ['Windows', 'Linux', 'FreeBSD']
   'require':
     'frameworks/qqc2-desktop-style': '@latest-kf6'
     'frameworks/kio': '@latest-kf6'
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/kconfigwidgets': '@latest-kf6'
+    'frameworks/kdbusaddons': '@latest-kf6'
+
 - 'on': ['Linux', 'FreeBSD']
   'require':
-    'frameworks/kdbusaddons': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
 
 - 'on': ['Linux']
