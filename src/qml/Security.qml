@@ -27,7 +27,7 @@ FormCard.FormCardPage {
             enabled: room.canEncryptRoom
             checked: room.usesEncryption
             onToggled: if (checked) {
-                let dialog = confirmEncryptionDialog.createObject(applicationWindow(), {room: room});
+                let dialog = confirmEncryptionDialog.createObject(applicationWindow().overlay, {room: room});
                 dialog.open();
             }
         }
