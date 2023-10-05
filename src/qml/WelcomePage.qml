@@ -77,6 +77,9 @@ FormCard.FormCardPage {
                     headerMessage.text = "";
                     headerMessage.visible = false;
                 }
+                function onCloseDialog() {
+                    root.closeDialog();
+                }
             }
             Connections {
                 target: Registration
