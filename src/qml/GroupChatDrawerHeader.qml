@@ -82,7 +82,9 @@ ColumnLayout {
         Layout.leftMargin: Kirigami.Units.largeSpacing
         Layout.rightMargin: Kirigami.Units.largeSpacing
 
-        text: root.room && root.room.topic ? root.room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
+        visible: text.length > 0
+
+        text: root.room && root.room.topic ? root.room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : ""
         readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
         textFormat: TextEdit.MarkdownText
         wrapMode: Text.Wrap
