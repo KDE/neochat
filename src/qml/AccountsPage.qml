@@ -77,7 +77,7 @@ FormCard.FormCardPage {
                     Component {
                         id: confirmLogoutDialogComponent
                         ConfirmLogoutDialog {
-                            connection: model.connection
+                            connection: accountDelegate.connection
                             onAccepted: {
                                 if (AccountRegistry.accountCount === 1) {
                                     root.Window.window.close()
