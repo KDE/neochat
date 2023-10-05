@@ -120,7 +120,7 @@ Loader {
                     root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText.length > 0 ? root.htmlText : root.plainText)
                     page.closeDialog()
                 })
-            }
+            g
         },
         Kirigami.Action {
             visible: author.isLocalUser || currentRoom.canSendState("redact")
@@ -140,7 +140,7 @@ Loader {
         Kirigami.Action {
             text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
             icon.name: "dialog-warning-symbolic"
-            visible: author.isLocalUser
+            visible: !author.isLocalUser
             onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ReportSheet.qml", {room: currentRoom, eventId: eventId}, {
                 title: i18nc("@title", "Report Message"),
                 width: Kirigami.Units.gridUnit * 25
