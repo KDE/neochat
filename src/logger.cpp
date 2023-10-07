@@ -197,7 +197,6 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         break;
     case QtFatalMsg:
         sInstance()->log(QtInfoMsg, context, message);
-        abort();
     }
 }
 
