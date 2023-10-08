@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:41+0000\n"
-"PO-Revision-Date: 2023-09-29 15:11+0200\n"
+"POT-Creation-Date: 2023-10-08 01:38+0000\n"
+"PO-Revision-Date: 2023-10-05 09:49+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1690,7 +1690,7 @@ msgstr "Ok"
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
 msgid "Select Existing Room"
-msgstr ""
+msgstr "Seleziona stanza esistente"
 
 #: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
 #, kde-format
@@ -2228,56 +2228,45 @@ msgstr ""
 #: src/qml/General.qml:282
 #, kde-format
 msgid "Official Parent Spaces"
-msgstr ""
+msgstr "Spazi genitoriali ufficiali"
 
 #: src/qml/General.qml:317
-#, fuzzy, kde-format
-#| msgid "Remove Message"
+#, kde-format
 msgid "Remove parent"
-msgstr "Rimuovi il messaggio"
+msgstr "Rimuovi genitore"
 
 #: src/qml/General.qml:330
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgid "This room has no official parent spaces."
-msgstr "Questa stanza è stata sostituita."
+msgstr "Questa stanza non ha spazi genitori ufficiali."
 
 #: src/qml/General.qml:335
 #, kde-format
 msgid "Add Official Parent Space"
-msgstr ""
+msgstr "Aggiungi spazio genitore ufficiale"
 
 #: src/qml/General.qml:438
-#, fuzzy, kde-format
-#| msgid "Set the children of this space"
+#, kde-format
 msgid "Set this room as a child of the space %1"
-msgstr "Imposta i figli di questo spazio"
+msgstr "Imposta questa stanza come figlia dello spazio %1"
 
 #: src/qml/General.qml:445
-#, fuzzy, kde-format
-#| msgid ""
-#| "You do not have a high enough privilege level in the child to set this "
-#| "state"
+#, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
-"Non disponi di un livello di privilegio sufficientemente elevato nel figlio "
-"per impostare questo stato"
+"Non disponi di un livello di privilegio sufficientemente elevato "
+"nell'elemento genitore per impostare questo stato"
 
 #: src/qml/General.qml:445
 #, kde-format
 msgid "The selected room is not a space"
-msgstr ""
+msgstr "La stanza selezionata non è uno spazio"
 
 #: src/qml/General.qml:445
-#, fuzzy, kde-format
-#| msgid ""
-#| "You do not have a high enough privilege level in the child to set this "
-#| "state"
+#, kde-format
 msgid "You do not have the privileges to complete this action"
-msgstr ""
-"Non disponi di un livello di privilegio sufficientemente elevato nel figlio "
-"per impostare questo stato"
+msgstr "Non disponi dei privilegi per completare questa azione"
 
 #: src/qml/General.qml:460
 #, kde-format
@@ -2561,11 +2550,6 @@ msgstr "Sconosciuto"
 #, kde-format
 msgid "No name"
 msgstr "Nessun nome"
-
-#: src/qml/GroupChatDrawerHeader.qml:85
-#, kde-format
-msgid "No Topic"
-msgstr "Nessun argomento"
 
 #: src/qml/Homeserver.qml:19
 #, kde-format
@@ -3301,16 +3285,15 @@ msgid "The passwords do not match."
 msgstr "Le password non corrispondono."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Rimuovi"
+msgstr "Rimuovi figlio"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
-msgstr ""
+msgstr "Il figlio %1 sarà rimosso dallo spazio %2"
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
@@ -3318,6 +3301,8 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
+"Lo spazio attuale è il genitore ufficiale di questa stanza, dovrebbe essere "
+"cancellato?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3877,8 +3862,7 @@ msgid "Add new child"
 msgstr "Aggiungi nuovo figlio"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Rimuovi"
@@ -4416,6 +4400,9 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Esci"
+
+#~ msgid "No Topic"
+#~ msgstr "Nessun argomento"
 
 #, fuzzy
 #~| msgid "Add new alias"

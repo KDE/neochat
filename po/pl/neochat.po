@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-06 01:41+0000\n"
-"PO-Revision-Date: 2023-10-01 09:46+0200\n"
+"POT-Creation-Date: 2023-10-08 01:38+0000\n"
+"PO-Revision-Date: 2023-10-07 07:48+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -2222,56 +2222,45 @@ msgstr "Podglądy URL są domyślnie wyłączone w tym pokoju"
 #: src/qml/General.qml:282
 #, kde-format
 msgid "Official Parent Spaces"
-msgstr ""
+msgstr "Oficjalne przestrzenie nadrzędne"
 
 #: src/qml/General.qml:317
-#, fuzzy, kde-format
-#| msgid "Remove Message"
+#, kde-format
 msgid "Remove parent"
-msgstr "Usuń wiadomość"
+msgstr "Usuń nadrzędnego"
 
 #: src/qml/General.qml:330
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgid "This room has no official parent spaces."
-msgstr "Ten pokój został zastąpiony."
+msgstr "Ten pokój ne ma żadnej oficjalnej przestrzeni nadrzędnej."
 
 #: src/qml/General.qml:335
 #, kde-format
 msgid "Add Official Parent Space"
-msgstr ""
+msgstr "Dodaj oficjalną przestrzeń nadrzędną"
 
 #: src/qml/General.qml:438
-#, fuzzy, kde-format
-#| msgid "Set the children of this space"
+#, kde-format
 msgid "Set this room as a child of the space %1"
-msgstr "Ustaw przestrzeń podrzędną dla tej przestrzeni"
+msgstr "Ustaw ten pokój jako podrzędny dla przestrzeni %1"
 
 #: src/qml/General.qml:445
-#, fuzzy, kde-format
-#| msgid ""
-#| "You do not have a high enough privilege level in the child to set this "
-#| "state"
+#, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
-"Nie masz wystarczającego poziomu uprawnień w przestrzeni podrzędnej, aby "
+"Nie masz wystarczającego poziomu uprawnień w przestrzeni nadrzędnej, aby "
 "ustawić ten stan"
 
 #: src/qml/General.qml:445
 #, kde-format
 msgid "The selected room is not a space"
-msgstr ""
+msgstr "Wybrany pokój nie jest przestrzenią"
 
 #: src/qml/General.qml:445
-#, fuzzy, kde-format
-#| msgid ""
-#| "You do not have a high enough privilege level in the child to set this "
-#| "state"
+#, kde-format
 msgid "You do not have the privileges to complete this action"
-msgstr ""
-"Nie masz wystarczającego poziomu uprawnień w przestrzeni podrzędnej, aby "
-"ustawić ten stan"
+msgstr "Nie masz uprawnień, aby ukończyć to działanie"
 
 #: src/qml/General.qml:460
 #, kde-format
@@ -2552,11 +2541,6 @@ msgstr "Nieznany"
 #, kde-format
 msgid "No name"
 msgstr "Brak nazwy"
-
-#: src/qml/GroupChatDrawerHeader.qml:85
-#, kde-format
-msgid "No Topic"
-msgstr "Brak tematu"
 
 #: src/qml/Homeserver.qml:19
 #, kde-format
@@ -4389,6 +4373,9 @@ msgstr "Pokaż"
 #, kde-format
 msgid "Quit"
 msgstr "Zakończ"
+
+#~ msgid "No Topic"
+#~ msgstr "Brak tematu"
 
 #~| msgid "Add new alias"
 #~ msgid "The child "
