@@ -52,32 +52,9 @@ Kirigami.ScrollablePage {
         contentItem: RowLayout {
             Kirigami.SearchField {
                 id: identifierField
-                property bool isRoomAlias: text.match(/#(.+):(.+)/g)
-                property NeoChatRoom room: isRoomAlias ? connection.roomByAlias(text) : null
-                property bool isJoined: room != null
-
                 Layout.fillWidth: true
-
                 placeholderText: i18n("Find a room...")
             }
-
-            QQC2.Button {
-                id: joinButton
-
-                visible: identifierField.isRoomAlias
-
-                text: identifierField.isJoined ? i18n("View") : i18n("Join")
-                highlighted: true
-
-                onClicked: {
-                    if (!identifierField.isJoined) {
-                        Controller.joinRoom(identifierField.text);
-                        // When joining the room, the room will be opened
-                    }
-                    applicationWindow().pageStack.layers.pop();
-                }
-            }
-
             QQC2.ComboBox {
                 id: serverField
 
@@ -252,19 +229,26 @@ Kirigami.ScrollablePage {
             }
         }
 
-        footer: RowLayout {
-            width: parent.width
+        header: Delegates.RoundedItemDelegate {
+            Layout.fillWidth: true
+            onClicked: _private.openManualRoomDialog()
 
-            QQC2.ProgressBar {
-                visible: publicRoomsListView.model.loading && publicRoomsListView.count !== 0
-                indeterminate: true
-                padding: Kirigami.Units.largeSpacing * 2
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                Layout.topMargin: Kirigami.Units.largeSpacing
-                Layout.bottomMargin: Kirigami.Units.largeSpacing
-                Layout.leftMargin: Kirigami.Units.largeSpacing
-                Layout.rightMargin: Kirigami.Units.largeSpacing
-            }
+            text: i18n("Enter a room address")
+            icon.name: "compass"
+            icon.width: Kirigami.Units.gridUnit * 2
+            icon.height: Kirigami.Units.gridUnit * 2
+        }
+
+        footer: QQC2.ProgressBar {
+            width: parent.width
+            visible: publicRoomsListView.count !== 0 && publicRoomsListView.model.loading
+            indeterminate: true
+            padding: Kirigami.Units.largeSpacing * 2
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
         }
 
         Kirigami.LoadingPlaceholder {
@@ -275,7 +259,24 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             visible: !publicRoomsListView.model.loading && publicRoomsListView.count === 0
-            text: i18nc("@info:label", "No rooms found")
+            text: i18nc("@info:label", "No public rooms found")
+        }
+    }
+
+    Component {
+        id: manualRoomDialog
+        ManualRoomDialog {}
+    }
+
+    QtObject {
+        id: _private
+        function openManualRoomDialog() {
+            let dialog = manualRoomDialog.createObject(applicationWindow().overlay, {connection: root.connection});
+            dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
+                root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
+                root.closeDialog();
+            });
+            dialog.open();
         }
     }
 }
