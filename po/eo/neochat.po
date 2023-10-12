@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-12 01:42+0000\n"
 "PO-Revision-Date: 2023-10-07 23:20+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -1678,7 +1678,7 @@ msgid "Make this parent official"
 msgstr "Oficialigi tiun gepatron"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
+#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2666,72 +2666,69 @@ msgstr "Uzanto aŭ jam estas membro aŭ estas invitita"
 msgid "Explore Rooms"
 msgstr "Esplori Ĉambrojn"
 
-#: src/qml/JoinRoomPage.qml:61
+#: src/qml/JoinRoomPage.qml:56
 #, kde-format
 msgid "Find a room..."
 msgstr "Trovi ĉambron..."
 
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "View"
-msgstr "Rigardi"
-
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "Join"
-msgstr "Aliĝi"
-
-#: src/qml/JoinRoomPage.qml:104
+#: src/qml/JoinRoomPage.qml:81
 #, kde-format
 msgid "Add New Server"
 msgstr "Aldoni Novan Servilon"
 
-#: src/qml/JoinRoomPage.qml:119
+#: src/qml/JoinRoomPage.qml:96
 #, kde-format
 msgid "Home Server"
 msgstr "Hejma Servilo"
 
-#: src/qml/JoinRoomPage.qml:126
+#: src/qml/JoinRoomPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Aldoni novan servilon"
 
-#: src/qml/JoinRoomPage.qml:158
+#: src/qml/JoinRoomPage.qml:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Aldoni servilon"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Valid server entered"
 msgstr "Valida servilo eniris"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Ĉi tiu servilo ne povas esti solvita aŭ jam estis aldonita"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "La enigita teksto ne estas valida URL"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Enigu servilan url ekz. kde.org"
 
-#: src/qml/JoinRoomPage.qml:179
+#: src/qml/JoinRoomPage.qml:156
 #, kde-format
 msgid "Server URL"
 msgstr "Servila URL"
 
-#: src/qml/JoinRoomPage.qml:278
+#: src/qml/JoinRoomPage.qml:236
 #, kde-format
+msgid "Enter a room address"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No rooms found"
 msgctxt "@info:label"
-msgid "No rooms found"
+msgid "No public rooms found"
 msgstr "Neniuj ĉambroj trovitaj"
 
 #: src/qml/KeyVerificationDialog.qml:18
@@ -2899,6 +2896,34 @@ msgstr "Komenci babiladon"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Ĉu vi volas komenci babiladon kun %1?"
+
+#: src/qml/ManualRoomDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@title"
+msgid "Room ID or Alias"
+msgstr "Ĉambro ID"
+
+#: src/qml/ManualRoomDialog.qml:44
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:87
+#, kde-format
+msgid "Room ID or Alias:"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
+#, kde-format
+msgid "Must start with # for an alias or ! for an ID"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:96
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The input is not a valid room ID or alias"
+msgstr "La enigita teksto ne estas valida URL"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -4351,6 +4376,12 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgid "View"
+#~ msgstr "Rigardi"
+
+#~ msgid "Join"
+#~ msgstr "Aliĝi"
 
 #~ msgid "No Topic"
 #~ msgstr "Neniu Temo"

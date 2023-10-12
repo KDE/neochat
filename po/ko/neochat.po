@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-12 01:42+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1673,7 +1673,7 @@ msgid "Make this parent official"
 msgstr "이 부모를 공식으로 설정"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
+#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2655,72 +2655,69 @@ msgstr "사용자가 이미 대화방에 소속되어 있거나 초대됨"
 msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
-#: src/qml/JoinRoomPage.qml:61
+#: src/qml/JoinRoomPage.qml:56
 #, kde-format
 msgid "Find a room..."
 msgstr "대화방 찾기..."
 
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "View"
-msgstr "보기"
-
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "Join"
-msgstr "입장"
-
-#: src/qml/JoinRoomPage.qml:104
+#: src/qml/JoinRoomPage.qml:81
 #, kde-format
 msgid "Add New Server"
 msgstr "새 서버 추가"
 
-#: src/qml/JoinRoomPage.qml:119
+#: src/qml/JoinRoomPage.qml:96
 #, kde-format
 msgid "Home Server"
 msgstr "홈 서버"
 
-#: src/qml/JoinRoomPage.qml:126
+#: src/qml/JoinRoomPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "새 서버 추가"
 
-#: src/qml/JoinRoomPage.qml:158
+#: src/qml/JoinRoomPage.qml:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "서버 추가"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Valid server entered"
 msgstr "올바른 서버를 입력함"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "이 서버를 해석할 수 없거나 이미 추가됨"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "입력한 텍스트가 올바른 URL이 아님"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "서버 URL 입력(예: kde.org)"
 
-#: src/qml/JoinRoomPage.qml:179
+#: src/qml/JoinRoomPage.qml:156
 #, kde-format
 msgid "Server URL"
 msgstr "서버 URL"
 
-#: src/qml/JoinRoomPage.qml:278
+#: src/qml/JoinRoomPage.qml:236
 #, kde-format
+msgid "Enter a room address"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No rooms found"
 msgctxt "@info:label"
-msgid "No rooms found"
+msgid "No public rooms found"
 msgstr "대화방을 찾을 수 없음"
 
 #: src/qml/KeyVerificationDialog.qml:18
@@ -2888,6 +2885,34 @@ msgstr "대화 시작"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
+
+#: src/qml/ManualRoomDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@title"
+msgid "Room ID or Alias"
+msgstr "대화방 ID"
+
+#: src/qml/ManualRoomDialog.qml:44
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:87
+#, kde-format
+msgid "Room ID or Alias:"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
+#, kde-format
+msgid "Must start with # for an alias or ! for an ID"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:96
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The input is not a valid room ID or alias"
+msgstr "입력한 텍스트가 올바른 URL이 아님"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -4315,6 +4340,12 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgid "View"
+#~ msgstr "보기"
+
+#~ msgid "Join"
+#~ msgstr "입장"
 
 #~ msgid "No Topic"
 #~ msgstr "주제 없음"

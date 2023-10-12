@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
-"PO-Revision-Date: 2023-10-08 21:27+0200\n"
+"POT-Creation-Date: 2023-10-12 01:42+0000\n"
+"PO-Revision-Date: 2023-10-10 18:28+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1653,16 +1653,14 @@ msgid "Create a Room"
 msgstr "Créer un salon"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgid "New Space Information"
-msgstr "Informations sur le serveur"
+msgstr "Nouvelles informations sur les espaces"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "New Room Information"
-msgstr "Informations sur un salon"
+msgstr "Nouvelles informations sur les salons"
 
 #: src/qml/CreateRoomDialog.qml:44
 #, kde-format
@@ -1687,10 +1685,10 @@ msgstr "Sujet :"
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
 msgid "Make this parent official"
-msgstr ""
+msgstr "Rendre officiel ce parent"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
+#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1699,7 +1697,7 @@ msgstr "Ok"
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
 msgid "Select Existing Room"
-msgstr ""
+msgstr "Sélectionnez un salon existant"
 
 #: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
 #, kde-format
@@ -1726,12 +1724,15 @@ msgstr "Joint"
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
+"Vous avez le niveau de privilèges requis chez le fils pour définir cet état"
 
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
+"Vous ne possédez pas un niveau de privilège suffisamment élevé chez l'enfant "
+"pour définir cet état"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2227,46 +2228,45 @@ msgstr "Les aperçus des URL sont désactivés par défaut dans ce salon."
 #: src/qml/General.qml:282
 #, kde-format
 msgid "Official Parent Spaces"
-msgstr ""
+msgstr "Espaces parents officiels"
 
 #: src/qml/General.qml:317
-#, fuzzy, kde-format
-#| msgid "Remove Message"
+#, kde-format
 msgid "Remove parent"
-msgstr "Supprimer un message"
+msgstr "Supprimer un parent"
 
 #: src/qml/General.qml:330
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgid "This room has no official parent spaces."
-msgstr "Ce salon a été remplacé."
+msgstr "Ce salon n'a aucun espace parent officiel."
 
 #: src/qml/General.qml:335
 #, kde-format
 msgid "Add Official Parent Space"
-msgstr ""
+msgstr "Ajouter un espace parent officiel"
 
 #: src/qml/General.qml:438
-#, fuzzy, kde-format
-#| msgid "Set the children of this space"
+#, kde-format
 msgid "Set this room as a child of the space %1"
-msgstr "Définir les enfants de cette espace"
+msgstr "Définir ce salon comme un fils de l'espace %1"
 
 #: src/qml/General.qml:445
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
+"Vous ne possédez pas un niveau de privilège suffisamment élevé chez le "
+"parent pour définir cet état"
 
 #: src/qml/General.qml:445
 #, kde-format
 msgid "The selected room is not a space"
-msgstr ""
+msgstr "Le salon sélectionné n'est pas un espace"
 
 #: src/qml/General.qml:445
 #, kde-format
 msgid "You do not have the privileges to complete this action"
-msgstr ""
+msgstr "Vous ne possédez pas les privilèges pour terminer cette action"
 
 #: src/qml/General.qml:460
 #, kde-format
@@ -2686,72 +2686,71 @@ msgstr "L'utilisateur est déjà membre ou a été invité"
 msgid "Explore Rooms"
 msgstr "Explorer les salons"
 
-#: src/qml/JoinRoomPage.qml:61
+#: src/qml/JoinRoomPage.qml:56
 #, kde-format
 msgid "Find a room..."
 msgstr "Trouver un salon..."
 
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "View"
-msgstr "Afficher"
-
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "Join"
-msgstr "Rejoindre"
-
-#: src/qml/JoinRoomPage.qml:104
+#: src/qml/JoinRoomPage.qml:81
 #, kde-format
 msgid "Add New Server"
 msgstr "Ajouter un nouveau serveur"
 
-#: src/qml/JoinRoomPage.qml:119
+#: src/qml/JoinRoomPage.qml:96
 #, kde-format
 msgid "Home Server"
 msgstr "Serveur personnel"
 
-#: src/qml/JoinRoomPage.qml:126
+#: src/qml/JoinRoomPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Ajouter un nouveau serveur"
 
-#: src/qml/JoinRoomPage.qml:158
+#: src/qml/JoinRoomPage.qml:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Ajouter un serveur"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Valid server entered"
 msgstr "Un serveur valable a été saisi"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Ce serveur n'a pu être trouvé ou il a déjà été ajouté"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Le texte saisi n'est pas une URL valable"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Saisissez une URL de serveur, par exemple kde.org"
 
-#: src/qml/JoinRoomPage.qml:179
+#: src/qml/JoinRoomPage.qml:156
 #, kde-format
 msgid "Server URL"
 msgstr "URL du serveur"
 
-#: src/qml/JoinRoomPage.qml:278
-#, kde-format
+#: src/qml/JoinRoomPage.qml:236
+#, fuzzy, kde-format
+#| msgctxt "@label Parameter of a command"
+#| msgid "<room-address>"
+msgid "Enter a room address"
+msgstr "<room-address>"
+
+#: src/qml/JoinRoomPage.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No rooms found"
 msgctxt "@info:label"
-msgid "No rooms found"
+msgid "No public rooms found"
 msgstr "Aucun salon n'a été trouvé."
 
 #: src/qml/KeyVerificationDialog.qml:18
@@ -2921,6 +2920,34 @@ msgstr "Démarrer une conversation"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Voulez-vous démarrer une discussion avec %1 ?"
+
+#: src/qml/ManualRoomDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@title"
+msgid "Room ID or Alias"
+msgstr "Identifiant du salon"
+
+#: src/qml/ManualRoomDialog.qml:44
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:87
+#, kde-format
+msgid "Room ID or Alias:"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
+#, kde-format
+msgid "Must start with # for an alias or ! for an ID"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:96
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The input is not a valid room ID or alias"
+msgstr "Le texte saisi n'est pas une URL valable"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -3290,16 +3317,15 @@ msgid "The passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
 
 #: src/qml/RemoveChildDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Supprimer"
+msgstr "Supprimer un fils"
 
 #: src/qml/RemoveChildDialog.qml:41
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
-msgstr ""
+msgstr "Le fils %1 sera supprimé de l'espace %2"
 
 #: src/qml/RemoveChildDialog.qml:48
 #, kde-format
@@ -3307,6 +3333,8 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
+"L'espace actuel est le parent officiel de ce salon. Voulez-vous vraiment "
+"effacer tout cela ?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3411,12 +3439,10 @@ msgid "Settings"
 msgstr "Configuration"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
-msgstr "Espacer les membres"
+msgstr "Membres de l'espace"
 
 #: src/qml/RoomInformation.qml:41
 #, kde-format
@@ -3853,12 +3879,10 @@ msgid "All Rooms"
 msgstr "Tous les salons"
 
 #: src/qml/SpaceHierarchyDelegate.qml:92
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr "Membre %1"
+msgstr " membres - "
 
 #: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
@@ -3867,11 +3891,10 @@ msgid " members"
 msgstr " membres"
 
 #: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "Ajouter un nouvel alias"
+msgstr "Ajouter un nouveau fils"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
 #, kde-format
@@ -3880,34 +3903,28 @@ msgid "Remove"
 msgstr "Supprimer"
 
 #: src/qml/SpaceHomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "Inviter des utilisateurs dans un salon"
+msgstr "Inviter un utilisateur dans un espace"
 
 #: src/qml/SpaceHomePage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
-msgstr "Laisser un espace"
+msgstr "Quitter l'espace"
 
 #: src/qml/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@button"
 msgid "Space settings"
-msgstr "Configuration des espacements"
+msgstr "Configuration des espaces"
 
 #: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "Créer un salon"
+msgstr "Créer un fils"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4179,10 +4196,7 @@ msgstr ""
 "La vérification de session a été annulée car les clés sont incorrectes."
 
 #: src/qml/VerificationCanceled.qml:45
-#, fuzzy, kde-format
-#| msgid ""
-#| "The remote party canceled the session verification because the keys are "
-#| "incorrect."
+#, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect.\n"
@@ -4190,7 +4204,10 @@ msgid ""
 "**Please log out and log back in, your session is broken/corrupt.**"
 msgstr ""
 "La partie distante a annulé la vérification de la session car les clés sont "
-"incorrectes."
+"incorrectes.\n"
+"\n"
+"** Veuillez vous déconnecter et vous re-connecter car votre session est "
+"interrompue / corrompue."
 
 #: src/qml/VerificationCanceled.qml:47
 #, kde-format
@@ -4414,6 +4431,12 @@ msgstr "Afficher"
 #, kde-format
 msgid "Quit"
 msgstr "Quitter"
+
+#~ msgid "View"
+#~ msgstr "Afficher"
+
+#~ msgid "Join"
+#~ msgstr "Rejoindre"
 
 #~ msgid "No Topic"
 #~ msgstr "Aucun sujet"
@@ -4760,10 +4783,6 @@ msgstr "Quitter"
 #~ msgctxt "@title:menu Message detail dialog"
 #~ msgid "Message detail"
 #~ msgstr "Détails du message"
-
-#~ msgctxt "@label Parameter of a command"
-#~ msgid "<room-address>"
-#~ msgstr "<room-address>"
 
 #~ msgctxt "@label Parameter of a command"
 #~ msgid "[<room-address>]"

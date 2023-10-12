@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-12 01:42+0000\n"
 "PO-Revision-Date: 2022-12-30 18:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -1670,7 +1670,7 @@ msgid "Make this parent official"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
+#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2646,72 +2646,67 @@ msgstr ""
 msgid "Explore Rooms"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:61
+#: src/qml/JoinRoomPage.qml:56
 #, kde-format
 msgid "Find a room..."
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "View"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "Join"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:104
+#: src/qml/JoinRoomPage.qml:81
 #, kde-format
 msgid "Add New Server"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:119
+#: src/qml/JoinRoomPage.qml:96
 #, kde-format
 msgid "Home Server"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:126
+#: src/qml/JoinRoomPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:158
+#: src/qml/JoinRoomPage.qml:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Valid server entered"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:179
+#: src/qml/JoinRoomPage.qml:156
 #, kde-format
 msgid "Server URL"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:278
+#: src/qml/JoinRoomPage.qml:236
+#, kde-format
+msgid "Enter a room address"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:262
 #, kde-format
 msgctxt "@info:label"
-msgid "No rooms found"
+msgid "No public rooms found"
 msgstr ""
 
 #: src/qml/KeyVerificationDialog.qml:18
@@ -2876,6 +2871,32 @@ msgstr ""
 #: src/qml/main.qml:375
 #, kde-format
 msgid "Do you want to start a chat with %1?"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:32
+#, kde-format
+msgctxt "@title"
+msgid "Room ID or Alias"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:44
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:87
+#, kde-format
+msgid "Room ID or Alias:"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
+#, kde-format
+msgid "Must start with # for an alias or ! for an ID"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:96
+#, kde-format
+msgid "The input is not a valid room ID or alias"
 msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:110

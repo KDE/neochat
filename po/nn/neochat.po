@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-12 01:42+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1691,7 +1691,7 @@ msgid "Make this parent official"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:203
+#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2680,73 +2680,70 @@ msgstr "Brukaren er alt medlem eller invitert"
 msgid "Explore Rooms"
 msgstr "Utforsk rom"
 
-#: src/qml/JoinRoomPage.qml:61
+#: src/qml/JoinRoomPage.qml:56
 #, kde-format
 msgid "Find a room..."
 msgstr "Finn eit rom …"
 
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "View"
-msgstr "Vis"
-
-#: src/qml/JoinRoomPage.qml:69
-#, kde-format
-msgid "Join"
-msgstr "Vert med"
-
-#: src/qml/JoinRoomPage.qml:104
+#: src/qml/JoinRoomPage.qml:81
 #, kde-format
 msgid "Add New Server"
 msgstr "Legg til ny tenar"
 
-#: src/qml/JoinRoomPage.qml:119
+#: src/qml/JoinRoomPage.qml:96
 #, kde-format
 msgid "Home Server"
 msgstr "Heimetenar"
 
-#: src/qml/JoinRoomPage.qml:126
+#: src/qml/JoinRoomPage.qml:103
 #, fuzzy, kde-format
 #| msgid "Add new server"
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Legg til ny tenar"
 
-#: src/qml/JoinRoomPage.qml:158
+#: src/qml/JoinRoomPage.qml:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Legg tenar"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Valid server entered"
 msgstr "Gyldig tenar"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Fann ikkje adressa til tenaren, eller så er han alt lagd til"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Oppgjeven tekst er ikkje ei gyldig adresse"
 
-#: src/qml/JoinRoomPage.qml:171
+#: src/qml/JoinRoomPage.qml:148
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Skriv inn adressa til tenaren, eks. kde.org"
 
-#: src/qml/JoinRoomPage.qml:179
+#: src/qml/JoinRoomPage.qml:156
 #, kde-format
 msgid "Server URL"
 msgstr "Tenaradresse"
 
-#: src/qml/JoinRoomPage.qml:278
+#: src/qml/JoinRoomPage.qml:236
 #, kde-format
+msgid "Enter a room address"
+msgstr ""
+
+#: src/qml/JoinRoomPage.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No rooms found"
 msgctxt "@info:label"
-msgid "No rooms found"
+msgid "No public rooms found"
 msgstr "Fann ingen rom"
 
 #: src/qml/KeyVerificationDialog.qml:18
@@ -2915,6 +2912,34 @@ msgstr "Start prat"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vil du starta ein prat med %1?"
+
+#: src/qml/ManualRoomDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@title"
+msgid "Room ID or Alias"
+msgstr "Rom-ID"
+
+#: src/qml/ManualRoomDialog.qml:44
+#, kde-format
+msgid "OK"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:87
+#, kde-format
+msgid "Room ID or Alias:"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
+#, kde-format
+msgid "Must start with # for an alias or ! for an ID"
+msgstr ""
+
+#: src/qml/ManualRoomDialog.qml:96
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The input is not a valid room ID or alias"
+msgstr "Oppgjeven tekst er ikkje ei gyldig adresse"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -4386,3 +4411,9 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr "Avslutt"
+
+#~ msgid "View"
+#~ msgstr "Vis"
+
+#~ msgid "Join"
+#~ msgstr "Vert med"
