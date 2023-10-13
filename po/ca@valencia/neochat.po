@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-12 01:42+0000\n"
-"PO-Revision-Date: 2023-10-04 11:36+0200\n"
+"PO-Revision-Date: 2023-10-12 09:48+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2739,15 +2739,13 @@ msgstr "URL del servidor"
 #: src/qml/JoinRoomPage.qml:236
 #, kde-format
 msgid "Enter a room address"
-msgstr ""
+msgstr "Introduïu una adreça de sala"
 
 #: src/qml/JoinRoomPage.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
-msgstr "No s'ha trobat cap sala"
+msgstr "No s'ha trobat cap sala pública"
 
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
@@ -2916,32 +2914,31 @@ msgid "Do you want to start a chat with %1?"
 msgstr "Voleu iniciar un xat amb %1?"
 
 #: src/qml/ManualRoomDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
-msgstr "ID de la sala"
+msgstr "ID de la sala o àlies"
 
 #: src/qml/ManualRoomDialog.qml:44
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "D'acord"
 
 #: src/qml/ManualRoomDialog.qml:87
 #, kde-format
 msgid "Room ID or Alias:"
-msgstr ""
+msgstr "ID de la sala o àlies:"
 
+# skip-rule: t-sp_ad, t-ad_maj
 #: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
-msgstr ""
+msgstr "Cal que comence amb # per a un àlies o ! per a un ID"
 
 #: src/qml/ManualRoomDialog.qml:96
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The input is not a valid room ID or alias"
-msgstr "El text que heu introduït no és un URL vàlid"
+msgstr "L'entrada no és un ID de sala o àlies vàlid"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -3979,12 +3976,12 @@ msgstr ""
 #: src/qml/TimelineView.qml:151
 #, kde-format
 msgid "Jump to first unread message"
-msgstr "Ves al primer missatge sense llegir"
+msgstr "Ves fins al primer missatge sense llegir"
 
 #: src/qml/TimelineView.qml:174
 #, kde-format
 msgid "Jump to latest message"
-msgstr "Ves al últim missatge"
+msgstr "Ves fins a l'últim missatge"
 
 #: src/qml/TimelineView.qml:200
 #, kde-format
@@ -4418,12 +4415,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgid "View"
-#~ msgstr "Visualitza"
-
-#~ msgid "Join"
-#~ msgstr "Unix"
-
-#~ msgid "No Topic"
-#~ msgstr "Sense tema"
