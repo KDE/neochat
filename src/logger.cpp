@@ -212,7 +212,7 @@ void filter(QLoggingCategory *category)
 
 void initLogging()
 {
-    e2eeDebugEnabled = QLoggingCategory("quotient.e2ee", QtDebugMsg).isEnabled(QtDebugMsg);
+    e2eeDebugEnabled = QLoggingCategory("quotient.e2ee", QtInfoMsg).isEnabled(QtDebugMsg);
     oldCategoryFilter = QLoggingCategory::installFilter(filter);
     oldHandler = qInstallMessageHandler(messageHandler);
     sInstance->setOrigHandler(oldHandler);
