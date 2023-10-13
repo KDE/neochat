@@ -55,17 +55,9 @@ RowLayout {
         Layout.preferredWidth: Kirigami.Units.iconSizes.small
         Layout.preferredHeight: Kirigami.Units.iconSizes.small
 
-        source: root.author?.avatarUrl ?? ""
+        source: root.author?.avatarSource ?? ""
         name: root.author?.displayName ?? ""
         color: root.author?.color ?? undefined
-
-        Rectangle {
-            radius: height
-            height: 4
-            width: 4
-            color: root.author.color
-            anchors.centerIn: parent
-        }
 
         MouseArea {
             anchors.fill: parent

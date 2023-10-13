@@ -110,14 +110,6 @@ TimelineDelegate {
                             name: parent.modelData.displayName
                             source: parent.modelData.avatarSource
                             color: parent.modelData.color
-
-                            Rectangle {
-                                radius: height
-                                height: 4
-                                width: 4
-                                color: avatarDelegate.modelData.color
-                                anchors.centerIn: parent
-                            }
                         }
                     }
                 }
