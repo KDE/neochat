@@ -157,12 +157,12 @@ Kirigami.Page {
             }, {
                 title: i18nc("@title", "Create a Child")
             })
-            dialog.addChild.connect((childId, setChildParent) => {
+            dialog.addChild.connect((childId, setChildParent, canonical) => {
                 // We have to get a room object from the connection as we may not
                 // be adding to the top level parent.
                 let parent = root.currentRoom.connection.room(parentId)
                 if (parent) {
-                    parent.addChild(childId, setChildParent)
+                    parent.addChild(childId, setChildParent, canonical)
                 }
             })
             dialog.newChild.connect(childName => {spaceChildrenModel.addPendingChild(childName)})

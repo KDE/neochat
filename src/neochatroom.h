@@ -134,6 +134,21 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(QVector<QString> parentIds READ parentIds NOTIFY parentIdsChanged)
 
     /**
+     * @brief The current canonical parent for the room.
+     *
+     * Empty if no canonical parent is set. The write method can only be used to
+     * set an existing parent as canonical; If you wish to add a new parent and set
+     * it as canonical use the addParent method and pass true to the canonical
+     * parameter.
+     *
+     * Setting will fail if the user doesn't have the required privileges (see
+     * canModifyParent) or if the given room ID is not a parent room.
+     *
+     * @sa canModifyParent, addParent
+     */
+    Q_PROPERTY(QString canonicalParent READ canonicalParent WRITE setCanonicalParent NOTIFY canonicalParentChanged)
+
+    /**
      * @brief If the room is a space.
      */
     Q_PROPERTY(bool isSpace READ isSpace CONSTANT)
@@ -601,10 +616,8 @@ public:
 
     QVector<QString> parentIds() const;
 
-    /**
-     * @brief Whether the given parent is the canonical parent of the room.
-     */
-    Q_INVOKABLE bool isCanonicalParent(const QString &parentId) const;
+    QString canonicalParent() const;
+    void setCanonicalParent(const QString &parentId);
 
     /**
      * @brief Whether the local user has permission to set the given space as a parent.
@@ -622,7 +635,7 @@ public:
      *
      * @sa canModifyParent()
      */
-    Q_INVOKABLE void addParent(const QString &parentId);
+    Q_INVOKABLE void addParent(const QString &parentId, bool canonical = false, bool setParentChild = false);
 
     /**
      * @brief Remove the given room as a parent.
@@ -642,7 +655,7 @@ public:
      * Will fail if the user doesn't have the required privileges or this room is
      * not a space.
      */
-    Q_INVOKABLE void addChild(const QString &childId, bool setChildParent = false);
+    Q_INVOKABLE void addChild(const QString &childId, bool setChildParent = false, bool canonical = false);
 
     /**
      * @brief Remove the given room as a child.
@@ -927,6 +940,7 @@ Q_SIGNALS:
     void backgroundChanged();
     void readMarkerLoadedChanged();
     void parentIdsChanged();
+    void canonicalParentChanged();
     void lastActiveTimeChanged();
     void isInviteChanged();
     void displayNameChanged();

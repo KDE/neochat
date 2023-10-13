@@ -309,18 +309,38 @@ FormCard.FormCardPage {
                     }
                 }
 
-                contentItem.children: QQC2.ToolButton {
-                    visible: officalParentDelegate?.space.canSendState("m.space.child") && root.room.canSendState("m.space.parent")
-                    display: QQC2.AbstractButton.IconOnly
-                    action: Kirigami.Action {
-                        id: removeParentAction
-                        text: i18n("Remove parent")
-                        icon.name: "edit-delete-remove"
-                        onTriggered: root.room.removeParent(officalParentDelegate.modelData)
+                contentItem.children: RowLayout {
+                    QQC2.Label {
+                        visible: root.room.canonicalParent === officalParentDelegate.modelData
+                        text: i18n("Canonical")
                     }
-                    QQC2.ToolTip {
-                        text: removeParentAction.text
-                        delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolButton {
+                        visible: root.room.canSendState("m.space.parent") && root.room.canonicalParent !== officalParentDelegate.modelData
+                        display: QQC2.AbstractButton.IconOnly
+                        action: Kirigami.Action {
+                            id: canonicalParentAction
+                            text: i18n("Make canonical parent")
+                            icon.name: "checkmark"
+                            onTriggered: root.room.canonicalParent = officalParentDelegate.modelData
+                        }
+                        QQC2.ToolTip {
+                            text: canonicalParentAction.text
+                            delay: Kirigami.Units.toolTipDelay
+                        }
+                    }
+                    QQC2.ToolButton {
+                        visible: officalParentDelegate?.space.canSendState("m.space.child") && root.room.canSendState("m.space.parent")
+                        display: QQC2.AbstractButton.IconOnly
+                        action: Kirigami.Action {
+                            id: removeParentAction
+                            text: i18n("Remove parent")
+                            icon.name: "edit-delete-remove"
+                            onTriggered: root.room.removeParent(officalParentDelegate.modelData)
+                        }
+                        QQC2.ToolTip {
+                            text: removeParentAction.text
+                            delay: Kirigami.Units.toolTipDelay
+                        }
                     }
                 }
             }
@@ -445,11 +465,18 @@ FormCard.FormCardPage {
             text: existingOfficialCheck.space ? (existingOfficialCheck.space.isSpace ? i18n("You do not have a high enough privilege level in the parent to set this state") : i18n("The selected room is not a space")) : i18n("You do not have the privileges to complete this action")
             textItem.color: Kirigami.Theme.negativeTextColor
         }
+        FormCard.FormCheckDelegate {
+            id: makeCanonicalCheck
+            text: i18n("Make this space the canonical parent")
+            checked: enabled
+
+            enabled: chosenRoomDelegate.visible
+        }
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Ok")
             enabled: chosenRoomDelegate.visible && root.room.canModifyParent(chosenRoomDelegate.roomId)
             onClicked: {
-                root.room.addParent(chosenRoomDelegate.roomId)
+                root.room.addParent(chosenRoomDelegate.roomId, makeCanonicalCheck.checked, existingOfficialCheck.checked)
             }
         }
     }

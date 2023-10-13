@@ -118,6 +118,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &Room::changed, this, [this] {
         Q_EMIT canEncryptRoomChanged();
         Q_EMIT parentIdsChanged();
+        Q_EMIT canonicalParentChanged();
     });
     connect(connection, &Connection::capabilitiesLoaded, this, &NeoChatRoom::maxRoomVersionChanged);
     connect(this, &Room::changed, this, [this]() {
@@ -1117,12 +1118,41 @@ QVector<QString> NeoChatRoom::parentIds() const
     return parentIds;
 }
 
-bool NeoChatRoom::isCanonicalParent(const QString &parentId) const
+QString NeoChatRoom::canonicalParent() const
 {
-    if (auto parentEvent = currentState().get("m.space.parent"_ls, parentId)) {
-        return parentEvent->contentPart<bool>("canonical"_ls);
+    auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
+    for (const auto &parentEvent : parentEvents) {
+        if (parentEvent->contentJson().contains("via"_ls) && !parentEvent->contentPart<QJsonArray>("via"_ls).isEmpty()) {
+            if (parentEvent->contentPart<bool>("canonical"_ls)) {
+                return parentEvent->stateKey();
+            }
+        }
     }
-    return false;
+    return {};
+}
+
+void NeoChatRoom::setCanonicalParent(const QString &parentId)
+{
+    if (!canModifyParent(parentId)) {
+        return;
+    }
+    if (const auto &parent = currentState().get("m.space.parent"_ls, parentId)) {
+        auto content = parent->contentJson();
+        content.insert("canonical"_ls, true);
+        setState("m.space.parent"_ls, parentId, content);
+    } else {
+        return;
+    }
+
+    // Only one canonical parent can exist so make sure others are set false.
+    auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
+    for (const auto &parentEvent : parentEvents) {
+        if (parentEvent->contentPart<bool>("canonical"_ls) && parentEvent->stateKey() != parentId) {
+            auto content = parentEvent->contentJson();
+            content.insert("canonical"_ls, false);
+            setState("m.space.parent"_ls, parentEvent->stateKey(), content);
+        }
+    }
 }
 
 bool NeoChatRoom::canModifyParent(const QString &parentId) const
@@ -1151,13 +1181,29 @@ bool NeoChatRoom::canModifyParent(const QString &parentId) const
     return false;
 }
 
-void NeoChatRoom::addParent(const QString &parentId)
+void NeoChatRoom::addParent(const QString &parentId, bool canonical, bool setParentChild)
 {
     if (!canModifyParent(parentId)) {
         return;
     }
-    if (auto parent = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
-        setState("m.space.parent"_ls, parentId, QJsonObject{{"canonical"_ls, true}, {"via"_ls, QJsonArray{connection()->domain()}}});
+    if (canonical) {
+        // Only one canonical parent can exist so make sure others are set false.
+        auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
+        for (const auto &parentEvent : parentEvents) {
+            if (parentEvent->contentPart<bool>("canonical"_ls)) {
+                auto content = parentEvent->contentJson();
+                content.insert("canonical"_ls, false);
+                setState("m.space.parent"_ls, parentEvent->stateKey(), content);
+            }
+        }
+    }
+
+    setState("m.space.parent"_ls, parentId, QJsonObject{{"canonical"_ls, canonical}, {"via"_ls, QJsonArray{connection()->domain()}}});
+
+    if (setParentChild) {
+        if (auto parent = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
+            parent->setState("m.space.child"_ls, id(), QJsonObject{{QLatin1String("via"), QJsonArray{connection()->domain()}}});
+        }
     }
 }
 
@@ -1184,7 +1230,7 @@ bool NeoChatRoom::isSpace()
     return creationEvent->roomType() == RoomType::Space;
 }
 
-void NeoChatRoom::addChild(const QString &childId, bool setChildParent)
+void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool canonical)
 {
     if (!isSpace()) {
         return;
@@ -1197,7 +1243,19 @@ void NeoChatRoom::addChild(const QString &childId, bool setChildParent)
     if (setChildParent) {
         if (auto child = static_cast<NeoChatRoom *>(connection()->room(childId))) {
             if (child->canSendState("m.space.parent"_ls)) {
-                child->setState("m.space.parent"_ls, id(), QJsonObject{{"canonical"_ls, true}, {"via"_ls, QJsonArray{connection()->domain()}}});
+                child->setState("m.space.parent"_ls, id(), QJsonObject{{"canonical"_ls, canonical}, {"via"_ls, QJsonArray{connection()->domain()}}});
+
+                if (canonical) {
+                    // Only one canonical parent can exist so make sure others are set to false.
+                    auto parentEvents = child->currentState().eventsOfType("m.space.parent"_ls);
+                    for (const auto &parentEvent : parentEvents) {
+                        if (parentEvent->contentPart<bool>("canonical"_ls)) {
+                            auto content = parentEvent->contentJson();
+                            content.insert("canonical"_ls, false);
+                            setState("m.space.parent"_ls, parentEvent->stateKey(), content);
+                        }
+                    }
+                }
             }
         }
     }

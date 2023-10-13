@@ -24,7 +24,7 @@ FormCard.FormCardPage {
 
     required property NeoChatConnection connection
 
-    signal addChild(string childId, bool setChildParent)
+    signal addChild(string childId, bool setChildParent, bool canonical)
     signal newChild(string childName)
 
     title: isSpace ? i18nc("@title", "Create a Space") : i18nc("@title", "Create a Room")
@@ -214,11 +214,18 @@ FormCard.FormCardPage {
                 return false;
             }
         }
+        FormCard.FormCheckDelegate {
+            id: makeCanonicalCheck
+            text: i18n("Make this space the canonical parent")
+            checked: enabled
+
+            enabled: existingOfficialCheck.enabled
+        }
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Ok")
             enabled: chosenRoomDelegate.visible
             onClicked: {
-                root.addChild(chosenRoomDelegate.roomId, existingOfficialCheck.checked);
+                root.addChild(chosenRoomDelegate.roomId, existingOfficialCheck.checked, makeCanonicalCheck.checked);
                 root.closeDialog();
             }
         }
