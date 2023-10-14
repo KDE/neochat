@@ -148,7 +148,7 @@ Kirigami.Page {
         sequence: StandardKey.Cancel
         onActivated: {
             if (!timelineViewLoader.item.atYEnd || root.currentRoom.hasUnreadMessages) {
-                goToLastMessage();
+                timelineViewLoader.item.goToLastMessage();
                 root.currentRoom.markAllMessagesAsRead();
             } else {
                 applicationWindow().pageStack.get(0).forceActiveFocus();
