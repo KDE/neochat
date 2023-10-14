@@ -12,7 +12,8 @@ class LocationHelper : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
-    QML_UNCREATABLE("")
+    QML_SINGLETON
+
 public:
     /** Unite two rectanlges. */
     Q_INVOKABLE static QRectF unite(const QRectF &r1, const QRectF &r2);
