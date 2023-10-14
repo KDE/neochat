@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-12 01:42+0000\n"
+"POT-Creation-Date: 2023-10-14 01:48+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -1146,13 +1146,13 @@ msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 
-#: src/neochatroom.cpp:1444 src/neochatroom.cpp:1445
+#: src/neochatroom.cpp:1502 src/neochatroom.cpp:1503
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
 
-#: src/neochatroom.cpp:1818 src/neochatroom.cpp:1826
+#: src/neochatroom.cpp:1876 src/neochatroom.cpp:1884
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1215,7 +1215,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr ""
 
-#: src/qml/About.qml:10
+#: src/qml/About.qml:11
 #, fuzzy, kde-format
 #| msgid "About NeoChat"
 msgctxt "@title:window"
@@ -1819,8 +1819,8 @@ msgstr "ਕੋਈ ਵਿਸ਼ਾ ਨਹੀਂ"
 msgid "Make this parent official"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
+#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
+#: src/qml/General.qml:476 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1831,15 +1831,15 @@ msgstr "ਠੀਕ ਹੈ"
 msgid "Select Existing Room"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
+#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:343
-#: src/qml/General.qml:422 src/qml/GlobalMenu.qml:64
+#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:363
+#: src/qml/General.qml:442 src/qml/GlobalMenu.qml:64
 #: src/qml/RoomListPage.qml:170
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -1848,7 +1848,7 @@ msgid "Explore Rooms"
 msgstr "ਰੂਮ ਛਾਣੋ"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/General.qml:391 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/General.qml:411 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "ਦਾਖਲ ਹੋਏ"
@@ -1862,6 +1862,11 @@ msgstr ""
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
+msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:219 src/qml/General.qml:470
+#, kde-format
+msgid "Make this space the canonical parent"
 msgstr ""
 
 #: src/qml/DeviceDelegate.qml:50
@@ -1945,7 +1950,7 @@ msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
 msgid "Password:"
 msgstr "ਪਾਸਵਰਡ:"
 
-#: src/qml/DevicesPage.qml:75 src/qml/General.qml:509
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:536
 #: src/qml/PowerLevelDialog.qml:43
 #, kde-format
 msgid "Confirm"
@@ -2390,73 +2395,83 @@ msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 msgid "Official Parent Spaces"
 msgstr ""
 
-#: src/qml/General.qml:317
+#: src/qml/General.qml:315
+#, kde-format
+msgid "Canonical"
+msgstr ""
+
+#: src/qml/General.qml:322
+#, kde-format
+msgid "Make canonical parent"
+msgstr ""
+
+#: src/qml/General.qml:336
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Remove parent"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/General.qml:330
+#: src/qml/General.qml:350
 #, fuzzy, kde-format
 #| msgid "This room has been replaced."
 msgid "This room has no official parent spaces."
 msgstr "ਇਸ ਰੂਮ ਨੂੰ ਬਦਲਿਆ ਗਿਆ ਹੈ।"
 
-#: src/qml/General.qml:335
+#: src/qml/General.qml:355
 #, kde-format
 msgid "Add Official Parent Space"
 msgstr ""
 
-#: src/qml/General.qml:438
+#: src/qml/General.qml:458
 #, kde-format
 msgid "Set this room as a child of the space %1"
 msgstr ""
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid "The selected room is not a space"
 msgstr ""
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
-#: src/qml/General.qml:460
+#: src/qml/General.qml:487
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "ਇਹ ਰੂਮ ਹੋਰ ਗੱਲਬਾਤ ਜਾਰੀ ਰੱਖਦਾ ਹੈ।"
 
-#: src/qml/General.qml:464
+#: src/qml/General.qml:491
 #, fuzzy, kde-format
 #| msgid "See older messages..."
 msgid "See older messages…"
 msgstr "...ਪੁਰਾਣੇ ਸੁਨੇਹੇ ਵੇਖੋ"
 
-#: src/qml/General.qml:474
+#: src/qml/General.qml:501
 #, kde-format
 msgid "This room has been replaced."
 msgstr "ਇਸ ਰੂਮ ਨੂੰ ਬਦਲਿਆ ਗਿਆ ਹੈ।"
 
-#: src/qml/General.qml:478
+#: src/qml/General.qml:505
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgid "See new room…"
 msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
 
-#: src/qml/General.qml:499
+#: src/qml/General.qml:526
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "Upgrade the Room"
 msgstr "ਰੂਮ ਛੱਡਿਆ"
 
-#: src/qml/General.qml:503
+#: src/qml/General.qml:530
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgid "Select new version"

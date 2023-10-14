@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-12 01:42+0000\n"
+"POT-Creation-Date: 2023-10-14 01:48+0000\n"
 "PO-Revision-Date: 2023-10-12 09:49+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1057,12 +1057,12 @@ msgstr "Aanmaken van room is mislukt: %1"
 msgid "Space creation failed: %1"
 msgstr "Ruimte aanmaken is mislukt: %1"
 
-#: src/neochatroom.cpp:1444 src/neochatroom.cpp:1445
+#: src/neochatroom.cpp:1502 src/neochatroom.cpp:1503
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport met succes verzonden."
 
-#: src/neochatroom.cpp:1818 src/neochatroom.cpp:1826
+#: src/neochatroom.cpp:1876 src/neochatroom.cpp:1884
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1122,7 +1122,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Gebruiker afwijzen en negeren"
 
-#: src/qml/About.qml:10
+#: src/qml/About.qml:11
 #, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
@@ -1678,8 +1678,8 @@ msgstr "Onderwerp:"
 msgid "Make this parent official"
 msgstr "Deze ouder officieel maken"
 
-#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
+#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
+#: src/qml/General.qml:476 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1690,15 +1690,15 @@ msgstr "OK"
 msgid "Select Existing Room"
 msgstr "Bestaande room selecteren"
 
-#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
+#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "Room kiezen"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:343
-#: src/qml/General.qml:422 src/qml/GlobalMenu.qml:64
+#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:363
+#: src/qml/General.qml:442 src/qml/GlobalMenu.qml:64
 #: src/qml/RoomListPage.qml:170
 #, kde-format
 msgctxt "@title"
@@ -1706,7 +1706,7 @@ msgid "Explore Rooms"
 msgstr "Rooms verkennen"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/General.qml:391 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/General.qml:411 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Neemt deel aan"
@@ -1724,6 +1724,12 @@ msgid ""
 msgstr ""
 "U hebt niet het vereiste rechtenniveau in het kind om deze status in te "
 "stellen"
+
+#: src/qml/CreateRoomDialog.qml:219 src/qml/General.qml:470
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgid "Make this space the canonical parent"
+msgstr "Deze alias de canonieke alias van de room maken"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1797,7 +1803,7 @@ msgstr "Apparaat verwijderen"
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: src/qml/DevicesPage.qml:75 src/qml/General.qml:509
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:536
 #: src/qml/PowerLevelDialog.qml:43
 #, kde-format
 msgid "Confirm"
@@ -2218,27 +2224,39 @@ msgstr "URL voorbeelden zijn uitgeschakeld voor dit room"
 msgid "Official Parent Spaces"
 msgstr "Officiële ruimten voor ouders"
 
-#: src/qml/General.qml:317
+#: src/qml/General.qml:315
+#, fuzzy, kde-format
+#| msgid "Canonical Alias:"
+msgid "Canonical"
+msgstr "Canonieke alias:"
+
+#: src/qml/General.qml:322
+#, fuzzy, kde-format
+#| msgid "No canonical alias set"
+msgid "Make canonical parent"
+msgstr "Geen canonieke alias ingesteld"
+
+#: src/qml/General.qml:336
 #, kde-format
 msgid "Remove parent"
 msgstr "Ouder verwijderen"
 
-#: src/qml/General.qml:330
+#: src/qml/General.qml:350
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Deze room heeft geen officiële ouderruimten."
 
-#: src/qml/General.qml:335
+#: src/qml/General.qml:355
 #, kde-format
 msgid "Add Official Parent Space"
 msgstr "Officiële ouderruimte toevoegen"
 
-#: src/qml/General.qml:438
+#: src/qml/General.qml:458
 #, kde-format
 msgid "Set this room as a child of the space %1"
 msgstr "Deze ruimte als een kind van de ruimte %1 instellen"
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
@@ -2246,42 +2264,42 @@ msgstr ""
 "U hebt niet het vereiste rechtenniveau in de ouder om deze status in te "
 "stellen"
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid "The selected room is not a space"
 msgstr "De geselecteerde room is geen ruimte"
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "U hebt niet de vereiste rechten om deze actie te voltooien"
 
-#: src/qml/General.qml:460
+#: src/qml/General.qml:487
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Deze room laat een andere conversatie verdergaan."
 
-#: src/qml/General.qml:464
+#: src/qml/General.qml:491
 #, kde-format
 msgid "See older messages…"
 msgstr "Zie oudere berichten…"
 
-#: src/qml/General.qml:474
+#: src/qml/General.qml:501
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Deze room is vervangen."
 
-#: src/qml/General.qml:478
+#: src/qml/General.qml:505
 #, kde-format
 msgid "See new room…"
 msgstr "Zie nieuwe room…"
 
-#: src/qml/General.qml:499
+#: src/qml/General.qml:526
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "De room opwaarderen"
 
-#: src/qml/General.qml:503
+#: src/qml/General.qml:530
 #, kde-format
 msgid "Select new version"
 msgstr "Nieuwe versie selecteren"
@@ -4604,9 +4622,6 @@ msgstr "Afsluiten"
 
 #~ msgid "Custom"
 #~ msgstr "Aangepast"
-
-#~ msgid "Canonical Alias:"
-#~ msgstr "Canonieke alias:"
 
 #~ msgid "Timeline"
 #~ msgstr "Tijdlijn"

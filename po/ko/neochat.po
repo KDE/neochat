@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-12 01:42+0000\n"
+"POT-Creation-Date: 2023-10-14 01:48+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1053,12 +1053,12 @@ msgstr "대화방 생성 실패: %1"
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/neochatroom.cpp:1444 src/neochatroom.cpp:1445
+#: src/neochatroom.cpp:1502 src/neochatroom.cpp:1503
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/neochatroom.cpp:1818 src/neochatroom.cpp:1826
+#: src/neochatroom.cpp:1876 src/neochatroom.cpp:1884
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1118,7 +1118,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "거부하고 사용자 무시"
 
-#: src/qml/About.qml:10
+#: src/qml/About.qml:11
 #, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
@@ -1672,8 +1672,8 @@ msgstr "주제:"
 msgid "Make this parent official"
 msgstr "이 부모를 공식으로 설정"
 
-#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
+#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
+#: src/qml/General.qml:476 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1684,15 +1684,15 @@ msgstr "확인"
 msgid "Select Existing Room"
 msgstr "기존 대화방 선택"
 
-#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
+#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "대화방 선택"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:343
-#: src/qml/General.qml:422 src/qml/GlobalMenu.qml:64
+#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:363
+#: src/qml/General.qml:442 src/qml/GlobalMenu.qml:64
 #: src/qml/RoomListPage.qml:170
 #, kde-format
 msgctxt "@title"
@@ -1700,7 +1700,7 @@ msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/General.qml:391 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/General.qml:411 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "입장함"
@@ -1715,6 +1715,12 @@ msgstr "이 상태를 설정하기에 충분한 권한 수준이 있음"
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr "이 상태를 설정하기에 자식 대화방에서 충분한 권한 수준이 없음"
+
+#: src/qml/CreateRoomDialog.qml:219 src/qml/General.qml:470
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgid "Make this space the canonical parent"
+msgstr "이 별명을 대화방의 주 별명으로 설정"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1788,7 +1794,7 @@ msgstr "장치 삭제"
 msgid "Password:"
 msgstr "암호:"
 
-#: src/qml/DevicesPage.qml:75 src/qml/General.qml:509
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:536
 #: src/qml/PowerLevelDialog.qml:43
 #, kde-format
 msgid "Confirm"
@@ -2207,68 +2213,80 @@ msgstr "이 대화방에는 URL 미리 보기가 기본값으로 비활성화되
 msgid "Official Parent Spaces"
 msgstr "공식 부모 스페이스"
 
-#: src/qml/General.qml:317
+#: src/qml/General.qml:315
+#, fuzzy, kde-format
+#| msgid "Canonical Alias:"
+msgid "Canonical"
+msgstr "주 별명:"
+
+#: src/qml/General.qml:322
+#, fuzzy, kde-format
+#| msgid "No canonical alias set"
+msgid "Make canonical parent"
+msgstr "주 별명이 설정되지 않음"
+
+#: src/qml/General.qml:336
 #, kde-format
 msgid "Remove parent"
 msgstr "부모 삭제"
 
-#: src/qml/General.qml:330
+#: src/qml/General.qml:350
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "이 대화방에는 공식 부모 스페이스가 없습니다."
 
-#: src/qml/General.qml:335
+#: src/qml/General.qml:355
 #, kde-format
 msgid "Add Official Parent Space"
 msgstr "공식 부모 스페이스 추가"
 
-#: src/qml/General.qml:438
+#: src/qml/General.qml:458
 #, kde-format
 msgid "Set this room as a child of the space %1"
 msgstr "이 대화방을 %1 스페이스의 자식 대화방으로 설정"
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr "이 상태를 설정하기에 부모 대화방에서 충분한 권한 수준이 없음"
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid "The selected room is not a space"
 msgstr "선택한 대화방이 스페이스가 아님"
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "이 작업을 수행하기에 충분한 권한이 없음"
 
-#: src/qml/General.qml:460
+#: src/qml/General.qml:487
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "이 대화방에서 다른 대화가 진행 중입니다."
 
-#: src/qml/General.qml:464
+#: src/qml/General.qml:491
 #, kde-format
 msgid "See older messages…"
 msgstr "이전 메시지 보기…"
 
-#: src/qml/General.qml:474
+#: src/qml/General.qml:501
 #, kde-format
 msgid "This room has been replaced."
 msgstr "이 대화방이 대체되었습니다."
 
-#: src/qml/General.qml:478
+#: src/qml/General.qml:505
 #, kde-format
 msgid "See new room…"
 msgstr "새 대화방 보기…"
 
-#: src/qml/General.qml:499
+#: src/qml/General.qml:526
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "대화방 업그레이드"
 
-#: src/qml/General.qml:503
+#: src/qml/General.qml:530
 #, kde-format
 msgid "Select new version"
 msgstr "새 버전 선택"
@@ -4535,9 +4553,6 @@ msgstr "끝내기"
 
 #~ msgid "Custom"
 #~ msgstr "사용자 정의"
-
-#~ msgid "Canonical Alias:"
-#~ msgstr "주 별명:"
 
 #, fuzzy
 #~| msgid "Timeline:"

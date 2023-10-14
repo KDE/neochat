@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-12 01:42+0000\n"
+"POT-Creation-Date: 2023-10-14 01:48+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1061,12 +1061,12 @@ msgstr "Pembuatan ruangan gagal: %1"
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
 
-#: src/neochatroom.cpp:1444 src/neochatroom.cpp:1445
+#: src/neochatroom.cpp:1502 src/neochatroom.cpp:1503
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/neochatroom.cpp:1818 src/neochatroom.cpp:1826
+#: src/neochatroom.cpp:1876 src/neochatroom.cpp:1884
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1128,7 +1128,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr ""
 
-#: src/qml/About.qml:10
+#: src/qml/About.qml:11
 #, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
@@ -1692,8 +1692,8 @@ msgstr "Tidak Ada Topik"
 msgid "Make this parent official"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:218
-#: src/qml/General.qml:449 src/qml/JoinRoomPage.qml:180
+#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
+#: src/qml/General.qml:476 src/qml/JoinRoomPage.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1704,15 +1704,15 @@ msgstr "Oke"
 msgid "Select Existing Room"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:341
+#: src/qml/CreateRoomDialog.qml:104 src/qml/General.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:343
-#: src/qml/General.qml:422 src/qml/GlobalMenu.qml:64
+#: src/qml/ExploreComponent.qml:24 src/qml/General.qml:363
+#: src/qml/General.qml:442 src/qml/GlobalMenu.qml:64
 #: src/qml/RoomListPage.qml:170
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -1721,7 +1721,7 @@ msgid "Explore Rooms"
 msgstr "Jelajahi Ruangan"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/General.qml:391 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/General.qml:411 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Tergabung"
@@ -1736,6 +1736,12 @@ msgstr ""
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:219 src/qml/General.qml:470
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgid "Make this space the canonical parent"
+msgstr "Buat alias ini sebagai alias kanonik ruangan"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1813,7 +1819,7 @@ msgstr "Hapus peranti"
 msgid "Password:"
 msgstr "Kata sandi:"
 
-#: src/qml/DevicesPage.qml:75 src/qml/General.qml:509
+#: src/qml/DevicesPage.qml:75 src/qml/General.qml:536
 #: src/qml/PowerLevelDialog.qml:43
 #, kde-format
 msgid "Confirm"
@@ -2235,71 +2241,83 @@ msgstr "Pratinjau URL telah dinonaktifkan secara bawaan dalam ruangan ini"
 msgid "Official Parent Spaces"
 msgstr ""
 
-#: src/qml/General.qml:317
+#: src/qml/General.qml:315
+#, fuzzy, kde-format
+#| msgid "Canonical Alias:"
+msgid "Canonical"
+msgstr "Alias Kanonik:"
+
+#: src/qml/General.qml:322
+#, fuzzy, kde-format
+#| msgid "No canonical alias set"
+msgid "Make canonical parent"
+msgstr "TIdak ada alias kanonik yang ditetapkan"
+
+#: src/qml/General.qml:336
 #, fuzzy, kde-format
 #| msgid "Remove Message"
 msgid "Remove parent"
 msgstr "Hapus Pesan"
 
-#: src/qml/General.qml:330
+#: src/qml/General.qml:350
 #, fuzzy, kde-format
 #| msgid "This room has been replaced."
 msgid "This room has no official parent spaces."
 msgstr "Ruangan ini telah diganti."
 
-#: src/qml/General.qml:335
+#: src/qml/General.qml:355
 #, kde-format
 msgid "Add Official Parent Space"
 msgstr ""
 
-#: src/qml/General.qml:438
+#: src/qml/General.qml:458
 #, fuzzy, kde-format
 #| msgid "Set the children of this space"
 msgid "Set this room as a child of the space %1"
 msgstr "Tetapkan anak dari space ini"
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid "The selected room is not a space"
 msgstr ""
 
-#: src/qml/General.qml:445
+#: src/qml/General.qml:465
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
-#: src/qml/General.qml:460
+#: src/qml/General.qml:487
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Ruangan ini melanjutkan sebuah percakapan."
 
-#: src/qml/General.qml:464
+#: src/qml/General.qml:491
 #, kde-format
 msgid "See older messages…"
 msgstr "Lihat pesan lama..."
 
-#: src/qml/General.qml:474
+#: src/qml/General.qml:501
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ruangan ini telah diganti."
 
-#: src/qml/General.qml:478
+#: src/qml/General.qml:505
 #, kde-format
 msgid "See new room…"
 msgstr "Lihat ruangan baru..."
 
-#: src/qml/General.qml:499
+#: src/qml/General.qml:526
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Tingkatkan Ruangan"
 
-#: src/qml/General.qml:503
+#: src/qml/General.qml:530
 #, kde-format
 msgid "Select new version"
 msgstr "Pilih versi baru"
@@ -4664,9 +4682,6 @@ msgstr "Keluar"
 
 #~ msgid "Custom"
 #~ msgstr "Kustom"
-
-#~ msgid "Canonical Alias:"
-#~ msgstr "Alias Kanonik:"
 
 #~ msgid "Timeline"
 #~ msgstr "Linimasa"
