@@ -25,7 +25,7 @@ RowLayout {
 
     Layout.topMargin: Kirigami.Units.smallSpacing
     Layout.bottomMargin: Kirigami.Units.smallSpacing
-    Layout.minimumHeight: bottomEdge ? Kirigami.Units.gridUnit * 2 - 2 : -1 // HACK: -2 here is to ensure the ChatBox and the UserInfo have the same height
+    Layout.minimumHeight: bottomEdge ? Kirigami.Units.gridUnit * 2 : -1
 
     onVisibleChanged: {
         if (!visible) {

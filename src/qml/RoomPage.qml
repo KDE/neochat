@@ -88,8 +88,8 @@ Kirigami.Page {
 
     onCurrentRoomChanged: {
         banner.visible = false;
-        if (!Kirigami.Settings.isMobile && chatBoxLoader.item) {
-            chatBoxLoader.item.forceActiveFocus();
+        if (!Kirigami.Settings.isMobile && chatBarLoader.item) {
+            chatBarLoader.item.forceActiveFocus();
         }
     }
 
@@ -123,9 +123,9 @@ Kirigami.Page {
             messageEventModel: root.messageEventModel
             messageFilterModel: root.messageFilterModel
             actionsHandler: root.actionsHandler
-            onFocusChatBox: {
-                if (chatBoxLoader.item) {
-                    chatBoxLoader.item.forceActiveFocus()
+            onFocusChatBar: {
+                if (chatBarLoader.item) {
+                    chatBarLoader.item.forceActiveFocus()
                 }
             }
             connection: root.connection
@@ -157,10 +157,10 @@ Kirigami.Page {
     }
 
     footer: Loader {
-        id: chatBoxLoader
-        active: timelineViewLoader.active
-        sourceComponent: ChatBox {
-            id: chatBox
+        id: chatBarLoader
+        active: timelineViewLoader.active && root.currentRoom.canSendEvent("m.room.message") // TODO make this update in real time
+        sourceComponent: ChatBar {
+            id: chatBar
             width: parent.width
             currentRoom: root.currentRoom
             connection: root.connection
@@ -215,8 +215,8 @@ Kirigami.Page {
     Keys.onPressed: event => {
         if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
-            chatBoxLoader.item.insertText(event.text);
-            chatBoxLoader.item.forceActiveFocus();
+            chatBarLoader.item.insertText(event.text);
+            chatBarLoader.item.forceActiveFocus();
             return;
         } else if (event.key === Qt.Key_PageUp) {
             event.accepted = true;
@@ -228,7 +228,7 @@ Kirigami.Page {
     }
 
     Connections {
-        target: currentRoom
+        target: root.currentRoom
         function onShowMessage(messageType, message) {
             banner.text = message;
             banner.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : messageType === ActionsHandler.Positive ? Kirigami.MessageType.Positive : Kirigami.MessageType.Information;

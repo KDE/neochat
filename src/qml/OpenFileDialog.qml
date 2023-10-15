@@ -1,15 +1,14 @@
-// SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
-import Qt.labs.platform
+import QtQuick.Dialogs
 
 FileDialog {
-    signal chosen(string path)
-
     id: root
 
-    title: i18n("Please choose a file")
+    signal chosen(string path)
 
-    onAccepted: chosen(file)
+    title: i18n("Select a File")
+    onAccepted: root.chosen(selectedFile)
 }

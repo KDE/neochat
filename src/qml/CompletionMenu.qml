@@ -15,18 +15,19 @@ import org.kde.neochat
 
 QQC2.Popup {
     id: root
-    width: parent.width
 
     required property NeoChatConnection connection
+    required property var chatDocumentHandler
 
     visible: completions.count > 0
+
+    onVisibleChanged: if (visible) root.open()
 
     RoomListModel {
         id: roomListModel
         connection: root.connection
     }
 
-    property var chatDocumentHandler
     Component.onCompleted: {
         chatDocumentHandler.completionModel.roomListModel = roomListModel;
     }
@@ -50,40 +51,56 @@ QQC2.Popup {
 
     implicitHeight: Math.min(completions.contentHeight, Kirigami.Units.gridUnit * 10)
 
-    contentItem: ListView {
-        id: completions
+    contentItem: ColumnLayout {
+        spacing: 0
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
+        QQC2.ScrollView {
+            Layout.fillWidth: true
+            Layout.preferredHeight: contentHeight
+            Layout.maximumHeight: Kirigami.Units.gridUnit * 10
 
-        anchors.fill: parent
-        model: root.chatDocumentHandler.completionModel
-        currentIndex: 0
-        keyNavigationWraps: true
-        highlightMoveDuration: 100
-        delegate: Delegates.RoundedItemDelegate {
-            id: completionDelegate
+            background: Rectangle {
+                color: Kirigami.Theme.backgroundColor
+            }
 
-            required property int index
-            required property string displayName
-            required property string subtitle
-            required property string iconName
+            ListView {
+                id: completions
 
-            text: displayName
+                model: root.chatDocumentHandler.completionModel
+                currentIndex: 0
+                keyNavigationWraps: true
+                highlightMoveDuration: 100
+                onCountChanged: currentIndex = 0
+                delegate: Delegates.RoundedItemDelegate {
+                    id: completionDelegate
 
-            contentItem: RowLayout {
-                KirigamiComponents.Avatar {
-                    visible: completionDelegate.iconName !== "invalid"
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.medium
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                    source: completionDelegate.iconName === "invalid" ? "" : completionDelegate.iconName
-                    name: completionDelegate.text
-                }
-                Delegates.SubtitleContentItem {
-                    itemDelegate: completionDelegate
-                    labelItem.textFormat: Text.PlainText
-                    subtitle: completionDelegate.subtitle ?? ""
-                    subtitleItem.textFormat: Text.PlainText
+                    required property int index
+                    required property string displayName
+                    required property string subtitle
+                    required property string iconName
+
+                    text: displayName
+
+                    contentItem: RowLayout {
+                        KirigamiComponents.Avatar {
+                            visible: completionDelegate.iconName !== "invalid"
+                            Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                            Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                            source: completionDelegate.iconName === "invalid" ? "" : completionDelegate.iconName
+                            name: completionDelegate.text
+                        }
+                        Delegates.SubtitleContentItem {
+                            itemDelegate: completionDelegate
+                            labelItem.textFormat: Text.PlainText
+                            subtitle: completionDelegate.subtitle ?? ""
+                            subtitleItem.textFormat: Text.PlainText
+                        }
+                    }
+                    onClicked: root.chatDocumentHandler.complete(completionDelegate.index)
                 }
             }
-            onClicked: root.chatDocumentHandler.complete(completionDelegate.index)
         }
     }
 

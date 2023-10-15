@@ -55,7 +55,7 @@ QQC2.ScrollView {
     /// Used to determine if scrolling to the bottom should mark the message as unread
     property bool hasScrolledUpBefore: false;
 
-    signal focusChatBox()
+    signal focusChatBar()
 
     ListView {
         id: messageListView
@@ -166,7 +166,7 @@ QQC2.ScrollView {
             action: Kirigami.Action {
                 onTriggered: {
                     if (!Kirigami.Settings.isMobile) {
-                        root.focusChatBox();
+                        root.focusChatBar();
                     }
                     messageListView.goToEvent(root.currentRoom.readMarkerEventId)
                 }
@@ -258,7 +258,7 @@ QQC2.ScrollView {
         HoverActions {
             id: hoverActions
             currentRoom: root.currentRoom
-            onFocusChatBar: root.focusChatBox()
+            onFocusChatBar: root.focusChatBar()
         }
 
         onContentYChanged: {

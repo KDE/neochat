@@ -142,6 +142,7 @@ CustomEmojiModel::CustomEmojiModel(QObject *parent)
             fetchEmojis();
         });
     });
+    CustomEmojiModel::fetchEmojis();
 }
 
 QVariant CustomEmojiModel::data(const QModelIndex &idx, int role) const

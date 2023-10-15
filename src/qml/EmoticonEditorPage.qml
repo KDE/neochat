@@ -132,7 +132,7 @@ FormCard.FormCardPage {
         id: openFileDialog
 
         OpenFileDialog {
-            folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
+            currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
             parentWindow: root.Window.window
         }
     }

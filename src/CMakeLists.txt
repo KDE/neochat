@@ -173,7 +173,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/TypingPane.qml
         qml/QuickSwitcher.qml
         qml/HoverActions.qml
-        qml/ChatBox.qml
         qml/ChatBar.qml
         qml/AttachmentPane.qml
         qml/ReplyPane.qml
@@ -290,6 +289,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/Security.qml
         qml/QrCodeMaximizeComponent.qml
         qml/SelectSpacesDialog.qml
+        qml/AttachDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
