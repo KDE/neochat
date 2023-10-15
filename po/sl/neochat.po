@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 01:48+0000\n"
-"PO-Revision-Date: 2023-10-12 04:56+0200\n"
+"POT-Creation-Date: 2023-10-15 01:39+0000\n"
+"PO-Revision-Date: 2023-10-14 07:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #: src/controller.cpp:204
 #, kde-format
@@ -1733,10 +1733,9 @@ msgid ""
 msgstr "Nimate dovolj pravic odvisnega, da nastavite to stanje"
 
 #: src/qml/CreateRoomDialog.qml:219 src/qml/General.qml:470
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Make this space the canonical parent"
-msgstr "Nastavi ta vzdevek kot kanonični vzdevek sobe"
+msgstr "Nastavi ta prostor kanonično nadrejeni"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2231,16 +2230,14 @@ msgid "Official Parent Spaces"
 msgstr "Uradni nadrejeni prostori"
 
 #: src/qml/General.qml:315
-#, fuzzy, kde-format
-#| msgid "Canonical Alias:"
+#, kde-format
 msgid "Canonical"
-msgstr "Kanonični sinonim:"
+msgstr "Kanonični"
 
 #: src/qml/General.qml:322
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgid "Make canonical parent"
-msgstr "Ni nastavljenega kanoničnega vzdevka"
+msgstr "Naredi kanonično nadrejenega"
 
 #: src/qml/General.qml:336
 #, kde-format
@@ -2923,28 +2920,28 @@ msgstr "Začni pogovor"
 msgid "Do you want to start a chat with %1?"
 msgstr "Ali želite začeti pogovor s %1?"
 
-#: src/qml/ManualRoomDialog.qml:32
+#: src/qml/ManualRoomDialog.qml:31
 #, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "ID sobe ali vzdevek"
 
-#: src/qml/ManualRoomDialog.qml:44
+#: src/qml/ManualRoomDialog.qml:43
 #, kde-format
 msgid "OK"
 msgstr "V redu"
 
-#: src/qml/ManualRoomDialog.qml:87
+#: src/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Room ID or Alias:"
 msgstr "ID sobe ali vzdevek:"
 
-#: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
+#: src/qml/ManualRoomDialog.qml:89 src/qml/ManualRoomDialog.qml:97
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
 msgstr "Se mora začeti z # za vzdevek ali ! za ID"
 
-#: src/qml/ManualRoomDialog.qml:96
+#: src/qml/ManualRoomDialog.qml:95
 #, kde-format
 msgid "The input is not a valid room ID or alias"
 msgstr "Vneseno ni veljavni ID sobe ali vzdevek"
@@ -3313,18 +3310,18 @@ msgstr "Potrdi geslo:"
 msgid "The passwords do not match."
 msgstr "Gesli se ne ujemata."
 
-#: src/qml/RemoveChildDialog.qml:29
+#: src/qml/RemoveChildDialog.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "Remove Child"
 msgstr "Odstrani odvisnega"
 
-#: src/qml/RemoveChildDialog.qml:41
+#: src/qml/RemoveChildDialog.qml:39
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
 msgstr "Odvisni %1bo odstranjen iz prostora %2"
 
-#: src/qml/RemoveChildDialog.qml:48
+#: src/qml/RemoveChildDialog.qml:46
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "

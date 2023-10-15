@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 01:48+0000\n"
-"PO-Revision-Date: 2023-10-12 17:32+0300\n"
+"POT-Creation-Date: 2023-10-15 01:39+0000\n"
+"PO-Revision-Date: 2023-10-14 05:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1726,10 +1726,9 @@ msgstr ""
 "Bu durumu ayarlamak için alt ögede yeterli izin düzeyine sahip değilsiniz"
 
 #: src/qml/CreateRoomDialog.qml:219 src/qml/General.qml:470
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Make this space the canonical parent"
-msgstr "Bu armayı, odanın resmi arması yap"
+msgstr "Bu alanı resmi üst öge yap"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2224,13 +2223,12 @@ msgstr "Resmi Üst Alanlar"
 #: src/qml/General.qml:315
 #, kde-format
 msgid "Canonical"
-msgstr ""
+msgstr "Resmi"
 
 #: src/qml/General.qml:322
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgid "Make canonical parent"
-msgstr "Resmi arma ayarlanmamış"
+msgstr "Resmi üst öge yap"
 
 #: src/qml/General.qml:336
 #, kde-format
@@ -2911,28 +2909,28 @@ msgstr "Bir sohbet başlat"
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"
 
-#: src/qml/ManualRoomDialog.qml:32
+#: src/qml/ManualRoomDialog.qml:31
 #, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "Oda Kimliği veya Arma"
 
-#: src/qml/ManualRoomDialog.qml:44
+#: src/qml/ManualRoomDialog.qml:43
 #, kde-format
 msgid "OK"
 msgstr "Tamam"
 
-#: src/qml/ManualRoomDialog.qml:87
+#: src/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Room ID or Alias:"
 msgstr "Oda kimliği veya arması:"
 
-#: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
+#: src/qml/ManualRoomDialog.qml:89 src/qml/ManualRoomDialog.qml:97
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
 msgstr "Arma için # veya kimlik için ! ile başlamalıdır"
 
-#: src/qml/ManualRoomDialog.qml:96
+#: src/qml/ManualRoomDialog.qml:95
 #, kde-format
 msgid "The input is not a valid room ID or alias"
 msgstr "Girdi, geçerli bir oda kimliği veya arma değil"
@@ -3300,18 +3298,18 @@ msgstr "Parolayı onayla:"
 msgid "The passwords do not match."
 msgstr "Parolalar uyuşmuyor."
 
-#: src/qml/RemoveChildDialog.qml:29
+#: src/qml/RemoveChildDialog.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "Remove Child"
 msgstr "Alt Ögeyi Kaldır"
 
-#: src/qml/RemoveChildDialog.qml:41
+#: src/qml/RemoveChildDialog.qml:39
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
 msgstr "%1 alt ögesi %2 alanından kaldırılacak"
 
-#: src/qml/RemoveChildDialog.qml:48
+#: src/qml/RemoveChildDialog.qml:46
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-14 01:48+0000\n"
-"PO-Revision-Date: 2023-10-12 09:49+0200\n"
+"POT-Creation-Date: 2023-10-15 01:39+0000\n"
+"PO-Revision-Date: 2023-10-14 10:23+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: src/controller.cpp:204
 #, kde-format
@@ -1726,10 +1726,9 @@ msgstr ""
 "stellen"
 
 #: src/qml/CreateRoomDialog.qml:219 src/qml/General.qml:470
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Make this space the canonical parent"
-msgstr "Deze alias de canonieke alias van de room maken"
+msgstr "Deze ruimte de canonieke ouder maken"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2225,16 +2224,14 @@ msgid "Official Parent Spaces"
 msgstr "Officiële ruimten voor ouders"
 
 #: src/qml/General.qml:315
-#, fuzzy, kde-format
-#| msgid "Canonical Alias:"
+#, kde-format
 msgid "Canonical"
-msgstr "Canonieke alias:"
+msgstr "Canoniek"
 
 #: src/qml/General.qml:322
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgid "Make canonical parent"
-msgstr "Geen canonieke alias ingesteld"
+msgstr "Canonieke ouder maken"
 
 #: src/qml/General.qml:336
 #, kde-format
@@ -2918,28 +2915,28 @@ msgstr "Een chat starten"
 msgid "Do you want to start a chat with %1?"
 msgstr "Wilt u een chat beginnen met %1?"
 
-#: src/qml/ManualRoomDialog.qml:32
+#: src/qml/ManualRoomDialog.qml:31
 #, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "Room-ID of alias"
 
-#: src/qml/ManualRoomDialog.qml:44
+#: src/qml/ManualRoomDialog.qml:43
 #, kde-format
 msgid "OK"
 msgstr "OK"
 
-#: src/qml/ManualRoomDialog.qml:87
+#: src/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Room ID or Alias:"
 msgstr "Room-ID of alias:"
 
-#: src/qml/ManualRoomDialog.qml:90 src/qml/ManualRoomDialog.qml:98
+#: src/qml/ManualRoomDialog.qml:89 src/qml/ManualRoomDialog.qml:97
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
 msgstr "Moet beginnen met # voor een alias of ! voor een ID"
 
-#: src/qml/ManualRoomDialog.qml:96
+#: src/qml/ManualRoomDialog.qml:95
 #, kde-format
 msgid "The input is not a valid room ID or alias"
 msgstr "De invoer is geen geldig room-ID of alias"
@@ -3310,18 +3307,18 @@ msgstr "Wachtwoord bevestigen:"
 msgid "The passwords do not match."
 msgstr "Het wachtwoord komt niet overeen."
 
-#: src/qml/RemoveChildDialog.qml:29
+#: src/qml/RemoveChildDialog.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "Remove Child"
 msgstr "Kind verwijderen"
 
-#: src/qml/RemoveChildDialog.qml:41
+#: src/qml/RemoveChildDialog.qml:39
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
 msgstr "Het kind %1 zal uit de ruimte %2 worden verwijderd"
 
-#: src/qml/RemoveChildDialog.qml:48
+#: src/qml/RemoveChildDialog.qml:46
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
