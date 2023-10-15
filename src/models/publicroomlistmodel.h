@@ -46,6 +46,11 @@ class PublicRoomListModel : public QAbstractListModel
     Q_PROPERTY(QString keyword READ keyword WRITE setKeyword NOTIFY keywordChanged)
 
     /**
+     * @brief Whether only space rooms should be shown.
+     */
+    Q_PROPERTY(bool showOnlySpaces READ showOnlySpaces WRITE setShowOnlySpaces NOTIFY showOnlySpacesChanged)
+
+    /**
      * @brief Whether the model has more items to load.
      */
     Q_PROPERTY(bool hasMore READ hasMore NOTIFY hasMoreChanged)
@@ -103,6 +108,9 @@ public:
     [[nodiscard]] QString keyword() const;
     void setKeyword(const QString &value);
 
+    [[nodiscard]] bool showOnlySpaces() const;
+    void setShowOnlySpaces(bool showOnlySpaces);
+
     [[nodiscard]] bool hasMore() const;
 
     [[nodiscard]] bool loading() const;
@@ -118,6 +126,7 @@ private:
     Quotient::Connection *m_connection = nullptr;
     QString m_server;
     QString m_keyword;
+    bool m_showOnlySpaces;
 
     bool attempted = false;
     bool m_loading = false;
@@ -131,6 +140,7 @@ Q_SIGNALS:
     void connectionChanged();
     void serverChanged();
     void keywordChanged();
+    void showOnlySpacesChanged();
     void hasMoreChanged();
     void loadingChanged();
 };

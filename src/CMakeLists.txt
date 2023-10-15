@@ -282,6 +282,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/SpaceHomePage.qml
         qml/SpaceHierarchyDelegate.qml
         qml/RemoveChildDialog.qml
+        qml/SelectParentDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

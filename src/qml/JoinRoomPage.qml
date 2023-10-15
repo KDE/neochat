@@ -17,6 +17,8 @@ Kirigami.ScrollablePage {
 
     required property NeoChatConnection connection
 
+    property bool showOnlySpaces: false
+
     property alias keyword: identifierField.text
     property string server
 
@@ -216,6 +218,7 @@ Kirigami.ScrollablePage {
             connection: root.connection
             server: root.server
             keyword: root.keyword
+            showOnlySpaces: root.showOnlySpaces
         }
 
         onContentYChanged: {

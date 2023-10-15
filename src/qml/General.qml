@@ -349,134 +349,16 @@ FormCard.FormCardPage {
             visible: officalParentRepeater.count <= 0
             text: i18n("This room has no official parent spaces.")
         }
-    }
-    FormCard.FormHeader {
-        visible: root.room.canSendState("m.space.parent")
-        title: i18n("Add Official Parent Space")
-    }
-    FormCard.FormCard {
-        visible: root.room.canSendState("m.space.parent")
         FormCard.FormButtonDelegate {
-            visible: !chosenRoomDelegate.visible
-            text: i18nc("@action:button", "Pick room")
-            onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/JoinRoomPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
-                dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                    chosenRoomDelegate.roomId = roomId;
-                    chosenRoomDelegate.displayName = displayName;
-                    chosenRoomDelegate.avatarUrl = avatarUrl;
-                    chosenRoomDelegate.alias = alias;
-                    chosenRoomDelegate.topic = topic;
-                    chosenRoomDelegate.memberCount = memberCount;
-                    chosenRoomDelegate.isJoined = isJoined;
-                    chosenRoomDelegate.visible = true;
-                })
-            }
-        }
-        FormCard.AbstractFormDelegate {
-            id: chosenRoomDelegate
-            property string roomId
-            property string displayName
-            property url avatarUrl
-            property string alias
-            property string topic
-            property int memberCount
-            property bool isJoined
+            visible: root.room.canSendState("m.space.parent")
+            text: i18nc("@action:button", "Add new official parent")
+            onClicked: selectParentDialog.createObject(applicationWindow().overlay).open();
 
-            visible: false
-
-            contentItem: RowLayout {
-                KirigamiComponents.Avatar {
-                    Layout.preferredWidth: Kirigami.Units.gridUnit * 2
-                    Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-
-                    source: chosenRoomDelegate.avatarUrl
-                    name: chosenRoomDelegate.displayName
+            Component {
+                id: selectParentDialog
+                SelectParentDialog {
+                    room: root.room
                 }
-                ColumnLayout {
-                    Layout.fillWidth: true
-                    RowLayout {
-                        Layout.fillWidth: true
-                        Kirigami.Heading {
-                            Layout.fillWidth: true
-                            level: 4
-                            text: chosenRoomDelegate.displayName
-                            font.bold: true
-                            textFormat: Text.PlainText
-                            elide: Text.ElideRight
-                            wrapMode: Text.NoWrap
-                        }
-                        QQC2.Label {
-                            visible: chosenRoomDelegate.isJoined
-                            text: i18n("Joined")
-                            color: Kirigami.Theme.linkColor
-                        }
-                    }
-                    QQC2.Label {
-                        Layout.fillWidth: true
-                        visible: text
-                        text: chosenRoomDelegate.topic ? chosenRoomDelegate.topic.replace(/(\r\n\t|\n|\r\t)/gm," ") : ""
-                        textFormat: Text.PlainText
-                        elide: Text.ElideRight
-                        wrapMode: Text.NoWrap
-                    }
-                    RowLayout {
-                        Layout.fillWidth: true
-                        Kirigami.Icon {
-                            source: "user"
-                            color: Kirigami.Theme.disabledTextColor
-                            implicitHeight: Kirigami.Units.iconSizes.small
-                            implicitWidth: Kirigami.Units.iconSizes.small
-                        }
-                        QQC2.Label {
-                            text: chosenRoomDelegate.memberCount + " " + (chosenRoomDelegate.alias ?? chosenRoomDelegate.roomId)
-                            color: Kirigami.Theme.disabledTextColor
-                            elide: Text.ElideRight
-                            Layout.fillWidth: true
-                        }
-                    }
-                }
-            }
-
-            onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/JoinRoomPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
-                dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                    chosenRoomDelegate.roomId = roomId;
-                    chosenRoomDelegate.displayName = displayName;
-                    chosenRoomDelegate.avatarUrl = avatarUrl;
-                    chosenRoomDelegate.alias = alias;
-                    chosenRoomDelegate.topic = topic;
-                    chosenRoomDelegate.memberCount = memberCount;
-                    chosenRoomDelegate.isJoined = isJoined;
-                    chosenRoomDelegate.visible = true;
-                })
-            }
-        }
-        FormCard.FormCheckDelegate {
-            id: existingOfficialCheck
-            property NeoChatRoom space: root.connection.room(chosenRoomDelegate.roomId)
-            text: i18n("Set this room as a child of the space %1", space?.displayName ?? "")
-            checked: enabled
-
-            enabled: chosenRoomDelegate.visible && space && space.canSendState("m.space.child")
-        }
-        FormCard.FormTextDelegate {
-            visible: chosenRoomDelegate.visible && !root.room.canModifyParent(chosenRoomDelegate.roomId)
-            text: existingOfficialCheck.space ? (existingOfficialCheck.space.isSpace ? i18n("You do not have a high enough privilege level in the parent to set this state") : i18n("The selected room is not a space")) : i18n("You do not have the privileges to complete this action")
-            textItem.color: Kirigami.Theme.negativeTextColor
-        }
-        FormCard.FormCheckDelegate {
-            id: makeCanonicalCheck
-            text: i18n("Make this space the canonical parent")
-            checked: enabled
-
-            enabled: chosenRoomDelegate.visible
-        }
-        FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Ok")
-            enabled: chosenRoomDelegate.visible && root.room.canModifyParent(chosenRoomDelegate.roomId)
-            onClicked: {
-                root.room.addParent(chosenRoomDelegate.roomId, makeCanonicalCheck.checked, existingOfficialCheck.checked)
             }
         }
     }
@@ -541,6 +423,5 @@ FormCard.FormCardPage {
             }
         }
     }
-
 }
 

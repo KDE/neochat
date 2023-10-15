@@ -124,6 +124,20 @@ void PublicRoomListModel::setKeyword(const QString &value)
     Q_EMIT hasMoreChanged();
 }
 
+bool PublicRoomListModel::showOnlySpaces() const
+{
+    return m_showOnlySpaces;
+}
+
+void PublicRoomListModel::setShowOnlySpaces(bool showOnlySpaces)
+{
+    if (showOnlySpaces == m_showOnlySpaces) {
+        return;
+    }
+    m_showOnlySpaces = showOnlySpaces;
+    Q_EMIT showOnlySpacesChanged();
+}
+
 void PublicRoomListModel::next(int count)
 {
     if (count < 1) {
@@ -136,7 +150,11 @@ void PublicRoomListModel::next(int count)
         return;
     }
 
-    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_keyword, {}});
+    QStringList roomTypes;
+    if (m_showOnlySpaces) {
+        roomTypes += QLatin1String("m.space");
+    }
+    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_keyword, roomTypes});
     Q_EMIT loadingChanged();
 
     connect(job, &BaseJob::finished, this, [this] {
