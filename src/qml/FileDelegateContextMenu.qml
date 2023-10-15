@@ -59,8 +59,8 @@ MessageDelegateContextMenu {
             text: i18n("Reply")
             icon.name: "mail-replied-symbolic"
             onTriggered: {
-                currentRoom.chatBoxReplyId = eventId
-                currentRoom.chatBoxEditId = ""
+                currentRoom.mainCache.replyId = eventId;
+                currentRoom.editCache.editId = "";
                 RoomManager.requestFullScreenClose()
             }
         },

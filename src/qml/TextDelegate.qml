@@ -43,7 +43,7 @@ MessageDelegate {
         RichLabel {
             id: label
             Layout.fillWidth: true
-            visible: currentRoom.chatBoxEditId !== root.eventId
+            visible: currentRoom.editCache.editId !== root.eventId
 
             isReply: root.isReply
 
@@ -59,7 +59,7 @@ MessageDelegate {
             Layout.fillWidth: true
             Layout.minimumHeight: item ? item.minimumHeight : -1
             Layout.preferredWidth: item ? item.preferredWidth : -1
-            visible: currentRoom.chatBoxEditId === root.eventId
+            visible: currentRoom.editCache.editId === root.eventId
             active: visible
             sourceComponent: MessageEditComponent {
                 room: currentRoom

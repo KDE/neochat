@@ -7,6 +7,7 @@
 #include <QAbstractListModel>
 #include <Quotient/events/roommessageevent.h>
 
+class ChatBarCache;
 class NeoChatRoom;
 
 /**
@@ -28,7 +29,7 @@ public:
         /**
          * @brief The function to execute when the action is triggered.
          */
-        std::function<QString(const QString &, NeoChatRoom *)> handle;
+        std::function<QString(const QString &, NeoChatRoom *, ChatBarCache *)> handle;
         /**
          * @brief Whether the action is a message type action.
          *

@@ -39,6 +39,7 @@ QQC2.Control {
      * @brief The current room that user is viewing.
      */
     required property NeoChatRoom currentRoom
+    onCurrentRoomChanged: _private.chatBarCache = currentRoom.mainCache
 
     /**
      * @brief The QQC2.TextArea object.
@@ -62,7 +63,7 @@ QQC2.Control {
             property bool isBusy: root.currentRoom && root.currentRoom.hasFileUploading
 
             // Matrix does not allow sending attachments in replies
-            visible: root.currentRoom.chatBoxReplyId.length === 0  && root.currentRoom.chatBoxAttachmentPath.length === 0
+            visible: _private.chatBarCache.isReplying && _private.chatBarCache.attachmentPath.length === 0
             icon.name: "mail-attachment"
             text: i18n("Attach an image or file")
             displayHint: Kirigami.DisplayHint.IconOnly
@@ -76,7 +77,7 @@ QQC2.Control {
                         if (!path) {
                             return;
                         }
-                        root.currentRoom.chatBoxAttachmentPath = path;
+                        _private.chatBarCache.attachmentPath = path;
                     })
                     fileDialog.open()
                 }
@@ -169,7 +170,7 @@ QQC2.Control {
             leftPadding: LayoutMirroring.enabled ? actionsRow.width : Kirigami.Units.largeSpacing
             rightPadding: LayoutMirroring.enabled ? Kirigami.Units.largeSpacing : actionsRow.width + x * 2 + Kirigami.Units.largeSpacing * 2
 
-            placeholderText: root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
+            placeholderText: root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : _private.chatBarCache.attachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
             verticalAlignment: TextEdit.AlignVCenter
             wrapMode: Text.Wrap
 
@@ -189,7 +190,7 @@ QQC2.Control {
                     root.currentRoom.sendTypingNotification(textExists)
                     textExists ? repeatTimer.start() : repeatTimer.stop()
                 }
-                root.currentRoom.chatBoxText = text
+                _private.chatBarCache.text = text
             }
             onCursorRectangleChanged: chatBarScrollView.ensureVisible(cursorRectangle)
             onSelectedTextChanged: {
@@ -285,25 +286,25 @@ QQC2.Control {
                 anchors.rightMargin: root.width > chatBarSizeHelper.currentWidth ? 0 : (chatBarScrollView.QQC2.ScrollBar.vertical.visible ? Kirigami.Units.largeSpacing * 3.5 : Kirigami.Units.largeSpacing)
 
                 active: visible
-                visible: root.currentRoom.chatBoxReplyId.length > 0 || root.currentRoom.chatBoxAttachmentPath.length > 0
-                sourceComponent: root.currentRoom.chatBoxReplyId.length > 0 ? replyPane : attachmentPane
+                visible: _private.chatBarCache.isReplying || _private.chatBarCache.attachmentPath.length > 0
+                sourceComponent: _private.chatBarCache.isReplying ? replyPane : attachmentPane
             }
             Component {
                 id: replyPane
                 ReplyPane {
-                    userName: root.currentRoom.chatBoxReplyUser.displayName
-                    userColor: root.currentRoom.chatBoxReplyUser.color
-                    userAvatar: root.currentRoom.chatBoxReplyUser.avatarSource
-                    text: root.currentRoom.chatBoxReplyMessage
+                    userName: _private.chatBarCache.relationUser.displayName
+                    userColor: _private.chatBarCache.relationUser.color
+                    userAvatar: _private.chatBarCache.relationUser.avatarSource
+                    text: _private.chatBarCache.relationMessage
                 }
             }
             Component {
                 id: attachmentPane
                 AttachmentPane {
-                    attachmentPath: root.currentRoom.chatBoxAttachmentPath
+                    attachmentPath: _private.chatBarCache.attachmentPath
 
                     onAttachmentCancelled: {
-                        root.currentRoom.chatBoxAttachmentPath = "";
+                        _private.chatBarCache.attachmentPath = "";
                         root.forceActiveFocus()
                     }
                 }
@@ -349,14 +350,14 @@ QQC2.Control {
         anchors.right: parent.right
         anchors.rightMargin: (root.width - chatBarSizeHelper.currentWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBarSizeHelper.currentWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
 
-        visible: root.currentRoom.chatBoxReplyId.length > 0
+        visible: _private.chatBarCache.isReplying
         display: QQC2.AbstractButton.IconOnly
         action: Kirigami.Action {
             text: i18nc("@action:button", "Cancel reply")
             icon.name: "dialog-close"
             onTriggered: {
-                root.currentRoom.chatBoxReplyId = "";
-                root.currentRoom.chatBoxAttachmentPath = "";
+                _private.chatBarCache.replyId = "";
+                _private.chatBarCache.attachmentPath = "";
                 root.forceActiveFocus()
             }
         }
@@ -472,16 +473,16 @@ QQC2.Control {
         if (localPath.length === 0) {
             return false;
         }
-        root.currentRoom.chatBoxAttachmentPath = localPath;
+        _private.chatBarCache.attachmentPath = localPath;
         return true;
     }
 
     function postMessage() {
-        actionsHandler.handleNewMessage();
+        actionsHandler.handleMessageEvent(_private.chatBarCache);
         repeatTimer.stop()
         root.currentRoom.markAllMessagesAsRead();
         textField.clear();
-        root.currentRoom.chatBoxReplyId = "";
+        _private.chatBarCache.replyId = "";
         messageSent()
     }
 
@@ -558,7 +559,7 @@ QQC2.Control {
                         if (!path) {
                             return;
                         }
-                        root.currentRoom.chatBoxAttachmentPath = path;
+                        _private.chatBarCache.attachmentPath = path;
                     })
 
                     fileDialog.open()
@@ -581,7 +582,7 @@ QQC2.Control {
                     if (!Clipboard.saveImage(localPath)) {
                         return;
                     }
-                    root.currentRoom.chatBoxAttachmentPath = localPath;
+                    _private.chatBarCache.attachmentPath = localPath;
                     attachDialog.close();
                 }
             }
@@ -594,5 +595,11 @@ QQC2.Control {
         OpenFileDialog {
             parentWindow: Window.window
         }
+    }
+
+    QtObject {
+        id: _private
+        property ChatBarCache chatBarCache
+        onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
     }
 }

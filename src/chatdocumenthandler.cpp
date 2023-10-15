@@ -57,11 +57,12 @@ public:
                 setFormat(error.first, error.second.size(), errorFormat);
             }
         }
-        auto room = dynamic_cast<ChatDocumentHandler *>(parent())->room();
+        auto handler = dynamic_cast<ChatDocumentHandler *>(parent());
+        auto room = handler->room();
         if (!room) {
             return;
         }
-        auto mentions = room->mentions();
+        auto mentions = handler->chatBarCache()->mentions();
         mentions->erase(std::remove_if(mentions->begin(),
                                        mentions->end(),
                                        [this](auto &mention) {
@@ -103,15 +104,10 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
         m_completionModel->setRoom(m_room);
         static QPointer<NeoChatRoom> previousRoom = nullptr;
         if (previousRoom) {
-            disconnect(previousRoom, &NeoChatRoom::chatBoxTextChanged, this, nullptr);
-            disconnect(previousRoom, &NeoChatRoom::editTextChanged, this, nullptr);
+            disconnect(m_chatBarCache, &ChatBarCache::textChanged, this, nullptr);
         }
         previousRoom = m_room;
-        connect(m_room, &NeoChatRoom::chatBoxTextChanged, this, [this]() {
-            int start = completionStartIndex();
-            m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
-        });
-        connect(m_room, &NeoChatRoom::editTextChanged, this, [this]() {
+        connect(m_chatBarCache, &ChatBarCache::textChanged, this, [this]() {
             int start = completionStartIndex();
             m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
         });
@@ -215,6 +211,20 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
     Q_EMIT roomChanged();
 }
 
+ChatBarCache *ChatDocumentHandler::chatBarCache() const
+{
+    return m_chatBarCache;
+}
+
+void ChatDocumentHandler::setChatBarCache(ChatBarCache *chatBarCache)
+{
+    if (m_chatBarCache == chatBarCache) {
+        return;
+    }
+    m_chatBarCache = chatBarCache;
+    Q_EMIT chatBarCacheChanged();
+}
+
 void ChatDocumentHandler::complete(int index)
 {
     if (m_completionModel->autoCompletionType() == CompletionModel::User) {
@@ -303,11 +313,7 @@ QString ChatDocumentHandler::getText() const
     if (!m_room) {
         return QString();
     }
-    if (m_isEdit) {
-        return m_room->editText();
-    } else {
-        return m_room->chatBoxText();
-    }
+    return m_chatBarCache->text();
 }
 
 void ChatDocumentHandler::pushMention(const Mention mention) const
@@ -315,11 +321,7 @@ void ChatDocumentHandler::pushMention(const Mention mention) const
     if (!m_room) {
         return;
     }
-    if (m_isEdit) {
-        m_room->editMentions()->push_back(mention);
-    } else {
-        m_room->mentions()->push_back(mention);
-    }
+    m_chatBarCache->mentions()->push_back(mention);
 }
 
 QColor ChatDocumentHandler::mentionColor() const

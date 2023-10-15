@@ -4,6 +4,7 @@
 
 #include "roommanager.h"
 
+#include "chatbarcache.h"
 #include "controller.h"
 #include "enums/delegatetype.h"
 #include "models/messageeventmodel.h"
@@ -190,15 +191,15 @@ void RoomManager::openRoomForActiveConnection()
 
 void RoomManager::enterRoom(NeoChatRoom *room)
 {
-    if (m_currentRoom && !m_currentRoom->chatBoxEditId().isEmpty()) {
-        m_currentRoom->setChatBoxEditId({});
+    if (m_currentRoom && !m_currentRoom->editCache()->editId().isEmpty()) {
+        m_currentRoom->editCache()->setEditId({});
     }
     if (m_currentRoom && m_chatDocumentHandler) {
         // We're doing these things here because it is critical that they are switched at the same time
         if (m_chatDocumentHandler->document()) {
-            m_currentRoom->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
+            m_currentRoom->mainCache()->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
             m_chatDocumentHandler->setRoom(room);
-            m_chatDocumentHandler->document()->textDocument()->setPlainText(room->savedText());
+            m_chatDocumentHandler->document()->textDocument()->setPlainText(room->mainCache()->savedText());
         } else {
             m_chatDocumentHandler->setRoom(room);
         }
@@ -232,13 +233,13 @@ void RoomManager::enterSpaceHome(NeoChatRoom *spaceRoom)
         return;
     }
     // If replacing a normal room message timeline make sure any edit is cancelled.
-    if (m_currentRoom && !m_currentRoom->chatBoxEditId().isEmpty()) {
-        m_currentRoom->setChatBoxEditId({});
+    if (m_currentRoom && !m_currentRoom->editCache()->editId().isEmpty()) {
+        m_currentRoom->editCache()->setEditId({});
     }
     // Save the chatbar text for the current room if any before switching
     if (m_currentRoom && m_chatDocumentHandler) {
         if (m_chatDocumentHandler->document()) {
-            m_currentRoom->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
+            m_currentRoom->mainCache()->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
         }
     }
     m_lastCurrentRoom = std::exchange(m_currentRoom, spaceRoom);

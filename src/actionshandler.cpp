@@ -38,43 +38,31 @@ void ActionsHandler::setRoom(NeoChatRoom *room)
     Q_EMIT roomChanged();
 }
 
-void ActionsHandler::handleNewMessage()
+void ActionsHandler::handleMessageEvent(ChatBarCache *chatBarCache)
 {
-    checkEffects(m_room->chatBoxText());
-    if (!m_room->chatBoxAttachmentPath().isEmpty()) {
-        QUrl url(m_room->chatBoxAttachmentPath());
-        auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
-        m_room->uploadFile(QUrl(path), m_room->chatBoxText().isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : m_room->chatBoxText());
-        m_room->setChatBoxAttachmentPath({});
-        m_room->setChatBoxText({});
+    if (!chatBarCache) {
         return;
     }
 
-    QString handledText = m_room->chatBoxText();
-    handledText = handleMentions(handledText);
-    handleMessage(m_room->chatBoxText(), handledText);
+    checkEffects(chatBarCache->text());
+    if (!chatBarCache->attachmentPath().isEmpty()) {
+        QUrl url(chatBarCache->attachmentPath());
+        auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
+        m_room->uploadFile(QUrl(path), chatBarCache->text().isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : chatBarCache->text());
+        chatBarCache->setAttachmentPath({});
+        chatBarCache->setText({});
+        return;
+    }
+
+    QString handledText = chatBarCache->text();
+    handledText = handleMentions(handledText, chatBarCache->mentions());
+    handleMessage(m_room->mainCache()->text(), handledText, chatBarCache);
 }
 
-void ActionsHandler::handleEdit()
-{
-    checkEffects(m_room->editText());
-
-    QString handledText = m_room->editText();
-    handledText = handleMentions(handledText, true);
-    handleMessage(m_room->editText(), handledText, true);
-}
-
-QString ActionsHandler::handleMentions(QString handledText, const bool &isEdit)
+QString ActionsHandler::handleMentions(QString handledText, QVector<Mention> *mentions)
 {
     if (!m_room) {
         return QString();
-    }
-
-    QVector<Mention> *mentions;
-    if (isEdit) {
-        mentions = m_room->editMentions();
-    } else {
-        mentions = m_room->mentions();
     }
 
     std::sort(mentions->begin(), mentions->end(), [](const auto &a, const auto &b) -> bool {
@@ -94,7 +82,7 @@ QString ActionsHandler::handleMentions(QString handledText, const bool &isEdit)
     return handledText;
 }
 
-void ActionsHandler::handleMessage(const QString &text, QString handledText, const bool &isEdit)
+void ActionsHandler::handleMessage(const QString &text, QString handledText, ChatBarCache *chatBarCache)
 {
     if (NeoChatConfig::allowQuickEdit()) {
         QRegularExpression sed(QStringLiteral("^s/([^/]*)/([^/]*)(/g)?$"));
@@ -134,7 +122,7 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, con
         for (const auto &action : ActionsModel::instance().allActions()) {
             if (handledText.indexOf(action.prefix) == 1
                 && (handledText.indexOf(" "_ls) == action.prefix.length() + 1 || handledText.length() == action.prefix.length() + 1)) {
-                handledText = action.handle(handledText.mid(action.prefix.length() + 1).trimmed(), m_room);
+                handledText = action.handle(handledText.mid(action.prefix.length() + 1).trimmed(), m_room, chatBarCache);
                 if (action.messageType.has_value()) {
                     messageType = *action.messageType;
                 }
@@ -161,7 +149,7 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, con
         return;
     }
 
-    m_room->postMessage(text, handledText, messageType, m_room->chatBoxReplyId(), isEdit ? m_room->chatBoxEditId() : QString());
+    m_room->postMessage(text, handledText, messageType, chatBarCache->replyId(), chatBarCache->editId());
 }
 
 void ActionsHandler::checkEffects(const QString &text)

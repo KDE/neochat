@@ -8,6 +8,7 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
+#include "chatbarcache.h"
 #include "models/completionmodel.h"
 #include "neochatroom.h"
 
@@ -103,6 +104,11 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
     /**
+     * @brief The cache for the chat bar the text document is being handled for.
+     */
+    Q_PROPERTY(ChatBarCache *chatBarCache READ chatBarCache WRITE setChatBarCache NOTIFY chatBarCacheChanged)
+
+    /**
      * @brief The color to highlight user mentions.
      */
     Q_PROPERTY(QColor mentionColor READ mentionColor WRITE setMentionColor NOTIFY mentionColorChanged)
@@ -133,6 +139,9 @@ public:
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
+    [[nodiscard]] ChatBarCache *chatBarCache() const;
+    void setChatBarCache(ChatBarCache *chatBarCache);
+
     Q_INVOKABLE void complete(int index);
 
     void updateCompletions();
@@ -149,6 +158,7 @@ Q_SIGNALS:
     void documentChanged();
     void cursorPositionChanged();
     void roomChanged();
+    void chatBarCacheChanged();
     void completionModelChanged();
     void selectionStartChanged();
     void selectionEndChanged();
@@ -163,6 +173,7 @@ private:
     QPointer<QQuickTextDocument> m_document;
 
     QPointer<NeoChatRoom> m_room;
+    QPointer<ChatBarCache> m_chatBarCache;
     bool completionVisible = false;
 
     QColor m_mentionColor;

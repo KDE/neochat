@@ -8,6 +8,7 @@
 
 #include <Quotient/events/roommessageevent.h>
 
+#include "chatbarcache.h"
 #include "neochatroom.h"
 
 class NeoChatRoom;
@@ -51,21 +52,15 @@ Q_SIGNALS:
     void showEffect(const QString &effect);
 
 public Q_SLOTS:
-
     /**
-     * @brief Pre-process text and send message.
+     * @brief Pre-process text and send message event.
      */
-    void handleNewMessage();
-
-    /**
-     * @brief Pre-process text and send edit.
-     */
-    void handleEdit();
+    void handleMessageEvent(ChatBarCache *chatBarCache);
 
 private:
     NeoChatRoom *m_room = nullptr;
     void checkEffects(const QString &text);
 
-    QString handleMentions(QString handledText, const bool &isEdit = false);
-    void handleMessage(const QString &text, QString handledText, const bool &isEdit = false);
+    QString handleMentions(QString handledText, QVector<Mention> *mentions);
+    void handleMessage(const QString &text, QString handledText, ChatBarCache *chatBarCache);
 };

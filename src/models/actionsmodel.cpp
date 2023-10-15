@@ -3,6 +3,7 @@
 
 #include "actionsmodel.h"
 
+#include "chatbarcache.h"
 #include "controller.h"
 #include "neochatroom.h"
 #include "roommanager.h"
@@ -19,7 +20,7 @@ QStringList rainbowColors{"#ff2b00"_ls, "#ff5500"_ls, "#ff8000"_ls, "#ffaa00"_ls
                           "#00d4ff"_ls, "#00aaff"_ls, "#007fff"_ls, "#0055ff"_ls, "#002bff"_ls, "#0000ff"_ls, "#2a00ff"_ls, "#5500ff"_ls, "#7f00ff"_ls,
                           "#aa00ff"_ls, "#d400ff"_ls, "#ff00ff"_ls, "#ff00d4"_ls, "#ff00aa"_ls, "#ff0080"_ls, "#ff0055"_ls, "#ff002b"_ls, "#ff0000"_ls};
 
-auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room) {
+auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
     if (text.isEmpty()) {
         Q_EMIT room->showMessage(NeoChatRoom::Info, i18n("Leaving this room."));
         room->connection()->leaveRoom(room);
@@ -45,7 +46,7 @@ auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room) {
     return QString();
 };
 
-auto roomNickLambda = [](const QString &text, NeoChatRoom *room) {
+auto roomNickLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
     if (text.isEmpty()) {
         Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("No new nickname provided, no changes will happen."));
     } else {
@@ -57,7 +58,7 @@ auto roomNickLambda = [](const QString &text, NeoChatRoom *room) {
 QVector<ActionsModel::Action> actions{
     Action{
         QStringLiteral("shrug"),
-        [](const QString &message, NeoChatRoom *) {
+        [](const QString &message, NeoChatRoom *, ChatBarCache *) {
             return QStringLiteral("¯\\\\_(ツ)_/¯ %1").arg(message);
         },
         true,
@@ -67,7 +68,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("lenny"),
-        [](const QString &message, NeoChatRoom *) {
+        [](const QString &message, NeoChatRoom *, ChatBarCache *) {
             return QStringLiteral("( ͡° ͜ʖ ͡°) %1").arg(message);
         },
         true,
@@ -77,7 +78,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("tableflip"),
-        [](const QString &message, NeoChatRoom *) {
+        [](const QString &message, NeoChatRoom *, ChatBarCache *) {
             return QStringLiteral("(╯°□°）╯︵ ┻━┻ %1").arg(message);
         },
         true,
@@ -87,7 +88,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("unflip"),
-        [](const QString &message, NeoChatRoom *) {
+        [](const QString &message, NeoChatRoom *, ChatBarCache *) {
             return QStringLiteral("┬──┬ ノ( ゜-゜ノ) %1").arg(message);
         },
         true,
@@ -97,7 +98,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("rainbow"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             QString rainbowText;
             for (int i = 0; i < text.length(); i++) {
                 rainbowText += QStringLiteral("<font color='%2'>%3</font>").arg(rainbowColors[i % rainbowColors.length()], text.at(i));
@@ -106,8 +107,8 @@ QVector<ActionsModel::Action> actions{
             room->postMessage(QStringLiteral("/rainbow %1").arg(text),
                               rainbowText,
                               RoomMessageEvent::MsgType::Text,
-                              room->chatBoxReplyId(),
-                              room->chatBoxEditId());
+                              chatBarCache->replyId(),
+                              chatBarCache->editId());
             return QString();
         },
         false,
@@ -117,7 +118,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("rainbowme"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             QString rainbowText;
             for (int i = 0; i < text.length(); i++) {
                 rainbowText += QStringLiteral("<font color='%2'>%3</font>").arg(rainbowColors[i % rainbowColors.length()], text.at(i));
@@ -126,8 +127,8 @@ QVector<ActionsModel::Action> actions{
             room->postMessage(QStringLiteral("/rainbow %1").arg(text),
                               rainbowText,
                               RoomMessageEvent::MsgType::Emote,
-                              room->chatBoxReplyId(),
-                              room->chatBoxEditId());
+                              chatBarCache->replyId(),
+                              chatBarCache->editId());
             return QString();
         },
         false,
@@ -137,7 +138,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("plain"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             room->postMessage(text, text.toHtmlEscaped(), RoomMessageEvent::MsgType::Text, {}, {});
             return QString();
         },
@@ -148,13 +149,13 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("spoiler"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             room->postMessage(QStringLiteral("/spoiler %1").arg(text),
                               QStringLiteral("<span data-mx-spoiler>%1</span>").arg(text),
                               RoomMessageEvent::MsgType::Text,
-                              room->chatBoxReplyId(),
-                              room->chatBoxEditId());
+                              chatBarCache->replyId(),
+                              chatBarCache->editId());
             return QString();
         },
         false,
@@ -164,7 +165,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("me"),
-        [](const QString &text, NeoChatRoom *) {
+        [](const QString &text, NeoChatRoom *, ChatBarCache *) {
             return text;
         },
         true,
@@ -174,7 +175,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("notice"),
-        [](const QString &text, NeoChatRoom *) {
+        [](const QString &text, NeoChatRoom *, ChatBarCache *) {
             return text;
         },
         true,
@@ -184,7 +185,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("invite"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             static const QRegularExpression mxidRegex(
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(text);
@@ -220,7 +221,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("join"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
             auto regexMatch = roomRegex.match(text);
             if (!regexMatch.hasMatch()) {
@@ -244,7 +245,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("knock"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             auto parts = text.split(QLatin1String(" "));
             QString roomName = parts[0];
             QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
@@ -276,7 +277,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("j"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
             auto regexMatch = roomRegex.match(text);
             if (!regexMatch.hasMatch()) {
@@ -315,7 +316,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("nick"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             if (text.isEmpty()) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("No new nickname provided, no changes will happen."));
             } else {
@@ -346,7 +347,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("ignore"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             static const QRegularExpression mxidRegex(
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(text);
@@ -374,7 +375,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("unignore"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             static const QRegularExpression mxidRegex(
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(text);
@@ -402,9 +403,8 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("react"),
-        [](const QString &text, NeoChatRoom *room) {
-            QString replyEventId = room->chatBoxReplyId();
-            if (replyEventId.isEmpty()) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
+            if (chatBarCache->replyId().isEmpty()) {
                 for (auto it = room->messageEvents().crbegin(); it != room->messageEvents().crend(); it++) {
                     const auto &evt = **it;
                     if (const auto event = eventCast<const RoomMessageEvent>(&evt)) {
@@ -413,7 +413,7 @@ QVector<ActionsModel::Action> actions{
                     }
                 }
             }
-            room->toggleReaction(replyEventId, text);
+            room->toggleReaction(chatBarCache->replyId(), text);
             return QString();
         },
         false,
@@ -423,7 +423,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("ban"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             auto parts = text.split(QLatin1String(" "));
             static const QRegularExpression mxidRegex(
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
@@ -462,7 +462,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("unban"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             static const QRegularExpression mxidRegex(
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(text);
@@ -495,7 +495,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("kick"),
-        [](const QString &text, NeoChatRoom *room) {
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             auto parts = text.split(QLatin1String(" "));
             static const QRegularExpression mxidRegex(
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));

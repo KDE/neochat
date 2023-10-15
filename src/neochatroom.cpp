@@ -39,6 +39,7 @@
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
 
+#include "chatbarcache.h"
 #include "clipboard.h"
 #include "controller.h"
 #include "eventhandler.h"
@@ -65,6 +66,9 @@ using namespace Quotient;
 NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinState)
     : Room(connection, std::move(roomId), joinState)
 {
+    m_mainCache = new ChatBarCache(this);
+    m_editCache = new ChatBarCache(this);
+
     connect(connection, &Connection::accountDataChanged, this, &NeoChatRoom::updatePushNotificationState);
     connect(this, &Room::fileTransferCompleted, this, [this] {
         setFileUploadingProgress(0);
@@ -1571,128 +1575,14 @@ void NeoChatRoom::copyEventMedia(const QString &eventId)
     }
 }
 
-QString NeoChatRoom::chatBoxText() const
+ChatBarCache *NeoChatRoom::mainCache() const
 {
-    return m_chatBoxText;
+    return m_mainCache;
 }
 
-void NeoChatRoom::setChatBoxText(const QString &text)
+ChatBarCache *NeoChatRoom::editCache() const
 {
-    m_chatBoxText = text;
-    Q_EMIT chatBoxTextChanged();
-}
-
-QString NeoChatRoom::editText() const
-{
-    return m_editText;
-}
-
-void NeoChatRoom::setEditText(const QString &text)
-{
-    m_editText = text;
-    Q_EMIT editTextChanged();
-}
-
-QString NeoChatRoom::chatBoxReplyId() const
-{
-    return m_chatBoxReplyId;
-}
-
-void NeoChatRoom::setChatBoxReplyId(const QString &replyId)
-{
-    if (replyId == m_chatBoxReplyId) {
-        return;
-    }
-    m_chatBoxReplyId = replyId;
-    Q_EMIT chatBoxReplyIdChanged();
-}
-
-QString NeoChatRoom::chatBoxEditId() const
-{
-    return m_chatBoxEditId;
-}
-
-void NeoChatRoom::setChatBoxEditId(const QString &editId)
-{
-    if (editId == m_chatBoxEditId) {
-        return;
-    }
-    m_chatBoxEditId = editId;
-    Q_EMIT chatBoxEditIdChanged();
-}
-
-QVariantMap NeoChatRoom::chatBoxReplyUser() const
-{
-    if (m_chatBoxReplyId.isEmpty()) {
-        return emptyUser;
-    }
-    return getUser(user((*findInTimeline(m_chatBoxReplyId))->senderId()));
-}
-
-QString NeoChatRoom::chatBoxReplyMessage() const
-{
-    if (m_chatBoxReplyId.isEmpty()) {
-        return {};
-    }
-
-    EventHandler eventhandler;
-    eventhandler.setRoom(this);
-    eventhandler.setEvent(&**findInTimeline(m_chatBoxReplyId));
-    return eventhandler.getPlainBody();
-}
-
-QVariantMap NeoChatRoom::chatBoxEditUser() const
-{
-    if (m_chatBoxEditId.isEmpty()) {
-        return emptyUser;
-    }
-    return getUser(user((*findInTimeline(m_chatBoxEditId))->senderId()));
-}
-
-QString NeoChatRoom::chatBoxEditMessage() const
-{
-    if (m_chatBoxEditId.isEmpty()) {
-        return {};
-    }
-
-    EventHandler eventhandler;
-    eventhandler.setRoom(this);
-    if (auto event = findInTimeline(m_chatBoxEditId); event != historyEdge()) {
-        eventhandler.setEvent(&**event);
-        return eventhandler.getPlainBody();
-    }
-    return {};
-}
-
-QString NeoChatRoom::chatBoxAttachmentPath() const
-{
-    return m_chatBoxAttachmentPath;
-}
-
-void NeoChatRoom::setChatBoxAttachmentPath(const QString &attachmentPath)
-{
-    m_chatBoxAttachmentPath = attachmentPath;
-    Q_EMIT chatBoxAttachmentPathChanged();
-}
-
-QVector<Mention> *NeoChatRoom::mentions()
-{
-    return &m_mentions;
-}
-
-QVector<Mention> *NeoChatRoom::editMentions()
-{
-    return &m_editMentions;
-}
-
-QString NeoChatRoom::savedText() const
-{
-    return m_savedText;
-}
-
-void NeoChatRoom::setSavedText(const QString &savedText)
-{
-    m_savedText = savedText;
+    return m_editCache;
 }
 
 void NeoChatRoom::replyLastMessage()
@@ -1721,7 +1611,7 @@ void NeoChatRoom::replyLastMessage()
                 // For any message that isn't an edit return the id of the current message
                 eventId = (*it)->id();
             }
-            setChatBoxReplyId(eventId);
+            mainCache()->setReplyId(eventId);
             return;
         }
     }
@@ -1755,7 +1645,7 @@ void NeoChatRoom::editLastMessage()
                     // For any message that isn't an edit return the id of the current message
                     eventId = (*it)->id();
                 }
-                setChatBoxEditId(eventId);
+                editCache()->setEditId(eventId);
                 return;
             }
         }

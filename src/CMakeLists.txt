@@ -135,6 +135,8 @@ add_library(neochat STATIC
     enums/delegatetype.h
     roomlastmessageprovider.cpp
     roomlastmessageprovider.h
+    chatbarcache.cpp
+    chatbarcache.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN

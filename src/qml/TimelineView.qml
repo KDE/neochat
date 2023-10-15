@@ -182,7 +182,7 @@ QQC2.ScrollView {
         DropArea {
             id: dropAreaFile
             anchors.fill: parent
-            onDropped: root.currentRoom.chatBoxAttachmentPath = drop.urls[0]
+            onDropped: root.currentRoom.mainCache.attachmentPath = drop.urls[0]
             ;
             enabled: !Controller.isFlatpak
         }
@@ -250,12 +250,13 @@ QQC2.ScrollView {
                 }
             }
             onEditClicked: {
-                root.currentRoom.chatBoxEditId = delegate.eventId;
-                root.currentRoom.chatBoxReplyId = "";
+                root.currentRoom.editCache.editId = delegate.eventId;
+                root.currentRoom.mainCache.replyId = "";
+
             }
             onReplyClicked: {
-                root.currentRoom.chatBoxReplyId = delegate.eventId;
-                root.currentRoom.chatBoxEditId = "";
+                root.currentRoom.mainCache.replyId = delegate.eventId;
+                root.currentRoom.editCache.editId = "";
                 root.focusChatBox();
             }
         }

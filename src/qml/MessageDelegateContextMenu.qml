@@ -93,8 +93,8 @@ Loader {
             text: i18n("Edit")
             icon.name: "document-edit"
             onTriggered: {
-                currentRoom.chatBoxEditId = eventId;
-                currentRoom.chatBoxReplyId = "";
+                currentRoom.editCache.editId = eventId;
+                currentRoom.mainCache.replyId = "";
             }
             visible: author.isLocalUser && (root.delegateType === DelegateType.Emote || root.delegateType === DelegateType.Message)
         },
@@ -102,8 +102,8 @@ Loader {
             text: i18n("Reply")
             icon.name: "mail-replied-symbolic"
             onTriggered: {
-                currentRoom.chatBoxReplyId = eventId;
-                currentRoom.chatBoxEditId = "";
+                currentRoom.mainCache.replyId = eventId;
+                currentRoom.editCache.editId = "";
             }
         },
         Kirigami.Action {

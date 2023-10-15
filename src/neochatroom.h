@@ -20,6 +20,8 @@ namespace Quotient
 class User;
 }
 
+class ChatBarCache;
+
 class PushNotificationState : public QObject
 {
     Q_OBJECT
@@ -38,17 +40,6 @@ public:
         All, /**< Notifications for all messages. */
     };
     Q_ENUM(State)
-};
-
-/**
- * @brief Defines a user mention in the current chat or edit text.
- */
-struct Mention {
-    QTextCursor cursor; /**< Contains the mention's text and position in the text.  */
-    QString text; /**< The inserted text of the mention. */
-    int start = 0; /**< Start position of the mention. */
-    int position = 0; /**< End position of the mention. */
-    QString id; /**< The id the mention (used to create link when sending the message). */
 };
 
 /**
@@ -311,94 +302,14 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(int spaceParentPowerLevel READ spaceParentPowerLevel WRITE setSpaceParentPowerLevel NOTIFY spaceParentPowerLevelChanged)
 
     /**
-     * @brief The current text in the chatbox for the room.
-     *
-     * Due to problems with QTextDocument, unlike the other properties here,
-     * chatBoxText is *not* used to store the text when switching rooms.
+     * @brief The cache for the main chat bar in the room.
      */
-    Q_PROPERTY(QString chatBoxText READ chatBoxText WRITE setChatBoxText NOTIFY chatBoxTextChanged)
+    Q_PROPERTY(ChatBarCache *mainCache READ mainCache CONSTANT)
 
     /**
-     * @brief The text for any message currently being edited in the room.
+     * @brief The cache for the edit chat bar in the room.
      */
-    Q_PROPERTY(QString editText READ editText WRITE setEditText NOTIFY editTextChanged)
-
-    /**
-     * @brief The event id of a message being replied to.
-     *
-     * Will be QString() if not replying to a message.
-     */
-    Q_PROPERTY(QString chatBoxReplyId READ chatBoxReplyId WRITE setChatBoxReplyId NOTIFY chatBoxReplyIdChanged)
-
-    /**
-     * @brief The event id of a message being edited.
-     *
-     * Will be QString() if not editing to a message.
-     */
-    Q_PROPERTY(QString chatBoxEditId READ chatBoxEditId WRITE setChatBoxEditId NOTIFY chatBoxEditIdChanged)
-
-    /**
-     * @brief Get the user for the message being replied to.
-     *
-     * This is different to getting a Quotient::User object
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room.
-     *
-     * Returns an empty user if not replying to a message.
-     *
-     * The user QVariantMap has the following properties:
-     *  - isLocalUser - Whether the user is the local user.
-     *  - id - The matrix ID of the user.
-     *  - displayName - Display name in the context of this room.
-     *  - avatarSource - The mxc URL for the user's avatar in the current room.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - color - Color for the user.
-     *  - object - The Quotient::User object for the user.
-     *
-     * @sa getUser, Quotient::User
-     */
-    Q_PROPERTY(QVariantMap chatBoxReplyUser READ chatBoxReplyUser NOTIFY chatBoxReplyIdChanged)
-
-    /**
-     * @brief The content of the message being replied to.
-     *
-     * Will be QString() if not replying to a message.
-     */
-    Q_PROPERTY(QString chatBoxReplyMessage READ chatBoxReplyMessage NOTIFY chatBoxReplyIdChanged)
-
-    /**
-     * @brief Get the user for the message being edited.
-     *
-     * This is different to getting a Quotient::User object
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room.
-     *
-     * Returns an empty user if not replying to a message.
-     *
-     * The user QVariantMap has the following properties:
-     *  - isLocalUser - Whether the user is the local user.
-     *  - id - The matrix ID of the user.
-     *  - displayName - Display name in the context of this room.
-     *  - avatarSource - The mxc URL for the user's avatar in the current room.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - color - Color for the user.
-     *  - object - The Quotient::User object for the user.
-     *
-     * @sa getUser, Quotient::User
-     */
-    Q_PROPERTY(QVariantMap chatBoxEditUser READ chatBoxEditUser NOTIFY chatBoxEditIdChanged)
-
-    /**
-     * @brief The content of the message being edited.
-     *
-     * Will be QString() if not editing a message.
-     */
-    Q_PROPERTY(QString chatBoxEditMessage READ chatBoxEditMessage NOTIFY chatBoxEditIdChanged)
-
-    /**
-     * @brief The file path of the attachment to be sent.
-     */
-    Q_PROPERTY(QString chatBoxAttachmentPath READ chatBoxAttachmentPath WRITE setChatBoxAttachmentPath NOTIFY chatBoxAttachmentPathChanged)
+    Q_PROPERTY(ChatBarCache *editCache READ editCache CONSTANT)
 
 public:
     /**
@@ -805,46 +716,9 @@ public:
     [[nodiscard]] int spaceParentPowerLevel() const;
     void setSpaceParentPowerLevel(const int &newPowerLevel);
 
-    QString chatBoxText() const;
-    void setChatBoxText(const QString &text);
+    ChatBarCache *mainCache() const;
 
-    QString editText() const;
-    void setEditText(const QString &text);
-
-    QString chatBoxReplyId() const;
-    void setChatBoxReplyId(const QString &replyId);
-
-    QVariantMap chatBoxReplyUser() const;
-    QString chatBoxReplyMessage() const;
-
-    QString chatBoxEditId() const;
-    void setChatBoxEditId(const QString &editId);
-
-    QVariantMap chatBoxEditUser() const;
-    QString chatBoxEditMessage() const;
-
-    QString chatBoxAttachmentPath() const;
-    void setChatBoxAttachmentPath(const QString &attachmentPath);
-
-    /**
-     * @brief Retrieve the mentions for the current chatbox text.
-     */
-    QVector<Mention> *mentions();
-
-    /**
-     * @brief Retrieve the mentions for the current edit text.
-     */
-    QVector<Mention> *editMentions();
-
-    /**
-     * @brief Get the saved chatbox text for the room.
-     */
-    QString savedText() const;
-
-    /**
-     * @brief Save the chatbox text for the room.
-     */
-    void setSavedText(const QString &savedText);
+    ChatBarCache *editCache() const;
 
     /**
      * @brief Reply to the last message sent in the timeline.
@@ -916,14 +790,9 @@ private:
 
     std::unique_ptr<Quotient::RoomEvent> m_cachedEvent;
 
-    QString m_chatBoxText;
-    QString m_editText;
-    QString m_chatBoxReplyId;
-    QString m_chatBoxEditId;
-    QString m_chatBoxAttachmentPath;
-    QVector<Mention> m_mentions;
-    QVector<Mention> m_editMentions;
-    QString m_savedText;
+    ChatBarCache *m_mainCache;
+    ChatBarCache *m_editCache;
+
     QCache<QString, PollHandler> m_polls;
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
 
@@ -946,11 +815,6 @@ Q_SIGNALS:
     void displayNameChanged();
     void pushNotificationStateChanged(PushNotificationState::State state);
     void showMessage(MessageType messageType, const QString &message);
-    void chatBoxTextChanged();
-    void editTextChanged();
-    void chatBoxReplyIdChanged();
-    void chatBoxEditIdChanged();
-    void chatBoxAttachmentPathChanged();
     void canEncryptRoomChanged();
     void joinRuleChanged();
     void historyVisibilityChanged();

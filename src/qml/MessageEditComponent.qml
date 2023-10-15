@@ -13,7 +13,10 @@ QQC2.TextArea {
     id: root
 
     required property NeoChatRoom room
-    onRoomChanged: room.chatBoxEditIdChanged.connect(updateEditText)
+    onRoomChanged: {
+        _private.chatBarCache = room.editCache
+        _private.chatBarCache.relationIdChanged.connect(_private.updateEditText)
+    }
 
     property string messageId
 
@@ -26,7 +29,7 @@ QQC2.TextArea {
     wrapMode: Text.Wrap
 
     onTextChanged: {
-        room.editText = text
+        _private.chatBarCache.text = text
     }
 
     Keys.onEnterPressed: {
@@ -88,7 +91,7 @@ QQC2.TextArea {
                 text: i18nc("@action:button", "Cancel edit")
                 icon.name: "dialog-close"
                 onTriggered: {
-                    room.chatBoxEditId = "";
+                    _private.chatBarCache.editId = "";
                 }
                 shortcut: "Escape"
             }
@@ -134,16 +137,22 @@ QQC2.TextArea {
     }
 
     function postEdit() {
-        actionsHandler.handleEdit();
+        actionsHandler.handleMessageEvent(_private.chatBarCache);
         root.clear();
-        room.chatBoxEditId = "";
+        _private.chatBarCache.editId = "";
     }
 
-    function updateEditText() {
-        if (room.chatBoxEditId == messageId && room.chatBoxEditMessage.length > 0) {
-            root.text = room.chatBoxEditMessage
-            forceActiveFocus();
-            root.cursorPosition = root.length;
+    QtObject {
+        id: _private
+        property ChatBarCache chatBarCache
+        onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
+
+        function updateEditText() {
+            if (chatBarCache.isEditing && chatBarCache.relationMessage.length > 0) {
+                root.text = chatBarCache.relationMessage
+                root.forceActiveFocus();
+                root.cursorPosition = root.length;
+            }
         }
     }
 }

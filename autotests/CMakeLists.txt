@@ -3,6 +3,8 @@
 
 enable_testing()
 
+add_definitions(-DDATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data" )
+
 ecm_add_test(
     neochatroomtest.cpp
     LINK_LIBRARIES neochat Qt::Test
@@ -31,4 +33,10 @@ ecm_add_test(
     eventhandlertest.cpp
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME eventhandlertest
+)
+
+ecm_add_test(
+    chatbarcachetest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME chatbarcachetest
 )
