@@ -126,7 +126,7 @@ private:
     Quotient::Connection *m_connection = nullptr;
     QString m_server;
     QString m_keyword;
-    bool m_showOnlySpaces;
+    bool m_showOnlySpaces = false;
 
     bool attempted = false;
     bool m_loading = false;
