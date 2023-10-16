@@ -38,7 +38,7 @@ RowLayout {
     }
     property Kirigami.Action roomAction: Kirigami.Action {
         text: i18n("Create a Room")
-        icon.name: "system-users"
+        icon.name: "system-users-symbolic"
         onTriggered: {
             pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Create a Room")})
         }

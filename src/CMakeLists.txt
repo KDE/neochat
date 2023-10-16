@@ -432,6 +432,7 @@ if(ANDROID)
         "preferences-desktop-notification"
         "computer-symbolic"
         "gps"
+        "system-users-symbolic"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF6::KIOWidgets)
