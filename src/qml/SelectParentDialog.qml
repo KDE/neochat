@@ -22,7 +22,7 @@ Kirigami.Dialog {
      */
     required property NeoChatRoom room
 
-    title: i18nc("@title", "Select new offical parent")
+    title: i18nc("@title", "Select new official parent")
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
     leftPadding: 0
