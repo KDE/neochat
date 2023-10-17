@@ -3,6 +3,7 @@
 
 #include "sortfilterroomlistmodel.h"
 
+#include "neochatconnection.h"
 #include "roomlistmodel.h"
 #include "spacehierarchycache.h"
 
@@ -78,9 +79,15 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
 {
     Q_UNUSED(source_parent);
 
+    if (sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() == QStringLiteral("upgraded")
+        && dynamic_cast<RoomListModel *>(sourceModel())
+               ->connection()
+               ->room(sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::ReplacementIdRole).toString())) {
+        return false;
+    }
+
     bool acceptRoom =
         sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
-        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != QStringLiteral("upgraded")
         && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool() == false;
 
     if (m_activeSpaceId.isEmpty()) {
