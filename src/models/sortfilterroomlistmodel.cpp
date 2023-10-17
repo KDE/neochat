@@ -15,6 +15,10 @@ SortFilterRoomListModel::SortFilterRoomListModel(QObject *parent)
     connect(this, &SortFilterRoomListModel::filterTextChanged, this, [this]() {
         invalidateFilter();
     });
+    connect(this, &SortFilterRoomListModel::sourceModelChanged, this, [this]() {
+        connect(sourceModel(), &QAbstractListModel::rowsInserted, this, &SortFilterRoomListModel::invalidateRowsFilter);
+        connect(sourceModel(), &QAbstractListModel::rowsRemoved, this, &SortFilterRoomListModel::invalidateRowsFilter);
+    });
 }
 
 void SortFilterRoomListModel::setRoomSortOrder(SortFilterRoomListModel::RoomSortOrder sortOrder)
