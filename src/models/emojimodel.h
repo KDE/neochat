@@ -24,21 +24,6 @@ struct Emoji {
     }
     Emoji() = default;
 
-    friend QDataStream &operator<<(QDataStream &arch, const Emoji &object)
-    {
-        arch << object.unicode;
-        arch << object.shortName;
-        return arch;
-    }
-
-    friend QDataStream &operator>>(QDataStream &arch, Emoji &object)
-    {
-        arch >> object.unicode;
-        arch >> object.shortName;
-        object.isCustom = object.unicode.startsWith(QStringLiteral("image://"));
-        return arch;
-    }
-
     QString unicode;
     QString shortName;
     QString description;
