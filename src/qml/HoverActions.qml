@@ -18,6 +18,11 @@ QQC2.Control {
     id: root
 
     /**
+     * @brief The current message delegate the actions are being shown on.
+     */
+    property var delegate: null
+
+    /**
      * @brief The current room that user is viewing.
      */
     required property NeoChatRoom currentRoom
@@ -25,37 +30,21 @@ QQC2.Control {
     /**
      * @brief Whether the actions should be shown.
      */
-    property bool showActions: false
+    readonly property bool showActions: delegate && delegate.hovered
 
     /**
-     * @brief Whether the message has been sent from a verified matrix session.
+     * @brief Request that the chat bar be focussed.
      */
-    property bool verified: false
-
-    /**
-     * @brief Whether the edit button should be shown.
-     */
-    property bool editable: false
-
-    /**
-     * @brief The react button has been clicked.
-     */
-    signal reactClicked(string emoji)
-
-    /**
-     * @brief The edit button has been clicked.
-     */
-    signal editClicked()
-
-    /**
-     * @brief The reply button has been clicked.
-     */
-    signal replyClicked()
+    signal focusChatBar()
 
     topPadding: 0
     bottomPadding: 0
     leftPadding: 0
     rightPadding: 0
+
+    x: delegate ? delegate.x + delegate.bubbleX : 0
+    y: delegate ? delegate.mapToItem(parent, 0, 0).y + delegate.bubbleY - height + Kirigami.Units.smallSpacing : 0
+    width: delegate ? delegate.bubbleWidth : Kirigami.Units.gridUnit * 4
 
     visible: (root.hovered || root.showActions || showActionsTimer.running) && !Kirigami.Settings.isMobile
     onVisibleChanged: {
@@ -78,7 +67,7 @@ QQC2.Control {
             source: "security-high"
             width: height
             height: root.height
-            visible: root.verified
+            visible: root.delegate && root.delegate.verified
             HoverHandler {
                 id: hover
             }
@@ -100,15 +89,22 @@ QQC2.Control {
                     onTriggered: emojiDialog.open()
                 },
                 Kirigami.Action {
+                    visible: root.delegate && root.delegate.author.isLocalUser && (root.delegate.delegateType === DelegateType.Emote || root.delegate.delegateType === DelegateType.Message)
                     text: i18n("Edit")
                     icon.name: "document-edit"
-                    onTriggered: root.editClicked()
-                    visible: root.editable
+                    onTriggered: {
+                        root.currentRoom.editCache.editId = root.delegate.eventId;
+                        root.currentRoom.mainCache.replyId = "";
+                    }
                 },
                 Kirigami.Action {
                     text: i18n("Reply")
                     icon.name: "mail-replied-symbolic"
-                    onTriggered: root.replyClicked()
+                    onTriggered: {
+                        root.currentRoom.mainCache.replyId = root.delegate.eventId;
+                        root.currentRoom.editCache.editId = "";
+                        root.focusChatBar();
+                    }
                 }
             ]
 
@@ -116,7 +112,12 @@ QQC2.Control {
                 id: emojiDialog
                 currentRoom: root.currentRoom
                 showQuickReaction: true
-                onChosen: (emoji) => root.reactClicked(emoji)
+                onChosen: (emoji) => {
+                    root.currentRoom.toggleReaction(root.delegate.eventId, emoji);
+                    if (!Kirigami.Settings.isMobile) {
+                        root.focusChatBar();
+                    }
+                }
             }
         }
     }

@@ -231,34 +231,8 @@ QQC2.ScrollView {
 
         HoverActions {
             id: hoverActions
-
-            property var delegate: null
-
-            x: delegate ? delegate.x + delegate.bubbleX : 0
-            y: delegate ? delegate.mapToItem(parent, 0, 0).y + delegate.bubbleY - height + Kirigami.Units.smallSpacing : 0
-            width: delegate ? delegate.bubbleWidth : Kirigami.Units.gridUnit * 4
-
             currentRoom: root.currentRoom
-            showActions: delegate && delegate.hovered
-            verified: delegate && delegate.verified
-            editable: delegate && delegate.author.isLocalUser && (delegate.delegateType === DelegateType.Emote || delegate.delegateType === DelegateType.Message)
-
-            onReactClicked: (emoji) => {
-                root.currentRoom.toggleReaction(delegate.eventId, emoji);
-                if (!Kirigami.Settings.isMobile) {
-                    root.focusChatBox();
-                }
-            }
-            onEditClicked: {
-                root.currentRoom.editCache.editId = delegate.eventId;
-                root.currentRoom.mainCache.replyId = "";
-
-            }
-            onReplyClicked: {
-                root.currentRoom.mainCache.replyId = delegate.eventId;
-                root.currentRoom.editCache.editId = "";
-                root.focusChatBox();
-            }
+            onFocusChatBar: root.focusChatBox()
         }
 
         onContentYChanged: {
