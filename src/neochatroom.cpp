@@ -182,7 +182,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     if (mime.name().startsWith("image/"_ls)) {
         QImage image(url.toLocalFile());
 
-        QImage rgbImage = image.convertToFormat(QImage::Format_RGB888);
+        auto rgbImage = image.convertToFormat(QImage::Format_RGB888);
         const QString blurhash = QString::fromStdString(Quotient::encode_blurhash(rgbImage.bits(), image.width(), image.height(), 4, 3));
 
         content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName(), blurhash);
