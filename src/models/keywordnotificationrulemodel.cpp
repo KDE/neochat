@@ -35,7 +35,7 @@ void KeywordNotificationRuleModel::updateNotificationRules(const QString &type)
 
     const QJsonObject ruleDataJson = Controller::instance().activeConnection()->accountDataJson("m.push_rules");
     const Quotient::PushRuleset ruleData = Quotient::fromJson<Quotient::PushRuleset>(ruleDataJson["global"].toObject());
-    const QVector<Quotient::PushRule> contentRules = ruleData.content;
+    const QList<Quotient::PushRule> contentRules = ruleData.content;
 
     beginResetModel();
     m_notificationRules.clear();
@@ -78,11 +78,11 @@ void KeywordNotificationRuleModel::addKeyword(const QString &keyword)
         NotificationsManager::instance().initializeKeywordNotificationAction();
     }
 
-    const QVector<QVariant> actions = NotificationsManager::instance().getKeywordNotificationActions();
+    const QList<QVariant> actions = NotificationsManager::instance().getKeywordNotificationActions();
 
     auto job = Controller::instance()
                    .activeConnection()
-                   ->callApi<Quotient::SetPushRuleJob>("global", "content", keyword, actions, "", "", QVector<Quotient::PushCondition>(), keyword);
+                   ->callApi<Quotient::SetPushRuleJob>("global", "content", keyword, actions, "", "", QList<Quotient::PushCondition>(), keyword);
     connect(job, &Quotient::BaseJob::success, this, [this, keyword]() {
         beginInsertRows(QModelIndex(), m_notificationRules.count(), m_notificationRules.count());
         m_notificationRules.append(keyword);

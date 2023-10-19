@@ -1110,10 +1110,10 @@ bool NeoChatRoom::hasParent() const
     return currentState().eventsOfType("m.space.parent"_ls).size() > 0;
 }
 
-QVector<QString> NeoChatRoom::parentIds() const
+QList<QString> NeoChatRoom::parentIds() const
 {
     auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
-    QVector<QString> parentIds;
+    QList<QString> parentIds;
     for (const auto &parentEvent : parentEvents) {
         if (parentEvent->contentJson().contains("via"_ls) && !parentEvent->contentPart<QJsonArray>("via"_ls).isEmpty()) {
             parentIds += parentEvent->stateKey();
@@ -1346,7 +1346,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          *      "don't_notify"
          * ]
          */
-        const QVector<QVariant> actions = {"dont_notify"_ls};
+        const QList<QVariant> actions = {"dont_notify"_ls};
         /**
          * Setup the push condition to get all events for the current room
          * see https://spec.matrix.org/v1.3/client-server-api/#conditions-1
@@ -1363,7 +1363,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         pushCondition.kind = "event_match"_ls;
         pushCondition.key = "room_id"_ls;
         pushCondition.pattern = id();
-        const QVector<PushCondition> conditions = {pushCondition};
+        const QList<PushCondition> conditions = {pushCondition};
 
         // Add new override rule and make sure it's enabled
         auto job = Controller::instance()
@@ -1390,9 +1390,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          *      "don't_notify"
          * ]
          */
-        const QVector<QVariant> actions = {"dont_notify"_ls};
+        const QList<QVariant> actions = {"dont_notify"_ls};
         // No conditions for a room rule
-        const QVector<PushCondition> conditions;
+        const QList<PushCondition> conditions;
 
         auto setJob = Controller::instance()
                           .activeConnection()
@@ -1422,9 +1422,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         QJsonObject tweaks;
         tweaks.insert("set_tweak"_ls, "sound"_ls);
         tweaks.insert("value"_ls, "default"_ls);
-        const QVector<QVariant> actions = {"notify"_ls, tweaks};
+        const QList<QVariant> actions = {"notify"_ls, tweaks};
         // No conditions for a room rule
-        const QVector<PushCondition> conditions;
+        const QList<PushCondition> conditions;
 
         // Add new room rule and make sure enabled
         auto setJob = Controller::instance()

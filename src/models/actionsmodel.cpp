@@ -55,7 +55,7 @@ auto roomNickLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *)
     return QString();
 };
 
-QVector<ActionsModel::Action> actions{
+QList<ActionsModel::Action> actions{
     Action{
         QStringLiteral("shrug"),
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
@@ -574,7 +574,7 @@ QHash<int, QByteArray> ActionsModel::roleNames() const
     };
 }
 
-QVector<Action> &ActionsModel::allActions() const
+QList<Action> &ActionsModel::allActions() const
 {
     return actions;
 }

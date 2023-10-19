@@ -151,7 +151,7 @@ void ImagePacksModel::setShowEmoticons(bool showEmoticons)
     m_showEmoticons = showEmoticons;
     Q_EMIT showEmoticonsChanged();
 }
-QVector<Quotient::ImagePackEventContent::ImagePackImage> ImagePacksModel::images(int index)
+QList<Quotient::ImagePackEventContent::ImagePackImage> ImagePacksModel::images(int index)
 {
     if (index < 0 || index >= m_events.size()) {
         return {};

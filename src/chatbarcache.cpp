@@ -137,7 +137,7 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
     Q_EMIT attachmentPathChanged();
 }
 
-QVector<Mention> *ChatBarCache::mentions()
+QList<Mention> *ChatBarCache::mentions()
 {
     return &m_mentions;
 }

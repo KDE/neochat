@@ -88,7 +88,7 @@ public:
     /**
      * @brief Return a vector with all supported actions.
      */
-    QVector<Action> &allActions() const;
+    QList<Action> &allActions() const;
 
 private:
     ActionsModel() = default;

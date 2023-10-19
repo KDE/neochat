@@ -7,10 +7,10 @@
 
 #include <QAbstractListModel>
 #include <QCoroTask>
+#include <QList>
 #include <QObject>
 #include <QPointer>
 #include <QQmlEngine>
-#include <QVector>
 
 #include <Quotient/connection.h>
 

@@ -226,7 +226,7 @@ void Registration::testUsername()
     });
 }
 
-QVector<QVariantMap> Registration::terms() const
+QList<QVariantMap> Registration::terms() const
 {
     return m_terms;
 }

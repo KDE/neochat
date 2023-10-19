@@ -5,10 +5,10 @@
 #pragma once
 
 #include <QHash>
+#include <QList>
 #include <QObject>
 #include <QQmlEngine>
 #include <QString>
-#include <QVector>
 
 namespace Quotient
 {
@@ -43,7 +43,7 @@ public:
     /**
      * @brief Return the list of child rooms for the given space ID.
      */
-    [[nodiscard]] QVector<QString> &getRoomListForSpace(const QString &spaceId, bool updateCache);
+    [[nodiscard]] QList<QString> &getRoomListForSpace(const QString &spaceId, bool updateCache);
 
     /**
      * @brief Returns whether the space is a child space of any other space.
@@ -60,8 +60,8 @@ private Q_SLOTS:
 private:
     explicit SpaceHierarchyCache(QObject *parent = nullptr);
 
-    QVector<QString> m_activeSpaceRooms;
-    QHash<QString, QVector<QString>> m_spaceHierarchy;
+    QList<QString> m_activeSpaceRooms;
+    QHash<QString, QList<QString>> m_spaceHierarchy;
     void cacheSpaceHierarchy();
     void populateSpaceHierarchy(const QString &spaceId);
 };

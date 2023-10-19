@@ -238,14 +238,14 @@ private:
     PushNotificationAction::Action m_defaultKeywordAction;
     QList<Rule> m_rules;
 
-    void setRules(QVector<Quotient::PushRule> rules, PushNotificationKind::Kind kind);
+    void setRules(QList<Quotient::PushRule> rules, PushNotificationKind::Kind kind);
 
     int getRuleIndex(const QString &ruleId) const;
     PushNotificationSection::Section getSection(Quotient::PushRule rule);
 
     void setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled);
     void setNotificationRuleActions(const QString &kind, const QString &ruleId, PushNotificationAction::Action action);
-    PushNotificationAction::Action variantToAction(const QVector<QVariant> &actions, bool enabled);
-    QVector<QVariant> actionToVariant(PushNotificationAction::Action action, const QString &sound = QStringLiteral("default"));
+    PushNotificationAction::Action variantToAction(const QList<QVariant> &actions, bool enabled);
+    QList<QVariant> actionToVariant(PushNotificationAction::Action action, const QString &sound = QStringLiteral("default"));
 };
 Q_DECLARE_METATYPE(PushRuleModel *)

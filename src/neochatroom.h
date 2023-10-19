@@ -122,7 +122,7 @@ class NeoChatRoom : public Quotient::Room
      *
      * Empty if no parent space is set.
      */
-    Q_PROPERTY(QVector<QString> parentIds READ parentIds NOTIFY parentIdsChanged)
+    Q_PROPERTY(QList<QString> parentIds READ parentIds NOTIFY parentIdsChanged)
 
     /**
      * @brief The current canonical parent for the room.
@@ -525,7 +525,7 @@ public:
      */
     Q_INVOKABLE bool hasParent() const;
 
-    QVector<QString> parentIds() const;
+    QList<QString> parentIds() const;
 
     QString canonicalParent() const;
     void setCanonicalParent(const QString &parentId);

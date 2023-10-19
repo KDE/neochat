@@ -372,7 +372,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void RoomListModel::refresh(NeoChatRoom *room, const QVector<int> &roles)
+void RoomListModel::refresh(NeoChatRoom *room, const QList<int> &roles)
 {
     const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
     if (it == m_rooms.end()) {

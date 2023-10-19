@@ -145,7 +145,7 @@ void UserListModel::userRemoved(Quotient::User *user)
     }
 }
 
-void UserListModel::refreshUser(Quotient::User *user, const QVector<int> &roles)
+void UserListModel::refreshUser(Quotient::User *user, const QList<int> &roles)
 {
     auto pos = findUserPos(user);
     if (pos != m_users.size()) {

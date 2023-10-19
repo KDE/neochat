@@ -158,7 +158,7 @@ void NeoChatConnection::deactivateAccount(const QString &password)
 
 void NeoChatConnection::createRoom(const QString &name, const QString &topic, const QString &parent, bool setChildParent)
 {
-    QVector<CreateRoomJob::StateEvent> initialStateEvents;
+    QList<CreateRoomJob::StateEvent> initialStateEvents;
     if (!parent.isEmpty()) {
         initialStateEvents.append(CreateRoomJob::StateEvent{
             "m.space.parent"_ls,
@@ -190,7 +190,7 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
 
 void NeoChatConnection::createSpace(const QString &name, const QString &topic, const QString &parent, bool setChildParent)
 {
-    QVector<CreateRoomJob::StateEvent> initialStateEvents;
+    QList<CreateRoomJob::StateEvent> initialStateEvents;
     if (!parent.isEmpty()) {
         initialStateEvents.append(CreateRoomJob::StateEvent{
             "m.space.parent"_ls,

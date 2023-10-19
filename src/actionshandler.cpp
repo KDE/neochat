@@ -59,7 +59,7 @@ void ActionsHandler::handleMessageEvent(ChatBarCache *chatBarCache)
     handleMessage(m_room->mainCache()->text(), handledText, chatBarCache);
 }
 
-QString ActionsHandler::handleMentions(QString handledText, QVector<Mention> *mentions)
+QString ActionsHandler::handleMentions(QString handledText, QList<Mention> *mentions)
 {
     if (!m_room) {
         return QString();

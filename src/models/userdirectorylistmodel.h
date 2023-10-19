@@ -103,7 +103,7 @@ private:
 
     bool attempted = false;
 
-    QVector<Quotient::SearchUserDirectoryJob::User> users;
+    QList<Quotient::SearchUserDirectoryJob::User> users;
 
     Quotient::SearchUserDirectoryJob *job = nullptr;
 };

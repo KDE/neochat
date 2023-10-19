@@ -137,8 +137,8 @@ private:
     void fetchMore(const QModelIndex &parent) override;
 
     void refreshLastUserEvents(int baseTimelineRow);
-    void refreshEventRoles(int row, const QVector<int> &roles = {});
-    int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
+    void refreshEventRoles(int row, const QList<int> &roles = {});
+    int refreshEventRoles(const QString &eventId, const QList<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
 
     void createEventObjects(const Quotient::RoomMessageEvent *event);

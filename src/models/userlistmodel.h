@@ -89,7 +89,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void userAdded(Quotient::User *user);
     void userRemoved(Quotient::User *user);
-    void refreshUser(Quotient::User *user, const QVector<int> &roles = {});
+    void refreshUser(Quotient::User *user, const QList<int> &roles = {});
     void refreshAllUsers();
 
 private:

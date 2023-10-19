@@ -266,7 +266,7 @@ int MessageEventModel::timelineBaseIndex() const
     return m_currentRoom ? int(m_currentRoom->pendingEvents().size()) : 0;
 }
 
-void MessageEventModel::refreshEventRoles(int row, const QVector<int> &roles)
+void MessageEventModel::refreshEventRoles(int row, const QList<int> &roles)
 {
     const auto idx = index(row);
     Q_EMIT dataChanged(idx, idx, roles);
@@ -310,7 +310,7 @@ void MessageEventModel::moveReadMarker(const QString &toEventId)
     endMoveRows();
 }
 
-int MessageEventModel::refreshEventRoles(const QString &id, const QVector<int> &roles)
+int MessageEventModel::refreshEventRoles(const QString &id, const QList<int> &roles)
 {
     // On 64-bit platforms, difference_type for std containers is long long
     // but Qt uses int throughout its interfaces; hence casting to int below.

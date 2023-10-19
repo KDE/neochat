@@ -12,7 +12,7 @@ SortFilterSpaceListModel::SortFilterSpaceListModel(QObject *parent)
     sort(0);
     invalidateFilter();
     connect(this, &QAbstractProxyModel::sourceModelChanged, this, [this]() {
-        connect(sourceModel(), &QAbstractListModel::dataChanged, this, [this](const QModelIndex &, const QModelIndex &, QVector<int> roles) {
+        connect(sourceModel(), &QAbstractListModel::dataChanged, this, [this](const QModelIndex &, const QModelIndex &, QList<int> roles) {
             if (roles.contains(RoomListModel::IsChildSpaceRole)) {
                 invalidate();
             }

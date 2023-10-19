@@ -54,7 +54,7 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
 
     connect(job, &BaseJob::success, this, [this, job, spaceId]() {
         const auto rooms = job->rooms();
-        QVector<QString> roomList;
+        QList<QString> roomList;
         for (unsigned long i = 0; i < rooms.size(); ++i) {
             for (const auto &state : rooms[i].childrenState) {
                 roomList.push_back(state->stateKey());
@@ -83,7 +83,7 @@ void SpaceHierarchyCache::removeSpaceFromHierarchy(Quotient::Room *room)
     }
 }
 
-QVector<QString> &SpaceHierarchyCache::getRoomListForSpace(const QString &spaceId, bool updateCache)
+QList<QString> &SpaceHierarchyCache::getRoomListForSpace(const QString &spaceId, bool updateCache)
 {
     if (updateCache) {
         populateSpaceHierarchy(spaceId);

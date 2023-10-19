@@ -132,7 +132,7 @@ private:
     bool m_loading = false;
     QString nextBatch;
 
-    QVector<Quotient::PublicRoomsChunk> rooms;
+    QList<Quotient::PublicRoomsChunk> rooms;
 
     Quotient::QueryPublicRoomsJob *job = nullptr;
 

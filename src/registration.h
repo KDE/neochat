@@ -4,12 +4,12 @@
 #pragma once
 
 #include <QJsonObject>
+#include <QList>
 #include <QObject>
 #include <QPointer>
 #include <QQmlEngine>
 #include <QString>
 #include <QVariantMap>
-#include <QVector>
 
 #include <Quotient/csapi/registration.h>
 
@@ -69,7 +69,7 @@ class Registration : public QObject
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
     Q_PROPERTY(QString email READ email WRITE setEmail NOTIFY emailChanged)
     Q_PROPERTY(QString nextStep READ nextStep WRITE setNextStep NOTIFY nextStepChanged)
-    Q_PROPERTY(QVector<QVariantMap> terms READ terms NOTIFY termsChanged)
+    Q_PROPERTY(QList<QVariantMap> terms READ terms NOTIFY termsChanged)
     Q_PROPERTY(Status status READ status NOTIFY statusChanged)
     Q_PROPERTY(QString statusString READ statusString NOTIFY statusChanged)
 
@@ -121,7 +121,7 @@ public:
     QString nextStep() const;
     void setNextStep(const QString &nextStep);
 
-    QVector<QVariantMap> terms() const;
+    QList<QVariantMap> terms() const;
 
     Status status() const;
     QString statusString() const;
@@ -148,7 +148,7 @@ private:
     QString m_homeserver;
     QString m_username;
     QString m_password;
-    QVector<QVariantMap> m_terms;
+    QList<QVariantMap> m_terms;
     QString m_email;
     Status m_status = NoServer;
     QString m_nextStep;
@@ -158,7 +158,7 @@ private:
 
     QPointer<Quotient::CheckUsernameAvailabilityJob> m_usernameJob;
     QPointer<NeoChatRegisterJob> m_testServerJob;
-    QVector<QVector<QString>> m_flows;
+    QList<QList<QString>> m_flows;
     QPointer<Quotient::Connection> m_connection;
 
     void testHomeserver();

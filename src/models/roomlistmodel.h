@@ -158,7 +158,7 @@ private Q_SLOTS:
     void doAddRoom(Quotient::Room *room);
     void updateRoom(Quotient::Room *room, Quotient::Room *prev);
     void deleteRoom(Quotient::Room *room);
-    void refresh(NeoChatRoom *room, const QVector<int> &roles = {});
+    void refresh(NeoChatRoom *room, const QList<int> &roles = {});
     void refreshNotificationCount();
     void refreshHighlightCount();
 

@@ -98,6 +98,6 @@ Q_SIGNALS:
 
 private:
     void fetchDevices();
-    QVector<Quotient::Device> m_devices;
+    QList<Quotient::Device> m_devices;
     QPointer<Quotient::Connection> m_connection;
 };

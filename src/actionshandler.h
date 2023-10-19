@@ -61,6 +61,6 @@ private:
     NeoChatRoom *m_room = nullptr;
     void checkEffects(const QString &text);
 
-    QString handleMentions(QString handledText, QVector<Mention> *mentions);
+    QString handleMentions(QString handledText, QList<Mention> *mentions);
     void handleMessage(const QString &text, QString handledText, ChatBarCache *chatBarCache);
 };

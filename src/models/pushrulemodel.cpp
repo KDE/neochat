@@ -106,7 +106,7 @@ void PushRuleModel::updateNotificationRules(const QString &type)
     endResetModel();
 }
 
-void PushRuleModel::setRules(QVector<Quotient::PushRule> rules, PushNotificationKind::Kind kind)
+void PushRuleModel::setRules(QList<Quotient::PushRule> rules, PushNotificationKind::Kind kind)
 {
     for (const auto &rule : rules) {
         QString roomId;
@@ -307,8 +307,8 @@ void PushRuleModel::setPushRuleAction(const QString &id, PushNotificationAction:
 void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
 {
     PushNotificationKind::Kind kind = PushNotificationKind::Content;
-    const QVector<QVariant> actions = actionToVariant(m_defaultKeywordAction);
-    QVector<Quotient::PushCondition> pushConditions;
+    const QList<QVariant> actions = actionToVariant(m_defaultKeywordAction);
+    QList<Quotient::PushCondition> pushConditions;
     if (!roomId.isEmpty()) {
         kind = PushNotificationKind::Override;
 
@@ -369,7 +369,7 @@ void PushRuleModel::setNotificationRuleEnabled(const QString &kind, const QStrin
 
 void PushRuleModel::setNotificationRuleActions(const QString &kind, const QString &ruleId, PushNotificationAction::Action action)
 {
-    QVector<QVariant> actions;
+    QList<QVariant> actions;
     if (ruleId == QStringLiteral(".m.rule.call")) {
         actions = actionToVariant(action, QStringLiteral("ring"));
     } else {
@@ -379,7 +379,7 @@ void PushRuleModel::setNotificationRuleActions(const QString &kind, const QStrin
     Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleActionsJob>(QStringLiteral("global"), kind, ruleId, actions);
 }
 
-PushNotificationAction::Action PushRuleModel::variantToAction(const QVector<QVariant> &actions, bool enabled)
+PushNotificationAction::Action PushRuleModel::variantToAction(const QList<QVariant> &actions, bool enabled)
 {
     bool notify = false;
     bool isNoisy = false;
@@ -422,16 +422,16 @@ PushNotificationAction::Action PushRuleModel::variantToAction(const QVector<QVar
     }
 }
 
-QVector<QVariant> PushRuleModel::actionToVariant(PushNotificationAction::Action action, const QString &sound)
+QList<QVariant> PushRuleModel::actionToVariant(PushNotificationAction::Action action, const QString &sound)
 {
     // The caller should never try to set the state to unknown.
     // It exists only as a default state to diable the settings options until the actual state is retrieved from the server.
     if (action == PushNotificationAction::Unknown) {
         Q_ASSERT(false);
-        return QVector<QVariant>();
+        return QList<QVariant>();
     }
 
-    QVector<QVariant> actions;
+    QList<QVariant> actions;
 
     if (action != PushNotificationAction::Off) {
         actions.append(QStringLiteral("notify"));

@@ -6,9 +6,9 @@
 #include "events/imagepackevent.h"
 #include "neochatroom.h"
 #include <QAbstractListModel>
+#include <QList>
 #include <QObject>
 #include <QQmlEngine>
-#include <QVector>
 
 class ImagePacksModel;
 
@@ -100,7 +100,7 @@ Q_SIGNALS:
 private:
     ImagePacksModel *m_model = nullptr;
     int m_index = 0;
-    QVector<Quotient::ImagePackEventContent::ImagePackImage> m_images;
+    QList<Quotient::ImagePackEventContent::ImagePackImage> m_images;
     NeoChatRoom *m_room;
     void reloadImages();
 };

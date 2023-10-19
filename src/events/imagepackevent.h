@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <QVector>
+#include <QList>
 #include <Quotient/events/eventcontent.h>
 #include <Quotient/events/stateevent.h>
 
@@ -60,7 +60,7 @@ public:
      *
      * @sa ImagePackImage
      */
-    QVector<ImagePackEventContent::ImagePackImage> images;
+    QList<ImagePackEventContent::ImagePackImage> images;
 
     explicit ImagePackEventContent(const QJsonObject &o);
 

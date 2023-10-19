@@ -5,9 +5,9 @@
 
 #include "events/imagepackevent.h"
 #include <QAbstractListModel>
+#include <QList>
 #include <QPointer>
 #include <QQmlEngine>
-#include <QVector>
 
 class NeoChatRoom;
 
@@ -86,7 +86,7 @@ public:
     /**
      * @brief Return a vector of the images in the pack at the given index.
      */
-    [[nodiscard]] QVector<Quotient::ImagePackEventContent::ImagePackImage> images(int index);
+    [[nodiscard]] QList<Quotient::ImagePackEventContent::ImagePackImage> images(int index);
 
 Q_SIGNALS:
     void roomChanged();
@@ -96,7 +96,7 @@ Q_SIGNALS:
 
 private:
     QPointer<NeoChatRoom> m_room;
-    QVector<Quotient::ImagePackEventContent> m_events;
+    QList<Quotient::ImagePackEventContent> m_events;
     bool m_showStickers = true;
     bool m_showEmoticons = true;
     void reloadImages();

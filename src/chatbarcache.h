@@ -158,7 +158,7 @@ public:
     /**
      * @brief Retrieve the mentions for the current chat bar text.
      */
-    QVector<Mention> *mentions();
+    QList<Mention> *mentions();
 
     /**
      * @brief Get the saved chat bar text.
@@ -180,6 +180,6 @@ private:
     QString m_relationId = QString();
     RelationType m_relationType = RelationType::None;
     QString m_attachmentPath = QString();
-    QVector<Mention> m_mentions;
+    QList<Mention> m_mentions;
     QString m_savedText;
 };
