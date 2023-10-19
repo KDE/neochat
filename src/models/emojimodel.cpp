@@ -14,6 +14,8 @@
 
 EmojiModel::EmojiModel(QObject *parent)
     : QAbstractListModel(parent)
+    , m_config(KSharedConfig::openStateConfig())
+    , m_configGroup(KConfigGroup(m_config, QStringLiteral("Editor")))
 {
     if (_emojis.isEmpty()) {
 #include "emojis.h"
@@ -61,9 +63,9 @@ QHash<int, QByteArray> EmojiModel::roleNames() const
     return {{ShortNameRole, "shortName"}, {UnicodeRole, "unicode"}};
 }
 
-QVariantList EmojiModel::history() const
+QStringList EmojiModel::lastUsedEmojis() const
 {
-    return m_settings.value(QStringLiteral("Editor/emojis"), QVariantList()).toList();
+    return m_configGroup.readEntry(QStringLiteral("lastUsedEmojis"), QStringList());
 }
 
 QVariantList EmojiModel::filterModel(const QString &filter, bool limit)
@@ -93,19 +95,21 @@ QVariantList EmojiModel::filterModelNoCustom(const QString &filter, bool limit)
 
 void EmojiModel::emojiUsed(const QVariant &modelData)
 {
-    QVariantList list = history();
+    auto list = lastUsedEmojis();
+    const auto emoji = modelData.value<Emoji>();
 
     auto it = list.begin();
     while (it != list.end()) {
-        if ((*it).value<Emoji>().unicode == modelData.value<Emoji>().unicode) {
+        if (*it == emoji.shortName) {
             it = list.erase(it);
         } else {
             it++;
         }
     }
 
-    list.push_front(modelData);
-    m_settings.setValue(QStringLiteral("Editor/emojis"), list);
+    list.push_front(emoji.shortName);
+
+    m_configGroup.writeEntry(QStringLiteral("lastUsedEmojis"), list);
 
     Q_EMIT historyChanged();
 }
@@ -113,11 +117,11 @@ void EmojiModel::emojiUsed(const QVariant &modelData)
 QVariantList EmojiModel::emojis(Category category) const
 {
     if (category == History) {
-        return history();
+        return emojiHistory();
     }
     if (category == HistoryNoCustom) {
         QVariantList list;
-        for (const auto &e : history()) {
+        for (const auto &e : emojiHistory()) {
             auto emoji = qvariant_cast<Emoji>(e);
             if (!emoji.isCustom) {
                 list.append(e);
@@ -215,6 +219,21 @@ QVariantList EmojiModel::categoriesWithCustom() const
                 });
     ;
     return cats;
+}
+
+QVariantList EmojiModel::emojiHistory() const
+{
+    QVariantList list;
+    for (const auto &historicEmoji : lastUsedEmojis()) {
+        for (const auto &emojiCategory : _emojis) {
+            for (const auto &emoji : emojiCategory) {
+                if (qvariant_cast<Emoji>(emoji).shortName == historicEmoji) {
+                    list.append(emoji);
+                }
+            }
+        }
+    }
+    return list;
 }
 
 #include "moc_emojimodel.cpp"

@@ -3,10 +3,11 @@
 
 #pragma once
 
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <QAbstractListModel>
 #include <QObject>
 #include <QQmlEngine>
-#include <QSettings>
 
 struct Emoji {
     Emoji(QString unicode, QString shortname, bool isCustom = false)
@@ -62,11 +63,6 @@ class EmojiModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
     QML_SINGLETON
-
-    /**
-     * @brief Return a list of recently used emojis.
-     */
-    Q_PROPERTY(QVariantList history READ history NOTIFY historyChanged)
 
     /**
      * @brief Return a list of emoji categories.
@@ -177,7 +173,11 @@ public:
      */
     Q_INVOKABLE QVariantList tones(const QString &baseEmoji) const;
 
-    Q_INVOKABLE QVariantList history() const;
+    /**
+     * @brief Return a list of the last used emoji shortnames
+     */
+    QStringList lastUsedEmojis() const;
+
     QVariantList categories() const;
     QVariantList categoriesWithCustom() const;
 
@@ -190,7 +190,10 @@ public Q_SLOTS:
 private:
     static QHash<Category, QVariantList> _emojis;
 
-    // TODO: Port away from QSettings
-    QSettings m_settings;
+    /// Returns QVariants containing the last used Emojis
+    QVariantList emojiHistory() const;
+
+    KSharedConfig::Ptr m_config;
+    KConfigGroup m_configGroup;
     EmojiModel(QObject *parent = nullptr);
 };
