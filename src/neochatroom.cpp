@@ -18,6 +18,7 @@
 #include <Quotient/user.h>
 #include <qcoro/qcorosignal.h>
 
+#include <Quotient/blurhash.h>
 #include <Quotient/connection.h>
 #include <Quotient/csapi/account-data.h>
 #include <Quotient/csapi/directory.h>
@@ -182,7 +183,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
         QImage image(url.toLocalFile());
 
         QImage rgbImage = image.convertToFormat(QImage::Format_RGB888);
-        const QString blurhash = QString::fromStdString(blurhash::encode(rgbImage.bits(), image.width(), image.height(), 4, 3));
+        const QString blurhash = QString::fromStdString(Quotient::encode_blurhash(rgbImage.bits(), image.width(), image.height(), 4, 3));
 
         content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName(), blurhash);
     } else if (mime.name().startsWith("audio/"_ls)) {
