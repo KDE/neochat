@@ -6,7 +6,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 RoomLastMessageProvider::RoomLastMessageProvider()
-    : m_config(KSharedConfig::openConfig(u"data"_s, KConfig::SimpleConfig, QStandardPaths::AppDataLocation))
+    : m_config(KSharedConfig::openStateConfig())
     , m_configGroup(KConfigGroup(m_config, u"EventCache"_s))
 {
 }

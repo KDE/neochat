@@ -11,12 +11,13 @@
 
 #include <KConfig>
 #include <KConfigGroup>
+#include <KSharedConfig>
 
 ServerListModel::ServerListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup serverGroup(&dataResource, QStringLiteral("Servers"));
+    const auto stateConfig = KSharedConfig::openStateConfig();
+    const KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
 
     QString domain = Controller::instance().activeConnection()->domain();
 
@@ -91,8 +92,8 @@ int ServerListModel::rowCount(const QModelIndex &parent) const
 
 void ServerListModel::checkServer(const QString &url)
 {
-    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup serverGroup(&dataResource, QStringLiteral("Servers"));
+    const auto stateConfig = KSharedConfig::openStateConfig();
+    const KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
 
     if (!serverGroup.hasKey(url)) {
         if (Quotient::isJobPending(m_checkServerJob)) {
@@ -108,8 +109,8 @@ void ServerListModel::checkServer(const QString &url)
 
 void ServerListModel::addServer(const QString &url)
 {
-    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup serverGroup(&dataResource, QStringLiteral("Servers"));
+    const auto stateConfig = KSharedConfig::openStateConfig();
+    KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
 
     if (!serverGroup.hasKey(url)) {
         Server newServer = Server{
@@ -125,17 +126,21 @@ void ServerListModel::addServer(const QString &url)
     }
 
     serverGroup.writeEntry(url, url);
+    stateConfig->sync();
 }
 
 void ServerListModel::removeServerAtIndex(int row)
 {
-    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup serverGroup(&dataResource, QStringLiteral("Servers"));
+    const auto stateConfig = KSharedConfig::openStateConfig();
+    KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
+
     serverGroup.deleteEntry(data(index(row), UrlRole).toString());
 
     beginRemoveRows(QModelIndex(), row, row);
     m_servers.removeAt(row);
     endRemoveRows();
+
+    stateConfig->sync();
 }
 
 QHash<int, QByteArray> ServerListModel::roleNames() const

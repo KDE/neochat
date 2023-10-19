@@ -28,12 +28,12 @@ RoomManager::RoomManager(QObject *parent)
     : QObject(parent)
     , m_currentRoom(nullptr)
     , m_lastCurrentRoom(nullptr)
-    , m_config(KConfig(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation))
+    , m_config(KSharedConfig::openStateConfig())
     , m_messageEventModel(new MessageEventModel(this))
     , m_messageFilterModel(new MessageFilterModel(this, m_messageEventModel))
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
 {
-    m_lastRoomConfig = m_config.group(QStringLiteral("LastOpenRoom"));
+    m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_messageEventModel->setRoom(m_currentRoom);

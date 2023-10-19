@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include <KConfig>
 #include <KConfigGroup>
+#include <KSharedConfig>
 #include <QObject>
 #include <QQmlEngine>
 #include <Quotient/room.h>
@@ -371,7 +371,7 @@ private:
     NeoChatRoom *m_currentRoom;
     NeoChatRoom *m_lastCurrentRoom;
     QString m_arg;
-    KConfig m_config;
+    KSharedConfig::Ptr m_config;
     KConfigGroup m_lastRoomConfig;
     QPointer<ChatDocumentHandler> m_chatDocumentHandler;
 

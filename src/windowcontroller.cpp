@@ -13,6 +13,7 @@
 #include <KWindowSystem>
 #endif
 
+#include <KSharedConfig>
 #include <QStandardPaths>
 
 WindowController &WindowController::instance()
@@ -35,18 +36,22 @@ QWindow *WindowController::window() const
 
 void WindowController::restoreGeometry()
 {
-    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup windowGroup(&dataResource, QStringLiteral("Window"));
+    const auto stateConfig = KSharedConfig::openStateConfig();
+    const KConfigGroup windowGroup = stateConfig->group(QStringLiteral("Window"));
+
     KWindowConfig::restoreWindowSize(m_window, windowGroup);
     KWindowConfig::restoreWindowPosition(m_window, windowGroup);
 }
 
 void WindowController::saveGeometry()
 {
-    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup windowGroup(&dataResource, QStringLiteral("Window"));
+    const auto stateConfig = KSharedConfig::openStateConfig();
+    KConfigGroup windowGroup = stateConfig->group(QStringLiteral("Window"));
+
     KWindowConfig::saveWindowPosition(m_window, windowGroup);
     KWindowConfig::saveWindowSize(m_window, windowGroup);
+
+    stateConfig->sync();
 }
 
 void WindowController::showAndRaiseWindow(const QString &startupId)
