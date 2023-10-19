@@ -316,7 +316,7 @@ void NeoChatRoom::cacheLastEvent()
     if (event != nullptr) {
         auto &roomLastMessageProvider = RoomLastMessageProvider::self();
 
-        auto eventJson = QJsonDocument(event->fullJson()).toJson();
+        auto eventJson = QJsonDocument(event->fullJson()).toJson(QJsonDocument::Compact);
         roomLastMessageProvider.write(id(), eventJson);
 
         auto uniqueEvent = loadEvent<RoomEvent>(event->fullJson());
