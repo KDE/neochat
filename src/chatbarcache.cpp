@@ -51,6 +51,7 @@ void ChatBarCache::setReplyId(const QString &replyId)
     }
     m_attachmentPath = QString();
     Q_EMIT relationIdChanged();
+    Q_EMIT attachmentPathChanged();
 }
 
 bool ChatBarCache::isEditing() const
@@ -79,6 +80,7 @@ void ChatBarCache::setEditId(const QString &editId)
     }
     m_attachmentPath = QString();
     Q_EMIT relationIdChanged();
+    Q_EMIT attachmentPathChanged();
 }
 
 QVariantMap ChatBarCache::relationUser() const
@@ -121,6 +123,25 @@ QString ChatBarCache::relationMessage() const
     return {};
 }
 
+bool ChatBarCache::isThreaded() const
+{
+    return !m_threadId.isEmpty();
+}
+
+QString ChatBarCache::threadId() const
+{
+    return m_threadId;
+}
+
+void ChatBarCache::setThreadId(const QString &threadId)
+{
+    if (m_threadId == threadId) {
+        return;
+    }
+    m_threadId = threadId;
+    Q_EMIT threadIdChanged();
+}
+
 QString ChatBarCache::attachmentPath() const
 {
     return m_attachmentPath;
@@ -135,6 +156,7 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
     m_relationType = None;
     m_relationId = QString();
     Q_EMIT attachmentPathChanged();
+    Q_EMIT relationIdChanged();
 }
 
 QList<Mention> *ChatBarCache::mentions()

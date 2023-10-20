@@ -105,6 +105,16 @@ QQC2.Control {
                         root.currentRoom.editCache.editId = "";
                         root.focusChatBar();
                     }
+                },
+                Kirigami.Action {
+                    text: i18n("Reply in Thread")
+                    icon.name: "dialog-messages"
+                    onTriggered: {
+                        root.currentRoom.mainCache.replyId = root.delegate.eventId;
+                        root.currentRoom.mainCache.threadId = root.delegate.isThreaded ? root.delegate.threadRoot : root.delegate.eventId;
+                        root.currentRoom.editCache.editId = "";
+                        root.focusChatBar();
+                    }
                 }
             ]
 

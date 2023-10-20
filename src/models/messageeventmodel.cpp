@@ -47,6 +47,8 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ReplyDelegateTypeRole] = "replyDelegateType";
     roles[ReplyDisplayRole] = "replyDisplay";
     roles[ReplyMediaInfoRole] = "replyMediaInfo";
+    roles[IsThreadedRole] = "isThreaded";
+    roles[ThreadRootRole] = "threadRoot";
     roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
     roles[ReadMarkersRole] = "readMarkers";
@@ -584,6 +586,14 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == ReplyMediaInfoRole) {
         return eventHandler.getReplyMediaInfo();
+    }
+
+    if (role == IsThreadedRole) {
+        return eventHandler.isThreaded();
+    }
+
+    if (role == ThreadRootRole) {
+        return eventHandler.threadRoot();
     }
 
     if (role == ShowAuthorRole) {

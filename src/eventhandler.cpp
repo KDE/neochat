@@ -901,6 +901,28 @@ QVariantMap EventHandler::getReplyMediaInfo() const
     return getMediaInfoForEvent(replyPtr);
 }
 
+bool EventHandler::isThreaded() const
+{
+    return (m_event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
+            && m_event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls)
+        || (!m_event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && m_event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls));
+}
+
+QString EventHandler::threadRoot() const
+{
+    // Get the thread root ID from m.relates_to if it exists.
+    if (m_event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
+        && m_event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls) {
+        return m_event->contentPart<QJsonObject>("m.relates_to"_ls)["event_id"_ls].toString();
+    }
+    // For thread root events they have an m.relations in the unsigned part with a m.thread object.
+    // If so return the event ID as it is the root.
+    if (!m_event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && m_event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls)) {
+        return getId();
+    }
+    return {};
+}
+
 float EventHandler::getLatitude() const
 {
     const auto geoUri = m_event->contentJson()["geo_uri"_ls].toString();

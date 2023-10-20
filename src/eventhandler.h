@@ -327,6 +327,20 @@ public:
     QVariantMap getReplyMediaInfo() const;
 
     /**
+     * @brief Whether the message is part of a thread.
+     *
+     * i.e. There is a rel_type of m.thread.
+     */
+    bool isThreaded() const;
+
+    /**
+     * @brief Return the Matrix ID of the thread's root message.
+     *
+     * Empty if this not part of a thread.
+     */
+    QString threadRoot() const;
+
+    /**
      * @brief Return the latitude for the event.
      *
      * Returns -100.0 if the event doesn't have a location (latitudes are in the

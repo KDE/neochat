@@ -114,6 +114,16 @@ class ChatBarCache : public QObject
     Q_PROPERTY(QString relationMessage READ relationMessage NOTIFY relationIdChanged)
 
     /**
+     * @brief Whether the chat bar is replying in a thread.
+     */
+    Q_PROPERTY(bool isThreaded READ isThreaded NOTIFY threadIdChanged)
+
+    /**
+     * @brief The Matrix message ID of thread root event, if any.
+     */
+    Q_PROPERTY(QString threadId READ threadId WRITE setThreadId NOTIFY threadIdChanged)
+
+    /**
      * @brief The local path for a file to send, if any.
      *
      * @note Replying, editing and attachments are exclusive so setting this will
@@ -152,6 +162,10 @@ public:
 
     QString relationMessage() const;
 
+    bool isThreaded() const;
+    QString threadId() const;
+    void setThreadId(const QString &threadId);
+
     QString attachmentPath() const;
     void setAttachmentPath(const QString &attachmentPath);
 
@@ -173,12 +187,14 @@ public:
 Q_SIGNALS:
     void textChanged();
     void relationIdChanged();
+    void threadIdChanged();
     void attachmentPathChanged();
 
 private:
     QString m_text = QString();
     QString m_relationId = QString();
     RelationType m_relationType = RelationType::None;
+    QString m_threadId = QString();
     QString m_attachmentPath = QString();
     QList<Mention> m_mentions;
     QString m_savedText;

@@ -64,6 +64,7 @@ private Q_SLOTS:
     void replyAuthor();
     void replyBody();
     void replyMediaInfo();
+    void thread();
     void location();
     void readMarkers();
 };
@@ -73,329 +74,11 @@ void EventHandlerTest::initTestCase()
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
     room = new TestRoom(connection, QStringLiteral("#myroom:kde.org"), JoinState::Join);
 
-    const auto json = QJsonDocument::fromJson(R"EVENT({
-  "account_data": {
-    "events": [
-      {
-        "content": {
-          "tags": {
-            "u.work": {
-              "order": 0.9
-            }
-          }
-        },
-        "type": "m.tag"
-      },
-      {
-        "content": {
-          "custom_config_key": "custom_config_value"
-        },
-        "type": "org.example.custom.room.config"
-      }
-    ]
-  },
-  "ephemeral": {
-    "events": [
-      {
-        "content": {
-          "user_ids": [
-            "@alice:matrix.org",
-            "@bob:example.com"
-          ]
-        },
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
-        "type": "m.typing"
-      },
-      {
-        "content": {
-          "$153456789:example.org": {
-            "m.read": {
-              "@alice:matrix.org": {
-                "ts": 1436451550453
-              }
-            }
-          }
-        },
-        "type": "m.receipt"
-      },
-      {
-        "content": {
-          "$1532735824654:example.org": {
-            "m.read": {
-              "@bob:example.com": {
-                "ts": 1436451550453
-              }
-            }
-          }
-        },
-        "type": "m.receipt"
-      },
-      {
-        "content": {
-          "$1532735824654:example.org": {
-            "m.read": {
-              "@tim:example.com": {
-                "ts": 1436451550454
-              }
-            }
-          }
-        },
-        "type": "m.receipt"
-      },
-      {
-        "content": {
-          "$1532735824654:example.org": {
-            "m.read": {
-              "@jeff:example.com": {
-                "ts": 1436451550455
-              }
-            }
-          }
-        },
-        "type": "m.receipt"
-      },
-      {
-        "content": {
-          "$1532735824654:example.org": {
-            "m.read": {
-              "@tina:example.com": {
-                "ts": 1436451550456
-              }
-            }
-          }
-        },
-        "type": "m.receipt"
-      },
-      {
-        "content": {
-          "$1532735824654:example.org": {
-            "m.read": {
-              "@sally:example.com": {
-                "ts": 1436451550457
-              }
-            }
-          }
-        },
-        "type": "m.receipt"
-      },
-      {
-        "content": {
-          "$1532735824654:example.org": {
-            "m.read": {
-              "@fred:example.com": {
-                "ts": 1436451550458
-              }
-            }
-          }
-        },
-        "type": "m.receipt"
-      }
-    ]
-  },
-  "state": {
-    "events": [
-      {
-        "content": {
-          "avatar_url": "mxc://example.org/SEsfnsuifSDFSSEF",
-          "displayname": "Alice Margatroid",
-          "membership": "join",
-          "reason": "Looking for support"
-        },
-        "event_id": "$143273582443PhrSn:example.org",
-        "origin_server_ts": 1432735824653,
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
-        "sender": "@example:example.org",
-        "state_key": "@alice:example.org",
-        "type": "m.room.member",
-        "unsigned": {
-          "age": 1234
-        }
-      }
-    ]
-  },
-  "summary": {
-    "m.heroes": [
-      "@alice:example.com",
-      "@bob:example.com"
-    ],
-    "m.invited_member_count": 0,
-    "m.joined_member_count": 2
-  },
-  "timeline": {
-    "events": [
-      {
-        "content": {
-          "body": "This is an example\ntext message",
-          "format": "org.matrix.custom.html",
-          "formatted_body": "<b>This is an example<br>text message</b>",
-          "msgtype": "m.text"
-        },
-        "event_id": "$153456789:example.org",
-        "origin_server_ts": 1432735824654,
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
-        "sender": "@example:example.org",
-        "type": "m.room.message",
-        "unsigned": {
-          "age": 1232
-        }
-      },
-      {
-        "content": {
-          "avatar_url": "mxc://kde.org/123456",
-          "displayname": "after",
-          "membership": "join"
-        },
-        "origin_server_ts": 1690651134736,
-        "sender": "@example:example.org",
-        "state_key": "@example:example.org",
-        "type": "m.room.member",
-        "unsigned": {
-          "replaces_state": "$1234567890:example.org",
-          "prev_content": {
-            "avatar_url": "mxc://kde.org/12345",
-            "displayname": "before",
-            "membership": "join"
-          },
-          "prev_sender": "@example:example.orgg",
-          "age": 1234
-        },
-        "event_id": "$143273583553PhrSn:example.org",
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org"
-      },
-      {
-        "content": {
-          "body": "This is a highlight @bob:kde.org and this is a link https://kde.org",
-          "format": "org.matrix.custom.html",
-          "msgtype": "m.text"
-        },
-        "event_id": "$1532735824654:example.org",
-        "origin_server_ts": 1532735824654,
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
-        "sender": "@example:example.org",
-        "type": "m.room.message",
-        "unsigned": {
-          "age": 1233
-        }
-      },
-      {
-        "content": {
-            "m.relates_to": {
-            "event_id": "$153456789:example.org",
-            "key": "👍",
-            "rel_type": "m.annotation"
-            }
-        },
-        "origin_server_ts": 1690322545182,
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
-        "sender": "@alice:matrix.org",
-        "type": "m.reaction",
-        "unsigned": {
-            "age": 390159120
-        },
-        "event_id": "$163456789:example.org",
-        "age": 390159120
-      },
-      {
-        "age": 4926305285,
-        "content": {
-            "body": "video caption",
-            "filename": "video.mp4",
-            "info": {
-                "duration": 10,
-                "h": 1080,
-                "mimetype": "video/mp4",
-                "size": 62650636,
-                "w": 1920,
-                "thumbnail_info": {
-                    "h": 450,
-                    "mimetype": "image/jpeg",
-                    "size": 382249,
-                    "w": 800
-                },
-                "thumbnail_url": "mxc://kde.org/2234567"
-            },
-            "msgtype": "m.video",
-            "url": "mxc://kde.org/1234567"
-        },
-        "event_id": "$263456789:example.org",
-        "origin_server_ts": 1685793783330,
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
-        "sender": "@example:example.org",
-        "type": "m.room.message",
-        "unsigned": {
-            "age": 4926305285
-        },
-        "user_id": "@example:example.org"
-      },
-      {
-        "content": {
-            "body": "> <@example:example.org> This is an example\ntext message\n\nreply",
-            "format": "org.matrix.custom.html",
-            "formatted_body": "<mx-reply><blockquote><a href=\"https://matrix.to/#/!jEsUZKDJdhlrceRyVU:example.org/$153456789:example.org?via=kde.org&via=matrix.org\">In reply to</a> <a href=\"https://matrix.to/#/@example:example.org\">@example:example.org</a><br><b>This is an example<br>text message</b></blockquote></mx-reply>reply",
-            "m.relates_to": {
-                "m.in_reply_to": {
-                    "event_id": "$153456789:example.org"
-                }
-            },
-            "msgtype": "m.text"
-        },
-        "origin_server_ts": 1690725965572,
-        "sender": "@alice:matrix.org",
-        "type": "m.room.message",
-        "unsigned": {
-            "age": 98
-        },
-        "event_id": "$154456789:example.org",
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org"
-      },
-      {
-        "content": {
-            "body": "> <@example:example.org> video caption\n\nreply",
-            "m.relates_to": {
-                "m.in_reply_to": {
-                    "event_id": "$263456789:example.org"
-                }
-            },
-            "msgtype": "m.text"
-        },
-        "origin_server_ts": 1690725965573,
-        "sender": "@alice:matrix.org",
-        "type": "m.room.message",
-        "unsigned": {
-            "age": 98
-        },
-        "event_id": "$154456799:example.org",
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org"
-      },
-      {
-        "age": 96845207,
-        "content": {
-            "body": "Lat: 51.7035, Lon: -1.14394",
-            "geo_uri": "geo:51.7035,-1.14394",
-            "msgtype": "m.location",
-            "org.matrix.msc1767.text": "Lat: 51.7035, Lon: -1.14394",
-            "org.matrix.msc3488.asset": {
-                "type": "m.pin"
-            },
-            "org.matrix.msc3488.location": {
-                "uri": "geo:51.7035,-1.14394"
-            }
-        },
-        "event_id": "$1544567999:example.org",
-        "origin_server_ts": 1690821582876,
-        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
-        "sender": "@example:example.org",
-        "type": "m.room.message",
-        "unsigned": {
-            "age": 96845207
-        }
-      }
-    ],
-    "limited": true,
-    "prev_batch": "t34-23535_0_0"
-  }
-})EVENT");
-    SyncRoomData roomData(QStringLiteral("@bob:kde.org"), JoinState::Join, json.object());
+    QFile testEventHandlerSyncFile;
+    testEventHandlerSyncFile.setFileName(QLatin1String(DATA_DIR) + u'/' + QLatin1String("test-eventhandler-sync.json"));
+    testEventHandlerSyncFile.open(QIODevice::ReadOnly);
+    const auto testEventHandlerSyncJson = QJsonDocument::fromJson(testEventHandlerSyncFile.readAll());
+    SyncRoomData roomData(QStringLiteral("@bob:kde.org"), JoinState::Join, testEventHandlerSyncJson.object());
     room->update(std::move(roomData));
 
     eventHandler.setRoom(room);
@@ -684,6 +367,29 @@ void EventHandlerTest::replyMediaInfo()
     QCOMPARE(thumbnailInfo["size"_ls], 382249);
     QCOMPARE(thumbnailInfo["width"_ls], 800);
     QCOMPARE(thumbnailInfo["height"_ls], 450);
+}
+
+void EventHandlerTest::thread()
+{
+    auto event = room->messageEvents().at(0).get();
+    eventHandler.setEvent(event);
+
+    QCOMPARE(eventHandler.isThreaded(), false);
+    QCOMPARE(eventHandler.threadRoot(), QString());
+
+    event = room->messageEvents().at(9).get();
+    eventHandler.setEvent(event);
+
+    QCOMPARE(eventHandler.isThreaded(), true);
+    QCOMPARE(eventHandler.threadRoot(), QStringLiteral("$threadroot:example.org"));
+    QCOMPARE(eventHandler.getReplyId(), QStringLiteral("$threadroot:example.org"));
+
+    event = room->messageEvents().at(10).get();
+    eventHandler.setEvent(event);
+
+    QCOMPARE(eventHandler.isThreaded(), true);
+    QCOMPARE(eventHandler.threadRoot(), QStringLiteral("$threadroot:example.org"));
+    QCOMPARE(eventHandler.getReplyId(), QStringLiteral("$threadmessage1:example.org"));
 }
 
 void EventHandlerTest::location()

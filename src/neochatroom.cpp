@@ -526,18 +526,61 @@ QString msgTypeToString(MessageEventType msgType)
     }
 }
 
-void NeoChatRoom::postMessage(const QString &rawText, const QString &text, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
+void NeoChatRoom::postMessage(const QString &rawText,
+                              const QString &text,
+                              MessageEventType type,
+                              const QString &replyEventId,
+                              const QString &relateToEventId,
+                              const QString &threadRootId)
 {
-    postHtmlMessage(rawText, text, type, replyEventId, relateToEventId);
+    postHtmlMessage(rawText, text, type, replyEventId, relateToEventId, threadRootId);
 }
 
-void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
+void NeoChatRoom::postHtmlMessage(const QString &text,
+                                  const QString &html,
+                                  MessageEventType type,
+                                  const QString &replyEventId,
+                                  const QString &relateToEventId,
+                                  const QString &threadRootId)
 {
     bool isReply = !replyEventId.isEmpty();
     bool isEdit = !relateToEventId.isEmpty();
+    bool isThread = !threadRootId.isEmpty();
     const auto replyIt = findInTimeline(replyEventId);
     if (replyIt == historyEdge()) {
         isReply = false;
+    }
+
+    if (isThread) {
+        EventHandler eventHandler;
+        eventHandler.setRoom(this);
+        eventHandler.setEvent(&**replyIt);
+
+        const bool isFallingBack = !eventHandler.isThreaded();
+
+        // clang-format off
+        QJsonObject json{
+          {"msgtype"_ls, msgTypeToString(type)},
+          {"body"_ls, text},
+          {"format"_ls, "org.matrix.custom.html"_ls},
+          {"m.relates_to"_ls,
+            QJsonObject {
+              {"rel_type"_ls, "m.thread"_ls},
+              {"event_id"_ls, threadRootId},
+              {"is_falling_back"_ls, isFallingBack},
+              {"m.in_reply_to"_ls,
+                QJsonObject {
+                  {"event_id"_ls, replyEventId}
+                }
+              }
+            }
+          },
+          {"formatted_body"_ls, html}
+        };
+        // clang-format on
+
+        postJson("m.room.message"_ls, json);
+        return;
     }
 
     if (isEdit) {

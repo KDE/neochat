@@ -187,6 +187,10 @@ TimelineDelegate {
      */
     required property var replyMediaInfo
 
+    required property bool isThreaded
+
+    required property string threadRoot
+
     /**
      * @brief Whether this message is replying to another.
      */

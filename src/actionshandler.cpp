@@ -149,7 +149,7 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, Cha
         return;
     }
 
-    m_room->postMessage(text, handledText, messageType, chatBarCache->replyId(), chatBarCache->editId());
+    m_room->postMessage(text, handledText, messageType, chatBarCache->replyId(), chatBarCache->editId(), chatBarCache->threadId());
 }
 
 void ActionsHandler::checkEffects(const QString &text)

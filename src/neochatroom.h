@@ -884,7 +884,8 @@ public Q_SLOTS:
                      const QString &cleanedText,
                      Quotient::MessageEventType type = Quotient::MessageEventType::Text,
                      const QString &replyEventId = QString(),
-                     const QString &relateToEventId = QString());
+                     const QString &relateToEventId = QString(),
+                     const QString &threadRootId = QString());
 
     /**
      * @brief Send an html message to the room.
@@ -899,7 +900,8 @@ public Q_SLOTS:
                          const QString &html,
                          Quotient::MessageEventType type = Quotient::MessageEventType::Text,
                          const QString &replyEventId = QString(),
-                         const QString &relateToEventId = QString());
+                         const QString &relateToEventId = QString(),
+                         const QString &threadRootId = QString());
 
     /**
      * @brief Set the room avatar.
