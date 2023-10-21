@@ -531,9 +531,10 @@ void NeoChatRoom::postMessage(const QString &rawText,
                               MessageEventType type,
                               const QString &replyEventId,
                               const QString &relateToEventId,
-                              const QString &threadRootId)
+                              const QString &threadRootId,
+                              const QString &fallbackId)
 {
-    postHtmlMessage(rawText, text, type, replyEventId, relateToEventId, threadRootId);
+    postHtmlMessage(rawText, text, type, replyEventId, relateToEventId, threadRootId, fallbackId);
 }
 
 void NeoChatRoom::postHtmlMessage(const QString &text,
@@ -541,7 +542,8 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
                                   MessageEventType type,
                                   const QString &replyEventId,
                                   const QString &relateToEventId,
-                                  const QString &threadRootId)
+                                  const QString &threadRootId,
+                                  const QString &fallbackId)
 {
     bool isReply = !replyEventId.isEmpty();
     bool isEdit = !relateToEventId.isEmpty();
@@ -552,11 +554,21 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
     }
 
     if (isThread) {
-        EventHandler eventHandler;
-        eventHandler.setRoom(this);
-        eventHandler.setEvent(&**replyIt);
+        bool isFallingBack = !fallbackId.isEmpty();
+        if (isReply) {
+            EventHandler eventHandler;
+            eventHandler.setRoom(this);
+            eventHandler.setEvent(&**replyIt);
 
-        const bool isFallingBack = !eventHandler.isThreaded();
+            isFallingBack = false;
+        }
+
+        // If we are not replying and there is no fallback ID it means a new thread
+        // is being created.
+        if (!isFallingBack && !isReply) {
+            newThreadCreated(threadRootId);
+            isFallingBack = true;
+        }
 
         // clang-format off
         QJsonObject json{
@@ -570,7 +582,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
               {"is_falling_back"_ls, isFallingBack},
               {"m.in_reply_to"_ls,
                 QJsonObject {
-                  {"event_id"_ls, replyEventId}
+                  {"event_id"_ls, isFallingBack && fallbackId.isEmpty() ? threadRootId : fallbackId}
                 }
               }
             }

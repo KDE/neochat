@@ -842,6 +842,11 @@ Q_SIGNALS:
     void spaceParentPowerLevelChanged();
     void replyLoaded(const QString &eventId, const QString &replyId);
 
+    /**
+     * @brief Emitted when a new thread is created in the room.
+     */
+    void newThreadCreated(const QString &threadRootId);
+
 public Q_SLOTS:
     /**
      * @brief Upload a file to the matrix server and post the file to the room.
@@ -885,7 +890,8 @@ public Q_SLOTS:
                      Quotient::MessageEventType type = Quotient::MessageEventType::Text,
                      const QString &replyEventId = QString(),
                      const QString &relateToEventId = QString(),
-                     const QString &threadRootId = QString());
+                     const QString &threadRootId = QString(),
+                     const QString &fallbackId = QString());
 
     /**
      * @brief Send an html message to the room.
@@ -901,7 +907,8 @@ public Q_SLOTS:
                          Quotient::MessageEventType type = Quotient::MessageEventType::Text,
                          const QString &replyEventId = QString(),
                          const QString &relateToEventId = QString(),
-                         const QString &threadRootId = QString());
+                         const QString &threadRootId = QString(),
+                         const QString &fallbackId = QString());
 
     /**
      * @brief Set the room avatar.

@@ -82,6 +82,10 @@ QVariant ThreadModel::data(const QModelIndex &index, int role) const
         return eventHandler.getReplyRichBody();
     case ReplyMediaInfoRole:
         return eventHandler.getReplyMediaInfo();
+    case IsThreadedRole:
+        return eventHandler.isThreaded();
+    case ThreadRootRole:
+        return eventHandler.threadRoot();
     case IsPendingRole:
         return false;
     case ShowLinkPreviewRole:
@@ -125,6 +129,8 @@ QHash<int, QByteArray> ThreadModel::roleNames() const
         {ReplyDelegateTypeRole, "replyDelegateType"},
         {ReplyDisplayRole, "replyDisplay"},
         {ReplyMediaInfoRole, "replyMediaInfo"},
+        {IsThreadedRole, "isThreaded"},
+        {ThreadRootRole, "threadRoot"},
         {ReactionRole, "reaction"},
         {ReadMarkersRole, "readMarkers"},
         {IsPendingRole, "isPending"},

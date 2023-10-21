@@ -47,6 +47,11 @@ ColumnLayout {
     required property ActionsHandler actionsHandler
 
     /**
+     * @brief The ChatBarCache to use for this chat bar.
+     */
+    property ChatBarCache chatBarCache
+
+    /**
      * @brief A message has been sent from the chat bar.
      */
     signal messageSent()
@@ -84,6 +89,7 @@ ColumnLayout {
 
         currentRoom: root.currentRoom
         actionsHandler: root.actionsHandler
+        chatBarCache: root.chatBarCache
 
         FontMetrics {
             id: chatBarFontMetrics

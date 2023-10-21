@@ -163,6 +163,7 @@ Kirigami.Page {
             id: chatBox
             width: parent.width
             currentRoom: root.currentRoom
+            onCurrentRoomChanged: chatBarCache = currentRoom.mainCache
             connection: root.connection
             actionsHandler: root.actionsHandler
             onMessageSent: {

@@ -58,6 +58,8 @@ public:
         ReplyDelegateTypeRole,
         ReplyDisplayRole,
         ReplyMediaInfoRole,
+        IsThreadedRole,
+        ThreadRootRole,
         ReactionRole,
         ReadMarkersRole,
         IsPendingRole,

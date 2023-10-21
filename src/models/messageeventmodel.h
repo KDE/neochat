@@ -63,8 +63,8 @@ public:
         ReplyDisplayRole, /**< The body of the message that was replied to. */
         ReplyMediaInfoRole, /**< The media info of the message that was replied to. */
 
-        IsThreadedRole,
-        ThreadRootRole,
+        IsThreadedRole, /**< Whether the message is in a thread. */
+        ThreadRootRole, /**< The Matrix ID of the thread root message, if any . */
 
         ShowAuthorRole, /**< Whether the author's name should be shown. */
         ShowSectionRole, /**< Whether the section header should be shown. */
