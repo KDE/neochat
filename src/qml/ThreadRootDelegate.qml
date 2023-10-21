@@ -103,7 +103,6 @@ Delegates.RoundedItemDelegate {
                 text: root.displayText
                 elide: Text.ElideRight
                 wrapMode: Text.NoWrap
-                onTextChanged: console.warn(text)
             }
         }
     }

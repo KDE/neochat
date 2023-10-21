@@ -17,6 +17,11 @@ ThreadModel::ThreadModel(const NeoChatRoom *room, const QString &threadRootId, Q
     intializeModel();
 }
 
+QString ThreadModel::threadRootId() const
+{
+    return m_threadRootId;
+}
+
 bool ThreadModel::loading() const
 {
     return m_loading;

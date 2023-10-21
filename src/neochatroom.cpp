@@ -68,6 +68,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
 {
     m_mainCache = new ChatBarCache(this);
     m_editCache = new ChatBarCache(this);
+    m_threadCache = new ChatBarCache(this);
 
     connect(connection, &Connection::accountDataChanged, this, &NeoChatRoom::updatePushNotificationState);
     connect(this, &Room::fileTransferCompleted, this, [this] {
@@ -1638,6 +1639,11 @@ ChatBarCache *NeoChatRoom::mainCache() const
 ChatBarCache *NeoChatRoom::editCache() const
 {
     return m_editCache;
+}
+
+ChatBarCache *NeoChatRoom::threadCache() const
+{
+    return m_threadCache;
 }
 
 void NeoChatRoom::replyLastMessage()

@@ -166,6 +166,7 @@ Kirigami.Page {
             onCurrentRoomChanged: chatBarCache = currentRoom.mainCache
             connection: root.connection
             actionsHandler: root.actionsHandler
+            saveText: true
             onMessageSent: {
                 if (!timelineViewLoader.item.atYEnd) {
                     timelineViewLoader.item.goToLastMessage();

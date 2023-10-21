@@ -149,6 +149,18 @@ QQC2.Control {
     ]
 
     /**
+     * @brief Whether the chat bar text should be saved when the cache is switched.
+     *
+     * @note Currently this feature is only available for a single chat bar and is
+     *       generally reserved for the main timeline for rooms. If you want to save
+     *       multiple chat bars you'll need to rework the saving mechanism in
+     *       RoomManager.
+     *
+     * @sa RoomManager
+     */
+    property bool saveText: false
+
+    /**
      * @brief A message has been sent from the chat bar.
      */
     signal messageSent()
@@ -453,7 +465,11 @@ QQC2.Control {
         mentionColor: Kirigami.Theme.linkColor
         errorColor: Kirigami.Theme.negativeTextColor
         Component.onCompleted: {
-            RoomManager.chatDocumentHandler = documentHandler;
+            if (root.saveText) {
+                RoomManager.chatDocumentHandler = documentHandler;
+            } else {
+                room: root.currentRoom
+            }
         }
     }
 

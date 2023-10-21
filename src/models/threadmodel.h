@@ -22,6 +22,11 @@ class ThreadModel : public QAbstractListModel
     QML_ELEMENT
 
     /**
+     * @brief The Matrix ID for the root mess
+     */
+    Q_PROPERTY(QString threadRootId READ threadRootId CONSTANT)
+
+    /**
      * @brief Whether the model is currently loading messages.
      */
     Q_PROPERTY(bool loading READ loading NOTIFY loadingChanged)
@@ -71,6 +76,8 @@ public:
     Q_ENUM(Roles)
 
     explicit ThreadModel(const NeoChatRoom *room, const QString &threadRootId, QObject *parent = nullptr);
+
+    QString threadRootId() const;
 
     bool loading() const;
 

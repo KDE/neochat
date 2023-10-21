@@ -52,6 +52,18 @@ ColumnLayout {
     property ChatBarCache chatBarCache
 
     /**
+     * @brief Whether the chat bar text should be saved when the cache is switched.
+     *
+     * @note Currently this feature is only available for a single chat bar and is
+     *       generally reserved for the main timeline for rooms. If you want to save
+     *       multiple chat bars you'll need to rework the saving mechanism in
+     *       RoomManager.
+     *
+     * @sa RoomManager
+     */
+    property bool saveText: false
+
+    /**
      * @brief A message has been sent from the chat bar.
      */
     signal messageSent()
@@ -90,6 +102,7 @@ ColumnLayout {
         currentRoom: root.currentRoom
         actionsHandler: root.actionsHandler
         chatBarCache: root.chatBarCache
+        saveText: root.saveText
 
         FontMetrics {
             id: chatBarFontMetrics

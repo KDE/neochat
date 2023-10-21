@@ -12,6 +12,7 @@
 
 #include <QCoroTask>
 #include <Quotient/user.h>
+#include <qhash.h>
 
 #include "pollhandler.h"
 
@@ -310,6 +311,11 @@ class NeoChatRoom : public Quotient::Room
      * @brief The cache for the edit chat bar in the room.
      */
     Q_PROPERTY(ChatBarCache *editCache READ editCache CONSTANT)
+
+    /**
+     * @brief The cache for the thread chat bar in the room.
+     */
+    Q_PROPERTY(ChatBarCache *threadCache READ threadCache CONSTANT)
 
 public:
     /**
@@ -720,6 +726,8 @@ public:
 
     ChatBarCache *editCache() const;
 
+    ChatBarCache *threadCache() const;
+
     /**
      * @brief Reply to the last message sent in the timeline.
      *
@@ -792,6 +800,7 @@ private:
 
     ChatBarCache *m_mainCache;
     ChatBarCache *m_editCache;
+    ChatBarCache *m_threadCache;
 
     QCache<QString, PollHandler> m_polls;
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;

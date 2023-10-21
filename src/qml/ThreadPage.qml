@@ -33,10 +33,10 @@ QQC2.Page {
         id: chatBoxLoader
         active: !timeline.model.loading
         sourceComponent: ChatBox {
-            id: chatBox
             width: parent.width
             currentRoom: root.room
             connection: root.room.connection
+            chatBarCache: root.room.threadCache
             // onMessageSent: {
             //     if (!timelineViewLoader.item.atYEnd) {
             //         timelineViewLoader.item.goToLastMessage();
