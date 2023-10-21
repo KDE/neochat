@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:38+0000\n"
+"POT-Creation-Date: 2023-10-21 01:38+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -85,12 +85,12 @@ msgid "The room id you are trying to join is not valid"
 msgstr "Προσπάθεια εισόδου με μη έγκυρο αναγνωριστικό αίθουσας"
 
 #: src/eventhandler.cpp:289 src/eventhandler.cpp:491
-#: src/models/messageeventmodel.cpp:453
+#: src/models/messageeventmodel.cpp:455
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε]</i>"
 
-#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:454
+#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε: %1]</i>"
@@ -443,14 +443,14 @@ msgstr "ενημερώθηκε %1 κατάσταση"
 msgid "started a poll"
 msgstr ""
 
-#: src/eventhandler.cpp:981
+#: src/eventhandler.cpp:1003
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/eventhandler.cpp:984
+#: src/eventhandler.cpp:1006
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -908,67 +908,67 @@ msgstr "%1 εκδιώχθη από αυτήν την αίθουσα."
 msgid "Removes the user from the room"
 msgstr "Αφαιρεί τον χρήστη από την αίθουσα"
 
-#: src/models/emojimodel.cpp:149 src/models/emojimodel.cpp:207
+#: src/models/emojimodel.cpp:153 src/models/emojimodel.cpp:211
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Ιστορικό"
 
-#: src/models/emojimodel.cpp:154
+#: src/models/emojimodel.cpp:158
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Χαμόγελα"
 
-#: src/models/emojimodel.cpp:159
+#: src/models/emojimodel.cpp:163
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Άνθρωποι"
 
-#: src/models/emojimodel.cpp:164
+#: src/models/emojimodel.cpp:168
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Φύση"
 
-#: src/models/emojimodel.cpp:169
+#: src/models/emojimodel.cpp:173
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Τροφή"
 
-#: src/models/emojimodel.cpp:174
+#: src/models/emojimodel.cpp:178
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Δραστηριότητες"
 
-#: src/models/emojimodel.cpp:179
+#: src/models/emojimodel.cpp:183
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Ταξίδι"
 
-#: src/models/emojimodel.cpp:184
+#: src/models/emojimodel.cpp:188
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Αντικείμενα"
 
-#: src/models/emojimodel.cpp:189
+#: src/models/emojimodel.cpp:193
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Σύμβολα"
 
-#: src/models/emojimodel.cpp:194
+#: src/models/emojimodel.cpp:198
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Σημαίες"
 
-#: src/models/emojimodel.cpp:213
+#: src/models/emojimodel.cpp:217
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -988,12 +988,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Χωρίς εμότζι"
 
-#: src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:481
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ΔΙΑΓΡΑΜΜΕΝΟ]"
 
-#: src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:481
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ΔΙΑΓΡΑΜΜΕΝΟ: %1]"
@@ -1101,12 +1101,12 @@ msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/neochatroom.cpp:1506 src/neochatroom.cpp:1507
+#: src/neochatroom.cpp:1549 src/neochatroom.cpp:1550
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/neochatroom.cpp:1766 src/neochatroom.cpp:1774
+#: src/neochatroom.cpp:1809 src/neochatroom.cpp:1817
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2654,6 +2654,11 @@ msgstr "Αυτό το μήνυμα εστάλη από επιβεβαιωμέν�
 #, kde-format
 msgid "React"
 msgstr "Αντίδραση"
+
+#: src/qml/HoverActions.qml:110
+#, kde-format
+msgid "Reply in Thread"
+msgstr ""
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:38+0000\n"
+"POT-Creation-Date: 2023-10-21 01:38+0000\n"
 "PO-Revision-Date: 2023-10-17 09:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -89,12 +89,12 @@ msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
 
 #: src/eventhandler.cpp:289 src/eventhandler.cpp:491
-#: src/models/messageeventmodel.cpp:453
+#: src/models/messageeventmodel.cpp:455
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Це повідомлення було вилучено]</i>"
 
-#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:454
+#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Це повідомлення було вилучено: %1]</i>"
@@ -425,7 +425,7 @@ msgstr "оновив стан"
 msgid "started a poll"
 msgstr "почав голосування"
 
-#: src/eventhandler.cpp:981
+#: src/eventhandler.cpp:1003
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -434,7 +434,7 @@ msgstr[1] "%1 користувачі: "
 msgstr[2] "%1 користувачів: "
 msgstr[3] "%1 користувач: "
 
-#: src/eventhandler.cpp:984
+#: src/eventhandler.cpp:1006
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -884,67 +884,67 @@ msgstr "%1 було викинуто з цієї кімнати."
 msgid "Removes the user from the room"
 msgstr "Вилучає користувача з кімнати"
 
-#: src/models/emojimodel.cpp:149 src/models/emojimodel.cpp:207
+#: src/models/emojimodel.cpp:153 src/models/emojimodel.cpp:211
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Журнал"
 
-#: src/models/emojimodel.cpp:154
+#: src/models/emojimodel.cpp:158
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Смайл"
 
-#: src/models/emojimodel.cpp:159
+#: src/models/emojimodel.cpp:163
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Люди"
 
-#: src/models/emojimodel.cpp:164
+#: src/models/emojimodel.cpp:168
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Природа"
 
-#: src/models/emojimodel.cpp:169
+#: src/models/emojimodel.cpp:173
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Їжа"
 
-#: src/models/emojimodel.cpp:174
+#: src/models/emojimodel.cpp:178
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Діяльність"
 
-#: src/models/emojimodel.cpp:179
+#: src/models/emojimodel.cpp:183
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Подорожі"
 
-#: src/models/emojimodel.cpp:184
+#: src/models/emojimodel.cpp:188
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Об'єкти"
 
-#: src/models/emojimodel.cpp:189
+#: src/models/emojimodel.cpp:193
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Символи"
 
-#: src/models/emojimodel.cpp:194
+#: src/models/emojimodel.cpp:198
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Прапорці"
 
-#: src/models/emojimodel.cpp:213
+#: src/models/emojimodel.cpp:217
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -962,12 +962,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Власні емоційки"
 
-#: src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:481
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ЗМІНЕНО]"
 
-#: src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:481
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ЗМІНЕНО: %1]"
@@ -1076,12 +1076,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/neochatroom.cpp:1506 src/neochatroom.cpp:1507
+#: src/neochatroom.cpp:1549 src/neochatroom.cpp:1550
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1766 src/neochatroom.cpp:1774
+#: src/neochatroom.cpp:1809 src/neochatroom.cpp:1817
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2578,6 +2578,11 @@ msgstr "Це повідомлення було надіслано із пере�
 #, kde-format
 msgid "React"
 msgstr "Реагувати"
+
+#: src/qml/HoverActions.qml:110
+#, kde-format
+msgid "Reply in Thread"
+msgstr ""
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format

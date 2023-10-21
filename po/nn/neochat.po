@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:38+0000\n"
+"POT-Creation-Date: 2023-10-21 01:38+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -86,12 +86,12 @@ msgid "The room id you are trying to join is not valid"
 msgstr "Rom-ID-en du prøver å bruka, er ikkje gyldig"
 
 #: src/eventhandler.cpp:289 src/eventhandler.cpp:491
-#: src/models/messageeventmodel.cpp:453
+#: src/models/messageeventmodel.cpp:455
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Denne meldinga er sletta]</i>"
 
-#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:454
+#: src/eventhandler.cpp:289 src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Denne meldinga er sletta: %1]</i>"
@@ -423,14 +423,14 @@ msgstr "oppdaterte tilstanden"
 msgid "started a poll"
 msgstr "starta ei avstemming"
 
-#: src/eventhandler.cpp:981
+#: src/eventhandler.cpp:1003
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 brukar: "
 msgstr[1] "%1 brukarar: "
 
-#: src/eventhandler.cpp:984
+#: src/eventhandler.cpp:1006
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -877,67 +877,67 @@ msgstr "%1 vart kasta ut av rommet."
 msgid "Removes the user from the room"
 msgstr "Fjernar brukaren frå rommet"
 
-#: src/models/emojimodel.cpp:149 src/models/emojimodel.cpp:207
+#: src/models/emojimodel.cpp:153 src/models/emojimodel.cpp:211
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Logg"
 
-#: src/models/emojimodel.cpp:154
+#: src/models/emojimodel.cpp:158
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Fjesingar"
 
-#: src/models/emojimodel.cpp:159
+#: src/models/emojimodel.cpp:163
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Folk"
 
-#: src/models/emojimodel.cpp:164
+#: src/models/emojimodel.cpp:168
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Natur"
 
-#: src/models/emojimodel.cpp:169
+#: src/models/emojimodel.cpp:173
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Mat"
 
-#: src/models/emojimodel.cpp:174
+#: src/models/emojimodel.cpp:178
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Aktivitetar"
 
-#: src/models/emojimodel.cpp:179
+#: src/models/emojimodel.cpp:183
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Reiseliv"
 
-#: src/models/emojimodel.cpp:184
+#: src/models/emojimodel.cpp:188
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Gjenstandar"
 
-#: src/models/emojimodel.cpp:189
+#: src/models/emojimodel.cpp:193
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Symbol"
 
-#: src/models/emojimodel.cpp:194
+#: src/models/emojimodel.cpp:198
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Flagg"
 
-#: src/models/emojimodel.cpp:213
+#: src/models/emojimodel.cpp:217
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -956,12 +956,12 @@ msgid "Own Emojis"
 msgstr "Eigne emojiar"
 
 # Eller «SENSURERT»?
-#: src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:481
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[TREKT TILBAKE]"
 
-#: src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:481
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[TREKT TILBAKE: %1]"
@@ -1065,12 +1065,12 @@ msgstr "Feil ved romregistrering: %1"
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/neochatroom.cpp:1506 src/neochatroom.cpp:1507
+#: src/neochatroom.cpp:1549 src/neochatroom.cpp:1550
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/neochatroom.cpp:1766 src/neochatroom.cpp:1774
+#: src/neochatroom.cpp:1809 src/neochatroom.cpp:1817
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2567,6 +2567,11 @@ msgstr "Meldinga vart send frå ei stadfesta eining"
 #, kde-format
 msgid "React"
 msgstr "Reager"
+
+#: src/qml/HoverActions.qml:110
+#, kde-format
+msgid "Reply in Thread"
+msgstr ""
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
