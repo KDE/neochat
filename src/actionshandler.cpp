@@ -35,7 +35,6 @@ void ActionsHandler::setRoom(NeoChatRoom *room)
     }
 
     m_room = room;
-    Q_EMIT roomChanged();
 }
 
 void ActionsHandler::handleMessageEvent(ChatBarCache *chatBarCache)
