@@ -137,7 +137,7 @@ QQC2.TextArea {
     }
 
     function postEdit() {
-        actionsHandler.handleMessageEvent(_private.chatBarCache);
+        RoomManager.actionsHandler.handleMessageEvent(_private.chatBarCache);
         root.clear();
         _private.chatBarCache.editId = "";
     }

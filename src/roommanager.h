@@ -10,6 +10,7 @@
 #include <Quotient/room.h>
 #include <Quotient/uriresolver.h>
 
+#include "actionshandler.h"
 #include "chatdocumenthandler.h"
 #include "enums/delegatetype.h"
 #include "models/mediamessagefiltermodel.h"
@@ -43,6 +44,17 @@ class RoomManager : public QObject, public UriResolverBase
      * @sa hasOpenRoom
      */
     Q_PROPERTY(NeoChatRoom *currentRoom READ currentRoom NOTIFY currentRoomChanged)
+
+    /**
+     * @brief The ActionsHandler that should be used when sending messages.
+     *
+     * The room object the object uses will be updated by this class so there is no
+     * need to do this manually or replace the object when a room changes.
+     *
+     * @note Available here so that the room page and drawer both have access to the
+     *       same model.
+     */
+    Q_PROPERTY(ActionsHandler *actionsHandler READ actionsHandler CONSTANT)
 
     /**
      * @brief The MessageEventModel that should be used for room message visualisation.
@@ -97,6 +109,8 @@ public:
     }
 
     NeoChatRoom *currentRoom() const;
+
+    ActionsHandler *actionsHandler() const;
 
     MessageEventModel *messageEventModel() const;
     MessageFilterModel *messageFilterModel() const;
@@ -374,6 +388,8 @@ private:
     KSharedConfig::Ptr m_config;
     KConfigGroup m_lastRoomConfig;
     QPointer<ChatDocumentHandler> m_chatDocumentHandler;
+
+    ActionsHandler *m_actionsHandler;
 
     MessageEventModel *m_messageEventModel;
     MessageFilterModel *m_messageFilterModel;

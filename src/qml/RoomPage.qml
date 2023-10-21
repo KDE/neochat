@@ -139,11 +139,6 @@ Kirigami.Page {
         }
     }
 
-    ActionsHandler {
-        id: actionsHandler
-        room: root.currentRoom
-    }
-
     Shortcut {
         sequence: StandardKey.Cancel
         onActivated: {

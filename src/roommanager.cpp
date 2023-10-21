@@ -4,6 +4,7 @@
 
 #include "roommanager.h"
 
+#include "actionshandler.h"
 #include "chatbarcache.h"
 #include "controller.h"
 #include "enums/delegatetype.h"
@@ -29,6 +30,7 @@ RoomManager::RoomManager(QObject *parent)
     , m_currentRoom(nullptr)
     , m_lastCurrentRoom(nullptr)
     , m_config(KSharedConfig::openStateConfig())
+    , m_actionsHandler(new ActionsHandler(this))
     , m_messageEventModel(new MessageEventModel(this))
     , m_messageFilterModel(new MessageFilterModel(this, m_messageEventModel))
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
@@ -36,6 +38,7 @@ RoomManager::RoomManager(QObject *parent)
     m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
+        m_actionsHandler->setRoom(m_currentRoom);
         m_messageEventModel->setRoom(m_currentRoom);
     });
 }
@@ -53,6 +56,11 @@ RoomManager &RoomManager::instance()
 NeoChatRoom *RoomManager::currentRoom() const
 {
     return m_currentRoom;
+}
+
+ActionsHandler *RoomManager::actionsHandler() const
+{
+    return m_actionsHandler;
 }
 
 MessageEventModel *RoomManager::messageEventModel() const

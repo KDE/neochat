@@ -292,7 +292,7 @@ QQC2.ScrollView {
 
                 Connections {
                     enabled: Config.showFancyEffects
-                    target: actionsHandler
+                    target: RoomManager.actionsHandler
 
                     function onShowEffect(fancyEffect) {
                         fancyEffectsContainer.processFancyEffectsReason(fancyEffect)

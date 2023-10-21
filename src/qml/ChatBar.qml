@@ -478,7 +478,7 @@ QQC2.Control {
     }
 
     function postMessage() {
-        actionsHandler.handleMessageEvent(_private.chatBarCache);
+        RoomManager.actionsHandler.handleMessageEvent(_private.chatBarCache);
         repeatTimer.stop()
         root.currentRoom.markAllMessagesAsRead();
         textField.clear();

@@ -35,20 +35,18 @@ class ActionsHandler : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
-
-    /**
-     * @brief The room that messages will be sent to.
-     */
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+    QML_UNCREATABLE("")
 
 public:
     explicit ActionsHandler(QObject *parent = nullptr);
 
+    /**
+     * @brief The room that messages will be sent to.
+     */
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
 Q_SIGNALS:
-    void roomChanged();
     void showEffect(const QString &effect);
 
 public Q_SLOTS:
