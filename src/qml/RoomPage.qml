@@ -21,6 +21,45 @@ Kirigami.Page {
     property NeoChatRoom currentRoom: RoomManager.currentRoom
 
     required property NeoChatConnection connection
+
+    /**
+     * @brief The MessageEventModel to use.
+     *
+     * Required so that new events can be requested when the end of the current
+     * local timeline is reached.
+     *
+     * @note For loading a room in a different window, override this with a new
+     *       MessageEventModel set with the room to be shown.
+     *
+     * @sa MessageEventModel
+     */
+    property MessageEventModel messageEventModel: RoomManager.messageEventModel
+
+    /**
+     * @brief The MessageFilterModel to use.
+     *
+     * This model has the filtered list of events that should be shown in the timeline.
+     *
+     * @note For loading a room in a different window, override this with a new
+     *       MessageFilterModel with the new MessageEventModel as the source model.
+     *
+     * @sa MessageEventModel, MessageFilterModel
+     */
+    property MessageFilterModel messageFilterModel: RoomManager.messageFilterModel
+
+    /**
+     * @brief The MediaMessageFilterModel to use.
+     *
+     * This model has the filtered list of media events that should be shown in
+     * the timeline.
+     *
+     * @note For loading a room in a different window, override this with a new
+     *       MediaMessageFilterModel with the new MessageFilterModel as the source model.
+     *
+     * @sa MessageEventModel, MessageFilterModel
+     */
+    property MediaMessageFilterModel mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
+
     property bool loading: !root.currentRoom || (root.currentRoom.timelineSize === 0 && !root.currentRoom.allHistoryLoaded)
 
     /// Disable cancel shortcut. Used by the separate window since it provides its own cancel implementation.
@@ -73,6 +112,8 @@ Kirigami.Page {
         sourceComponent: TimelineView {
             id: timelineView
             currentRoom: root.currentRoom
+            messageEventModel: root.messageEventModel
+            messageFilterModel: root.messageFilterModel
             onFocusChatBox: {
                 if (chatBoxLoader.item) {
                     chatBoxLoader.item.forceActiveFocus()
@@ -234,6 +275,17 @@ Kirigami.Page {
             });
             contextMenu.open();
         }
+
+        function onShowMaximizedMedia(index) {
+            var popup = maximizeComponent.createObject(QQC2.ApplicationWindow.overlay, {
+                initialIndex: index
+            })
+            popup.closed.connect(() => {
+                messageListView.interactive = true
+                popup.destroy()
+            })
+            popup.open()
+        }
     }
 
     function showUserDetail(user) {
@@ -259,6 +311,14 @@ Kirigami.Page {
         id: fileDelegateContextMenu
         FileDelegateContextMenu {
             connection: root.connection
+        }
+    }
+
+    Component {
+        id: maximizeComponent
+        NeochatMaximizeComponent {
+            currentRoom: root.currentRoom
+            model: root.mediaMessageFilterModel
         }
     }
 }

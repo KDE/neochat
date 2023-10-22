@@ -25,6 +25,22 @@ QQC2.ScrollView {
         hasScrolledUpBefore = false;
     }
     property bool roomChanging: false
+
+    /**
+     * @brief The MessageEventModel to use.
+     *
+     * Required so that new events can be requested when the end of the current
+     * local timeline is reached.
+     */
+    required property MessageEventModel messageEventModel
+
+    /**
+     * @brief The MessageFilterModel to use.
+     *
+     * This model has the filtered list of events that should be shown in the timeline.
+     */
+    required property MessageFilterModel messageFilterModel
+
     readonly property bool atYEnd: messageListView.atYEnd
 
     /// Used to determine if scrolling to the bottom should mark the message as unread
@@ -49,23 +65,23 @@ QQC2.ScrollView {
         interactive: Kirigami.Settings.isMobile
         bottomMargin: Kirigami.Units.largeSpacing + Math.round(Kirigami.Theme.defaultFont.pointSize * 2)
 
-        model: RoomManager.messageFilterModel
+        model: root.messageFilterModel
 
         Timer {
             interval: 1000
             running: messageListView.atYBeginning
             triggeredOnStart: true
             onTriggered: {
-                if (messageListView.atYBeginning && RoomManager.messageEventModel.canFetchMore(RoomManager.messageEventModel.index(0, 0))) {
-                    RoomManager.messageEventModel.fetchMore(RoomManager.messageEventModel.index(0, 0));
+                if (messageListView.atYBeginning && root.messageEventModel.canFetchMore(root.messageEventModel.index(0, 0))) {
+                    root.messageEventModel.fetchMore(root.messageEventModel.index(0, 0));
                 }
             }
             repeat: true
         }
 
         // HACK: The view should do this automatically but doesn't.
-        onAtYBeginningChanged: if (atYBeginning && RoomManager.messageEventModel.canFetchMore(RoomManager.messageEventModel.index(0, 0))) {
-            RoomManager.messageEventModel.fetchMore(RoomManager.messageEventModel.index(0, 0));
+        onAtYBeginningChanged: if (atYBeginning && root.messageEventModel.canFetchMore(root.messageEventModel.index(0, 0))) {
+            root.messageEventModel.fetchMore(root.messageEventModel.index(0, 0));
         }
 
         Timer {
@@ -242,7 +258,7 @@ QQC2.ScrollView {
         }
 
         Connections {
-            target: RoomManager.messageEventModel
+            target: root.messageEventModel
 
             function onRowsInserted() {
                 markReadIfVisibleTimer.restart()
@@ -283,7 +299,7 @@ QQC2.ScrollView {
 
                 Connections {
                     //enabled: Config.showFancyEffects
-                    target: RoomManager.messageEventModel
+                    target: root.messageEventModel
 
                     function onFancyEffectsReasonFound(fancyEffect) {
                         fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
@@ -301,32 +317,6 @@ QQC2.ScrollView {
             }
         }
 
-        Component {
-            id: maximizeComponent
-            NeochatMaximizeComponent {
-                currentRoom: root.currentRoom
-                model: RoomManager.mediaMessageFilterModel
-            }
-        }
-
-        Connections {
-            target: RoomManager
-            function onShowMaximizedMedia(index) {
-                messageListView.showMaximizedMedia(index)
-            }
-        }
-
-        function showMaximizedMedia(index) {
-            var popup = maximizeComponent.createObject(QQC2.ApplicationWindow.overlay, {
-                    initialIndex: index
-                })
-                popup.closed.connect(() => {
-                    messageListView.interactive = true
-                    popup.destroy()
-                })
-                popup.open()
-        }
-
         function goToLastMessage() {
             root.currentRoom.markAllMessagesAsRead()
             // scroll to the very end, i.e to messageListView.YEnd
@@ -334,10 +324,10 @@ QQC2.ScrollView {
         }
 
         function eventToIndex(eventID) {
-            const index = RoomManager.messageEventModel.eventIdToRow(eventID)
+            const index = root.messageEventModel.eventIdToRow(eventID)
             if (index === -1)
                 return -1
-            return RoomManager.messageFilterModel.mapFromSource(RoomManager.messageEventModel.index(index, 0)).row
+            return root.messageFilterModel.mapFromSource(root.messageEventModel.index(index, 0)).row
         }
 
         function firstVisibleIndex() {

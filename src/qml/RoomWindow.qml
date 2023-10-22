@@ -23,10 +23,21 @@ Kirigami.ApplicationWindow {
         onActivated: root.close()
     }
     pageStack.initialPage: RoomPage {
+        id: roomPage
         visible: true
         currentRoom: root.currentRoom
         disableCancelShortcut: true
         connection: root.connection
+
+        messageEventModel: MessageEventModel {
+            room: currentRoom
+        }
+        messageFilterModel: MessageFilterModel {
+            sourceModel: roomPage.messageEventModel
+        }
+        mediaMessageFilterModel: MediaMessageFilterModel {
+            sourceModel: roomPage.messageFilterModel
+        }
     }
 
     onCurrentRoomChanged: if (!currentRoom) {
