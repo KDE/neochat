@@ -15,6 +15,11 @@ DelegateChooser {
     property var room
     required property NeoChatConnection connection
 
+    /**
+     * @brief Whether the delegate is part of a thread timeline.
+     */
+    property bool isThread: false
+
     DelegateChoice {
         roleValue: DelegateType.State
         delegate: StateDelegate {}
@@ -24,6 +29,7 @@ DelegateChooser {
         roleValue: DelegateType.Emote
         delegate: TextDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
 
@@ -31,6 +37,7 @@ DelegateChooser {
         roleValue: DelegateType.Message
         delegate: TextDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
 
@@ -38,6 +45,7 @@ DelegateChooser {
         roleValue: DelegateType.Notice
         delegate: TextDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
 
@@ -45,18 +53,22 @@ DelegateChooser {
         roleValue: DelegateType.Image
         delegate: ImageDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Sticker
-        delegate: ImageDelegate {}
+        delegate: ImageDelegate {
+            isThread: root.isThread
+        }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Audio
         delegate: AudioDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
 
@@ -64,6 +76,7 @@ DelegateChooser {
         roleValue: DelegateType.Video
         delegate: VideoDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
 
@@ -71,6 +84,7 @@ DelegateChooser {
         roleValue: DelegateType.File
         delegate: FileDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
 
@@ -78,6 +92,7 @@ DelegateChooser {
         roleValue: DelegateType.Encrypted
         delegate: EncryptedDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
 
@@ -97,6 +112,7 @@ DelegateChooser {
         roleValue: DelegateType.Location
         delegate: LocationDelegate {
             connection: root.connection
+            isThread: root.isThread
         }
     }
     DelegateChoice {
@@ -104,6 +120,7 @@ DelegateChooser {
         delegate: LiveLocationDelegate {
             room: root.room
             connection: root.connection
+            isThread: root.isThread
         }
     }
 

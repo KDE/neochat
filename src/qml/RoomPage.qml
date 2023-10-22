@@ -259,26 +259,28 @@ Kirigami.Page {
             });
         }
 
-        function onShowMessageMenu(eventId, author, delegateType, plainText, htmlText, selectedText) {
+        function onShowMessageMenu(eventId, author, delegateType, plainText, htmlText, selectedText, isThread) {
             const contextMenu = messageDelegateContextMenu.createObject(root, {
                 selectedText: selectedText,
                 author: author,
                 eventId: eventId,
                 delegateType: delegateType,
                 plainText: plainText,
-                htmlText: htmlText
+                htmlText: htmlText,
+                isThread: isThread
             });
             contextMenu.open();
         }
 
-        function onShowFileMenu(eventId, author, delegateType, plainText, mimeType, progressInfo) {
+        function onShowFileMenu(eventId, author, delegateType, plainText, mimeType, progressInfo, isThread) {
             const contextMenu = fileDelegateContextMenu.createObject(root, {
                 author: author,
                 eventId: eventId,
                 delegateType: delegateType,
                 plainText: plainText,
                 mimeType: mimeType,
-                progressInfo: progressInfo
+                progressInfo: progressInfo,
+                isThread: isThread
             });
             contextMenu.open();
         }

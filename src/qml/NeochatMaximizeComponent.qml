@@ -34,6 +34,11 @@ Components.AlbumMaximizeComponent {
 
     readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), MessageEventModel.ProgressInfoRole)
 
+    /**
+     * @brief Whether the delegate is part of a thread timeline.
+     */
+    property bool isThread: false
+
     downloadAction: Components.DownloadAction {
         id: downloadAction
         onTriggered: {
@@ -87,7 +92,8 @@ Components.AlbumMaximizeComponent {
             }
         }
     }
-    onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId,
+    onItemRightClicked: RoomManager.viewEventMenu(root.isThread,
+                                                  root.currentEventId,
                                                   root.currentAuthor,
                                                   root.currentDelegateType,
                                                   root.currentPlainText,

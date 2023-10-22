@@ -225,7 +225,8 @@ public:
     /**
      * @brief Show a conterxt menu for the given event.
      */
-    Q_INVOKABLE void viewEventMenu(const QString &eventId,
+    Q_INVOKABLE void viewEventMenu(bool isThread,
+                                   const QString &eventId,
                                    const QVariantMap &author,
                                    DelegateType::Type delegateType,
                                    const QString &plainText,
@@ -338,7 +339,8 @@ Q_SIGNALS:
                          DelegateType::Type delegateType,
                          const QString &plainText,
                          const QString &htmlText,
-                         const QString &selectedText);
+                         const QString &selectedText,
+                         bool isThread);
 
     /**
      * @brief Request to show a menu for the given media event.
@@ -348,7 +350,8 @@ Q_SIGNALS:
                       DelegateType::Type delegateType,
                       const QString &plainText,
                       const QString &mimeType,
-                      const FileTransferInfo &progressInfo);
+                      const FileTransferInfo &progressInfo,
+                      bool isThread);
 
     /**
      * @brief Show the direct chat confirmation dialog.

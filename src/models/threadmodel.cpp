@@ -4,6 +4,7 @@
 #include "threadmodel.h"
 
 #include <Quotient/csapi/relations.h>
+#include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/basejob.h>
 
 #include "eventhandler.h"
@@ -56,6 +57,8 @@ QVariant ThreadModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case DisplayRole:
         return eventHandler.getRichBody();
+    case DelegateTypeRole:
+        return eventHandler.getDelegateType();
     case ShowAuthorRole:
         return true;
     case AuthorRole:
@@ -71,14 +74,24 @@ QVariant ThreadModel::data(const QModelIndex &index, int role) const
         return eventHandler.getTime();
     case TimeStringRole:
         return eventHandler.getTimeString(false);
+    case ProgressInfoRole:
+        if (auto e = eventCast<const Quotient::RoomMessageEvent>(event)) {
+            if (e->hasFileContent()) {
+                return QVariant::fromValue(m_room->fileTransferInfo(e->id()));
+            }
+        }
+        if (auto e = eventCast<const Quotient::StickerEvent>(event)) {
+            return QVariant::fromValue(m_room->fileTransferInfo(e->id()));
+        }
+        break;
     case ShowReactionsRole:
         return false;
     case ShowReadMarkersRole:
         return false;
     case IsReplyRole:
-        return eventHandler.hasReply();
+        return eventHandler.hasReply(false);
     case ReplyIdRole:
-        return eventHandler.hasReply();
+        return eventHandler.getReplyId();
     case ReplyAuthorRole:
         return eventHandler.getReplyAuthor();
     case ReplyDelegateTypeRole:
@@ -100,7 +113,7 @@ QVariant ThreadModel::data(const QModelIndex &index, int role) const
     case EventIdRole:
         return eventHandler.getId();
     }
-    return DelegateType::Message;
+    return {};
 }
 
 int ThreadModel::rowCount(const QModelIndex &parent) const

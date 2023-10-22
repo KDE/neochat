@@ -41,6 +41,11 @@ Item {
      */
     property real rightPadding: Config.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
 
+    /**
+     * @brief Whether the delegate is part of a thread timeline.
+     */
+    property bool isThread
+
     width: parent?.width
     implicitHeight: contentItemParent.implicitHeight
 

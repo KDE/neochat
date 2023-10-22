@@ -556,12 +556,14 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
 
     if (isThread) {
         bool isFallingBack = !fallbackId.isEmpty();
+        QString replyEventId = isFallingBack ? fallbackId : QString();
         if (isReply) {
             EventHandler eventHandler;
             eventHandler.setRoom(this);
             eventHandler.setEvent(&**replyIt);
 
             isFallingBack = false;
+            replyEventId = eventHandler.getId();
         }
 
         // If we are not replying and there is no fallback ID it means a new thread
@@ -569,6 +571,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
         if (!isFallingBack && !isReply) {
             newThreadCreated(threadRootId);
             isFallingBack = true;
+            replyEventId = threadRootId;
         }
 
         // clang-format off
@@ -583,7 +586,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
               {"is_falling_back"_ls, isFallingBack},
               {"m.in_reply_to"_ls,
                 QJsonObject {
-                  {"event_id"_ls, isFallingBack && fallbackId.isEmpty() ? threadRootId : fallbackId}
+                  {"event_id"_ls, replyEventId}
                 }
               }
             }

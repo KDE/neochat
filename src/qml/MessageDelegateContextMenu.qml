@@ -77,6 +77,11 @@ Loader {
     property string selectedText: ""
 
     /**
+     * @brief Whether the menu is being opened for a message in a thread timeline.
+     */
+    property bool isThread
+
+    /**
      * @brief The list of menu item actions that have sub-actions.
      *
      * Each action will be instantiated as a single line that open a sub menu.
@@ -102,7 +107,13 @@ Loader {
             text: i18n("Reply")
             icon.name: "mail-replied-symbolic"
             onTriggered: {
-                currentRoom.mainCache.replyId = eventId;
+                if (root.isThread) {
+                    currentRoom.threadCache.replyId = eventId;
+                    currentRoom.mainCache.replyId = "";
+                } else {
+                    currentRoom.mainCache.replyId = eventId;
+                    currentRoom.threadCache.replyId = "";
+                }
                 currentRoom.editCache.editId = "";
             }
         },

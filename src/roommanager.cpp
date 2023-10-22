@@ -115,7 +115,8 @@ void RoomManager::viewEventSource(const QString &eventId)
     Q_EMIT showEventSource(eventId);
 }
 
-void RoomManager::viewEventMenu(const QString &eventId,
+void RoomManager::viewEventMenu(bool isThread,
+                                const QString &eventId,
                                 const QVariantMap &author,
                                 DelegateType::Type delegateType,
                                 const QString &plainText,
@@ -126,11 +127,11 @@ void RoomManager::viewEventMenu(const QString &eventId,
 {
     if (delegateType == DelegateType::Image || delegateType == DelegateType::Video || delegateType == DelegateType::Audio
         || delegateType == DelegateType::File) {
-        Q_EMIT showFileMenu(eventId, author, delegateType, plainText, mimeType, progressInfo);
+        Q_EMIT showFileMenu(eventId, author, delegateType, plainText, mimeType, progressInfo, isThread);
         return;
     }
 
-    Q_EMIT showMessageMenu(eventId, author, delegateType, plainText, htmlText, selectedText);
+    Q_EMIT showMessageMenu(eventId, author, delegateType, plainText, htmlText, selectedText, isThread);
 }
 
 bool RoomManager::hasOpenRoom() const

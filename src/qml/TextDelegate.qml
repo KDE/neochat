@@ -37,7 +37,7 @@ MessageDelegate {
      */
     required property bool showLinkPreview
 
-    onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, display, label.selectedText)
+    onOpenContextMenu: RoomManager.viewEventMenu(isThread, eventId, author, delegateType, plainText, display, label.selectedText)
 
     bubbleContent: ColumnLayout {
         RichLabel {

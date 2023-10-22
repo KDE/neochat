@@ -60,5 +60,6 @@ ListView {
 
     delegate: EventDelegate {
         connection: root.connection
+        isThread: true
     }
 }

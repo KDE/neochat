@@ -54,7 +54,7 @@ MessageDelegate {
      */
     readonly property var maxHeight: Kirigami.Units.gridUnit * 30
 
-    onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
+    onOpenContextMenu: RoomManager.viewEventMenu(isThread, eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
     onDownloadedChanged: {
         if (downloaded) {

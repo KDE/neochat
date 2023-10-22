@@ -44,7 +44,7 @@ MessageDelegate {
         openSavedFile();
     }
 
-    onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
+    onOpenContextMenu: RoomManager.viewEventMenu(isThread, eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
     function saveFileAs() {
         const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)

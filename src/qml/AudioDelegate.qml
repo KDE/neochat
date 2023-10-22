@@ -36,7 +36,7 @@ MessageDelegate {
     readonly property bool downloaded: root.progressInfo && root.progressInfo.completed
     onDownloadedChanged: audio.play()
 
-    onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
+    onOpenContextMenu: RoomManager.viewEventMenu(isThread, eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
     bubbleContent: ColumnLayout {
         MediaPlayer {

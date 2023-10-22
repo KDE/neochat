@@ -23,6 +23,13 @@ QQC2.Page {
      */
     property alias model: timeline.model
 
+    /**
+     * @brief The ActionsHandler object to use.
+     */
+    property ActionsHandler actionsHandler: ActionsHandler {
+        room: root.room
+    }
+
     SimpleTimelineView {
         id: timeline
         anchors.fill: parent
@@ -36,7 +43,10 @@ QQC2.Page {
             width: parent.width
             currentRoom: root.room
             connection: root.room.connection
+            actionsHandler: root.actionsHandler
             chatBarCache: root.room.threadCache
+            Component.onCompleted: chatBarCache.threadId = root.model.threadRootId
+
             // onMessageSent: {
             //     if (!timelineViewLoader.item.atYEnd) {
             //         timelineViewLoader.item.goToLastMessage();
