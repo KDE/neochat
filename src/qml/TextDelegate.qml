@@ -63,6 +63,7 @@ MessageDelegate {
             active: visible
             sourceComponent: MessageEditComponent {
                 room: currentRoom
+                actionsHandler: root.ListView.view.actionsHandler
                 messageId: root.eventId
             }
         }

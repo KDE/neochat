@@ -60,6 +60,13 @@ Kirigami.Page {
      */
     property MediaMessageFilterModel mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
 
+    /**
+     * @brief The ActionsHandler object to use.
+     */
+    property ActionsHandler actionsHandler: ActionsHandler {
+        room: root.currentRoom
+    }
+
     property bool loading: !root.currentRoom || (root.currentRoom.timelineSize === 0 && !root.currentRoom.allHistoryLoaded)
 
     /// Disable cancel shortcut. Used by the separate window since it provides its own cancel implementation.
@@ -114,6 +121,7 @@ Kirigami.Page {
             currentRoom: root.currentRoom
             messageEventModel: root.messageEventModel
             messageFilterModel: root.messageFilterModel
+            actionsHandler: root.actionsHandler
             onFocusChatBox: {
                 if (chatBoxLoader.item) {
                     chatBoxLoader.item.forceActiveFocus()
@@ -155,6 +163,7 @@ Kirigami.Page {
             width: parent.width
             currentRoom: root.currentRoom
             connection: root.connection
+            actionsHandler: root.actionsHandler
             onMessageSent: {
                 if (!timelineViewLoader.item.atYEnd) {
                     timelineViewLoader.item.goToLastMessage();
@@ -178,11 +187,6 @@ Kirigami.Page {
         function onWarning(title, message) {
             root.warning(title, message);
         }
-    }
-
-    ActionsHandler {
-        id: actionsHandler
-        room: root.currentRoom
     }
 
     Shortcut {

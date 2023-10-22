@@ -51,6 +51,14 @@ QQC2.Control {
     property NeoChatConnection connection
 
     /**
+     * @brief The ActionsHandler object to use.
+     *
+     * This is expected to have the correct room set otherwise messages will be sent
+     * to the wrong room.
+     */
+    required property ActionsHandler actionsHandler
+
+    /**
      * @brief The list of actions in the ChatBar.
      *
      * Each of these will be visualised in the ChatBar so new actions can be added
@@ -478,7 +486,7 @@ QQC2.Control {
     }
 
     function postMessage() {
-        actionsHandler.handleMessageEvent(_private.chatBarCache);
+        root.actionsHandler.handleMessageEvent(_private.chatBarCache);
         repeatTimer.stop()
         root.currentRoom.markAllMessagesAsRead();
         textField.clear();

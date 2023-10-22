@@ -41,6 +41,14 @@ QQC2.ScrollView {
      */
     required property MessageFilterModel messageFilterModel
 
+    /**
+     * @brief The ActionsHandler object to use.
+     *
+     * This is expected to have the correct room set otherwise messages will be sent
+     * to the wrong room.
+     */
+    required property ActionsHandler actionsHandler
+
     readonly property bool atYEnd: messageListView.atYEnd
 
     /// Used to determine if scrolling to the bottom should mark the message as unread
@@ -52,6 +60,8 @@ QQC2.ScrollView {
         id: messageListView
         // So that delegates can access the current room properly.
         readonly property NeoChatRoom currentRoom: root.currentRoom
+        // So that delegates can access the actionsHandler properly.
+        readonly property ActionsHandler actionsHandler: root.actionsHandler
 
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
         readonly property var sectionBannerItem: contentHeight >= height ? itemAtIndex(sectionBannerIndex()) : undefined

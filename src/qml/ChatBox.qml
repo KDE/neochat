@@ -39,6 +39,14 @@ ColumnLayout {
     required property NeoChatConnection connection
 
     /**
+     * @brief The ActionsHandler object to use.
+     *
+     * This is expected to have the correct room set otherwise messages will be sent
+     * to the wrong room.
+     */
+    required property ActionsHandler actionsHandler
+
+    /**
      * @brief A message has been sent from the chat bar.
      */
     signal messageSent()
@@ -75,6 +83,7 @@ ColumnLayout {
         Layout.preferredHeight: Math.round(implicitHeight)
 
         currentRoom: root.currentRoom
+        actionsHandler: root.actionsHandler
 
         FontMetrics {
             id: chatBarFontMetrics
