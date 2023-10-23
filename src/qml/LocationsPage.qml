@@ -17,16 +17,16 @@ Kirigami.Page {
 
     padding: 0
 
-    Map {
-        id: map
+    MapView {
+        id: mapView
         anchors.fill: parent
-        plugin: OsmLocationPlugin.plugin
+        map.plugin: OsmLocationPlugin.plugin
 
-        center: {
+        map.center: {
             let c = LocationHelper.center(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox));
             return QtPositioning.coordinate(c.y, c.x);
         }
-        zoomLevel: LocationHelper.zoomToFit(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox), map.width, map.height)
+        map.zoomLevel: LocationHelper.zoomToFit(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox), mapView.width, mapView.height)
 
         MapItemView {
             model: LocationsModel {
@@ -49,8 +49,14 @@ Kirigami.Page {
 
         Kirigami.PlaceholderMessage {
             text: i18n("There are no locations shared in this room.")
-            visible: map.mapItems.length === 0
+            visible: mapView.mapItems.length === 0
             anchors.centerIn: parent
+        }
+        Connections {
+            target: mapView.map
+            function onCopyrightLinkActivated() {
+                Qt.openUrlExternally(link)
+            }
         }
     }
 }

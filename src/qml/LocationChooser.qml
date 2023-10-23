@@ -33,9 +33,9 @@ Components.AbstractMaximizeComponent {
         }
     ]
 
-    content: Map {
+    content: MapView {
         id: map
-        plugin: Plugin {
+        map.plugin: Plugin {
             name: "osm"
             PluginParameter {
                 name: "osm.useragent"
@@ -79,6 +79,12 @@ Components.AbstractMaximizeComponent {
                     isMask: true
                     color: Kirigami.Theme.highlightColor
                 }
+            }
+        }
+        Connections {
+            target: mapView.map
+            function onCopyrightLinkActivated() {
+                Qt.openUrlExternally(link)
             }
         }
     }

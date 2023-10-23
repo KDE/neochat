@@ -33,13 +33,13 @@ ApplicationWindow {
         onClicked: root.destroy()
     }
 
-    Map {
-        id: map
+    MapView {
+        id: mapView
         anchors.fill: parent
-        center: root.liveLocationModel ?  QtPositioning.coordinate(root.liveLocationModel.boundingBox.y, root.liveLocationModel.boundingBox.x)
+        map.center: root.liveLocationModel ?  QtPositioning.coordinate(root.liveLocationModel.boundingBox.y, root.liveLocationModel.boundingBox.x)
             : QtPositioning.coordinate(root.latitude, root.longitude)
-        zoomLevel: 15
-        plugin: OsmLocationPlugin.plugin
+        map.zoomLevel: 15
+        map.plugin: OsmLocationPlugin.plugin
         LocationMapItem {
             latitude: root.latitude
             longitude: root.longitude
@@ -53,8 +53,12 @@ ApplicationWindow {
             model: root.liveLocationModel
             delegate: LocationMapItem {}
         }
-        onCopyrightLinkActivated: {
-            Qt.openUrlExternally(link)
+
+        Connections {
+            target: mapView.map
+            function onCopyrightLinkActivated() {
+                Qt.openUrlExternally(link)
+            }
         }
     }
 

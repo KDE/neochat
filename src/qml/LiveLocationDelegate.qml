@@ -25,16 +25,15 @@ MessageDelegate {
             id: liveLocationModel
             eventId: root.eventId
         }
-        Map {
-            id: map
+        MapView {
+            id: mapView
             Layout.fillWidth: true
             Layout.preferredHeight: root.contentMaxWidth / 16 * 9
 
-            center: QtPositioning.coordinate(liveLocationModel.boundingBox.y, liveLocationModel.boundingBox.x)
-            zoomLevel: 15
+            map.center: QtPositioning.coordinate(liveLocationModel.boundingBox.y, liveLocationModel.boundingBox.x)
+            map.zoomLevel: 15
 
-            plugin: OsmLocationPlugin.plugin
-            onCopyrightLinkActivated: Qt.openUrlExternally(link)
+            map.plugin: OsmLocationPlugin.plugin
 
             MapItemView {
                 model: liveLocationModel
@@ -52,6 +51,12 @@ MessageDelegate {
             TapHandler {
                 acceptedButtons: Qt.RightButton
                 onTapped: openMessageContext("")
+            }
+            Connections {
+                target: mapView.map
+                function onCopyrightLinkActivated() {
+                    Qt.openUrlExternally(link)
+                }
             }
         }
         Component {

@@ -36,16 +36,15 @@ MessageDelegate {
     required property string asset
 
     bubbleContent: ColumnLayout {
-        Map {
-            id: map
+        MapView {
+            id: mapView
             Layout.fillWidth: true
             Layout.preferredHeight: root.contentMaxWidth / 16 * 9
 
-            center: QtPositioning.coordinate(root.latitude, root.longitude)
-            zoomLevel: 15
+            map.center: QtPositioning.coordinate(root.latitude, root.longitude)
+            map.zoomLevel: 15
 
-            plugin: OsmLocationPlugin.plugin
-            onCopyrightLinkActivated: Qt.openUrlExternally(link)
+            map.plugin: OsmLocationPlugin.plugin
 
             LocationMapItem {
                 latitude: root.latitude
@@ -67,6 +66,12 @@ MessageDelegate {
             TapHandler {
                 acceptedButtons: Qt.RightButton
                 onTapped: openMessageContext("")
+            }
+            Connections {
+                target: mapView.map
+                function onCopyrightLinkActivated() {
+                    Qt.openUrlExternally(link)
+                }
             }
         }
         Component {
