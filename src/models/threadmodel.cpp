@@ -15,6 +15,12 @@ ThreadModel::ThreadModel(const NeoChatRoom *room, const QString &threadRootId, Q
     , m_room(room)
     , m_threadRootId(threadRootId)
 {
+    connect(this, &ThreadModel::rowsInserted, this, [this]() {
+        if (m_loading) {
+            m_loading = false;
+            Q_EMIT loadingChanged();
+        }
+    });
     intializeModel();
 }
 
@@ -33,15 +39,8 @@ void ThreadModel::intializeModel()
     if (m_threadRootId.isEmpty() || m_room == nullptr) {
         return;
     }
-
-    auto connection = m_room->connection();
-    auto threadEventsJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(m_room->id(), m_threadRootId, QLatin1String("m.thread"));
-    connect(threadEventsJob, &Quotient::BaseJob::success, this, [this, threadEventsJob]() {
-        beginResetModel();
-        m_events = threadEventsJob->chunk();
-        endResetModel();
-        m_loading = false;
-    });
+    m_events.clear();
+    *m_nextBatch = QString();
     m_loading = true;
 }
 
@@ -157,5 +156,35 @@ QHash<int, QByteArray> ThreadModel::roleNames() const
         {ShowLinkPreviewRole, "showLinkPreview"},
         {LinkPreviewRole, "linkPreview"},
     };
+}
+
+bool ThreadModel::canFetchMore(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    return m_nextBatch.has_value();
+}
+
+void ThreadModel::fetchMore(const QModelIndex &parent)
+{
+    Q_UNUSED(parent);
+    if (!m_currentJob) {
+        auto connection = m_room->connection();
+        auto threadEventsJob =
+            connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(m_room->id(), m_threadRootId, QLatin1String("m.thread"), *m_nextBatch);
+        connect(threadEventsJob, &Quotient::BaseJob::success, this, [this, threadEventsJob]() {
+            auto newEvents = threadEventsJob->chunk();
+            beginInsertRows(QModelIndex(), rowCount(), rowCount() + newEvents.size() - 1);
+            m_events.insert(m_events.end(), std::make_move_iterator(newEvents.begin()), std::make_move_iterator(newEvents.end()));
+            endInsertRows();
+            const auto newNextBatch = threadEventsJob->nextBatch();
+            if (!newNextBatch.isEmpty() && *m_nextBatch != newNextBatch) {
+                *m_nextBatch = newNextBatch;
+            } else {
+                m_nextBatch.reset();
+            }
+
+            m_currentJob.clear();
+        });
+    }
 }
 #include "moc_threadmodel.cpp"
