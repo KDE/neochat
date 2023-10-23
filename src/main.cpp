@@ -157,9 +157,7 @@ int main(int argc, char *argv[])
 
     initLogging();
 
-#if Quotient_VERSION_MINOR == 8
     Connection::setEncryptionDefault(true);
-#endif
 
 #ifdef NEOCHAT_FLATPAK
     // Copy over the included FontConfig configuration to the
