@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-21 01:38+0000\n"
-"PO-Revision-Date: 2023-09-10 17:49+0530\n"
+"POT-Creation-Date: 2023-10-23 01:40+0000\n"
+"PO-Revision-Date: 2023-10-22 17:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: src/controller.cpp:204
 #, kde-format
@@ -1108,15 +1108,13 @@ msgid "Open this invitation in NeoChat"
 msgstr "இவ்வழைப்பை நியோச்சாட்டில் திற"
 
 #: src/notificationsmanager.cpp:249
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
 #: src/notificationsmanager.cpp:249
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "மறு"
@@ -1125,7 +1123,7 @@ msgstr "மறு"
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
-msgstr ""
+msgstr "மறுத்து பயனரைத் தடு"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -1428,53 +1426,53 @@ msgstr "அனுமதிகள்"
 msgid "Notifications"
 msgstr "அறிவிப்புகள்"
 
-#: src/qml/ChatBar.qml:68
+#: src/qml/ChatBar.qml:76
 #, kde-format
 msgid "Attach an image or file"
 msgstr "படம் அல்லது கோப்பை இணை"
 
-#: src/qml/ChatBar.qml:95
+#: src/qml/ChatBar.qml:103
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "முகவடிகளும் ஒட்டிகளும்"
 
-#: src/qml/ChatBar.qml:112
+#: src/qml/ChatBar.qml:120
 #, kde-format
 msgid "Send a Location"
 msgstr "இடத்தை அனுப்பு"
 
-#: src/qml/ChatBar.qml:126
+#: src/qml/ChatBar.qml:134
 #, kde-format
 msgid "Send message"
 msgstr "செய்தியை அனுப்பு"
 
-#: src/qml/ChatBar.qml:173
+#: src/qml/ChatBar.qml:181
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "மறையாக்கப்பட்ட செய்தியை அனுப்பு…"
 
-#: src/qml/ChatBar.qml:173
+#: src/qml/ChatBar.qml:181
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "உடனிணைப்புக்கான தலைப்பை அமை..."
 
-#: src/qml/ChatBar.qml:173
+#: src/qml/ChatBar.qml:181
 #, kde-format
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: src/qml/ChatBar.qml:356
+#: src/qml/ChatBar.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "பதிலளிப்பதை ரத்து செய்"
 
-#: src/qml/ChatBar.qml:551
+#: src/qml/ChatBar.qml:559
 #, kde-format
 msgid "Choose local file"
 msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
 
-#: src/qml/ChatBar.qml:579
+#: src/qml/ChatBar.qml:587
 #, kde-format
 msgid "Clipboard image"
 msgstr "பிடிப்புப்பலகைப் படம்"
@@ -1647,23 +1645,19 @@ msgid "Create a Room"
 msgstr "அரங்கை உருவாக்கு"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgid "New Space Information"
-msgstr "சேவையக விவரங்கள்"
+msgstr "புதிய இடத்தின் விவரங்கள்"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "New Room Information"
-msgstr "அரங்கின் விவரங்கள்"
+msgstr "புதிய அரங்கின் விவரங்கள்"
 
 #: src/qml/CreateRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select type"
-msgstr "அனைத்தையும் தேர்ந்தெடு"
+msgstr "வகையைத் தேர்ந்தெடுக்கவும்"
 
 #: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
@@ -1671,21 +1665,19 @@ msgid "Room"
 msgstr "அரங்கு"
 
 #: src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Space"
-msgstr "இடங்கள்"
+msgstr "இடம்"
 
 #: src/qml/CreateRoomDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "No Topic"
+#, kde-format
 msgid "Topic:"
-msgstr "தலைப்பு இல்லை"
+msgstr "தலைப்பு:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
 msgid "Make this parent official"
-msgstr ""
+msgstr "இந்தத் தாயை அதிகாரப்பூர்வமானதாக்கு"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
 #: src/qml/JoinRoomPage.qml:182
@@ -1697,13 +1689,13 @@ msgstr "சரி"
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
 msgid "Select Existing Room"
-msgstr ""
+msgstr "ஏற்கனவேயுள்ள அரங்கைத் தேர்ந்தெடு"
 
 #: src/qml/CreateRoomDialog.qml:104 src/qml/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
-msgstr ""
+msgstr "அரங்கை தேர்ந்தெடு"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
@@ -2567,7 +2559,7 @@ msgstr "எதிர்வினையிடு"
 #: src/qml/HoverActions.qml:110
 #, kde-format
 msgid "Reply in Thread"
-msgstr ""
+msgstr "தொடரில் பதிலளி"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2626,11 +2618,10 @@ msgid "Accept this invitation?"
 msgstr "அழைப்பை ஏற்கிறீர்களா?"
 
 #: src/qml/InvitationView.qml:21
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr "இந்த பயனரை பொருட்படுத்தாமல் இருந்ததை செயல்தவிர்"
+msgstr "மறுத்து பயனரைத் தடு"
 
 #: src/qml/InvitationView.qml:30
 #, kde-format
@@ -2693,8 +2684,7 @@ msgid "Home Server"
 msgstr "தாய் சேவையகம்"
 
 #: src/qml/JoinRoomPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Add new server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "புதிய சேவையகத்தை சேர்"
@@ -2733,15 +2723,13 @@ msgstr "சேவையக முகவரி"
 #: src/qml/JoinRoomPage.qml:239
 #, kde-format
 msgid "Enter a room address"
-msgstr ""
+msgstr "அரங்கின் முகவரியை உள்ளிடுக"
 
 #: src/qml/JoinRoomPage.qml:265
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
-msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
+msgstr "பொது அரங்குகள் கிடைக்கவில்லை"
 
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
@@ -2764,10 +2752,9 @@ msgid "Waiting for other party to verify."
 msgstr "மறுதரப்பினர் உறுதிசெய்ய காத்திருக்கிறோம்."
 
 #: src/qml/KeyVerificationDialog.qml:56
-#, fuzzy, kde-format
-#| msgid "Session Verification"
+#, kde-format
 msgid "Emoji Verification"
-msgstr "அமர்வு உறுதிப்பாடு"
+msgstr "முகவடிவழி உறுதிப்பாடு"
 
 #: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
@@ -2911,32 +2898,30 @@ msgid "Do you want to start a chat with %1?"
 msgstr "உறுதியாக %1 என்பவருடன் உரையாடலைத் துவக்க வேண்டுமா?"
 
 #: src/qml/ManualRoomDialog.qml:31
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
-msgstr "அரங்கின் அடையாள எண்"
+msgstr "அரங்கின் அடையாளம் அல்லது மாற்றுப்பெயர்"
 
 #: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "சரி"
 
 #: src/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Room ID or Alias:"
-msgstr ""
+msgstr "அரங்கின் அடையாளம் அல்லது மாற்றுப்பெயர்:"
 
 #: src/qml/ManualRoomDialog.qml:89 src/qml/ManualRoomDialog.qml:97
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
-msgstr ""
+msgstr "அடையாளம் ! என்றும், மாற்றுப்பெயர் # என்றும் துவங்க வேண்டும்."
 
 #: src/qml/ManualRoomDialog.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The input is not a valid room ID or alias"
-msgstr "உள்ளிட்ட உரை ஓர் முறையான முகவரி அல்ல"
+msgstr "உள்ளிட்ட உரை ஓர் முறையான அரங்கடையாளமோ மாற்றுப்பெயரோ இல்லை"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -2965,13 +2950,13 @@ msgstr "'%1' என்பதை தேடு"
 msgid "Configure Web Shortcuts..."
 msgstr "இணைய சுருக்குவழிகளை அமை..."
 
-#: src/qml/MessageEditComponent.qml:79
+#: src/qml/MessageEditComponent.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "திருத்தத்தை உறுதிசெய்"
 
-#: src/qml/MessageEditComponent.qml:91
+#: src/qml/MessageEditComponent.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -3423,9 +3408,7 @@ msgid "Settings"
 msgstr "அமைப்புகள்"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "இடத்தின் உறுப்பினர்கள்"
@@ -3533,12 +3516,12 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "அரங்கிலுள்ள படங்கள்"
 
-#: src/qml/RoomPage.qml:53
+#: src/qml/RoomPage.qml:99
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. உங்கள் பிணைய இணைப்பை சரிபாருங்கள்."
 
-#: src/qml/RoomPage.qml:209
+#: src/qml/RoomPage.qml:254
 #, kde-format
 msgid "Message Source"
 msgstr "செய்தியின் மூலம்"
@@ -3725,12 +3708,12 @@ msgstr ""
 #: src/qml/SelectParentDialog.qml:154
 #, kde-format
 msgid "The selected room is not a space"
-msgstr ""
+msgstr "தேர்ந்தெடுத்த அரங்கு ஓர் இடம் இல்லை"
 
 #: src/qml/SelectParentDialog.qml:154
 #, kde-format
 msgid "You do not have the privileges to complete this action"
-msgstr ""
+msgstr "இச்செயலை மேற்கொள்ளும் உரிமை உங்களிடம் இல்லை"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -3880,8 +3863,7 @@ msgid "Add word"
 msgstr "சொல்லை சேர்"
 
 #: src/qml/SonnetConfigPage.qml:194
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete word"
 msgstr "சொல்லை நீக்கு"
@@ -3892,20 +3874,16 @@ msgid "All Rooms"
 msgstr "அனைத்து அரங்குகள்"
 
 #: src/qml/SpaceHierarchyDelegate.qml:92
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr "%1 உறுப்பினர்"
+msgstr " உறுப்பினர்கள் - "
 
 #: src/qml/SpaceHierarchyDelegate.qml:92
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "number of room members"
 msgid " members"
-msgstr "%1 உறுப்பினர்"
+msgstr " உறுப்பினர்கள்"
 
 #: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
@@ -3915,30 +3893,25 @@ msgid "Add new child"
 msgstr "புதிய மாற்றுப்பெயரைச் சேர்"
 
 #: src/qml/SpaceHierarchyDelegate.qml:112
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "நீக்கு"
 
 #: src/qml/SpaceHomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "பயனரை ஓர் அரங்குக்கு வரவழை"
+msgstr "பயனரை இடத்திற்கு வரவழை"
 
 #: src/qml/SpaceHomePage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "இடத்திலிருந்து வெளியேறு"
 
 #: src/qml/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@button"
 msgid "Space settings"
 msgstr "இடத்திற்கான அமைப்புகள்"
@@ -4012,22 +3985,22 @@ msgid ""
 "conditions:"
 msgstr "தொடர்வதன் மூலம் பின்வரும் நிபந்தனைகளையும் விதிமுறைகளையும் ஏற்கிறீர்கள்:"
 
-#: src/qml/TimelineView.qml:151
+#: src/qml/TimelineView.qml:177
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/qml/TimelineView.qml:174
+#: src/qml/TimelineView.qml:200
 #, kde-format
 msgid "Jump to latest message"
 msgstr "கடைசி செய்திக்குத் தாவு"
 
-#: src/qml/TimelineView.qml:200
+#: src/qml/TimelineView.qml:226
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/qml/TimelineView.qml:208
+#: src/qml/TimelineView.qml:234
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4212,16 +4185,16 @@ msgid "The session verification was canceled because the keys are incorrect."
 msgstr "சாவிகள் தவறாக உள்ளதால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
 #: src/qml/VerificationCanceled.qml:45
-#, fuzzy, kde-format
-#| msgid ""
-#| "The remote party canceled the session verification because the keys are "
-#| "incorrect."
+#, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect.\n"
 "\n"
 "**Please log out and log back in, your session is broken/corrupt.**"
-msgstr "சாவிகள் தவறாக உள்ளதால் தொலை தரப்பு அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
+msgstr ""
+"சாவிகள் தவறாக உள்ளதால் தொலை தரப்பு அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து.\n"
+"\n"
+"**அமர்வு முறையற்ற நிலையில் உள்ளதால் வெளியேறி மீண்டும் நுழையவும்.**"
 
 #: src/qml/VerificationCanceled.qml:47
 #, kde-format
