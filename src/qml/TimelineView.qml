@@ -209,7 +209,6 @@ QQC2.ScrollView {
             id: dropAreaFile
             anchors.fill: parent
             onDropped: root.currentRoom.mainCache.attachmentPath = drop.urls[0]
-            ;
             enabled: !Controller.isFlatpak
         }
 
