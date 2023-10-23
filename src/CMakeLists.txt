@@ -137,6 +137,8 @@ add_library(neochat STATIC
     roomlastmessageprovider.h
     chatbarcache.cpp
     chatbarcache.h
+    colorschemer.cpp
+    colorschemer.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
@@ -326,15 +328,13 @@ ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)
 target_sources(neochat-app PRIVATE ${NEOCHAT_ICON})
 
 if(NOT ANDROID)
-    target_sources(neochat PRIVATE colorschemer.cpp colorschemer.h)
     if (NOT WIN32 AND NOT APPLE)
         target_sources(neochat PRIVATE trayicon_sni.cpp trayicon_sni.h)
         target_link_libraries(neochat PRIVATE KF6::StatusNotifierItem)
     else()
         target_sources(neochat PRIVATE trayicon.cpp trayicon.h)
     endif()
-    target_link_libraries(neochat PUBLIC KF6::ConfigWidgets KF6::WindowSystem ICU::uc)
-    target_compile_definitions(neochat PUBLIC -DHAVE_COLORSCHEME)
+    target_link_libraries(neochat PUBLIC KF6::WindowSystem ICU::uc)
     target_compile_definitions(neochat PUBLIC -DHAVE_WINDOWSYSTEM)
     target_compile_definitions(neochat PUBLIC -DHAVE_ICU)
 endif()
@@ -346,7 +346,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF6::I18n KF6::Kirigami2 KF6::Notifications KF6::ConfigCore KF6::ConfigGui KF6::CoreAddons KF6::SonnetCore  KF6::ItemModels QuotientQt6 cmark::cmark QCoro::Core)
+target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF6::I18n KF6::Kirigami2 KF6::Notifications KF6::ConfigCore KF6::ConfigGui KF6::CoreAddons KF6::SonnetCore KF6::ColorScheme KF6::ItemModels QuotientQt6 cmark::cmark QCoro::Core)
 
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 

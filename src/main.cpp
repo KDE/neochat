@@ -38,16 +38,13 @@
 #include <Quotient/util.h>
 
 #include "blurhashimageprovider.h"
+#include "colorschemer.h"
 #include "controller.h"
 #include "logger.h"
 #include "matriximageprovider.h"
 #include "neochatconfig.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
-
-#ifdef HAVE_COLORSCHEME
-#include "colorschemer.h"
-#endif
 
 #ifdef HAVE_RUNNER
 #include "runner.h"
@@ -166,12 +163,10 @@ int main(int argc, char *argv[])
                 QStringLiteral("/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf"));
 #endif
 
-#ifdef HAVE_COLORSCHEME
     ColorSchemer colorScheme;
     if (!NeoChatConfig::self()->colorScheme().isEmpty()) {
         colorScheme.apply(NeoChatConfig::self()->colorScheme());
     }
-#endif
 
     qml_register_types_org_kde_neochat();
     qmlRegisterSingletonInstance("org.kde.neochat.config", 1, 0, "Config", NeoChatConfig::self());
