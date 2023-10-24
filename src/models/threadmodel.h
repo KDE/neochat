@@ -10,7 +10,10 @@
 #include <Quotient/events/roommessageevent.h>
 #include <qpointer.h>
 
+#include "linkpreviewer.h"
+
 class NeoChatRoom;
+class ReactionModel;
 
 /**
  * @class ThreadModel
@@ -43,36 +46,41 @@ public:
      */
     enum Roles {
         DisplayRole = Qt::DisplayRole,
+        PlainTextRole,
+        GenericDisplayRole,
+        EventIdRole,
         DelegateTypeRole,
-        ShowAuthorRole,
         AuthorRole,
-        ShowSectionRole,
-        SectionRole,
+        ShowAuthorRole,
         TimeRole,
         TimeStringRole,
-        EventIdRole,
-        ExcessReadMarkersRole,
+        SectionRole,
+        ShowSectionRole,
         HighlightRole,
-        ReadMarkersString,
-        PlainTextRole,
-        VerifiedRole,
-        ProgressInfoRole,
+        SpecialMarksRole,
+        MediaInfoRole,
+        LinkPreviewRole,
+        ShowLinkPreviewRole,
+        ReactionRole,
         ShowReactionsRole,
         IsReplyRole,
-        ReplyAuthorRole,
         ReplyIdRole,
         ReplyDelegateTypeRole,
+        ReplyAuthorRole,
         ReplyDisplayRole,
         ReplyMediaInfoRole,
         IsThreadedRole,
         ThreadRootRole,
-        ReactionRole,
+        LatitudeRole,
+        LongitudeRole,
+        AssetRole,
         ReadMarkersRole,
-        IsPendingRole,
+        ExcessReadMarkersRole,
+        ReadMarkersString,
         ShowReadMarkersRole,
-        MimeTypeRole,
-        ShowLinkPreviewRole,
-        LinkPreviewRole,
+        ProgressInfoRole,
+        VerifiedRole,
+        IsPendingRole,
     };
     Q_ENUM(Roles)
 
@@ -125,11 +133,15 @@ private:
     const QString m_threadRootId;
 
     Quotient::RoomEvents m_events = {};
+    QMap<QString, QSharedPointer<LinkPreviewer>> m_linkPreviewers;
+    QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     QPointer<Quotient::GetRelatingEventsWithRelTypeJob> m_currentJob = nullptr;
     Quotient::Omittable<QString> m_nextBatch = QString();
     bool m_loading = false;
 
     void intializeModel();
+
+    void createEventObjects(const Quotient::RoomMessageEvent *event);
 };
 Q_DECLARE_METATYPE(ThreadModel *)
