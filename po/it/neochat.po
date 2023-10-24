@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-23 01:40+0000\n"
-"PO-Revision-Date: 2023-10-05 09:49+0200\n"
+"POT-Creation-Date: 2023-10-24 01:41+0000\n"
+"PO-Revision-Date: 2023-10-23 09:53+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: src/controller.cpp:204
 #, kde-format
@@ -540,17 +540,17 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilato con %2)"
 
-#: src/main.cpp:216
+#: src/main.cpp:214
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client per il protocollo di comunicazione matrix"
 
-#: src/main.cpp:217
+#: src/main.cpp:215
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Supporta schema URL matrix:"
 
-#: src/main.cpp:218
+#: src/main.cpp:216
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignora tutti gli errori SSL, ad es. certificati non firmati."
@@ -1728,10 +1728,9 @@ msgstr ""
 "per impostare questo stato"
 
 #: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Make this space the canonical parent"
-msgstr "Rendi questo alias l'alias canonico della stanza"
+msgstr "Rendi questo spazio il genitore canonico"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2233,19 +2232,17 @@ msgstr ""
 #: src/qml/General.qml:282
 #, kde-format
 msgid "Official Parent Spaces"
-msgstr "Spazi genitoriali ufficiali"
+msgstr "Spazi genitori ufficiali"
 
 #: src/qml/General.qml:315
-#, fuzzy, kde-format
-#| msgid "Canonical Alias:"
+#, kde-format
 msgid "Canonical"
-msgstr "Alias canonico:"
+msgstr "Canonico"
 
 #: src/qml/General.qml:322
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgid "Make canonical parent"
-msgstr "Nessun alias canonico impostato"
+msgstr "Crea genitore canonico"
 
 #: src/qml/General.qml:336
 #, kde-format
@@ -2258,11 +2255,10 @@ msgid "This room has no official parent spaces."
 msgstr "Questa stanza non ha spazi genitori ufficiali."
 
 #: src/qml/General.qml:354
-#, fuzzy, kde-format
-#| msgid "Add Official Parent Space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
-msgstr "Aggiungi spazio genitore ufficiale"
+msgstr "Aggiungi un nuovo genitore ufficiale"
 
 #: src/qml/General.qml:369
 #, kde-format
@@ -2575,7 +2571,7 @@ msgstr "Reagisci"
 #: src/qml/HoverActions.qml:110
 #, kde-format
 msgid "Reply in Thread"
-msgstr ""
+msgstr "Rispondi nella conversazione"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2737,19 +2733,15 @@ msgid "Server URL"
 msgstr "URL del server"
 
 #: src/qml/JoinRoomPage.qml:239
-#, fuzzy, kde-format
-#| msgctxt "@label Parameter of a command"
-#| msgid "<room-address>"
+#, kde-format
 msgid "Enter a room address"
-msgstr "<indirizzo-stanza>"
+msgstr "Digita l'indirizzo di una stanza"
 
 #: src/qml/JoinRoomPage.qml:265
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
-msgstr "Nessuna stanza trovata"
+msgstr "Nessuna stanza pubblica trovata"
 
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
@@ -2918,32 +2910,30 @@ msgid "Do you want to start a chat with %1?"
 msgstr "Vuoi iniziare una chat con %1?"
 
 #: src/qml/ManualRoomDialog.qml:31
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
-msgstr "ID stanza"
+msgstr "ID stanza o alias"
 
 #: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Room ID or Alias:"
-msgstr ""
+msgstr "ID stanza o alias:"
 
 #: src/qml/ManualRoomDialog.qml:89 src/qml/ManualRoomDialog.qml:97
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
-msgstr ""
+msgstr "Deve iniziare con # per un alias o ! per un ID"
 
 #: src/qml/ManualRoomDialog.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The input is not a valid room ID or alias"
-msgstr "Il testo digitato non è un URL valido"
+msgstr "Il testo digitato non è un ID stanza o alias valido"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -3714,18 +3704,16 @@ msgstr ""
 "in cui sono entrati nella stanza virtuale."
 
 #: src/qml/SelectParentDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgctxt "@title"
 msgid "Select new official parent"
-msgstr "Nessun alias canonico impostato"
+msgstr "Seleziona un nuovo genitore ufficiale"
 
 #: src/qml/SelectParentDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Official Parent Spaces"
+#, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
-msgstr "Spazi genitoriali ufficiali"
+msgstr "Scegli spazio genitore"
 
 #: src/qml/SelectParentDialog.qml:147
 #, kde-format
@@ -4028,12 +4016,12 @@ msgstr "Passa al primo messaggio non letto"
 msgid "Jump to latest message"
 msgstr "Salta all'ultimo messaggio"
 
-#: src/qml/TimelineView.qml:226
+#: src/qml/TimelineView.qml:225
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Trascina qui gli elementi per condividerli"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:233
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
