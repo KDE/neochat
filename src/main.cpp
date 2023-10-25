@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
     font.setHintingPreference(QFont::PreferNoHinting);
     app.setFont(font);
 #endif
-    KLocalizedString::setApplicationDomain("neochat");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
 
     QGuiApplication::setOrganizationName("KDE"_ls);
 
