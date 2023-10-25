@@ -158,8 +158,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
             for (auto &event : events) {
-                RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
-                createEventObjects(message);
+                if (const auto &roomMessageEvent = dynamic_cast<RoomMessageEvent *>(event.get())) {
+                    createEventObjects(roomMessageEvent);
+                }
             }
             if (rowCount() > 0) {
                 rowBelowInserted = rowCount() - 1; // See #312
@@ -228,7 +229,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             const auto eventIt = m_currentRoom->findInTimeline(eventId);
             if (eventIt != m_currentRoom->historyEdge()) {
-                createEventObjects(static_cast<const RoomMessageEvent *>(&**eventIt));
+                if (const auto &event = dynamic_cast<const RoomMessageEvent *>(&**eventIt)) {
+                    createEventObjects(event);
+                }
             }
             refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole, Qt::DisplayRole});
         });
@@ -704,10 +707,6 @@ int MessageEventModel::eventIdToRow(const QString &eventID) const
 
 void MessageEventModel::createEventObjects(const Quotient::RoomMessageEvent *event)
 {
-    if (event == nullptr) {
-        return;
-    }
-
     auto eventId = event->id();
 
     EventHandler eventHandler;
