@@ -14,8 +14,6 @@ import org.kde.neochat
 Kirigami.Dialog {
     id: root
 
-    signal closed()
-
     property NeoChatRoom room
     property var user
 
