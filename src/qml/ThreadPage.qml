@@ -33,7 +33,8 @@ QQC2.Page {
     SimpleTimelineView {
         id: timeline
         anchors.fill: parent
-        connection: root.room.connection
+        room: root.room
+        actionsHandler: root.actionsHandler
     }
 
     footer: Loader {

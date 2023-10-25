@@ -76,7 +76,7 @@ QQC2.Control {
             property bool isBusy: root.currentRoom && root.currentRoom.hasFileUploading
 
             // Matrix does not allow sending attachments in replies
-            visible: root.chatBarCache.isReplying && root.chatBarCache.attachmentPath.length === 0
+            visible: !root.chatBarCache.isReplying && !root.chatBarCache.isThreaded && root.chatBarCache.attachmentPath.length === 0
             icon.name: "mail-attachment"
             text: i18n("Attach an image or file")
             displayHint: Kirigami.DisplayHint.IconOnly
@@ -403,6 +403,7 @@ QQC2.Control {
             model: root.actions
             delegate: QQC2.ToolButton {
                 Layout.alignment: Qt.AlignVCenter
+                visible: modelData.visible
                 icon.name: modelData.isBusy ? "" : (modelData.icon.name.length > 0 ? modelData.icon.name : modelData.icon.source)
                 onClicked: modelData.trigger()
 

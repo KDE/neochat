@@ -187,8 +187,14 @@ TimelineDelegate {
      */
     required property var replyMediaInfo
 
+    /**
+     * @brief Whether the message in a thread.
+     */
     required property bool isThreaded
 
+    /**
+     * @brief The Matrix ID of the root message in the thread, if any.
+     */
     required property string threadRoot
 
     /**

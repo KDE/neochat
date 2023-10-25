@@ -56,7 +56,7 @@ void ActionsHandler::handleMessageEvent(ChatBarCache *chatBarCache)
 
     QString handledText = chatBarCache->text();
     handledText = handleMentions(handledText, chatBarCache->mentions());
-    handleMessage(m_room->mainCache()->text(), handledText, chatBarCache);
+    handleMessage(chatBarCache->text(), handledText, chatBarCache);
 }
 
 QString ActionsHandler::handleMentions(QString handledText, QList<Mention> *mentions)

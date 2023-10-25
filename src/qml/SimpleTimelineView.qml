@@ -3,7 +3,6 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
@@ -25,9 +24,9 @@ QQC2.ScrollView {
     id: root
 
     /**
-     * @brief The current active connection.
+     * @brief The current room the timeline is in.
      */
-    required property NeoChatConnection connection
+    required property NeoChatRoom room
 
     /**
      * @brief The model to display in the timeline.
@@ -45,8 +44,21 @@ QQC2.ScrollView {
      */
     property alias placeHolderMessage: placeholderMessage.text
 
+    /**
+     * @brief The ActionsHandler object to use.
+     *
+     * This is expected to have the correct room set otherwise messages will be sent
+     * to the wrong room.
+     */
+    required property ActionsHandler actionsHandler
+
     ListView {
         id: timelineView
+        // So that delegates can access the current room properly.
+        readonly property NeoChatRoom currentRoom: root.room
+        // So that delegates can access the actionsHandler properly.
+        readonly property ActionsHandler actionsHandler: root.actionsHandler
+
         spacing: 0
         bottomMargin: Kirigami.Units.largeSpacing + Math.round(Kirigami.Theme.defaultFont.pointSize * 2)
         verticalLayoutDirection: ListView.BottomToTop
@@ -70,7 +82,7 @@ QQC2.ScrollView {
         }
 
         delegate: EventDelegate {
-            connection: root.connection
+            connection: root.room.connection
             isThread: true
         }
     }
