@@ -119,22 +119,28 @@ Kirigami.ScrollablePage {
                 ListView {
                     clip: true
                     model: settings.dictionaryModel
-                    delegate: Kirigami.CheckableListItem {
-                        label: model.display
-                        action: Kirigami.Action {
-                            onTriggered: model.checked = checked
-                        }
+                    delegate: QQC2.CheckDelegate {
+                        onClicked: model.checked = checked
                         Accessible.description: model.isDefault ? i18n("Default Language") : ''
                         checked: model.checked
-                        trailing: Kirigami.Icon {
-                            source: "favorite"
-                            visible: model.isDefault
-                            HoverHandler {
-                                id: hover
+                        width: scroll.width
+                        contentItem: RowLayout {
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                id: label
+                                text: model.display
                             }
-                            QQC2.ToolTip {
-                                visible: hover.hovered
-                                text: i18n("Default Language")
+                            Kirigami.Icon {
+                                source: "favorite"
+                                Layout.rightMargin: Kirigami.Units.largeSpacing * 2
+                                visible: model.isDefault
+                                HoverHandler {
+                                    id: hover
+                                }
+                                QQC2.ToolTip {
+                                    visible: hover.hovered
+                                    text: i18n("Default Language")
+                                }
                             }
                         }
                     }
