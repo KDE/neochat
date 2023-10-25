@@ -221,13 +221,13 @@ QHash<int, QByteArray> ThreadModel::roleNames() const
 bool ThreadModel::canFetchMore(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_nextBatch.has_value();
+    return !m_currentJob && m_nextBatch.has_value();
 }
 
 void ThreadModel::fetchMore(const QModelIndex &parent)
 {
     Q_UNUSED(parent);
-    if (!m_currentJob) {
+    if (!m_currentJob && m_nextBatch.has_value()) {
         auto connection = m_room->connection();
         auto threadEventsJob =
             connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(m_room->id(), m_threadRootId, QLatin1String("m.thread"), *m_nextBatch);
@@ -239,7 +239,6 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
                 createEventObjects(messageEvent);
                 m_events.emplace_back(std::move(event));
             }
-            // m_events.insert(m_events.end(), std::make_move_iterator(newEvents.begin()), std::make_move_iterator(newEvents.end()));
             endInsertRows();
 
             const auto newNextBatch = threadEventsJob->nextBatch();

@@ -15,7 +15,7 @@ QQC2.Page {
     required property NeoChatRoom room
 
     /**
-     * @brief The model to display int he timeline.
+     * @brief The model to display in the timeline.
      *
      * The timeline expects a model which supports the same set of roles as
      * MessageEventModel in order for all delegate types to work. The model must also

@@ -519,6 +519,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return EventStatus::Hidden;
         }
 
+        if (eventHandler.isThreaded() && eventHandler.threadRoot() != eventHandler.getId()) {
+            return EventStatus::Hidden;
+        }
+
         return EventStatus::Normal;
     }
 
