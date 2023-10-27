@@ -429,9 +429,54 @@ QString TextHandler::unescapeHtml(QString stringIn)
 
 QString TextHandler::linkifyUrls(QString stringIn)
 {
-    stringIn = stringIn.replace(TextRegex::mxId, QStringLiteral(R"(\1<a href="https://matrix.to/#/\2">\2</a>)"));
-    stringIn.replace(TextRegex::plainUrl, QStringLiteral(R"(<a href="\1">\1</a>)"));
-    stringIn = stringIn.replace(TextRegex::emailAddress, QStringLiteral(R"(<a href="mailto:\2">\1\2</a>)"));
+    QRegularExpressionMatch match;
+    int start = 0;
+    for (int index = 0; index != -1; index = stringIn.indexOf(TextRegex::mxId, start, &match)) {
+        int skip = 0;
+        if (match.captured(0).size() > 0) {
+            if (stringIn.left(index).count(QStringLiteral("<code>")) == stringIn.left(index).count(QStringLiteral("</code>"))) {
+                auto replacement = QStringLiteral("<a href=\"https://matrix.to/#/%1\">%1</a>").arg(match.captured(2));
+                stringIn = stringIn.replace(index, match.captured(0).size(), replacement);
+            } else {
+                skip = match.captured().length();
+            }
+        }
+        start = index + skip;
+        match = {};
+    }
+    start = 0;
+    match = {};
+    for (int index = 0; index != -1; index = stringIn.indexOf(TextRegex::plainUrl, start, &match)) {
+        int skip = 0;
+        if (match.captured(0).size() > 0) {
+            if (stringIn.left(index).count(QStringLiteral("<code>")) == stringIn.left(index).count(QStringLiteral("</code>"))) {
+                auto replacement = QStringLiteral("<a href=\"%1\">%1</a>").arg(match.captured(1));
+                stringIn = stringIn.replace(index, match.captured(0).size(), replacement);
+                skip = replacement.length();
+            } else {
+                skip = match.captured().length();
+            }
+        }
+        start = index + skip;
+        match = {};
+    }
+    start = 0;
+    match = {};
+    for (int index = 0; index != -1; index = stringIn.indexOf(TextRegex::emailAddress, start, &match)) {
+        int skip = 0;
+        if (match.captured(0).size() > 0) {
+            if (stringIn.left(index).count(QStringLiteral("<code>")) == stringIn.left(index).count(QStringLiteral("</code>"))) {
+                auto replacement = QStringLiteral("<a href=\"mailto:%1\">%1</a>").arg(match.captured(2));
+                stringIn = stringIn.replace(index, match.captured(0).size(), replacement);
+                skip = replacement.length();
+            } else {
+                skip = match.captured().length();
+            }
+        }
+        start = index + skip;
+        match = {};
+    }
+
     return stringIn;
 }
 
