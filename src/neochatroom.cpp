@@ -75,7 +75,26 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         setFileUploadingProgress(0);
         setHasFileUploading(false);
     });
-
+    connect(this, &Room::pendingEventAboutToAdd, this, [this](RoomEvent *event) {
+        if (auto roomEvent = eventCast<const RoomMessageEvent>(event)) {
+            EventHandler eventHandler;
+            eventHandler.setRoom(this);
+            eventHandler.setEvent(roomEvent);
+            if (eventHandler.isThreaded()) {
+                Q_EMIT newPendingThreadEvent(eventHandler.threadRoot(), event);
+            }
+        }
+    });
+    connect(this, &Room::pendingEventAboutToMerge, this, [this](RoomEvent *serverEvent) {
+        if (auto roomEvent = eventCast<const RoomMessageEvent>(serverEvent)) {
+            EventHandler eventHandler;
+            eventHandler.setRoom(this);
+            eventHandler.setEvent(roomEvent);
+            if (eventHandler.isThreaded()) {
+                Q_EMIT threadUpdated(eventHandler.threadRoot(), eventHandler.getId());
+            }
+        }
+    });
     connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
 
     const auto &roomLastMessageProvider = RoomLastMessageProvider::self();
@@ -569,7 +588,6 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
         // If we are not replying and there is no fallback ID it means a new thread
         // is being created.
         if (!isFallingBack && !isReply) {
-            newThreadCreated(threadRootId);
             isFallingBack = true;
             replyEventId = threadRootId;
         }

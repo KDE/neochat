@@ -20,16 +20,6 @@ Delegates.RoundedItemDelegate {
     required property string eventId
 
     /**
-     * @brief The timestamp of the message.
-     */
-    required property var time
-
-    /**
-     * @brief The timestamp of the message as a string.
-     */
-    required property string timeString
-
-    /**
      * @brief The message author.
      *
      * This should consist of the following:
@@ -48,9 +38,26 @@ Delegates.RoundedItemDelegate {
     required property var author
 
     /**
+     * @brief The timestamp of the message.
+     */
+    required property var time
+
+    /**
+     * @brief The timestamp of the message as a string.
+     */
+    required property string timeString
+
+    /**
      * @brief The display text of the message.
      */
     required property string displayText
+
+    /**
+     * @brief The ThreadModel for the thread.
+     *
+     * @sa ThreadModel
+     */
+    required property var threadModel
 
     // onClicked: RoomManager.viewEventSource(root.eventId)
 

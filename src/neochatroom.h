@@ -852,9 +852,14 @@ Q_SIGNALS:
     void replyLoaded(const QString &eventId, const QString &replyId);
 
     /**
-     * @brief Emitted when a new thread is created in the room.
+     * @brief Emitted when a new message is sent local but is pending server confirmation.
      */
-    void newThreadCreated(const QString &threadRootId);
+    void newPendingThreadEvent(const QString &threadRootId, Quotient::RoomEvent *event);
+
+    /**
+     * @brief Emitted when a thread has a new message added.
+     */
+    void threadUpdated(const QString &threadRootId, const QString &newEventId);
 
 public Q_SLOTS:
     /**

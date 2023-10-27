@@ -4,6 +4,7 @@
 #include "threadmodel.h"
 
 #include <Quotient/csapi/relations.h>
+#include <Quotient/events/event.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/basejob.h>
 
@@ -11,11 +12,38 @@
 #include "neochatroom.h"
 #include "reactionmodel.h"
 
-ThreadModel::ThreadModel(const NeoChatRoom *room, const QString &threadRootId, QObject *parent)
+ThreadModel::ThreadModel(const NeoChatRoom *room, std::unique_ptr<Quotient::RoomEvent> threadRootEvent, QObject *parent)
     : QAbstractListModel(parent)
     , m_room(room)
-    , m_threadRootId(threadRootId)
+    , m_threadRootEvent(std::move(threadRootEvent))
+    , m_threadRootId(m_threadRootEvent->id())
 {
+    connect(m_room, &Quotient::Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
+        if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
+            EventHandler eventHandler;
+            eventHandler.setRoom(m_room);
+            eventHandler.setEvent(roomEvent);
+            if (eventHandler.isThreaded() && eventHandler.threadRoot() == m_threadRootId) {
+                beginInsertRows({}, 0, 0);
+                m_pendingEvents.push_front(Quotient::loadEvent<Quotient::RoomEvent>(event->fullJson()));
+                m_addingPending = true;
+            }
+        }
+    });
+    connect(m_room, &Quotient::Room::pendingEventAdded, this, [this]() {
+        if (m_addingPending) {
+            endInsertRows();
+            m_addingPending = false;
+        }
+    });
+    connect(m_room, &Quotient::Room::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
+        EventHandler eventHandler;
+        eventHandler.setRoom(m_room);
+        eventHandler.setEvent(serverEvent);
+        if (eventHandler.isThreaded() && eventHandler.threadRoot() == m_threadRootId) {
+            addNewEvent(serverEvent);
+        }
+    });
     connect(this, &ThreadModel::rowsInserted, this, [this]() {
         if (m_loading) {
             m_loading = false;
@@ -28,6 +56,42 @@ ThreadModel::ThreadModel(const NeoChatRoom *room, const QString &threadRootId, Q
 QString ThreadModel::threadRootId() const
 {
     return m_threadRootId;
+}
+
+QVariantMap ThreadModel::threadRootAuthor() const
+{
+    EventHandler eventHandler;
+    eventHandler.setRoom(m_room);
+    eventHandler.setEvent(m_threadRootEvent.get());
+
+    return eventHandler.getAuthor();
+}
+
+QDateTime ThreadModel::threadRootTime() const
+{
+    EventHandler eventHandler;
+    eventHandler.setRoom(m_room);
+    eventHandler.setEvent(m_threadRootEvent.get());
+
+    return eventHandler.getTime();
+}
+
+QString ThreadModel::threadRootTimeString() const
+{
+    EventHandler eventHandler;
+    eventHandler.setRoom(m_room);
+    eventHandler.setEvent(m_threadRootEvent.get());
+
+    return eventHandler.getTimeString(false);
+}
+
+QString ThreadModel::threadRootDisplay() const
+{
+    EventHandler eventHandler;
+    eventHandler.setRoom(m_room);
+    eventHandler.setEvent(m_threadRootEvent.get());
+
+    return eventHandler.getRichBody();
 }
 
 bool ThreadModel::loading() const
@@ -49,8 +113,17 @@ static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
 
 QVariant ThreadModel::data(const QModelIndex &index, int role) const
 {
+    if (!index.isValid()) {
+        return {};
+    }
+
     const auto row = index.row();
-    const auto event = m_events[row].get();
+    if (row < 0 || row >= rowCount()) {
+        return {};
+    }
+    const bool isPending = row < int(m_pendingEvents.size());
+
+    const auto event = isPending ? m_pendingEvents[row].get() : m_events[row - m_pendingEvents.size()].get();
 
     EventHandler eventHandler;
     eventHandler.setRoom(m_room);
@@ -173,7 +246,7 @@ QVariant ThreadModel::data(const QModelIndex &index, int role) const
 int ThreadModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_events.size();
+    return int(m_events.size()) + int(m_pendingEvents.size());
 }
 
 QHash<int, QByteArray> ThreadModel::roleNames() const
@@ -237,7 +310,7 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
             for (auto &event : newEvents) {
                 auto messageEvent = Quotient::eventCast<Quotient::RoomMessageEvent>(event);
                 createEventObjects(messageEvent);
-                m_events.emplace_back(std::move(event));
+                m_events.push_back(std::move(event));
             }
             endInsertRows();
 
@@ -250,6 +323,30 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
 
             m_currentJob.clear();
         });
+    }
+}
+
+void ThreadModel::addNewEvent(const Quotient::RoomEvent *event)
+{
+    for (auto it = m_pendingEvents.begin(); it != m_pendingEvents.end();) {
+        const auto pendingEvent = it->get();
+        if (pendingEvent->transactionId() == event->transactionId()) {
+            int startRow = std::min(int(it - m_pendingEvents.begin()), 0);
+            int endRow = std::min(int(m_pendingEvents.size()) - 1, 0);
+            if (startRow != endRow) {
+                beginMoveRows({}, startRow, startRow, {}, endRow);
+            }
+            m_pendingEvents.erase(it);
+            m_events.push_front(Quotient::loadEvent<Quotient::RoomEvent>(event->fullJson()));
+            if (startRow == endRow) {
+                dataChanged({}, index(startRow, startRow));
+            } else {
+                endMoveRows();
+            }
+            return;
+        } else {
+            ++it;
+        }
     }
 }
 

@@ -38,34 +38,10 @@ public:
      */
     enum Roles {
         DisplayRole = Qt::DisplayRole,
-        DelegateTypeRole,
-        ShowAuthorRole,
+        EventIdRole,
         AuthorRole,
-        ShowSectionRole,
-        SectionRole,
         TimeRole,
         TimeStringRole,
-        EventIdRole,
-        ExcessReadMarkersRole,
-        HighlightRole,
-        ReadMarkersString,
-        PlainTextRole,
-        VerifiedRole,
-        ProgressInfoRole,
-        ShowReactionsRole,
-        IsReplyRole,
-        ReplyAuthorRole,
-        ReplyIdRole,
-        ReplyDelegateTypeRole,
-        ReplyDisplayRole,
-        ReplyMediaInfoRole,
-        ReactionRole,
-        ReadMarkersRole,
-        IsPendingRole,
-        ShowReadMarkersRole,
-        MimeTypeRole,
-        ShowLinkPreviewRole,
-        LinkPreviewRole,
         ThreadModelRole,
     };
     Q_ENUM(Roles)
@@ -101,8 +77,7 @@ Q_SIGNALS:
 
 private:
     NeoChatRoom *m_room;
-    Quotient::RoomEvents m_threads;
-    QHash<QString, ThreadModel *> m_threadModels;
+    QVector<ThreadModel *> m_threadModels;
 
     void initializeModel();
 };

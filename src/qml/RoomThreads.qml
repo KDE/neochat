@@ -76,7 +76,6 @@ QQC2.StackView {
             }
 
             delegate: ThreadRootDelegate {
-                required property var threadModel
                 onClicked: {
                     let view = threadPage.createObject(this, {model: threadModel});
                     root.push(view);

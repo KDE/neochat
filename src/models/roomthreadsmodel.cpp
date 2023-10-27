@@ -7,7 +7,6 @@
 #include <Quotient/jobs/basejob.h>
 #include <qvariant.h>
 
-#include "eventhandler.h"
 #include "threadmodel.h"
 
 RoomThreadsModel::RoomThreadsModel(QObject *parent)
@@ -28,10 +27,9 @@ void RoomThreadsModel::initializeModel()
         m_threadModels.clear();
 
         beginResetModel();
-        m_threads = threadsJob->chunk();
-
-        for (const auto &thread : m_threads) {
-            m_threadModels.insert(thread->id(), new ThreadModel(m_room, thread->id(), this));
+        auto threads = threadsJob->chunk();
+        for (auto &thread : threads) {
+            m_threadModels.push_back(new ThreadModel(m_room, std::move(thread), this));
         }
         endResetModel();
     });
@@ -56,98 +54,40 @@ void RoomThreadsModel::setRoom(NeoChatRoom *room)
 QVariant RoomThreadsModel::data(const QModelIndex &index, int role) const
 {
     const auto row = index.row();
-    const auto event = m_threads[row].get();
-
-    EventHandler eventHandler;
-    eventHandler.setRoom(m_room);
-    eventHandler.setEvent(event);
+    const auto model = m_threadModels[row];
 
     switch (role) {
     case DisplayRole:
-        return eventHandler.getRichBody();
-    case ShowAuthorRole:
-        return true;
-    case AuthorRole:
-        return eventHandler.getAuthor();
-    case ShowSectionRole:
-        if (row == 0) {
-            return true;
-        }
-        return event->originTimestamp().date() != m_threads[row - 1]->originTimestamp().date();
-    case SectionRole:
-        return eventHandler.getTimeString(true);
-    case TimeRole:
-        return eventHandler.getTime();
-    case TimeStringRole:
-        return eventHandler.getTimeString(false);
-    case ShowReactionsRole:
-        return false;
-    case ShowReadMarkersRole:
-        return false;
-    case IsReplyRole:
-        return eventHandler.hasReply();
-    case ReplyIdRole:
-        return eventHandler.hasReply();
-    case ReplyAuthorRole:
-        return eventHandler.getReplyAuthor();
-    case ReplyDelegateTypeRole:
-        return eventHandler.getReplyDelegateType();
-    case ReplyDisplayRole:
-        return eventHandler.getReplyRichBody();
-    case ReplyMediaInfoRole:
-        return eventHandler.getReplyMediaInfo();
-    case IsPendingRole:
-        return false;
-    case ShowLinkPreviewRole:
-        return false;
-    case HighlightRole:
-        return eventHandler.isHighlighted();
+        return model->threadRootDisplay();
     case EventIdRole:
-        return eventHandler.getId();
+        return model->threadRootId();
+    case AuthorRole:
+        return model->threadRootAuthor();
+    case TimeRole:
+        return model->threadRootTime();
+    case TimeStringRole:
+        return model->threadRootTimeString();
     case ThreadModelRole:
-        return QVariant::fromValue<ThreadModel *>(m_threadModels.value(event->id()));
+        return QVariant::fromValue<ThreadModel *>(model);
     }
-    return DelegateType::Message;
+
+    return {};
 }
 
 int RoomThreadsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_threads.size();
+    return m_threadModels.size();
 }
 
 QHash<int, QByteArray> RoomThreadsModel::roleNames() const
 {
     return {
-        {DelegateTypeRole, "delegateType"},
         {DisplayRole, "displayText"},
+        {EventIdRole, "eventId"},
         {AuthorRole, "author"},
-        {ShowSectionRole, "showSection"},
-        {SectionRole, "section"},
         {TimeRole, "time"},
         {TimeStringRole, "timeString"},
-        {ShowAuthorRole, "showAuthor"},
-        {EventIdRole, "eventId"},
-        {ExcessReadMarkersRole, "excessReadMarkers"},
-        {HighlightRole, "isHighlighted"},
-        {ReadMarkersString, "readMarkersString"},
-        {PlainTextRole, "plainText"},
-        {VerifiedRole, "verified"},
-        {ProgressInfoRole, "progressInfo"},
-        {ShowReactionsRole, "showReactions"},
-        {IsReplyRole, "isReply"},
-        {ReplyAuthorRole, "replyAuthor"},
-        {ReplyIdRole, "replyId"},
-        {ReplyDelegateTypeRole, "replyDelegateType"},
-        {ReplyDisplayRole, "replyDisplay"},
-        {ReplyMediaInfoRole, "replyMediaInfo"},
-        {ReactionRole, "reaction"},
-        {ReadMarkersRole, "readMarkers"},
-        {IsPendingRole, "isPending"},
-        {ShowReadMarkersRole, "showReadMarkers"},
-        {MimeTypeRole, "mimeType"},
-        {ShowLinkPreviewRole, "showLinkPreview"},
-        {LinkPreviewRole, "linkPreview"},
         {ThreadModelRole, "threadModel"},
     };
 }

@@ -3,10 +3,13 @@
 
 #pragma once
 
+#include <deque>
+
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
 #include <Quotient/csapi/relations.h>
+#include <Quotient/events/roomevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <qpointer.h>
 
@@ -19,6 +22,9 @@ class ReactionModel;
  * @class ThreadModel
  *
  * This class defines the model for visualising a thread.
+ *
+ * The class also provides functions to access the data of the root event, typically
+ * used to visualise the thread in a list of room threads.
  */
 class ThreadModel : public QAbstractListModel
 {
@@ -84,9 +90,42 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit ThreadModel(const NeoChatRoom *room, const QString &threadRootId, QObject *parent = nullptr);
+    explicit ThreadModel(const NeoChatRoom *room, std::unique_ptr<Quotient::RoomEvent> threadRootEvent, QObject *parent = nullptr);
 
     QString threadRootId() const;
+
+    /**
+     * @brief The author of the root message.
+     *
+     * This should consist of the following:
+     *  - id - The matrix ID of the author.
+     *  - isLocalUser - Whether the author is the local user.
+     *  - avatarSource - The mxc URL for the author's avatar in the current room.
+     *  - avatarMediaId - The media ID of the author's avatar.
+     *  - avatarUrl - The mxc URL for the author's avatar.
+     *  - displayName - The display name of the author.
+     *  - display - The name of the author.
+     *  - color - The color for the author.
+     *  - object - The Quotient::User object for the author.
+     *
+     * @sa Quotient::User
+     */
+    QVariantMap threadRootAuthor() const;
+
+    /**
+     * @brief The timestamp of the root event.
+     */
+    QDateTime threadRootTime() const;
+
+    /**
+     * @brief The timestamp of the root event as a string.
+     */
+    QString threadRootTimeString() const;
+
+    /**
+     * @brief The display text of the root event.
+     */
+    QString threadRootDisplay() const;
 
     bool loading() const;
 
@@ -130,17 +169,21 @@ Q_SIGNALS:
 
 private:
     const NeoChatRoom *m_room;
+    std::unique_ptr<Quotient::RoomEvent> m_threadRootEvent;
     const QString m_threadRootId;
 
-    Quotient::RoomEvents m_events = {};
+    std::deque<std::unique_ptr<Quotient::RoomEvent>> m_events = {};
+    std::deque<std::unique_ptr<Quotient::RoomEvent>> m_pendingEvents;
     QMap<QString, QSharedPointer<LinkPreviewer>> m_linkPreviewers;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     QPointer<Quotient::GetRelatingEventsWithRelTypeJob> m_currentJob = nullptr;
     Quotient::Omittable<QString> m_nextBatch = QString();
     bool m_loading = false;
+    bool m_addingPending = false;
 
     void intializeModel();
+    void addNewEvent(const Quotient::RoomEvent *event);
 
     void createEventObjects(const Quotient::RoomMessageEvent *event);
 };
