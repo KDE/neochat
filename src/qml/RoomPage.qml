@@ -87,6 +87,7 @@ Kirigami.Page {
     KeyNavigation.left: pageStack.get(0)
 
     onCurrentRoomChanged: {
+        banner.visible = false;
         if (!Kirigami.Settings.isMobile && chatBoxLoader.item) {
             chatBoxLoader.item.forceActiveFocus();
         }
