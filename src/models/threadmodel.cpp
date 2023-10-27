@@ -302,10 +302,9 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
     Q_UNUSED(parent);
     if (!m_currentJob && m_nextBatch.has_value()) {
         auto connection = m_room->connection();
-        auto threadEventsJob =
-            connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(m_room->id(), m_threadRootId, QLatin1String("m.thread"), *m_nextBatch);
-        connect(threadEventsJob, &Quotient::BaseJob::success, this, [this, threadEventsJob]() {
-            auto newEvents = threadEventsJob->chunk();
+        m_currentJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(m_room->id(), m_threadRootId, QLatin1String("m.thread"), *m_nextBatch);
+        connect(m_currentJob, &Quotient::BaseJob::success, this, [this]() {
+            auto newEvents = m_currentJob->chunk();
             beginInsertRows(QModelIndex(), rowCount(), rowCount() + newEvents.size() - 1);
             for (auto &event : newEvents) {
                 auto messageEvent = Quotient::eventCast<Quotient::RoomMessageEvent>(event);
@@ -314,7 +313,7 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
             }
             endInsertRows();
 
-            const auto newNextBatch = threadEventsJob->nextBatch();
+            const auto newNextBatch = m_currentJob->nextBatch();
             if (!newNextBatch.isEmpty() && *m_nextBatch != newNextBatch) {
                 *m_nextBatch = newNextBatch;
             } else {

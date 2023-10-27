@@ -3,9 +3,8 @@
 
 #include "roomthreadsmodel.h"
 
-#include <Quotient/csapi/threads_list.h>
 #include <Quotient/jobs/basejob.h>
-#include <qvariant.h>
+#include <Quotient/omittable.h>
 
 #include "threadmodel.h"
 
@@ -20,19 +19,20 @@ void RoomThreadsModel::initializeModel()
         return;
     }
 
-    auto connection = m_room->connection();
-    auto threadsJob = connection->callApi<Quotient::GetThreadRootsJob>(m_room->id());
-    connect(threadsJob, &Quotient::BaseJob::success, this, [this, threadsJob]() {
-        qDeleteAll(m_threadModels);
-        m_threadModels.clear();
-
-        beginResetModel();
-        auto threads = threadsJob->chunk();
-        for (auto &thread : threads) {
-            m_threadModels.push_back(new ThreadModel(m_room, std::move(thread), this));
+    if (!m_currentJob.isNull()) {
+        if (m_currentJob->status() == Quotient::BaseJob::Pending) {
+            m_currentJob->abandon();
         }
-        endResetModel();
-    });
+        m_currentJob.clear();
+    }
+
+    beginResetModel();
+    qDeleteAll(m_threadModels);
+    m_threadModels.clear();
+    *m_nextBatch = QString();
+    endResetModel();
+
+    fetchMore({});
 }
 
 NeoChatRoom *RoomThreadsModel::room() const
@@ -90,4 +90,36 @@ QHash<int, QByteArray> RoomThreadsModel::roleNames() const
         {TimeStringRole, "timeString"},
         {ThreadModelRole, "threadModel"},
     };
+}
+
+bool RoomThreadsModel::canFetchMore(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    return !m_currentJob && m_nextBatch.has_value();
+}
+
+void RoomThreadsModel::fetchMore(const QModelIndex &parent)
+{
+    Q_UNUSED(parent);
+    if (!m_currentJob && m_nextBatch.has_value()) {
+        auto connection = m_room->connection();
+        m_currentJob = connection->callApi<Quotient::GetThreadRootsJob>(m_room->id(), QString(), Quotient::none, *m_nextBatch);
+        connect(m_currentJob, &Quotient::BaseJob::success, this, [this]() {
+            auto newThreads = m_currentJob->chunk();
+            beginInsertRows({}, rowCount(), rowCount() + newThreads.size() - 1);
+            for (auto &thread : newThreads) {
+                m_threadModels.push_back(new ThreadModel(m_room, std::move(thread), this));
+            }
+            endInsertRows();
+
+            const auto newNextBatch = m_currentJob->nextBatch();
+            if (!newNextBatch.isEmpty() && *m_nextBatch != newNextBatch) {
+                *m_nextBatch = newNextBatch;
+            } else {
+                m_nextBatch.reset();
+            }
+
+            m_currentJob.clear();
+        });
+    }
 }

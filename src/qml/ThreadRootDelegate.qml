@@ -69,7 +69,7 @@ Delegates.RoundedItemDelegate {
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             Layout.alignment: Qt.AlignTop
 
-            source: root.author.avatarUrl
+            source: root.author?.avatarUrl ?? ""
             name: root.author.displayName
         }
 

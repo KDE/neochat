@@ -6,6 +6,7 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include <Quotient/csapi/threads_list.h>
 #include <Quotient/events/roomevent.h>
 #include <Quotient/events/roommessageevent.h>
 
@@ -72,12 +73,29 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    /**
+     * @brief Whether there is more data available for the model to fetch.
+     *
+     * @sa QAbstractItemModel::canFetchMore()
+     */
+    bool canFetchMore(const QModelIndex &parent) const override;
+
+    /**
+     * @brief Fetches the next batch of model data if any is available.
+     *
+     * @sa QAbstractItemModel::fetchMore()
+     */
+    void fetchMore(const QModelIndex &parent) override;
+
 Q_SIGNALS:
     void roomChanged();
 
 private:
     NeoChatRoom *m_room;
     QVector<ThreadModel *> m_threadModels;
+
+    QPointer<Quotient::GetThreadRootsJob> m_currentJob = nullptr;
+    Quotient::Omittable<QString> m_nextBatch = QString();
 
     void initializeModel();
 };
