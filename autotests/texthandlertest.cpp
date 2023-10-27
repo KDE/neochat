@@ -66,6 +66,7 @@ private Q_SLOTS:
     void receiveRichEdited_data();
     void receiveRichEdited();
     void receiveLineSeparator();
+    void receiveRichCodeUrl();
 
     void linkPreviewsMatch_data();
     void linkPreviewsMatch();
@@ -645,6 +646,14 @@ void TextHandlerTest::linkPreviewsReject()
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.getLinkPreviews(), testOutputLinks);
+}
+
+void TextHandlerTest::receiveRichCodeUrl()
+{
+    auto input = QStringLiteral("<code>https://kde.org</code>");
+    TextHandler testTextHandler;
+    testTextHandler.setData(input);
+    QCOMPARE(testTextHandler.handleRecieveRichText(), input);
 }
 
 QTEST_MAIN(TextHandlerTest)
