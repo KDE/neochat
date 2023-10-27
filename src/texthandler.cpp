@@ -14,7 +14,7 @@
 
 #include <cmark.h>
 
-#include <Kirigami/PlatformTheme>
+#include <Kirigami/Platform/PlatformTheme>
 
 #include "utils.h"
 
@@ -153,7 +153,8 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
         bool isEdited = !e->unsignedJson().isEmpty() && e->unsignedJson().contains(QStringLiteral("m.relations"))
             && e->unsignedJson()[QStringLiteral("m.relations")].toObject().contains(QStringLiteral("m.replace"));
         if (isEdited) {
-            Kirigami::PlatformTheme *theme = static_cast<Kirigami::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::PlatformTheme>(this, true));
+            Kirigami::Platform::PlatformTheme *theme =
+                static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
 
             QString editTextColor;
             if (theme != nullptr) {
