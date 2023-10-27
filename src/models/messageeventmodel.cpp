@@ -100,7 +100,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         room->setDisplayed();
 
         for (auto event = m_currentRoom->messageEvents().begin(); event != m_currentRoom->messageEvents().end(); ++event) {
-            createEventObjects(&*event->viewAs<RoomMessageEvent>());
+            if (const auto &roomMessageEvent = &*event->viewAs<RoomMessageEvent>()) {
+                createEventObjects(roomMessageEvent);
+            }
         }
 
         if (m_currentRoom->timelineSize() < 10 && !room->allHistoryLoaded()) {
@@ -120,9 +122,8 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             for (auto &&event : events) {
                 const RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
 
-                createEventObjects(message);
-
                 if (message != nullptr) {
+                    createEventObjects(message);
                     if (NeoChatConfig::self()->showFancyEffects()) {
                         QString planBody = message->plainBody();
                         // snowflake
