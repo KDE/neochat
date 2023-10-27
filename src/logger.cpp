@@ -117,7 +117,7 @@ public:
         file.write(buf.constData(), buf.size());
         file.flush();
 
-        if (oldHandler && (strcmp(context.category, "quotient.e2ee") != 0 || e2eeDebugEnabled)) {
+        if (oldHandler && (!context.category || (strcmp(context.category, "quotient.e2ee") != 0 || e2eeDebugEnabled))) {
             oldHandler(type, context, message);
         }
     }
