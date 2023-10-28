@@ -71,13 +71,12 @@ QQC2.StackView {
             verticalLayoutDirection: ListView.BottomToTop
             clip: true
 
-            model: RoomThreadsModel {
-                room: root.currentRoom
-            }
+            model: RoomManager.roomThreadsModel
 
             delegate: ThreadRootDelegate {
                 onClicked: {
-                    let view = threadPage.createObject(this, {model: threadModel});
+                    RoomManager.roomThreadsModel.selectThread(eventId);
+                    let view = threadPage.createObject(this, {});
                     root.push(view);
                     backButton.enabled = true;
                 }

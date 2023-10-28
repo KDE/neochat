@@ -15,6 +15,8 @@
 #include "models/mediamessagefiltermodel.h"
 #include "models/messageeventmodel.h"
 #include "models/messagefiltermodel.h"
+#include "models/roomthreadsmodel.h"
+#include "models/threadmodel.h"
 
 class NeoChatRoom;
 
@@ -73,6 +75,22 @@ class RoomManager : public QObject, public UriResolverBase
     Q_PROPERTY(MediaMessageFilterModel *mediaMessageFilterModel READ mediaMessageFilterModel CONSTANT)
 
     /**
+     * @brief The RoomThreadsModel that should be used for room threads visualisation.
+     *
+     * @note Available here so that the room page and drawer both have access to the
+     *       same model.
+     */
+    Q_PROPERTY(RoomThreadsModel *roomThreadsModel READ roomThreadsModel CONSTANT)
+
+    /**
+     * @brief The ThreadModel that should be used for thread visualisation.
+     *
+     * @note Available here so that the room page and drawer both have access to the
+     *       same model.
+     */
+    Q_PROPERTY(ThreadModel *threadModel READ threadModel CONSTANT)
+
+    /**
      * @brief Whether a room is currently open in NeoChat.
      *
      * @sa room
@@ -101,6 +119,9 @@ public:
     MessageEventModel *messageEventModel() const;
     MessageFilterModel *messageFilterModel() const;
     MediaMessageFilterModel *mediaMessageFilterModel() const;
+
+    RoomThreadsModel *roomThreadsModel() const;
+    ThreadModel *threadModel() const;
 
     bool hasOpenRoom() const;
 
@@ -381,4 +402,7 @@ private:
     MessageEventModel *m_messageEventModel;
     MessageFilterModel *m_messageFilterModel;
     MediaMessageFilterModel *m_mediaMessageFilterModel;
+
+    RoomThreadsModel *m_roomThreadsModel;
+    ThreadModel *m_threadModel;
 };

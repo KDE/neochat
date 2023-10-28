@@ -11,46 +11,116 @@
 #include "eventhandler.h"
 #include "neochatroom.h"
 #include "reactionmodel.h"
+#include "roomthreadsmodel.h"
 
-ThreadModel::ThreadModel(const NeoChatRoom *room, std::unique_ptr<Quotient::RoomEvent> threadRootEvent, QObject *parent)
+ThreadModel::ThreadModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_room(room)
-    , m_threadRootEvent(std::move(threadRootEvent))
-    , m_threadRootId(m_threadRootEvent->id())
 {
-    connect(m_room, &Quotient::Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
-        if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
+    if (auto roomThreadsModel = dynamic_cast<RoomThreadsModel *>(this->parent())) {
+        roomThreadsModel->setThreadModel(this);
+    }
+}
+
+NeoChatRoom *ThreadModel::room() const
+{
+    return m_room;
+}
+
+void ThreadModel::setRoom(NeoChatRoom *room)
+{
+    if (room == m_room) {
+        return;
+    }
+
+    beginResetModel();
+    if (!m_currentJob.isNull()) {
+        if (m_currentJob->status() == Quotient::BaseJob::Pending) {
+            m_currentJob->abandon();
+        }
+        m_currentJob.clear();
+    }
+    m_nextBatch->clear();
+    m_threadRootEvent = nullptr;
+    m_events.clear();
+    m_pendingEvents.clear();
+    m_linkPreviewers.clear();
+    m_reactionModels.clear();
+    m_addingPending = false;
+    m_loading = false;
+    Q_EMIT loadingChanged();
+
+    if (m_room) {
+        m_room->disconnect(this);
+    }
+
+    m_room = room;
+    Q_EMIT roomChanged();
+
+    if (m_room) {
+        connect(m_room, &Quotient::Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
+            if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
+                EventHandler eventHandler;
+                eventHandler.setRoom(m_room);
+                eventHandler.setEvent(roomEvent);
+                if (eventHandler.isThreaded() && eventHandler.threadRoot() == m_threadRootId) {
+                    beginInsertRows({}, 0, 0);
+                    m_pendingEvents.push_front(Quotient::loadEvent<Quotient::RoomEvent>(event->fullJson()));
+                    m_addingPending = true;
+                }
+            }
+        });
+        connect(m_room, &Quotient::Room::pendingEventAdded, this, [this]() {
+            if (m_addingPending) {
+                endInsertRows();
+                m_addingPending = false;
+            }
+        });
+        connect(m_room, &Quotient::Room::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
             EventHandler eventHandler;
             eventHandler.setRoom(m_room);
-            eventHandler.setEvent(roomEvent);
+            eventHandler.setEvent(serverEvent);
             if (eventHandler.isThreaded() && eventHandler.threadRoot() == m_threadRootId) {
-                beginInsertRows({}, 0, 0);
-                m_pendingEvents.push_front(Quotient::loadEvent<Quotient::RoomEvent>(event->fullJson()));
-                m_addingPending = true;
+                addNewEvent(serverEvent);
             }
-        }
-    });
-    connect(m_room, &Quotient::Room::pendingEventAdded, this, [this]() {
-        if (m_addingPending) {
-            endInsertRows();
-            m_addingPending = false;
-        }
-    });
-    connect(m_room, &Quotient::Room::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
-        EventHandler eventHandler;
-        eventHandler.setRoom(m_room);
-        eventHandler.setEvent(serverEvent);
-        if (eventHandler.isThreaded() && eventHandler.threadRoot() == m_threadRootId) {
-            addNewEvent(serverEvent);
-        }
-    });
-    connect(this, &ThreadModel::rowsInserted, this, [this]() {
-        if (m_loading) {
-            m_loading = false;
-            Q_EMIT loadingChanged();
-        }
-    });
-    intializeModel();
+        });
+        connect(this, &ThreadModel::rowsInserted, this, [this]() {
+            if (m_loading) {
+                m_loading = false;
+                Q_EMIT loadingChanged();
+            }
+        });
+    }
+
+    endResetModel();
+}
+
+void ThreadModel::setThreadRootEvent(Quotient::RoomEvent *threadRootEvent)
+{
+    if (m_room == nullptr) {
+        return;
+    }
+    if (threadRootEvent == m_threadRootEvent) {
+        return;
+    }
+
+    m_threadRootEvent = std::move(threadRootEvent);
+
+    beginResetModel();
+
+    if (m_threadRootEvent != nullptr) {
+        m_threadRootId = m_threadRootEvent->id();
+        m_currentJob.clear();
+        m_events.clear();
+        m_pendingEvents.clear();
+        m_linkPreviewers.clear();
+        m_reactionModels.clear();
+        m_nextBatch = QString();
+        m_addingPending = false;
+        m_loading = false;
+        Q_EMIT loadingChanged();
+    }
+
+    endResetModel();
 }
 
 QString ThreadModel::threadRootId() const
@@ -62,7 +132,7 @@ QVariantMap ThreadModel::threadRootAuthor() const
 {
     EventHandler eventHandler;
     eventHandler.setRoom(m_room);
-    eventHandler.setEvent(m_threadRootEvent.get());
+    eventHandler.setEvent(m_threadRootEvent);
 
     return eventHandler.getAuthor();
 }
@@ -71,7 +141,7 @@ QDateTime ThreadModel::threadRootTime() const
 {
     EventHandler eventHandler;
     eventHandler.setRoom(m_room);
-    eventHandler.setEvent(m_threadRootEvent.get());
+    eventHandler.setEvent(m_threadRootEvent);
 
     return eventHandler.getTime();
 }
@@ -80,7 +150,7 @@ QString ThreadModel::threadRootTimeString() const
 {
     EventHandler eventHandler;
     eventHandler.setRoom(m_room);
-    eventHandler.setEvent(m_threadRootEvent.get());
+    eventHandler.setEvent(m_threadRootEvent);
 
     return eventHandler.getTimeString(false);
 }
@@ -89,7 +159,7 @@ QString ThreadModel::threadRootDisplay() const
 {
     EventHandler eventHandler;
     eventHandler.setRoom(m_room);
-    eventHandler.setEvent(m_threadRootEvent.get());
+    eventHandler.setEvent(m_threadRootEvent);
 
     return eventHandler.getRichBody();
 }
@@ -97,16 +167,6 @@ QString ThreadModel::threadRootDisplay() const
 bool ThreadModel::loading() const
 {
     return m_loading;
-}
-
-void ThreadModel::intializeModel()
-{
-    if (m_threadRootId.isEmpty() || m_room == nullptr) {
-        return;
-    }
-    m_events.clear();
-    *m_nextBatch = QString();
-    m_loading = true;
 }
 
 static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
@@ -125,7 +185,7 @@ QVariant ThreadModel::data(const QModelIndex &index, int role) const
 
     Quotient::RoomEvent *event = nullptr;
     if (row == rowCount() - 1 && !m_nextBatch.has_value()) {
-        event = m_threadRootEvent.get();
+        event = m_threadRootEvent;
     } else {
         event = isPending ? m_pendingEvents[row].get() : m_events[row - m_pendingEvents.size()].get();
     }

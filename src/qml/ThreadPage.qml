@@ -15,15 +15,6 @@ QQC2.Page {
     required property NeoChatRoom room
 
     /**
-     * @brief The model to display in the timeline.
-     *
-     * The timeline expects a model which supports the same set of roles as
-     * MessageEventModel in order for all delegate types to work. The model must also
-     * have a loading Q_PROPERTY.
-     */
-    property alias model: timeline.model
-
-    /**
      * @brief The ActionsHandler object to use.
      */
     property ActionsHandler actionsHandler: ActionsHandler {
@@ -34,6 +25,7 @@ QQC2.Page {
         id: timeline
         anchors.fill: parent
         room: root.room
+        model: RoomManager.threadModel
         actionsHandler: root.actionsHandler
     }
 
@@ -46,7 +38,7 @@ QQC2.Page {
             connection: root.room.connection
             actionsHandler: root.actionsHandler
             chatBarCache: root.room.threadCache
-            Component.onCompleted: chatBarCache.threadId = root.model.threadRootId
+            Component.onCompleted: chatBarCache.threadId = RoomManager.threadModel.threadRootId
 
             // onMessageSent: {
             //     if (!timelineViewLoader.item.atYEnd) {

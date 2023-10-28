@@ -9,6 +9,7 @@
 #include <Quotient/csapi/threads_list.h>
 #include <Quotient/events/roomevent.h>
 #include <Quotient/events/roommessageevent.h>
+#include <qtmetamacros.h>
 
 #include "neochatroom.h"
 #include "threadmodel.h"
@@ -52,6 +53,8 @@ public:
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
+    void setThreadModel(ThreadModel *threadModel);
+
     /**
      * @brief Get the given role value at the given index.
      *
@@ -87,15 +90,21 @@ public:
      */
     void fetchMore(const QModelIndex &parent) override;
 
+    /**
+     * @brief Select the given thread root as the thread to be shown by the ThreadModel.
+     *
+     * Will do nothing if threadRootId is not a valid thread in the model.
+     */
+    Q_INVOKABLE void selectThread(const QString &threadRootId);
+
 Q_SIGNALS:
     void roomChanged();
 
 private:
     NeoChatRoom *m_room;
-    QVector<ThreadModel *> m_threadModels;
+    ThreadModel *m_threadModel;
+    std::deque<std::unique_ptr<Quotient::RoomEvent>> m_threadRoots;
 
     QPointer<Quotient::GetThreadRootsJob> m_currentJob = nullptr;
     Quotient::Omittable<QString> m_nextBatch = QString();
-
-    void initializeModel();
 };

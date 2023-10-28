@@ -6,33 +6,12 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/omittable.h>
 
+#include "eventhandler.h"
 #include "threadmodel.h"
 
 RoomThreadsModel::RoomThreadsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-}
-
-void RoomThreadsModel::initializeModel()
-{
-    if (m_room == nullptr) {
-        return;
-    }
-
-    if (!m_currentJob.isNull()) {
-        if (m_currentJob->status() == Quotient::BaseJob::Pending) {
-            m_currentJob->abandon();
-        }
-        m_currentJob.clear();
-    }
-
-    beginResetModel();
-    qDeleteAll(m_threadModels);
-    m_threadModels.clear();
-    *m_nextBatch = QString();
-    endResetModel();
-
-    fetchMore({});
 }
 
 NeoChatRoom *RoomThreadsModel::room() const
@@ -42,33 +21,66 @@ NeoChatRoom *RoomThreadsModel::room() const
 
 void RoomThreadsModel::setRoom(NeoChatRoom *room)
 {
+    if (m_threadModel == nullptr) {
+        return;
+    }
     if (room == m_room) {
         return;
     }
+
+    beginResetModel();
+
+    if (!m_currentJob.isNull()) {
+        if (m_currentJob->status() == Quotient::BaseJob::Pending) {
+            m_currentJob->abandon();
+        }
+        m_currentJob.clear();
+    }
+    m_nextBatch->clear();
+    m_threadRoots.clear();
+    m_threadModel->setThreadRootEvent(nullptr);
+
     m_room = room;
     Q_EMIT roomChanged();
 
-    initializeModel();
+    if (m_room != nullptr) {
+        m_nextBatch = QString();
+    }
+
+    endResetModel();
+
+    if (m_room != nullptr) {
+        fetchMore({});
+    }
+}
+
+void RoomThreadsModel::setThreadModel(ThreadModel *threadModel)
+{
+    m_threadModel = threadModel;
 }
 
 QVariant RoomThreadsModel::data(const QModelIndex &index, int role) const
 {
     const auto row = index.row();
-    const auto model = m_threadModels[row];
+    const auto event = m_threadRoots[row].get();
+
+    EventHandler eventHandler;
+    eventHandler.setRoom(m_room);
+    eventHandler.setEvent(event);
 
     switch (role) {
     case DisplayRole:
-        return model->threadRootDisplay();
+        return eventHandler.getRichBody();
     case EventIdRole:
-        return model->threadRootId();
+        return eventHandler.getId();
     case AuthorRole:
-        return model->threadRootAuthor();
+        return eventHandler.getAuthor();
     case TimeRole:
-        return model->threadRootTime();
+        return eventHandler.getTime();
     case TimeStringRole:
-        return model->threadRootTimeString();
+        return eventHandler.getTimeString(false);
     case ThreadModelRole:
-        return QVariant::fromValue<ThreadModel *>(model);
+        return QVariant::fromValue<ThreadModel *>(m_threadModel);
     }
 
     return {};
@@ -77,7 +89,7 @@ QVariant RoomThreadsModel::data(const QModelIndex &index, int role) const
 int RoomThreadsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_threadModels.size();
+    return m_threadRoots.size();
 }
 
 QHash<int, QByteArray> RoomThreadsModel::roleNames() const
@@ -108,7 +120,7 @@ void RoomThreadsModel::fetchMore(const QModelIndex &parent)
             auto newThreads = m_currentJob->chunk();
             beginInsertRows({}, rowCount(), rowCount() + newThreads.size() - 1);
             for (auto &thread : newThreads) {
-                m_threadModels.push_back(new ThreadModel(m_room, std::move(thread), this));
+                m_threadRoots.push_back(std::move(thread));
             }
             endInsertRows();
 
@@ -121,5 +133,17 @@ void RoomThreadsModel::fetchMore(const QModelIndex &parent)
 
             m_currentJob.clear();
         });
+    }
+}
+
+void RoomThreadsModel::selectThread(const QString &threadRootId)
+{
+    if (threadRootId.isEmpty()) {
+        return;
+    }
+    for (const auto &threadRoot : m_threadRoots) {
+        if (threadRoot->id() == threadRootId) {
+            m_threadModel->setThreadRootEvent(threadRoot.get());
+        }
     }
 }

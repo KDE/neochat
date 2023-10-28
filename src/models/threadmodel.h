@@ -8,10 +8,10 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include <QPointer>
 #include <Quotient/csapi/relations.h>
 #include <Quotient/events/roomevent.h>
 #include <Quotient/events/roommessageevent.h>
-#include <qpointer.h>
 
 #include "linkpreviewer.h"
 
@@ -30,6 +30,11 @@ class ThreadModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
+
+    /**
+     * @brief The room that the model is getting its messages from.
+     */
+    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
     /**
      * @brief The Matrix ID for the root mess
@@ -90,7 +95,12 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit ThreadModel(const NeoChatRoom *room, std::unique_ptr<Quotient::RoomEvent> threadRootEvent, QObject *parent = nullptr);
+    explicit ThreadModel(QObject *parent = nullptr);
+
+    [[nodiscard]] NeoChatRoom *room() const;
+    void setRoom(NeoChatRoom *room);
+
+    void setThreadRootEvent(Quotient::RoomEvent *threadRootEvent);
 
     QString threadRootId() const;
 
@@ -165,14 +175,15 @@ public:
     void fetchMore(const QModelIndex &parent) override;
 
 Q_SIGNALS:
+    void roomChanged();
     void loadingChanged();
 
 private:
-    const NeoChatRoom *m_room;
-    std::unique_ptr<Quotient::RoomEvent> m_threadRootEvent;
-    const QString m_threadRootId;
+    NeoChatRoom *m_room = nullptr;
+    Quotient::RoomEvent *m_threadRootEvent = nullptr;
+    QString m_threadRootId = QString();
 
-    std::deque<std::unique_ptr<Quotient::RoomEvent>> m_events = {};
+    std::deque<std::unique_ptr<Quotient::RoomEvent>> m_events;
     std::deque<std::unique_ptr<Quotient::RoomEvent>> m_pendingEvents;
     QMap<QString, QSharedPointer<LinkPreviewer>> m_linkPreviewers;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
@@ -182,7 +193,6 @@ private:
     bool m_loading = false;
     bool m_addingPending = false;
 
-    void intializeModel();
     void addNewEvent(const Quotient::RoomEvent *event);
 
     void createEventObjects(const Quotient::RoomMessageEvent *event);

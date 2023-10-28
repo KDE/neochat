@@ -10,6 +10,8 @@
 #include "models/messageeventmodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
+#include "roomthreadsmodel.h"
+#include "threadmodel.h"
 #include <KLocalizedString>
 #include <QDesktopServices>
 #include <QQuickTextDocument>
@@ -32,11 +34,18 @@ RoomManager::RoomManager(QObject *parent)
     , m_messageEventModel(new MessageEventModel(this))
     , m_messageFilterModel(new MessageFilterModel(this, m_messageEventModel))
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
+    , m_roomThreadsModel(new RoomThreadsModel(this))
+    , m_threadModel(new ThreadModel(m_roomThreadsModel))
 {
+    QQmlEngine::setObjectOwnership(m_roomThreadsModel, QQmlEngine::CppOwnership);
+    QQmlEngine::setObjectOwnership(m_threadModel, QQmlEngine::CppOwnership);
+
     m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_messageEventModel->setRoom(m_currentRoom);
+        m_roomThreadsModel->setRoom(m_currentRoom);
+        m_threadModel->setRoom(m_currentRoom);
     });
 }
 
@@ -68,6 +77,16 @@ MessageFilterModel *RoomManager::messageFilterModel() const
 MediaMessageFilterModel *RoomManager::mediaMessageFilterModel() const
 {
     return m_mediaMessageFilterModel;
+}
+
+RoomThreadsModel *RoomManager::roomThreadsModel() const
+{
+    return m_roomThreadsModel;
+}
+
+ThreadModel *RoomManager::threadModel() const
+{
+    return m_threadModel;
 }
 
 void RoomManager::openResource(const QString &idOrUri, const QString &action)
