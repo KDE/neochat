@@ -38,7 +38,6 @@ QQC2.ItemDelegate {
             Layout.maximumWidth: maxWidth
         }
         Kirigami.Separator {
-            Layout.minimumHeight: 2
             Layout.fillWidth: true
             Layout.maximumWidth: maxWidth
         }
