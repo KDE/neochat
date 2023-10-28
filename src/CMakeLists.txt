@@ -345,7 +345,27 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF6::I18n KF6::Kirigami2 KF6::Notifications KF6::ConfigCore KF6::ConfigGui KF6::CoreAddons KF6::SonnetCore KF6::ColorScheme KF6::ItemModels QuotientQt6 cmark::cmark QCoro::Core)
+target_link_libraries(neochat PUBLIC
+    Qt::Core
+    Qt::Quick
+    Qt::Qml
+    Qt::Gui
+    Qt::Multimedia
+    Qt::Network
+    Qt::QuickControls2
+    KF6::I18n
+    KF6::Kirigami2
+    KF6::Notifications
+    KF6::ConfigCore
+    KF6::ConfigGui
+    KF6::CoreAddons
+    KF6::SonnetCore
+    KF6::ColorScheme
+    KF6::ItemModels
+    QuotientQt6
+    cmark::cmark
+    QCoro::Core
+)
 
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
