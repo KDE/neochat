@@ -200,6 +200,7 @@ void RoomManager::enterRoom(NeoChatRoom *room)
             m_currentRoom->mainCache()->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
             m_chatDocumentHandler->setRoom(room);
             m_chatDocumentHandler->document()->textDocument()->setPlainText(room->mainCache()->savedText());
+            room->mainCache()->setText(room->mainCache()->savedText());
         } else {
             m_chatDocumentHandler->setRoom(room);
         }
