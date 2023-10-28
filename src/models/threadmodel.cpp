@@ -123,7 +123,12 @@ QVariant ThreadModel::data(const QModelIndex &index, int role) const
     }
     const bool isPending = row < int(m_pendingEvents.size());
 
-    const auto event = isPending ? m_pendingEvents[row].get() : m_events[row - m_pendingEvents.size()].get();
+    Quotient::RoomEvent *event = nullptr;
+    if (row == rowCount() - 1 && !m_nextBatch.has_value()) {
+        event = m_threadRootEvent.get();
+    } else {
+        event = isPending ? m_pendingEvents[row].get() : m_events[row - m_pendingEvents.size()].get();
+    }
 
     EventHandler eventHandler;
     eventHandler.setRoom(m_room);
@@ -246,7 +251,9 @@ QVariant ThreadModel::data(const QModelIndex &index, int role) const
 int ThreadModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return int(m_events.size()) + int(m_pendingEvents.size());
+    // We only add the extra one for the thread root if all other messages have been
+    // loaded.
+    return int(m_events.size()) + int(m_pendingEvents.size()) + (m_nextBatch.has_value() ? 0 : 1);
 }
 
 QHash<int, QByteArray> ThreadModel::roleNames() const
@@ -317,6 +324,9 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
             if (!newNextBatch.isEmpty() && *m_nextBatch != newNextBatch) {
                 *m_nextBatch = newNextBatch;
             } else {
+                // Insert the thread root at the end.
+                beginInsertRows({}, rowCount(), rowCount());
+                endInsertRows();
                 m_nextBatch.reset();
             }
 
