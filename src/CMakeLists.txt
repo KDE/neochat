@@ -170,7 +170,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/NeochatMaximizeComponent.qml
         qml/FancyEffectsContainer.qml
         qml/TypingPane.qml
-        qml/ShimmerGradient.qml
         qml/QuickSwitcher.qml
         qml/HoverActions.qml
         qml/ChatBox.qml
