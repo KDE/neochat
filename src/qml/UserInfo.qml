@@ -130,7 +130,7 @@ QQC2.ToolBar {
                 }
 
                 onClicked: {
-                    root.connection = userDelegate.connection
+                    Controller.activeConnection = userDelegate.connection
                     if (switchUserButton.checked) {
                         switchUserButton.checked = false
                     }
