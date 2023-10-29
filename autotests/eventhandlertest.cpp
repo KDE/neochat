@@ -39,34 +39,61 @@ private:
     Connection *connection = nullptr;
     TestRoom *room = nullptr;
     EventHandler eventHandler;
+    EventHandler emptyHandler;
+    EventHandler noEventHandler;
 
 private Q_SLOTS:
     void initTestCase();
 
+    void nullSetEvent();
     void eventId();
+    void nullEventId();
     void delegateType_data();
     void delegateType();
+    void nullDelegateType();
     void author();
+    void nullAuthor();
     void authorDisplayName();
+    void nullAuthorDisplayName();
     void time();
+    void nullTime();
     void timeString();
+    void nullTimeString();
     void highlighted();
+    void nullHighlighted();
     void hidden();
+    void nullHidden();
     void body();
+    void nullBody();
     void genericBody_data();
     void genericBody();
+    void nullGenericBody();
     void mediaInfo();
+    void nullMediaInfo();
     void linkPreviewer();
+    void nullLinkPreviewer();
     void reactions();
+    void nullReactions();
     void hasReply();
+    void nullHasReply();
     void replyId();
+    void nullReplyId();
     void replyDelegateType();
+    void nullReplyDelegateType();
     void replyAuthor();
+    void nullReplyAuthor();
     void replyBody();
+    void nullReplyBody();
     void replyMediaInfo();
+    void nullReplyMediaInfo();
     void thread();
+    void nullThread();
     void location();
+    void nullLocation();
     void readMarkers();
+    void nullReadMarkers();
+
+    void cleanup();
 };
 
 void EventHandlerTest::initTestCase()
@@ -82,6 +109,13 @@ void EventHandlerTest::initTestCase()
     room->update(std::move(roomData));
 
     eventHandler.setRoom(room);
+    noEventHandler.setRoom(room);
+}
+
+void EventHandlerTest::nullSetEvent()
+{
+    QTest::ignoreMessage(QtWarningMsg, "cannot setEvent when m_room is set to nullptr.");
+    emptyHandler.setEvent(room->messageEvents().at(0).get());
 }
 
 void EventHandlerTest::eventId()
@@ -89,6 +123,12 @@ void EventHandlerTest::eventId()
     eventHandler.setEvent(room->messageEvents().at(0).get());
 
     QCOMPARE(eventHandler.getId(), QStringLiteral("$153456789:example.org"));
+}
+
+void EventHandlerTest::nullEventId()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getId called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getId(), QString());
 }
 
 void EventHandlerTest::delegateType_data()
@@ -114,6 +154,12 @@ void EventHandlerTest::delegateType()
     QCOMPARE(eventHandler.getDelegateType(), delegateType);
 }
 
+void EventHandlerTest::nullDelegateType()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getDelegateType called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getDelegateType(), DelegateType::Other);
+}
+
 void EventHandlerTest::author()
 {
     auto event = room->messageEvents().at(0).get();
@@ -131,12 +177,30 @@ void EventHandlerTest::author()
     QCOMPARE(eventHandlerAuthor["object"_ls], QVariant::fromValue(author));
 }
 
+void EventHandlerTest::nullAuthor()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getAuthor called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getAuthor(), QVariantMap());
+
+    QTest::ignoreMessage(QtWarningMsg, "getAuthor called with m_event set to nullptr. Returning empty user.");
+    QCOMPARE(noEventHandler.getAuthor(), room->getUser(nullptr));
+}
+
 void EventHandlerTest::authorDisplayName()
 {
     auto event = room->messageEvents().at(1).get();
     eventHandler.setEvent(event);
 
     QCOMPARE(eventHandler.getAuthorDisplayName(), QStringLiteral("before"));
+}
+
+void EventHandlerTest::nullAuthorDisplayName()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getAuthorDisplayName(), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getAuthorDisplayName(), QString());
 }
 
 void EventHandlerTest::time()
@@ -146,6 +210,16 @@ void EventHandlerTest::time()
 
     QCOMPARE(eventHandler.getTime(), QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC));
     QCOMPARE(eventHandler.getTime(true, QDateTime::fromMSecsSinceEpoch(1234, Qt::UTC)), QDateTime::fromMSecsSinceEpoch(1234, Qt::UTC));
+}
+
+void EventHandlerTest::nullTime()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getTime called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getTime(), QDateTime());
+
+    eventHandler.setEvent(room->messageEvents().at(0).get());
+    QTest::ignoreMessage(QtWarningMsg, "a value must be provided for lastUpdated for a pending event.");
+    QCOMPARE(eventHandler.getTime(true), QDateTime());
 }
 
 void EventHandlerTest::timeString()
@@ -169,6 +243,16 @@ void EventHandlerTest::timeString()
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().date(), QLocale::LongFormat));
 }
 
+void EventHandlerTest::nullTimeString()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getTimeString called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getTimeString(false), QString());
+
+    eventHandler.setEvent(room->messageEvents().at(0).get());
+    QTest::ignoreMessage(QtWarningMsg, "a value must be provided for lastUpdated for a pending event.");
+    QCOMPARE(eventHandler.getTimeString(false, QLocale::ShortFormat, true), QString());
+}
+
 void EventHandlerTest::highlighted()
 {
     auto event = room->messageEvents().at(2).get();
@@ -180,6 +264,15 @@ void EventHandlerTest::highlighted()
     eventHandler.setEvent(event);
 
     QCOMPARE(eventHandler.isHighlighted(), false);
+}
+
+void EventHandlerTest::nullHighlighted()
+{
+    QTest::ignoreMessage(QtWarningMsg, "isHighlighted called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.isHighlighted(), false);
+
+    QTest::ignoreMessage(QtWarningMsg, "isHighlighted called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.isHighlighted(), false);
 }
 
 void EventHandlerTest::hidden()
@@ -195,6 +288,15 @@ void EventHandlerTest::hidden()
     QCOMPARE(eventHandler.isHidden(), false);
 }
 
+void EventHandlerTest::nullHidden()
+{
+    QTest::ignoreMessage(QtWarningMsg, "isHidden called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.isHidden(), false);
+
+    QTest::ignoreMessage(QtWarningMsg, "isHidden called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.isHidden(), false);
+}
+
 void EventHandlerTest::body()
 {
     auto event = room->messageEvents().at(0).get();
@@ -204,6 +306,15 @@ void EventHandlerTest::body()
     QCOMPARE(eventHandler.getRichBody(true), QStringLiteral("<b>This is an example text message</b>"));
     QCOMPARE(eventHandler.getPlainBody(), QStringLiteral("This is an example\ntext message"));
     QCOMPARE(eventHandler.getPlainBody(true), QStringLiteral("This is an example text message"));
+}
+
+void EventHandlerTest::nullBody()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getRichBody called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getRichBody(), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "getPlainBody called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getPlainBody(), QString());
 }
 
 void EventHandlerTest::genericBody_data()
@@ -226,6 +337,12 @@ void EventHandlerTest::genericBody()
     eventHandler.setEvent(room->messageEvents().at(eventNum).get());
 
     QCOMPARE(eventHandler.getGenericBody(), output);
+}
+
+void EventHandlerTest::nullGenericBody()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getGenericBody called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getGenericBody(), QString());
 }
 
 void EventHandlerTest::mediaInfo()
@@ -251,6 +368,15 @@ void EventHandlerTest::mediaInfo()
     QCOMPARE(thumbnailInfo["height"_ls], 450);
 }
 
+void EventHandlerTest::nullMediaInfo()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getMediaInfo called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getMediaInfo(), QVariantMap());
+
+    QTest::ignoreMessage(QtWarningMsg, "getMediaInfo called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getMediaInfo(), QVariantMap());
+}
+
 void EventHandlerTest::linkPreviewer()
 {
     auto event = room->messageEvents().at(2).get();
@@ -264,12 +390,30 @@ void EventHandlerTest::linkPreviewer()
     QCOMPARE(eventHandler.getLinkPreviewer(), nullptr);
 }
 
+void EventHandlerTest::nullLinkPreviewer()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getLinkPreviewer called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getLinkPreviewer(), nullptr);
+
+    QTest::ignoreMessage(QtWarningMsg, "getLinkPreviewer called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getLinkPreviewer(), nullptr);
+}
+
 void EventHandlerTest::reactions()
 {
     auto event = room->messageEvents().at(0).get();
     eventHandler.setEvent(event);
 
     QCOMPARE(eventHandler.getReactions()->rowCount(), 1);
+}
+
+void EventHandlerTest::nullReactions()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getReactions called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getReactions(), nullptr);
+
+    QTest::ignoreMessage(QtWarningMsg, "getReactions called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getReactions(), nullptr);
 }
 
 void EventHandlerTest::hasReply()
@@ -285,6 +429,12 @@ void EventHandlerTest::hasReply()
     QCOMPARE(eventHandler.hasReply(), false);
 }
 
+void EventHandlerTest::nullHasReply()
+{
+    QTest::ignoreMessage(QtWarningMsg, "hasReply called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.hasReply(), false);
+}
+
 void EventHandlerTest::replyId()
 {
     auto event = room->messageEvents().at(5).get();
@@ -298,6 +448,12 @@ void EventHandlerTest::replyId()
     QCOMPARE(eventHandler.getReplyId(), QStringLiteral(""));
 }
 
+void EventHandlerTest::nullReplyId()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getReplyId called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getReplyId(), QString());
+}
+
 void EventHandlerTest::replyDelegateType()
 {
     auto event = room->messageEvents().at(5).get();
@@ -309,6 +465,15 @@ void EventHandlerTest::replyDelegateType()
     eventHandler.setEvent(event);
 
     QCOMPARE(eventHandler.getReplyDelegateType(), DelegateType::Other);
+}
+
+void EventHandlerTest::nullReplyDelegateType()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getReplyDelegateType called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getReplyDelegateType(), DelegateType::Other);
+
+    QTest::ignoreMessage(QtWarningMsg, "getReplyDelegateType called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getReplyDelegateType(), DelegateType::Other);
 }
 
 void EventHandlerTest::replyAuthor()
@@ -334,6 +499,15 @@ void EventHandlerTest::replyAuthor()
     QCOMPARE(eventHandler.getReplyAuthor(), room->getUser(nullptr));
 }
 
+void EventHandlerTest::nullReplyAuthor()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getReplyAuthor called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getReplyAuthor(), QVariantMap());
+
+    QTest::ignoreMessage(QtWarningMsg, "getReplyAuthor called with m_event set to nullptr. Returning empty user.");
+    QCOMPARE(noEventHandler.getReplyAuthor(), room->getUser(nullptr));
+}
+
 void EventHandlerTest::replyBody()
 {
     auto event = room->messageEvents().at(5).get();
@@ -343,6 +517,15 @@ void EventHandlerTest::replyBody()
     QCOMPARE(eventHandler.getReplyRichBody(true), QStringLiteral("<b>This is an example text message</b>"));
     QCOMPARE(eventHandler.getReplyPlainBody(), QStringLiteral("This is an example\ntext message"));
     QCOMPARE(eventHandler.getReplyPlainBody(true), QStringLiteral("This is an example text message"));
+}
+
+void EventHandlerTest::nullReplyBody()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getReplyRichBody called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getReplyRichBody(), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "getReplyPlainBody called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getReplyPlainBody(), QString());
 }
 
 void EventHandlerTest::replyMediaInfo()
@@ -369,6 +552,15 @@ void EventHandlerTest::replyMediaInfo()
     QCOMPARE(thumbnailInfo["height"_ls], 450);
 }
 
+void EventHandlerTest::nullReplyMediaInfo()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getReplyMediaInfo called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getReplyMediaInfo(), QVariantMap());
+
+    QTest::ignoreMessage(QtWarningMsg, "getReplyMediaInfo called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getReplyMediaInfo(), QVariantMap());
+}
+
 void EventHandlerTest::thread()
 {
     auto event = room->messageEvents().at(0).get();
@@ -392,6 +584,15 @@ void EventHandlerTest::thread()
     QCOMPARE(eventHandler.getReplyId(), QStringLiteral("$threadmessage1:example.org"));
 }
 
+void EventHandlerTest::nullThread()
+{
+    QTest::ignoreMessage(QtWarningMsg, "isThreaded called with m_event set to nullptr.");
+    QCOMPARE(emptyHandler.isThreaded(), false);
+
+    QTest::ignoreMessage(QtWarningMsg, "threadRoot called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.threadRoot(), QString());
+}
+
 void EventHandlerTest::location()
 {
     auto event = room->messageEvents().at(7).get();
@@ -400,6 +601,18 @@ void EventHandlerTest::location()
     QCOMPARE(eventHandler.getLatitude(), QStringLiteral("51.7035").toFloat());
     QCOMPARE(eventHandler.getLongitude(), QStringLiteral("-1.14394").toFloat());
     QCOMPARE(eventHandler.getLocationAssetType(), QStringLiteral("m.pin"));
+}
+
+void EventHandlerTest::nullLocation()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getLatitude called with m_event set to nullptr.");
+    QCOMPARE(emptyHandler.getLatitude(), -100.0);
+
+    QTest::ignoreMessage(QtWarningMsg, "getLongitude called with m_event set to nullptr.");
+    QCOMPARE(emptyHandler.getLongitude(), -200.0);
+
+    QTest::ignoreMessage(QtWarningMsg, "getLocationAssetType called with m_event set to nullptr.");
+    QCOMPARE(emptyHandler.getLocationAssetType(), QString());
 }
 
 void EventHandlerTest::readMarkers()
@@ -429,6 +642,38 @@ void EventHandlerTest::readMarkers()
     QCOMPARE(eventHandler.getNumberExcessReadMarkers(), QStringLiteral("+ 1"));
     // There are no guarantees on the order of the users it will be different every time so don't match the whole string.
     QCOMPARE(eventHandler.getReadMarkersString().startsWith(QStringLiteral("6 users:")), true);
+}
+
+void EventHandlerTest::nullReadMarkers()
+{
+    QTest::ignoreMessage(QtWarningMsg, "hasReadMarkers called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.hasReadMarkers(), false);
+
+    QTest::ignoreMessage(QtWarningMsg, "getReadMarkers called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getReadMarkers(), QVariantList());
+
+    QTest::ignoreMessage(QtWarningMsg, "getNumberExcessReadMarkers called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getNumberExcessReadMarkers(), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "getReadMarkersString called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.getReadMarkersString(), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "hasReadMarkers called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.hasReadMarkers(), false);
+
+    QTest::ignoreMessage(QtWarningMsg, "getReadMarkers called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getReadMarkers(), QVariantList());
+
+    QTest::ignoreMessage(QtWarningMsg, "getNumberExcessReadMarkers called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getNumberExcessReadMarkers(), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "getReadMarkersString called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.getReadMarkersString(), QString());
+}
+
+void EventHandlerTest::cleanup()
+{
+    eventHandler.setEvent(nullptr);
 }
 
 QTEST_MAIN(EventHandlerTest)

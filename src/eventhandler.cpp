@@ -19,6 +19,7 @@
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/quotient_common.h>
 
+#include "delegatetype.h"
 #include "eventhandler_logging.h"
 #include "events/pollevent.h"
 #include "linkpreviewer.h"
@@ -50,6 +51,10 @@ const Quotient::Event *EventHandler::getEvent() const
 
 void EventHandler::setEvent(const Quotient::RoomEvent *event)
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "cannot setEvent when m_room is set to nullptr.";
+        return;
+    }
     if (event == m_event) {
         return;
     }
@@ -181,7 +186,7 @@ QDateTime EventHandler::getTime(bool isPending, QDateTime lastUpdated) const
 QString EventHandler::getTimeString(bool relative, QLocale::FormatType format, bool isPending, QDateTime lastUpdated) const
 {
     if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getTime called with m_event set to nullptr.";
+        qCWarning(EventHandling) << "getTimeString called with m_event set to nullptr.";
         return {};
     }
     if (isPending && lastUpdated == QDateTime()) {
@@ -216,6 +221,15 @@ bool EventHandler::isHighlighted()
 
 bool EventHandler::isHidden()
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "isHidden called with m_room set to nullptr.";
+        return false;
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "isHidden called with m_event set to nullptr.";
+        return false;
+    }
+
     if (m_event->isStateEvent() && !NeoChatConfig::self()->showStateEvent()) {
         return true;
     }
@@ -611,6 +625,14 @@ QString EventHandler::getGenericBody() const
 
 QVariantMap EventHandler::getMediaInfo() const
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "getMediaInfo called with m_room set to nullptr.";
+        return {};
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getMediaInfo called with m_event set to nullptr.";
+        return {};
+    }
     return getMediaInfoForEvent(m_event);
 }
 
@@ -723,6 +745,14 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
 
 QSharedPointer<LinkPreviewer> EventHandler::getLinkPreviewer() const
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "getLinkPreviewer called with m_room set to nullptr.";
+        return nullptr;
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getLinkPreviewer called with m_event set to nullptr.";
+        return nullptr;
+    }
     if (!m_event->is<RoomMessageEvent>()) {
         return nullptr;
     }
@@ -754,7 +784,7 @@ QSharedPointer<ReactionModel> EventHandler::getReactions() const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getReactions called with m_room set to nullptr.";
-        return {};
+        return nullptr;
     }
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getReactions called with m_event set to nullptr.";
@@ -806,16 +836,33 @@ QSharedPointer<ReactionModel> EventHandler::getReactions() const
 
 bool EventHandler::hasReply() const
 {
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "hasReply called with m_event set to nullptr.";
+        return false;
+    }
     return !m_event->contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString().isEmpty();
 }
 
 QString EventHandler::getReplyId() const
 {
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getReplyId called with m_event set to nullptr.";
+        return {};
+    }
     return m_event->contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
 }
 
 DelegateType::Type EventHandler::getReplyDelegateType() const
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "getReplyDelegateType called with m_room set to nullptr.";
+        return DelegateType::Other;
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getReplyDelegateType called with m_event set to nullptr.";
+        return DelegateType::Other;
+    }
+
     auto replyEvent = m_room->getReplyForEvent(*m_event);
     if (replyEvent == nullptr) {
         return DelegateType::Other;
@@ -903,6 +950,11 @@ QVariantMap EventHandler::getReplyMediaInfo() const
 
 bool EventHandler::isThreaded() const
 {
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "isThreaded called with m_event set to nullptr.";
+        return false;
+    }
+
     return (m_event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
             && m_event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls)
         || (!m_event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && m_event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls));
@@ -910,6 +962,11 @@ bool EventHandler::isThreaded() const
 
 QString EventHandler::threadRoot() const
 {
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "threadRoot called with m_event set to nullptr.";
+        return {};
+    }
+
     // Get the thread root ID from m.relates_to if it exists.
     if (m_event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
         && m_event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls) {
@@ -925,6 +982,11 @@ QString EventHandler::threadRoot() const
 
 float EventHandler::getLatitude() const
 {
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getLatitude called with m_event set to nullptr.";
+        return -100.0;
+    }
+
     const auto geoUri = m_event->contentJson()["geo_uri"_ls].toString();
     if (geoUri.isEmpty()) {
         return -100.0; // latitude runs from -90deg to +90deg so -100 is out of range.
@@ -935,6 +997,11 @@ float EventHandler::getLatitude() const
 
 float EventHandler::getLongitude() const
 {
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getLongitude called with m_event set to nullptr.";
+        return -200.0;
+    }
+
     const auto geoUri = m_event->contentJson()["geo_uri"_ls].toString();
     if (geoUri.isEmpty()) {
         return -200.0; // longitude runs from -180deg to +180deg so -200 is out of range.
@@ -945,6 +1012,11 @@ float EventHandler::getLongitude() const
 
 QString EventHandler::getLocationAssetType() const
 {
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getLocationAssetType called with m_event set to nullptr.";
+        return {};
+    }
+
     const auto assetType = m_event->contentJson()["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
     if (assetType.isEmpty()) {
         return {};
@@ -954,6 +1026,15 @@ QString EventHandler::getLocationAssetType() const
 
 bool EventHandler::hasReadMarkers() const
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "hasReadMarkers called with m_room set to nullptr.";
+        return false;
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "hasReadMarkers called with m_event set to nullptr.";
+        return false;
+    }
+
     auto userIds = m_room->userIdsAtEvent(m_event->id());
     userIds.remove(m_room->localUser()->id());
     return userIds.size() > 0;
@@ -961,6 +1042,15 @@ bool EventHandler::hasReadMarkers() const
 
 QVariantList EventHandler::getReadMarkers(int maxMarkers) const
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "getReadMarkers called with m_room set to nullptr.";
+        return {};
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getReadMarkers called with m_event set to nullptr.";
+        return {};
+    }
+
     auto userIds_temp = m_room->userIdsAtEvent(m_event->id());
     userIds_temp.remove(m_room->localUser()->id());
 
@@ -981,6 +1071,15 @@ QVariantList EventHandler::getReadMarkers(int maxMarkers) const
 
 QString EventHandler::getNumberExcessReadMarkers(int maxMarkers) const
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "getNumberExcessReadMarkers called with m_room set to nullptr.";
+        return {};
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getNumberExcessReadMarkers called with m_event set to nullptr.";
+        return {};
+    }
+
     auto userIds = m_room->userIdsAtEvent(m_event->id());
     userIds.remove(m_room->localUser()->id());
 
@@ -993,6 +1092,15 @@ QString EventHandler::getNumberExcessReadMarkers(int maxMarkers) const
 
 QString EventHandler::getReadMarkersString() const
 {
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "getReadMarkersString called with m_room set to nullptr.";
+        return {};
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getReadMarkersString called with m_event set to nullptr.";
+        return {};
+    }
+
     auto userIds = m_room->userIdsAtEvent(m_event->id());
     userIds.remove(m_room->localUser()->id());
 
