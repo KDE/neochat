@@ -325,28 +325,6 @@ public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
     /**
-     * @brief Get a list of users in the context of this room.
-     *
-     * This is different to getting a list of Quotient::User objects
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room. This function
-     * provides the room context and returns the result as a list of QVariantMap objects.
-     *
-     * @param keyword filters the users based on the displayname containing keyword.
-     * @param limit max number of user returned, -1 is infinite.
-     *
-     * @return a QVariantList containing a QVariantMap for each user with the following
-     * properties:
-     *  - id - User ID.
-     *  - displayName - Display name in the context of this room.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - color - Color for the user.
-     *
-     * @sa Quotient::User
-     */
-    Q_INVOKABLE [[nodiscard]] QVariantList getUsers(const QString &keyword, int limit = -1) const;
-
-    /**
      * @brief Get a user in the context of this room.
      *
      * This is different to getting a Quotient::User object

@@ -418,30 +418,6 @@ QDateTime NeoChatRoom::lastActiveTime()
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 
-QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
-{
-    const auto userList = users();
-    QVariantList matchedList;
-    int count = 0;
-    for (const auto u : userList) {
-        if (u->displayname(this).contains(keyword, Qt::CaseInsensitive)) {
-            Quotient::User user(u->id(), u->connection());
-            QVariantMap userVariant{{QStringLiteral("id"), user.id()},
-                                    {QStringLiteral("displayName"), user.displayname(this)},
-                                    {QStringLiteral("avatarMediaId"), user.avatarMediaId(this)},
-                                    {QStringLiteral("color"), Utils::getUserColor(user.hueF())}};
-
-            matchedList.append(QVariant::fromValue(userVariant));
-            count++;
-            if (count == limit) { // -1 is infinite
-                break;
-            }
-        }
-    }
-
-    return matchedList;
-}
-
 // An empty user is useful for returning as a model value to avoid properties being undefined.
 static const QVariantMap emptyUser = {
     {"isLocalUser"_ls, false},
