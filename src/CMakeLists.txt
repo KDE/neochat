@@ -163,7 +163,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ImageEditorPage.qml
         qml/WelcomePage.qml
         qml/General.qml
-        qml/Security.qml
+        qml/RoomSecurity.qml
         qml/PushNotification.qml
         qml/Categories.qml
         qml/Permissions.qml

@@ -32,7 +32,7 @@ KirigamiSettings.CategorizedSettings {
             actionName: "security"
             text: i18n("Security")
             icon.name: "security-low"
-            page: Qt.resolvedUrl("Security.qml")
+            page: Qt.resolvedUrl("RoomSecurity.qml")
             initialProperties: {
                 return {
                     room: root.room
