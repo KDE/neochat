@@ -296,7 +296,7 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
 
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
 {
-    auto job = account->joinRoom(QString::fromLatin1(QUrl::toPercentEncoding(roomAliasOrId)), viaServers);
+    auto job = account->joinRoom(roomAliasOrId, viaServers);
     connectSingleShot(job, &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
         if (finish->status() == Quotient::BaseJob::Success) {
             connectSingleShot(account, &Quotient::Connection::newRoom, this, [this](Quotient::Room *room) {
