@@ -76,4 +76,30 @@ void WindowController::showAndRaiseWindow(const QString &startupId)
 #endif
 }
 
+bool WindowController::hasWindowSystem() const
+{
+#ifdef HAVE_WINDOWSYSTEM
+    return true;
+#else
+    return false;
+#endif
+}
+
+void WindowController::setBlur(QQuickItem *item, bool blur)
+{
+#ifdef HAVE_WINDOWSYSTEM
+    auto setWindows = [item, blur]() {
+        auto reg = QRect(QPoint(0, 0), item->window()->size());
+        KWindowEffects::enableBackgroundContrast(item->window(), blur, 1, 1, 1, reg);
+        KWindowEffects::enableBlurBehind(item->window(), blur, reg);
+    };
+
+    disconnect(item->window(), &QQuickWindow::heightChanged, this, nullptr);
+    disconnect(item->window(), &QQuickWindow::widthChanged, this, nullptr);
+    connect(item->window(), &QQuickWindow::heightChanged, this, setWindows);
+    connect(item->window(), &QQuickWindow::widthChanged, this, setWindows);
+    setWindows();
+#endif
+}
+
 #include "moc_windowcontroller.cpp"

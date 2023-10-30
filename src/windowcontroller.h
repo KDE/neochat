@@ -4,8 +4,12 @@
 #pragma once
 
 #include <QObject>
-#include <QWindow>
-
+#include <QQmlEngine>
+#include <QQuickItem>
+#include <QQuickWindow>
+#ifdef HAVE_WINDOWSYSTEM
+#include <KWindowEffects>
+#endif
 /**
  * @class WindowController
  *
@@ -14,9 +18,21 @@
 class WindowController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
+
+    /**
+     * @brief Whether KWindowSystem specific features are available.
+     */
+    Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
 
 public:
     static WindowController &instance();
+    static WindowController *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
+    }
 
     /**
      * @brief Set the window that the will be managed.
@@ -42,6 +58,13 @@ public:
      * @brief Show the window and raise to the top.
      */
     void showAndRaiseWindow(const QString &startupId);
+
+    bool hasWindowSystem() const;
+
+    /**
+     * @brief Set the background blur status of the given item.
+     */
+    Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
 
 Q_SIGNALS:
     /**

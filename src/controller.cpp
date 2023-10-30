@@ -8,9 +8,6 @@
 
 #include <KLocalizedString>
 #include <KWindowConfig>
-#ifdef HAVE_WINDOWSYSTEM
-#include <KWindowEffects>
-#endif
 
 #include <QFile>
 #include <QFileInfo>
@@ -390,32 +387,6 @@ QString Controller::formatByteSize(double size, int precision) const
 QString Controller::formatDuration(quint64 msecs, KFormat::DurationFormatOptions options) const
 {
     return KFormat().formatDuration(msecs, options);
-}
-
-void Controller::setBlur(QQuickItem *item, bool blur)
-{
-#ifdef HAVE_WINDOWSYSTEM
-    auto setWindows = [item, blur]() {
-        auto reg = QRect(QPoint(0, 0), item->window()->size());
-        KWindowEffects::enableBackgroundContrast(item->window(), blur, 1, 1, 1, reg);
-        KWindowEffects::enableBlurBehind(item->window(), blur, reg);
-    };
-
-    disconnect(item->window(), &QQuickWindow::heightChanged, this, nullptr);
-    disconnect(item->window(), &QQuickWindow::widthChanged, this, nullptr);
-    connect(item->window(), &QQuickWindow::heightChanged, this, setWindows);
-    connect(item->window(), &QQuickWindow::widthChanged, this, setWindows);
-    setWindows();
-#endif
-}
-
-bool Controller::hasWindowSystem() const
-{
-#ifdef HAVE_WINDOWSYSTEM
-    return true;
-#else
-    return false;
-#endif
 }
 
 void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item)

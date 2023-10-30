@@ -190,7 +190,7 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+        WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
         if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && Config.systemTray) {
             restoreWindowGeometryConnections.enabled = true; // To restore window size and position
         } else {
@@ -201,10 +201,10 @@ Kirigami.ApplicationWindow {
     Connections {
         target: Config
         function onBlurChanged() {
-            Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+            WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
         }
         function onCompactLayoutChanged() {
-            Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+            WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
         }
     }
 

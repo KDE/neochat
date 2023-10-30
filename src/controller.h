@@ -65,11 +65,6 @@ class Controller : public QObject
     Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
 
     /**
-     * @brief Whether KWindowSystem specific features are available.
-     */
-    Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
-
-    /**
      * @brief Whether NeoChat is currently able to connect to the server.
      */
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
@@ -128,11 +123,6 @@ public:
 
     [[nodiscard]] bool supportSystemTray() const;
 
-    /**
-     * @brief Set the background blur status of the given item.
-     */
-    Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
-
     bool isOnline() const;
 
     /**
@@ -179,8 +169,6 @@ private:
     void saveSettings() const;
     bool m_isOnline = true;
     QMap<Quotient::Room *, int> m_notificationCounts;
-
-    bool hasWindowSystem() const;
 
     QPointer<PushRuleModel> m_pushRuleModel;
     Quotient::AccountRegistry m_accountRegistry;

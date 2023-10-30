@@ -235,7 +235,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: hasWindowSystemDelegate
-            visible: Controller.hasWindowSystem
+            visible: WindowController.hasWindowSystem
             text: i18n("Use transparent chat page")
             enabled: !Config.compactLayout && !Config.isBlurImmutable
             checked: Config.blur
@@ -249,7 +249,7 @@ FormCard.FormCardPage {
 
         FormCard.AbstractFormDelegate {
             id: transparencyDelegate
-            visible: Controller.hasWindowSystem && Config.blur
+            visible: WindowController.hasWindowSystem && Config.blur
             enabled: !Config.isTransparancyImmutable
             background: Item {}
             contentItem: ColumnLayout {
