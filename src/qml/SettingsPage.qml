@@ -34,6 +34,17 @@ KirigamiSettings.CategorizedSettings {
             page: Qt.resolvedUrl("GlobalNotificationsPage.qml")
         },
         KirigamiSettings.SettingAction {
+            actionName: "security"
+            text: i18n("Security")
+            icon.name: "preferences-security"
+            page: Qt.resolvedUrl("Security.qml")
+            initialProperties: {
+                return {
+                    connection: root.connection
+                }
+            }
+        },
+        KirigamiSettings.SettingAction {
             actionName: "accounts"
             text: i18n("Accounts")
             icon.name: "preferences-system-users"

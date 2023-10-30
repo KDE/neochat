@@ -16,6 +16,7 @@
 
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
+#include <Quotient/database.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 #include <Quotient/user.h>
@@ -232,6 +233,23 @@ void NeoChatConnection::openOrCreateDirectChat(User *user)
         }
     }
     requestDirectChat(user);
+}
+
+QString NeoChatConnection::deviceKey() const
+{
+    return edKeyForUserDevice(userId(), deviceId());
+}
+
+QString NeoChatConnection::encryptionKey() const
+{
+    auto query = database()->prepareQuery(QStringLiteral("SELECT curveKey FROM tracked_devices WHERE matrixId=:matrixId AND deviceid=:deviceId LIMIT 1;"));
+    query.bindValue(QStringLiteral(":matrixId"), userId());
+    query.bindValue(QStringLiteral(":deviceId"), deviceId());
+    database()->execute(query);
+    if (!query.next()) {
+        return {};
+    }
+    return query.value(0).toString();
 }
 
 #include "moc_neochatconnection.cpp"

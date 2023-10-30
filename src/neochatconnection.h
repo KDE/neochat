@@ -23,6 +23,8 @@ class NeoChatConnection : public Quotient::Connection
      * Set to an empty string to remove the label.
      */
     Q_PROPERTY(QString label READ label WRITE setLabel NOTIFY labelChanged)
+    Q_PROPERTY(QString deviceKey READ deviceKey CONSTANT)
+    Q_PROPERTY(QString encryptionKey READ encryptionKey CONSTANT)
 
 public:
     NeoChatConnection(QObject *parent = nullptr);
@@ -67,6 +69,9 @@ public:
      * If a direct chat with the user doesn't exist one is created and then joined.
      */
     Q_INVOKABLE void openOrCreateDirectChat(Quotient::User *user);
+
+    QString deviceKey() const;
+    QString encryptionKey() const;
 
 Q_SIGNALS:
     void labelChanged();
