@@ -6,8 +6,6 @@
 
 #include <qt6keychain/keychain.h>
 
-#include <KConfig>
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KWindowConfig>
 #ifdef HAVE_WINDOWSYSTEM
