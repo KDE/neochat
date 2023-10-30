@@ -379,16 +379,6 @@ void Controller::joinRoom(const QString &alias)
     RoomManager::instance().joinRoom(m_connection, alias, QStringList{knownServer});
 }
 
-QString Controller::formatByteSize(double size, int precision) const
-{
-    return QLocale().formattedDataSize(size, precision);
-}
-
-QString Controller::formatDuration(quint64 msecs, KFormat::DurationFormatOptions options) const
-{
-    return KFormat().formatDuration(msecs, options);
-}
-
 void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item)
 {
     // HACK: Workaround bug QTBUG 93281

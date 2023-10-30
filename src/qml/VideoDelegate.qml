@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import QtMultimedia
 import Qt.labs.platform as Platform
 
+import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
@@ -191,7 +192,7 @@ MessageDelegate {
                     onMoved: vid.seek(value)
                 }
                 QQC2.Label {
-                    text: Controller.formatDuration(vid.position) + "/" + Controller.formatDuration(vid.duration)
+                    text: Format.formatDuration(vid.position) + "/" + Format.formatDuration(vid.duration)
                 }
                 QQC2.ToolButton {
                     id: volumeButton

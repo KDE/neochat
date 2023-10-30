@@ -8,8 +8,6 @@
 #include <QQmlEngine>
 #include <QQuickItem>
 
-#include <KFormat>
-
 #include "neochatconnection.h"
 #include <Quotient/accountregistry.h>
 #include <Quotient/jobs/basejob.h>
@@ -133,20 +131,6 @@ public:
     Q_INVOKABLE void setApplicationProxy();
 
     bool isFlatpak() const;
-
-    /**
-     * @brief Return a string for the input timestamp.
-     *
-     * The output format depends on the KFormat::DurationFormatOptions chosen.
-     *
-     * @sa KFormat::DurationFormatOptions
-     */
-    Q_INVOKABLE QString formatDuration(quint64 msecs, KFormat::DurationFormatOptions options = KFormat::DefaultDuration) const;
-
-    /**
-     * @brief Return a human readable string for a given input number of bytes.
-     */
-    Q_INVOKABLE QString formatByteSize(double size, int precision = 1) const;
 
     /**
      * @brief Force a QQuickTextDocument to refresh when images are loaded.

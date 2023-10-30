@@ -6,6 +6,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import Qt.labs.platform
 
+import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
@@ -104,7 +105,7 @@ MessageDelegate {
 
                 PropertyChanges {
                     target: sizeLabel
-                    text: i18nc("file download progress", "%1 / %2", Controller.formatByteSize(root.progressInfo.progress), Controller.formatByteSize(root.progressInfo.total))
+                    text: i18nc("file download progress", "%1 / %2", Format.formatByteSize(root.progressInfo.progress), Format.formatByteSize(root.progressInfo.total))
                 }
                 PropertyChanges {
                     target: downloadButton
@@ -140,7 +141,7 @@ MessageDelegate {
             QQC2.Label {
                 id: sizeLabel
                 Layout.fillWidth: true
-                text: Controller.formatByteSize(root.mediaInfo.size)
+                text: Format.formatByteSize(root.mediaInfo.size)
                 opacity: 0.7
                 elide: Text.ElideRight
                 maximumLineCount: 1

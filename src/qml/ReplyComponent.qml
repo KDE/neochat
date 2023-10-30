@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
+import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
@@ -187,7 +188,7 @@ Item {
         MimeComponent {
             mimeIconSource: root.mediaInfo.mimeIcon
             label: root.display
-            subLabel: root.type === DelegateType.File ? Controller.formatByteSize(root.mediaInfo.size) : Controller.formatDuration(root.mediaInfo.duration)
+            subLabel: root.type === DelegateType.File ? Format.formatByteSize(root.mediaInfo.size) : Format.formatDuration(root.mediaInfo.duration)
         }
     }
     Component {

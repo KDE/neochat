@@ -6,6 +6,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtMultimedia
 
+import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
@@ -127,7 +128,7 @@ MessageDelegate {
             QQC2.Label {
                 visible: root.contentMaxWidth > Kirigami.Units.gridUnit * 12
 
-                text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
+                text: Format.formatDuration(audio.position) + "/" + Format.formatDuration(audio.duration)
             }
         }
         QQC2.Label {
@@ -135,7 +136,7 @@ MessageDelegate {
             Layout.rightMargin: Kirigami.Units.smallSpacing
             visible: audio.hasAudio && root.contentMaxWidth < Kirigami.Units.gridUnit * 12
 
-            text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
+            text: Format.formatDuration(audio.position) + "/" + Format.formatDuration(audio.duration)
         }
     }
 }
