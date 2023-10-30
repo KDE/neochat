@@ -35,7 +35,6 @@
 #include "neochat-version.h"
 
 #include <Quotient/networkaccessmanager.h>
-#include <Quotient/util.h>
 
 #include "blurhashimageprovider.h"
 #include "colorschemer.h"
