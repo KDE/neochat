@@ -61,6 +61,13 @@ public:
      */
     Q_INVOKABLE void createSpace(const QString &name, const QString &topic, const QString &parent = {}, bool setChildParent = false);
 
+    /**
+     * @brief Join a direct chat with the given user.
+     *
+     * If a direct chat with the user doesn't exist one is created and then joined.
+     */
+    Q_INVOKABLE void openOrCreateDirectChat(Quotient::User *user);
+
 Q_SIGNALS:
     void labelChanged();
 };

@@ -190,7 +190,7 @@ Kirigami.Dialog {
                 text: i18n("Open a private chat")
                 icon.name: "document-send"
                 onTriggered: {
-                    Controller.openOrCreateDirectChat(root.user.object);
+                    root.room.connection.openOrCreateDirectChat(root.user.object)
                     root.close()
                 }
             }

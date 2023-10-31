@@ -126,13 +126,6 @@ public:
      */
     Q_INVOKABLE void joinRoom(const QString &alias);
 
-    /**
-     * @brief Join a direct chat with the given user.
-     *
-     * If a direct chat with the user doesn't exist one is created and then joined.
-     */
-    Q_INVOKABLE void openOrCreateDirectChat(Quotient::User *user);
-
     [[nodiscard]] bool supportSystemTray() const;
 
     /**

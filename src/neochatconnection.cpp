@@ -220,4 +220,18 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
     });
 }
 
+void NeoChatConnection::openOrCreateDirectChat(User *user)
+{
+    const auto existing = directChats();
+
+    if (existing.contains(user)) {
+        const auto room = static_cast<NeoChatRoom *>(this->room(existing.value(user)));
+        if (room) {
+            RoomManager::instance().enterRoom(room);
+            return;
+        }
+    }
+    requestDirectChat(user);
+}
+
 #include "moc_neochatconnection.cpp"

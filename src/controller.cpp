@@ -382,20 +382,6 @@ void Controller::joinRoom(const QString &alias)
     RoomManager::instance().joinRoom(m_connection, alias, QStringList{knownServer});
 }
 
-void Controller::openOrCreateDirectChat(User *user)
-{
-    const auto existing = activeConnection()->directChats();
-
-    if (existing.contains(user)) {
-        const auto &room = static_cast<NeoChatRoom *>(activeConnection()->room(existing.value(user)));
-        if (room) {
-            RoomManager::instance().enterRoom(room);
-            return;
-        }
-    }
-    activeConnection()->requestDirectChat(user);
-}
-
 QString Controller::formatByteSize(double size, int precision) const
 {
     return QLocale().formattedDataSize(size, precision);
