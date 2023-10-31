@@ -16,6 +16,11 @@ FormCard.FormCardPage {
 
     title: i18n("Devices")
 
+    background: Kirigami.PlaceholderMessage {
+        text: i18n("Loading…")
+        visible: !thisDeviceCard.visible
+    }
+
     required property NeoChatConnection connection
 
     property DevicesModel devicesModel: DevicesModel {
@@ -24,6 +29,7 @@ FormCard.FormCardPage {
     }
 
     DevicesCard {
+        id: thisDeviceCard
         title: i18n("This Device")
         type: DevicesModel.This
         showVerifyButton: false
