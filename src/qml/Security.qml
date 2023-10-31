@@ -26,7 +26,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormTextDelegate {
             text: connection.encryptionKey
-            description: i18n("Encryption Key")
+            description: i18n("Encryption key")
         }
         FormCard.FormTextDelegate {
             text: connection.deviceId
