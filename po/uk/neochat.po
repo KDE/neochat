@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:41+0000\n"
+"POT-Creation-Date: 2023-10-31 01:39+0000\n"
 "PO-Revision-Date: 2023-10-21 21:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,70 +20,70 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: src/controller.cpp:204
+#: src/controller.cpp:202
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Невдала спроба увійти: жетон доступу є некоректним або його відкликано"
 
-#: src/controller.cpp:207 src/controller.cpp:212 src/login.cpp:93
+#: src/controller.cpp:205 src/controller.cpp:210 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Невдала спроба увійти: %1"
 
-#: src/controller.cpp:218
+#: src/controller.cpp:216
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Помилка у мережі: %1"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:241
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не знайдено жетона доступу"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:241
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Можливо, його вилучено?"
 
-#: src/controller.cpp:247
+#: src/controller.cpp:245
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Відмовлено у доступі до засобу керування ключами."
 
-#: src/controller.cpp:247
+#: src/controller.cpp:245
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Будь ласка, дозвольте NeoChat читання жетона доступу"
 
-#: src/controller.cpp:250
+#: src/controller.cpp:248
 #, kde-format
 msgid "No keychain available."
 msgstr "Немає доступних засобів керування ключами."
 
-#: src/controller.cpp:250
+#: src/controller.cpp:248
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Будь ласка, встановіть засіб керування ключами, наприклад KWallet або GNOME "
 "keyring у Linux"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:251
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не вдалося прочитати жетон доступу"
 
-#: src/controller.cpp:349
+#: src/controller.cpp:347
 #, kde-format
 msgid "File too large to download."
 msgstr "Файл є надто великим для отримання."
 
-#: src/controller.cpp:349
+#: src/controller.cpp:347
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
 
-#: src/controller.cpp:379
+#: src/controller.cpp:377
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
@@ -469,97 +469,97 @@ msgstr "Призначення"
 msgid "Network Error"
 msgstr "Помилка у мережі"
 
-#: src/main.cpp:130
+#: src/main.cpp:129
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:132
+#: src/main.cpp:131
 #, kde-format
 msgid "Matrix client"
 msgstr "Клієнт Matrix"
 
-#: src/main.cpp:134
+#: src/main.cpp:133
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© Black Hat, 2018-2020, Спільнота KDE, 2020–2023"
 
-#: src/main.cpp:135
+#: src/main.cpp:134
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:135 src/main.cpp:136 src/main.cpp:137
+#: src/main.cpp:134 src/main.cpp:135 src/main.cpp:136
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: src/main.cpp:136
+#: src/main.cpp:135
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:137
+#: src/main.cpp:136
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:138
+#: src/main.cpp:137
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:138
+#: src/main.cpp:137
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Перший автор Spectral"
 
-#: src/main.cpp:139
+#: src/main.cpp:138
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:139
+#: src/main.cpp:138
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Супровідник Quotient"
 
-#: src/main.cpp:140
+#: src/main.cpp:139
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: src/main.cpp:140
+#: src/main.cpp:139
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: src/main.cpp:144
+#: src/main.cpp:143
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Бібліотека Qt5 для написання багатоплатформових клієнтських програм для "
 "Matrix"
 
-#: src/main.cpp:146
+#: src/main.cpp:145
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (зібрано з %2)"
 
-#: src/main.cpp:209
+#: src/main.cpp:208
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клієнт для протоколу обміну даними matrix"
 
-#: src/main.cpp:210
+#: src/main.cpp:209
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Передбачає підтримку схеми адрес matrix:"
 
-#: src/main.cpp:211
+#: src/main.cpp:210
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ігнорувати усі помилки SSL, наприклад непідписані сертифікати."
@@ -1427,7 +1427,7 @@ msgstr "Скасувати"
 msgid "General"
 msgstr "Загальне"
 
-#: src/qml/Categories.qml:33 src/qml/Security.qml:17
+#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
 #, kde-format
 msgid "Security"
 msgstr "Захист"
@@ -3559,6 +3559,148 @@ msgstr ""
 msgid "Message Source"
 msgstr "Джерело повідомлення"
 
+#: src/qml/RoomSecurity.qml:15
+#, kde-format
+msgid ""
+"You need to upgrade this room to a newer version to enable this setting."
+msgstr ""
+"Для вмикання цього параметра вам слід оновити цю кімнату до новішої версії."
+
+#: src/qml/RoomSecurity.qml:20
+#, kde-format
+msgctxt "@option:check"
+msgid "Encryption"
+msgstr "Шифрування"
+
+#: src/qml/RoomSecurity.qml:25
+#, kde-format
+msgid "Enable encryption"
+msgstr "Увімкнути шифрування"
+
+#: src/qml/RoomSecurity.qml:26
+#, kde-format
+msgctxt "option:check"
+msgid "Once enabled, encryption cannot be disabled."
+msgstr "Після вмикання шифрування вже не можна буде вимкнути."
+
+#: src/qml/RoomSecurity.qml:37
+#, kde-format
+msgctxt "@option:check"
+msgid "Access"
+msgstr "Доступ"
+
+#: src/qml/RoomSecurity.qml:41
+#, kde-format
+msgctxt "@option:check"
+msgid "Private (invite only)"
+msgstr "Приватне (лише за запрошенням)"
+
+#: src/qml/RoomSecurity.qml:42
+#, kde-format
+msgid "Only invited people can join."
+msgstr "Долучатися можуть лише запрошені."
+
+#: src/qml/RoomSecurity.qml:50
+#, kde-format
+msgctxt "@option:check"
+msgid "Space members"
+msgstr "Учасники простору"
+
+#: src/qml/RoomSecurity.qml:51
+#, kde-format
+msgid "Anyone in a space can find and join."
+msgstr "Будь-хто у просторі може шукати і долучатися."
+
+#: src/qml/RoomSecurity.qml:60
+#, kde-format
+msgctxt "@option:check"
+msgid "Knock"
+msgstr "Постукати"
+
+#: src/qml/RoomSecurity.qml:61
+#, kde-format
+msgid "People not in the room need to request an invite to join the room."
+msgstr ""
+"Ті, кого немає у кімнаті, мають надіслати запити щодо запрошення до кімнати."
+
+#: src/qml/RoomSecurity.qml:71
+#, kde-format
+msgctxt "@option:check"
+msgid "Public"
+msgstr "Загальне"
+
+#: src/qml/RoomSecurity.qml:72
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone can find and join."
+msgstr "Будь-хто може шукати і долучатися."
+
+#: src/qml/RoomSecurity.qml:82
+#, kde-format
+msgctxt "@option:check"
+msgid "Message history visibility"
+msgstr "Видимість журналу повідомлень"
+
+#: src/qml/RoomSecurity.qml:86
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone"
+msgstr "Будь-хто"
+
+#: src/qml/RoomSecurity.qml:87
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone, regardless of whether they have joined, can view history."
+msgstr ""
+"Будь-хто, незалежно від того, чи долучилися вони до кімнати, може "
+"переглядати журнал."
+
+#: src/qml/RoomSecurity.qml:95
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only"
+msgstr "Лише учасники"
+
+#: src/qml/RoomSecurity.qml:96
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"All members can view the entire message history, even before they joined."
+msgstr ""
+"Усі учасники можуть переглядати увесь журнал повідомлень, навіть до "
+"долучення."
+
+#: src/qml/RoomSecurity.qml:104
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since invite)"
+msgstr "Лише учасники (з моменту запрошення)"
+
+#: src/qml/RoomSecurity.qml:105
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they were invited to "
+"the room."
+msgstr ""
+"Нові учасники можуть переглядати журнал повідомлень з моменту, коли їх "
+"запрошено до кімнати."
+
+#: src/qml/RoomSecurity.qml:113
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since joining)"
+msgstr "Лише учасники (з моменту долучення)"
+
+#: src/qml/RoomSecurity.qml:114
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they joined the room."
+msgstr ""
+"Нові учасники можуть переглядати журнал повідомлень з моменту долучення до "
+"кімнати."
+
 #: src/qml/SearchPage.qml:18
 #, kde-format
 msgctxt "@action:title"
@@ -3574,148 +3716,6 @@ msgstr "Введіть фрагмент тексту, щоб почати пош
 #, kde-format
 msgid "No results found"
 msgstr "Нічого не знайдено"
-
-#: src/qml/Security.qml:15
-#, kde-format
-msgid ""
-"You need to upgrade this room to a newer version to enable this setting."
-msgstr ""
-"Для вмикання цього параметра вам слід оновити цю кімнату до новішої версії."
-
-#: src/qml/Security.qml:20
-#, kde-format
-msgctxt "@option:check"
-msgid "Encryption"
-msgstr "Шифрування"
-
-#: src/qml/Security.qml:25
-#, kde-format
-msgid "Enable encryption"
-msgstr "Увімкнути шифрування"
-
-#: src/qml/Security.qml:26
-#, kde-format
-msgctxt "option:check"
-msgid "Once enabled, encryption cannot be disabled."
-msgstr "Після вмикання шифрування вже не можна буде вимкнути."
-
-#: src/qml/Security.qml:37
-#, kde-format
-msgctxt "@option:check"
-msgid "Access"
-msgstr "Доступ"
-
-#: src/qml/Security.qml:41
-#, kde-format
-msgctxt "@option:check"
-msgid "Private (invite only)"
-msgstr "Приватне (лише за запрошенням)"
-
-#: src/qml/Security.qml:42
-#, kde-format
-msgid "Only invited people can join."
-msgstr "Долучатися можуть лише запрошені."
-
-#: src/qml/Security.qml:50
-#, kde-format
-msgctxt "@option:check"
-msgid "Space members"
-msgstr "Учасники простору"
-
-#: src/qml/Security.qml:51
-#, kde-format
-msgid "Anyone in a space can find and join."
-msgstr "Будь-хто у просторі може шукати і долучатися."
-
-#: src/qml/Security.qml:60
-#, kde-format
-msgctxt "@option:check"
-msgid "Knock"
-msgstr "Постукати"
-
-#: src/qml/Security.qml:61
-#, kde-format
-msgid "People not in the room need to request an invite to join the room."
-msgstr ""
-"Ті, кого немає у кімнаті, мають надіслати запити щодо запрошення до кімнати."
-
-#: src/qml/Security.qml:71
-#, kde-format
-msgctxt "@option:check"
-msgid "Public"
-msgstr "Загальне"
-
-#: src/qml/Security.qml:72
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone can find and join."
-msgstr "Будь-хто може шукати і долучатися."
-
-#: src/qml/Security.qml:82
-#, kde-format
-msgctxt "@option:check"
-msgid "Message history visibility"
-msgstr "Видимість журналу повідомлень"
-
-#: src/qml/Security.qml:86
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone"
-msgstr "Будь-хто"
-
-#: src/qml/Security.qml:87
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone, regardless of whether they have joined, can view history."
-msgstr ""
-"Будь-хто, незалежно від того, чи долучилися вони до кімнати, може "
-"переглядати журнал."
-
-#: src/qml/Security.qml:95
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only"
-msgstr "Лише учасники"
-
-#: src/qml/Security.qml:96
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"All members can view the entire message history, even before they joined."
-msgstr ""
-"Усі учасники можуть переглядати увесь журнал повідомлень, навіть до "
-"долучення."
-
-#: src/qml/Security.qml:104
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only (since invite)"
-msgstr "Лише учасники (з моменту запрошення)"
-
-#: src/qml/Security.qml:105
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"New members can view the message history from the point they were invited to "
-"the room."
-msgstr ""
-"Нові учасники можуть переглядати журнал повідомлень з моменту, коли їх "
-"запрошено до кімнати."
-
-#: src/qml/Security.qml:113
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only (since joining)"
-msgstr "Лише учасники (з моменту долучення)"
-
-#: src/qml/Security.qml:114
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"New members can view the message history from the point they joined the room."
-msgstr ""
-"Нові учасники можуть переглядати журнал повідомлень з моменту долучення до "
-"кімнати."
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format

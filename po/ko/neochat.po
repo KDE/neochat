@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:41+0000\n"
+"POT-Creation-Date: 2023-10-31 01:39+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,67 +17,67 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:204
+#: src/controller.cpp:202
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "로그인 실패: 접근 토큰이 잘못되었거나 취소됨"
 
-#: src/controller.cpp:207 src/controller.cpp:212 src/login.cpp:93
+#: src/controller.cpp:205 src/controller.cpp:210 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "로그인 실패: %1"
 
-#: src/controller.cpp:218
+#: src/controller.cpp:216
 #, kde-format
 msgid "Network Error: %1"
 msgstr "네트워크 오류: %1"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:241
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "접근 토큰을 찾을 수 없음"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:241
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "삭제되었을 수도 있습니다."
 
-#: src/controller.cpp:247
+#: src/controller.cpp:245
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "키체인 접근이 거부되었습니다."
 
-#: src/controller.cpp:247
+#: src/controller.cpp:245
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat에서 접근 토큰 사용을 허용하십시오"
 
-#: src/controller.cpp:250
+#: src/controller.cpp:248
 #, kde-format
 msgid "No keychain available."
 msgstr "키체인을 사용할 수 없습니다."
 
-#: src/controller.cpp:250
+#: src/controller.cpp:248
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "키체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모음 등이 있습니다"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:251
 #, kde-format
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:349
+#: src/controller.cpp:347
 #, kde-format
 msgid "File too large to download."
 msgstr "파일이 다운로드하기에 너무 큽니다."
 
-#: src/controller.cpp:349
+#: src/controller.cpp:347
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/controller.cpp:379
+#: src/controller.cpp:377
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
@@ -462,95 +462,95 @@ msgstr "대상"
 msgid "Network Error"
 msgstr "네트워크 오류"
 
-#: src/main.cpp:130
+#: src/main.cpp:129
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:132
+#: src/main.cpp:131
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix 클라이언트"
 
-#: src/main.cpp:134
+#: src/main.cpp:133
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 
-#: src/main.cpp:135
+#: src/main.cpp:134
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:135 src/main.cpp:136 src/main.cpp:137
+#: src/main.cpp:134 src/main.cpp:135 src/main.cpp:136
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"
 
-#: src/main.cpp:136
+#: src/main.cpp:135
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:137
+#: src/main.cpp:136
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:138
+#: src/main.cpp:137
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:138
+#: src/main.cpp:137
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral의 원 작성자"
 
-#: src/main.cpp:139
+#: src/main.cpp:138
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:139
+#: src/main.cpp:138
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Quotient 관리자"
 
-#: src/main.cpp:140
+#: src/main.cpp:139
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "박신조"
 
-#: src/main.cpp:140
+#: src/main.cpp:139
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: src/main.cpp:144
+#: src/main.cpp:143
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "크로스 플랫폼 Matrix 클라이언트를 작성할 수 있는 Qt5 라이브러리"
 
-#: src/main.cpp:146
+#: src/main.cpp:145
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1(%2(으)로 빌드됨)"
 
-#: src/main.cpp:209
+#: src/main.cpp:208
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 대화 프로토콜 클라이언트"
 
-#: src/main.cpp:210
+#: src/main.cpp:209
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: URL 형식 지원"
 
-#: src/main.cpp:211
+#: src/main.cpp:210
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "모든 SSL 오류(예: 서명되지 않은 인증서)를 무시합니다."
@@ -1404,7 +1404,7 @@ msgstr "취소"
 msgid "General"
 msgstr "일반"
 
-#: src/qml/Categories.qml:33 src/qml/Security.qml:17
+#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
 #, kde-format
 msgid "Security"
 msgstr "보안"
@@ -3516,6 +3516,140 @@ msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인�
 msgid "Message Source"
 msgstr "메시지 소스"
 
+#: src/qml/RoomSecurity.qml:15
+#, kde-format
+msgid ""
+"You need to upgrade this room to a newer version to enable this setting."
+msgstr "이 설정을 활성화하려면 대화방을 새로운 버전으로 업그레이드해야 합니다."
+
+#: src/qml/RoomSecurity.qml:20
+#, kde-format
+msgctxt "@option:check"
+msgid "Encryption"
+msgstr "암호화"
+
+#: src/qml/RoomSecurity.qml:25
+#, kde-format
+msgid "Enable encryption"
+msgstr "암호화 활성화"
+
+#: src/qml/RoomSecurity.qml:26
+#, kde-format
+msgctxt "option:check"
+msgid "Once enabled, encryption cannot be disabled."
+msgstr "한 번 활성화하면 비활성화할 수 없습니다."
+
+#: src/qml/RoomSecurity.qml:37
+#, kde-format
+msgctxt "@option:check"
+msgid "Access"
+msgstr "접근"
+
+#: src/qml/RoomSecurity.qml:41
+#, kde-format
+msgctxt "@option:check"
+msgid "Private (invite only)"
+msgstr "비밀(초대만)"
+
+#: src/qml/RoomSecurity.qml:42
+#, kde-format
+msgid "Only invited people can join."
+msgstr "초대받은 사람만 입장할 수 있습니다."
+
+#: src/qml/RoomSecurity.qml:50
+#, kde-format
+msgctxt "@option:check"
+msgid "Space members"
+msgstr "스페이스 구성원"
+
+#: src/qml/RoomSecurity.qml:51
+#, kde-format
+msgid "Anyone in a space can find and join."
+msgstr "스페이스에 등록된 누구나 찾고 등록할 수 있습니다."
+
+#: src/qml/RoomSecurity.qml:60
+#, kde-format
+msgctxt "@option:check"
+msgid "Knock"
+msgstr "노크"
+
+#: src/qml/RoomSecurity.qml:61
+#, kde-format
+msgid "People not in the room need to request an invite to join the room."
+msgstr "대화방에 없었던 사람이 입장하려면 초대를 요청해야 합니다."
+
+#: src/qml/RoomSecurity.qml:71
+#, kde-format
+msgctxt "@option:check"
+msgid "Public"
+msgstr "공개"
+
+#: src/qml/RoomSecurity.qml:72
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone can find and join."
+msgstr "누구나 찾고 등록할 수 있습니다."
+
+#: src/qml/RoomSecurity.qml:82
+#, kde-format
+msgctxt "@option:check"
+msgid "Message history visibility"
+msgstr "메시지 과거 기록 표시 여부"
+
+#: src/qml/RoomSecurity.qml:86
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone"
+msgstr "누구나"
+
+#: src/qml/RoomSecurity.qml:87
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone, regardless of whether they have joined, can view history."
+msgstr "참여 여부에 관계 없이 누구나 과거 기록을 볼 수 있습니다."
+
+#: src/qml/RoomSecurity.qml:95
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only"
+msgstr "구성원만"
+
+#: src/qml/RoomSecurity.qml:96
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"All members can view the entire message history, even before they joined."
+msgstr "모든 구성원은 참여 이전의 과거 기록 전체를 볼 수 있습니다."
+
+#: src/qml/RoomSecurity.qml:104
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since invite)"
+msgstr "구성원만(초대 이후)"
+
+#: src/qml/RoomSecurity.qml:105
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they were invited to "
+"the room."
+msgstr ""
+"새 구성원은 대화방에 초대된 시점 이후의 메시지 과거 기록을 볼 수 있습니다."
+
+#: src/qml/RoomSecurity.qml:113
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since joining)"
+msgstr "구성원만(입장 이후)"
+
+#: src/qml/RoomSecurity.qml:114
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they joined the room."
+msgstr ""
+"새 구성원은 대화방에 입장한 시점 이후의 메시지 과거 기록을 볼 수 있습니다."
+
 #: src/qml/SearchPage.qml:18
 #, kde-format
 msgctxt "@action:title"
@@ -3531,140 +3665,6 @@ msgstr "검색을 시작하려면 텍스트를 입력하십시오"
 #, kde-format
 msgid "No results found"
 msgstr "결과 없음"
-
-#: src/qml/Security.qml:15
-#, kde-format
-msgid ""
-"You need to upgrade this room to a newer version to enable this setting."
-msgstr "이 설정을 활성화하려면 대화방을 새로운 버전으로 업그레이드해야 합니다."
-
-#: src/qml/Security.qml:20
-#, kde-format
-msgctxt "@option:check"
-msgid "Encryption"
-msgstr "암호화"
-
-#: src/qml/Security.qml:25
-#, kde-format
-msgid "Enable encryption"
-msgstr "암호화 활성화"
-
-#: src/qml/Security.qml:26
-#, kde-format
-msgctxt "option:check"
-msgid "Once enabled, encryption cannot be disabled."
-msgstr "한 번 활성화하면 비활성화할 수 없습니다."
-
-#: src/qml/Security.qml:37
-#, kde-format
-msgctxt "@option:check"
-msgid "Access"
-msgstr "접근"
-
-#: src/qml/Security.qml:41
-#, kde-format
-msgctxt "@option:check"
-msgid "Private (invite only)"
-msgstr "비밀(초대만)"
-
-#: src/qml/Security.qml:42
-#, kde-format
-msgid "Only invited people can join."
-msgstr "초대받은 사람만 입장할 수 있습니다."
-
-#: src/qml/Security.qml:50
-#, kde-format
-msgctxt "@option:check"
-msgid "Space members"
-msgstr "스페이스 구성원"
-
-#: src/qml/Security.qml:51
-#, kde-format
-msgid "Anyone in a space can find and join."
-msgstr "스페이스에 등록된 누구나 찾고 등록할 수 있습니다."
-
-#: src/qml/Security.qml:60
-#, kde-format
-msgctxt "@option:check"
-msgid "Knock"
-msgstr "노크"
-
-#: src/qml/Security.qml:61
-#, kde-format
-msgid "People not in the room need to request an invite to join the room."
-msgstr "대화방에 없었던 사람이 입장하려면 초대를 요청해야 합니다."
-
-#: src/qml/Security.qml:71
-#, kde-format
-msgctxt "@option:check"
-msgid "Public"
-msgstr "공개"
-
-#: src/qml/Security.qml:72
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone can find and join."
-msgstr "누구나 찾고 등록할 수 있습니다."
-
-#: src/qml/Security.qml:82
-#, kde-format
-msgctxt "@option:check"
-msgid "Message history visibility"
-msgstr "메시지 과거 기록 표시 여부"
-
-#: src/qml/Security.qml:86
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone"
-msgstr "누구나"
-
-#: src/qml/Security.qml:87
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone, regardless of whether they have joined, can view history."
-msgstr "참여 여부에 관계 없이 누구나 과거 기록을 볼 수 있습니다."
-
-#: src/qml/Security.qml:95
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only"
-msgstr "구성원만"
-
-#: src/qml/Security.qml:96
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"All members can view the entire message history, even before they joined."
-msgstr "모든 구성원은 참여 이전의 과거 기록 전체를 볼 수 있습니다."
-
-#: src/qml/Security.qml:104
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only (since invite)"
-msgstr "구성원만(초대 이후)"
-
-#: src/qml/Security.qml:105
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"New members can view the message history from the point they were invited to "
-"the room."
-msgstr ""
-"새 구성원은 대화방에 초대된 시점 이후의 메시지 과거 기록을 볼 수 있습니다."
-
-#: src/qml/Security.qml:113
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only (since joining)"
-msgstr "구성원만(입장 이후)"
-
-#: src/qml/Security.qml:114
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"New members can view the message history from the point they joined the room."
-msgstr ""
-"새 구성원은 대화방에 입장한 시점 이후의 메시지 과거 기록을 볼 수 있습니다."
 
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
