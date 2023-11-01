@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:39+0000\n"
+"POT-Creation-Date: 2023-11-01 01:40+0000\n"
 "PO-Revision-Date: 2023-08-26 18:43+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -17,67 +17,67 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:202
+#: src/controller.cpp:199
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Kirjautuminen epäonnistui: pääsymerkki on virheellinen tai peruttu"
 
-#: src/controller.cpp:205 src/controller.cpp:210 src/login.cpp:93
+#: src/controller.cpp:202 src/controller.cpp:207 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Kirjautuminen epäonnistui: %1"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:213
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Verkkovirhe: %1"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:238
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Pääsymerkkiä ei löytynyt"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:238
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Se on ehkä poistettu?"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:242
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Pääsymerkin käyttö estettiin."
 
-#: src/controller.cpp:245
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Salli NeoChatin lukea pääsymerkki"
 
-#: src/controller.cpp:248
+#: src/controller.cpp:245
 #, kde-format
 msgid "No keychain available."
 msgstr "Avainrenkaita ei ole saatavilla."
 
-#: src/controller.cpp:248
+#: src/controller.cpp:245
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Asenna avainrengas, esim. Linuxissa KWallet tai Gnomen avainrengas"
 
-#: src/controller.cpp:251
+#: src/controller.cpp:248
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Saantimerkkiä ei voida lukea"
 
-#: src/controller.cpp:347
+#: src/controller.cpp:344
 #, kde-format
 msgid "File too large to download."
 msgstr "Liian iso tiedosto ladattavaksi."
 
-#: src/controller.cpp:347
+#: src/controller.cpp:344
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Tee tukipyyntö Matrix-palvelimesi ylläpitoon."
 
-#: src/controller.cpp:377
+#: src/controller.cpp:374
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Yrität liittyä huoneeseen, jonka tunniste ei ole kelvollinen"
@@ -1047,12 +1047,12 @@ msgstr "Vähäinen etusijaisuus"
 msgid "Spaces"
 msgstr "Välilyönnit"
 
-#: src/neochatconnection.cpp:184
+#: src/neochatconnection.cpp:185
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Huoneen luominen epäonnistui: %1"
 
-#: src/neochatconnection.cpp:216
+#: src/neochatconnection.cpp:217
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
@@ -1261,7 +1261,7 @@ msgid "Configure"
 msgstr "Asetukset"
 
 #: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
-#: src/qml/SettingsPage.qml:69
+#: src/qml/SettingsPage.qml:80
 #, kde-format
 msgid "Devices"
 msgstr "Laitteet"
@@ -1272,7 +1272,7 @@ msgid "Logout"
 msgstr "Kirjaudu ulos"
 
 #: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
-#: src/qml/SettingsPage.qml:38
+#: src/qml/SettingsPage.qml:49
 #, kde-format
 msgid "Accounts"
 msgstr "Tilit"
@@ -1413,6 +1413,7 @@ msgid "General"
 msgstr "Perusasetukset"
 
 #: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
+#: src/qml/SettingsPage.qml:38
 #, kde-format
 msgid "Security"
 msgstr "Tietoturva"
@@ -2002,7 +2003,7 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "Tarrat ja emojit"
 
-#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:196
+#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:197
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -2043,14 +2044,14 @@ msgstr "Luo tila"
 msgid "Create rooms and chats"
 msgstr "Luo huoneita ja keskusteluja"
 
-#: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
+#: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Lataa"
 
-#: src/qml/FileDelegate.qml:92 src/qml/FileDelegate.qml:158
+#: src/qml/FileDelegate.qml:93 src/qml/FileDelegate.qml:159
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2058,13 +2059,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
-#: src/qml/FileDelegate.qml:107
+#: src/qml/FileDelegate.qml:108
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/FileDelegate.qml:112
+#: src/qml/FileDelegate.qml:113
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -2998,7 +2999,7 @@ msgstr "Peru muokkaus"
 msgid "Event Source"
 msgstr "Tapahtumalähde"
 
-#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:63
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:74
 #, kde-format
 msgid "Network Proxy"
 msgstr "Välityspalvelin"
@@ -3718,6 +3719,38 @@ msgstr "Aloita haku kirjoittamalla tekstiä"
 msgid "No results found"
 msgstr "Ei hakutuloksia"
 
+#: src/qml/Security.qml:17
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security"
+msgstr "Tietoturva"
+
+#: src/qml/Security.qml:20
+#, kde-format
+msgctxt "@title"
+msgid "Keys"
+msgstr ""
+
+#: src/qml/Security.qml:25
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "Device key"
+msgstr "Laitteet"
+
+#: src/qml/Security.qml:29
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgid "Encryption key"
+msgstr "Salaus"
+
+#: src/qml/Security.qml:33
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "Device id"
+msgstr "Laitteet"
+
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
@@ -3780,22 +3813,22 @@ msgstr "Huoneen saatavilla olevat versiot"
 msgid "Appearance"
 msgstr "Ulkoasu"
 
-#: src/qml/SettingsPage.qml:44
+#: src/qml/SettingsPage.qml:55
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Tarrat ja emojit"
 
-#: src/qml/SettingsPage.qml:56
+#: src/qml/SettingsPage.qml:67
 #, kde-format
 msgid "Spell Checking"
 msgstr "Oikeinkirjoituksen tarkistus"
 
-#: src/qml/SettingsPage.qml:80
+#: src/qml/SettingsPage.qml:91
 #, kde-format
 msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
 
-#: src/qml/SettingsPage.qml:86
+#: src/qml/SettingsPage.qml:97
 #, kde-format
 msgid "About KDE"
 msgstr "Tietoa KDE:stä"
@@ -4320,18 +4353,18 @@ msgstr "Etäosapuoli perui istunnon todennuksen, koska avaimet eivät täsmää.
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Istunnon todennus peruttiin tuntemattomasta syystä."
 
-#: src/qml/VideoDelegate.qml:141
+#: src/qml/VideoDelegate.qml:142
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/VideoDelegate.qml:205
+#: src/qml/VideoDelegate.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Äänenvoimakkuus"
 
-#: src/qml/VideoDelegate.qml:289
+#: src/qml/VideoDelegate.qml:290
 #, kde-format
 msgid "Maximize"
 msgstr "Suurenna"

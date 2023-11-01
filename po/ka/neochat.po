@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:39+0000\n"
+"POT-Creation-Date: 2023-11-01 01:40+0000\n"
 "PO-Revision-Date: 2023-10-22 06:43+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,67 +18,67 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4\n"
 
-#: src/controller.cpp:202
+#: src/controller.cpp:199
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "შესვლის შეცდომა: წვდომის კოდი არასწორი ან გაუქმებულია"
 
-#: src/controller.cpp:205 src/controller.cpp:210 src/login.cpp:93
+#: src/controller.cpp:202 src/controller.cpp:207 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "შესვლის შეცდომა: %1"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:213
 #, kde-format
 msgid "Network Error: %1"
 msgstr "ქსელის შეცდომა: %1"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:238
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "წვდომის კოდი ვერ ვიპოვე"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:238
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "შეიძლება წაშლილია?"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:242
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "ბრელოკთან წვდომა აკრძალულია."
 
-#: src/controller.cpp:245
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "მიეცით უფლება NeoChat-ს, წვდომის კოდი წაიკითხოს"
 
-#: src/controller.cpp:248
+#: src/controller.cpp:245
 #, kde-format
 msgid "No keychain available."
 msgstr "ბრელოკი მიუწვდომელია."
 
-#: src/controller.cpp:248
+#: src/controller.cpp:245
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "დააყენეთ ბრელოკი, მაგალითად, ლინუქსზე KWallet ან GNOME Keyring"
 
-#: src/controller.cpp:251
+#: src/controller.cpp:248
 #, kde-format
 msgid "Unable to read access token"
 msgstr "წვდომის კოდის წაკითხვის შეცდომა"
 
-#: src/controller.cpp:347
+#: src/controller.cpp:344
 #, kde-format
 msgid "File too large to download."
 msgstr "ფაილი გადმოსაწერად ძალიან დიდია."
 
-#: src/controller.cpp:347
+#: src/controller.cpp:344
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "მხარდაჭერისთვის დაუკავშირდით თქვენი მატრიქსის სერვერის ადმინისტრატორს."
 
-#: src/controller.cpp:377
+#: src/controller.cpp:374
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
@@ -1048,12 +1048,12 @@ msgstr "დაბალი პრიორიტეტი"
 msgid "Spaces"
 msgstr "სივრცეები"
 
-#: src/neochatconnection.cpp:184
+#: src/neochatconnection.cpp:185
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/neochatconnection.cpp:216
+#: src/neochatconnection.cpp:217
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
@@ -1258,7 +1258,7 @@ msgid "Configure"
 msgstr "მორგება"
 
 #: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
-#: src/qml/SettingsPage.qml:69
+#: src/qml/SettingsPage.qml:80
 #, kde-format
 msgid "Devices"
 msgstr "მოწყობილობები"
@@ -1269,7 +1269,7 @@ msgid "Logout"
 msgstr "გასვლა"
 
 #: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
-#: src/qml/SettingsPage.qml:38
+#: src/qml/SettingsPage.qml:49
 #, kde-format
 msgid "Accounts"
 msgstr "ანგარიშები"
@@ -1410,6 +1410,7 @@ msgid "General"
 msgstr "ზოგადი"
 
 #: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
+#: src/qml/SettingsPage.qml:38
 #, kde-format
 msgid "Security"
 msgstr "უსაფრთხოება"
@@ -1990,7 +1991,7 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "ემოჯიები და სტიკერები"
 
-#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:196
+#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:197
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -2031,14 +2032,14 @@ msgstr "სივრცის შექმნა"
 msgid "Create rooms and chats"
 msgstr "ჩატებისა და ოთახების შექმნა"
 
-#: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
+#: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "ჩამოტვირთვა"
 
-#: src/qml/FileDelegate.qml:92 src/qml/FileDelegate.qml:158
+#: src/qml/FileDelegate.qml:93 src/qml/FileDelegate.qml:159
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2046,13 +2047,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
-#: src/qml/FileDelegate.qml:107
+#: src/qml/FileDelegate.qml:108
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/FileDelegate.qml:112
+#: src/qml/FileDelegate.qml:113
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -2962,7 +2963,7 @@ msgstr "ჩასწორების გაუქმება"
 msgid "Event Source"
 msgstr "მოვლენის წყარო"
 
-#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:63
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:74
 #, kde-format
 msgid "Network Proxy"
 msgstr "ქსელის პროქსი"
@@ -3676,6 +3677,38 @@ msgstr "ძებნის დასაწყებად შეიყვან�
 msgid "No results found"
 msgstr "შედეგების გარეშე"
 
+#: src/qml/Security.qml:17
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security"
+msgstr "უსაფრთხოება"
+
+#: src/qml/Security.qml:20
+#, kde-format
+msgctxt "@title"
+msgid "Keys"
+msgstr ""
+
+#: src/qml/Security.qml:25
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "Device key"
+msgstr "მოწყობილობები"
+
+#: src/qml/Security.qml:29
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgid "Encryption key"
+msgstr "დაშიფვრა"
+
+#: src/qml/Security.qml:33
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "Device id"
+msgstr "მოწყობილობები"
+
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
 msgctxt "@title"
@@ -3735,22 +3768,22 @@ msgstr "ხელმისაწვდომი ოთახის ვერს�
 msgid "Appearance"
 msgstr "გარემოს იერსახე"
 
-#: src/qml/SettingsPage.qml:44
+#: src/qml/SettingsPage.qml:55
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "ემოჯიები და სტიკერები"
 
-#: src/qml/SettingsPage.qml:56
+#: src/qml/SettingsPage.qml:67
 #, kde-format
 msgid "Spell Checking"
 msgstr "მართლწერის შემოწმება"
 
-#: src/qml/SettingsPage.qml:80
+#: src/qml/SettingsPage.qml:91
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat-ს შესახებ"
 
-#: src/qml/SettingsPage.qml:86
+#: src/qml/SettingsPage.qml:97
 #, kde-format
 msgid "About KDE"
 msgstr "KDE-ს შესახებ"
@@ -4256,18 +4289,18 @@ msgstr "დაშორებულმა სესიის გადამო�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "სესიის გადამოწმება უცნობი შეცდომის გამო გაუქმდა."
 
-#: src/qml/VideoDelegate.qml:141
+#: src/qml/VideoDelegate.qml:142
 #, kde-format
 msgid "Video"
 msgstr "ვიდეო"
 
-#: src/qml/VideoDelegate.qml:205
+#: src/qml/VideoDelegate.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "ხმის სიმაღლე"
 
-#: src/qml/VideoDelegate.qml:289
+#: src/qml/VideoDelegate.qml:290
 #, kde-format
 msgid "Maximize"
 msgstr "გადიდება"

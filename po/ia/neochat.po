@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:39+0000\n"
+"POT-Creation-Date: 2023-11-01 01:40+0000\n"
 "PO-Revision-Date: 2023-10-22 17:21+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -18,68 +18,68 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: src/controller.cpp:202
+#: src/controller.cpp:199
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Accesso falleva: indicio (token) de accesso invalide o revocate"
 
-#: src/controller.cpp:205 src/controller.cpp:210 src/login.cpp:93
+#: src/controller.cpp:202 src/controller.cpp:207 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Accesso falleva: %1"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:213
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Error de rete: %1"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:238
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Indicio de accesso non esseva trovate"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:238
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Forsan il esseva delite?"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:242
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Accesso a portaclave (keychain) esseva negate"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Pro favor tu permitte que NeoCht pote leger le indicio de accesso"
 
-#: src/controller.cpp:248
+#: src/controller.cpp:245
 #, kde-format
 msgid "No keychain available."
 msgstr "Nulle portaclaves disponibile"
 
-#: src/controller.cpp:248
+#: src/controller.cpp:245
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Pro favor tu installa un portaclave, p.ex. KWallet oGNOMe keyring sur Linux"
 
-#: src/controller.cpp:251
+#: src/controller.cpp:248
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Incapace a leger indicio"
 
-#: src/controller.cpp:347
+#: src/controller.cpp:344
 #, kde-format
 msgid "File too large to download."
 msgstr "File troppo grande a discargar."
 
-#: src/controller.cpp:347
+#: src/controller.cpp:344
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Continge tu administrator de servitor de matrix per supporto."
 
-#: src/controller.cpp:377
+#: src/controller.cpp:374
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Iste id de sala que tu es essayante a unir non es valid"
@@ -1050,12 +1050,12 @@ msgstr "Basse prioritate"
 msgid "Spaces"
 msgstr "Spatios"
 
-#: src/neochatconnection.cpp:184
+#: src/neochatconnection.cpp:185
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creation de sala falleva: \"%1\""
 
-#: src/neochatconnection.cpp:216
+#: src/neochatconnection.cpp:217
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creation de spatio falleva: \"%1\""
@@ -1260,7 +1260,7 @@ msgid "Configure"
 msgstr "Configura"
 
 #: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
-#: src/qml/SettingsPage.qml:69
+#: src/qml/SettingsPage.qml:80
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
@@ -1271,7 +1271,7 @@ msgid "Logout"
 msgstr "Clausura de session"
 
 #: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
-#: src/qml/SettingsPage.qml:38
+#: src/qml/SettingsPage.qml:49
 #, kde-format
 msgid "Accounts"
 msgstr "Contos"
@@ -1414,6 +1414,7 @@ msgid "General"
 msgstr "General"
 
 #: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
+#: src/qml/SettingsPage.qml:38
 #, kde-format
 msgid "Security"
 msgstr "Securitate"
@@ -1998,7 +1999,7 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "Etiquettas Gummate (Stickers) & Emoji"
 
-#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:196
+#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:197
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -2039,14 +2040,14 @@ msgstr "Crea un  spatio"
 msgid "Create rooms and chats"
 msgstr "Crea salas e conversationes"
 
-#: src/qml/FileDelegate.qml:76 src/qml/FileDelegate.qml:167
+#: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Discarga"
 
-#: src/qml/FileDelegate.qml:92 src/qml/FileDelegate.qml:158
+#: src/qml/FileDelegate.qml:93 src/qml/FileDelegate.qml:159
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2054,13 +2055,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Aperi file"
 
-#: src/qml/FileDelegate.qml:107
+#: src/qml/FileDelegate.qml:108
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/FileDelegate.qml:112
+#: src/qml/FileDelegate.qml:113
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -2973,7 +2974,7 @@ msgstr "Cancella modificar"
 msgid "Event Source"
 msgstr "Fonte de evento"
 
-#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:63
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:74
 #, kde-format
 msgid "Network Proxy"
 msgstr "Proxy de rete"
@@ -3690,6 +3691,38 @@ msgstr "Inserta un texto per initiar a cercar"
 msgid "No results found"
 msgstr "Necun resultatos trovate"
 
+#: src/qml/Security.qml:17
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security"
+msgstr "Securitate"
+
+#: src/qml/Security.qml:20
+#, kde-format
+msgctxt "@title"
+msgid "Keys"
+msgstr ""
+
+#: src/qml/Security.qml:25
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "Device key"
+msgstr "Dispositivos"
+
+#: src/qml/Security.qml:29
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgid "Encryption key"
+msgstr "Encryption"
+
+#: src/qml/Security.qml:33
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "Device id"
+msgstr "Dispositivos"
+
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
 msgctxt "@title"
@@ -3750,22 +3783,22 @@ msgstr "Version de sala disponibile"
 msgid "Appearance"
 msgstr "Apparentia"
 
-#: src/qml/SettingsPage.qml:44
+#: src/qml/SettingsPage.qml:55
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Etiquettas Gummate (Stickers) & Emoji"
 
-#: src/qml/SettingsPage.qml:56
+#: src/qml/SettingsPage.qml:67
 #, kde-format
 msgid "Spell Checking"
 msgstr "Controlo Orthographic"
 
-#: src/qml/SettingsPage.qml:80
+#: src/qml/SettingsPage.qml:91
 #, kde-format
 msgid "About NeoChat"
 msgstr "A proposito de NeoChat"
 
-#: src/qml/SettingsPage.qml:86
+#: src/qml/SettingsPage.qml:97
 #, kde-format
 msgid "About KDE"
 msgstr "A proposito de KDE"
@@ -4291,18 +4324,18 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "Le verification de session esseva cancellate debite a un error incognite."
 
-#: src/qml/VideoDelegate.qml:141
+#: src/qml/VideoDelegate.qml:142
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/VideoDelegate.qml:205
+#: src/qml/VideoDelegate.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volumine"
 
-#: src/qml/VideoDelegate.qml:289
+#: src/qml/VideoDelegate.qml:290
 #, kde-format
 msgid "Maximize"
 msgstr "Maximiza"
