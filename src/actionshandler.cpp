@@ -75,7 +75,7 @@ QString ActionsHandler::handleMentions(QString handledText, QList<Mention> *ment
         }
         handledText = handledText.replace(mention.cursor.anchor(),
                                           mention.cursor.position() - mention.cursor.anchor(),
-                                          QStringLiteral("[%1](https://matrix.to/#/%2)").arg(mention.text, mention.id));
+                                          QStringLiteral("[%1](https://matrix.to/#/%2)").arg(mention.text.toHtmlEscaped(), mention.id));
     }
     mentions->clear();
 
