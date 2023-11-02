@@ -34,7 +34,7 @@ Components.AbstractMaximizeComponent {
     ]
 
     content: MapView {
-        id: map
+        id: mapView
         map.plugin: Plugin {
             name: "osm"
             PluginParameter {
@@ -50,7 +50,7 @@ Components.AbstractMaximizeComponent {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                root.location = map.toCoordinate(Qt.point(mouseX, mouseY), false)
+                root.location = mapView.map.toCoordinate(Qt.point(mouseX, mouseY), false)
             }
         }
 
