@@ -173,3 +173,5 @@ void ChatBarCache::setSavedText(const QString &savedText)
 {
     m_savedText = savedText;
 }
+
+#include "moc_chatbarcache.cpp"
