@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import Qt.labs.qmlmodels
 import QtQuick.Window
 
+import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels
 
@@ -150,7 +151,7 @@ QQC2.ScrollView {
             connection: root.connection
         }
 
-        QQC2.RoundButton {
+        KirigamiComponents.FloatingButton {
             id: goReadMarkerFab
 
             anchors.right: parent.right
@@ -177,7 +178,7 @@ QQC2.ScrollView {
                 text: i18n("Jump to first unread message")
             }
         }
-        QQC2.RoundButton {
+        KirigamiComponents.FloatingButton {
             id: goMarkAsReadFab
             anchors.right: parent.right
             anchors.bottom: parent.bottom
