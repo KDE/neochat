@@ -78,15 +78,10 @@ Item {
     implicitWidth: mainLayout.implicitWidth
     implicitHeight: mainLayout.implicitHeight
 
-    GridLayout {
+    RowLayout {
         id: mainLayout
         anchors.fill: parent
-        implicitHeight: Math.max(replyAvatar.implicitHeight, replyName.implicitHeight) + loader.height
-
-        rows: 2
-        columns: 3
-        rowSpacing: Kirigami.Units.smallSpacing
-        columnSpacing: Kirigami.Units.largeSpacing
+        spacing: Kirigami.Units.largeSpacing
 
         Rectangle {
             id: verticalBorder
@@ -97,47 +92,55 @@ Item {
             implicitWidth: Kirigami.Units.smallSpacing
             color: root.author.color
         }
-        KirigamiComponents.Avatar {
-            id: replyAvatar
+        ColumnLayout {
+            spacing: Kirigami.Units.smallSpacing
 
-            implicitWidth: Kirigami.Units.iconSizes.small
-            implicitHeight: Kirigami.Units.iconSizes.small
+            RowLayout {
+                spacing: Kirigami.Units.largeSpacing
 
-            source: root.author.avatarSource
-            name: root.author.displayName
-            color: root.author.color
-        }
-        QQC2.Label {
-            id: replyName
-            Layout.fillWidth: true
+                KirigamiComponents.Avatar {
+                    id: replyAvatar
 
-            color: root.author.color
-            text: root.author.displayName
-            elide: Text.ElideRight
-        }
-        Loader {
-            id: loader
+                    implicitWidth: Kirigami.Units.iconSizes.small
+                    implicitHeight: Kirigami.Units.iconSizes.small
 
-            Layout.fillWidth: true
-            Layout.maximumHeight: loader.item && (root.type == DelegateType.Image || root.type == DelegateType.Sticker) ? loader.item.height : loader.item.implicitHeight
-            Layout.columnSpan: 2
+                    source: root.author.avatarSource
+                    name: root.author.displayName
+                    color: root.author.color
+                }
+                QQC2.Label {
+                    id: replyName
+                    Layout.fillWidth: true
 
-            sourceComponent: {
-                switch (root.type) {
-                    case DelegateType.Image:
-                    case DelegateType.Sticker:
-                        return imageComponent;
-                    case DelegateType.Message:
-                    case DelegateType.Notice:
-                        return textComponent;
-                    case DelegateType.File:
-                    case DelegateType.Video:
-                    case DelegateType.Audio:
-                        return mimeComponent;
-                    case DelegateType.Encrypted:
-                        return encryptedComponent;
-                    default:
-                        return textComponent;
+                    color: root.author.color
+                    text: root.author.displayName
+                    elide: Text.ElideRight
+                }
+            }
+            Loader {
+                id: loader
+
+                Layout.fillWidth: true
+                Layout.maximumHeight: loader.item && (root.type == DelegateType.Image || root.type == DelegateType.Sticker) ? loader.item.height : loader.item.implicitHeight
+                Layout.columnSpan: 2
+
+                sourceComponent: {
+                    switch (root.type) {
+                        case DelegateType.Image:
+                        case DelegateType.Sticker:
+                            return imageComponent;
+                        case DelegateType.Message:
+                        case DelegateType.Notice:
+                            return textComponent;
+                        case DelegateType.File:
+                        case DelegateType.Video:
+                        case DelegateType.Audio:
+                            return mimeComponent;
+                        case DelegateType.Encrypted:
+                            return encryptedComponent;
+                        default:
+                            return textComponent;
+                    }
                 }
             }
         }
