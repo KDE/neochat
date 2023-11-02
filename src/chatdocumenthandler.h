@@ -63,14 +63,6 @@ class ChatDocumentHandler : public QObject
     QML_ELEMENT
 
     /**
-     * @brief Is the instance being used to handle an edit message.
-     *
-     * This is needed to ensure that the text and mentions are saved and retrieved
-     * from the correct parameters in the assigned room.
-     */
-    Q_PROPERTY(bool isEdit READ isEdit WRITE setIsEdit NOTIFY isEditChanged)
-
-    /**
      * @brief The QQuickTextDocument that is being handled.
      */
     Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
@@ -121,9 +113,6 @@ class ChatDocumentHandler : public QObject
 public:
     explicit ChatDocumentHandler(QObject *parent = nullptr);
 
-    [[nodiscard]] bool isEdit() const;
-    void setIsEdit(bool edit);
-
     [[nodiscard]] QQuickTextDocument *document() const;
     void setDocument(QQuickTextDocument *document);
 
@@ -154,7 +143,6 @@ public:
     void setErrorColor(const QColor &color);
 
 Q_SIGNALS:
-    void isEditChanged();
     void documentChanged();
     void cursorPositionChanged();
     void roomChanged();
@@ -167,8 +155,6 @@ Q_SIGNALS:
 
 private:
     int completionStartIndex() const;
-
-    bool m_isEdit = false;
 
     QPointer<QQuickTextDocument> m_document;
 

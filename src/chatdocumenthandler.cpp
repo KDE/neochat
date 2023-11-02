@@ -148,20 +148,6 @@ int ChatDocumentHandler::completionStartIndex() const
     return start;
 }
 
-bool ChatDocumentHandler::isEdit() const
-{
-    return m_isEdit;
-}
-
-void ChatDocumentHandler::setIsEdit(bool edit)
-{
-    if (edit == m_isEdit) {
-        return;
-    }
-    m_isEdit = edit;
-    Q_EMIT isEditChanged();
-}
-
 QQuickTextDocument *ChatDocumentHandler::document() const
 {
     return m_document;

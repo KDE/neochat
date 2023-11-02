@@ -129,7 +129,6 @@ QQC2.TextArea {
 
     ChatDocumentHandler {
         id: documentHandler
-        isEdit: true
         document: root.textDocument
         cursorPosition: root.cursorPosition
         selectionStart: root.selectionStart
