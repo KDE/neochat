@@ -31,7 +31,15 @@ Kirigami.ApplicationWindow {
     wideScreen: width > columnWidth * 5
 
     pageStack {
-        initialPage: LoadingPage {}
+        initialPage: WelcomePage {
+            showExisting: true
+            onConnectionChosen: {
+                pageStack.replace(roomListComponent);
+                roomListLoaded = true;
+                roomListPage = pageStack.currentItem
+                RoomManager.loadInitialRoom();
+            }
+        }
         globalToolBar.canContainHandles: true
         defaultColumnWidth: roomListPage ? roomListPage.currentWidth : 0
         globalToolBar {
@@ -45,6 +53,16 @@ Kirigami.ApplicationWindow {
         MatrixImageProvider.connection = root.connection
         RoomManager.connection = root.connection
         SpaceHierarchyCache.connection = root.connection
+    }
+
+    Connections {
+        target: LoginHelper
+        function onLoaded() {
+            pageStack.replace(roomListComponent);
+            roomListLoaded = true;
+            roomListPage = pageStack.currentItem
+            RoomManager.loadInitialRoom();
+        }
     }
 
     Connections {
@@ -278,17 +296,6 @@ Kirigami.ApplicationWindow {
 
     Connections {
         target: Controller
-
-        function onInitiated() {
-            if (AccountRegistry.accountCount === 0) {
-                pageStack.replace("qrc:/org/kde/neochat/qml/WelcomePage.qml", {});
-            } else if (!roomListLoaded) {
-                pageStack.replace(roomListComponent);
-                roomListLoaded = true;
-                roomListPage = pageStack.currentItem
-                RoomManager.loadInitialRoom();
-            }
-        }
 
         function onGlobalErrorOccured(error, detail) {
             showPassiveNotification(i18n("%1: %2", error, detail));

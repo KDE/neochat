@@ -167,6 +167,8 @@ void Controller::invokeLogin()
     QString id = NeoChatConfig::self()->activeConnection();
     for (const auto &accountId : accounts) {
         AccountSettings account{accountId};
+        m_accountsLoading += accountId;
+        Q_EMIT accountsLoadingChanged();
         if (id.isEmpty()) {
             // handle case where the account config is empty
             id = accountId;
@@ -186,6 +188,8 @@ void Controller::invokeLogin()
                 connect(connection, &NeoChatConnection::connected, this, [this, connection, id] {
                     connection->loadState();
                     addConnection(connection);
+                    m_accountsLoading.removeAll(connection->userId());
+                    Q_EMIT accountsLoadingChanged();
                     if (connection->userId() == id) {
                         setActiveConnection(connection);
                         connectSingleShot(connection, &NeoChatConnection::syncDone, this, &Controller::initiated);

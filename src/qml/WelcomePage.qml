@@ -14,7 +14,12 @@ import org.kde.neochat.accounts
 FormCard.FormCardPage {
     id: root
 
+    property bool showExisting: false
+    property bool _showExisting: showExisting && module.source == root.initialStep
     property alias currentStep: module.item
+    property string initialStep: "qrc:/org/kde/neochat/qml/LoginRegister.qml"
+
+    signal connectionChosen
 
     title: i18n("Welcome")
 
@@ -42,17 +47,47 @@ FormCard.FormCardPage {
 
         FormCard.FormTextDelegate {
             id: welcomeMessage
-            text: AccountRegistry.accountCount > 0 ? i18n("Log in to a different account or create a new account.") : i18n("Welcome to NeoChat! Continue by logging in or creating a new account.")
+            text: i18n("Welcome to NeoChat")
         }
+    }
 
-        FormCard.FormDelegateSeparator {
-            above: welcomeMessage
+    FormCard.FormHeader {
+        id: existingAccountsHeader
+        title: i18nc("@title", "Continue with an existing account")
+        visible: (loadedAccounts.count > 0 || loadingAccounts.count > 0) && root._showExisting
+    }
+
+    FormCard.FormCard {
+        visible: existingAccountsHeader.visible
+        Repeater {
+            id: loadedAccounts
+            model: AccountRegistry
+            delegate: FormCard.FormButtonDelegate {
+                text: model.userId
+                onClicked: {
+                    Controller.activeConnection = model.connection
+                    root.connectionChosen()
+                }
+            }
         }
+        Repeater {
+            id: loadingAccounts
+            model: Controller.accountsLoading
+            delegate: FormCard.FormButtonDelegate {
+                text: i18nc("As in 'this account is still loading'", "%1 (loading)", modelData)
+                enabled: false
+            }
+        }
+    }
 
+    FormCard.FormHeader {
+        title: i18nc("@title", "Log in or Create a New Account")
+    }
+    FormCard.FormCard {
         Loader {
             id: module
             Layout.fillWidth: true
-            source: "qrc:/org/kde/neochat/qml/LoginRegister.qml"
+            source: root.initialStep
 
             Connections {
                 id: stepConnections

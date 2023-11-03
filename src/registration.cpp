@@ -12,6 +12,7 @@
 #include <Quotient/settings.h>
 
 #include "controller.h"
+#include "login.h"
 
 #include <KLocalizedString>
 
@@ -113,6 +114,7 @@ void Registration::registerAccount()
                 Controller::instance().setActiveConnection(connection);
                 connectSingleShot(connection, &Connection::syncDone, this, []() {
                     Q_EMIT Controller::instance().initiated();
+                    Q_EMIT LoginHelper::instance().loaded();
                 });
                 m_connection = nullptr;
             });

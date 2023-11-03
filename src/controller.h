@@ -63,6 +63,8 @@ class Controller : public QObject
      */
     Q_PROPERTY(bool isFlatpak READ isFlatpak CONSTANT)
 
+    Q_PROPERTY(QStringList accountsLoading MEMBER m_accountsLoading NOTIFY accountsLoadingChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -140,6 +142,7 @@ private:
     QMap<Quotient::Room *, int> m_notificationCounts;
 
     Quotient::AccountRegistry m_accountRegistry;
+    QStringList m_accountsLoading;
 
 private Q_SLOTS:
     void invokeLogin();
@@ -162,6 +165,7 @@ Q_SIGNALS:
     void passwordStatus(Controller::PasswordStatus status);
     void userConsentRequired(QUrl url);
     void isOnlineChanged(bool isOnline);
+    void accountsLoadingChanged();
 
 public Q_SLOTS:
     void saveWindowGeometry();

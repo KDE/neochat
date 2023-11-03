@@ -79,7 +79,17 @@ class LoginHelper : public QObject
     Q_PROPERTY(bool isInvalidPassword READ isInvalidPassword NOTIFY isInvalidPasswordChanged)
 
 public:
-    explicit LoginHelper(QObject *parent = nullptr);
+    static LoginHelper &instance()
+    {
+        static LoginHelper _instance;
+        return _instance;
+    }
+
+    static LoginHelper *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
+    }
 
     Q_INVOKABLE void init();
 
@@ -125,6 +135,7 @@ Q_SIGNALS:
     void isLoggingInChanged();
     void isLoggedInChanged();
     void isInvalidPasswordChanged();
+    void loaded();
 
 private:
     void setHomeserverReachable(bool reachable);
@@ -141,4 +152,5 @@ private:
     bool m_isLoggingIn = false;
     bool m_isLoggedIn = false;
     bool m_invalidPassword = false;
+    explicit LoginHelper(QObject *parent = nullptr);
 };

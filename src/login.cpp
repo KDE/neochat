@@ -100,7 +100,8 @@ void LoginHelper::init()
         Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
     });
 
-    connectSingleShot(m_connection, &Connection::syncDone, this, []() {
+    connectSingleShot(m_connection, &Connection::syncDone, this, [this]() {
+        Q_EMIT loaded();
         Q_EMIT Controller::instance().initiated();
     });
 }
