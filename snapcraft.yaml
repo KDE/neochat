@@ -71,18 +71,6 @@ slots:
         interface: dbus
         name: org.kde.neochat
         bus: session
-    notifications:
-        interface: dbus
-        name: org.freedesktop.Notifications
-        bus: session
-    kwallet:
-        interface: dbus
-        name: org.kde.kwalletd5
-        bus: session
-    statusnotifierwatcher:
-        interface: dbus
-        name: org.kde.StatusNotifierWatcher
-        bus: session
 package-repositories:
 -   type: apt
     components:
