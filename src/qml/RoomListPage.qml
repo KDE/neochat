@@ -84,11 +84,9 @@ Kirigami.Page {
         goToPreviousRoomFiltered((item) => (item.visible && item.hasUnread));
     }
 
-    titleDelegate: ExploreComponent {
+    titleDelegate: Loader {
         Layout.fillWidth: true
-        desiredWidth: root.width - Kirigami.Units.largeSpacing
-        collapsed: root.collapsed
-        connection: root.connection
+        sourceComponent:  Kirigami.Settings.isMobile ? userInfo : exploreComponent
     }
 
     padding: 0
@@ -284,10 +282,9 @@ Kirigami.Page {
         }
     }
 
-    footer: UserInfo {
+    footer: Loader {
         width: parent.width
-        visible: !root.collapsed
-        connection: root.connection
+        sourceComponent: Kirigami.Settings.isMobile ? exploreComponentMobile : userInfoDesktop
     }
 
     MouseArea {
@@ -329,6 +326,43 @@ Kirigami.Page {
                 } else {
                     _private.currentWidth = tmpWidth;
                 }
+            }
+        }
+    }
+
+    Component {
+        id: userInfo
+        UserInfo {
+            visible: !root.collapsed
+            bottomEdge: false
+            connection: root.connection
+        }
+    }
+
+    Component {
+        id: userInfoDesktop
+        UserInfoDesktop {
+            visible: !root.collapsed
+            connection: root.connection
+        }
+    }
+
+    Component {
+        id: exploreComponent
+        ExploreComponent {
+            desiredWidth: root.width - Kirigami.Units.largeSpacing
+            collapsed: root.collapsed
+            connection: root.connection
+        }
+    }
+
+    Component {
+        id: exploreComponentMobile
+        ExploreComponentMobile {
+            connection: root.connection
+
+            onTextChanged: (newText) => {
+                sortFilterRoomListModel.filterText = newText
             }
         }
     }
