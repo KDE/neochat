@@ -40,6 +40,7 @@ private Q_SLOTS:
     void stripDisallowedTags();
     void stripDisallowedAttributes();
     void emptyCodeTags();
+    void formatBlockQuote();
 
     void sendSimpleStringCase();
     void sendSingleParaMarkup();
@@ -144,6 +145,16 @@ void TextHandlerTest::emptyCodeTags()
 
     QCOMPARE(testTextHandler.handleSendText(), testOutputString);
     QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+}
+
+void TextHandlerTest::formatBlockQuote()
+{
+    auto input = QStringLiteral("<blockquote>\n<p>Lorem Ispum</p>\n</blockquote>");
+    auto expectedOutput = QStringLiteral("<blockquote><table><tr><td>\u201CLorem Ispum\u201D</td></tr></table></blockquote>");
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(input);
+    QCOMPARE(testTextHandler.handleRecieveRichText(), expectedOutput);
 }
 
 void TextHandlerTest::sendSimpleStringCase()
@@ -458,8 +469,9 @@ void TextHandlerTest::receiveRichEdited_data()
     QTest::newRow("basic") << QStringLiteral("Edited") << QStringLiteral("Edited <span style=\"color:#000000\">(edited)</span>");
     QTest::newRow("multiple paragraphs") << QStringLiteral("<p>Edited</p>\n<p>Edited</p>")
                                          << QStringLiteral("<p>Edited</p>\n<p>Edited <span style=\"color:#000000\">(edited)</span></p>");
-    QTest::newRow("blockquote") << QStringLiteral("<blockquote>Edited</blockquote>")
-                                << QStringLiteral("<blockquote>Edited</blockquote><p> <span style=\"color:#000000\">(edited)</span></p>");
+    QTest::newRow("blockquote")
+        << QStringLiteral("<blockquote>Edited</blockquote>")
+        << QStringLiteral("<blockquote><table><tr><td>\u201CEdited\u201D</td></tr></table></blockquote><p> <span style=\"color:#000000\">(edited)</span></p>");
 }
 
 void TextHandlerTest::receiveRichEdited()
