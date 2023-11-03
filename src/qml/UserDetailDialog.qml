@@ -3,11 +3,13 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.prison
 
 import org.kde.neochat
 
@@ -40,6 +42,7 @@ Kirigami.Dialog {
             spacing: Kirigami.Units.largeSpacing
 
             KirigamiComponents.Avatar {
+                id: avatar
                 Layout.preferredWidth: Kirigami.Units.iconSizes.huge
                 Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
@@ -66,6 +69,31 @@ Kirigami.Dialog {
                     textFormat: TextEdit.PlainText
                     text: root.user.id
                 }
+            }
+            QQC2.AbstractButton {
+                Layout.minimumHeight: avatar.height * 0.75
+                Layout.maximumHeight: avatar.height * 1.5
+                contentItem: Barcode {
+                    id: barcode
+                    barcodeType: Barcode.QRCode
+                    content: "https://matrix.to/#/" + root.user.id
+                }
+
+                onClicked: {
+                    let map = qrMaximizeComponent.createObject(parent, {
+                        text: barcode.content,
+                        title: root.user.displayName,
+                        subtitle: root.user.id,
+                        avatarColor: root.user.color,
+                        avatarSource: root.user.avatarSource,
+                    });
+                    root.close()
+                    map.open()
+                }
+
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.text: barcode.content
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
 
@@ -205,6 +233,10 @@ Kirigami.Dialog {
                 }
             }
         }
+    }
+    Component {
+        id: qrMaximizeComponent
+        QrCodeMaximizeComponent {}
     }
 }
 

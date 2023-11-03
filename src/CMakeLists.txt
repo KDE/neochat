@@ -287,6 +287,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/RemoveChildDialog.qml
         qml/SelectParentDialog.qml
         qml/Security.qml
+        qml/QrCodeMaximizeComponent.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
