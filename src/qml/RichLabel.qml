@@ -67,6 +67,18 @@ table td {
     border: 1px solid black;
     padding: 3px;
 }
+blockquote {
+    margin: 0;
+}
+blockquote table {
+    width: 100%;
+    border-width: 0;
+    background-color:" + Kirigami.Theme.alternateBackgroundColor + ";
+}
+blockquote td {
+    width: 100%;
+    padding: " + Kirigami.Units.largeSpacing + ";
+}
 pre {
     white-space: pre-wrap
 }

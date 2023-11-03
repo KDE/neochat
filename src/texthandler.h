@@ -19,6 +19,8 @@ static const QRegularExpression removeReply{QStringLiteral("> <.*?>.*?\\n\\n"), 
 static const QRegularExpression removeRichReply{QStringLiteral("<mx-reply>.*?</mx-reply>"), QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression codePill{QStringLiteral("<pre><code[^>]*>(.*?)</code></pre>"), QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression userPill{QStringLiteral("(<a href=\"https://matrix.to/#/@.*?:.*?\">.*?</a>)"), QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression blockQuote{QStringLiteral("<blockquote>\n?(?:<p>)?(.*?)(?:</p>)?\n?</blockquote>"),
+                                           QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression strikethrough{QStringLiteral("<del>(.*?)</del>"), QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression mxcImage{QStringLiteral(R"AAA(<img(.*?)src="mxc:\/\/(.*?)\/(.*?)"(.*?)>)AAA")};
 static const QRegularExpression plainUrl(

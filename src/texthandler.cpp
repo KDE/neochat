@@ -134,6 +134,10 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
         nextTokenType();
     }
 
+    // Apply user style to blockquotes
+    // Unfortunately some attributes can be only be used on table cells, so we need to wrap the content in one.
+    outputString.replace(TextRegex::blockQuote, QStringLiteral(R"(<blockquote><table><tr><td>“\1”</td></tr></table></blockquote>)"));
+
     // If the message is an emote add the user pill to the front of the message.
     if (event != nullptr) {
         auto e = eventCast<const Quotient::RoomMessageEvent>(event);
