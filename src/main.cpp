@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
     about.setOrganizationDomain("kde.org");
 
     about.addComponent(QStringLiteral("libQuotient"),
-                       i18n("A Qt5 library to write cross-platform clients for Matrix"),
+                       i18n("A Qt library to write cross-platform clients for Matrix"),
                        i18nc("<version number> (built against <possibly different version number>)",
                              "%1 (built against %2)",
                              Quotient::versionString(),
