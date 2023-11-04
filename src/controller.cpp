@@ -60,7 +60,8 @@ Controller::Controller(QObject *parent)
         invokeLogin();
     });
 
-    QObject::connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [] {
+    QObject::connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [this] {
+        delete m_trayIcon;
         NeoChatConfig::self()->save();
     });
 
