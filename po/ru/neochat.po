@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 01:38+0000\n"
+"POT-Creation-Date: 2023-11-04 16:52+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -19,69 +19,69 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:199
+#: src/controller.cpp:200
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Ошибка входа в систему: токен доступа недействителен или отозван"
 
-#: src/controller.cpp:202 src/controller.cpp:207 src/login.cpp:93
+#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ошибка входа в систему: %1"
 
-#: src/controller.cpp:213
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ошибка сети: %1"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не найден токен доступа"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:239
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Возможно, он был удалён."
 
-#: src/controller.cpp:242
+#: src/controller.cpp:243
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Не удалось получить доступ к связке ключей."
 
-#: src/controller.cpp:242
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Разрешите приложению NeoChat прочитать токен доступа"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:246
 #, kde-format
 msgid "No keychain available."
 msgstr "Нет ни одной доступной связки ключей."
 
-#: src/controller.cpp:245
+#: src/controller.cpp:246
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Установите приложение, предоставляющее службу связки ключей, например "
 "KWallet или Gnome Keyring."
 
-#: src/controller.cpp:248
+#: src/controller.cpp:249
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не удалось прочитать токен доступа"
 
-#: src/controller.cpp:344
+#: src/controller.cpp:345
 #, kde-format
 msgid "File too large to download."
 msgstr "Слишком большой файл для загрузки."
 
-#: src/controller.cpp:344
+#: src/controller.cpp:345
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Обратитесь за помощью к администратору сервера Matrix."
 
-#: src/controller.cpp:374
+#: src/controller.cpp:375
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Недействительный идентификатор комнаты, в которую вы хотите войти"
@@ -1127,21 +1127,21 @@ msgstr "%1 пригласил вас в комнату"
 msgid "Open this invitation in NeoChat"
 msgstr "Открыть это приглашение в NeoChat"
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:250
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Принять"
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:251
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Отклонить"
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:252
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
