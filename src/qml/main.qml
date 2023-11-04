@@ -40,6 +40,13 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    onConnectionChanged: {
+        CustomEmojiModel.connection = root.connection
+        MatrixImageProvider.connection = root.connection
+        RoomManager.connection = root.connection
+        SpaceHierarchyCache.connection = root.connection
+    }
+
     Connections {
         target: root.quitAction
         function onTriggered() {
@@ -190,6 +197,10 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
+        CustomEmojiModel.connection = root.connection
+        MatrixImageProvider.connection = root.connection
+        RoomManager.connection = root.connection
+        SpaceHierarchyCache.connection = root.connection
         WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
         if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && Config.systemTray) {
             restoreWindowGeometryConnections.enabled = true; // To restore window size and position

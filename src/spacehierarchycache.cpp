@@ -14,22 +14,15 @@ using namespace Quotient;
 SpaceHierarchyCache::SpaceHierarchyCache(QObject *parent)
     : QObject{parent}
 {
-    cacheSpaceHierarchy();
-    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
-        cacheSpaceHierarchy();
-        connect(Controller::instance().activeConnection(), &Connection::joinedRoom, this, &SpaceHierarchyCache::addSpaceToHierarchy);
-        connect(Controller::instance().activeConnection(), &Connection::aboutToDeleteRoom, this, &SpaceHierarchyCache::removeSpaceFromHierarchy);
-    });
 }
 
 void SpaceHierarchyCache::cacheSpaceHierarchy()
 {
-    auto connection = Controller::instance().activeConnection();
-    if (!connection) {
+    if (!m_connection) {
         return;
     }
 
-    const auto &roomList = connection->allRooms();
+    const auto &roomList = m_connection->allRooms();
     for (const auto &room : roomList) {
         const auto neoChatRoom = static_cast<NeoChatRoom *>(room);
         if (neoChatRoom->isSpace()) {
@@ -46,11 +39,10 @@ void SpaceHierarchyCache::cacheSpaceHierarchy()
 
 void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
 {
-    auto connection = Controller::instance().activeConnection();
-    if (!connection) {
+    if (!m_connection) {
         return;
     }
-    auto job = connection->callApi<GetSpaceHierarchyJob>(spaceId);
+    auto job = m_connection->callApi<GetSpaceHierarchyJob>(spaceId);
 
     connect(job, &BaseJob::success, this, [this, job, spaceId]() {
         const auto rooms = job->rooms();
@@ -100,6 +92,24 @@ bool SpaceHierarchyCache::isChildSpace(const QString &spaceId) const
         }
     }
     return false;
+}
+
+NeoChatConnection *SpaceHierarchyCache::connection() const
+{
+    return m_connection;
+}
+
+void SpaceHierarchyCache::setConnection(NeoChatConnection *connection)
+{
+    if (m_connection == connection) {
+        return;
+    }
+    m_connection = connection;
+    Q_EMIT connectionChanged();
+    m_spaceHierarchy.clear();
+    cacheSpaceHierarchy();
+    connect(connection, &Connection::joinedRoom, this, &SpaceHierarchyCache::addSpaceToHierarchy);
+    connect(connection, &Connection::aboutToDeleteRoom, this, &SpaceHierarchyCache::removeSpaceFromHierarchy);
 }
 
 #include "moc_spacehierarchycache.cpp"

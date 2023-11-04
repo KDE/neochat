@@ -13,11 +13,13 @@
 #include <KLocalizedString>
 
 #include "controller.h"
+#include "neochatconnection.h"
+
 #include <Quotient/connection.h>
 
 using namespace Quotient;
 
-ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
+ThumbnailResponse::ThumbnailResponse(QString id, QSize size, NeoChatConnection *connection)
     : mediaId(std::move(id))
     , requestedSize(size)
     , localFile(QStringLiteral("%1/image_provider/%2-%3x%4.png")
@@ -25,6 +27,7 @@ ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
                          mediaId,
                          QString::number(requestedSize.width()),
                          QString::number(requestedSize.height())))
+    , m_connection(connection)
     , errorStr("Image request hasn't started"_ls)
 {
     if (requestedSize.isEmpty()) {
@@ -51,24 +54,24 @@ ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
         return;
     }
 
-    if (!Controller::instance().activeConnection()) {
+    if (!m_connection) {
         qWarning() << "Current connection is null";
         return;
     }
 
     // Execute a request on the main thread asynchronously
-    moveToThread(Controller::instance().activeConnection()->thread());
+    moveToThread(m_connection->thread());
     QMetaObject::invokeMethod(this, &ThumbnailResponse::startRequest, Qt::QueuedConnection);
 }
 
 void ThumbnailResponse::startRequest()
 {
-    if (!Controller::instance().activeConnection()) {
+    if (!m_connection) {
         return;
     }
     // Runs in the main thread, not QML thread
-    Q_ASSERT(QThread::currentThread() == Controller::instance().activeConnection()->thread());
-    job = Controller::instance().activeConnection()->getThumbnail(mediaId, requestedSize);
+    Q_ASSERT(QThread::currentThread() == m_connection->thread());
+    job = m_connection->getThumbnail(mediaId, requestedSize);
     // Connect to any possible outcome including abandonment
     // to make sure the QML thread is not left stuck forever.
     connect(job, &BaseJob::finished, this, &ThumbnailResponse::prepareResult);
@@ -118,7 +121,7 @@ QString ThumbnailResponse::errorString() const
 
 QQuickImageResponse *MatrixImageProvider::requestImageResponse(const QString &id, const QSize &requestedSize)
 {
-    return new ThumbnailResponse(id, requestedSize);
+    return new ThumbnailResponse(id, requestedSize, m_connection);
 }
 
 #include "moc_matriximageprovider.cpp"

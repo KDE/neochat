@@ -5,7 +5,8 @@
 
 #include "controller.h"
 
-SpaceTreeItem::SpaceTreeItem(SpaceTreeItem *parent,
+SpaceTreeItem::SpaceTreeItem(NeoChatConnection *connection,
+                             SpaceTreeItem *parent,
                              const QString &id,
                              const QString &name,
                              const QString &canonicalAlias,
@@ -15,7 +16,8 @@ SpaceTreeItem::SpaceTreeItem(SpaceTreeItem *parent,
                              bool allowGuests,
                              bool worldReadable,
                              bool isSpace)
-    : m_parentItem(parent)
+    : m_connection(connection)
+    , m_parentItem(parent)
     , m_id(id)
     , m_name(name)
     , m_canonicalAlias(canonicalAlias)
@@ -107,8 +109,7 @@ QUrl SpaceTreeItem::avatarUrl() const
     if (m_avatarUrl.isEmpty() || m_avatarUrl.scheme() != QLatin1String("mxc")) {
         return {};
     }
-    auto connection = Controller::instance().activeConnection();
-    auto url = connection->makeMediaUrl(m_avatarUrl);
+    auto url = m_connection->makeMediaUrl(m_avatarUrl);
     if (url.scheme() == QLatin1String("mxc")) {
         return url;
     }
@@ -127,11 +128,10 @@ bool SpaceTreeItem::worldReadable() const
 
 bool SpaceTreeItem::isJoined() const
 {
-    auto connection = Controller::instance().activeConnection();
-    if (!connection) {
+    if (!m_connection) {
         return false;
     }
-    return connection->room(id(), Quotient::JoinState::Join) != nullptr;
+    return m_connection->room(id(), Quotient::JoinState::Join) != nullptr;
 }
 
 bool SpaceTreeItem::isSpace() const

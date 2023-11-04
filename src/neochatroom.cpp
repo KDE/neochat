@@ -1338,7 +1338,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         for (const auto &i : roomRuleArray) {
             QJsonObject roomRule = i.toObject();
             if (roomRule["rule_id"_ls] == id()) {
-                Controller::instance().activeConnection()->callApi<DeletePushRuleJob>("global"_ls, "room"_ls, id());
+                connection()->callApi<DeletePushRuleJob>("global"_ls, "room"_ls, id());
             }
         }
     }
@@ -1349,7 +1349,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         for (const auto &i : overrideRuleArray) {
             QJsonObject overrideRule = i.toObject();
             if (overrideRule["rule_id"_ls] == id()) {
-                Controller::instance().activeConnection()->callApi<DeletePushRuleJob>("global"_ls, "override"_ls, id());
+                connection()->callApi<DeletePushRuleJob>("global"_ls, "override"_ls, id());
             }
         }
     }
@@ -1385,11 +1385,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions = {pushCondition};
 
         // Add new override rule and make sure it's enabled
-        auto job = Controller::instance()
-                       .activeConnection()
-                       ->callApi<SetPushRuleJob>("global"_ls, "override"_ls, id(), actions, QString(), QString(), conditions, QString());
+        auto job = connection()->callApi<SetPushRuleJob>("global"_ls, "override"_ls, id(), actions, QString(), QString(), conditions, QString());
         connect(job, &BaseJob::success, this, [this]() {
-            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global"_ls, "override"_ls, id(), true);
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "override"_ls, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1413,11 +1411,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         // No conditions for a room rule
         const QList<PushCondition> conditions;
 
-        auto setJob = Controller::instance()
-                          .activeConnection()
-                          ->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
+        auto setJob = connection()->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
         connect(setJob, &BaseJob::success, this, [this]() {
-            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1446,11 +1442,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions;
 
         // Add new room rule and make sure enabled
-        auto setJob = Controller::instance()
-                          .activeConnection()
-                          ->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
+        auto setJob = connection()->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
         connect(setJob, &BaseJob::success, this, [this]() {
-            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });

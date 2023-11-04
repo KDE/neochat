@@ -32,6 +32,11 @@ KirigamiSettings.CategorizedSettings {
             text: i18n("Notifications")
             icon.name: "preferences-desktop-notification"
             page: Qt.resolvedUrl("GlobalNotificationsPage.qml")
+            initialProperties: {
+                return {
+                    connection: root.connection
+                }
+            }
         },
         KirigamiSettings.SettingAction {
             actionName: "security"

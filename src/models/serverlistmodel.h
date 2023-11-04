@@ -10,6 +10,8 @@
 #include <QQmlEngine>
 #include <QUrl>
 
+class NeoChatConnection;
+
 /**
  * @class ServerListModel
  *
@@ -26,6 +28,8 @@ class ServerListModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
+
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     /**
@@ -96,10 +100,15 @@ public:
      */
     Q_INVOKABLE void removeServerAtIndex(int index);
 
+    NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
+
 Q_SIGNALS:
     void serverCheckComplete(QString url, bool valid);
+    void connectionChanged();
 
 private:
     QList<Server> m_servers;
     QPointer<Quotient::QueryPublicRoomsJob> m_checkServerJob = nullptr;
+    NeoChatConnection *m_connection = nullptr;
 };

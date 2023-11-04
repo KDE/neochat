@@ -33,15 +33,17 @@ Runner::Runner()
     qDBusRegisterMetaType<RemoteAction>();
     qDBusRegisterMetaType<RemoteActions>();
     qDBusRegisterMetaType<RemoteImage>();
-
-    m_model.setSourceModel(&m_sourceModel);
-
-    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, &Runner::activeConnectionChanged);
 }
 
-void Runner::activeConnectionChanged()
+void Runner::setRoomListModel(RoomListModel *roomListModel)
 {
-    m_sourceModel.setConnection(Controller::instance().activeConnection());
+    m_model.setSourceModel(roomListModel);
+    Q_EMIT roomListModelChanged();
+}
+
+RoomListModel *Runner::roomListModel() const
+{
+    return dynamic_cast<RoomListModel *>(m_model.sourceModel());
 }
 
 RemoteActions Runner::Actions()
@@ -84,7 +86,7 @@ void Runner::Run(const QString &id, const QString &actionId)
 {
     Q_UNUSED(actionId);
 
-    NeoChatRoom *room = qobject_cast<NeoChatRoom *>(Controller::instance().activeConnection()->room(id));
+    NeoChatRoom *room = qobject_cast<NeoChatRoom *>(roomListModel()->connection()->room(id));
 
     if (!room) {
         return;

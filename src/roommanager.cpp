@@ -77,10 +77,9 @@ void RoomManager::openResource(const QString &idOrUri, const QString &action)
         Q_EMIT warning(i18n("Malformed or empty Matrix id"), i18n("%1 is not a correct Matrix identifier", idOrUri));
         return;
     }
-    auto account = Controller::instance().activeConnection();
 
     if (uri.type() != Uri::NonMatrix) {
-        if (!account) {
+        if (!m_connection) {
             return;
         }
         if (!action.isEmpty()) {
@@ -89,7 +88,7 @@ void RoomManager::openResource(const QString &idOrUri, const QString &action)
         // TODO we should allow the user to select a connection.
     }
 
-    const auto result = visitResource(account, uri);
+    const auto result = visitResource(m_connection, uri);
     if (result == Quotient::CouldNotResolve) {
         Q_EMIT warning(i18n("Room not found"), i18n("There's no room %1 in the room list. Check the spelling and the account.", idOrUri));
     } else { // Invalid cases should have been eliminated earlier
@@ -145,7 +144,7 @@ void RoomManager::setUrlArgument(const QString &arg)
 
 void RoomManager::loadInitialRoom()
 {
-    Q_ASSERT(Controller::instance().activeConnection());
+    Q_ASSERT(m_connection);
 
     if (!m_arg.isEmpty()) {
         openResource(m_arg);
@@ -158,16 +157,16 @@ void RoomManager::loadInitialRoom()
 
     openRoomForActiveConnection();
 
-    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, &RoomManager::openRoomForActiveConnection);
+    connect(this, &RoomManager::connectionChanged, this, &RoomManager::openRoomForActiveConnection);
 }
 
 void RoomManager::openRoomForActiveConnection()
 {
-    if (!Controller::instance().activeConnection()) {
+    if (!m_connection) {
         return;
     }
     // Read from last open room
-    QString roomId = m_lastRoomConfig.readEntry(Controller::instance().activeConnection()->userId(), QString());
+    QString roomId = m_lastRoomConfig.readEntry(m_connection->userId(), QString());
 
     // TODO remove legacy check at some point.
     if (roomId.isEmpty()) {
@@ -177,7 +176,7 @@ void RoomManager::openRoomForActiveConnection()
     if (!roomId.isEmpty()) {
         // Here we can cast because the controller has been configured to
         // return NeoChatRoom instead of simple Quotient::Room
-        const auto room = qobject_cast<NeoChatRoom *>(Controller::instance().activeConnection()->room(roomId));
+        const auto room = qobject_cast<NeoChatRoom *>(m_connection->room(roomId));
 
         if (room) {
             if (room->isSpace()) {
@@ -219,7 +218,7 @@ void RoomManager::enterRoom(NeoChatRoom *room)
     }
 
     // Save last open room
-    m_lastRoomConfig.writeEntry(Controller::instance().activeConnection()->userId(), room->id());
+    m_lastRoomConfig.writeEntry(m_connection->userId(), room->id());
 }
 
 void RoomManager::openWindow(NeoChatRoom *room)
@@ -253,7 +252,7 @@ void RoomManager::enterSpaceHome(NeoChatRoom *spaceRoom)
     }
 
     // Save last open room
-    m_lastRoomConfig.writeEntry(Controller::instance().activeConnection()->userId(), spaceRoom->id());
+    m_lastRoomConfig.writeEntry(m_connection->userId(), spaceRoom->id());
 }
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
@@ -379,6 +378,20 @@ void RoomManager::setChatDocumentHandler(ChatDocumentHandler *handler)
     m_chatDocumentHandler = handler;
     m_chatDocumentHandler->setRoom(m_currentRoom);
     Q_EMIT chatDocumentHandlerChanged();
+}
+
+NeoChatConnection *RoomManager::connection() const
+{
+    return m_connection;
+}
+
+void RoomManager::setConnection(NeoChatConnection *connection)
+{
+    if (m_connection == connection) {
+        return;
+    }
+    m_connection = connection;
+    Q_EMIT connectionChanged();
 }
 
 #include "moc_roommanager.cpp"

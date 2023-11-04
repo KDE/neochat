@@ -12,7 +12,7 @@
 SpaceChildrenModel::SpaceChildrenModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-    m_rootItem = new SpaceTreeItem();
+    m_rootItem = new SpaceTreeItem(nullptr);
 }
 
 SpaceChildrenModel::~SpaceChildrenModel()
@@ -71,7 +71,8 @@ void SpaceChildrenModel::refreshModel()
     delete m_rootItem;
     m_loading = true;
     Q_EMIT loadingChanged();
-    m_rootItem = new SpaceTreeItem(nullptr, m_space->id(), m_space->displayName(), m_space->canonicalAlias());
+    m_rootItem =
+        new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()), nullptr, m_space->id(), m_space->displayName(), m_space->canonicalAlias());
     endResetModel();
     auto job = m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), Quotient::none, Quotient::none, 1);
     m_currentJobs.append(job);
@@ -112,7 +113,8 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
                 }
             }
             parentItem->insertChild(insertRow,
-                                    new SpaceTreeItem(parentItem,
+                                    new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()),
+                                                      parentItem,
                                                       children[i].roomId,
                                                       children[i].name,
                                                       children[i].canonicalAlias,

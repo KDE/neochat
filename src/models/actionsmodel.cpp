@@ -261,7 +261,7 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
-            auto connection = Controller::instance().activeConnection();
+            auto connection = room->connection();
             const auto knownServer = roomName.mid(roomName.indexOf(":"_ls) + 1);
             if (parts.length() >= 2) {
                 RoomManager::instance().knockRoom(connection, roomName, parts[1], QStringList{knownServer});
@@ -285,7 +285,7 @@ QList<ActionsModel::Action> actions{
                                          i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
                 return QString();
             }
-            if (Controller::instance().activeConnection()->room(text) || Controller::instance().activeConnection()->roomByAlias(text)) {
+            if (room->connection()->room(text) || room->connection()->roomByAlias(text)) {
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("You are already in room <roomname>.", "You are already in room %1.", text));
                 return QString();
             }

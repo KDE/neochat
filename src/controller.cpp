@@ -99,10 +99,6 @@ Controller::Controller(QObject *parent)
         }
         oldAccountCount = m_accountRegistry.size();
     });
-
-    QTimer::singleShot(0, this, [this] {
-        m_pushRuleModel = new PushRuleModel;
-    });
 }
 
 Controller &Controller::instance()
@@ -351,11 +347,6 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
     NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
     Q_EMIT activeConnectionIndexChanged();
-}
-
-PushRuleModel *Controller::pushRuleModel() const
-{
-    return m_pushRuleModel;
 }
 
 void Controller::saveWindowGeometry()

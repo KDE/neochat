@@ -3,6 +3,8 @@
 
 #include <Quotient/csapi/space_hierarchy.h>
 
+class NeoChatConnection;
+
 /**
  * @class SpaceTreeItem
  *
@@ -18,7 +20,8 @@
 class SpaceTreeItem
 {
 public:
-    explicit SpaceTreeItem(SpaceTreeItem *parent = nullptr,
+    explicit SpaceTreeItem(NeoChatConnection *connection,
+                           SpaceTreeItem *parent = nullptr,
                            const QString &id = {},
                            const QString &name = {},
                            const QString &canonicalAlias = {},
@@ -121,6 +124,7 @@ public:
     bool isSpace() const;
 
 private:
+    NeoChatConnection *m_connection;
     QList<SpaceTreeItem *> m_children;
     SpaceTreeItem *m_parentItem;
 

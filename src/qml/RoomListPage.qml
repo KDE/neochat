@@ -39,6 +39,8 @@ Kirigami.Page {
         sortFilterRoomListModel.filterText = "";
     }
 
+    Component.onCompleted: Runner.roomListModel = root.roomListModel
+
     Connections {
         target: RoomManager
         function onCurrentRoomChanged() {

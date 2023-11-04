@@ -69,6 +69,7 @@ Kirigami.ScrollablePage {
                 valueRole: "url"
                 model: ServerListModel {
                     id: serverListModel
+                    connection: root.connection
                 }
 
                 delegate: Delegates.RoundedItemDelegate {

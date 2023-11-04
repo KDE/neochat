@@ -210,9 +210,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         if (!room) {
             return;
         }
-        if (room->localUser()->id() != Controller::instance().activeConnection()->userId()) {
-            Controller::instance().setActiveConnection(dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localUser()->id())));
-        }
+        Controller::instance().setActiveConnection(dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localUser()->id())));
         RoomManager::instance().enterRoom(room);
     });
 

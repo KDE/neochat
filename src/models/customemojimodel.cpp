@@ -15,13 +15,28 @@
 
 using namespace Quotient;
 
+void CustomEmojiModel::setConnection(NeoChatConnection *connection)
+{
+    if (connection == m_connection) {
+        return;
+    }
+    m_connection = connection;
+    Q_EMIT connectionChanged();
+    fetchEmojis();
+}
+
+NeoChatConnection *CustomEmojiModel::connection() const
+{
+    return m_connection;
+}
+
 void CustomEmojiModel::fetchEmojis()
 {
-    if (!Controller::instance().activeConnection()) {
+    if (!m_connection) {
         return;
     }
 
-    const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes"_ls);
+    const auto &data = m_connection->accountData("im.ponies.user_emotes"_ls);
     if (data == nullptr) {
         return;
     }
@@ -53,10 +68,10 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
 {
     using namespace Quotient;
 
-    auto job = Controller::instance().activeConnection()->uploadFile(location.toLocalFile());
+    auto job = m_connection->uploadFile(location.toLocalFile());
 
-    connect(job, &BaseJob::success, this, [name, location, job] {
-        const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes"_ls);
+    connect(job, &BaseJob::success, this, [name, location, job, this] {
+        const auto &data = m_connection->accountData("im.ponies.user_emotes"_ls);
         auto json = data != nullptr ? data->contentJson() : QJsonObject();
         auto emojiData = json["images"_ls].toObject();
 
@@ -78,7 +93,7 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
         });
 
         json["images"_ls] = emojiData;
-        Controller::instance().activeConnection()->setAccountData("im.ponies.user_emotes"_ls, json);
+        m_connection->setAccountData("im.ponies.user_emotes"_ls, json);
     });
 }
 
@@ -86,7 +101,7 @@ void CustomEmojiModel::removeEmoji(const QString &name)
 {
     using namespace Quotient;
 
-    const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes"_ls);
+    const auto &data = m_connection->accountData("im.ponies.user_emotes"_ls);
     Q_ASSERT(data);
     auto json = data->contentJson();
     const QString _name = name.mid(1).chopped(1);
@@ -109,18 +124,18 @@ void CustomEmojiModel::removeEmoji(const QString &name)
         emojiData.remove(_name);
         json["emoticons"_ls] = emojiData;
     }
-    Controller::instance().activeConnection()->setAccountData("im.ponies.user_emotes"_ls, json);
+    m_connection->setAccountData("im.ponies.user_emotes"_ls, json);
 }
 
 CustomEmojiModel::CustomEmojiModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
-        if (!Controller::instance().activeConnection()) {
+    connect(this, &CustomEmojiModel::connectionChanged, this, [this]() {
+        if (!m_connection) {
             return;
         }
         CustomEmojiModel::fetchEmojis();
-        connect(Controller::instance().activeConnection(), &Connection::accountDataChanged, this, [this](const QString &id) {
+        connect(m_connection, &Connection::accountDataChanged, this, [this](const QString &id) {
             if (id != QStringLiteral("im.ponies.user_emotes")) {
                 return;
             }

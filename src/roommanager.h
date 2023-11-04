@@ -17,6 +17,7 @@
 #include "models/messagefiltermodel.h"
 
 class NeoChatRoom;
+class NeoChatConnection;
 
 namespace Quotient
 {
@@ -36,6 +37,8 @@ class RoomManager : public QObject, public UriResolverBase
     Q_OBJECT
     QML_ELEMENT
     QML_SINGLETON
+
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
     /**
      * @brief The current open room in NeoChat, if any.
@@ -247,6 +250,9 @@ public:
      */
     void setUrlArgument(const QString &arg);
 
+    NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
+
 Q_SIGNALS:
     void currentRoomChanged();
 
@@ -365,6 +371,8 @@ Q_SIGNALS:
 
     void chatDocumentHandlerChanged();
 
+    void connectionChanged();
+
 private:
     void openRoomForActiveConnection();
 
@@ -378,4 +386,5 @@ private:
     MessageEventModel *m_messageEventModel;
     MessageFilterModel *m_messageFilterModel;
     MediaMessageFilterModel *m_mediaMessageFilterModel;
+    NeoChatConnection *m_connection;
 };

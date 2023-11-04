@@ -10,6 +10,8 @@
 
 #include <QReadWriteLock>
 
+class NeoChatConnection;
+
 /**
  * @class ThumbnailResponse
  *
@@ -21,7 +23,7 @@ class ThumbnailResponse : public QQuickImageResponse
 {
     Q_OBJECT
 public:
-    explicit ThumbnailResponse(QString mediaId, QSize requestedSize);
+    explicit ThumbnailResponse(QString mediaId, QSize requestedSize, NeoChatConnection *m_connection);
     ~ThumbnailResponse() override = default;
 
 private Q_SLOTS:
@@ -33,6 +35,7 @@ private:
     QSize requestedSize;
     const QString localFile;
     Quotient::MediaThumbnailJob *job = nullptr;
+    NeoChatConnection *m_connection;
 
     QImage image;
     QString errorStr;
@@ -51,6 +54,11 @@ private:
  */
 class MatrixImageProvider : public QQuickAsyncImageProvider
 {
+    Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
+
+    Q_PROPERTY(NeoChatConnection *connection MEMBER m_connection)
 public:
     /**
      * @brief Return a job to provide the image with the given ID.
@@ -58,4 +66,7 @@ public:
      * @sa QQuickAsyncImageProvider::requestImageResponse
      */
     QQuickImageResponse *requestImageResponse(const QString &id, const QSize &requestedSize) override;
+
+private:
+    NeoChatConnection *m_connection = nullptr;
 };

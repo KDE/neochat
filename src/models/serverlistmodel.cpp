@@ -19,7 +19,7 @@ ServerListModel::ServerListModel(QObject *parent)
     const auto stateConfig = KSharedConfig::openStateConfig();
     const KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
 
-    QString domain = Controller::instance().activeConnection()->domain();
+    QString domain = m_connection->domain();
 
     // Add the user's homeserver
     m_servers.append(Server{
@@ -100,7 +100,7 @@ void ServerListModel::checkServer(const QString &url)
             m_checkServerJob->abandon();
         }
 
-        m_checkServerJob = Controller::instance().activeConnection()->callApi<Quotient::QueryPublicRoomsJob>(url, 1);
+        m_checkServerJob = m_connection->callApi<Quotient::QueryPublicRoomsJob>(url, 1);
         connect(m_checkServerJob, &Quotient::BaseJob::success, this, [this, url] {
             Q_EMIT serverCheckComplete(url, true);
         });
@@ -151,6 +151,20 @@ QHash<int, QByteArray> ServerListModel::roleNames() const
         {IsAddServerDelegateRole, QByteArrayLiteral("isAddServerDelegate")},
         {IsDeletableRole, QByteArrayLiteral("isDeletable")},
     };
+}
+
+NeoChatConnection *ServerListModel::connection() const
+{
+    return m_connection;
+}
+
+void ServerListModel::setConnection(NeoChatConnection *connection)
+{
+    if (m_connection == connection) {
+        return;
+    }
+    m_connection = connection;
+    Q_EMIT connectionChanged();
 }
 
 #include "moc_serverlistmodel.cpp"

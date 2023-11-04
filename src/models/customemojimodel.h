@@ -8,6 +8,8 @@
 #include <QRegularExpression>
 #include <memory>
 
+class NeoChatConnection;
+
 struct CustomEmoji {
     QString name; // with :semicolons:
     QString url; // mxc://
@@ -30,6 +32,8 @@ class CustomEmojiModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
     QML_SINGLETON
+
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     /**
@@ -98,9 +102,16 @@ public:
      */
     Q_INVOKABLE void removeEmoji(const QString &name);
 
+    void setConnection(NeoChatConnection *connection);
+    NeoChatConnection *connection() const;
+
+Q_SIGNALS:
+    void connectionChanged();
+
 private:
     explicit CustomEmojiModel(QObject *parent = nullptr);
     QList<CustomEmoji> m_emojis;
+    NeoChatConnection *m_connection = nullptr;
 
     void fetchEmojis();
 };

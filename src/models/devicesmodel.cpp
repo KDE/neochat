@@ -24,8 +24,8 @@ DevicesModel::DevicesModel(QObject *parent)
 
 void DevicesModel::fetchDevices()
 {
-    if (Controller::instance().activeConnection()) {
-        auto job = Controller::instance().activeConnection()->callApi<GetDevicesJob>();
+    if (m_connection) {
+        auto job = m_connection->callApi<GetDevicesJob>();
         connect(job, &BaseJob::success, this, [this, job]() {
             beginResetModel();
             m_devices = job->devices();
@@ -102,7 +102,7 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
     for (index = 0; m_devices[index].deviceId != deviceId; index++)
         ;
 
-    auto job = Controller::instance().activeConnection()->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId);
+    auto job = m_connection->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId);
 
     connect(job, &BaseJob::result, this, [this, job, password, index] {
         auto onSuccess = [this, index]() {
@@ -117,9 +117,9 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
             authData["session"_ls] = replyData["session"_ls];
             authData["password"_ls] = password;
             authData["type"_ls] = "m.login.password"_ls;
-            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, Controller::instance().activeConnection()->user()->id()}};
+            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, m_connection->user()->id()}};
             authData["identifier"_ls] = identifier;
-            auto *innerJob = Controller::instance().activeConnection()->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId, authData);
+            auto *innerJob = m_connection->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId, authData);
             connect(innerJob, &BaseJob::success, this, onSuccess);
         } else {
             onSuccess();
@@ -132,7 +132,7 @@ void DevicesModel::setName(const QString &deviceId, const QString &name)
     int index;
     for (index = 0; m_devices[index].deviceId != deviceId; index++);
 
-    auto job = Controller::instance().activeConnection()->callApi<UpdateDeviceJob>(m_devices[index].deviceId, name);
+    auto job = m_connection->callApi<UpdateDeviceJob>(m_devices[index].deviceId, name);
     QString oldName = m_devices[index].displayName;
     beginResetModel();
     m_devices[index].displayName = name;
@@ -160,7 +160,7 @@ void DevicesModel::setConnection(Connection *connection)
 
     connect(m_connection, &Connection::sessionVerified, this, [this](const QString &userId, const QString &deviceId) {
         Q_UNUSED(deviceId);
-        if (userId == Controller::instance().activeConnection()->userId()) {
+        if (userId == m_connection->userId()) {
             fetchDevices();
         }
     });

@@ -157,6 +157,8 @@ class PushRuleModel : public QAbstractListModel
      */
     Q_PROPERTY(bool globalNotificationsSet READ globalNotificationsSet NOTIFY globalNotificationsSetChanged)
 
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+
 public:
     struct Rule {
         QString id;
@@ -225,18 +227,22 @@ public:
      */
     Q_INVOKABLE void removeKeyword(const QString &keyword);
 
+    void setConnection(NeoChatConnection *connection);
+    NeoChatConnection *connection() const;
+
 Q_SIGNALS:
     void defaultStateChanged();
     void globalNotificationsEnabledChanged();
     void globalNotificationsSetChanged();
+    void connectionChanged();
 
 private Q_SLOTS:
-    void controllerConnectionChanged();
     void updateNotificationRules(const QString &type);
 
 private:
     PushNotificationAction::Action m_defaultKeywordAction;
     QList<Rule> m_rules;
+    NeoChatConnection *m_connection;
 
     void setRules(QList<Quotient::PushRule> rules, PushNotificationKind::Kind kind);
 

@@ -16,6 +16,10 @@ FormCard.FormCardPage {
 
     property NeoChatRoom room
 
+    property PushRuleModel pushRuleModel: PushRuleModel {
+        connection: root.room.connection
+    }
+
     title: i18nc('@title:window', 'Notifications')
 
     FormCard.FormHeader {
@@ -63,7 +67,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Repeater {
             model: KSortFilterProxyModel {
-                sourceModel: Controller.pushRuleModel
+                sourceModel: root.pushRuleModel
 
                 filterRowCallback: function(source_row, source_parent) {
                     let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
@@ -78,9 +82,9 @@ FormCard.FormCardPage {
                 id: ruleDelegate
                 NotificationRuleItem {
                     onDeleteRule: {
-                        Controller.pushRuleModel.removeKeyword(id)
+                        root.pushRuleModel.removeKeyword(id)
                     }
-                    onActionChanged: (action) => Controller.pushRuleModel.setPushRuleAction(id, action)
+                    onActionChanged: (action) => root.pushRuleModel.setPushRuleAction(id, action)
                 }
             }
         }
@@ -105,7 +109,7 @@ FormCard.FormCardPage {
                     }
 
                     onAccepted: {
-                        Controller.pushRuleModel.addKeyword(keywordAddField.text, root.room.id)
+                        root.pushRuleModel.addKeyword(keywordAddField.text, root.room.id)
                         keywordAddField.text = ""
                     }
                 }
@@ -119,7 +123,7 @@ FormCard.FormCardPage {
                     enabled: NotificationsManager.keywordNotificationAction !== PushNotificationAction.Unknown && keywordAddField.text.length > 0
 
                     onClicked: {
-                        Controller.pushRuleModel.addKeyword(keywordAddField.text, root.room.id)
+                        root.pushRuleModel.addKeyword(keywordAddField.text, root.room.id)
                         keywordAddField.text = ""
                     }
 

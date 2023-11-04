@@ -10,6 +10,8 @@
 #include <QQmlEngine>
 #include <QString>
 
+#include "neochatconnection.h"
+
 namespace Quotient
 {
 class Room;
@@ -27,6 +29,8 @@ class SpaceHierarchyCache : public QObject
     Q_OBJECT
     QML_ELEMENT
     QML_SINGLETON
+
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     static SpaceHierarchyCache &instance()
@@ -50,8 +54,12 @@ public:
      */
     [[nodiscard]] bool isChildSpace(const QString &spaceId) const;
 
+    NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
+
 Q_SIGNALS:
     void spaceHierarchyChanged();
+    void connectionChanged();
 
 private Q_SLOTS:
     void addSpaceToHierarchy(Quotient::Room *room);
@@ -64,4 +72,5 @@ private:
     QHash<QString, QList<QString>> m_spaceHierarchy;
     void cacheSpaceHierarchy();
     void populateSpaceHierarchy(const QString &spaceId);
+    NeoChatConnection *m_connection;
 };

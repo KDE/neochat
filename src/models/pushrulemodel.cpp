@@ -66,19 +66,6 @@ PushRuleModel::PushRuleModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     m_defaultKeywordAction = static_cast<PushNotificationAction::Action>(NeoChatConfig::self()->keywordPushRuleDefault());
-
-    if (Controller::instance().activeConnection()) {
-        controllerConnectionChanged();
-    }
-    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, &PushRuleModel::controllerConnectionChanged);
-}
-
-void PushRuleModel::controllerConnectionChanged()
-{
-    if (Controller::instance().activeConnection()) {
-        connect(Controller::instance().activeConnection(), &Quotient::Connection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
-        updateNotificationRules(QStringLiteral("m.push_rules"));
-    }
 }
 
 void PushRuleModel::updateNotificationRules(const QString &type)
@@ -87,7 +74,7 @@ void PushRuleModel::updateNotificationRules(const QString &type)
         return;
     }
 
-    const QJsonObject ruleDataJson = Controller::instance().activeConnection()->accountDataJson(QStringLiteral("m.push_rules"));
+    const QJsonObject ruleDataJson = m_connection->accountDataJson(QStringLiteral("m.push_rules"));
     const Quotient::PushRuleset ruleData = Quotient::fromJson<Quotient::PushRuleset>(ruleDataJson[QStringLiteral("global")].toObject());
 
     beginResetModel();
@@ -156,8 +143,7 @@ PushNotificationSection::Section PushRuleModel::getSection(Quotient::PushRule ru
          *
          * Rooms that the user hasn't joined shouldn't have a rule.
          */
-        auto connection = Controller::instance().activeConnection();
-        if (connection->room(ruleId) != nullptr) {
+        if (m_connection->room(ruleId) != nullptr) {
             return PushNotificationSection::Undefined;
         }
         /**
@@ -171,7 +157,7 @@ PushNotificationSection::Section PushRuleModel::getSection(Quotient::PushRule ru
         if (!testUserId.startsWith(u'@')) {
             testUserId.prepend(u'@');
         }
-        if (testUserId.startsWith(u'@') && !Quotient::serverPart(testUserId).isEmpty() && connection->user(testUserId) != nullptr) {
+        if (testUserId.startsWith(u'@') && !Quotient::serverPart(testUserId).isEmpty() && m_connection->user(testUserId) != nullptr) {
             return PushNotificationSection::Undefined;
         }
         // If the rule has push conditions and one is a room ID it is a room only keyword.
@@ -325,14 +311,14 @@ void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
         pushConditions.append(keywordCondition);
     }
 
-    auto job = Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleJob>(QLatin1String("global"),
-                                                                                            PushNotificationKind::kindString(kind),
-                                                                                            keyword,
-                                                                                            actions,
-                                                                                            QString(),
-                                                                                            QString(),
-                                                                                            pushConditions,
-                                                                                            roomId.isEmpty() ? keyword : QString());
+    auto job = m_connection->callApi<Quotient::SetPushRuleJob>(QLatin1String("global"),
+                                                               PushNotificationKind::kindString(kind),
+                                                               keyword,
+                                                               actions,
+                                                               QString(),
+                                                               QString(),
+                                                               pushConditions,
+                                                               roomId.isEmpty() ? keyword : QString());
     connect(job, &Quotient::BaseJob::failure, this, [job, keyword]() {
         qWarning() << QLatin1String("Unable to set push rule for keyword %1: ").arg(keyword) << job->errorString();
     });
@@ -351,7 +337,7 @@ void PushRuleModel::removeKeyword(const QString &keyword)
     }
 
     auto kind = PushNotificationKind::kindString(m_rules[index].kind);
-    auto job = Controller::instance().activeConnection()->callApi<Quotient::DeletePushRuleJob>(QStringLiteral("global"), kind, m_rules[index].id);
+    auto job = m_connection->callApi<Quotient::DeletePushRuleJob>(QStringLiteral("global"), kind, m_rules[index].id);
     connect(job, &Quotient::BaseJob::failure, this, [this, job, index]() {
         qWarning() << QLatin1String("Unable to remove push rule for keyword %1: ").arg(m_rules[index].id) << job->errorString();
     });
@@ -359,10 +345,10 @@ void PushRuleModel::removeKeyword(const QString &keyword)
 
 void PushRuleModel::setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled)
 {
-    auto job = Controller::instance().activeConnection()->callApi<Quotient::IsPushRuleEnabledJob>(QStringLiteral("global"), kind, ruleId);
-    connect(job, &Quotient::BaseJob::success, this, [job, kind, ruleId, enabled]() {
+    auto job = m_connection->callApi<Quotient::IsPushRuleEnabledJob>(QStringLiteral("global"), kind, ruleId);
+    connect(job, &Quotient::BaseJob::success, this, [job, kind, ruleId, enabled, this]() {
         if (job->enabled() != enabled) {
-            Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleEnabledJob>(QStringLiteral("global"), kind, ruleId, enabled);
+            m_connection->callApi<Quotient::SetPushRuleEnabledJob>(QStringLiteral("global"), kind, ruleId, enabled);
         }
     });
 }
@@ -376,7 +362,7 @@ void PushRuleModel::setNotificationRuleActions(const QString &kind, const QStrin
         actions = actionToVariant(action);
     }
 
-    Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleActionsJob>(QStringLiteral("global"), kind, ruleId, actions);
+    m_connection->callApi<Quotient::SetPushRuleActionsJob>(QStringLiteral("global"), kind, ruleId, actions);
 }
 
 PushNotificationAction::Action PushRuleModel::variantToAction(const QList<QVariant> &actions, bool enabled)
@@ -451,6 +437,25 @@ QList<QVariant> PushRuleModel::actionToVariant(PushNotificationAction::Action ac
     }
 
     return actions;
+}
+
+NeoChatConnection *PushRuleModel::connection() const
+{
+    return m_connection;
+}
+
+void PushRuleModel::setConnection(NeoChatConnection *connection)
+{
+    if (connection == m_connection) {
+        return;
+    }
+    m_connection = connection;
+    Q_EMIT connectionChanged();
+
+    if (m_connection) {
+        connect(m_connection, &Quotient::Connection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
+        updateNotificationRules(QStringLiteral("m.push_rules"));
+    }
 }
 
 #include "moc_pushrulemodel.cpp"
