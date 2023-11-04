@@ -109,7 +109,7 @@ TimelineDelegate {
                             implicitHeight: Kirigami.Units.iconSizes.small
 
                             name: parent.modelData.displayName
-                            source: parent.modelData.avatarSource
+                            source: parent.modelData.avatarUrl
                             color: parent.modelData.color
                         }
                     }

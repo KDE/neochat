@@ -168,8 +168,8 @@ QQC2.Control {
         visible: root.showBackground
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
-        color: if (root.author.isLocalUser) {
-            return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15);
+        color: if (root.author.isLocalMember) {
+            return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
         } else if (root.showHighlight) {
             return Kirigami.Theme.positiveBackgroundColor;
         } else {

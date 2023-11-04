@@ -282,7 +282,7 @@ TimelineDelegate {
 
                 visible: (root.showAuthor || root.alwaysShowAuthor) && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
-                source: root.author.avatarSource
+                source: root.author.avatarUrl
                 color: root.author.color
                 QQC2.ToolTip.text: root.author.escapedDisplayName
 
@@ -411,7 +411,7 @@ TimelineDelegate {
         /**
          * @brief Whether local user messages should be aligned right.
          */
-        property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !root.alwaysMaxWidth
+        property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalMember && !Config.compactLayout && !root.alwaysMaxWidth
 
         function showMessageMenu() {
             RoomManager.viewEventMenu(root.eventId, root.room, root.selectedText);

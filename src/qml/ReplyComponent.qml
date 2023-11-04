@@ -111,7 +111,7 @@ RowLayout {
                 implicitWidth: Kirigami.Units.iconSizes.small
                 implicitHeight: Kirigami.Units.iconSizes.small
 
-                source: root.replyAuthor.avatarSource
+                source: root.replyAuthor.avatarUrl
                 name: root.replyAuthor.displayName
                 color: root.replyAuthor.color
             }

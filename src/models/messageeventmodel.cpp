@@ -12,7 +12,7 @@
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
-#include <Quotient/user.h>
+#include <Quotient/roommember.h>
 
 #include <QDebug>
 #include <QGuiApplication>
@@ -489,7 +489,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == AuthorRole) {
-        return eventHandler.getAuthor(isPending);
+        return QVariant::fromValue(eventHandler.getAuthor(isPending));
     }
 
     if (role == HighlightRole) {

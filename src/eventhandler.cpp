@@ -61,20 +61,19 @@ MessageComponentType::Type EventHandler::messageComponentType() const
     return MessageComponentType::typeForEvent(*m_event);
 }
 
-QVariantMap EventHandler::getAuthor(bool isPending) const
+Quotient::RoomMember EventHandler::getAuthor(bool isPending) const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getAuthor called with m_room set to nullptr.";
-        return {};
+        return RoomMember(nullptr);
     }
     // If we have a room we can return an empty user by handing nullptr to m_room->getUser.
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getAuthor called with m_event set to nullptr. Returning empty user.";
-        return m_room->getUser(nullptr);
+        return m_room->member(QString());
     }
 
-    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-    return m_room->getUser(author);
+    return isPending ? m_room->localMember() : m_room->member(m_event->senderId());
 }
 
 QString EventHandler::getAuthorDisplayName(bool isPending) const
@@ -777,25 +776,22 @@ MessageComponentType::Type EventHandler::replyMessageComponentType() const
     return MessageComponentType::typeForEvent(*replyEvent);
 }
 
-QVariantMap EventHandler::getReplyAuthor() const
+Quotient::RoomMember EventHandler::getReplyAuthor() const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getReplyAuthor called with m_room set to nullptr.";
-        return {};
+        return RoomMember(nullptr);
     }
     // If we have a room we can return an empty user by handing nullptr to m_room->getUser.
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getReplyAuthor called with m_event set to nullptr. Returning empty user.";
-        return m_room->getUser(nullptr);
+        return m_room->member(QString());
     }
 
-    auto replyPtr = m_room->getReplyForEvent(*m_event);
-
-    if (replyPtr) {
-        auto replyUser = m_room->user(replyPtr->senderId());
-        return m_room->getUser(replyUser);
+    if (auto replyPtr = m_room->getReplyForEvent(*m_event)) {
+        return m_room->member(replyPtr->senderId());
     } else {
-        return m_room->getUser(nullptr);
+        return m_room->member(QString());
     }
 }
 

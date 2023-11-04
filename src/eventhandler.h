@@ -13,6 +13,11 @@
 
 #include "enums/messagecomponenttype.h"
 
+namespace Quotient
+{
+class RoomMember;
+}
+
 class LinkPreviewer;
 class NeoChatRoom;
 class ReactionModel;
@@ -74,7 +79,7 @@ public:
      *
      * @sa Quotient::User
      */
-    QVariantMap getAuthor(bool isPending = false) const;
+    Quotient::RoomMember getAuthor(bool isPending = false) const;
 
     /**
      * @brief Get the display name of the event author.
@@ -263,7 +268,7 @@ public:
      *
      * @sa Quotient::User
      */
-    QVariantMap getReplyAuthor() const;
+    Quotient::RoomMember getReplyAuthor() const;
 
     /**
      * @brief Output a string for the message content of the event replied to ready
