@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-03 01:39+0000\n"
+"POT-Creation-Date: 2023-11-04 01:38+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -557,7 +557,7 @@ msgstr "alam.yellow@gmail.com"
 
 #: src/main.cpp:143
 #, kde-format
-msgid "A Qt5 library to write cross-platform clients for Matrix"
+msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 
 #: src/main.cpp:145
@@ -1339,13 +1339,13 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:178
+#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:56
 #, kde-format
 msgid "Edit this account"
 msgstr "ਇਹ ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
 #: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
-#: src/qml/UserInfo.qml:172
+#: src/qml/UserInfo.qml:50
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -1359,7 +1359,7 @@ msgid "Notification settings"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:409 src/qml/UserInfo.qml:238
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:409 src/qml/UserInfo.qml:116
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgid "Configure"
@@ -1382,7 +1382,7 @@ msgstr "ਲਾਗ ਆਉਟ"
 msgid "Accounts"
 msgstr "ਖਾਤੇ"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:46
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:170
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
@@ -1764,6 +1764,7 @@ msgid "Leave Room"
 msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
+#: src/qml/ExploreComponentMobile.qml:151
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -1771,6 +1772,7 @@ msgid "Create a Space"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
+#: src/qml/ExploreComponentMobile.qml:139
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -1839,8 +1841,9 @@ msgid "Pick room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/GlobalMenu.qml:64
-#: src/qml/RoomListPage.qml:170 src/qml/SelectParentDialog.qml:131
+#: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:168
+#: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt "@title"
@@ -1911,50 +1914,57 @@ msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 msgid "Logout device"
 msgstr "ਡਿਵਾਈਸ ਤੋਂ ਲਾਗ ਆਉਟ"
 
-#: src/qml/DevicesPage.qml:27
+#: src/qml/DevicesPage.qml:20 src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgid "Loading…"
+msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: src/qml/DevicesPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgid "This Device"
 msgstr "ਡਿਵਾਈਸ"
 
-#: src/qml/DevicesPage.qml:32
+#: src/qml/DevicesPage.qml:38
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgid "Verified Devices"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/DevicesPage.qml:37
+#: src/qml/DevicesPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgid "Unverified Devices"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/DevicesPage.qml:42
+#: src/qml/DevicesPage.qml:48
 #, kde-format
 msgid "Devices without Encryption Support"
 msgstr ""
 
-#: src/qml/DevicesPage.qml:57
+#: src/qml/DevicesPage.qml:63
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
 
-#: src/qml/DevicesPage.qml:67
+#: src/qml/DevicesPage.qml:75
 #, kde-format
 msgid "Remove device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
 
-#: src/qml/DevicesPage.qml:71 src/qml/Password.qml:27
+#: src/qml/DevicesPage.qml:81 src/qml/Password.qml:27
 #: src/qml/RegisterPassword.qml:18
 #, kde-format
 msgid "Password:"
 msgstr "ਪਾਸਵਰਡ:"
 
-#: src/qml/DevicesPage.qml:75 src/qml/General.qml:418
-#: src/qml/PowerLevelDialog.qml:43
-#, kde-format
-msgid "Confirm"
-msgstr "ਤਸਦੀਕ ਕਰੋ"
+#: src/qml/DevicesPage.qml:87
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "As in 'Remove this device'"
+msgid "Remove"
+msgstr "ਹਟਾਓ"
 
 #: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:85
 #, kde-format
@@ -2158,30 +2168,32 @@ msgid ""
 "device."
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:21 src/qml/RoomListPage.qml:164
+#: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "Explore rooms"
 msgstr "ਰੂਮ ਛਾਣੋ"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/GlobalMenu.qml:49
-#: src/qml/GlobalMenu.qml:54 src/qml/StartChatPage.qml:20
+#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
+#: src/qml/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
 
-#: src/qml/ExploreComponent.qml:37
+#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
 #, fuzzy, kde-format
 #| msgid "Start a Chat"
 msgctxt "@title"
 msgid "Start a Chat"
 msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
 
-#: src/qml/ExploreComponent.qml:40
+#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
 msgid "Create a Room"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/qml/ExploreComponent.qml:48
+#: src/qml/ExploreComponent.qml:48 src/qml/ExploreComponentMobile.qml:148
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Create a Space"
@@ -2191,6 +2203,17 @@ msgstr "ਰੂਮ ਬਣਾਓ"
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create rooms and chats"
+msgstr "ਰੂਮ ਤੇ ਪ੍ਰਾਈਵੇਟ ਚੈਟ:"
+
+#: src/qml/ExploreComponentMobile.qml:36
+#, kde-format
+msgid "Search"
+msgstr ""
+
+#: src/qml/ExploreComponentMobile.qml:75
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats:"
+msgid "Create New"
 msgstr "ਰੂਮ ਤੇ ਪ੍ਰਾਈਵੇਟ ਚੈਟ:"
 
 #: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
@@ -2456,6 +2479,11 @@ msgstr "ਰੂਮ ਛੱਡਿਆ"
 #| msgid "See new room..."
 msgid "Select new version"
 msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
+
+#: src/qml/General.qml:418 src/qml/PowerLevelDialog.qml:43
+#, kde-format
+msgid "Confirm"
+msgstr "ਤਸਦੀਕ ਕਰੋ"
 
 #: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
 #, fuzzy, kde-format
@@ -2837,7 +2865,7 @@ msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
 msgid "Find a user..."
 msgstr "...ਵਰਤੋਂਕਾਰ ਲੱਭੋ"
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:227
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:105
 #, kde-format
 msgid "Add"
 msgstr "ਜੋੜੋ"
@@ -2991,12 +3019,6 @@ msgstr ""
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "ਉਡੀਕੋ। ਇਸ ਨੂੰ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"
-
-#: src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
-#, fuzzy, kde-format
-#| msgid "Loading"
-msgid "Loading…"
-msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: src/qml/LocationChooser.qml:22
 #, fuzzy, kde-format
@@ -3747,28 +3769,28 @@ msgstr[1] "%1 ਮੈਂਬਰ"
 msgid "No member count"
 msgstr "ਕੋਈ ਮੈਂਬਰ ਗਿਣਤੀ ਨਹੀਂ"
 
-#: src/qml/RoomListPage.qml:161
+#: src/qml/RoomListPage.qml:159
 #, kde-format
 msgid "No rooms found"
 msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/qml/RoomListPage.qml:161
+#: src/qml/RoomListPage.qml:159
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਰੂਮ ਜੁਆਇੰਨ ਕਰੋ"
 
-#: src/qml/RoomListPage.qml:164
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "Search in room directory"
 msgstr "ਰੂਮ ਦੀ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਖੋਜੋ"
 
-#: src/qml/RoomListPage.qml:217
+#: src/qml/RoomListPage.qml:215
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:217
+#: src/qml/RoomListPage.qml:215
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
@@ -4322,100 +4344,100 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 ਲਿਖ ਰਹੇ ਹਨ"
 msgstr[1] "%2 ਲਿਖ ਰਹੇ ਹਨ"
 
-#: src/qml/UserDetailDialog.qml:30
+#: src/qml/UserDetailDialog.qml:32
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
 
-#: src/qml/UserDetailDialog.qml:79
+#: src/qml/UserDetailDialog.qml:107
 #, kde-format
 msgid "Unignore this user"
 msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
 
-#: src/qml/UserDetailDialog.qml:79
+#: src/qml/UserDetailDialog.qml:107
 #, kde-format
 msgid "Ignore this user"
 msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
 
-#: src/qml/UserDetailDialog.qml:92
+#: src/qml/UserDetailDialog.qml:120
 #, kde-format
 msgid "Kick this user"
 msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿੱਕ ਕਰੋ"
 
-#: src/qml/UserDetailDialog.qml:106
+#: src/qml/UserDetailDialog.qml:134
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgid "Invite this user"
 msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
 
-#: src/qml/UserDetailDialog.qml:119
+#: src/qml/UserDetailDialog.qml:147
 #, kde-format
 msgid "Ban this user"
 msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
 
-#: src/qml/UserDetailDialog.qml:124
+#: src/qml/UserDetailDialog.qml:152
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
 
-#: src/qml/UserDetailDialog.qml:136
+#: src/qml/UserDetailDialog.qml:164
 #, kde-format
 msgid "Unban this user"
 msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਤੋਂ ਪਾਬੰਦੀ ਹਟਾਓ"
 
-#: src/qml/UserDetailDialog.qml:149
+#: src/qml/UserDetailDialog.qml:177
 #, kde-format
 msgid "Set user power level"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:174
+#: src/qml/UserDetailDialog.qml:202
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:179
+#: src/qml/UserDetailDialog.qml:207
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/UserDetailDialog.qml:190
+#: src/qml/UserDetailDialog.qml:218
 #, kde-format
 msgid "Open a private chat"
 msgstr "ਪ੍ਰਾਈਵੇਟ ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: src/qml/UserDetailDialog.qml:201
+#: src/qml/UserDetailDialog.qml:229
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy link"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: src/qml/UserInfo.qml:49
+#: src/qml/UserInfo.qml:89
+#, kde-format
+msgid "Switch User"
+msgstr ""
+
+#: src/qml/UserInfo.qml:117
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Open Settings"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
+#: src/qml/UserInfo.qml:173
 #, kde-format
 msgid "Log in to an existing account"
 msgstr ""
 
-#: src/qml/UserInfo.qml:56
+#: src/qml/UserInfo.qml:180
 #, fuzzy, kde-format
 #| msgid "Login"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "ਲਾਗਇਨ"
-
-#: src/qml/UserInfo.qml:211
-#, kde-format
-msgid "Switch User"
-msgstr ""
-
-#: src/qml/UserInfo.qml:239
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgid "Open Settings"
-msgstr "ਸੈਟਿੰਗਾਂ"
 
 #: src/qml/Username.qml:18
 #, fuzzy, kde-format
