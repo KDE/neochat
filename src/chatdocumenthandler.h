@@ -88,7 +88,7 @@ class ChatDocumentHandler : public QObject
      * This is typically provided to a qml component to visualise the current
      * completion results.
      */
-    Q_PROPERTY(CompletionModel *completionModel READ completionModel NOTIFY completionModelChanged)
+    Q_PROPERTY(CompletionModel *completionModel READ completionModel CONSTANT)
 
     /**
      * @brief The current room that the the text document is being handled for.
@@ -133,7 +133,6 @@ public:
 
     Q_INVOKABLE void complete(int index);
 
-    void updateCompletions();
     CompletionModel *completionModel() const;
 
     [[nodiscard]] QColor mentionColor() const;
@@ -147,7 +146,6 @@ Q_SIGNALS:
     void cursorPositionChanged();
     void roomChanged();
     void chatBarCacheChanged();
-    void completionModelChanged();
     void selectionStartChanged();
     void selectionEndChanged();
     void errorColorChanged();

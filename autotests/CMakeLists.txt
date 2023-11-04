@@ -40,3 +40,9 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME chatbarcachetest
 )
+
+ecm_add_test(
+    chatdocumenthandlertest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME chatdocumenthandlertest
+)

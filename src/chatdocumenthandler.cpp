@@ -14,6 +14,8 @@
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
 
+#include "chatdocumenthandler_logging.h"
+
 class SyntaxHighlighter : public QSyntaxHighlighter
 {
 public:
@@ -98,7 +100,7 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     , m_document(nullptr)
     , m_cursorPosition(-1)
     , m_highlighter(new SyntaxHighlighter(this))
-    , m_completionModel(new CompletionModel())
+    , m_completionModel(new CompletionModel(this))
 {
     connect(this, &ChatDocumentHandler::roomChanged, this, [this]() {
         m_completionModel->setRoom(m_room);
@@ -213,6 +215,15 @@ void ChatDocumentHandler::setChatBarCache(ChatBarCache *chatBarCache)
 
 void ChatDocumentHandler::complete(int index)
 {
+    if (m_document == nullptr) {
+        qCWarning(ChatDocumentHandling) << "complete called with m_document set to nullptr.";
+        return;
+    }
+    if (m_completionModel->autoCompletionType() == CompletionModel::None) {
+        qCWarning(ChatDocumentHandling) << "complete called with m_completionModel->autoCompletionType() == CompletionModel::None.";
+        return;
+    }
+
     if (m_completionModel->autoCompletionType() == CompletionModel::User) {
         auto name = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::DisplayNameRole).toString();
         auto id = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
@@ -296,15 +307,17 @@ void ChatDocumentHandler::setSelectionEnd(int position)
 
 QString ChatDocumentHandler::getText() const
 {
-    if (!m_room) {
-        return QString();
+    if (!m_chatBarCache) {
+        qCWarning(ChatDocumentHandling) << "getText called with m_chatBarCache set to nullptr.";
+        return {};
     }
     return m_chatBarCache->text();
 }
 
 void ChatDocumentHandler::pushMention(const Mention mention) const
 {
-    if (!m_room) {
+    if (!m_chatBarCache) {
+        qCWarning(ChatDocumentHandling) << "pushMention called with m_chatBarCache set to nullptr.";
         return;
     }
     m_chatBarCache->mentions()->push_back(mention);

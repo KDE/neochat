@@ -311,6 +311,13 @@ ecm_qt_declare_logging_category(neochat
     DEFAULT_SEVERITY Info
 )
 
+ecm_qt_declare_logging_category(neochat
+    HEADER "chatdocumenthandler_logging.h"
+    IDENTIFIER "ChatDocumentHandling"
+    CATEGORY_NAME "org.kde.neochat.chatdocumenthandler"
+    DEFAULT_SEVERITY Info
+)
+
 add_executable(neochat-app
     main.cpp
 )
