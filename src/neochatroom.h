@@ -338,58 +338,6 @@ public:
 
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
-    /**
-     * @brief Get a user in the context of this room.
-     *
-     * This is different to getting a Quotient::User object
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room. This function
-     * provides the room context and outputs the result as QVariantMap.
-     *
-     * Can be called with an empty QString to return an empty user, which is a useful return
-     * from models to avoid undefined properties.
-     *
-     * @param userID the ID of the user to output.
-     *
-     * @return a QVariantMap for the user with the following properties:
-     *  - isLocalUser - Whether the user is the local user.
-     *  - id - The matrix ID of the user.
-     *  - displayName - Display name in the context of this room.
-     *  - avatarSource - The mxc URL for the user's avatar in the current room.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - color - Color for the user.
-     *  - object - The Quotient::User object for the user.
-     *
-     * @sa Quotient::User
-     */
-    Q_INVOKABLE [[nodiscard]] QVariantMap getUser(const QString &userID) const;
-
-    /**
-     * @brief Get a user in the context of this room.
-     *
-     * This is different to getting a Quotient::User object
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room. This function
-     * provides the room context and outputs the result as QVariantMap.
-     *
-     * Can be called with a nullptr to return an empty user, which is a useful return
-     * from models to avoid undefined properties.
-     *
-     * @param user the user to output.
-     *
-     * @return a QVariantMap for the user with the following properties:
-     *  - isLocalUser - Whether the user is the local user.
-     *  - id - The matrix ID of the user.
-     *  - displayName - Display name in the context of this room.
-     *  - avatarSource - The mxc URL for the user's avatar in the current room.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - color - Color for the user.
-     *  - object - The Quotient::User object for the user.
-     *
-     * @sa Quotient::User
-     */
-    Q_INVOKABLE [[nodiscard]] QVariantMap getUser(Quotient::User *user) const;
-
     [[nodiscard]] QVariantList getUsersTyping() const;
 
     [[nodiscard]] QDateTime lastActiveTime();

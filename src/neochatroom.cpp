@@ -426,40 +426,6 @@ QDateTime NeoChatRoom::lastActiveTime()
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 
-// An empty user is useful for returning as a model value to avoid properties being undefined.
-static const QVariantMap emptyUser = {
-    {"isLocalUser"_ls, false},
-    {"id"_ls, QString()},
-    {"displayName"_ls, QString()},
-    {"avatarSource"_ls, QUrl()},
-    {"avatarMediaId"_ls, QString()},
-    {"color"_ls, QColor()},
-    {"object"_ls, QVariant()},
-};
-
-QVariantMap NeoChatRoom::getUser(const QString &userID) const
-{
-    return getUser(user(userID));
-}
-
-QVariantMap NeoChatRoom::getUser(User *user) const
-{
-    if (user == nullptr) {
-        return emptyUser;
-    }
-
-    return QVariantMap{
-        {QStringLiteral("isLocalUser"), user->id() == localUser()->id()},
-        {QStringLiteral("id"), user->id()},
-        {QStringLiteral("displayName"), user->displayname(this)},
-        {QStringLiteral("escapedDisplayName"), htmlSafeMemberName(user->id())},
-        {QStringLiteral("avatarSource"), avatarForMember(user)},
-        {QStringLiteral("avatarMediaId"), user->avatarMediaId(this)},
-        {QStringLiteral("color"), Utils::getUserColor(user->hueF())},
-        {QStringLiteral("object"), QVariant::fromValue(user)},
-    };
-}
-
 QString NeoChatRoom::avatarMediaId() const
 {
     if (const auto avatar = Room::avatarMediaId(); !avatar.isEmpty()) {

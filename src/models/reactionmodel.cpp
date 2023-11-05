@@ -14,7 +14,7 @@
 
 #include <KLocalizedString>
 
-#include <Quotient/user.h>
+#include <Quotient/roommember.h>
 
 ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, const NeoChatRoom *room)
     : QAbstractListModel(nullptr)
@@ -90,7 +90,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     if (role == HasLocalUser) {
         for (auto author : reaction.authors) {
-            if (author.toMap()[QStringLiteral("id")] == m_room->localUser()->id()) {
+            if (author.toMap()[QStringLiteral("id")] == m_room->localMember().id()) {
                 return true;
             }
         }

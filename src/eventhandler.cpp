@@ -19,6 +19,7 @@
 #include <Quotient/events/simplestateevents.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/quotient_common.h>
+#include <Quotient/roommember.h>
 
 #include "eventhandler_logging.h"
 #include "events/locationbeaconevent.h"
@@ -65,12 +66,11 @@ Quotient::RoomMember EventHandler::getAuthor(bool isPending) const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getAuthor called with m_room set to nullptr.";
-        return RoomMember(nullptr);
+        return {};
     }
-    // If we have a room we can return an empty user by handing nullptr to m_room->getUser.
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getAuthor called with m_event set to nullptr. Returning empty user.";
-        return m_room->member(QString());
+        return {};
     }
 
     return isPending ? m_room->localMember() : m_room->member(m_event->senderId());
@@ -780,12 +780,11 @@ Quotient::RoomMember EventHandler::getReplyAuthor() const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getReplyAuthor called with m_room set to nullptr.";
-        return RoomMember(nullptr);
+        return {};
     }
-    // If we have a room we can return an empty user by handing nullptr to m_room->getUser.
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getReplyAuthor called with m_event set to nullptr. Returning empty user.";
-        return m_room->member(QString());
+        return {};
     }
 
     if (auto replyPtr = m_room->getReplyForEvent(*m_event)) {
@@ -965,8 +964,7 @@ QVariantList EventHandler::getReadMarkers(int maxMarkers) const
     QVariantList users;
     users.reserve(userIds.size());
     for (const auto &userId : userIds) {
-        auto user = m_room->user(userId);
-        users += m_room->getUser(user);
+        users += QVariant::fromValue(m_room->member(userId));
     }
 
     return users;

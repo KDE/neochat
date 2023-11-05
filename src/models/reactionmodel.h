@@ -5,13 +5,8 @@
 
 #include "neochatroom.h"
 #include <QAbstractListModel>
-#include <QQmlEngine>
 #include <Quotient/events/reactionevent.h>
-
-namespace Quotient
-{
-class User;
-}
+#include <Quotient/roommember.h>
 
 /**
  * @class ReactionModel

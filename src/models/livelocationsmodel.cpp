@@ -80,7 +80,7 @@ QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
     case AssetRole:
         return data.beaconInfo["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
     case AuthorRole:
-        return m_room->getUser(data.senderId);
+        return QVariant::fromValue(m_room->member(data.senderId));
     case IsLiveRole: {
         if (!data.beaconInfo["live"_ls].toBool()) {
             return false;

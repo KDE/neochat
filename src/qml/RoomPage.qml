@@ -289,7 +289,7 @@ Kirigami.Page {
     function showUserDetail(user) {
         userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
             room: root.currentRoom,
-            user: root.currentRoom.getUser(user.id)
+            user: user
         }).open();
     }
 
