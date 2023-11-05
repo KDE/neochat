@@ -3,6 +3,8 @@
 
 #include "chatbarcache.h"
 
+#include <Quotient/roommember.h>
+
 #include "eventhandler.h"
 #include "neochatroom.h"
 
@@ -83,21 +85,21 @@ void ChatBarCache::setEditId(const QString &editId)
     Q_EMIT attachmentPathChanged();
 }
 
-QVariantMap ChatBarCache::relationUser() const
+Quotient::RoomMember ChatBarCache::relationUser() const
 {
     if (parent() == nullptr) {
         qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
-        return {};
+        return Quotient::RoomMember(nullptr);
     }
     auto room = dynamic_cast<NeoChatRoom *>(parent());
     if (room == nullptr) {
         qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
-        return {};
+        return Quotient::RoomMember(nullptr);
     }
     if (m_relationId.isEmpty()) {
-        return room->getUser(nullptr);
+        return room->member(QString());
     }
-    return room->getUser(room->user((*room->findInTimeline(m_relationId))->senderId()));
+    return room->member((*room->findInTimeline(m_relationId))->senderId());
 }
 
 QString ChatBarCache::relationMessage() const

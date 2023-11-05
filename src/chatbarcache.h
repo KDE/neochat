@@ -7,6 +7,11 @@
 #include <QQmlEngine>
 #include <QTextCursor>
 
+namespace Quotient
+{
+class RoomMember;
+}
+
 /**
  * @brief Defines a user mention in the current chat or edit text.
  */
@@ -104,7 +109,7 @@ class ChatBarCache : public QObject
      *
      * @sa getUser, Quotient::User
      */
-    Q_PROPERTY(QVariantMap relationUser READ relationUser NOTIFY relationIdChanged)
+    Q_PROPERTY(Quotient::RoomMember relationUser READ relationUser NOTIFY relationIdChanged)
 
     /**
      * @brief The content of the related message.
@@ -158,7 +163,7 @@ public:
     QString editId() const;
     void setEditId(const QString &editId);
 
-    QVariantMap relationUser() const;
+    Quotient::RoomMember relationUser() const;
 
     QString relationMessage() const;
 
