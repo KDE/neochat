@@ -18,13 +18,13 @@ Kirigami.ScrollablePage {
 
     title: i18n("Invite a User")
 
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             icon.name: "dialog-close"
             text: i18nc("@action", "Cancel")
-            onTriggered: applicationWindow().pageStack.layers.pop()
+            onTriggered: root.closeDialog()
         }
-    }
+    ]
     header: RowLayout {
         Layout.fillWidth: true
         Layout.margins: Kirigami.Units.largeSpacing
