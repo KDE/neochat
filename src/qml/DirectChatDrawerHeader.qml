@@ -33,7 +33,7 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
 
         onClicked: {
-            RoomManager.resolveResource(root.room.directChatRemoteUser.id, "mention");
+            RoomManager.resolveResource(root.room.directChatRemoteMember.uri)
         }
 
         contentItem: KirigamiComponents.Avatar {

@@ -1895,6 +1895,12 @@ int NeoChatRoom::maxRoomVersion() const
     return maxVersion;
 }
 
+Quotient::RoomMember NeoChatRoom::directChatRemoteMember() const
+{
+    const auto user = connection()->directChatUsers(this)[0];
+    return member(user->id());
+}
+
 Quotient::User *NeoChatRoom::directChatRemoteUser() const
 {
     auto users = connection()->directChatUsers(this);

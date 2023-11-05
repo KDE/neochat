@@ -11,6 +11,7 @@
 #include <QTextCursor>
 
 #include <QCoroTask>
+#include <Quotient/roommember.h>
 #include <Quotient/user.h>
 
 #include "enums/pushrule.h"
@@ -93,6 +94,11 @@ class NeoChatRoom : public Quotient::Room
      * @brief The avatar image to be used for the room.
      */
     Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
+
+    /**
+     * @brief Get a RoomMember object for the other person in a direct chat.
+     */
+    Q_PROPERTY(Quotient::RoomMember directChatRemoteMember READ directChatRemoteMember CONSTANT)
 
     /**
      * @brief Get a user object for the other person in a direct chat.
@@ -496,6 +502,8 @@ public:
     [[nodiscard]] bool readMarkerLoaded() const;
 
     [[nodiscard]] QString avatarMediaId() const;
+
+    Quotient::RoomMember directChatRemoteMember() const;
 
     Quotient::User *directChatRemoteUser() const;
 

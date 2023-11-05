@@ -286,7 +286,7 @@ TimelineDelegate {
                 color: root.author.color
                 QQC2.ToolTip.text: root.author.escapedDisplayName
 
-                onClicked: RoomManager.resolveResource(root.author.id, "mention")
+                onClicked: RoomManager.resolveResource(root.author.uri)
             }
             Bubble {
                 id: bubble

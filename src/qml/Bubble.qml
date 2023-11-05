@@ -21,6 +21,10 @@ import org.kde.neochat
  */
 QQC2.Control {
     id: root
+    /**
+     * @brief The current connection for the local user.
+     */
+    required property NeoChatConnection connection
 
     /**
      * @brief The NeoChatRoom the delegate is being displayed in.
@@ -127,7 +131,7 @@ QQC2.Control {
                     elide: Text.ElideRight
                 }
                 Accessible.name: contentItem.text
-                onClicked: RoomManager.resolveResource(root.author.id, "mention")
+                onClicked: RoomManager.resolveResource(root.author.uri)
             }
             QQC2.Label {
                 id: timeLabel
