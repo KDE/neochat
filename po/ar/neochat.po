@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:52+0000\n"
+"POT-Creation-Date: 2023-11-05 14:06+0000\n"
 "PO-Revision-Date: 2023-08-19 22:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,67 +18,67 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:200
+#: src/controller.cpp:196
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "فشل الولوج: رمز النفاذ غير صالحة أو سحبت"
 
-#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
+#: src/controller.cpp:199 src/controller.cpp:204 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "فشل الولوج: %1"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:210
 #, kde-format
 msgid "Network Error: %1"
 msgstr "خطأ شبكي: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "رمز النفاذ غير موجود"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:235
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "ربما حذفت؟"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "رفض النفاذ إلى حَمَّالَة المَفَاتِيح"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:239
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "الرجاء السماح لنيوتشات بقراءة رمز النفاذ"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:242
 #, kde-format
 msgid "No keychain available."
 msgstr "لا تتوفر حَمَّالَة المَفَاتِيح"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "الرجاء تثبيت حَمَّالَة مَفَاتِيح مثل محفظتك من كِيدِي أو غنوم Keyring على لينكس"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:245
 #, kde-format
 msgid "Unable to read access token"
 msgstr "غير قادر على قراءة رقم النفاذ"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:341
 #, kde-format
 msgid "File too large to download."
 msgstr "الملف كبير جدًا لتنزيله."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:341
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "راسل مدير خادوم ماتركس للدعم."
 
-#: src/controller.cpp:375
+#: src/controller.cpp:366
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "رقم التعريفي للغرفة التي تحاول الانضمام إليها غير صحيح"
@@ -486,86 +486,86 @@ msgstr "© 2018-2020بلاك هات، 2020-2023 مجتمع كِيدِي"
 msgid "Carl Schwan"
 msgstr "كارل شوان"
 
-#: src/main.cpp:134 src/main.cpp:135 src/main.cpp:136
+#: src/main.cpp:135 src/main.cpp:139 src/main.cpp:140
 #, kde-format
 msgid "Maintainer"
 msgstr "المصين"
 
-#: src/main.cpp:135
+#: src/main.cpp:139
 #, kde-format
 msgid "Tobias Fella"
 msgstr "توبياس فلة"
 
-#: src/main.cpp:136
+#: src/main.cpp:140
 #, kde-format
 msgid "James Graham"
 msgstr "جيمس غراهام"
 
-#: src/main.cpp:137
+#: src/main.cpp:141
 #, kde-format
 msgid "Black Hat"
 msgstr "قبعة سوداء"
 
-#: src/main.cpp:137
+#: src/main.cpp:141
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "المؤلف الأصلي لـSpectral"
 
-#: src/main.cpp:138
+#: src/main.cpp:142
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "أليكسي روساكوف"
 
-#: src/main.cpp:138
+#: src/main.cpp:142
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "مصين Quotient"
 
-#: src/main.cpp:139
+#: src/main.cpp:143
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "زايد السعيدي"
 
-#: src/main.cpp:139
+#: src/main.cpp:143
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
-#: src/main.cpp:143
+#: src/main.cpp:147
 #, fuzzy, kde-format
 #| msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "مكتبة Qt5 لكتابة عملاء عابرة للأنظمة لماتركس"
 
-#: src/main.cpp:145
+#: src/main.cpp:149
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "‏%1 (بني على %2)"
 
-#: src/main.cpp:208
+#: src/main.cpp:212
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "عميل لميفاق الاتصال ماتركس"
 
-#: src/main.cpp:209
+#: src/main.cpp:213
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "يدعم ماتركس:‎ مخطط الروابط"
 
-#: src/main.cpp:210
+#: src/main.cpp:214
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "تجاهل جميع أخطاء SSL مثل الشهادات غير الموقعة."
 
-#: src/matriximageprovider.cpp:38
+#: src/matriximageprovider.cpp:41
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
 msgstr "لا يتبع معرف الوسائط '%1' نمط معرف الوسائط/الخادم"
 
-#: src/matriximageprovider.cpp:96
+#: src/matriximageprovider.cpp:99
 #, kde-format
 msgid "Image request has been cancelled"
 msgstr "طلب الصورة ألغي"
@@ -1078,12 +1078,12 @@ msgstr "فشل إنشاء غرفة: %1"
 msgid "Space creation failed: %1"
 msgstr "فشل إنشاء فضاء: %1"
 
-#: src/neochatroom.cpp:1525 src/neochatroom.cpp:1526
+#: src/neochatroom.cpp:1519 src/neochatroom.cpp:1520
 #, kde-format
 msgid "Report sent successfully."
 msgstr "أرسل البلاغ بنجاح."
 
-#: src/neochatroom.cpp:1785 src/neochatroom.cpp:1793
+#: src/neochatroom.cpp:1779 src/neochatroom.cpp:1787
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1094,7 +1094,7 @@ msgstr "عرض: %1, طول: %2"
 msgid "Encrypted Message"
 msgstr "رسالة معمّاة"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:283
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:294
 #, kde-format
 msgid "%1: %2"
 msgstr "‏%1: ‏%2"
@@ -1104,42 +1104,42 @@ msgstr "‏%1: ‏%2"
 msgid "Open NeoChat in this room"
 msgstr "افتح نيوتشات في هذه الغرفة"
 
-#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
+#: src/notificationsmanager.cpp:218 src/qml/FileDelegateContextMenu.qml:59
 #: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "ردّ"
 
-#: src/notificationsmanager.cpp:221
+#: src/notificationsmanager.cpp:219
 #, kde-format
 msgid "Reply..."
 msgstr "ردّ..."
 
-#: src/notificationsmanager.cpp:239
+#: src/notificationsmanager.cpp:237
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "‏%1 دعاك إلى غرفة"
 
-#: src/notificationsmanager.cpp:243
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "افتح هذه الدعوة في نيوتشات"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:248
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "اقبل"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:249
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "ارفض"
 
-#: src/notificationsmanager.cpp:252
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -1276,13 +1276,13 @@ msgid "Notification settings"
 msgstr "إعدادات الإشعارات"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:409 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Configure"
 msgstr "اضبط"
 
 #: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
-#: src/qml/SettingsPage.qml:80
+#: src/qml/SettingsPage.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "الأجهزة"
@@ -1293,7 +1293,7 @@ msgid "Logout"
 msgstr "اخرج"
 
 #: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
-#: src/qml/SettingsPage.qml:49
+#: src/qml/SettingsPage.qml:54
 #, kde-format
 msgid "Accounts"
 msgstr "الحسابات"
@@ -1434,7 +1434,7 @@ msgid "General"
 msgstr "عامّ"
 
 #: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
-#: src/qml/SettingsPage.qml:38
+#: src/qml/SettingsPage.qml:43
 #, kde-format
 msgid "Security"
 msgstr "الأمن"
@@ -1623,13 +1623,13 @@ msgstr "حالة الإشعارات"
 msgid "Follow Global Setting"
 msgstr "استخدم الإعداد العموميّ"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:35
+#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "الكلّ"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:43
+#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1637,7 +1637,7 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@الكلمات المفتاحية والإشارات"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:51
+#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -1712,7 +1712,7 @@ msgid "Make this parent official"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:182
+#: src/qml/JoinRoomPage.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1731,7 +1731,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:168
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:170
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2038,7 +2038,7 @@ msgid ""
 msgstr "هذه الرسالة مشفرة ولم يشارك المرسل المفتاح مع هذا الجهاز."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "Explore rooms"
 msgstr "استكشف الغرف"
@@ -2533,53 +2533,53 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "أسئلة ماتركس المتكررة"
 
-#: src/qml/GlobalNotificationsPage.qml:17
+#: src/qml/GlobalNotificationsPage.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "الإشعارات"
 
-#: src/qml/GlobalNotificationsPage.qml:22
+#: src/qml/GlobalNotificationsPage.qml:28
 #, kde-format
 msgid "Enable notifications for this account"
 msgstr "مكّن إشعارات هذا الحساب"
 
-#: src/qml/GlobalNotificationsPage.qml:23
+#: src/qml/GlobalNotificationsPage.qml:29
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
 msgstr "إذا ما كانت الإشعارات مولدة من قبل خادوم ماتركس"
 
-#: src/qml/GlobalNotificationsPage.qml:33
+#: src/qml/GlobalNotificationsPage.qml:39
 #, kde-format
 msgid "Room Notifications"
 msgstr "إشعارات الغرفة"
 
-#: src/qml/GlobalNotificationsPage.qml:50
+#: src/qml/GlobalNotificationsPage.qml:56
 #, kde-format
 msgid "@Mentions"
 msgstr "@الذّكورات"
 
-#: src/qml/GlobalNotificationsPage.qml:67 src/qml/PushNotification.qml:61
+#: src/qml/GlobalNotificationsPage.qml:73 src/qml/PushNotification.qml:65
 #, kde-format
 msgid "Keywords"
 msgstr "الكلمات المفتاحيّة"
 
-#: src/qml/GlobalNotificationsPage.qml:91 src/qml/PushNotification.qml:96
+#: src/qml/GlobalNotificationsPage.qml:97 src/qml/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "الكلمة المفتاحية…"
 
-#: src/qml/GlobalNotificationsPage.qml:110 src/qml/PushNotification.qml:115
+#: src/qml/GlobalNotificationsPage.qml:116 src/qml/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "أضِف كلمة مفتاحية"
 
-#: src/qml/GlobalNotificationsPage.qml:131
+#: src/qml/GlobalNotificationsPage.qml:137
 #, kde-format
 msgid "Invites"
 msgstr "الدعوات"
 
-#: src/qml/GlobalNotificationsPage.qml:148
+#: src/qml/GlobalNotificationsPage.qml:154
 #, fuzzy, kde-format
 #| msgid "Unknown event"
 msgid "Unknown"
@@ -2735,60 +2735,60 @@ msgstr "استكشف الغرف"
 msgid "Find a room..."
 msgstr "اعثر على غرفة..."
 
-#: src/qml/JoinRoomPage.qml:83
+#: src/qml/JoinRoomPage.qml:84
 #, kde-format
 msgid "Add New Server"
 msgstr "أضف خادماً جديداً"
 
-#: src/qml/JoinRoomPage.qml:98
+#: src/qml/JoinRoomPage.qml:99
 #, kde-format
 msgid "Home Server"
 msgstr "خادم المنزل"
 
-#: src/qml/JoinRoomPage.qml:105
+#: src/qml/JoinRoomPage.qml:106
 #, fuzzy, kde-format
 #| msgid "Add new server"
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "أضف خادماً جديداً"
 
-#: src/qml/JoinRoomPage.qml:137
+#: src/qml/JoinRoomPage.qml:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "أضف خادمًا"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "Valid server entered"
 msgstr "أدخل خادم صحيح"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "لا يمكن التحقق من الخادم أو أنه مضاف فعلا"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "ليس النص المُدخَل رابطا صالحا"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "أدخل رابط الخادم مثل kde.org"
 
-#: src/qml/JoinRoomPage.qml:158
+#: src/qml/JoinRoomPage.qml:159
 #, kde-format
 msgid "Server URL"
 msgstr "رابط الخادم"
 
-#: src/qml/JoinRoomPage.qml:239
+#: src/qml/JoinRoomPage.qml:240
 #, kde-format
 msgid "Enter a room address"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:265
+#: src/qml/JoinRoomPage.qml:266
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -2925,18 +2925,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "سجّل"
 
-#: src/qml/main.qml:323
+#: src/qml/main.qml:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "تَثَبّت الجلسة"
 
-#: src/qml/main.qml:335
+#: src/qml/main.qml:346
 #, kde-format
 msgid "User consent"
 msgstr "موافقة المستخدم"
 
-#: src/qml/main.qml:340
+#: src/qml/main.qml:351
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2945,17 +2945,17 @@ msgstr ""
 "يتطلب منك الخادم المنزلي الخاص بك الموافقة على الشروط والأحكام الخاصة به قبل "
 "أن تتمكن من استخدامه. الرجاء الضغط على الزر أدناه لقراءتها."
 
-#: src/qml/main.qml:345
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Open"
 msgstr "افتح"
 
-#: src/qml/main.qml:372
+#: src/qml/main.qml:383
 #, kde-format
 msgid "Start a chat"
 msgstr "ابدأ دردشة"
 
-#: src/qml/main.qml:374
+#: src/qml/main.qml:385
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "هل ترغب في بَدء دردشة مع %1؟"
@@ -3035,7 +3035,7 @@ msgstr "ألغِ التحرير"
 msgid "Event Source"
 msgstr "مصدر الحدث"
 
-#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:74
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:79
 #, kde-format
 msgid "Network Proxy"
 msgstr "وسيط الشّبكة"
@@ -3300,12 +3300,12 @@ msgstr "(انتهى)"
 msgid "Edit user power level"
 msgstr "تحرير مستوى قدرة المستخدم"
 
-#: src/qml/PushNotification.qml:22
+#: src/qml/PushNotification.qml:26
 #, kde-format
 msgid "Room notifications setting"
 msgstr "إعدادات إشعارات الغرفة"
 
-#: src/qml/PushNotification.qml:27
+#: src/qml/PushNotification.qml:31
 #, kde-format
 msgid "Follow global setting"
 msgstr "استخدم الإعداد العموميّ"
@@ -3568,28 +3568,28 @@ msgstr[5] "%1 عضو"
 msgid "No member count"
 msgstr "بلا عدد أعضاء"
 
-#: src/qml/RoomListPage.qml:159
+#: src/qml/RoomListPage.qml:161
 #, kde-format
 msgid "No rooms found"
 msgstr "لم يعثر على غرف"
 
-#: src/qml/RoomListPage.qml:159
+#: src/qml/RoomListPage.qml:161
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "انضم لبعض الغرف لتبدأ"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "Search in room directory"
 msgstr "ابحث في دليل الغرف"
 
-#: src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:221
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "اطوِ %1"
 
-#: src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:221
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -3855,22 +3855,22 @@ msgstr "إصدارات الغرفة المتوفرة"
 msgid "Appearance"
 msgstr "المظهر"
 
-#: src/qml/SettingsPage.qml:55
+#: src/qml/SettingsPage.qml:60
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "الملصقات والصور التعبيرية"
 
-#: src/qml/SettingsPage.qml:67
+#: src/qml/SettingsPage.qml:72
 #, kde-format
 msgid "Spell Checking"
 msgstr "التدقيق الإملائي"
 
-#: src/qml/SettingsPage.qml:91
+#: src/qml/SettingsPage.qml:96
 #, kde-format
 msgid "About NeoChat"
 msgstr "عن نيوتشات"
 
-#: src/qml/SettingsPage.qml:97
+#: src/qml/SettingsPage.qml:102
 #, kde-format
 msgid "About KDE"
 msgstr "عن كِيدِي"
@@ -4485,43 +4485,43 @@ msgstr "رقم تعريفي لماتركس مشوَّه أو فارغ"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "معرف ماتركس %1 غير صحيح"
 
-#: src/roommanager.cpp:94
+#: src/roommanager.cpp:93
 #, kde-format
 msgid "Room not found"
 msgstr "لم يعثر على الغرفة"
 
-#: src/roommanager.cpp:94
+#: src/roommanager.cpp:93
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "لا توجد غرفة %1 في قائمة الغرف. تحقق الهجاء و اسم الحساب."
 
-#: src/roommanager.cpp:306
+#: src/roommanager.cpp:305
 #, kde-format
 msgid "Failed to join room"
 msgstr "أخفق في الانضمام إلى غرفة"
 
-#: src/roommanager.cpp:321
+#: src/roommanager.cpp:320
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "طلبت الانضمام إلى '%1'"
 
-#: src/roommanager.cpp:324
+#: src/roommanager.cpp:323
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "فشل في طلب الانضمام لغرفة"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:332
 #, kde-format
 msgid "No application for the link"
 msgstr "لا يوجد تطبيق لهذا الرابط"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:332
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "تعذر على نظام تشغيلك العثور على تطبيق لهذا الرابط."
 
-#: src/roommanager.cpp:339
+#: src/roommanager.cpp:338
 #, kde-format
 msgid "Could not open URL"
 msgstr "تعذر فتح الوصلة"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:52+0000\n"
+"POT-Creation-Date: 2023-11-05 14:06+0000\n"
 "PO-Revision-Date: 2023-05-09 22:36+0200\n"
 "Last-Translator: K. Áron <aronkvh@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -18,72 +18,72 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: src/controller.cpp:200
+#: src/controller.cpp:196
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Sikertelen bejelentkezés: A hozzáférést biztosító token érvénytelen vagy "
 "visszavonták"
 
-#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
+#: src/controller.cpp:199 src/controller.cpp:204 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Sikertelen bejelentkezés: %1"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:210
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Hálózati hiba: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "A hozzáférési token  nem található"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:235
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Lehet, hogy kitörölték?"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "A kulcstartóhoz való hozzáférés megtagadva."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:239
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Kérjük, adj hozzáférést a NeoChat-nek a tokenhez"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:242
 #, kde-format
 msgid "No keychain available."
 msgstr "Nincs elérhető kulcstartó."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Kérjük, telepíts egy kulcstartót Linuxon: pl. a KWallet-et vagy a GNOME "
 "Keyring-et"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:245
 #, kde-format
 msgid "Unable to read access token"
 msgstr "A hozzáférési token olvasása nem sikerült"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:341
 #, kde-format
 msgid "File too large to download."
 msgstr "A fájl túl nagy a letöltéshez."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:341
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Segítségért vedd fel a kapcsolatot a Matrix szervered rendszergazdájával."
 
-#: src/controller.cpp:375
+#: src/controller.cpp:366
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "A szobaazonosító, amelyhez csatlakozni szeretne, érvénytelen"
@@ -488,86 +488,86 @@ msgstr "© Black Hat, 2018-2020, A KDE közösség, 2020-2022"
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:134 src/main.cpp:135 src/main.cpp:136
+#: src/main.cpp:135 src/main.cpp:139 src/main.cpp:140
 #, kde-format
 msgid "Maintainer"
 msgstr "Karbantartó"
 
-#: src/main.cpp:135
+#: src/main.cpp:139
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:136
+#: src/main.cpp:140
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:137
+#: src/main.cpp:141
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:137
+#: src/main.cpp:141
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "A Spectral eredeti készítője"
 
-#: src/main.cpp:138
+#: src/main.cpp:142
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:138
+#: src/main.cpp:142
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "A Quotient karbantartója"
 
-#: src/main.cpp:139
+#: src/main.cpp:143
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kiszel Kristóf, Kovács Áron"
 
-#: src/main.cpp:139
+#: src/main.cpp:143
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kiszel.kristof@gmail.com, aronkvh@gmail.com"
 
-#: src/main.cpp:143
+#: src/main.cpp:147
 #, fuzzy, kde-format
 #| msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Qt5 könyvtár cross-platform Matrix kliensek létrehozásához"
 
-#: src/main.cpp:145
+#: src/main.cpp:149
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (fordítva ezzel: %2)"
 
-#: src/main.cpp:208
+#: src/main.cpp:212
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Kliens a matrix kommunikációs protokollhoz"
 
-#: src/main.cpp:209
+#: src/main.cpp:213
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Támogatja a 'matrix:' url sémát"
 
-#: src/main.cpp:210
+#: src/main.cpp:214
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 
-#: src/matriximageprovider.cpp:38
+#: src/matriximageprovider.cpp:41
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
 msgstr "A(z) „%1” médiaazonosító nem követi a server/mediaId mintát"
 
-#: src/matriximageprovider.cpp:96
+#: src/matriximageprovider.cpp:99
 #, kde-format
 msgid "Image request has been cancelled"
 msgstr "A kép kérését megszakították"
@@ -1069,12 +1069,12 @@ msgstr "A szoba létrehozása nem sikerült: „%1”"
 msgid "Space creation failed: %1"
 msgstr "A szoba létrehozása nem sikerült: „%1”"
 
-#: src/neochatroom.cpp:1525 src/neochatroom.cpp:1526
+#: src/neochatroom.cpp:1519 src/neochatroom.cpp:1520
 #, kde-format
 msgid "Report sent successfully."
 msgstr "A jelentést sikeresen elküldte."
 
-#: src/neochatroom.cpp:1785 src/neochatroom.cpp:1793
+#: src/neochatroom.cpp:1779 src/neochatroom.cpp:1787
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1085,7 +1085,7 @@ msgstr "Hossz.: %1, Szél.: %2"
 msgid "Encrypted Message"
 msgstr "Titkosított üzenet"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:283
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:294
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1095,42 +1095,42 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
+#: src/notificationsmanager.cpp:218 src/qml/FileDelegateContextMenu.qml:59
 #: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Válasz"
 
-#: src/notificationsmanager.cpp:221
+#: src/notificationsmanager.cpp:219
 #, kde-format
 msgid "Reply..."
 msgstr "Válasz..."
 
-#: src/notificationsmanager.cpp:239
+#: src/notificationsmanager.cpp:237
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 meghívott egy szobába"
 
-#: src/notificationsmanager.cpp:243
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "A meghívás megnyitása a NeoChatban"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:248
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:249
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Elutasítás"
 
-#: src/notificationsmanager.cpp:252
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -1268,13 +1268,13 @@ msgid "Notification settings"
 msgstr "Értesítési beállítások"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:409 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Configure"
 msgstr "Beállítás"
 
 #: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
-#: src/qml/SettingsPage.qml:80
+#: src/qml/SettingsPage.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Eszközök"
@@ -1285,7 +1285,7 @@ msgid "Logout"
 msgstr "Kijelentkezés"
 
 #: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
-#: src/qml/SettingsPage.qml:49
+#: src/qml/SettingsPage.qml:54
 #, kde-format
 msgid "Accounts"
 msgstr "Fiókok"
@@ -1427,7 +1427,7 @@ msgid "General"
 msgstr "Általános"
 
 #: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
-#: src/qml/SettingsPage.qml:38
+#: src/qml/SettingsPage.qml:43
 #, kde-format
 msgid "Security"
 msgstr "Biztonság"
@@ -1616,13 +1616,13 @@ msgstr "Értesítések"
 msgid "Follow Global Setting"
 msgstr "Kövesse az általános beállítást"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:35
+#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Minden üzenet"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:43
+#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1630,7 +1630,7 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Megemlítések és kulcsszavak"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:51
+#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -1706,7 +1706,7 @@ msgid "Make this parent official"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:182
+#: src/qml/JoinRoomPage.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1725,7 +1725,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:168
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:170
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2055,7 +2055,7 @@ msgstr ""
 "eszközzel."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "Explore rooms"
 msgstr "Szobák felfedezése"
@@ -2560,53 +2560,53 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Matrix GY.I.K"
 
-#: src/qml/GlobalNotificationsPage.qml:17
+#: src/qml/GlobalNotificationsPage.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Értesítések"
 
-#: src/qml/GlobalNotificationsPage.qml:22
+#: src/qml/GlobalNotificationsPage.qml:28
 #, kde-format
 msgid "Enable notifications for this account"
 msgstr "Értesítések engedélyezése a fióknál"
 
-#: src/qml/GlobalNotificationsPage.qml:23
+#: src/qml/GlobalNotificationsPage.qml:29
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Küldjön-e leküldéses értesítéseket  a Matrix szervere"
 
-#: src/qml/GlobalNotificationsPage.qml:33
+#: src/qml/GlobalNotificationsPage.qml:39
 #, kde-format
 msgid "Room Notifications"
 msgstr "Szobaértesítések"
 
-#: src/qml/GlobalNotificationsPage.qml:50
+#: src/qml/GlobalNotificationsPage.qml:56
 #, kde-format
 msgid "@Mentions"
 msgstr "@Említések"
 
-#: src/qml/GlobalNotificationsPage.qml:67 src/qml/PushNotification.qml:61
+#: src/qml/GlobalNotificationsPage.qml:73 src/qml/PushNotification.qml:65
 #, kde-format
 msgid "Keywords"
 msgstr "Kulcsszavak"
 
-#: src/qml/GlobalNotificationsPage.qml:91 src/qml/PushNotification.qml:96
+#: src/qml/GlobalNotificationsPage.qml:97 src/qml/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Kulcsszó..."
 
-#: src/qml/GlobalNotificationsPage.qml:110 src/qml/PushNotification.qml:115
+#: src/qml/GlobalNotificationsPage.qml:116 src/qml/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Kulcsszó hozzáadása"
 
-#: src/qml/GlobalNotificationsPage.qml:131
+#: src/qml/GlobalNotificationsPage.qml:137
 #, kde-format
 msgid "Invites"
 msgstr "Meghívások"
 
-#: src/qml/GlobalNotificationsPage.qml:148
+#: src/qml/GlobalNotificationsPage.qml:154
 #, fuzzy, kde-format
 #| msgctxt "Unknown attachment size"
 #| msgid "Unknown"
@@ -2763,62 +2763,62 @@ msgstr "Szobák felfedezése"
 msgid "Find a room..."
 msgstr "Szoba keresése…"
 
-#: src/qml/JoinRoomPage.qml:83
+#: src/qml/JoinRoomPage.qml:84
 #, kde-format
 msgid "Add New Server"
 msgstr "Új szerver hozzáadása"
 
-#: src/qml/JoinRoomPage.qml:98
+#: src/qml/JoinRoomPage.qml:99
 #, kde-format
 msgid "Home Server"
 msgstr "Alapértelmezett szerver (Home Server):"
 
-#: src/qml/JoinRoomPage.qml:105
+#: src/qml/JoinRoomPage.qml:106
 #, fuzzy, kde-format
 #| msgid "Add new server"
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Új szerver hozzáadása"
 
-#: src/qml/JoinRoomPage.qml:137
+#: src/qml/JoinRoomPage.qml:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Szerver hozzáadása"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "Valid server entered"
 msgstr "Érvényes szerver megadva"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Ezt a szervert nem lehet megoldani, vagy már hozzáadták"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "A beírt szöveg nem érvényes URL"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Adja meg a szerver URL-jét, pl. kde.org"
 
-#: src/qml/JoinRoomPage.qml:158
+#: src/qml/JoinRoomPage.qml:159
 #, kde-format
 msgid "Server URL"
 msgstr "Szerver URL"
 
-#: src/qml/JoinRoomPage.qml:239
+#: src/qml/JoinRoomPage.qml:240
 #, fuzzy, kde-format
 #| msgctxt "@label Parameter of a command"
 #| msgid "<room-address>"
 msgid "Enter a room address"
 msgstr "<szobacím>"
 
-#: src/qml/JoinRoomPage.qml:265
+#: src/qml/JoinRoomPage.qml:266
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -2958,18 +2958,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Regisztráció"
 
-#: src/qml/main.qml:323
+#: src/qml/main.qml:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Munkamenet-ellenőrzés"
 
-#: src/qml/main.qml:335
+#: src/qml/main.qml:346
 #, kde-format
 msgid "User consent"
 msgstr "Felhasználói hozzájárulás"
 
-#: src/qml/main.qml:340
+#: src/qml/main.qml:351
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2978,17 +2978,17 @@ msgstr ""
 "A kezdőkiszolgálója a használati feltételek elfogadását kéri, mielőtt "
 "használhatná azt. Kattintson a lenti gombra az elolvasásukhoz."
 
-#: src/qml/main.qml:345
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/qml/main.qml:372
+#: src/qml/main.qml:383
 #, kde-format
 msgid "Start a chat"
 msgstr "Csevegés indítása"
 
-#: src/qml/main.qml:374
+#: src/qml/main.qml:385
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Szeretnél csevegést indítani vele: %1 ?"
@@ -3068,7 +3068,7 @@ msgstr "A szerkesztés elvetése"
 msgid "Event Source"
 msgstr "Az esemény forrása"
 
-#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:74
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:79
 #, kde-format
 msgid "Network Proxy"
 msgstr "Hálózati proxy"
@@ -3331,12 +3331,12 @@ msgstr "(Vége)"
 msgid "Edit user power level"
 msgstr "A felhasználó engedélyszintjének szerkesztése"
 
-#: src/qml/PushNotification.qml:22
+#: src/qml/PushNotification.qml:26
 #, kde-format
 msgid "Room notifications setting"
 msgstr "A szoba értesítéseinek beállítása"
 
-#: src/qml/PushNotification.qml:27
+#: src/qml/PushNotification.qml:31
 #, kde-format
 msgid "Follow global setting"
 msgstr "Kövesse az általános beállítást"
@@ -3597,28 +3597,28 @@ msgstr[1] "%1 tag"
 msgid "No member count"
 msgstr "Nincs tagszám"
 
-#: src/qml/RoomListPage.qml:159
+#: src/qml/RoomListPage.qml:161
 #, kde-format
 msgid "No rooms found"
 msgstr "Nem található szoba"
 
-#: src/qml/RoomListPage.qml:159
+#: src/qml/RoomListPage.qml:161
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Csatlakozz néhány szobához kezdésként"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "Search in room directory"
 msgstr "Keresés a szobakönyvtárban"
 
-#: src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:221
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:221
 #, fuzzy, kde-format
 #| msgid "Expand preview"
 msgctxt "Expand <section name"
@@ -3895,23 +3895,23 @@ msgstr "Elérhető szobaverziók"
 msgid "Appearance"
 msgstr "Megjelenés"
 
-#: src/qml/SettingsPage.qml:55
+#: src/qml/SettingsPage.qml:60
 #, fuzzy, kde-format
 #| msgid "Stickers"
 msgid "Stickers & Emojis"
 msgstr "Matricák"
 
-#: src/qml/SettingsPage.qml:67
+#: src/qml/SettingsPage.qml:72
 #, kde-format
 msgid "Spell Checking"
 msgstr "Helyesírás-ellenőrzés"
 
-#: src/qml/SettingsPage.qml:91
+#: src/qml/SettingsPage.qml:96
 #, kde-format
 msgid "About NeoChat"
 msgstr "A Neochat névjegye"
 
-#: src/qml/SettingsPage.qml:97
+#: src/qml/SettingsPage.qml:102
 #, kde-format
 msgid "About KDE"
 msgstr "A KDE-ről"
@@ -4547,12 +4547,12 @@ msgstr "Rossz formátumú vagy üres Matrix ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 nem megfelelő Matrix azonosító"
 
-#: src/roommanager.cpp:94
+#: src/roommanager.cpp:93
 #, kde-format
 msgid "Room not found"
 msgstr "A szoba nem található"
 
-#: src/roommanager.cpp:94
+#: src/roommanager.cpp:93
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -4560,32 +4560,32 @@ msgstr ""
 "A szoba ' %1 ' nem található a szobakönyvtárban. Ellenőrizze a helyesírást "
 "és a fiókot."
 
-#: src/roommanager.cpp:306
+#: src/roommanager.cpp:305
 #, kde-format
 msgid "Failed to join room"
 msgstr "Nem sikerült csatlakozni a szobához"
 
-#: src/roommanager.cpp:321
+#: src/roommanager.cpp:320
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Csatlakozási kérelmet küldtél ehhez:  '%1'"
 
-#: src/roommanager.cpp:324
+#: src/roommanager.cpp:323
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "A csatlakozási kérelem sikertelen"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:332
 #, kde-format
 msgid "No application for the link"
 msgstr "Nincs megfelelő alkalmazás a linkhez"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:332
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Az operációs rendszere nem talált alkalmazást a hivatkozáshoz."
 
-#: src/roommanager.cpp:339
+#: src/roommanager.cpp:338
 #, kde-format
 msgid "Could not open URL"
 msgstr "Nem sikerült megyitni az URL-t"

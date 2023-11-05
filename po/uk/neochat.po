@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:52+0000\n"
+"POT-Creation-Date: 2023-11-05 14:06+0000\n"
 "PO-Revision-Date: 2023-11-04 19:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,70 +20,70 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: src/controller.cpp:200
+#: src/controller.cpp:196
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Невдала спроба увійти: жетон доступу є некоректним або його відкликано"
 
-#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
+#: src/controller.cpp:199 src/controller.cpp:204 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Невдала спроба увійти: %1"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:210
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Помилка у мережі: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не знайдено жетона доступу"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:235
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Можливо, його вилучено?"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Відмовлено у доступі до засобу керування ключами."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:239
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Будь ласка, дозвольте NeoChat читання жетона доступу"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:242
 #, kde-format
 msgid "No keychain available."
 msgstr "Немає доступних засобів керування ключами."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Будь ласка, встановіть засіб керування ключами, наприклад KWallet або GNOME "
 "keyring у Linux"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:245
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не вдалося прочитати жетон доступу"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:341
 #, kde-format
 msgid "File too large to download."
 msgstr "Файл є надто великим для отримання."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:341
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
 
-#: src/controller.cpp:375
+#: src/controller.cpp:366
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
@@ -489,88 +489,88 @@ msgstr "© Black Hat, 2018-2020, Спільнота KDE, 2020–2023"
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:134 src/main.cpp:135 src/main.cpp:136
+#: src/main.cpp:135 src/main.cpp:139 src/main.cpp:140
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: src/main.cpp:135
+#: src/main.cpp:139
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:136
+#: src/main.cpp:140
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:137
+#: src/main.cpp:141
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:137
+#: src/main.cpp:141
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Перший автор Spectral"
 
-#: src/main.cpp:138
+#: src/main.cpp:142
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:138
+#: src/main.cpp:142
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Супровідник Quotient"
 
-#: src/main.cpp:139
+#: src/main.cpp:143
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: src/main.cpp:139
+#: src/main.cpp:143
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: src/main.cpp:143
+#: src/main.cpp:147
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Бібліотека Qt для написання багатоплатформових клієнтських програм для Matrix"
 
-#: src/main.cpp:145
+#: src/main.cpp:149
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (зібрано з %2)"
 
-#: src/main.cpp:208
+#: src/main.cpp:212
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клієнт для протоколу обміну даними matrix"
 
-#: src/main.cpp:209
+#: src/main.cpp:213
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Передбачає підтримку схеми адрес matrix:"
 
-#: src/main.cpp:210
+#: src/main.cpp:214
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ігнорувати усі помилки SSL, наприклад непідписані сертифікати."
 
-#: src/matriximageprovider.cpp:38
+#: src/matriximageprovider.cpp:41
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
 msgstr ""
 "Ідентифікатор мультимедійних даних «%1» не відповідає взірцю сервер/"
 "ідентифікатор_мультимедійних_даних"
 
-#: src/matriximageprovider.cpp:96
+#: src/matriximageprovider.cpp:99
 #, kde-format
 msgid "Image request has been cancelled"
 msgstr "Запит щодо зображення було скасовано"
@@ -1075,12 +1075,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/neochatroom.cpp:1525 src/neochatroom.cpp:1526
+#: src/neochatroom.cpp:1519 src/neochatroom.cpp:1520
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1785 src/neochatroom.cpp:1793
+#: src/neochatroom.cpp:1779 src/neochatroom.cpp:1787
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1091,7 +1091,7 @@ msgstr "Шир: %1, Довг: %2"
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:283
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:294
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1101,40 +1101,40 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
-#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
+#: src/notificationsmanager.cpp:218 src/qml/FileDelegateContextMenu.qml:59
 #: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
 
-#: src/notificationsmanager.cpp:221
+#: src/notificationsmanager.cpp:219
 #, kde-format
 msgid "Reply..."
 msgstr "Відповісти…"
 
-#: src/notificationsmanager.cpp:239
+#: src/notificationsmanager.cpp:237
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "Вас запрошено до кімнати %1"
 
-#: src/notificationsmanager.cpp:243
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Відкрити це запрошення у NeoChat"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:248
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Прийняти"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:249
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Відмовити"
 
-#: src/notificationsmanager.cpp:252
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -1269,13 +1269,13 @@ msgid "Notification settings"
 msgstr "Параметри сповіщень"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:409 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Configure"
 msgstr "Налаштувати"
 
 #: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
-#: src/qml/SettingsPage.qml:80
+#: src/qml/SettingsPage.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Пристрої"
@@ -1286,7 +1286,7 @@ msgid "Logout"
 msgstr "Вийти"
 
 #: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
-#: src/qml/SettingsPage.qml:49
+#: src/qml/SettingsPage.qml:54
 #, kde-format
 msgid "Accounts"
 msgstr "Облікові записи"
@@ -1427,7 +1427,7 @@ msgid "General"
 msgstr "Загальне"
 
 #: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
-#: src/qml/SettingsPage.qml:38
+#: src/qml/SettingsPage.qml:43
 #, kde-format
 msgid "Security"
 msgstr "Захист"
@@ -1617,13 +1617,13 @@ msgstr "Стан сповіщень"
 msgid "Follow Global Setting"
 msgstr "Використовувати загальні параметри"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:35
+#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Усі"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:43
+#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1631,7 +1631,7 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Згадки і ключові слова"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:51
+#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -1699,7 +1699,7 @@ msgid "Make this parent official"
 msgstr "Зробити цей батьківський запис офіційним"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:182
+#: src/qml/JoinRoomPage.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1718,7 +1718,7 @@ msgstr "Вибрати кімнату"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:168
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:170
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2033,7 +2033,7 @@ msgstr ""
 "пристроєм."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "Explore rooms"
 msgstr "Ознайомитися з кімнатами"
@@ -2523,53 +2523,53 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Поширені питання щодо Matrix"
 
-#: src/qml/GlobalNotificationsPage.qml:17
+#: src/qml/GlobalNotificationsPage.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: src/qml/GlobalNotificationsPage.qml:22
+#: src/qml/GlobalNotificationsPage.qml:28
 #, kde-format
 msgid "Enable notifications for this account"
 msgstr "Увімкнути сповіщення для цього облікового запису"
 
-#: src/qml/GlobalNotificationsPage.qml:23
+#: src/qml/GlobalNotificationsPage.qml:29
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Чи створю ваш сервер Matrix сповіщення"
 
-#: src/qml/GlobalNotificationsPage.qml:33
+#: src/qml/GlobalNotificationsPage.qml:39
 #, kde-format
 msgid "Room Notifications"
 msgstr "Сповіщення кімнати"
 
-#: src/qml/GlobalNotificationsPage.qml:50
+#: src/qml/GlobalNotificationsPage.qml:56
 #, kde-format
 msgid "@Mentions"
 msgstr "@Згадування"
 
-#: src/qml/GlobalNotificationsPage.qml:67 src/qml/PushNotification.qml:61
+#: src/qml/GlobalNotificationsPage.qml:73 src/qml/PushNotification.qml:65
 #, kde-format
 msgid "Keywords"
 msgstr "Ключові слова"
 
-#: src/qml/GlobalNotificationsPage.qml:91 src/qml/PushNotification.qml:96
+#: src/qml/GlobalNotificationsPage.qml:97 src/qml/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Ключове слово…"
 
-#: src/qml/GlobalNotificationsPage.qml:110 src/qml/PushNotification.qml:115
+#: src/qml/GlobalNotificationsPage.qml:116 src/qml/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Додати ключове слово"
 
-#: src/qml/GlobalNotificationsPage.qml:131
+#: src/qml/GlobalNotificationsPage.qml:137
 #, kde-format
 msgid "Invites"
 msgstr "Запрошення"
 
-#: src/qml/GlobalNotificationsPage.qml:148
+#: src/qml/GlobalNotificationsPage.qml:154
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -2721,59 +2721,59 @@ msgstr "Ознайомитися з кімнатами"
 msgid "Find a room..."
 msgstr "Знайти кімнату…"
 
-#: src/qml/JoinRoomPage.qml:83
+#: src/qml/JoinRoomPage.qml:84
 #, kde-format
 msgid "Add New Server"
 msgstr "Додавання нового сервера"
 
-#: src/qml/JoinRoomPage.qml:98
+#: src/qml/JoinRoomPage.qml:99
 #, kde-format
 msgid "Home Server"
 msgstr "Домашній сервер"
 
-#: src/qml/JoinRoomPage.qml:105
+#: src/qml/JoinRoomPage.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Додати новий сервер"
 
-#: src/qml/JoinRoomPage.qml:137
+#: src/qml/JoinRoomPage.qml:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Додавання сервера"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "Valid server entered"
 msgstr "Введено коректний сервер"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Цей сервер не вдалося визначити або сервер уже було додано"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Введений текст не є коректною адресою"
 
-#: src/qml/JoinRoomPage.qml:150
+#: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Введіть адресу сервера. Приклад: kde.org"
 
-#: src/qml/JoinRoomPage.qml:158
+#: src/qml/JoinRoomPage.qml:159
 #, kde-format
 msgid "Server URL"
 msgstr "Адреса сервера"
 
-#: src/qml/JoinRoomPage.qml:239
+#: src/qml/JoinRoomPage.qml:240
 #, kde-format
 msgid "Enter a room address"
 msgstr "Введіть адресу кімнати"
 
-#: src/qml/JoinRoomPage.qml:265
+#: src/qml/JoinRoomPage.qml:266
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -2905,18 +2905,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Зареєструватися"
 
-#: src/qml/main.qml:323
+#: src/qml/main.qml:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/main.qml:335
+#: src/qml/main.qml:346
 #, kde-format
 msgid "User consent"
 msgstr "Згода користувача"
 
-#: src/qml/main.qml:340
+#: src/qml/main.qml:351
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2926,17 +2926,17 @@ msgstr ""
 "використання. Будь ласка, натисніть розташовану нижче кнопку для того, щоб "
 "ознайомитися з ними."
 
-#: src/qml/main.qml:345
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/qml/main.qml:372
+#: src/qml/main.qml:383
 #, kde-format
 msgid "Start a chat"
 msgstr "Почати спілкування"
 
-#: src/qml/main.qml:374
+#: src/qml/main.qml:385
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Хочете розпочати спілкування з %1?"
@@ -3012,7 +3012,7 @@ msgstr "Скасувати редагування"
 msgid "Event Source"
 msgstr "Джерело подій"
 
-#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:74
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:79
 #, kde-format
 msgid "Network Proxy"
 msgstr "Проксі-сервер мережі"
@@ -3279,12 +3279,12 @@ msgstr "(Завершено)"
 msgid "Edit user power level"
 msgstr "Редагувати рівень можливостей користувача"
 
-#: src/qml/PushNotification.qml:22
+#: src/qml/PushNotification.qml:26
 #, kde-format
 msgid "Room notifications setting"
 msgstr "Параметр сповіщень кімнати"
 
-#: src/qml/PushNotification.qml:27
+#: src/qml/PushNotification.qml:31
 #, kde-format
 msgid "Follow global setting"
 msgstr "Використовувати загальні параметри"
@@ -3534,28 +3534,28 @@ msgstr[3] "%1 учасник"
 msgid "No member count"
 msgstr "Немає лічильника учасників"
 
-#: src/qml/RoomListPage.qml:159
+#: src/qml/RoomListPage.qml:161
 #, kde-format
 msgid "No rooms found"
 msgstr "Не знайдено кімнат"
 
-#: src/qml/RoomListPage.qml:159
+#: src/qml/RoomListPage.qml:161
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Спочатку, приєднайтеся до кімнат"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "Search in room directory"
 msgstr "Шукати у каталозі кімнат"
 
-#: src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:221
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Згорнути %1"
 
-#: src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:221
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -3824,22 +3824,22 @@ msgstr "Доступні версії кімнати"
 msgid "Appearance"
 msgstr "Вигляд"
 
-#: src/qml/SettingsPage.qml:55
+#: src/qml/SettingsPage.qml:60
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Наліпки та емоційки"
 
-#: src/qml/SettingsPage.qml:67
+#: src/qml/SettingsPage.qml:72
 #, kde-format
 msgid "Spell Checking"
 msgstr "Перевірка правопису"
 
-#: src/qml/SettingsPage.qml:91
+#: src/qml/SettingsPage.qml:96
 #, kde-format
 msgid "About NeoChat"
 msgstr "Про NeoChat"
 
-#: src/qml/SettingsPage.qml:97
+#: src/qml/SettingsPage.qml:102
 #, kde-format
 msgid "About KDE"
 msgstr "Про KDE"
@@ -4451,12 +4451,12 @@ msgstr "Помилково форматований або порожній ід
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 не є правильним ідентифікатором Matrix"
 
-#: src/roommanager.cpp:94
+#: src/roommanager.cpp:93
 #, kde-format
 msgid "Room not found"
 msgstr "Кімнату не знайдено"
 
-#: src/roommanager.cpp:94
+#: src/roommanager.cpp:93
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -4464,34 +4464,34 @@ msgstr ""
 "У списку кімнат немає кімнати %1. Перевірте, чи правильно вписано обліковий "
 "запис."
 
-#: src/roommanager.cpp:306
+#: src/roommanager.cpp:305
 #, kde-format
 msgid "Failed to join room"
 msgstr "Не вдалося приєднатися до кімнати"
 
-#: src/roommanager.cpp:321
+#: src/roommanager.cpp:320
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Ви надіслали запит щодо долучення до «%1»"
 
-#: src/roommanager.cpp:324
+#: src/roommanager.cpp:323
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Не вдалося надіслати запит щодо долучення до кімнати"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:332
 #, kde-format
 msgid "No application for the link"
 msgstr "Немає програми для обробки посилання"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:332
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "Вашою операційною системою не знайдено програми, яка могла б обробити "
 "посилання."
 
-#: src/roommanager.cpp:339
+#: src/roommanager.cpp:338
 #, kde-format
 msgid "Could not open URL"
 msgstr "Не вдається відкрити адресу"
