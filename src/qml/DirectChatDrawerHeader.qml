@@ -11,6 +11,13 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.neochat
 
 ColumnLayout {
+    id: root
+
+    /**
+     * @brief The current room that user is viewing.
+     */
+    required property NeoChatRoom room
+
     Layout.fillWidth: true
     Layout.alignment: Qt.AlignVCenter
     spacing: 0
@@ -26,15 +33,15 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
 
         onClicked: {
-            RoomManager.visitUser(room.getUser(room.directChatRemoteUser.id).object, "mention")
+            RoomManager.visitUser(root.room.getUser(root.room.directChatRemoteUser.id).object, "mention")
         }
 
         contentItem: KirigamiComponents.Avatar {
-            name: room ? room.displayName : ""
-            source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
+            name: root.room ? root.room.displayName : ""
+            source: root.room ? ("image://mxc/" +  root.room.avatarMediaId) : ""
 
             Rectangle {
-                visible: room.usesEncryption
+                visible: root.room.usesEncryption
                 color: Kirigami.Theme.backgroundColor
 
                 width: Kirigami.Units.gridUnit
@@ -56,7 +63,7 @@ ColumnLayout {
         Layout.fillWidth: true
         type: Kirigami.Heading.Type.Primary
         wrapMode: QQC2.Label.Wrap
-        text: room.displayName
+        text: root.room.displayName
         textFormat: Text.PlainText
         horizontalAlignment: Text.AlignHCenter
     }

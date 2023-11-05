@@ -249,7 +249,9 @@ QQC2.ScrollView {
 
     Component {
         id: directChatDrawerHeader
-        DirectChatDrawerHeader {}
+        DirectChatDrawerHeader {
+            room: root.room
+        }
     }
 
     onRoomChanged: {
