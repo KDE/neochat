@@ -26,6 +26,11 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(QString deviceKey READ deviceKey CONSTANT)
     Q_PROPERTY(QString encryptionKey READ encryptionKey CONSTANT)
 
+    /**
+     * @brief Whether NeoChat is currently able to connect to the server.
+     */
+    Q_PROPERTY(bool isOnline READ isOnline WRITE setIsOnline NOTIFY isOnlineChanged)
+
 public:
     NeoChatConnection(QObject *parent = nullptr);
     NeoChatConnection(const QUrl &server, QObject *parent = nullptr);
@@ -73,6 +78,13 @@ public:
     QString deviceKey() const;
     QString encryptionKey() const;
 
+    bool isOnline() const;
+
 Q_SIGNALS:
     void labelChanged();
+    void isOnlineChanged();
+
+private:
+    bool m_isOnline = true;
+    void setIsOnline(bool isOnline);
 };

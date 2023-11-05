@@ -31,6 +31,12 @@ NeoChatConnection::NeoChatConnection(QObject *parent)
             Q_EMIT labelChanged();
         }
     });
+    connect(this, &NeoChatConnection::syncDone, this, [this] {
+        setIsOnline(true);
+    });
+    connect(this, &NeoChatConnection::networkError, this, [this]() {
+        setIsOnline(false);
+    });
 }
 
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
@@ -250,6 +256,20 @@ QString NeoChatConnection::encryptionKey() const
         return {};
     }
     return query.value(0).toString();
+}
+
+bool NeoChatConnection::isOnline() const
+{
+    return m_isOnline;
+}
+
+void NeoChatConnection::setIsOnline(bool isOnline)
+{
+    if (isOnline == m_isOnline) {
+        return;
+    }
+    m_isOnline = isOnline;
+    Q_EMIT isOnlineChanged();
 }
 
 #include "moc_neochatconnection.cpp"

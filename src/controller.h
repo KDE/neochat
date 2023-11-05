@@ -52,11 +52,6 @@ class Controller : public QObject
     Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
 
     /**
-     * @brief Whether NeoChat is currently able to connect to the server.
-     */
-    Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
-
-    /**
      * @brief Whether NeoChat is running as a flatpak.
      *
      * This is the only way to gate NeoChat features in flatpaks in QML.
@@ -108,8 +103,6 @@ public:
 
     [[nodiscard]] bool supportSystemTray() const;
 
-    bool isOnline() const;
-
     /**
      * @brief Sets the QNetworkProxy for the application.
      *
@@ -138,7 +131,6 @@ private:
 
     void loadSettings();
     void saveSettings() const;
-    bool m_isOnline = true;
     QMap<Quotient::Room *, int> m_notificationCounts;
 
     Quotient::AccountRegistry m_accountRegistry;
@@ -164,7 +156,6 @@ Q_SIGNALS:
     void activeConnectionChanged();
     void passwordStatus(Controller::PasswordStatus status);
     void userConsentRequired(QUrl url);
-    void isOnlineChanged(bool isOnline);
     void accountsLoadingChanged();
 
 public Q_SLOTS:

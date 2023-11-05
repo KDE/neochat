@@ -326,20 +326,6 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
     m_connection = connection;
     if (connection != nullptr) {
         NeoChatConfig::self()->setActiveConnection(connection->userId());
-        connect(connection, &NeoChatConnection::networkError, this, [this]() {
-            if (!m_isOnline) {
-                return;
-            }
-            m_isOnline = false;
-            Q_EMIT isOnlineChanged(false);
-        });
-        connect(connection, &NeoChatConnection::syncDone, this, [this] {
-            if (m_isOnline) {
-                return;
-            }
-            m_isOnline = true;
-            Q_EMIT isOnlineChanged(true);
-        });
         connect(connection, &NeoChatConnection::requestFailed, this, [](BaseJob *job) {
             if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
                 RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
@@ -355,11 +341,6 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
 void Controller::saveWindowGeometry()
 {
     WindowController::instance().saveGeometry();
-}
-
-bool Controller::isOnline() const
-{
-    return m_isOnline;
 }
 
 // TODO: Remove in favor of RoomManager::joinRoom

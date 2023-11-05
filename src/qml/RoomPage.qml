@@ -94,9 +94,9 @@ Kirigami.Page {
     }
 
     Connections {
-        target: Controller
+        target: root.connection
         function onIsOnlineChanged() {
-            if (!Controller.isOnline) {
+            if (!root.connection.isOnline) {
                 banner.text = i18n("NeoChat is offline. Please check your network connection.");
                 banner.visible = true;
                 banner.type = Kirigami.MessageType.Error;
