@@ -160,8 +160,6 @@ RowLayout {
             id: accounts
             implicitHeight: contentHeight
 
-            currentIndex: Controller.activeConnectionIndex
-
             header: Kirigami.Separator {}
 
             footer: Delegates.RoundedItemDelegate {
@@ -224,6 +222,15 @@ RowLayout {
             Keys.onReleased: if (event.key == Qt.Key_Escape) {
                 if (switchUserButton.checked) {
                     switchUserButton.checked = false
+                }
+            }
+
+            onVisibleChanged: {
+                for (let i = 0; i < accounts.count; i++) {
+                    if (model.data(model.index(i, 0), Qt.DisplayRole) === root.connection.localUser.id) {
+                        accounts.currentIndex = i;
+                        break;
+                    }
                 }
             }
 

@@ -47,11 +47,6 @@ class Controller : public QObject
     Q_PROPERTY(NeoChatConnection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
 
     /**
-     * @brief The row number in the accounts directory of the active connection.
-     */
-    Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex NOTIFY activeConnectionIndexChanged)
-
-    /**
      * @brief Whether the OS NeoChat is running on supports sytem tray icons.
      */
     Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
@@ -98,8 +93,6 @@ public:
      * @brief Drop a connection from the account registry.
      */
     void dropConnection(NeoChatConnection *c);
-
-    int activeConnectionIndex() const;
 
     /**
      * @brief Save an access token to the keychain for the given account.
@@ -169,7 +162,6 @@ Q_SIGNALS:
     void passwordStatus(Controller::PasswordStatus status);
     void userConsentRequired(QUrl url);
     void isOnlineChanged(bool isOnline);
-    void activeConnectionIndexChanged();
 
 public Q_SLOTS:
     void saveWindowGeometry();

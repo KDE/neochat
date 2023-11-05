@@ -346,7 +346,6 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
     }
     NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
-    Q_EMIT activeConnectionIndexChanged();
 }
 
 void Controller::saveWindowGeometry()
@@ -405,14 +404,6 @@ void Controller::setApplicationProxy()
     }
 
     QNetworkProxy::setApplicationProxy(proxy);
-}
-
-int Controller::activeConnectionIndex() const
-{
-    auto result = std::find_if(m_accountRegistry.accounts().begin(), m_accountRegistry.accounts().end(), [this](const auto &it) {
-        return it == m_connection;
-    });
-    return result - m_accountRegistry.accounts().begin();
 }
 
 bool Controller::isFlatpak() const
