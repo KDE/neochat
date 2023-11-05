@@ -34,6 +34,9 @@ Delegates.RoundedItemDelegate {
     signal selected()
 
     Accessible.name: root.displayName
+    Accessible.onPressAction: selected()
+    Keys.onSpacePressed: selected()
+    Keys.onEnterPressed: selected()
 
     onPressAndHold: createRoomListContextMenu()
 
