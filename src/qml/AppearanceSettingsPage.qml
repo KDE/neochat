@@ -212,7 +212,7 @@ FormCard.FormCardPage {
 
         Loader {
             id: colorSchemeDelegate
-            visible: item !== null && Qt.platform.os !== "android"
+            visible: item !== null
             source: "qrc:/org/kde/neochat/qml/ColorScheme.qml"
             Layout.fillWidth: true
         }
