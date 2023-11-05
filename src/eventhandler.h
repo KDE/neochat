@@ -371,7 +371,7 @@ public:
      *                   the number of users shown plus the excess number will be
      *                   the total number of other user read markers at an event.
      */
-    QVariantList getReadMarkers(int maxMarkers = 5) const;
+    QList<Quotient::RoomMember> getReadMarkers(int maxMarkers = 5) const;
 
     /**
      * @brief Returns the number of excess user read markers for the event.

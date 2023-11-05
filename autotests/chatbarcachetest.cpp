@@ -65,7 +65,7 @@ void ChatBarCacheTest::noRoom()
     // ChatBarCache has no parent.
 
     QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.");
-    QCOMPARE(chatBarCache->relationUser(), Quotient::RoomMember(nullptr));
+    QCOMPARE(chatBarCache->relationUser(), Quotient::RoomMember());
 
     QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.");
     QCOMPARE(chatBarCache->relationMessage(), QString());
@@ -81,7 +81,7 @@ void ChatBarCacheTest::badParent()
     // ChatBarCache has no parent.
 
     QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.");
-    QCOMPARE(chatBarCache->relationUser(), Quotient::RoomMember(nullptr));
+    QCOMPARE(chatBarCache->relationUser(), Quotient::RoomMember());
 
     QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.");
     QCOMPARE(chatBarCache->relationMessage(), QString());

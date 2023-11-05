@@ -115,11 +115,11 @@ void EventHandlerTest::author()
 void EventHandlerTest::nullAuthor()
 {
     QTest::ignoreMessage(QtWarningMsg, "getAuthor called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getAuthor(), room->member(QString()));
+    QCOMPARE(emptyHandler.getAuthor(), RoomMember());
 
     EventHandler noEventHandler(room, nullptr);
     QTest::ignoreMessage(QtWarningMsg, "getAuthor called with m_event set to nullptr. Returning empty user.");
-    QCOMPARE(noEventHandler.getAuthor(), room->member(QString()));
+    QCOMPARE(noEventHandler.getAuthor(), RoomMember());
 }
 
 void EventHandlerTest::authorDisplayName()
@@ -389,17 +389,17 @@ void EventHandlerTest::replyAuthor()
     QCOMPARE(eventHandlerReplyAuthor.color(), Utils::getUserColor(replyAuthor.hueF()));
 
     EventHandler eventHandlerNoAuthor(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoAuthor.getReplyAuthor(), room->member(QString()));
+    QCOMPARE(eventHandlerNoAuthor.getReplyAuthor(), RoomMember());
 }
 
 void EventHandlerTest::nullReplyAuthor()
 {
     QTest::ignoreMessage(QtWarningMsg, "getReplyAuthor called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getReplyAuthor(), room->member(QString()));
+    QCOMPARE(emptyHandler.getReplyAuthor(), RoomMember());
 
     EventHandler noEventHandler(room, nullptr);
     QTest::ignoreMessage(QtWarningMsg, "getReplyAuthor called with m_event set to nullptr. Returning empty user.");
-    QCOMPARE(noEventHandler.getReplyAuthor(), room->member(QString()));
+    QCOMPARE(noEventHandler.getReplyAuthor(), RoomMember());
 }
 
 void EventHandlerTest::replyBody()
@@ -513,10 +513,10 @@ void EventHandlerTest::readMarkers()
     auto readMarkers = eventHandler.getReadMarkers();
 
     QCOMPARE(readMarkers.size(), 1);
-    QCOMPARE(readMarkers[0].toMap()["id"_ls], QStringLiteral("@alice:matrix.org"));
+    QCOMPARE(readMarkers[0].id(), QStringLiteral("@alice:example.org"));
 
     QCOMPARE(eventHandler.getNumberExcessReadMarkers(), QString());
-    QCOMPARE(eventHandler.getReadMarkersString(), QStringLiteral("1 user: @alice:matrix.org"));
+    QCOMPARE(eventHandler.getReadMarkersString(), QStringLiteral("1 user: Alice Margatroid"));
 
     EventHandler eventHandler2(room, room->messageEvents().at(2).get());
     QCOMPARE(eventHandler2.hasReadMarkers(), true);
@@ -536,7 +536,7 @@ void EventHandlerTest::nullReadMarkers()
     QCOMPARE(emptyHandler.hasReadMarkers(), false);
 
     QTest::ignoreMessage(QtWarningMsg, "getReadMarkers called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getReadMarkers(), QVariantList());
+    QCOMPARE(emptyHandler.getReadMarkers(), QList<Quotient::RoomMember>());
 
     QTest::ignoreMessage(QtWarningMsg, "getNumberExcessReadMarkers called with m_room set to nullptr.");
     QCOMPARE(emptyHandler.getNumberExcessReadMarkers(), QString());
@@ -550,7 +550,7 @@ void EventHandlerTest::nullReadMarkers()
     QCOMPARE(noEventHandler.hasReadMarkers(), false);
 
     QTest::ignoreMessage(QtWarningMsg, "getReadMarkers called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReadMarkers(), QVariantList());
+    QCOMPARE(noEventHandler.getReadMarkers(), QList<Quotient::RoomMember>());
 
     QTest::ignoreMessage(QtWarningMsg, "getNumberExcessReadMarkers called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getNumberExcessReadMarkers(), QString());

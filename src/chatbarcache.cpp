@@ -89,12 +89,12 @@ Quotient::RoomMember ChatBarCache::relationUser() const
 {
     if (parent() == nullptr) {
         qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
-        return Quotient::RoomMember(nullptr);
+        return {};
     }
     auto room = dynamic_cast<NeoChatRoom *>(parent());
     if (room == nullptr) {
         qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
-        return Quotient::RoomMember(nullptr);
+        return {};
     }
     if (m_relationId.isEmpty()) {
         return room->member(QString());

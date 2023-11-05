@@ -942,7 +942,7 @@ bool EventHandler::hasReadMarkers() const
     return userIds.size() > 0;
 }
 
-QVariantList EventHandler::getReadMarkers(int maxMarkers) const
+QList<Quotient::RoomMember> EventHandler::getReadMarkers(int maxMarkers) const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getReadMarkers called with m_room set to nullptr.";
@@ -954,17 +954,17 @@ QVariantList EventHandler::getReadMarkers(int maxMarkers) const
     }
 
     auto userIds_temp = m_room->userIdsAtEvent(m_event->id());
-    userIds_temp.remove(m_room->localUser()->id());
+    userIds_temp.remove(m_room->localMember().id());
 
     auto userIds = userIds_temp.values();
     if (userIds.count() > maxMarkers) {
         userIds = userIds.mid(0, maxMarkers);
     }
 
-    QVariantList users;
+    QList<Quotient::RoomMember> users;
     users.reserve(userIds.size());
     for (const auto &userId : userIds) {
-        users += QVariant::fromValue(m_room->member(userId));
+        users += m_room->member(userId);
     }
 
     return users;
@@ -1003,7 +1003,7 @@ QString EventHandler::getReadMarkersString() const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
 
     /**
      * The string ends up in the form
@@ -1011,8 +1011,8 @@ QString EventHandler::getReadMarkersString() const
      */
     QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
     for (const auto &userId : userIds) {
-        auto user = m_room->user(userId);
-        readMarkersString += user->displayname(m_room) + i18nc("list separator", ", ");
+        auto member = m_room->member(userId);
+        readMarkersString += member.displayName() + i18nc("list separator", ", ");
     }
     readMarkersString.chop(2);
     return readMarkersString;

@@ -568,7 +568,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReadMarkersRole) {
-        return eventHandler.getReadMarkers();
+        return QVariant::fromValue(eventHandler.getReadMarkers());
     }
 
     if (role == ExcessReadMarkersRole) {
