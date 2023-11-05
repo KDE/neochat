@@ -197,18 +197,22 @@ Kirigami.Page {
                     activeSpaceId: spaceDrawer.selectedSpaceId
                 }
 
-                section.property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
-                section.delegate: root.collapsed ? foldButton : sectionHeader
+                section {
+                    property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
+                    delegate: root.collapsed ? foldButton : sectionHeader
+                }
 
                 Component {
                     id: sectionHeader
                     Kirigami.ListSectionHeader {
                         height: implicitHeight
+                        width: listView.width
                         label: roomListModel.categoryName(section)
                         action: Kirigami.Action {
                             onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
                         }
-                        contentItem.children: QQC2.ToolButton {
+
+                        QQC2.ToolButton {
                             icon {
                                 name: roomListModel.categoryVisible(section) ? "go-up" : "go-down"
                                 width: Kirigami.Units.iconSizes.small
