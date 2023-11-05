@@ -223,7 +223,7 @@ int main(int argc, char *argv[])
         });
     }
 
-    engine.addImageProvider(QLatin1String("mxc"), new MatrixImageProvider);
+    engine.addImageProvider(QLatin1String("mxc"), MatrixImageProvider::create(&engine, &engine));
     engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
 
     engine.load(QUrl(QStringLiteral("qrc:/org/kde/neochat/qml/main.qml")));
@@ -236,8 +236,8 @@ int main(int argc, char *argv[])
     }
 
 #ifdef HAVE_RUNNER
-    Runner runner;
-    QDBusConnection::sessionBus().registerObject("/RoomRunner"_ls, &runner, QDBusConnection::ExportScriptableContents);
+    auto runner = Runner::create(&engine, &engine);
+    QDBusConnection::sessionBus().registerObject("/RoomRunner"_ls, runner, QDBusConnection::ExportScriptableContents);
 #endif
 
     QWindow *window = windowFromEngine(&engine);

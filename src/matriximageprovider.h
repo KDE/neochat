@@ -60,6 +60,13 @@ class MatrixImageProvider : public QQuickAsyncImageProvider
 
     Q_PROPERTY(NeoChatConnection *connection MEMBER m_connection)
 public:
+    static MatrixImageProvider *create(QQmlEngine *engine, QJSEngine *)
+    {
+        static MatrixImageProvider instance;
+        engine->setObjectOwnership(&instance, QQmlEngine::CppOwnership);
+        return &instance;
+    }
+
     /**
      * @brief Return a job to provide the image with the given ID.
      *
@@ -69,4 +76,5 @@ public:
 
 private:
     NeoChatConnection *m_connection = nullptr;
+    MatrixImageProvider() = default;
 };

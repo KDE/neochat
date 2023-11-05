@@ -170,7 +170,12 @@ class Runner : public QObject, protected QDBusContext
 
     Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged)
 public:
-    Runner();
+    static Runner *create(QQmlEngine *engine, QJSEngine *)
+    {
+        static Runner instance;
+        engine->setObjectOwnership(&instance, QQmlEngine::CppOwnership);
+        return &instance;
+    }
 
     /**
      * @brief Return a list of KRunner actions.
@@ -200,4 +205,5 @@ private:
 
     SortFilterRoomListModel m_model;
     RoomListModel m_sourceModel;
+    Runner();
 };
