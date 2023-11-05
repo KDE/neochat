@@ -31,13 +31,21 @@ Delegates.RoundedItemDelegate {
 
     readonly property bool hasNotifications: notificationCount > 0
 
+    signal selected()
+
     Accessible.name: root.displayName
 
     onPressAndHold: createRoomListContextMenu()
 
     TapHandler {
-        acceptedButtons: Qt.RightButton
-        onTapped: createRoomListContextMenu()
+        acceptedButtons: Qt.RightButton | Qt.LeftButton
+        onTapped: (eventPoint, button) => {
+            if (button === Qt.RightButton) {
+                root.createRoomListContextMenu();
+            } else {
+                root.selected();
+            }
+        }
     }
 
     contentItem: RowLayout {

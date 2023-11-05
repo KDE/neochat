@@ -94,7 +94,7 @@ QQC2.Dialog {
 
                 connection: root.connection
 
-                onClicked: {
+                onSelected: {
                     RoomManager.enterRoom(currentRoom);
                     root.close()
                 }
