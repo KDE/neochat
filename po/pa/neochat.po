@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:06+0000\n"
+"POT-Creation-Date: 2023-11-06 01:39+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:366
+#: src/controller.cpp:365
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr ""
@@ -1174,42 +1174,42 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/notificationsmanager.cpp:218 src/qml/FileDelegateContextMenu.qml:59
+#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
 #: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "ਜਵਾਬ ਦਿਓ"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:221
 #, kde-format
 msgid "Reply..."
 msgstr "...ਜਵਾਬ ਦਿਓ"
 
-#: src/notificationsmanager.cpp:237
+#: src/notificationsmanager.cpp:239
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/notificationsmanager.cpp:241
+#: src/notificationsmanager.cpp:243
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "ਇਹ ਸੱਦਾ ਨਿਓ-ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: src/notificationsmanager.cpp:248
+#: src/notificationsmanager.cpp:250
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:251
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:252
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -1339,13 +1339,13 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:56
+#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
 msgstr "ਇਹ ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
 #: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
-#: src/qml/UserInfo.qml:50
+#: src/qml/UserInfo.qml:57
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -1359,7 +1359,7 @@ msgid "Notification settings"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgid "Configure"
@@ -1382,7 +1382,7 @@ msgstr "ਲਾਗ ਆਉਟ"
 msgid "Accounts"
 msgstr "ਖਾਤੇ"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:170
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:175
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
@@ -2865,7 +2865,7 @@ msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
 msgid "Find a user..."
 msgstr "...ਵਰਤੋਂਕਾਰ ਲੱਭੋ"
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:105
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
 #, kde-format
 msgid "Add"
 msgstr "ਜੋੜੋ"
@@ -3649,13 +3649,13 @@ msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 msgid "Room State"
 msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ - %1"
 
-#: src/qml/RoomDelegate.qml:96
+#: src/qml/RoomDelegate.qml:107
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "ਮੌਨ ਕੀਤਾ"
 
-#: src/qml/RoomDelegate.qml:128
+#: src/qml/RoomDelegate.qml:139
 #, kde-format
 msgid "Configure room"
 msgstr "ਰੂਮ ਦੀ ਸੰਰਚਨਾ"
@@ -4416,23 +4416,23 @@ msgstr "ਪ੍ਰਾਈਵੇਟ ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 msgid "Copy link"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: src/qml/UserInfo.qml:89
+#: src/qml/UserInfo.qml:96
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/UserInfo.qml:117
+#: src/qml/UserInfo.qml:124
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/qml/UserInfo.qml:173
+#: src/qml/UserInfo.qml:178
 #, kde-format
 msgid "Log in to an existing account"
 msgstr ""
 
-#: src/qml/UserInfo.qml:180
+#: src/qml/UserInfo.qml:185
 #, fuzzy, kde-format
 #| msgid "Login"
 msgctxt "@title:window"

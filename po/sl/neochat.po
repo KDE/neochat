@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:06+0000\n"
+"POT-Creation-Date: 2023-11-06 01:39+0000\n"
 "PO-Revision-Date: 2023-11-04 08:34+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -80,7 +80,7 @@ msgstr "Datoteka je prevelika za prenos."
 msgid "Contact your matrix server administrator for support."
 msgstr "Stopite v stik za podporo z vašim skrbnikom matrixa."
 
-#: src/controller.cpp:366
+#: src/controller.cpp:365
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikacija sobe, kamor se poskušate pridružiti, ni veljavna"
@@ -1095,40 +1095,40 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
-#: src/notificationsmanager.cpp:218 src/qml/FileDelegateContextMenu.qml:59
+#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
 #: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:221
 #, kde-format
 msgid "Reply..."
 msgstr "Odgovori..."
 
-#: src/notificationsmanager.cpp:237
+#: src/notificationsmanager.cpp:239
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 vas je povabil v sobo"
 
-#: src/notificationsmanager.cpp:241
+#: src/notificationsmanager.cpp:243
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Odprite to povabilo v NeoChat"
 
-#: src/notificationsmanager.cpp:248
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Zavrni"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:252
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -1246,13 +1246,13 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "Potrdi deaktiviranje računa"
 
-#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:56
+#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
 msgstr "Uredi ta račun"
 
 #: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
-#: src/qml/UserInfo.qml:50
+#: src/qml/UserInfo.qml:57
 #, kde-format
 msgid "Account editor"
 msgstr "Urejevalnik računa"
@@ -1263,7 +1263,7 @@ msgid "Notification settings"
 msgstr "Nastavitve obvestil"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "Nastavi"
@@ -1285,7 +1285,7 @@ msgstr "Odjavi se"
 msgid "Accounts"
 msgstr "Računi"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:170
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:175
 #, kde-format
 msgid "Add Account"
 msgstr "Dodaj račun"
@@ -2674,7 +2674,7 @@ msgstr "Povabi uporabnika"
 msgid "Find a user..."
 msgstr "Najdi uporabnika..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:105
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
@@ -3403,12 +3403,12 @@ msgstr "Podatki o računu sobe"
 msgid "Room State"
 msgstr "Stanje sobe"
 
-#: src/qml/RoomDelegate.qml:96
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr "Utišana soba"
 
-#: src/qml/RoomDelegate.qml:128
+#: src/qml/RoomDelegate.qml:139
 #, kde-format
 msgid "Configure room"
 msgstr "Nastavi sobo"
@@ -4133,22 +4133,22 @@ msgstr "Odpri zasebni razgovor"
 msgid "Copy link"
 msgstr "Kopiraj povezavo"
 
-#: src/qml/UserInfo.qml:89
+#: src/qml/UserInfo.qml:96
 #, kde-format
 msgid "Switch User"
 msgstr "Preklopi uporabnika"
 
-#: src/qml/UserInfo.qml:117
+#: src/qml/UserInfo.qml:124
 #, kde-format
 msgid "Open Settings"
 msgstr "Odpri nastavitve"
 
-#: src/qml/UserInfo.qml:173
+#: src/qml/UserInfo.qml:178
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Prijavite se na obstoječi račun"
 
-#: src/qml/UserInfo.qml:180
+#: src/qml/UserInfo.qml:185
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"

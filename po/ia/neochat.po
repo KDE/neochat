@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:06+0000\n"
-"PO-Revision-Date: 2023-11-02 12:24+0100\n"
+"POT-Creation-Date: 2023-11-06 01:39+0000\n"
+"PO-Revision-Date: 2023-11-05 21:53+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/controller.cpp:196
 #, kde-format
@@ -79,7 +79,7 @@ msgstr "File troppo grande a discargar."
 msgid "Contact your matrix server administrator for support."
 msgstr "Continge tu administrator de servitor de matrix per supporto."
 
-#: src/controller.cpp:366
+#: src/controller.cpp:365
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Iste id de sala que tu es essayante a unir non es valid"
@@ -531,11 +531,10 @@ msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
 #: src/main.cpp:147
-#, fuzzy, kde-format
-#| msgid "A Qt5 library to write cross-platform clients for Matrix"
+#, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
-"Un bibliotheca de Qt5 per scriber clientes de cross-platform (platteformas "
+"Un bibliotheca de Qt per scriber clientes de cross-platform (platteformas "
 "cruciate) per Matrix"
 
 #: src/main.cpp:149
@@ -1087,40 +1086,40 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Aperi NeoChat in iste sala"
 
-#: src/notificationsmanager.cpp:218 src/qml/FileDelegateContextMenu.qml:59
+#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
 #: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Responde"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:221
 #, kde-format
 msgid "Reply..."
 msgstr "Responde..."
 
-#: src/notificationsmanager.cpp:237
+#: src/notificationsmanager.cpp:239
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 invitava te  un sala"
 
-#: src/notificationsmanager.cpp:241
+#: src/notificationsmanager.cpp:243
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Aperi iste invitation in NeoChat"
 
-#: src/notificationsmanager.cpp:248
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rejecta"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:252
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -1238,13 +1237,13 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "Confirma Deactivar le Conto"
 
-#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:56
+#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
 msgstr "Edita iste conto"
 
 #: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
-#: src/qml/UserInfo.qml:50
+#: src/qml/UserInfo.qml:57
 #, kde-format
 msgid "Account editor"
 msgstr "Editor de conto"
@@ -1255,7 +1254,7 @@ msgid "Notification settings"
 msgstr "Preferentias de notificationes"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
@@ -1277,7 +1276,7 @@ msgstr "Clausura de session"
 msgid "Accounts"
 msgstr "Contos"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:170
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:175
 #, kde-format
 msgid "Add Account"
 msgstr "Adde conto"
@@ -1816,8 +1815,7 @@ msgid "Password:"
 msgstr "Contrasigno:"
 
 #: src/qml/DevicesPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Remove"
@@ -2053,17 +2051,14 @@ msgid "Create rooms and chats"
 msgstr "Crea salas e conversationes"
 
 #: src/qml/ExploreComponentMobile.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search"
+#, kde-format
 msgid "Search"
 msgstr "Cerca"
 
 #: src/qml/ExploreComponentMobile.qml:75
-#, fuzzy, kde-format
-#| msgid "Create space"
+#, kde-format
 msgid "Create New"
-msgstr "Crea spatio"
+msgstr "Crea nove"
 
 #: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
@@ -2678,7 +2673,7 @@ msgstr "Invita un usator"
 msgid "Find a user..."
 msgstr "Trova un usator..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:105
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
 #, kde-format
 msgid "Add"
 msgstr "Adde"
@@ -3409,12 +3404,12 @@ msgstr "Datos de conto de sala"
 msgid "Room State"
 msgstr "Stato de sala "
 
-#: src/qml/RoomDelegate.qml:96
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr "Sala Silentiate"
 
-#: src/qml/RoomDelegate.qml:128
+#: src/qml/RoomDelegate.qml:139
 #, kde-format
 msgid "Configure room"
 msgstr "Configura sala"
@@ -4138,22 +4133,22 @@ msgstr "Aperi in conversation private"
 msgid "Copy link"
 msgstr "Copia Ligamine"
 
-#: src/qml/UserInfo.qml:89
+#: src/qml/UserInfo.qml:96
 #, kde-format
 msgid "Switch User"
 msgstr "Commuta Usator"
 
-#: src/qml/UserInfo.qml:117
+#: src/qml/UserInfo.qml:124
 #, kde-format
 msgid "Open Settings"
 msgstr "Aperi Preferentias"
 
-#: src/qml/UserInfo.qml:173
+#: src/qml/UserInfo.qml:178
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Accede a un conto existente"
 
-#: src/qml/UserInfo.qml:180
+#: src/qml/UserInfo.qml:185
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"

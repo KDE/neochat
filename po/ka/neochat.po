@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:06+0000\n"
+"POT-Creation-Date: 2023-11-06 01:39+0000\n"
 "PO-Revision-Date: 2023-11-05 06:03+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -78,7 +78,7 @@ msgstr "ფაილი გადმოსაწერად ძალიან 
 msgid "Contact your matrix server administrator for support."
 msgstr "მხარდაჭერისთვის დაუკავშირდით თქვენი მატრიქსის სერვერის ადმინისტრატორს."
 
-#: src/controller.cpp:366
+#: src/controller.cpp:365
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
@@ -1084,40 +1084,40 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "ამ ოთახში NeoChat-ის გახსნა"
 
-#: src/notificationsmanager.cpp:218 src/qml/FileDelegateContextMenu.qml:59
+#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
 #: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "პასუხი"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:221
 #, kde-format
 msgid "Reply..."
 msgstr "პასუხი…"
 
-#: src/notificationsmanager.cpp:237
+#: src/notificationsmanager.cpp:239
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 -მა ოთახში მოგიწვიათ"
 
-#: src/notificationsmanager.cpp:241
+#: src/notificationsmanager.cpp:243
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "ამ მოსაწვევის NeoChat-ში გახსნა"
 
-#: src/notificationsmanager.cpp:248
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "დასტური"
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:252
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -1235,13 +1235,13 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "დაადასტურეთ ანგარიშის დეაქტივაცია"
 
-#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:56
+#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
 msgstr "ამ ანგარიშის ჩასწორება"
 
 #: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
-#: src/qml/UserInfo.qml:50
+#: src/qml/UserInfo.qml:57
 #, kde-format
 msgid "Account editor"
 msgstr "ანგარიშების რედაქტორი"
@@ -1252,7 +1252,7 @@ msgid "Notification settings"
 msgstr "გაფრთხილებების მორგება"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "მორგება"
@@ -1274,7 +1274,7 @@ msgstr "გასვლა"
 msgid "Accounts"
 msgstr "ანგარიშები"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:170
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:175
 #, kde-format
 msgid "Add Account"
 msgstr "ანგარიშის დამატება"
@@ -2663,7 +2663,7 @@ msgstr "მომხმარებლის მოწვევა"
 msgid "Find a user..."
 msgstr "მომხმარებლის პოვნა..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:105
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
 #, kde-format
 msgid "Add"
 msgstr "დამატება"
@@ -3393,12 +3393,12 @@ msgstr "ოთახის ანგარიშის მონაცემე�
 msgid "Room State"
 msgstr "ოთახის მდგომარეობა"
 
-#: src/qml/RoomDelegate.qml:96
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr "დადუმებული ოთახი"
 
-#: src/qml/RoomDelegate.qml:128
+#: src/qml/RoomDelegate.qml:139
 #, kde-format
 msgid "Configure room"
 msgstr "ოთახის მორგება"
@@ -4118,22 +4118,22 @@ msgstr "პირადი საუბრის გახსნა"
 msgid "Copy link"
 msgstr "ბმულის კოპირება"
 
-#: src/qml/UserInfo.qml:89
+#: src/qml/UserInfo.qml:96
 #, kde-format
 msgid "Switch User"
 msgstr "მომხმარებლის გადართვა"
 
-#: src/qml/UserInfo.qml:117
+#: src/qml/UserInfo.qml:124
 #, kde-format
 msgid "Open Settings"
 msgstr "პარამეტრების გახსნა"
 
-#: src/qml/UserInfo.qml:173
+#: src/qml/UserInfo.qml:178
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "შედით არსებულ ანგარიშზე"
 
-#: src/qml/UserInfo.qml:180
+#: src/qml/UserInfo.qml:185
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"

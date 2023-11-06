@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:06+0000\n"
+"POT-Creation-Date: 2023-11-06 01:39+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -77,7 +77,7 @@ msgstr "파일이 다운로드하기에 너무 큽니다."
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/controller.cpp:366
+#: src/controller.cpp:365
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
@@ -1080,40 +1080,40 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "이 대화방에서 NeoChat 열기"
 
-#: src/notificationsmanager.cpp:218 src/qml/FileDelegateContextMenu.qml:59
+#: src/notificationsmanager.cpp:220 src/qml/FileDelegateContextMenu.qml:59
 #: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "답장"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:221
 #, kde-format
 msgid "Reply..."
 msgstr "답장..."
 
-#: src/notificationsmanager.cpp:237
+#: src/notificationsmanager.cpp:239
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 님이 대화방에 초대함"
 
-#: src/notificationsmanager.cpp:241
+#: src/notificationsmanager.cpp:243
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "NeoChat에서 이 초대장 열기"
 
-#: src/notificationsmanager.cpp:248
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "수락"
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "거부"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:252
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -1231,13 +1231,13 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "계정 비활성화 확인"
 
-#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:56
+#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
 msgstr "이 계정 편집"
 
 #: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
-#: src/qml/UserInfo.qml:50
+#: src/qml/UserInfo.qml:57
 #, kde-format
 msgid "Account editor"
 msgstr "계정 편집기"
@@ -1248,7 +1248,7 @@ msgid "Notification settings"
 msgstr "알림 설정"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "설정"
@@ -1270,7 +1270,7 @@ msgstr "로그아웃"
 msgid "Accounts"
 msgstr "계정"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:170
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:175
 #, kde-format
 msgid "Add Account"
 msgstr "계정 추가"
@@ -2664,7 +2664,7 @@ msgstr "사용자 초대"
 msgid "Find a user..."
 msgstr "사용자 찾기..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:105
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
 #, kde-format
 msgid "Add"
 msgstr "추가"
@@ -3394,12 +3394,12 @@ msgstr "대화방 계정 데이터"
 msgid "Room State"
 msgstr "대화방 상태"
 
-#: src/qml/RoomDelegate.qml:96
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr "대화방 음소거됨"
 
-#: src/qml/RoomDelegate.qml:128
+#: src/qml/RoomDelegate.qml:139
 #, kde-format
 msgid "Configure room"
 msgstr "대화방 설정"
@@ -4116,22 +4116,22 @@ msgstr "개인 대화 열기"
 msgid "Copy link"
 msgstr "링크 복사"
 
-#: src/qml/UserInfo.qml:89
+#: src/qml/UserInfo.qml:96
 #, kde-format
 msgid "Switch User"
 msgstr "사용자 전환"
 
-#: src/qml/UserInfo.qml:117
+#: src/qml/UserInfo.qml:124
 #, kde-format
 msgid "Open Settings"
 msgstr "설정 열기"
 
-#: src/qml/UserInfo.qml:173
+#: src/qml/UserInfo.qml:178
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "기존 계정에 로그인"
 
-#: src/qml/UserInfo.qml:180
+#: src/qml/UserInfo.qml:185
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
