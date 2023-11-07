@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:39+0000\n"
+"POT-Creation-Date: 2023-11-07 02:43+0000\n"
 "PO-Revision-Date: 2023-05-09 22:36+0200\n"
 "Last-Translator: K. Áron <aronkvh@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -18,72 +18,72 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: src/controller.cpp:196
+#: src/controller.cpp:200
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Sikertelen bejelentkezés: A hozzáférést biztosító token érvénytelen vagy "
 "visszavonták"
 
-#: src/controller.cpp:199 src/controller.cpp:204 src/login.cpp:93
+#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Sikertelen bejelentkezés: %1"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Hálózati hiba: %1"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "A hozzáférési token  nem található"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Lehet, hogy kitörölték?"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "A kulcstartóhoz való hozzáférés megtagadva."
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Kérjük, adj hozzáférést a NeoChat-nek a tokenhez"
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "No keychain available."
 msgstr "Nincs elérhető kulcstartó."
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Kérjük, telepíts egy kulcstartót Linuxon: pl. a KWallet-et vagy a GNOME "
 "Keyring-et"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:249
 #, kde-format
 msgid "Unable to read access token"
 msgstr "A hozzáférési token olvasása nem sikerült"
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "File too large to download."
 msgstr "A fájl túl nagy a letöltéshez."
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Segítségért vedd fel a kapcsolatot a Matrix szervered rendszergazdájával."
 
-#: src/controller.cpp:365
+#: src/controller.cpp:369
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "A szobaazonosító, amelyhez csatlakozni szeretne, érvénytelen"
@@ -1085,7 +1085,7 @@ msgstr "Hossz.: %1, Szél.: %2"
 msgid "Encrypted Message"
 msgstr "Titkosított üzenet"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:294
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:301
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1268,7 +1268,7 @@ msgid "Notification settings"
 msgstr "Értesítési beállítások"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:427 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "Beállítás"
@@ -1792,7 +1792,7 @@ msgstr "Az eszköz ellenőrzése"
 msgid "Logout device"
 msgstr "Eszköz kijelentkeztetése"
 
-#: src/qml/DevicesPage.qml:20 src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
+#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:37
 #, kde-format
 msgid "Loading…"
 msgstr "Betöltés..."
@@ -2920,7 +2920,7 @@ msgstr "Matrix azonosító:"
 msgid "Matrix ID"
 msgstr "Matrix azonosító:"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:117
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2958,18 +2958,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Regisztráció"
 
-#: src/qml/main.qml:334
+#: src/qml/main.qml:341
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Munkamenet-ellenőrzés"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:353
 #, kde-format
 msgid "User consent"
 msgstr "Felhasználói hozzájárulás"
 
-#: src/qml/main.qml:351
+#: src/qml/main.qml:358
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2978,17 +2978,17 @@ msgstr ""
 "A kezdőkiszolgálója a használati feltételek elfogadását kéri, mielőtt "
 "használhatná azt. Kattintson a lenti gombra az elolvasásukhoz."
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:363
 #, kde-format
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/qml/main.qml:383
+#: src/qml/main.qml:390
 #, kde-format
 msgid "Start a chat"
 msgstr "Csevegés indítása"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:392
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Szeretnél csevegést indítani vele: %1 ?"
@@ -4463,76 +4463,93 @@ msgstr "Hangerő"
 msgid "Maximize"
 msgstr "Maximalizálás"
 
-#: src/qml/WelcomePage.qml:19
+#: src/qml/WelcomePage.qml:24
 #, kde-format
 msgid "Welcome"
 msgstr "Üdvözlet"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:50
+#, fuzzy, kde-format
+#| msgid "Welcome to Matrix"
+msgid "Welcome to NeoChat"
+msgstr "Üdvözlet a Matrix-ban"
+
+#: src/qml/WelcomePage.qml:56
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
-msgid "Log in to a different account or create a new account."
+msgctxt "@title"
+msgid "Continue with an existing account"
 msgstr "Bejelentkezés meglévő fiókba"
 
-#: src/qml/WelcomePage.qml:45
-#, kde-format
-msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr ""
+#: src/qml/WelcomePage.qml:77
+#, fuzzy, kde-format
+#| msgctxt "Job heading, like 'Copying'"
+#| msgid "Uploading"
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "Betöltés"
 
-#: src/qml/WelcomePage.qml:125
+#: src/qml/WelcomePage.qml:84
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "Bejelentkezés meglévő fiókba"
+
+#: src/qml/WelcomePage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr ""
 
-#: src/registration.cpp:299
+#: src/registration.cpp:301
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add server"
 msgid "No server."
 msgstr "Szerver hozzáadása"
 
-#: src/registration.cpp:301
+#: src/registration.cpp:303
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/registration.cpp:303
+#: src/registration.cpp:305
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "This is not a valid server."
 msgstr "A beírt szöveg nem érvényes URL"
 
-#: src/registration.cpp:305
+#: src/registration.cpp:307
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/registration.cpp:307
+#: src/registration.cpp:309
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Nincs név"
 
-#: src/registration.cpp:309
+#: src/registration.cpp:311
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/registration.cpp:311
+#: src/registration.cpp:313
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "Nincsenek felhasználók"
 
-#: src/registration.cpp:313
+#: src/registration.cpp:315
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "Tovább"
 
-#: src/registration.cpp:315
+#: src/registration.cpp:317
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -4599,6 +4616,11 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#, fuzzy
+#~| msgid "Log in to an existing account"
+#~ msgid "Log in to a different account or create a new account."
+#~ msgstr "Bejelentkezés meglévő fiókba"
 
 #~ msgid "View"
 #~ msgstr "Nézet"
@@ -4680,9 +4702,6 @@ msgstr "Kilépés"
 #~ msgctxt "@action:button"
 #~ msgid "Back"
 #~ msgstr "Vissza"
-
-#~ msgid "Welcome to Matrix"
-#~ msgstr "Üdvözlet a Matrix-ban"
 
 #~ msgid "No Canonical Alias"
 #~ msgstr "Nincs elsődleges álnév"

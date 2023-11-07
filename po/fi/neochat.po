@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:39+0000\n"
-"PO-Revision-Date: 2023-08-26 18:43+0300\n"
+"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"PO-Revision-Date: 2023-09-27 21:55+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -17,67 +17,67 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:196
+#: src/controller.cpp:200
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Kirjautuminen epäonnistui: pääsymerkki on virheellinen tai peruttu"
 
-#: src/controller.cpp:199 src/controller.cpp:204 src/login.cpp:93
+#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Kirjautuminen epäonnistui: %1"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Verkkovirhe: %1"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Pääsymerkkiä ei löytynyt"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Se on ehkä poistettu?"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Pääsymerkin käyttö estettiin."
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Salli NeoChatin lukea pääsymerkki"
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "No keychain available."
 msgstr "Avainrenkaita ei ole saatavilla."
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Asenna avainrengas, esim. Linuxissa KWallet tai Gnomen avainrengas"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:249
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Saantimerkkiä ei voida lukea"
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "File too large to download."
 msgstr "Liian iso tiedosto ladattavaksi."
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Tee tukipyyntö Matrix-palvelimesi ylläpitoon."
 
-#: src/controller.cpp:365
+#: src/controller.cpp:369
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Yrität liittyä huoneeseen, jonka tunniste ei ole kelvollinen"
@@ -1074,7 +1074,7 @@ msgstr "Lev: %1, pit: %2"
 msgid "Encrypted Message"
 msgstr "Salattu viesti"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:294
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:301
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1106,15 +1106,13 @@ msgid "Open this invitation in NeoChat"
 msgstr "Avaa tämä kutsu NeoChatiin"
 
 #: src/notificationsmanager.cpp:250
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Hyväksy"
 
 #: src/notificationsmanager.cpp:251
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Hylkää"
@@ -1123,7 +1121,7 @@ msgstr "Hylkää"
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
-msgstr ""
+msgstr "Hylkää ja sivuuta käyttäjä"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -1221,23 +1219,21 @@ msgid "Homeserver url"
 msgstr "Kotipalvelimen verkko-osoite"
 
 #: src/qml/AccountEditorPage.qml:209
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title"
 msgid "Account Management"
-msgstr "Tilimuokkain"
+msgstr "Tilihallinta"
 
 #: src/qml/AccountEditorPage.qml:214
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate Account"
-msgstr "Muokkaa tiliä"
+msgstr "Passivoi tili"
 
 #: src/qml/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
-msgstr ""
+msgstr "Vahvista tilin passivoiminen"
 
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
@@ -1256,7 +1252,7 @@ msgid "Notification settings"
 msgstr "Ilmoitusasetukset"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:427 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "Asetukset"
@@ -1481,11 +1477,10 @@ msgid "Clipboard image"
 msgstr "Leikepöydän kuva"
 
 #: src/qml/ChooseRoomDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Choose a Location"
+#, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
-msgstr "Valitse sijainti"
+msgstr "Valitse huone"
 
 #: src/qml/ColorScheme.qml:15
 #, kde-format
@@ -1494,18 +1489,16 @@ msgstr "Väriteema"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title"
 msgid "Deactivate Account"
-msgstr "Muokkaa tiliä"
+msgstr "Passivoi tili"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
+#, kde-format
 msgctxt "@title"
 msgid "Warning"
-msgstr "Varoitus: %1"
+msgstr "Varoitus"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:24
 #, kde-format
@@ -1515,12 +1508,15 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"Tili poistetaan käytöstä pysyvästi.\n"
+"Tätä ei voi kumota.\n"
+"Matrix-tunnisteesi ei ole käytettävissä uusille tileille.\n"
+"Viestit pysyvät saatavilla."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate account"
-msgstr "Muokkaa tiliä"
+msgstr "Passivoi tili"
 
 #: src/qml/ConfirmEncryptionDialog.qml:19
 #: src/qml/ConfirmEncryptionDialog.qml:38
@@ -1644,8 +1640,7 @@ msgstr "Luo tila"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
 #: src/qml/ExploreComponentMobile.qml:139
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Luo huone"
@@ -1713,8 +1708,7 @@ msgstr ""
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
 #: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:170
 #: src/qml/SelectParentDialog.qml:131
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Tutki huoneita"
@@ -1779,7 +1773,7 @@ msgstr "Todenna laite"
 msgid "Logout device"
 msgstr "Kirjaa laite ulos"
 
-#: src/qml/DevicesPage.qml:20 src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
+#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:37
 #, kde-format
 msgid "Loading…"
 msgstr "Ladataan…"
@@ -1877,13 +1871,12 @@ msgstr "Valitse kaikki"
 #: src/qml/Email.qml:19
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "Lisää sähköpostiosoite:"
 
 #: src/qml/Email.qml:31
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgid "Confirm e-mail address"
-msgstr "Vahvista uusi näyttönimi"
+msgstr "Vahvista sähköpostiosoite"
 
 #: src/qml/Email.qml:33
 #, kde-format
@@ -1891,12 +1884,14 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"Osoitteeseen on lähetetty vahvistusviesti. Jatka täällä <b>sen jälkeen</b>, "
+"kun olet napsauttanut viestin vahvistuslinkkiä"
 
 #: src/qml/Email.qml:38
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "Lähetä vahvistusviesti uudelleen"
 
 #: src/qml/EmojiGrid.qml:83
 #, kde-format
@@ -2007,8 +2002,7 @@ msgid "Add Sticker"
 msgstr "Lisää tarra"
 
 #: src/qml/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
+#, kde-format
 msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "Tarrat ja emojit"
@@ -2035,8 +2029,7 @@ msgid "Start a Chat"
 msgstr "Aloita keskustelu"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start a Chat"
 msgstr "Aloita keskustelu"
@@ -2566,9 +2559,7 @@ msgid "Invites"
 msgstr "Kutsut"
 
 #: src/qml/GlobalNotificationsPage.qml:154
-#, fuzzy, kde-format
-#| msgctxt "Unknown attachment size"
-#| msgid "Unknown"
+#, kde-format
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -2578,21 +2569,19 @@ msgid "No name"
 msgstr "Ei nimeä"
 
 #: src/qml/Homeserver.qml:19
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server Url:"
-msgstr "Palvelimen verkko-osoite"
+msgstr "Palvelimen verkko-osoite:"
 
 #: src/qml/Homeserver.qml:24
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "Palvelin on poistanut rekisteröitymisen käytöstä."
 
 #: src/qml/Homeserver.qml:39 src/qml/Username.qml:36
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading"
-msgstr "Ladataan…"
+msgstr "Ladataan"
 
 #: src/qml/HoverActions.qml:74
 #, kde-format
@@ -2666,11 +2655,10 @@ msgid "Accept this invitation?"
 msgstr "Hyväksytäänkö kutsu?"
 
 #: src/qml/InvitationView.qml:21
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr "Peru tämän käyttäjän sivuuttaminen"
+msgstr "Hylkää ja sivuuta käyttäjä"
 
 #: src/qml/InvitationView.qml:30
 #, kde-format
@@ -2733,8 +2721,7 @@ msgid "Home Server"
 msgstr "Kotipalvelin"
 
 #: src/qml/JoinRoomPage.qml:106
-#, fuzzy, kde-format
-#| msgid "Add new server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Lisää uusi palvelin"
@@ -2805,10 +2792,9 @@ msgid "Waiting for other party to verify."
 msgstr "Odotetaan toisen osapuolen todennusta."
 
 #: src/qml/KeyVerificationDialog.qml:56
-#, fuzzy, kde-format
-#| msgid "Session Verification"
+#, kde-format
 msgid "Emoji Verification"
-msgstr "Istunnon todennus"
+msgstr "Emojin todennus"
 
 #: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
@@ -2876,7 +2862,7 @@ msgstr "Matrix-tunniste:"
 msgid "Matrix ID"
 msgstr "Matrix-tunniste"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:117
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2888,15 +2874,13 @@ msgid "Already logged in"
 msgstr "Jo kirjautuneena"
 
 #: src/qml/LoginMethod.qml:18
-#, fuzzy, kde-format
-#| msgid "Login with password"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Kirjaudu salasanalla"
 
 #: src/qml/LoginMethod.qml:24
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Kirjaudu yksittäiskirjautumisena"
@@ -2908,24 +2892,23 @@ msgid "Login"
 msgstr "Kirjaudu"
 
 #: src/qml/LoginRegister.qml:25
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Rekisteröidy"
 
-#: src/qml/main.qml:334
+#: src/qml/main.qml:341
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Istunnon todennus"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:353
 #, kde-format
 msgid "User consent"
 msgstr "Käyttäjän suostumus"
 
-#: src/qml/main.qml:351
+#: src/qml/main.qml:358
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2934,17 +2917,17 @@ msgstr ""
 "Kotipalvelimesi vaatii sinua hyväksymään käyttöehdot ennen kuin voit käyttää "
 "sitä. Lue ehdot napsauttamalla alla olevaa painiketta."
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:363
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: src/qml/main.qml:383
+#: src/qml/main.qml:390
 #, kde-format
 msgid "Start a chat"
 msgstr "Aloita keskustelu"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:392
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Haluatko käynnistää keskustelun henkilön %1 kanssa?"
@@ -2981,15 +2964,13 @@ msgstr "Annettu teksti ei ole kelvollinen verkko-osoite"
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
-msgstr ""
+msgstr "Edennä"
 
 #: src/qml/MessageDelegateContextMenu.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "Ilmoita viestistä"
+msgstr "Edennä viesti"
 
 #: src/qml/MessageDelegateContextMenu.qml:156
 #, kde-format
@@ -3116,10 +3097,9 @@ msgid "Please choose a file"
 msgstr "Valitse tiedosto"
 
 #: src/qml/Password.qml:32
-#, fuzzy, kde-format
-#| msgid "Enter your password"
+#, kde-format
 msgid "Invalid username or password"
-msgstr "Syötä salasanasi"
+msgstr "Virheellinen tunnus tai salasana"
 
 #: src/qml/Permissions.qml:33
 #, kde-format
@@ -3334,16 +3314,14 @@ msgid "Last read: %1"
 msgstr "Viimeksi luettu: %1"
 
 #: src/qml/RegisterPassword.qml:28
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "Vahvista uusi salasana:"
+msgstr "Vahvista salasana:"
 
 #: src/qml/RegisterPassword.qml:31
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "The passwords do not match."
-msgstr "Salasanat eivät täsmää"
+msgstr "Salasanat eivät täsmää."
 
 #: src/qml/RemoveChildDialog.qml:27
 #, fuzzy, kde-format
@@ -3407,17 +3385,15 @@ msgid "Reason for reporting this message"
 msgstr "Syy viestistä ilmoittamiseen"
 
 #: src/qml/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Choose a Location"
+#, kde-format
 msgctxt "@title"
 msgid "Choose Room"
-msgstr "Valitse sijainti"
+msgstr "Valitse huone"
 
 #: src/qml/RoomData.qml:37
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgid "Room Id: %1"
-msgstr "Huoneen tunniste"
+msgstr "Huoneen tunniste: %1"
 
 #: src/qml/RoomData.qml:40
 #, kde-format
@@ -3430,16 +3406,14 @@ msgid "Show room account data"
 msgstr "Näytä huoneen tilitiedot"
 
 #: src/qml/RoomData.qml:58
-#, fuzzy, kde-format
-#| msgid "Room Account Data for %1 - %2"
+#, kde-format
 msgid "Room Account Data"
-msgstr "Huoneen tilitiedot: %1 – %2"
+msgstr "Huoneen tilitiedot"
 
 #: src/qml/RoomData.qml:77
-#, fuzzy, kde-format
-#| msgid "Room State for %1"
+#, kde-format
 msgid "Room State"
-msgstr "Huoneen tila – %1"
+msgstr "Huoneen tila"
 
 #: src/qml/RoomDelegate.qml:107
 #, kde-format
@@ -3457,21 +3431,19 @@ msgid "Room settings"
 msgstr "Huoneen asetukset"
 
 #: src/qml/RoomDrawer.qml:146 src/qml/RoomDrawerPage.qml:83
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "Information"
-msgstr "Tietoa huoneesta"
+msgstr "Tietoa"
 
 #: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: src/qml/RoomDrawerPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Huoneen asetukset"
+msgstr "Asetukset"
 
 #: src/qml/RoomInformation.qml:41
 #, fuzzy, kde-format
@@ -3482,11 +3454,10 @@ msgid "Space Members"
 msgstr "Tilan jäsenet"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room information"
-msgstr "Tietoa huoneesta"
+msgstr "Huoneen tiedot"
 
 #: src/qml/RoomInformation.qml:69
 #, kde-format
@@ -3580,11 +3551,10 @@ msgid "Expand %1"
 msgstr "Laajenna %1"
 
 #: src/qml/RoomMedia.qml:28
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Media"
-msgstr "Huoneen versio"
+msgstr "Huoneen media"
 
 #: src/qml/RoomPage.qml:100
 #, kde-format
@@ -3879,8 +3849,7 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Kuvan jaettu verkko-osoite on <a href='%1'>%1</a>"
 
 #: src/qml/SonnetConfigPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Spellchecking"
+#, kde-format
 msgctxt "@title"
 msgid "Spellchecking"
 msgstr "Oikeinkirjoituksen tarkistus"
@@ -3962,8 +3931,7 @@ msgid "Add word"
 msgstr "Lisää sana"
 
 #: src/qml/SonnetConfigPage.qml:200
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Poista sana"
@@ -4056,16 +4024,15 @@ msgid "Leave Space"
 msgstr "Poistu tilasta"
 
 #: src/qml/Sso.qml:30
-#, fuzzy, kde-format
-#| msgid "Complete the authentication steps in your browser"
+#, kde-format
 msgid "Continue the login process in your browser."
-msgstr "Viimeistele todennus selaimessa"
+msgstr "Jatka kirjautumista selaimessa."
 
 #: src/qml/Sso.qml:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
-msgstr ""
+msgstr "Avaa SSO-verkko-osoite uudelleen"
 
 #: src/qml/StartChatPage.qml:40
 #, kde-format
@@ -4085,14 +4052,14 @@ msgstr "Luo uusi keskustelu"
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "Käyttöehdot"
 
 #: src/qml/Terms.qml:19
 #, kde-format
 msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
-msgstr ""
+msgstr "Jatkamalla rekisteröitymistä hyväksyt seuraavat käyttöehdot:"
 
 #: src/qml/TimelineView.qml:178
 #, kde-format
@@ -4207,16 +4174,14 @@ msgid "Login"
 msgstr "Kirjaudu"
 
 #: src/qml/Username.qml:18
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username:"
-msgstr "Käyttäjätunnus"
+msgstr "Käyttäjätunnus:"
 
 #: src/qml/Username.qml:21
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "Username unavailable"
-msgstr "Käyttäjiä ei ole saatavilla"
+msgstr "Käyttäjätunnus ei ole käytettävissä"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4394,79 +4359,89 @@ msgstr "Äänenvoimakkuus"
 msgid "Maximize"
 msgstr "Suurenna"
 
-#: src/qml/WelcomePage.qml:19
+#: src/qml/WelcomePage.qml:24
 #, kde-format
 msgid "Welcome"
 msgstr "Tervetuloa"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:50
+#, fuzzy, kde-format
+#| msgid "Welcome to Matrix"
+msgid "Welcome to NeoChat"
+msgstr "Tervetuloa Matrixiin"
+
+#: src/qml/WelcomePage.qml:56
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
-msgid "Log in to a different account or create a new account."
+msgctxt "@title"
+msgid "Continue with an existing account"
 msgstr "Kirjaudu olemassa olevalle tilille"
 
-#: src/qml/WelcomePage.qml:45
-#, kde-format
-msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr ""
+#: src/qml/WelcomePage.qml:77
+#, fuzzy, kde-format
+#| msgctxt "Job heading, like 'Copying'"
+#| msgid "Uploading"
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "Lähetetään"
 
-#: src/qml/WelcomePage.qml:125
+#: src/qml/WelcomePage.qml:84
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "Kirjaudu olemassa olevalle tilille"
+
+#: src/qml/WelcomePage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
-msgstr ""
-
-#: src/registration.cpp:299
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
-msgid "No server."
-msgstr "Lisää palvelin"
+msgstr "Palaa takaisin"
 
 #: src/registration.cpp:301
 #, kde-format
-msgid "Checking Server availability."
-msgstr ""
+msgid "No server."
+msgstr "Ei palvelinta."
 
 #: src/registration.cpp:303
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
-msgid "This is not a valid server."
-msgstr "Annettu teksti ei ole kelvollinen verkko-osoite"
+#, kde-format
+msgid "Checking Server availability."
+msgstr "Tarkistetaan palvelimen saatavuutta."
 
 #: src/registration.cpp:305
 #, kde-format
-msgid "Registration for this server is disabled."
-msgstr ""
+msgid "This is not a valid server."
+msgstr "Tämä ei ole kelvollinen palvelin."
 
 #: src/registration.cpp:307
-#, fuzzy, kde-format
-#| msgid "No name"
-msgid "No username."
-msgstr "Ei nimeä"
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr "Palvelin on poistanut rekisteröitymisen käytöstä."
 
 #: src/registration.cpp:309
 #, kde-format
-msgid "Checking username availability."
-msgstr ""
+msgid "No username."
+msgstr "Ei käyttäjätunnusta."
 
 #: src/registration.cpp:311
-#, fuzzy, kde-format
-#| msgid "No users available"
-msgid "This username is not available."
-msgstr "Käyttäjiä ei ole saatavilla"
+#, kde-format
+msgid "Checking username availability."
+msgstr "Tarkistetaan käyttäjätunnuksen saatavuutta."
 
 #: src/registration.cpp:313
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
-msgid "Continue"
-msgstr "Jatka"
+#, kde-format
+msgid "This username is not available."
+msgstr "Tämä käyttäjätunnus ei ole käytettävissä."
 
 #: src/registration.cpp:315
 #, kde-format
+msgid "Continue"
+msgstr "Jatka"
+
+#: src/registration.cpp:317
+#, kde-format
 msgid "Working"
-msgstr ""
+msgstr "Työskennellään"
 
 #: src/roommanager.cpp:77
 #, kde-format
@@ -4528,6 +4503,13 @@ msgstr "Näytä"
 #, kde-format
 msgid "Quit"
 msgstr "Lopeta"
+
+#~ msgid "Log in to a different account or create a new account."
+#~ msgstr "Kirjaudu toisella tilillä tai luo uusi tili."
+
+#~ msgid ""
+#~ "Welcome to NeoChat! Continue by logging in or creating a new account."
+#~ msgstr "Tervetuloa NeoChatiin! Jatka kirjautumalla tai luomalla uusi tili."
 
 #~ msgid "View"
 #~ msgstr "Näkymä"
@@ -4609,9 +4591,6 @@ msgstr "Lopeta"
 #~ msgctxt "@action:button"
 #~ msgid "Back"
 #~ msgstr "Takaisin"
-
-#~ msgid "Welcome to Matrix"
-#~ msgstr "Tervetuloa Matrixiin"
 
 #~ msgid "No Canonical Alias"
 #~ msgstr "Ei kanonista aliasta"

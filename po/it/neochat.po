@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:39+0000\n"
+"POT-Creation-Date: 2023-11-07 02:43+0000\n"
 "PO-Revision-Date: 2023-10-23 09:53+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,68 +17,68 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.2\n"
 
-#: src/controller.cpp:196
+#: src/controller.cpp:200
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Accesso non riuscito: token di accesso non valido o revocato"
 
-#: src/controller.cpp:199 src/controller.cpp:204 src/login.cpp:93
+#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Accesso non riuscito: %1"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Errore di rete: %1"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Il token di accesso non è stato trovato"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Forse è stato eliminato?"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "L'accesso al portachiavi è stato negato."
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Consenti a Neochat di leggere il token di accesso"
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "No keychain available."
 msgstr "Nessun portachiavi trovato."
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installa un portachiavi, ad es. KWallet o il portachiavi di GNOME su Linux"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:249
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Impossibile leggere il token di accesso"
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "File too large to download."
 msgstr "File troppo grande per essere scaricato."
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Contatta l'amministratore del server Matrix per assistenza."
 
-#: src/controller.cpp:365
+#: src/controller.cpp:369
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'ID della stanza che stai tentando di entrare non è valida"
@@ -1077,7 +1077,7 @@ msgstr "Lat: %1, Lon: %2"
 msgid "Encrypted Message"
 msgstr "Messaggio cifrato"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:294
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:301
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1255,7 +1255,7 @@ msgid "Notification settings"
 msgstr "Impostazioni delle notifiche"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:427 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
@@ -1773,7 +1773,7 @@ msgstr "Verifica il dispositivo"
 msgid "Logout device"
 msgstr "Disconnetti il dispositivo"
 
-#: src/qml/DevicesPage.qml:20 src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
+#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:37
 #, kde-format
 msgid "Loading…"
 msgstr "Caricamento…"
@@ -2865,7 +2865,7 @@ msgstr "ID Matrix:"
 msgid "Matrix ID"
 msgstr "ID Matrix"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:117
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2900,18 +2900,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registra"
 
-#: src/qml/main.qml:334
+#: src/qml/main.qml:341
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifica della sessione"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:353
 #, kde-format
 msgid "User consent"
 msgstr "Consenso dell'utente"
 
-#: src/qml/main.qml:351
+#: src/qml/main.qml:358
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2920,17 +2920,17 @@ msgstr ""
 "Il tuo server ti richiede di accettare i suoi termini e le sue condizioni "
 "prima di poterlo utilizzare. Fai clic sul pulsante in basso per leggerli."
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:363
 #, kde-format
 msgid "Open"
 msgstr "Apri"
 
-#: src/qml/main.qml:383
+#: src/qml/main.qml:390
 #, kde-format
 msgid "Start a chat"
 msgstr "Avvia una chat"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:392
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vuoi iniziare una chat con %1?"
@@ -4379,70 +4379,86 @@ msgstr "Volume"
 msgid "Maximize"
 msgstr "Massimizza"
 
-#: src/qml/WelcomePage.qml:19
+#: src/qml/WelcomePage.qml:24
 #, kde-format
 msgid "Welcome"
 msgstr "Benvenuto"
 
-#: src/qml/WelcomePage.qml:45
-#, kde-format
-msgid "Log in to a different account or create a new account."
-msgstr "Accedi a un account diverso o crea un nuovo account."
+#: src/qml/WelcomePage.qml:50
+#, fuzzy, kde-format
+#| msgid "Welcome to Matrix"
+msgid "Welcome to NeoChat"
+msgstr "Benvenuto in Matrix"
 
-#: src/qml/WelcomePage.qml:45
-#, kde-format
-msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr ""
-"Benvenuto su NeoChat! Continua effettuando l'accesso o creando un nuovo "
-"account."
+#: src/qml/WelcomePage.qml:56
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr "Accesso con un account esistente"
 
-#: src/qml/WelcomePage.qml:125
+#: src/qml/WelcomePage.qml:77
+#, fuzzy, kde-format
+#| msgctxt "Job heading, like 'Copying'"
+#| msgid "Uploading"
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "Invio"
+
+#: src/qml/WelcomePage.qml:84
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "Accesso con un account esistente"
+
+#: src/qml/WelcomePage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Indietro"
 
-#: src/registration.cpp:299
+#: src/registration.cpp:301
 #, kde-format
 msgid "No server."
 msgstr "Nessun server."
 
-#: src/registration.cpp:301
+#: src/registration.cpp:303
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Verifica della disponibilità del server."
 
-#: src/registration.cpp:303
+#: src/registration.cpp:305
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Questo non è un server valido."
 
-#: src/registration.cpp:305
+#: src/registration.cpp:307
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "La registrazione per questo server è disabilitata."
 
-#: src/registration.cpp:307
+#: src/registration.cpp:309
 #, kde-format
 msgid "No username."
 msgstr "Nessun nome utente."
 
-#: src/registration.cpp:309
+#: src/registration.cpp:311
 #, kde-format
 msgid "Checking username availability."
 msgstr "Verifica della disponibilità del nome utente."
 
-#: src/registration.cpp:311
+#: src/registration.cpp:313
 #, kde-format
 msgid "This username is not available."
 msgstr "Il nome utente non è disponibile."
 
-#: src/registration.cpp:313
+#: src/registration.cpp:315
 #, kde-format
 msgid "Continue"
 msgstr "Continua"
 
-#: src/registration.cpp:315
+#: src/registration.cpp:317
 #, kde-format
 msgid "Working"
 msgstr "Attivo"
@@ -4511,6 +4527,15 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Esci"
+
+#~ msgid "Log in to a different account or create a new account."
+#~ msgstr "Accedi a un account diverso o crea un nuovo account."
+
+#~ msgid ""
+#~ "Welcome to NeoChat! Continue by logging in or creating a new account."
+#~ msgstr ""
+#~ "Benvenuto su NeoChat! Continua effettuando l'accesso o creando un nuovo "
+#~ "account."
 
 #~ msgid "View"
 #~ msgstr "Visualizza"
@@ -4590,9 +4615,6 @@ msgstr "Esci"
 #~ msgctxt "@action:button"
 #~ msgid "Back"
 #~ msgstr "Indietro"
-
-#~ msgid "Welcome to Matrix"
-#~ msgstr "Benvenuto in Matrix"
 
 #~ msgid "No Canonical Alias"
 #~ msgstr "Nessun alias canonico"

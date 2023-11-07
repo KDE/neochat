@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:39+0000\n"
+"POT-Creation-Date: 2023-11-07 02:43+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -19,69 +19,69 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:196
+#: src/controller.cpp:200
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Ошибка входа в систему: токен доступа недействителен или отозван"
 
-#: src/controller.cpp:199 src/controller.cpp:204 src/login.cpp:93
+#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ошибка входа в систему: %1"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ошибка сети: %1"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не найден токен доступа"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Возможно, он был удалён."
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Не удалось получить доступ к связке ключей."
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Разрешите приложению NeoChat прочитать токен доступа"
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "No keychain available."
 msgstr "Нет ни одной доступной связки ключей."
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Установите приложение, предоставляющее службу связки ключей, например "
 "KWallet или Gnome Keyring."
 
-#: src/controller.cpp:245
+#: src/controller.cpp:249
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не удалось прочитать токен доступа"
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "File too large to download."
 msgstr "Слишком большой файл для загрузки."
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Обратитесь за помощью к администратору сервера Matrix."
 
-#: src/controller.cpp:365
+#: src/controller.cpp:369
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Недействительный идентификатор комнаты, в которую вы хотите войти"
@@ -1096,7 +1096,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Зашифрованное сообщение"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:294
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:301
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1279,7 +1279,7 @@ msgid "Notification settings"
 msgstr "Уведомления комнаты"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:427 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "Параметры"
@@ -1803,7 +1803,7 @@ msgstr "Верифицировать устройство"
 msgid "Logout device"
 msgstr "Отключить устройство от учётной записи"
 
-#: src/qml/DevicesPage.qml:20 src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
+#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:37
 #, kde-format
 msgid "Loading…"
 msgstr "Загрузка..."
@@ -2932,7 +2932,7 @@ msgstr "Идентификатор Matrix:"
 msgid "Matrix ID"
 msgstr "Идентификатор Matrix:"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:117
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2970,18 +2970,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: src/qml/main.qml:334
+#: src/qml/main.qml:341
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Проверка сеанса"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:353
 #, kde-format
 msgid "User consent"
 msgstr "Согласие пользователя"
 
-#: src/qml/main.qml:351
+#: src/qml/main.qml:358
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2991,17 +2991,17 @@ msgstr ""
 "условиями, прежде чем сможете его использовать. Нажмите на кнопку, "
 "расположенную ниже, ниже, чтобы прочитать их."
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:363
 #, kde-format
 msgid "Open"
 msgstr "Открыть"
 
-#: src/qml/main.qml:383
+#: src/qml/main.qml:390
 #, kde-format
 msgid "Start a chat"
 msgstr "Начать общение"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:392
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Начать чат с %1?"
@@ -4469,76 +4469,93 @@ msgstr "Громкость"
 msgid "Maximize"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:19
+#: src/qml/WelcomePage.qml:24
 #, kde-format
 msgid "Welcome"
 msgstr "Добро пожаловать"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:50
+#, fuzzy, kde-format
+#| msgid "Welcome to Matrix"
+msgid "Welcome to NeoChat"
+msgstr "Добро пожаловать в Matrix"
+
+#: src/qml/WelcomePage.qml:56
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
-msgid "Log in to a different account or create a new account."
+msgctxt "@title"
+msgid "Continue with an existing account"
 msgstr "Войти в существующую учётную запись"
 
-#: src/qml/WelcomePage.qml:45
-#, kde-format
-msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr ""
+#: src/qml/WelcomePage.qml:77
+#, fuzzy, kde-format
+#| msgctxt "Job heading, like 'Copying'"
+#| msgid "Uploading"
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "Отправка"
 
-#: src/qml/WelcomePage.qml:125
+#: src/qml/WelcomePage.qml:84
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "Войти в существующую учётную запись"
+
+#: src/qml/WelcomePage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr ""
 
-#: src/registration.cpp:299
+#: src/registration.cpp:301
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add server"
 msgid "No server."
 msgstr "Добавление сервера"
 
-#: src/registration.cpp:301
+#: src/registration.cpp:303
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/registration.cpp:303
+#: src/registration.cpp:305
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "This is not a valid server."
 msgstr "Введённый текст не является допустимым URL"
 
-#: src/registration.cpp:305
+#: src/registration.cpp:307
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/registration.cpp:307
+#: src/registration.cpp:309
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Без имени"
 
-#: src/registration.cpp:309
+#: src/registration.cpp:311
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/registration.cpp:311
+#: src/registration.cpp:313
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "Нет ни одного пользователя"
 
-#: src/registration.cpp:313
+#: src/registration.cpp:315
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "Продолжить"
 
-#: src/registration.cpp:315
+#: src/registration.cpp:317
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -4604,6 +4621,11 @@ msgstr "Показать"
 #, kde-format
 msgid "Quit"
 msgstr "Выход"
+
+#, fuzzy
+#~| msgid "Log in to an existing account"
+#~ msgid "Log in to a different account or create a new account."
+#~ msgstr "Войти в существующую учётную запись"
 
 #~ msgid "View"
 #~ msgstr "Просмотреть"
@@ -4685,9 +4707,6 @@ msgstr "Выход"
 #~ msgctxt "@action:button"
 #~ msgid "Back"
 #~ msgstr "Назад"
-
-#~ msgid "Welcome to Matrix"
-#~ msgstr "Добро пожаловать в Matrix"
 
 #~ msgid ""
 #~ "This room is encrypted. Build libQuotient with encryption enabled to send "

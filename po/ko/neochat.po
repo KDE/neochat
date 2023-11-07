@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:39+0000\n"
+"POT-Creation-Date: 2023-11-07 02:43+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,67 +17,67 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:196
+#: src/controller.cpp:200
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "로그인 실패: 접근 토큰이 잘못되었거나 취소됨"
 
-#: src/controller.cpp:199 src/controller.cpp:204 src/login.cpp:93
+#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "로그인 실패: %1"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "네트워크 오류: %1"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "접근 토큰을 찾을 수 없음"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:239
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "삭제되었을 수도 있습니다."
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "키체인 접근이 거부되었습니다."
 
-#: src/controller.cpp:239
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat에서 접근 토큰 사용을 허용하십시오"
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "No keychain available."
 msgstr "키체인을 사용할 수 없습니다."
 
-#: src/controller.cpp:242
+#: src/controller.cpp:246
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "키체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모음 등이 있습니다"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:249
 #, kde-format
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "File too large to download."
 msgstr "파일이 다운로드하기에 너무 큽니다."
 
-#: src/controller.cpp:341
+#: src/controller.cpp:345
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/controller.cpp:365
+#: src/controller.cpp:369
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
@@ -1070,7 +1070,7 @@ msgstr "위도: %1, 경도: %2"
 msgid "Encrypted Message"
 msgstr "암호화된 메시지"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:294
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:301
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1248,7 +1248,7 @@ msgid "Notification settings"
 msgstr "알림 설정"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:420 src/qml/UserInfo.qml:123
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:427 src/qml/UserInfo.qml:123
 #, kde-format
 msgid "Configure"
 msgstr "설정"
@@ -1762,7 +1762,7 @@ msgstr "장치 확인"
 msgid "Logout device"
 msgstr "장치 로그아웃"
 
-#: src/qml/DevicesPage.qml:20 src/qml/LoadingPage.qml:8 src/qml/Login.qml:37
+#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:37
 #, kde-format
 msgid "Loading…"
 msgstr "불러오는 중…"
@@ -2845,7 +2845,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:117
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:152
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2880,18 +2880,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "등록"
 
-#: src/qml/main.qml:334
+#: src/qml/main.qml:341
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:353
 #, kde-format
 msgid "User consent"
 msgstr "사용자 동의"
 
-#: src/qml/main.qml:351
+#: src/qml/main.qml:358
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2900,17 +2900,17 @@ msgstr ""
 "홈 서버를 사용하기 전에 사용 조건에 동의해야 합니다. 아래 단추를 클릭하여 읽"
 "으십시오."
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:363
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/qml/main.qml:383
+#: src/qml/main.qml:390
 #, kde-format
 msgid "Start a chat"
 msgstr "대화 시작"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:392
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
@@ -4308,70 +4308,86 @@ msgstr "음량"
 msgid "Maximize"
 msgstr "최대화"
 
-#: src/qml/WelcomePage.qml:19
+#: src/qml/WelcomePage.qml:24
 #, kde-format
 msgid "Welcome"
 msgstr "환영합니다"
 
-#: src/qml/WelcomePage.qml:45
-#, kde-format
-msgid "Log in to a different account or create a new account."
-msgstr "다른 계정에 로그인하거나 새 계정을 만드십시오."
+#: src/qml/WelcomePage.qml:50
+#, fuzzy, kde-format
+#| msgid "Welcome to Matrix"
+msgid "Welcome to NeoChat"
+msgstr "Matrix에 오신 것을 환영합니다"
 
-#: src/qml/WelcomePage.qml:45
-#, kde-format
-msgid "Welcome to NeoChat! Continue by logging in or creating a new account."
-msgstr ""
-"NeoChat에 오신 것을 환영합니다! 계속 진행하려면 로그인하거나 새 계정을 등록하"
-"십시오."
+#: src/qml/WelcomePage.qml:56
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr "기존 계정에 로그인"
 
-#: src/qml/WelcomePage.qml:125
+#: src/qml/WelcomePage.qml:77
+#, fuzzy, kde-format
+#| msgctxt "Job heading, like 'Copying'"
+#| msgid "Uploading"
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "업로드"
+
+#: src/qml/WelcomePage.qml:84
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "기존 계정에 로그인"
+
+#: src/qml/WelcomePage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "뒤로 가기"
 
-#: src/registration.cpp:299
+#: src/registration.cpp:301
 #, kde-format
 msgid "No server."
 msgstr "서버가 없습니다."
 
-#: src/registration.cpp:301
+#: src/registration.cpp:303
 #, kde-format
 msgid "Checking Server availability."
 msgstr "서버를 확인하고 있습니다."
 
-#: src/registration.cpp:303
+#: src/registration.cpp:305
 #, kde-format
 msgid "This is not a valid server."
 msgstr "올바른 서버가 아닙니다."
 
-#: src/registration.cpp:305
+#: src/registration.cpp:307
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "이 서버에 등록이 비활성화되어 있습니다."
 
-#: src/registration.cpp:307
+#: src/registration.cpp:309
 #, kde-format
 msgid "No username."
 msgstr "사용자 이름이 없습니다."
 
-#: src/registration.cpp:309
+#: src/registration.cpp:311
 #, kde-format
 msgid "Checking username availability."
 msgstr "사용자 이름 사용 가능 여부를 확인하고 있습니다."
 
-#: src/registration.cpp:311
+#: src/registration.cpp:313
 #, kde-format
 msgid "This username is not available."
 msgstr "이 사용자 이름을 사용할 수 없습니다."
 
-#: src/registration.cpp:313
+#: src/registration.cpp:315
 #, kde-format
 msgid "Continue"
 msgstr "계속"
 
-#: src/registration.cpp:315
+#: src/registration.cpp:317
 #, kde-format
 msgid "Working"
 msgstr "작업 중"
@@ -4436,6 +4452,15 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgid "Log in to a different account or create a new account."
+#~ msgstr "다른 계정에 로그인하거나 새 계정을 만드십시오."
+
+#~ msgid ""
+#~ "Welcome to NeoChat! Continue by logging in or creating a new account."
+#~ msgstr ""
+#~ "NeoChat에 오신 것을 환영합니다! 계속 진행하려면 로그인하거나 새 계정을 등"
+#~ "록하십시오."
 
 #~ msgid "View"
 #~ msgstr "보기"
@@ -4517,9 +4542,6 @@ msgstr "끝내기"
 #~ msgctxt "@action:button"
 #~ msgid "Back"
 #~ msgstr "뒤로"
-
-#~ msgid "Welcome to Matrix"
-#~ msgstr "Matrix에 오신 것을 환영합니다"
 
 #~ msgid "No Canonical Alias"
 #~ msgstr "주 별명 없음"
