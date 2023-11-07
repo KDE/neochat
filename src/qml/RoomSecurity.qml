@@ -3,7 +3,10 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+
+import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
@@ -42,18 +45,37 @@ FormCard.FormCardPage {
             description: i18n("Only invited people can join.")
             checked: room.joinRule === "invite"
             enabled: room.canSendState("m.room.join_rules")
-            onCheckedChanged: if (checked) {
-                room.joinRule = "invite";
+            onCheckedChanged: if (checked && room.joinRule != "invite") {
+                root.room.joinRule = "invite";
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Space members")
-            description: i18n("Anyone in a space can find and join.") +
+            description: i18n("Anyone in the selected spaces can find and join.") +
                             (!["8", "9", "10"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
             checked: room.joinRule === "restricted"
-            enabled: room.canSendState("m.room.join_rules") && ["8", "9", "10"].includes(room.version) && false
-            onCheckedChanged: if (checked) {
-                room.joinRule = "restricted";
+            enabled: room.canSendState("m.room.join_rules") && ["8", "9", "10"].includes(room.version)
+            onCheckedChanged: if (checked && room.joinRule != "restricted") {
+                selectSpacesDialog.createObject(applicationWindow().overlay).open();
+            }
+
+            contentItem.children: QQC2.Button {
+                visible: root.room.joinRule === "restricted"
+                text: i18n("Select spaces")
+                icon.name: "list-add"
+
+                onClicked: selectSpacesDialog.createObject(applicationWindow().overlay).open();
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.visible: hovered
+            }
+
+            Component {
+                id: selectSpacesDialog
+                SelectSpacesDialog {
+                    room: root.room
+                }
             }
         }
         FormCard.FormRadioDelegate {
@@ -63,8 +85,8 @@ FormCard.FormCardPage {
             checked: room.joinRule === "knock"
             // https://spec.matrix.org/v1.4/rooms/#feature-matrix
             enabled: room.canSendState("m.room.join_rules") && ["7", "8", "9", "10"].includes(room.version)
-            onCheckedChanged: if (checked) {
-                room.joinRule = "knock";
+            onCheckedChanged: if (checked && room.joinRule != "knock") {
+                root.room.joinRule = "knock";
             }
         }
         FormCard.FormRadioDelegate {
@@ -72,8 +94,8 @@ FormCard.FormCardPage {
             description: i18nc("@option:check", "Anyone can find and join.")
             checked: room.joinRule === "public"
             enabled: room.canSendState("m.room.join_rules")
-            onCheckedChanged: if (checked) {
-                room.joinRule = "public";
+            onCheckedChanged: if (checked && root.room.joinRule != "public") {
+                root.room.joinRule = "public";
             }
         }
     }

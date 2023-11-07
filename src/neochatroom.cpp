@@ -123,6 +123,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         Q_EMIT canEncryptRoomChanged();
         Q_EMIT parentIdsChanged();
         Q_EMIT canonicalParentChanged();
+        Q_EMIT joinRuleChanged();
     });
     connect(connection, &Connection::capabilitiesLoaded, this, &NeoChatRoom::maxRoomVersionChanged);
     connect(this, &Room::changed, this, [this]() {
@@ -712,14 +713,49 @@ QString NeoChatRoom::joinRule() const
     return joinRulesEvent->joinRule();
 }
 
-void NeoChatRoom::setJoinRule(const QString &joinRule)
+void NeoChatRoom::setJoinRule(const QString &joinRule, const QList<QString> &allowedSpaces)
 {
     if (!canSendState("m.room.join_rules"_ls)) {
         qWarning() << "Power level too low to set join rules";
         return;
     }
-    setState("m.room.join_rules"_ls, {}, QJsonObject{{"join_rule"_ls, joinRule}});
+    auto actualRule = joinRule;
+    if (joinRule == "restricted"_ls && allowedSpaces.isEmpty()) {
+        actualRule = "private"_ls;
+    }
+
+    QJsonArray allowConditions;
+    if (actualRule == "restricted"_ls) {
+        for (auto allowedSpace : allowedSpaces) {
+            allowConditions += QJsonObject{{"type"_ls, "m.room_membership"_ls}, {"room_id"_ls, allowedSpace}};
+        }
+    }
+
+    QJsonObject content;
+    content.insert("join_rule"_ls, joinRule);
+    if (!allowConditions.isEmpty()) {
+        content.insert("allow"_ls, allowConditions);
+    }
+    qWarning() << content;
+    setState("m.room.join_rules"_ls, {}, content);
     // Not emitting joinRuleChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
+}
+
+QList<QString> NeoChatRoom::restrictedIds() const
+{
+    auto joinRulesEvent = currentState().get<JoinRulesEvent>();
+    if (!joinRulesEvent) {
+        return {};
+    }
+    if (joinRulesEvent->joinRule() != "restricted"_ls) {
+        return {};
+    }
+
+    QList<QString> roomIds;
+    for (auto allow : joinRulesEvent->allow()) {
+        roomIds += allow.toObject().value("room_id"_ls).toString();
+    }
+    return roomIds;
 }
 
 QString NeoChatRoom::historyVisibility() const
@@ -1139,6 +1175,21 @@ QList<QString> NeoChatRoom::parentIds() const
         }
     }
     return parentIds;
+}
+
+QList<NeoChatRoom *> NeoChatRoom::parentObjects(bool multiLevel) const
+{
+    QList<NeoChatRoom *> parentObjects;
+    QList<QString> parentIds = this->parentIds();
+    for (const auto &parentId : parentIds) {
+        if (auto parentObject = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
+            parentObjects += parentObject;
+            if (multiLevel) {
+                parentObjects += parentObject->parentObjects(true);
+            }
+        }
+    }
+    return parentObjects;
 }
 
 QString NeoChatRoom::canonicalParent() const
