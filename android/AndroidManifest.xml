@@ -9,9 +9,9 @@
           android:versionName="${versionName}"
           android:versionCode="${versionCode}"
           android:installLocation="auto">
-    <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="NeoChat" android:icon="@drawable/neochat" android:usesCleartextTraffic="true">
+    <application android:name="org.qtproject.qt.android.bindings.QtApplication" android:label="NeoChat" android:icon="@drawable/neochat" android:usesCleartextTraffic="true">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
-                  android:name="org.qtproject.qt5.android.bindings.QtActivity"
+                  android:name="org.qtproject.qt.android.bindings.QtActivity"
                   android:label="NeoChat"
                   android:windowSoftInputMode="adjustResize"
                   android:launchMode="singleTop"

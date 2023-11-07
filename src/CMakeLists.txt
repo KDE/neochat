@@ -464,6 +464,7 @@ if(ANDROID)
         "gps"
         "system-users-symbolic"
     )
+    ecm_add_android_apk(neochat-app ANDROID_DIR ${CMAKE_SOURCE_DIR/android})
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF6::KIOWidgets)
     install(FILES neochat.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
