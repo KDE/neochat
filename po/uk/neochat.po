@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
-"PO-Revision-Date: 2023-11-04 19:56+0200\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"PO-Revision-Date: 2023-11-07 13:22+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1075,12 +1075,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/neochatroom.cpp:1519 src/neochatroom.cpp:1520
+#: src/neochatroom.cpp:1570 src/neochatroom.cpp:1571
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1779 src/neochatroom.cpp:1787
+#: src/neochatroom.cpp:1830 src/neochatroom.cpp:1838
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1426,7 +1426,7 @@ msgstr "Скасувати"
 msgid "General"
 msgstr "Загальне"
 
-#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
+#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:20
 #: src/qml/SettingsPage.qml:43
 #, kde-format
 msgid "Security"
@@ -3579,95 +3579,102 @@ msgstr ""
 msgid "Message Source"
 msgstr "Джерело повідомлення"
 
-#: src/qml/RoomSecurity.qml:15
+#: src/qml/RoomSecurity.qml:18
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 "Для вмикання цього параметра вам слід оновити цю кімнату до новішої версії."
 
-#: src/qml/RoomSecurity.qml:20
+#: src/qml/RoomSecurity.qml:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Шифрування"
 
-#: src/qml/RoomSecurity.qml:25
+#: src/qml/RoomSecurity.qml:28
 #, kde-format
 msgid "Enable encryption"
 msgstr "Увімкнути шифрування"
 
-#: src/qml/RoomSecurity.qml:26
+#: src/qml/RoomSecurity.qml:29
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Після вмикання шифрування вже не можна буде вимкнути."
 
-#: src/qml/RoomSecurity.qml:37
+#: src/qml/RoomSecurity.qml:40
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Доступ"
 
-#: src/qml/RoomSecurity.qml:41
+#: src/qml/RoomSecurity.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Приватне (лише за запрошенням)"
 
-#: src/qml/RoomSecurity.qml:42
+#: src/qml/RoomSecurity.qml:45
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Долучатися можуть лише запрошені."
 
-#: src/qml/RoomSecurity.qml:50
+#: src/qml/RoomSecurity.qml:53
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Учасники простору"
 
-#: src/qml/RoomSecurity.qml:51
-#, kde-format
-msgid "Anyone in a space can find and join."
+#: src/qml/RoomSecurity.qml:54
+#, fuzzy, kde-format
+#| msgid "Anyone in a space can find and join."
+msgid "Anyone in the selected spaces can find and join."
 msgstr "Будь-хто у просторі може шукати і долучатися."
 
-#: src/qml/RoomSecurity.qml:60
+#: src/qml/RoomSecurity.qml:64
+#, fuzzy, kde-format
+#| msgid "Select type"
+msgid "Select spaces"
+msgstr "Вибрати тип"
+
+#: src/qml/RoomSecurity.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Постукати"
 
-#: src/qml/RoomSecurity.qml:61
+#: src/qml/RoomSecurity.qml:83
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Ті, кого немає у кімнаті, мають надіслати запити щодо запрошення до кімнати."
 
-#: src/qml/RoomSecurity.qml:71
+#: src/qml/RoomSecurity.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Загальне"
 
-#: src/qml/RoomSecurity.qml:72
+#: src/qml/RoomSecurity.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Будь-хто може шукати і долучатися."
 
-#: src/qml/RoomSecurity.qml:82
+#: src/qml/RoomSecurity.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Видимість журналу повідомлень"
 
-#: src/qml/RoomSecurity.qml:86
+#: src/qml/RoomSecurity.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Будь-хто"
 
-#: src/qml/RoomSecurity.qml:87
+#: src/qml/RoomSecurity.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
@@ -3675,13 +3682,13 @@ msgstr ""
 "Будь-хто, незалежно від того, чи долучилися вони до кімнати, може "
 "переглядати журнал."
 
-#: src/qml/RoomSecurity.qml:95
+#: src/qml/RoomSecurity.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Лише учасники"
 
-#: src/qml/RoomSecurity.qml:96
+#: src/qml/RoomSecurity.qml:118
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3690,13 +3697,13 @@ msgstr ""
 "Усі учасники можуть переглядати увесь журнал повідомлень, навіть до "
 "долучення."
 
-#: src/qml/RoomSecurity.qml:104
+#: src/qml/RoomSecurity.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Лише учасники (з моменту запрошення)"
 
-#: src/qml/RoomSecurity.qml:105
+#: src/qml/RoomSecurity.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3706,13 +3713,13 @@ msgstr ""
 "Нові учасники можуть переглядати журнал повідомлень з моменту, коли їх "
 "запрошено до кімнати."
 
-#: src/qml/RoomSecurity.qml:113
+#: src/qml/RoomSecurity.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Лише учасники (з моменту долучення)"
 
-#: src/qml/RoomSecurity.qml:114
+#: src/qml/RoomSecurity.qml:136
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3798,6 +3805,13 @@ msgstr "Вибрана кімната не є простором"
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "У вас недостатні привілеї для виконання цієї дії"
+
+#: src/qml/SelectSpacesDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Select type"
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "Вибрати тип"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -4379,32 +4393,27 @@ msgid "Welcome"
 msgstr "Вітаємо"
 
 #: src/qml/WelcomePage.qml:50
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "Вітаємо у Matrix"
+msgstr "Вітаємо у NeoChat"
 
 #: src/qml/WelcomePage.qml:56
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
-msgstr "Увійти до наявного облікового запису"
+msgstr "Продовжити з наявним обліковим записом"
 
 #: src/qml/WelcomePage.qml:77
-#, fuzzy, kde-format
-#| msgctxt "Job heading, like 'Copying'"
-#| msgid "Uploading"
+#, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "Вивантаження"
+msgstr "%1 (завантаження)"
 
 #: src/qml/WelcomePage.qml:84
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr "Увійти до наявного облікового запису"
+msgstr "Увійдіть до облікового запису або створіть обліковий запис"
 
 #: src/qml/WelcomePage.qml:160
 #, kde-format

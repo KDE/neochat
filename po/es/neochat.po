@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
-"PO-Revision-Date: 2023-11-01 22:36+0100\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"PO-Revision-Date: 2023-11-07 21:41+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -534,11 +534,10 @@ msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
 #: src/main.cpp:147
-#, fuzzy, kde-format
-#| msgid "A Qt5 library to write cross-platform clients for Matrix"
+#, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
-"Biblioteca Qt5 para la escritura de clientes multiplataforma para Matrix"
+"Biblioteca Qt para la escritura de clientes multiplataforma para Matrix"
 
 #: src/main.cpp:149
 #, kde-format
@@ -1064,12 +1063,12 @@ msgstr "La creación de la sala ha fallado: %1"
 msgid "Space creation failed: %1"
 msgstr "La creación del espacio ha fallado: %1"
 
-#: src/neochatroom.cpp:1519 src/neochatroom.cpp:1520
+#: src/neochatroom.cpp:1570 src/neochatroom.cpp:1571
 #, kde-format
 msgid "Report sent successfully."
 msgstr "La denuncia se ha enviado correctamente."
 
-#: src/neochatroom.cpp:1779 src/neochatroom.cpp:1787
+#: src/neochatroom.cpp:1830 src/neochatroom.cpp:1838
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1415,7 +1414,7 @@ msgstr "Cancelar"
 msgid "General"
 msgstr "General"
 
-#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
+#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:20
 #: src/qml/SettingsPage.qml:43
 #, kde-format
 msgid "Security"
@@ -1817,8 +1816,7 @@ msgid "Password:"
 msgstr "Contraseña:"
 
 #: src/qml/DevicesPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Eliminar"
@@ -2053,17 +2051,14 @@ msgid "Create rooms and chats"
 msgstr "Crear salas y chats"
 
 #: src/qml/ExploreComponentMobile.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search"
+#, kde-format
 msgid "Search"
 msgstr "Buscar"
 
 #: src/qml/ExploreComponentMobile.qml:75
-#, fuzzy, kde-format
-#| msgid "Create space"
+#, kde-format
 msgid "Create New"
-msgstr "Crear espacio"
+msgstr "Crear nuevo"
 
 #: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
@@ -3566,109 +3561,116 @@ msgstr "NeoChat no está conectado. Compruebe su conexión de red."
 msgid "Message Source"
 msgstr "Fuente del mensaje"
 
-#: src/qml/RoomSecurity.qml:15
+#: src/qml/RoomSecurity.qml:18
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 "Debe actualizar esta sala a una nueva versión para activar este ajuste."
 
-#: src/qml/RoomSecurity.qml:20
+#: src/qml/RoomSecurity.qml:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Cifrado"
 
-#: src/qml/RoomSecurity.qml:25
+#: src/qml/RoomSecurity.qml:28
 #, kde-format
 msgid "Enable encryption"
 msgstr "Activar cifrado"
 
-#: src/qml/RoomSecurity.qml:26
+#: src/qml/RoomSecurity.qml:29
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Una vez activado, el cifrado no se puede desactivar."
 
-#: src/qml/RoomSecurity.qml:37
+#: src/qml/RoomSecurity.qml:40
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Acceso"
 
-#: src/qml/RoomSecurity.qml:41
+#: src/qml/RoomSecurity.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Privado (solo con invitación)"
 
-#: src/qml/RoomSecurity.qml:42
+#: src/qml/RoomSecurity.qml:45
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Solo se pueden unir personas con invitación."
 
-#: src/qml/RoomSecurity.qml:50
+#: src/qml/RoomSecurity.qml:53
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Miembros del espacio"
 
-#: src/qml/RoomSecurity.qml:51
-#, kde-format
-msgid "Anyone in a space can find and join."
+#: src/qml/RoomSecurity.qml:54
+#, fuzzy, kde-format
+#| msgid "Anyone in a space can find and join."
+msgid "Anyone in the selected spaces can find and join."
 msgstr "Puede encontrarla y unirse cualquiera de un espacio."
 
-#: src/qml/RoomSecurity.qml:60
+#: src/qml/RoomSecurity.qml:64
+#, fuzzy, kde-format
+#| msgid "Select type"
+msgid "Select spaces"
+msgstr "Seleccione tipo"
+
+#: src/qml/RoomSecurity.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Llamar"
 
-#: src/qml/RoomSecurity.qml:61
+#: src/qml/RoomSecurity.qml:83
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Las personas que no estén en la sala deben solicitar una invitación para "
 "unirse a la sala."
 
-#: src/qml/RoomSecurity.qml:71
+#: src/qml/RoomSecurity.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Pública"
 
-#: src/qml/RoomSecurity.qml:72
+#: src/qml/RoomSecurity.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Cualquiera puede encontrarla y unirse."
 
-#: src/qml/RoomSecurity.qml:82
+#: src/qml/RoomSecurity.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Visibilidad del historial de mensajes"
 
-#: src/qml/RoomSecurity.qml:86
+#: src/qml/RoomSecurity.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Cualquiera"
 
-#: src/qml/RoomSecurity.qml:87
+#: src/qml/RoomSecurity.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 "Cualquiera, independientemente de si se ha unido, puede ver el historial."
 
-#: src/qml/RoomSecurity.qml:95
+#: src/qml/RoomSecurity.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Solo miembros"
 
-#: src/qml/RoomSecurity.qml:96
+#: src/qml/RoomSecurity.qml:118
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3677,13 +3679,13 @@ msgstr ""
 "Todos los miembros pueden ver el historial de mensajes completo, incluso "
 "antes de unirse."
 
-#: src/qml/RoomSecurity.qml:104
+#: src/qml/RoomSecurity.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Solo miembros (desde la invitación)"
 
-#: src/qml/RoomSecurity.qml:105
+#: src/qml/RoomSecurity.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3693,13 +3695,13 @@ msgstr ""
 "Los nuevos miembros pueden ver el historial de mensajes desde el momento en "
 "que fueron invitados a la sala."
 
-#: src/qml/RoomSecurity.qml:113
+#: src/qml/RoomSecurity.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Solo miembros (desde su unión)"
 
-#: src/qml/RoomSecurity.qml:114
+#: src/qml/RoomSecurity.qml:136
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3785,6 +3787,13 @@ msgstr "La sala seleccionada no es un espacio"
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "No tiene privilegios para completar esta acción"
+
+#: src/qml/SelectSpacesDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Select type"
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "Seleccione tipo"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -4374,32 +4383,27 @@ msgid "Welcome"
 msgstr "Bienvenido"
 
 #: src/qml/WelcomePage.qml:50
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "Bienvenido a Matrix"
+msgstr "Bienvenido a NeoChat"
 
 #: src/qml/WelcomePage.qml:56
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
-msgstr "Iniciar sesión en una cuenta existente"
+msgstr "Continuar con una cuenta existente"
 
 #: src/qml/WelcomePage.qml:77
-#, fuzzy, kde-format
-#| msgctxt "Job heading, like 'Copying'"
-#| msgid "Uploading"
+#, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "Enviando"
+msgstr "%1 (cargando)"
 
 #: src/qml/WelcomePage.qml:84
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr "Iniciar sesión en una cuenta existente"
+msgstr "Iniciar sesión o crear una nueva cuenta"
 
 #: src/qml/WelcomePage.qml:160
 #, kde-format

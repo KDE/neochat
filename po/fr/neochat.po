@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
-"PO-Revision-Date: 2023-11-02 12:12+0100\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"PO-Revision-Date: 2023-11-07 09:47+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -530,11 +530,10 @@ msgid "Your emails"
 msgstr "xavier.besnard@neuf.fr"
 
 #: src/main.cpp:147
-#, fuzzy, kde-format
-#| msgid "A Qt5 library to write cross-platform clients for Matrix"
+#, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
-"Une bibliothèque Qt5 pour écrire des clients multi-plate-formes pour Matrix"
+"Une bibliothèque Qt pour l'écriture de clients multi-plate-formes pour Matrix"
 
 #: src/main.cpp:149
 #, kde-format
@@ -1065,12 +1064,12 @@ msgstr "Impossible de créer le salon : %1"
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer un espace : %1"
 
-#: src/neochatroom.cpp:1519 src/neochatroom.cpp:1520
+#: src/neochatroom.cpp:1570 src/neochatroom.cpp:1571
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport envoyé avec succès."
 
-#: src/neochatroom.cpp:1779 src/neochatroom.cpp:1787
+#: src/neochatroom.cpp:1830 src/neochatroom.cpp:1838
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1418,7 +1417,7 @@ msgstr "Annuler"
 msgid "General"
 msgstr "Général"
 
-#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
+#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:20
 #: src/qml/SettingsPage.qml:43
 #, kde-format
 msgid "Security"
@@ -1823,8 +1822,7 @@ msgid "Password:"
 msgstr "Mot de passe :"
 
 #: src/qml/DevicesPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Supprimer"
@@ -2060,17 +2058,14 @@ msgid "Create rooms and chats"
 msgstr "Créer des salons et des fils de discussions"
 
 #: src/qml/ExploreComponentMobile.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search"
+#, kde-format
 msgid "Search"
 msgstr "Rechercher"
 
 #: src/qml/ExploreComponentMobile.qml:75
-#, fuzzy, kde-format
-#| msgid "Create space"
+#, kde-format
 msgid "Create New"
-msgstr "Créer un espace"
+msgstr "Créer un nouveau"
 
 #: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
@@ -3575,7 +3570,7 @@ msgstr "NeoChat est non connecté. Veuillez vérifier votre connexion au réseau
 msgid "Message Source"
 msgstr "Source du message"
 
-#: src/qml/RoomSecurity.qml:15
+#: src/qml/RoomSecurity.qml:18
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
@@ -3583,18 +3578,18 @@ msgstr ""
 "Vous devez mettre à jour ce salon vers une nouvelle version pour activer ce "
 "paramètre."
 
-#: src/qml/RoomSecurity.qml:20
+#: src/qml/RoomSecurity.qml:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Chiffrement"
 
-#: src/qml/RoomSecurity.qml:25
+#: src/qml/RoomSecurity.qml:28
 #, kde-format
 msgid "Enable encryption"
 msgstr "Activer le chiffrement"
 
-#: src/qml/RoomSecurity.qml:26
+#: src/qml/RoomSecurity.qml:29
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
@@ -3602,73 +3597,80 @@ msgstr ""
 "Une fois cette option activée, il est impossible de désactiver le "
 "chiffrement."
 
-#: src/qml/RoomSecurity.qml:37
+#: src/qml/RoomSecurity.qml:40
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Accès"
 
-#: src/qml/RoomSecurity.qml:41
+#: src/qml/RoomSecurity.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Privé (Invité uniquement)"
 
-#: src/qml/RoomSecurity.qml:42
+#: src/qml/RoomSecurity.qml:45
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Seuls les personnes invitées sont autorisées à rejoindre le canal."
 
-#: src/qml/RoomSecurity.qml:50
+#: src/qml/RoomSecurity.qml:53
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Espacer les membres"
 
-#: src/qml/RoomSecurity.qml:51
-#, kde-format
-msgid "Anyone in a space can find and join."
+#: src/qml/RoomSecurity.qml:54
+#, fuzzy, kde-format
+#| msgid "Anyone in a space can find and join."
+msgid "Anyone in the selected spaces can find and join."
 msgstr ""
 "N'importe quelle personne dans un espace peut trouver et rejoindre le salon."
 
-#: src/qml/RoomSecurity.qml:60
+#: src/qml/RoomSecurity.qml:64
+#, fuzzy, kde-format
+#| msgid "Select type"
+msgid "Select spaces"
+msgstr "Sélectionner un type"
+
+#: src/qml/RoomSecurity.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Frapper à la porte"
 
-#: src/qml/RoomSecurity.qml:61
+#: src/qml/RoomSecurity.qml:83
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Les personnes en dehors du salon doivent recevoir une invitation pour "
 "rejoindre le salon."
 
-#: src/qml/RoomSecurity.qml:71
+#: src/qml/RoomSecurity.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Public"
 
-#: src/qml/RoomSecurity.qml:72
+#: src/qml/RoomSecurity.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "N'importe quelle personne peut trouver et rejoindre le salon."
 
-#: src/qml/RoomSecurity.qml:82
+#: src/qml/RoomSecurity.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Visibilité de l'historique des messages"
 
-#: src/qml/RoomSecurity.qml:86
+#: src/qml/RoomSecurity.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Toute personne"
 
-#: src/qml/RoomSecurity.qml:87
+#: src/qml/RoomSecurity.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
@@ -3676,13 +3678,13 @@ msgstr ""
 "Toute personne, indépendamment du fait qu'ils ont rejoint le salon. Peut "
 "voir l'historique."
 
-#: src/qml/RoomSecurity.qml:95
+#: src/qml/RoomSecurity.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Uniquement les membres "
 
-#: src/qml/RoomSecurity.qml:96
+#: src/qml/RoomSecurity.qml:118
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3691,13 +3693,13 @@ msgstr ""
 "Tous les membres peuvent voir la totalité de l'historique des messages, même "
 "avant d'être dans le salon."
 
-#: src/qml/RoomSecurity.qml:104
+#: src/qml/RoomSecurity.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Uniquement les membres (A partir de l'invitation)"
 
-#: src/qml/RoomSecurity.qml:105
+#: src/qml/RoomSecurity.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3707,13 +3709,13 @@ msgstr ""
 "Les nouveaux membres peuvent consulter l'historique du message à partir du "
 "moment où ils ont été invités dans le salon."
 
-#: src/qml/RoomSecurity.qml:113
+#: src/qml/RoomSecurity.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Uniquement les membres (depuis leur connexion)"
 
-#: src/qml/RoomSecurity.qml:114
+#: src/qml/RoomSecurity.qml:136
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3799,6 +3801,13 @@ msgstr "Le salon sélectionné n'est pas un espace"
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "Vous ne possédez pas les privilèges pour terminer cette action"
+
+#: src/qml/SelectSpacesDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Select type"
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "Sélectionner un type"
 
 #: src/qml/ServerData.qml:20
 #, kde-format

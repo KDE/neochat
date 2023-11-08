@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
-"PO-Revision-Date: 2023-11-04 09:12+0100\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"PO-Revision-Date: 2023-11-07 23:14+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1064,12 +1064,12 @@ msgstr "Gela sortzea huts egin du: %1"
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/neochatroom.cpp:1519 src/neochatroom.cpp:1520
+#: src/neochatroom.cpp:1570 src/neochatroom.cpp:1571
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/neochatroom.cpp:1779 src/neochatroom.cpp:1787
+#: src/neochatroom.cpp:1830 src/neochatroom.cpp:1838
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1415,7 +1415,7 @@ msgstr "Utzi"
 msgid "General"
 msgstr "Orokorra"
 
-#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:17
+#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:20
 #: src/qml/SettingsPage.qml:43
 #, kde-format
 msgid "Security"
@@ -3547,7 +3547,7 @@ msgstr "NeoChat lerroz kanpo dago. Mesedez, berrikusi zure sare-konexioa."
 msgid "Message Source"
 msgstr "Mezuaren sorburua"
 
-#: src/qml/RoomSecurity.qml:15
+#: src/qml/RoomSecurity.qml:18
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
@@ -3555,99 +3555,106 @@ msgstr ""
 "Gela hau bertsio berriago batera bertsio-berritu behar duzu ezarpen hau "
 "gaitzeko."
 
-#: src/qml/RoomSecurity.qml:20
+#: src/qml/RoomSecurity.qml:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Zifratzea"
 
-#: src/qml/RoomSecurity.qml:25
+#: src/qml/RoomSecurity.qml:28
 #, kde-format
 msgid "Enable encryption"
 msgstr "Gaitu zifratzea"
 
-#: src/qml/RoomSecurity.qml:26
+#: src/qml/RoomSecurity.qml:29
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Gaitu ondoren, ezin da ezgaitu."
 
-#: src/qml/RoomSecurity.qml:37
+#: src/qml/RoomSecurity.qml:40
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Sarbidea"
 
-#: src/qml/RoomSecurity.qml:41
+#: src/qml/RoomSecurity.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Pribatua (gonbidatuak bakarrik)"
 
-#: src/qml/RoomSecurity.qml:42
+#: src/qml/RoomSecurity.qml:45
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Gonbidatutako jendea bakarrik batu daiteke."
 
-#: src/qml/RoomSecurity.qml:50
+#: src/qml/RoomSecurity.qml:53
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Tokiko bazkideak"
 
-#: src/qml/RoomSecurity.qml:51
-#, kde-format
-msgid "Anyone in a space can find and join."
+#: src/qml/RoomSecurity.qml:54
+#, fuzzy, kde-format
+#| msgid "Anyone in a space can find and join."
+msgid "Anyone in the selected spaces can find and join."
 msgstr "Toki bateko edonork bilatu eta batu daiteke."
 
-#: src/qml/RoomSecurity.qml:60
+#: src/qml/RoomSecurity.qml:64
+#, fuzzy, kde-format
+#| msgid "Select type"
+msgid "Select spaces"
+msgstr "Aukeratu mota"
+
+#: src/qml/RoomSecurity.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Atea jo"
 
-#: src/qml/RoomSecurity.qml:61
+#: src/qml/RoomSecurity.qml:83
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr "Gelan ez dagoen jendeak gonbidapen bat eskatu behar du gelara batzeko."
 
-#: src/qml/RoomSecurity.qml:71
+#: src/qml/RoomSecurity.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Publikoa"
 
-#: src/qml/RoomSecurity.qml:72
+#: src/qml/RoomSecurity.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Edonork bilatu eta batu daiteke."
 
-#: src/qml/RoomSecurity.qml:82
+#: src/qml/RoomSecurity.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Mezuen historiaren ikusgaitasuna"
 
-#: src/qml/RoomSecurity.qml:86
+#: src/qml/RoomSecurity.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Edonork"
 
-#: src/qml/RoomSecurity.qml:87
+#: src/qml/RoomSecurity.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Edonork, batu gabekoak ere, historia ikus dezake."
 
-#: src/qml/RoomSecurity.qml:95
+#: src/qml/RoomSecurity.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Bazkideak bakarrik"
 
-#: src/qml/RoomSecurity.qml:96
+#: src/qml/RoomSecurity.qml:118
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3655,13 +3662,13 @@ msgid ""
 msgstr ""
 "Bazkide guztiek ikus dezakete mezuen historia osoa, baita batu aurrekoa ere."
 
-#: src/qml/RoomSecurity.qml:104
+#: src/qml/RoomSecurity.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Bazkideak bakarrik (gonbitetik aurrera)"
 
-#: src/qml/RoomSecurity.qml:105
+#: src/qml/RoomSecurity.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3671,13 +3678,13 @@ msgstr ""
 "Bazkide berriek mezuen historia ikus dezakete, gelara gonbidatu zituzten "
 "unetik aurrera."
 
-#: src/qml/RoomSecurity.qml:113
+#: src/qml/RoomSecurity.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Bazkideak bakarrik (batzetik aurrera)"
 
-#: src/qml/RoomSecurity.qml:114
+#: src/qml/RoomSecurity.qml:136
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3762,6 +3769,13 @@ msgstr "Hautatutako gela ez da toki bat"
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "Ez dituzu ekintza hori osatzeko pribilegioak"
+
+#: src/qml/SelectSpacesDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Select type"
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "Aukeratu mota"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -4344,32 +4358,27 @@ msgid "Welcome"
 msgstr "Ongi etorri"
 
 #: src/qml/WelcomePage.qml:50
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "Ongi etorri Matrix-era"
+msgstr "Ongi etorri «NeoChat»era"
 
 #: src/qml/WelcomePage.qml:56
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
-msgstr "Saioa hasi dagoen kontu batean"
+msgstr "Jarraitu aurrez dagoen kontu batekin"
 
 #: src/qml/WelcomePage.qml:77
-#, fuzzy, kde-format
-#| msgctxt "Job heading, like 'Copying'"
-#| msgid "Uploading"
+#, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "Zama-igotzen"
+msgstr "%1 (Zamatzen)"
 
 #: src/qml/WelcomePage.qml:84
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr "Saioa hasi dagoen kontu batean"
+msgstr "Saioa hasi edo sortu kontu bat"
 
 #: src/qml/WelcomePage.qml:160
 #, kde-format
