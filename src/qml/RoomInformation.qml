@@ -160,6 +160,7 @@ QQC2.ScrollView {
             Kirigami.SearchField {
                 id: userListSearchField
 
+                visible: !root.room.isDirectChat()
                 onVisibleChanged: if (visible) forceActiveFocus()
                 Layout.fillWidth: true
                 Layout.leftMargin: Kirigami.Units.largeSpacing
