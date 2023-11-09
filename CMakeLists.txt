@@ -140,6 +140,13 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
+find_package(KUnifiedPush QUIET)
+set_package_properties(KUnifiedPush PROPERTIES
+    TYPE OPTIONAL
+    PURPOSE "Push notification support"
+    URL "https://invent.kde.org/libraries/kunifiedpush"
+)
+
 if(ANDROID)
     find_package(Sqlite3)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
