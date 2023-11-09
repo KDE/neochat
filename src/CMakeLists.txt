@@ -483,9 +483,18 @@ if (TARGET KF6::KIOWidgets)
     target_compile_definitions(neochat PUBLIC -DHAVE_KIO)
 endif()
 
+if (TARGET KUnifiedPush)
+    target_compile_definitions(neochat PUBLIC -DHAVE_KUNIFIEDPUSH)
+    target_link_libraries(neochat PUBLIC KUnifiedPush)
+
+    if (NOT ANDROID)
+        configure_file(org.kde.neochat.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.neochat.service)
+        install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.neochat.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+    endif()
+endif()
+
 install(TARGETS neochat-app ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
     install(FILES plasma-runner-neochat.desktop DESTINATION ${KDE_INSTALL_DATAROOTDIR}/krunner/dbusplugins)
 endif()
-
