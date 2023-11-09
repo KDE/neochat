@@ -95,7 +95,7 @@ As is the case throughout the KDE ecosystem contributions are welcome from all. 
 
 ## Contact
 
-The best place to reach the maintainers is on the KDE Matrix instance in the NeoChat channel, [#neochat:kde.org](https://matrix.to/#/#neochat:kde.org).
+The best place to reach the maintainers is on the KDE Matrix instance in the NeoChat channel, [#neochat:kde.org](https://go.kde.org/matrix/#/#neochat:kde.org). See [Matrix](https://community.kde.org/Matrix) for more details.
 
 ## Acknowledgement
 
