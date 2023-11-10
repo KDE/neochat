@@ -19,6 +19,12 @@ QQC2.ToolBar {
 
     padding: 0
 
+    background: Rectangle {
+        color: Kirigami.Theme.backgroundColor
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
+    }
+
     contentItem: ColumnLayout {
         spacing: 0
         Kirigami.Separator {
