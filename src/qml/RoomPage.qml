@@ -286,7 +286,6 @@ Kirigami.Page {
                 initialIndex: index
             })
             popup.closed.connect(() => {
-                messageListView.interactive = true
                 popup.destroy()
             })
             popup.open()
