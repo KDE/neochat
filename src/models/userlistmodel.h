@@ -86,6 +86,9 @@ Q_SIGNALS:
     void roomChanged();
     void usersRefreshed();
 
+protected:
+    bool event(QEvent *event) override;
+
 private Q_SLOTS:
     void userAdded(Quotient::User *user);
     void userRemoved(Quotient::User *user);

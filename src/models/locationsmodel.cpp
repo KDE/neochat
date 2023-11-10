@@ -45,10 +45,6 @@ LocationsModel::LocationsModel(QObject *parent)
     });
 
     connect(this, &LocationsModel::rowsInserted, this, &LocationsModel::boundingBoxChanged);
-
-    connect(static_cast<QGuiApplication *>(QGuiApplication::instance()), &QGuiApplication::paletteChanged, this, [this] {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
-    });
 }
 
 void LocationsModel::addLocation(const RoomMessageEvent *event)
@@ -133,6 +129,14 @@ QRectF LocationsModel::boundingBox() const
         bbox.setBottom(std::max(bbox.bottom(), lat));
     }
     return bbox;
+}
+
+bool LocationsModel::event(QEvent *event)
+{
+    if (event->type() == QEvent::ApplicationPaletteChange) {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
+    }
+    return QObject::event(event);
 }
 
 #include "moc_locationsmodel.cpp"

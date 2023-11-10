@@ -21,9 +21,6 @@ using namespace Quotient;
 SearchModel::SearchModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(static_cast<QGuiApplication *>(QGuiApplication::instance()), &QGuiApplication::paletteChanged, this, [this] {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
-    });
 }
 
 QString SearchModel::searchText() const
@@ -217,6 +214,14 @@ void SearchModel::setRoom(NeoChatRoom *room)
 bool SearchModel::searching() const
 {
     return m_searching;
+}
+
+bool SearchModel::event(QEvent *event)
+{
+    if (event->type() == QEvent::ApplicationPaletteChange) {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
+    }
+    return QObject::event(event);
 }
 
 void SearchModel::setSearching(bool searching)

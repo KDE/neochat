@@ -132,6 +132,9 @@ Q_SIGNALS:
     void roomChanged();
     void searchingChanged();
 
+protected:
+    bool event(QEvent *event) override;
+
 private:
     void setSearching(bool searching);
 

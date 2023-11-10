@@ -71,9 +71,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
 MessageEventModel::MessageEventModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(static_cast<QGuiApplication *>(QGuiApplication::instance()), &QGuiApplication::paletteChanged, this, [this] {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReplyAuthor, ReadMarkersRole});
-    });
 }
 
 NeoChatRoom *MessageEventModel::room() const
@@ -724,6 +721,14 @@ void MessageEventModel::createEventObjects(const Quotient::RoomMessageEvent *eve
     } else {
         m_reactionModels.remove(eventId);
     }
+}
+
+bool MessageEventModel::event(QEvent *event)
+{
+    if (event->type() == QEvent::ApplicationPaletteChange) {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReplyAuthor, ReadMarkersRole});
+    }
+    return QObject::event(event);
 }
 
 #include "moc_messageeventmodel.cpp"

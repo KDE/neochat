@@ -46,6 +46,9 @@ Q_SIGNALS:
     void roomChanged();
     void boundingBoxChanged();
 
+protected:
+    bool event(QEvent *event) override;
+
 private:
     QPointer<NeoChatRoom> m_room;
 

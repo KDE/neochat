@@ -118,6 +118,9 @@ public:
      */
     Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
 
+protected:
+    bool event(QEvent *event) override;
+
 private Q_SLOTS:
     int refreshEvent(const QString &eventId);
     void refreshRow(int row);

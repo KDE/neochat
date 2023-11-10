@@ -16,9 +16,6 @@ UserListModel::UserListModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_currentRoom(nullptr)
 {
-    connect(static_cast<QGuiApplication *>(QGuiApplication::instance()), &QGuiApplication::paletteChanged, this, [this]() {
-        refreshAllUsers();
-    });
 }
 
 void UserListModel::setRoom(NeoChatRoom *room)
@@ -119,6 +116,14 @@ int UserListModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
     return m_users.count();
+}
+
+bool UserListModel::event(QEvent *event)
+{
+    if (event->type() == QEvent::ApplicationPaletteChange) {
+        refreshAllUsers();
+    }
+    return QObject::event(event);
 }
 
 void UserListModel::userAdded(Quotient::User *user)
