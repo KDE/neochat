@@ -269,15 +269,14 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
         // Pop the slash off of the path
         const QString pushkey = endpointUrl.path().removeFirst();
 
-        Controller::instance().activeConnection()->callApi<PostPusherJob>(
-            pushkey,
-            QStringLiteral("http"),
-            QStringLiteral("org.kde.neochat"),
-            QStringLiteral("NeoChat"),
-            Controller::instance().activeConnection()->deviceId(),
-            QString(), // FIXME: what is profileTag?
-            QStringLiteral("en"),
-            PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")});
+        callApi<PostPusherJob>(pushkey,
+                               QStringLiteral("http"),
+                               QStringLiteral("org.kde.neochat"),
+                               QStringLiteral("NeoChat"),
+                               deviceId(),
+                               QString(), // FIXME: what is profileTag?
+                               QStringLiteral("en"),
+                               PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")});
 
         qInfo() << "Registered for push notifications";
     } else {
