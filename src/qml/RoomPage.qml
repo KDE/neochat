@@ -282,7 +282,7 @@ Kirigami.Page {
         }
 
         function onShowMaximizedMedia(index) {
-            var popup = maximizeComponent.createObject(QQC2.ApplicationWindow.overlay, {
+            var popup = maximizeComponent.createObject(QQC2.Overlay.overlay, {
                 initialIndex: index
             })
             popup.closed.connect(() => {
