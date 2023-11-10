@@ -166,6 +166,10 @@ int main(int argc, char *argv[])
                 QStringLiteral("/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf"));
 #endif
 
+#ifdef HAVE_KDBUSADDONS
+    KDBusService service(KDBusService::Unique);
+#endif
+
     ColorSchemer colorScheme;
     if (!NeoChatConfig::self()->colorScheme().isEmpty()) {
         colorScheme.apply(NeoChatConfig::self()->colorScheme());
@@ -177,10 +181,30 @@ int main(int argc, char *argv[])
 
     qmlRegisterUncreatableType<KeyVerificationSession>("com.github.quotient_im.libquotient", 1, 0, "KeyVerificationSession", {});
 
+    QCommandLineParser parser;
+    parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
+    parser.addPositionalArgument(QStringLiteral("urls"), i18n("Supports matrix: url scheme"));
+    parser.addOption(QCommandLineOption("ignore-ssl-errors"_ls, i18n("Ignore all SSL Errors, e.g., unsigned certificates.")));
+
+#ifdef HAVE_KUNIFIEDPUSH
+    QCommandLineOption dbusActivatedOption(QStringLiteral("dbus-activated"), i18n("Internal usage only."));
+    dbusActivatedOption.setFlags(QCommandLineOption::Flag::HiddenFromHelp);
+    parser.addOption(dbusActivatedOption);
+#endif
+
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
+
+#ifdef HAVE_KUNIFIEDPUSH
+    if (parser.isSet(dbusActivatedOption)) {
+        return QCoreApplication::exec();
+    }
+#endif
+
     QQmlApplicationEngine engine;
 
 #ifdef HAVE_KDBUSADDONS
-    KDBusService service(KDBusService::Unique);
     service.connect(&service,
                     &KDBusService::activateRequested,
                     &RoomManager::instance(),
@@ -207,15 +231,6 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     QObject::connect(&engine, &QQmlApplicationEngine::quit, &app, &QCoreApplication::quit);
     engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
-
-    QCommandLineParser parser;
-    parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
-    parser.addPositionalArgument(QStringLiteral("urls"), i18n("Supports matrix: url scheme"));
-    parser.addOption(QCommandLineOption("ignore-ssl-errors"_ls, i18n("Ignore all SSL Errors, e.g., unsigned certificates.")));
-
-    about.setupCommandLine(&parser);
-    parser.process(app);
-    about.processCommandLine(&parser);
 
     if (parser.isSet("ignore-ssl-errors"_ls)) {
         QObject::connect(NetworkAccessManager::instance(), &QNetworkAccessManager::sslErrors, NetworkAccessManager::instance(), [](QNetworkReply *reply) {
