@@ -16,41 +16,6 @@
 ServerListModel::ServerListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    const auto stateConfig = KSharedConfig::openStateConfig();
-    const KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
-
-    QString domain = m_connection->domain();
-
-    // Add the user's homeserver
-    m_servers.append(Server{
-        domain,
-        true,
-        false,
-        false,
-    });
-    // Add matrix.org
-    m_servers.append(Server{
-        QStringLiteral("matrix.org"),
-        false,
-        false,
-        false,
-    });
-    // Add each of the saved custom servers
-    for (const auto &i : serverGroup.keyList()) {
-        m_servers.append(Server{
-            serverGroup.readEntry(i, QString()),
-            false,
-            false,
-            true,
-        });
-    }
-    // Add add server delegate entry
-    m_servers.append(Server{
-        QString(),
-        false,
-        true,
-        false,
-    });
 }
 
 QVariant ServerListModel::data(const QModelIndex &index, int role) const
@@ -165,6 +130,53 @@ void ServerListModel::setConnection(NeoChatConnection *connection)
     }
     m_connection = connection;
     Q_EMIT connectionChanged();
+
+    initialize();
+}
+
+void ServerListModel::initialize()
+{
+    if (m_connection == nullptr) {
+        return;
+    }
+
+    beginResetModel();
+    const auto stateConfig = KSharedConfig::openStateConfig();
+    const KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
+
+    QString domain = m_connection->domain();
+
+    // Add the user's homeserver
+    m_servers.append(Server{
+        domain,
+        true,
+        false,
+        false,
+    });
+    // Add matrix.org
+    m_servers.append(Server{
+        QStringLiteral("matrix.org"),
+        false,
+        false,
+        false,
+    });
+    // Add each of the saved custom servers
+    for (const auto &i : serverGroup.keyList()) {
+        m_servers.append(Server{
+            serverGroup.readEntry(i, QString()),
+            false,
+            false,
+            true,
+        });
+    }
+    // Add add server delegate entry
+    m_servers.append(Server{
+        QString(),
+        false,
+        true,
+        false,
+    });
+    beginResetModel();
 }
 
 #include "moc_serverlistmodel.cpp"

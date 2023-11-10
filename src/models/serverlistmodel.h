@@ -111,4 +111,6 @@ private:
     QList<Server> m_servers;
     QPointer<Quotient::QueryPublicRoomsJob> m_checkServerJob = nullptr;
     NeoChatConnection *m_connection = nullptr;
+
+    void initialize();
 };
