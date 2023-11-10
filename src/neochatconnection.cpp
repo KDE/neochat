@@ -274,7 +274,7 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
                                QStringLiteral("org.kde.neochat"),
                                QStringLiteral("NeoChat"),
                                deviceId(),
-                               QString(), // FIXME: what is profileTag?
+                               QString(), // profileTag is intentionally left empty for now, it's optional
                                QStringLiteral("en"),
                                PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")});
 
