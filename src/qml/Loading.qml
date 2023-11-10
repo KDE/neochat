@@ -12,8 +12,6 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    signal closeDialog
-
     FormCard.FormTextDelegate {
         text: i18n("Please wait. This might take a little while.")
     }

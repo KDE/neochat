@@ -28,4 +28,7 @@ ColumnLayout {
 
     /// Clears any error messages currently being shown
     signal clearError()
+
+    /// Closes the login dialog
+    signal closeDialog()
 }
