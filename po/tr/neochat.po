@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-11-08 21:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -70,17 +70,17 @@ msgstr "Lütfen bir anahtar zinciri kurun; örn. K Cüzdan veya GNOME keyring"
 msgid "Unable to read access token"
 msgstr "Erişim jetonu okunamıyor"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Dosya, indirmek için pek büyük."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Destek için Matrix sunucusu yöneticisine ulaşın."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Katılmaya çalıştığınız oda geçerli değil"
@@ -1049,12 +1049,12 @@ msgstr "Düşük öncelik"
 msgid "Spaces"
 msgstr "Alanlar"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Oda oluşturulamadı: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
@@ -1366,6 +1366,16 @@ msgstr "Sohbette"
 msgid "In sidebar"
 msgstr "Kenar çubuğunda"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Yerel dosya seçin"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Pano görseli"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1426,56 +1436,41 @@ msgstr "İzinler"
 msgid "Notifications"
 msgstr "Bildirimler"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Görsel veya dosya iliştir"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojiler ve yapışkanlar"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Konum gönder"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "İleti gönder"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Şifreli bir ileti gönder…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Bir ek alt yazısı ekle..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Bir ileti gönder…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Yanıtı İptal Et"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Yerel dosya seçin"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Pano görseli"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3071,9 +3066,11 @@ msgid "Delete keyword"
 msgstr "Anahtar sözcük sil"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Lütfen bir dosya seçin"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Tümünü Seç"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3346,10 +3343,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Şu kişi yanıtlanıyor:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Yanıtı İptal Et"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4479,6 +4477,12 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Lütfen bir dosya seçin"
+
+#~ msgid "Replying to:"
+#~ msgstr "Şu kişi yanıtlanıyor:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "Başka bir hesaba oturum açın veya yeni bir hesap oluşturun."

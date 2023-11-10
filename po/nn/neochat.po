@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -70,17 +70,17 @@ msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
 msgid "Unable to read access token"
 msgstr "Klarte ikkje lesa tilgangspollett"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Fila er for stor til å kunna lastast ned."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Ta kontakt med administratoren av Matrix-tenaren for brukarstøtte."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Rom-ID-en du prøver å bruka, er ikkje gyldig"
@@ -1056,12 +1056,12 @@ msgstr "Lågt prioriterte"
 msgid "Spaces"
 msgstr "Område"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Feil ved romregistrering: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
@@ -1375,6 +1375,16 @@ msgstr "I praten"
 msgid "In sidebar"
 msgstr "I sidestolpen"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Vel lokal fil"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Utklippstavle-bilete"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1435,57 +1445,42 @@ msgstr "Løyve"
 msgid "Notifications"
 msgstr "Varslingar"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Legg ved bilete eller fil"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojiar og klistremerke"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Send geografisk posisjon"
 
 # Namn på «send»-knappen i skrivefeltet.
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Send meldinga"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Send ei kryptert melding …"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Vel vedleggstekst …"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Send ei melding …"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Avbryt svar"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Vel lokal fil"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Utklippstavle-bilete"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3100,9 +3095,11 @@ msgid "Delete keyword"
 msgstr "Slett nøkkelord"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Vel ei fil"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Merk alt"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3382,10 +3379,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Svar til:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Avbryt svar"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4541,3 +4539,9 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr "Avslutt"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Vel ei fil"
+
+#~ msgid "Replying to:"
+#~ msgstr "Svar til:"

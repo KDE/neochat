@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-11-07 18:27+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -70,17 +70,17 @@ msgstr "Namestite verigo ključev, npr. KWallet ali GNOME Keyring v Linux"
 msgid "Unable to read access token"
 msgstr "Žetona za dostop ni mogoče prebrati"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Datoteka je prevelika za prenos."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Stopite v stik za podporo z vašim skrbnikom matrixa."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikacija sobe, kamor se poskušate pridružiti, ni veljavna"
@@ -1059,12 +1059,12 @@ msgstr "Nizka prednost"
 msgid "Spaces"
 msgstr "Presledki"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
@@ -1376,6 +1376,16 @@ msgstr "V klepetu"
 msgid "In sidebar"
 msgstr "V stranski vrstici"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Izberi lokalno datoteko"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Slika odložišča"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1436,56 +1446,41 @@ msgstr "Dovoljenja"
 msgid "Notifications"
 msgstr "Obvestila"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Priloži sliko ali datoteko"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Čustvenčki in nalepke"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Pošlji lokacijo"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Pošlji sporočilo"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Pošlji šifrirano sporočilo…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Nastavite napis priloge..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Pošlji sporočilo…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Prekliči odgovor"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Izberi lokalno datoteko"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Slika odložišča"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3081,9 +3076,11 @@ msgid "Delete keyword"
 msgstr "Izbriši ključno besedo"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Izberite datoteko"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Izberi vse"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3357,10 +3354,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Odgovarjanje:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Prekliči odgovor"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4498,6 +4496,12 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Izberite datoteko"
+
+#~ msgid "Replying to:"
+#~ msgstr "Odgovarjanje:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "Prijavite se na drugi račun ali ustvarite novi račun."

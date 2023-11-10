@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -67,17 +67,17 @@ msgstr "키체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "파일이 다운로드하기에 너무 큽니다."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
@@ -1044,12 +1044,12 @@ msgstr "낮은 우선 순위"
 msgid "Spaces"
 msgstr "스페이스"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
@@ -1361,6 +1361,16 @@ msgstr "대화에"
 msgid "In sidebar"
 msgstr "사이드바에"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "로컬 파일 선택"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "클립보드의 그림"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1421,56 +1431,41 @@ msgstr "권한"
 msgid "Notifications"
 msgstr "알림"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "그림이나 파일 첨부"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "이모지와 스티커"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "위치 보내기"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "메시지 보내기"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "암호화된 메시지 보내기…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "첨부 파일 캡션 설정..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "메시지 보내기…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "답장 취소"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "로컬 파일 선택"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "클립보드의 그림"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3075,9 +3070,11 @@ msgid "Delete keyword"
 msgstr "키워드 삭제"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "파일을 선택하십시오"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "모두 선택"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3348,10 +3345,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "삭제"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "답장 대상:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "답장 취소"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4466,6 +4464,12 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgid "Please choose a file"
+#~ msgstr "파일을 선택하십시오"
+
+#~ msgid "Replying to:"
+#~ msgstr "답장 대상:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "다른 계정에 로그인하거나 새 계정을 만드십시오."

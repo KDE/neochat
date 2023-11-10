@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-11-07 09:54+0100\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"PO-Revision-Date: 2023-11-09 10:09+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -68,17 +68,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Lezen van toegangstoken lukt niet"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Bestand is te groot om te downloaden."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Neem contact op met uw matrix-serverbeheerder voor ondersteuning."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Het room-id waaraan u mee wilt doen is niet geldig"
@@ -1047,12 +1047,12 @@ msgstr "Lage prioriteit"
 msgid "Spaces"
 msgstr "Spaties"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Aanmaken van room is mislukt: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ruimte aanmaken is mislukt: %1"
@@ -1364,6 +1364,16 @@ msgstr "In chat"
 msgid "In sidebar"
 msgstr "In zijbalk"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Lokaal bestand kiezen"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Afbeelding in klembord"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1424,56 +1434,41 @@ msgstr "Toegangsrechten"
 msgid "Notifications"
 msgstr "Meldingen"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Een afbeelding of bestand bijvoegen"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji's & stickers"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Een locatie verzenden"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Bericht verzenden"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Een versleuteld bericht verzenden…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Stel een opschrift voor de bijlage in..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Een bericht verzenden…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Antwoord annuleren"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Lokaal bestand kiezen"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Afbeelding in klembord"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3076,9 +3071,11 @@ msgid "Delete keyword"
 msgstr "Trefwoord verwijderen"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Kies een bestand a.u.b"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Alles selecteren"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3356,10 +3353,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Beantwoorden aan:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Antwoord annuleren"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -3600,16 +3598,14 @@ msgid "Space members"
 msgstr "Leden in ruimtes"
 
 #: src/qml/RoomSecurity.qml:54
-#, fuzzy, kde-format
-#| msgid "Anyone in a space can find and join."
+#, kde-format
 msgid "Anyone in the selected spaces can find and join."
-msgstr "Iedereen in een ruimte kan het vinden en meedoen."
+msgstr "Iedereen in de geselecteerde ruimten kan het vinden en meedoen."
 
 #: src/qml/RoomSecurity.qml:64
-#, fuzzy, kde-format
-#| msgid "Select type"
+#, kde-format
 msgid "Select spaces"
-msgstr "Type selecteren"
+msgstr "Ruimten selecteren"
 
 #: src/qml/RoomSecurity.qml:82
 #, kde-format
@@ -3780,11 +3776,10 @@ msgid "You do not have the privileges to complete this action"
 msgstr "U hebt niet de vereiste rechten om deze actie te voltooien"
 
 #: src/qml/SelectSpacesDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Select type"
+#, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
-msgstr "Type selecteren"
+msgstr "Ruimten selecteren"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -4508,6 +4503,12 @@ msgstr "Tonen"
 #, kde-format
 msgid "Quit"
 msgstr "Afsluiten"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Kies een bestand a.u.b"
+
+#~ msgid "Replying to:"
+#~ msgstr "Beantwoorden aan:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "Aanmelden met een ander account of maak een nieuw account aan."

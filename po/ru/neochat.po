@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -71,17 +71,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Не удалось прочитать токен доступа"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Слишком большой файл для загрузки."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Обратитесь за помощью к администратору сервера Matrix."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Недействительный идентификатор комнаты, в которую вы хотите войти"
@@ -1068,13 +1068,13 @@ msgstr "С низким приоритетом"
 msgid "Spaces"
 msgstr "Пространства"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Не удалось создать комнату: «%1»"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1392,6 +1392,16 @@ msgstr "В чате"
 msgid "In sidebar"
 msgstr "В боковой панели"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Выберите файл на компьютере"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Изображение из буфера обмена"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1452,56 +1462,41 @@ msgstr "Разрешения"
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Вложить изображение или файл"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, fuzzy, kde-format
 msgid "Send a Location"
 msgstr "Отправить приглашение"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Отправить сообщение"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Отправить зашифрованное сообщение…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Задать подпись для вложения…"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Введите текст сообщения…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Отменить ответ"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Выберите файл на компьютере"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Изображение из буфера обмена"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
@@ -3168,9 +3163,11 @@ msgid "Delete keyword"
 msgstr "Удалить ключевое слово"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Выбор файла"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Выделить все"
 
 #: src/qml/Password.qml:32
 #, fuzzy, kde-format
@@ -3454,10 +3451,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Ответ на:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Отменить ответ"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4637,6 +4635,12 @@ msgstr "Показать"
 #, kde-format
 msgid "Quit"
 msgstr "Выход"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Выбор файла"
+
+#~ msgid "Replying to:"
+#~ msgstr "Ответ на:"
 
 #, fuzzy
 #~| msgid "Log in to an existing account"

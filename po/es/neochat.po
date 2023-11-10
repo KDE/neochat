@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-11-07 21:41+0100\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"PO-Revision-Date: 2023-11-08 12:53+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -70,19 +70,19 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "No se ha podido leer el token de acceso"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Archivo demasiado grande para descargarlo."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Póngase en contacto con el administrador del servidor matrix para obtener "
 "asistencia."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "El ID de la sala a la que está intentando unirse no es válido"
@@ -1053,12 +1053,12 @@ msgstr "Baja prioridad"
 msgid "Spaces"
 msgstr "Espacios"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "La creación de la sala ha fallado: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "La creación del espacio ha fallado: %1"
@@ -1370,6 +1370,16 @@ msgstr "En el chat"
 msgid "In sidebar"
 msgstr "En la barra lateral"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Escoger archivo local"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Imagen del portapapeles"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1430,56 +1440,41 @@ msgstr "Permisos"
 msgid "Notifications"
 msgstr "Notificaciones"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Adjuntar una imagen o un archivo"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis y pegatinas"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Enviar una ubicación"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Enviar mensaje"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Enviar un mensaje cifrado..."
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Definir un subtítulo de adjunto..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Enviar un mensaje..."
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Cancelar respuesta"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Escoger archivo local"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Imagen del portapapeles"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3087,9 +3082,11 @@ msgid "Delete keyword"
 msgstr "Borrar palabra clave"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Seleccione un archivo"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Seleccionar todo"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3366,10 +3363,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Eliminar"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Respondiendo a:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Cancelar respuesta"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -3609,16 +3607,14 @@ msgid "Space members"
 msgstr "Miembros del espacio"
 
 #: src/qml/RoomSecurity.qml:54
-#, fuzzy, kde-format
-#| msgid "Anyone in a space can find and join."
+#, kde-format
 msgid "Anyone in the selected spaces can find and join."
-msgstr "Puede encontrarla y unirse cualquiera de un espacio."
+msgstr "Puede encontrarla y unirse cualquiera de los espacios seleccionados."
 
 #: src/qml/RoomSecurity.qml:64
-#, fuzzy, kde-format
-#| msgid "Select type"
+#, kde-format
 msgid "Select spaces"
-msgstr "Seleccione tipo"
+msgstr "Seleccionar espacios"
 
 #: src/qml/RoomSecurity.qml:82
 #, kde-format
@@ -3789,11 +3785,10 @@ msgid "You do not have the privileges to complete this action"
 msgstr "No tiene privilegios para completar esta acción"
 
 #: src/qml/SelectSpacesDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Select type"
+#, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
-msgstr "Seleccione tipo"
+msgstr "Seleccionar espacios"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -4518,6 +4513,12 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Salir"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Seleccione un archivo"
+
+#~ msgid "Replying to:"
+#~ msgstr "Respondiendo a:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "Iniciar sesión en otra cuenta o crear una nueva cuenta."

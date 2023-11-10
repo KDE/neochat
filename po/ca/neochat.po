@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-11-08 11:09+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -72,17 +72,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "No s'ha pogut llegir el testimoni d'accés"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "El fitxer és massa gran per a baixar."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Contacteu amb l'administrador del servidor Matrix per a suport."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'ID de la sala a la qual esteu intentant unir-vos no és vàlida"
@@ -1053,12 +1053,12 @@ msgstr "Prioritat baixa"
 msgid "Spaces"
 msgstr "Espais"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ha fallat la creació de la sala: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ha fallat la creació de l'espai: %1"
@@ -1370,6 +1370,16 @@ msgstr "Al xat"
 msgid "In sidebar"
 msgstr "A la barra lateral"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Trieu un fitxer local"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Imatge del porta-retalls"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1430,56 +1440,41 @@ msgstr "Permisos"
 msgid "Notifications"
 msgstr "Notificacions"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Adjunta una imatge o un fitxer"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis i adhesius"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Envia una ubicació"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Envia un missatge"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Envia un missatge encriptat…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Establir un títol d'adjunt..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Envia un missatge…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Cancel·la la resposta"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Trieu un fitxer local"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Imatge del porta-retalls"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3089,9 +3084,11 @@ msgid "Delete keyword"
 msgstr "Suprimeix una paraula clau"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Trieu un fitxer"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Selecciona-ho tot"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3368,10 +3365,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "En resposta a:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Cancel·la la resposta"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4517,3 +4515,9 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Trieu un fitxer"
+
+#~ msgid "Replying to:"
+#~ msgstr "En resposta a:"

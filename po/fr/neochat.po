@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-11-07 09:47+0100\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"PO-Revision-Date: 2023-11-08 11:49+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -67,18 +67,18 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Lecture impossible du jeton d'accès"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Fichier trop volumineux pour être téléchargé"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Veuillez contact votre administrateur du serveur « Matrix » pour de l'aide."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'identifiant du salon que vous essayez de rejoindre est non valable."
@@ -1054,12 +1054,12 @@ msgstr "Basse priorité"
 msgid "Spaces"
 msgstr "Espaces"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Impossible de créer le salon : %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer un espace : %1"
@@ -1373,6 +1373,16 @@ msgstr "Dans un salon"
 msgid "In sidebar"
 msgstr "Dans la barre latérale"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Sélectionner un fichier local"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Image du presse-papier"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1433,56 +1443,41 @@ msgstr "Permissions"
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Joindre une image ou un fichier."
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Émoticônes et étiquettes auto-collantes"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Envoyer un emplacement"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Envoyer un message"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Envoyer un message chiffré..."
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Définir une légende de pièce jointe"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Envoyer un message..."
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Annuler la réponse"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Sélectionner un fichier local"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Image du presse-papier"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3094,9 +3089,11 @@ msgid "Delete keyword"
 msgstr "Supprimer un mot clé"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Veuillez sélectionner un fichier"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Tout sélectionner"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3375,10 +3372,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Supprimer"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Répondre à :"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Annuler la réponse"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4395,32 +4393,27 @@ msgid "Welcome"
 msgstr "Bienvenu"
 
 #: src/qml/WelcomePage.qml:50
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "Bienvenue sur Matrix"
+msgstr "Bienvenue dans NeoChat"
 
 #: src/qml/WelcomePage.qml:56
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
-msgstr "Se connecter à un compte existant"
+msgstr "Continuer avec un compte existant"
 
 #: src/qml/WelcomePage.qml:77
-#, fuzzy, kde-format
-#| msgctxt "Job heading, like 'Copying'"
-#| msgid "Uploading"
+#, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "Envoi en cours"
+msgstr "%1 (Chargement en cours)"
 
 #: src/qml/WelcomePage.qml:84
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr "Se connecter à un compte existant"
+msgstr "Se connecter ou créer un nouveau compte"
 
 #: src/qml/WelcomePage.qml:160
 #, kde-format
@@ -4536,6 +4529,12 @@ msgstr "Afficher"
 #, kde-format
 msgid "Quit"
 msgstr "Quitter"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Veuillez sélectionner un fichier"
+
+#~ msgid "Replying to:"
+#~ msgstr "Répondre à :"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "Se connecter à un compte différent ou créer un nouveau compte."

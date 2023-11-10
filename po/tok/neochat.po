@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -71,17 +71,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr ""
@@ -1084,12 +1084,12 @@ msgstr ""
 msgid "Spaces"
 msgstr ""
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
@@ -1408,6 +1408,16 @@ msgstr ""
 msgid "In sidebar"
 msgstr ""
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr ""
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr ""
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1470,59 +1480,42 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "o pana e sitelen anu lipu"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr ""
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "o pana e toki"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send an encrypted message…"
 msgstr "o pana e toki"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
-msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send a message…"
 msgstr "o pana e toki"
-
-#: src/qml/ChatBar.qml:364
-#, fuzzy, kde-format
-#| msgid "Cancel"
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "o ala"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr ""
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr ""
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
@@ -3148,9 +3141,10 @@ msgid "Delete keyword"
 msgstr ""
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "o pana e lipu"
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Select a File"
+msgstr "o pali e tomo toki"
 
 #: src/qml/Password.qml:32
 #, fuzzy, kde-format
@@ -3433,11 +3427,12 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr ""
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, fuzzy, kde-format
-#| msgid "Replying to %1:"
-msgid "Replying to:"
-msgstr "sina toki tawa %1:"
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "o ala"
 
 #: src/qml/ReportSheet.qml:18
 #, fuzzy, kde-format
@@ -4571,6 +4566,14 @@ msgstr ""
 #, kde-format
 msgid "Quit"
 msgstr ""
+
+#~ msgid "Please choose a file"
+#~ msgstr "o pana e lipu"
+
+#, fuzzy
+#~| msgid "Replying to %1:"
+#~ msgid "Replying to:"
+#~ msgstr "sina toki tawa %1:"
 
 #~ msgid "View"
 #~ msgstr "lukin"

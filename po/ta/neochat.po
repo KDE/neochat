@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-10-22 17:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -69,17 +69,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "கோப்பு பெரிதாக இருப்பதால் பதிவிறக்க முடியாது."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக நிர்வாகியை தொடர்புகொள்ளுங்கள்."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "நீங்கள் சேர முயற்சிக்கும் அரங்கு செல்லுபடியாகாதது"
@@ -1051,12 +1051,12 @@ msgstr "முக்கியமில்லாதவை"
 msgid "Spaces"
 msgstr "இடங்கள்"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
@@ -1368,6 +1368,16 @@ msgstr "உரையாடலில்"
 msgid "In sidebar"
 msgstr "ஓரப்பட்டையில்"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "பிடிப்புப்பலகைப் படம்"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1428,56 +1438,41 @@ msgstr "அனுமதிகள்"
 msgid "Notifications"
 msgstr "அறிவிப்புகள்"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "படம் அல்லது கோப்பை இணை"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "முகவடிகளும் ஒட்டிகளும்"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "இடத்தை அனுப்பு"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "செய்தியை அனுப்பு"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "மறையாக்கப்பட்ட செய்தியை அனுப்பு…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "உடனிணைப்புக்கான தலைப்பை அமை..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "பதிலளிப்பதை ரத்து செய்"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "பிடிப்புப்பலகைப் படம்"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3081,9 +3076,11 @@ msgid "Delete keyword"
 msgstr "முதன்மைச்சொல்லை நீக்கு"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "கோப்பைத் தேர்ந்தெடுங்கள்"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "அனைத்தையும் தேர்ந்தெடு"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3357,10 +3354,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "நீக்கு"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "இதற்கு பதிலளிக்கிறீர்:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "பதிலளிப்பதை ரத்து செய்"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4494,6 +4492,12 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid "Please choose a file"
+#~ msgstr "கோப்பைத் தேர்ந்தெடுங்கள்"
+
+#~ msgid "Replying to:"
+#~ msgstr "இதற்கு பதிலளிக்கிறீர்:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "வேறு கணக்கில் நுழையவும், அல்லது புதிய கணக்கை உருவாக்கவும்."

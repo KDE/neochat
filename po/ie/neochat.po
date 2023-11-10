@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -68,17 +68,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Ne posset acessar «%s»"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Li ID de chambre a quel vu vole adherer vos es ínvalid"
@@ -1108,12 +1108,12 @@ msgstr "Bass prioritá"
 msgid "Spaces"
 msgstr "Spacies"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, fuzzy, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, fuzzy, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
@@ -1437,6 +1437,16 @@ msgstr ""
 msgid "In sidebar"
 msgstr "In li panel lateral"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Selecter un local file"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Image in li Paperiere"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1499,57 +1509,41 @@ msgstr ""
 msgid "Notifications"
 msgstr "Notificationes"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, fuzzy, kde-format
 msgid "Attach an image or file"
 msgstr "Atachar un file"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgid "Send a Location"
 msgstr "Inviar un invitation"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Inviar li missage"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, fuzzy, kde-format
 msgid "Send an encrypted message…"
 msgstr "Ciffrat missage"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
-msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, fuzzy, kde-format
 msgid "Send a message…"
 msgstr "Ne successat inviar un missage D-Bus"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Anullar li response"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Selecter un local file"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Image in li Paperiere"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
@@ -3217,9 +3211,11 @@ msgid "Delete keyword"
 msgstr "Remover li parol"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Ples selecter un file"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Select omnicos"
 
 #: src/qml/Password.qml:32
 #, fuzzy, kde-format
@@ -3502,10 +3498,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Remover"
 
-#: src/qml/ReplyPane.qml:33
-#, fuzzy, kde-format
-msgid "Replying to:"
-msgstr "quande on responde"
+#: src/qml/ReplyPane.qml:89
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Anullar li response"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4661,6 +4658,13 @@ msgstr "Monstrar"
 #, kde-format
 msgid "Quit"
 msgstr "Surtir"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Ples selecter un file"
+
+#, fuzzy
+#~ msgid "Replying to:"
+#~ msgstr "quande on responde"
 
 #~ msgid "View"
 #~ msgstr "Vise"

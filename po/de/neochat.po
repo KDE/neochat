@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -72,17 +72,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Datei zu groß für einen Download."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Die Kennung des Raums, den Sie betreten möchten, ist nicht gültig"
@@ -1064,12 +1064,12 @@ msgstr "Niedrige Priorität"
 msgid "Spaces"
 msgstr "Spaces"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, fuzzy, kde-format
 #| msgid "Room creation failed: %1"
 msgid "Space creation failed: %1"
@@ -1387,6 +1387,16 @@ msgstr "Im Chat"
 msgid "In sidebar"
 msgstr "In der Seitenleiste"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Lokale Datei auswählen"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Bild aus Zwischenablage"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1447,56 +1457,40 @@ msgstr "Berechtigungen"
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Bild oder Datei anhängen"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis & Sticker"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Einen Standort senden"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Nachricht senden"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Eine verschlüsselte Nachricht senden ..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
-msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Eine Nachricht senden ..."
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Antwort abbrechen"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Lokale Datei auswählen"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Bild aus Zwischenablage"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
@@ -3155,9 +3149,11 @@ msgid "Delete keyword"
 msgstr "Schlüsselwort löschen"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Bitte wählen Sie eine Datei aus"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Alle auswählen"
 
 #: src/qml/Password.qml:32
 #, fuzzy, kde-format
@@ -3442,10 +3438,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Löschen"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Antwort an:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Antwort abbrechen"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4651,6 +4648,12 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Bitte wählen Sie eine Datei aus"
+
+#~ msgid "Replying to:"
+#~ msgstr "Antwort an:"
 
 #, fuzzy
 #~| msgid "Log in to an existing account"

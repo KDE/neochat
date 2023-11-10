@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-11-08 23:30+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -72,18 +72,18 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Не вдалося прочитати жетон доступу"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Файл є надто великим для отримання."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
@@ -1065,12 +1065,12 @@ msgstr "Низький пріоритет"
 msgid "Spaces"
 msgstr "Простори"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Не вдалося створити кімнату: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
@@ -1382,6 +1382,16 @@ msgstr "У спілкуванні"
 msgid "In sidebar"
 msgstr "На бічній панелі"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Виберіть локальний файл"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Зображення з буфера"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1442,56 +1452,41 @@ msgstr "Права доступу"
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Долучити зображення або файл"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Емоційки і наліпки"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Надіслати дані місця"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Надіслати повідомлення"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Надіслати шифроване повідомлення…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Встановити підпис до долучення…"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Скасувати відповідь"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Виберіть локальний файл"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Зображення з буфера"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3099,9 +3094,11 @@ msgid "Delete keyword"
 msgstr "Вилучити ключове слово"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Будь ласка, виберіть файл"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Позначити все"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3380,10 +3377,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Відповідаємо:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Скасувати відповідь"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4527,6 +4525,12 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Будь ласка, виберіть файл"
+
+#~ msgid "Replying to:"
+#~ msgstr "Відповідаємо:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "Увійти до іншого облікового запису або створити обліковий запис."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-07-05 18:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -68,17 +68,17 @@ msgstr "Instale um chaveiro, como o KWallet ou GNOME Keyring no Linux."
 msgid "Unable to read access token"
 msgstr "Não foi possível ler o token de acesso"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "O id da sala em que você está tentando entrar não é válido"
@@ -1138,13 +1138,13 @@ msgstr "Prioridade baixa"
 msgid "Spaces"
 msgstr "Espaços"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Criação de sala falhou: \"%1\""
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1483,6 +1483,16 @@ msgstr ""
 msgid "In sidebar"
 msgstr "Na barra lateral"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Escolher arquivo local"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Imagem da área de transferência"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1548,58 +1558,41 @@ msgstr ""
 msgid "Notifications"
 msgstr "Mostrar notificações"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Anexe uma imagem ou arquivo"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgid "Send a Location"
 msgstr "Enviar convite"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Enviar mensagem"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Enviar uma mensagem criptografada..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
-msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Enviar uma mensagem…"
-
-#: src/qml/ChatBar.qml:364
-#, fuzzy, kde-format
-#| msgid "Cancel"
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Cancelar"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Escolher arquivo local"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Imagem da área de transferência"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
@@ -3316,9 +3309,11 @@ msgid "Delete keyword"
 msgstr "Excluir palavra"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Escolha um arquivo"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Selecionar tudo"
 
 #: src/qml/Password.qml:32
 #, fuzzy, kde-format
@@ -3613,11 +3608,12 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Remover"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, fuzzy, kde-format
-#| msgid "Replying to %1:"
-msgid "Replying to:"
-msgstr "Respondendo para %1:"
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Cancelar"
 
 #: src/qml/ReportSheet.qml:18
 #, fuzzy, kde-format
@@ -4803,6 +4799,14 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Escolha um arquivo"
+
+#, fuzzy
+#~| msgid "Replying to %1:"
+#~ msgid "Replying to:"
+#~ msgstr "Respondendo para %1:"
 
 #~ msgid "View"
 #~ msgstr "Visualizar"

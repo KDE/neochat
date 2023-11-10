@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-10-23 09:53+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -68,17 +68,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Impossibile leggere il token di accesso"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "File troppo grande per essere scaricato."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Contatta l'amministratore del server Matrix per assistenza."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'ID della stanza che stai tentando di entrare non è valida"
@@ -1051,12 +1051,12 @@ msgstr "Bassa priorità"
 msgid "Spaces"
 msgstr "Spazi"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creazione della stanza non riuscita: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
@@ -1368,6 +1368,16 @@ msgstr "Nella chat"
 msgid "In sidebar"
 msgstr "Nella barra laterale"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Scegli file locale"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Immagine dagli appunti"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1428,56 +1438,41 @@ msgstr "Permessi"
 msgid "Notifications"
 msgstr "Notifiche"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Allega un'immagine o un file"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji e adesivi"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Invia una località"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Invia messaggio"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Invia un messaggio cifrato…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Imposta una didascalia per l'allegato..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Invia un messaggio…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Annulla la risposta"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Scegli file locale"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Immagine dagli appunti"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3093,9 +3088,11 @@ msgid "Delete keyword"
 msgstr "Elimina la parola chiave"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Scegli un file"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Seleziona tutto"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3374,10 +3371,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Risposta a:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Annulla la risposta"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4541,6 +4539,12 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Esci"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Scegli un file"
+
+#~ msgid "Replying to:"
+#~ msgstr "Risposta a:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "Accedi a un account diverso o crea un nuovo account."

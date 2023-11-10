@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-11-08 02:59+0100\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"PO-Revision-Date: 2023-11-09 02:48+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -68,17 +68,17 @@ msgstr "დააყენეთ ბრელოკი, მაგალითა
 msgid "Unable to read access token"
 msgstr "წვდომის კოდის წაკითხვის შეცდომა"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "ფაილი გადმოსაწერად ძალიან დიდია."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "მხარდაჭერისთვის დაუკავშირდით თქვენი მატრიქსის სერვერის ადმინისტრატორს."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
@@ -1048,12 +1048,12 @@ msgstr "დაბალი პრიორიტეტი"
 msgid "Spaces"
 msgstr "სივრცეები"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
@@ -1365,6 +1365,16 @@ msgstr "ჩატში"
 msgid "In sidebar"
 msgstr "გვერდით ზოლში"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "აირჩიეთ ლოკალური ფაილი"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "ბუფერის გამოსახულება"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1425,56 +1435,41 @@ msgstr "უფლებები"
 msgid "Notifications"
 msgstr "გაფრთხილებები"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "გამოსახულების ან ფაილის მიბმა"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "ემოჯიები და სტიკერები"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "მდებარეობის გაგზავნა"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "შეტყობინების გაგზავნა"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "დაშიფრული შეტყობინების გაგზავნა…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "მიმაგრებული ფაილების წარწერის დაყენება..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "შეტყობინების გაგზავნა…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "პასუხის გაუქმება"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "აირჩიეთ ლოკალური ფაილი"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "ბუფერის გამოსახულება"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3070,9 +3065,11 @@ msgid "Delete keyword"
 msgstr "საკვანძო სიტყვის წაშლა"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "გთხოვთ, აირჩიოთ ფაილი"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "ყველაფრის მონიშვნა"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3347,10 +3344,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "წაშლა"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "ვპასუხობ:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "პასუხის გაუქმება"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -3590,16 +3588,14 @@ msgid "Space members"
 msgstr "სივრცის წევრები"
 
 #: src/qml/RoomSecurity.qml:54
-#, fuzzy, kde-format
-#| msgid "Anyone in a space can find and join."
+#, kde-format
 msgid "Anyone in the selected spaces can find and join."
-msgstr "სივრცეში მყოფს ყველას შეუძლია პოვნა და შემოსვლა."
+msgstr "არჩეულ სივრცეებში მყოფს ყველას შეუძლია პოვნა და შემოსვლა."
 
 #: src/qml/RoomSecurity.qml:64
-#, fuzzy, kde-format
-#| msgid "Select type"
+#, kde-format
 msgid "Select spaces"
-msgstr "ტიპის არჩევა"
+msgstr "აირჩიეთ სივრცეები"
 
 #: src/qml/RoomSecurity.qml:82
 #, kde-format
@@ -3766,11 +3762,10 @@ msgid "You do not have the privileges to complete this action"
 msgstr "ამ ქმედების დასასრულებლად საკმარისი პრივილეგიები არ გაქვთ"
 
 #: src/qml/SelectSpacesDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Select type"
+#, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
-msgstr "ტიპის არჩევა"
+msgstr "აირჩიეთ სივრცეები"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -4473,6 +4468,12 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgid "Please choose a file"
+#~ msgstr "გთხოვთ, აირჩიოთ ფაილი"
+
+#~ msgid "Replying to:"
+#~ msgstr "ვპასუხობ:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "შედით სხვა ანგარიშით ან ახალი შექმენით."

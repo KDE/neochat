@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-05-09 22:36+0200\n"
 "Last-Translator: K. Áron <aronkvh@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -72,18 +72,18 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "A hozzáférési token olvasása nem sikerült"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "A fájl túl nagy a letöltéshez."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Segítségért vedd fel a kapcsolatot a Matrix szervered rendszergazdájával."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "A szobaazonosító, amelyhez csatlakozni szeretne, érvénytelen"
@@ -1057,13 +1057,13 @@ msgstr "Alacsony prioritás"
 msgid "Spaces"
 msgstr "Terek"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "A szoba létrehozása nem sikerült: „%1”"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1382,6 +1382,16 @@ msgstr "A chatben"
 msgid "In sidebar"
 msgstr "Az oldalsávban"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Helyi fájl kiválasztása"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Vágólap kép"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1442,56 +1452,41 @@ msgstr "Engedélyek"
 msgid "Notifications"
 msgstr "Értesítések"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Kép vagy fájl csatolása"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojik és matricák"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Meghívás Hely"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Üzenet küldése"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Titkosított üzenet küldése..."
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Csatolmányleírás küldése"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Üzenet küldése..."
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Mégsem válaszolok"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Helyi fájl kiválasztása"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Vágólap kép"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
@@ -3155,9 +3150,11 @@ msgid "Delete keyword"
 msgstr "Kulcsszó törlése"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Válassz egy fájlt"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Összes kijelölése"
 
 #: src/qml/Password.qml:32
 #, fuzzy, kde-format
@@ -3434,10 +3431,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Válasz neki: "
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Mégsem válaszolok"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4632,6 +4630,12 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Válassz egy fájlt"
+
+#~ msgid "Replying to:"
+#~ msgstr "Válasz neki: "
 
 #, fuzzy
 #~| msgid "Log in to an existing account"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -69,17 +69,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Tidak dapat membaca token pengaksesan"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Berkas terlalu besar untuk diunduh."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Hubungi administrator server Matrix Anda untuk dukungan."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ID ruangan yang Anda coba bergabung tidak absah"
@@ -1052,12 +1052,12 @@ msgstr "Prioritas rendah"
 msgid "Spaces"
 msgstr "Space"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Pembuatan ruangan gagal: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
@@ -1374,6 +1374,16 @@ msgstr "Dalam obrolan"
 msgid "In sidebar"
 msgstr "Di bilah samping"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Pilih berkas lokal"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Gambar papan klip"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1434,56 +1444,41 @@ msgstr "Perizinan"
 msgid "Notifications"
 msgstr "Notifikasi"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Lampirkan sebuah gambar atau berkas"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji & Stiker"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Kirim Lokasi"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Kirim pesan"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Kirim pesan terenkripsi…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Atur takarir lampiran..."
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Kirim pesan…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Batalkan balasan"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Pilih berkas lokal"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Gambar papan klip"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
@@ -3121,9 +3116,11 @@ msgid "Delete keyword"
 msgstr "Hapus kata kunci"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Mohon pilih sebuah berkas"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Pilih Semua"
 
 #: src/qml/Password.qml:32
 #, fuzzy, kde-format
@@ -3403,10 +3400,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Hapus"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Membalas ke:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Batalkan balasan"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4592,6 +4590,12 @@ msgstr "Tampilkan"
 #, kde-format
 msgid "Quit"
 msgstr "Keluar"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Mohon pilih sebuah berkas"
+
+#~ msgid "Replying to:"
+#~ msgstr "Membalas ke:"
 
 #, fuzzy
 #~| msgid "Log in to an existing account"

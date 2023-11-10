@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-09-27 21:55+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -67,17 +67,17 @@ msgstr "Asenna avainrengas, esim. Linuxissa KWallet tai Gnomen avainrengas"
 msgid "Unable to read access token"
 msgstr "Saantimerkkiä ei voida lukea"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr "Liian iso tiedosto ladattavaksi."
 
-#: src/controller.cpp:345
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Tee tukipyyntö Matrix-palvelimesi ylläpitoon."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:350
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Yrität liittyä huoneeseen, jonka tunniste ei ole kelvollinen"
@@ -1048,12 +1048,12 @@ msgstr "Vähäinen etusijaisuus"
 msgid "Spaces"
 msgstr "Välilyönnit"
 
-#: src/neochatconnection.cpp:185
+#: src/neochatconnection.cpp:191
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Huoneen luominen epäonnistui: %1"
 
-#: src/neochatconnection.cpp:217
+#: src/neochatconnection.cpp:223
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
@@ -1365,6 +1365,16 @@ msgstr "Keskustelussa"
 msgid "In sidebar"
 msgstr "Sivupaneelissa"
 
+#: src/qml/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Valitse paikallinen tiedosto"
+
+#: src/qml/AttachDialog.qml:47
+#, kde-format
+msgid "Clipboard image"
+msgstr "Leikepöydän kuva"
+
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
@@ -1425,56 +1435,41 @@ msgstr "Käyttöoikeudet"
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
-#: src/qml/ChatBar.qml:76
+#: src/qml/ChatBar.qml:62
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Liitä kuva tai tiedosto"
 
-#: src/qml/ChatBar.qml:103
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojit ja tarrat"
 
-#: src/qml/ChatBar.qml:120
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Send a Location"
 msgstr "Lähetä sijainti"
 
-#: src/qml/ChatBar.qml:134
+#: src/qml/ChatBar.qml:111
 #, kde-format
 msgid "Send message"
 msgstr "Lähetä viesti"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Lähetä salattu viesti…"
 
-#: src/qml/ChatBar.qml:181
-#, kde-format
-msgid "Set an attachment caption..."
+#: src/qml/ChatBar.qml:188
+#, fuzzy, kde-format
+#| msgid "Set an attachment caption..."
+msgid "Set an attachment caption…"
 msgstr "Lähetä liitteen selite…"
 
-#: src/qml/ChatBar.qml:181
+#: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
 msgstr "Lähetä viesti…"
-
-#: src/qml/ChatBar.qml:364
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Peru vastaus"
-
-#: src/qml/ChatBar.qml:559
-#, kde-format
-msgid "Choose local file"
-msgstr "Valitse paikallinen tiedosto"
-
-#: src/qml/ChatBar.qml:587
-#, kde-format
-msgid "Clipboard image"
-msgstr "Leikepöydän kuva"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -3092,9 +3087,11 @@ msgid "Delete keyword"
 msgstr "Poista hakusana"
 
 #: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Please choose a file"
-msgstr "Valitse tiedosto"
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgid "Select a File"
+msgstr "Valitse kaikki"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3369,10 +3366,11 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Poista"
 
-#: src/qml/ReplyPane.qml:33
+#: src/qml/ReplyPane.qml:89
 #, kde-format
-msgid "Replying to:"
-msgstr "Vastataan:"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Peru vastaus"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
@@ -4519,6 +4517,12 @@ msgstr "Näytä"
 #, kde-format
 msgid "Quit"
 msgstr "Lopeta"
+
+#~ msgid "Please choose a file"
+#~ msgstr "Valitse tiedosto"
+
+#~ msgid "Replying to:"
+#~ msgstr "Vastataan:"
 
 #~ msgid "Log in to a different account or create a new account."
 #~ msgstr "Kirjaudu toisella tilillä tai luo uusi tili."
