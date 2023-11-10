@@ -22,7 +22,7 @@
 #include <Quotient/user.h>
 
 #ifdef HAVE_KUNIFIEDPUSH
-#include <QCoro>
+#include <QCoroNetwork>
 #include <Quotient/csapi/pusher.h>
 #include <Quotient/networkaccessmanager.h>
 #endif

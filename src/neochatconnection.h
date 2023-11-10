@@ -6,7 +6,7 @@
 #include <QObject>
 #include <QQmlEngine>
 
-#include <QCoro/Task>
+#include <QCoroTask>
 #include <Quotient/connection.h>
 
 class NeoChatConnection : public Quotient::Connection
