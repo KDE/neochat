@@ -100,7 +100,7 @@ Controller::Controller(QObject *parent)
             connect(connection, &NeoChatConnection::syncDone, this, [connection]() {
                 NotificationsManager::instance().handleNotifications(connection);
             });
-            connect(connection, &NeoChatConnection::connected, this, [this, connection]() {
+            connectSingleShot(connection, &NeoChatConnection::connected, this, [this, connection]() {
                 connection->setupPushNotifications(m_endpoint);
             });
         }
