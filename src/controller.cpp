@@ -97,11 +97,9 @@ Controller::Controller(QObject *parent)
     connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, [this]() {
         if (m_accountRegistry.size() > oldAccountCount) {
             auto connection = dynamic_cast<NeoChatConnection *>(m_accountRegistry.accounts()[m_accountRegistry.size() - 1]);
-            connect(connection, &NeoChatConnection::syncDone, this, [connection]() {
-                NotificationsManager::instance().handleNotifications(connection);
-            });
-            connectSingleShot(connection, &NeoChatConnection::connected, this, [this, connection]() {
+            connect(connection, &NeoChatConnection::syncDone, this, [this, connection]() {
                 connection->setupPushNotifications(m_endpoint);
+                NotificationsManager::instance().handleNotifications(connection);
             });
         }
         oldAccountCount = m_accountRegistry.size();
@@ -118,6 +116,8 @@ Controller::Controller(QObject *parent)
     });
 
     connector->registerClient(i18n("Receiving push notifications"));
+
+    m_endpoint = connector->endpoint();
 #endif
 }
 
