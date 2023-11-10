@@ -11,7 +11,6 @@
 #include <Quotient/accountregistry.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/settings.h>
-#include <qcorotask.h>
 
 class NeoChatRoom;
 class TrayIcon;
@@ -125,10 +124,6 @@ public:
 private:
     explicit Controller(QObject *parent = nullptr);
 
-    // note: this is intentionally a copied QString because
-    // the reference could be destroyed before the task is finished
-    QCoro::Task<void> setupPushNotifications(QString endpoint);
-
     QPointer<NeoChatConnection> m_connection;
     TrayIcon *m_trayIcon = nullptr;
 
@@ -140,6 +135,7 @@ private:
 
     Quotient::AccountRegistry m_accountRegistry;
     QStringList m_accountsLoading;
+    QString m_endpoint;
 
 private Q_SLOTS:
     void invokeLogin();

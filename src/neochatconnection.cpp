@@ -21,7 +21,14 @@
 #include <Quotient/settings.h>
 #include <Quotient/user.h>
 
+#ifdef HAVE_KUNIFIEDPUSH
+#include <QCoro>
+#include <Quotient/csapi/pusher.h>
+#include <Quotient/networkaccessmanager.h>
+#endif
+
 using namespace Quotient;
+using namespace Qt::StringLiterals;
 
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
@@ -239,6 +246,46 @@ void NeoChatConnection::openOrCreateDirectChat(User *user)
         }
     }
     requestDirectChat(user);
+}
+
+QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
+{
+#ifdef HAVE_KUNIFIEDPUSH
+    QUrl gatewayEndpoint(endpoint);
+    gatewayEndpoint.setPath(QStringLiteral("/_matrix/push/v1/notify"));
+
+    QNetworkRequest checkGateway(gatewayEndpoint);
+    auto reply = co_await NetworkAccessManager::instance()->get(checkGateway);
+
+    // We want to check if this UnifiedPush server has a Matrix gateway
+    // This is because Matrix does not natively support UnifiedPush
+    const QJsonObject replyJson = QJsonDocument::fromJson(reply->readAll()).object();
+
+    if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == QStringLiteral("matrix")) {
+        // FIXME: Currently hardcoded for ntfy URLs
+        // We need to pass the ntfy topic as the pushkey. Is there a more generic way to handle this?
+        const QUrl endpointUrl(endpoint);
+
+        // Pop the slash off of the path
+        const QString pushkey = endpointUrl.path().removeFirst();
+
+        Controller::instance().activeConnection()->callApi<PostPusherJob>(
+            pushkey,
+            QStringLiteral("http"),
+            QStringLiteral("org.kde.neochat"),
+            QStringLiteral("NeoChat"),
+            Controller::instance().activeConnection()->deviceId(),
+            QString(), // FIXME: what is profileTag?
+            QStringLiteral("en"),
+            PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")});
+
+        qInfo() << "Registered for push notifications";
+    } else {
+        qWarning() << "There's no gateway, not setting up push notifications.";
+    }
+#else
+    co_return;
+#endif
 }
 
 QString NeoChatConnection::deviceKey() const

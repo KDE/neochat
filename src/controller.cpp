@@ -43,14 +43,10 @@
 #endif
 
 #ifdef HAVE_KUNIFIEDPUSH
-#include <QCoro>
-#include <Quotient/csapi/pusher.h>
-#include <Quotient/networkaccessmanager.h>
 #include <kunifiedpush/connector.h>
 #endif
 
 using namespace Quotient;
-using namespace Qt::StringLiterals;
 
 Controller::Controller(QObject *parent)
     : QObject(parent)
@@ -104,59 +100,24 @@ Controller::Controller(QObject *parent)
             connect(connection, &NeoChatConnection::syncDone, this, [connection]() {
                 NotificationsManager::instance().handleNotifications(connection);
             });
+            connect(connection, &NeoChatConnection::connected, this, [this, connection]() {
+                connection->setupPushNotifications(m_endpoint);
+            });
         }
         oldAccountCount = m_accountRegistry.size();
     });
 
 #ifdef HAVE_KUNIFIEDPUSH
     auto connector = new KUnifiedPush::Connector(QStringLiteral("org.kde.neochat"));
-    connect(connector, &KUnifiedPush::Connector::endpointChanged, this, &Controller::setupPushNotifications);
+    connect(connector, &KUnifiedPush::Connector::endpointChanged, this, [this](const QString &endpoint) {
+        m_endpoint = endpoint;
+        for (auto &quotientConnection : m_accountRegistry) {
+            auto connection = dynamic_cast<NeoChatConnection *>(quotientConnection);
+            connection->setupPushNotifications(endpoint);
+        }
+    });
 
     connector->registerClient(i18n("Receiving push notifications"));
-#endif
-}
-
-QCoro::Task<void> Controller::setupPushNotifications(QString endpoint)
-{
-#ifdef HAVE_KUNIFIEDPUSH
-    while (!activeConnection()) {
-        co_await qCoro(this, &Controller::activeConnectionChanged);
-    }
-
-    QUrl gatewayEndpoint(endpoint);
-    gatewayEndpoint.setPath(QStringLiteral("/_matrix/push/v1/notify"));
-
-    QNetworkRequest checkGateway(gatewayEndpoint);
-    auto reply = co_await NetworkAccessManager::instance()->get(checkGateway);
-
-    // We want to check if this UnifiedPush server has a Matrix gateway
-    // This is because Matrix does not natively support UnifiedPush
-    const QJsonObject replyJson = QJsonDocument::fromJson(reply->readAll()).object();
-
-    if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == QStringLiteral("matrix")) {
-        // FIXME: Currently hardcoded for ntfy URLs
-        // We need to pass the ntfy topic as the pushkey. Is there a more generic way to handle this?
-        const QUrl endpointUrl(endpoint);
-
-        // Pop the slash off of the path
-        const QString pushkey = endpointUrl.path().removeFirst();
-
-        Controller::instance().activeConnection()->callApi<PostPusherJob>(
-            pushkey,
-            QStringLiteral("http"),
-            QStringLiteral("org.kde.neochat"),
-            QStringLiteral("NeoChat"),
-            Controller::instance().activeConnection()->deviceId(),
-            QString(), // FIXME: what is profileTag?
-            QStringLiteral("en"),
-            PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")});
-
-        qInfo() << "Registered for push notifications";
-    } else {
-        qWarning() << "There's no gateway, not setting up push notifications.";
-    }
-#else
-    co_return;
 #endif
 }
 

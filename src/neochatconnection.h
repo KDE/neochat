@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QQmlEngine>
 
+#include <QCoro/Task>
 #include <Quotient/connection.h>
 
 class NeoChatConnection : public Quotient::Connection
@@ -74,6 +75,10 @@ public:
      * If a direct chat with the user doesn't exist one is created and then joined.
      */
     Q_INVOKABLE void openOrCreateDirectChat(Quotient::User *user);
+
+    // note: this is intentionally a copied QString because
+    // the reference could be destroyed before the task is finished
+    QCoro::Task<void> setupPushNotifications(QString endpoint);
 
     QString deviceKey() const;
     QString encryptionKey() const;
