@@ -130,7 +130,7 @@ set_package_properties(KQuickImageEditor PROPERTIES
     PURPOSE "Add image editing capability to image attachments"
 )
 
-find_package(QCoro6 0.4 COMPONENTS Core REQUIRED)
+find_package(QCoro6 0.4 COMPONENTS Core Network REQUIRED)
 
 qcoro_enable_coroutines()
 

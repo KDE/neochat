@@ -376,6 +376,7 @@ target_link_libraries(neochat PUBLIC
     QuotientQt6
     cmark::cmark
     QCoro::Core
+    QCoro::Network
 )
 
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
