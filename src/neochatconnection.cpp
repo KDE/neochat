@@ -259,7 +259,7 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
 
     // We want to check if this UnifiedPush server has a Matrix gateway
     // This is because Matrix does not natively support UnifiedPush
-    const QJsonObject replyJson = QJsonDocument::fromJson(reply->readAll()).object();
+    const auto &replyJson = QJsonDocument::fromJson(reply->readAll()).object();
 
     if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == QStringLiteral("matrix")) {
         // FIXME: Currently hardcoded for ntfy URLs
