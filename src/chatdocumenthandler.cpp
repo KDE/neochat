@@ -132,11 +132,7 @@ int ChatDocumentHandler::completionStartIndex() const
         return 0;
     }
 
-#if !defined(Q_OS_ANDROID)
-    const long long cursor = cursorPosition();
-#else
-    const auto cursor = cursorPosition();
-#endif
+    const qsizetype cursor = cursorPosition();
     const auto &text = getText();
 
     auto start = std::min(cursor, text.size()) - 1;
