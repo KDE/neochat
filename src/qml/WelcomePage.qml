@@ -32,23 +32,20 @@ FormCard.FormCardPage {
         }
     }
 
-    FormCard.FormCard {
-        id: contentCard
+    Kirigami.Icon {
+        source: "org.kde.neochat"
+        Layout.alignment: Qt.AlignHCenter
+        implicitWidth: Math.round(Kirigami.Units.iconSizes.huge * 1.5)
+        implicitHeight: Math.round(Kirigami.Units.iconSizes.huge * 1.5)
+    }
 
-        FormCard.AbstractFormDelegate {
-            contentItem: Kirigami.Icon {
-                source: "org.kde.neochat"
-                Layout.fillWidth: true
-                Layout.preferredHeight: Kirigami.Units.gridUnit * 16
-            }
-            background: Item {}
-            onActiveFocusChanged: if (activeFocus) module.item.forceActiveFocus()
-        }
+    Kirigami.Heading {
+        id: welcomeMessage
 
-        FormCard.FormTextDelegate {
-            id: welcomeMessage
-            text: i18n("Welcome to NeoChat")
-        }
+        text: i18n("Welcome to NeoChat")
+
+        Layout.alignment: Qt.AlignHCenter
+        Layout.topMargin: Kirigami.Units.largeSpacing
     }
 
     FormCard.FormHeader {
@@ -83,6 +80,7 @@ FormCard.FormCardPage {
     FormCard.FormHeader {
         title: i18nc("@title", "Log in or Create a New Account")
     }
+
     FormCard.FormCard {
         Loader {
             id: module
@@ -93,7 +91,7 @@ FormCard.FormCardPage {
                 id: stepConnections
                 target: currentStep
 
-                function onProcessed(nextUrl) {
+                function onProcessed(nextUrl: string): void {
                     module.source = nextUrl;
                     headerMessage.text = "";
                     headerMessage.visible = false;
@@ -103,19 +101,23 @@ FormCard.FormCardPage {
                         continueButton.forceActiveFocus()
                     }
                 }
-                function onShowMessage(message) {
+
+                function onShowMessage(message: string): void {
                     headerMessage.text = message;
                     headerMessage.visible = true;
                     headerMessage.type = Kirigami.MessageType.Information;
                 }
-                function onClearError() {
+
+                function onClearError(): void {
                     headerMessage.text = "";
                     headerMessage.visible = false;
                 }
-                function onCloseDialog() {
+
+                function onCloseDialog(): void {
                     root.closeDialog();
                 }
             }
+
             Connections {
                 target: Registration
                 function onNextStepChanged() {
