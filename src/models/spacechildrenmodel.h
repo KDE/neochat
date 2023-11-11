@@ -44,6 +44,7 @@ public:
         WorldReadableRole,
         IsJoinedRole,
         IsSpaceRole,
+        IsSuggestedRole,
         CanAddChildrenRole,
         ParentDisplayNameRole,
         CanSetParentRole,

@@ -22,6 +22,7 @@ Item {
     required property string displayName
     required property url avatarUrl
     required property bool isSpace
+    required property bool isSuggested
     required property int memberCount
     required property string topic
     required property bool isJoined
@@ -79,9 +80,9 @@ Item {
                         textFormat: Text.PlainText
                     }
                     QQC2.Label {
-                        visible: root.isJoined
-                        text: i18n("Joined")
-                        color: Kirigami.Theme.linkColor
+                        visible: root.isJoined || root.isSuggested
+                        text: root.isJoined ? i18n("Joined") : i18n("Suggested")
+                        color: root.isJoined ? Kirigami.Theme.linkColor : Kirigami.Theme.disabledTextColor
                     }
                 }
                 QQC2.Label {
@@ -122,6 +123,17 @@ Item {
                         isDeclaredParent: root.isDeclaredParent
                     }).open();
                 }
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            QQC2.ToolButton {
+                visible: root.parentRoom?.canSendState("m.space.child") ?? false
+                text: root.isSuggested ? i18nc("@button", "Don't Make Suggested") : i18nc("@button", "Make Suggested")
+                icon.name: root.isSuggested ? "edit-delete-remove" : "checkmark"
+                display: QQC2.AbstractButton.IconOnly
+                onClicked: root.parentRoom.toggleChildSuggested(root.roomId)
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered

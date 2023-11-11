@@ -562,7 +562,7 @@ public:
      * Will fail if the user doesn't have the required privileges or this room is
      * not a space.
      */
-    Q_INVOKABLE void addChild(const QString &childId, bool setChildParent = false, bool canonical = false);
+    Q_INVOKABLE void addChild(const QString &childId, bool setChildParent = false, bool canonical = false, bool suggested = false);
 
     /**
      * @brief Remove the given room as a child.
@@ -571,6 +571,19 @@ public:
      * not a space.
      */
     Q_INVOKABLE void removeChild(const QString &childId, bool unsetChildParent = false);
+
+    /**
+     * @brief Whether the given child is a suggested room in the space.
+     */
+    Q_INVOKABLE bool isSuggested(const QString &childId);
+
+    /**
+     * @brief Toggle whether the given child is a suggested room in the space.
+     *
+     * Will fail if the user doesn't have the required privileges, this room is
+     * not a space or the given room is not a child of this space.
+     */
+    Q_INVOKABLE void toggleChildSuggested(const QString &childId);
 
     bool isInvite() const;
 

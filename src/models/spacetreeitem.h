@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include <Quotient/csapi/space_hierarchy.h>
+#include <Quotient/events/stateevent.h>
 
 class NeoChatConnection;
 
@@ -30,7 +31,8 @@ public:
                            const QUrl &avatarUrl = {},
                            bool allowGuests = {},
                            bool worldReadable = {},
-                           bool isSpace = {});
+                           bool isSpace = {},
+                           Quotient::StateEvents childStates = {});
     ~SpaceTreeItem();
 
     /**
@@ -60,7 +62,7 @@ public:
     /**
      * @brief Return this item's parent.
      */
-    SpaceTreeItem *parentItem();
+    SpaceTreeItem *parentItem() const;
 
     /**
      * @brief Return the row number for this child relative to the parent.
@@ -123,6 +125,23 @@ public:
      */
     bool isSpace() const;
 
+    /**
+     * @brief Return the m.space.child state event content for the given child.
+     */
+    QJsonObject childStateContent(const SpaceTreeItem *child) const;
+
+    /**
+     * @brief Set the list of m.space.child events.
+     *
+     * Overwrites existing states. Calling with no input will clear the existing states.
+     */
+    void setChildStates(Quotient::StateEvents childStates = {});
+
+    /**
+     * @brief Whether the room is suggested in the parent space.
+     */
+    bool isSuggested() const;
+
 private:
     NeoChatConnection *m_connection;
     QList<SpaceTreeItem *> m_children;
@@ -137,4 +156,5 @@ private:
     bool m_allowGuests;
     bool m_worldReadable;
     bool m_isSpace;
+    Quotient::StateEvents m_childStates;
 };

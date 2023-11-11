@@ -15,7 +15,8 @@ SpaceTreeItem::SpaceTreeItem(NeoChatConnection *connection,
                              const QUrl &avatarUrl,
                              bool allowGuests,
                              bool worldReadable,
-                             bool isSpace)
+                             bool isSpace,
+                             Quotient::StateEvents childStates)
     : m_connection(connection)
     , m_parentItem(parent)
     , m_id(id)
@@ -27,6 +28,7 @@ SpaceTreeItem::SpaceTreeItem(NeoChatConnection *connection,
     , m_allowGuests(allowGuests)
     , m_worldReadable(worldReadable)
     , m_isSpace(isSpace)
+    , m_childStates(std::move(childStates))
 {
 }
 
@@ -74,7 +76,7 @@ int SpaceTreeItem::row() const
     return 0;
 }
 
-SpaceTreeItem *SpaceTreeItem::parentItem()
+SpaceTreeItem *SpaceTreeItem::parentItem() const
 {
     return m_parentItem;
 }
@@ -137,4 +139,35 @@ bool SpaceTreeItem::isJoined() const
 bool SpaceTreeItem::isSpace() const
 {
     return m_isSpace;
+}
+
+QJsonObject SpaceTreeItem::childStateContent(const SpaceTreeItem *child) const
+{
+    if (child == nullptr) {
+        return {};
+    }
+    if (child->parentItem() != this) {
+        return {};
+    }
+    for (const auto &childState : m_childStates) {
+        if (childState->stateKey() == child->id()) {
+            return childState->contentJson();
+        }
+    }
+    return {};
+}
+
+void SpaceTreeItem::setChildStates(Quotient::StateEvents childStates)
+{
+    m_childStates.clear();
+    m_childStates = std::move(childStates);
+}
+
+bool SpaceTreeItem::isSuggested() const
+{
+    if (m_parentItem == nullptr) {
+        return false;
+    }
+    const auto childStateContent = m_parentItem->childStateContent(this);
+    return childStateContent.value(QLatin1String("suggested")).toBool();
 }

@@ -1304,7 +1304,7 @@ bool NeoChatRoom::isSpace()
     return creationEvent->roomType() == RoomType::Space;
 }
 
-void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool canonical)
+void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool canonical, bool suggested)
 {
     if (!isSpace()) {
         return;
@@ -1312,7 +1312,7 @@ void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool can
     if (!canSendEvent("m.space.child"_ls)) {
         return;
     }
-    setState("m.space.child"_ls, childId, QJsonObject{{QLatin1String("via"), QJsonArray{connection()->domain()}}});
+    setState("m.space.child"_ls, childId, QJsonObject{{QLatin1String("via"), QJsonArray{connection()->domain()}}, {"suggested"_ls, suggested}});
 
     if (setChildParent) {
         if (auto child = static_cast<NeoChatRoom *>(connection()->room(childId))) {
@@ -1351,6 +1351,30 @@ void NeoChatRoom::removeChild(const QString &childId, bool unsetChildParent)
                 child->setState("m.space.parent"_ls, id(), {});
             }
         }
+    }
+}
+
+bool NeoChatRoom::isSuggested(const QString &childId)
+{
+    if (!currentState().contains("m.space.child"_ls, childId)) {
+        return false;
+    }
+    const auto childEvent = currentState().get("m.space.child"_ls, childId);
+    return childEvent->contentPart<bool>("suggested"_ls);
+}
+
+void NeoChatRoom::toggleChildSuggested(const QString &childId)
+{
+    if (!isSpace()) {
+        return;
+    }
+    if (!canSendEvent("m.space.child"_ls)) {
+        return;
+    }
+    if (const auto childEvent = currentState().get("m.space.child"_ls, childId)) {
+        auto content = childEvent->contentJson();
+        content.insert("suggested"_ls, !childEvent->contentPart<bool>("suggested"_ls));
+        setState("m.space.child"_ls, childId, content);
     }
 }
 
