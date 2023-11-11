@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-11 01:43+0000\n"
 "PO-Revision-Date: 2023-11-09 02:48+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,78 +18,84 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: src/controller.cpp:200
+#: src/controller.cpp:118
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgid "Receiving push notifications"
+msgstr "კრეფის შეტყობინების გაგზავნა"
+
+#: src/controller.cpp:220
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "შესვლის შეცდომა: წვდომის კოდი არასწორი ან გაუქმებულია"
 
-#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
+#: src/controller.cpp:223 src/controller.cpp:228 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "შესვლის შეცდომა: %1"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:234
 #, kde-format
 msgid "Network Error: %1"
 msgstr "ქსელის შეცდომა: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:259
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "წვდომის კოდი ვერ ვიპოვე"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:259
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "შეიძლება წაშლილია?"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:263
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "ბრელოკთან წვდომა აკრძალულია."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:263
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "მიეცით უფლება NeoChat-ს, წვდომის კოდი წაიკითხოს"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:266
 #, kde-format
 msgid "No keychain available."
 msgstr "ბრელოკი მიუწვდომელია."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:266
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "დააყენეთ ბრელოკი, მაგალითად, ლინუქსზე KWallet ან GNOME Keyring"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:269
 #, kde-format
 msgid "Unable to read access token"
 msgstr "წვდომის კოდის წაკითხვის შეცდომა"
 
-#: src/controller.cpp:331
+#: src/controller.cpp:351
 #, kde-format
 msgid "File too large to download."
 msgstr "ფაილი გადმოსაწერად ძალიან დიდია."
 
-#: src/controller.cpp:331
+#: src/controller.cpp:351
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "მხარდაჭერისთვის დაუკავშირდით თქვენი მატრიქსის სერვერის ადმინისტრატორს."
 
-#: src/controller.cpp:350
+#: src/controller.cpp:370
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:505
-#: src/models/messageeventmodel.cpp:459
+#: src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messageeventmodel.cpp:460
+#: src/eventhandler.cpp:303 src/models/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია: %1]</i>"
@@ -541,20 +547,25 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (აგებულია %2-ით)"
 
-#: src/main.cpp:212
+#: src/main.cpp:185
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "კლიენტი Matrix-ის კომუნიკაციის პროტოკოლისთვის"
 
-#: src/main.cpp:213
+#: src/main.cpp:186
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Matrix-ის მხარდჭერა: ბმული სქემა"
 
-#: src/main.cpp:214
+#: src/main.cpp:187
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "ყველა SSL შეცდომის იგნორი. მაგ: ხელმოუწერელი სერტიფიკატები."
+
+#: src/main.cpp:190
+#, kde-format
+msgid "Internal usage only."
+msgstr ""
 
 #: src/matriximageprovider.cpp:41
 #, kde-format
@@ -952,12 +963,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "საკუთარი ემოჯიები"
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:482
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ჩასწორებული]"
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:482
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
@@ -1048,12 +1059,12 @@ msgstr "დაბალი პრიორიტეტი"
 msgid "Spaces"
 msgstr "სივრცეები"
 
-#: src/neochatconnection.cpp:191
+#: src/neochatconnection.cpp:198
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/neochatconnection.cpp:223
+#: src/neochatconnection.cpp:230
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
@@ -2801,7 +2812,7 @@ msgstr "მინიატურის გაფართოება"
 msgid "Loading URL preview"
 msgstr "URL-ის მინიატურის ჩატვირთვა"
 
-#: src/qml/Loading.qml:18
+#: src/qml/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "მოითმინეთ. ამას საკმაო დრო შეიძლება დასჭირდეს."

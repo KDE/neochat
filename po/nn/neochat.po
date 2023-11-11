@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-11 01:43+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -20,78 +20,84 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/controller.cpp:200
+#: src/controller.cpp:118
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgid "Receiving push notifications"
+msgstr "Send varsling om skriving"
+
+#: src/controller.cpp:220
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Feil ved innlogging: Ugyldig eller tilbaketrekt tilgangspollett"
 
-#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
+#: src/controller.cpp:223 src/controller.cpp:228 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Feil ved innlogging: %1"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:234
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Nettverksfeil: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:259
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Fann ikkje tilgangspollett"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:259
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Kanskje han er sletta?"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:263
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Vart nekta tilgang til nøkkelring."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:263
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Gje NeoChat løyve til å lesa tilgangspolletten"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:266
 #, kde-format
 msgid "No keychain available."
 msgstr "Ingen nøkkelring er tilgjengeleg."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:266
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:269
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Klarte ikkje lesa tilgangspollett"
 
-#: src/controller.cpp:331
+#: src/controller.cpp:351
 #, kde-format
 msgid "File too large to download."
 msgstr "Fila er for stor til å kunna lastast ned."
 
-#: src/controller.cpp:331
+#: src/controller.cpp:351
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Ta kontakt med administratoren av Matrix-tenaren for brukarstøtte."
 
-#: src/controller.cpp:350
+#: src/controller.cpp:370
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Rom-ID-en du prøver å bruka, er ikkje gyldig"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:505
-#: src/models/messageeventmodel.cpp:459
+#: src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Denne meldinga er sletta]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messageeventmodel.cpp:460
+#: src/eventhandler.cpp:303 src/models/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Denne meldinga er sletta: %1]</i>"
@@ -544,20 +550,25 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (bygd mot %2)"
 
-#: src/main.cpp:212
+#: src/main.cpp:185
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Lynmeldings­klient for Matrix-protokollen"
 
-#: src/main.cpp:213
+#: src/main.cpp:186
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Støttar «matrix:»-adresser"
 
-#: src/main.cpp:214
+#: src/main.cpp:187
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorer alle SSL-feil, for eksempel usignerte sertifikat."
+
+#: src/main.cpp:190
+#, kde-format
+msgid "Internal usage only."
+msgstr ""
 
 #: src/matriximageprovider.cpp:41
 #, kde-format
@@ -957,12 +968,12 @@ msgid "Own Emojis"
 msgstr "Eigne emojiar"
 
 # Eller «SENSURERT»?
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:482
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[TREKT TILBAKE]"
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:482
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[TREKT TILBAKE: %1]"
@@ -1056,12 +1067,12 @@ msgstr "Lågt prioriterte"
 msgid "Spaces"
 msgstr "Område"
 
-#: src/neochatconnection.cpp:191
+#: src/neochatconnection.cpp:198
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Feil ved romregistrering: %1"
 
-#: src/neochatconnection.cpp:223
+#: src/neochatconnection.cpp:230
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
@@ -2829,7 +2840,7 @@ msgstr "Utvid førehandsvising"
 msgid "Loading URL preview"
 msgstr "Lastar førehandsvising av nettside"
 
-#: src/qml/Loading.qml:18
+#: src/qml/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "Vent litt. Dette kan ta ei stund."

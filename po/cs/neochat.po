@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-11 01:43+0000\n"
 "PO-Revision-Date: 2023-06-28 15:49+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -17,78 +17,84 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.2\n"
 
-#: src/controller.cpp:200
+#: src/controller.cpp:118
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgid "Receiving push notifications"
+msgstr "Posílat oznamování o psaní"
+
+#: src/controller.cpp:220
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
+#: src/controller.cpp:223 src/controller.cpp:228 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Přihlášení selhalo: %1"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:234
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Chyba sítě: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:259
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:239
+#: src/controller.cpp:259
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:243
+#: src/controller.cpp:263
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:243
+#: src/controller.cpp:263
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:246
+#: src/controller.cpp:266
 #, kde-format
 msgid "No keychain available."
 msgstr ""
 
-#: src/controller.cpp:246
+#: src/controller.cpp:266
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:249
+#: src/controller.cpp:269
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:331
+#: src/controller.cpp:351
 #, kde-format
 msgid "File too large to download."
 msgstr "Soubor je pro stažení příliš velký."
 
-#: src/controller.cpp:331
+#: src/controller.cpp:351
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Pomoc hledejte u správce serveru matrix."
 
-#: src/controller.cpp:350
+#: src/controller.cpp:370
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr ""
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:505
-#: src/models/messageeventmodel.cpp:459
+#: src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr ""
 
-#: src/eventhandler.cpp:303 src/models/messageeventmodel.cpp:460
+#: src/eventhandler.cpp:303 src/models/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr ""
@@ -540,19 +546,24 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (sestaveno oproti %2)"
 
-#: src/main.cpp:212
+#: src/main.cpp:185
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr ""
 
-#: src/main.cpp:213
+#: src/main.cpp:186
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr ""
 
-#: src/main.cpp:214
+#: src/main.cpp:187
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr ""
+
+#: src/main.cpp:190
+#, kde-format
+msgid "Internal usage only."
 msgstr ""
 
 #: src/matriximageprovider.cpp:41
@@ -951,12 +962,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Vlastní emotikony"
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:482
 #, kde-format
 msgid "[REDACTED]"
 msgstr ""
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:482
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr ""
@@ -1051,12 +1062,12 @@ msgstr "Nízká priorita"
 msgid "Spaces"
 msgstr "Mezery"
 
-#: src/neochatconnection.cpp:191
+#: src/neochatconnection.cpp:198
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/neochatconnection.cpp:223
+#: src/neochatconnection.cpp:230
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
@@ -1803,11 +1814,10 @@ msgid "Password:"
 msgstr "Heslo:"
 
 #: src/qml/DevicesPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
-msgstr "Odstranit"
+msgstr ""
 
 #: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:85
 #, kde-format
@@ -2033,17 +2043,14 @@ msgid "Create rooms and chats"
 msgstr "Vytvářejte místnosti a rozhovory"
 
 #: src/qml/ExploreComponentMobile.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search"
+#, kde-format
 msgid "Search"
 msgstr "Hledat"
 
 #: src/qml/ExploreComponentMobile.qml:75
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgid "Create New"
-msgstr "Vytvořit místnost"
+msgstr "Vytvořit nový"
 
 #: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
@@ -2797,7 +2804,7 @@ msgstr "Roztáhnout náhled"
 msgid "Loading URL preview"
 msgstr "Načítá se náhled URL"
 
-#: src/qml/Loading.qml:18
+#: src/qml/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr ""
@@ -3059,11 +3066,9 @@ msgid "Delete keyword"
 msgstr ""
 
 #: src/qml/OpenFileDialog.qml:12
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select a File"
-msgstr "Vybrat vše"
+msgstr "Vybrat soubor"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3584,10 +3589,9 @@ msgid "Anyone in the selected spaces can find and join."
 msgstr ""
 
 #: src/qml/RoomSecurity.qml:64
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Select spaces"
-msgstr "Mezery"
+msgstr ""
 
 #: src/qml/RoomSecurity.qml:82
 #, kde-format
@@ -3687,36 +3691,31 @@ msgid "No results found"
 msgstr "Nenalezeny žádné výsledky"
 
 #: src/qml/Security.qml:17
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@title"
 msgid "Security"
-msgstr "Bezpečnost"
+msgstr ""
 
 #: src/qml/Security.qml:20
 #, kde-format
 msgctxt "@title"
 msgid "Keys"
-msgstr ""
+msgstr "Klávesy"
 
 #: src/qml/Security.qml:25
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "Device key"
-msgstr "Zařízení"
+msgstr ""
 
 #: src/qml/Security.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Encryption"
+#, kde-format
 msgid "Encryption key"
-msgstr "Šifrování"
+msgstr ""
 
 #: src/qml/Security.qml:33
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "Device id"
-msgstr "Zařízení"
+msgstr ""
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -3752,11 +3751,10 @@ msgid "You do not have the privileges to complete this action"
 msgstr ""
 
 #: src/qml/SelectSpacesDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
-msgstr "Mezery"
+msgstr ""
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -4310,10 +4308,9 @@ msgid "Welcome"
 msgstr "Vítejte"
 
 #: src/qml/WelcomePage.qml:50
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "O aplikaci NeoChat"
+msgstr ""
 
 #: src/qml/WelcomePage.qml:56
 #, kde-format
@@ -4322,12 +4319,10 @@ msgid "Continue with an existing account"
 msgstr ""
 
 #: src/qml/WelcomePage.qml:77
-#, fuzzy, kde-format
-#| msgctxt "Job heading, like 'Copying'"
-#| msgid "Uploading"
+#, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "Odesílání"
+msgstr ""
 
 #: src/qml/WelcomePage.qml:84
 #, kde-format
@@ -4446,9 +4441,3 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
-
-#~ msgid "Please choose a file"
-#~ msgstr "Prosím, vyberte soubor"
-
-#~ msgid "Replying to:"
-#~ msgstr "Odpovídáte:"

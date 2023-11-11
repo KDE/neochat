@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-11 01:43+0000\n"
 "PO-Revision-Date: 2023-10-21 13:51\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,80 +17,86 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/neochat/neochat.pot\n"
 "X-Crowdin-File-ID: 44721\n"
 
-#: src/controller.cpp:200
+#: src/controller.cpp:118
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgid "Receiving push notifications"
+msgstr "发送输入中状态"
+
+#: src/controller.cpp:220
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:203 src/controller.cpp:208 src/login.cpp:93
+#: src/controller.cpp:223 src/controller.cpp:228 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "登录失败：%1"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:234
 #, kde-format
 msgid "Network Error: %1"
 msgstr "网络错误：%1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:259
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:239
+#: src/controller.cpp:259
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:243
+#: src/controller.cpp:263
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:243
+#: src/controller.cpp:263
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "请允许 NeoChat 读取访问令牌"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:266
 #, kde-format
 msgid "No keychain available."
 msgstr "没有可用的钥匙环。"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:266
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "请安装一个钥匙环，例如 Linux 平台上的 KDE 密码库（KWallet）或 GNOME 钥匙圈"
 "（GNOME keyring）"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:269
 #, kde-format
 msgid "Unable to read access token"
 msgstr "无法读取访问令牌"
 
-#: src/controller.cpp:331
+#: src/controller.cpp:351
 #, kde-format
 msgid "File too large to download."
 msgstr "文件太大，无法下载。"
 
-#: src/controller.cpp:331
+#: src/controller.cpp:351
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:350
+#: src/controller.cpp:370
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr ""
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:505
-#: src/models/messageeventmodel.cpp:459
+#: src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[这条消息已被删除]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messageeventmodel.cpp:460
+#: src/eventhandler.cpp:303 src/models/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[这条消息已被删除：%1]</i>"
@@ -545,19 +551,24 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (使用 %2 构建)"
 
-#: src/main.cpp:212
+#: src/main.cpp:185
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 通信协议客户端"
 
-#: src/main.cpp:213
+#: src/main.cpp:186
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "支持 matrix: URL 协议"
 
-#: src/main.cpp:214
+#: src/main.cpp:187
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr ""
+
+#: src/main.cpp:190
+#, kde-format
+msgid "Internal usage only."
 msgstr ""
 
 #: src/matriximageprovider.cpp:41
@@ -956,12 +967,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr ""
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:482
 #, kde-format
 msgid "[REDACTED]"
 msgstr ""
 
-#: src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:482
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr ""
@@ -1048,12 +1059,12 @@ msgstr "低优先级"
 msgid "Spaces"
 msgstr "空间"
 
-#: src/neochatconnection.cpp:191
+#: src/neochatconnection.cpp:198
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室创建失败：%1"
 
-#: src/neochatconnection.cpp:223
+#: src/neochatconnection.cpp:230
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
@@ -2791,7 +2802,7 @@ msgstr ""
 msgid "Loading URL preview"
 msgstr ""
 
-#: src/qml/Loading.qml:18
+#: src/qml/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "请稍候。这可能需要一些时间。"
