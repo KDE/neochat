@@ -50,7 +50,8 @@ FormCard.FormCardPage {
                 contentItem.children: RowLayout {
                     spacing: Kirigami.Units.largeSpacing
                     QQC2.Label {
-                        visible: !room.canSendState("m.room.power_levels")
+                        id: powerLevelLabel
+                        visible: !room.canSendState("m.room.power_levels") || (room.getUserPowerLevel(room.localUser.id) <= model.powerLevel && model.userId != room.localUser.id)
                         text: powerLevelString
                         color: Kirigami.Theme.disabledTextColor
                     }
@@ -59,7 +60,7 @@ FormCard.FormCardPage {
                         model: powerLevelModel
                         textRole: "text"
                         valueRole: "powerLevel"
-                        visible: room.canSendState("m.room.power_levels")
+                        visible: !powerLevelLabel.visible
                         Component.onCompleted: {
                             /**
                                 * This is very silly but the only way to populate the model with
