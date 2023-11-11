@@ -110,11 +110,15 @@ Loader {
                 anchors.bottom: parent.bottom
                 visible: componentRoot.hovered && (componentRoot.truncated || checked)
                 checkable: true
+                text: checked ? i18n("Shrink preview") : i18n("Expand preview")
                 icon.name: checked ? "go-up" : "go-down"
+                display: QQC2.AbstractButton.IconOnly
 
-                QQC2.ToolTip.text: checked ? i18n("Shrink preview") : i18n("Expand preview")
-                QQC2.ToolTip.visible: hovered
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip {
+                    text: maximizeButton.text
+                    visible: hovered
+                    delay: Kirigami.Units.toolTipDelay
+                }
             }
         }
     }
