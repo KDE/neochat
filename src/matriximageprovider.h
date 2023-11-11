@@ -62,9 +62,9 @@ class MatrixImageProvider : public QQuickAsyncImageProvider
 public:
     static MatrixImageProvider *create(QQmlEngine *engine, QJSEngine *)
     {
-        static MatrixImageProvider instance;
-        engine->setObjectOwnership(&instance, QQmlEngine::CppOwnership);
-        return &instance;
+        static MatrixImageProvider *instance = new MatrixImageProvider;
+        engine->setObjectOwnership(instance, QQmlEngine::CppOwnership);
+        return instance;
     }
 
     /**
