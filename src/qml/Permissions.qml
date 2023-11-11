@@ -45,6 +45,7 @@ FormCard.FormCardPage {
             }
             delegate: FormCard.FormTextDelegate {
                 text: name
+                textItem.textFormat: Text.PlainText
                 description: userId
                 contentItem.children: RowLayout {
                     spacing: Kirigami.Units.largeSpacing
