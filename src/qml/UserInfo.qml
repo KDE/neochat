@@ -125,7 +125,6 @@ RowLayout {
         display: QQC2.AbstractButton.IconOnly
         Layout.minimumWidth: Layout.preferredWidth
         Layout.alignment: Qt.AlignRight
-        Layout.rightMargin: Kirigami.Units.largeSpacing
         QQC2.ToolTip.text: text
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
