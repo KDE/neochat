@@ -139,6 +139,8 @@ add_library(neochat STATIC
     chatbarcache.h
     colorschemer.cpp
     colorschemer.h
+    models/notificationsmodel.cpp
+    models/notificationsmodel.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
@@ -290,6 +292,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/QrCodeMaximizeComponent.qml
         qml/SelectSpacesDialog.qml
         qml/AttachDialog.qml
+        qml/NotificationsView.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

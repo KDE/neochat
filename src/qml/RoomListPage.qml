@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.config
@@ -127,6 +128,23 @@ Kirigami.Page {
                 clip: AccountRegistry.count > 1
 
                 topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
+
+                KirigamiComponents.FloatingButton {
+                    icon.name: "notifications"
+                    text: i18n("View notifications")
+                    anchors.right: parent.right
+                    anchors.rightMargin: Kirigami.Units.largeSpacing
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: Kirigami.Units.largeSpacing
+                    width: Kirigami.Units.gridUnit * 2
+                    height: width
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.visible: hovered
+                    onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/NotificationsView.qml", {connection: root.connection}, {
+                        title: i18nc("@title", "Notifications")
+                    });
+                }
 
                 header: QQC2.ItemDelegate {
                     width: visible ? ListView.view.width : 0
