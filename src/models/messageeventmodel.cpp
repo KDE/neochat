@@ -437,6 +437,15 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             const KFormat format;
             return format.formatRelativeDateTime(eventDate, QLocale::ShortFormat);
         }
+        case SpecialMarksRole:
+            // Check if all the earlier events in the timeline are hidden. If so hide this.
+            for (auto r = row - 1; r >= 0; --r) {
+                const auto specialMark = index(r).data(SpecialMarksRole);
+                if (!(specialMark == EventStatus::Hidden || specialMark == EventStatus::Replaced)) {
+                    return EventStatus::Normal;
+                }
+            }
+            return EventStatus::Hidden;
         }
         return {};
     }
