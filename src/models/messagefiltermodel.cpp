@@ -117,35 +117,37 @@ QString MessageFilterModel::aggregateEventToString(int sourceRow) const
             chunks += QString();
             int count = 1;
             auto part = parts.takeFirst();
-            chunks.last() += part;
             while (!parts.isEmpty() && parts.first() == part) {
                 parts.removeFirst();
                 count++;
             }
-            if (count > 1 && uniqueAuthors.length() == 1) {
-                chunks.last() += i18ncp("n times", " %1 time ", " %1 times ", count);
-            }
+            chunks.last() += i18ncp("%1: What's being done; %2: How often it is done.", " %1", " %1 %2 times", part, count);
         }
         chunks.removeDuplicates();
-        QString text = QStringLiteral("<style>a {text-decoration: none;}</style>"); // There can be links in the event text so make sure all are styled.
         // The author text is either "n users" if > 1 user or the matrix.to link to a single user.
         QString userText = uniqueAuthors.length() > 1 ? i18ncp("n users", " %1 user ", " %1 users ", uniqueAuthors.length())
                                                       : QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a> ")
                                                             .arg(uniqueAuthors[0].toMap()[QStringLiteral("id")].toString(),
                                                                  uniqueAuthors[0].toMap()[QStringLiteral("color")].toString(),
                                                                  uniqueAuthors[0].toMap()[QStringLiteral("displayName")].toString().toHtmlEscaped());
-        text += userText;
-        text += chunks.takeFirst();
 
+        QString chunksText;
+        chunksText += chunks.takeFirst();
         if (chunks.size() > 0) {
             while (chunks.size() > 1) {
-                text += i18nc("[action 1], [action 2 and/or action 3]", ", ");
-                text += chunks.takeFirst();
+                chunksText += i18nc("[action 1], [action 2 and/or action 3]", ", ");
+                chunksText += chunks.takeFirst();
             }
-            text += uniqueAuthors.length() > 1 ? i18nc("[action 1, action 2] or [action 3]", " or ") : i18nc("[action 1, action 2] and [action 3]", " and ");
-            text += chunks.takeFirst();
+            chunksText +=
+                uniqueAuthors.length() > 1 ? i18nc("[action 1, action 2] or [action 3]", " or ") : i18nc("[action 1, action 2] and [action 3]", " and ");
+            chunksText += chunks.takeFirst();
         }
-        return text;
+        return i18nc(
+            "userText (%1) is either a Matrix username if a single user sent all the states or n users if they were sent by multiple users."
+            "chunksText (%2) is a list of comma separated actions for each of the state events in the group.",
+            "<style>a {text-decoration: none;}</style>%1 %2",
+            userText,
+            chunksText);
     } else {
         return {};
     }
