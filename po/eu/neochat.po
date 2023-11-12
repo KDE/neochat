@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:43+0000\n"
+"POT-Creation-Date: 2023-11-12 01:37+0000\n"
 "PO-Revision-Date: 2023-11-08 22:51+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -77,19 +77,19 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Ez da sartzeko tokena irakurtzeko gai"
 
-#: src/controller.cpp:351
+#: src/controller.cpp:348
 #, kde-format
 msgid "File too large to download."
 msgstr "Fitxategia zama-jaisteko handiegia da."
 
-#: src/controller.cpp:351
+#: src/controller.cpp:348
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Jar zaitez zure matrix zerbitzariaren administratzailearekin harremanean "
 "euskarria lortzeko."
 
-#: src/controller.cpp:370
+#: src/controller.cpp:367
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Batzen saiatzen ari zaren gelaren IDa ez da baliozkoa"
@@ -1075,12 +1075,12 @@ msgstr "Gela sortzea huts egin du: %1"
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/neochatroom.cpp:1570 src/neochatroom.cpp:1571
+#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/neochatroom.cpp:1830 src/neochatroom.cpp:1838
+#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1291,7 +1291,7 @@ msgstr "Saio-itxi"
 msgid "Accounts"
 msgstr "Kontuak"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:175
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:174
 #, kde-format
 msgid "Add Account"
 msgstr "Gehitu kontua"
@@ -1720,7 +1720,7 @@ msgid "Explore Rooms"
 msgstr "Esploratu gelak"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
 msgid "Joined"
 msgstr "Batu da"
@@ -2306,7 +2306,7 @@ msgstr "Gela bertsio-berritu"
 msgid "Select new version"
 msgstr "Hautatu bertsio berria"
 
-#: src/qml/General.qml:418 src/qml/PowerLevelDialog.qml:43
+#: src/qml/General.qml:418 src/qml/PowerLevelDialog.qml:52
 #, kde-format
 msgid "Confirm"
 msgstr "Berretsi"
@@ -2803,17 +2803,17 @@ msgstr "**%1** gailuaren egiaztatze arrakastatsua"
 msgid "Decline"
 msgstr "Uko egin"
 
-#: src/qml/LinkPreviewDelegate.qml:115
+#: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Shrink preview"
 msgstr "Txikiagotu aurreikuspegia"
 
-#: src/qml/LinkPreviewDelegate.qml:115
+#: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Expand preview"
 msgstr "Zabaldu aurreikuspegia"
 
-#: src/qml/LinkPreviewDelegate.qml:140
+#: src/qml/LinkPreviewDelegate.qml:144
 #, kde-format
 msgid "Loading URL preview"
 msgstr "URLaren aurreikuspegia zamatzen"
@@ -2854,7 +2854,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:152
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2883,7 +2883,7 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "Saio-hasi"
 
-#: src/qml/LoginRegister.qml:25
+#: src/qml/LoginRegister.qml:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -3099,144 +3099,144 @@ msgstr "Erabiltzaile-izen edo pasahitz baliogabea"
 msgid "Privileged Users"
 msgstr "Pribilegiodun erabiltzaileak"
 
-#: src/qml/Permissions.qml:69 src/qml/PowerLevelDialog.qml:37
+#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:44
 #, kde-format
 msgid "Member (0)"
 msgstr "Bazkidea (0)"
 
-#: src/qml/Permissions.qml:70 src/qml/PowerLevelDialog.qml:38
+#: src/qml/Permissions.qml:72 src/qml/PowerLevelDialog.qml:45
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Moderatzailea (50)"
 
-#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:39
+#: src/qml/Permissions.qml:73 src/qml/PowerLevelDialog.qml:46
 #, kde-format
 msgid "Admin (100)"
 msgstr "Administratzailea (100)"
 
-#: src/qml/Permissions.qml:230
+#: src/qml/Permissions.qml:232
 #, kde-format
 msgid "Default permissions"
 msgstr "Lehenetsitako baimenak"
 
-#: src/qml/Permissions.qml:235
+#: src/qml/Permissions.qml:237
 #, kde-format
 msgid "Default user power level"
 msgstr "Erabiltzaileen ahalmen maila lehenetsia"
 
-#: src/qml/Permissions.qml:236
+#: src/qml/Permissions.qml:238
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "Hori da gelara batzean erabiltzaile berrien ahalmen maila"
 
-#: src/qml/Permissions.qml:244
+#: src/qml/Permissions.qml:246
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Gelaren egoera ezartzeko ahalmen maila lehenetsia"
 
-#: src/qml/Permissions.qml:245
+#: src/qml/Permissions.qml:247
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Hau, hemen sarrerarik ez duten egoera-gertaera guzietarako erabiltzen da"
 
-#: src/qml/Permissions.qml:253
+#: src/qml/Permissions.qml:255
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Mezuak bidaltzeko ahalmen maila lehenetsia"
 
-#: src/qml/Permissions.qml:254
+#: src/qml/Permissions.qml:256
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr "Hau, hemen sarrerarik ez duten mezu-gertaera guzietarako erabiltzen da"
 
-#: src/qml/Permissions.qml:265
+#: src/qml/Permissions.qml:267
 #, kde-format
 msgid "Basic permissions"
 msgstr "Oinarrizko baimenak"
 
-#: src/qml/Permissions.qml:270
+#: src/qml/Permissions.qml:272
 #, kde-format
 msgid "Invite users"
 msgstr "Erabiltzaileak gonbidatzea"
 
-#: src/qml/Permissions.qml:278
+#: src/qml/Permissions.qml:280
 #, kde-format
 msgid "Kick users"
 msgstr "Erabiltzaileak kanporatzea"
 
-#: src/qml/Permissions.qml:286
+#: src/qml/Permissions.qml:288
 #, kde-format
 msgid "Ban users"
 msgstr "Erabiltzaileak debekatzea"
 
-#: src/qml/Permissions.qml:294
+#: src/qml/Permissions.qml:296
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Beste erabiltzaileek bidalitako mezua kentzea"
 
-#: src/qml/Permissions.qml:305
+#: src/qml/Permissions.qml:307
 #, kde-format
 msgid "Event permissions"
 msgstr "Gertaeren baimenak"
 
-#: src/qml/Permissions.qml:310
+#: src/qml/Permissions.qml:312
 #, kde-format
 msgid "Change user permissions"
 msgstr "Erabiltzaileen baimenak aldatzea"
 
-#: src/qml/Permissions.qml:319
+#: src/qml/Permissions.qml:321
 #, kde-format
 msgid "Change the room name"
 msgstr "Gelaren izena aldatzea"
 
-#: src/qml/Permissions.qml:328
+#: src/qml/Permissions.qml:330
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Gelako abatarra aldatzea"
 
-#: src/qml/Permissions.qml:337
+#: src/qml/Permissions.qml:339
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Gelaren ezizen kanonikoa aldatzea"
 
-#: src/qml/Permissions.qml:346
+#: src/qml/Permissions.qml:348
 #, kde-format
 msgid "Change the room topic"
 msgstr "Gelako gaia aldatzea"
 
-#: src/qml/Permissions.qml:355
+#: src/qml/Permissions.qml:357
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Gelarako zifratzea gaitzea"
 
-#: src/qml/Permissions.qml:364
+#: src/qml/Permissions.qml:366
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Gelako historiaren ikusgaitasuna aldatzea"
 
-#: src/qml/Permissions.qml:373
+#: src/qml/Permissions.qml:375
 #, kde-format
 msgid "Set pinned events"
 msgstr "Iltzatutako gertaerak ezartzea"
 
-#: src/qml/Permissions.qml:382
+#: src/qml/Permissions.qml:384
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Gela bertsio-berritzea"
 
-#: src/qml/Permissions.qml:391
+#: src/qml/Permissions.qml:393
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Gelako zerbitzariaren sarbide kontrolerako zerrenda (ACL) ezartzea"
 
-#: src/qml/Permissions.qml:401
+#: src/qml/Permissions.qml:403
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Toki honen haurrak ezartzea"
 
-#: src/qml/Permissions.qml:410
+#: src/qml/Permissions.qml:412
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Gela honen guraso tokia ezartzea"
@@ -3254,10 +3254,18 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Amaituta)"
 
-#: src/qml/PowerLevelDialog.qml:14
-#, kde-format
-msgid "Edit user power level"
+#: src/qml/PowerLevelDialog.qml:15
+#, fuzzy, kde-format
+#| msgid "Edit user power level"
+msgctxt "@title"
+msgid "Edit User Power Level"
 msgstr "Erabiltzailearen ahalmen maila editatzea"
+
+#: src/qml/PowerLevelDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Set user power level"
+msgid "New power level"
+msgstr "Ezarri erabiltzailearen ahalmen maila"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3941,29 +3949,46 @@ msgstr "Ezabatu hitza"
 msgid "All Rooms"
 msgstr "Gela guztiak"
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:84
+#, kde-format
+msgid "Suggested"
+msgstr ""
+
+#: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " bazkide -"
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " bazkide"
 
-#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Gehitu haur berria"
 
-#: src/qml/SpaceHierarchyDelegate.qml:112
+#: src/qml/SpaceHierarchyDelegate.qml:113
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Kendu"
+
+#: src/qml/SpaceHierarchyDelegate.qml:133
+#, kde-format
+msgctxt "@button"
+msgid "Don't Make Suggested"
+msgstr ""
+
+#: src/qml/SpaceHierarchyDelegate.qml:133
+#, kde-format
+msgctxt "@button"
+msgid "Make Suggested"
+msgstr ""
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
@@ -4153,12 +4178,12 @@ msgstr "Aldatu erabiltzailea"
 msgid "Open Settings"
 msgstr "Ireki ezarpenak"
 
-#: src/qml/UserInfo.qml:178
+#: src/qml/UserInfo.qml:177
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Saioa hasi dagoen kontu batean"
 
-#: src/qml/UserInfo.qml:185
+#: src/qml/UserInfo.qml:184
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -4363,30 +4388,30 @@ msgstr "Maximizatu"
 msgid "Welcome"
 msgstr "Ongi etorri"
 
-#: src/qml/WelcomePage.qml:50
+#: src/qml/WelcomePage.qml:45
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Ongi etorri «NeoChat»era"
 
-#: src/qml/WelcomePage.qml:56
+#: src/qml/WelcomePage.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Jarraitu aurrez dagoen kontu batekin"
 
-#: src/qml/WelcomePage.qml:77
+#: src/qml/WelcomePage.qml:74
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (Zamatzen)"
 
-#: src/qml/WelcomePage.qml:84
+#: src/qml/WelcomePage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Saioa hasi edo sortu kontu bat"
 
-#: src/qml/WelcomePage.qml:160
+#: src/qml/WelcomePage.qml:162
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:43+0000\n"
+"POT-Creation-Date: 2023-11-12 01:37+0000\n"
 "PO-Revision-Date: 2023-11-10 10:19+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -75,17 +75,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Incapace a leger indicio"
 
-#: src/controller.cpp:351
+#: src/controller.cpp:348
 #, kde-format
 msgid "File too large to download."
 msgstr "File troppo grande a discargar."
 
-#: src/controller.cpp:351
+#: src/controller.cpp:348
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Continge tu administrator de servitor de matrix per supporto."
 
-#: src/controller.cpp:370
+#: src/controller.cpp:367
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Iste id de sala que tu es essayante a unir non es valid"
@@ -1071,12 +1071,12 @@ msgstr "Creation de sala falleva: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Creation de spatio falleva: \"%1\""
 
-#: src/neochatroom.cpp:1570 src/neochatroom.cpp:1571
+#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Reporto inviate con successo."
 
-#: src/neochatroom.cpp:1830 src/neochatroom.cpp:1838
+#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1287,7 +1287,7 @@ msgstr "Clausura de session"
 msgid "Accounts"
 msgstr "Contos"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:175
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:174
 #, kde-format
 msgid "Add Account"
 msgstr "Adde conto"
@@ -1718,7 +1718,7 @@ msgid "Explore Rooms"
 msgstr "Explora salas"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
 msgid "Joined"
 msgstr "Unite"
@@ -2309,7 +2309,7 @@ msgstr "Actualisa le sala"
 msgid "Select new version"
 msgstr "Selige nove version"
 
-#: src/qml/General.qml:418 src/qml/PowerLevelDialog.qml:43
+#: src/qml/General.qml:418 src/qml/PowerLevelDialog.qml:52
 #, kde-format
 msgid "Confirm"
 msgstr "Confirma"
@@ -2806,17 +2806,17 @@ msgstr "Dispositivo **%1** verificato con successo"
 msgid "Decline"
 msgstr "Declina"
 
-#: src/qml/LinkPreviewDelegate.qml:115
+#: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Shrink preview"
 msgstr "Comprime vista preliminar"
 
-#: src/qml/LinkPreviewDelegate.qml:115
+#: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Expand preview"
 msgstr "Expande Vista Preliminar"
 
-#: src/qml/LinkPreviewDelegate.qml:140
+#: src/qml/LinkPreviewDelegate.qml:144
 #, kde-format
 msgid "Loading URL preview"
 msgstr "Cargante vista preliminar de URL"
@@ -2857,7 +2857,7 @@ msgstr "ID de Matrix:"
 msgid "Matrix ID"
 msgstr "ID de Matrix:"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:152
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2886,7 +2886,7 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "Accesso de identification"
 
-#: src/qml/LoginRegister.qml:25
+#: src/qml/LoginRegister.qml:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -3100,145 +3100,145 @@ msgstr "Invalide nomine de usator o contrasigno"
 msgid "Privileged Users"
 msgstr "Usatores privilegiate"
 
-#: src/qml/Permissions.qml:69 src/qml/PowerLevelDialog.qml:37
+#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:44
 #, kde-format
 msgid "Member (0)"
 msgstr " Member (0)"
 
-#: src/qml/Permissions.qml:70 src/qml/PowerLevelDialog.qml:38
+#: src/qml/Permissions.qml:72 src/qml/PowerLevelDialog.qml:45
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Moderator (50)"
 
-#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:39
+#: src/qml/Permissions.qml:73 src/qml/PowerLevelDialog.qml:46
 #, kde-format
 msgid "Admin (100)"
 msgstr "Admin (100)"
 
-#: src/qml/Permissions.qml:230
+#: src/qml/Permissions.qml:232
 #, kde-format
 msgid "Default permissions"
 msgstr "Permissiones predefinite"
 
-#: src/qml/Permissions.qml:235
+#: src/qml/Permissions.qml:237
 #, kde-format
 msgid "Default user power level"
 msgstr "Nivellko de fortia de usator predefinite"
 
-#: src/qml/Permissions.qml:236
+#: src/qml/Permissions.qml:238
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "Iste es le nivello de fortia per omnes usatores quando uni al sala"
 
-#: src/qml/Permissions.qml:244
+#: src/qml/Permissions.qml:246
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Nivello de potentia predefinite a fixar le stato de sala"
 
-#: src/qml/Permissions.qml:245
+#: src/qml/Permissions.qml:247
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Isto es usate per omne eventos de stato que non ha su proprie entrata hic"
 
-#: src/qml/Permissions.qml:253
+#: src/qml/Permissions.qml:255
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Nivello de fortia predefinite per inviar message"
 
-#: src/qml/Permissions.qml:254
+#: src/qml/Permissions.qml:256
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 "Isto es usate per omne eventos de message que non ha su proprie entrata hic"
 
-#: src/qml/Permissions.qml:265
+#: src/qml/Permissions.qml:267
 #, kde-format
 msgid "Basic permissions"
 msgstr "Permissiones basic"
 
-#: src/qml/Permissions.qml:270
+#: src/qml/Permissions.qml:272
 #, kde-format
 msgid "Invite users"
 msgstr "Invita Usatores"
 
-#: src/qml/Permissions.qml:278
+#: src/qml/Permissions.qml:280
 #, kde-format
 msgid "Kick users"
 msgstr "Calca usatores"
 
-#: src/qml/Permissions.qml:286
+#: src/qml/Permissions.qml:288
 #, kde-format
 msgid "Ban users"
 msgstr "Prohibi usatores"
 
-#: src/qml/Permissions.qml:294
+#: src/qml/Permissions.qml:296
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Remove messages inviate per altere usatores"
 
-#: src/qml/Permissions.qml:305
+#: src/qml/Permissions.qml:307
 #, kde-format
 msgid "Event permissions"
 msgstr "Permissiones de evento"
 
-#: src/qml/Permissions.qml:310
+#: src/qml/Permissions.qml:312
 #, kde-format
 msgid "Change user permissions"
 msgstr "Cambia permissiones de usator"
 
-#: src/qml/Permissions.qml:319
+#: src/qml/Permissions.qml:321
 #, kde-format
 msgid "Change the room name"
 msgstr "Cambiale nomine de sala"
 
-#: src/qml/Permissions.qml:328
+#: src/qml/Permissions.qml:330
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Cambia le avatar de sala"
 
-#: src/qml/Permissions.qml:337
+#: src/qml/Permissions.qml:339
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Cambia le alias canonic de sala"
 
-#: src/qml/Permissions.qml:346
+#: src/qml/Permissions.qml:348
 #, kde-format
 msgid "Change the room topic"
 msgstr "Cambia le argumento de sala"
 
-#: src/qml/Permissions.qml:355
+#: src/qml/Permissions.qml:357
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Habilita cryptation per le sala"
 
-#: src/qml/Permissions.qml:364
+#: src/qml/Permissions.qml:366
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Cambia la visibilitate de chronolgia de sala"
 
-#: src/qml/Permissions.qml:373
+#: src/qml/Permissions.qml:375
 #, kde-format
 msgid "Set pinned events"
 msgstr "Fixa eventos appunctate"
 
-#: src/qml/Permissions.qml:382
+#: src/qml/Permissions.qml:384
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Actualisa le sala"
 
-#: src/qml/Permissions.qml:391
+#: src/qml/Permissions.qml:393
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Fixa le listas de controlo de accesso de servitor (ACL)  per iste sala"
 
-#: src/qml/Permissions.qml:401
+#: src/qml/Permissions.qml:403
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Assigna le filios de iste spatio"
 
-#: src/qml/Permissions.qml:410
+#: src/qml/Permissions.qml:412
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Fixa lespatio genitor de iste sala"
@@ -3256,10 +3256,18 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(teminate (ended))"
 
-#: src/qml/PowerLevelDialog.qml:14
-#, kde-format
-msgid "Edit user power level"
+#: src/qml/PowerLevelDialog.qml:15
+#, fuzzy, kde-format
+#| msgid "Edit user power level"
+msgctxt "@title"
+msgid "Edit User Power Level"
 msgstr "Modifica le nivello de fortia de un usator"
+
+#: src/qml/PowerLevelDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Set user power level"
+msgid "New power level"
+msgstr "Assigna le nivello de fortia de usator"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3948,29 +3956,46 @@ msgstr "Dele parola"
 msgid "All Rooms"
 msgstr "Omne Salas"
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:84
+#, kde-format
+msgid "Suggested"
+msgstr ""
+
+#: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " membros - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " membros"
 
-#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Adde nove fiflio"
 
-#: src/qml/SpaceHierarchyDelegate.qml:112
+#: src/qml/SpaceHierarchyDelegate.qml:113
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Remove"
+
+#: src/qml/SpaceHierarchyDelegate.qml:133
+#, kde-format
+msgctxt "@button"
+msgid "Don't Make Suggested"
+msgstr ""
+
+#: src/qml/SpaceHierarchyDelegate.qml:133
+#, kde-format
+msgctxt "@button"
+msgid "Make Suggested"
+msgstr ""
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
@@ -4160,12 +4185,12 @@ msgstr "Commuta Usator"
 msgid "Open Settings"
 msgstr "Aperi Preferentias"
 
-#: src/qml/UserInfo.qml:178
+#: src/qml/UserInfo.qml:177
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Accede a un conto existente"
 
-#: src/qml/UserInfo.qml:185
+#: src/qml/UserInfo.qml:184
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -4377,30 +4402,30 @@ msgstr "Maximiza"
 msgid "Welcome"
 msgstr "Benvenite"
 
-#: src/qml/WelcomePage.qml:50
+#: src/qml/WelcomePage.qml:45
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Benvenite a NeoChat"
 
-#: src/qml/WelcomePage.qml:56
+#: src/qml/WelcomePage.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Continua con un conto existente"
 
-#: src/qml/WelcomePage.qml:77
+#: src/qml/WelcomePage.qml:74
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (cargante)"
 
-#: src/qml/WelcomePage.qml:84
+#: src/qml/WelcomePage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Accede  o crea un conto nove"
 
-#: src/qml/WelcomePage.qml:160
+#: src/qml/WelcomePage.qml:162
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:43+0000\n"
+"POT-Creation-Date: 2023-11-12 01:37+0000\n"
 "PO-Revision-Date: 2023-10-22 17:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -75,17 +75,17 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
 
-#: src/controller.cpp:351
+#: src/controller.cpp:348
 #, kde-format
 msgid "File too large to download."
 msgstr "கோப்பு பெரிதாக இருப்பதால் பதிவிறக்க முடியாது."
 
-#: src/controller.cpp:351
+#: src/controller.cpp:348
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக நிர்வாகியை தொடர்புகொள்ளுங்கள்."
 
-#: src/controller.cpp:370
+#: src/controller.cpp:367
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "நீங்கள் சேர முயற்சிக்கும் அரங்கு செல்லுபடியாகாதது"
@@ -1072,12 +1072,12 @@ msgstr "அரங்கு உருவாக்கம் தோல்விய�
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1570 src/neochatroom.cpp:1571
+#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1830 src/neochatroom.cpp:1838
+#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1288,7 +1288,7 @@ msgstr "கணக்கிலிருந்து வெளியேறு"
 msgid "Accounts"
 msgstr "கணக்குகள்"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:175
+#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:174
 #, kde-format
 msgid "Add Account"
 msgstr "கணக்கைச் சேர்"
@@ -1717,7 +1717,7 @@ msgid "Explore Rooms"
 msgstr "அரங்குப்பட்டியலில் உலாவுங்கள்"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
 msgid "Joined"
 msgstr "சேர்ந்தவை"
@@ -2313,7 +2313,7 @@ msgstr "அரங்கைப் புதுப்பி"
 msgid "Select new version"
 msgstr "புதிய பதிப்பைத் தேர்ந்தெடுங்கள்"
 
-#: src/qml/General.qml:418 src/qml/PowerLevelDialog.qml:43
+#: src/qml/General.qml:418 src/qml/PowerLevelDialog.qml:52
 #, kde-format
 msgid "Confirm"
 msgstr "உறுதிசெய்"
@@ -2808,17 +2808,17 @@ msgstr "**%1** சாதனம் வெற்றிகரமாக உறுத
 msgid "Decline"
 msgstr "நிராகரி"
 
-#: src/qml/LinkPreviewDelegate.qml:115
+#: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Shrink preview"
 msgstr "முன்னோட்டத்தை சிறிதாக்கு"
 
-#: src/qml/LinkPreviewDelegate.qml:115
+#: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Expand preview"
 msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 
-#: src/qml/LinkPreviewDelegate.qml:140
+#: src/qml/LinkPreviewDelegate.qml:144
 #, kde-format
 msgid "Loading URL preview"
 msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
@@ -2859,7 +2859,7 @@ msgstr "Matrix கணக்குப்பெயர்:"
 msgid "Matrix ID"
 msgstr "Matrix கணக்குப்பெயர்"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:152
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2888,7 +2888,7 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "நுழை"
 
-#: src/qml/LoginRegister.qml:25
+#: src/qml/LoginRegister.qml:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -3103,145 +3103,145 @@ msgstr "செல்லுபடியாகாத பயனர் பெயர�
 msgid "Privileged Users"
 msgstr "சிறப்புரிமையுடைய பயனர்கள்"
 
-#: src/qml/Permissions.qml:69 src/qml/PowerLevelDialog.qml:37
+#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:44
 #, kde-format
 msgid "Member (0)"
 msgstr "உறுப்பினர் (0)"
 
-#: src/qml/Permissions.qml:70 src/qml/PowerLevelDialog.qml:38
+#: src/qml/Permissions.qml:72 src/qml/PowerLevelDialog.qml:45
 #, kde-format
 msgid "Moderator (50)"
 msgstr "நடுவர் (50)"
 
-#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:39
+#: src/qml/Permissions.qml:73 src/qml/PowerLevelDialog.qml:46
 #, kde-format
 msgid "Admin (100)"
 msgstr "நிர்வாகி (100)"
 
-#: src/qml/Permissions.qml:230
+#: src/qml/Permissions.qml:232
 #, kde-format
 msgid "Default permissions"
 msgstr "இயல்பிருப்பு அனுமதிகள்"
 
-#: src/qml/Permissions.qml:235
+#: src/qml/Permissions.qml:237
 #, kde-format
 msgid "Default user power level"
 msgstr "பயனர்களின் இயல்பிருப்பு உரிமையளவு"
 
-#: src/qml/Permissions.qml:236
+#: src/qml/Permissions.qml:238
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "அரங்கில் புதிதாக சேரும் பயனர்களுக்கான உரிமையளவு இது"
 
-#: src/qml/Permissions.qml:244
+#: src/qml/Permissions.qml:246
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "அரங்கின் நிலையை மாற்றுவதற்கான இயல்பிருப்பு உரிமையளவு"
 
-#: src/qml/Permissions.qml:245
+#: src/qml/Permissions.qml:247
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "கீழே தனிப்பட்ட பதிவைக் கொண்டிராத அனைத்து நிலைகுறித்த செயல்களுக்கும் இது பயன்படுத்தப்படும்"
 
-#: src/qml/Permissions.qml:253
+#: src/qml/Permissions.qml:255
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "செய்திகளை அனுப்புவதற்கான இயல்பிருப்பு உரிமையளவு"
 
-#: src/qml/Permissions.qml:254
+#: src/qml/Permissions.qml:256
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 "கீழே தனிப்பட்ட பதிவைக் கொண்டிராத அனைத்து செய்திகுறித்த செயல்களுக்கும் இது பயன்படுத்தப்படும்"
 
-#: src/qml/Permissions.qml:265
+#: src/qml/Permissions.qml:267
 #, kde-format
 msgid "Basic permissions"
 msgstr "அடிப்படை அனுமதிகள்"
 
-#: src/qml/Permissions.qml:270
+#: src/qml/Permissions.qml:272
 #, kde-format
 msgid "Invite users"
 msgstr "பயனர்களை வரவழைப்பது"
 
-#: src/qml/Permissions.qml:278
+#: src/qml/Permissions.qml:280
 #, kde-format
 msgid "Kick users"
 msgstr "பயனர்களை வெளியேற்றுவது"
 
-#: src/qml/Permissions.qml:286
+#: src/qml/Permissions.qml:288
 #, kde-format
 msgid "Ban users"
 msgstr "பயனர்களைத் தடை செய்வது"
 
-#: src/qml/Permissions.qml:294
+#: src/qml/Permissions.qml:296
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "இன்னொரு பயனர் அனுப்பிய செய்தியை நீக்குவது"
 
-#: src/qml/Permissions.qml:305
+#: src/qml/Permissions.qml:307
 #, kde-format
 msgid "Event permissions"
 msgstr ""
 
-#: src/qml/Permissions.qml:310
+#: src/qml/Permissions.qml:312
 #, kde-format
 msgid "Change user permissions"
 msgstr "பயனர்களின் அனுமதிகளை மாற்றுவது"
 
-#: src/qml/Permissions.qml:319
+#: src/qml/Permissions.qml:321
 #, kde-format
 msgid "Change the room name"
 msgstr "அரங்கின் பெயரை மாற்றுவது"
 
-#: src/qml/Permissions.qml:328
+#: src/qml/Permissions.qml:330
 #, kde-format
 msgid "Change the room avatar"
 msgstr "அரங்கின் சின்னத்தை மாற்றுவது"
 
-#: src/qml/Permissions.qml:337
+#: src/qml/Permissions.qml:339
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "இதை அரங்கின் செந்தர மாற்றுப்பெயரை மாற்றுவது"
 
-#: src/qml/Permissions.qml:346
+#: src/qml/Permissions.qml:348
 #, kde-format
 msgid "Change the room topic"
 msgstr "அரங்கின் தலைப்பை மாற்றுவது"
 
-#: src/qml/Permissions.qml:355
+#: src/qml/Permissions.qml:357
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "அரங்கில் மறையாக்கத்தை நீக்குவது"
 
-#: src/qml/Permissions.qml:364
+#: src/qml/Permissions.qml:366
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "செய்தி வரலாற்றின் புலப்பாட்டை மாற்றுவது"
 
-#: src/qml/Permissions.qml:373
+#: src/qml/Permissions.qml:375
 #, kde-format
 msgid "Set pinned events"
 msgstr "தக்கவைத்தவற்றை அமைப்பது"
 
-#: src/qml/Permissions.qml:382
+#: src/qml/Permissions.qml:384
 #, kde-format
 msgid "Upgrade the room"
 msgstr "அரங்கைப் புதுப்பிப்பது"
 
-#: src/qml/Permissions.qml:391
+#: src/qml/Permissions.qml:393
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "அரங்கிற்கான சேவையக அணுகல் கட்டுப்பாட்டு பட்டியலை (ACL-ஐ) மாற்றிவது"
 
-#: src/qml/Permissions.qml:401
+#: src/qml/Permissions.qml:403
 #, kde-format
 msgid "Set the children of this space"
 msgstr "இவ்விடத்தில் சார்ந்த அரங்குகளை அமைப்பது"
 
-#: src/qml/Permissions.qml:410
+#: src/qml/Permissions.qml:412
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "இவ்வரங்கின் தாய் இடத்தை அமைப்பது"
@@ -3259,10 +3259,18 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(முடிந்துள்ளது)"
 
-#: src/qml/PowerLevelDialog.qml:14
-#, kde-format
-msgid "Edit user power level"
+#: src/qml/PowerLevelDialog.qml:15
+#, fuzzy, kde-format
+#| msgid "Edit user power level"
+msgctxt "@title"
+msgid "Edit User Power Level"
 msgstr "பயனர்களின் உரிமையளவை மாற்றுவது"
+
+#: src/qml/PowerLevelDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Set user power level"
+msgid "New power level"
+msgstr "பயனரின் உரிமையளவை அமை"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3954,30 +3962,47 @@ msgstr "சொல்லை நீக்கு"
 msgid "All Rooms"
 msgstr "அனைத்து அரங்குகள்"
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:84
+#, kde-format
+msgid "Suggested"
+msgstr ""
+
+#: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " உறுப்பினர்கள் - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " உறுப்பினர்கள்"
 
-#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
 msgid "Add new child"
 msgstr "புதிய மாற்றுப்பெயரைச் சேர்"
 
-#: src/qml/SpaceHierarchyDelegate.qml:112
+#: src/qml/SpaceHierarchyDelegate.qml:113
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "நீக்கு"
+
+#: src/qml/SpaceHierarchyDelegate.qml:133
+#, kde-format
+msgctxt "@button"
+msgid "Don't Make Suggested"
+msgstr ""
+
+#: src/qml/SpaceHierarchyDelegate.qml:133
+#, kde-format
+msgctxt "@button"
+msgid "Make Suggested"
+msgstr ""
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
@@ -4167,12 +4192,12 @@ msgstr "பயனரை மாற்று"
 msgid "Open Settings"
 msgstr "அமைப்புகளை திற"
 
-#: src/qml/UserInfo.qml:178
+#: src/qml/UserInfo.qml:177
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
 
-#: src/qml/UserInfo.qml:185
+#: src/qml/UserInfo.qml:184
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -4362,20 +4387,20 @@ msgstr "அதிகபட்ச பெரிதாக்கு"
 msgid "Welcome"
 msgstr "நல்வரவு"
 
-#: src/qml/WelcomePage.qml:50
+#: src/qml/WelcomePage.qml:45
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgid "Welcome to NeoChat"
 msgstr "Matrix-க்கு நல்வரவு"
 
-#: src/qml/WelcomePage.qml:56
+#: src/qml/WelcomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
 
-#: src/qml/WelcomePage.qml:77
+#: src/qml/WelcomePage.qml:74
 #, fuzzy, kde-format
 #| msgctxt "Job heading, like 'Copying'"
 #| msgid "Uploading"
@@ -4383,14 +4408,14 @@ msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "பதிவேற்றம்"
 
-#: src/qml/WelcomePage.qml:84
+#: src/qml/WelcomePage.qml:81
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
 
-#: src/qml/WelcomePage.qml:160
+#: src/qml/WelcomePage.qml:162
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
