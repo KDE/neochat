@@ -326,7 +326,12 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
 #ifdef HAVE_KIO
         auto openAction = notification->addAction(i18n("Open NeoChat"));
         connect(openAction, &KNotificationAction::activated, this, [=]() {
+            QString properId = roomId;
+            properId = properId.replace(QStringLiteral("#"), QString());
+            properId = properId.replace(QStringLiteral("!"), QString());
+
             auto *job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(QStringLiteral("org.kde.neochat")));
+            job->setUrls({QUrl::fromUserInput(QStringLiteral("matrix:r/%1").arg(properId))});
             job->start();
         });
 #endif
