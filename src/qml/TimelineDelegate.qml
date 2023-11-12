@@ -27,6 +27,13 @@ Item {
     property Item contentItem
 
     /**
+     * @brief The x position of the content item.
+     *
+     * @note Used for positioning the hover actions.
+     */
+    property real contentX: contentItemParent.x
+
+    /**
      * @brief Whether the delegate should always stretch to the maximum available width.
      */
     property bool alwaysMaxWidth: false
