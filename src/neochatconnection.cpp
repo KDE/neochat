@@ -262,21 +262,15 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
     const auto &replyJson = QJsonDocument::fromJson(reply->readAll()).object();
 
     if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == QStringLiteral("matrix")) {
-        // FIXME: Currently hardcoded for ntfy URLs
-        // We need to pass the ntfy topic as the pushkey. Is there a more generic way to handle this?
-        const QUrl endpointUrl(endpoint);
-
-        // Pop the slash off of the path
-        const QString pushkey = endpointUrl.path().removeFirst();
-
-        callApi<PostPusherJob>(pushkey,
+        callApi<PostPusherJob>(endpoint,
                                QStringLiteral("http"),
                                QStringLiteral("org.kde.neochat"),
                                QStringLiteral("NeoChat"),
                                deviceId(),
                                QString(), // profileTag is intentionally left empty for now, it's optional
-                               QStringLiteral("en"),
-                               PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")});
+                               QStringLiteral("en-US"),
+                               PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")},
+                               false);
 
         qInfo() << "Registered for push notifications";
     } else {

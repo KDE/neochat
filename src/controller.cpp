@@ -116,6 +116,9 @@ Controller::Controller(QObject *parent)
             connection->setupPushNotifications(endpoint);
         }
     });
+    connect(connector, &KUnifiedPush::Connector::messageReceived, this, [this](const QByteArray &data) {
+        NotificationsManager::instance().postPushNotification(data);
+    });
 
     connector->registerClient(i18n("Receiving push notifications"));
 

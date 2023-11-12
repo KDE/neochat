@@ -84,6 +84,11 @@ public:
     void clearInvitationNotification(const QString &roomId);
 
     /**
+     * @brief Display a native notification for the given push notification.
+     */
+    void postPushNotification(const QByteArray &message);
+
+    /**
      * @brief Handle the notifications for the given connection.
      */
     void handleNotifications(QPointer<NeoChatConnection> connection);

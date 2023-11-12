@@ -292,6 +292,46 @@ void NotificationsManager::clearInvitationNotification(const QString &roomId)
     }
 }
 
+void NotificationsManager::postPushNotification(const QByteArray &message)
+{
+    const auto json = QJsonDocument::fromJson(message).object();
+
+    const auto type = json["notification"_ls]["type"_ls].toString();
+
+    // the only two types of push notifications we support right now
+    if (type == QStringLiteral("m.room.message") || type == QStringLiteral("m.room.encrypted")) {
+        auto notification = new KNotification("message"_ls);
+
+        const auto sender = json["notification"_ls]["sender_display_name"_ls].toString();
+        const auto roomName = json["notification"_ls]["room_name"_ls].toString();
+        const auto roomId = json["notification"_ls]["room_id"_ls].toString();
+
+        if (roomName.isEmpty() || sender == roomName) {
+            notification->setTitle(sender);
+        } else {
+            notification->setTitle(i18n("%1 (%2)", sender, roomName));
+        }
+
+        if (type == QStringLiteral("m.room.message")) {
+            const auto text = json["notification"_ls]["content"_ls]["body"_ls].toString();
+            notification->setText(text.toHtmlEscaped());
+        } else if (type == QStringLiteral("m.room.encrypted")) {
+            notification->setText(i18n("Encrypted Message"));
+        }
+
+        auto openAction = notification->addAction(i18n("Open NeoChat"));
+        connect(openAction, &KNotificationAction::activated, this, [=]() {
+            WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
+        });
+
+        notification->sendEvent();
+
+        m_notifications.insert(roomId, notification);
+    } else {
+        qWarning() << "Skipping unsupported push notification" << type;
+    }
+}
+
 QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoChatRoom *room)
 {
     // Handle avatars that are lopsided in one dimension
