@@ -11,6 +11,7 @@ A Qt/QML based Matrix client.
 
 <a href='https://matrix.org'><img src='https://matrix.org/docs/legacy/made-for-matrix.png' alt='Made for Matrix' height=64 target=_blank /></a>
 <a href='https://flathub.org/apps/details/org.kde.neochat'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
+<a href='https://snapcraft.io/neochat'><img width='190px' alt='Download on the Snap Store' src='https://snapcraft.io/static/images/badges/en/snap-store-black.svg'/></a>
 
 ## Introduction
 
