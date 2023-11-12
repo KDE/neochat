@@ -169,6 +169,28 @@ QString EventHandler::getAuthorDisplayName(bool isPending) const
     }
 }
 
+QString EventHandler::singleLineAuthorDisplayname(bool isPending) const
+{
+    if (m_room == nullptr) {
+        qCWarning(EventHandling) << "getAuthorDisplayName called with m_room set to nullptr.";
+        return {};
+    }
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getAuthorDisplayName called with m_event set to nullptr.";
+        return {};
+    }
+
+    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
+    auto displayName = m_room->htmlSafeMemberName(author->id());
+    displayName.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
+    displayName.replace(QStringLiteral("<br>"), QStringLiteral(" "));
+    displayName.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
+    displayName.replace(QStringLiteral("<br />"), QStringLiteral(" "));
+    displayName.replace(u'\n', QStringLiteral(" "));
+    displayName.replace(u'\u2028', QStringLiteral(" "));
+    return displayName;
+}
+
 QDateTime EventHandler::getTime(bool isPending, QDateTime lastUpdated) const
 {
     if (m_event == nullptr) {

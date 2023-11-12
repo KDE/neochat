@@ -112,6 +112,17 @@ public:
     QString getAuthorDisplayName(bool isPending = false) const;
 
     /**
+     * @brief Get the display name of the event author but with any newlines removed.
+     *
+     * Turns out you can put newlines in your display name so we need to handle that
+     * primarily for the room list subtitle.
+     *
+     * @param isPending whether the event is pending as this cannot be derived from
+     *                  just the event object.
+     */
+    QString singleLineAuthorDisplayname(bool isPending = false) const;
+
+    /**
      * @brief Return a QDateTime object for the event timestamp.
      */
     QDateTime getTime(bool isPending = false, QDateTime lastUpdated = {}) const;

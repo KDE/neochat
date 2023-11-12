@@ -355,7 +355,7 @@ QString NeoChatRoom::lastEventToString(Qt::TextFormat format, bool stripNewlines
             body = eventHandler.getPlainBody(stripNewlines);
         }
 
-        return safeMemberName(event->senderId()) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": ")) + body;
+        return eventHandler.singleLineAuthorDisplayname() + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": ")) + body;
     }
     return {};
 }

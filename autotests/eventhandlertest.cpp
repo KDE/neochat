@@ -55,6 +55,8 @@ private Q_SLOTS:
     void nullAuthor();
     void authorDisplayName();
     void nullAuthorDisplayName();
+    void singleLineSidplayName();
+    void nullSingleLineDisplayName();
     void time();
     void nullTime();
     void timeString();
@@ -201,6 +203,23 @@ void EventHandlerTest::nullAuthorDisplayName()
 
     QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getAuthorDisplayName(), QString());
+}
+
+void EventHandlerTest::singleLineSidplayName()
+{
+    auto event = room->messageEvents().at(11).get();
+    eventHandler.setEvent(event);
+
+    QCOMPARE(eventHandler.singleLineAuthorDisplayname(), QStringLiteral("Look at me I put newlines in my display name"));
+}
+
+void EventHandlerTest::nullSingleLineDisplayName()
+{
+    QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_room set to nullptr.");
+    QCOMPARE(emptyHandler.singleLineAuthorDisplayname(), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.singleLineAuthorDisplayname(), QString());
 }
 
 void EventHandlerTest::time()
