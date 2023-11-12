@@ -320,8 +320,6 @@ void Controller::setQuitOnLastWindowClosed()
             m_trayIcon = nullptr;
         }
     }
-#else
-    return;
 #endif
 }
 
