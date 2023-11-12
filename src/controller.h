@@ -12,6 +12,10 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/settings.h>
 
+#ifdef HAVE_KUNIFIEDPUSH
+#include <kunifiedpush/connector.h>
+#endif
+
 class NeoChatRoom;
 class TrayIcon;
 class QQuickTextDocument;
@@ -118,6 +122,12 @@ public:
      * HACK: This is a workaround for QTBUG 93281.
      */
     Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
+
+    /**
+     * @brief Start listening for notifications in dbus-activated mode.
+     * These notifications will quit the application when closed.
+     */
+    static void listenForNotifications();
 
     Quotient::AccountRegistry &accounts();
 

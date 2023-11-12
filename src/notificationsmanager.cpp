@@ -16,6 +16,10 @@
 #include <Quotient/csapi/pushrules.h>
 #include <Quotient/user.h>
 
+#ifdef HAVE_KIO
+#include <KIO/ApplicationLauncherJob>
+#endif
+
 #include "controller.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
@@ -319,10 +323,15 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
             notification->setText(i18n("Encrypted Message"));
         }
 
+#ifdef HAVE_KIO
         auto openAction = notification->addAction(i18n("Open NeoChat"));
         connect(openAction, &KNotificationAction::activated, this, [=]() {
-            WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
+            auto *job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(QStringLiteral("org.kde.neochat")));
+            job->start();
         });
+#endif
+
+        connect(notification, &KNotification::closed, qGuiApp, &QGuiApplication::quit);
 
         notification->sendEvent();
 

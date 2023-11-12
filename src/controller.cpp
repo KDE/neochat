@@ -42,10 +42,6 @@
 #include "trayicon_sni.h"
 #endif
 
-#ifdef HAVE_KUNIFIEDPUSH
-#include <kunifiedpush/connector.h>
-#endif
-
 using namespace Quotient;
 
 Controller::Controller(QObject *parent)
@@ -115,9 +111,6 @@ Controller::Controller(QObject *parent)
             auto connection = dynamic_cast<NeoChatConnection *>(quotientConnection);
             connection->setupPushNotifications(endpoint);
         }
-    });
-    connect(connector, &KUnifiedPush::Connector::messageReceived, this, [this](const QByteArray &data) {
-        NotificationsManager::instance().postPushNotification(data);
     });
 
     connector->registerClient(i18n("Receiving push notifications"));
@@ -381,6 +374,19 @@ void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQui
 {
     // HACK: Workaround bug QTBUG 93281
     connect(textDocument->textDocument(), SIGNAL(imagesLoaded()), item, SLOT(updateWholeDocument()));
+}
+
+void Controller::listenForNotifications()
+{
+#ifdef HAVE_KUNIFIEDPUSH
+    auto connector = new KUnifiedPush::Connector(QStringLiteral("org.kde.neochat"));
+
+    connect(connector, &KUnifiedPush::Connector::messageReceived, [](const QByteArray &data) {
+        NotificationsManager::instance().postPushNotification(data);
+    });
+
+    connector->registerClient(i18n("Receiving push notifications"));
+#endif
 }
 
 void Controller::setApplicationProxy()

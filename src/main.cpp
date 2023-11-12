@@ -166,20 +166,10 @@ int main(int argc, char *argv[])
                 QStringLiteral("/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf"));
 #endif
 
-#ifdef HAVE_KDBUSADDONS
-    KDBusService service(KDBusService::Unique);
-#endif
-
     ColorSchemer colorScheme;
     if (!NeoChatConfig::self()->colorScheme().isEmpty()) {
         colorScheme.apply(NeoChatConfig::self()->colorScheme());
     }
-
-    qml_register_types_org_kde_neochat();
-    qmlRegisterSingletonInstance("org.kde.neochat.config", 1, 0, "Config", NeoChatConfig::self());
-    qmlRegisterSingletonInstance("org.kde.neochat.accounts", 1, 0, "AccountRegistry", &Controller::instance().accounts());
-
-    qmlRegisterUncreatableType<KeyVerificationSession>("com.github.quotient_im.libquotient", 1, 0, "KeyVerificationSession", {});
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
@@ -198,9 +188,23 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_KUNIFIEDPUSH
     if (parser.isSet(dbusActivatedOption)) {
+        // We want to be replaceable by the main client
+        KDBusService service(KDBusService::Replace);
+
+        Controller::listenForNotifications();
         return QCoreApplication::exec();
     }
 #endif
+
+#ifdef HAVE_KDBUSADDONS
+    KDBusService service(KDBusService::Unique);
+#endif
+
+    qml_register_types_org_kde_neochat();
+    qmlRegisterSingletonInstance("org.kde.neochat.config", 1, 0, "Config", NeoChatConfig::self());
+    qmlRegisterSingletonInstance("org.kde.neochat.accounts", 1, 0, "AccountRegistry", &Controller::instance().accounts());
+
+    qmlRegisterUncreatableType<KeyVerificationSession>("com.github.quotient_im.libquotient", 1, 0, "KeyVerificationSession", {});
 
     QQmlApplicationEngine engine;
 
