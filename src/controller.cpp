@@ -320,7 +320,6 @@ void Controller::setQuitOnLastWindowClosed()
             m_trayIcon = nullptr;
         }
     }
-    QGuiApplication::setQuitOnLastWindowClosed(!NeoChatConfig::self()->systemTray());
 #else
     return;
 #endif
