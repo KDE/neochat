@@ -57,6 +57,8 @@ QQC2.ScrollView {
 
     signal focusChatBar()
 
+    QQC2.ScrollBar.vertical.interactive: false
+
     ListView {
         id: messageListView
         // So that delegates can access the current room properly.
