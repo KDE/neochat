@@ -58,12 +58,12 @@ set_package_properties(Qt6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
-find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami2 I18n Notifications Config CoreAddons Sonnet ItemModels ColorScheme)
+find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons Sonnet ItemModels ColorScheme)
 set_package_properties(KF6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
-set_package_properties(KF6Kirigami2 PROPERTIES
+set_package_properties(KF6Kirigami PROPERTIES
     TYPE REQUIRED
     PURPOSE "Kirigami application UI framework"
 )
