@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-13 01:38+0000\n"
-"PO-Revision-Date: 2023-11-12 05:30+0300\n"
+"PO-Revision-Date: 2023-11-13 05:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -974,13 +974,12 @@ msgid "[REDACTED: %1]"
 msgstr "[DEĞİŞTİRİLDİ: %1]"
 
 #: src/models/messagefiltermodel.cpp:124
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ": %1"
-msgstr[1] ": %1"
+msgstr[0] " %1"
+msgstr[1] " %2 kez %1"
 
 #: src/models/messagefiltermodel.cpp:128
 #, kde-format
@@ -1015,7 +1014,7 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1147,13 +1146,12 @@ msgstr "Kullanıcı Reddet ve Yok Say"
 #: src/notificationsmanager.cpp:316
 #, kde-format
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "NeoChat"
+msgstr "Aç: NeoChat"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -3097,17 +3095,15 @@ msgid "Delete keyword"
 msgstr "Anahtar sözcük sil"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Bildirimler"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "Bildirimler"
+msgstr "Bildirim yok"
 
 #: src/qml/OpenFileDialog.qml:12
 #, kde-format
@@ -3545,10 +3541,9 @@ msgid "No member count"
 msgstr "Üye sayısı yok"
 
 #: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
+#, kde-format
 msgid "View notifications"
-msgstr "Bildirimleri sessize al"
+msgstr "Bildirimleri görüntüle"
 
 #: src/qml/RoomListPage.qml:179
 #, kde-format

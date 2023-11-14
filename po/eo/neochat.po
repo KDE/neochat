@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-13 01:38+0000\n"
-"PO-Revision-Date: 2023-11-12 08:26+0100\n"
+"PO-Revision-Date: 2023-11-13 07:18+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -973,13 +973,12 @@ msgid "[REDACTED: %1]"
 msgstr "[REDAKTITA: %1]"
 
 #: src/models/messagefiltermodel.cpp:124
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
 msgstr[0] ": %1"
-msgstr[1] ": %1"
+msgstr[1] ": %1 %2 fojojn"
 
 #: src/models/messagefiltermodel.cpp:128
 #, kde-format
@@ -993,19 +992,19 @@ msgstr[1] " %1 uzantoj"
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr "aŭ"
+msgstr " aŭ "
 
 #: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
-msgstr "kaj"
+msgstr " kaj "
 
 #: src/models/messagefiltermodel.cpp:148
 #, kde-format
@@ -1014,13 +1013,13 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
-msgstr "kaj"
+msgstr " kaj "
 
 #: src/models/reactionmodel.cpp:92
 #, kde-format
@@ -1146,13 +1145,12 @@ msgstr "Malakcepti kaj Ignori Uzanton"
 #: src/notificationsmanager.cpp:316
 #, kde-format
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "NeoChat"
+msgstr "Malfermi NeoChat"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -3068,12 +3066,12 @@ msgstr "Ebligi sciigojn"
 #: src/qml/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Mute notifications"
-msgstr "Mutigi sciigojn"
+msgstr "Silentigi sciigojn"
 
 #: src/qml/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Unmute notifications"
-msgstr "Malŝalti sciigojn"
+msgstr "Malsilentigi sciigojn"
 
 #: src/qml/NotificationRuleItem.qml:113
 #, kde-format
@@ -3097,17 +3095,15 @@ msgid "Delete keyword"
 msgstr "Forigi ŝlosilvorton"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Sciigoj"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "Sciigoj"
+msgstr "Neniuj Sciigoj"
 
 #: src/qml/OpenFileDialog.qml:12
 #, kde-format
@@ -3447,7 +3443,7 @@ msgstr "Ĉambra Stato"
 #: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
-msgstr "Muta ĉambro"
+msgstr "Silentigita ĉambro"
 
 #: src/qml/RoomDelegate.qml:139
 #, kde-format
@@ -3551,10 +3547,9 @@ msgid "No member count"
 msgstr "Neniu membrokalkulo"
 
 #: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
+#, kde-format
 msgid "View notifications"
-msgstr "Mutigi sciigojn"
+msgstr "Rigardi sciigojn"
 
 #: src/qml/RoomListPage.qml:179
 #, kde-format

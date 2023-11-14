@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-13 01:38+0000\n"
-"PO-Revision-Date: 2023-11-11 03:17+0100\n"
+"PO-Revision-Date: 2023-11-13 10:57+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -973,13 +973,12 @@ msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
 
 #: src/models/messagefiltermodel.cpp:124
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ": %1"
-msgstr[1] ": %1"
+msgstr[0] " %1"
+msgstr[1] " %1 %2-ჯერ"
 
 #: src/models/messagefiltermodel.cpp:128
 #, kde-format
@@ -1014,7 +1013,7 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1149,10 +1148,9 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "NeoChat"
+msgstr "NeoChat-ის გახსნა"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -3096,17 +3094,15 @@ msgid "Delete keyword"
 msgstr "საკვანძო სიტყვის წაშლა"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "გაფრთხილებები"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "გაფრთხილებები"
+msgstr "გაფრთხილებების გარეშე"
 
 #: src/qml/OpenFileDialog.qml:12
 #, kde-format
@@ -3282,17 +3278,15 @@ msgid "(Ended)"
 msgstr "(დასრულდა)"
 
 #: src/qml/PowerLevelDialog.qml:15
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
 msgstr "მომხმარებლის წვდომის დონის ჩასწორება"
 
 #: src/qml/PowerLevelDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Set user power level"
+#, kde-format
 msgid "New power level"
-msgstr "მომხმარებლის წვდომის დონის დაყენება"
+msgstr "ახალი წვდომის დონე"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3548,10 +3542,9 @@ msgid "No member count"
 msgstr "წევრების რაოდენობის გარეშე"
 
 #: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
+#, kde-format
 msgid "View notifications"
-msgstr "გაფრთხილებების დადუმება"
+msgstr "გაფრთხილებების ნახვა"
 
 #: src/qml/RoomListPage.qml:179
 #, kde-format
@@ -3984,7 +3977,7 @@ msgstr "ყველა ოთახი"
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
 msgid "Suggested"
-msgstr ""
+msgstr "ნარჩევი"
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -4014,13 +4007,13 @@ msgstr "წაშლა"
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
-msgstr ""
+msgstr "არ მონიშნო ნარჩევად"
 
 #: src/qml/SpaceHierarchyDelegate.qml:133
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
-msgstr ""
+msgstr "ნარჩევად მონიშვნა"
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
