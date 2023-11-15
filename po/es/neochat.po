@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-13 01:38+0000\n"
-"PO-Revision-Date: 2023-11-12 00:07+0100\n"
+"POT-Creation-Date: 2023-11-15 01:39+0000\n"
+"PO-Revision-Date: 2023-11-14 18:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -978,13 +978,12 @@ msgid "[REDACTED: %1]"
 msgstr "[CORREGIDO: %1]"
 
 #: src/models/messagefiltermodel.cpp:124
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ": %1"
-msgstr[1] ": %1"
+msgstr[0] " %1"
+msgstr[1] " %1 %2 veces"
 
 #: src/models/messagefiltermodel.cpp:128
 #, kde-format
@@ -1019,7 +1018,7 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1154,10 +1153,9 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "NeoChat"
+msgstr "Abrir NeoChat"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -3113,17 +3111,15 @@ msgid "Delete keyword"
 msgstr "Borrar palabra clave"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Notificaciones"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "Notificaciones"
+msgstr "No hay notificaciones"
 
 #: src/qml/OpenFileDialog.qml:12
 #, kde-format
@@ -3301,17 +3297,15 @@ msgid "(Ended)"
 msgstr "(Finalizada)"
 
 #: src/qml/PowerLevelDialog.qml:15
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
-msgstr "Editar el nivel de poder de usuario"
+msgstr "Editar el nivel de poderes del usuario"
 
 #: src/qml/PowerLevelDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Set user power level"
+#, kde-format
 msgid "New power level"
-msgstr "Definir el nivel de poder de usuario"
+msgstr "Nuevo nivel de poderes"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3567,10 +3561,9 @@ msgid "No member count"
 msgstr "Sin contador de miembros"
 
 #: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
+#, kde-format
 msgid "View notifications"
-msgstr "Silenciar notificaciones"
+msgstr "Ver notificaciones"
 
 #: src/qml/RoomListPage.qml:179
 #, kde-format
@@ -4007,7 +4000,7 @@ msgstr "Todas las salas"
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
 msgid "Suggested"
-msgstr ""
+msgstr "Sugeridas"
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -4037,13 +4030,13 @@ msgstr "Eliminar"
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
-msgstr ""
+msgstr "No sugerir"
 
 #: src/qml/SpaceHierarchyDelegate.qml:133
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
-msgstr ""
+msgstr "Sugerir"
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
@@ -4131,22 +4124,22 @@ msgid ""
 msgstr ""
 "Si continúa con el registro, aceptará los siguientes términos y condiciones:"
 
-#: src/qml/TimelineView.qml:178
+#: src/qml/TimelineView.qml:180
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Saltar al primer mensaje sin leer"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:203
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Saltar al último mensaje"
 
-#: src/qml/TimelineView.qml:226
+#: src/qml/TimelineView.qml:228
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrastre elementos aquí para compartirlos"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:236
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

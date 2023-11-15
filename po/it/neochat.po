@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-13 01:38+0000\n"
-"PO-Revision-Date: 2023-11-08 15:08+0100\n"
+"POT-Creation-Date: 2023-11-15 01:39+0000\n"
+"PO-Revision-Date: 2023-11-14 11:04+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,13 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/controller.cpp:116 src/controller.cpp:388
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgid "Receiving push notifications"
-msgstr "Invia le notifiche di digitazione"
+msgstr "Ricezione delle notifiche push"
 
 #: src/controller.cpp:218
 #, kde-format
@@ -564,7 +563,7 @@ msgstr "Ignora tutti gli errori SSL, ad es. certificati non firmati."
 #: src/main.cpp:180
 #, kde-format
 msgid "Internal usage only."
-msgstr ""
+msgstr "Solo per uso interno."
 
 #: src/matriximageprovider.cpp:41
 #, kde-format
@@ -976,13 +975,12 @@ msgid "[REDACTED: %1]"
 msgstr "[REDATTO: %1]"
 
 #: src/models/messagefiltermodel.cpp:124
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ": %1"
-msgstr[1] ": %1"
+msgstr[0] " %1"
+msgstr[1] " %1 %2 volte"
 
 #: src/models/messagefiltermodel.cpp:128
 #, kde-format
@@ -1017,7 +1015,7 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1152,10 +1150,9 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "NeoChat"
+msgstr "Apri NeoChat"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -1495,8 +1492,7 @@ msgid "Send an encrypted message…"
 msgstr "Invia un messaggio cifrato…"
 
 #: src/qml/ChatBar.qml:188
-#, fuzzy, kde-format
-#| msgid "Set an attachment caption..."
+#, kde-format
 msgid "Set an attachment caption…"
 msgstr "Imposta una didascalia per l'allegato..."
 
@@ -3116,24 +3112,20 @@ msgid "Delete keyword"
 msgstr "Elimina la parola chiave"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Notifiche"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "Notifiche"
+msgstr "Nessuna notifica"
 
 #: src/qml/OpenFileDialog.qml:12
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select a File"
-msgstr "Seleziona tutto"
+msgstr "Seleziona un file"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3306,17 +3298,15 @@ msgid "(Ended)"
 msgstr "(Terminato)"
 
 #: src/qml/PowerLevelDialog.qml:15
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
 msgstr "Modifica il livello di potere dell'utente"
 
 #: src/qml/PowerLevelDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Set user power level"
+#, kde-format
 msgid "New power level"
-msgstr "Imposta il livello di potere dell'utente"
+msgstr "Imposta il livello di potere"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3574,10 +3564,9 @@ msgid "No member count"
 msgstr "Nessun conteggio dei membri"
 
 #: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
+#, kde-format
 msgid "View notifications"
-msgstr "Silenzia le notifiche"
+msgstr "Visualizza le notifiche"
 
 #: src/qml/RoomListPage.qml:179
 #, kde-format
@@ -4016,7 +4005,7 @@ msgstr "Tutte le stanze"
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
 msgid "Suggested"
-msgstr ""
+msgstr "Suggerito"
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -4046,13 +4035,13 @@ msgstr "Rimuovi"
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
-msgstr ""
+msgstr "Non rendere suggerito"
 
 #: src/qml/SpaceHierarchyDelegate.qml:133
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
-msgstr ""
+msgstr "Rendi suggerito"
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
@@ -4140,22 +4129,22 @@ msgid ""
 msgstr ""
 "Proseguendo con la registrazione accetti i seguenti termini e condizioni:"
 
-#: src/qml/TimelineView.qml:178
+#: src/qml/TimelineView.qml:180
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Passa al primo messaggio non letto"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:203
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Salta all'ultimo messaggio"
 
-#: src/qml/TimelineView.qml:226
+#: src/qml/TimelineView.qml:228
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Trascina qui gli elementi per condividerli"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:236
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
