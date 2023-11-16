@@ -15,6 +15,8 @@ LoginStep {
 
     Layout.fillWidth: true
 
+    spacing: 0
+
     FormCard.FormButtonDelegate {
         id: loginButton
         text: i18nc("@action:button", "Login")
