@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-15 01:39+0000\n"
-"PO-Revision-Date: 2023-11-13 10:49+0100\n"
+"PO-Revision-Date: 2023-11-14 18:14+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -979,13 +979,12 @@ msgid "[REDACTED: %1]"
 msgstr "[RÉDIGÉ : %1]"
 
 #: src/models/messagefiltermodel.cpp:124
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] " : %1"
-msgstr[1] " : %1"
+msgstr[0] " %1"
+msgstr[1] " %1 %2 fois"
 
 #: src/models/messagefiltermodel.cpp:128
 #, kde-format
@@ -1020,7 +1019,7 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1155,10 +1154,9 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "NeoChat"
+msgstr "Ouvrir NeoChat"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -3120,17 +3118,15 @@ msgid "Delete keyword"
 msgstr "Supprimer un mot clé"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Notifications"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "Notifications"
+msgstr "Aucune notification"
 
 #: src/qml/OpenFileDialog.qml:12
 #, kde-format
@@ -3574,10 +3570,9 @@ msgid "No member count"
 msgstr "Aucun numéro de membre"
 
 #: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
+#, kde-format
 msgid "View notifications"
-msgstr "Suspendre les notifications"
+msgstr "Afficher les notifications"
 
 #: src/qml/RoomListPage.qml:179
 #, kde-format
