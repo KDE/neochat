@@ -124,7 +124,7 @@ QQC2.Control {
                 id: nameButton
                 Layout.fillWidth: true
                 contentItem: QQC2.Label {
-                    text: root.author.displayName
+                    text: root.author.disambiguatedName
                     color: root.author.color
                     textFormat: Text.PlainText
                     font.weight: Font.Bold

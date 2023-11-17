@@ -67,7 +67,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
     }
     auto member = m_members.at(index.row());
     if (role == DisplayNameRole) {
-        return member.displayName();
+        return member.disambiguatedName();
     }
     if (role == UserIdRole) {
         return member.id();
