@@ -158,7 +158,6 @@ private:
 
     QPointer<NeoChatRoom> m_room;
     QPointer<ChatBarCache> m_chatBarCache;
-    bool completionVisible = false;
 
     QColor m_mentionColor;
     QColor m_errorColor;
@@ -171,8 +170,6 @@ private:
     void pushMention(const Mention mention) const;
 
     SyntaxHighlighter *m_highlighter = nullptr;
-
-    CompletionModel::AutoCompletionType m_completionType = CompletionModel::None;
 
     CompletionModel *m_completionModel = nullptr;
 };
