@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 01:39+0000\n"
+"POT-Creation-Date: 2023-11-17 01:37+0000\n"
 "PO-Revision-Date: 2023-11-11 07:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,75 +17,75 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/neochat/neochat.pot\n"
 "X-Crowdin-File-ID: 44721\n"
 
-#: src/controller.cpp:116 src/controller.cpp:388
+#: src/controller.cpp:128 src/controller.cpp:400
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "发送输入中状态"
 
-#: src/controller.cpp:218
+#: src/controller.cpp:230
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:221 src/controller.cpp:226 src/login.cpp:93
+#: src/controller.cpp:233 src/controller.cpp:238 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "登录失败：%1"
 
-#: src/controller.cpp:232
+#: src/controller.cpp:244
 #, kde-format
 msgid "Network Error: %1"
 msgstr "网络错误：%1"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "请允许 NeoChat 读取访问令牌"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "No keychain available."
 msgstr "没有可用的钥匙环。"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "请安装一个钥匙环，例如 Linux 平台上的 KDE 密码库（KWallet）或 GNOME 钥匙圈"
 "（GNOME keyring）"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:279
 #, kde-format
 msgid "Unable to read access token"
 msgstr "无法读取访问令牌"
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "File too large to download."
 msgstr "文件太大，无法下载。"
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:365
+#: src/controller.cpp:377
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr ""
@@ -565,7 +565,12 @@ msgstr "支持 matrix: URL 协议"
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 
-#: src/main.cpp:180
+#: src/main.cpp:179
+#, kde-format
+msgid "Only used for autotests"
+msgstr ""
+
+#: src/main.cpp:184
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
@@ -2878,13 +2883,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr ""
 
-#: src/qml/LoginRegister.qml:20 src/qml/Password.qml:40
+#: src/qml/LoginRegister.qml:22 src/qml/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "登录"
 
-#: src/qml/LoginRegister.qml:27
+#: src/qml/LoginRegister.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -4101,9 +4106,11 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 正在輸入"
 
 #: src/qml/UserDetailDialog.qml:32
-#, kde-format
-msgctxt "@title:menu Account detail dialog"
-msgid "Account detail"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgctxt "@title:menu Account details dialog"
+msgid "Account Details"
 msgstr "账户详情"
 
 #: src/qml/UserDetailDialog.qml:107

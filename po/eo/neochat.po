@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 01:39+0000\n"
+"POT-Creation-Date: 2023-11-17 01:37+0000\n"
 "PO-Revision-Date: 2023-11-13 07:18+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,73 +18,73 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/controller.cpp:116 src/controller.cpp:388
+#: src/controller.cpp:128 src/controller.cpp:400
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricevante puŝ-sciigojn"
 
-#: src/controller.cpp:218
+#: src/controller.cpp:230
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Ensaluto Malsukcesa: Aliro-Signo nevalida aŭ revokita"
 
-#: src/controller.cpp:221 src/controller.cpp:226 src/login.cpp:93
+#: src/controller.cpp:233 src/controller.cpp:238 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ensaluto Malsukcesis: %1"
 
-#: src/controller.cpp:232
+#: src/controller.cpp:244
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Reta Eraro: %1"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Alirĵetono ne estis trovita"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Eble ĝi estis forigita?"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Aliro al ŝlosilĉeno estis rifuzita."
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Bonvolu permesi al NeoChat legi la alirĵetonon"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "No keychain available."
 msgstr "Neniu ŝlosilĉeno havebla."
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Bonvolu instali ŝlosilĉenon, ekz. KWallet aŭ GNOME-ŝlosilringo en Linukso"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:279
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Ne eblas legi alirĵetonon"
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "File too large to download."
 msgstr "Dosiero tro granda por elŝuti."
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Kontaktu vian administranton de matrica servilo por subteno."
 
-#: src/controller.cpp:365
+#: src/controller.cpp:377
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "La ĉambro-identigilo, al kiu vi provas aliĝi, ne validas"
@@ -561,7 +561,12 @@ msgstr "Elportas matrico: url-skemo"
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignori ĉiujn SSL-erarojn, ekz., nesubskribitajn atestojn."
 
-#: src/main.cpp:180
+#: src/main.cpp:179
+#, kde-format
+msgid "Only used for autotests"
+msgstr ""
+
+#: src/main.cpp:184
 #, kde-format
 msgid "Internal usage only."
 msgstr "Nur por interna uzo."
@@ -2890,13 +2895,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Ensaluti per ununura ensaluto"
 
-#: src/qml/LoginRegister.qml:20 src/qml/Password.qml:40
+#: src/qml/LoginRegister.qml:22 src/qml/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Ensaluti"
 
-#: src/qml/LoginRegister.qml:27
+#: src/qml/LoginRegister.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -4131,9 +4136,11 @@ msgstr[0] "%2 estas tajpanta"
 msgstr[1] "%2 estas tajpantaj"
 
 #: src/qml/UserDetailDialog.qml:32
-#, kde-format
-msgctxt "@title:menu Account detail dialog"
-msgid "Account detail"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgctxt "@title:menu Account details dialog"
+msgid "Account Details"
 msgstr "Detalo pri konto"
 
 #: src/qml/UserDetailDialog.qml:107

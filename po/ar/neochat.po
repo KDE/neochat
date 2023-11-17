@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 01:39+0000\n"
+"POT-Creation-Date: 2023-11-17 01:37+0000\n"
 "PO-Revision-Date: 2023-08-19 22:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,73 +18,73 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:116 src/controller.cpp:388
+#: src/controller.cpp:128 src/controller.cpp:400
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "أرسل إشعار الكتابة"
 
-#: src/controller.cpp:218
+#: src/controller.cpp:230
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "فشل الولوج: رمز النفاذ غير صالحة أو سحبت"
 
-#: src/controller.cpp:221 src/controller.cpp:226 src/login.cpp:93
+#: src/controller.cpp:233 src/controller.cpp:238 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "فشل الولوج: %1"
 
-#: src/controller.cpp:232
+#: src/controller.cpp:244
 #, kde-format
 msgid "Network Error: %1"
 msgstr "خطأ شبكي: %1"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "رمز النفاذ غير موجود"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "ربما حذفت؟"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "رفض النفاذ إلى حَمَّالَة المَفَاتِيح"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "الرجاء السماح لنيوتشات بقراءة رمز النفاذ"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "No keychain available."
 msgstr "لا تتوفر حَمَّالَة المَفَاتِيح"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "الرجاء تثبيت حَمَّالَة مَفَاتِيح مثل محفظتك من كِيدِي أو غنوم Keyring على لينكس"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:279
 #, kde-format
 msgid "Unable to read access token"
 msgstr "غير قادر على قراءة رقم النفاذ"
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "File too large to download."
 msgstr "الملف كبير جدًا لتنزيله."
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "راسل مدير خادوم ماتركس للدعم."
 
-#: src/controller.cpp:365
+#: src/controller.cpp:377
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "رقم التعريفي للغرفة التي تحاول الانضمام إليها غير صحيح"
@@ -566,7 +566,12 @@ msgstr "يدعم ماتركس:‎ مخطط الروابط"
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "تجاهل جميع أخطاء SSL مثل الشهادات غير الموقعة."
 
-#: src/main.cpp:180
+#: src/main.cpp:179
+#, kde-format
+msgid "Only used for autotests"
+msgstr ""
+
+#: src/main.cpp:184
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
@@ -2940,13 +2945,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "الولوج بواسطة تسجيل مفرد"
 
-#: src/qml/LoginRegister.qml:20 src/qml/Password.qml:40
+#: src/qml/LoginRegister.qml:22 src/qml/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "لج"
 
-#: src/qml/LoginRegister.qml:27
+#: src/qml/LoginRegister.qml:29
 #, fuzzy, kde-format
 #| msgid "Register"
 msgctxt "@action:button"
@@ -4230,9 +4235,11 @@ msgstr[4] "‏%2 يكتبون"
 msgstr[5] "‏%2 يكتبون"
 
 #: src/qml/UserDetailDialog.qml:32
-#, kde-format
-msgctxt "@title:menu Account detail dialog"
-msgid "Account detail"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgctxt "@title:menu Account details dialog"
+msgid "Account Details"
 msgstr "تفاصيل الحساب"
 
 #: src/qml/UserDetailDialog.qml:107

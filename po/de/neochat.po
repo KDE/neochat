@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 01:39+0000\n"
+"POT-Creation-Date: 2023-11-17 01:37+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -20,75 +20,75 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.07.70\n"
 
-#: src/controller.cpp:116 src/controller.cpp:388
+#: src/controller.cpp:128 src/controller.cpp:400
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "Tippbenachrichtigungen senden"
 
-#: src/controller.cpp:218
+#: src/controller.cpp:230
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Anmeldung fehlgeschlagen: Zugangs-Token ist ungültig oder widerrufen"
 
-#: src/controller.cpp:221 src/controller.cpp:226 src/login.cpp:93
+#: src/controller.cpp:233 src/controller.cpp:238 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Anmeldung fehlgeschlagen: %1"
 
-#: src/controller.cpp:232
+#: src/controller.cpp:244
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Netzwerkfehler: %1"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Zugangs-Token kann nicht gefunden werden"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Vielleicht ist es gelöscht worden?"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Der Zugriff auf das Schlüsselbund ist verweigert worden."
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Bitte erlauben Sie NeoChat, das Zugangs-Token zu lesen"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "No keychain available."
 msgstr "Kein Schlüsselbund verfügbar."
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Bitte installieren Sie ein Schlüsselbund, z. B. KWallet oder GNOME-"
 "Schlüsselbund unter Linux"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:279
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "File too large to download."
 msgstr "Datei zu groß für einen Download."
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:365
+#: src/controller.cpp:377
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Die Kennung des Raums, den Sie betreten möchten, ist nicht gültig"
@@ -569,7 +569,12 @@ msgstr "Unterstützt das Adressschema matrix:"
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 
-#: src/main.cpp:180
+#: src/main.cpp:179
+#, kde-format
+msgid "Only used for autotests"
+msgstr ""
+
+#: src/main.cpp:184
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
@@ -2972,13 +2977,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Anmeldung mit Single Sign-On"
 
-#: src/qml/LoginRegister.qml:20 src/qml/Password.qml:40
+#: src/qml/LoginRegister.qml:22 src/qml/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Anmelden"
 
-#: src/qml/LoginRegister.qml:27
+#: src/qml/LoginRegister.qml:29
 #, fuzzy, kde-format
 #| msgid "Register"
 msgctxt "@action:button"
@@ -4275,9 +4280,11 @@ msgstr[0] "%2 schreibt gerade"
 msgstr[1] "%2 schreiben gerade"
 
 #: src/qml/UserDetailDialog.qml:32
-#, kde-format
-msgctxt "@title:menu Account detail dialog"
-msgid "Account detail"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgctxt "@title:menu Account details dialog"
+msgid "Account Details"
 msgstr "Kontodetail"
 
 #: src/qml/UserDetailDialog.qml:107

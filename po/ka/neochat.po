@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-15 01:39+0000\n"
+"POT-Creation-Date: 2023-11-17 01:37+0000\n"
 "PO-Revision-Date: 2023-11-13 10:57+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,72 +18,72 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: src/controller.cpp:116 src/controller.cpp:388
+#: src/controller.cpp:128 src/controller.cpp:400
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "პუშ გაფრთხილებების მიღება"
 
-#: src/controller.cpp:218
+#: src/controller.cpp:230
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "შესვლის შეცდომა: წვდომის კოდი არასწორი ან გაუქმებულია"
 
-#: src/controller.cpp:221 src/controller.cpp:226 src/login.cpp:93
+#: src/controller.cpp:233 src/controller.cpp:238 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "შესვლის შეცდომა: %1"
 
-#: src/controller.cpp:232
+#: src/controller.cpp:244
 #, kde-format
 msgid "Network Error: %1"
 msgstr "ქსელის შეცდომა: %1"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "წვდომის კოდი ვერ ვიპოვე"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:269
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "შეიძლება წაშლილია?"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "ბრელოკთან წვდომა აკრძალულია."
 
-#: src/controller.cpp:261
+#: src/controller.cpp:273
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "მიეცით უფლება NeoChat-ს, წვდომის კოდი წაიკითხოს"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "No keychain available."
 msgstr "ბრელოკი მიუწვდომელია."
 
-#: src/controller.cpp:264
+#: src/controller.cpp:276
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "დააყენეთ ბრელოკი, მაგალითად, ლინუქსზე KWallet ან GNOME Keyring"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:279
 #, kde-format
 msgid "Unable to read access token"
 msgstr "წვდომის კოდის წაკითხვის შეცდომა"
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "File too large to download."
 msgstr "ფაილი გადმოსაწერად ძალიან დიდია."
 
-#: src/controller.cpp:346
+#: src/controller.cpp:358
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "მხარდაჭერისთვის დაუკავშირდით თქვენი მატრიქსის სერვერის ადმინისტრატორს."
 
-#: src/controller.cpp:365
+#: src/controller.cpp:377
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
@@ -561,7 +561,12 @@ msgstr "Matrix-ის მხარდჭერა: ბმული სქემ�
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "ყველა SSL შეცდომის იგნორი. მაგ: ხელმოუწერელი სერტიფიკატები."
 
-#: src/main.cpp:180
+#: src/main.cpp:179
+#, kde-format
+msgid "Only used for autotests"
+msgstr ""
+
+#: src/main.cpp:184
 #, kde-format
 msgid "Internal usage only."
 msgstr "მხოლოდ შიდა გამოყენებისთვის."
@@ -2889,13 +2894,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "SSO-ით შესვლა"
 
-#: src/qml/LoginRegister.qml:20 src/qml/Password.qml:40
+#: src/qml/LoginRegister.qml:22 src/qml/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "შესვლა"
 
-#: src/qml/LoginRegister.qml:27
+#: src/qml/LoginRegister.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -4126,9 +4131,11 @@ msgstr[0] "%2 კრეფს"
 msgstr[1] "%2 კრეფს"
 
 #: src/qml/UserDetailDialog.qml:32
-#, kde-format
-msgctxt "@title:menu Account detail dialog"
-msgid "Account detail"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgctxt "@title:menu Account details dialog"
+msgid "Account Details"
 msgstr "ანგარიშის დეტალები"
 
 #: src/qml/UserDetailDialog.qml:107
