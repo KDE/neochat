@@ -177,7 +177,7 @@ uint8_t *decode(const char *blurhash, int width, int height, int punch, int nCha
     uint8_t *pixelArray = createByteArray(bytesPerRow * height);
 
     if (decodeToArray(blurhash, width, height, punch, nChannels, pixelArray) == -1) {
-        return NULL;
+        return nullptr;
     }
     return pixelArray;
 }
