@@ -8,8 +8,10 @@
 #include "controller.h"
 #include "enums/delegatetype.h"
 #include "models/messageeventmodel.h"
+#include "models/timelinemodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
+
 #include <KLocalizedString>
 #include <QDesktopServices>
 #include <QQuickTextDocument>
@@ -29,14 +31,14 @@ RoomManager::RoomManager(QObject *parent)
     , m_currentRoom(nullptr)
     , m_lastCurrentRoom(nullptr)
     , m_config(KSharedConfig::openStateConfig())
-    , m_messageEventModel(new MessageEventModel(this))
-    , m_messageFilterModel(new MessageFilterModel(this, m_messageEventModel))
+    , m_timelineModel(new TimelineModel(this))
+    , m_messageFilterModel(new MessageFilterModel(this, m_timelineModel))
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
 {
     m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
-        m_messageEventModel->setRoom(m_currentRoom);
+        m_timelineModel->setRoom(m_currentRoom);
     });
 }
 
@@ -55,9 +57,9 @@ NeoChatRoom *RoomManager::currentRoom() const
     return m_currentRoom;
 }
 
-MessageEventModel *RoomManager::messageEventModel() const
+TimelineModel *RoomManager::timelineModel() const
 {
-    return m_messageEventModel;
+    return m_timelineModel;
 }
 
 MessageFilterModel *RoomManager::messageFilterModel() const

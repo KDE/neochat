@@ -389,13 +389,7 @@ int MessageEventModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    const auto firstIt = m_currentRoom->messageEvents().crbegin();
-    if (firstIt != m_currentRoom->messageEvents().crend()) {
-        const auto &firstEvt = **firstIt;
-        return m_currentRoom->timelineSize() + (lastReadEventId != firstEvt.id() ? 1 : 0);
-    } else {
-        return m_currentRoom->timelineSize();
-    }
+    return int(m_currentRoom->pendingEvents().size()) + m_currentRoom->timelineSize() + (m_lastReadEventIndex.isValid() ? 1 : 0);
 }
 
 bool MessageEventModel::canFetchMore(const QModelIndex &parent) const
@@ -422,7 +416,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
     const auto row = idx.row();
 
-    if (!m_currentRoom || row < 0 || row >= int(m_currentRoom->pendingEvents().size()) + m_currentRoom->timelineSize()) {
+    if (!m_currentRoom || row < 0 || row >= rowCount()) {
         return {};
     };
 
@@ -465,7 +459,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>")
                                       : i18n("<i>[This message was deleted: %1]</i>", evt.redactedBecause()->reason());
         }
-
         return eventHandler.getRichBody();
     }
 

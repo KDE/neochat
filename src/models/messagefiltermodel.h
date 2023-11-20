@@ -7,6 +7,7 @@
 #include <QSortFilterProxyModel>
 
 #include "messageeventmodel.h"
+#include "timelinemodel.h"
 
 /**
  * @class MessageFilterModel
@@ -36,7 +37,7 @@ public:
         LastRole, // Keep this last
     };
 
-    explicit MessageFilterModel(QObject *parent = nullptr, MessageEventModel *sourceMessageModel = nullptr);
+    explicit MessageFilterModel(QObject *parent = nullptr, TimelineModel *sourceModel = nullptr);
 
     /**
      * @brief Custom filter function to remove hidden messages.

@@ -29,7 +29,7 @@ Kirigami.ApplicationWindow {
         disableCancelShortcut: true
         connection: root.connection
 
-        messageEventModel: MessageEventModel {
+        timelineModel: TimelineModel {
             room: currentRoom
         }
         messageFilterModel: MessageFilterModel {

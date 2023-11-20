@@ -23,17 +23,17 @@ Kirigami.Page {
     required property NeoChatConnection connection
 
     /**
-     * @brief The MessageEventModel to use.
+     * @brief The TimelineModel to use.
      *
      * Required so that new events can be requested when the end of the current
      * local timeline is reached.
      *
      * @note For loading a room in a different window, override this with a new
-     *       MessageEventModel set with the room to be shown.
+     *       TimelineModel set with the room to be shown.
      *
-     * @sa MessageEventModel
+     * @sa TimelineModel
      */
-    property MessageEventModel messageEventModel: RoomManager.messageEventModel
+    property TimelineModel timelineModel: RoomManager.timelineModel
 
     /**
      * @brief The MessageFilterModel to use.
@@ -41,9 +41,9 @@ Kirigami.Page {
      * This model has the filtered list of events that should be shown in the timeline.
      *
      * @note For loading a room in a different window, override this with a new
-     *       MessageFilterModel with the new MessageEventModel as the source model.
+     *       MessageFilterModel with the new TimelineModel as the source model.
      *
-     * @sa MessageEventModel, MessageFilterModel
+     * @sa TimelineModel, MessageFilterModel
      */
     property MessageFilterModel messageFilterModel: RoomManager.messageFilterModel
 
@@ -56,7 +56,7 @@ Kirigami.Page {
      * @note For loading a room in a different window, override this with a new
      *       MediaMessageFilterModel with the new MessageFilterModel as the source model.
      *
-     * @sa MessageEventModel, MessageFilterModel
+     * @sa TimelineModel, MessageFilterModel
      */
     property MediaMessageFilterModel mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
 
@@ -120,7 +120,7 @@ Kirigami.Page {
         sourceComponent: TimelineView {
             id: timelineView
             currentRoom: root.currentRoom
-            messageEventModel: root.messageEventModel
+            timelineModel: root.timelineModel
             messageFilterModel: root.messageFilterModel
             actionsHandler: root.actionsHandler
             onFocusChatBar: {

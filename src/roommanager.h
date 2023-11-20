@@ -15,6 +15,7 @@
 #include "models/mediamessagefiltermodel.h"
 #include "models/messageeventmodel.h"
 #include "models/messagefiltermodel.h"
+#include "models/timelinemodel.h"
 
 class NeoChatRoom;
 class NeoChatConnection;
@@ -48,7 +49,7 @@ class RoomManager : public QObject, public UriResolverBase
     Q_PROPERTY(NeoChatRoom *currentRoom READ currentRoom NOTIFY currentRoomChanged)
 
     /**
-     * @brief The MessageEventModel that should be used for room message visualisation.
+     * @brief The TimelineModel that should be used for room message visualisation.
      *
      * The room object the model uses to get the data will be updated by this class
      * so there is no need to do this manually or replace the model when a room
@@ -57,7 +58,7 @@ class RoomManager : public QObject, public UriResolverBase
      * @note Available here so that the room page and drawer both have access to the
      *       same model.
      */
-    Q_PROPERTY(MessageEventModel *messageEventModel READ messageEventModel CONSTANT)
+    Q_PROPERTY(TimelineModel *timelineModel READ timelineModel CONSTANT)
 
     /**
      * @brief The MessageFilterModel that should be used for room message visualisation.
@@ -101,7 +102,7 @@ public:
 
     NeoChatRoom *currentRoom() const;
 
-    MessageEventModel *messageEventModel() const;
+    TimelineModel *timelineModel() const;
     MessageFilterModel *messageFilterModel() const;
     MediaMessageFilterModel *mediaMessageFilterModel() const;
 
@@ -383,7 +384,7 @@ private:
     KConfigGroup m_lastRoomConfig;
     QPointer<ChatDocumentHandler> m_chatDocumentHandler;
 
-    MessageEventModel *m_messageEventModel;
+    TimelineModel *m_timelineModel;
     MessageFilterModel *m_messageFilterModel;
     MediaMessageFilterModel *m_mediaMessageFilterModel;
     NeoChatConnection *m_connection;

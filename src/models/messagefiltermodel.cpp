@@ -8,14 +8,15 @@
 #include "enums/delegatetype.h"
 #include "messageeventmodel.h"
 #include "neochatconfig.h"
+#include "timelinemodel.h"
 
 using namespace Quotient;
 
-MessageFilterModel::MessageFilterModel(QObject *parent, MessageEventModel *sourceMessageModel)
+MessageFilterModel::MessageFilterModel(QObject *parent, TimelineModel *sourceModel)
     : QSortFilterProxyModel(parent)
 {
-    Q_ASSERT(sourceMessageModel);
-    setSourceModel(sourceMessageModel);
+    Q_ASSERT(sourceModel);
+    setSourceModel(sourceModel);
 
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowStateEventChanged, this, [this] {
         invalidateFilter();

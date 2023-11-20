@@ -40,6 +40,8 @@ public:
         Poll, /**< The initial event for a poll. */
         Location, /**< A location event. */
         LiveLocation, /**< The initial event of a shared live location (i.e., the place where this is supposed to be shown in the timeline). */
+        Loading, /**< A delegate to tell the user more messages are being loaded. */
+        TimelineEnd, /**< A delegate to inform that all messages are loaded. */
         Other, /**< Anything that cannot be classified as another type. */
     };
     Q_ENUM(Type);

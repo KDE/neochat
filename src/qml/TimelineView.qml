@@ -28,12 +28,12 @@ QQC2.ScrollView {
     property bool roomChanging: false
 
     /**
-     * @brief The MessageEventModel to use.
+     * @brief The TimelineModel to use.
      *
      * Required so that new events can be requested when the end of the current
      * local timeline is reached.
      */
-    required property MessageEventModel messageEventModel
+    required property TimelineModel timelineModel
 
     /**
      * @brief The MessageFilterModel to use.
@@ -85,16 +85,16 @@ QQC2.ScrollView {
             running: messageListView.atYBeginning
             triggeredOnStart: true
             onTriggered: {
-                if (messageListView.atYBeginning && root.messageEventModel.canFetchMore(root.messageEventModel.index(0, 0))) {
-                    root.messageEventModel.fetchMore(root.messageEventModel.index(0, 0));
+                if (messageListView.atYBeginning && root.timelineModel.messageEventModel.canFetchMore(root.timelineModel.index(0, 0))) {
+                    root.timelineModel.messageEventModel.fetchMore(root.timelineModel.index(0, 0));
                 }
             }
             repeat: true
         }
 
         // HACK: The view should do this automatically but doesn't.
-        onAtYBeginningChanged: if (atYBeginning && root.messageEventModel.canFetchMore(root.messageEventModel.index(0, 0))) {
-            root.messageEventModel.fetchMore(root.messageEventModel.index(0, 0));
+        onAtYBeginningChanged: if (atYBeginning && root.timelineModel.messageEventModel.canFetchMore(root.timelineModel.index(0, 0))) {
+            root.timelineModel.messageEventModel.fetchMore(root.timelineModel.index(0, 0));
         }
 
         Timer {
@@ -270,7 +270,7 @@ QQC2.ScrollView {
         }
 
         Connections {
-            target: root.messageEventModel
+            target: root.timelineModel
 
             function onRowsInserted() {
                 markReadIfVisibleTimer.restart()
@@ -311,7 +311,7 @@ QQC2.ScrollView {
 
                 Connections {
                     //enabled: Config.showFancyEffects
-                    target: root.messageEventModel
+                    target: root.timelineModel.messageEventModel
 
                     function onFancyEffectsReasonFound(fancyEffect) {
                         fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
@@ -336,10 +336,10 @@ QQC2.ScrollView {
         }
 
         function eventToIndex(eventID) {
-            const index = root.messageEventModel.eventIdToRow(eventID)
+            const index = root.timelineModel.messageEventModel.eventIdToRow(eventID)
             if (index === -1)
                 return -1
-            return root.messageFilterModel.mapFromSource(root.messageEventModel.index(index, 0)).row
+            return root.messageFilterModel.mapFromSource(root.timelineModel.index(index, 0)).row
         }
 
         function firstVisibleIndex() {

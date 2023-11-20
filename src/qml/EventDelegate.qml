@@ -99,11 +99,24 @@ DelegateChooser {
             connection: root.connection
         }
     }
+
     DelegateChoice {
         roleValue: DelegateType.LiveLocation
         delegate: LiveLocationDelegate {
             room: root.room
             connection: root.connection
+        }
+    }
+
+    DelegateChoice {
+        roleValue: DelegateType.Loading
+        delegate: LoadingDelegate {}
+    }
+
+    DelegateChoice {
+        roleValue: DelegateType.TimelineEnd
+        delegate: TimelineEndDelegate {
+            room: root.room
         }
     }
 
