@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-17 01:37+0000\n"
+"POT-Creation-Date: 2023-11-21 01:34+0000\n"
 "PO-Revision-Date: 2023-11-17 10:28+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -90,12 +90,12 @@ msgid "The room id you are trying to join is not valid"
 msgstr "Iste id de sala que tu es essayante a unir non es valid"
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:465
+#: src/models/messageeventmodel.cpp:459
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Iste message ha essite delite]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:466
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:460
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Iste message esseva delite: %1]</i>"
@@ -969,17 +969,17 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Proprie Emojis"
 
-#: src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REAGITE]"
 
-#: src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REAGITE: %1]"
 
-#: src/models/messagefiltermodel.cpp:124
+#: src/models/messagefiltermodel.cpp:125
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
@@ -987,7 +987,7 @@ msgid_plural " %1 %2 times"
 msgstr[0] " %1"
 msgstr[1] ": %1  %2 vices"
 
-#: src/models/messagefiltermodel.cpp:128
+#: src/models/messagefiltermodel.cpp:129
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -995,25 +995,25 @@ msgid_plural " %1 users "
 msgstr[0] " %1 Usator "
 msgstr[1] " %1 Usatores"
 
-#: src/models/messagefiltermodel.cpp:138
+#: src/models/messagefiltermodel.cpp:139
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:143
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " o "
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:143
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr "e"
 
-#: src/models/messagefiltermodel.cpp:148
+#: src/models/messagefiltermodel.cpp:149
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -1801,8 +1801,9 @@ msgstr "Verifica dispositivo"
 msgid "Logout device"
 msgstr "Dispositivo de clausura de session"
 
-#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:37
-#: src/qml/NotificationsView.qml:34 src/qml/NotificationsView.qml:39
+#: src/qml/DevicesPage.qml:20 src/qml/LoadingDelegate.qml:13
+#: src/qml/Login.qml:37 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39
 #, kde-format
 msgid "Loading…"
 msgstr "Cargante..."
@@ -2585,7 +2586,7 @@ msgstr "Invitationes"
 msgid "Unknown"
 msgstr "Incognite"
 
-#: src/qml/GroupChatDrawerHeader.qml:65
+#: src/qml/GroupChatDrawerHeader.qml:65 src/qml/TimelineEndDelegate.qml:64
 #, kde-format
 msgid "No name"
 msgstr "Necun nomine"
@@ -4122,6 +4123,13 @@ msgstr ""
 "Per continuar con le registration, tu concorda con le sequente terminos e "
 "conditiones:"
 
+#: src/qml/TimelineEndDelegate.qml:85
+#, kde-format
+msgid ""
+"This is the beginning of the chat. There are no historical messages beyond "
+"this point."
+msgstr ""
+
 #: src/qml/TimelineView.qml:180
 #, kde-format
 msgid "Jump to first unread message"
@@ -4514,22 +4522,22 @@ msgstr "Continua"
 msgid "Working"
 msgstr "travaliante"
 
-#: src/roommanager.cpp:77
+#: src/roommanager.cpp:79
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Malformate o Id de Matrice vacue"
 
-#: src/roommanager.cpp:77
+#: src/roommanager.cpp:79
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 non es un correcte identificator de matrice"
 
-#: src/roommanager.cpp:93
+#: src/roommanager.cpp:95
 #, kde-format
 msgid "Room not found"
 msgstr "Sala non trovate"
 
-#: src/roommanager.cpp:93
+#: src/roommanager.cpp:95
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -4537,32 +4545,32 @@ msgstr ""
 "Il non ha sala %1 in le lista de sala. Verifica le orthographia (spelling) e "
 "le conto."
 
-#: src/roommanager.cpp:305
+#: src/roommanager.cpp:307
 #, kde-format
 msgid "Failed to join room"
 msgstr "Falleva a unir sala"
 
-#: src/roommanager.cpp:320
+#: src/roommanager.cpp:322
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Tu requireva unir a '%1'"
 
-#: src/roommanager.cpp:323
+#: src/roommanager.cpp:325
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Il falleva a requirer unir sala"
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "No application for the link"
 msgstr "Necun application per le ligamine"
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Tu systema operative non poteva trovar un application per le ligamine."
 
-#: src/roommanager.cpp:338
+#: src/roommanager.cpp:340
 #, kde-format
 msgid "Could not open URL"
 msgstr "Non pote aperir URL"

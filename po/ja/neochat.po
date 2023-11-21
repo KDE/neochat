@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-17 01:37+0000\n"
+"POT-Creation-Date: 2023-11-21 01:34+0000\n"
 "PO-Revision-Date: 2020-11-05 23:50-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -85,12 +85,12 @@ msgid "The room id you are trying to join is not valid"
 msgstr ""
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:465
+#: src/models/messageeventmodel.cpp:459
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr ""
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:466
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:460
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr ""
@@ -961,49 +961,49 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr ""
 
-#: src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "[REDACTED]"
 msgstr ""
 
-#: src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:124
+#: src/models/messagefiltermodel.cpp:125
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
 msgstr[0] ""
 
-#: src/models/messagefiltermodel.cpp:128
+#: src/models/messagefiltermodel.cpp:129
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
 msgstr[0] ""
 
-#: src/models/messagefiltermodel.cpp:138
+#: src/models/messagefiltermodel.cpp:139
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:143
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:143
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:148
+#: src/models/messagefiltermodel.cpp:149
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -1779,8 +1779,9 @@ msgstr ""
 msgid "Logout device"
 msgstr ""
 
-#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:37
-#: src/qml/NotificationsView.qml:34 src/qml/NotificationsView.qml:39
+#: src/qml/DevicesPage.qml:20 src/qml/LoadingDelegate.qml:13
+#: src/qml/Login.qml:37 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39
 #, kde-format
 msgid "Loading…"
 msgstr ""
@@ -2554,7 +2555,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: src/qml/GroupChatDrawerHeader.qml:65
+#: src/qml/GroupChatDrawerHeader.qml:65 src/qml/TimelineEndDelegate.qml:64
 #, kde-format
 msgid "No name"
 msgstr ""
@@ -4064,6 +4065,13 @@ msgid ""
 "conditions:"
 msgstr ""
 
+#: src/qml/TimelineEndDelegate.qml:85
+#, kde-format
+msgid ""
+"This is the beginning of the chat. There are no historical messages beyond "
+"this point."
+msgstr ""
+
 #: src/qml/TimelineView.qml:180
 #, kde-format
 msgid "Jump to first unread message"
@@ -4421,53 +4429,53 @@ msgstr ""
 msgid "Working"
 msgstr ""
 
-#: src/roommanager.cpp:77
+#: src/roommanager.cpp:79
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr ""
 
-#: src/roommanager.cpp:77
+#: src/roommanager.cpp:79
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr ""
 
-#: src/roommanager.cpp:93
+#: src/roommanager.cpp:95
 #, kde-format
 msgid "Room not found"
 msgstr ""
 
-#: src/roommanager.cpp:93
+#: src/roommanager.cpp:95
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 
-#: src/roommanager.cpp:305
+#: src/roommanager.cpp:307
 #, kde-format
 msgid "Failed to join room"
 msgstr ""
 
-#: src/roommanager.cpp:320
+#: src/roommanager.cpp:322
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:323
+#: src/roommanager.cpp:325
 #, kde-format
 msgid "Failed to request joining room"
 msgstr ""
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "No application for the link"
 msgstr ""
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 
-#: src/roommanager.cpp:338
+#: src/roommanager.cpp:340
 #, kde-format
 msgid "Could not open URL"
 msgstr ""
