@@ -315,7 +315,7 @@ Loader {
                                 Layout.fillWidth: true
                                 wrapMode: Text.WordWrap
 
-                                onLinkActivated: RoomManager.openResource(link);
+                                onLinkActivated: RoomManager.openResource(link, "join");
                             }
                         }
                     }

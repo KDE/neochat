@@ -112,7 +112,7 @@ a{
 
     onLinkActivated: link => {
         spoilerRevealed = true
-        RoomManager.openResource(link)
+        RoomManager.openResource(link, "join")
     }
     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
         applicationWindow().hoverLinkIndicator.text = hoveredLink;

@@ -95,6 +95,12 @@ void RoomManager::openResource(const QString &idOrUri, const QString &action)
         Q_EMIT warning(i18n("Room not found"), i18n("There's no room %1 in the room list. Check the spelling and the account.", idOrUri));
     } else { // Invalid cases should have been eliminated earlier
         Q_ASSERT(result == Quotient::UriResolved);
+
+        if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
+            connectSingleShot(m_connection, &Connection::newRoom, this, [this, uri](Room *room) {
+                enterRoom(dynamic_cast<NeoChatRoom *>(room));
+            });
+        }
     }
 }
 
