@@ -685,12 +685,12 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
     QVariantMap mediaInfo;
 
     // Get the mxc URL for the media.
-    if (!fileInfo->url().isValid() || eventId.isEmpty()) {
+    if (!fileInfo->url().isValid() || fileInfo->url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
         mediaInfo["source"_ls] = QUrl();
     } else {
         QUrl source = m_room->makeMediaUrl(eventId, fileInfo->url());
 
-        if (source.isValid() && source.scheme() == QStringLiteral("mxc")) {
+        if (source.isValid()) {
             mediaInfo["source"_ls] = source;
         } else {
             mediaInfo["source"_ls] = QUrl();
