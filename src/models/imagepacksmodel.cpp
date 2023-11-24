@@ -102,6 +102,9 @@ void ImagePacksModel::reloadImages()
             }
             auto packs = rooms[roomId].toObject();
             const auto &stickerRoom = m_room->connection()->room(roomId);
+            if (!stickerRoom) {
+                continue;
+            }
             for (const auto &packKey : packs.keys()) {
                 if (const auto &pack = stickerRoom->currentState().get<ImagePackEvent>(packKey)) {
                     const auto packContent = pack->content();
