@@ -85,6 +85,7 @@ TimelineDelegate {
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.largeSpacing * 1.5
             Layout.rightMargin: Kirigami.Units.largeSpacing * 1.5
+            Layout.topMargin: Kirigami.Units.largeSpacing
             visible: stateEventRepeater.count !== 1
 
             Flow {
@@ -181,6 +182,7 @@ TimelineDelegate {
                 Layout.fillWidth: true
                 Layout.leftMargin: Kirigami.Units.largeSpacing * 1.5
                 Layout.rightMargin: Kirigami.Units.largeSpacing * 1.5
+                Layout.topMargin: Kirigami.Units.largeSpacing
                 visible: !root.folded || stateEventRepeater.count === 1
             }
         }
