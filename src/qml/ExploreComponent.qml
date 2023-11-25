@@ -26,7 +26,7 @@ RowLayout {
                 if (isJoined) {
                     RoomManager.enterRoom(root.connection.room(roomId))
                 } else {
-                    Controller.joinRoom(roomId.length > 0 ? roomId : alias)
+                    RoomManager.openResource(roomId.length > 0 ? roomId : alias, "join")
                 }
             })
         }

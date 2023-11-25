@@ -149,7 +149,7 @@ Item {
                     if (root.isJoined) {
                         root.enterRoom()
                     } else {
-                        Controller.joinRoom(root.roomId)
+                        RoomManager.openResource(root.roomId, "join")
                     }
                 }
             }

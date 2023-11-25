@@ -370,18 +370,6 @@ void Controller::saveWindowGeometry()
     WindowController::instance().saveGeometry();
 }
 
-// TODO: Remove in favor of RoomManager::joinRoom
-void Controller::joinRoom(const QString &alias)
-{
-    if (!alias.contains(":"_ls)) {
-        Q_EMIT errorOccured(i18n("The room id you are trying to join is not valid"));
-        return;
-    }
-
-    const auto knownServer = alias.mid(alias.indexOf(":"_ls) + 1);
-    RoomManager::instance().joinRoom(m_connection, alias, QStringList{knownServer});
-}
-
 void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item)
 {
     // HACK: Workaround bug QTBUG 93281

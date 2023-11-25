@@ -100,11 +100,6 @@ public:
      */
     bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
 
-    /**
-     * @brief Join a room.
-     */
-    Q_INVOKABLE void joinRoom(const QString &alias);
-
     [[nodiscard]] bool supportSystemTray() const;
 
     /**
