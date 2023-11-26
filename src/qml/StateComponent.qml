@@ -62,7 +62,7 @@ RowLayout {
         MouseArea {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
-            onClicked: RoomManager.openResource("https://matrix.to/#/" + root.author.id)
+            onClicked: RoomManager.resolveResource("https://matrix.to/#/" + root.author.id)
         }
     }
 
@@ -73,6 +73,6 @@ RowLayout {
         text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${root.author.id}" style="color: ${root.author.color}">${root.authorDisplayName}</a> ${root.text}`
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
-        onLinkActivated: link => RoomManager.openResource(link)
+        onLinkActivated: link => RoomManager.resolveResource(link)
     }
 }

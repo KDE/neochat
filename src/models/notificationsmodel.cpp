@@ -5,6 +5,7 @@
 
 #include <Quotient/connection.h>
 #include <Quotient/events/event.h>
+#include <Quotient/uri.h>
 
 #include "eventhandler.h"
 #include "neochatroom.h"
@@ -49,6 +50,9 @@ QVariant NotificationsModel::data(const QModelIndex &index, int role) const
     if (role == RoomDisplayNameRole) {
         return m_notifications[row].roomDisplayName;
     }
+    if (role == UriRole) {
+        return Uri(m_notifications[row].roomId.toLatin1(), m_notifications[row].eventId.toLatin1()).toUrl();
+    }
     return {};
 }
 
@@ -62,6 +66,7 @@ QHash<int, QByteArray> NotificationsModel::roleNames() const
         {RoomRole, "room"},
         {EventIdRole, "eventId"},
         {RoomDisplayNameRole, "roomDisplayName"},
+        {UriRole, "uri"},
     };
 }
 

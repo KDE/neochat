@@ -355,7 +355,7 @@ TimelineDelegate {
                 source: root.author.avatarSource
                 color: root.author.color
 
-                onClicked: RoomManager.visitUser(root.author.object, "mention")
+                onClicked: RoomManager.resolveResource(root.author.id, "mention")
             }
             Bubble {
                 id: bubble

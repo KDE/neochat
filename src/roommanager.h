@@ -32,6 +32,11 @@ using namespace Quotient;
  * @class RoomManager
  *
  * A singleton class to help manage which room is open in NeoChat.
+ *
+ * This class also inherits UriResolverBase and overrides the relevant functions to
+ * resolve various URIs. The base functions visitUser(), visitRoom(), etc are held
+ * private intentionally and instead resolveResource() should be called with either
+ * an appropriate URI or a Matrix ID and action.
  */
 class RoomManager : public QObject, public UriResolverBase
 {
@@ -106,6 +111,26 @@ public:
     MessageFilterModel *messageFilterModel() const;
     MediaMessageFilterModel *mediaMessageFilterModel() const;
 
+    /**
+     * @brief Resolve the given URI resource.
+     *
+     * @note It's actually Quotient::UriResolverBase::visitResource() but with Q_INVOKABLE
+     *       and the connection grabbed from RoomManager.
+     *
+     * @sa Quotient::UriResolverBase::visitResource()
+     */
+    Q_INVOKABLE UriResolveResult resolveResource(const Uri &uri);
+
+    /**
+     * @brief Resolve the given resource.
+     *
+     * @note It's actually Quotient::UriResolverBase::visitResource() but with Q_INVOKABLE
+     *       and the connection grabbed from RoomManager.
+     *
+     * @sa Quotient::UriResolverBase::visitResource()
+     */
+    Q_INVOKABLE void resolveResource(const QString &idOrUri, const QString &action = {});
+
     bool hasOpenRoom() const;
 
     /**
@@ -139,56 +164,6 @@ public:
      */
     Q_INVOKABLE void enterSpaceHome(NeoChatRoom *spaceRoom);
 
-    // Overrided methods from UriResolverBase
-    /**
-     * @brief Resolve a user URI.
-     *
-     * This overloads Quotient::UriResolverBase::visitUser().
-     *
-     * Called by Quotient::UriResolverBase::visitResource() when the passed URI
-     * identifies a Matrix user.
-     *
-     * @sa Quotient::UriResolverBase::visitUser(), Quotient::UriResolverBase::visitResource()
-     */
-    Q_INVOKABLE UriResolveResult visitUser(User *user, const QString &action) override;
-
-    /**
-     * @brief Visit a room.
-     *
-     * This overloads Quotient::UriResolverBase::visitRoom().
-     *
-     * Called by Quotient::UriResolverBase::visitResource() when the passed URI
-     * identifies a room or an event in a room.
-     *
-     * @sa Quotient::UriResolverBase::visitRoom(), Quotient::UriResolverBase::visitResource()
-     */
-    Q_INVOKABLE void visitRoom(Quotient::Room *room, const QString &eventId) override;
-
-    /**
-     * @brief Join a room.
-     *
-     * This overloads Quotient::UriResolverBase::joinRoom().
-     *
-     * Called by Quotient::UriResolverBase::visitResource() when the passed URI has
-     * `action() == "join"` and identifies a room that the user defined by the
-     * Connection argument is not a member of.
-     *
-     * @sa Quotient::UriResolverBase::joinRoom(), Quotient::UriResolverBase::visitResource()
-     */
-    void joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers) override;
-
-    /**
-     * @brief Visit a non-matrix resource.
-     *
-     * This overloads Quotient::UriResolverBase::visitNonMatrix().
-     *
-     * Called by Quotient::UriResolverBase::visitResource() when the passed URI
-     * has `type() == NonMatrix`
-     *
-     * @sa Quotient::UriResolverBase::visitNonMatrix(), Quotient::UriResolverBase::visitResource()
-     */
-    Q_INVOKABLE bool visitNonMatrix(const QUrl &url) override;
-
     /**
      * @brief Knock a room.
      *
@@ -196,16 +171,6 @@ public:
      * knocking on rooms.
      */
     void knockRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers);
-
-    /**
-     * @brief Open the given resource.
-     *
-     * Convenience function to call Quotient::UriResolverBase::visitResource() from
-     * QML if valid.
-     *
-     * @sa Quotient::UriResolverBase::visitResource()
-     */
-    Q_INVOKABLE void openResource(const QString &idOrUri, const QString &action = {});
 
     /**
      * @brief Show a media item maximized.
@@ -388,4 +353,69 @@ private:
     MessageFilterModel *m_messageFilterModel;
     MediaMessageFilterModel *m_mediaMessageFilterModel;
     NeoChatConnection *m_connection;
+
+    /**
+     * @brief Resolve a user URI.
+     *
+     * This overloads Quotient::UriResolverBase::visitUser().
+     *
+     * Called by Quotient::UriResolverBase::visitResource() when the passed URI
+     * identifies a Matrix user.
+     *
+     * @note This is private as resolveResource() should always be called, which
+     *       will in turn call Quotient::UriResolverBase::visitResource() and this
+     *       function if appropriate for the URI.
+     *
+     * @sa resolveResource(), Quotient::UriResolverBase::visitUser(), Quotient::UriResolverBase::visitResource()
+     */
+    UriResolveResult visitUser(User *user, const QString &action) override;
+
+    /**
+     * @brief Visit a room.
+     *
+     * This overloads Quotient::UriResolverBase::visitRoom().
+     *
+     * Called by Quotient::UriResolverBase::visitResource() when the passed URI
+     * identifies a room or an event in a room.
+     *
+     * @note This is private as resolveResource() should always be called, which
+     *       will in turn call Quotient::UriResolverBase::visitResource() and this
+     *       function if appropriate for the URI.
+     *
+     * @sa resolveResource(), Quotient::UriResolverBase::visitUser(), Quotient::UriResolverBase::visitResource()
+     */
+    Q_INVOKABLE void visitRoom(Quotient::Room *room, const QString &eventId) override;
+
+    /**
+     * @brief Join a room.
+     *
+     * This overloads Quotient::UriResolverBase::joinRoom().
+     *
+     * Called by Quotient::UriResolverBase::visitResource() when the passed URI has
+     * `action() == "join"` and identifies a room that the user defined by the
+     * Connection argument is not a member of.
+     *
+     * @note This is private as resolveResource() should always be called, which
+     *       will in turn call Quotient::UriResolverBase::visitResource() and this
+     *       function if appropriate for the URI.
+     *
+     * @sa resolveResource(), Quotient::UriResolverBase::visitUser(), Quotient::UriResolverBase::visitResource()
+     */
+    void joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers) override;
+
+    /**
+     * @brief Visit a non-matrix resource.
+     *
+     * This overloads Quotient::UriResolverBase::visitNonMatrix().
+     *
+     * Called by Quotient::UriResolverBase::visitResource() when the passed URI
+     * has `type() == NonMatrix`
+     *
+     * @note This is private as resolveResource() should always be called, which
+     *       will in turn call Quotient::UriResolverBase::visitResource() and this
+     *       function if appropriate for the URI.
+     *
+     * @sa resolveResource(), Quotient::UriResolverBase::visitUser(), Quotient::UriResolverBase::visitResource()
+     */
+    Q_INVOKABLE bool visitNonMatrix(const QUrl &url) override;
 };

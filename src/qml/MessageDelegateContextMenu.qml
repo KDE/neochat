@@ -209,7 +209,7 @@ Loader {
                     model: WebShortcutModel {
                         id: webshortcutmodel
                         selectedText: root.selectedText.length > 0 ? root.selectedText : root.plainText
-                        onOpenUrl: RoomManager.visitNonMatrix(url)
+                        onOpenUrl: RoomManager.resolveResource(url)
                     }
                     delegate: QQC2.MenuItem {
                         text: model.display
@@ -315,7 +315,7 @@ Loader {
                                 Layout.fillWidth: true
                                 wrapMode: Text.WordWrap
 
-                                onLinkActivated: RoomManager.openResource(link, "join");
+                                onLinkActivated: RoomManager.resolveResource(link, "join");
                             }
                         }
                     }

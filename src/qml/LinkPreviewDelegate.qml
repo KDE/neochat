@@ -82,7 +82,7 @@ Loader {
                             }
                             </style>
                             <a href=\"" + root.linkPreviewer.url + "\">" + (maximizeButton.checked ? root.linkPreviewer.title : titleTextMetrics.elidedText).replace("&ndash;", "—") + "</a>"
-                        onLinkActivated: RoomManager.openResource(link, "join")
+                        onLinkActivated: RoomManager.resolveResource(link, "join")
 
                         TextMetrics {
                             id: titleTextMetrics

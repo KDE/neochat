@@ -43,7 +43,7 @@ Kirigami.ScrollablePage {
         delegate: QQC2.ItemDelegate {
             width: parent?.width ?? 0
 
-            onClicked: RoomManager.visitRoom(model.room, model.eventId)
+            onClicked: RoomManager.resolveResource(model.uri)
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
 

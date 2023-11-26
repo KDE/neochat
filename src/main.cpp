@@ -232,7 +232,7 @@ int main(int argc, char *argv[])
                         auto args = arguments;
                         args.removeFirst();
                         for (const auto &arg : args) {
-                            RoomManager::instance().openResource(arg);
+                            RoomManager::instance().resolveResource(arg);
                         }
                     });
 #endif

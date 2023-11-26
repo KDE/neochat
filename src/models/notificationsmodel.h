@@ -28,6 +28,7 @@ public:
         RoomRole,
         EventIdRole,
         RoomDisplayNameRole,
+        UriRole,
     };
     Q_ENUM(Roles);
 

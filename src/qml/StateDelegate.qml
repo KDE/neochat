@@ -156,7 +156,7 @@ TimelineDelegate {
                 elide: Qt.ElideRight
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
-                onLinkActivated: RoomManager.openResource(link)
+                onLinkActivated: RoomManager.resolveResource(link)
             }
             Item {
                 Layout.fillWidth: true

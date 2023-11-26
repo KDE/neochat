@@ -191,7 +191,7 @@ Kirigami.Page {
                                 if (isJoined) {
                                     RoomManager.enterRoom(root.connection.room(roomId))
                                 } else {
-                                    RoomManager.openResource(roomId, "join")
+                                    RoomManager.resolveResource(roomId, "join")
                                 }
                             })
                         }

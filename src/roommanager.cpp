@@ -72,7 +72,12 @@ MediaMessageFilterModel *RoomManager::mediaMessageFilterModel() const
     return m_mediaMessageFilterModel;
 }
 
-void RoomManager::openResource(const QString &idOrUri, const QString &action)
+UriResolveResult RoomManager::resolveResource(const Uri &uri)
+{
+    return UriResolverBase::visitResource(m_connection, uri);
+}
+
+void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
 {
     Uri uri{idOrUri};
     if (!uri.isValid()) {
@@ -155,7 +160,7 @@ void RoomManager::loadInitialRoom()
     Q_ASSERT(m_connection);
 
     if (!m_arg.isEmpty()) {
-        openResource(m_arg);
+        resolveResource(m_arg);
     }
 
     if (m_currentRoom) {

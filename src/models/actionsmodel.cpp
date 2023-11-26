@@ -235,7 +235,7 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
-            RoomManager::instance().openResource(text, "join"_ls);
+            RoomManager::instance().resolveResource(text, "join"_ls);
             return QString();
         },
         false,
@@ -290,7 +290,7 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
-            RoomManager::instance().openResource(text, "join"_ls);
+            RoomManager::instance().resolveResource(text, "join"_ls);
             return QString();
         },
         false,

@@ -149,7 +149,7 @@ QQC2.Control {
                     elide: Text.ElideRight
                 }
                 Accessible.name: contentItem.text
-                onClicked: RoomManager.visitUser(root.author.object, "mention")
+                onClicked: RoomManager.resolveResource(root.author.id, "mention")
             }
             QQC2.Label {
                 text: root.timeString
