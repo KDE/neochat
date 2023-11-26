@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-25 01:34+0000\n"
+"POT-Creation-Date: 2023-11-26 01:59+0000\n"
 "PO-Revision-Date: 2023-11-21 08:10+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: src/controller.cpp:128 src/controller.cpp:400
+#: src/controller.cpp:128 src/controller.cpp:388
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Отримання імпульсних сповіщень"
@@ -87,11 +87,6 @@ msgstr "Файл є надто великим для отримання."
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
-
-#: src/controller.cpp:377
-#, kde-format
-msgid "The room id you are trying to join is not valid"
-msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
 #: src/models/messageeventmodel.cpp:459
@@ -4604,6 +4599,9 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "The room id you are trying to join is not valid"
+#~ msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
 
 #~ msgctxt "n times"
 #~ msgid " %1 time "

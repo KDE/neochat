@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-25 01:34+0000\n"
-"PO-Revision-Date: 2023-11-19 03:37\n"
+"POT-Creation-Date: 2023-11-26 01:59+0000\n"
+"PO-Revision-Date: 2023-11-25 02:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/neochat/neochat.pot\n"
 "X-Crowdin-File-ID: 44721\n"
 
-#: src/controller.cpp:128 src/controller.cpp:400
+#: src/controller.cpp:128 src/controller.cpp:388
 #, kde-format
 msgid "Receiving push notifications"
 msgstr ""
@@ -25,7 +25,7 @@ msgstr ""
 #: src/controller.cpp:230
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
-msgstr ""
+msgstr "登录失败：访问令牌无效或被吊销"
 
 #: src/controller.cpp:233 src/controller.cpp:238 src/login.cpp:93
 #, kde-format
@@ -40,12 +40,12 @@ msgstr "网络错误：%1"
 #: src/controller.cpp:269
 #, kde-format
 msgid "Access token wasn't found"
-msgstr ""
+msgstr "无法找到访问令牌"
 
 #: src/controller.cpp:269
 #, kde-format
 msgid "Maybe it was deleted?"
-msgstr ""
+msgstr "可能已被删除？"
 
 #: src/controller.cpp:273
 #, kde-format
@@ -82,12 +82,7 @@ msgstr "文件太大，无法下载。"
 #: src/controller.cpp:358
 #, kde-format
 msgid "Contact your matrix server administrator for support."
-msgstr ""
-
-#: src/controller.cpp:377
-#, kde-format
-msgid "The room id you are trying to join is not valid"
-msgstr ""
+msgstr "请联系 Matrix 服务器管理员寻求支持。"
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
 #: src/models/messageeventmodel.cpp:459
@@ -536,7 +531,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "kde-china@kde.org, i@guoyunhe.me, 073plan@gmail.com, coelacanthus@kde.org, "
-"tysontan@tysontan.com, git@blumia.net"
+"tds00@qq.com, git@blumia.net"
 
 #: src/main.cpp:147
 #, kde-format
@@ -606,7 +601,7 @@ msgstr "正在离开聊天室 %1。"
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr ""
+msgstr "聊天室 %1 未找到。"
 
 #: src/models/actionsmodel.cpp:51 src/models/actionsmodel.cpp:321
 #, kde-format
@@ -2879,7 +2874,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
-msgstr ""
+msgstr "使用单点登录方式登录"
 
 #: src/qml/LoginRegister.qml:22 src/qml/Password.qml:40
 #, kde-format
@@ -4500,3 +4495,6 @@ msgstr "显示"
 #, kde-format
 msgid "Quit"
 msgstr "退出"
+
+#~ msgid "The room id you are trying to join is not valid"
+#~ msgstr "试图加入的聊天室 ID 无效"
