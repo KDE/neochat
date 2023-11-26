@@ -302,6 +302,10 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/glowdot.png
 )
 
+if(WIN32)
+    set_target_properties(neochat PROPERTIES OUTPUT_NAME "neochatlib")
+endif()
+
 ecm_qt_declare_logging_category(neochat
     HEADER "messageeventmodel_logging.h"
     IDENTIFIER "MessageEvent"
