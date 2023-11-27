@@ -609,7 +609,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             if (data(i, SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
                 return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, DelegateTypeRole) == DelegateType::State
                     || data(i, TimeRole).toDateTime().msecsTo(data(idx, TimeRole).toDateTime()) > 600000
-                    || data(i, TimeRole).toDateTime().toLocalTime().date().day() != data(idx, TimeRole).toDateTime().toLocalTime().date().day();
+                    || data(i, TimeRole).toDateTime().toLocalTime().date().day() != data(idx, TimeRole).toDateTime().toLocalTime().date().day()
+                    // FIXME: This should not be necessary; the proper fix is to calculate this role in MessageFilterModel with the knowledge about the filtered
+                    // events.
+                    || data(i, IsRedactedRole).toBool();
             }
         }
 
