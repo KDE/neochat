@@ -33,10 +33,13 @@ MessageDelegate {
         Label {
             id: questionLabel
             text: root.content["org.matrix.msc3381.poll.start"]["question"]["body"]
+            wrapMode: Text.Wrap
+            Layout.fillWidth: true
         }
         Repeater {
             model: root.content["org.matrix.msc3381.poll.start"]["answers"]
             delegate: RowLayout {
+                Layout.fillWidth: true
                 CheckBox {
                     checked: root.pollHandler.answers[currentRoom.localUser.id] ? root.pollHandler.answers[currentRoom.localUser.id].includes(modelData["id"]) : false
                     onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])
@@ -44,9 +47,8 @@ MessageDelegate {
                 }
                 Label {
                     text: modelData["org.matrix.msc1767.text"]
-                }
-                Item {
                     Layout.fillWidth: true
+                    wrapMode: Text.Wrap
                 }
                 Label {
                     visible: root.content["org.matrix.msc3381.poll.start"]["kind"] == "org.matrix.msc3381.poll.disclosed" || pollHandler.hasEnded
