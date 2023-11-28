@@ -187,7 +187,7 @@ QQC2.Control {
 
                     placeholderText: root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.mainCache.attachmentPath.length > 0 ? i18n("Set an attachment caption…") : i18n("Send a message…")
                     verticalAlignment: TextEdit.AlignVCenter
-                    wrapMode: Text.Wrap
+                    wrapMode: TextEdit.Wrap
 
                     Accessible.description: placeholderText
 

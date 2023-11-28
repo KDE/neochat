@@ -63,7 +63,7 @@ RowLayout {
             selectByMouse: true
             selectByKeyboard: true
             readOnly: true
-            wrapMode: QQC2.Label.Wrap
+            wrapMode: TextEdit.Wrap
             textFormat: TextEdit.RichText
             background: Item {}
             HoverHandler {

@@ -86,6 +86,7 @@ FormCard.FormCardPage {
                     id: roomTopicTextArea
                     Accessible.description: roomTopicLabel.text
                     Layout.fillWidth: true
+                    wrapMode: TextEdit.Wrap
                     text: room.topic
                     readOnly: !room.canSendState("m.room.topic")
                     onTextChanged: roomTopicField.text = text

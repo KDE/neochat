@@ -32,7 +32,7 @@ Kirigami.Page {
             text: sourceText
             readOnly: true
             textFormat: TextEdit.PlainText
-            wrapMode: Text.WordWrap
+            wrapMode: TextEdit.Wrap
             background: Rectangle {
                 Kirigami.Theme.colorSet: Kirigami.Theme.View
                 Kirigami.Theme.inherit: false

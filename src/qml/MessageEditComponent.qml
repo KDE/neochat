@@ -34,7 +34,7 @@ QQC2.TextArea {
 
     color: Kirigami.Theme.textColor
     verticalAlignment: TextEdit.AlignVCenter
-    wrapMode: Text.Wrap
+    wrapMode: TextEdit.Wrap
 
     onTextChanged: {
         _private.chatBarCache.text = text
