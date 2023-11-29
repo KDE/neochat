@@ -92,6 +92,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
     }
 
     m_currentRoom = room;
+    Q_EMIT roomChanged();
     if (room) {
         m_lastReadEventIndex = QPersistentModelIndex(QModelIndex());
         room->setDisplayed();

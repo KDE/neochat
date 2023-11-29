@@ -46,3 +46,9 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME chatdocumenthandlertest
 )
+
+ecm_add_test(
+    messageeventmodeltest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME messageeventmodeltest
+)
