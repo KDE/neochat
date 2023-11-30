@@ -14,21 +14,23 @@
 #include "controller.h"
 #include "neochatconfig.h"
 
+#include <KLazyLocalizedString>
+
 // Alternate name text for default rules.
-static const QHash<QString, QString> defaultRuleNames = {
-    {QStringLiteral(".m.rule.master"), QStringLiteral("Enable notifications for this account")},
-    {QStringLiteral(".m.rule.room_one_to_one"), QStringLiteral("Messages in one-to-one chats")},
-    {QStringLiteral(".m.rule.encrypted_room_one_to_one"), QStringLiteral("Encrypted messages in one-to-one chats")},
-    {QStringLiteral(".m.rule.message"), QStringLiteral("Messages in group chats")},
-    {QStringLiteral(".m.rule.encrypted"), QStringLiteral("Messages in encrypted group chats")},
-    {QStringLiteral(".m.rule.tombstone"), QStringLiteral("Room upgrade messages")},
-    {QStringLiteral(".m.rule.contains_display_name"), QStringLiteral("Messages containing my display name")},
-    {QStringLiteral(".m.rule.is_user_mention"), QStringLiteral("Messages which mention my Matrix user ID.")},
-    {QStringLiteral(".m.rule.is_room_mention"), QStringLiteral("Messages which mention a room.")},
-    {QStringLiteral(".m.rule.contains_user_name"), QStringLiteral("Messages containing the local part of my Matrix ID.")},
-    {QStringLiteral(".m.rule.roomnotif"), QStringLiteral("Whole room (@room) notifications")},
-    {QStringLiteral(".m.rule.invite_for_me"), QStringLiteral("Invites to a room")},
-    {QStringLiteral(".m.rule.call"), QStringLiteral("Call invitation")},
+static const QHash<QString, KLazyLocalizedString> defaultRuleNames = {
+    {QStringLiteral(".m.rule.master"), kli18nc("Notification type", "Enable notifications for this account")},
+    {QStringLiteral(".m.rule.room_one_to_one"), kli18nc("Notification type", "Messages in one-to-one chats")},
+    {QStringLiteral(".m.rule.encrypted_room_one_to_one"), kli18nc("Notification type", "Encrypted messages in one-to-one chats")},
+    {QStringLiteral(".m.rule.message"), kli18nc("Notification type", "Messages in group chats")},
+    {QStringLiteral(".m.rule.encrypted"), kli18nc("Notification type", "Messages in encrypted group chats")},
+    {QStringLiteral(".m.rule.tombstone"), kli18nc("Notification type", "Room upgrade messages")},
+    {QStringLiteral(".m.rule.contains_display_name"), kli18nc("Notification type", "Messages containing my display name")},
+    {QStringLiteral(".m.rule.is_user_mention"), kli18nc("Notification type", "Messages which mention my Matrix user ID")},
+    {QStringLiteral(".m.rule.is_room_mention"), kli18nc("Notification type", "Messages which mention a room")},
+    {QStringLiteral(".m.rule.contains_user_name"), kli18nc("Notification type", "Messages containing the local part of my Matrix ID")},
+    {QStringLiteral(".m.rule.roomnotif"), kli18nc("Notification type", "Whole room (@room) notifications")},
+    {QStringLiteral(".m.rule.invite_for_me"), kli18nc("Notification type", "Invites to a room")},
+    {QStringLiteral(".m.rule.call"), kli18nc("Notification type", "Call invitation")},
 };
 
 // Sections for default rules.
@@ -220,7 +222,7 @@ QVariant PushRuleModel::data(const QModelIndex &index, int role) const
     if (role == NameRole) {
         auto ruleId = m_rules.at(index.row()).id;
         if (defaultRuleNames.contains(ruleId)) {
-            return defaultRuleNames.value(ruleId);
+            return defaultRuleNames.value(ruleId).toString();
         } else {
             return ruleId;
         }
