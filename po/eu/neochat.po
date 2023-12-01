@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-30 01:34+0000\n"
-"PO-Revision-Date: 2023-11-08 22:51+0100\n"
+"PO-Revision-Date: 2023-11-30 09:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,13 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/controller.cpp:128 src/controller.cpp:388
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgid "Receiving push notifications"
-msgstr "Bidali tekleatze-jakinarazpenak"
+msgstr "Bultzada-jakinarazpenak jasotzea"
 
 #: src/controller.cpp:230
 #, kde-format
@@ -565,12 +564,12 @@ msgstr "Ez egin kasu SSL erroreei, adib., sinatu gabeko ziurtagiriei."
 #: src/main.cpp:179
 #, kde-format
 msgid "Only used for autotests"
-msgstr ""
+msgstr "Auto-probetarako bakarrik erabilia"
 
 #: src/main.cpp:184
 #, kde-format
 msgid "Internal usage only."
-msgstr ""
+msgstr "Barneko erabilera bakarrik."
 
 #: src/matriximageprovider.cpp:41
 #, kde-format
@@ -980,13 +979,12 @@ msgid "[REDACTED: %1]"
 msgstr "[ERREDAKZIOAK LANA DU: %1]"
 
 #: src/models/messagefiltermodel.cpp:125
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ": %1"
-msgstr[1] ": %1"
+msgstr[0] " %1"
+msgstr[1] " %1 %2 aldiz"
 
 #: src/models/messagefiltermodel.cpp:129
 #, kde-format
@@ -1021,7 +1019,7 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1156,10 +1154,9 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "NeoChat"
+msgstr "Ireki NeoChat"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -1499,8 +1496,7 @@ msgid "Send an encrypted message…"
 msgstr "Bidali zifratutako mezu bat..."
 
 #: src/qml/ChatBar.qml:188
-#, fuzzy, kde-format
-#| msgid "Set an attachment caption..."
+#, kde-format
 msgid "Set an attachment caption…"
 msgstr "Ezarri eranskin baten epigrafea..."
 
@@ -3106,24 +3102,20 @@ msgid "Delete keyword"
 msgstr "Ezabatu gako-hitza"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Jakinarazpenak"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "Jakinarazpenak"
+msgstr "Jakinarazpenik ez"
 
 #: src/qml/OpenFileDialog.qml:12
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select a File"
-msgstr "Hautatu denak"
+msgstr "Aukeratu fitxategi bat"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3291,17 +3283,15 @@ msgid "(Ended)"
 msgstr "(Amaituta)"
 
 #: src/qml/PowerLevelDialog.qml:15
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
-msgstr "Erabiltzailearen ahalmen maila editatzea"
+msgstr "Editatu erabiltzailearen ahalmen maila"
 
 #: src/qml/PowerLevelDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Set user power level"
+#, kde-format
 msgid "New power level"
-msgstr "Ezarri erabiltzailearen ahalmen maila"
+msgstr "Ahalmen maila berria"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3558,10 +3548,9 @@ msgid "No member count"
 msgstr "Ez dago bazkide zenbaketarik"
 
 #: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
+#, kde-format
 msgid "View notifications"
-msgstr "Isilarazi jakinarazpenak"
+msgstr "Ikusi jakinarazpenak"
 
 #: src/qml/RoomListPage.qml:179
 #, kde-format
@@ -3994,7 +3983,7 @@ msgstr "Gela guztiak"
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
 msgid "Suggested"
-msgstr ""
+msgstr "Iradokita"
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -4024,13 +4013,13 @@ msgstr "Kendu"
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
-msgstr ""
+msgstr "Ez egin iradokitakoa"
 
 #: src/qml/SpaceHierarchyDelegate.qml:133
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
-msgstr ""
+msgstr "Egin iradokitakoa"
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
@@ -4125,6 +4114,8 @@ msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
 msgstr ""
+"Hau berriketaren hasiera da. Puntu horretatik haratago ez dago mezu "
+"historikorik."
 
 #: src/qml/TimelineView.qml:180
 #, kde-format
@@ -4150,9 +4141,7 @@ msgstr[0] "%2 tekleatzen ari da"
 msgstr[1] "%2 tekleatzen ari dira"
 
 #: src/qml/UserDetailDialog.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Kontuaren xehetasuna"
