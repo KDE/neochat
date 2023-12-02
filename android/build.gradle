@@ -92,6 +92,7 @@ android {
         exclude 'lib/*/*_imageformats_qtga_*'
         exclude 'lib/*/*_imageformats_qtiff_*'
         exclude 'lib/*/*_qmltooling_*'
+        exclude 'lib/*/*_multimedia_ffmpeg*' // temporary qt6 android fix
     }
 
     aaptOptions {
