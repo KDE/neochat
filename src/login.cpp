@@ -82,7 +82,7 @@ void LoginHelper::init()
         m_connection = nullptr;
     });
     connect(m_connection, &Connection::networkError, this, [this](QString error, const QString &, int, int) {
-        Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
+        Q_EMIT Controller::instance().errorOccured(i18n("Network Error"), std::move(error));
         m_isLoggingIn = false;
         Q_EMIT isLoggingInChanged();
     });
@@ -97,7 +97,7 @@ void LoginHelper::init()
     });
 
     connect(m_connection, &Connection::resolveError, this, [](QString error) {
-        Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
+        Q_EMIT Controller::instance().errorOccured(i18n("Network Error"), std::move(error));
     });
 
     connectSingleShot(m_connection, &Connection::syncDone, this, [this]() {

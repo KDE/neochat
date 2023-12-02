@@ -140,11 +140,7 @@ private Q_SLOTS:
     void setQuitOnLastWindowClosed();
 
 Q_SIGNALS:
-    /// Error occurred because of user inputs
-    void errorOccured(const QString &error);
-
-    /// Error occurred because of server or bug in NeoChat
-    void globalErrorOccured(QString error, QString detail);
+    void errorOccured(const QString &error, const QString &detail);
     void syncDone();
     void connectionAdded(NeoChatConnection *connection);
     void connectionDropped(NeoChatConnection *connection);

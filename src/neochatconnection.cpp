@@ -194,7 +194,7 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
         });
     }
     connect(job, &CreateRoomJob::failure, this, [job] {
-        Q_EMIT Controller::instance().errorOccured(i18n("Room creation failed: %1", job->errorString()));
+        Q_EMIT Controller::instance().errorOccured(i18n("Room creation failed: %1", job->errorString()), {});
     });
     connectSingleShot(this, &Connection::newRoom, this, [](Room *room) {
         RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(room));
@@ -226,7 +226,7 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
         });
     }
     connect(job, &CreateRoomJob::failure, this, [job] {
-        Q_EMIT Controller::instance().errorOccured(i18n("Space creation failed: %1", job->errorString()));
+        Q_EMIT Controller::instance().errorOccured(i18n("Space creation failed: %1", job->errorString()), {});
     });
     connectSingleShot(this, &Connection::newRoom, this, [](Room *room) {
         RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(room));

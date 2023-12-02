@@ -297,8 +297,8 @@ Kirigami.ApplicationWindow {
     Connections {
         target: Controller
 
-        function onGlobalErrorOccured(error, detail) {
-            showPassiveNotification(i18n("%1: %2", error, detail));
+        function onErrorOccured(error, detail) {
+            showPassiveNotification(detail.length > 0 ? i18n("%1: %2", error, detail) : error);
         }
 
         function onUserConsentRequired(url) {

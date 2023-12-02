@@ -227,21 +227,21 @@ void Controller::invokeLogin()
                 });
                 connect(connection, &NeoChatConnection::loginError, this, [this, connection](const QString &error, const QString &) {
                     if (error == "Unrecognised access token"_ls) {
-                        Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
+                        Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"), {});
                         connection->logout(false);
                     } else if (error == "Connection closed"_ls) {
-                        Q_EMIT errorOccured(i18n("Login Failed: %1", error));
+                        Q_EMIT errorOccured(i18n("Login Failed: %1", error), {});
                         // Failed due to network connection issue. This might happen when the homeserver is
                         // temporary down, or the user trying to re-launch NeoChat in a network that cannot
                         // connect to the homeserver. In this case, we don't want to do logout().
                     } else {
-                        Q_EMIT errorOccured(i18n("Login Failed: %1", error));
+                        Q_EMIT errorOccured(i18n("Login Failed: %1", error), {});
                         connection->logout(true);
                     }
                     Q_EMIT initiated();
                 });
                 connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
-                    Q_EMIT errorOccured(i18n("Network Error: %1", error));
+                    Q_EMIT errorOccured(i18n("Network Error: %1", error), {});
                 });
                 connection->assumeIdentity(account.userId(), accessToken);
             });
@@ -266,17 +266,17 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const Accoun
 
         switch (job->error()) {
         case QKeychain::EntryNotFound:
-            Q_EMIT globalErrorOccured(i18n("Access token wasn't found"), i18n("Maybe it was deleted?"));
+            Q_EMIT errorOccured(i18n("Access token wasn't found"), i18n("Maybe it was deleted?"));
             break;
         case QKeychain::AccessDeniedByUser:
         case QKeychain::AccessDenied:
-            Q_EMIT globalErrorOccured(i18n("Access to keychain was denied."), i18n("Please allow NeoChat to read the access token"));
+            Q_EMIT errorOccured(i18n("Access to keychain was denied."), i18n("Please allow NeoChat to read the access token"));
             break;
         case QKeychain::NoBackendAvailable:
-            Q_EMIT globalErrorOccured(i18n("No keychain available."), i18n("Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
+            Q_EMIT errorOccured(i18n("No keychain available."), i18n("Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
             break;
         case QKeychain::OtherError:
-            Q_EMIT globalErrorOccured(i18n("Unable to read access token"), job->errorString());
+            Q_EMIT errorOccured(i18n("Unable to read access token"), job->errorString());
             break;
         default:
             break;
