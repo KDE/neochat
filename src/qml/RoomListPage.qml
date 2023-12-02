@@ -125,7 +125,7 @@ Kirigami.Page {
                 id: listView
 
                 activeFocusOnTab: true
-                clip: AccountRegistry.count > 1
+                clip: true
 
                 topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
 
