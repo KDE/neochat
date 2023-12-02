@@ -65,16 +65,6 @@ class Controller : public QObject
     Q_PROPERTY(QStringList accountsLoading MEMBER m_accountsLoading NOTIFY accountsLoadingChanged)
 
 public:
-    /**
-     * @brief Defines the status after an attempt to change the password on an account.
-     */
-    enum PasswordStatus {
-        Success, /**< The password was successfully changed. */
-        Wrong, /**< The current password entered was wrong. */
-        Other, /**< An unknown problem occurred. */
-    };
-    Q_ENUM(PasswordStatus)
-
     static Controller &instance();
     static Controller *create(QQmlEngine *engine, QJSEngine *)
     {
@@ -162,7 +152,6 @@ Q_SIGNALS:
     void quitOnLastWindowClosedChanged();
     void unreadCountChanged();
     void activeConnectionChanged();
-    void passwordStatus(Controller::PasswordStatus status);
     void userConsentRequired(QUrl url);
     void accountsLoadingChanged();
 

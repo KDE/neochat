@@ -33,6 +33,16 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(bool isOnline READ isOnline WRITE setIsOnline NOTIFY isOnlineChanged)
 
 public:
+    /**
+     * @brief Defines the status after an attempt to change the password on an account.
+     */
+    enum PasswordStatus {
+        Success, /**< The password was successfully changed. */
+        Wrong, /**< The current password entered was wrong. */
+        Other, /**< An unknown problem occurred. */
+    };
+    Q_ENUM(PasswordStatus)
+
     NeoChatConnection(QObject *parent = nullptr);
     NeoChatConnection(const QUrl &server, QObject *parent = nullptr);
 
@@ -88,6 +98,7 @@ public:
 Q_SIGNALS:
     void labelChanged();
     void isOnlineChanged();
+    void passwordStatus(NeoChatConnection::PasswordStatus status);
 
 private:
     bool m_isOnline = true;

@@ -124,12 +124,11 @@ void NeoChatConnection::changePassword(const QString &currentPassword, const QSt
             QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, user()->id()}};
             authData["identifier"_ls] = identifier;
             NeochatChangePasswordJob *innerJob = callApi<NeochatChangePasswordJob>(newPassword, false, authData);
-            connect(innerJob, &BaseJob::success, this, []() {
-                Q_EMIT Controller::instance().passwordStatus(Controller::PasswordStatus::Success);
+            connect(innerJob, &BaseJob::success, this, [this]() {
+                Q_EMIT passwordStatus(PasswordStatus::Success);
             });
-            connect(innerJob, &BaseJob::failure, this, [innerJob]() {
-                Q_EMIT Controller::instance().passwordStatus(innerJob->jsonData()["errcode"_ls] == "M_FORBIDDEN"_ls ? Controller::PasswordStatus::Wrong
-                                                                                                                    : Controller::PasswordStatus::Other);
+            connect(innerJob, &BaseJob::failure, this, [innerJob, this]() {
+                Q_EMIT passwordStatus(innerJob->jsonData()["errcode"_ls] == "M_FORBIDDEN"_ls ? PasswordStatus::Wrong : PasswordStatus::Other);
             });
         }
     });

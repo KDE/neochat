@@ -215,4 +215,17 @@ FormCard.FormCardPage {
             onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ConfirmDeactivateAccountDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Confirm Deactivating Account")})
         }
     }
+
+    data: Connections {
+        target: root.connection
+        function onPasswordStatus(status) {
+            if (status === NeoChatConnection.Success) {
+                showPassiveNotification(i18n("Password changed successfully"));
+            } else if (status === NeoChatConnection.Wrong) {
+                showPassiveNotification(i18n("Wrong password entered"));
+            } else {
+                showPassiveNotification(i18n("Unknown problem while trying to change password"));
+            }
+        }
+    }
 }

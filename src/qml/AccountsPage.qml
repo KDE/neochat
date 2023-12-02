@@ -110,14 +110,5 @@ FormCard.FormCardPage {
                 pageStack.layers.pop()
             }
         }
-        function onPasswordStatus(status) {
-            if (status === Controller.Success) {
-                showPassiveNotification(i18n("Password changed successfully"));
-            } else if (status === Controller.Wrong) {
-                showPassiveNotification(i18n("Wrong password entered"));
-            } else {
-                showPassiveNotification(i18n("Unknown problem while trying to change password"));
-            }
-        }
     }
 }
