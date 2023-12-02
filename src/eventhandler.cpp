@@ -181,7 +181,7 @@ QString EventHandler::singleLineAuthorDisplayname(bool isPending) const
     }
 
     const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-    auto displayName = m_room->htmlSafeMemberName(author->id());
+    auto displayName = m_room->safeMemberName(author->id());
     displayName.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br>"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
