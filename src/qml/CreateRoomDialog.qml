@@ -75,7 +75,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: newOfficialCheck
             visible: root.parentId.length > 0
-            text: i18n("Make this parent official")
+            text: i18nc("@option:check As in make the space from which this dialog was created an official parent.", "Make this parent official")
             checked: true
         }
         FormCard.FormButtonDelegate {
@@ -198,7 +198,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: existingOfficialCheck
             visible: root.parentId.length > 0
-            text: i18n("Make this parent official")
+            text: i18nc("@option:check As in make the space from which this dialog was created an official parent.", "Make this parent official")
             description: enabled ? i18n("You have the required privilege level in the child to set this state") : i18n("You do not have a high enough privilege level in the child to set this state")
             checked: enabled
 
@@ -216,7 +216,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormCheckDelegate {
             id: makeCanonicalCheck
-            text: i18n("Make this space the canonical parent")
+            text: i18nc("@option:check The canonical parent is the default one if a room has multiple parent spaces.", "Make this space the canonical parent")
             checked: enabled
 
             enabled: existingOfficialCheck.enabled
