@@ -138,6 +138,7 @@ Kirigami.Page {
                     anchors.bottomMargin: Kirigami.Units.largeSpacing
                     width: Kirigami.Units.gridUnit * 2
                     height: width
+                    visible: !root.collapsed
                     QQC2.ToolTip.text: text
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     QQC2.ToolTip.visible: hovered
