@@ -33,7 +33,7 @@ QQC2.ItemDelegate {
     visible: root.categoryVisible || filterText.length > 0 || Config.mergeRoomList
 
     contentItem: KirigamiComponents.Avatar {
-        source: root.avatar ? `image://mxc/${root.avatar}` : ""
+        source: root.avatar
         name: root.displayName
 
         sourceSize {

@@ -31,7 +31,7 @@ ColumnLayout {
             Layout.preferredHeight: Kirigami.Units.iconSizes.large
 
             name: root.room ? root.room.displayName : ""
-            source: root.room && root.room.avatarMediaId ? ("image://mxc/" +  root.room.avatarMediaId) : ""
+            source: root.room ? root.room.avatarMediaId : ""
 
             Rectangle {
                 visible: room.usesEncryption

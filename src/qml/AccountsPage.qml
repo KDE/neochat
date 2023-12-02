@@ -38,7 +38,7 @@ FormCard.FormCardPage {
                 contentItem: RowLayout {
                     KirigamiComponents.Avatar {
                         name: accountDelegate.connection.localUser.displayName
-                        source: accountDelegate.connection.localUser.avatarMediaId ? ("image://mxc/" + accountDelegate.connection.localUser.avatarMediaId) : ""
+                        source: accountDelegate.connection.localUser.avatarMediaId ? accountDelegate.connection.makeMediaUrl("mxc://" + accountDelegate.connection.localUser.avatarMediaId) : ""
 
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         implicitWidth: Kirigami.Units.iconSizes.medium

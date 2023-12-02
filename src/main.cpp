@@ -5,6 +5,7 @@
 #include <QIcon>
 #include <QNetworkDiskCache>
 #include <QNetworkProxyFactory>
+#include <QNetworkReply>
 #include <QObject>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -40,7 +41,6 @@
 #include "colorschemer.h"
 #include "controller.h"
 #include "logger.h"
-#include "matriximageprovider.h"
 #include "neochatconfig.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
@@ -247,7 +247,6 @@ int main(int argc, char *argv[])
         });
     }
 
-    engine.addImageProvider(QLatin1String("mxc"), MatrixImageProvider::create(&engine, &engine));
     engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
 
     engine.load(QUrl(QStringLiteral("qrc:/org/kde/neochat/qml/main.qml")));

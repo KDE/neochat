@@ -35,7 +35,7 @@ FormCard.FormCardPage {
                     id: avatar
                     Layout.alignment: Qt.AlignRight
                     name: room.name
-                    source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
+                    source: room.avatarMediaId
                     implicitWidth: Kirigami.Units.iconSizes.enormous
                     implicitHeight: Kirigami.Units.iconSizes.enormous
                 }

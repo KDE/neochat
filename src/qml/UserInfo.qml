@@ -63,9 +63,7 @@ RowLayout {
         text: i18n("Edit this account")
 
         contentItem: KirigamiComponents.Avatar {
-            readonly property string mediaId: root.connection.localUser.avatarMediaId
-
-            source: mediaId ? ("image://mxc/" + mediaId) : ""
+            source: root.connection.localUser.avatarMediaId ? root.connection.makeMediaUrl("mxc://" + root.connection.localUser.avatarMediaId) : ""
             name: root.connection.localUser.displayName ?? root.connection.localUser.id
         }
     }
@@ -249,7 +247,7 @@ RowLayout {
                             width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                             height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                         }
-                        source: userDelegate.connection.localUser.avatarMediaId ? ("image://mxc/" + userDelegate.connection.localUser.avatarMediaId) : ""
+                        source: userDelegate.connection.localUser.avatarMediaId ? userDelegate.connection.makeMediaUrl("mxc://" + userDelegate.connection.localUser.avatarMediaId) : ""
                         name: userDelegate.connection.localUser.displayName ?? userDelegate.connection.localUser.id
                     }
 

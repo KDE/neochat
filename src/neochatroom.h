@@ -110,7 +110,7 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief The avatar image to be used for the room.
      */
-    Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
+    Q_PROPERTY(QUrl avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
 
     /**
      * @brief Get a user object for the other person in a direct chat.
@@ -501,7 +501,7 @@ public:
      */
     [[nodiscard]] QString subtitleText();
 
-    [[nodiscard]] QString avatarMediaId() const;
+    [[nodiscard]] QUrl avatarMediaId() const;
 
     Quotient::User *directChatRemoteUser() const;
 

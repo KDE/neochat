@@ -179,7 +179,7 @@ FormCard.FormCardPage {
                                 KirigamiComponents.Avatar {
                                     Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                                    source: userListItem.avatar ? ("image://" + userListItem.avatar) : ""
+                                    source: userListItem.avatar
                                     name: userListItem.name
                                 }
 

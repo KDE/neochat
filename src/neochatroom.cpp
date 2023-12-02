@@ -452,17 +452,18 @@ QVariantMap NeoChatRoom::getUser(User *user) const
     };
 }
 
-QString NeoChatRoom::avatarMediaId() const
+QUrl NeoChatRoom::avatarMediaId() const
 {
     if (const auto avatar = Room::avatarMediaId(); !avatar.isEmpty()) {
-        return avatar;
+        return connection()->makeMediaUrl(QUrl(QStringLiteral("mxc://%1").arg(avatar)));
     }
 
     // Use the first (excluding self) user's avatar for direct chats
     const auto dcUsers = directChatUsers();
     for (const auto u : dcUsers) {
         if (u != localUser()) {
-            return u->avatarMediaId(this);
+            const auto &avatar = u->avatarMediaId(this);
+            return avatar.isEmpty() ? QUrl() : connection()->makeMediaUrl(QUrl(QStringLiteral("mxc://%1").arg(avatar)));
         }
     }
 

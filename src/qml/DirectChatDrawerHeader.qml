@@ -38,7 +38,7 @@ ColumnLayout {
 
         contentItem: KirigamiComponents.Avatar {
             name: root.room ? root.room.displayName : ""
-            source: root.room ? ("image://mxc/" +  root.room.avatarMediaId) : ""
+            source: root.room ? root.room.avatarMediaId : ""
 
             Rectangle {
                 visible: root.room.usesEncryption

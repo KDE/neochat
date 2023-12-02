@@ -141,12 +141,10 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
         return QStringLiteral("Unknown User");
     }
     if (role == AvatarRole) {
-        auto avatarUrl = user.avatarUrl;
-
-        if (avatarUrl.isEmpty()) {
-            return QString();
+        if (user.avatarUrl.isEmpty() || user.avatarUrl.scheme() != QStringLiteral("mxc")) {
+            return QUrl();
         }
-        return avatarUrl.url().remove(0, 6);
+        return m_connection->makeMediaUrl(user.avatarUrl);
     }
     if (role == UserIDRole) {
         return user.userId;

@@ -166,7 +166,7 @@ Loader {
                     spacing: Kirigami.Units.largeSpacing
                     KirigamiComponents.Avatar {
                         id: avatar
-                        source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
+                        source: room.avatarMediaId
                         name: room.displayName
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 3
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3

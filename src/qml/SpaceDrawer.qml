@@ -98,7 +98,7 @@ QQC2.Control {
                             Layout.maximumHeight: width - Kirigami.Units.smallSpacing
 
                             text: displayName
-                            source: avatar ? ("image://mxc/" + avatar) : ""
+                            source: spaceDelegate.avatar
 
                             onSelected: root.selectedSpaceId = roomId
                             checked: root.selectedSpaceId === roomId

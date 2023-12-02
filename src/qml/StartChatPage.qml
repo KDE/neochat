@@ -76,7 +76,7 @@ Kirigami.ScrollablePage {
                 KirigamiComponents.Avatar {
                     Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                    source: delegate.avatar ? ("image://mxc/" + delegate.avatar) : ""
+                    source: delegate.avatar
                     name: delegate.name
                 }
 
