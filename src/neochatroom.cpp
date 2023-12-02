@@ -445,6 +445,7 @@ QVariantMap NeoChatRoom::getUser(User *user) const
         {QStringLiteral("isLocalUser"), user->id() == localUser()->id()},
         {QStringLiteral("id"), user->id()},
         {QStringLiteral("displayName"), user->displayname(this)},
+        {QStringLiteral("escapedDisplayName"), htmlSafeMemberName(user->id())},
         {QStringLiteral("avatarSource"), avatarForMember(user)},
         {QStringLiteral("avatarMediaId"), user->avatarMediaId(this)},
         {QStringLiteral("color"), Utils::getUserColor(user->hueF())},

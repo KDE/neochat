@@ -354,6 +354,7 @@ TimelineDelegate {
                 name: root.author.displayName
                 source: root.author.avatarSource
                 color: root.author.color
+                QQC2.ToolTip.text: root.author.escapedDisplayName
 
                 onClicked: RoomManager.resolveResource(root.author.id, "mention")
             }
