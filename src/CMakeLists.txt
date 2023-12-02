@@ -475,6 +475,20 @@ if(ANDROID)
         "computer-symbolic"
         "gps"
         "system-users-symbolic"
+        "map-flat"
+        "documentinfo"
+        "view-list-details"
+        "go-previous"
+        "mail-forward-symbolic"
+        "dialog-warning-symbolic"
+        "object-rotate-left"
+        "object-rotate-right"
+        "add-subtitle"
+        "security-low"
+        "security-low-symbolic"
+        "kde"
+        "list-remove-symbolic"
+        "edit-delete"
     )
     ecm_add_android_apk(neochat-app ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()
