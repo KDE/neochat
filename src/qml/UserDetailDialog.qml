@@ -114,7 +114,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser && room.canSendState("kick") && room.containsUser(root.user.id)
+            visible: !root.user.isLocalUser && room.canSendState("kick") && room.containsUser(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
 
             action: Kirigami.Action {
                 text: i18n("Kick this user")
@@ -141,7 +141,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser && room.canSendState("ban") && !room.isUserBanned(root.user.id)
+            visible: !root.user.isLocalUser && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
 
             action: Kirigami.Action {
                 text: i18n("Ban this user")
