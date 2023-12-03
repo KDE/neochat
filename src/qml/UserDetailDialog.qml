@@ -116,7 +116,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.member.isLocalUser
+            visible: !root.member.isLocalMember
             action: Kirigami.Action {
                 text: room.connection.isIgnored(root.user) ? i18n("Unignore this user") : i18n("Ignore this user")
                 icon.name: "im-invisible-user"
@@ -128,7 +128,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.member.isLocalUser && room.canSendState("kick") && room.containsUser(root.member.id) && room.getUserPowerLevel(root.member.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
+            visible: !root.member.isLocalMember && room.canSendState("kick") && room.containsUser(root.member.id) && room.getUserPowerLevel(root.member.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
 
             action: Kirigami.Action {
                 text: i18n("Kick this user")
@@ -141,7 +141,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.member.isLocalUser && room.canSendState("invite") && !room.containsUser(root.member.id)
+            visible: !root.member.isLocalMember && room.canSendState("invite") && !room.containsUser(root.member.id)
 
             action: Kirigami.Action {
                 enabled: !room.isUserBanned(root.member.id)
@@ -155,7 +155,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.member.isLocalUser && room.canSendState("ban") && !room.isUserBanned(root.member.id) && room.getUserPowerLevel(root.member.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
+            visible: !root.member.isLocalMember && room.canSendState("ban") && !room.isUserBanned(root.member.id) && room.getUserPowerLevel(root.member.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
 
             action: Kirigami.Action {
                 text: i18n("Ban this user")
@@ -175,7 +175,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.member.isLocalUser && room.canSendState("ban") && room.isUserBanned(root.member.id)
+            visible: !root.member.isLocalMember && room.canSendState("ban") && room.isUserBanned(root.member.id)
 
             action: Kirigami.Action {
                 text: i18n("Unban this user")
@@ -213,7 +213,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.member.isLocalUser || room.canSendState("redact")
+            visible: root.member.isLocalMember || room.canSendState("redact")
 
             action: Kirigami.Action {
                 text: i18n("Remove recent messages by this user")
@@ -233,7 +233,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.member.isLocalUser
+            visible: !root.member.isLocalMember
             action: Kirigami.Action {
                 text: root.room.connection.directChatExists(root.user.object) ? i18nc("%1 is the name of the user.", "Chat with %1", root.user.escapedDisplayName) : i18n("Invite to private chat")
                 icon.name: "document-send"
