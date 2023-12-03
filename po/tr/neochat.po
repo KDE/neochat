@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-11-30 17:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1016,6 +1016,83 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Bu hesap için bildirimleri etkinleştir"
+
+#: src/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Show deleted messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Silinen iletileri göster"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Cancel editing display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Ekran adını düzenlemeyi iptal et"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Room Notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Oda Bildirimleri"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invite user to room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Kullanıcıyı Odaya Davet Et"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Send invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Davet gönder"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1702,7 +1779,11 @@ msgid "Topic:"
 msgstr "Konu:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this parent official"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
 msgstr "Bu üst ögeyi resmi yap"
 
@@ -1751,8 +1832,12 @@ msgid ""
 msgstr ""
 "Bu durumu ayarlamak için alt ögede yeterli izin düzeyine sahip değilsiniz"
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Make this space the canonical parent"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Bu alanı resmi üst öge yap"
 
@@ -3810,6 +3895,11 @@ msgstr "Seçili oda bir alan değil"
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "Bu eylemi tamamlamak için yeterli izin düzeyine sahip değilsiniz"
+
+#: src/qml/SelectParentDialog.qml:159
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr "Bu alanı resmi üst öge yap"
 
 #: src/qml/SelectSpacesDialog.qml:35
 #, kde-format

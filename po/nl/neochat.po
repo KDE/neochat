@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-11-21 10:47+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1014,6 +1014,93 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>een {text-decoration: none;}</style>%1 %2"
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Meldingen voor dit account inschakelen"
+
+#: src/models/pushrulemodel.cpp:22
+#, fuzzy
+#| msgid "Messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Berichten in een-op-een chats"
+
+#: src/models/pushrulemodel.cpp:23
+#, fuzzy
+#| msgid "Encrypted messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Versleutelde berichten in een-op-een chats"
+
+#: src/models/pushrulemodel.cpp:24
+#, fuzzy
+#| msgid "Messages in group chats"
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Berichten in groeps-chats"
+
+#: src/models/pushrulemodel.cpp:25
+#, fuzzy
+#| msgid "Messages in encrypted group chats"
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Berichten in versleutelde groeps-chats"
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Room upgrade messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Berichten over opwaarderen van room"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Berichten die mijn schermnaam bevatten"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Berichten die mijn schermnaam bevatten"
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Whole room (@room) notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Meldingen van gehele room (@room)"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invites to a room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Uitnodigen in een room"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Call invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Uitnodigingsoproep"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1700,7 +1787,11 @@ msgid "Topic:"
 msgstr "Onderwerp:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this parent official"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
 msgstr "Deze ouder officieel maken"
 
@@ -1751,8 +1842,12 @@ msgstr ""
 "U hebt niet het vereiste rechtenniveau in het kind om deze status in te "
 "stellen"
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Make this space the canonical parent"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Deze ruimte de canonieke ouder maken"
 
@@ -3825,6 +3920,11 @@ msgstr "De geselecteerde room is geen ruimte"
 msgid "You do not have the privileges to complete this action"
 msgstr "U hebt niet de vereiste rechten om deze actie te voltooien"
 
+#: src/qml/SelectParentDialog.qml:159
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr "Deze ruimte de canonieke ouder maken"
+
 #: src/qml/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
@@ -4692,35 +4792,8 @@ msgstr "Afsluiten"
 #~ "Deze room is versleuteld. Bouw libQuotient met versleuteling ingeschakeld "
 #~ "en verzend versleutelde berichten."
 
-#~ msgid "Messages in one-to-one chats"
-#~ msgstr "Berichten in een-op-een chats"
-
-#~ msgid "Encrypted messages in one-to-one chats"
-#~ msgstr "Versleutelde berichten in een-op-een chats"
-
-#~ msgid "Messages in group chats"
-#~ msgstr "Berichten in groeps-chats"
-
-#~ msgid "Messages in encrypted group chats"
-#~ msgstr "Berichten in versleutelde groeps-chats"
-
-#~ msgid "Room upgrade messages"
-#~ msgstr "Berichten over opwaarderen van room"
-
-#~ msgid "Messages containing my display name"
-#~ msgstr "Berichten die mijn schermnaam bevatten"
-
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Meldingen van gehele room (@room)"
-
 #~ msgid "Messages containing my keywords"
 #~ msgstr "Berichten die mijn trefwoorden bevatten"
-
-#~ msgid "Invites to a room"
-#~ msgstr "Uitnodigen in een room"
-
-#~ msgid "Call invitation"
-#~ msgstr "Uitnodigingsoproep"
 
 #~ msgctxt "@title:window"
 #~ msgid "Custom Emojis"

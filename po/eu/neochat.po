@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-11-30 09:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1021,6 +1021,93 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Gaitu kontu honetarako jakinarazpenak"
+
+#: src/models/pushrulemodel.cpp:22
+#, fuzzy
+#| msgid "Messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Mezuak binakako berriketetan"
+
+#: src/models/pushrulemodel.cpp:23
+#, fuzzy
+#| msgid "Encrypted messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Zifratutako mezuak binakako berriketetan"
+
+#: src/models/pushrulemodel.cpp:24
+#, fuzzy
+#| msgid "Messages in group chats"
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Talde-berriketetako mezuak"
+
+#: src/models/pushrulemodel.cpp:25
+#, fuzzy
+#| msgid "Messages in encrypted group chats"
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Zifratutako talde-berriketetako mezuak"
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Room upgrade messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Gela bertsio-berritzeko mezuak"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Nire azaldutako izena duten mezuak"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Nire azaldutako izena duten mezuak"
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Whole room (@room) notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Gela osoko (@gela) jakinarazpenak"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invites to a room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Gela batera gonbidatzen du"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Call invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Dei gonbidapena"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1705,7 +1792,11 @@ msgid "Topic:"
 msgstr "Gaia:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this parent official"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
 msgstr "Egin guraso hori ofiziala"
 
@@ -1754,8 +1845,12 @@ msgid ""
 msgstr ""
 "Ez duzu egoera hori ezartzeko, haurrarekiko beharrezko pribilegio maila "
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Make this space the canonical parent"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Egin toki hori guraso kanonikoa"
 
@@ -3816,6 +3911,11 @@ msgstr "Hautatutako gela ez da toki bat"
 msgid "You do not have the privileges to complete this action"
 msgstr "Ez dituzu ekintza hori osatzeko pribilegioak"
 
+#: src/qml/SelectParentDialog.qml:159
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr "Egin toki hori guraso kanonikoa"
+
 #: src/qml/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
@@ -4676,35 +4776,8 @@ msgstr "Irten"
 #~ "Gela hau zifratuta dago. Eraiki «libQuotient» zifratzea gaituta duela "
 #~ "zifratutako mezuak bidaltzeko."
 
-#~ msgid "Messages in one-to-one chats"
-#~ msgstr "Mezuak binakako berriketetan"
-
-#~ msgid "Encrypted messages in one-to-one chats"
-#~ msgstr "Zifratutako mezuak binakako berriketetan"
-
-#~ msgid "Messages in group chats"
-#~ msgstr "Talde-berriketetako mezuak"
-
-#~ msgid "Messages in encrypted group chats"
-#~ msgstr "Zifratutako talde-berriketetako mezuak"
-
-#~ msgid "Room upgrade messages"
-#~ msgstr "Gela bertsio-berritzeko mezuak"
-
-#~ msgid "Messages containing my display name"
-#~ msgstr "Nire azaldutako izena duten mezuak"
-
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Gela osoko (@gela) jakinarazpenak"
-
 #~ msgid "Messages containing my keywords"
 #~ msgstr "Nire gako-hitzak dituzten mezuak"
-
-#~ msgid "Invites to a room"
-#~ msgstr "Gela batera gonbidatzen du"
-
-#~ msgid "Call invitation"
-#~ msgstr "Dei gonbidapena"
 
 #~ msgctxt "@title:window"
 #~ msgid "Custom Emojis"

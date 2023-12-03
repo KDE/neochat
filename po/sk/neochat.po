@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1126,6 +1126,87 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Show notifications"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Zobraziť upozornenia"
+
+#: src/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Send message"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Odoslať správu"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "vymazali svoje zobrazované meno"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "vymazali svoje zobrazované meno"
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Show notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Zobraziť upozornenia"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "invited %1 to the room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "pozval %1 do miestnosti"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Send invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Odoslať pozvanie"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1865,6 +1946,9 @@ msgstr "Žiadna téma"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
 msgstr ""
 
@@ -1913,10 +1997,14 @@ msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "No Canonical Alias"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
-msgstr ""
+msgstr "Žiadny kanonický alias"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -4134,6 +4222,11 @@ msgstr ""
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
+#: src/qml/SelectParentDialog.qml:159
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr ""
+
 #: src/qml/SelectSpacesDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
@@ -4994,27 +5087,6 @@ msgstr "Ukončiť"
 
 #~ msgid "No Canonical Alias"
 #~ msgstr "Žiadny kanonický alias"
-
-#, fuzzy
-#~| msgctxt "their refers to a singular user"
-#~| msgid "cleared their display name"
-#~ msgid "Messages containing my display name"
-#~ msgstr "vymazali svoje zobrazované meno"
-
-#, fuzzy
-#~| msgid "Show notifications"
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Zobraziť upozornenia"
-
-#, fuzzy
-#~| msgid "invited %1 to the room"
-#~ msgid "Invites to a room"
-#~ msgstr "pozval %1 do miestnosti"
-
-#, fuzzy
-#~| msgid "Send invitation"
-#~ msgid "Call invitation"
-#~ msgstr "Odoslať pozvanie"
 
 #, fuzzy
 #~| msgid "Custom"

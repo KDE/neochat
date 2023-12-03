@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-11-22 12:03+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
@@ -1021,6 +1021,93 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Activer les notifications pour ce compte"
+
+#: src/models/pushrulemodel.cpp:22
+#, fuzzy
+#| msgid "Messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Messages dans des salons de discussions en tête à tête"
+
+#: src/models/pushrulemodel.cpp:23
+#, fuzzy
+#| msgid "Encrypted messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Messages chiffrés dans des salons de discussions en tête à tête"
+
+#: src/models/pushrulemodel.cpp:24
+#, fuzzy
+#| msgid "Messages in group chats"
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Messages dans des salons de discussions de groupe"
+
+#: src/models/pushrulemodel.cpp:25
+#, fuzzy
+#| msgid "Messages in encrypted group chats"
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Messages dans des salons chiffrés de discussions de groupe"
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Room upgrade messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Messages de mise à jour de salon"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Messages contenant mon nom d'affichage"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Messages contenant mon nom d'affichage"
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Whole room (@room) notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Notifications pour la totalité des salons (@room)"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invites to a room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Invites pour un salon"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Call invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Envoyer une invitation"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1709,7 +1796,11 @@ msgid "Topic:"
 msgstr "Sujet :"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this parent official"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
 msgstr "Rendre officiel ce parent"
 
@@ -1760,8 +1851,12 @@ msgstr ""
 "Vous ne possédez pas un niveau de privilège suffisamment élevé chez l'enfant "
 "pour définir cet état"
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Make this space the canonical parent"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Faire de cet espace un parent classique"
 
@@ -3849,6 +3944,11 @@ msgstr "Le salon sélectionné n'est pas un espace"
 msgid "You do not have the privileges to complete this action"
 msgstr "Vous ne possédez pas les privilèges pour terminer cette action"
 
+#: src/qml/SelectParentDialog.qml:159
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr "Faire de cet espace un parent classique"
+
 #: src/qml/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
@@ -4718,35 +4818,8 @@ msgstr "Quitter"
 #~ "Ce salon est chiffré. Veuillez compiler « libQuotient » avec le "
 #~ "chiffrement activé pour envoyer des messages chiffrés."
 
-#~ msgid "Messages in one-to-one chats"
-#~ msgstr "Messages dans des salons de discussions en tête à tête"
-
-#~ msgid "Encrypted messages in one-to-one chats"
-#~ msgstr "Messages chiffrés dans des salons de discussions en tête à tête"
-
-#~ msgid "Messages in group chats"
-#~ msgstr "Messages dans des salons de discussions de groupe"
-
-#~ msgid "Messages in encrypted group chats"
-#~ msgstr "Messages dans des salons chiffrés de discussions de groupe"
-
-#~ msgid "Room upgrade messages"
-#~ msgstr "Messages de mise à jour de salon"
-
-#~ msgid "Messages containing my display name"
-#~ msgstr "Messages contenant mon nom d'affichage"
-
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Notifications pour la totalité des salons (@room)"
-
 #~ msgid "Messages containing my keywords"
 #~ msgstr "Messages contenant mes mots clé"
-
-#~ msgid "Invites to a room"
-#~ msgstr "Invites pour un salon"
-
-#~ msgid "Call invitation"
-#~ msgstr "Envoyer une invitation"
 
 #~ msgctxt "@title:window"
 #~ msgid "Custom Emojis"

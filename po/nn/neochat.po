@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1022,6 +1022,83 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Slå på varslingar for kontoen"
+
+#: src/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Show deleted messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Vis sletta meldingar"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Cancel editing display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Avbryt redigering av visingsnamn"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Room Notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Romvarslingar"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invite user to room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Inviter brukar til rommet"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Send invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Send invitasjon"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1717,9 +1794,13 @@ msgid "Topic:"
 msgstr "Manglar emne"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
-msgstr ""
+msgstr "Gjer aliaset til kanonisk alias for rommet"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
 #: src/qml/JoinRoomPage.qml:183
@@ -1765,9 +1846,12 @@ msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
+#: src/qml/CreateRoomDialog.qml:219
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Gjer aliaset til kanonisk alias for rommet"
 
@@ -3870,6 +3954,12 @@ msgstr ""
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr ""
+
+#: src/qml/SelectParentDialog.qml:159
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgid "Make this space the canonical parent"
+msgstr "Gjer aliaset til kanonisk alias for rommet"
 
 #: src/qml/SelectSpacesDialog.qml:35
 #, fuzzy, kde-format

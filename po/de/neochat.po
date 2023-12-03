@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1033,6 +1033,93 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Benachrichtigung für dieses Konto aktivieren"
+
+#: src/models/pushrulemodel.cpp:22
+#, fuzzy
+#| msgid "Messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Nachrichten in privaten Unterhaltungen"
+
+#: src/models/pushrulemodel.cpp:23
+#, fuzzy
+#| msgid "Encrypted messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Verschlüsselte Nachrichten in privaten Unterhaltungen"
+
+#: src/models/pushrulemodel.cpp:24
+#, fuzzy
+#| msgid "Messages in group chats"
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Nachrichten in Gruppenchats"
+
+#: src/models/pushrulemodel.cpp:25
+#, fuzzy
+#| msgid "Messages in encrypted group chats"
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Nachrichten in verschlüsselten Gruppenchats"
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Room upgrade messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Raum-Aktualisierungsnachrichten"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Nachrichten, die meinen Anzeigenamen enthalten"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Nachrichten, die meinen Anzeigenamen enthalten"
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Whole room (@room) notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Raum-Erwähnungen (@room)"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invites to a room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Einladungen in einen Raum"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Call invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Einladung zu einem Anruf"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1737,9 +1824,13 @@ msgid "Topic:"
 msgstr "Kein Thema"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
-msgstr ""
+msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
 #: src/qml/JoinRoomPage.qml:183
@@ -1786,9 +1877,12 @@ msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
+#: src/qml/CreateRoomDialog.qml:219
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
 
@@ -3944,6 +4038,12 @@ msgstr ""
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
+#: src/qml/SelectParentDialog.qml:159
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgid "Make this space the canonical parent"
+msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
+
 #: src/qml/SelectSpacesDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
@@ -4838,35 +4938,8 @@ msgstr "Beenden"
 #~ msgid "No Canonical Alias"
 #~ msgstr "Keine Hauptadresse"
 
-#~ msgid "Messages in one-to-one chats"
-#~ msgstr "Nachrichten in privaten Unterhaltungen"
-
-#~ msgid "Encrypted messages in one-to-one chats"
-#~ msgstr "Verschlüsselte Nachrichten in privaten Unterhaltungen"
-
-#~ msgid "Messages in group chats"
-#~ msgstr "Nachrichten in Gruppenchats"
-
-#~ msgid "Messages in encrypted group chats"
-#~ msgstr "Nachrichten in verschlüsselten Gruppenchats"
-
-#~ msgid "Room upgrade messages"
-#~ msgstr "Raum-Aktualisierungsnachrichten"
-
-#~ msgid "Messages containing my display name"
-#~ msgstr "Nachrichten, die meinen Anzeigenamen enthalten"
-
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Raum-Erwähnungen (@room)"
-
 #~ msgid "Messages containing my keywords"
 #~ msgstr "Nachrichten, die meine Schlüsselwörter enthalten"
-
-#~ msgid "Invites to a room"
-#~ msgstr "Einladungen in einen Raum"
-
-#~ msgid "Call invitation"
-#~ msgstr "Einladung zu einem Anruf"
 
 #~ msgctxt "@title:window"
 #~ msgid "Custom Emojis"

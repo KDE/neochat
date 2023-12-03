@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-11-21 12:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1020,6 +1020,83 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Activa les notificacions per a este compte"
+
+#: src/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Show deleted messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Mostra els missatges suprimits"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Cancel editing display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Cancel·la l'edició del nom que s'ha de mostrar"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Room Notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Notificacions de sala"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invite user to room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Convida un usuari a la sala"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Send invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Envia una invitació"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1704,7 +1781,11 @@ msgid "Topic:"
 msgstr "Tema:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this parent official"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
 msgstr "Fes oficial este pare"
 
@@ -1755,8 +1836,12 @@ msgstr ""
 "No teniu el nivell suficient de privilegi en el fill per a establir este "
 "estat"
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Make this space the canonical parent"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Fes que este espai siga el pare canònic"
 
@@ -3837,6 +3922,11 @@ msgstr "La sala seleccionada no és cap espai"
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "No teniu el privilegi per a completar esta acció"
+
+#: src/qml/SelectParentDialog.qml:159
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr "Fes que este espai siga el pare canònic"
 
 #: src/qml/SelectSpacesDialog.qml:35
 #, kde-format

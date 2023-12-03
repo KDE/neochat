@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-09-27 21:55+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1017,6 +1017,93 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Ota ilmoitukset käyttöön tälle tilille"
+
+#: src/models/pushrulemodel.cpp:22
+#, fuzzy
+#| msgid "Messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Kahdenkeskisten keskustelujen viestit"
+
+#: src/models/pushrulemodel.cpp:23
+#, fuzzy
+#| msgid "Encrypted messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Kahdenkeskisten keskustelujen salatut viestit"
+
+#: src/models/pushrulemodel.cpp:24
+#, fuzzy
+#| msgid "Messages in group chats"
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Ryhmäkeskustelujen viestit"
+
+#: src/models/pushrulemodel.cpp:25
+#, fuzzy
+#| msgid "Messages in encrypted group chats"
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Salattujen ryhmäkeskustelujen viestit"
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Room upgrade messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Huoneenpäivitysviestit"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Viestit, joissa on näyttönimeni"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Viestit, joissa on näyttönimeni"
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Whole room (@room) notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Koko huoneen (@huone) ilmoitukset"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invites to a room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Kutsut huoneeseen"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Call invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Soittokutsu"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1709,9 +1796,13 @@ msgid "Topic:"
 msgstr "Ei aihetta"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
-msgstr ""
+msgstr "Tee tästä huoneen kanoninen alias"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
 #: src/qml/JoinRoomPage.qml:183
@@ -1757,9 +1848,12 @@ msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
+#: src/qml/CreateRoomDialog.qml:219
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Tee tästä huoneen kanoninen alias"
 
@@ -3850,6 +3944,12 @@ msgstr ""
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
+#: src/qml/SelectParentDialog.qml:159
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgid "Make this space the canonical parent"
+msgstr "Tee tästä huoneen kanoninen alias"
+
 #: src/qml/SelectSpacesDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
@@ -4718,35 +4818,8 @@ msgstr "Lopeta"
 #~ "Huone on salattu. Lähettääksesi salattuja viestejä koosta libQuotient "
 #~ "salaustuki käytössä."
 
-#~ msgid "Messages in one-to-one chats"
-#~ msgstr "Kahdenkeskisten keskustelujen viestit"
-
-#~ msgid "Encrypted messages in one-to-one chats"
-#~ msgstr "Kahdenkeskisten keskustelujen salatut viestit"
-
-#~ msgid "Messages in group chats"
-#~ msgstr "Ryhmäkeskustelujen viestit"
-
-#~ msgid "Messages in encrypted group chats"
-#~ msgstr "Salattujen ryhmäkeskustelujen viestit"
-
-#~ msgid "Room upgrade messages"
-#~ msgstr "Huoneenpäivitysviestit"
-
-#~ msgid "Messages containing my display name"
-#~ msgstr "Viestit, joissa on näyttönimeni"
-
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Koko huoneen (@huone) ilmoitukset"
-
 #~ msgid "Messages containing my keywords"
 #~ msgstr "Hakusanojani sisältävät viestit"
-
-#~ msgid "Invites to a room"
-#~ msgstr "Kutsut huoneeseen"
-
-#~ msgid "Call invitation"
-#~ msgstr "Soittokutsu"
 
 #~ msgctxt "@title:window"
 #~ msgid "Custom Emojis"

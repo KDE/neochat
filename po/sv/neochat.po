@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-09-04 20:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1017,6 +1017,87 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Aktivera underrättelser för kontot"
+
+#: src/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Show deleted messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Visa borttagna meddelanden"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "tog bort sitt visningsnamn"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "tog bort sitt visningsnamn"
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Show notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Visa underrättelser"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invite user to room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Bjöd in användare till ett rum"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Send invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Skicka inbjudan"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1710,9 +1791,13 @@ msgid "Topic:"
 msgstr "Ämne:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
-msgstr ""
+msgstr "Gör detta alias till rummets normala alias"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
 #: src/qml/JoinRoomPage.qml:183
@@ -1758,9 +1843,12 @@ msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
+#: src/qml/CreateRoomDialog.qml:219
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Gör detta alias till rummets normala alias"
 
@@ -3863,6 +3951,12 @@ msgstr ""
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
+#: src/qml/SelectParentDialog.qml:159
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgid "Make this space the canonical parent"
+msgstr "Gör detta alias till rummets normala alias"
+
 #: src/qml/SelectSpacesDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
@@ -4743,27 +4837,6 @@ msgstr "Avsluta"
 #~ msgstr ""
 #~ "Rummet är krypterat. Bygg libQuotient med kryptering aktiverad för att "
 #~ "skicka krypterade meddelanden."
-
-#, fuzzy
-#~| msgctxt "their refers to a singular user"
-#~| msgid "cleared their display name"
-#~ msgid "Messages containing my display name"
-#~ msgstr "tog bort sitt visningsnamn"
-
-#, fuzzy
-#~| msgid "Show notifications"
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Visa underrättelser"
-
-#, fuzzy
-#~| msgid "Invite user to room"
-#~ msgid "Invites to a room"
-#~ msgstr "Bjöd in användare till ett rum"
-
-#, fuzzy
-#~| msgid "Send invitation"
-#~ msgid "Call invitation"
-#~ msgstr "Skicka inbjudan"
 
 #~ msgctxt "@title:window"
 #~ msgid "Custom Emojis"

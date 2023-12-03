@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-30 01:34+0000\n"
+"POT-Creation-Date: 2023-12-03 01:35+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1033,6 +1033,93 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Включить уведомления для этой учётной записи"
+
+#: src/models/pushrulemodel.cpp:22
+#, fuzzy
+#| msgid "Messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Сообщения в личных чатах"
+
+#: src/models/pushrulemodel.cpp:23
+#, fuzzy
+#| msgid "Encrypted messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Зашифрованные сообщения в личных чатах"
+
+#: src/models/pushrulemodel.cpp:24
+#, fuzzy
+#| msgid "Messages in group chats"
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Сообщения в групповых чатах"
+
+#: src/models/pushrulemodel.cpp:25
+#, fuzzy
+#| msgid "Messages in encrypted group chats"
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Сообщения в зашифрованных групповых чатах"
+
+#: src/models/pushrulemodel.cpp:26
+#, fuzzy
+#| msgid "Room upgrade messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Сообщения об обновлении комнаты"
+
+#: src/models/pushrulemodel.cpp:27
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Сообщения, содержащие моё отображаемое имя"
+
+#: src/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Сообщения, содержащие моё отображаемое имя"
+
+#: src/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Whole room (@room) notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Уведомления для всех в комнате (@room)"
+
+#: src/models/pushrulemodel.cpp:32
+#, fuzzy
+#| msgid "Invites to a room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Приглашения в комнату"
+
+#: src/models/pushrulemodel.cpp:33
+#, fuzzy
+#| msgid "Call invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Приглашение на вызов"
+
 #: src/models/reactionmodel.cpp:85
 #, kde-format
 msgctxt "Separate the usernames of users"
@@ -1739,9 +1826,13 @@ msgid "Topic:"
 msgstr "Тема не задана"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
 msgid "Make this parent official"
-msgstr ""
+msgstr "Назначить этот псевдоним каноническим псевдонимом комнаты"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
 #: src/qml/JoinRoomPage.qml:183
@@ -1788,9 +1879,12 @@ msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:219 src/qml/SelectParentDialog.qml:159
+#: src/qml/CreateRoomDialog.qml:219
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Назначить этот псевдоним каноническим псевдонимом комнаты"
 
@@ -3962,6 +4056,12 @@ msgstr ""
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
+#: src/qml/SelectParentDialog.qml:159
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgid "Make this space the canonical parent"
+msgstr "Назначить этот псевдоним каноническим псевдонимом комнаты"
+
 #: src/qml/SelectSpacesDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
@@ -4833,35 +4933,8 @@ msgstr "Выход"
 #~ "В этой комнате используется шифрование. Чтобы отправлять зашифрованные "
 #~ "сообщения, соберите libQuotient с поддержкой шифрования."
 
-#~ msgid "Messages in one-to-one chats"
-#~ msgstr "Сообщения в личных чатах"
-
-#~ msgid "Encrypted messages in one-to-one chats"
-#~ msgstr "Зашифрованные сообщения в личных чатах"
-
-#~ msgid "Messages in group chats"
-#~ msgstr "Сообщения в групповых чатах"
-
-#~ msgid "Messages in encrypted group chats"
-#~ msgstr "Сообщения в зашифрованных групповых чатах"
-
-#~ msgid "Room upgrade messages"
-#~ msgstr "Сообщения об обновлении комнаты"
-
-#~ msgid "Messages containing my display name"
-#~ msgstr "Сообщения, содержащие моё отображаемое имя"
-
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Уведомления для всех в комнате (@room)"
-
 #~ msgid "Messages containing my keywords"
 #~ msgstr "Сообщения, содержащие заданные ключевые слова"
-
-#~ msgid "Invites to a room"
-#~ msgstr "Приглашения в комнату"
-
-#~ msgid "Call invitation"
-#~ msgstr "Приглашение на вызов"
 
 #~ msgctxt "@title:window"
 #~ msgid "Custom Emojis"
