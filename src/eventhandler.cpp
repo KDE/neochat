@@ -95,8 +95,8 @@ QString EventHandler::getAuthorDisplayName(bool isPending) const
         }
         return previousDisplayName;
     } else {
-        const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-        return m_room->htmlSafeMemberName(author->id());
+        const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
+        return author.htmlSafeDisplayName();
     }
 }
 
@@ -111,8 +111,8 @@ QString EventHandler::singleLineAuthorDisplayname(bool isPending) const
         return {};
     }
 
-    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-    auto displayName = m_room->safeMemberName(author->id());
+    const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
+    auto displayName = author.displayName();
     displayName.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br>"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
@@ -298,7 +298,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
         },
         [this, prettyPrint](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event
-            auto subjectName = m_room->htmlSafeMemberName(e.userId());
+            auto subjectName = m_room->member(e.userId()).htmlSafeDisplayName();
             if (e.membership() == Membership::Leave) {
                 if (e.prevContent() && e.prevContent()->displayName) {
                     subjectName = sanitized(*e.prevContent()->displayName).toHtmlEscaped();
@@ -306,7 +306,8 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
             }
 
             if (prettyPrint) {
-                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\">%2</a>").arg(e.userId(), subjectName);
+                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
+                                  .arg(e.userId(), Utils::getUserColor(m_room->member(e.userId()).hueF()).name(), subjectName);
             }
 
             // The below code assumes senderName output in AuthorRole
