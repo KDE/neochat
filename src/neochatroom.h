@@ -101,11 +101,6 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(Quotient::RoomMember directChatRemoteMember READ directChatRemoteMember CONSTANT)
 
     /**
-     * @brief Get a user object for the other person in a direct chat.
-     */
-    Q_PROPERTY(Quotient::User *directChatRemoteUser READ directChatRemoteUser CONSTANT)
-
-    /**
      * @brief The Matrix IDs of this room's parents.
      *
      * Empty if no parent space is set.
@@ -452,8 +447,6 @@ public:
     [[nodiscard]] QString avatarMediaId() const;
 
     Quotient::RoomMember directChatRemoteMember() const;
-
-    Quotient::User *directChatRemoteUser() const;
 
     /**
      * @brief Whether this room has one or more parent spaces set.
