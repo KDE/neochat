@@ -219,7 +219,7 @@ bool EventHandler::isHidden()
         }
     }
 
-    if (m_room->connection()->isIgnored(m_room->user(m_event->senderId()))) {
+    if (m_room->connection()->isIgnored(m_event->senderId())) {
         return true;
     }
 
@@ -939,7 +939,7 @@ bool EventHandler::hasReadMarkers() const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
     return userIds.size() > 0;
 }
 
@@ -983,7 +983,7 @@ QString EventHandler::getNumberExcessReadMarkers(int maxMarkers) const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
 
     if (userIds.count() > maxMarkers) {
         return QStringLiteral("+ ") + QString::number(userIds.count() - maxMarkers);
