@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:35+0000\n"
+"POT-Creation-Date: 2023-12-04 01:37+0000\n"
 "PO-Revision-Date: 2023-11-22 10:55+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1156,22 +1156,22 @@ msgstr "Basse prioritate"
 msgid "Spaces"
 msgstr "Spatios"
 
-#: src/neochatconnection.cpp:198
+#: src/neochatconnection.cpp:197
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creation de sala falleva: \"%1\""
 
-#: src/neochatconnection.cpp:230
+#: src/neochatconnection.cpp:229
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creation de spatio falleva: \"%1\""
 
-#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
+#: src/neochatroom.cpp:1595 src/neochatroom.cpp:1596
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Reporto inviate con successo."
 
-#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
+#: src/neochatroom.cpp:1855 src/neochatroom.cpp:1863
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1353,6 +1353,21 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "Confirma Deactivar le Conto"
 
+#: src/qml/AccountEditorPage.qml:223
+#, kde-format
+msgid "Password changed successfully"
+msgstr "Contrassigno cambiava con successo"
+
+#: src/qml/AccountEditorPage.qml:225
+#, kde-format
+msgid "Wrong password entered"
+msgstr "Insertate contrasigno errate"
+
+#: src/qml/AccountEditorPage.qml:227
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "Problema incognite quando il essayava a cambiar contrasigno"
+
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
@@ -1396,21 +1411,6 @@ msgstr "Contos"
 #, kde-format
 msgid "Add Account"
 msgstr "Adde conto"
-
-#: src/qml/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr "Contrassigno cambiava con successo"
-
-#: src/qml/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr "Insertate contrasigno errate"
-
-#: src/qml/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "Problema incognite quando il essayava a cambiar contrasigno"
 
 #: src/qml/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -1819,7 +1819,7 @@ msgstr "Selige data"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:188
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2137,7 +2137,7 @@ msgstr ""
 "dispositivo."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explora salas"
@@ -3200,7 +3200,7 @@ msgstr "Habilita evidentias de message"
 msgid "Delete keyword"
 msgstr "Dele parola clave"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
+#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3653,28 +3653,28 @@ msgstr "Necun computo de membro"
 msgid "View notifications"
 msgstr "Vide notificationes"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "No rooms found"
 msgstr "Nulle salas trovat"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Uni alcun salas per initiar"
 
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Search in room directory"
 msgstr "cerca in directorio de sala"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Plica %1"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"

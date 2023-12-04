@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:35+0000\n"
+"POT-Creation-Date: 2023-12-04 01:37+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -1152,24 +1152,24 @@ msgstr "Lav prioritet"
 msgid "Spaces"
 msgstr ""
 
-#: src/neochatconnection.cpp:198
+#: src/neochatconnection.cpp:197
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Room creation failed: %1"
 msgstr "Login mislykkedes"
 
-#: src/neochatconnection.cpp:230
+#: src/neochatconnection.cpp:229
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Space creation failed: %1"
 msgstr "Login mislykkedes"
 
-#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
+#: src/neochatroom.cpp:1595 src/neochatroom.cpp:1596
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
+#: src/neochatroom.cpp:1855 src/neochatroom.cpp:1863
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1362,6 +1362,21 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
+#: src/qml/AccountEditorPage.qml:223
+#, kde-format
+msgid "Password changed successfully"
+msgstr ""
+
+#: src/qml/AccountEditorPage.qml:225
+#, kde-format
+msgid "Wrong password entered"
+msgstr ""
+
+#: src/qml/AccountEditorPage.qml:227
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr ""
+
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
@@ -1408,21 +1423,6 @@ msgstr "Konti"
 #| msgid "Edit Account"
 msgid "Add Account"
 msgstr "Redigér konto"
-
-#: src/qml/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr ""
-
-#: src/qml/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr ""
-
-#: src/qml/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr ""
 
 #: src/qml/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -1835,7 +1835,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:188
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Room Name"
@@ -2155,7 +2155,7 @@ msgid ""
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
@@ -3254,7 +3254,7 @@ msgstr ""
 msgid "Delete keyword"
 msgstr ""
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
+#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title"
@@ -3728,28 +3728,28 @@ msgstr ""
 msgid "View notifications"
 msgstr "Indstillinger"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"

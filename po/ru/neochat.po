@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:35+0000\n"
+"POT-Creation-Date: 2023-12-04 01:37+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1176,24 +1176,24 @@ msgstr "С низким приоритетом"
 msgid "Spaces"
 msgstr "Пространства"
 
-#: src/neochatconnection.cpp:198
+#: src/neochatconnection.cpp:197
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Не удалось создать комнату: «%1»"
 
-#: src/neochatconnection.cpp:230
+#: src/neochatconnection.cpp:229
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Не удалось создать комнату: «%1»"
 
-#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
+#: src/neochatroom.cpp:1595 src/neochatroom.cpp:1596
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Жалоба отправлена."
 
-#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
+#: src/neochatroom.cpp:1855 src/neochatroom.cpp:1863
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1381,6 +1381,21 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
+#: src/qml/AccountEditorPage.qml:223
+#, kde-format
+msgid "Password changed successfully"
+msgstr "Пароль успешно изменён"
+
+#: src/qml/AccountEditorPage.qml:225
+#, kde-format
+msgid "Wrong password entered"
+msgstr "Введён неверный пароль"
+
+#: src/qml/AccountEditorPage.qml:227
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "При попытке сменить пароль произошла ошибка"
+
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
@@ -1424,21 +1439,6 @@ msgstr "Учётные записи"
 #, kde-format
 msgid "Add Account"
 msgstr "Добавить учётную запись"
-
-#: src/qml/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr "Пароль успешно изменён"
-
-#: src/qml/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr "Введён неверный пароль"
-
-#: src/qml/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "При попытке сменить пароль произошла ошибка"
 
 #: src/qml/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -1854,7 +1854,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:188
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2189,7 +2189,7 @@ msgstr ""
 "устройством."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Explore rooms"
 msgstr "Просмотреть комнаты"
@@ -3290,7 +3290,7 @@ msgstr "Включить подсветку сообщений"
 msgid "Delete keyword"
 msgstr "Удалить ключевое слово"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
+#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -3773,28 +3773,28 @@ msgstr "Количество участников не подсчитывает�
 msgid "View notifications"
 msgstr "Отключить звук уведомлений"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "No rooms found"
 msgstr "Не найдено ни одной комнаты"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Чтобы начать, войдите в комнату"
 
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Search in room directory"
 msgstr "Искать в каталоге комнат"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, fuzzy, kde-format
 #| msgid "Expand preview"
 msgctxt "Expand <section name"

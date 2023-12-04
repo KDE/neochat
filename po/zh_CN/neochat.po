@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:35+0000\n"
+"POT-Creation-Date: 2023-12-04 01:37+0000\n"
 "PO-Revision-Date: 2023-11-25 02:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1144,22 +1144,22 @@ msgstr "低优先级"
 msgid "Spaces"
 msgstr "空间"
 
-#: src/neochatconnection.cpp:198
+#: src/neochatconnection.cpp:197
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室创建失败：%1"
 
-#: src/neochatconnection.cpp:230
+#: src/neochatconnection.cpp:229
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
 
-#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
+#: src/neochatroom.cpp:1595 src/neochatroom.cpp:1596
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
+#: src/neochatroom.cpp:1855 src/neochatroom.cpp:1863
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1341,6 +1341,21 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
+#: src/qml/AccountEditorPage.qml:223
+#, kde-format
+msgid "Password changed successfully"
+msgstr "密码修改成功"
+
+#: src/qml/AccountEditorPage.qml:225
+#, kde-format
+msgid "Wrong password entered"
+msgstr "输入的密码错误"
+
+#: src/qml/AccountEditorPage.qml:227
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "尝试更改密码时出现未知问题"
+
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
@@ -1384,21 +1399,6 @@ msgstr "账户"
 #, kde-format
 msgid "Add Account"
 msgstr "添加账户"
-
-#: src/qml/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr "密码修改成功"
-
-#: src/qml/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr "输入的密码错误"
-
-#: src/qml/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "尝试更改密码时出现未知问题"
 
 #: src/qml/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -1799,7 +1799,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:188
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2106,7 +2106,7 @@ msgid ""
 msgstr "此消息已加密，但发送者尚未与此设备共享密钥。"
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Explore rooms"
 msgstr "探索聊天室"
@@ -3164,7 +3164,7 @@ msgstr ""
 msgid "Delete keyword"
 msgstr "删除关键词"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
+#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3611,28 +3611,28 @@ msgstr ""
 msgid "View notifications"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "No rooms found"
 msgstr "没有找到聊天室"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "加入聊天室，开启畅聊"
 
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Search in room directory"
 msgstr "在聊天室目录中搜索"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"

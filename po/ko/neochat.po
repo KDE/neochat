@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:35+0000\n"
+"POT-Creation-Date: 2023-12-04 01:37+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1146,22 +1146,22 @@ msgstr "낮은 우선 순위"
 msgid "Spaces"
 msgstr "스페이스"
 
-#: src/neochatconnection.cpp:198
+#: src/neochatconnection.cpp:197
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: %1"
 
-#: src/neochatconnection.cpp:230
+#: src/neochatconnection.cpp:229
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
+#: src/neochatroom.cpp:1595 src/neochatroom.cpp:1596
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
+#: src/neochatroom.cpp:1855 src/neochatroom.cpp:1863
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1344,6 +1344,21 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "계정 비활성화 확인"
 
+#: src/qml/AccountEditorPage.qml:223
+#, kde-format
+msgid "Password changed successfully"
+msgstr "암호가 변경됨"
+
+#: src/qml/AccountEditorPage.qml:225
+#, kde-format
+msgid "Wrong password entered"
+msgstr "암호가 잘못됨"
+
+#: src/qml/AccountEditorPage.qml:227
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "암호를 변경하는 중 알 수 없는 오류 발생"
+
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
@@ -1387,21 +1402,6 @@ msgstr "계정"
 #, kde-format
 msgid "Add Account"
 msgstr "계정 추가"
-
-#: src/qml/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr "암호가 변경됨"
-
-#: src/qml/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr "암호가 잘못됨"
-
-#: src/qml/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "암호를 변경하는 중 알 수 없는 오류 발생"
 
 #: src/qml/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -1808,7 +1808,7 @@ msgstr "대화방 선택"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:188
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2121,7 +2121,7 @@ msgstr ""
 "다."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Explore rooms"
 msgstr "대화방 탐색"
@@ -3191,7 +3191,7 @@ msgstr "메시지 강조 사용"
 msgid "Delete keyword"
 msgstr "키워드 삭제"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
+#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -3646,28 +3646,28 @@ msgstr "구성원 집계 없음"
 msgid "View notifications"
 msgstr "알림 음소거"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "No rooms found"
 msgstr "대화방을 찾을 수 없음"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "시작하려면 대화방에 입장하십시오"
 
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Search in room directory"
 msgstr "대화방 디렉터리에서 검색"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "%1 접기"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"

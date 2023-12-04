@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:35+0000\n"
-"PO-Revision-Date: 2023-11-21 07:21+0100\n"
+"POT-Creation-Date: 2023-12-04 01:37+0000\n"
+"PO-Revision-Date: 2023-12-03 09:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.4.1\n"
 
 #: src/controller.cpp:128 src/controller.cpp:388
@@ -1023,91 +1023,69 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/pushrulemodel.cpp:21
-#, fuzzy
-#| msgid "Enable notifications for this account"
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "Omogoči obvestila za ta račun"
 
 #: src/models/pushrulemodel.cpp:22
-#, fuzzy
-#| msgid "Messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
 msgstr "Sporočila v klepetih iz oči v oči"
 
 #: src/models/pushrulemodel.cpp:23
-#, fuzzy
-#| msgid "Encrypted messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
 msgstr "Šifrirana sporočila pri klepetih iz oči v oči"
 
 #: src/models/pushrulemodel.cpp:24
-#, fuzzy
-#| msgid "Messages in group chats"
 msgctxt "Notification type"
 msgid "Messages in group chats"
 msgstr "Sporočila v skupinskih klepetih"
 
 #: src/models/pushrulemodel.cpp:25
-#, fuzzy
-#| msgid "Messages in encrypted group chats"
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
 msgstr "Sporočila v šifriranih skupinskih klepetih"
 
 #: src/models/pushrulemodel.cpp:26
-#, fuzzy
-#| msgid "Room upgrade messages"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "Sporočila o posodabljanju sob"
 
 #: src/models/pushrulemodel.cpp:27
-#, fuzzy
-#| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing my display name"
-msgstr "Sporočila, ki vsebujejo moje prikaza"
+msgstr "Sporočila, ki vsebujejo moje ime zaslona"
 
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr ""
+msgstr "Sporočila, ki omenjajo moj Matrix uporabniški določilnik"
 
 #: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr ""
+msgstr "Sporočila, ki omenjajo sobo"
 
 #: src/models/pushrulemodel.cpp:30
-#, fuzzy
-#| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
-msgstr "Sporočila, ki vsebujejo moje prikaza"
+msgstr "Sporočila, ki vsebujejo moj lokalni del Matrix določilnika"
 
 #: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Whole room (@room) notifications"
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
 msgstr "Obvestila za celotno sobo (@room)"
 
 #: src/models/pushrulemodel.cpp:32
-#, fuzzy
-#| msgid "Invites to a room"
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "Povabila v sobo"
 
 #: src/models/pushrulemodel.cpp:33
-#, fuzzy
-#| msgid "Call invitation"
 msgctxt "Notification type"
 msgid "Call invitation"
-msgstr "Pošlji povabilo"
+msgstr "Povabilo za klic"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1165,22 +1143,22 @@ msgstr "Nizka prednost"
 msgid "Spaces"
 msgstr "Presledki"
 
-#: src/neochatconnection.cpp:198
+#: src/neochatconnection.cpp:197
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/neochatconnection.cpp:230
+#: src/neochatconnection.cpp:229
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
 
-#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
+#: src/neochatroom.cpp:1595 src/neochatroom.cpp:1596
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Poročilo uspešno poslano."
 
-#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
+#: src/neochatroom.cpp:1855 src/neochatroom.cpp:1863
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1362,6 +1340,21 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "Potrdi deaktiviranje računa"
 
+#: src/qml/AccountEditorPage.qml:223
+#, kde-format
+msgid "Password changed successfully"
+msgstr "Uspešno zamenjano geslo"
+
+#: src/qml/AccountEditorPage.qml:225
+#, kde-format
+msgid "Wrong password entered"
+msgstr "Vneseno napačno geslo"
+
+#: src/qml/AccountEditorPage.qml:227
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "Neznana težava ob poskusu zamenjave gesla"
+
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
@@ -1405,21 +1398,6 @@ msgstr "Računi"
 #, kde-format
 msgid "Add Account"
 msgstr "Dodaj račun"
-
-#: src/qml/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr "Uspešno zamenjano geslo"
-
-#: src/qml/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr "Vneseno napačno geslo"
-
-#: src/qml/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "Neznana težava ob poskusu zamenjave gesla"
 
 #: src/qml/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -1797,13 +1775,12 @@ msgid "Topic:"
 msgstr "Tema:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, fuzzy, kde-format
-#| msgid "Make this parent official"
+#, kde-format
 msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
 "official parent."
 msgid "Make this parent official"
-msgstr "Naj bo to uradni nadrejeni"
+msgstr "Določi tega nadrejenega kot uradnega"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
 #: src/qml/JoinRoomPage.qml:183
@@ -1825,7 +1802,7 @@ msgstr "Poberite sobo"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:188
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -1850,13 +1827,12 @@ msgid ""
 msgstr "Nimate dovolj pravic odvisnega, da nastavite to stanje"
 
 #: src/qml/CreateRoomDialog.qml:219
-#, fuzzy, kde-format
-#| msgid "Make this space the canonical parent"
+#, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr "Nastavi ta prostor kanonično nadrejeni"
+msgstr "Določi ta prostor kot kanonično nadrejenega"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2138,7 +2114,7 @@ msgstr ""
 "To sporočilo je šifrirano in pošiljatelj še ni delil ključa s to napravo."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Explore rooms"
 msgstr "Razišči sobe"
@@ -3200,7 +3176,7 @@ msgstr "Omogoči osvetljevanje obvestil"
 msgid "Delete keyword"
 msgstr "Izbriši ključno besedo"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
+#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3654,28 +3630,28 @@ msgstr "Ni števila članov"
 msgid "View notifications"
 msgstr "Poglej obvestila"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "No rooms found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pridruži se nekaj sobam za začetek"
 
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Search in room directory"
 msgstr "Poišči v imeniku sob"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Strni %1"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 01:35+0000\n"
+"POT-Creation-Date: 2023-12-04 01:37+0000\n"
 "PO-Revision-Date: 2023-10-22 17:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1159,22 +1159,22 @@ msgstr "முக்கியமில்லாதவை"
 msgid "Spaces"
 msgstr "இடங்கள்"
 
-#: src/neochatconnection.cpp:198
+#: src/neochatconnection.cpp:197
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatconnection.cpp:230
+#: src/neochatconnection.cpp:229
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1595
+#: src/neochatroom.cpp:1595 src/neochatroom.cpp:1596
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1854 src/neochatroom.cpp:1862
+#: src/neochatroom.cpp:1855 src/neochatroom.cpp:1863
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1357,6 +1357,21 @@ msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "கணக்கை முடக்குவதை உறுதிசெய்யவும்"
 
+#: src/qml/AccountEditorPage.qml:223
+#, kde-format
+msgid "Password changed successfully"
+msgstr "கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது"
+
+#: src/qml/AccountEditorPage.qml:225
+#, kde-format
+msgid "Wrong password entered"
+msgstr "தவறான கடவுச்சொல் உள்ளிடப்பட்டது"
+
+#: src/qml/AccountEditorPage.qml:227
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "கடவுச்சொல்லை மாற்றும்போது தெரியாத சிக்கல்"
+
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
@@ -1400,21 +1415,6 @@ msgstr "கணக்குகள்"
 #, kde-format
 msgid "Add Account"
 msgstr "கணக்கைச் சேர்"
-
-#: src/qml/AccountsPage.qml:115
-#, kde-format
-msgid "Password changed successfully"
-msgstr "கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது"
-
-#: src/qml/AccountsPage.qml:117
-#, kde-format
-msgid "Wrong password entered"
-msgstr "தவறான கடவுச்சொல் உள்ளிடப்பட்டது"
-
-#: src/qml/AccountsPage.qml:119
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "கடவுச்சொல்லை மாற்றும்போது தெரியாத சிக்கல்"
 
 #: src/qml/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -1820,7 +1820,7 @@ msgstr "அரங்கை தேர்ந்தெடு"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:188
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2134,7 +2134,7 @@ msgstr ""
 "இந்த செய்தி மறையாக்கம் செய்யப்பட்டுள்ளது, ஆனால் அனுப்புநர் இச்சாதனத்துடன் சாவியை பகிரவில்லை."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Explore rooms"
 msgstr "அரங்குப்பட்டியலில் உலாவுங்கள்"
@@ -3202,7 +3202,7 @@ msgstr "பொருந்தும் செய்திகளை முன்�
 msgid "Delete keyword"
 msgstr "முதன்மைச்சொல்லை நீக்கு"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:145
+#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -3661,28 +3661,28 @@ msgstr "உறுப்பினர்களின் எண்ணிக்க�
 msgid "View notifications"
 msgstr "அறிவிப்புகளின் ஒலியை அடக்கு"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "No rooms found"
 msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
 
-#: src/qml/RoomListPage.qml:179
+#: src/qml/RoomListPage.qml:180
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "தொடங்க, சில அரங்குகளில் சேருங்கள்"
 
-#: src/qml/RoomListPage.qml:182
+#: src/qml/RoomListPage.qml:183
 #, kde-format
 msgid "Search in room directory"
 msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "%1 தனை சுருக்கு"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:240
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
