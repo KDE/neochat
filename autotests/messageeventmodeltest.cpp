@@ -45,6 +45,8 @@ private Q_SLOTS:
     void switchSyncedRoom();
     void simpleTimeline();
     void syncNewEvents();
+    void pendingEvent();
+    void disconnect();
     void idToRow();
 
     void cleanup();
@@ -135,6 +137,75 @@ void MessageEventModelTest::syncNewEvents()
 
     QCOMPARE(model->rowCount(), 2);
     QCOMPARE(spy.count(), 1);
+}
+
+// Check the adding of pending events to the room doesn't cause any issues in the model.
+void MessageEventModelTest::pendingEvent()
+{
+    QSignalSpy spyInsert(model, SIGNAL(rowsInserted(const QModelIndex &, int, int)));
+    QSignalSpy spyRemove(model, SIGNAL(rowsRemoved(const QModelIndex &, int, int)));
+    QSignalSpy spyChanged(model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QList<int> &)));
+
+    auto room = setupTestRoom(QStringLiteral("#myroom:kde.org"));
+    model->setRoom(room);
+    QCOMPARE(model->rowCount(), 0);
+
+    auto txnId = room->postPlainText("New plain message"_ls);
+    QCOMPARE(model->rowCount(), 1);
+    QCOMPARE(spyInsert.count(), 1);
+
+    room->discardMessage(txnId);
+    QCOMPARE(model->rowCount(), 0);
+    QCOMPARE(spyRemove.count(), 1);
+
+    txnId = room->postPlainText("New plain message"_ls);
+    QCOMPARE(model->rowCount(), 1);
+    QCOMPARE(spyInsert.count(), 2);
+
+    // We need to manually set the transaction ID of the new message as it will be
+    // different every time.
+    QFile testSyncFile;
+    testSyncFile.setFileName(QLatin1String(DATA_DIR) + u'/' + QLatin1String("test-pending-sync.json"));
+    testSyncFile.open(QIODevice::ReadOnly);
+    auto testSyncJson = QJsonDocument::fromJson(testSyncFile.readAll());
+    auto root = testSyncJson.object();
+    auto timeline = root["timeline"_ls].toObject();
+    auto events = timeline["events"_ls].toArray();
+    auto firstEvent = events[0].toObject();
+    firstEvent.insert(QLatin1String("unsigned"), QJsonObject{{QLatin1String("transaction_id"), txnId}});
+    events[0] = firstEvent;
+    timeline.insert("events"_ls, events);
+    root.insert("timeline"_ls, timeline);
+    testSyncJson.setObject(root);
+    SyncRoomData roomData(QStringLiteral("@bob:kde.org"), JoinState::Join, testSyncJson.object());
+    room->update(std::move(roomData));
+
+    QCOMPARE(model->rowCount(), 1);
+    // The model will throw multiple data changed signals we need the one that refreshes
+    // the IsPendingRole.
+    QCOMPARE(spyChanged.count() > 0, true);
+    auto isPendingChanged = false;
+    for (auto signal : spyChanged) {
+        auto roles = signal.at(2).toList();
+        if (roles.contains(MessageEventModel::IsPendingRole)) {
+            isPendingChanged = true;
+        }
+    }
+    QCOMPARE(isPendingChanged, true);
+}
+
+// Make sure that the signals are disconnecting correctly when a room is switched.
+void MessageEventModelTest::disconnect()
+{
+    auto room = setupTestRoom(QStringLiteral("#myroom:kde.org"));
+    model->setRoom(room);
+
+    QSignalSpy spy(model, SIGNAL(rowsInserted(const QModelIndex &, int, int)));
+
+    model->setRoom(nullptr);
+    syncNewEvents(room, QLatin1String("test-messageventmodel-sync.json"));
+
+    QCOMPARE(spy.count(), 0);
 }
 
 void MessageEventModelTest::idToRow()
