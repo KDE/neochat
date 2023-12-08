@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-04 01:37+0000\n"
-"PO-Revision-Date: 2023-11-30 09:30+0100\n"
+"PO-Revision-Date: 2023-12-07 19:51+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1022,50 +1022,36 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/pushrulemodel.cpp:21
-#, fuzzy
-#| msgid "Enable notifications for this account"
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "Gaitu kontu honetarako jakinarazpenak"
 
 #: src/models/pushrulemodel.cpp:22
-#, fuzzy
-#| msgid "Messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
-msgstr "Mezuak binakako berriketetan"
+msgstr "Binakako berriketetako mezuak"
 
 #: src/models/pushrulemodel.cpp:23
-#, fuzzy
-#| msgid "Encrypted messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
-msgstr "Zifratutako mezuak binakako berriketetan"
+msgstr "Binakako berriketetako zifratutako mezuak"
 
 #: src/models/pushrulemodel.cpp:24
-#, fuzzy
-#| msgid "Messages in group chats"
 msgctxt "Notification type"
 msgid "Messages in group chats"
 msgstr "Talde-berriketetako mezuak"
 
 #: src/models/pushrulemodel.cpp:25
-#, fuzzy
-#| msgid "Messages in encrypted group chats"
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
 msgstr "Zifratutako talde-berriketetako mezuak"
 
 #: src/models/pushrulemodel.cpp:26
-#, fuzzy
-#| msgid "Room upgrade messages"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "Gela bertsio-berritzeko mezuak"
 
 #: src/models/pushrulemodel.cpp:27
-#, fuzzy
-#| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing my display name"
 msgstr "Nire azaldutako izena duten mezuak"
@@ -1073,37 +1059,29 @@ msgstr "Nire azaldutako izena duten mezuak"
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr ""
+msgstr "Nire «Matrix»eko erabiltzaile ID aipatzen duten mezuak"
 
 #: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr ""
+msgstr "Gela bat aipatzen duten mezuak"
 
 #: src/models/pushrulemodel.cpp:30
-#, fuzzy
-#| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
-msgstr "Nire azaldutako izena duten mezuak"
+msgstr "Nore «Matrix»eko IDaren zati lokala duten mezuak"
 
 #: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Whole room (@room) notifications"
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
-msgstr "Gela osoko (@gela) jakinarazpenak"
+msgstr "Gela osorako (@gela) jakinarazpenak"
 
 #: src/models/pushrulemodel.cpp:32
-#, fuzzy
-#| msgid "Invites to a room"
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "Gela batera gonbidatzen du"
 
 #: src/models/pushrulemodel.cpp:33
-#, fuzzy
-#| msgid "Call invitation"
 msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Dei gonbidapena"
@@ -1792,8 +1770,7 @@ msgid "Topic:"
 msgstr "Gaia:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, fuzzy, kde-format
-#| msgid "Make this parent official"
+#, kde-format
 msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
 "official parent."
@@ -1846,8 +1823,7 @@ msgstr ""
 "Ez duzu egoera hori ezartzeko, haurrarekiko beharrezko pribilegio maila "
 
 #: src/qml/CreateRoomDialog.qml:219
-#, fuzzy, kde-format
-#| msgid "Make this space the canonical parent"
+#, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
