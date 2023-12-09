@@ -174,10 +174,10 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         refresh(room);
     });
     connect(room, &Room::addedMessages, this, [this, room] {
-        refresh(room, {LastEventRole, SubtitleTextRole, LastActiveTimeRole});
+        refresh(room, {SubtitleTextRole, LastActiveTimeRole});
     });
     connect(room, &Room::pendingEventMerged, this, [this, room] {
-        refresh(room, {LastEventRole, SubtitleTextRole});
+        refresh(room, {SubtitleTextRole});
     });
     connect(room, &Room::unreadStatsChanged, this, &RoomListModel::refreshNotificationCount);
     connect(room, &Room::highlightCountChanged, this, &RoomListModel::refreshHighlightCount);
@@ -332,12 +332,6 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == HighlightCountRole) {
         return room->highlightCount();
     }
-    if (role == LastEventRole) {
-        if (room->lastEventIsSpoiler()) {
-            return QString();
-        }
-        return room->lastEventToString();
-    }
     if (role == LastActiveTimeRole) {
         return room->lastActiveTime();
     }
@@ -354,6 +348,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return m_categoryVisibility.value(data(index, CategoryRole).toInt(), true);
     }
     if (role == SubtitleTextRole) {
+        if (room->lastEventIsSpoiler()) {
+            return QString();
+        }
         return room->lastEventToString(Qt::PlainText, true);
     }
     if (role == AvatarImageRole) {
@@ -396,7 +393,6 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[CategoryRole] = "category";
     roles[NotificationCountRole] = "notificationCount";
     roles[HighlightCountRole] = "highlightCount";
-    roles[LastEventRole] = "lastEvent";
     roles[LastActiveTimeRole] = "lastActiveTime";
     roles[JoinStateRole] = "joinState";
     roles[CurrentRoomRole] = "currentRoom";
