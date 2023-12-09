@@ -85,7 +85,7 @@ void NotificationsModel::setConnection(NeoChatConnection *connection)
     }
     m_connection = connection;
     Q_EMIT connectionChanged();
-    connect(connection, &Connection::syncDone, this, [=]() {
+    connect(connection, &Connection::syncDone, this, [this]() {
         loadData();
     });
     loadData();
