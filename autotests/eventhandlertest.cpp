@@ -18,18 +18,9 @@
 #include "neochatroom.h"
 #include "utils.h"
 
+#include "testutils.h"
+
 using namespace Quotient;
-
-class TestRoom : public NeoChatRoom
-{
-public:
-    using NeoChatRoom::NeoChatRoom;
-
-    void update(SyncRoomData &&data, bool fromCache = false)
-    {
-        Room::updateData(std::move(data), fromCache);
-    }
-};
 
 class EventHandlerTest : public QObject
 {
@@ -37,7 +28,7 @@ class EventHandlerTest : public QObject
 
 private:
     Connection *connection = nullptr;
-    TestRoom *room = nullptr;
+    TestUtils::TestRoom *room = nullptr;
     EventHandler eventHandler;
     EventHandler emptyHandler;
     EventHandler noEventHandler;
@@ -101,14 +92,7 @@ private Q_SLOTS:
 void EventHandlerTest::initTestCase()
 {
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new TestRoom(connection, QStringLiteral("#myroom:kde.org"), JoinState::Join);
-
-    QFile testEventHandlerSyncFile;
-    testEventHandlerSyncFile.setFileName(QLatin1String(DATA_DIR) + u'/' + QLatin1String("test-eventhandler-sync.json"));
-    testEventHandlerSyncFile.open(QIODevice::ReadOnly);
-    const auto testEventHandlerSyncJson = QJsonDocument::fromJson(testEventHandlerSyncFile.readAll());
-    SyncRoomData roomData(QStringLiteral("@bob:kde.org"), JoinState::Join, testEventHandlerSyncJson.object());
-    room->update(std::move(roomData));
+    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-eventhandler-sync.json"));
 
     eventHandler.setRoom(room);
     noEventHandler.setRoom(room);

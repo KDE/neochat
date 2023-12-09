@@ -14,18 +14,9 @@
 #include "neochatconnection.h"
 #include "utils.h"
 
+#include "testutils.h"
+
 using namespace Quotient;
-
-class TestRoom : public NeoChatRoom
-{
-public:
-    using NeoChatRoom::NeoChatRoom;
-
-    void update(SyncRoomData &&data, bool fromCache = false)
-    {
-        Room::updateData(std::move(data), fromCache);
-    }
-};
 
 class TextHandlerTest : public QObject
 {
@@ -33,7 +24,7 @@ class TextHandlerTest : public QObject
 
 private:
     Connection *connection = nullptr;
-    TestRoom *room = nullptr;
+    TestUtils::TestRoom *room = nullptr;
 
 private Q_SLOTS:
     void initTestCase();
@@ -83,8 +74,6 @@ private Q_SLOTS:
 void TextHandlerTest::initTestCase()
 {
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new TestRoom(connection, QStringLiteral("#myroom:kde.org"), JoinState::Join);
-
     connection->setAccountData("im.ponies.user_emotes"_ls,
                                QJsonObject{{"images"_ls,
                                             QJsonObject{{"test"_ls,
@@ -93,12 +82,7 @@ void TextHandlerTest::initTestCase()
                                                                      {"usage"_ls, QJsonArray{"emoticon"_ls}}}}}}});
     CustomEmojiModel::instance().setConnection(static_cast<NeoChatConnection *>(connection));
 
-    QFile testTextHandlerSyncFile;
-    testTextHandlerSyncFile.setFileName(QLatin1String(DATA_DIR) + u'/' + QLatin1String("test-texthandler-sync.json"));
-    testTextHandlerSyncFile.open(QIODevice::ReadOnly);
-    const auto testTextHandlerSyncJson = QJsonDocument::fromJson(testTextHandlerSyncFile.readAll());
-    SyncRoomData roomData(QStringLiteral("@bob:kde.org"), JoinState::Join, testTextHandlerSyncJson.object());
-    room->update(std::move(roomData));
+    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-texthandler-sync.json"));
 }
 
 void TextHandlerTest::allowedAttributes()

@@ -13,18 +13,9 @@
 #include "models/messageeventmodel.h"
 #include "neochatroom.h"
 
+#include "testutils.h"
+
 using namespace Quotient;
-
-class TestRoom : public NeoChatRoom
-{
-public:
-    using NeoChatRoom::NeoChatRoom;
-
-    void update(SyncRoomData &&data, bool fromCache = false)
-    {
-        Room::updateData(std::move(data), fromCache);
-    }
-};
 
 class MessageEventModelTest : public QObject
 {
@@ -33,9 +24,6 @@ class MessageEventModelTest : public QObject
 private:
     Connection *connection = nullptr;
     MessageEventModel *model = nullptr;
-
-    TestRoom *setupTestRoom(const QString &roomName, const QString &syncFileName = {});
-    void syncNewEvents(TestRoom *room, const QString &syncFileName);
 
 private Q_SLOTS:
     void initTestCase();
@@ -66,8 +54,8 @@ void MessageEventModelTest::init()
 // Make sure that basic empty rooms can be switched without crashing.
 void MessageEventModelTest::switchEmptyRoom()
 {
-    TestRoom *firstRoom = new TestRoom(connection, QStringLiteral("#firstRoom:kde.org"), JoinState::Join);
-    TestRoom *secondRoom = new TestRoom(connection, QStringLiteral("#secondRoom:kde.org"), JoinState::Join);
+    auto firstRoom = new TestUtils::TestRoom(connection, QStringLiteral("#firstRoom:kde.org"));
+    auto secondRoom = new TestUtils::TestRoom(connection, QStringLiteral("#secondRoom:kde.org"));
 
     QSignalSpy spy(model, SIGNAL(roomChanged()));
 
@@ -86,8 +74,8 @@ void MessageEventModelTest::switchEmptyRoom()
 // Make sure that rooms with some events can be switched without crashing
 void MessageEventModelTest::switchSyncedRoom()
 {
-    auto firstRoom = setupTestRoom(QStringLiteral("#firstRoom:kde.org"), QLatin1String("test-messageventmodel-sync.json"));
-    auto secondRoom = setupTestRoom(QStringLiteral("#secondRoom:kde.org"), QLatin1String("test-messageventmodel-sync.json"));
+    auto firstRoom = new TestUtils::TestRoom(connection, QStringLiteral("#firstRoom:kde.org"), QLatin1String("test-messageventmodel-sync.json"));
+    auto secondRoom = new TestUtils::TestRoom(connection, QStringLiteral("#secondRoom:kde.org"), QLatin1String("test-messageventmodel-sync.json"));
 
     QSignalSpy spy(model, SIGNAL(roomChanged()));
 
@@ -105,7 +93,7 @@ void MessageEventModelTest::switchSyncedRoom()
 
 void MessageEventModelTest::simpleTimeline()
 {
-    auto room = setupTestRoom(QStringLiteral("#myroom:kde.org"), QLatin1String("test-messageventmodel-sync.json"));
+    auto room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-messageventmodel-sync.json"));
 
     model->setRoom(room);
     QCOMPARE(model->rowCount(), 2);
@@ -127,13 +115,13 @@ void MessageEventModelTest::simpleTimeline()
 // Sync some events into the MessageEventModel's current room and don't crash.
 void MessageEventModelTest::syncNewEvents()
 {
-    auto room = setupTestRoom(QStringLiteral("#myroom:kde.org"));
+    auto room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"));
     QSignalSpy spy(room, SIGNAL(aboutToAddNewMessages(Quotient::RoomEventsRange)));
 
     model->setRoom(room);
     QCOMPARE(model->rowCount(), 0);
 
-    syncNewEvents(room, QLatin1String("test-messageventmodel-sync.json"));
+    room->syncNewEvents(QLatin1String("test-messageventmodel-sync.json"));
 
     QCOMPARE(model->rowCount(), 2);
     QCOMPARE(spy.count(), 1);
@@ -146,7 +134,7 @@ void MessageEventModelTest::pendingEvent()
     QSignalSpy spyRemove(model, SIGNAL(rowsRemoved(const QModelIndex &, int, int)));
     QSignalSpy spyChanged(model, SIGNAL(dataChanged(const QModelIndex, const QModelIndex, const QList<int> &)));
 
-    auto room = setupTestRoom(QStringLiteral("#myroom:kde.org"));
+    auto room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"));
     model->setRoom(room);
     QCOMPARE(model->rowCount(), 0);
 
@@ -197,20 +185,20 @@ void MessageEventModelTest::pendingEvent()
 // Make sure that the signals are disconnecting correctly when a room is switched.
 void MessageEventModelTest::disconnect()
 {
-    auto room = setupTestRoom(QStringLiteral("#myroom:kde.org"));
+    auto room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"));
     model->setRoom(room);
 
     QSignalSpy spy(model, SIGNAL(rowsInserted(const QModelIndex &, int, int)));
 
     model->setRoom(nullptr);
-    syncNewEvents(room, QLatin1String("test-messageventmodel-sync.json"));
+    room->syncNewEvents(QLatin1String("test-messageventmodel-sync.json"));
 
     QCOMPARE(spy.count(), 0);
 }
 
 void MessageEventModelTest::idToRow()
 {
-    auto room = setupTestRoom(QStringLiteral("#myroom:kde.org"), QLatin1String("test-min-sync.json"));
+    auto room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-min-sync.json"));
     model->setRoom(room);
 
     QCOMPARE(model->eventIdToRow(QStringLiteral("$153456789:example.org")), 0);
@@ -221,25 +209,6 @@ void MessageEventModelTest::cleanup()
     delete model;
     model = nullptr;
     QCOMPARE(model, nullptr);
-}
-
-TestRoom *MessageEventModelTest::setupTestRoom(const QString &roomName, const QString &syncFileName)
-{
-    auto room = new TestRoom(connection, roomName, JoinState::Join);
-    syncNewEvents(room, syncFileName);
-    return room;
-}
-
-void MessageEventModelTest::syncNewEvents(TestRoom *room, const QString &syncFileName)
-{
-    if (!syncFileName.isEmpty()) {
-        QFile testSyncFile;
-        testSyncFile.setFileName(QLatin1String(DATA_DIR) + u'/' + syncFileName);
-        testSyncFile.open(QIODevice::ReadOnly);
-        const auto testSyncJson = QJsonDocument::fromJson(testSyncFile.readAll());
-        SyncRoomData roomData(QStringLiteral("@bob:kde.org"), JoinState::Join, testSyncJson.object());
-        room->update(std::move(roomData));
-    }
 }
 
 QTEST_MAIN(MessageEventModelTest)
