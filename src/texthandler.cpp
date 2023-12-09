@@ -16,6 +16,7 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
+#include "models/customemojimodel.h"
 #include "utils.h"
 
 static const QStringList allowedTags = {
@@ -63,13 +64,21 @@ QString TextHandler::handleSendText()
         next();
 
         QString nextTokenBuffer = m_nextToken;
-        if (m_nextTokenType == Type::Text || m_nextTokenType == Type::TextCode) {
+        switch (m_nextTokenType) {
+        case Text:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
-        } else if (m_nextTokenType == Type::Tag) {
+            nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
+            break;
+        case TextCode:
+            nextTokenBuffer = escapeHtml(nextTokenBuffer);
+            break;
+        case Tag:
             if (!isAllowedTag(getTagType())) {
                 nextTokenBuffer = QString();
             }
             nextTokenBuffer = cleanAttributes(getTagType(), nextTokenBuffer);
+        default:
+            break;
         }
 
         outputString.append(nextTokenBuffer);

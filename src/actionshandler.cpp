@@ -12,7 +12,6 @@
 #include <QStringBuilder>
 
 #include "models/actionsmodel.h"
-#include "models/customemojimodel.h"
 #include "neochatconfig.h"
 #include "texthandler.h"
 
@@ -135,7 +134,6 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, Cha
         }
     }
 
-    handledText = CustomEmojiModel::instance().preprocessText(handledText);
     TextHandler textHandler;
     textHandler.setData(handledText);
     handledText = textHandler.handleSendText();

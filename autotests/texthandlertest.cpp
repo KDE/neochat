@@ -10,6 +10,8 @@
 #include <Quotient/syncdata.h>
 #include <qnamespace.h>
 
+#include "models/customemojimodel.h"
+#include "neochatconnection.h"
 #include "utils.h"
 
 using namespace Quotient;
@@ -48,6 +50,9 @@ private Q_SLOTS:
     void sendBadLinks();
     void sendEscapeCode();
     void sendCodeClass();
+    void sendCustomEmoji();
+    void sendCustomEmojiCode_data();
+    void sendCustomEmojiCode();
 
     void receiveStripReply();
     void receivePlainTextIn();
@@ -79,6 +84,14 @@ void TextHandlerTest::initTestCase()
 {
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
     room = new TestRoom(connection, QStringLiteral("#myroom:kde.org"), JoinState::Join);
+
+    connection->setAccountData("im.ponies.user_emotes"_ls,
+                               QJsonObject{{"images"_ls,
+                                            QJsonObject{{"test"_ls,
+                                                         QJsonObject{{"body"_ls, "Test custom emoji"_ls},
+                                                                     {"url"_ls, "mxc://example.org/test"_ls},
+                                                                     {"usage"_ls, QJsonArray{"emoticon"_ls}}}}}}});
+    CustomEmojiModel::instance().setConnection(static_cast<NeoChatConnection *>(connection));
 
     QFile testTextHandlerSyncFile;
     testTextHandlerSyncFile.setFileName(QLatin1String(DATA_DIR) + u'/' + QLatin1String("test-texthandler-sync.json"));
@@ -227,6 +240,39 @@ void TextHandlerTest::sendCodeClass()
 {
     const QString testInputString = QStringLiteral("```html\nsome code\n```\n<pre><code class=\"code-underline\">some more code</code></pre>");
     const QString testOutputString = QStringLiteral("<pre><code class=\"language-html\">some code\n</code></pre>\n<pre><code>some more code</code></pre>");
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
+}
+
+void TextHandlerTest::sendCustomEmoji()
+{
+    const QString testInputString = QStringLiteral(":test:");
+    const QString testOutputString = QStringLiteral(
+        "<p><img data-mx-emoticon=\"\" src=\"mxc://example.org/test\" alt=\":test:\" title=\":test:\" height=\"32\" vertical-align=\"middle\" /></p>");
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
+}
+
+void TextHandlerTest::sendCustomEmojiCode_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("inline") << QStringLiteral("`:test:`") << QStringLiteral("<p><code>:test:</code></p>");
+    QTest::newRow("block") << QStringLiteral("```\n:test:\n```") << QStringLiteral("<pre><code>:test:\n</code></pre>");
+}
+
+// Custom emojis in code blocks should be left alone.
+void TextHandlerTest::sendCustomEmojiCode()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);

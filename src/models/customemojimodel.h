@@ -85,7 +85,7 @@ public:
     /**
      * @brief Substitute any custom emojis for an image in the input text.
      */
-    Q_INVOKABLE QString preprocessText(const QString &it);
+    Q_INVOKABLE QString preprocessText(QString text);
 
     /**
      * @brief Return a list of custom emojis where the name contains the filter text.
