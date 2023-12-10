@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-04 01:37+0000\n"
-"PO-Revision-Date: 2023-11-25 02:26\n"
+"POT-Creation-Date: 2023-12-10 01:58+0000\n"
+"PO-Revision-Date: 2023-12-09 09:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: src/controller.cpp:128 src/controller.cpp:388
 #, kde-format
 msgid "Receiving push notifications"
-msgstr ""
+msgstr "正在接收推送通知"
 
 #: src/controller.cpp:230
 #, kde-format
@@ -536,7 +536,7 @@ msgstr ""
 #: src/main.cpp:147
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr ""
+msgstr "一个用于编写跨平台 Matrix 客户端的 Qt 库"
 
 #: src/main.cpp:149
 #, kde-format
@@ -1017,8 +1017,6 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
 #: src/models/pushrulemodel.cpp:21
-#, fuzzy
-#| msgid "Enable notifications for this account"
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "为此账户启用通知"
@@ -1044,19 +1042,14 @@ msgid "Messages in encrypted group chats"
 msgstr ""
 
 #: src/models/pushrulemodel.cpp:26
-#, fuzzy
-#| msgid "Show deleted messages"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
-msgstr "显示已被删除的消息"
+msgstr ""
 
 #: src/models/pushrulemodel.cpp:27
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
 msgctxt "Notification type"
 msgid "Messages containing my display name"
-msgstr "清除了显示名称"
+msgstr ""
 
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
@@ -1074,25 +1067,19 @@ msgid "Messages containing the local part of my Matrix ID"
 msgstr ""
 
 #: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Room Notifications"
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
-msgstr "聊天室通知"
+msgstr ""
 
 #: src/models/pushrulemodel.cpp:32
-#, fuzzy
-#| msgid "Invite user to room"
 msgctxt "Notification type"
 msgid "Invites to a room"
-msgstr "邀请用户到聊天室"
+msgstr ""
 
 #: src/models/pushrulemodel.cpp:33
-#, fuzzy
-#| msgid "Send invitation"
 msgctxt "Notification type"
 msgid "Call invitation"
-msgstr "发送邀请"
+msgstr ""
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1114,32 +1101,32 @@ msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 回应了 %3"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:411
 #, kde-format
 msgid "Invited"
 msgstr "已邀请"
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:413
 #, kde-format
 msgid "Favorite"
 msgstr "收藏夹"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:415
 #, kde-format
 msgid "Direct Messages"
 msgstr "私聊"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Normal"
 msgstr "普通"
 
-#: src/models/roomlistmodel.cpp:423
+#: src/models/roomlistmodel.cpp:419
 #, kde-format
 msgid "Low priority"
 msgstr "低优先级"
 
-#: src/models/roomlistmodel.cpp:425
+#: src/models/roomlistmodel.cpp:421
 #, kde-format
 msgid "Spaces"
 msgstr "空间"
@@ -1217,17 +1204,17 @@ msgstr "拒绝"
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
-msgstr ""
+msgstr "拒绝并忽略用户"
 
 #: src/notificationsmanager.cpp:316
 #, kde-format
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
 #, kde-format
 msgid "Open NeoChat"
-msgstr ""
+msgstr "打开 NeoChat"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -1569,7 +1556,7 @@ msgstr "发送一条加密消息..."
 #: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Set an attachment caption…"
-msgstr ""
+msgstr "设置附件说明"
 
 #: src/qml/ChatBar.qml:188
 #, kde-format
@@ -1744,17 +1731,17 @@ msgstr ""
 #: src/qml/CreateRoomDialog.qml:35
 #, kde-format
 msgid "New Space Information"
-msgstr ""
+msgstr "新建空间信息"
 
 #: src/qml/CreateRoomDialog.qml:35
 #, kde-format
 msgid "New Room Information"
-msgstr ""
+msgstr "新建聊天室信息"
 
 #: src/qml/CreateRoomDialog.qml:44
 #, kde-format
 msgid "Select type"
-msgstr ""
+msgstr "选择类型"
 
 #: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
 #, kde-format
@@ -1764,12 +1751,12 @@ msgstr "聊天室"
 #: src/qml/CreateRoomDialog.qml:54
 #, kde-format
 msgid "Space"
-msgstr ""
+msgstr "空间"
 
 #: src/qml/CreateRoomDialog.qml:72
 #, kde-format
 msgid "Topic:"
-msgstr ""
+msgstr "话题:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, kde-format
@@ -1789,13 +1776,13 @@ msgstr "确定"
 #: src/qml/CreateRoomDialog.qml:98
 #, kde-format
 msgid "Select Existing Room"
-msgstr ""
+msgstr "选择已有聊天室"
 
 #: src/qml/CreateRoomDialog.qml:104 src/qml/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
-msgstr ""
+msgstr "选择聊天室"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
@@ -2676,7 +2663,7 @@ msgstr "回应"
 #: src/qml/HoverActions.qml:110
 #, kde-format
 msgid "Reply in Thread"
-msgstr ""
+msgstr "主题内回复"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2736,7 +2723,7 @@ msgstr "要接受此邀请吗？"
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr ""
+msgstr "拒绝并忽略用户"
 
 #: src/qml/InvitationView.qml:30
 #, kde-format
@@ -2838,13 +2825,13 @@ msgstr "服务器 URL"
 #: src/qml/JoinRoomPage.qml:240
 #, kde-format
 msgid "Enter a room address"
-msgstr ""
+msgstr "输入一个聊天室地址"
 
 #: src/qml/JoinRoomPage.qml:266
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
-msgstr ""
+msgstr "未找到公共聊天室"
 
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
@@ -2869,7 +2856,7 @@ msgstr "正在等待对方验证。"
 #: src/qml/KeyVerificationDialog.qml:56
 #, kde-format
 msgid "Emoji Verification"
-msgstr ""
+msgstr "表情验证"
 
 #: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
@@ -3011,7 +2998,7 @@ msgstr "您想要与 %1 开始聊天吗？"
 #, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
-msgstr ""
+msgstr "聊天室ID或别名"
 
 #: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
 #, kde-format
@@ -3021,17 +3008,17 @@ msgstr ""
 #: src/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Room ID or Alias:"
-msgstr ""
+msgstr "聊天室ID或别名:"
 
 #: src/qml/ManualRoomDialog.qml:89 src/qml/ManualRoomDialog.qml:97
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
-msgstr ""
+msgstr "别名必须以 # 开头，ID 必须以 ! 开头"
 
 #: src/qml/ManualRoomDialog.qml:95
 #, kde-format
 msgid "The input is not a valid room ID or alias"
-msgstr ""
+msgstr "输入不是有效的聊天室ID或别名"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -3173,12 +3160,12 @@ msgstr "通知"
 #: src/qml/NotificationsView.qml:34
 #, kde-format
 msgid "No Notifications"
-msgstr ""
+msgstr "无通知"
 
 #: src/qml/OpenFileDialog.qml:12
 #, kde-format
 msgid "Select a File"
-msgstr ""
+msgstr "选择一个文件"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3347,12 +3334,12 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
-msgstr ""
+msgstr "编辑用户权力等级"
 
 #: src/qml/PowerLevelDialog.qml:35
 #, kde-format
 msgid "New power level"
-msgstr ""
+msgstr "新建权力等级"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -4368,6 +4355,9 @@ msgid ""
 "\n"
 "**Please log out and log back in, your session is broken/corrupt.**"
 msgstr ""
+"远程方取消了会话验证，因为密钥不正确。\n"
+"\n"
+"**请注销并重新登录，您的会话已中断或损坏。**"
 
 #: src/qml/VerificationCanceled.qml:47
 #, kde-format
@@ -4453,13 +4443,13 @@ msgstr "欢迎使用"
 #: src/qml/WelcomePage.qml:45
 #, kde-format
 msgid "Welcome to NeoChat"
-msgstr ""
+msgstr "欢迎使用 NeoChat"
 
 #: src/qml/WelcomePage.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
-msgstr ""
+msgstr "使用现有账户登录"
 
 #: src/qml/WelcomePage.qml:74
 #, kde-format
@@ -4471,7 +4461,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr ""
+msgstr "登录或创建一个新账户"
 
 #: src/qml/WelcomePage.qml:162
 #, kde-format
@@ -4584,6 +4574,3 @@ msgstr "显示"
 #, kde-format
 msgid "Quit"
 msgstr "退出"
-
-#~ msgid "The room id you are trying to join is not valid"
-#~ msgstr "试图加入的聊天室 ID 无效"
