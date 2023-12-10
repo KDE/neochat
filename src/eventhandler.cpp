@@ -645,6 +645,15 @@ QString EventHandler::getGenericBody() const
         i18n("Unknown event"));
 }
 
+QString EventHandler::subtitleText() const
+{
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "subtitleText called with m_event set to nullptr.";
+        return {};
+    }
+    return singleLineAuthorDisplayname() + (m_event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": ")) + getPlainBody(true);
+}
+
 QVariantMap EventHandler::getMediaInfo() const
 {
     if (m_room == nullptr) {

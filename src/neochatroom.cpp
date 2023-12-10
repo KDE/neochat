@@ -341,25 +341,6 @@ bool NeoChatRoom::lastEventIsSpoiler() const
     return false;
 }
 
-QString NeoChatRoom::lastEventToString(Qt::TextFormat format, bool stripNewlines) const
-{
-    if (auto event = lastEvent()) {
-        EventHandler eventHandler;
-        eventHandler.setRoom(this);
-        eventHandler.setEvent(event);
-
-        QString body;
-        if (format == Qt::TextFormat::RichText) {
-            body = eventHandler.getRichBody(stripNewlines);
-        } else {
-            body = eventHandler.getPlainBody(stripNewlines);
-        }
-
-        return eventHandler.singleLineAuthorDisplayname() + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": ")) + body;
-    }
-    return {};
-}
-
 bool NeoChatRoom::isEventHighlighted(const RoomEvent *e) const
 {
     return highlights.contains(e);

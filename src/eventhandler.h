@@ -207,6 +207,14 @@ public:
     QString getGenericBody() const;
 
     /**
+     * @brief Output a string for the event to be used as  a RoomList subtitle.
+     *
+     * The output includes the username followed by the plain message, all with no
+     * line breaks.
+     */
+    QString subtitleText() const;
+
+    /**
      * @brief Return the media info for the event.
      *
      * An empty QVariantMap will be returned for any event that doesn't have any

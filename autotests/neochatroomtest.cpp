@@ -22,7 +22,6 @@ private:
 
 private Q_SLOTS:
     void initTestCase();
-    void subtitleTextTest();
     void eventTest();
 };
 
@@ -30,12 +29,6 @@ void NeoChatRoomTest::initTestCase()
 {
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
     room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), "test-min-sync.json"_ls);
-}
-
-void NeoChatRoomTest::subtitleTextTest()
-{
-    QCOMPARE(room->timelineSize(), 1);
-    QCOMPARE(room->lastEventToString(), QStringLiteral("@example:example.org: This is an example\ntext message"));
 }
 
 void NeoChatRoomTest::eventTest()

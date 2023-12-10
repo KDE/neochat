@@ -61,6 +61,8 @@ private Q_SLOTS:
     void genericBody_data();
     void genericBody();
     void nullGenericBody();
+    void subtitle();
+    void nullSubtitle();
     void mediaInfo();
     void nullMediaInfo();
     void linkPreviewer();
@@ -346,6 +348,25 @@ void EventHandlerTest::nullGenericBody()
 {
     QTest::ignoreMessage(QtWarningMsg, "getGenericBody called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getGenericBody(), QString());
+}
+
+void EventHandlerTest::subtitle()
+{
+    auto event = room->messageEvents().at(0).get();
+    eventHandler.setEvent(event);
+
+    QCOMPARE(eventHandler.subtitleText(), QStringLiteral("after: This is an example text message"));
+
+    event = room->messageEvents().at(2).get();
+    eventHandler.setEvent(event);
+
+    QCOMPARE(eventHandler.subtitleText(), QStringLiteral("after: This is a highlight @bob:kde.org and this is a link https://kde.org"));
+}
+
+void EventHandlerTest::nullSubtitle()
+{
+    QTest::ignoreMessage(QtWarningMsg, "subtitleText called with m_event set to nullptr.");
+    QCOMPARE(noEventHandler.subtitleText(), QString());
 }
 
 void EventHandlerTest::mediaInfo()

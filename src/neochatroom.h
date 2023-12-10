@@ -399,14 +399,6 @@ public:
     [[nodiscard]] const Quotient::RoomEvent *lastEvent() const;
 
     /**
-     * @brief Convenient way to call eventToString on the last event.
-     *
-     * @sa lastEvent()
-     * @sa eventToString()
-     */
-    [[nodiscard]] QString lastEventToString(Qt::TextFormat format = Qt::PlainText, bool stripNewlines = false) const;
-
-    /**
      * @brief Convenient way to check if the last event looks like it has spoilers.
      *
      * This does a basic check to see if the message contains a data-mx-spoiler
@@ -491,15 +483,6 @@ public:
     Q_INVOKABLE void copyEventMedia(const QString &eventId);
 
     [[nodiscard]] bool readMarkerLoaded() const;
-
-    /**
-     * @brief Get subtitle text for room
-     *
-     * Fetches last event and removes markdown formatting
-     *
-     * @see lastEventToString()
-     */
-    [[nodiscard]] QString subtitleText();
 
     [[nodiscard]] QString avatarMediaId() const;
 

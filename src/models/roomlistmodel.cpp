@@ -4,6 +4,7 @@
 #include "roomlistmodel.h"
 
 #include "controller.h"
+#include "eventhandler.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "roommanager.h"
@@ -351,7 +352,10 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         if (room->lastEventIsSpoiler()) {
             return QString();
         }
-        return room->lastEventToString(Qt::PlainText, true);
+        EventHandler eventHandler;
+        eventHandler.setRoom(room);
+        eventHandler.setEvent(room->lastEvent());
+        return eventHandler.subtitleText();
     }
     if (role == AvatarImageRole) {
         return room->avatar(128);
