@@ -39,7 +39,8 @@ void ActionsHandler::setRoom(NeoChatRoom *room)
 
 void ActionsHandler::handleMessageEvent(ChatBarCache *chatBarCache)
 {
-    if (!chatBarCache) {
+    if (!m_room || !chatBarCache) {
+        qWarning() << "ActionsHandler::handleMessageEvent - called with m_room and/or chatBarCache set to nullptr.";
         return;
     }
 
@@ -60,10 +61,6 @@ void ActionsHandler::handleMessageEvent(ChatBarCache *chatBarCache)
 
 QString ActionsHandler::handleMentions(QString handledText, QList<Mention> *mentions)
 {
-    if (!m_room) {
-        return QString();
-    }
-
     std::sort(mentions->begin(), mentions->end(), [](const auto &a, const auto &b) -> bool {
         return a.cursor.anchor() > b.cursor.anchor();
     });
