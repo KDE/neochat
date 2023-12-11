@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-10 01:58+0000\n"
-"PO-Revision-Date: 2023-10-22 17:30+0530\n"
+"POT-Creation-Date: 2023-12-11 01:35+0000\n"
+"PO-Revision-Date: 2023-12-10 12:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,13 +15,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/controller.cpp:128 src/controller.cpp:388
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
-msgstr "தட்டச்சிடுவதை அறிவி"
+msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
 
 #: src/controller.cpp:230
 #, kde-format
@@ -422,14 +422,14 @@ msgstr "நிலையை புதுப்பித்தார்"
 msgid "started a poll"
 msgstr "கருத்தாய்வை துவக்கினார்"
 
-#: src/eventhandler.cpp:1133
+#: src/eventhandler.cpp:1142
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 பயனர்: "
 msgstr[1] "%1 பயனர்கள்: "
 
-#: src/eventhandler.cpp:1136
+#: src/eventhandler.cpp:1145
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -532,10 +532,9 @@ msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
 #: src/main.cpp:147
-#, fuzzy, kde-format
-#| msgid "A Qt5 library to write cross-platform clients for Matrix"
+#, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "மேட்ரிக்ஸுக்கான பல்லியங்குதள செயலிகளை எழுத உதவும் Qt5 நிரலகம்"
+msgstr "மேட்ரிக்ஸுக்கான பல்லியங்குதள செயலிகளை எழுத உதவும் Qt நிரலகம்"
 
 #: src/main.cpp:149
 #, kde-format
@@ -561,12 +560,12 @@ msgstr "அனைத்து SSL சிக்கல்களையும் ப
 #: src/main.cpp:179
 #, kde-format
 msgid "Only used for autotests"
-msgstr ""
+msgstr "தானியங்கி சோதனைகளுக்கு மட்டும்"
 
 #: src/main.cpp:184
 #, kde-format
 msgid "Internal usage only."
-msgstr ""
+msgstr "உள்ளக் பயன்பாட்டு மட்டும்."
 
 #: src/matriximageprovider.cpp:41
 #, kde-format
@@ -977,13 +976,12 @@ msgid "[REDACTED: %1]"
 msgstr "[தணிக்கை செய்யப்பட்டது: %1]"
 
 #: src/models/messagefiltermodel.cpp:125
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ": %1"
-msgstr[1] ": %1"
+msgstr[0] " %1"
+msgstr[1] " %2 முறை %1"
 
 #: src/models/messagefiltermodel.cpp:129
 #, kde-format
@@ -1021,50 +1019,36 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
 #: src/models/pushrulemodel.cpp:21
-#, fuzzy
-#| msgid "Enable notifications for this account"
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "இக்கணக்குக்கான‍ அறிவிப்புகளை இயக்கு"
 
 #: src/models/pushrulemodel.cpp:22
-#, fuzzy
-#| msgid "Messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
 msgstr "தனிப்பட்ட உரையாடல்களிலுள்ள செய்திகள்"
 
 #: src/models/pushrulemodel.cpp:23
-#, fuzzy
-#| msgid "Encrypted messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
 msgstr "தனிப்பட்ட உரையாடல்களிலுள்ள மறையாக்கப்பட்ட செய்திகள்"
 
 #: src/models/pushrulemodel.cpp:24
-#, fuzzy
-#| msgid "Messages in group chats"
 msgctxt "Notification type"
 msgid "Messages in group chats"
 msgstr "குழு உரையாடல்களிலுள்ள செய்திகள்"
 
 #: src/models/pushrulemodel.cpp:25
-#, fuzzy
-#| msgid "Messages in encrypted group chats"
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
 msgstr "மறையாக்கப்பட்ட குழு உரையாடல்களிலுள்ள செய்திகள்"
 
 #: src/models/pushrulemodel.cpp:26
-#, fuzzy
-#| msgid "Room upgrade messages"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "அரங்கு புதுப்பிப்பு செய்திகள்"
 
 #: src/models/pushrulemodel.cpp:27
-#, fuzzy
-#| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing my display name"
 msgstr "என் காட்சிப்பெயரைக் கொண்ட செய்திகள்"
@@ -1072,37 +1056,29 @@ msgstr "என் காட்சிப்பெயரைக் கொண்ட 
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr ""
+msgstr "என் மேட்ரிக்ஸு பயனர் அடையாளத்தைக் கொண்டுள்ள செய்திகள்"
 
 #: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr ""
+msgstr "ஓர் அரங்கைக் கொண்டுள்ள செய்திகள்"
 
 #: src/models/pushrulemodel.cpp:30
-#, fuzzy
-#| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
-msgstr "என் காட்சிப்பெயரைக் கொண்ட செய்திகள்"
+msgstr "என் மேட்ரிக்ஸு அடையாளத்தின் உள்ளகப்பகுதியைக் கொண்ட செய்திகள்"
 
 #: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Whole room (@room) notifications"
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
 msgstr "முழு அரங்கிற்கான (@room) அறிவிப்புகள்"
 
 #: src/models/pushrulemodel.cpp:32
-#, fuzzy
-#| msgid "Invites to a room"
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "அரங்கிற்கான வரவழைப்புகள்"
 
 #: src/models/pushrulemodel.cpp:33
-#, fuzzy
-#| msgid "Call invitation"
 msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "குரல்வழி உரையாடலுக்கான அழைப்பு"
@@ -1129,32 +1105,32 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 %3 என்று எதிர்வினையிட்டார்"
 msgstr[1] "%2 %3 என்று எதிர்வினையிட்டனர்"
 
-#: src/models/roomlistmodel.cpp:411
+#: src/models/roomlistmodel.cpp:415
 #, kde-format
 msgid "Invited"
 msgstr "வரவழைப்புகள்"
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Favorite"
 msgstr "பிடித்தவை"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:419
 #, kde-format
 msgid "Direct Messages"
 msgstr "நேரடி செய்திகள்"
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:421
 #, kde-format
 msgid "Normal"
 msgstr "சாதாரணமானவை"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:423
 #, kde-format
 msgid "Low priority"
 msgstr "முக்கியமில்லாதவை"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:425
 #, kde-format
 msgid "Spaces"
 msgstr "இடங்கள்"
@@ -1169,12 +1145,12 @@ msgstr "அரங்கு உருவாக்கம் தோல்விய�
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1595 src/neochatroom.cpp:1596
+#: src/neochatroom.cpp:1576 src/neochatroom.cpp:1577
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1855 src/neochatroom.cpp:1863
+#: src/neochatroom.cpp:1836 src/neochatroom.cpp:1844
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1240,10 +1216,9 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:327
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "நியோச்சாட்"
+msgstr "நியோச்சாட்டைத் திற"
 
 #: src/qml/About.qml:11
 #, kde-format
@@ -1583,10 +1558,9 @@ msgid "Send an encrypted message…"
 msgstr "மறையாக்கப்பட்ட செய்தியை அனுப்பு…"
 
 #: src/qml/ChatBar.qml:188
-#, fuzzy, kde-format
-#| msgid "Set an attachment caption..."
+#, kde-format
 msgid "Set an attachment caption…"
-msgstr "உடனிணைப்புக்கான தலைப்பை அமை..."
+msgstr "உடனிணைப்புக்கான தலைப்பை அமை…"
 
 #: src/qml/ChatBar.qml:188
 #, kde-format
@@ -1793,7 +1767,7 @@ msgid "Topic:"
 msgstr "தலைப்பு:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
 "official parent."
@@ -1845,13 +1819,12 @@ msgid ""
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:219
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr "இதை அரங்கின் செந்தர மாற்றுப்பெயராக்கு"
+msgstr "இதை அரங்கின் செந்தர தாயாக இந்த இடத்தை ஆக்கு"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -1933,8 +1906,7 @@ msgid "Password:"
 msgstr "கடவுச்சொல்:"
 
 #: src/qml/DevicesPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "நீக்கு"
@@ -2168,17 +2140,14 @@ msgid "Create rooms and chats"
 msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"
 
 #: src/qml/ExploreComponentMobile.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search"
+#, kde-format
 msgid "Search"
-msgstr "தேடல்"
+msgstr "தேடு"
 
 #: src/qml/ExploreComponentMobile.qml:75
-#, fuzzy, kde-format
-#| msgid "Create space"
+#, kde-format
 msgid "Create New"
-msgstr "இடத்தை உருவாக்கு"
+msgstr "புதியதை உருவாக்கு"
 
 #: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
@@ -2366,38 +2335,33 @@ msgstr "இவ்வரங்கில் முகவரி முன்னோ�
 #: src/qml/General.qml:283
 #, kde-format
 msgid "Official Parent Spaces"
-msgstr ""
+msgstr "அதிகாரப்பூர்வ தாய் இடங்கள்"
 
 #: src/qml/General.qml:316
-#, fuzzy, kde-format
-#| msgid "Canonical Alias:"
+#, kde-format
 msgid "Canonical"
-msgstr "செந்தர மாற்றுப்பெயர்:"
+msgstr "செந்தரம்"
 
 #: src/qml/General.qml:323
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgid "Make canonical parent"
-msgstr "செந்தர மாற்றுப்பெயர் அமைக்கப்படவில்லை"
+msgstr "செந்தர தாயாக்கு"
 
 #: src/qml/General.qml:337
-#, fuzzy, kde-format
-#| msgid "Remove Message"
+#, kde-format
 msgid "Remove parent"
-msgstr "செய்தியை நீக்குவது"
+msgstr "தாயை நீக்கு"
 
 #: src/qml/General.qml:351
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgid "This room has no official parent spaces."
-msgstr "இந்த அரங்கு மாற்றப்பட்டுள்ளது."
+msgstr "இந்த அரங்குக்கு அதிகாரப்பூர்வமான தாய் இடம் இல்லை."
 
 #: src/qml/General.qml:355
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
-msgstr "செந்தர மாற்றுப்பெயர் அமைக்கப்படவில்லை"
+msgstr "புதிய அதிகாரப்பூர்வ தாய் இடத்தை சேர்"
 
 #: src/qml/General.qml:370
 #, kde-format
@@ -3203,24 +3167,20 @@ msgid "Delete keyword"
 msgstr "முதன்மைச்சொல்லை நீக்கு"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "அறிவிப்புகள்"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "அறிவிப்புகள்"
+msgstr "அறிவிப்புகள் இல்லை"
 
 #: src/qml/OpenFileDialog.qml:12
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select a File"
-msgstr "அனைத்தையும் தேர்ந்தெடு"
+msgstr "கோப்பை தேர்ந்தெடு"
 
 #: src/qml/Password.qml:32
 #, kde-format
@@ -3389,17 +3349,15 @@ msgid "(Ended)"
 msgstr "(முடிந்துள்ளது)"
 
 #: src/qml/PowerLevelDialog.qml:15
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
-msgstr "பயனர்களின் உரிமையளவை மாற்றுவது"
+msgstr "பயனரின் உரிமையளவை மாற்று"
 
 #: src/qml/PowerLevelDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Set user power level"
+#, kde-format
 msgid "New power level"
-msgstr "பயனரின் உரிமையளவை அமை"
+msgstr "புதிய உரிமையளவு"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3458,23 +3416,22 @@ msgid "The passwords do not match."
 msgstr "கடவுச்சொற்கள் வேறுபடுகின்றன."
 
 #: src/qml/RemoveChildDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "நீக்கு"
+msgstr "சார்ந்த‍தை நீக்கு"
 
 #: src/qml/RemoveChildDialog.qml:39
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
-msgstr ""
+msgstr "%1 எனும் சார் அரங்கு, %2 எனும் இடத்திலிருந்து நீக்கப்படும்"
 
 #: src/qml/RemoveChildDialog.qml:46
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr ""
+msgstr "தற்போதைய இடம், இந்த அரங்கின் அதிகாரப்பூர்வ தாய் ஆகும். இந்த தொடர்பை நீக்க வேண்டுமா?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3656,10 +3613,9 @@ msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
 
 #: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
+#, kde-format
 msgid "View notifications"
-msgstr "அறிவிப்புகளின் ஒலியை அடக்கு"
+msgstr "அறிவிப்புகளைக் காட்டு"
 
 #: src/qml/RoomListPage.qml:180
 #, kde-format
@@ -3751,16 +3707,14 @@ msgid "Space members"
 msgstr "இடத்தின் உறுப்பினர்கள்"
 
 #: src/qml/RoomSecurity.qml:54
-#, fuzzy, kde-format
-#| msgid "Anyone in a space can find and join."
+#, kde-format
 msgid "Anyone in the selected spaces can find and join."
-msgstr "ஓர் இடத்திலுள்ள அனைவரும் கண்டுபிடித்து சேரலாம்."
+msgstr "தேர்ந்தெடுத்துள்ள இடங்களிலுள்ள அனைவரும் கண்டுபிடித்து சேரலாம்."
 
 #: src/qml/RoomSecurity.qml:64
-#, fuzzy, kde-format
-#| msgid "Select type"
+#, kde-format
 msgid "Select spaces"
-msgstr "வகையைத் தேர்ந்தெடுக்கவும்"
+msgstr "இடங்களைத் தேர்ந்தெடுக்கவும்"
 
 #: src/qml/RoomSecurity.qml:82
 #, fuzzy, kde-format
@@ -3864,8 +3818,7 @@ msgid "No results found"
 msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
 
 #: src/qml/Security.qml:17
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@title"
 msgid "Security"
 msgstr "பாதுகாப்பு"
@@ -3874,53 +3827,45 @@ msgstr "பாதுகாப்பு"
 #, kde-format
 msgctxt "@title"
 msgid "Keys"
-msgstr ""
+msgstr "சாவிகள்"
 
 #: src/qml/Security.qml:25
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "Device key"
-msgstr "சாதனங்கள்"
+msgstr "சாதனச் சாவிகள்"
 
 #: src/qml/Security.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Encryption"
+#, kde-format
 msgid "Encryption key"
-msgstr "மறையாக்கம்"
+msgstr "மறையாக்க சாவி"
 
 #: src/qml/Security.qml:33
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "Device id"
-msgstr "சாதனங்கள்"
+msgstr "சாதன அடையாளம்"
 
 #: src/qml/SelectParentDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgctxt "@title"
 msgid "Select new official parent"
-msgstr "செந்தர மாற்றுப்பெயர் அமைக்கப்படவில்லை"
+msgstr "புதிய அதிகாரப்பூர்வ தாயை தேர்ந்தெடுத்தல்"
 
 #: src/qml/SelectParentDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Create a Space"
+#, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
-msgstr "இடத்தை உருவாக்குவது"
+msgstr "தாய் இடத்தை தேர்ந்தெடுக்கவும்"
 
 #: src/qml/SelectParentDialog.qml:147
-#, fuzzy, kde-format
-#| msgid "Set the children of this space"
+#, kde-format
 msgid "Set this room as a child of the space %1"
-msgstr "இவ்விடத்தில் சார்ந்த அரங்குகளை அமைப்பது"
+msgstr "%1 எனும் இடத்தில் சார்ந்ததாக இந்த அரங்கை அமை"
 
 #: src/qml/SelectParentDialog.qml:154
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
-msgstr ""
+msgstr "இந்த நிலையை அமைக்க தாய் இடத்தில் உங்களுக்கு போதிய உரிமை இல்லை"
 
 #: src/qml/SelectParentDialog.qml:154
 #, kde-format
@@ -3933,17 +3878,15 @@ msgid "You do not have the privileges to complete this action"
 msgstr "இச்செயலை மேற்கொள்ளும் உரிமை உங்களிடம் இல்லை"
 
 #: src/qml/SelectParentDialog.qml:159
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Make this space the canonical parent"
-msgstr "இதை அரங்கின் செந்தர மாற்றுப்பெயராக்கு"
+msgstr "இந்த இடத்தை செந்தர தாயாக்கு"
 
 #: src/qml/SelectSpacesDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Select type"
+#, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
-msgstr "வகையைத் தேர்ந்தெடுக்கவும்"
+msgstr "இடங்களை தேர்ந்தெடுக்கவும்"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -4106,7 +4049,7 @@ msgstr "அனைத்து அரங்குகள்"
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
 msgid "Suggested"
-msgstr ""
+msgstr "பரிந்துரைக்கப்படுபவை"
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -4121,11 +4064,10 @@ msgid " members"
 msgstr " உறுப்பினர்கள்"
 
 #: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "புதிய மாற்றுப்பெயரைச் சேர்"
+msgstr "புதிய சார்ந்த‍தை சேர்"
 
 #: src/qml/SpaceHierarchyDelegate.qml:113
 #, kde-format
@@ -4137,13 +4079,13 @@ msgstr "நீக்கு"
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
-msgstr ""
+msgstr "பரிந்துரைத்த‍தாக ஆக்காதே"
 
 #: src/qml/SpaceHierarchyDelegate.qml:133
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
-msgstr ""
+msgstr "பிரிந்துரைத்த‍தாக ஆக்கு"
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
@@ -4164,12 +4106,10 @@ msgid "Space settings"
 msgstr "இடத்திற்கான அமைப்புகள்"
 
 #: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "அரங்கை உருவாக்கு"
+msgstr "சார்ந்த‍தை உருவாக்கு"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
 #, kde-format
@@ -4237,7 +4177,7 @@ msgstr "தொடர்வதன் மூலம் பின்வரும் 
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
-msgstr ""
+msgstr "உரையாடலின் துவக்கம் இது. இதற்கு முன் எந்த செய்தியும் இல்லை."
 
 #: src/qml/TimelineView.qml:180
 #, kde-format
@@ -4263,9 +4203,7 @@ msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
 #: src/qml/UserDetailDialog.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "கணக்கின் விவரங்கள்"
@@ -4538,32 +4476,27 @@ msgid "Welcome"
 msgstr "நல்வரவு"
 
 #: src/qml/WelcomePage.qml:45
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "Matrix-க்கு நல்வரவு"
+msgstr "நியோச்சாட்டுக்கு நல்வரவு"
 
 #: src/qml/WelcomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
 
 #: src/qml/WelcomePage.qml:74
-#, fuzzy, kde-format
-#| msgctxt "Job heading, like 'Copying'"
-#| msgid "Uploading"
+#, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "பதிவேற்றம்"
+msgstr "%1 (ஏற்றப்படுகிறது)"
 
 #: src/qml/WelcomePage.qml:81
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
+msgstr "கணக்கில் நுழையவும் அல்லது புதியதை உருவாக்கவும்"
 
 #: src/qml/WelcomePage.qml:162
 #, kde-format
