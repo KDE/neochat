@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-11 01:35+0000\n"
-"PO-Revision-Date: 2023-12-10 18:02+0900\n"
+"PO-Revision-Date: 2023-12-11 18:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/controller.cpp:128 src/controller.cpp:388
 #, kde-format
@@ -292,29 +292,29 @@ msgstr ""
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
-msgstr ""
+msgstr "新增了 %1 元件"
 
 #: src/eventhandler.cpp:466
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
-msgstr ""
+msgstr "移除了 %1 元件"
 
 #: src/eventhandler.cpp:468
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
-msgstr "已設定 %1 元件"
+msgstr "設定了 %1 元件"
 
 #: src/eventhandler.cpp:473
 #, kde-format
 msgid "updated %1 state"
-msgstr ""
+msgstr "更新了 %1 狀態"
 
 #: src/eventhandler.cpp:474
 #, kde-format
 msgid "updated %1 state for %2"
-msgstr ""
+msgstr "為 %2 更新了 %1 狀態"
 
 #: src/eventhandler.cpp:479 src/eventhandler.cpp:645
 #, kde-format
@@ -400,22 +400,22 @@ msgstr "建立了聊天室"
 #: src/eventhandler.cpp:632
 #, kde-format
 msgid "added a widget"
-msgstr ""
+msgstr "新增了一個元件"
 
 #: src/eventhandler.cpp:635
 #, kde-format
 msgid "removed a widget"
-msgstr ""
+msgstr "移除了一個元件"
 
 #: src/eventhandler.cpp:637
 #, kde-format
 msgid "configured a widget"
-msgstr "已設定元件"
+msgstr "設定了一個元件"
 
 #: src/eventhandler.cpp:639
 #, kde-format
 msgid "updated the state"
-msgstr ""
+msgstr "更新了狀態"
 
 #: src/eventhandler.cpp:643
 #, kde-format
@@ -426,13 +426,13 @@ msgstr "開始了投票"
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] ""
+msgstr[0] "%1 名使用者："
 
 #: src/eventhandler.cpp:1145
 #, kde-format
 msgctxt "list separator"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
@@ -456,7 +456,7 @@ msgstr "來源"
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr ""
+msgstr "目的地"
 
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
@@ -533,7 +533,7 @@ msgstr "mail@kisaragi-hiu.com"
 #: src/main.cpp:147
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr ""
+msgstr "撰寫跨平台 Matrix 用戶端用的 Qt 函式庫"
 
 #: src/main.cpp:149
 #, kde-format
@@ -586,7 +586,7 @@ msgstr "正在離開這個聊天室。"
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr ""
+msgstr "'%1' 看起來不像是聊天室 ID 或別名。"
 
 #: src/models/actionsmodel.cpp:40
 #, kde-format
@@ -659,7 +659,7 @@ msgstr "將指定訊息作為公告傳送"
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
-msgstr ""
+msgstr "'%1' 看起來不像是 Matrix ID。"
 
 #: src/models/actionsmodel.cpp:198
 #, kde-format
@@ -721,7 +721,7 @@ msgstr "正在敲聊天室 %1 的門。"
 
 #: src/models/actionsmodel.cpp:275
 msgid "<room alias or id> [<reason>]"
-msgstr ""
+msgstr "<聊天室別名或 ID> [<原因>]"
 
 #: src/models/actionsmodel.cpp:276
 msgid "Requests to join the given room"
@@ -731,7 +731,7 @@ msgstr "請求加入指定聊天室"
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr ""
+msgstr "您已經在聊天室 %1 裡了。"
 
 #: src/models/actionsmodel.cpp:306 src/models/actionsmodel.cpp:314
 msgid "[<room alias or id>]"
@@ -739,7 +739,7 @@ msgstr "[<聊天室別名或 id>]"
 
 #: src/models/actionsmodel.cpp:307 src/models/actionsmodel.cpp:315
 msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
+msgstr "離開指定的聊天室，若未指定聊天室則離開目前聊天室"
 
 #: src/models/actionsmodel.cpp:329 src/models/actionsmodel.cpp:337
 #: src/models/actionsmodel.cpp:345
@@ -748,57 +748,57 @@ msgstr "<顯示名稱>"
 
 #: src/models/actionsmodel.cpp:330
 msgid "Changes your global display name"
-msgstr ""
+msgstr "變更您的全域顯示名稱"
 
 #: src/models/actionsmodel.cpp:338 src/models/actionsmodel.cpp:346
 msgid "Changes your display name in this room"
-msgstr ""
+msgstr "變更您在這個聊天室裡的顯示名稱"
 
 #: src/models/actionsmodel.cpp:360
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
-msgstr ""
+msgstr "%1 已經被忽略。"
 
 #: src/models/actionsmodel.cpp:365
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
-msgstr ""
+msgstr "%1 已被忽略。"
 
 #: src/models/actionsmodel.cpp:367 src/models/actionsmodel.cpp:395
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
-msgstr ""
+msgstr "%1 不是一個已知的使用者。"
 
 #: src/models/actionsmodel.cpp:374
 msgid "Ignores the given user"
-msgstr ""
+msgstr "忽略指定的使用者"
 
 #: src/models/actionsmodel.cpp:389
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
-msgstr ""
+msgstr "%1 並未被忽略。"
 
 #: src/models/actionsmodel.cpp:393
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
-msgstr ""
+msgstr "%1 已不再被忽略。"
 
 #: src/models/actionsmodel.cpp:402
 msgid "Unignores the given user"
-msgstr ""
+msgstr "取消忽略指定的使用者"
 
 #: src/models/actionsmodel.cpp:421
 msgid "<reaction text>"
-msgstr ""
+msgstr "<反應文字>"
 
 #: src/models/actionsmodel.cpp:422
 msgid "React to the message with the given text"
-msgstr ""
+msgstr "用指定文字對訊息進行反應"
 
 #: src/models/actionsmodel.cpp:437
 #, kde-format
@@ -825,7 +825,7 @@ msgstr "%1 已被這個聊天室封鎖。"
 
 #: src/models/actionsmodel.cpp:460 src/models/actionsmodel.cpp:537
 msgid "<user id> [<reason>]"
-msgstr ""
+msgstr "<使用者 id> [<原因>]"
 
 #: src/models/actionsmodel.cpp:461
 msgid "Bans the given user"
@@ -855,34 +855,34 @@ msgstr "解除指定使用者的封鎖"
 #: src/models/actionsmodel.cpp:509
 #, kde-format
 msgid "You cannot kick yourself from the room."
-msgstr ""
+msgstr "您無法從聊天室踢出自己。"
 
 #: src/models/actionsmodel.cpp:513
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
-msgstr ""
+msgstr "%1 不在這個聊天室裡。"
 
 #: src/models/actionsmodel.cpp:522
 #, kde-format
 msgid "You are not allowed to kick users from this room."
-msgstr ""
+msgstr "您不被允許從這個聊天室踢出使用者。"
 
 #: src/models/actionsmodel.cpp:528
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
-msgstr ""
+msgstr "您不被允許從這個聊天室踢出 %1。"
 
 #: src/models/actionsmodel.cpp:532
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
-msgstr ""
+msgstr "%1 已被踢出這個聊天室。"
 
 #: src/models/actionsmodel.cpp:538
 msgid "Removes the user from the room"
-msgstr ""
+msgstr "從聊天室移除使用者"
 
 #: src/models/emojimodel.cpp:153 src/models/emojimodel.cpp:211
 #, kde-format
@@ -977,32 +977,32 @@ msgstr ""
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ""
+msgstr[0] " %1 %2 次"
 
 #: src/models/messagefiltermodel.cpp:129
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] ""
+msgstr[0] " %1 名使用者 "
 
 #: src/models/messagefiltermodel.cpp:139
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
-msgstr ""
+msgstr "，"
 
 #: src/models/messagefiltermodel.cpp:143
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr ""
+msgstr " 或 "
 
 #: src/models/messagefiltermodel.cpp:143
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
-msgstr ""
+msgstr " 和 "
 
 #: src/models/messagefiltermodel.cpp:149
 #, kde-format
@@ -1011,62 +1011,62 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/pushrulemodel.cpp:21
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
-msgstr ""
+msgstr "為這個帳號啟用通知"
 
 #: src/models/pushrulemodel.cpp:22
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
-msgstr ""
+msgstr "一對一聊天的訊息"
 
 #: src/models/pushrulemodel.cpp:23
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
-msgstr ""
+msgstr "一對一聊天的加密訊息"
 
 #: src/models/pushrulemodel.cpp:24
 msgctxt "Notification type"
 msgid "Messages in group chats"
-msgstr ""
+msgstr "群組聊天的訊息"
 
 #: src/models/pushrulemodel.cpp:25
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
-msgstr ""
+msgstr "加密群組聊天的訊息"
 
 #: src/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
 msgid "Room upgrade messages"
-msgstr ""
+msgstr "聊天室更新訊息"
 
 #: src/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Messages containing my display name"
-msgstr ""
+msgstr "包含我的顯示名稱的訊息"
 
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr ""
+msgstr "提到我的 Matrix 使用者 ID 的訊息"
 
 #: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr ""
+msgstr "提到一個聊天室的訊息"
 
 #: src/models/pushrulemodel.cpp:30
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
-msgstr ""
+msgstr "提到我的 Matrix ID 的本地部分的訊息"
 
 #: src/models/pushrulemodel.cpp:31
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
-msgstr ""
+msgstr "整個聊天室 (@room) 的通知"
 
 #: src/models/pushrulemodel.cpp:32
 msgctxt "Notification type"
@@ -1076,7 +1076,7 @@ msgstr "邀請到聊天室"
 #: src/models/pushrulemodel.cpp:33
 msgctxt "Notification type"
 msgid "Call invitation"
-msgstr ""
+msgstr "來電邀請"
 
 #: src/models/reactionmodel.cpp:85
 #, kde-format
@@ -1096,7 +1096,7 @@ msgstr[0] " 和其他 %1 個人"
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
-msgstr[0] ""
+msgstr[0] "%2 用 %3 反應"
 
 #: src/models/roomlistmodel.cpp:415
 #, kde-format
@@ -1111,7 +1111,7 @@ msgstr "最愛"
 #: src/models/roomlistmodel.cpp:419
 #, kde-format
 msgid "Direct Messages"
-msgstr ""
+msgstr "私訊"
 
 #: src/models/roomlistmodel.cpp:421
 #, kde-format
@@ -1121,7 +1121,7 @@ msgstr "一般"
 #: src/models/roomlistmodel.cpp:423
 #, kde-format
 msgid "Low priority"
-msgstr ""
+msgstr "低優先權"
 
 #: src/models/roomlistmodel.cpp:425
 #, kde-format
@@ -1131,7 +1131,7 @@ msgstr "聊天空間"
 #: src/neochatconnection.cpp:197
 #, kde-format
 msgid "Room creation failed: %1"
-msgstr ""
+msgstr "聊天室建立失敗：%1"
 
 #: src/neochatconnection.cpp:229
 #, kde-format
@@ -1157,7 +1157,7 @@ msgstr "已加密訊息"
 #: src/notificationsmanager.cpp:205 src/qml/main.qml:301
 #, kde-format
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: src/notificationsmanager.cpp:211
 #, kde-format
@@ -1233,12 +1233,12 @@ msgstr "編輯帳號"
 #: src/qml/AccountEditorPage.qml:61
 #, kde-format
 msgid "Upload new avatar"
-msgstr ""
+msgstr "上傳新的頭貼"
 
 #: src/qml/AccountEditorPage.qml:78
 #, kde-format
 msgid "Remove current avatar"
-msgstr ""
+msgstr "移除目前頭貼"
 
 #: src/qml/AccountEditorPage.qml:101
 #, kde-format
@@ -1317,13 +1317,13 @@ msgstr "帳號管理"
 #: src/qml/AccountEditorPage.qml:214
 #, kde-format
 msgid "Deactivate Account"
-msgstr ""
+msgstr "停用帳號"
 
 #: src/qml/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
-msgstr ""
+msgstr "確認停用帳號"
 
 #: src/qml/AccountEditorPage.qml:223
 #, kde-format
@@ -1576,7 +1576,7 @@ msgstr "顏色主題"
 #, kde-format
 msgctxt "@title"
 msgid "Deactivate Account"
-msgstr ""
+msgstr "停用帳號"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:23
 #, kde-format
@@ -1592,23 +1592,27 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"您的帳號將被永久停用。\n"
+"這無法復原。\n"
+"您的 Matrix ID 不會釋放給新帳號。\n"
+"您的訊息將會繼續可用。"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgid "Deactivate account"
-msgstr ""
+msgstr "停用帳號"
 
 #: src/qml/ConfirmEncryptionDialog.qml:19
 #: src/qml/ConfirmEncryptionDialog.qml:38
 #, kde-format
 msgid "Activate Encryption"
-msgstr ""
+msgstr "啟用加密"
 
 #: src/qml/ConfirmEncryptionDialog.qml:22
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
-msgstr ""
+msgstr "啟用加密後將無法再停用它。"
 
 #: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
 #: src/qml/ImageEditorPage.qml:126
@@ -1691,7 +1695,7 @@ msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
 "keyword'"
 msgid "@Mentions and Keywords"
-msgstr ""
+msgstr "@Mention 提及與關鍵字"
 
 #: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
 #, kde-format
@@ -2275,7 +2279,7 @@ msgstr "未設定主要別名"
 #: src/qml/General.qml:184
 #, kde-format
 msgid "Make this alias the room's canonical alias"
-msgstr ""
+msgstr "將此別名設為聊天室主要別名"
 
 #: src/qml/General.qml:199
 #, kde-format
@@ -2351,17 +2355,17 @@ msgstr ""
 #: src/qml/General.qml:370
 #, kde-format
 msgid "This room continues another conversation."
-msgstr ""
+msgstr "這個聊天室接續了另一個對話。"
 
 #: src/qml/General.qml:374
 #, kde-format
 msgid "See older messages…"
-msgstr ""
+msgstr "檢視更舊的訊息…"
 
 #: src/qml/General.qml:384
 #, kde-format
 msgid "This room has been replaced."
-msgstr ""
+msgstr "這個聊天室已被取代。"
 
 #: src/qml/General.qml:388
 #, kde-format
@@ -2427,7 +2431,7 @@ msgstr "顯示狀態事件"
 #: src/qml/GeneralSettingsPage.qml:98
 #, kde-format
 msgid "Show leave and join events"
-msgstr "顯示退出與加入事件"
+msgstr "顯示離開與加入事件"
 
 #: src/qml/GeneralSettingsPage.qml:116
 #, kde-format
@@ -2601,7 +2605,7 @@ msgstr "聊天室通知"
 #: src/qml/GlobalNotificationsPage.qml:56
 #, kde-format
 msgid "@Mentions"
-msgstr ""
+msgstr "@Mention 提及"
 
 #: src/qml/GlobalNotificationsPage.qml:73 src/qml/PushNotification.qml:65
 #, kde-format
@@ -2656,12 +2660,12 @@ msgstr "這個訊息是從已驗證的裝置傳送的"
 #: src/qml/HoverActions.qml:87
 #, kde-format
 msgid "React"
-msgstr ""
+msgstr "反應"
 
 #: src/qml/HoverActions.qml:110
 #, kde-format
 msgid "Reply in Thread"
-msgstr ""
+msgstr "在對話串中回覆"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2849,7 +2853,7 @@ msgstr ""
 #: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr ""
+msgstr "正在等待對方驗證。"
 
 #: src/qml/KeyVerificationDialog.qml:56
 #, kde-format
@@ -2864,7 +2868,7 @@ msgstr "在雙方裝置上比對一串顏文字"
 #: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr ""
+msgstr "已成功驗證裝置 **%1**"
 
 #: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
@@ -2874,12 +2878,12 @@ msgstr "婉拒"
 #: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "收起預覽"
 
 #: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Expand preview"
-msgstr ""
+msgstr "展開預覽"
 
 #: src/qml/LinkPreviewDelegate.qml:144
 #, kde-format
@@ -2974,6 +2978,8 @@ msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
+"您的家伺服器要求您必須同意它的條款與細則才能使用它。請點擊以下按鈕來閱讀它"
+"們。"
 
 #: src/qml/main.qml:363
 #, kde-format
@@ -3267,7 +3273,7 @@ msgstr "變更聊天室名稱"
 #: src/qml/Permissions.qml:330
 #, kde-format
 msgid "Change the room avatar"
-msgstr ""
+msgstr "變更聊天室頭貼"
 
 #: src/qml/Permissions.qml:339
 #, kde-format
@@ -3381,7 +3387,7 @@ msgstr "插入連結"
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
-msgstr ""
+msgstr "最後閱讀：%1"
 
 #: src/qml/RegisterPassword.qml:28
 #, kde-format
@@ -3924,7 +3930,7 @@ msgstr "分享失敗"
 #: src/qml/ShareDialog.qml:53
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr ""
+msgstr "影像分享後的網址是 <a href='%1'>%1</a>"
 
 #: src/qml/SonnetConfigPage.qml:17
 #, kde-format
@@ -4068,7 +4074,7 @@ msgstr "邀請使用者到聊天空間"
 #, kde-format
 msgctxt "@button"
 msgid "Leave the space"
-msgstr "退出聊天空間"
+msgstr "離開聊天空間"
 
 #: src/qml/SpaceHomePage.qml:66
 #, kde-format
@@ -4103,7 +4109,7 @@ msgstr "聊天空間設定"
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
-msgstr "退出聊天空間"
+msgstr "離開聊天空間"
 
 #: src/qml/Sso.qml:30
 #, kde-format
@@ -4124,7 +4130,7 @@ msgstr "私人聊天"
 #: src/qml/StartChatPage.qml:93
 #, kde-format
 msgid "Join existing chat"
-msgstr ""
+msgstr "加入現有的聊天"
 
 #: src/qml/StartChatPage.qml:114
 #, kde-format
@@ -4134,14 +4140,14 @@ msgstr "建立新的私人聊天"
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "條款與細則"
 
 #: src/qml/Terms.qml:19
 #, kde-format
 msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
-msgstr ""
+msgstr "繼續註冊代表您同意以下條款與細則："
 
 #: src/qml/TimelineEndDelegate.qml:85
 #, kde-format
@@ -4329,19 +4335,19 @@ msgstr "遠端由於收到未知的工作階段的訊息而取消了工作階段
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
-msgstr ""
+msgstr "工作階段驗證由於 NeoChat 無法處理這個驗證方式而取消。"
 
 #: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
-msgstr ""
+msgstr "遠端由於無法處理這個驗證方式而取消了工作階段驗證。"
 
 #: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
-msgstr ""
+msgstr "工作階段驗證由於金鑰不正確而取消。"
 
 #: src/qml/VerificationCanceled.qml:45
 #, kde-format
@@ -4356,61 +4362,61 @@ msgstr ""
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
-msgstr ""
+msgstr "工作階段驗證由於驗證的使用者是非預期的而取消。"
 
 #: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
-msgstr ""
+msgstr "遠端由於驗證的使用者是非預期的而取消了工作階段驗證。"
 
 #: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
-msgstr ""
+msgstr "工作階段驗證由於我方收到無效訊息而取消。"
 
 #: src/qml/VerificationCanceled.qml:53
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
-msgstr ""
+msgstr "遠端由於收到無效訊息而取消了工作階段驗證。"
 
 #: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "工作階段已於不同裝置上接受"
 
 #: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
-msgstr ""
+msgstr "工作階段驗證由於金鑰不相符而取消。"
 
 #: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
-msgstr ""
+msgstr "遠端由於金鑰不相符而取消了工作階段驗證。"
 
 #: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
-msgstr ""
+msgstr "工作階段驗證由於雙方金鑰不相符而取消。"
 
 #: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
-msgstr ""
+msgstr "遠端由於雙方金鑰不相符而取消了工作階段驗證。"
 
 #: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr ""
+msgstr "工作階段驗證由於不明錯誤而取消。"
 
 #: src/qml/VideoDelegate.qml:142
 #, kde-format
