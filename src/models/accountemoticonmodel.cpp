@@ -24,6 +24,10 @@ int AccountEmoticonModel::rowCount(const QModelIndex &index) const
 
 QVariant AccountEmoticonModel::data(const QModelIndex &index, int role) const
 {
+    if (m_connection == nullptr) {
+        return {};
+    }
+
     const auto &row = index.row();
     const auto &image = m_images->images[row];
     if (role == UrlRole) {
@@ -92,6 +96,10 @@ void AccountEmoticonModel::setConnection(Connection *connection)
 
 void AccountEmoticonModel::reloadEmoticons()
 {
+    if (m_connection == nullptr) {
+        return;
+    }
+
     QJsonObject json;
     if (m_connection->hasAccountData("im.ponies.user_emotes"_ls)) {
         json = m_connection->accountData("im.ponies.user_emotes"_ls)->contentJson();
@@ -104,6 +112,10 @@ void AccountEmoticonModel::reloadEmoticons()
 
 void AccountEmoticonModel::deleteEmoticon(int index)
 {
+    if (m_connection == nullptr) {
+        return;
+    }
+
     QJsonObject data;
     m_images->images.removeAt(index);
     m_images->fillJson(&data);
@@ -112,6 +124,10 @@ void AccountEmoticonModel::deleteEmoticon(int index)
 
 void AccountEmoticonModel::setEmoticonBody(int index, const QString &text)
 {
+    if (m_connection == nullptr) {
+        return;
+    }
+
     m_images->images[index].body = text;
     QJsonObject data;
     m_images->fillJson(&data);
@@ -120,6 +136,10 @@ void AccountEmoticonModel::setEmoticonBody(int index, const QString &text)
 
 void AccountEmoticonModel::setEmoticonShortcode(int index, const QString &shortcode)
 {
+    if (m_connection == nullptr) {
+        return;
+    }
+
     m_images->images[index].shortcode = shortcode;
     QJsonObject data;
     m_images->fillJson(&data);
@@ -128,6 +148,9 @@ void AccountEmoticonModel::setEmoticonShortcode(int index, const QString &shortc
 
 void AccountEmoticonModel::setEmoticonImage(int index, const QUrl &source)
 {
+    if (m_connection == nullptr) {
+        return;
+    }
     doSetEmoticonImage(index, source);
 }
 
@@ -166,6 +189,9 @@ QCoro::Task<void> AccountEmoticonModel::doAddEmoticon(QUrl source, QString short
 
 void AccountEmoticonModel::addEmoticon(const QUrl &source, const QString &shortcode, const QString &description, const QString &type)
 {
+    if (m_connection == nullptr) {
+        return;
+    }
     doAddEmoticon(source, shortcode, description, type);
 }
 
