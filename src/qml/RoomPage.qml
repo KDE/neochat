@@ -238,9 +238,6 @@ Kirigami.Page {
 
     Connections {
         target: RoomManager
-        function onShowUserDetail(user) {
-            root.showUserDetail(user);
-        }
 
         function onShowEventSource(eventId) {
             applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
@@ -284,18 +281,6 @@ Kirigami.Page {
             });
             popup.open();
         }
-    }
-
-    function showUserDetail(user) {
-        userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-            room: root.currentRoom,
-            user: root.currentRoom.getUser(user.id)
-        }).open();
-    }
-
-    Component {
-        id: userDetailDialog
-        UserDetailDialog {}
     }
 
     Component {

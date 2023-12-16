@@ -16,8 +16,12 @@ import org.kde.neochat
 Kirigami.Dialog {
     id: root
 
+    // This dialog is sometimes used outside the context of a room, e.g., when scanning a user's QR code.
+    // Make sure that code is prepared to deal with this property being null
     property NeoChatRoom room
     property var user
+
+    property NeoChatConnection connection
 
     parent: applicationWindow().overlay
 
@@ -102,19 +106,19 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser
+            visible: !root.user.isLocalUser && !!root.user.object
             action: Kirigami.Action {
-                text: room.connection.isIgnored(root.user.object) ? i18n("Unignore this user") : i18n("Ignore this user")
+                text: !!root.user.object && root.connection.isIgnored(root.user.object) ? i18n("Unignore this user") : i18n("Ignore this user")
                 icon.name: "im-invisible-user"
                 onTriggered: {
                     root.close();
-                    room.connection.isIgnored(root.user.object) ? room.connection.removeFromIgnoredUsers(root.user.object) : room.connection.addToIgnoredUsers(root.user.object);
+                    root.connection.isIgnored(root.user.object) ? root.connection.removeFromIgnoredUsers(root.user.object) : root.connection.addToIgnoredUsers(root.user.object);
                 }
             }
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser && room.canSendState("kick") && room.containsUser(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
+            visible: root.room && !root.user.isLocalUser && room.canSendState("kick") && room.containsUser(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.connection.localUser.id)
 
             action: Kirigami.Action {
                 text: i18n("Kick this user")
@@ -127,10 +131,10 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser && room.canSendState("invite") && !room.containsUser(root.user.id)
+            visible: root.room && !root.user.isLocalUser && room.canSendState("invite") && !room.containsUser(root.user.id)
 
             action: Kirigami.Action {
-                enabled: !room.isUserBanned(root.user.id)
+                enabled: root.room && !root.room.isUserBanned(root.user.id)
                 text: i18n("Invite this user")
                 icon.name: "list-add-user"
                 onTriggered: {
@@ -141,7 +145,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
+            visible: root.room && !root.user.isLocalUser && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
 
             action: Kirigami.Action {
                 text: i18n("Ban this user")
@@ -161,7 +165,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser && room.canSendState("ban") && room.isUserBanned(root.user.id)
+            visible: root.room && !root.user.isLocalUser && room.canSendState("ban") && room.isUserBanned(root.user.id)
 
             action: Kirigami.Action {
                 text: i18n("Unban this user")
@@ -175,7 +179,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: room.canSendState("m.room.power_levels")
+            visible: root.room && room.canSendState("m.room.power_levels")
             action: Kirigami.Action {
                 text: i18n("Set user power level")
                 icon.name: "visibility"
@@ -199,7 +203,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.user.isLocalUser || room.canSendState("redact")
+            visible: root.room && (root.user.isLocalUser || room.canSendState("redact"))
 
             action: Kirigami.Action {
                 text: i18n("Remove recent messages by this user")
@@ -221,10 +225,10 @@ Kirigami.Dialog {
         FormCard.FormButtonDelegate {
             visible: !root.user.isLocalUser
             action: Kirigami.Action {
-                text: root.room.connection.directChatExists(root.user.object) ? i18nc("%1 is the name of the user.", "Chat with %1", root.user.escapedDisplayName) : i18n("Invite to private chat")
+                text: root.connection.directChatExists(root.user.object) ? i18nc("%1 is the name of the user.", "Chat with %1", root.user.escapedDisplayName) : i18n("Invite to private chat")
                 icon.name: "document-send"
                 onTriggered: {
-                    root.room.connection.openOrCreateDirectChat(root.user.object);
+                    root.connection.openOrCreateDirectChat(root.user.object);
                     root.close();
                 }
             }

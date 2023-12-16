@@ -68,6 +68,16 @@ RowLayout {
         }
     }
 
+    property Kirigami.Action scanAction: Kirigami.Action {
+        text: i18n("Scan a QR Code")
+        icon.name: "view-barcode-qr"
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "QrScannerPage.qml"), {
+            connection: root.connection
+        }, {
+            title: i18nc("@title", "Scan a QR Code")
+        })
+    }
+
     /**
      * @brief Emitted when the text is changed in the search field.
      */
@@ -130,6 +140,9 @@ RowLayout {
             QQC2.MenuItem {
                 action: spaceAction
             }
+            QQC2.MenuItem {
+                action: scanAction
+            }
         }
     }
     Component {
@@ -174,6 +187,11 @@ RowLayout {
 
                 Delegates.RoundedItemDelegate {
                     action: roomAction
+                    onClicked: menuRoot.close()
+                    Layout.fillWidth: true
+                }
+                Delegates.RoundedItemDelegate {
+                    action: scanAction
                     onClicked: menuRoot.close()
                     Layout.fillWidth: true
                 }

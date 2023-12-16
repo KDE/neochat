@@ -136,6 +136,17 @@ Kirigami.ApplicationWindow {
             }
         }
 
+        function onAskJoinRoom(room) {
+            joinRoomDialog.createObject(applicationWindow(), {
+                room: room,
+                connection: root.connection
+            }).open();
+        }
+
+        function onShowUserDetail(user) {
+            root.showUserDetail(user);
+        }
+
         function onPushSpaceHome(room) {
             root.spaceHomePage = pageStack.push(Qt.createComponent('org.kde.neochat', 'SpaceHomePage.qml'));
             root.spaceHomePage.forceActiveFocus();
@@ -188,6 +199,11 @@ Kirigami.ApplicationWindow {
             askDirectChatConfirmationComponent.createObject(QQC2.ApplicationWindow.overlay, {
                 user: user
             }).open();
+        }
+        function onExternalUrl(url) {
+            let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog.qml").createObject(applicationWindow());
+            dialog.link = url;
+            dialog.open();
         }
     }
 
@@ -405,6 +421,11 @@ Kirigami.ApplicationWindow {
     }
 
     Component {
+        id: joinRoomDialog
+        JoinRoomDialog {}
+    }
+
+    Component {
         id: askDirectChatConfirmationComponent
 
         Kirigami.OverlaySheet {
@@ -480,5 +501,17 @@ Kirigami.ApplicationWindow {
             ShareHandler.room = targetRoomId
             dialog.closeDialog()
         })
+    }
+    function showUserDetail(user) {
+        userDetailDialog.createObject(root.QQC2.ApplicationWindow.window, {
+            room: RoomManager.currentRoom ? RoomManager.currentRoom : null,
+            user: RoomManager.currentRoom ? RoomManager.currentRoom.getUser(user.id) : QmlUtils.getUser(user),
+            connection: root.connection
+        }).open();
+    }
+
+    Component {
+        id: userDetailDialog
+        UserDetailDialog {}
     }
 }
