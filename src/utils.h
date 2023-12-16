@@ -4,7 +4,36 @@
 #include <QColor>
 #include <QGuiApplication>
 #include <QPalette>
+#include <QQmlEngine>
 #include <QRegularExpression>
+
+#include <Quotient/connection.h>
+#include <Quotient/user.h>
+
+class QmlUtils : public QObject
+{
+    Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
+
+public:
+    static QmlUtils *create(QQmlEngine *, QJSEngine *)
+    {
+        QQmlEngine::setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
+    }
+
+    static QmlUtils &instance()
+    {
+        static QmlUtils _instance;
+        return _instance;
+    }
+
+    Q_INVOKABLE QVariantMap getUser(Quotient::User *user) const;
+
+private:
+    QmlUtils() = default;
+};
 
 namespace Utils
 {

@@ -99,7 +99,9 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
 
     const auto result = visitResource(m_connection, uri);
     if (result == Quotient::CouldNotResolve) {
-        Q_EMIT warning(i18n("Room not found"), i18n("There's no room %1 in the room list. Check the spelling and the account.", idOrUri));
+        if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
+            Q_EMIT askJoinRoom(uri.primaryId());
+        }
     } else { // Invalid cases should have been eliminated earlier
         Q_ASSERT(result == Quotient::UriResolved);
 
@@ -355,19 +357,7 @@ void RoomManager::knockRoom(Quotient::Connection *account, const QString &roomAl
 
 bool RoomManager::visitNonMatrix(const QUrl &url)
 {
-#ifdef Q_OS_ANDROID
-    if (!QDesktopServices::openUrl(url)) {
-        Q_EMIT warning(i18n("No application for the link"), i18n("Your operating system could not find an application for the link."));
-    }
-#else
-    auto *job = new KIO::OpenUrlJob(url);
-    connect(job, &KJob::finished, this, [this](KJob *job) {
-        if (job->error()) {
-            Q_EMIT warning(i18n("Could not open URL"), job->errorString());
-        }
-    });
-    job->start();
-#endif
+    Q_EMIT externalUrl(url);
     return true;
 }
 

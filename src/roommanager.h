@@ -215,6 +215,9 @@ public:
     void setConnection(NeoChatConnection *connection);
 
 Q_SIGNALS:
+    /** Ask the user whether the room should be joined. */
+    void askJoinRoom(const QString &nameOrId);
+
     void currentRoomChanged();
 
     /**
@@ -336,6 +339,8 @@ Q_SIGNALS:
 
     void directChatsActiveChanged();
     void lastSpaceIdChanged();
+
+    void externalUrl(const QUrl &url);
 
 private:
     void openRoomForActiveConnection();

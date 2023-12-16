@@ -239,7 +239,9 @@ Kirigami.Page {
     Connections {
         target: RoomManager
         function onShowUserDetail(user) {
-            root.showUserDetail(user);
+            if (applicationWindow().activeFocusItem) {
+                root.showUserDetail(user);
+            }
         }
 
         function onShowEventSource(eventId) {
@@ -289,7 +291,8 @@ Kirigami.Page {
     function showUserDetail(user) {
         userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
             room: root.currentRoom,
-            user: root.currentRoom.getUser(user.id)
+            user: root.currentRoom.getUser(user.id),
+            connection: root.connection
         }).open();
     }
 

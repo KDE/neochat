@@ -189,6 +189,11 @@ Kirigami.ApplicationWindow {
                 user: user
             }).open();
         }
+        function onExternalUrl(url) {
+            if (root.activeFocusItem) {
+                Qt.openUrlExternally(url);
+            }
+        }
     }
 
     function pushReplaceLayer(page, args) {
