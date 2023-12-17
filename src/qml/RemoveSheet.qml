@@ -19,11 +19,19 @@ Kirigami.Page {
 
     title: userId.length > 0 ? i18n("Remove Messages") : i18n("Remove Message")
 
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
+
     QQC2.TextArea {
         id: reason
         placeholderText: userId.length > 0 ? i18n("Reason for removing this user's recent messages") : i18n("Reason for removing this message")
         anchors.fill: parent
         wrapMode: TextEdit.Wrap
+        background: Rectangle {
+            color: Kirigami.Theme.backgroundColor
+        }
     }
 
     footer: QQC2.ToolBar {
