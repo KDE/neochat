@@ -381,9 +381,17 @@ void Controller::listenForNotifications()
 #ifdef HAVE_KUNIFIEDPUSH
     auto connector = new KUnifiedPush::Connector(QStringLiteral("org.kde.neochat"));
 
-    connect(connector, &KUnifiedPush::Connector::messageReceived, [](const QByteArray &data) {
+    auto timer = new QTimer();
+    connect(timer, &QTimer::timeout, qGuiApp, &QGuiApplication::quit);
+
+    connect(connector, &KUnifiedPush::Connector::messageReceived, [timer](const QByteArray &data) {
         NotificationsManager::instance().postPushNotification(data);
+        timer->stop();
     });
+
+    // Wait five seconds to see if we received any messages or this happened to be an erroneous activation.
+    // Otherwise, messageReceived is never activated, and this daemon could stick around forever.
+    timer->start(5000);
 
     connector->registerClient(i18n("Receiving push notifications"));
 #endif
