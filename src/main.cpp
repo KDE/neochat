@@ -48,6 +48,11 @@
 #ifdef HAVE_RUNNER
 #include "runner.h"
 #include <QDBusConnection>
+#include <QDBusMetaType>
+#endif
+
+#if defined(HAVE_RUNNER) && defined(HAVE_KUNIFIEDPUSH)
+#include "fakerunner.h"
 #endif
 
 #ifdef Q_OS_WINDOWS
@@ -195,6 +200,14 @@ int main(int argc, char *argv[])
     if (parser.isSet(dbusActivatedOption)) {
         // We want to be replaceable by the main client
         KDBusService service(KDBusService::Replace);
+
+#ifdef HAVE_RUNNER
+        // If we are built with KRunner and KUnifiedPush support, we need to do something special.
+        // Because KRunner may call us on the D-Bus (under the same service name org.kde.neochat) then it may
+        // accidentally activate us for push notifications instead. If this happens, then immediately quit if the fake
+        // runner is called.
+        QDBusConnection::sessionBus().registerObject("/RoomRunner"_ls, new FakeRunner(), QDBusConnection::ExportScriptableContents);
+#endif
 
         Controller::listenForNotifications();
         return QCoreApplication::exec();
