@@ -128,7 +128,6 @@ private:
 
     void loadSettings();
     void saveSettings() const;
-    QMap<Quotient::Room *, int> m_notificationCounts;
 
     Quotient::AccountRegistry m_accountRegistry;
     QStringList m_accountsLoading;
