@@ -163,8 +163,6 @@ void Controller::addConnection(NeoChatConnection *c)
     c->setLazyLoading(true);
 
     connect(c, &NeoChatConnection::syncDone, this, [this, c] {
-        Q_EMIT syncDone();
-
         c->sync(30000);
         c->saveState();
     });

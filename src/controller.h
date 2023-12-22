@@ -141,7 +141,6 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void errorOccured(const QString &error, const QString &detail);
-    void syncDone();
     void connectionAdded(NeoChatConnection *connection);
     void connectionDropped(NeoChatConnection *connection);
     void initiated();
