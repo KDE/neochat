@@ -20,7 +20,7 @@ import org.kde.neochat
  * show in their original form and are instead visualised with a MIME type delegate
  * e.g. Videos.
  */
-Item {
+RowLayout {
     id: root
 
     /**
@@ -75,82 +75,73 @@ Item {
      */
     signal replyClicked()
 
-    implicitWidth: mainLayout.implicitWidth
-    implicitHeight: mainLayout.implicitHeight
+    spacing: Kirigami.Units.largeSpacing
 
-    RowLayout {
-        id: mainLayout
-        anchors.fill: parent
-        spacing: Kirigami.Units.largeSpacing
+    Rectangle {
+        id: verticalBorder
+        Layout.fillHeight: true
 
-        Rectangle {
-            id: verticalBorder
+        implicitWidth: Kirigami.Units.smallSpacing
+        color: root.author.color
+    }
+    ColumnLayout {
+        spacing: Kirigami.Units.smallSpacing
 
-            Layout.fillHeight: true
-            Layout.rowSpan: 2
+        RowLayout {
+            spacing: Kirigami.Units.largeSpacing
 
-            implicitWidth: Kirigami.Units.smallSpacing
-            color: root.author.color
-        }
-        ColumnLayout {
-            spacing: Kirigami.Units.smallSpacing
+            KirigamiComponents.Avatar {
+                id: replyAvatar
 
-            RowLayout {
-                spacing: Kirigami.Units.largeSpacing
+                implicitWidth: Kirigami.Units.iconSizes.small
+                implicitHeight: Kirigami.Units.iconSizes.small
 
-                KirigamiComponents.Avatar {
-                    id: replyAvatar
-
-                    implicitWidth: Kirigami.Units.iconSizes.small
-                    implicitHeight: Kirigami.Units.iconSizes.small
-
-                    source: root.author.avatarSource
-                    name: root.author.displayName
-                    color: root.author.color
-                }
-                QQC2.Label {
-                    id: replyName
-                    Layout.fillWidth: true
-
-                    color: root.author.color
-                    text: root.author.displayName
-                    elide: Text.ElideRight
-                }
+                source: root.author.avatarSource
+                name: root.author.displayName
+                color: root.author.color
             }
-            Loader {
-                id: loader
-
+            QQC2.Label {
+                id: replyName
                 Layout.fillWidth: true
-                Layout.maximumHeight: loader.item && (root.type == DelegateType.Image || root.type == DelegateType.Sticker) ? loader.item.height : loader.item.implicitHeight
-                Layout.columnSpan: 2
 
-                sourceComponent: {
-                    switch (root.type) {
-                        case DelegateType.Image:
-                        case DelegateType.Sticker:
-                            return imageComponent;
-                        case DelegateType.Message:
-                        case DelegateType.Notice:
-                            return textComponent;
-                        case DelegateType.File:
-                        case DelegateType.Video:
-                        case DelegateType.Audio:
-                            return mimeComponent;
-                        case DelegateType.Encrypted:
-                            return encryptedComponent;
-                        default:
-                            return textComponent;
-                    }
+                color: root.author.color
+                text: root.author.displayName
+                elide: Text.ElideRight
+            }
+        }
+        Loader {
+            id: loader
+
+            Layout.fillWidth: true
+            Layout.maximumHeight: loader.item && (root.type == DelegateType.Image || root.type == DelegateType.Sticker) ? loader.item.height : loader.item.implicitHeight
+            Layout.columnSpan: 2
+
+            sourceComponent: {
+                switch (root.type) {
+                    case DelegateType.Image:
+                    case DelegateType.Sticker:
+                        return imageComponent;
+                    case DelegateType.Message:
+                    case DelegateType.Notice:
+                        return textComponent;
+                    case DelegateType.File:
+                    case DelegateType.Video:
+                    case DelegateType.Audio:
+                        return mimeComponent;
+                    case DelegateType.Encrypted:
+                        return encryptedComponent;
+                    default:
+                        return textComponent;
                 }
             }
         }
-        HoverHandler {
-            cursorShape: Qt.PointingHandCursor
-        }
-        TapHandler {
-            acceptedButtons: Qt.LeftButton
-            onTapped: root.replyClicked()
-        }
+    }
+    HoverHandler {
+        cursorShape: Qt.PointingHandCursor
+    }
+    TapHandler {
+        acceptedButtons: Qt.LeftButton
+        onTapped: root.replyClicked()
     }
 
     Component {
@@ -176,13 +167,13 @@ Item {
             width: mediaSizeHelper.currentSize.width
             height: mediaSizeHelper.currentSize.height
             fillMode: Image.PreserveAspectFit
-            source: root.mediaInfo.source
+            source: root?.mediaInfo.source ?? ""
 
             MediaSizeHelper {
                 id: mediaSizeHelper
-                contentMaxWidth: root.contentMaxWidth - verticalBorder.width - mainLayout.columnSpacing
-                mediaWidth: root.mediaInfo.width
-                mediaHeight: root.mediaInfo.height
+                contentMaxWidth: root.contentMaxWidth - verticalBorder.width - root.spacing
+                mediaWidth: root?.mediaInfo.width ?? -1
+                mediaHeight: root?.mediaInfo.height ?? -1
             }
         }
     }
