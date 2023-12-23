@@ -68,7 +68,6 @@ Controller::Controller(QObject *parent)
         connect(c, &Connection::connected, this, [c, this]() {
             m_accountRegistry.add(c);
             c->syncLoop();
-            Q_EMIT initiated();
         });
     }
 
@@ -220,7 +219,6 @@ void Controller::invokeLogin()
                     Q_EMIT accountsLoadingChanged();
                     if (connection->userId() == id) {
                         setActiveConnection(connection);
-                        connectSingleShot(connection, &NeoChatConnection::syncDone, this, &Controller::initiated);
                     }
                 });
                 connect(connection, &NeoChatConnection::loginError, this, [this, connection](const QString &error, const QString &) {
@@ -236,7 +234,6 @@ void Controller::invokeLogin()
                         Q_EMIT errorOccured(i18n("Login Failed: %1", error), {});
                         connection->logout(true);
                     }
-                    Q_EMIT initiated();
                 });
                 connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
                     Q_EMIT errorOccured(i18n("Network Error: %1", error), {});
@@ -244,9 +241,6 @@ void Controller::invokeLogin()
                 connection->assumeIdentity(account.userId(), accessToken);
             });
         }
-    }
-    if (accounts.isEmpty()) {
-        Q_EMIT initiated();
     }
 }
 

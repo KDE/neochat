@@ -22,8 +22,8 @@ LoginStep {
 
     Connections {
         target: Controller
-        function onInitiated() {
-            root.closeDialog()
+        function onConnectionAdded(connection) {
+            connection.syncDone.connect(() => root.closeDialog())
         }
     }
 }

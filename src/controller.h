@@ -142,7 +142,6 @@ Q_SIGNALS:
     void errorOccured(const QString &error, const QString &detail);
     void connectionAdded(NeoChatConnection *connection);
     void connectionDropped(NeoChatConnection *connection);
-    void initiated();
     void activeConnectionChanged();
     void userConsentRequired(QUrl url);
     void accountsLoadingChanged();

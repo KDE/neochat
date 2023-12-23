@@ -113,7 +113,6 @@ void Registration::registerAccount()
                 Controller::instance().addConnection(connection);
                 Controller::instance().setActiveConnection(connection);
                 connectSingleShot(connection, &Connection::syncDone, this, []() {
-                    Q_EMIT Controller::instance().initiated();
                     Q_EMIT LoginHelper::instance().loaded();
                 });
                 m_connection = nullptr;

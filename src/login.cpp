@@ -102,7 +102,6 @@ void LoginHelper::init()
 
     connectSingleShot(m_connection, &Connection::syncDone, this, [this]() {
         Q_EMIT loaded();
-        Q_EMIT Controller::instance().initiated();
     });
 }
 
