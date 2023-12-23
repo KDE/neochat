@@ -27,10 +27,4 @@ public:
      * @brief Hide the tray icon.
      */
     void hide();
-
-Q_SIGNALS:
-    /**
-     * @brief Triggered when the system tray icon is clicked to request NeoChat be shown or hidden.
-     */
-    void toggleWindow();
 };

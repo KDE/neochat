@@ -9,6 +9,8 @@
 
 #include <KLocalizedString>
 
+#include "windowcontroller.h"
+
 TrayIcon::TrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
 {
@@ -16,10 +18,12 @@ TrayIcon::TrayIcon(QObject *parent)
     QMenu *menu = new QMenu();
     auto viewAction_ = new QAction(i18n("Show"), parent);
 
-    connect(viewAction_, &QAction::triggered, this, &TrayIcon::toggleWindow);
-    connect(this, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
+    connect(viewAction_, &QAction::triggered, this, [] {
+        WindowController::instance().toggleWindow();
+    });
+    connect(this, &QSystemTrayIcon::activated, this, [](QSystemTrayIcon::ActivationReason reason) {
         if (reason == QSystemTrayIcon::Trigger) {
-            Q_EMIT toggleWindow();
+            WindowController::instance().toggleWindow();
         }
     });
 

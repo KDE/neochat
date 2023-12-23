@@ -21,10 +21,4 @@ class TrayIcon : public QSystemTrayIcon
     Q_OBJECT
 public:
     TrayIcon(QObject *parent = nullptr);
-
-Q_SIGNALS:
-    /**
-     * @brief Triggered when the system tray icon is clicked to request NeoChat be shown or hidden.
-     */
-    void toggleWindow();
 };

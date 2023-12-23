@@ -9,22 +9,14 @@
 
 #include "neochatconnection.h"
 #include <Quotient/accountregistry.h>
-#include <Quotient/jobs/basejob.h>
 #include <Quotient/settings.h>
 
 #ifdef HAVE_KUNIFIEDPUSH
 #include <kunifiedpush/connector.h>
 #endif
 
-class NeoChatRoom;
 class TrayIcon;
 class QQuickTextDocument;
-
-namespace Quotient
-{
-class Room;
-class User;
-}
 
 namespace QKeychain
 {
@@ -135,7 +127,6 @@ private:
 
 private Q_SLOTS:
     void invokeLogin();
-    void toggleWindow();
     void setQuitOnLastWindowClosed();
 
 Q_SIGNALS:

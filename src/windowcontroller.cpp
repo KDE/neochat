@@ -102,4 +102,19 @@ void WindowController::setBlur(QQuickItem *item, bool blur)
 #endif
 }
 
+void WindowController::toggleWindow()
+{
+    if (window()->isVisible()) {
+        if (window()->windowStates() & Qt::WindowMinimized) {
+            window()->showNormal();
+            window()->requestActivate();
+        } else {
+            window()->close();
+        }
+    } else {
+        showAndRaiseWindow({});
+        window()->requestActivate();
+    }
+}
+
 #include "moc_windowcontroller.cpp"

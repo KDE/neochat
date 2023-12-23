@@ -66,6 +66,11 @@ public:
      */
     Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
 
+    /**
+     * Toggles the window between hidden and visible.
+     */
+    void toggleWindow();
+
 Q_SIGNALS:
     /**
      * @brief Triggered if the managed window is changed.

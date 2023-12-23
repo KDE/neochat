@@ -136,23 +136,6 @@ Controller &Controller::instance()
     return _instance;
 }
 
-void Controller::toggleWindow()
-{
-    auto &instance = WindowController::instance();
-    auto window = instance.window();
-    if (window->isVisible()) {
-        if (window->windowStates() & Qt::WindowMinimized) {
-            window->showNormal();
-            window->requestActivate();
-        } else {
-            window->close();
-        }
-    } else {
-        instance.showAndRaiseWindow({});
-        instance.window()->requestActivate();
-    }
-}
-
 void Controller::addConnection(NeoChatConnection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
@@ -314,10 +297,8 @@ void Controller::setQuitOnLastWindowClosed()
     if (NeoChatConfig::self()->systemTray()) {
         m_trayIcon = new TrayIcon(this);
         m_trayIcon->show();
-        connect(m_trayIcon, &TrayIcon::toggleWindow, this, &Controller::toggleWindow);
     } else {
         if (m_trayIcon) {
-            disconnect(m_trayIcon, &TrayIcon::toggleWindow, this, &Controller::toggleWindow);
             delete m_trayIcon;
             m_trayIcon = nullptr;
         }
