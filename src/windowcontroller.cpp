@@ -56,6 +56,9 @@ void WindowController::saveGeometry()
 
 void WindowController::showAndRaiseWindow(const QString &startupId)
 {
+    if (m_window == nullptr) {
+        return;
+    }
     if (!m_window->isVisible()) {
         m_window->show();
         restoreGeometry();
@@ -104,6 +107,9 @@ void WindowController::setBlur(QQuickItem *item, bool blur)
 
 void WindowController::toggleWindow()
 {
+    if (m_window == nullptr) {
+        return;
+    }
     if (window()->isVisible()) {
         if (window()->windowStates() & Qt::WindowMinimized) {
             window()->showNormal();
