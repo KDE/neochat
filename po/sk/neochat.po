@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 01:45+0000\n"
+"POT-Creation-Date: 2023-12-24 01:57+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -16,70 +16,70 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/controller.cpp:128 src/controller.cpp:394
+#: src/controller.cpp:127 src/controller.cpp:369
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Receiving push notifications"
 msgstr "Zobraziť upozornenia"
 
-#: src/controller.cpp:228
+#: src/controller.cpp:209
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Prihlásenie zlyhalo: Prístupový token je neplatný alebo odvolaný"
 
-#: src/controller.cpp:231 src/controller.cpp:236 src/login.cpp:93
+#: src/controller.cpp:212 src/controller.cpp:217 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prihlásenie zlyhalo: %1"
 
-#: src/controller.cpp:242
+#: src/controller.cpp:222
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Chyba siete: %1"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:244
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found"
 msgstr "Prístupový token (voliteľný)"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:244
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:271
+#: src/controller.cpp:248
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:271
+#: src/controller.cpp:248
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:274
+#: src/controller.cpp:251
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "No keychain available."
 msgstr "Nie sú k dispozícii žiadni používatelia"
 
-#: src/controller.cpp:274
+#: src/controller.cpp:251
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:277
+#: src/controller.cpp:254
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:356
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:356
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
@@ -1273,13 +1273,13 @@ msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/neochatroom.cpp:1576 src/neochatroom.cpp:1577
+#: src/neochatroom.cpp:1574 src/neochatroom.cpp:1575
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Heslo úspešne zmenené"
 
-#: src/neochatroom.cpp:1836 src/neochatroom.cpp:1844
+#: src/neochatroom.cpp:1834 src/neochatroom.cpp:1842
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2296,7 +2296,7 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr ""
 
-#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:200
+#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:191
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -4873,52 +4873,52 @@ msgctxt "@action:button"
 msgid "Go back"
 msgstr ""
 
-#: src/registration.cpp:301
+#: src/registration.cpp:300
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "No server."
 msgstr "Domáci server:"
 
-#: src/registration.cpp:303
+#: src/registration.cpp:302
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/registration.cpp:305
+#: src/registration.cpp:304
 #, kde-format
 msgid "This is not a valid server."
 msgstr ""
 
-#: src/registration.cpp:307
+#: src/registration.cpp:306
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/registration.cpp:309
+#: src/registration.cpp:308
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Žiadne meno"
 
-#: src/registration.cpp:311
+#: src/registration.cpp:310
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/registration.cpp:313
+#: src/registration.cpp:312
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "Nie sú k dispozícii žiadni používatelia"
 
-#: src/registration.cpp:315
+#: src/registration.cpp:314
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "Pokračovať"
 
-#: src/registration.cpp:317
+#: src/registration.cpp:316
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -4977,12 +4977,12 @@ msgstr "Váš operačný systém nemohol nájsť aplikáciu pre odkaz."
 msgid "Could not open URL"
 msgstr ""
 
-#: src/trayicon.cpp:17
+#: src/trayicon.cpp:19
 #, kde-format
 msgid "Show"
 msgstr "Zobraziť"
 
-#: src/trayicon.cpp:30
+#: src/trayicon.cpp:34
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"

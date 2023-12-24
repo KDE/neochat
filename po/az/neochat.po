@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 01:45+0000\n"
+"POT-Creation-Date: 2023-12-24 01:57+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,69 +17,69 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.04.3\n"
 
-#: src/controller.cpp:128 src/controller.cpp:394
+#: src/controller.cpp:127 src/controller.cpp:369
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Receiving push notifications"
 msgstr "\"Yazır\" bildirişi göndərilsin"
 
-#: src/controller.cpp:228
+#: src/controller.cpp:209
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Giriş baş tutmadı: Giriş Tokeni səhvdir və ya ləğv edilib"
 
-#: src/controller.cpp:231 src/controller.cpp:236 src/login.cpp:93
+#: src/controller.cpp:212 src/controller.cpp:217 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Giriş alınmadı: %1"
 
-#: src/controller.cpp:242
+#: src/controller.cpp:222
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Şəbəkə xətası: %1"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:244
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Giriş tokeni tapılmadı"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:244
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ola bilsin ki, o, silinib"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:248
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Açarlar bağına girişə icaz. verilmir."
 
-#: src/controller.cpp:271
+#: src/controller.cpp:248
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat'a giriş tokenini oxumağa icazə verin"
 
-#: src/controller.cpp:274
+#: src/controller.cpp:251
 #, kde-format
 msgid "No keychain available."
 msgstr "Açarlar bağı əlçatan deyil."
 
-#: src/controller.cpp:274
+#: src/controller.cpp:251
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Linix'da KWallet və ya GNOME keyring kimi açarlar bağı tətbiqini quraşdırın"
 
-#: src/controller.cpp:277
+#: src/controller.cpp:254
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Giriş nişanını oxumaq mümkün deyil"
 
-#: src/controller.cpp:356
+#: src/controller.cpp:331
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:356
+#: src/controller.cpp:331
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
@@ -1273,13 +1273,13 @@ msgstr "Otaq yaradıla bilmədi: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/neochatroom.cpp:1576 src/neochatroom.cpp:1577
+#: src/neochatroom.cpp:1574 src/neochatroom.cpp:1575
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/neochatroom.cpp:1836 src/neochatroom.cpp:1844
+#: src/neochatroom.cpp:1834 src/neochatroom.cpp:1842
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2301,7 +2301,7 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr ""
 
-#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:200
+#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:191
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -4881,52 +4881,52 @@ msgctxt "@action:button"
 msgid "Go back"
 msgstr ""
 
-#: src/registration.cpp:301
+#: src/registration.cpp:300
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "No server."
 msgstr "Əsas server:"
 
-#: src/registration.cpp:303
+#: src/registration.cpp:302
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/registration.cpp:305
+#: src/registration.cpp:304
 #, kde-format
 msgid "This is not a valid server."
 msgstr ""
 
-#: src/registration.cpp:307
+#: src/registration.cpp:306
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/registration.cpp:309
+#: src/registration.cpp:308
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Ad yoxdur"
 
-#: src/registration.cpp:311
+#: src/registration.cpp:310
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/registration.cpp:313
+#: src/registration.cpp:312
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "İstifadəçilər yoxdur"
 
-#: src/registration.cpp:315
+#: src/registration.cpp:314
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "Davam etmək"
 
-#: src/registration.cpp:317
+#: src/registration.cpp:316
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -4984,12 +4984,12 @@ msgstr "Əməliyyat sisteminiz keçid üçün tətbiq tapa bilmədi."
 msgid "Could not open URL"
 msgstr "URL açıla bilmir"
 
-#: src/trayicon.cpp:17
+#: src/trayicon.cpp:19
 #, kde-format
 msgid "Show"
 msgstr "Göstərmək"
 
-#: src/trayicon.cpp:30
+#: src/trayicon.cpp:34
 #, kde-format
 msgid "Quit"
 msgstr "Çıxış"
