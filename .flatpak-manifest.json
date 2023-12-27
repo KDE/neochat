@@ -2,7 +2,7 @@
     "id": "org.kde.neochat",
     "branch": "master",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-22.08",
+    "runtime-version": "6.6-kf6preview",
     "sdk": "org.kde.Sdk",
     "command": "neochat",
     "tags": [
@@ -31,6 +31,7 @@
         },
         {
             "name": "kquickimageeditor",
+            "config-opts": [ "-DBUILD_WITH_QT6=ON" ],
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
@@ -85,8 +86,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/frankosterfeld/qtkeychain/archive/v0.13.2.tar.gz",
-                    "sha256": "20beeb32de7c4eb0af9039b21e18370faf847ac8697ab3045906076afbc4caa5",
+                    "url": "https://github.com/frankosterfeld/qtkeychain/archive/0.14.2.tar.gz",
+                    "sha256": "cf2e972b783ba66334a79a30f6b3a1ea794a1dc574d6c3bebae5ffd2f0399571",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4138,
@@ -96,6 +97,7 @@
                 }
             ],
             "config-opts": [
+                "-DBUILD_WITH_QT6=ON",
                 "-DCMAKE_INSTALL_LIBDIR=/app/lib",
                 "-DLIB_INSTALL_DIR=/app/lib",
                 "-DBUILD_TRANSLATIONS=NO"
@@ -113,6 +115,7 @@
                 }
             ],
             "config-opts": [
+                "-DBUILD_WITH_QT6=ON",
                 "-DQuotient_ENABLE_E2EE=ON",
                 "-DBUILD_TESTING=OFF"
             ]
