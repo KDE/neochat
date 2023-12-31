@@ -17,27 +17,6 @@ class NeoChatConnection;
 class KNotification;
 class NeoChatRoom;
 
-class PushNotificationAction : public QObject
-{
-    Q_OBJECT
-    QML_ELEMENT
-    QML_UNCREATABLE("")
-
-public:
-    /**
-     * @brief Defines the global push notification actions.
-     */
-    enum Action {
-        Unknown = 0, /**< The action has not yet been obtained from the server. */
-        Off, /**< No push notifications are to be sent. */
-        On, /**< Push notifications are on. */
-        Noisy, /**< Push notifications are on, also trigger a notification sound. */
-        Highlight, /**< Push notifications are on, also the event should be highlighted in chat. */
-        NoisyHighlight, /**< Push notifications are on, also trigger a notification sound and highlight in chat. */
-    };
-    Q_ENUM(Action)
-};
-
 /**
  * @class NotificationsManager
  *

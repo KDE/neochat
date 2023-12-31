@@ -8,124 +8,8 @@
 
 #include <Quotient/csapi/definitions/push_rule.h>
 
-#include "notificationsmanager.h"
-
-/**
- * @class PushNotificationKind
- *
- * A class with the Kind enum for push notifications and helper functions.
- *
- * The kind relates to the kinds of push rule definied in the matrix spec, see
- * https://spec.matrix.org/v1.7/client-server-api/#push-rules for full details.
- */
-class PushNotificationKind : public QObject
-{
-    Q_OBJECT
-    QML_ELEMENT
-    QML_UNCREATABLE("")
-
-public:
-    /**
-     * @brief Defines the different kinds of push rule.
-     */
-    enum Kind {
-        Override = 0, /**< The highest priority rules. */
-        Content, /**< These configure behaviour for messages that match certain patterns. */
-        Room, /**< These rules change the behaviour of all messages for a given room. */
-        Sender, /**< These rules configure notification behaviour for messages from a specific Matrix user ID. */
-        Underride, /**< These are identical to override rules, but have a lower priority than content, room and sender rules. */
-    };
-    Q_ENUM(Kind)
-
-    /**
-     * @brief Translate the Kind enum value to a human readable string.
-     *
-     * @sa Kind
-     */
-    static QString kindString(Kind kind)
-    {
-        switch (kind) {
-        case Kind::Override:
-            return QLatin1String("override");
-        case Kind::Content:
-            return QLatin1String("content");
-        case Kind::Room:
-            return QLatin1String("room");
-        case Kind::Sender:
-            return QLatin1String("sender");
-        case Kind::Underride:
-            return QLatin1String("underride");
-        default:
-            return {};
-        }
-    };
-};
-
-/**
- * @class PushNotificationSection
- *
- * A class with the Section enum for push notifications and helper functions.
- *
- * @note This is different from the PushNotificationKind and instead is used for sorting
- *       in the settings page which is not necessarily by Kind.
- *
- * @sa PushNotificationKind
- */
-class PushNotificationSection : public QObject
-{
-    Q_OBJECT
-    QML_ELEMENT
-    QML_UNCREATABLE("")
-
-public:
-    /**
-     * @brief Defines the sections to sort push rules into.
-     */
-    enum Section {
-        Master = 0, /**< The master push rule */
-        Room, /**< Push rules relating to all rooms. */
-        Mentions, /**< Push rules relating to user mentions. */
-        Keywords, /**< Global Keyword push rules. */
-        RoomKeywords, /**< Keyword push rules that only apply to a specific room. */
-        Invites, /**< Push rules relating to invites. */
-        Unknown, /**< New default push rules that have not been added to the model yet. */
-        /**
-         * @brief Push rules that should never be shown.
-         *
-         * There are numerous rules that get set that shouldn't be shown in the general
-         * list e.g. The array of rules used to override global settings in individual
-         * rooms.
-         *
-         * This is specifically different to unknown which are just new default push
-         * rule that haven't been added to the model yet.
-         */
-        Undefined,
-    };
-    Q_ENUM(Section)
-
-    /**
-     * @brief Translate the Section enum value to a human readable string.
-     *
-     * @sa Section
-     */
-    static QString sectionString(Section section)
-    {
-        switch (section) {
-        case Section::Master:
-            return QLatin1String("Master");
-        case Section::Room:
-            return QLatin1String("Room Notifications");
-        case Section::Mentions:
-            return QLatin1String("@Mentions");
-        case Section::Keywords:
-            return QLatin1String("Keywords");
-        case Section::Invites:
-            return QLatin1String("Invites");
-        default:
-            return {};
-        }
-    };
-};
+#include "enums/pushrule.h"
+#include "neochatconnection.h"
 
 /**
  * @class PushRuleModel
@@ -140,7 +24,7 @@ class PushRuleModel : public QAbstractListModel
     /**
      * @brief The default state for any newly created keyword rule.
      */
-    Q_PROPERTY(PushNotificationAction::Action defaultState READ defaultState WRITE setDefaultState NOTIFY defaultStateChanged)
+    Q_PROPERTY(PushRuleAction::Action defaultState READ defaultState WRITE setDefaultState NOTIFY defaultStateChanged)
 
     /**
      * @brief The global notification state.
@@ -153,7 +37,7 @@ class PushRuleModel : public QAbstractListModel
     /**
      * @brief Whether the global notification state has been retrieved from the server.
      *
-     * @sa globalNotificationsEnabled, PushNotificationAction::Action
+     * @sa globalNotificationsEnabled, PushRuleAction::Action
      */
     Q_PROPERTY(bool globalNotificationsSet READ globalNotificationsSet NOTIFY globalNotificationsSetChanged)
 
@@ -162,9 +46,9 @@ class PushRuleModel : public QAbstractListModel
 public:
     struct Rule {
         QString id;
-        PushNotificationKind::Kind kind;
-        PushNotificationAction::Action action;
-        PushNotificationSection::Section section;
+        PushRuleKind::Kind kind;
+        PushRuleAction::Action action;
+        PushRuleSection::Section section;
         bool enabled;
         QString roomId;
     };
@@ -176,7 +60,7 @@ public:
         NameRole = Qt::DisplayRole, /**< The push rule name. */
         IdRole, /**< The push rule ID. */
         KindRole, /**< The kind of notification rule; override, content, etc. */
-        ActionRole, /**< The PushNotificationAction for the rule. */
+        ActionRole, /**< The PushRuleAction for the rule. */
         HighlightableRole, /**< Whether the rule can have a highlight action. */
         DeletableRole, /**< Whether the rule can be deleted the rule. */
         SectionRole, /**< The section to sort into in the settings page. */
@@ -186,8 +70,8 @@ public:
 
     explicit PushRuleModel(QObject *parent = nullptr);
 
-    [[nodiscard]] PushNotificationAction::Action defaultState() const;
-    void setDefaultState(PushNotificationAction::Action defaultState);
+    [[nodiscard]] PushRuleAction::Action defaultState() const;
+    void setDefaultState(PushRuleAction::Action defaultState);
 
     [[nodiscard]] bool globalNotificationsEnabled() const;
     void setGlobalNotificationsEnabled(bool enabled);
@@ -215,7 +99,7 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void setPushRuleAction(const QString &id, PushNotificationAction::Action action);
+    Q_INVOKABLE void setPushRuleAction(const QString &id, PushRuleAction::Action action);
 
     /**
      * @brief Add a new keyword to the model.
@@ -240,18 +124,18 @@ private Q_SLOTS:
     void updateNotificationRules(const QString &type);
 
 private:
-    PushNotificationAction::Action m_defaultKeywordAction;
+    PushRuleAction::Action m_defaultKeywordAction;
     QList<Rule> m_rules;
     NeoChatConnection *m_connection;
 
-    void setRules(QList<Quotient::PushRule> rules, PushNotificationKind::Kind kind);
+    void setRules(QList<Quotient::PushRule> rules, PushRuleKind::Kind kind);
 
     int getRuleIndex(const QString &ruleId) const;
-    PushNotificationSection::Section getSection(Quotient::PushRule rule);
+    PushRuleSection::Section getSection(Quotient::PushRule rule);
 
     void setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled);
-    void setNotificationRuleActions(const QString &kind, const QString &ruleId, PushNotificationAction::Action action);
-    PushNotificationAction::Action variantToAction(const QList<QVariant> &actions, bool enabled);
-    QList<QVariant> actionToVariant(PushNotificationAction::Action action, const QString &sound = QStringLiteral("default"));
+    void setNotificationRuleActions(const QString &kind, const QString &ruleId, PushRuleAction::Action action);
+    PushRuleAction::Action variantToAction(const QList<QVariant> &actions, bool enabled);
+    QList<QVariant> actionToVariant(PushRuleAction::Action action, const QString &sound = QStringLiteral("default"));
 };
 Q_DECLARE_METATYPE(PushRuleModel *)

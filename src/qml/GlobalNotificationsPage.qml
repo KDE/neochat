@@ -44,7 +44,7 @@ FormCard.FormCardPage {
                 sourceModel: root.pushRuleModel
                 filterRowCallback: function(source_row, source_parent) {
                     let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
-                    return sectionRole == PushNotificationSection.Room;
+                    return sectionRole == PushRuleSection.Room;
                 }
             }
 
@@ -61,7 +61,7 @@ FormCard.FormCardPage {
                 sourceModel: root.pushRuleModel
                 filterRowCallback: function(source_row, source_parent) {
                     let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
-                    return sectionRole == PushNotificationSection.Mentions;
+                    return sectionRole == PushRuleSection.Mentions;
                 }
             }
 
@@ -79,7 +79,7 @@ FormCard.FormCardPage {
 
                 filterRowCallback: function(source_row, source_parent) {
                     let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
-                    return sectionRole == PushNotificationSection.Keywords;
+                    return sectionRole == PushRuleSection.Keywords;
                 }
             }
 
@@ -95,7 +95,7 @@ FormCard.FormCardPage {
                     Layout.fillWidth: true
 
                     placeholderText: i18n("Keyword…")
-                    enabled: NotificationsManager.keywordNotificationAction !== PushNotificationAction.Unknown
+                    enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown
 
                     rightActions: Kirigami.Action {
                         icon.name: "edit-clear"
@@ -117,7 +117,7 @@ FormCard.FormCardPage {
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly
-                    enabled: NotificationsManager.keywordNotificationAction !== PushNotificationAction.Unknown
+                    enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown
 
                     onClicked: {
                         root.pushRuleModel.addKeyword(keywordAddField.text)
@@ -142,7 +142,7 @@ FormCard.FormCardPage {
                 sourceModel: root.pushRuleModel
                 filterRowCallback: function(source_row, source_parent) {
                     let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
-                    return sectionRole == PushNotificationSection.Invites;
+                    return sectionRole == PushRuleSection.Invites;
                 }
             }
 
@@ -163,7 +163,7 @@ FormCard.FormCardPage {
                 sourceModel: root.pushRuleModel
                 filterRowCallback: function(source_row, source_parent) {
                     let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
-                    return sectionRole == PushNotificationSection.Unknown;
+                    return sectionRole == PushRuleSection.Unknown;
                 }
             }
 

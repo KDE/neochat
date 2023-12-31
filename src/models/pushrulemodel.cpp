@@ -34,25 +34,25 @@ static const QHash<QString, KLazyLocalizedString> defaultRuleNames = {
 };
 
 // Sections for default rules.
-static const QHash<QString, PushNotificationSection::Section> defaultSections = {
-    {QStringLiteral(".m.rule.master"), PushNotificationSection::Master},
-    {QStringLiteral(".m.rule.room_one_to_one"), PushNotificationSection::Room},
-    {QStringLiteral(".m.rule.encrypted_room_one_to_one"), PushNotificationSection::Room},
-    {QStringLiteral(".m.rule.message"), PushNotificationSection::Room},
-    {QStringLiteral(".m.rule.encrypted"), PushNotificationSection::Room},
-    {QStringLiteral(".m.rule.tombstone"), PushNotificationSection::Room},
-    {QStringLiteral(".m.rule.contains_display_name"), PushNotificationSection::Mentions},
-    {QStringLiteral(".m.rule.is_user_mention"), PushNotificationSection::Mentions},
-    {QStringLiteral(".m.rule.is_room_mention"), PushNotificationSection::Mentions},
-    {QStringLiteral(".m.rule.contains_user_name"), PushNotificationSection::Mentions},
-    {QStringLiteral(".m.rule.roomnotif"), PushNotificationSection::Mentions},
-    {QStringLiteral(".m.rule.invite_for_me"), PushNotificationSection::Invites},
-    {QStringLiteral(".m.rule.call"), PushNotificationSection::Undefined}, // TODO: make invites when VOIP added.
-    {QStringLiteral(".m.rule.suppress_notices"), PushNotificationSection::Undefined},
-    {QStringLiteral(".m.rule.member_event"), PushNotificationSection::Undefined},
-    {QStringLiteral(".m.rule.reaction"), PushNotificationSection::Undefined},
-    {QStringLiteral(".m.rule.room.server_acl"), PushNotificationSection::Undefined},
-    {QStringLiteral(".im.vector.jitsi"), PushNotificationSection::Undefined},
+static const QHash<QString, PushRuleSection::Section> defaultSections = {
+    {QStringLiteral(".m.rule.master"), PushRuleSection::Master},
+    {QStringLiteral(".m.rule.room_one_to_one"), PushRuleSection::Room},
+    {QStringLiteral(".m.rule.encrypted_room_one_to_one"), PushRuleSection::Room},
+    {QStringLiteral(".m.rule.message"), PushRuleSection::Room},
+    {QStringLiteral(".m.rule.encrypted"), PushRuleSection::Room},
+    {QStringLiteral(".m.rule.tombstone"), PushRuleSection::Room},
+    {QStringLiteral(".m.rule.contains_display_name"), PushRuleSection::Mentions},
+    {QStringLiteral(".m.rule.is_user_mention"), PushRuleSection::Mentions},
+    {QStringLiteral(".m.rule.is_room_mention"), PushRuleSection::Mentions},
+    {QStringLiteral(".m.rule.contains_user_name"), PushRuleSection::Mentions},
+    {QStringLiteral(".m.rule.roomnotif"), PushRuleSection::Mentions},
+    {QStringLiteral(".m.rule.invite_for_me"), PushRuleSection::Invites},
+    {QStringLiteral(".m.rule.call"), PushRuleSection::Undefined}, // TODO: make invites when VOIP added.
+    {QStringLiteral(".m.rule.suppress_notices"), PushRuleSection::Undefined},
+    {QStringLiteral(".m.rule.member_event"), PushRuleSection::Undefined},
+    {QStringLiteral(".m.rule.reaction"), PushRuleSection::Undefined},
+    {QStringLiteral(".m.rule.room.server_acl"), PushRuleSection::Undefined},
+    {QStringLiteral(".im.vector.jitsi"), PushRuleSection::Undefined},
 };
 
 // Default rules that don't have a highlight option as it would lead to all messages
@@ -67,7 +67,7 @@ static const QStringList noHighlight = {
 PushRuleModel::PushRuleModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    m_defaultKeywordAction = static_cast<PushNotificationAction::Action>(NeoChatConfig::self()->keywordPushRuleDefault());
+    m_defaultKeywordAction = static_cast<PushRuleAction::Action>(NeoChatConfig::self()->keywordPushRuleDefault());
 }
 
 void PushRuleModel::updateNotificationRules(const QString &type)
@@ -83,11 +83,11 @@ void PushRuleModel::updateNotificationRules(const QString &type)
     m_rules.clear();
 
     // Doing this 5 times because PushRuleset is a struct.
-    setRules(ruleData.override, PushNotificationKind::Override);
-    setRules(ruleData.content, PushNotificationKind::Content);
-    setRules(ruleData.room, PushNotificationKind::Room);
-    setRules(ruleData.sender, PushNotificationKind::Sender);
-    setRules(ruleData.underride, PushNotificationKind::Underride);
+    setRules(ruleData.override, PushRuleKind::Override);
+    setRules(ruleData.content, PushRuleKind::Content);
+    setRules(ruleData.room, PushRuleKind::Room);
+    setRules(ruleData.sender, PushRuleKind::Sender);
+    setRules(ruleData.underride, PushRuleKind::Underride);
 
     Q_EMIT globalNotificationsEnabledChanged();
     Q_EMIT globalNotificationsSetChanged();
@@ -95,7 +95,7 @@ void PushRuleModel::updateNotificationRules(const QString &type)
     endResetModel();
 }
 
-void PushRuleModel::setRules(QList<Quotient::PushRule> rules, PushNotificationKind::Kind kind)
+void PushRuleModel::setRules(QList<Quotient::PushRule> rules, PushRuleKind::Kind kind)
 {
     for (const auto &rule : rules) {
         QString roomId;
@@ -128,7 +128,7 @@ int PushRuleModel::getRuleIndex(const QString &ruleId) const
     return -1;
 }
 
-PushNotificationSection::Section PushRuleModel::getSection(Quotient::PushRule rule)
+PushRuleSection::Section PushRuleModel::getSection(Quotient::PushRule rule)
 {
     auto ruleId = rule.ruleId;
 
@@ -136,7 +136,7 @@ PushNotificationSection::Section PushRuleModel::getSection(Quotient::PushRule ru
         return defaultSections.value(ruleId);
     } else {
         if (rule.ruleId.startsWith(u'.')) {
-            return PushNotificationSection::Unknown;
+            return PushRuleSection::Unknown;
         }
         /**
          * If the rule name resolves to a matrix id for a room that the user is part
@@ -146,7 +146,7 @@ PushNotificationSection::Section PushRuleModel::getSection(Quotient::PushRule ru
          * Rooms that the user hasn't joined shouldn't have a rule.
          */
         if (m_connection->room(ruleId) != nullptr) {
-            return PushNotificationSection::Undefined;
+            return PushRuleSection::Undefined;
         }
         /**
          * If the rule name resolves to a matrix id for a user  it shouldn't appear
@@ -160,26 +160,26 @@ PushNotificationSection::Section PushRuleModel::getSection(Quotient::PushRule ru
             testUserId.prepend(u'@');
         }
         if (testUserId.startsWith(u'@') && !Quotient::serverPart(testUserId).isEmpty() && m_connection->user(testUserId) != nullptr) {
-            return PushNotificationSection::Undefined;
+            return PushRuleSection::Undefined;
         }
         // If the rule has push conditions and one is a room ID it is a room only keyword.
         if (!rule.conditions.isEmpty()) {
             for (auto condition : rule.conditions) {
                 if (condition.key == QStringLiteral("room_id")) {
-                    return PushNotificationSection::RoomKeywords;
+                    return PushRuleSection::RoomKeywords;
                 }
             }
         }
-        return PushNotificationSection::Keywords;
+        return PushRuleSection::Keywords;
     }
 }
 
-PushNotificationAction::Action PushRuleModel::defaultState() const
+PushRuleAction::Action PushRuleModel::defaultState() const
 {
     return m_defaultKeywordAction;
 }
 
-void PushRuleModel::setDefaultState(PushNotificationAction::Action defaultState)
+void PushRuleModel::setDefaultState(PushRuleAction::Action defaultState)
 {
     if (defaultState == m_defaultKeywordAction) {
         return;
@@ -273,7 +273,7 @@ QHash<int, QByteArray> PushRuleModel::roleNames() const
     return roles;
 }
 
-void PushRuleModel::setPushRuleAction(const QString &id, PushNotificationAction::Action action)
+void PushRuleModel::setPushRuleAction(const QString &id, PushRuleAction::Action action)
 {
     int index = getRuleIndex(id);
     if (index == -1) {
@@ -283,22 +283,22 @@ void PushRuleModel::setPushRuleAction(const QString &id, PushNotificationAction:
     auto rule = m_rules[index];
 
     // Override rules need to be disabled when off so that other rules can match the message if they apply.
-    if (action == PushNotificationAction::Off && rule.kind == PushNotificationKind::Override) {
-        setNotificationRuleEnabled(PushNotificationKind::kindString(rule.kind), rule.id, false);
-    } else if (rule.kind == PushNotificationKind::Override) {
-        setNotificationRuleEnabled(PushNotificationKind::kindString(rule.kind), rule.id, true);
+    if (action == PushRuleAction::Off && rule.kind == PushRuleKind::Override) {
+        setNotificationRuleEnabled(PushRuleKind::kindString(rule.kind), rule.id, false);
+    } else if (rule.kind == PushRuleKind::Override) {
+        setNotificationRuleEnabled(PushRuleKind::kindString(rule.kind), rule.id, true);
     }
 
-    setNotificationRuleActions(PushNotificationKind::kindString(rule.kind), rule.id, action);
+    setNotificationRuleActions(PushRuleKind::kindString(rule.kind), rule.id, action);
 }
 
 void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
 {
-    PushNotificationKind::Kind kind = PushNotificationKind::Content;
+    PushRuleKind::Kind kind = PushRuleKind::Content;
     const QList<QVariant> actions = actionToVariant(m_defaultKeywordAction);
     QList<Quotient::PushCondition> pushConditions;
     if (!roomId.isEmpty()) {
-        kind = PushNotificationKind::Override;
+        kind = PushRuleKind::Override;
 
         Quotient::PushCondition roomCondition;
         roomCondition.kind = QStringLiteral("event_match");
@@ -314,7 +314,7 @@ void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
     }
 
     auto job = m_connection->callApi<Quotient::SetPushRuleJob>(QLatin1String("global"),
-                                                               PushNotificationKind::kindString(kind),
+                                                               PushRuleKind::kindString(kind),
                                                                keyword,
                                                                actions,
                                                                QString(),
@@ -338,7 +338,7 @@ void PushRuleModel::removeKeyword(const QString &keyword)
         return;
     }
 
-    auto kind = PushNotificationKind::kindString(m_rules[index].kind);
+    auto kind = PushRuleKind::kindString(m_rules[index].kind);
     auto job = m_connection->callApi<Quotient::DeletePushRuleJob>(QStringLiteral("global"), kind, m_rules[index].id);
     connect(job, &Quotient::BaseJob::failure, this, [this, job, index]() {
         qWarning() << QLatin1String("Unable to remove push rule for keyword %1: ").arg(m_rules[index].id) << job->errorString();
@@ -355,7 +355,7 @@ void PushRuleModel::setNotificationRuleEnabled(const QString &kind, const QStrin
     });
 }
 
-void PushRuleModel::setNotificationRuleActions(const QString &kind, const QString &ruleId, PushNotificationAction::Action action)
+void PushRuleModel::setNotificationRuleActions(const QString &kind, const QString &ruleId, PushRuleAction::Action action)
 {
     QList<QVariant> actions;
     if (ruleId == QStringLiteral(".m.rule.call")) {
@@ -367,7 +367,7 @@ void PushRuleModel::setNotificationRuleActions(const QString &kind, const QStrin
     m_connection->callApi<Quotient::SetPushRuleActionsJob>(QStringLiteral("global"), kind, ruleId, actions);
 }
 
-PushNotificationAction::Action PushRuleModel::variantToAction(const QList<QVariant> &actions, bool enabled)
+PushRuleAction::Action PushRuleModel::variantToAction(const QList<QVariant> &actions, bool enabled)
 {
     bool notify = false;
     bool isNoisy = false;
@@ -392,47 +392,47 @@ PushNotificationAction::Action PushRuleModel::variantToAction(const QList<QVaria
     }
 
     if (!enabled) {
-        return PushNotificationAction::Off;
+        return PushRuleAction::Off;
     }
 
     if (notify) {
         if (isNoisy && highlightEnabled) {
-            return PushNotificationAction::NoisyHighlight;
+            return PushRuleAction::NoisyHighlight;
         } else if (isNoisy) {
-            return PushNotificationAction::Noisy;
+            return PushRuleAction::Noisy;
         } else if (highlightEnabled) {
-            return PushNotificationAction::Highlight;
+            return PushRuleAction::Highlight;
         } else {
-            return PushNotificationAction::On;
+            return PushRuleAction::On;
         }
     } else {
-        return PushNotificationAction::Off;
+        return PushRuleAction::Off;
     }
 }
 
-QList<QVariant> PushRuleModel::actionToVariant(PushNotificationAction::Action action, const QString &sound)
+QList<QVariant> PushRuleModel::actionToVariant(PushRuleAction::Action action, const QString &sound)
 {
     // The caller should never try to set the state to unknown.
     // It exists only as a default state to diable the settings options until the actual state is retrieved from the server.
-    if (action == PushNotificationAction::Unknown) {
+    if (action == PushRuleAction::Unknown) {
         Q_ASSERT(false);
         return QList<QVariant>();
     }
 
     QList<QVariant> actions;
 
-    if (action != PushNotificationAction::Off) {
+    if (action != PushRuleAction::Off) {
         actions.append(QStringLiteral("notify"));
     } else {
         actions.append(QStringLiteral("dont_notify"));
     }
-    if (action == PushNotificationAction::Noisy || action == PushNotificationAction::NoisyHighlight) {
+    if (action == PushRuleAction::Noisy || action == PushRuleAction::NoisyHighlight) {
         QJsonObject soundTweak;
         soundTweak.insert(QStringLiteral("set_tweak"), QStringLiteral("sound"));
         soundTweak.insert(QStringLiteral("value"), sound);
         actions.append(soundTweak);
     }
-    if (action == PushNotificationAction::Highlight || action == PushNotificationAction::NoisyHighlight) {
+    if (action == PushRuleAction::Highlight || action == PushRuleAction::NoisyHighlight) {
         QJsonObject highlightTweak;
         highlightTweak.insert(QStringLiteral("set_tweak"), QStringLiteral("highlight"));
         actions.append(highlightTweak);

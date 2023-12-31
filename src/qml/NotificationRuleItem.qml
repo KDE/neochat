@@ -26,7 +26,7 @@ FormCard.AbstractFormDelegate {
     signal actionChanged(int action)
     signal deleteRule()
 
-    enabled: ruleAction !== PushNotificationAction.Unknown
+    enabled: ruleAction !== PushRuleAction.Unknown
 
     text: name
 
@@ -147,35 +147,35 @@ FormCard.AbstractFormDelegate {
     function notifcationRuleAction() {
         if (onButton.checked) {
             if (noisyButton.checked && highlightButton.checked && root.highlightable) {
-                return PushNotificationAction.NoisyHighlight
+                return PushRuleAction.NoisyHighlight
             } else if (noisyButton.checked) {
-                return PushNotificationAction.Noisy
+                return PushRuleAction.Noisy
             } else if (highlightButton.checked && root.highlightable) {
-                return PushNotificationAction.Highlight
+                return PushRuleAction.Highlight
             } else {
-                return PushNotificationAction.On
+                return PushRuleAction.On
             }
         } else {
-            return PushNotificationAction.Off
+            return PushRuleAction.Off
         }
     }
 
     function nextNotificationRuleAction(action) {
         let finished = false
 
-        if (action == PushNotificationAction.NoisyHighlight) {
-            action = PushNotificationAction.Off
+        if (action == PushRuleAction.NoisyHighlight) {
+            action = PushRuleAction.Off
         } else {
             action += 1
         }
 
         while (!finished) {
-            if (action == PushNotificationAction.Off && !root.notificationsOnModifiable) {
-                action = PushNotificationAction.On
-            } else if (action == PushNotificationAction.Noisy) {
-                action = PushNotificationAction.Highlight
-            } else if (action == PushNotificationAction.Highlight && !root.highlightable) {
-                action = PushNotificationAction.Off
+            if (action == PushRuleAction.Off && !root.notificationsOnModifiable) {
+                action = PushRuleAction.On
+            } else if (action == PushRuleAction.Noisy) {
+                action = PushRuleAction.Highlight
+            } else if (action == PushRuleAction.Highlight && !root.highlightable) {
+                action = PushRuleAction.Off
             } else {
                 finished = true
             }
@@ -185,19 +185,19 @@ FormCard.AbstractFormDelegate {
     }
 
     function isNotificationRuleOn(action) {
-        return action == PushNotificationAction.On ||
-            action == PushNotificationAction.Noisy ||
-            action == PushNotificationAction.Highlight ||
-            action == PushNotificationAction.NoisyHighlight
+        return action == PushRuleAction.On ||
+            action == PushRuleAction.Noisy ||
+            action == PushRuleAction.Highlight ||
+            action == PushRuleAction.NoisyHighlight
     }
 
     function isNotificationRuleNoisy(action) {
-        return action == PushNotificationAction.Noisy ||
-            action == PushNotificationAction.NoisyHighlight
+        return action == PushRuleAction.Noisy ||
+            action == PushRuleAction.NoisyHighlight
     }
 
     function isNotificationRuleHighlight(action) {
-        return action == PushNotificationAction.Highlight ||
-            action == PushNotificationAction.NoisyHighlight
+        return action == PushRuleAction.Highlight ||
+            action == PushRuleAction.NoisyHighlight
     }
 }

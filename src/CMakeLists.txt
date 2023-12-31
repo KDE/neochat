@@ -143,6 +143,7 @@ add_library(neochat STATIC
     models/notificationsmodel.h
     models/timelinemodel.cpp
     models/timelinemodel.h
+    enums/pushrule.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN

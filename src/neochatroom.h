@@ -13,6 +13,7 @@
 #include <QCoroTask>
 #include <Quotient/user.h>
 
+#include "enums/pushrule.h"
 #include "pollhandler.h"
 
 namespace Quotient
@@ -21,26 +22,6 @@ class User;
 }
 
 class ChatBarCache;
-
-class PushNotificationState : public QObject
-{
-    Q_OBJECT
-    QML_ELEMENT
-    QML_UNCREATABLE("")
-
-public:
-    /**
-     * @brief Describes the push notification state for the room.
-     */
-    enum State {
-        Unknown, /**< The state has not yet been obtained from the server. */
-        Default, /**< The room follows the globally configured rules for the local user. */
-        Mute, /**< No notifications for messages in the room. */
-        MentionKeyword, /**< Notifications only for local user mentions and keywords. */
-        All, /**< Notifications for all messages. */
-    };
-    Q_ENUM(State)
-};
 
 /**
  * @class NeoChatRoom
