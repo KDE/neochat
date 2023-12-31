@@ -50,7 +50,9 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.Sticker
-        delegate: ImageDelegate {}
+        delegate: ImageDelegate {
+            connection: root.connection
+        }
     }
 
     DelegateChoice {
