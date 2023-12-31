@@ -102,6 +102,7 @@ QQC2.ScrollView {
             interval: 1000
             onTriggered: {
                 root.roomChanging = false
+                markReadIfVisibleTimer.reset()
             }
         }
         onAtYEndChanged: if (!root.roomChanging) {
@@ -273,19 +274,19 @@ QQC2.ScrollView {
             target: root.timelineModel
 
             function onRowsInserted() {
-                markReadIfVisibleTimer.restart()
+                markReadIfVisibleTimer.reset()
             }
         }
 
         Timer {
             id: markReadIfVisibleTimer
-            interval: 1000
-            onTriggered: {
-                if (loading || !root.currentRoom.readMarkerLoaded || !applicationWindow().active) {
-                    restart()
-                } else {
-                    messageListView.markReadIfVisible()
-                }
+            running: messageListView.allUnreadVisible() && applicationWindow().active && (root.currentRoom.timelineSize > 0 || root.currentRoom.allHistoryLoaded)
+            interval: 10000
+            onTriggered: root.currentRoom.markAllMessagesAsRead()
+
+            function reset() {
+                restart()
+                running = Qt.binding(function() { return messageListView.allUnreadVisible() && applicationWindow().active && (root.currentRoom.timelineSize > 0 || root.currentRoom.allHistoryLoaded) })
             }
         }
 
@@ -364,12 +365,12 @@ QQC2.ScrollView {
             return index;
         }
 
-        // Mark all messages as read if all unread messages are visible to the user
-        function markReadIfVisible() {
+        function allUnreadVisible() {
             let readMarkerRow = eventToIndex(root.currentRoom.readMarkerEventId)
             if (readMarkerRow >= 0 && readMarkerRow < firstVisibleIndex() && messageListView.atYEnd) {
-                root.currentRoom.markAllMessagesAsRead()
+                return true
             }
+            return false
         }
 
         function setHoverActionsToDelegate(delegate) {

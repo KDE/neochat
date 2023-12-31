@@ -253,6 +253,12 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         lastReadEventId.clear();
     }
     endResetModel();
+
+    // After reset put a read marker in if required.
+    // This is needed when changing back to a room that has already loaded messages.
+    if (room) {
+        moveReadMarker(m_currentRoom->lastFullyReadEventId());
+    }
 }
 
 int MessageEventModel::refreshEvent(const QString &eventId)
