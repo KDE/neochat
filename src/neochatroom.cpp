@@ -115,7 +115,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             qWarning() << "using this room's avatar";
             avatar_image = avatar(128);
         }
-        NotificationsManager::instance().postInviteNotification(this, displayNameForHtml(), htmlSafeMemberName(roomMemberEvent->senderId()), avatar_image);
+        NotificationsManager::instance().postInviteNotification(this, displayName(), htmlSafeMemberName(roomMemberEvent->senderId()), avatar_image);
     });
     connect(this, &Room::changed, this, [this] {
         Q_EMIT canEncryptRoomChanged();
