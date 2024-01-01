@@ -235,8 +235,9 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     notification->sendEvent();
 }
 
-void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QString &title, const QString &sender, const QImage &icon)
+void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom, const QString &title, const QString &sender, const QImage &icon)
 {
+    QPointer room(rawRoom);
     QPixmap img;
     img.convertFromImage(icon);
     KNotification *notification = new KNotification(QStringLiteral("invite"));
@@ -246,6 +247,9 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     notification->setFlags(KNotification::Persistent);
     auto defaultAction = notification->addDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
+        if (!room) {
+            return;
+        }
         WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         notification->close();
         RoomManager::instance().enterRoom(room);
