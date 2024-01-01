@@ -206,4 +206,8 @@ ColumnLayout {
             onClicked: stickerModel.packIndex = model.index
         }
     }
+
+    function clearSearchField() {
+        searchField.text = ""
+    }
 }

@@ -31,6 +31,7 @@ QQC2.Popup {
 
     onVisibleChanged: {
         if (!visible) {
+            emojiPicker.clearSearchField()
             return
         }
         emojiPicker.forceActiveFocus()
