@@ -3,10 +3,15 @@
 
 #pragma once
 
+#include <QJsonArray>
 #include <QJsonObject>
 #include <QObject>
 #include <QPair>
 #include <QQmlEngine>
+
+#include <Quotient/events/roomevent.h>
+
+#include "events/pollevent.h"
 
 class NeoChatRoom;
 
@@ -27,17 +32,17 @@ class PollHandler : public QObject
     QML_ELEMENT
 
     /**
-     * @brief The current room for the poll.
+     * @brief The question for the poll.
      */
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+    Q_PROPERTY(QString question READ question NOTIFY questionChanged)
 
     /**
-     * @brief The Matrix event ID for the event that started the poll.
+     * @brief The list of possible answers to the poll.
      */
-    Q_PROPERTY(QString pollStartEventId READ pollStartEventId WRITE setPollStartEventId NOTIFY pollStartEventIdChanged)
+    Q_PROPERTY(QJsonArray options READ options NOTIFY optionsChanged)
 
     /**
-     * @brief The list of answers to the poll from users in the room.
+     * @brief The list of answer responses to the poll from users in the room.
      */
     Q_PROPERTY(QJsonObject answers READ answers NOTIFY answersChanged)
 
@@ -56,20 +61,23 @@ class PollHandler : public QObject
      */
     Q_PROPERTY(int answerCount READ answerCount NOTIFY answersChanged)
 
+    /**
+     * @brief The kind of the poll.
+     */
+    Q_PROPERTY(QString kind READ kind CONSTANT)
+
 public:
-    PollHandler(QObject *parent = nullptr);
-
-    NeoChatRoom *room() const;
-    void setRoom(NeoChatRoom *room);
-
-    QString pollStartEventId() const;
-    void setPollStartEventId(const QString &eventId);
+    PollHandler() = default;
+    PollHandler(NeoChatRoom *room, const Quotient::PollStartEvent *pollStartEvent);
 
     bool hasEnded() const;
     int answerCount() const;
 
+    QString question() const;
+    QJsonArray options() const;
     QJsonObject answers() const;
     QJsonObject counts() const;
+    QString kind() const;
 
     /**
      * @brief Send an answer to the poll.
@@ -77,14 +85,15 @@ public:
     Q_INVOKABLE void sendPollAnswer(const QString &eventId, const QString &answerId);
 
 Q_SIGNALS:
-    void roomChanged();
-    void pollStartEventIdChanged();
+    void questionChanged();
+    void optionsChanged();
     void answersChanged();
     void hasEndedChanged();
 
 private:
-    NeoChatRoom *m_room = nullptr;
-    QString m_pollStartEventId;
+    const Quotient::PollStartEvent *m_pollStartEvent;
+
+    void updatePoll(Quotient::RoomEventsRange events);
 
     void checkLoadRelations();
     void handleAnswer(const QJsonObject &object, const QString &sender, QDateTime timestamp);

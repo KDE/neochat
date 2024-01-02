@@ -17,27 +17,22 @@ MessageDelegate {
     id: root
 
     /**
-     * @brief The matrix message content.
-     */
-    required property var content
-
-    /**
      * @brief The poll handler for this poll.
      *
      * This contains the required information like what the question, answers and
      * current number of votes for each is.
      */
-    property var pollHandler: currentRoom.poll(root.eventId)
+    required property var pollHandler
 
     bubbleContent: ColumnLayout {
         Label {
             id: questionLabel
-            text: root.content["org.matrix.msc3381.poll.start"]["question"]["body"]
+            text: root.pollHandler.question
             wrapMode: Text.Wrap
             Layout.fillWidth: true
         }
         Repeater {
-            model: root.content["org.matrix.msc3381.poll.start"]["answers"]
+            model: root.pollHandler.options
             delegate: RowLayout {
                 Layout.fillWidth: true
                 CheckBox {
@@ -51,14 +46,14 @@ MessageDelegate {
                     wrapMode: Text.Wrap
                 }
                 Label {
-                    visible: root.content["org.matrix.msc3381.poll.start"]["kind"] == "org.matrix.msc3381.poll.disclosed" || pollHandler.hasEnded
+                    visible: root.pollHandler.kind == "org.matrix.msc3381.poll.disclosed" || pollHandler.hasEnded
                     Layout.preferredWidth: contentWidth
                     text: root.pollHandler.counts[modelData["id"]] ?? "0"
                 }
             }
         }
         Label {
-            visible: root.content["org.matrix.msc3381.poll.start"]["kind"] == "org.matrix.msc3381.poll.disclosed" || root.pollHandler.hasEnded
+            visible: root.pollHandler.kind  == "org.matrix.msc3381.poll.disclosed" || root.pollHandler.hasEnded
             text: i18np("Based on votes by %1 user", "Based on votes by %1 users", root.pollHandler.answerCount) + (root.pollHandler.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
             font.pointSize: questionLabel.font.pointSize * 0.8
         }

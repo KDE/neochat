@@ -14,6 +14,7 @@
 #include <Quotient/user.h>
 
 #include "enums/pushrule.h"
+#include "events/pollevent.h"
 #include "pollhandler.h"
 
 namespace Quotient
@@ -733,7 +734,14 @@ public:
      *
      * @sa PollHandler
      */
-    Q_INVOKABLE PollHandler *poll(const QString &eventId);
+    PollHandler *poll(const QString &eventId) const;
+
+    /**
+     * @brief Create a PollHandler object for the given event.
+     *
+     * @sa PollHandler
+     */
+    void createPollHandler(const Quotient::PollStartEvent *event);
 
     /**
      * @brief Get the full Json data for a given room account data event.

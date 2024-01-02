@@ -3,90 +3,71 @@
 
 #include "pollhandler.h"
 
-#include "events/pollevent.h"
 #include "neochatroom.h"
 
 #include <Quotient/csapi/relations.h>
 #include <Quotient/events/roompowerlevelsevent.h>
-#include <Quotient/user.h>
 
 #include <algorithm>
 
 using namespace Quotient;
 
-PollHandler::PollHandler(QObject *parent)
-    : QObject(parent)
+PollHandler::PollHandler(NeoChatRoom *room, const Quotient::PollStartEvent *pollStartEvent)
+    : QObject(room)
+    , m_pollStartEvent(pollStartEvent)
 {
-    connect(this, &PollHandler::roomChanged, this, &PollHandler::checkLoadRelations);
-    connect(this, &PollHandler::pollStartEventIdChanged, this, &PollHandler::checkLoadRelations);
+    if (room != nullptr && m_pollStartEvent != nullptr) {
+        connect(room, &NeoChatRoom::aboutToAddNewMessages, this, &PollHandler::updatePoll);
+        checkLoadRelations();
+    }
 }
 
-NeoChatRoom *PollHandler::room() const
+void PollHandler::updatePoll(Quotient::RoomEventsRange events)
 {
-    return m_room;
-}
-
-void PollHandler::setRoom(NeoChatRoom *room)
-{
-    if (m_room == room) {
-        return;
-    }
-    if (m_room) {
-        disconnect(m_room, nullptr, this, nullptr);
-    }
-    connect(room, &NeoChatRoom::aboutToAddNewMessages, this, [this](Quotient::RoomEventsRange events) {
-        for (const auto &event : events) {
-            if (event->is<PollEndEvent>()) {
-                auto plEvent = m_room->currentState().get<RoomPowerLevelsEvent>();
-                if (!plEvent) {
-                    continue;
-                }
-                auto userPl = plEvent->powerLevelForUser(event->senderId());
-                if (event->senderId() == (*m_room->findInTimeline(m_pollStartEventId))->senderId() || userPl >= plEvent->redact()) {
-                    m_hasEnded = true;
-                    m_endedTimestamp = event->originTimestamp();
-                    Q_EMIT hasEndedChanged();
-                }
+    // This function will never be called if the PollHandler was not initialized with
+    // a NeoChatRoom as parent and a PollStartEvent so no need to null check.
+    auto room = dynamic_cast<NeoChatRoom *>(parent());
+    for (const auto &event : events) {
+        if (event->is<PollEndEvent>()) {
+            auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
+            if (!plEvent) {
+                continue;
             }
-            if (event->is<PollResponseEvent>()) {
-                handleAnswer(event->contentJson(), event->senderId(), event->originTimestamp());
+            auto userPl = plEvent->powerLevelForUser(event->senderId());
+            if (event->senderId() == m_pollStartEvent->senderId() || userPl >= plEvent->redact()) {
+                m_hasEnded = true;
+                m_endedTimestamp = event->originTimestamp();
+                Q_EMIT hasEndedChanged();
             }
         }
-    });
-    m_room = room;
-    Q_EMIT roomChanged();
-}
-
-QString PollHandler::pollStartEventId() const
-{
-    return m_pollStartEventId;
-}
-
-void PollHandler::setPollStartEventId(const QString &eventId)
-{
-    if (eventId == m_pollStartEventId) {
-        return;
+        if (event->is<PollResponseEvent>()) {
+            handleAnswer(event->contentJson(), event->senderId(), event->originTimestamp());
+        }
+        if (event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
+            && event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.replace"_ls
+            && event->contentPart<QJsonObject>("m.relates_to"_ls)["event_id"_ls].toString() == m_pollStartEvent->id()) {
+            Q_EMIT questionChanged();
+            Q_EMIT optionsChanged();
+        }
     }
-    m_pollStartEventId = eventId;
-    Q_EMIT pollStartEventIdChanged();
 }
 
 void PollHandler::checkLoadRelations()
 {
-    if (!m_room || m_pollStartEventId.isEmpty()) {
-        return;
-    }
-    m_maxVotes = eventCast<const PollStartEvent>(&**m_room->findInTimeline(m_pollStartEventId))->maxSelections();
-    auto job = m_room->connection()->callApi<GetRelatingEventsJob>(m_room->id(), m_pollStartEventId);
-    connect(job, &BaseJob::success, this, [this, job]() {
+    // This function will never be called if the PollHandler was not initialized with
+    // a NeoChatRoom as parent and a PollStartEvent so no need to null check.
+    auto room = dynamic_cast<NeoChatRoom *>(parent());
+    m_maxVotes = m_pollStartEvent->maxSelections();
+    auto job = room->connection()->callApi<GetRelatingEventsJob>(room->id(), m_pollStartEvent->id());
+    connect(job, &BaseJob::success, this, [this, job, room]() {
         for (const auto &event : job->chunk()) {
             if (event->is<PollEndEvent>()) {
-                auto plEvent = m_room->currentState().get<RoomPowerLevelsEvent>();
+                auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
                 if (!plEvent) {
                     continue;
                 }
                 auto userPl = plEvent->powerLevelForUser(event->senderId());
-                if (event->senderId() == (*m_room->findInTimeline(m_pollStartEventId))->senderId() || userPl >= plEvent->redact()) {
+                if (event->senderId() == m_pollStartEvent->senderId() || userPl >= plEvent->redact()) {
                     m_hasEnded = true;
                     m_endedTimestamp = event->originTimestamp();
                     Q_EMIT hasEndedChanged();
@@ -123,6 +104,22 @@ void PollHandler::handleAnswer(const QJsonObject &content, const QString &sender
     Q_EMIT answersChanged();
 }
 
+QString PollHandler::question() const
+{
+    if (m_pollStartEvent == nullptr) {
+        return {};
+    }
+    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_ls)["question"_ls].toObject()["body"_ls].toString();
+}
+
+QJsonArray PollHandler::options() const
+{
+    if (m_pollStartEvent == nullptr) {
+        return {};
+    }
+    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_ls)["answers"_ls].toArray();
+}
+
 QJsonObject PollHandler::answers() const
 {
     return m_answers;
@@ -139,12 +136,25 @@ QJsonObject PollHandler::counts() const
     return counts;
 }
 
+QString PollHandler::kind() const
+{
+    if (m_pollStartEvent == nullptr) {
+        return {};
+    }
+    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_ls)["kind"_ls].toString();
+}
+
 void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId)
 {
     Q_ASSERT(eventId.length() > 0);
     Q_ASSERT(answerId.length() > 0);
+    auto room = dynamic_cast<NeoChatRoom *>(parent());
+    if (room == nullptr) {
+        qWarning() << "PollHandler is empty, cannot send an answer.";
+        return;
+    }
     QStringList ownAnswers;
-    for (const auto &answer : m_answers[m_room->localUser()->id()].toArray()) {
+    for (const auto &answer : m_answers[room->localUser()->id()].toArray()) {
         ownAnswers += answer.toString();
     }
     if (ownAnswers.contains(answerId)) {
@@ -159,8 +169,8 @@ void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId
     }
 
     auto response = new PollResponseEvent(eventId, ownAnswers);
-    handleAnswer(response->contentJson(), m_room->localUser()->id(), QDateTime::currentDateTime());
-    m_room->postEvent(response);
+    handleAnswer(response->contentJson(), room->localUser()->id(), QDateTime::currentDateTime());
+    room->postEvent(response);
 }
 
 bool PollHandler::hasEnded() const

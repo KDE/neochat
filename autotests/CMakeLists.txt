@@ -64,3 +64,9 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME windowcontrollertest
 )
+
+ecm_add_test(
+    pollhandlertest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME pollhandlertest
+)

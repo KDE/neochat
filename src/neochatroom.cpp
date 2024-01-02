@@ -1725,15 +1725,26 @@ bool NeoChatRoom::canEncryptRoom() const
     return !usesEncryption() && canSendState("m.room.encryption"_ls);
 }
 
-PollHandler *NeoChatRoom::poll(const QString &eventId)
+static PollHandler *emptyPollHandler = new PollHandler;
+
+PollHandler *NeoChatRoom::poll(const QString &eventId) const
 {
+    if (auto pollHandler = m_polls[eventId]) {
+        return pollHandler;
+    }
+    return emptyPollHandler;
+}
+
+void NeoChatRoom::createPollHandler(const Quotient::PollStartEvent *event)
+{
+    if (event == nullptr) {
+        return;
+    }
+    auto eventId = event->id();
     if (!m_polls.contains(eventId)) {
-        auto handler = new PollHandler(this);
-        handler->setRoom(this);
-        handler->setPollStartEventId(eventId);
+        auto handler = new PollHandler(this, event);
         m_polls.insert(eventId, handler);
     }
-    return m_polls[eventId];
 }
 
 bool NeoChatRoom::downloadTempFile(const QString &eventId)

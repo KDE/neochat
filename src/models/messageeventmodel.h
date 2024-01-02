@@ -9,6 +9,7 @@
 
 #include "linkpreviewer.h"
 #include "neochatroom.h"
+#include "pollhandler.h"
 
 class ReactionModel;
 
@@ -45,7 +46,6 @@ public:
         TimeStringRole, /**< The timestamp for when the event was sent as a string (in QLocale::ShortFormat). */
         SectionRole, /**< The date of the event as a string. */
         AuthorRole, /**< The author of the event. */
-        ContentRole, /**< The full message content. */
         HighlightRole, /**< Whether the event should be highlighted. */
         SpecialMarksRole, /**< Whether the event is hidden or not. */
         ProgressInfoRole, /**< Progress info when downloading files. */
@@ -83,6 +83,7 @@ public:
         LatitudeRole, /**< Latitude for a location event. */
         LongitudeRole, /**< Longitude for a location event. */
         AssetRole, /**< Type of location event, e.g. self pin of the user location. */
+        PollHandlerRole, /**< The PollHandler for the event, if any. */
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)

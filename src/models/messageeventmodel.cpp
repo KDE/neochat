@@ -20,6 +20,7 @@
 
 #include "enums/delegatetype.h"
 #include "eventhandler.h"
+#include "events/pollevent.h"
 #include "models/reactionmodel.h"
 
 using namespace Quotient;
@@ -34,7 +35,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[TimeStringRole] = "timeString";
     roles[SectionRole] = "section";
     roles[AuthorRole] = "author";
-    roles[ContentRole] = "content";
     roles[HighlightRole] = "isHighlighted";
     roles[SpecialMarksRole] = "marks";
     roles[ProgressInfoRole] = "progressInfo";
@@ -65,6 +65,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[LatitudeRole] = "latitude";
     roles[LongitudeRole] = "longitude";
     roles[AssetRole] = "asset";
+    roles[PollHandlerRole] = "pollHandler";
     return roles;
 }
 
@@ -100,6 +101,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         for (auto event = m_currentRoom->messageEvents().begin(); event != m_currentRoom->messageEvents().end(); ++event) {
             if (const auto &roomMessageEvent = &*event->viewAs<RoomMessageEvent>()) {
                 createEventObjects(roomMessageEvent);
+            }
+            if (event->event()->is<PollStartEvent>()) {
+                m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event->event()));
             }
         }
 
@@ -151,6 +155,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                         }
                     }
                 }
+                if (event->is<PollStartEvent>()) {
+                    m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event.get()));
+                }
             }
             m_initialized = true;
             beginInsertRows({}, timelineBaseIndex(), timelineBaseIndex() + int(events.size()) - 1);
@@ -159,6 +166,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             for (auto &event : events) {
                 if (const auto &roomMessageEvent = dynamic_cast<RoomMessageEvent *>(event.get())) {
                     createEventObjects(roomMessageEvent);
+                }
+                if (event->is<PollStartEvent>()) {
+                    m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event.get()));
                 }
             }
             if (rowCount() > 0) {
@@ -230,6 +240,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             if (eventIt != m_currentRoom->historyEdge()) {
                 if (const auto &event = dynamic_cast<const RoomMessageEvent *>(&**eventIt)) {
                     createEventObjects(event);
+                }
+                if (eventIt->event()->is<PollStartEvent>()) {
+                    m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(eventIt->event()));
                 }
             }
             refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole, Qt::DisplayRole});
@@ -485,28 +498,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return eventHandler.getAuthor(isPending);
     }
 
-    if (role == ContentRole) {
-        if (evt.isRedacted()) {
-            auto reason = evt.redactedBecause()->reason();
-            return (reason.isEmpty()) ? i18n("[REDACTED]") : i18n("[REDACTED: %1]").arg(evt.redactedBecause()->reason());
-        }
-
-        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            if (e->msgtype() == Quotient::MessageEventType::Location) {
-                return e->contentJson();
-            }
-            // Cannot use e.contentJson() here because some
-            // EventContent classes inject values into the copy of the
-            // content JSON stored in EventContent::Base
-            return e->hasFileContent() ? QVariant::fromValue(e->content()->originalJson) : QVariant();
-        };
-
-        if (auto e = eventCast<const StickerEvent>(&evt)) {
-            return QVariant::fromValue(e->image().originalJson);
-        }
-        return evt.contentJson();
-    }
-
     if (role == HighlightRole) {
         return eventHandler.isHighlighted();
     }
@@ -700,6 +691,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == IsPendingRole) {
         return row < static_cast<int>(m_currentRoom->pendingEvents().size());
+    }
+
+    if (role == PollHandlerRole) {
+        return QVariant::fromValue<PollHandler *>(m_currentRoom->poll(evt.id()));
     }
 
     return {};
