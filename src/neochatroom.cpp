@@ -58,6 +58,7 @@
 #ifndef Q_OS_ANDROID
 #include <KIO/Job>
 #endif
+#include <KIO/JobTracker>
 #include <KJobTrackerInterface>
 #include <KLocalizedString>
 
