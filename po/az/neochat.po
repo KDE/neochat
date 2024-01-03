@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 01:35+0000\n"
+"POT-Creation-Date: 2024-01-03 01:36+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -85,12 +85,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr ""
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:479
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ismarıc silindi]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:467
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Bu ismarıc silindi: %1]</i>"
@@ -1072,16 +1072,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Xüsusi Emoji"
 
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED]"
-msgstr "[DÜZƏLİŞ_EDİLDİ]"
-
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED: %1]"
-msgstr "[DÜZƏLİŞ_EDİLDİ: %1]"
-
 #: src/models/messagefiltermodel.cpp:125
 #, fuzzy, kde-format
 #| msgid ": %1"
@@ -1273,13 +1263,13 @@ msgstr "Otaq yaradıla bilmədi: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/neochatroom.cpp:1574 src/neochatroom.cpp:1575
+#: src/neochatroom.cpp:1575 src/neochatroom.cpp:1576
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/neochatroom.cpp:1834 src/neochatroom.cpp:1842
+#: src/neochatroom.cpp:1846 src/neochatroom.cpp:1854
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3639,14 +3629,14 @@ msgstr ""
 msgid "Set the parent space of this room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -4993,6 +4983,12 @@ msgstr "Göstərmək"
 #, kde-format
 msgid "Quit"
 msgstr "Çıxış"
+
+#~ msgid "[REDACTED]"
+#~ msgstr "[DÜZƏLİŞ_EDİLDİ]"
+
+#~ msgid "[REDACTED: %1]"
+#~ msgstr "[DÜZƏLİŞ_EDİLDİ: %1]"
 
 #~ msgid "The room id you are trying to join is not valid"
 #~ msgstr "Qoşulmağa cəhd etdiyiniz otaq İD-si doğru deyil"

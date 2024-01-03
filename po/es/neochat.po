@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 01:35+0000\n"
+"POT-Creation-Date: 2024-01-03 01:36+0000\n"
 "PO-Revision-Date: 2023-12-03 21:33+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -88,12 +88,12 @@ msgstr ""
 "asistencia."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:479
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Este mensaje ha sido borrado]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:467
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Este mensaje ha sido borrado: %1]</i>"
@@ -967,16 +967,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emojis propios"
 
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED]"
-msgstr "[CORREGIDO]"
-
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED: %1]"
-msgstr "[CORREGIDO: %1]"
-
 #: src/models/messagefiltermodel.cpp:125
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1147,12 +1137,12 @@ msgstr "La creación de la sala ha fallado: %1"
 msgid "Space creation failed: %1"
 msgstr "La creación del espacio ha fallado: %1"
 
-#: src/neochatroom.cpp:1574 src/neochatroom.cpp:1575
+#: src/neochatroom.cpp:1575 src/neochatroom.cpp:1576
 #, kde-format
 msgid "Report sent successfully."
 msgstr "La denuncia se ha enviado correctamente."
 
-#: src/neochatroom.cpp:1834 src/neochatroom.cpp:1842
+#: src/neochatroom.cpp:1846 src/neochatroom.cpp:1854
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3355,14 +3345,14 @@ msgstr "Definir los espacios hijos de este espacio"
 msgid "Set the parent space of this room"
 msgstr "Definir el espacio padre de esta sala"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Según los votos de %1 usuario"
 msgstr[1] "Según los votos de %1 usuarios"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -4665,6 +4655,12 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Salir"
+
+#~ msgid "[REDACTED]"
+#~ msgstr "[CORREGIDO]"
+
+#~ msgid "[REDACTED: %1]"
+#~ msgstr "[CORREGIDO: %1]"
 
 #~ msgid "The room id you are trying to join is not valid"
 #~ msgstr "El ID de la sala a la que está intentando unirse no es válido"

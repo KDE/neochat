@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 01:35+0000\n"
+"POT-Creation-Date: 2024-01-03 01:36+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -89,12 +89,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr ""
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:479
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Diese Nachricht wurde gelöscht]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:467
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Diese Nachricht wurde gelöscht: %1]</i>"
@@ -979,16 +979,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emojis"
 
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED]"
-msgstr "[GELÖSCHT]"
-
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED: %1]"
-msgstr "[GELÖSCHT: %1]"
-
 #: src/models/messagefiltermodel.cpp:125
 #, fuzzy, kde-format
 #| msgid ": %1"
@@ -1183,12 +1173,12 @@ msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 msgid "Space creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/neochatroom.cpp:1574 src/neochatroom.cpp:1575
+#: src/neochatroom.cpp:1575 src/neochatroom.cpp:1576
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Meldung erfolgreich übertragen."
 
-#: src/neochatroom.cpp:1834 src/neochatroom.cpp:1842
+#: src/neochatroom.cpp:1846 src/neochatroom.cpp:1854
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3458,14 +3448,14 @@ msgstr ""
 msgid "Set the parent space of this room"
 msgstr "Den Nutzer in den Raum einladen"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Basierend auf der Stimme von %1 Nutzer"
 msgstr[1] "Basierend auf Stimmen von %1 Nutzern"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -4833,6 +4823,12 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#~ msgid "[REDACTED]"
+#~ msgstr "[GELÖSCHT]"
+
+#~ msgid "[REDACTED: %1]"
+#~ msgstr "[GELÖSCHT: %1]"
 
 #~ msgid "The room id you are trying to join is not valid"
 #~ msgstr "Die Kennung des Raums, den Sie betreten möchten, ist nicht gültig"

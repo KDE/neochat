@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 01:35+0000\n"
+"POT-Creation-Date: 2024-01-03 01:36+0000\n"
 "PO-Revision-Date: 2023-12-20 16:17+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -86,12 +86,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr "請聯絡您的 matrix 伺服器管理員以求支援。"
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:479
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[此訊息已被刪除]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:467
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[此訊息已被刪除：%1]</i>"
@@ -962,16 +962,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "自己的表情符號"
 
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED]"
-msgstr ""
-
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED: %1]"
-msgstr ""
-
 #: src/models/messagefiltermodel.cpp:125
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1138,12 +1128,12 @@ msgstr "聊天室建立失敗：%1"
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
 
-#: src/neochatroom.cpp:1574 src/neochatroom.cpp:1575
+#: src/neochatroom.cpp:1575 src/neochatroom.cpp:1576
 #, kde-format
 msgid "Report sent successfully."
 msgstr "已成功傳送檢舉"
 
-#: src/neochatroom.cpp:1834 src/neochatroom.cpp:1842
+#: src/neochatroom.cpp:1846 src/neochatroom.cpp:1854
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3320,13 +3310,13 @@ msgstr "設為此聊天空間之子"
 msgid "Set the parent space of this room"
 msgstr "設定這個聊天室的親聊天空間"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "基於 %1 個使用者的投票"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"

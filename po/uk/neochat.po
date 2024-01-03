@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 01:35+0000\n"
+"POT-Creation-Date: 2024-01-03 01:36+0000\n"
 "PO-Revision-Date: 2023-12-03 08:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -89,12 +89,12 @@ msgstr ""
 "Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:479
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Це повідомлення було вилучено]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:467
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Це повідомлення було вилучено: %1]</i>"
@@ -971,16 +971,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Власні емоційки"
 
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED]"
-msgstr "[ЗМІНЕНО]"
-
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED: %1]"
-msgstr "[ЗМІНЕНО: %1]"
-
 #: src/models/messagefiltermodel.cpp:125
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1160,12 +1150,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/neochatroom.cpp:1574 src/neochatroom.cpp:1575
+#: src/neochatroom.cpp:1575 src/neochatroom.cpp:1576
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1834 src/neochatroom.cpp:1842
+#: src/neochatroom.cpp:1846 src/neochatroom.cpp:1854
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3367,7 +3357,7 @@ msgstr "Встановити простір дітей"
 msgid "Set the parent space of this room"
 msgstr "Встановити простір батьків цієї кімнати"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -3376,7 +3366,7 @@ msgstr[1] "На основі голосів %1 користувачів"
 msgstr[2] "На основі голосів %1 користувачів"
 msgstr[3] "На основі голосу %1 користувача"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -4676,6 +4666,12 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "[REDACTED]"
+#~ msgstr "[ЗМІНЕНО]"
+
+#~ msgid "[REDACTED: %1]"
+#~ msgstr "[ЗМІНЕНО: %1]"
 
 #~ msgid "The room id you are trying to join is not valid"
 #~ msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-01 01:35+0000\n"
+"POT-Creation-Date: 2024-01-03 01:36+0000\n"
 "PO-Revision-Date: 2023-12-03 14:26+0100\n"
 "Last-Translator: Freek de Kruijf <f.de.kruijf@gmail.com>\n"
 "Language-Team: \n"
@@ -85,12 +85,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr "Neem contact op met uw matrix-serverbeheerder voor ondersteuning."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:479
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Dit bericht is verwijderd]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:467
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Dit bericht is verwijderd: %1]</i>"
@@ -962,16 +962,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Eigen emoji's"
 
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED]"
-msgstr "[GEREDIGEERD]"
-
-#: src/models/messageeventmodel.cpp:491
-#, kde-format
-msgid "[REDACTED: %1]"
-msgstr "[GEREDIGEERD: %1]"
-
 #: src/models/messagefiltermodel.cpp:125
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1142,12 +1132,12 @@ msgstr "Aanmaken van room is mislukt: %1"
 msgid "Space creation failed: %1"
 msgstr "Ruimte aanmaken is mislukt: %1"
 
-#: src/neochatroom.cpp:1574 src/neochatroom.cpp:1575
+#: src/neochatroom.cpp:1575 src/neochatroom.cpp:1576
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport met succes verzonden."
 
-#: src/neochatroom.cpp:1834 src/neochatroom.cpp:1842
+#: src/neochatroom.cpp:1846 src/neochatroom.cpp:1854
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3344,14 +3334,14 @@ msgstr "De kinderen van deze ruimte instellen"
 msgid "Set the parent space of this room"
 msgstr "De ouderruimte van deze room instellen"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Gebaseerd op stem van %1 gebruiker"
 msgstr[1] "Gebaseerd op stemmen van %1 gebruikers"
 
-#: src/qml/PollDelegate.qml:62
+#: src/qml/PollDelegate.qml:57
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -4655,6 +4645,12 @@ msgstr "Tonen"
 #, kde-format
 msgid "Quit"
 msgstr "Afsluiten"
+
+#~ msgid "[REDACTED]"
+#~ msgstr "[GEREDIGEERD]"
+
+#~ msgid "[REDACTED: %1]"
+#~ msgstr "[GEREDIGEERD: %1]"
 
 #~ msgid "The room id you are trying to join is not valid"
 #~ msgstr "Het room-id waaraan u mee wilt doen is niet geldig"
