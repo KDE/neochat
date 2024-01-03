@@ -57,8 +57,8 @@
 #include <KConfigGroup>
 #ifndef Q_OS_ANDROID
 #include <KIO/Job>
-#endif
 #include <KIO/JobTracker>
+#endif
 #include <KJobTrackerInterface>
 #include <KLocalizedString>
 
