@@ -144,6 +144,8 @@ add_library(neochat STATIC
     models/timelinemodel.cpp
     models/timelinemodel.h
     enums/pushrule.h
+    models/itinerarymodel.cpp
+    models/itinerarymodel.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
@@ -302,6 +304,8 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/confetti.png
         qml/glowdot.png
 )
+
+configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
 
 if(WIN32)
     set_target_properties(neochat PROPERTIES OUTPUT_NAME "neochatlib")
