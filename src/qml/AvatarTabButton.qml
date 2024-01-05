@@ -13,7 +13,7 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 Delegates.RoundedItemDelegate {
     id: root
 
-    required property url source
+    property url source
 
     signal contextMenuRequested()
     signal selected()

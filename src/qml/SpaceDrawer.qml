@@ -14,8 +14,6 @@ QQC2.Control {
     id: root
 
     readonly property real pinnedWidth: Kirigami.Units.gridUnit * 6
-    property bool drawerEnabled: true
-
     required property NeoChatConnection connection
 
     leftPadding: 0
@@ -27,7 +25,6 @@ QQC2.Control {
 
     contentItem: Loader {
         id: sidebarColumn
-        active: root.drawerEnabled
         z: 0
 
         sourceComponent: ColumnLayout {
@@ -53,6 +50,30 @@ QQC2.Control {
                     spacing: 0
 
                     AvatarTabButton {
+                        id: notificationsButton
+
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: width - Kirigami.Units.smallSpacing
+                        Layout.maximumHeight: width - Kirigami.Units.smallSpacing
+                        Layout.topMargin: Kirigami.Units.smallSpacing / 2
+                        Layout.bottomMargin: Kirigami.Units.smallSpacing / 2
+                        text: i18n("View notifications")
+                        contentItem: Kirigami.Icon {
+                            source: "notifications"
+                        }
+
+                        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/NotificationsView.qml", {connection: root.connection}, {
+                            title: i18nc("@title", "Notifications")
+                        });
+                    }
+
+                    Kirigami.Separator {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: Kirigami.Units.smallSpacing
+                        Layout.rightMargin: Kirigami.Units.smallSpacing
+                    }
+
+                    AvatarTabButton {
                         id: allRoomButton
 
                         Layout.fillWidth: true
@@ -61,8 +82,6 @@ QQC2.Control {
                         Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
                         text: i18n("All Rooms")
-                        source: "globe"
-
                         contentItem: Kirigami.Icon {
                             source: "globe"
                         }
@@ -78,12 +97,10 @@ QQC2.Control {
                             }
                         }
                         onCountChanged: {
-                            root.enabled = count > 0
                             if (!root.connection.room(root.selectedSpaceId)) {
                                 root.selectedSpaceId = ""
                             }
                         }
-                        Component.onCompleted: root.enabled = count > 0
 
                         delegate: AvatarTabButton {
                             id: spaceDelegate
@@ -104,6 +121,27 @@ QQC2.Control {
                             checked: root.selectedSpaceId === roomId
                             onContextMenuRequested: root.createContextMenu(currentRoom)
                         }
+                    }
+
+                    Kirigami.Separator {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.smallSpacing / 2
+                        Layout.bottomMargin: Kirigami.Units.smallSpacing / 2
+                        Layout.leftMargin: Kirigami.Units.smallSpacing
+                        Layout.rightMargin: Kirigami.Units.smallSpacing
+                    }
+
+                    AvatarTabButton {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: width - Kirigami.Units.smallSpacing
+                        Layout.maximumHeight: width - Kirigami.Units.smallSpacing
+
+                        text: i18n("Create a space")
+                        contentItem: Kirigami.Icon {
+                            source: "list-add"
+                        }
+                        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {connection: root.connection, isSpace: true, title: i18nc("@title", "Create a Space")}, {title: i18nc("@title", "Create a Space")})
+
                     }
                 }
             }
