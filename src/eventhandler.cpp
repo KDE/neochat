@@ -355,7 +355,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
                 if (e.repeatsState()) {
                     auto text = i18n("reinvited %1 to the room", subjectName);
                     if (!e.reason().isEmpty()) {
-                        text += i18nc("Optional reason for an invitation", ": %1") + e.reason().toHtmlEscaped();
+                        text += i18nc("Optional reason for an invitation", ": %1") + (prettyPrint ? e.reason().toHtmlEscaped() : e.reason());
                     }
                     return text;
                 }
@@ -379,7 +379,9 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
                     if (!e.newDisplayName()) {
                         text = i18nc("their refers to a singular user", "cleared their display name");
                     } else {
-                        text = i18nc("their refers to a singular user", "changed their display name to %1", e.newDisplayName()->toHtmlEscaped());
+                        text = i18nc("their refers to a singular user",
+                                     "changed their display name to %1",
+                                     prettyPrint ? e.newDisplayName()->toHtmlEscaped() : *e.newDisplayName());
                     }
                 }
                 if (e.isAvatarUpdate()) {
@@ -415,7 +417,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
                     if (e.reason().isEmpty()) {
                         return i18n("banned %1 from the room", subjectName);
                     } else {
-                        return i18n("banned %1 from the room: %2", subjectName, e.reason().toHtmlEscaped());
+                        return i18n("banned %1 from the room: %2", subjectName, prettyPrint ? e.reason().toHtmlEscaped() : e.reason());
                     }
                 } else {
                     return i18n("self-banned from the room");
@@ -431,8 +433,8 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
         [](const RoomCanonicalAliasEvent &e) {
             return (e.alias().isEmpty()) ? i18n("cleared the room main alias") : i18n("set the room main alias to: %1", e.alias());
         },
-        [](const RoomNameEvent &e) {
-            return (e.name().isEmpty()) ? i18n("cleared the room name") : i18n("set the room name to: %1", e.name().toHtmlEscaped());
+        [prettyPrint](const RoomNameEvent &e) {
+            return (e.name().isEmpty()) ? i18n("cleared the room name") : i18n("set the room name to: %1", prettyPrint ? e.name().toHtmlEscaped() : e.name());
         },
         [prettyPrint, stripNewlines](const RoomTopicEvent &e) {
             return (e.topic().isEmpty()) ? i18n("cleared the topic")
@@ -447,14 +449,15 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
         [](const EncryptionEvent &) {
             return i18n("activated End-to-End Encryption");
         },
-        [](const RoomCreateEvent &e) {
-            return e.isUpgrade() ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1"_ls : e.version().toHtmlEscaped())
-                                 : i18n("created the room, version %1", e.version().isEmpty() ? "1"_ls : e.version().toHtmlEscaped());
+        [prettyPrint](const RoomCreateEvent &e) {
+            return e.isUpgrade()
+                ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1"_ls : (prettyPrint ? e.version().toHtmlEscaped() : e.version()))
+                : i18n("created the room, version %1", e.version().isEmpty() ? "1"_ls : (prettyPrint ? e.version().toHtmlEscaped() : e.version()));
         },
         [](const RoomPowerLevelsEvent &) {
             return i18nc("'power level' means permission level", "changed the power levels for this room");
         },
-        [](const StateEvent &e) {
+        [prettyPrint](const StateEvent &e) {
             if (e.matrixType() == QLatin1String("m.room.server_acl")) {
                 return i18n("changed the server access control lists for this room");
             }
@@ -471,7 +474,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
                 return e.contentJson()["description"_ls].toString();
             }
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
-                                          : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
+                                          : i18n("updated %1 state for %2", e.matrixType(), prettyPrint ? e.stateKey().toHtmlEscaped() : e.stateKey());
         },
         [](const PollStartEvent &e) {
             return e.question();
