@@ -96,7 +96,6 @@ class RoomManager : public QObject, public UriResolverBase
     Q_PROPERTY(ChatDocumentHandler *chatDocumentHandler READ chatDocumentHandler WRITE setChatDocumentHandler NOTIFY chatDocumentHandlerChanged)
 
 public:
-    explicit RoomManager(QObject *parent = nullptr);
     virtual ~RoomManager();
     static RoomManager &instance();
     static RoomManager *create(QQmlEngine *engine, QJSEngine *)
@@ -418,4 +417,7 @@ private:
      * @sa resolveResource(), Quotient::UriResolverBase::visitUser(), Quotient::UriResolverBase::visitResource()
      */
     Q_INVOKABLE bool visitNonMatrix(const QUrl &url) override;
+
+private:
+    explicit RoomManager(QObject *parent = nullptr);
 };
