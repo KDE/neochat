@@ -84,6 +84,7 @@ Kirigami.ScrollablePage {
                     itemDelegate: delegate
                     subtitle: delegate.userID
                     Layout.fillWidth: true
+                    labelItem.textFormat: Text.PlainText
                 }
 
                 QQC2.Button {
