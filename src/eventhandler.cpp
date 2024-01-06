@@ -811,60 +811,6 @@ QSharedPointer<LinkPreviewer> EventHandler::getLinkPreviewer() const
     }
 }
 
-QSharedPointer<ReactionModel> EventHandler::getReactions() const
-{
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getReactions called with m_room set to nullptr.";
-        return nullptr;
-    }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getReactions called with m_event set to nullptr.";
-        return nullptr;
-    }
-    if (!m_event->is<RoomMessageEvent>()) {
-        qCWarning(EventHandling) << "getReactions called with on a non-message event.";
-        return nullptr;
-    }
-
-    auto eventId = m_event->id();
-    const auto &annotations = m_room->relatedEvents(eventId, EventRelation::AnnotationType);
-    if (annotations.isEmpty()) {
-        return nullptr;
-    };
-
-    QMap<QString, QList<User *>> reactions = {};
-    for (const auto &a : annotations) {
-        if (a->isRedacted()) { // Just in case?
-            continue;
-        }
-        if (const auto &e = eventCast<const ReactionEvent>(a)) {
-            reactions[e->key()].append(m_room->user(e->senderId()));
-        }
-    }
-
-    if (reactions.isEmpty()) {
-        return nullptr;
-    }
-
-    QList<ReactionModel::Reaction> res;
-    auto i = reactions.constBegin();
-    while (i != reactions.constEnd()) {
-        QVariantList authors;
-        for (const auto &author : i.value()) {
-            authors.append(m_room->getUser(author));
-        }
-
-        res.append(ReactionModel::Reaction{i.key(), authors});
-        ++i;
-    }
-
-    if (res.size() > 0) {
-        return QSharedPointer<ReactionModel>(new ReactionModel(nullptr, res, m_room->localUser()));
-    } else {
-        return nullptr;
-    }
-}
-
 bool EventHandler::hasReply() const
 {
     if (m_event == nullptr) {

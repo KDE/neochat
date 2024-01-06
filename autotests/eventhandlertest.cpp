@@ -67,8 +67,6 @@ private Q_SLOTS:
     void nullMediaInfo();
     void linkPreviewer();
     void nullLinkPreviewer();
-    void reactions();
-    void nullReactions();
     void hasReply();
     void nullHasReply();
     void replyId();
@@ -421,23 +419,6 @@ void EventHandlerTest::nullLinkPreviewer()
 
     QTest::ignoreMessage(QtWarningMsg, "getLinkPreviewer called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getLinkPreviewer(), nullptr);
-}
-
-void EventHandlerTest::reactions()
-{
-    auto event = room->messageEvents().at(0).get();
-    eventHandler.setEvent(event);
-
-    QCOMPARE(eventHandler.getReactions()->rowCount(), 1);
-}
-
-void EventHandlerTest::nullReactions()
-{
-    QTest::ignoreMessage(QtWarningMsg, "getReactions called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getReactions(), nullptr);
-
-    QTest::ignoreMessage(QtWarningMsg, "getReactions called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReactions(), nullptr);
 }
 
 void EventHandlerTest::hasReply()

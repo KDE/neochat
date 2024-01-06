@@ -242,15 +242,6 @@ public:
     QSharedPointer<LinkPreviewer> getLinkPreviewer() const;
 
     /**
-     * @brief Return a ReactionModel object for the event.
-     *
-     * A nullptr will be returned for any event that doesn't have any links so the
-     * return should be null checked and an empty QVariantList (or other suitable
-     * empty mode) provided if null.
-     */
-    QSharedPointer<ReactionModel> getReactions() const;
-
-    /**
      * @brief Whether the event is a reply to another in the timeline.
      */
     bool hasReply() const;

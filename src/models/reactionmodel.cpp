@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "reactionmodel.h"
+#include "neochatroom.h"
 
 #include <QDebug>
 #ifdef HAVE_ICU
@@ -15,11 +16,20 @@
 
 #include <Quotient/user.h>
 
-ReactionModel::ReactionModel(QObject *parent, QList<Reaction> reactions, Quotient::User *localUser)
-    : QAbstractListModel(parent)
-    , m_localUser(localUser)
+ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, const NeoChatRoom *room)
+    : QAbstractListModel(nullptr)
+    , m_room(room)
+    , m_event(event)
 {
-    setReactions(reactions);
+    if (m_event != nullptr && m_room != nullptr) {
+        connect(m_room, &NeoChatRoom::updatedEvent, this, [this](const QString &eventId) {
+            if (m_event->id() == eventId) {
+                updateReactions();
+            }
+        });
+
+        updateReactions();
+    }
 }
 
 QVariant ReactionModel::data(const QModelIndex &index, int role) const
@@ -35,38 +45,11 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     const auto &reaction = m_reactions.at(index.row());
 
-    const auto isEmoji = [](const QString &text) {
-#ifdef HAVE_ICU
-        QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
-        int from = 0;
-        while (finder.toNextBoundary() != -1) {
-            auto to = finder.position();
-            if (text[from].isSpace()) {
-                from = to;
-                continue;
-            }
-
-            auto first = text.mid(from, to - from).toUcs4()[0];
-            if (!u_hasBinaryProperty(first, UCHAR_EMOJI_PRESENTATION)) {
-                return false;
-            }
-            from = to;
-        }
-        return true;
-#else
-        return false;
-#endif
-    };
-
-    const auto reactionText = isEmoji(reaction.reaction)
-        ? QStringLiteral("<span style=\"font-family: 'emoji';\">") + reaction.reaction + QStringLiteral("</span>")
-        : reaction.reaction;
-
     if (role == TextContentRole) {
         if (reaction.authors.count() > 1) {
-            return QStringLiteral("%1  %2").arg(reactionText, QString::number(reaction.authors.count()));
+            return QStringLiteral("%1  %2").arg(reactionText(reaction.reaction), QString::number(reaction.authors.count()));
         } else {
-            return reactionText;
+            return reactionText(reaction.reaction);
         }
     }
 
@@ -97,7 +80,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
                       "%2 reacted with %3",
                       reaction.authors.count(),
                       text,
-                      reactionText);
+                      reactionText(reaction.reaction));
         return text;
     }
 
@@ -107,7 +90,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     if (role == HasLocalUser) {
         for (auto author : reaction.authors) {
-            if (author.toMap()[QStringLiteral("id")] == m_localUser->id()) {
+            if (author.toMap()[QStringLiteral("id")] == m_room->localUser()->id()) {
                 return true;
             }
         }
@@ -123,11 +106,44 @@ int ReactionModel::rowCount(const QModelIndex &parent) const
     return m_reactions.count();
 }
 
-void ReactionModel::setReactions(QList<Reaction> reactions)
+void ReactionModel::updateReactions()
 {
     beginResetModel();
+
     m_reactions.clear();
-    m_reactions = reactions;
+
+    const auto &annotations = m_room->relatedEvents(*m_event, Quotient::EventRelation::AnnotationType);
+    if (annotations.isEmpty()) {
+        endResetModel();
+        return;
+    };
+
+    QMap<QString, QList<Quotient::User *>> reactions = {};
+    for (const auto &a : annotations) {
+        if (a->isRedacted()) { // Just in case?
+            continue;
+        }
+        if (const auto &e = eventCast<const Quotient::ReactionEvent>(a)) {
+            reactions[e->key()].append(m_room->user(e->senderId()));
+        }
+    }
+
+    if (reactions.isEmpty()) {
+        endResetModel();
+        return;
+    }
+
+    auto i = reactions.constBegin();
+    while (i != reactions.constEnd()) {
+        QVariantList authors;
+        for (const auto &author : i.value()) {
+            authors.append(m_room->getUser(author));
+        }
+
+        m_reactions.append(ReactionModel::Reaction{i.key(), authors});
+        ++i;
+    }
+
     endResetModel();
 }
 
@@ -140,6 +156,34 @@ QHash<int, QByteArray> ReactionModel::roleNames() const
         {AuthorsRole, "authors"},
         {HasLocalUser, "hasLocalUser"},
     };
+}
+
+QString ReactionModel::reactionText(const QString &text)
+{
+    const auto isEmoji = [](const QString &text) {
+#ifdef HAVE_ICU
+        QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
+        int from = 0;
+        while (finder.toNextBoundary() != -1) {
+            auto to = finder.position();
+            if (text[from].isSpace()) {
+                from = to;
+                continue;
+            }
+
+            auto first = text.mid(from, to - from).toUcs4()[0];
+            if (!u_hasBinaryProperty(first, UCHAR_EMOJI_PRESENTATION)) {
+                return false;
+            }
+            from = to;
+        }
+        return true;
+#else
+        return false;
+#endif
+    };
+
+    return isEmoji(text) ? QStringLiteral("<span style=\"font-family: 'emoji';\">") + text + QStringLiteral("</span>") : text;
 }
 
 #include "moc_reactionmodel.cpp"

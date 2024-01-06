@@ -1,0 +1,204 @@
+{
+  "account_data": {
+    "events": [
+      {
+        "content": {
+          "tags": {
+            "u.work": {
+              "order": 0.9
+            }
+          }
+        },
+        "type": "m.tag"
+      },
+      {
+        "content": {
+          "custom_config_key": "custom_config_value"
+        },
+        "type": "org.example.custom.room.config"
+      }
+    ]
+  },
+  "ephemeral": {
+    "events": [
+      {
+        "content": {
+          "user_ids": [
+            "@alice:matrix.org",
+            "@bob:example.com"
+          ]
+        },
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "type": "m.typing"
+      },
+      {
+        "content": {
+          "$153456789:example.org": {
+            "m.read": {
+              "@alice:matrix.org": {
+                "ts": 1436451550453
+              }
+            }
+          }
+        },
+        "type": "m.receipt"
+      },
+      {
+        "content": {
+          "$1532735824654:example.org": {
+            "m.read": {
+              "@bob:example.com": {
+                "ts": 1436451550453
+              }
+            }
+          }
+        },
+        "type": "m.receipt"
+      },
+      {
+        "content": {
+          "$1532735824654:example.org": {
+            "m.read": {
+              "@tim:example.com": {
+                "ts": 1436451550454
+              }
+            }
+          }
+        },
+        "type": "m.receipt"
+      },
+      {
+        "content": {
+          "$1532735824654:example.org": {
+            "m.read": {
+              "@jeff:example.com": {
+                "ts": 1436451550455
+              }
+            }
+          }
+        },
+        "type": "m.receipt"
+      },
+      {
+        "content": {
+          "$1532735824654:example.org": {
+            "m.read": {
+              "@tina:example.com": {
+                "ts": 1436451550456
+              }
+            }
+          }
+        },
+        "type": "m.receipt"
+      },
+      {
+        "content": {
+          "$1532735824654:example.org": {
+            "m.read": {
+              "@sally:example.com": {
+                "ts": 1436451550457
+              }
+            }
+          }
+        },
+        "type": "m.receipt"
+      },
+      {
+        "content": {
+          "$1532735824654:example.org": {
+            "m.read": {
+              "@fred:example.com": {
+                "ts": 1436451550458
+              }
+            }
+          }
+        },
+        "type": "m.receipt"
+      }
+    ]
+  },
+  "state": {
+    "events": [
+      {
+        "content": {
+          "avatar_url": "mxc://example.org/SEsfnsuifSDFSSEF",
+          "displayname": "Alice Margatroid",
+          "membership": "join",
+          "reason": "Looking for support"
+        },
+        "event_id": "$143273582443PhrSn:example.org",
+        "origin_server_ts": 1432735824653,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@example:example.org",
+        "state_key": "@alice:example.org",
+        "type": "m.room.member",
+        "unsigned": {
+          "age": 1234
+        }
+      },
+      {
+        "content": {
+          "displayname": "Look\nat\nme\nI\nput\nnewlines\nin\nmy\ndisplay name",
+          "membership": "join"
+        },
+        "event_id": "$143273582443PhrSh:example.org",
+        "origin_server_ts": 1432735824659,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@newline:example.org",
+        "state_key": "@newline:example.org",
+        "type": "m.room.member",
+        "unsigned": {
+          "age": 12345
+        }
+      }
+    ]
+  },
+  "summary": {
+    "m.heroes": [
+      "@alice:example.com",
+      "@bob:example.com"
+    ],
+    "m.invited_member_count": 0,
+    "m.joined_member_count": 2
+  },
+  "timeline": {
+    "events": [
+      {
+        "content": {
+          "body": "This is an example\ntext message",
+          "format": "org.matrix.custom.html",
+          "formatted_body": "<b>This is an example<br>text message</b>",
+          "msgtype": "m.text"
+        },
+        "event_id": "$153456789:example.org",
+        "origin_server_ts": 1432735824654,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@example:example.org",
+        "type": "m.room.message",
+        "unsigned": {
+          "age": 1232
+        }
+      },
+      {
+        "content": {
+            "m.relates_to": {
+            "event_id": "$153456789:example.org",
+            "key": "👍",
+            "rel_type": "m.annotation"
+            }
+        },
+        "origin_server_ts": 1690322545182,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@alice:matrix.org",
+        "type": "m.reaction",
+        "unsigned": {
+            "age": 390159120
+        },
+        "event_id": "$163456789:example.org",
+        "age": 390159120
+      }
+    ],
+    "limited": true,
+    "prev_batch": "t34-23535_0_0"
+  }
+}

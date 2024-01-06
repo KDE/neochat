@@ -72,6 +72,12 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
 MessageEventModel::MessageEventModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    connect(this, &MessageEventModel::modelAboutToBeReset, this, [this]() {
+        resetting = true;
+    });
+    connect(this, &MessageEventModel::modelReset, this, [this]() {
+        resetting = false;
+    });
 }
 
 NeoChatRoom *MessageEventModel::room() const
@@ -245,7 +251,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                     m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(eventIt->event()));
                 }
             }
-            refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole, Qt::DisplayRole});
+            refreshEventRoles(eventId, {Qt::DisplayRole});
         });
         connect(m_currentRoom, &Room::changed, this, [this]() {
             for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
@@ -723,10 +729,28 @@ void MessageEventModel::createEventObjects(const Quotient::RoomMessageEvent *eve
     } else {
         m_linkPreviewers.remove(eventId);
     }
-    if (auto reactionModel = eventHandler.getReactions()) {
-        m_reactionModels[eventId] = reactionModel;
+
+    // ReactionModel handles updates to add and remove reactions, we only need to
+    // handle adding and removing whole models here.
+    if (m_reactionModels.contains(eventId)) {
+        // If a model already exists but now has no reactions remove it
+        if (m_reactionModels[eventId]->rowCount() <= 0) {
+            m_reactionModels.remove(eventId);
+            if (!resetting) {
+                refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole});
+            }
+        }
     } else {
-        m_reactionModels.remove(eventId);
+        if (m_currentRoom->relatedEvents(*event, Quotient::EventRelation::AnnotationType).count() > 0) {
+            // If a model doesn't exist and there are reactions add it.
+            auto reactionModel = QSharedPointer<ReactionModel>(new ReactionModel(event, m_currentRoom));
+            if (reactionModel->rowCount() > 0) {
+                m_reactionModels[eventId] = reactionModel;
+                if (!resetting) {
+                    refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole});
+                }
+            }
+        }
     }
 }
 

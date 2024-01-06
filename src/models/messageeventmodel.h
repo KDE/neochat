@@ -131,6 +131,7 @@ private:
     QString lastReadEventId;
     QPersistentModelIndex m_lastReadEventIndex;
     int rowBelowInserted = -1;
+    bool resetting = false;
     bool movingEvent = false;
     KFormat m_format;
 
