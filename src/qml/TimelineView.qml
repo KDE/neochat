@@ -52,6 +52,8 @@ QQC2.ScrollView {
 
     readonly property bool atYEnd: messageListView.atYEnd
 
+    property alias interactive: messageListView.interactive
+
     /// Used to determine if scrolling to the bottom should mark the message as unread
     property bool hasScrolledUpBefore: false;
 

@@ -133,6 +133,7 @@ MessageDelegate {
                 if (root.mediaInfo.animated) {
                     imageContainer.imageItem.paused = true
                 }
+                root.ListView.view.interactive = false
                 // We need to make sure the index is that of the MediaMessageFilterModel.
                 if (root.ListView.view.model instanceof MessageFilterModel) {
                     RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index))

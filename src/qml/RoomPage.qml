@@ -286,6 +286,7 @@ Kirigami.Page {
                 initialIndex: index
             })
             popup.closed.connect(() => {
+                timelineViewLoader.item.interactive = true
                 popup.destroy()
             })
             popup.open()

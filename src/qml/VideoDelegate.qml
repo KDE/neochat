@@ -290,6 +290,7 @@ MessageDelegate {
                         text: i18n("Maximize")
                         icon.name: "view-fullscreen"
                         onTriggered: {
+                            root.ListView.view.interactive = false
                             vid.pause()
                             // We need to make sure the index is that of the MediaMessageFilterModel.
                             if (root.ListView.view.model instanceof MessageFilterModel) {
