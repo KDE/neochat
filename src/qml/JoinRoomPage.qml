@@ -137,12 +137,12 @@ Kirigami.ScrollablePage {
 
                     title: i18nc("@title:window", "Add server")
 
-                    onOpened: if (!serverUrlField.isValidServer && !opened) {
-                            serverField.currentIndex = 0
-                            server = serverField.currentValue
-                        } else if (opened) {
-                            serverUrlField.forceActiveFocus()
-                        }
+                    onOpened: if (!serverUrlField.isValidServer && !addServerSheet.opened) {
+                        serverField.currentIndex = 0
+                        server = serverField.currentValue
+                    } else if (addServerSheet.opened) {
+                        serverUrlField.forceActiveFocus()
+                    }
 
                     contentItem: Kirigami.FormLayout {
                         QQC2.Label {
