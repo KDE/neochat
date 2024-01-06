@@ -92,6 +92,7 @@ Kirigami.ScrollablePage {
                 Delegates.SubtitleContentItem {
                     itemDelegate: delegate
                     subtitle: delegate.userID
+                    labelItem.textFormat: Text.PlainText
                 }
 
                 QQC2.ToolButton {
