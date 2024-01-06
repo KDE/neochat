@@ -185,7 +185,6 @@ Kirigami.ScrollablePage {
                             onClicked: {
                                 serverListModel.addServer(serverUrlField.text)
                                 serverField.currentIndex = serverField.indexOfValue(serverUrlField.text)
-                                // console.log(serverField.delegate.label)
                                 server = serverField.currentValue
                                 serverUrlField.text = ""
                                 addServerSheet.close();
