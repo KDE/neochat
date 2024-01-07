@@ -23,7 +23,6 @@
 #include <Quotient/csapi/logout.h>
 #include <Quotient/csapi/notifications.h>
 #include <Quotient/eventstats.h>
-#include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
 
 #include "neochatconfig.h"
@@ -285,19 +284,7 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
     if (connection == m_connection) {
         return;
     }
-    if (m_connection != nullptr) {
-        disconnect(m_connection, &NeoChatConnection::syncError, this, nullptr);
-        disconnect(m_connection, &NeoChatConnection::accountDataChanged, this, nullptr);
-    }
     m_connection = connection;
-    if (connection != nullptr) {
-        connect(connection, &NeoChatConnection::requestFailed, this, [](BaseJob *job) {
-            if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
-                RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
-            }
-        });
-    }
-    NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
 }
 

@@ -17,6 +17,7 @@
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
 #include <Quotient/database.h>
+#include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 #include <Quotient/user.h>
@@ -47,6 +48,11 @@ NeoChatConnection::NeoChatConnection(QObject *parent)
     connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
         if (job->error() == BaseJob::UserConsentRequired) {
             Q_EMIT userConsentRequired(job->errorUrl());
+        }
+    });
+    connect(this, &NeoChatConnection::requestFailed, this, [](BaseJob *job) {
+        if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
+            RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
         }
     });
 }
