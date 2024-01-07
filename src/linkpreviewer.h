@@ -7,6 +7,11 @@
 #include <QQmlEngine>
 #include <QUrl>
 
+namespace Quotient
+{
+class RoomMessageEvent;
+}
+
 class NeoChatRoom;
 
 /**
@@ -25,7 +30,7 @@ class LinkPreviewer : public QObject
     /**
      * @brief The URL to get the preview for.
      */
-    Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
+    Q_PROPERTY(QUrl url READ url NOTIFY urlChanged)
 
     /**
      * @brief Whether the preview information has been loaded.
@@ -55,18 +60,25 @@ class LinkPreviewer : public QObject
     Q_PROPERTY(bool empty READ empty NOTIFY emptyChanged)
 
 public:
-    explicit LinkPreviewer(QObject *parent = nullptr, const NeoChatRoom *room = nullptr, const QUrl &url = {});
+    explicit LinkPreviewer(const NeoChatRoom *room = nullptr, const Quotient::RoomMessageEvent *event = nullptr);
 
     [[nodiscard]] QUrl url() const;
-    void setUrl(QUrl);
     [[nodiscard]] bool loaded() const;
     [[nodiscard]] QString title() const;
     [[nodiscard]] QString description() const;
     [[nodiscard]] QUrl imageSource() const;
     [[nodiscard]] bool empty() const;
 
+    /**
+     * @brief Whether the given event has at least 1 pre-viewable link.
+     *
+     * A link is only pre-viewable if it is http, https or something starting with www.
+     */
+    static bool hasPreviewableLinks(const Quotient::RoomMessageEvent *event);
+
 private:
-    const NeoChatRoom *m_currentRoom = nullptr;
+    const NeoChatRoom *m_currentRoom;
+    const Quotient::RoomMessageEvent *m_event;
 
     bool m_loaded;
     QString m_title = QString();
@@ -75,6 +87,14 @@ private:
     QUrl m_url;
 
     void loadUrlPreview();
+
+    /**
+     * @brief Return the link to be previewed from the given event.
+     *
+     * This function is designed to give only links that should be previewed so
+     * http, https or something starting with www. The first valid link is returned.
+     */
+    static QUrl linkPreview(const Quotient::RoomMessageEvent *event);
 
 Q_SIGNALS:
     void loadedChanged();

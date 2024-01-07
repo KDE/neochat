@@ -65,8 +65,6 @@ private Q_SLOTS:
     void nullSubtitle();
     void mediaInfo();
     void nullMediaInfo();
-    void linkPreviewer();
-    void nullLinkPreviewer();
     void hasReply();
     void nullHasReply();
     void replyId();
@@ -397,28 +395,6 @@ void EventHandlerTest::nullMediaInfo()
 
     QTest::ignoreMessage(QtWarningMsg, "getMediaInfo called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getMediaInfo(), QVariantMap());
-}
-
-void EventHandlerTest::linkPreviewer()
-{
-    auto event = room->messageEvents().at(2).get();
-    eventHandler.setEvent(event);
-
-    QCOMPARE(eventHandler.getLinkPreviewer()->url(), QUrl("https://kde.org"_ls));
-
-    event = room->messageEvents().at(0).get();
-    eventHandler.setEvent(event);
-
-    QCOMPARE(eventHandler.getLinkPreviewer(), nullptr);
-}
-
-void EventHandlerTest::nullLinkPreviewer()
-{
-    QTest::ignoreMessage(QtWarningMsg, "getLinkPreviewer called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getLinkPreviewer(), nullptr);
-
-    QTest::ignoreMessage(QtWarningMsg, "getLinkPreviewer called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getLinkPreviewer(), nullptr);
 }
 
 void EventHandlerTest::hasReply()

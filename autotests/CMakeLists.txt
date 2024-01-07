@@ -76,3 +76,9 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME reactionmodeltest
 )
+
+ecm_add_test(
+    linkpreviewertest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME linkpreviewertest
+)

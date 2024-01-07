@@ -1,0 +1,35 @@
+{
+  "timeline": {
+    "events": [
+      {
+        "content": {
+            "body": "* ",
+            "format": "org.matrix.custom.html",
+            "formatted_body": "no link",
+            "m.new_content": {
+                "body": "",
+                "format": "org.matrix.custom.html",
+                "formatted_body": "no link",
+                "msgtype": "m.text"
+            },
+            "m.relates_to": {
+                "event_id": "$validlink:example.org",
+                "rel_type": "m.replace"
+            },
+            "msgtype": "m.text",
+            "type": "m.room.message"
+        },
+        "origin_server_ts": 1704648614969,
+        "sender": "@example:example.org",
+        "type": "m.room.message",
+        "unsigned": {
+            "age": 65
+        },
+        "event_id": "$nolink:example.org",
+        "room_id": "!test:example.org"
+      }
+    ],
+    "limited": true,
+    "prev_batch": "t34-23535_0_0"
+  }
+}

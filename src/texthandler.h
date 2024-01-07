@@ -11,29 +11,9 @@
 
 #include "neochatroom.h"
 
-namespace TextRegex
+namespace Quotient
 {
-static const QRegularExpression endTagType{QStringLiteral("(>| )")};
-static const QRegularExpression attributeData{QStringLiteral("['\"](.*?)['\"]")};
-static const QRegularExpression removeReply{QStringLiteral("> <.*?>.*?\\n\\n"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression removeRichReply{QStringLiteral("<mx-reply>.*?</mx-reply>"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression codePill{QStringLiteral("<pre><code[^>]*>(.*?)</code></pre>"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression userPill{QStringLiteral("(<a href=\"https://matrix.to/#/@.*?:.*?\">.*?</a>)"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression blockQuote{QStringLiteral("<blockquote>\n?(?:<p>)?(.*?)(?:</p>)?\n?</blockquote>"),
-                                           QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression strikethrough{QStringLiteral("<del>(.*?)</del>"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression mxcImage{QStringLiteral(R"AAA(<img(.*?)src="mxc:\/\/(.*?)\/(.*?)"(.*?)>)AAA")};
-static const QRegularExpression plainUrl(
-    QStringLiteral(
-        R"(<a.*?<\/a>(*SKIP)(*F)|\b((www\.(?!\.)(?!(\w|\.|-)+@)|(https?|ftp):(//)?\w|(magnet|matrix):)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^&!,.\s<>'"\]):])))"),
-    QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
-static const QRegularExpression
-    url(QStringLiteral(R"(\b((www\.(?!\.)(?!(\w|\.|-)+@)|https?:(//)?\w)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^&!,.\s<>'"\]):])))"),
-        QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
-static const QRegularExpression emailAddress(QStringLiteral(R"(<a.*?<\/a>(*SKIP)(*F)|\b(mailto:)?((\w|\.|-)+@(\w|\.|-)+\.\w+\b))"),
-                                             QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
-static const QRegularExpression mxId(QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"),
-                                     QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
+class RoomMessageEvent;
 }
 
 /**
@@ -113,14 +93,6 @@ public:
      *          could be malicious tags if the control uses rich text format.
      */
     QString handleRecievePlainText(Qt::TextFormat inputFormat = Qt::PlainText, const bool &stripNewlines = false);
-
-    /**
-     * @brief Return a list of links that can be previewed.
-     *
-     * This function is designed to give only links that should be previewed so
-     * http, https or something starting with www.
-     */
-    QList<QUrl> getLinkPreviews();
 
 private:
     QString m_data;

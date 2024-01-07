@@ -777,43 +777,6 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
     return mediaInfo;
 }
 
-QSharedPointer<LinkPreviewer> EventHandler::getLinkPreviewer() const
-{
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getLinkPreviewer called with m_room set to nullptr.";
-        return nullptr;
-    }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getLinkPreviewer called with m_event set to nullptr.";
-        return nullptr;
-    }
-    if (!m_event->is<RoomMessageEvent>()) {
-        return nullptr;
-    }
-
-    QString text;
-    auto event = eventCast<const RoomMessageEvent>(m_event);
-    if (event->hasTextContent()) {
-        auto textContent = static_cast<const EventContent::TextContent *>(event->content());
-        if (textContent) {
-            text = textContent->body;
-        } else {
-            text = event->plainBody();
-        }
-    } else {
-        text = event->plainBody();
-    }
-    TextHandler textHandler;
-    textHandler.setData(text);
-
-    QList<QUrl> links = textHandler.getLinkPreviews();
-    if (links.size() > 0) {
-        return QSharedPointer<LinkPreviewer>(new LinkPreviewer(nullptr, m_room, links.size() > 0 ? links[0] : QUrl()));
-    } else {
-        return nullptr;
-    }
-}
-
 bool EventHandler::hasReply() const
 {
     if (m_event == nullptr) {

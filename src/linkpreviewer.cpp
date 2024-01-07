@@ -3,25 +3,37 @@
 
 #include "linkpreviewer.h"
 
-#include "controller.h"
-
 #include <Quotient/connection.h>
 #include <Quotient/csapi/content-repo.h>
+#include <Quotient/events/roommessageevent.h>
 
 #include "neochatconfig.h"
 #include "neochatroom.h"
+#include "utils.h"
 
 using namespace Quotient;
 
-LinkPreviewer::LinkPreviewer(QObject *parent, const NeoChatRoom *room, const QUrl &url)
-    : QObject(parent)
+LinkPreviewer::LinkPreviewer(const NeoChatRoom *room, const Quotient::RoomMessageEvent *event)
+    : QObject(nullptr)
     , m_currentRoom(room)
+    , m_event(event)
     , m_loaded(false)
-    , m_url(url)
+    , m_url(linkPreview(event))
 {
-    loadUrlPreview();
-    if (m_currentRoom) {
+    connect(this, &LinkPreviewer::urlChanged, this, &LinkPreviewer::emptyChanged);
+
+    if (m_event != nullptr && m_currentRoom != nullptr) {
+        loadUrlPreview();
         connect(m_currentRoom, &NeoChatRoom::urlPreviewEnabledChanged, this, &LinkPreviewer::loadUrlPreview);
+        // Make sure that we react to edits
+        connect(m_currentRoom, &NeoChatRoom::replacedEvent, this, [this](const Quotient::RoomEvent *newEvent) {
+            if (m_event->id() == newEvent->id()) {
+                m_event = eventCast<const Quotient::RoomMessageEvent>(newEvent);
+                m_url = linkPreview(m_event);
+                Q_EMIT urlChanged();
+                loadUrlPreview();
+            }
+        });
     }
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, &LinkPreviewer::loadUrlPreview);
 }
@@ -49,15 +61,6 @@ QUrl LinkPreviewer::imageSource() const
 QUrl LinkPreviewer::url() const
 {
     return m_url;
-}
-
-void LinkPreviewer::setUrl(QUrl url)
-{
-    if (url != m_url) {
-        m_url = url;
-        urlChanged();
-        loadUrlPreview();
-    }
 }
 
 void LinkPreviewer::loadUrlPreview()
@@ -96,6 +99,40 @@ void LinkPreviewer::loadUrlPreview()
 bool LinkPreviewer::empty() const
 {
     return m_url.isEmpty();
+}
+
+QUrl LinkPreviewer::linkPreview(const Quotient::RoomMessageEvent *event)
+{
+    if (event == nullptr) {
+        return {};
+    }
+
+    QString text;
+    if (event->hasTextContent()) {
+        auto textContent = static_cast<const Quotient::EventContent::TextContent *>(event->content());
+        if (textContent) {
+            text = textContent->body;
+        } else {
+            text = event->plainBody();
+        }
+    } else {
+        text = event->plainBody();
+    }
+
+    auto data = text.remove(TextRegex::removeRichReply);
+    auto linksMatch = TextRegex::url.globalMatch(data);
+    while (linksMatch.hasNext()) {
+        auto link = linksMatch.next().captured();
+        if (!link.contains(QStringLiteral("matrix.to"))) {
+            return QUrl(link);
+        }
+    }
+    return {};
+}
+
+bool LinkPreviewer::hasPreviewableLinks(const Quotient::RoomMessageEvent *event)
+{
+    return !linkPreview(event).isEmpty();
 }
 
 #include "moc_linkpreviewer.cpp"

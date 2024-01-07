@@ -232,16 +232,6 @@ public:
     QVariantMap getMediaInfo() const;
 
     /**
-     * @brief Return a LinkPreviewer object for the event.
-     *
-     * A nullptr will be returned for any event that doesn't have any links so the
-     * return should be null checked and an empty LinkPreviewer provided if null.
-     *
-     * @sa LinkPreviewer
-     */
-    QSharedPointer<LinkPreviewer> getLinkPreviewer() const;
-
-    /**
      * @brief Whether the event is a reply to another in the timeline.
      */
     bool hasReply() const;

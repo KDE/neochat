@@ -493,18 +493,4 @@ QString TextHandler::linkifyUrls(QString stringIn)
     return stringIn;
 }
 
-QList<QUrl> TextHandler::getLinkPreviews()
-{
-    auto data = m_data.remove(TextRegex::removeRichReply);
-    auto linksMatch = TextRegex::url.globalMatch(data);
-    QList<QUrl> links;
-    while (linksMatch.hasNext()) {
-        auto link = linksMatch.next().captured();
-        if (!link.contains(QStringLiteral("matrix.to"))) {
-            links += QUrl(link);
-        }
-    }
-    return links;
-}
-
 #include "moc_texthandler.cpp"

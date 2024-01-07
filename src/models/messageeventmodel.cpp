@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include "messageeventmodel.h"
+#include "linkpreviewer.h"
 #include "messageeventmodel_logging.h"
 
 #include "neochatconfig.h"
@@ -22,6 +23,7 @@
 #include "eventhandler.h"
 #include "events/pollevent.h"
 #include "models/reactionmodel.h"
+#include "texthandler.h"
 
 using namespace Quotient;
 
@@ -237,6 +239,10 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::replacedEvent, this, [this](const RoomEvent *newEvent) {
             refreshLastUserEvents(refreshEvent(newEvent->id()) - timelineBaseIndex());
+            const RoomMessageEvent *message = eventCast<const RoomMessageEvent>(newEvent);
+            if (message != nullptr) {
+                createEventObjects(message);
+            }
         });
         connect(m_currentRoom, &Room::updatedEvent, this, [this](const QString &eventId) {
             if (eventId.isEmpty()) { // How did we get here?
@@ -720,14 +726,14 @@ void MessageEventModel::createEventObjects(const Quotient::RoomMessageEvent *eve
 {
     auto eventId = event->id();
 
-    EventHandler eventHandler;
-    eventHandler.setRoom(m_currentRoom);
-    eventHandler.setEvent(event);
-
-    if (auto linkPreviewer = eventHandler.getLinkPreviewer()) {
-        m_linkPreviewers[eventId] = linkPreviewer;
+    if (m_linkPreviewers.contains(eventId)) {
+        if (!LinkPreviewer::hasPreviewableLinks(event)) {
+            m_linkPreviewers.remove(eventId);
+        }
     } else {
-        m_linkPreviewers.remove(eventId);
+        if (LinkPreviewer::hasPreviewableLinks(event)) {
+            m_linkPreviewers[eventId] = QSharedPointer<LinkPreviewer>(new LinkPreviewer(m_currentRoom, event));
+        }
     }
 
     // ReactionModel handles updates to add and remove reactions, we only need to
