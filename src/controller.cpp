@@ -77,7 +77,7 @@ Controller::Controller(QObject *parent)
     });
 
 #ifndef Q_OS_WINDOWS
-    const auto unixExitHandler = [](int /*sig*/) -> void {
+    const auto unixExitHandler = [](int) -> void {
         QCoreApplication::quit();
     };
 
