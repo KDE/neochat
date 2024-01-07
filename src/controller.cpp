@@ -103,7 +103,7 @@ Controller::Controller(QObject *parent)
     connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, [this]() {
         if (m_accountRegistry.size() > oldAccountCount) {
             auto connection = dynamic_cast<NeoChatConnection *>(m_accountRegistry.accounts()[m_accountRegistry.size() - 1]);
-            connect(connection, &NeoChatConnection::syncDone, this, [this, connection]() {
+            connect(connection, &NeoChatConnection::syncDone, this, [connection]() {
                 NotificationsManager::instance().handleNotifications(connection);
             });
             connectSingleShot(connection, &NeoChatConnection::syncDone, this, [this, connection] {
@@ -143,7 +143,7 @@ void Controller::addConnection(NeoChatConnection *c)
 
     c->setLazyLoading(true);
 
-    connect(c, &NeoChatConnection::syncDone, this, [this, c] {
+    connect(c, &NeoChatConnection::syncDone, this, [c] {
         c->sync(30000);
         c->saveState();
     });
@@ -167,18 +167,13 @@ void Controller::dropConnection(NeoChatConnection *c)
 void Controller::invokeLogin()
 {
     const auto accounts = SettingsGroup("Accounts"_ls).childGroups();
-    QString id = NeoChatConfig::self()->activeConnection();
     for (const auto &accountId : accounts) {
         AccountSettings account{accountId};
         m_accountsLoading += accountId;
         Q_EMIT accountsLoadingChanged();
-        if (id.isEmpty()) {
-            // handle case where the account config is empty
-            id = accountId;
-        }
         if (!account.homeserver().isEmpty()) {
             auto accessTokenLoadingJob = loadAccessTokenFromKeyChain(account);
-            connect(accessTokenLoadingJob, &QKeychain::Job::finished, this, [accountId, id, this, accessTokenLoadingJob](QKeychain::Job *) {
+            connect(accessTokenLoadingJob, &QKeychain::Job::finished, this, [accountId, this, accessTokenLoadingJob](QKeychain::Job *) {
                 AccountSettings account{accountId};
                 QString accessToken;
                 if (accessTokenLoadingJob->error() == QKeychain::Error::NoError) {
@@ -188,14 +183,11 @@ void Controller::invokeLogin()
                 }
 
                 auto connection = new NeoChatConnection(account.homeserver());
-                connect(connection, &NeoChatConnection::connected, this, [this, connection, id] {
+                connect(connection, &NeoChatConnection::connected, this, [this, connection] {
                     connection->loadState();
                     addConnection(connection);
                     m_accountsLoading.removeAll(connection->userId());
                     Q_EMIT accountsLoadingChanged();
-                    if (connection->userId() == id) {
-                        setActiveConnection(connection);
-                    }
                 });
                 connect(connection, &NeoChatConnection::loginError, this, [this, connection](const QString &error, const QString &) {
                     if (error == "Unrecognised access token"_ls) {
@@ -318,14 +310,11 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
     }
     m_connection = connection;
     if (connection != nullptr) {
-        NeoChatConfig::self()->setActiveConnection(connection->userId());
         connect(connection, &NeoChatConnection::requestFailed, this, [](BaseJob *job) {
             if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
                 RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
             }
         });
-    } else {
-        NeoChatConfig::self()->setActiveConnection(QString());
     }
     NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
