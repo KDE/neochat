@@ -338,11 +338,6 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
     Q_EMIT activeConnectionChanged();
 }
 
-void Controller::saveWindowGeometry()
-{
-    WindowController::instance().saveGeometry();
-}
-
 void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item)
 {
     // HACK: Workaround bug QTBUG 93281

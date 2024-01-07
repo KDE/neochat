@@ -136,7 +136,4 @@ Q_SIGNALS:
     void activeConnectionChanged();
     void userConsentRequired(QUrl url);
     void accountsLoadingChanged();
-
-public Q_SLOTS:
-    void saveWindowGeometry();
 };

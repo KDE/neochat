@@ -86,7 +86,7 @@ Kirigami.ApplicationWindow {
     Timer {
         id: saveWindowGeometryTimer
         interval: 1000
-        onTriggered: Controller.saveWindowGeometry()
+        onTriggered: WindowController.saveGeometry()
     }
 
     Connections {
@@ -94,7 +94,7 @@ Kirigami.ApplicationWindow {
         enabled: false // Disable on startup to avoid writing wrong values if the window is hidden
         target: root
 
-        function onClosing() { Controller.saveWindowGeometry(); }
+        function onClosing() { WindowController.saveGeometry(); }
         function onWidthChanged() { saveWindowGeometryTimer.restart(); }
         function onHeightChanged() { saveWindowGeometryTimer.restart(); }
         function onXChanged() { saveWindowGeometryTimer.restart(); }

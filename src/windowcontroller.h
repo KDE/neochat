@@ -52,7 +52,7 @@ public:
     /**
      * @brief Save the current window geometry.
      */
-    void saveGeometry();
+    Q_INVOKABLE void saveGeometry();
 
     /**
      * @brief Show the window and raise to the top.
