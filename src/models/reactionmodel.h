@@ -21,7 +21,6 @@ class User;
 class ReactionModel : public QAbstractListModel
 {
     Q_OBJECT
-    QML_ELEMENT
 
 public:
     /**
