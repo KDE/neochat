@@ -349,7 +349,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return m_categoryVisibility.value(data(index, CategoryRole).toInt(), true);
     }
     if (role == SubtitleTextRole) {
-        if (room->lastEventIsSpoiler()) {
+        if (room->lastEvent() == nullptr || room->lastEventIsSpoiler()) {
             return QString();
         }
         EventHandler eventHandler;
