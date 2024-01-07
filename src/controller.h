@@ -134,6 +134,5 @@ Q_SIGNALS:
     void connectionAdded(NeoChatConnection *connection);
     void connectionDropped(NeoChatConnection *connection);
     void activeConnectionChanged();
-    void userConsentRequired(QUrl url);
     void accountsLoadingChanged();
 };

@@ -44,6 +44,11 @@ NeoChatConnection::NeoChatConnection(QObject *parent)
     connect(this, &NeoChatConnection::networkError, this, [this]() {
         setIsOnline(false);
     });
+    connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
+        if (job->error() == BaseJob::UserConsentRequired) {
+            Q_EMIT userConsentRequired(job->errorUrl());
+        }
+    });
 }
 
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)

@@ -300,12 +300,6 @@ Kirigami.ApplicationWindow {
         function onErrorOccured(error, detail) {
             showPassiveNotification(detail.length > 0 ? i18n("%1: %2", error, detail) : error);
         }
-
-        function onUserConsentRequired(url) {
-            let consent = consentSheetComponent.createObject(QQC2.ApplicationWindow.overlay)
-            consent.url = url
-            consent.open()
-        }
     }
 
     Connections {
@@ -340,6 +334,11 @@ Kirigami.ApplicationWindow {
             }, {
                 title: i18nc("@title:window", "Session Verification")
             });
+        }
+        function onUserConsentRequired(url) {
+            let consent = consentSheetComponent.createObject(QQC2.ApplicationWindow.overlay)
+            consent.url = url
+            consent.open()
         }
     }
 

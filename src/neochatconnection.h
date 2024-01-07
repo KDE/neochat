@@ -99,6 +99,7 @@ Q_SIGNALS:
     void labelChanged();
     void isOnlineChanged();
     void passwordStatus(NeoChatConnection::PasswordStatus status);
+    void userConsentRequired(QUrl url);
 
 private:
     bool m_isOnline = true;

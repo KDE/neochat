@@ -152,12 +152,6 @@ void Controller::addConnection(NeoChatConnection *c)
         dropConnection(c);
     });
 
-    connect(c, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
-        if (job->error() == BaseJob::UserConsentRequired) {
-            Q_EMIT userConsentRequired(job->errorUrl());
-        }
-    });
-
     c->sync();
 
     Q_EMIT connectionAdded(c);
