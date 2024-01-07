@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 01:33+0000\n"
-"PO-Revision-Date: 2023-12-30 13:38\n"
+"POT-Creation-Date: 2024-01-07 01:54+0000\n"
+"PO-Revision-Date: 2024-01-06 03:32\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -85,12 +85,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr "请联系 Matrix 服务器管理员寻求支持。"
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:485
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[这条消息已被删除]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:480
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[这条消息已被删除：%1]</i>"
@@ -184,7 +184,7 @@ msgstr "解封了 %1"
 #: src/eventhandler.cpp:408 src/eventhandler.cpp:589
 #, kde-format
 msgid "self-unbanned"
-msgstr "自取消封禁"
+msgstr "自行取消封禁"
 
 #: src/eventhandler.cpp:411
 #, kde-format
@@ -209,7 +209,7 @@ msgstr "从聊天室封禁了 %1 : %2"
 #: src/eventhandler.cpp:421 src/eventhandler.cpp:596
 #, kde-format
 msgid "self-banned from the room"
-msgstr ""
+msgstr "已从聊天室中自行封禁"
 
 #: src/eventhandler.cpp:425 src/eventhandler.cpp:599
 #, kde-format
@@ -224,7 +224,7 @@ msgstr "希望能被邀请，原因：%1"
 #: src/eventhandler.cpp:429 src/eventhandler.cpp:603
 #, kde-format
 msgid "made something unknown"
-msgstr ""
+msgstr "进行了未知操作"
 
 #: src/eventhandler.cpp:432 src/eventhandler.cpp:606
 #, kde-format
@@ -421,17 +421,17 @@ msgstr "更新了状态"
 msgid "started a poll"
 msgstr "开始投票"
 
-#: src/eventhandler.cpp:1142
+#: src/eventhandler.cpp:1088
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 位用户："
 
-#: src/eventhandler.cpp:1145
+#: src/eventhandler.cpp:1091
 #, kde-format
 msgctxt "list separator"
 msgid ", "
-msgstr ""
+msgstr ","
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
@@ -449,13 +449,13 @@ msgstr "上传中"
 #, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr ""
+msgstr "源地址"
 
 #: src/filetransferpseudojob.cpp:50
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr ""
+msgstr "目标文件夹"
 
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
@@ -523,7 +523,7 @@ msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 "KDE China (中国), Guo Yunhe (郭云鹤), Yang Boyuan (杨博远), Coelacanthus, "
-"Tyson Tan (钛山), Gary Wang"
+"Tyson Tan (钛山), Gary Wang, Zhangzhi Hu"
 
 #: src/main.cpp:143
 #, kde-format
@@ -531,7 +531,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "kde-china@kde.org, i@guoyunhe.me, 073plan@gmail.com, coelacanthus@kde.org, "
-"tds00@qq.com, git@blumia.net"
+"tds00@qq.com, git@blumia.net, integral@member.fsf.org"
 
 #: src/main.cpp:147
 #, kde-format
@@ -572,7 +572,7 @@ msgstr "仅内部使用。"
 #: src/matriximageprovider.cpp:41
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
-msgstr ""
+msgstr "媒体 ID '%1' 不符合服务器 / 媒体 ID 样式"
 
 #: src/matriximageprovider.cpp:99
 #, kde-format
@@ -634,11 +634,11 @@ msgstr "在纯文本消息前追加 ┬──┬ ノ( ゜-゜ノ)"
 
 #: src/models/actionsmodel.cpp:117
 msgid "Sends the given message colored as a rainbow"
-msgstr ""
+msgstr "发送这条彩虹色的消息"
 
 #: src/models/actionsmodel.cpp:137
 msgid "Sends the given emote colored as a rainbow"
-msgstr ""
+msgstr "发送这个彩虹色的表情"
 
 #: src/models/actionsmodel.cpp:148
 msgid "Sends the given message as plain text"
@@ -720,11 +720,11 @@ msgstr "加入此聊天室"
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr ""
+msgstr "正在敲聊天室 '%1' 的门。"
 
 #: src/models/actionsmodel.cpp:275
 msgid "<room alias or id> [<reason>]"
-msgstr ""
+msgstr "<聊天室别名或 ID> [<原因>]"
 
 #: src/models/actionsmodel.cpp:276
 msgid "Requests to join the given room"
@@ -742,7 +742,7 @@ msgstr "[<聊天室别名或 ID>]"
 
 #: src/models/actionsmodel.cpp:307 src/models/actionsmodel.cpp:315
 msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
+msgstr "离开指定的聊天室，若未指定聊天室则离开当前聊天室"
 
 #: src/models/actionsmodel.cpp:329 src/models/actionsmodel.cpp:337
 #: src/models/actionsmodel.cpp:345
@@ -828,7 +828,7 @@ msgstr "%1 在此聊天室中被封禁。"
 
 #: src/models/actionsmodel.cpp:460 src/models/actionsmodel.cpp:537
 msgid "<user id> [<reason>]"
-msgstr ""
+msgstr "<用户 ID> [<原因>]"
 
 #: src/models/actionsmodel.cpp:461
 msgid "Bans the given user"
@@ -983,7 +983,7 @@ msgstr[0] "%1 位用户"
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
-msgstr ""
+msgstr "，"
 
 #: src/models/messagefiltermodel.cpp:143
 #, kde-format
@@ -1071,20 +1071,20 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "通话邀请"
 
-#: src/models/reactionmodel.cpp:85
+#: src/models/reactionmodel.cpp:68
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " 与 "
 
-#: src/models/reactionmodel.cpp:92
+#: src/models/reactionmodel.cpp:75
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
 msgid_plural " and %1 others"
 msgstr[0] " 与另外 %1 人"
 
-#: src/models/reactionmodel.cpp:96
+#: src/models/reactionmodel.cpp:79
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1140,7 +1140,7 @@ msgstr "举报成功。"
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
-msgstr ""
+msgstr "纬度：%1，经度：%2"
 
 #: src/notificationsmanager.cpp:132 src/notificationsmanager.cpp:327
 #, kde-format
@@ -1246,7 +1246,7 @@ msgstr "名称："
 #: src/qml/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
-msgstr ""
+msgstr "标签："
 
 #: src/qml/AccountEditorPage.qml:117 src/qml/AccountEditorPage.qml:170
 #: src/qml/EmoticonEditorPage.qml:110 src/qml/General.qml:107
@@ -1421,7 +1421,7 @@ msgstr "透明度"
 #: src/qml/AppearanceSettingsPage.qml:274
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
-msgstr ""
+msgstr "仅在启用透明聊天页面时才启用。"
 
 #: src/qml/AppearanceSettingsPage.qml:287
 #, kde-format
@@ -2051,12 +2051,12 @@ msgstr "设置图像"
 #: src/qml/EmoticonEditorPage.qml:100
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "短代码："
 
 #: src/qml/EmoticonEditorPage.qml:105
 #, kde-format
 msgid "Description:"
-msgstr ""
+msgstr "描述："
 
 #: src/qml/EmoticonFormCard.qml:71
 #, kde-format
@@ -2267,12 +2267,12 @@ msgstr "别名"
 #: src/qml/General.qml:171
 #, kde-format
 msgid "No canonical alias set"
-msgstr ""
+msgstr "未设置主别名"
 
 #: src/qml/General.qml:184
 #, kde-format
 msgid "Make this alias the room's canonical alias"
-msgstr ""
+msgstr "将此别名设置为聊天室主别名"
 
 #: src/qml/General.qml:199
 #, kde-format
@@ -2282,7 +2282,7 @@ msgstr "删除别名"
 #: src/qml/General.qml:224
 #, kde-format
 msgid "#new_alias:server.org"
-msgstr ""
+msgstr "#new_alias:server.org"
 
 #: src/qml/General.qml:241
 #, kde-format
@@ -2348,7 +2348,7 @@ msgstr ""
 #: src/qml/General.qml:370
 #, kde-format
 msgid "This room continues another conversation."
-msgstr ""
+msgstr "此聊天室接续了另一个对话。"
 
 #: src/qml/General.qml:374
 #, kde-format
@@ -2588,7 +2588,7 @@ msgstr "为此账户启用通知"
 #: src/qml/GlobalNotificationsPage.qml:29
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
-msgstr ""
+msgstr "推送通知是否由 Matrix 服务器生成"
 
 #: src/qml/GlobalNotificationsPage.qml:39
 #, kde-format
@@ -2623,7 +2623,7 @@ msgstr "邀请"
 #: src/qml/GlobalNotificationsPage.qml:154
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: src/qml/GroupChatDrawerHeader.qml:65 src/qml/TimelineEndDelegate.qml:64
 #, kde-format
@@ -2745,17 +2745,17 @@ msgstr "查找用户..."
 msgid "Add"
 msgstr "添加"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:134
+#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
 #, kde-format
 msgid "No users available"
 msgstr "无可用用户"
 
-#: src/qml/InviteUserPage.qml:100
+#: src/qml/InviteUserPage.qml:101
 #, kde-format
 msgid "Send invitation"
 msgstr "发送邀请"
 
-#: src/qml/InviteUserPage.qml:114
+#: src/qml/InviteUserPage.qml:115
 #, kde-format
 msgid "User is either already a member or has been invited"
 msgstr "用户已经是成员或已被邀请"
@@ -2795,7 +2795,7 @@ msgstr "添加服务器"
 #: src/qml/JoinRoomPage.qml:151
 #, kde-format
 msgid "Valid server entered"
-msgstr ""
+msgstr "输入的服务器可用"
 
 #: src/qml/JoinRoomPage.qml:151
 #, kde-format
@@ -2817,12 +2817,12 @@ msgstr "输入服务器 URL，例如 kde.org"
 msgid "Server URL"
 msgstr "服务器 URL"
 
-#: src/qml/JoinRoomPage.qml:240
+#: src/qml/JoinRoomPage.qml:239
 #, kde-format
 msgid "Enter a room address"
 msgstr "输入一个聊天室地址"
 
-#: src/qml/JoinRoomPage.qml:266
+#: src/qml/JoinRoomPage.qml:265
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -2856,7 +2856,7 @@ msgstr "表情验证"
 #: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr ""
+msgstr "比较两台设备上的一组表情符号"
 
 #: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
@@ -2871,12 +2871,12 @@ msgstr "拒绝"
 #: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "收缩预览"
 
 #: src/qml/LinkPreviewDelegate.qml:113
 #, kde-format
 msgid "Expand preview"
-msgstr ""
+msgstr "展开预览"
 
 #: src/qml/LinkPreviewDelegate.qml:144
 #, kde-format
@@ -3269,7 +3269,7 @@ msgstr "更改聊天室头像"
 #: src/qml/Permissions.qml:339
 #, kde-format
 msgid "Change the room canonical alias"
-msgstr ""
+msgstr "更改聊天室主别名"
 
 #: src/qml/Permissions.qml:348
 #, kde-format
@@ -3289,7 +3289,7 @@ msgstr "更改聊天室历史可见性"
 #: src/qml/Permissions.qml:375
 #, kde-format
 msgid "Set pinned events"
-msgstr ""
+msgstr "设置置顶事件"
 
 #: src/qml/Permissions.qml:384
 #, kde-format
@@ -3304,18 +3304,18 @@ msgstr "设置聊天室服务器访问控制列表 (ACL)"
 #: src/qml/Permissions.qml:403
 #, kde-format
 msgid "Set the children of this space"
-msgstr ""
+msgstr "设置为此空间的子聊天室"
 
 #: src/qml/Permissions.qml:412
 #, kde-format
 msgid "Set the parent space of this room"
-msgstr ""
+msgstr "设置此聊天室的父空间"
 
 #: src/qml/PollDelegate.qml:57
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] ""
+msgstr[0] "基于 %1 位用户的投票"
 
 #: src/qml/PollDelegate.qml:57
 #, kde-format
@@ -3378,7 +3378,7 @@ msgstr "插入链接"
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
-msgstr ""
+msgstr "上次查看：%1"
 
 #: src/qml/RegisterPassword.qml:28
 #, kde-format
@@ -3464,7 +3464,7 @@ msgstr "聊天室 ID：%1"
 #: src/qml/RoomData.qml:40
 #, kde-format
 msgid "Show m.room.member events"
-msgstr ""
+msgstr "显示 m.room.member 事件"
 
 #: src/qml/RoomData.qml:52
 #, kde-format
@@ -3499,7 +3499,7 @@ msgstr "聊天室设置"
 #: src/qml/RoomDrawer.qml:146 src/qml/RoomDrawerPage.qml:83
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "信息"
 
 #: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
@@ -3584,7 +3584,7 @@ msgstr[0] "%1 位成员"
 #: src/qml/RoomInformation.qml:156
 #, kde-format
 msgid "No member count"
-msgstr ""
+msgstr "无成员计数"
 
 #: src/qml/RoomListPage.qml:134
 #, kde-format
@@ -3622,7 +3622,7 @@ msgstr "展开 %1"
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Media"
-msgstr ""
+msgstr "聊天室媒体"
 
 #: src/qml/RoomPage.qml:100
 #, kde-format
@@ -3957,12 +3957,12 @@ msgstr "选定的默认语言："
 #: src/qml/SonnetConfigPage.qml:75
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: src/qml/SonnetConfigPage.qml:94
 #, kde-format
 msgid "Additional spell checking languages"
-msgstr ""
+msgstr "额外的拼写检查语言"
 
 #: src/qml/SonnetConfigPage.qml:95
 #, kde-format
@@ -4118,12 +4118,12 @@ msgstr "重新打开 SSO URL"
 msgid "Chat"
 msgstr "聊天"
 
-#: src/qml/StartChatPage.qml:93
+#: src/qml/StartChatPage.qml:94
 #, kde-format
 msgid "Join existing chat"
 msgstr "加入现有聊天"
 
-#: src/qml/StartChatPage.qml:114
+#: src/qml/StartChatPage.qml:115
 #, kde-format
 msgid "Create new chat"
 msgstr "创建新聊天"
@@ -4147,22 +4147,22 @@ msgid ""
 "this point."
 msgstr ""
 
-#: src/qml/TimelineView.qml:181
+#: src/qml/TimelineView.qml:183
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "跳转到第一条未读消息"
 
-#: src/qml/TimelineView.qml:204
+#: src/qml/TimelineView.qml:206
 #, kde-format
 msgid "Jump to latest message"
 msgstr "跳转到最新消息"
 
-#: src/qml/TimelineView.qml:229
+#: src/qml/TimelineView.qml:231
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "拖动项目到此处来分享"
 
-#: src/qml/TimelineView.qml:237
+#: src/qml/TimelineView.qml:239
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4298,28 +4298,28 @@ msgstr "另一端取消了会话验证。"
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
-msgstr ""
+msgstr "由于收到意外消息，会话验证被取消。"
 
 #: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
-msgstr ""
+msgstr "另一端因收到意外消息取消了会话验证。"
 
 #: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
-msgstr ""
+msgstr "由于收到未知会话的消息，会话验证被取消。"
 
 #: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
-msgstr ""
+msgstr "另一端因收到未知会话的消息取消了会话验证。"
 
 #: src/qml/VerificationCanceled.qml:39
 #, kde-format
@@ -4338,7 +4338,7 @@ msgstr "另一端因无法处理此验证方法取消了会话验证。"
 #: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
-msgstr "由于密钥不正确，会话验证已被取消。"
+msgstr "由于密钥不正确，会话验证被取消。"
 
 #: src/qml/VerificationCanceled.qml:45
 #, kde-format
@@ -4369,7 +4369,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
-msgstr ""
+msgstr "由于收到无效消息，会话验证被取消。"
 
 #: src/qml/VerificationCanceled.qml:53
 #, kde-format
@@ -4381,7 +4381,7 @@ msgstr "另一端因收到无效消息取消了会话验证。"
 #: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "会话已在另一台设备上接受"
 
 #: src/qml/VerificationCanceled.qml:59
 #, kde-format
@@ -4410,7 +4410,7 @@ msgstr "由于密钥不匹配，另一端取消了会话验证。"
 #: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr ""
+msgstr "由于未知错误，会话验证被取消。"
 
 #: src/qml/VideoDelegate.qml:142
 #, kde-format

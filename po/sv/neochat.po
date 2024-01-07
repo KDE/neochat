@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 01:33+0000\n"
+"POT-Creation-Date: 2024-01-07 01:54+0000\n"
 "PO-Revision-Date: 2023-09-04 20:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -85,12 +85,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr "Kontakta matrix-serveradministratören för support."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:527
-#: src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:485
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Meddelandet har tagits bort]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:480
+#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Meddelandet har tagits bort: %1]</i>"
@@ -421,14 +421,14 @@ msgstr "uppdaterade tillståndet"
 msgid "started a poll"
 msgstr "startade en opinionsundersökning"
 
-#: src/eventhandler.cpp:1142
+#: src/eventhandler.cpp:1088
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 användare: "
 msgstr[1] "%1 användare: "
 
-#: src/eventhandler.cpp:1145
+#: src/eventhandler.cpp:1091
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1088,13 +1088,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Skicka inbjudan"
 
-#: src/models/reactionmodel.cpp:85
+#: src/models/reactionmodel.cpp:68
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " och "
 
-#: src/models/reactionmodel.cpp:92
+#: src/models/reactionmodel.cpp:75
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1102,7 +1102,7 @@ msgid_plural " and %1 others"
 msgstr[0] " och %1 annan"
 msgstr[1] " och %1 andra"
 
-#: src/models/reactionmodel.cpp:96
+#: src/models/reactionmodel.cpp:79
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2794,17 +2794,17 @@ msgstr "Sök efter en användare..."
 msgid "Add"
 msgstr "Lägg till"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:134
+#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
 #, kde-format
 msgid "No users available"
 msgstr "Inga användare tillgängliga"
 
-#: src/qml/InviteUserPage.qml:100
+#: src/qml/InviteUserPage.qml:101
 #, kde-format
 msgid "Send invitation"
 msgstr "Skicka inbjudan"
 
-#: src/qml/InviteUserPage.qml:114
+#: src/qml/InviteUserPage.qml:115
 #, kde-format
 msgid "User is either already a member or has been invited"
 msgstr "Användaren är antingen redan en medlem eller har blivit inbjuden"
@@ -2867,14 +2867,14 @@ msgstr "Skriv in serverwebbadress t.ex. kde.org"
 msgid "Server URL"
 msgstr "Serverwebbadress"
 
-#: src/qml/JoinRoomPage.qml:240
+#: src/qml/JoinRoomPage.qml:239
 #, fuzzy, kde-format
 #| msgctxt "@label Parameter of a command"
 #| msgid "<room-address>"
 msgid "Enter a room address"
 msgstr "<rumadress>"
 
-#: src/qml/JoinRoomPage.qml:266
+#: src/qml/JoinRoomPage.qml:265
 #, fuzzy, kde-format
 #| msgctxt "@info:label"
 #| msgid "No rooms found"
@@ -4230,12 +4230,12 @@ msgstr "Öppna SSO-webbadress igen"
 msgid "Chat"
 msgstr "Chatt"
 
-#: src/qml/StartChatPage.qml:93
+#: src/qml/StartChatPage.qml:94
 #, kde-format
 msgid "Join existing chat"
 msgstr "Gå med i befintlig chatt"
 
-#: src/qml/StartChatPage.qml:114
+#: src/qml/StartChatPage.qml:115
 #, kde-format
 msgid "Create new chat"
 msgstr "Skapa ny chatt"
@@ -4261,22 +4261,22 @@ msgid ""
 "this point."
 msgstr ""
 
-#: src/qml/TimelineView.qml:181
+#: src/qml/TimelineView.qml:183
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Gå till första olästa meddelande"
 
-#: src/qml/TimelineView.qml:204
+#: src/qml/TimelineView.qml:206
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Gå till sista meddelande"
 
-#: src/qml/TimelineView.qml:229
+#: src/qml/TimelineView.qml:231
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Dra objekt hit för att dela dem"
 
-#: src/qml/TimelineView.qml:237
+#: src/qml/TimelineView.qml:239
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
