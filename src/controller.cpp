@@ -77,7 +77,6 @@ Controller::Controller(QObject *parent)
     });
 
 #ifndef Q_OS_WINDOWS
-    // Setup Unix signal handlers
     const auto unixExitHandler = [](int /*sig*/) -> void {
         QCoreApplication::quit();
     };
