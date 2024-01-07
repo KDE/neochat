@@ -146,6 +146,8 @@ add_library(neochat STATIC
     enums/pushrule.h
     models/itinerarymodel.cpp
     models/itinerarymodel.h
+    proxycontroller.cpp
+    proxycontroller.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN

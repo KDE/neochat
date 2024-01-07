@@ -84,13 +84,6 @@ public:
 
     [[nodiscard]] bool supportSystemTray() const;
 
-    /**
-     * @brief Sets the QNetworkProxy for the application.
-     *
-     * @sa QNetworkProxy::setApplicationProxy
-     */
-    Q_INVOKABLE void setApplicationProxy();
-
     bool isFlatpak() const;
 
     /**

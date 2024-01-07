@@ -28,6 +28,7 @@
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "notificationsmanager.h"
+#include "proxycontroller.h"
 #include "roommanager.h"
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
@@ -45,7 +46,7 @@ Controller::Controller(QObject *parent)
 {
     Connection::setRoomType<NeoChatRoom>();
 
-    setApplicationProxy();
+    ProxyController::instance().setApplicationProxy();
 
 #ifndef Q_OS_ANDROID
     setQuitOnLastWindowClosed();
@@ -313,36 +314,6 @@ void Controller::listenForNotifications()
 
     connector->registerClient(i18n("Receiving push notifications"));
 #endif
-}
-
-void Controller::setApplicationProxy()
-{
-    NeoChatConfig *cfg = NeoChatConfig::self();
-    QNetworkProxy proxy;
-
-    // type match to ProxyType from neochatconfig.kcfg
-    switch (cfg->proxyType()) {
-    case 1: // HTTP
-        proxy.setType(QNetworkProxy::HttpProxy);
-        proxy.setHostName(cfg->proxyHost());
-        proxy.setPort(cfg->proxyPort());
-        proxy.setUser(cfg->proxyUser());
-        proxy.setPassword(cfg->proxyPassword());
-        break;
-    case 2: // SOCKS 5
-        proxy.setType(QNetworkProxy::Socks5Proxy);
-        proxy.setHostName(cfg->proxyHost());
-        proxy.setPort(cfg->proxyPort());
-        proxy.setUser(cfg->proxyUser());
-        proxy.setPassword(cfg->proxyPassword());
-        break;
-    case 0: // System Default
-    default:
-        // do nothing
-        break;
-    }
-
-    QNetworkProxy::setApplicationProxy(proxy);
 }
 
 bool Controller::isFlatpak() const

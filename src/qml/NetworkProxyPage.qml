@@ -113,7 +113,7 @@ FormCard.FormCardPage {
                     Config.proxyPassword = passwordField.text
                     Config.save()
                     proxyConfigChanged = false
-                    Controller.setApplicationProxy()
+                    ProxyController.setApplicationProxy()
                 }
             }
         }
