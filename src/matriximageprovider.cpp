@@ -12,7 +12,6 @@
 
 #include <KLocalizedString>
 
-#include "controller.h"
 #include "neochatconnection.h"
 
 #include <Quotient/connection.h>

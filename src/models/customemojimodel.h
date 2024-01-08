@@ -6,9 +6,8 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 #include <QRegularExpression>
-#include <memory>
 
-class NeoChatConnection;
+#include "neochatconnection.h"
 
 struct CustomEmoji {
     QString name; // with :semicolons:

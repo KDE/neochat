@@ -7,10 +7,7 @@
 #include <qt6keychain/keychain.h>
 
 #include <KLocalizedString>
-#include <KWindowConfig>
 
-#include <QFile>
-#include <QFileInfo>
 #include <QGuiApplication>
 #include <QNetworkProxy>
 #include <QQuickTextDocument>
@@ -28,13 +25,11 @@
 #include <Quotient/eventstats.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
-#include <Quotient/user.h>
 
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "notificationsmanager.h"
 #include "roommanager.h"
-#include "windowcontroller.h"
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include "trayicon.h"

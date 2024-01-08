@@ -13,7 +13,6 @@
 #include "chatdocumenthandler.h"
 #include "enums/delegatetype.h"
 #include "models/mediamessagefiltermodel.h"
-#include "models/messageeventmodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/timelinemodel.h"
 

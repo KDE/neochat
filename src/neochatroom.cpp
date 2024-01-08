@@ -4,15 +4,10 @@
 #include "neochatroom.h"
 
 #include <QFileInfo>
-#include <QGuiApplication>
-#include <QMetaObject>
-#include <QMimeDatabase>
-#include <QPalette>
-#include <QTemporaryFile>
-#include <QTextDocument>
-
 #include <QMediaMetaData>
 #include <QMediaPlayer>
+#include <QMimeDatabase>
+#include <QTemporaryFile>
 
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/user.h>
@@ -35,13 +30,11 @@
 #include <Quotient/events/roommemberevent.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 #include <Quotient/events/simplestateevents.h>
-#include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
 
 #include "chatbarcache.h"
 #include "clipboard.h"
-#include "controller.h"
 #include "eventhandler.h"
 #include "events/joinrulesevent.h"
 #include "events/pollevent.h"
@@ -53,8 +46,6 @@
 #include "urlhelper.h"
 #include "utils.h"
 
-#include <KConfig>
-#include <KConfigGroup>
 #ifndef Q_OS_ANDROID
 #include <KIO/Job>
 #include <KIO/JobTracker>

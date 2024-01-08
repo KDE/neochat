@@ -5,11 +5,10 @@
 #include "roommanager.h"
 
 #include "chatbarcache.h"
-#include "controller.h"
 #include "enums/delegatetype.h"
-#include "models/messageeventmodel.h"
 #include "models/timelinemodel.h"
 #include "neochatconfig.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 
 #include <KLocalizedString>

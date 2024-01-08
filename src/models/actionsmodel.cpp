@@ -4,7 +4,6 @@
 #include "actionsmodel.h"
 
 #include "chatbarcache.h"
-#include "controller.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include <Quotient/events/roommemberevent.h>

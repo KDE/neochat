@@ -7,7 +7,7 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/room.h>
 
-#include "controller.h"
+#include "neochatconnection.h"
 
 SpaceChildrenModel::SpaceChildrenModel(QObject *parent)
     : QAbstractItemModel(parent)

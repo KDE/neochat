@@ -11,7 +11,6 @@
 #include <Quotient/csapi/pushrules.h>
 #include <Quotient/jobs/basejob.h>
 
-#include "controller.h"
 #include "neochatconfig.h"
 
 #include <KLazyLocalizedString>

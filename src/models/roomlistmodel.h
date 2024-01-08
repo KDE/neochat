@@ -3,8 +3,6 @@
 
 #pragma once
 
-#include <Quotient/events/roomevent.h>
-
 #include <QAbstractListModel>
 #include <QQmlEngine>
 

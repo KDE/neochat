@@ -21,7 +21,6 @@
 #endif
 
 #include "controller.h"
-#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "roommanager.h"

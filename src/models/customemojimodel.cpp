@@ -6,10 +6,8 @@
 #include <QImage>
 #include <QMimeDatabase>
 
-#include "controller.h"
 #include "emojimodel.h"
 
-#include <Quotient/connection.h>
 #include <Quotient/csapi/account-data.h>
 #include <Quotient/csapi/content-repo.h>
 

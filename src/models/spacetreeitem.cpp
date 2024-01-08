@@ -3,7 +3,7 @@
 
 #include "spacetreeitem.h"
 
-#include "controller.h"
+#include "neochatconnection.h"
 
 SpaceTreeItem::SpaceTreeItem(NeoChatConnection *connection,
                              SpaceTreeItem *parent,

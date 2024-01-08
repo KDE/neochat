@@ -6,7 +6,6 @@
 #include <Quotient/csapi/space_hierarchy.h>
 #include <Quotient/qt_connection_util.h>
 
-#include "controller.h"
 #include "neochatroom.h"
 
 using namespace Quotient;

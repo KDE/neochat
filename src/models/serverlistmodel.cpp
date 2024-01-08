@@ -3,8 +3,6 @@
 
 #include "serverlistmodel.h"
 
-#include "controller.h"
-
 #include <Quotient/connection.h>
 
 #include <QDebug>
@@ -12,6 +10,8 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
+
+#include "neochatconnection.h"
 
 ServerListModel::ServerListModel(QObject *parent)
     : QAbstractListModel(parent)

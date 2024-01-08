@@ -3,14 +3,11 @@
 
 #include "roomlistmodel.h"
 
-#include "controller.h"
 #include "eventhandler.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
-
-#include <Quotient/user.h>
 
 #include <QDebug>
 #if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
@@ -23,7 +20,6 @@
 
 #include <KLocalizedString>
 #include <QGuiApplication>
-#include <utility>
 
 using namespace Quotient;
 

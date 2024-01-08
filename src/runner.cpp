@@ -5,7 +5,6 @@
 
 #include <QDBusMetaType>
 
-#include "controller.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
