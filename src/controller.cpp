@@ -184,20 +184,6 @@ void Controller::invokeLogin()
                     m_accountsLoading.removeAll(connection->userId());
                     Q_EMIT accountsLoadingChanged();
                 });
-                connect(connection, &NeoChatConnection::loginError, this, [this, connection](const QString &error, const QString &) {
-                    if (error == "Unrecognised access token"_ls) {
-                        Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"), {});
-                        connection->logout(false);
-                    } else if (error == "Connection closed"_ls) {
-                        Q_EMIT errorOccured(i18n("Login Failed: %1", error), {});
-                        // Failed due to network connection issue. This might happen when the homeserver is
-                        // temporary down, or the user trying to re-launch NeoChat in a network that cannot
-                        // connect to the homeserver. In this case, we don't want to do logout().
-                    } else {
-                        Q_EMIT errorOccured(i18n("Login Failed: %1", error), {});
-                        connection->logout(true);
-                    }
-                });
                 connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
                     Q_EMIT errorOccured(i18n("Network Error: %1", error), {});
                 });
