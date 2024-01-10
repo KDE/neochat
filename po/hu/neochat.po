@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2024-01-08 13:15+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -19,72 +19,60 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: src/controller.cpp:121 src/controller.cpp:341
+#: src/controller.cpp:121 src/controller.cpp:327
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "Gépelési értesítések küldése"
 
-#: src/controller.cpp:189
-#, kde-format
-msgid "Login Failed: Access Token invalid or revoked"
-msgstr ""
-"Sikertelen bejelentkezés: A hozzáférést biztosító token érvénytelen vagy "
-"visszavonták"
-
-#: src/controller.cpp:192 src/controller.cpp:197 src/login.cpp:93
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Sikertelen bejelentkezés: %1"
-
-#: src/controller.cpp:202
+#: src/controller.cpp:188
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Hálózati hiba: %1"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "A hozzáférési token  nem található"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Lehet, hogy kitörölték?"
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "A kulcstartóhoz való hozzáférés megtagadva."
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Kérjük, adj hozzáférést a NeoChat-nek a tokenhez"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "No keychain available."
 msgstr "Nincs elérhető kulcstartó."
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Kérjük, telepíts egy kulcstartót Linuxon: pl. a KWallet-et vagy a GNOME "
 "Keyring-et"
 
-#: src/controller.cpp:234
+#: src/controller.cpp:220
 #, kde-format
 msgid "Unable to read access token"
 msgstr "A hozzáférési token olvasása nem sikerült"
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "File too large to download."
 msgstr "A fájl túl nagy a letöltéshez."
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
@@ -468,6 +456,11 @@ msgstr "Célhely"
 #, kde-format
 msgid "Network Error"
 msgstr "Hálózati hiba"
+
+#: src/login.cpp:93
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Sikertelen bejelentkezés: %1"
 
 #: src/main.cpp:129
 #, kde-format
@@ -4808,6 +4801,11 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgid "Login Failed: Access Token invalid or revoked"
+#~ msgstr ""
+#~ "Sikertelen bejelentkezés: A hozzáférést biztosító token érvénytelen vagy "
+#~ "visszavonták"
 
 #~ msgid "[REDACTED]"
 #~ msgstr "[KITAKARVA]"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -20,70 +20,60 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.07.70\n"
 
-#: src/controller.cpp:121 src/controller.cpp:341
+#: src/controller.cpp:121 src/controller.cpp:327
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "Tippbenachrichtigungen senden"
 
-#: src/controller.cpp:189
-#, kde-format
-msgid "Login Failed: Access Token invalid or revoked"
-msgstr "Anmeldung fehlgeschlagen: Zugangs-Token ist ungültig oder widerrufen"
-
-#: src/controller.cpp:192 src/controller.cpp:197 src/login.cpp:93
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Anmeldung fehlgeschlagen: %1"
-
-#: src/controller.cpp:202
+#: src/controller.cpp:188
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Netzwerkfehler: %1"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Zugangs-Token kann nicht gefunden werden"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Vielleicht ist es gelöscht worden?"
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Der Zugriff auf das Schlüsselbund ist verweigert worden."
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Bitte erlauben Sie NeoChat, das Zugangs-Token zu lesen"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "No keychain available."
 msgstr "Kein Schlüsselbund verfügbar."
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Bitte installieren Sie ein Schlüsselbund, z. B. KWallet oder GNOME-"
 "Schlüsselbund unter Linux"
 
-#: src/controller.cpp:234
+#: src/controller.cpp:220
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "File too large to download."
 msgstr "Datei zu groß für einen Download."
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
@@ -467,6 +457,11 @@ msgstr "Ziel"
 #, kde-format
 msgid "Network Error"
 msgstr "Netzwerkfehler"
+
+#: src/login.cpp:93
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Anmeldung fehlgeschlagen: %1"
 
 #: src/main.cpp:129
 #, kde-format
@@ -4823,6 +4818,10 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#~ msgid "Login Failed: Access Token invalid or revoked"
+#~ msgstr ""
+#~ "Anmeldung fehlgeschlagen: Zugangs-Token ist ungültig oder widerrufen"
 
 #~ msgid "[REDACTED]"
 #~ msgstr "[GELÖSCHT]"

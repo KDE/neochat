@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2023-12-03 14:26+0100\n"
 "Last-Translator: Freek de Kruijf <f.de.kruijf@gmail.com>\n"
 "Language-Team: \n"
@@ -18,68 +18,58 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:121 src/controller.cpp:341
+#: src/controller.cpp:121 src/controller.cpp:327
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Push-meldingen ontvangen"
 
-#: src/controller.cpp:189
-#, kde-format
-msgid "Login Failed: Access Token invalid or revoked"
-msgstr "Aanmelden is mislukt: toegangstoken ongeldig of ingetrokken"
-
-#: src/controller.cpp:192 src/controller.cpp:197 src/login.cpp:93
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Aanmelden mislukt: %1"
-
-#: src/controller.cpp:202
+#: src/controller.cpp:188
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Netwerkfout: %1"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Toegangstoken is niet gevonden"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Misschien is het verwijderd?"
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Toegang tot sleutelring is geweigerd."
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "laat NeoChat het toegangstoken lezen"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "No keychain available."
 msgstr "Geen sleutelring beschikbaar"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installeer een sleutelring, bijv. KWallet of GNOME sleutelring op Linux"
 
-#: src/controller.cpp:234
+#: src/controller.cpp:220
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Lezen van toegangstoken lukt niet"
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "File too large to download."
 msgstr "Bestand is te groot om te downloaden."
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Neem contact op met uw matrix-serverbeheerder voor ondersteuning."
@@ -462,6 +452,11 @@ msgstr "Bestemming"
 #, kde-format
 msgid "Network Error"
 msgstr "Netwerkfout"
+
+#: src/login.cpp:93
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Aanmelden mislukt: %1"
 
 #: src/main.cpp:129
 #, kde-format
@@ -4645,6 +4640,9 @@ msgstr "Tonen"
 #, kde-format
 msgid "Quit"
 msgstr "Afsluiten"
+
+#~ msgid "Login Failed: Access Token invalid or revoked"
+#~ msgstr "Aanmelden is mislukt: toegangstoken ongeldig of ingetrokken"
 
 #~ msgid "[REDACTED]"
 #~ msgstr "[GEREDIGEERD]"

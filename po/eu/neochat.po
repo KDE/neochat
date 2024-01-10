@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2023-12-07 19:51+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,68 +20,58 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: src/controller.cpp:121 src/controller.cpp:341
+#: src/controller.cpp:121 src/controller.cpp:327
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Bultzada-jakinarazpenak jasotzea"
 
-#: src/controller.cpp:189
-#, kde-format
-msgid "Login Failed: Access Token invalid or revoked"
-msgstr "Saio-hastea huts egin du: Sartzeko token baliogabea edo indargabetua"
-
-#: src/controller.cpp:192 src/controller.cpp:197 src/login.cpp:93
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Saio-hastea huts egin du: %1"
-
-#: src/controller.cpp:202
+#: src/controller.cpp:188
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Sareko errorea: %1"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Sartzeko tokena ez du aurkitu"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Agian ezabatu egin da?"
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Gako-katerako sarrera ukatu egin da."
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Mesedez, utzi NeoChat-i sartzeko tokena irakurtzen"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "No keychain available."
 msgstr "Ez dago gako-kate erabilgarririk."
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Mesedez, instalatu gako-kate bat, adib. KWallet edo «GNOME keyring» Linux-en"
 
-#: src/controller.cpp:234
+#: src/controller.cpp:220
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Ez da sartzeko tokena irakurtzeko gai"
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "File too large to download."
 msgstr "Fitxategia zama-jaisteko handiegia da."
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
@@ -467,6 +457,11 @@ msgstr "Jomuga"
 #, kde-format
 msgid "Network Error"
 msgstr "Sareko errorea"
+
+#: src/login.cpp:93
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Saio-hastea huts egin du: %1"
 
 #: src/main.cpp:129
 #, kde-format
@@ -4629,6 +4624,10 @@ msgstr "Erakutsi"
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
+
+#~ msgid "Login Failed: Access Token invalid or revoked"
+#~ msgstr ""
+#~ "Saio-hastea huts egin du: Sartzeko token baliogabea edo indargabetua"
 
 #~ msgid "[REDACTED]"
 #~ msgstr "[ERREDAKZIO LANA DU]"

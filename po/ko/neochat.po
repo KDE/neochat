@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,68 +17,58 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/controller.cpp:121 src/controller.cpp:341
+#: src/controller.cpp:121 src/controller.cpp:327
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "입력 알림 보내기"
 
-#: src/controller.cpp:189
-#, kde-format
-msgid "Login Failed: Access Token invalid or revoked"
-msgstr "로그인 실패: 접근 토큰이 잘못되었거나 취소됨"
-
-#: src/controller.cpp:192 src/controller.cpp:197 src/login.cpp:93
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "로그인 실패: %1"
-
-#: src/controller.cpp:202
+#: src/controller.cpp:188
 #, kde-format
 msgid "Network Error: %1"
 msgstr "네트워크 오류: %1"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "접근 토큰을 찾을 수 없음"
 
-#: src/controller.cpp:224
+#: src/controller.cpp:210
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "삭제되었을 수도 있습니다."
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "키체인 접근이 거부되었습니다."
 
-#: src/controller.cpp:228
+#: src/controller.cpp:214
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat에서 접근 토큰 사용을 허용하십시오"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "No keychain available."
 msgstr "키체인을 사용할 수 없습니다."
 
-#: src/controller.cpp:231
+#: src/controller.cpp:217
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "키체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모음 등이 있습니다"
 
-#: src/controller.cpp:234
+#: src/controller.cpp:220
 #, kde-format
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "File too large to download."
 msgstr "파일이 다운로드하기에 너무 큽니다."
 
-#: src/controller.cpp:310
+#: src/controller.cpp:296
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
@@ -462,6 +452,11 @@ msgstr "대상"
 #, kde-format
 msgid "Network Error"
 msgstr "네트워크 오류"
+
+#: src/login.cpp:93
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "로그인 실패: %1"
 
 #: src/main.cpp:129
 #, kde-format
@@ -4635,6 +4630,9 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgid "Login Failed: Access Token invalid or revoked"
+#~ msgstr "로그인 실패: 접근 토큰이 잘못되었거나 취소됨"
 
 #~ msgid "[REDACTED]"
 #~ msgstr "[검열됨]"
