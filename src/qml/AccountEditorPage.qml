@@ -61,7 +61,7 @@ FormCard.FormCardPage {
             text: i18n("Upload new avatar")
             display: QQC2.AbstractButton.IconOnly
 
-            onClicked: parent.onClicked()
+            onClicked: parent.clicked()
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
