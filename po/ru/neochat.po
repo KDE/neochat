@@ -1,14 +1,14 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# Alexander Yavorsky <kekcuha@gmail.com>, 2022, 2024.
+# SPDX-FileCopyrightText: 2022, 2024 Alexander Yavorsky <kekcuha@gmail.com>
 # Olesya Gerasimenko <translation-team@basealt.ru>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 01:34+0000\n"
-"PO-Revision-Date: 2024-01-04 15:41+0300\n"
+"PO-Revision-Date: 2024-01-10 21:33+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/controller.cpp:121 src/controller.cpp:327
 #, fuzzy, kde-format
@@ -474,12 +474,11 @@ msgid "Matrix client"
 msgstr "Клиент Matrix"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr ""
 "© Black Hat 2018-2020\n"
-"© Сообщество KDE 2020-2022"
+"© Сообщество KDE 2020-2023"
 
 #: src/main.cpp:134
 #, kde-format
@@ -534,10 +533,9 @@ msgid "Your emails"
 msgstr "kekcuha@gmail.com, farline99@yandex.ru, translation-team@basealt.ru"
 
 #: src/main.cpp:147
-#, fuzzy, kde-format
-#| msgid "A Qt5 library to write cross-platform clients for Matrix"
+#, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "Библиотека Qt5 для написания кроссплатформенных клиентов Matrix"
+msgstr "Библиотека Qt для написания кроссплатформенных клиентов Matrix"
 
 #: src/main.cpp:149
 #, kde-format
@@ -957,18 +955,16 @@ msgid "Custom"
 msgstr "Пользовательские"
 
 #: src/models/imagepacksmodel.cpp:87
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr "отправил(а) наклейку"
+msgstr "Свои наклейки"
 
 #: src/models/imagepacksmodel.cpp:87
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "Не найдено ни одного эмодзи"
+msgstr "Свои эмодзи"
 
 #: src/models/messagefiltermodel.cpp:125
 #, fuzzy, kde-format
@@ -1007,7 +1003,7 @@ msgstr " или "
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
-msgstr " и"
+msgstr " и "
 
 #: src/models/messagefiltermodel.cpp:149
 #, kde-format
@@ -1016,53 +1012,39 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/pushrulemodel.cpp:20
-#, fuzzy
-#| msgid "Enable notifications for this account"
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "Включить уведомления для этой учётной записи"
 
 #: src/models/pushrulemodel.cpp:21
-#, fuzzy
-#| msgid "Messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
 msgstr "Сообщения в личных чатах"
 
 #: src/models/pushrulemodel.cpp:22
-#, fuzzy
-#| msgid "Encrypted messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
 msgstr "Зашифрованные сообщения в личных чатах"
 
 #: src/models/pushrulemodel.cpp:23
-#, fuzzy
-#| msgid "Messages in group chats"
 msgctxt "Notification type"
 msgid "Messages in group chats"
 msgstr "Сообщения в групповых чатах"
 
 #: src/models/pushrulemodel.cpp:24
-#, fuzzy
-#| msgid "Messages in encrypted group chats"
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
 msgstr "Сообщения в зашифрованных групповых чатах"
 
 #: src/models/pushrulemodel.cpp:25
-#, fuzzy
-#| msgid "Room upgrade messages"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "Сообщения об обновлении комнаты"
 
 #: src/models/pushrulemodel.cpp:26
-#, fuzzy
-#| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing my display name"
 msgstr "Сообщения, содержащие моё отображаемое имя"
@@ -1085,22 +1067,16 @@ msgid "Messages containing the local part of my Matrix ID"
 msgstr "Сообщения, содержащие моё отображаемое имя"
 
 #: src/models/pushrulemodel.cpp:30
-#, fuzzy
-#| msgid "Whole room (@room) notifications"
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
 msgstr "Уведомления для всех в комнате (@room)"
 
 #: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Invites to a room"
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "Приглашения в комнату"
 
 #: src/models/pushrulemodel.cpp:32
-#, fuzzy
-#| msgid "Call invitation"
 msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Приглашение на вызов"
@@ -1162,16 +1138,14 @@ msgid "Spaces"
 msgstr "Пространства"
 
 #: src/neochatconnection.cpp:202
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#, kde-format
 msgid "Room creation failed: %1"
-msgstr "Не удалось создать комнату: «%1»"
+msgstr "Не удалось создать комнату: %1"
 
 #: src/neochatconnection.cpp:234
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#, kde-format
 msgid "Space creation failed: %1"
-msgstr "Не удалось создать комнату: «%1»"
+msgstr "Не удалось создать пространство: %1"
 
 #: src/neochatroom.cpp:1566 src/neochatroom.cpp:1567
 #, kde-format
@@ -1182,7 +1156,7 @@ msgstr "Жалоба отправлена."
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
-msgstr ""
+msgstr "Широта: %1, долгота: %2"
 
 #: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:326
 #, kde-format
@@ -1350,16 +1324,15 @@ msgid "Account Management"
 msgstr "Управление учётной "
 
 #: src/qml/AccountEditorPage.qml:214
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgid "Deactivate Account"
-msgstr "Редактировать учётную запись"
+msgstr "Деактивировать учётную запись"
 
 #: src/qml/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
-msgstr ""
+msgstr "Подтверждение деактивации учётной записи"
 
 #: src/qml/AccountEditorPage.qml:223
 #, kde-format
@@ -1388,9 +1361,9 @@ msgid "Account editor"
 msgstr "Редактирование учётной записи"
 
 #: src/qml/AccountMenu.qml:30
-#, fuzzy, kde-format
+#, kde-format
 msgid "Notification settings"
-msgstr "Уведомления комнаты"
+msgstr "Параметры уведомлений"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
 #: src/qml/GlobalMenu.qml:34 src/qml/main.qml:426 src/qml/UserInfo.qml:123
@@ -1610,18 +1583,16 @@ msgstr "Цветовая схема"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title"
 msgid "Deactivate Account"
-msgstr "Редактировать учётную запись"
+msgstr "Деактивация учётной записи"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
+#, kde-format
 msgctxt "@title"
 msgid "Warning"
-msgstr "Предупреждение: %1"
+msgstr "Предупреждение"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:24
 #, kde-format
@@ -1753,32 +1724,27 @@ msgstr "Покинуть комнату"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
 #: src/qml/ExploreComponentMobile.qml:151
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "Покинуть пространство"
+msgstr "Создание пространства"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
 #: src/qml/ExploreComponentMobile.qml:139
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Room"
-msgstr "Создать комнату"
+msgstr "Создание комнаты"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgid "New Space Information"
-msgstr "Информация о сервере"
+msgstr "Сведения о новом пространстве"
 
 #: src/qml/CreateRoomDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "New Room Information"
-msgstr "Информация о комнате"
+msgstr "Сведения о новой комнате"
 
 #: src/qml/CreateRoomDialog.qml:44
 #, fuzzy, kde-format
@@ -1788,22 +1754,19 @@ msgid "Select type"
 msgstr "Выделить все"
 
 #: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Комнаты"
+msgstr "Внутреннее помещение"
 
 #: src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Space"
-msgstr "Пространства"
+msgstr "Пространство"
 
 #: src/qml/CreateRoomDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "No Topic"
+#, kde-format
 msgid "Topic:"
-msgstr "Тема не задана"
+msgstr "Тема:"
 
 #: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
 #, fuzzy, kde-format
@@ -1836,8 +1799,7 @@ msgstr ""
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
 #: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
 #: src/qml/SelectParentDialog.qml:131
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Обзор комнат"
@@ -1912,27 +1874,24 @@ msgid "Loading…"
 msgstr "Загрузка..."
 
 #: src/qml/DevicesPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "This Device"
-msgstr "Устройства"
+msgstr "Это устройство"
 
 #: src/qml/DevicesPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgid "Verified Devices"
-msgstr "Верифицировать устройство"
+msgstr "Проверенные устройства"
 
 #: src/qml/DevicesPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgid "Unverified Devices"
-msgstr "Верифицировать устройство"
+msgstr "Непроверенные устройства"
 
 #: src/qml/DevicesPage.qml:48
 #, kde-format
 msgid "Devices without Encryption Support"
-msgstr ""
+msgstr "Устройства без поддержки шифрования"
 
 #: src/qml/DevicesPage.qml:63
 #, kde-format
@@ -2031,10 +1990,9 @@ msgid "Re-send confirmation e-mail"
 msgstr ""
 
 #: src/qml/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "No stickers"
-msgstr "отправил(а) наклейку"
+msgstr "Не найдено ни одной наклейки"
 
 #: src/qml/EmojiGrid.qml:83
 #, kde-format
@@ -2042,15 +2000,14 @@ msgid "No emojis"
 msgstr "Не найдено ни одного эмодзи"
 
 #: src/qml/EmojiPicker.qml:52 src/qml/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Не найдено ни одного эмодзи"
+msgstr "Эмодзи"
 
 #: src/qml/EmojiPicker.qml:59 src/qml/EmoticonsPage.qml:27
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Наклейки"
 
 #: src/qml/EmojiSas.qml:25
 #, kde-format
@@ -2071,50 +2028,43 @@ msgid "They don't match"
 msgstr "Они не совпадают"
 
 #: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "отправил(а) наклейку"
+msgstr "Изменение наклейки"
 
 #: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "отправил(а) наклейку"
+msgstr "Добавить наклейку"
 
 #: src/qml/EmoticonEditorPage.qml:28 src/qml/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
-msgstr "Добавить эмоджи..."
+msgstr "Изменение эмодзи"
 
 #: src/qml/EmoticonEditorPage.qml:28 src/qml/EmoticonFormCard.qml:103
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
-msgstr "Добавить эмоджи..."
+msgstr "Добавить эмодзи"
 
 #: src/qml/EmoticonEditorPage.qml:31
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Sticker"
-msgstr "отправил(а) наклейку"
+msgstr "Наклейка"
 
 #: src/qml/EmoticonEditorPage.qml:31
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emoji"
-msgstr "Не найдено ни одного эмодзи"
+msgstr "Эмодзи"
 
 #: src/qml/EmoticonEditorPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Change the room name"
+#, kde-format
 msgid "Change Image"
-msgstr "Изменять имя комнаты"
+msgstr "Сменить изображение"
 
 #: src/qml/EmoticonEditorPage.qml:60
 #, kde-format
@@ -2124,40 +2074,34 @@ msgstr ""
 #: src/qml/EmoticonEditorPage.qml:100
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "Короткий код:"
 
 #: src/qml/EmoticonEditorPage.qml:105
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgid "Description:"
-msgstr "Назначение"
+msgstr "Описание:"
 
 #: src/qml/EmoticonFormCard.qml:71
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
-msgstr "Назначение"
+msgstr "Описание отсутствует"
 
 #: src/qml/EmoticonFormCard.qml:112
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgid "Add Emoji"
-msgstr "Добавить эмоджи..."
+msgstr "Добавить эмодзи"
 
 #: src/qml/EmoticonFormCard.qml:112
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Add Sticker"
-msgstr "отправил(а) наклейку"
+msgstr "Добавить наклейку"
 
 #: src/qml/EmoticonsPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Stickers & Emojis"
-msgstr ""
+msgstr "Наклейки и эмодзи"
 
 #: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:191
 #, kde-format
@@ -2182,8 +2126,7 @@ msgid "Start a Chat"
 msgstr "Начать чат"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start a Chat"
 msgstr "Начать чат"
@@ -2213,11 +2156,9 @@ msgid "Search"
 msgstr "Поиск"
 
 #: src/qml/ExploreComponentMobile.qml:75
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create New"
-msgstr "Покинуть пространство"
+msgstr "Создать"
 
 #: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
 #, kde-format
@@ -2298,9 +2239,9 @@ msgid "View Source"
 msgstr "Исходный код"
 
 #: src/qml/FullScreenMap.qml:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "View Location"
-msgstr "Отправить приглашение"
+msgstr "Посмотреть местоположение"
 
 #: src/qml/FullScreenMap.qml:69
 #, kde-format
@@ -2489,10 +2430,9 @@ msgid "General settings"
 msgstr "Основные параметры"
 
 #: src/qml/GeneralSettingsPage.qml:24
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
+#, kde-format
 msgid "Show in System Tray"
-msgstr "Сворачивать в системный лоток"
+msgstr "Показывать в системном лотке"
 
 #: src/qml/GeneralSettingsPage.qml:38
 #, kde-format
@@ -2734,10 +2674,9 @@ msgid "No name"
 msgstr "Без имени"
 
 #: src/qml/Homeserver.qml:19
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server Url:"
-msgstr "Адрес сервера"
+msgstr "Адрес сервера:"
 
 #: src/qml/Homeserver.qml:24
 #, kde-format
@@ -2763,7 +2702,7 @@ msgstr "Реакция"
 #: src/qml/HoverActions.qml:110
 #, kde-format
 msgid "Reply in Thread"
-msgstr ""
+msgstr "Ответить в ветке"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2822,11 +2761,10 @@ msgid "Accept this invitation?"
 msgstr "Принять приглашение?"
 
 #: src/qml/InvitationView.qml:21
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr "Перестать игнорировать этого пользователя"
+msgstr "Отклонить и игнорировать пользователя"
 
 #: src/qml/InvitationView.qml:30
 #, kde-format
@@ -2866,7 +2804,7 @@ msgstr "Отправить приглашение"
 #: src/qml/InviteUserPage.qml:115
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Пользователь либо уже является участником, либо приглашён"
 
 #: src/qml/JoinRoomPage.qml:40
 #, kde-format
@@ -2889,8 +2827,7 @@ msgid "Home Server"
 msgstr "Домашний сервер"
 
 #: src/qml/JoinRoomPage.qml:106
-#, fuzzy, kde-format
-#| msgid "Add new server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Добавить сервер"
@@ -3002,27 +2939,25 @@ msgid "Please wait. This might take a little while."
 msgstr "Дождитесь завершения выполняемого действия…"
 
 #: src/qml/LocationChooser.qml:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Choose a Location"
-msgstr "Выберите файл на компьютере"
+msgstr "Выбор местоположения"
 
 #: src/qml/LocationChooser.qml:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Send this location"
-msgstr "Отправлять уведомления о наборе текста"
+msgstr "Отправить это местоположение"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
-msgstr "Уведомления"
+msgstr "Местоположения"
 
 #: src/qml/LocationsPage.qml:51
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgid "There are no locations shared in this room."
-msgstr "Вы уже находитесь в этой комнате."
+msgstr "В этой комнате не публиковались местоположения."
 
 #: src/qml/Login.qml:24
 #, kde-format
@@ -3030,10 +2965,9 @@ msgid "Matrix ID:"
 msgstr "Идентификатор Matrix:"
 
 #: src/qml/Login.qml:26
-#, fuzzy, kde-format
-#| msgid "Matrix ID:"
+#, kde-format
 msgid "Matrix ID"
-msgstr "Идентификатор Matrix:"
+msgstr "Идентификатор Matrix"
 
 #: src/qml/Login.qml:37 src/qml/WelcomePage.qml:154
 #, kde-format
@@ -3047,15 +2981,13 @@ msgid "Already logged in"
 msgstr "Вход уже выполнен"
 
 #: src/qml/LoginMethod.qml:18
-#, fuzzy, kde-format
-#| msgid "Login with password"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Войти по паролю"
 
 #: src/qml/LoginMethod.qml:24
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Использовать SSO"
@@ -3067,8 +2999,7 @@ msgid "Login"
 msgstr "Войти"
 
 #: src/qml/LoginRegister.qml:29
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Зарегистрироваться"
@@ -3119,7 +3050,7 @@ msgstr "Идентификатор комнаты"
 #: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "ОК"
 
 #: src/qml/ManualRoomDialog.qml:86
 #, kde-format
@@ -3141,15 +3072,13 @@ msgstr "Введённый текст не является допустимым
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
-msgstr ""
+msgstr "Перенаправить"
 
 #: src/qml/MessageDelegateContextMenu.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "Жалоба на сообщение"
+msgstr "Перенапрвавленеие сообщения"
 
 #: src/qml/MessageDelegateContextMenu.qml:156
 #, kde-format
@@ -3271,17 +3200,15 @@ msgid "Delete keyword"
 msgstr "Удалить ключевое слово"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Уведомления"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "Уведомления"
+msgstr "Уведомлений нет"
 
 #: src/qml/OpenFileDialog.qml:12
 #, fuzzy, kde-format
@@ -3291,10 +3218,9 @@ msgid "Select a File"
 msgstr "Выделить все"
 
 #: src/qml/Password.qml:32
-#, fuzzy, kde-format
-#| msgid "Enter your password"
+#, kde-format
 msgid "Invalid username or password"
-msgstr "Введите свой пароль:"
+msgstr "Неправильное имя или пароль"
 
 #: src/qml/Permissions.qml:33
 #, kde-format
@@ -3472,10 +3398,9 @@ msgid "Edit User Power Level"
 msgstr "Изменить уровень возможностей пользователя"
 
 #: src/qml/PowerLevelDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Set user power level"
+#, kde-format
 msgid "New power level"
-msgstr "Установить уровень возможностей пользователя"
+msgstr "Новый уровень возможностей пользователя"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3490,32 +3415,32 @@ msgstr "По умолчанию"
 #: src/qml/QuickFormatBar.qml:23
 #, kde-format
 msgid "Bold"
-msgstr ""
+msgstr "Полужирный"
 
 #: src/qml/QuickFormatBar.qml:42
 #, kde-format
 msgid "Italic"
-msgstr ""
+msgstr "Курсив"
 
 #: src/qml/QuickFormatBar.qml:61
 #, kde-format
 msgid "Strikethrough"
-msgstr ""
+msgstr "Зачёркнутый"
 
 #: src/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Code block"
-msgstr ""
+msgstr "Блок кода"
 
 #: src/qml/QuickFormatBar.qml:99
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Цитата"
 
 #: src/qml/QuickFormatBar.qml:118
 #, kde-format
 msgid "Insert link"
-msgstr ""
+msgstr "Вставить ссылку"
 
 #: src/qml/ReadMarkerDelegate.qml:32
 #, kde-format
@@ -3615,16 +3540,14 @@ msgid "Show m.room.member events"
 msgstr "Показывать смену имён"
 
 #: src/qml/RoomData.qml:52
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Не найдено ни одной комнаты"
+msgstr "Показывать данные учётной записи комнаты"
 
 #: src/qml/RoomData.qml:58
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Room Account Data"
-msgstr "Не найдено ни одной комнаты"
+msgstr "Данные учётной записи комнаты"
 
 #: src/qml/RoomData.qml:77
 #, fuzzy, kde-format
@@ -3648,33 +3571,28 @@ msgid "Room settings"
 msgstr "Параметры комнаты"
 
 #: src/qml/RoomDrawer.qml:146 src/qml/RoomDrawerPage.qml:83
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgid "Information"
-msgstr "Информация о комнате"
+msgstr "Сведения"
 
 #: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Media"
-msgstr ""
+msgstr "Медиа"
 
 #: src/qml/RoomDrawerPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Параметры комнаты"
+msgstr "Параметры"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "Участники пространства"
 
 #: src/qml/RoomInformation.qml:41
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "Информация о комнате"
@@ -3711,10 +3629,9 @@ msgid "Make room favorite"
 msgstr "Добавить комнату в избранное"
 
 #: src/qml/RoomInformation.qml:122
-#, fuzzy, kde-format
-#| msgid "Search in this room"
+#, kde-format
 msgid "Show locations for this room"
-msgstr "Искать в этой комнате"
+msgstr "Показать местоположения для этой комнаты"
 
 #: src/qml/RoomInformation.qml:134
 #, kde-format
@@ -3722,8 +3639,7 @@ msgid "Members"
 msgstr "Участники"
 
 #: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Пригласить пользователя"
@@ -3734,7 +3650,7 @@ msgid "Invite user to room"
 msgstr "Пригласить пользователя в комнату"
 
 #: src/qml/RoomInformation.qml:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 участник"
@@ -3743,7 +3659,7 @@ msgstr[2] "%1 участников"
 msgstr[3] "%1 участник"
 
 #: src/qml/RoomInformation.qml:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "No member count"
 msgstr "Количество участников не подсчитывается"
 
@@ -3772,14 +3688,13 @@ msgstr "Искать в каталоге комнат"
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
-msgstr ""
+msgstr "Свернуть %1"
 
 #: src/qml/RoomListPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Expand preview"
+#, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
-msgstr "Увеличить область предварительного просмотра"
+msgstr "Развернуть %1"
 
 #: src/qml/RoomMedia.qml:28
 #, fuzzy, kde-format
@@ -3968,8 +3883,7 @@ msgid "No results found"
 msgstr "Ничего не найдено"
 
 #: src/qml/Security.qml:17
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@title"
 msgid "Security"
 msgstr "Безопасность"
@@ -3978,26 +3892,22 @@ msgstr "Безопасность"
 #, kde-format
 msgctxt "@title"
 msgid "Keys"
-msgstr ""
+msgstr "Ключи"
 
 #: src/qml/Security.qml:25
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "Device key"
-msgstr "Устройства"
+msgstr "Ключ устройства"
 
 #: src/qml/Security.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Encryption"
+#, kde-format
 msgid "Encryption key"
-msgstr "Шифрование"
+msgstr "Ключ шифрования файла"
 
 #: src/qml/Security.qml:33
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "Device id"
-msgstr "Устройства"
+msgstr "Идентификатор устройства"
 
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
@@ -4383,12 +4293,10 @@ msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
 
 #: src/qml/UserDetailDialog.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
-msgstr "Информация о учётной записи"
+msgstr "Учётная запись"
 
 #: src/qml/UserDetailDialog.qml:107
 #, kde-format
@@ -4656,10 +4564,9 @@ msgid "Welcome"
 msgstr "Добро пожаловать"
 
 #: src/qml/WelcomePage.qml:45
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "Добро пожаловать в Matrix"
+msgstr "Добро пожаловать в NeoChat"
 
 #: src/qml/WelcomePage.qml:53
 #, fuzzy, kde-format
@@ -4687,7 +4594,7 @@ msgstr "Войти в существующую учётную запись"
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
-msgstr ""
+msgstr "Назад"
 
 #: src/registration.cpp:300
 #, fuzzy, kde-format
@@ -4730,9 +4637,7 @@ msgid "This username is not available."
 msgstr "Нет ни одного пользователя"
 
 #: src/registration.cpp:314
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
+#, kde-format
 msgid "Continue"
 msgstr "Продолжить"
 
