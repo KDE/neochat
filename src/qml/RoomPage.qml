@@ -158,7 +158,7 @@ Kirigami.Page {
 
     footer: Loader {
         id: chatBarLoader
-        active: timelineViewLoader.active && root.currentRoom.canSendEvent("m.room.message") // TODO make this update in real time
+        active: timelineViewLoader.active && !root.currentRoom.readOnly
         sourceComponent: ChatBar {
             id: chatBar
             width: parent.width
