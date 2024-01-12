@@ -1826,7 +1826,11 @@ int NeoChatRoom::maxRoomVersion() const
 
 Quotient::User *NeoChatRoom::directChatRemoteUser() const
 {
-    return connection()->directChatUsers(this)[0];
+    auto users = connection()->directChatUsers(this);
+    if (users.isEmpty()) {
+        return nullptr;
+    }
+    return users[0];
 }
 
 void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
