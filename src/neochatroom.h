@@ -134,6 +134,11 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(bool isInvite READ isInvite NOTIFY isInviteChanged)
 
     /**
+     * @brief Whether the local user can send messages in the room.
+     */
+    Q_PROPERTY(bool readOnly READ readOnly NOTIFY readOnlyChanged)
+
+    /**
      * @brief The current join rule for the room as a QString.
      *
      * Possible values are [public, knock, invite, private, restricted].
@@ -552,6 +557,8 @@ public:
 
     bool isInvite() const;
 
+    bool readOnly() const;
+
     Q_INVOKABLE void clearInvitationNotification();
 
     [[nodiscard]] QString joinRule() const;
@@ -809,6 +816,7 @@ Q_SIGNALS:
     void canonicalParentChanged();
     void lastActiveTimeChanged();
     void isInviteChanged();
+    void readOnlyChanged();
     void displayNameChanged();
     void pushNotificationStateChanged(PushNotificationState::State state);
     void showMessage(MessageType messageType, const QString &message);

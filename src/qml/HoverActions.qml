@@ -89,7 +89,7 @@ QQC2.Control {
                     onTriggered: emojiDialog.open()
                 },
                 Kirigami.Action {
-                    visible: root.delegate && root.delegate.author.isLocalUser && (root.delegate.delegateType === DelegateType.Emote || root.delegate.delegateType === DelegateType.Message)
+                    visible: root.delegate && root.delegate.author.isLocalUser && (root.delegate.delegateType === DelegateType.Emote || root.delegate.delegateType === DelegateType.Message) && !root.currentRoom.readOnly
                     text: i18n("Edit")
                     icon.name: "document-edit"
                     onTriggered: {
@@ -98,6 +98,7 @@ QQC2.Control {
                     }
                 },
                 Kirigami.Action {
+                    visible: !root.currentRoom.readOnly
                     text: i18n("Reply")
                     icon.name: "mail-replied-symbolic"
                     onTriggered: {
@@ -107,6 +108,7 @@ QQC2.Control {
                     }
                 },
                 Kirigami.Action {
+                    visible: !root.currentRoom.readOnly
                     text: i18n("Reply in Thread")
                     icon.name: "dialog-messages"
                     onTriggered: {

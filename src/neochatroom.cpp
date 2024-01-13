@@ -114,6 +114,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         Q_EMIT parentIdsChanged();
         Q_EMIT canonicalParentChanged();
         Q_EMIT joinRuleChanged();
+        Q_EMIT readOnlyChanged();
     });
     connect(connection, &Connection::capabilitiesLoaded, this, &NeoChatRoom::maxRoomVersionChanged);
     connect(this, &Room::changed, this, [this]() {
@@ -660,6 +661,11 @@ bool NeoChatRoom::readMarkerLoaded() const
 bool NeoChatRoom::isInvite() const
 {
     return joinState() == JoinState::Invite;
+}
+
+bool NeoChatRoom::readOnly() const
+{
+    return !canSendEvent("m.room.message"_ls);
 }
 
 bool NeoChatRoom::isUserBanned(const QString &user) const
