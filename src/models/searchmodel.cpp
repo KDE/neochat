@@ -136,6 +136,10 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return eventHandler.isHighlighted();
     case EventIdRole:
         return eventHandler.getId();
+    case IsThreadedRole:
+        return eventHandler.isThreaded();
+    case ThreadRootRole:
+        return eventHandler.threadRoot();
     }
     return DelegateType::Message;
 }
@@ -181,6 +185,8 @@ QHash<int, QByteArray> SearchModel::roleNames() const
         {MimeTypeRole, "mimeType"},
         {ShowLinkPreviewRole, "showLinkPreview"},
         {LinkPreviewRole, "linkPreview"},
+        {IsThreadedRole, "isThreaded"},
+        {ThreadRootRole, "threadRoot"},
     };
 }
 
