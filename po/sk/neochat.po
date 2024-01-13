@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-01-13 00:38+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -499,7 +499,7 @@ msgstr "Matrix client"
 #: src/main.cpp:133
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020 KDE Community"
-msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020 KDE komunita"
 
 #: src/main.cpp:134
@@ -1258,13 +1258,13 @@ msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/neochatroom.cpp:1566 src/neochatroom.cpp:1567
+#: src/neochatroom.cpp:1572 src/neochatroom.cpp:1573
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Heslo úspešne zmenené"
 
-#: src/neochatroom.cpp:1837 src/neochatroom.cpp:1845
+#: src/neochatroom.cpp:1847 src/neochatroom.cpp:1855
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1287,7 +1287,7 @@ msgid "Open NeoChat in this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
 #: src/notificationsmanager.cpp:223 src/qml/FileDelegateContextMenu.qml:59
-#: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
+#: src/qml/HoverActions.qml:102 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Odpovedať"
@@ -2336,14 +2336,14 @@ msgstr ""
 msgid "Create New"
 msgstr "Miestnosti a súkromné chaty:"
 
-#: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
+#: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Stiahnuť"
 
-#: src/qml/FileDelegate.qml:93 src/qml/FileDelegate.qml:159
+#: src/qml/FileDelegate.qml:99 src/qml/FileDelegate.qml:165
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2351,17 +2351,34 @@ msgctxt ""
 msgid "Open File"
 msgstr "Otvoriť súbor"
 
-#: src/qml/FileDelegate.qml:108
+#: src/qml/FileDelegate.qml:114
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/FileDelegate.qml:113
+#: src/qml/FileDelegate.qml:119
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
+msgstr ""
+
+#: src/qml/FileDelegate.qml:216
+#, kde-format
+msgid "Coach: %1, Seat: %2"
+msgstr ""
+
+#: src/qml/FileDelegate.qml:258
+#, kde-format
+msgctxt "<start time> - <end time>"
+msgid "%1 - %2"
+msgstr ""
+
+#: src/qml/FileDelegate.qml:269
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
 msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
@@ -2908,7 +2925,7 @@ msgstr ""
 msgid "React"
 msgstr "Reagovať"
 
-#: src/qml/HoverActions.qml:110
+#: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""

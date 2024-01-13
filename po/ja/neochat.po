@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-01-13 00:38+0000\n"
 "PO-Revision-Date: 2020-11-05 23:50-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -464,7 +464,7 @@ msgstr ""
 
 #: src/main.cpp:133
 #, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr ""
 
 #: src/main.cpp:134
@@ -1117,12 +1117,12 @@ msgstr ""
 msgid "Space creation failed: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:1566 src/neochatroom.cpp:1567
+#: src/neochatroom.cpp:1572 src/neochatroom.cpp:1573
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/neochatroom.cpp:1837 src/neochatroom.cpp:1845
+#: src/neochatroom.cpp:1847 src/neochatroom.cpp:1855
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1144,7 +1144,7 @@ msgid "Open NeoChat in this room"
 msgstr ""
 
 #: src/notificationsmanager.cpp:223 src/qml/FileDelegateContextMenu.qml:59
-#: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
+#: src/qml/HoverActions.qml:102 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr ""
@@ -2112,14 +2112,14 @@ msgstr ""
 msgid "Create New"
 msgstr ""
 
-#: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
+#: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr ""
 
-#: src/qml/FileDelegate.qml:93 src/qml/FileDelegate.qml:159
+#: src/qml/FileDelegate.qml:99 src/qml/FileDelegate.qml:165
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2127,17 +2127,34 @@ msgctxt ""
 msgid "Open File"
 msgstr ""
 
-#: src/qml/FileDelegate.qml:108
+#: src/qml/FileDelegate.qml:114
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr ""
 
-#: src/qml/FileDelegate.qml:113
+#: src/qml/FileDelegate.qml:119
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
+msgstr ""
+
+#: src/qml/FileDelegate.qml:216
+#, kde-format
+msgid "Coach: %1, Seat: %2"
+msgstr ""
+
+#: src/qml/FileDelegate.qml:258
+#, kde-format
+msgctxt "<start time> - <end time>"
+msgid "%1 - %2"
+msgstr ""
+
+#: src/qml/FileDelegate.qml:269
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
 msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
@@ -2636,7 +2653,7 @@ msgstr ""
 msgid "React"
 msgstr ""
 
-#: src/qml/HoverActions.qml:110
+#: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""

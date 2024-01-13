@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-01-13 00:38+0000\n"
 "PO-Revision-Date: 2024-01-01 23:01+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -469,8 +469,9 @@ msgid "Matrix client"
 msgstr "Matrix istemcisi"
 
 #: src/main.cpp:133
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE Topluluğu"
 
 #: src/main.cpp:134
@@ -1127,12 +1128,12 @@ msgstr "Oda oluşturulamadı: %1"
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
 
-#: src/neochatroom.cpp:1566 src/neochatroom.cpp:1567
+#: src/neochatroom.cpp:1572 src/neochatroom.cpp:1573
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/neochatroom.cpp:1837 src/neochatroom.cpp:1845
+#: src/neochatroom.cpp:1847 src/neochatroom.cpp:1855
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1154,7 +1155,7 @@ msgid "Open NeoChat in this room"
 msgstr "Bu odada NeoChat'i açın"
 
 #: src/notificationsmanager.cpp:223 src/qml/FileDelegateContextMenu.qml:59
-#: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
+#: src/qml/HoverActions.qml:102 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
@@ -2133,14 +2134,14 @@ msgstr "Ara"
 msgid "Create New"
 msgstr "Yeni Oluştur"
 
-#: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
+#: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "İndir"
 
-#: src/qml/FileDelegate.qml:93 src/qml/FileDelegate.qml:159
+#: src/qml/FileDelegate.qml:99 src/qml/FileDelegate.qml:165
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2148,18 +2149,37 @@ msgctxt ""
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: src/qml/FileDelegate.qml:108
+#: src/qml/FileDelegate.qml:114
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/FileDelegate.qml:113
+#: src/qml/FileDelegate.qml:119
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "İndirmeyi Durdur"
+
+#: src/qml/FileDelegate.qml:216
+#, fuzzy, kde-format
+#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+#| msgid "Lat: %1, Lon: %2"
+msgid "Coach: %1, Seat: %2"
+msgstr "Enlem: %1, Boylam: %2"
+
+#: src/qml/FileDelegate.qml:258
+#, kde-format
+msgctxt "<start time> - <end time>"
+msgid "%1 - %2"
+msgstr ""
+
+#: src/qml/FileDelegate.qml:269
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
+msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2658,7 +2678,7 @@ msgstr "Bu ileti, doğrulanan bir aygıttan gönderildi"
 msgid "React"
 msgstr "Tepki"
 
-#: src/qml/HoverActions.qml:110
+#: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply in Thread"
 msgstr "İleti dizisinde yanıtla"

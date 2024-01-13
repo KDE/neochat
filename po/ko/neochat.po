@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-01-13 00:38+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -469,8 +469,9 @@ msgid "Matrix client"
 msgstr "Matrix 클라이언트"
 
 #: src/main.cpp:133
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 
 #: src/main.cpp:134
@@ -1141,12 +1142,12 @@ msgstr "대화방 생성 실패: %1"
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/neochatroom.cpp:1566 src/neochatroom.cpp:1567
+#: src/neochatroom.cpp:1572 src/neochatroom.cpp:1573
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/neochatroom.cpp:1837 src/neochatroom.cpp:1845
+#: src/neochatroom.cpp:1847 src/neochatroom.cpp:1855
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1168,7 +1169,7 @@ msgid "Open NeoChat in this room"
 msgstr "이 대화방에서 NeoChat 열기"
 
 #: src/notificationsmanager.cpp:223 src/qml/FileDelegateContextMenu.qml:59
-#: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
+#: src/qml/HoverActions.qml:102 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "답장"
@@ -2152,14 +2153,14 @@ msgstr "검색"
 msgid "Create New"
 msgstr "스페이스 만들기"
 
-#: src/qml/FileDelegate.qml:77 src/qml/FileDelegate.qml:168
+#: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "다운로드"
 
-#: src/qml/FileDelegate.qml:93 src/qml/FileDelegate.qml:159
+#: src/qml/FileDelegate.qml:99 src/qml/FileDelegate.qml:165
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2167,18 +2168,37 @@ msgctxt ""
 msgid "Open File"
 msgstr "파일 열기"
 
-#: src/qml/FileDelegate.qml:108
+#: src/qml/FileDelegate.qml:114
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/FileDelegate.qml:113
+#: src/qml/FileDelegate.qml:119
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "다운로드 정지"
+
+#: src/qml/FileDelegate.qml:216
+#, fuzzy, kde-format
+#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+#| msgid "Lat: %1, Lon: %2"
+msgid "Coach: %1, Seat: %2"
+msgstr "위도: %1, 경도: %2"
+
+#: src/qml/FileDelegate.qml:258
+#, kde-format
+msgctxt "<start time> - <end time>"
+msgid "%1 - %2"
+msgstr ""
+
+#: src/qml/FileDelegate.qml:269
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
+msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2679,7 +2699,7 @@ msgstr "이 메시지는 검증된 장치에서 전송됨"
 msgid "React"
 msgstr "반응"
 
-#: src/qml/HoverActions.qml:110
+#: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
