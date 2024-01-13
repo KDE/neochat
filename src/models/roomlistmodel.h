@@ -77,6 +77,7 @@ public:
         IsSpaceRole, /**< Whether the room is a space. */
         IsChildSpaceRole, /**< Whether this space is a child of a different space. */
         ReplacementIdRole, /**< The room id of the room replacing this one, if any. */
+        IsDirectChat, /**< Whether this room is a direct chat. */
     };
     Q_ENUM(EventRoles)
 

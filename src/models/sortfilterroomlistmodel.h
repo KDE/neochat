@@ -47,6 +47,11 @@ class SortFilterRoomListModel : public QSortFilterProxyModel
      */
     Q_PROPERTY(QString activeSpaceId READ activeSpaceId WRITE setActiveSpaceId NOTIFY activeSpaceIdChanged)
 
+    /**
+     * @brief Whether only direct chats should be shown.
+     */
+    Q_PROPERTY(Mode mode READ mode WRITE setMode NOTIFY modeChanged)
+
 public:
     enum RoomSortOrder {
         Alphabetical,
@@ -54,6 +59,13 @@ public:
         Categories,
     };
     Q_ENUM(RoomSortOrder)
+
+    enum Mode {
+        Rooms,
+        DirectChats,
+        All,
+    };
+    Q_ENUM(Mode)
 
     explicit SortFilterRoomListModel(QObject *parent = nullptr);
 
@@ -65,6 +77,9 @@ public:
 
     QString activeSpaceId() const;
     void setActiveSpaceId(const QString &spaceId);
+
+    Mode mode() const;
+    void setMode(Mode mode);
 
 protected:
     /**
@@ -85,9 +100,11 @@ Q_SIGNALS:
     void roomSortOrderChanged();
     void filterTextChanged();
     void activeSpaceIdChanged();
+    void modeChanged();
 
 private:
     RoomSortOrder m_sortOrder = Categories;
+    Mode m_mode = All;
     QString m_filterText;
     QString m_activeSpaceId;
 };

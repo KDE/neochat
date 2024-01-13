@@ -215,7 +215,7 @@ Kirigami.Dialog {
         FormCard.FormButtonDelegate {
             visible: !root.user.isLocalUser
             action: Kirigami.Action {
-                text: i18n("Open a private chat")
+                text: root.room.connection.directChatExists(root.user.object) ? i18nc("%1 is the name of the user.", "Chat with %1", root.user.displayName) : i18n("Invite to private chat")
                 icon.name: "document-send"
                 onTriggered: {
                     root.room.connection.openOrCreateDirectChat(root.user.object)

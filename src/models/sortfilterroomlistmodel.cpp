@@ -83,16 +83,27 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
 {
     Q_UNUSED(source_parent);
 
+    bool acceptRoom =
+        sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
+        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool() == false;
+
+    bool isDirectChat = sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsDirectChat).toBool();
+    // In `show direct chats` mode we only care about whether or not it's a direct chat or if the filter string matches.'
+    if (m_mode == DirectChats) {
+        return isDirectChat && acceptRoom;
+    }
+
+    // When not in `show direct chats` mode, filter them out.
+    if (isDirectChat && m_mode == Rooms) {
+        return false;
+    }
+
     if (sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() == QStringLiteral("upgraded")
         && dynamic_cast<RoomListModel *>(sourceModel())
                ->connection()
                ->room(sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::ReplacementIdRole).toString())) {
         return false;
     }
-
-    bool acceptRoom =
-        sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
-        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool() == false;
 
     if (m_activeSpaceId.isEmpty()) {
         return acceptRoom;
@@ -113,6 +124,22 @@ void SortFilterRoomListModel::setActiveSpaceId(const QString &spaceId)
 {
     m_activeSpaceId = spaceId;
     Q_EMIT activeSpaceIdChanged();
+    invalidate();
+}
+
+SortFilterRoomListModel::Mode SortFilterRoomListModel::mode() const
+{
+    return m_mode;
+}
+
+void SortFilterRoomListModel::setMode(SortFilterRoomListModel::Mode mode)
+{
+    if (m_mode == mode) {
+        return;
+    }
+
+    m_mode = mode;
+    Q_EMIT modeChanged();
     invalidate();
 }
 

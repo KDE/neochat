@@ -196,6 +196,7 @@ Kirigami.Page {
                         listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row
                     }
                     activeSpaceId: spaceDrawer.selectedSpaceId
+                    mode: spaceDrawer.showDirectChats ? SortFilterRoomListModel.DirectChats : SortFilterRoomListModel.Rooms
                 }
 
                 section {

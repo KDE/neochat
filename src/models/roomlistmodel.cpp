@@ -368,6 +368,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == ReplacementIdRole) {
         return room->successorId();
     }
+    if (role == IsDirectChat) {
+        return room->isDirectChat();
+    }
 
     return QVariant();
 }
@@ -401,6 +404,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[IsSpaceRole] = "isSpace";
     roles[RoomIdRole] = "roomId";
     roles[IsChildSpaceRole] = "isChildSpace";
+    roles[IsDirectChat] = "isDirectChat";
     return roles;
 }
 
@@ -412,7 +416,7 @@ QString RoomListModel::categoryName(int category)
     case NeoChatRoomType::Favorite:
         return i18n("Favorite");
     case NeoChatRoomType::Direct:
-        return i18n("Direct Messages");
+        return i18n("Friends");
     case NeoChatRoomType::Normal:
         return i18n("Normal");
     case NeoChatRoomType::Deprioritized:

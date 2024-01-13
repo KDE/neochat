@@ -10,6 +10,8 @@
 #include "jobs/neochatdeactivateaccountjob.h"
 #include "roommanager.h"
 
+#include <Quotient/connection.h>
+#include <Quotient/quotient_common.h>
 #include <qt6keychain/keychain.h>
 
 #include <KLocalizedString>
@@ -19,6 +21,7 @@
 #include <Quotient/database.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
+#include <Quotient/room.h>
 #include <Quotient/settings.h>
 #include <Quotient/user.h>
 
@@ -55,6 +58,34 @@ NeoChatConnection::NeoChatConnection(QObject *parent)
             RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
         }
     });
+    connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {
+        Q_EMIT directChatInvitesChanged();
+        for (const auto &chatId : additions) {
+            if (const auto chat = room(chatId)) {
+                connect(chat, &Room::unreadStatsChanged, this, [this]() {
+                    Q_EMIT directChatNotificationsChanged();
+                });
+            }
+        }
+        for (const auto &chatId : removals) {
+            if (const auto chat = room(chatId)) {
+                disconnect(chat, &Room::unreadStatsChanged, this, nullptr);
+            }
+        }
+    });
+    connect(this, &NeoChatConnection::joinedRoom, this, [this](Room *room) {
+        if (room->isDirectChat()) {
+            connect(room, &Room::unreadStatsChanged, this, [this]() {
+                Q_EMIT directChatNotificationsChanged();
+            });
+        }
+    });
+    connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {
+        Q_UNUSED(room)
+        if (prev && prev->isDirectChat()) {
+            Q_EMIT directChatInvitesChanged();
+        }
+    });
 }
 
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
@@ -63,6 +94,34 @@ NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
     connect(this, &NeoChatConnection::accountDataChanged, this, [this](const QString &type) {
         if (type == QLatin1String("org.kde.neochat.account_label")) {
             Q_EMIT labelChanged();
+        }
+    });
+    connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {
+        Q_EMIT directChatInvitesChanged();
+        for (const auto &chatId : additions) {
+            if (const auto chat = room(chatId)) {
+                connect(chat, &Room::unreadStatsChanged, this, [this]() {
+                    Q_EMIT directChatNotificationsChanged();
+                });
+            }
+        }
+        for (const auto &chatId : removals) {
+            if (const auto chat = room(chatId)) {
+                disconnect(chat, &Room::unreadStatsChanged, this, nullptr);
+            }
+        }
+    });
+    connect(this, &NeoChatConnection::joinedRoom, this, [this](Room *room) {
+        if (room->isDirectChat()) {
+            connect(room, &Room::unreadStatsChanged, this, [this]() {
+                Q_EMIT directChatNotificationsChanged();
+            });
+        }
+    });
+    connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {
+        Q_UNUSED(room)
+        if (prev && prev->isDirectChat()) {
+            Q_EMIT directChatInvitesChanged();
         }
     });
 }
@@ -244,6 +303,11 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
     });
 }
 
+bool NeoChatConnection::directChatExists(Quotient::User *user)
+{
+    return directChats().contains(user);
+}
+
 void NeoChatConnection::openOrCreateDirectChat(User *user)
 {
     const auto existing = directChats();
@@ -256,6 +320,32 @@ void NeoChatConnection::openOrCreateDirectChat(User *user)
         }
     }
     requestDirectChat(user);
+}
+
+qsizetype NeoChatConnection::directChatNotifications() const
+{
+    qsizetype notifications = 0;
+    QStringList added; // The same ID can be in the list multiple times.
+    for (const auto &chatId : directChats()) {
+        if (!added.contains(chatId)) {
+            if (const auto chat = room(chatId)) {
+                notifications += chat->notificationCount();
+                added += chatId;
+            }
+        }
+    }
+    return notifications;
+}
+
+bool NeoChatConnection::directChatInvites() const
+{
+    auto inviteRooms = rooms(JoinState::Invite);
+    for (const auto inviteRoom : inviteRooms) {
+        if (inviteRoom->isDirectChat()) {
+            return true;
+        }
+    }
+    return false;
 }
 
 QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)

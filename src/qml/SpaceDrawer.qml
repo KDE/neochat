@@ -23,6 +23,8 @@ QQC2.Control {
 
     property string selectedSpaceId
 
+    property bool showDirectChats: false
+
     contentItem: Loader {
         id: sidebarColumn
         z: 0
@@ -86,8 +88,56 @@ QQC2.Control {
                             source: "globe"
                         }
 
-                        checked: root.selectedSpaceId === ""
-                        onClicked: root.selectedSpaceId = ""
+                        checked: root.selectedSpaceId === "" && root.showDirectChats === false
+                        onClicked: {
+                            root.showDirectChats = false
+                            root.selectedSpaceId = ""
+                        }
+                    }
+                    AvatarTabButton {
+                        id: directChatButton
+
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: width - Kirigami.Units.smallSpacing
+                        Layout.maximumHeight: width - Kirigami.Units.smallSpacing
+                        Layout.topMargin: Kirigami.Units.smallSpacing / 2
+
+                        text: i18nc("@button View all one-on-one chats with your friends.", "Friends")
+                        contentItem: Kirigami.Icon {
+                            source: "system-users"
+                        }
+
+                        checked: root.showDirectChats === true
+                        onClicked: {
+                            root.showDirectChats = true
+                            root.selectedSpaceId = ""
+                        }
+
+                        QQC2.Label {
+                            id: notificationCountLabel
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.rightMargin: Kirigami.Units.smallSpacing / 2
+                            z: 1
+                            width: Math.max(notificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
+                            height: Kirigami.Units.iconSizes.smallMedium
+
+                            text: root.connection.directChatNotifications > 0 ? root.connection.directChatNotifications : ""
+                            visible: root.connection.directChatNotifications > 0 || root.connection.directChatInvites
+                            color: Kirigami.Theme.textColor
+                            horizontalAlignment: Text.AlignHCenter
+                            background: Rectangle {
+                                visible: true
+                                Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                                color: Kirigami.Theme.positiveTextColor
+                                radius: height / 2
+                            }
+
+                            TextMetrics {
+                                id: notificationCountTextMetrics
+                                text: notificationCountLabel.text
+                            }
+                        }
                     }
 
                     Repeater {
@@ -117,7 +167,10 @@ QQC2.Control {
                             text: displayName
                             source: avatar ? ("image://mxc/" + avatar) : ""
 
-                            onSelected: root.selectedSpaceId = roomId
+                            onSelected: {
+                                root.showDirectChats = false
+                                root.selectedSpaceId = roomId
+                            }
                             checked: root.selectedSpaceId === roomId
                             onContextMenuRequested: root.createContextMenu(currentRoom)
                         }

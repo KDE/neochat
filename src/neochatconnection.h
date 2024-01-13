@@ -28,6 +28,16 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(QString encryptionKey READ encryptionKey CONSTANT)
 
     /**
+     * @brief The total number of notifications for all direct chats.
+     */
+    Q_PROPERTY(qsizetype directChatNotifications READ directChatNotifications NOTIFY directChatNotificationsChanged)
+
+    /**
+     * @brief Whether there is at least one invite to a direct chat.
+     */
+    Q_PROPERTY(bool directChatInvites READ directChatInvites NOTIFY directChatInvitesChanged)
+
+    /**
      * @brief Whether NeoChat is currently able to connect to the server.
      */
     Q_PROPERTY(bool isOnline READ isOnline WRITE setIsOnline NOTIFY isOnlineChanged)
@@ -80,11 +90,19 @@ public:
     Q_INVOKABLE void createSpace(const QString &name, const QString &topic, const QString &parent = {}, bool setChildParent = false);
 
     /**
+     * @brief Whether a direct chat with the user exists.
+     */
+    Q_INVOKABLE bool directChatExists(Quotient::User *user);
+
+    /**
      * @brief Join a direct chat with the given user.
      *
      * If a direct chat with the user doesn't exist one is created and then joined.
      */
     Q_INVOKABLE void openOrCreateDirectChat(Quotient::User *user);
+
+    qsizetype directChatNotifications() const;
+    bool directChatInvites() const;
 
     // note: this is intentionally a copied QString because
     // the reference could be destroyed before the task is finished
@@ -97,6 +115,8 @@ public:
 
 Q_SIGNALS:
     void labelChanged();
+    void directChatNotificationsChanged();
+    void directChatInvitesChanged();
     void isOnlineChanged();
     void passwordStatus(NeoChatConnection::PasswordStatus status);
     void userConsentRequired(QUrl url);
