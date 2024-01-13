@@ -26,22 +26,36 @@ Kirigami.ScrollablePage {
         room: root.currentRoom
     }
 
-    header: RowLayout {
-        Kirigami.SearchField {
-            id: searchField
-            focus: true
-            Layout.topMargin: Kirigami.Units.smallSpacing
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            Layout.fillWidth: true
-            Keys.onEnterPressed: searchButton.clicked()
-            Keys.onReturnPressed: searchButton.clicked()
+    header: QQC2.Control {
+        padding: Kirigami.Units.largeSpacing
+
+        background: Rectangle {
+            color: Kirigami.Theme.backgroundColor
+
+            Kirigami.Separator {
+                anchors {
+                    left: parent.left
+                    bottom: parent.bottom
+                    right: parent.right
+                }
+            }
         }
-        QQC2.Button {
-            id: searchButton
-            Layout.topMargin: Kirigami.Units.smallSpacing
-            Layout.rightMargin: Kirigami.Units.smallSpacing
-            onClicked: searchModel.search()
-            icon.name: "search"
+
+        contentItem: RowLayout {
+            spacing: Kirigami.Units.largeSpacing
+
+            Kirigami.SearchField {
+                id: searchField
+                focus: true
+                Layout.fillWidth: true
+                Keys.onEnterPressed: searchButton.clicked()
+                Keys.onReturnPressed: searchButton.clicked()
+            }
+            QQC2.Button {
+                id: searchButton
+                onClicked: searchModel.search()
+                icon.name: "search"
+            }
         }
     }
 
