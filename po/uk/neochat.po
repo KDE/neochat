@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-01-14 03:07+0000\n"
 "PO-Revision-Date: 2023-12-03 08:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -475,8 +475,9 @@ msgid "Matrix client"
 msgstr "Клієнт Matrix"
 
 #: src/main.cpp:133
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© Black Hat, 2018-2020, Спільнота KDE, 2020–2023"
 
 #: src/main.cpp:134
@@ -1145,12 +1146,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/neochatroom.cpp:1566 src/neochatroom.cpp:1567
+#: src/neochatroom.cpp:1572 src/neochatroom.cpp:1573
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1837 src/neochatroom.cpp:1845
+#: src/neochatroom.cpp:1843 src/neochatroom.cpp:1851
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1172,7 +1173,7 @@ msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
 #: src/notificationsmanager.cpp:223 src/qml/FileDelegateContextMenu.qml:59
-#: src/qml/HoverActions.qml:101 src/qml/MessageDelegateContextMenu.qml:102
+#: src/qml/HoverActions.qml:102 src/qml/MessageDelegateContextMenu.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
@@ -2686,7 +2687,7 @@ msgstr "Це повідомлення було надіслано із пере�
 msgid "React"
 msgstr "Реагувати"
 
-#: src/qml/HoverActions.qml:110
+#: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
@@ -3837,12 +3838,12 @@ msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Пошук повідомлень"
 
-#: src/qml/SearchPage.qml:60
+#: src/qml/SearchPage.qml:74
 #, kde-format
 msgid "Enter a text to start searching"
 msgstr "Введіть фрагмент тексту, щоб почати пошук"
 
-#: src/qml/SearchPage.qml:66
+#: src/qml/SearchPage.qml:80
 #, kde-format
 msgid "No results found"
 msgstr "Нічого не знайдено"
