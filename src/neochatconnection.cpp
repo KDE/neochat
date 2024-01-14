@@ -37,6 +37,17 @@ using namespace Qt::StringLiterals;
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
 {
+    connectSignals();
+}
+
+NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
+    : Connection(server, parent)
+{
+    connectSignals();
+}
+
+void NeoChatConnection::connectSignals()
+{
     connect(this, &NeoChatConnection::accountDataChanged, this, [this](const QString &type) {
         if (type == QLatin1String("org.kde.neochat.account_label")) {
             Q_EMIT labelChanged();
@@ -56,44 +67,6 @@ NeoChatConnection::NeoChatConnection(QObject *parent)
     connect(this, &NeoChatConnection::requestFailed, this, [](BaseJob *job) {
         if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
             RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
-        }
-    });
-    connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {
-        Q_EMIT directChatInvitesChanged();
-        for (const auto &chatId : additions) {
-            if (const auto chat = room(chatId)) {
-                connect(chat, &Room::unreadStatsChanged, this, [this]() {
-                    Q_EMIT directChatNotificationsChanged();
-                });
-            }
-        }
-        for (const auto &chatId : removals) {
-            if (const auto chat = room(chatId)) {
-                disconnect(chat, &Room::unreadStatsChanged, this, nullptr);
-            }
-        }
-    });
-    connect(this, &NeoChatConnection::joinedRoom, this, [this](Room *room) {
-        if (room->isDirectChat()) {
-            connect(room, &Room::unreadStatsChanged, this, [this]() {
-                Q_EMIT directChatNotificationsChanged();
-            });
-        }
-    });
-    connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {
-        Q_UNUSED(room)
-        if (prev && prev->isDirectChat()) {
-            Q_EMIT directChatInvitesChanged();
-        }
-    });
-}
-
-NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
-    : Connection(server, parent)
-{
-    connect(this, &NeoChatConnection::accountDataChanged, this, [this](const QString &type) {
-        if (type == QLatin1String("org.kde.neochat.account_label")) {
-            Q_EMIT labelChanged();
         }
     });
     connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {

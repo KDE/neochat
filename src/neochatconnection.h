@@ -124,4 +124,6 @@ Q_SIGNALS:
 private:
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);
+
+    void connectSignals();
 };
