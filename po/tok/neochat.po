@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:38+0000\n"
+"POT-Creation-Date: 2024-01-14 00:37+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -21,7 +21,7 @@ msgstr ""
 "%100>=11 && n%100<=14 ? 2 : 3;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/controller.cpp:121 src/controller.cpp:327
+#: src/controller.cpp:121 src/controller.cpp:315
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Receiving push notifications"
@@ -67,16 +67,6 @@ msgstr ""
 #, kde-format
 msgid "Unable to read access token"
 msgstr "mi ken ala kepeken nanpa sijelo len."
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "File too large to download."
-msgstr "lipu li suli pi ken jo ala."
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "Contact your matrix server administrator for support."
-msgstr "o toki tawa lawa sina pi ilo Matrix."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:530
 #: src/models/messageeventmodel.cpp:491
@@ -1129,42 +1119,52 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/models/roomlistmodel.cpp:411
+#: src/models/roomlistmodel.cpp:415
 #, kde-format
 msgid "Invited"
 msgstr ""
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Favorite"
 msgstr ""
 
-#: src/models/roomlistmodel.cpp:415
-#, kde-format
-msgid "Direct Messages"
-msgstr ""
-
-#: src/models/roomlistmodel.cpp:417
-#, kde-format
-msgid "Normal"
-msgstr ""
-
 #: src/models/roomlistmodel.cpp:419
 #, kde-format
-msgid "Low priority"
+msgid "Friends"
 msgstr ""
 
 #: src/models/roomlistmodel.cpp:421
 #, kde-format
+msgid "Normal"
+msgstr ""
+
+#: src/models/roomlistmodel.cpp:423
+#, kde-format
+msgid "Low priority"
+msgstr ""
+
+#: src/models/roomlistmodel.cpp:425
+#, kde-format
 msgid "Spaces"
 msgstr ""
 
-#: src/neochatconnection.cpp:202
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "File too large to download."
+msgstr "lipu li suli pi ken jo ala."
+
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr "o toki tawa lawa sina pi ilo Matrix."
+
+#: src/neochatconnection.cpp:267
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/neochatconnection.cpp:234
+#: src/neochatconnection.cpp:299
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
@@ -1758,7 +1758,7 @@ msgid "Leave Room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151
+#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -1833,7 +1833,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Create a Room"
@@ -2148,7 +2148,7 @@ msgid ""
 msgstr "toki ni li len. jan pana li pana ala e ken pi lukin len tawa ilo ni."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
@@ -3252,7 +3252,7 @@ msgstr ""
 msgid "Delete keyword"
 msgstr ""
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3717,33 +3717,28 @@ msgstr[3] ""
 msgid "No member count"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:134
-#, kde-format
-msgid "View notifications"
-msgstr ""
-
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4149,11 +4144,28 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "o weka"
 
-#: src/qml/SpaceDrawer.qml:63
+#: src/qml/SpaceDrawer.qml:62
+#, kde-format
+msgid "View notifications"
+msgstr ""
+
+#: src/qml/SpaceDrawer.qml:86
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgid "All Rooms"
 msgstr "nimi tomo"
+
+#: src/qml/SpaceDrawer.qml:105
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr ""
+
+#: src/qml/SpaceDrawer.qml:192
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Create a space"
+msgstr "o pali e tomo toki"
 
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
@@ -4383,7 +4395,14 @@ msgstr "o ante e toki"
 
 #: src/qml/UserDetailDialog.qml:218
 #, kde-format
-msgid "Open a private chat"
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Open a private chat"
+msgid "Invite to private chat"
 msgstr "o open e tomo toki pi sina tu taso"
 
 #: src/qml/UserDetailDialog.qml:229

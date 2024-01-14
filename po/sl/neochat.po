@@ -8,19 +8,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:38+0000\n"
-"PO-Revision-Date: 2023-12-03 09:13+0100\n"
+"POT-Creation-Date: 2024-01-14 00:37+0000\n"
+"PO-Revision-Date: 2024-01-13 07:24+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.4.2\n"
 
-#: src/controller.cpp:121 src/controller.cpp:327
+#: src/controller.cpp:121 src/controller.cpp:315
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Sprejemanje potisnih obvestil"
@@ -64,16 +64,6 @@ msgstr "Namestite verigo ključev, npr. KWallet ali GNOME Keyring v Linux"
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Žetona za dostop ni mogoče prebrati"
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "File too large to download."
-msgstr "Datoteka je prevelika za prenos."
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "Contact your matrix server administrator for support."
-msgstr "Stopite v stik za podporo z vašim skrbnikom matrixa."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:530
 #: src/models/messageeventmodel.cpp:491
@@ -472,10 +462,9 @@ msgid "Matrix client"
 msgstr "Matrixov odjemalec"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2023 skupnost KDE"
+msgstr "© 2018-2020 Black Hat, 2020-2024 skupnost KDE"
 
 #: src/main.cpp:134
 #, kde-format
@@ -1099,42 +1088,52 @@ msgstr[1] "%2 sta reagirala z %3"
 msgstr[2] "%2 so reagirali z %3"
 msgstr[3] "%2 je reagiralo z %3"
 
-#: src/models/roomlistmodel.cpp:411
+#: src/models/roomlistmodel.cpp:415
 #, kde-format
 msgid "Invited"
 msgstr "Povabljen"
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljen"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:419
 #, kde-format
-msgid "Direct Messages"
-msgstr "Neposredna sporočila"
+msgid "Friends"
+msgstr ""
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:421
 #, kde-format
 msgid "Normal"
 msgstr "Normalno"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:423
 #, kde-format
 msgid "Low priority"
 msgstr "Nizka prednost"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:425
 #, kde-format
 msgid "Spaces"
 msgstr "Presledki"
 
-#: src/neochatconnection.cpp:202
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "File too large to download."
+msgstr "Datoteka je prevelika za prenos."
+
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr "Stopite v stik za podporo z vašim skrbnikom matrixa."
+
+#: src/neochatconnection.cpp:267
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/neochatconnection.cpp:234
+#: src/neochatconnection.cpp:299
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
@@ -1717,7 +1716,7 @@ msgid "Leave Room"
 msgstr "Zapusti sobo"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151
+#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1788,7 +1787,7 @@ msgstr "Poberite sobo"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2100,7 +2099,7 @@ msgstr ""
 "To sporočilo je šifrirano in pošiljatelj še ni delil ključa s to napravo."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Explore rooms"
 msgstr "Razišči sobe"
@@ -2172,23 +2171,21 @@ msgid "Stop Download"
 msgstr "Ustavi prenos"
 
 #: src/qml/FileDelegate.qml:216
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgid "Coach: %1, Seat: %2"
-msgstr "Širina: %1, Dolžina: %2"
+msgstr "Vozilo: %1, Sedež: %2"
 
 #: src/qml/FileDelegate.qml:258
 #, kde-format
 msgctxt "<start time> - <end time>"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
 #: src/qml/FileDelegate.qml:269
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "Pošlji v KDE Itinerary"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -3181,7 +3178,7 @@ msgstr "Omogoči osvetljevanje obvestil"
 msgid "Delete keyword"
 msgstr "Izbriši ključno besedo"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3630,33 +3627,28 @@ msgstr[3] "%1 članov"
 msgid "No member count"
 msgstr "Ni števila članov"
 
-#: src/qml/RoomListPage.qml:134
-#, kde-format
-msgid "View notifications"
-msgstr "Poglej obvestila"
-
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "No rooms found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pridruži se nekaj sobam za začetek"
 
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Search in room directory"
 msgstr "Poišči v imeniku sob"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Strni %1"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4066,10 +4058,27 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Izbriši besedo"
 
-#: src/qml/SpaceDrawer.qml:63
+#: src/qml/SpaceDrawer.qml:62
+#, kde-format
+msgid "View notifications"
+msgstr "Poglej obvestila"
+
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "All Rooms"
 msgstr "Vse sobe"
+
+#: src/qml/SpaceDrawer.qml:105
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr ""
+
+#: src/qml/SpaceDrawer.qml:192
+#, fuzzy, kde-format
+#| msgid "Create a Space"
+msgid "Create a space"
+msgstr "Ustvari prostor"
 
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
@@ -4290,7 +4299,14 @@ msgstr "Odstrani sporočila"
 
 #: src/qml/UserDetailDialog.qml:218
 #, kde-format
-msgid "Open a private chat"
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Open a private chat"
+msgid "Invite to private chat"
 msgstr "Odpri zasebni razgovor"
 
 #: src/qml/UserDetailDialog.qml:229
@@ -4649,6 +4665,9 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "Direct Messages"
+#~ msgstr "Neposredna sporočila"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr "Neuspela prijava: Žeton za dostop je neveljaven ali preklican"

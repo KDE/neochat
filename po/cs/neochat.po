@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:38+0000\n"
+"POT-Creation-Date: 2024-01-14 00:37+0000\n"
 "PO-Revision-Date: 2023-11-23 10:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: src/controller.cpp:121 src/controller.cpp:327
+#: src/controller.cpp:121 src/controller.cpp:315
 #, kde-format
 msgid "Receiving push notifications"
 msgstr ""
@@ -61,16 +61,6 @@ msgstr ""
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "File too large to download."
-msgstr "Soubor je pro stažení příliš velký."
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "Contact your matrix server administrator for support."
-msgstr "Pomoc hledejte u správce serveru matrix."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:530
 #: src/models/messageeventmodel.cpp:491
@@ -1095,42 +1085,52 @@ msgstr[0] "%2 reagoval pomocí %3"
 msgstr[1] "%2 reagovali pomocí %3"
 msgstr[2] "%2 reagovali pomocí %3"
 
-#: src/models/roomlistmodel.cpp:411
+#: src/models/roomlistmodel.cpp:415
 #, kde-format
 msgid "Invited"
 msgstr ""
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Favorite"
 msgstr "Oblíbené"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:419
 #, kde-format
-msgid "Direct Messages"
+msgid "Friends"
 msgstr ""
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:421
 #, kde-format
 msgid "Normal"
 msgstr "Normální"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:423
 #, kde-format
 msgid "Low priority"
 msgstr "Nízká priorita"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:425
 #, kde-format
 msgid "Spaces"
 msgstr "Mezery"
 
-#: src/neochatconnection.cpp:202
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "File too large to download."
+msgstr "Soubor je pro stažení příliš velký."
+
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr "Pomoc hledejte u správce serveru matrix."
+
+#: src/neochatconnection.cpp:267
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/neochatconnection.cpp:234
+#: src/neochatconnection.cpp:299
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
@@ -1712,7 +1712,7 @@ msgid "Leave Room"
 msgstr "Opustit místnost"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151
+#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1783,7 +1783,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2090,7 +2090,7 @@ msgid ""
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
@@ -3165,7 +3165,7 @@ msgstr ""
 msgid "Delete keyword"
 msgstr ""
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3611,33 +3611,28 @@ msgstr[2] "%1 členů"
 msgid "No member count"
 msgstr "Žádný počet členů"
 
-#: src/qml/RoomListPage.qml:134
-#, kde-format
-msgid "View notifications"
-msgstr "Zobrazit upozornění"
-
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Svinout %1"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4035,10 +4030,27 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Odstranit slovo"
 
-#: src/qml/SpaceDrawer.qml:63
+#: src/qml/SpaceDrawer.qml:62
+#, kde-format
+msgid "View notifications"
+msgstr "Zobrazit upozornění"
+
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "All Rooms"
 msgstr "Všechny místnosti"
+
+#: src/qml/SpaceDrawer.qml:105
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr ""
+
+#: src/qml/SpaceDrawer.qml:192
+#, fuzzy, kde-format
+#| msgid "Create a Space"
+msgid "Create a space"
+msgstr "Vytvořit místnost"
 
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
@@ -4257,7 +4269,13 @@ msgstr ""
 
 #: src/qml/UserDetailDialog.qml:218
 #, kde-format
-msgid "Open a private chat"
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:218
+#, kde-format
+msgid "Invite to private chat"
 msgstr ""
 
 #: src/qml/UserDetailDialog.qml:229

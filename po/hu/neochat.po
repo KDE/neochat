@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:38+0000\n"
+"POT-Creation-Date: 2024-01-14 00:37+0000\n"
 "PO-Revision-Date: 2024-01-08 13:15+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: src/controller.cpp:121 src/controller.cpp:327
+#: src/controller.cpp:121 src/controller.cpp:315
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -66,17 +66,6 @@ msgstr ""
 #, kde-format
 msgid "Unable to read access token"
 msgstr "A hozzáférési token olvasása nem sikerült"
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "File too large to download."
-msgstr "A fájl túl nagy a letöltéshez."
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "Contact your matrix server administrator for support."
-msgstr ""
-"Segítségért vedd fel a kapcsolatot a Matrix szervered rendszergazdájával."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:530
 #: src/models/messageeventmodel.cpp:491
@@ -1119,43 +1108,54 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 reakciója: %3"
 msgstr[1] "%2 reakciója: %3"
 
-#: src/models/roomlistmodel.cpp:411
+#: src/models/roomlistmodel.cpp:415
 #, kde-format
 msgid "Invited"
 msgstr "Meghívva"
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Favorite"
 msgstr "Kedvenc"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:419
 #, kde-format
-msgid "Direct Messages"
-msgstr "Közvetlen üzenet"
+msgid "Friends"
+msgstr ""
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:421
 #, kde-format
 msgid "Normal"
 msgstr "Normál"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:423
 #, kde-format
 msgid "Low priority"
 msgstr "Alacsony prioritás"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:425
 #, kde-format
 msgid "Spaces"
 msgstr "Terek"
 
-#: src/neochatconnection.cpp:202
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "File too large to download."
+msgstr "A fájl túl nagy a letöltéshez."
+
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr ""
+"Segítségért vedd fel a kapcsolatot a Matrix szervered rendszergazdájával."
+
+#: src/neochatconnection.cpp:267
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "A szoba létrehozása nem sikerült: „%1”"
 
-#: src/neochatconnection.cpp:234
+#: src/neochatconnection.cpp:299
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1747,7 +1747,7 @@ msgid "Leave Room"
 msgstr "Szoba elhagyása"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151
+#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -1827,7 +1827,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2162,7 +2162,7 @@ msgstr ""
 "eszközzel."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Explore rooms"
 msgstr "Szobák felfedezése"
@@ -3280,7 +3280,7 @@ msgstr "Az üzenetkiemelés bekapcsolása"
 msgid "Delete keyword"
 msgstr "Kulcsszó törlése"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -3747,34 +3747,28 @@ msgstr[1] "%1 tag"
 msgid "No member count"
 msgstr "Nincs tagszám"
 
-#: src/qml/RoomListPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Mute notifications"
-msgid "View notifications"
-msgstr "Értesítések némítása"
-
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "No rooms found"
 msgstr "Nem található szoba"
 
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Csatlakozz néhány szobához kezdésként"
 
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Search in room directory"
 msgstr "Keresés a szobakönyvtárban"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, fuzzy, kde-format
 #| msgid "Expand preview"
 msgctxt "Expand <section name"
@@ -4204,12 +4198,31 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Szó törlése"
 
-#: src/qml/SpaceDrawer.qml:63
+#: src/qml/SpaceDrawer.qml:62
+#, fuzzy, kde-format
+#| msgid "Mute notifications"
+msgid "View notifications"
+msgstr "Értesítések némítása"
+
+#: src/qml/SpaceDrawer.qml:86
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show All Rooms"
 msgid "All Rooms"
 msgstr "Az összes szoba megjelenítése"
+
+#: src/qml/SpaceDrawer.qml:105
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr ""
+
+#: src/qml/SpaceDrawer.qml:192
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgid "Create a space"
+msgstr "A Tér elhagyása"
 
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
@@ -4443,7 +4456,14 @@ msgstr "Üzenetek eltávoltása"
 
 #: src/qml/UserDetailDialog.qml:218
 #, kde-format
-msgid "Open a private chat"
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Open a private chat"
+msgid "Invite to private chat"
 msgstr "Egy privát csevegés megnyitása"
 
 #: src/qml/UserDetailDialog.qml:229
@@ -4820,6 +4840,9 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgid "Direct Messages"
+#~ msgstr "Közvetlen üzenet"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr ""

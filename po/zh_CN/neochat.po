@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:38+0000\n"
-"PO-Revision-Date: 2024-01-06 03:32\n"
+"POT-Creation-Date: 2024-01-14 00:37+0000\n"
+"PO-Revision-Date: 2024-01-13 05:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/neochat/neochat.pot\n"
 "X-Crowdin-File-ID: 44721\n"
 
-#: src/controller.cpp:121 src/controller.cpp:327
+#: src/controller.cpp:121 src/controller.cpp:315
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -63,16 +63,6 @@ msgstr ""
 #, kde-format
 msgid "Unable to read access token"
 msgstr "无法读取访问令牌"
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "File too large to download."
-msgstr "文件太大，无法下载。"
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "Contact your matrix server administrator for support."
-msgstr "请联系 Matrix 服务器管理员寻求支持。"
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:530
 #: src/models/messageeventmodel.cpp:491
@@ -1086,42 +1076,52 @@ msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 回应了 %3"
 
-#: src/models/roomlistmodel.cpp:411
+#: src/models/roomlistmodel.cpp:415
 #, kde-format
 msgid "Invited"
 msgstr "已邀请"
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Favorite"
 msgstr "收藏夹"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:419
 #, kde-format
-msgid "Direct Messages"
-msgstr "私聊"
+msgid "Friends"
+msgstr ""
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:421
 #, kde-format
 msgid "Normal"
 msgstr "普通"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:423
 #, kde-format
 msgid "Low priority"
 msgstr "低优先级"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:425
 #, kde-format
 msgid "Spaces"
 msgstr "空间"
 
-#: src/neochatconnection.cpp:202
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "File too large to download."
+msgstr "文件太大，无法下载。"
+
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr "请联系 Matrix 服务器管理员寻求支持。"
+
+#: src/neochatconnection.cpp:267
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室创建失败：%1"
 
-#: src/neochatconnection.cpp:234
+#: src/neochatconnection.cpp:299
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
@@ -1704,7 +1704,7 @@ msgid "Leave Room"
 msgstr "离开聊天室"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151
+#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1775,7 +1775,7 @@ msgstr "选择聊天室"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2083,7 +2083,7 @@ msgid ""
 msgstr "此消息已加密，但发送者尚未与此设备共享密钥。"
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Explore rooms"
 msgstr "探索聊天室"
@@ -3158,7 +3158,7 @@ msgstr "启用消息高亮显示"
 msgid "Delete keyword"
 msgstr "删除关键词"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3600,33 +3600,28 @@ msgstr[0] "%1 位成员"
 msgid "No member count"
 msgstr "无成员计数"
 
-#: src/qml/RoomListPage.qml:134
-#, kde-format
-msgid "View notifications"
-msgstr "查看通知"
-
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "No rooms found"
 msgstr "没有找到聊天室"
 
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "加入聊天室，开始畅聊"
 
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Search in room directory"
 msgstr "在聊天室目录中搜索"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "折叠 %1"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4023,10 +4018,27 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "删除单词"
 
-#: src/qml/SpaceDrawer.qml:63
+#: src/qml/SpaceDrawer.qml:62
+#, kde-format
+msgid "View notifications"
+msgstr "查看通知"
+
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "All Rooms"
 msgstr "所有聊天室"
+
+#: src/qml/SpaceDrawer.qml:105
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr ""
+
+#: src/qml/SpaceDrawer.qml:192
+#, fuzzy, kde-format
+#| msgid "Create a Space"
+msgid "Create a space"
+msgstr "创建空间"
 
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
@@ -4243,7 +4255,14 @@ msgstr "移除消息"
 
 #: src/qml/UserDetailDialog.qml:218
 #, kde-format
-msgid "Open a private chat"
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Open a private chat"
+msgid "Invite to private chat"
 msgstr "打开私聊"
 
 #: src/qml/UserDetailDialog.qml:229
@@ -4582,5 +4601,5 @@ msgstr "显示"
 msgid "Quit"
 msgstr "退出"
 
-#~ msgid "Login Failed: Access Token invalid or revoked"
-#~ msgstr "登录失败：访问令牌无效或被吊销"
+#~ msgid "Direct Messages"
+#~ msgstr "私聊"

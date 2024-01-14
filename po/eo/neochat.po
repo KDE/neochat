@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:38+0000\n"
-"PO-Revision-Date: 2024-01-03 13:01+0100\n"
+"POT-Creation-Date: 2024-01-14 00:37+0000\n"
+"PO-Revision-Date: 2024-01-13 09:04+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/controller.cpp:121 src/controller.cpp:327
+#: src/controller.cpp:121 src/controller.cpp:315
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricevante puŝ-sciigojn"
@@ -63,16 +63,6 @@ msgstr ""
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Ne eblas legi alirĵetonon"
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "File too large to download."
-msgstr "Dosiero tro granda por elŝuti."
-
-#: src/controller.cpp:296
-#, kde-format
-msgid "Contact your matrix server administrator for support."
-msgstr "Kontaktu vian administranton de matrica servilo por subteno."
 
 #: src/eventhandler.cpp:325 src/eventhandler.cpp:530
 #: src/models/messageeventmodel.cpp:491
@@ -469,10 +459,9 @@ msgid "Matrix client"
 msgstr "Matrico-kliento"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2023 KDE-Komunumo"
+msgstr "© 2018-2020 Black Hat, 2020-2024 KDE-Komunumo"
 
 #: src/main.cpp:134
 #, kde-format
@@ -1088,42 +1077,52 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 redaktis kun %3"
 msgstr[1] "%2 redaktis kun %3"
 
-#: src/models/roomlistmodel.cpp:411
+#: src/models/roomlistmodel.cpp:415
 #, kde-format
 msgid "Invited"
 msgstr "Invititaj"
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Favorite"
 msgstr "Ŝatata"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:419
 #, kde-format
-msgid "Direct Messages"
-msgstr "Rektaj Mesaĝoj"
+msgid "Friends"
+msgstr ""
 
-#: src/models/roomlistmodel.cpp:417
+#: src/models/roomlistmodel.cpp:421
 #, kde-format
 msgid "Normal"
 msgstr "Normala"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:423
 #, kde-format
 msgid "Low priority"
 msgstr "Malalta prioritato"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:425
 #, kde-format
 msgid "Spaces"
 msgstr "Spacoj"
 
-#: src/neochatconnection.cpp:202
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "File too large to download."
+msgstr "Dosiero tro granda por elŝuti."
+
+#: src/neochatconnection.cpp:58
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr "Kontaktu vian administranton de matrica servilo por subteno."
+
+#: src/neochatconnection.cpp:267
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Kreado de ĉambro malsukcesis: %1"
 
-#: src/neochatconnection.cpp:234
+#: src/neochatconnection.cpp:299
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
@@ -1706,7 +1705,7 @@ msgid "Leave Room"
 msgstr "Forlasi Ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151
+#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1777,7 +1776,7 @@ msgstr "Elekti ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:189
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2091,7 +2090,7 @@ msgstr ""
 "tiu aparato."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esplori ĉambrojn"
@@ -2163,23 +2162,21 @@ msgid "Stop Download"
 msgstr "Ĉesi Elŝuton"
 
 #: src/qml/FileDelegate.qml:216
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgid "Coach: %1, Seat: %2"
-msgstr "Lat: %1, Lon: %2"
+msgstr "Kupeo: %1, Seĝo: %2"
 
 #: src/qml/FileDelegate.qml:258
 #, kde-format
 msgctxt "<start time> - <end time>"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
 #: src/qml/FileDelegate.qml:269
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "Sendi al KDE-Itinero"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -3171,7 +3168,7 @@ msgstr "Ebligi mesaĝ-emfazojn"
 msgid "Delete keyword"
 msgstr "Forigi ŝlosilvorton"
 
-#: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3623,33 +3620,28 @@ msgstr[1] "%1 membroj"
 msgid "No member count"
 msgstr "Neniu membrokalkulo"
 
-#: src/qml/RoomListPage.qml:134
-#, kde-format
-msgid "View notifications"
-msgstr "Rigardi sciigojn"
-
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "No rooms found"
 msgstr "Neniuj ĉambroj trovitaj"
 
-#: src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:162
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Aliĝi al iuj ĉambroj por komenci"
 
-#: src/qml/RoomListPage.qml:183
+#: src/qml/RoomListPage.qml:165
 #, kde-format
 msgid "Search in room directory"
 msgstr "Serĉi en ĉambra dosierujo"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Kolapsi %1"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4057,10 +4049,27 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Forigi vorton"
 
-#: src/qml/SpaceDrawer.qml:63
+#: src/qml/SpaceDrawer.qml:62
+#, kde-format
+msgid "View notifications"
+msgstr "Rigardi sciigojn"
+
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "All Rooms"
 msgstr "Ĉiuj Ĉambroj"
+
+#: src/qml/SpaceDrawer.qml:105
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr ""
+
+#: src/qml/SpaceDrawer.qml:192
+#, fuzzy, kde-format
+#| msgid "Create a Space"
+msgid "Create a space"
+msgstr "Krei Spacon"
 
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
@@ -4281,7 +4290,14 @@ msgstr "Forigi Mesaĝojn"
 
 #: src/qml/UserDetailDialog.qml:218
 #, kde-format
-msgid "Open a private chat"
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Open a private chat"
+msgid "Invite to private chat"
 msgstr "Malfermi privatan babilejon"
 
 #: src/qml/UserDetailDialog.qml:229
@@ -4632,14 +4648,5 @@ msgstr "Montri"
 msgid "Quit"
 msgstr "Forlasi"
 
-#~ msgid "Login Failed: Access Token invalid or revoked"
-#~ msgstr "Ensaluto Malsukcesa: Aliro-Signo nevalida aŭ revokita"
-
-#~ msgid "[REDACTED]"
-#~ msgstr "[REDAKTITA]"
-
-#~ msgid "[REDACTED: %1]"
-#~ msgstr "[REDAKTITA: %1]"
-
-#~ msgid "The room id you are trying to join is not valid"
-#~ msgstr "La ĉambro-identigilo, al kiu vi provas aliĝi, ne validas"
+#~ msgid "Direct Messages"
+#~ msgstr "Rektaj Mesaĝoj"
