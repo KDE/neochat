@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-14 00:37+0000\n"
-"PO-Revision-Date: 2024-01-13 13:15+0100\n"
+"POT-Creation-Date: 2024-01-15 00:37+0000\n"
+"PO-Revision-Date: 2024-01-14 13:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1090,7 +1090,7 @@ msgstr "Favoriet"
 #: src/models/roomlistmodel.cpp:419
 #, kde-format
 msgid "Friends"
-msgstr ""
+msgstr "Vrienden"
 
 #: src/models/roomlistmodel.cpp:421
 #, kde-format
@@ -1107,22 +1107,22 @@ msgstr "Lage prioriteit"
 msgid "Spaces"
 msgstr "Spaties"
 
-#: src/neochatconnection.cpp:58
+#: src/neochatconnection.cpp:69
 #, kde-format
 msgid "File too large to download."
 msgstr "Bestand is te groot om te downloaden."
 
-#: src/neochatconnection.cpp:58
+#: src/neochatconnection.cpp:69
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Neem contact op met uw matrix-serverbeheerder voor ondersteuning."
 
-#: src/neochatconnection.cpp:267
+#: src/neochatconnection.cpp:240
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Aanmaken van room is mislukt: %1"
 
-#: src/neochatconnection.cpp:299
+#: src/neochatconnection.cpp:272
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ruimte aanmaken is mislukt: %1"
@@ -3822,12 +3822,12 @@ msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Berichten doorzoeken"
 
-#: src/qml/SearchPage.qml:60
+#: src/qml/SearchPage.qml:74
 #, kde-format
 msgid "Enter a text to start searching"
 msgstr "Een tekst invoeren om te beginnen met zoeken"
 
-#: src/qml/SearchPage.qml:66
+#: src/qml/SearchPage.qml:80
 #, kde-format
 msgid "No results found"
 msgstr "Geen resultaten gevonden"
@@ -4072,11 +4072,10 @@ msgstr "Alle rooms"
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
-msgstr ""
+msgstr "Vrienden"
 
 #: src/qml/SpaceDrawer.qml:192
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgid "Create a space"
 msgstr "Een ruimte aanmaken"
 
@@ -4301,13 +4300,12 @@ msgstr "Berichten verwijderen"
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
-msgstr ""
+msgstr "Chat met %1"
 
 #: src/qml/UserDetailDialog.qml:218
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Invite to private chat"
-msgstr "Een privé chat openen"
+msgstr "In een privé chat uitnodigen"
 
 #: src/qml/UserDetailDialog.qml:229
 #, kde-format

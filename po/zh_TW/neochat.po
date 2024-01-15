@@ -4,13 +4,13 @@
 # This file is distributed under the same license as the neochat package.
 #
 # Automatically generated, 2022.
-# SPDX-FileCopyrightText: 2022, 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-14 00:37+0000\n"
-"PO-Revision-Date: 2023-12-20 16:17+0900\n"
+"POT-Creation-Date: 2024-01-15 00:37+0000\n"
+"PO-Revision-Date: 2024-01-14 20:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #: src/controller.cpp:121 src/controller.cpp:315
 #, kde-format
@@ -205,7 +205,7 @@ msgstr "請求了邀請，理由：%1"
 #: src/eventhandler.cpp:431 src/eventhandler.cpp:606
 #, kde-format
 msgid "made something unknown"
-msgstr ""
+msgstr "做了不明的東西"
 
 #: src/eventhandler.cpp:434 src/eventhandler.cpp:609
 #, kde-format
@@ -261,12 +261,12 @@ msgstr "建立了聊天室，版本 %1"
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
-msgstr ""
+msgstr "變更了這個聊天室的能力等級"
 
 #: src/eventhandler.cpp:462 src/eventhandler.cpp:631
 #, kde-format
 msgid "changed the server access control lists for this room"
-msgstr ""
+msgstr "變更了這個聊天室的伺服器存取控制清單 (ACL)"
 
 #: src/eventhandler.cpp:466
 #, kde-format
@@ -459,10 +459,9 @@ msgid "Matrix client"
 msgstr "Matrix 用戶端"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2023 KDE 社群"
+msgstr "© 2018-2020 Black Hat, 2020-2024 KDE 社群"
 
 #: src/main.cpp:134
 #, kde-format
@@ -1087,7 +1086,7 @@ msgstr "最愛"
 #: src/models/roomlistmodel.cpp:419
 #, kde-format
 msgid "Friends"
-msgstr ""
+msgstr "好友"
 
 #: src/models/roomlistmodel.cpp:421
 #, kde-format
@@ -1104,22 +1103,22 @@ msgstr "低優先權"
 msgid "Spaces"
 msgstr "聊天空間"
 
-#: src/neochatconnection.cpp:58
+#: src/neochatconnection.cpp:69
 #, kde-format
 msgid "File too large to download."
 msgstr "要下載的檔案太大了。"
 
-#: src/neochatconnection.cpp:58
+#: src/neochatconnection.cpp:69
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "請聯絡您的 matrix 伺服器管理員以求支援。"
 
-#: src/neochatconnection.cpp:267
+#: src/neochatconnection.cpp:240
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室建立失敗：%1"
 
-#: src/neochatconnection.cpp:299
+#: src/neochatconnection.cpp:272
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
@@ -1192,7 +1191,7 @@ msgstr "拒絕並忽略使用者"
 #: src/notificationsmanager.cpp:319
 #, kde-format
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:330
 #, kde-format
@@ -1239,7 +1238,7 @@ msgstr "名稱："
 #: src/qml/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
-msgstr ""
+msgstr "文字標籤："
 
 #: src/qml/AccountEditorPage.qml:117 src/qml/AccountEditorPage.qml:170
 #: src/qml/EmoticonEditorPage.qml:110 src/qml/General.qml:107
@@ -2153,23 +2152,21 @@ msgid "Stop Download"
 msgstr "停止下載"
 
 #: src/qml/FileDelegate.qml:216
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgid "Coach: %1, Seat: %2"
-msgstr "緯度：%2，經度：%1"
+msgstr "車廂：%1，座位：%2"
 
 #: src/qml/FileDelegate.qml:258
 #, kde-format
 msgctxt "<start time> - <end time>"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
 #: src/qml/FileDelegate.qml:269
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "傳送到 KDE 旅程計劃"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2375,7 +2372,7 @@ msgstr "這個聊天室已被取代。"
 #: src/qml/General.qml:388
 #, kde-format
 msgid "See new room…"
-msgstr ""
+msgstr "查看新聊天室…"
 
 #: src/qml/General.qml:409
 #, kde-format
@@ -2853,7 +2850,7 @@ msgstr "正在等待裝置接收驗證。"
 #: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr ""
+msgstr "來自裝置 **%1** 的金鑰驗證請求"
 
 #: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
@@ -3020,12 +3017,12 @@ msgstr "聊天室 ID 或別名："
 #: src/qml/ManualRoomDialog.qml:89 src/qml/ManualRoomDialog.qml:97
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
-msgstr ""
+msgstr "必須以 # 或 ! 開頭，# 代表別名，! 代表 ID"
 
 #: src/qml/ManualRoomDialog.qml:95
 #, kde-format
 msgid "The input is not a valid room ID or alias"
-msgstr ""
+msgstr "輸入值不是有效的聊天室 ID 或別名"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -3182,7 +3179,7 @@ msgstr "無效的使用者名稱或密碼"
 #: src/qml/Permissions.qml:33
 #, kde-format
 msgid "Privileged Users"
-msgstr ""
+msgstr "有權力的使用者"
 
 #: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:44
 #, kde-format
@@ -3205,19 +3202,19 @@ msgid "Default permissions"
 msgstr "預設權限"
 
 #: src/qml/Permissions.qml:237
-#, fuzzy, kde-format
+#, kde-format
 msgid "Default user power level"
 msgstr "預設使用者能力等級"
 
 #: src/qml/Permissions.qml:238
 #, kde-format
 msgid "This is power level for all new users when joining the room"
-msgstr ""
+msgstr "這是所有新使用者加入聊天室時的能力等級"
 
 #: src/qml/Permissions.qml:246
 #, kde-format
 msgid "Default power level to set the room state"
-msgstr ""
+msgstr "設定聊天室狀態的預設能力等級"
 
 #: src/qml/Permissions.qml:247
 #, kde-format
@@ -3227,7 +3224,7 @@ msgstr ""
 #: src/qml/Permissions.qml:255
 #, kde-format
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "傳送訊息的預設能力等級"
 
 #: src/qml/Permissions.qml:256
 #, kde-format
@@ -3341,12 +3338,12 @@ msgstr "（已結束）"
 #, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
-msgstr ""
+msgstr "編輯使用者能力等級"
 
 #: src/qml/PowerLevelDialog.qml:35
 #, kde-format
 msgid "New power level"
-msgstr ""
+msgstr "新能力等級"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
@@ -3786,12 +3783,12 @@ msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "搜尋訊息"
 
-#: src/qml/SearchPage.qml:60
+#: src/qml/SearchPage.qml:74
 #, kde-format
 msgid "Enter a text to start searching"
 msgstr "輸入文字開始搜尋"
 
-#: src/qml/SearchPage.qml:66
+#: src/qml/SearchPage.qml:80
 #, kde-format
 msgid "No results found"
 msgstr "找不到結果"
@@ -4032,11 +4029,10 @@ msgstr "所有聊天室"
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
-msgstr ""
+msgstr "好友"
 
 #: src/qml/SpaceDrawer.qml:192
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgid "Create a space"
 msgstr "建立一個聊天空間"
 
@@ -4137,7 +4133,7 @@ msgstr "在您的瀏覽器繼續進行登入流程。"
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
-msgstr ""
+msgstr "重新開啟一次性登入 (SSO) 網址"
 
 #: src/qml/StartChatPage.qml:40
 #, kde-format
@@ -4171,7 +4167,7 @@ msgstr "繼續註冊代表您同意以下條款與細則："
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
-msgstr ""
+msgstr "這是此聊天的開頭。沒有比這更早的歷史訊息。"
 
 #: src/qml/TimelineView.qml:183
 #, kde-format
@@ -4240,7 +4236,7 @@ msgstr "解除封鎖使用者"
 #: src/qml/UserDetailDialog.qml:177
 #, kde-format
 msgid "Set user power level"
-msgstr ""
+msgstr "設定使用者能力等級"
 
 #: src/qml/UserDetailDialog.qml:202
 #, kde-format
@@ -4257,13 +4253,12 @@ msgstr "移除訊息"
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
-msgstr ""
+msgstr "與 %1 聊天"
 
 #: src/qml/UserDetailDialog.qml:218
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Invite to private chat"
-msgstr "在私人聊天室裡開啟"
+msgstr "邀請到私人聊天室"
 
 #: src/qml/UserDetailDialog.qml:229
 #, kde-format
@@ -4381,6 +4376,9 @@ msgid ""
 "\n"
 "**Please log out and log back in, your session is broken/corrupt.**"
 msgstr ""
+"遠端由於雙方金鑰不相符而取消了工作階段驗證。\n"
+"\n"
+"**您的工作階段有問題/已損毀，請登出後再重新登入。**"
 
 #: src/qml/VerificationCanceled.qml:47
 #, kde-format

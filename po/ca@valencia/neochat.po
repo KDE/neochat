@@ -1,16 +1,16 @@
 # Translation of neochat.po to Catalan (Valencian)
-# Copyright (C) 2020-2023 This_file_is_part_of_KDE
+# Copyright (C) 2020-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022, 2023.
-# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-14 00:37+0000\n"
-"PO-Revision-Date: 2023-12-03 11:29+0100\n"
+"POT-Creation-Date: 2024-01-15 00:37+0000\n"
+"PO-Revision-Date: 2024-01-14 10:58+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -461,10 +461,9 @@ msgid "Matrix client"
 msgstr "Client de Matrix"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2023 la comunitat KDE"
+msgstr "© 2018-2020 Black Hat, 2020-2024 la comunitat KDE"
 
 #: src/main.cpp:134
 #, kde-format
@@ -1094,7 +1093,7 @@ msgstr "Preferit"
 #: src/models/roomlistmodel.cpp:419
 #, kde-format
 msgid "Friends"
-msgstr ""
+msgstr "Amics"
 
 #: src/models/roomlistmodel.cpp:421
 #, kde-format
@@ -1111,22 +1110,22 @@ msgstr "Prioritat baixa"
 msgid "Spaces"
 msgstr "Espais"
 
-#: src/neochatconnection.cpp:58
+#: src/neochatconnection.cpp:69
 #, kde-format
 msgid "File too large to download."
 msgstr "El fitxer és massa gran per a baixar."
 
-#: src/neochatconnection.cpp:58
+#: src/neochatconnection.cpp:69
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Per a suport, contacteu amb l'administrador del servidor de Matrix."
 
-#: src/neochatconnection.cpp:267
+#: src/neochatconnection.cpp:240
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "No s'ha pogut crear la sala: %1"
 
-#: src/neochatconnection.cpp:299
+#: src/neochatconnection.cpp:272
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "No s'ha pogut crear l'espai: %1"
@@ -2171,23 +2170,21 @@ msgid "Stop Download"
 msgstr "Para la baixada"
 
 #: src/qml/FileDelegate.qml:216
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgid "Coach: %1, Seat: %2"
-msgstr "Lat.: %1, lon.: %2"
+msgstr "Cotxe: %1, Seient: %2"
 
 #: src/qml/FileDelegate.qml:258
 #, kde-format
 msgctxt "<start time> - <end time>"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
 #: src/qml/FileDelegate.qml:269
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "Envia a KDE Itinerary"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -3835,12 +3832,12 @@ msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Busca missatges"
 
-#: src/qml/SearchPage.qml:60
+#: src/qml/SearchPage.qml:74
 #, kde-format
 msgid "Enter a text to start searching"
 msgstr "Introduïu un text per a iniciar la busca"
 
-#: src/qml/SearchPage.qml:66
+#: src/qml/SearchPage.qml:80
 #, kde-format
 msgid "No results found"
 msgstr "No s'ha trobat cap resultat"
@@ -4085,13 +4082,12 @@ msgstr "Totes les sales"
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
-msgstr ""
+msgstr "Amics"
 
 #: src/qml/SpaceDrawer.qml:192
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgid "Create a space"
-msgstr "Crea un espai"
+msgstr "Creeu un espai"
 
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
@@ -4314,13 +4310,12 @@ msgstr "Eliminació de missatges"
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
-msgstr ""
+msgstr "Xat amb %1"
 
 #: src/qml/UserDetailDialog.qml:218
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Invite to private chat"
-msgstr "Obri en un xat privat"
+msgstr "Convida a un xat privat"
 
 #: src/qml/UserDetailDialog.qml:229
 #, kde-format
@@ -4689,17 +4684,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Missatges directes"
-
-#~ msgid "Login Failed: Access Token invalid or revoked"
-#~ msgstr ""
-#~ "No s'ha pogut fer l'inici de la sessió: El testimoni d'accés no és vàlid "
-#~ "o està revocat"
-
-#~ msgid "[REDACTED]"
-#~ msgstr "[REDACTAT]"
-
-#~ msgid "[REDACTED: %1]"
-#~ msgstr "[REDACTAT: %1]"
