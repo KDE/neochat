@@ -90,7 +90,7 @@ Delegates.RoundedItemDelegate {
                 elide: Text.ElideRight
                 font: Kirigami.Theme.smallFont
                 opacity: root.hasNotifications ? 0.9 : 0.7
-                visible: !Config.compactRoomList
+                visible: !Config.compactRoomList && text.length > 0
                 textFormat: Text.PlainText
 
                 Layout.fillWidth: true
