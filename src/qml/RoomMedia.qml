@@ -38,9 +38,6 @@ QQC2.ScrollView {
     QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
     ListView {
-        // So that delegates can access current room properly.
-        readonly property NeoChatRoom currentRoom: root.currentRoom
-
         clip: true
         verticalLayoutDirection: ListView.BottomToTop
 
@@ -55,7 +52,7 @@ QQC2.ScrollView {
                     alwaysShowAuthor: true
                     alwaysMaxWidth: true
                     cardBackground: false
-                    connection: root.connection
+                    room: root.currentRoom
                 }
             }
 
@@ -65,7 +62,7 @@ QQC2.ScrollView {
                     alwaysShowAuthor: true
                     alwaysMaxWidth: true
                     cardBackground: false
-                    connection: root.connection
+                    room: root.currentRoom
                 }
             }
         }

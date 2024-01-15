@@ -30,6 +30,11 @@ TimelineDelegate {
     id: root
 
     /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
+    required property NeoChatRoom room
+
+    /**
      * @brief The index of the delegate in the model.
      */
     required property var index
@@ -244,8 +249,6 @@ TimelineDelegate {
      */
     readonly property alias hovered: bubble.hovered
 
-    required property NeoChatConnection connection
-
     /**
      * @brief Open the context menu for the message.
      */
@@ -326,7 +329,7 @@ TimelineDelegate {
 
             Component.onCompleted: {
                 if (root.isReply && root.replyDelegateType === DelegateType.Other) {
-                    currentRoom.loadReply(root.eventId, root.replyId)
+                    root.room.loadReply(root.eventId, root.replyId)
                 }
             }
 
@@ -437,7 +440,7 @@ TimelineDelegate {
             visible: root.showReactions
             model: root.reaction
 
-            onReactionClicked: (reaction) => currentRoom.toggleReaction(root.eventId, reaction)
+            onReactionClicked: (reaction) => root.room.toggleReaction(root.eventId, reaction)
         }
         AvatarFlow {
             Layout.alignment: Qt.AlignRight

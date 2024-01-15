@@ -43,7 +43,7 @@ MessageDelegate {
         RichLabel {
             id: label
             Layout.fillWidth: true
-            visible: currentRoom.editCache.editId !== root.eventId
+            visible: root.room.editCache.editId !== root.eventId
 
             isReply: root.isReply
 
@@ -59,17 +59,17 @@ MessageDelegate {
             Layout.fillWidth: true
             Layout.minimumHeight: item ? item.minimumHeight : -1
             Layout.preferredWidth: item ? item.preferredWidth : -1
-            visible: currentRoom.editCache.editId === root.eventId
+            visible: root.room.editCache.editId === root.eventId
             active: visible
             sourceComponent: MessageEditComponent {
-                room: currentRoom
+                room: root.room
                 actionsHandler: root.ListView.view.actionsHandler
                 messageId: root.eventId
             }
         }
         LinkPreviewDelegate {
             Layout.fillWidth: true
-            active: !currentRoom.usesEncryption && currentRoom.urlPreviewEnabled && Config.showLinkPreview && root.showLinkPreview && !root.linkPreview.empty
+            active: !root.room.usesEncryption && root.room.urlPreviewEnabled && Config.showLinkPreview && root.showLinkPreview && !root.linkPreview.empty
             linkPreviewer: root.linkPreview
             indicatorEnabled: root.isVisibleInTimeline()
         }

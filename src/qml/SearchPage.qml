@@ -87,7 +87,7 @@ Kirigami.ScrollablePage {
 
         model: searchModel
         delegate: EventDelegate {
-            connection: root.connection
+            room: root.currentRoom
         }
     }
 }

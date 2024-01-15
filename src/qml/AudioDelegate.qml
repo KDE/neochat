@@ -53,7 +53,7 @@ MessageDelegate {
                 PropertyChanges {
                     target: playButton
                     icon.name: "media-playback-start"
-                    onClicked: currentRoom.downloadFile(root.eventId)
+                    onClicked: root.room.downloadFile(root.eventId)
                 }
             },
             State {
@@ -67,7 +67,7 @@ MessageDelegate {
                     target: playButton
                     icon.name: "media-playback-stop"
                     onClicked: {
-                        currentRoom.cancelFileTransfer(root.eventId)
+                        root.room.cancelFileTransfer(root.eventId)
                     }
                 }
             },

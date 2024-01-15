@@ -128,7 +128,6 @@ Kirigami.Page {
                     chatBarLoader.item.forceActiveFocus()
                 }
             }
-            connection: root.connection
         }
     }
 

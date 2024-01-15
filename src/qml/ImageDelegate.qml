@@ -148,7 +148,7 @@ MessageDelegate {
                 openSavedFile()
             } else {
                 openOnFinished = true
-                ListView.view.currentRoom.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + ListView.view.currentRoom.fileNameToDownload(root.eventId))
+                root.room.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId))
             }
         }
 

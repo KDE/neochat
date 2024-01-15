@@ -36,7 +36,7 @@ MessageDelegate {
             delegate: RowLayout {
                 Layout.fillWidth: true
                 CheckBox {
-                    checked: root.pollHandler.answers[currentRoom.localUser.id] ? root.pollHandler.answers[currentRoom.localUser.id].includes(modelData["id"]) : false
+                    checked: root.pollHandler.answers[root.room.localUser.id] ? root.pollHandler.answers[root.room.localUser.id].includes(modelData["id"]) : false
                     onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])
                     enabled: !root.pollHandler.hasEnded
                 }

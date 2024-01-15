@@ -358,7 +358,7 @@ MessageDelegate {
             playSavedFile()
         } else {
             playOnFinished = true
-            ListView.view.currentRoom.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + ListView.view.currentRoom.fileNameToDownload(root.eventId))
+            root.room.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId))
         }
     }
 

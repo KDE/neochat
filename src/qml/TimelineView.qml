@@ -17,7 +17,6 @@ import org.kde.neochat.config
 QQC2.ScrollView {
     id: root
     required property NeoChatRoom currentRoom
-    required property NeoChatConnection connection
     onCurrentRoomChanged: {
         roomChanging = true;
         roomChangingTimer.restart()
@@ -63,8 +62,6 @@ QQC2.ScrollView {
 
     ListView {
         id: messageListView
-        // So that delegates can access the current room properly.
-        readonly property NeoChatRoom currentRoom: root.currentRoom
         // So that delegates can access the actionsHandler properly.
         readonly property ActionsHandler actionsHandler: root.actionsHandler
 
@@ -153,7 +150,6 @@ QQC2.ScrollView {
 
         delegate: EventDelegate {
             room: root.currentRoom
-            connection: root.connection
         }
 
         KirigamiComponents.FloatingButton {

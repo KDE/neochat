@@ -54,7 +54,7 @@ MessageDelegate {
     function saveFileAs() {
         const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
         dialog.open()
-        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.eventId)
+        dialog.currentFile = dialog.folder + "/" + root.room.fileNameToDownload(root.eventId)
     }
 
     function openSavedFile() {
@@ -117,7 +117,7 @@ MessageDelegate {
                         target: downloadButton
                         icon.name: "media-playback-stop"
                         QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
-                        onClicked: currentRoom.cancelFileTransfer(root.eventId)
+                        onClicked: root.room.cancelFileTransfer(root.eventId)
                     }
                 },
                 State {
@@ -159,7 +159,7 @@ MessageDelegate {
                 icon.name: "document-open"
                 onClicked: {
                     autoOpenFile = true;
-                    currentRoom.downloadTempFile(root.eventId);
+                    root.room.downloadTempFile(root.eventId);
                 }
 
                 QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
@@ -188,7 +188,7 @@ MessageDelegate {
                         if (autoOpenFile) {
                             UrlHelper.copyTo(root.progressInfo.localPath, file)
                         } else {
-                            currentRoom.download(root.eventId, file);
+                            root.room.download(root.eventId, file);
                         }
                     }
                 }
@@ -198,7 +198,7 @@ MessageDelegate {
             id: itinerary
             model: ItineraryModel {
                 id: itineraryModel
-                connection: root.connection
+                connection: root.room.connection
             }
             delegate: DelegateChooser {
                 role: "type"

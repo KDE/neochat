@@ -18,12 +18,11 @@ import org.kde.neochat
 MessageDelegate {
     id: root
 
-    property alias room: liveLocationModel.room
-
     bubbleContent: ColumnLayout {
         LiveLocationsModel {
             id: liveLocationModel
             eventId: root.eventId
+            room: root.room
         }
         MapView {
             id: mapView

@@ -11,9 +11,12 @@ import org.kde.neochat
 DelegateChooser {
     id: root
 
+    /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
+    required property NeoChatRoom room
+
     role: "delegateType"
-    property var room
-    required property NeoChatConnection connection
 
     DelegateChoice {
         roleValue: DelegateType.State
@@ -23,63 +26,63 @@ DelegateChooser {
     DelegateChoice {
         roleValue: DelegateType.Emote
         delegate: TextDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Message
         delegate: TextDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Notice
         delegate: TextDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Image
         delegate: ImageDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Sticker
         delegate: ImageDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Audio
         delegate: AudioDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Video
         delegate: VideoDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.File
         delegate: FileDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Encrypted
         delegate: EncryptedDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
@@ -91,14 +94,14 @@ DelegateChooser {
     DelegateChoice {
         roleValue: DelegateType.Poll
         delegate: PollDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
     DelegateChoice {
         roleValue: DelegateType.Location
         delegate: LocationDelegate {
-            connection: root.connection
+            room: root.room
         }
     }
 
@@ -106,7 +109,6 @@ DelegateChooser {
         roleValue: DelegateType.LiveLocation
         delegate: LiveLocationDelegate {
             room: root.room
-            connection: root.connection
         }
     }
 
