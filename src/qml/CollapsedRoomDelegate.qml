@@ -30,7 +30,7 @@ QQC2.ItemDelegate {
     width: ListView.view.width
     height: visible ? ListView.view.width : 0
 
-    visible: root.categoryVisible || filterText.length > 0 || Config.mergeRoomList
+    visible: root.categoryVisible || filterText.length > 0
 
     contentItem: KirigamiComponents.Avatar {
         source: root.avatar ? `image://mxc/${root.avatar}` : ""

@@ -141,29 +141,6 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18n("Rooms and private chats")
-    }
-    FormCard.FormCard {
-        FormCard.FormRadioDelegate {
-            text: i18n("Separated")
-            checked: !Config.mergeRoomList
-            enabled: !Config.isMergeRoomListImmutable
-            onToggled: {
-                Config.mergeRoomList = false
-                Config.save()
-            }
-        }
-        FormCard.FormRadioDelegate {
-            text: i18n("Intermixed")
-            checked: Config.mergeRoomList
-            enabled: !Config.isMergeRoomListImmutable
-            onToggled: {
-                Config.mergeRoomList = true
-                Config.save()
-            }
-        }
-    }
-    FormCard.FormHeader {
         title: i18nc("Chat Editor", "Editor")
     }
     FormCard.FormCard {

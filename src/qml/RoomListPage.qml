@@ -191,7 +191,7 @@ Kirigami.Page {
                     id: sortFilterRoomListModel
 
                     sourceModel: root.roomListModel
-                    roomSortOrder: Config.mergeRoomList ? SortFilterRoomListModel.LastActivity : SortFilterRoomListModel.Categories
+                    roomSortOrder: SortFilterRoomListModel.Categories
                     onLayoutChanged: {
                         listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row
                     }
@@ -200,7 +200,7 @@ Kirigami.Page {
                 }
 
                 section {
-                    property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
+                    property: "category"
                     delegate: root.collapsed ? foldButton : sectionHeader
                 }
 
@@ -278,7 +278,7 @@ Kirigami.Page {
 
                         height: visible ? implicitHeight : 0
 
-                        visible: categoryVisible || filterText.length > 0 || Config.mergeRoomList
+                        visible: categoryVisible || filterText.length > 0
 
                         onSelected: RoomManager.enterRoom(currentRoom)
 
