@@ -21,7 +21,7 @@ QQC2.Dialog {
 
     leftPadding: 0
     rightPadding: 0
-    bottomPadding: 0
+    bottomPadding: 1
     topPadding: 0
 
     anchors.centerIn: applicationWindow().overlay
@@ -71,6 +71,7 @@ QQC2.Dialog {
 
     QQC2.ScrollView {
         anchors.fill: parent
+        clip: true
 
         Keys.forwardTo: searchField
 
