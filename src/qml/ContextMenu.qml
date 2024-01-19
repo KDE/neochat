@@ -70,6 +70,7 @@ Loader {
 
             QQC2.Menu {
                 title: i18n("Notification State")
+                icon.name: "notifications"
 
                 QQC2.MenuItem {
                     text: i18n("Follow Global Setting")
