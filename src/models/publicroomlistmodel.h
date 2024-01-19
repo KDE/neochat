@@ -41,9 +41,9 @@ class PublicRoomListModel : public QAbstractListModel
     Q_PROPERTY(QString server READ server WRITE setServer NOTIFY serverChanged)
 
     /**
-     * @brief The filter keyword for the list of public rooms.
+     * @brief The text to search the public room list for.
      */
-    Q_PROPERTY(QString keyword READ keyword WRITE setKeyword NOTIFY keywordChanged)
+    Q_PROPERTY(QString searchText READ searchText WRITE setSearchText NOTIFY searchTextChanged)
 
     /**
      * @brief Whether only space rooms should be shown.
@@ -51,14 +51,9 @@ class PublicRoomListModel : public QAbstractListModel
     Q_PROPERTY(bool showOnlySpaces READ showOnlySpaces WRITE setShowOnlySpaces NOTIFY showOnlySpacesChanged)
 
     /**
-     * @brief Whether the model has more items to load.
+     * @brief Whether the model is searching.
      */
-    Q_PROPERTY(bool hasMore READ hasMore NOTIFY hasMoreChanged)
-
-    /**
-     * @biref Whether the model is still loading.
-     */
-    Q_PROPERTY(bool loading READ loading NOTIFY loadingChanged)
+    Q_PROPERTY(bool searching READ searching NOTIFY searchingChanged)
 
 public:
     /**
@@ -105,31 +100,31 @@ public:
     [[nodiscard]] QString server() const;
     void setServer(const QString &value);
 
-    [[nodiscard]] QString keyword() const;
-    void setKeyword(const QString &value);
+    [[nodiscard]] QString searchText() const;
+    void setSearchText(const QString &searchText);
 
     [[nodiscard]] bool showOnlySpaces() const;
     void setShowOnlySpaces(bool showOnlySpaces);
 
-    [[nodiscard]] bool hasMore() const;
+    [[nodiscard]] bool searching() const;
 
-    [[nodiscard]] bool loading() const;
+private:
+    QPointer<Quotient::Connection> m_connection = nullptr;
+    QString m_server;
+    QString m_searchText;
+    bool m_showOnlySpaces = false;
 
     /**
      * @brief Load the next set of rooms.
      *
      * @param count the maximum number of rooms to load.
      */
-    Q_INVOKABLE void next(int count = 50);
-
-private:
-    Quotient::Connection *m_connection = nullptr;
-    QString m_server;
-    QString m_keyword;
-    bool m_showOnlySpaces = false;
+    void next(int count = 50);
+    bool canFetchMore(const QModelIndex &parent) const override;
+    void fetchMore(const QModelIndex &parent) override;
 
     bool attempted = false;
-    bool m_loading = false;
+    bool m_searching = false;
     QString nextBatch;
 
     QList<Quotient::PublicRoomsChunk> rooms;
@@ -139,8 +134,7 @@ private:
 Q_SIGNALS:
     void connectionChanged();
     void serverChanged();
-    void keywordChanged();
+    void searchTextChanged();
     void showOnlySpacesChanged();
-    void hasMoreChanged();
-    void loadingChanged();
+    void searchingChanged();
 };

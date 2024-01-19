@@ -95,9 +95,8 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SearchPage.qml", {
-                        currentRoom: root.room,
-                        connection: root.connection
+                    pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/RoomSearchPage.qml", {
+                        room: root.room
                     }, {
                         title: i18nc("@action:title", "Search")
                     })

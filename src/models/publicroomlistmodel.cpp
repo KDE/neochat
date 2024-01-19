@@ -41,7 +41,7 @@ void PublicRoomListModel::setConnection(Connection *conn)
     if (job) {
         job->abandon();
         job = nullptr;
-        Q_EMIT loadingChanged();
+        Q_EMIT searchingChanged();
     }
 
     if (m_connection) {
@@ -50,7 +50,6 @@ void PublicRoomListModel::setConnection(Connection *conn)
 
     Q_EMIT connectionChanged();
     Q_EMIT serverChanged();
-    Q_EMIT hasMoreChanged();
 }
 
 QString PublicRoomListModel::server() const
@@ -71,14 +70,14 @@ void PublicRoomListModel::setServer(const QString &value)
     nextBatch = QString();
     attempted = false;
     rooms.clear();
-    Q_EMIT loadingChanged();
+    Q_EMIT searchingChanged();
 
     endResetModel();
 
     if (job) {
         job->abandon();
         job = nullptr;
-        Q_EMIT loadingChanged();
+        Q_EMIT searchingChanged();
     }
 
     if (m_connection) {
@@ -86,21 +85,20 @@ void PublicRoomListModel::setServer(const QString &value)
     }
 
     Q_EMIT serverChanged();
-    Q_EMIT hasMoreChanged();
 }
 
-QString PublicRoomListModel::keyword() const
+QString PublicRoomListModel::searchText() const
 {
-    return m_keyword;
+    return m_searchText;
 }
 
-void PublicRoomListModel::setKeyword(const QString &value)
+void PublicRoomListModel::setSearchText(const QString &value)
 {
-    if (m_keyword == value) {
+    if (m_searchText == value) {
         return;
     }
 
-    m_keyword = value;
+    m_searchText = value;
 
     beginResetModel();
 
@@ -113,15 +111,14 @@ void PublicRoomListModel::setKeyword(const QString &value)
     if (job) {
         job->abandon();
         job = nullptr;
-        Q_EMIT loadingChanged();
+        Q_EMIT searchingChanged();
     }
 
     if (m_connection) {
         next();
     }
 
-    Q_EMIT keywordChanged();
-    Q_EMIT hasMoreChanged();
+    Q_EMIT searchTextChanged();
 }
 
 bool PublicRoomListModel::showOnlySpaces() const
@@ -154,8 +151,8 @@ void PublicRoomListModel::next(int count)
     if (m_showOnlySpaces) {
         roomTypes += QLatin1String("m.space");
     }
-    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_keyword, roomTypes});
-    Q_EMIT loadingChanged();
+    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_searchText, roomTypes});
+    Q_EMIT searchingChanged();
 
     connect(job, &BaseJob::finished, this, [this] {
         attempted = true;
@@ -166,14 +163,10 @@ void PublicRoomListModel::next(int count)
             this->beginInsertRows({}, rooms.count(), rooms.count() + job->chunk().count() - 1);
             rooms.append(job->chunk());
             this->endInsertRows();
-
-            if (job->nextBatch().isEmpty()) {
-                Q_EMIT hasMoreChanged();
-            }
         }
 
         this->job = nullptr;
-        Q_EMIT loadingChanged();
+        Q_EMIT searchingChanged();
     });
 }
 
@@ -271,12 +264,19 @@ int PublicRoomListModel::rowCount(const QModelIndex &parent) const
     return rooms.count();
 }
 
-bool PublicRoomListModel::hasMore() const
+bool PublicRoomListModel::canFetchMore(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return !(attempted && nextBatch.isEmpty());
 }
 
-bool PublicRoomListModel::loading() const
+void PublicRoomListModel::fetchMore(const QModelIndex &parent)
+{
+    Q_UNUSED(parent)
+    next();
+}
+
+bool PublicRoomListModel::searching() const
 {
     return job != nullptr;
 }

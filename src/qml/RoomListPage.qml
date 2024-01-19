@@ -164,7 +164,7 @@ Kirigami.Page {
                         icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
                         text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
                         onTriggered: {
-                            let dialog = pageStack.layers.push("qrc:/org/kde/neochat/qml/JoinRoomPage.qml", {
+                            let dialog = pageStack.layers.push("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
                                 connection: root.connection,
                                 keyword: sortFilterRoomListModel.filterText
                             }, {

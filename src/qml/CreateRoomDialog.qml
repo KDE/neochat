@@ -103,7 +103,7 @@ FormCard.FormCardPage {
             visible: !chosenRoomDelegate.visible
             text: i18nc("@action:button", "Pick room")
             onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/JoinRoomPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
+                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
                     chosenRoomDelegate.displayName = displayName;
@@ -182,7 +182,7 @@ FormCard.FormCardPage {
             }
 
             onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/JoinRoomPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
+                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
                     chosenRoomDelegate.displayName = displayName;

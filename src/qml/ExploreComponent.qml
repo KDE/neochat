@@ -21,7 +21,7 @@ RowLayout {
         text: i18n("Explore rooms")
         icon.name: "compass"
         onTriggered: {
-            let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/JoinRoomPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
+            let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                 if (isJoined) {
                     RoomManager.enterRoom(root.connection.room(roomId))

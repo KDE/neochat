@@ -36,7 +36,7 @@ void SearchModel::setSearchText(const QString &searchText)
 
 void SearchModel::search()
 {
-    Q_ASSERT(m_connection);
+    Q_ASSERT(m_room);
     setSearching(true);
     if (m_job) {
         m_job->abandon();
@@ -62,7 +62,7 @@ void SearchModel::search()
 
     };
 
-    auto job = m_connection->callApi<SearchJob>(SearchJob::Categories{criteria});
+    auto job = m_room->connection()->callApi<SearchJob>(SearchJob::Categories{criteria});
     m_job = job;
     connect(job, &BaseJob::finished, this, [this, job] {
         beginResetModel();
@@ -72,17 +72,6 @@ void SearchModel::search()
         m_job = nullptr;
         // TODO error handling
     });
-}
-
-Connection *SearchModel::connection() const
-{
-    return m_connection;
-}
-
-void SearchModel::setConnection(Connection *connection)
-{
-    m_connection = connection;
-    Q_EMIT connectionChanged();
 }
 
 QVariant SearchModel::data(const QModelIndex &index, int role) const

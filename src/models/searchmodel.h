@@ -32,11 +32,6 @@ class SearchModel : public QAbstractListModel
     Q_PROPERTY(QString searchText READ searchText WRITE setSearchText NOTIFY searchTextChanged)
 
     /**
-     * @brief The current connection that the model is using to search for messages.
-     */
-    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
-
-    /**
      * @brief The current room that the search is being done from.
      */
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
@@ -94,9 +89,6 @@ public:
     QString searchText() const;
     void setSearchText(const QString &searchText);
 
-    Quotient::Connection *connection() const;
-    void setConnection(Quotient::Connection *connection);
-
     NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
@@ -130,7 +122,6 @@ public:
 
 Q_SIGNALS:
     void searchTextChanged();
-    void connectionChanged();
     void roomChanged();
     void searchingChanged();
 
@@ -141,7 +132,6 @@ private:
     void setSearching(bool searching);
 
     QString m_searchText;
-    Quotient::Connection *m_connection = nullptr;
     NeoChatRoom *m_room = nullptr;
     Quotient::Omittable<Quotient::SearchJob::ResultRoomEvents> m_result = Quotient::none;
     Quotient::SearchJob *m_job = nullptr;

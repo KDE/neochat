@@ -165,7 +165,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/UserInfoDesktop.qml
         qml/RoomPage.qml
         qml/RoomWindow.qml
-        qml/JoinRoomPage.qml
+        qml/ExploreRoomsPage.qml
         qml/ManualRoomDialog.qml
         qml/ExplorerDelegate.qml
         qml/InviteUserPage.qml
@@ -271,7 +271,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/EmojiTonesPicker.qml
         qml/EmojiDelegate.qml
         qml/EmojiGrid.qml
-        qml/SearchPage.qml
+        qml/RoomSearchPage.qml
         qml/LocationDelegate.qml
         qml/LocationChooser.qml
         qml/TimelineView.qml
@@ -302,6 +302,8 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/NotificationsView.qml
         qml/LoadingDelegate.qml
         qml/TimelineEndDelegate.qml
+        qml/SearchPage.qml
+        qml/ServerComboBox.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
