@@ -16,9 +16,9 @@ import org.kde.neochat.config
  * This component just overloads the actions and nested actions of the base menu
  * to what is required for a media item.
  *
- * @sa MessageDelegateContextMenu
+ * @sa DelegateContextMenu
  */
-MessageDelegateContextMenu {
+DelegateContextMenu {
     id: root
 
     /**
@@ -55,15 +55,7 @@ MessageDelegateContextMenu {
                 dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId);
             }
         },
-        Kirigami.Action {
-            text: i18n("Reply")
-            icon.name: "mail-replied-symbolic"
-            onTriggered: {
-                currentRoom.mainCache.replyId = eventId;
-                currentRoom.editCache.editId = "";
-                RoomManager.requestFullScreenClose();
-            }
-        },
+        DelegateContextMenu.ReplyMessageAction {},
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
@@ -100,7 +92,9 @@ MessageDelegateContextMenu {
             text: i18n("View Source")
             icon.name: "code-context"
             onTriggered: RoomManager.viewEventSource(root.eventId)
-        }
+        },
+        DelegateContextMenu.ReportMessageAction {},
+        DelegateContextMenu.ViewSourceAction {}
     ]
 
     /**

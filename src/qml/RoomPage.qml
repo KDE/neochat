@@ -267,7 +267,6 @@ Kirigami.Page {
             const contextMenu = fileDelegateContextMenu.createObject(root, {
                 author: author,
                 eventId: eventId,
-                messageComponentType: messageComponentType,
                 plainText: plainText,
                 mimeType: mimeType,
                 progressInfo: progressInfo

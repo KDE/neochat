@@ -321,6 +321,8 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/LoadComponent.qml
         qml/RecommendedSpaceDialog.qml
         qml/RoomTreeSection.qml
+        qml/DelegateContextMenu.qml
+        qml/ShareDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
