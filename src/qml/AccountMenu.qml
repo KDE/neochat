@@ -33,7 +33,9 @@ QQC2.Menu {
             defaultPage: "notifications",
             connection: root.connection
         }, {
-            title: i18n("Configure")
+            title: i18n("Configure"),
+            width: Kirigami.Units.gridUnit * 50,
+            height: Kirigami.Units.gridUnit * 42
         })
     }
     QQC2.MenuItem {
@@ -43,7 +45,9 @@ QQC2.Menu {
             defaultPage: "devices",
             connection: root.connection
         }, {
-            title: i18n("Configure")
+            title: i18n("Configure"),
+            width: Kirigami.Units.gridUnit * 50,
+            height: Kirigami.Units.gridUnit * 42
         })
     }
     QQC2.MenuItem {

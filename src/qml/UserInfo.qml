@@ -123,7 +123,9 @@ RowLayout {
         onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
             connection: root.connection
         }, {
-            title: i18n("Configure")
+            title: i18n("Configure"),
+            width: Kirigami.Units.gridUnit * 50,
+            height: Kirigami.Units.gridUnit * 42
         })
         text: i18n("Open Settings")
         display: QQC2.AbstractButton.IconOnly
