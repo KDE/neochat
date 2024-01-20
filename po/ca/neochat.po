@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2024-01-14 10:58+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1761,7 +1761,7 @@ msgid "Make this parent official"
 msgstr "Fes oficial aquest pare"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:183
+#: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2141,6 +2141,29 @@ msgstr "Cerca"
 #, kde-format
 msgid "Create New"
 msgstr "Crea nou"
+
+#: src/qml/ExploreRoomsPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Exploració de sales"
+
+#: src/qml/ExploreRoomsPage.qml:79
+#, kde-format
+msgid "Enter a room address"
+msgstr "Introduïu una adreça de sala"
+
+#: src/qml/ExploreRoomsPage.qml:93
+#, kde-format
+msgid "Find a room..."
+msgstr "Cerca una sala..."
+
+#: src/qml/ExploreRoomsPage.qml:94
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "No s'ha trobat cap sala pública"
 
 #: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
@@ -2783,74 +2806,6 @@ msgstr "Envia una invitació"
 msgid "User is either already a member or has been invited"
 msgstr "L'usuari ja és membre o ha estat convidat"
 
-#: src/qml/JoinRoomPage.qml:40
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Exploració de sales"
-
-#: src/qml/JoinRoomPage.qml:58
-#, kde-format
-msgid "Find a room..."
-msgstr "Cerca una sala..."
-
-#: src/qml/JoinRoomPage.qml:84
-#, kde-format
-msgid "Add New Server"
-msgstr "Afegir un servidor nou"
-
-#: src/qml/JoinRoomPage.qml:99
-#, kde-format
-msgid "Home Server"
-msgstr "Servidor domèstic"
-
-#: src/qml/JoinRoomPage.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "Afegeix un servidor nou"
-
-#: src/qml/JoinRoomPage.qml:138
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "Afegeix un servidor"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Valid server entered"
-msgstr "S'ha introduït un servidor vàlid"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "Aquest servidor no es pot resoldre o ja s'ha afegit"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "El text que heu introduït no és un URL vàlid"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "Introduïu l'URL del servidor (p. ex. kde.org)"
-
-#: src/qml/JoinRoomPage.qml:159
-#, kde-format
-msgid "Server URL"
-msgstr "URL del servidor"
-
-#: src/qml/JoinRoomPage.qml:239
-#, kde-format
-msgid "Enter a room address"
-msgstr "Introduïu una adreça de sala"
-
-#: src/qml/JoinRoomPage.qml:265
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "No s'ha trobat cap sala pública"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2921,7 +2876,7 @@ msgstr "Trieu una ubicació"
 msgid "Send this location"
 msgstr "Envia aquesta ubicació"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:126
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3571,51 +3526,51 @@ msgstr "Obre les eines de desenvolupament"
 msgid "Search in this room"
 msgstr "Cerca en aquesta sala"
 
-#: src/qml/RoomInformation.qml:102
+#: src/qml/RoomInformation.qml:101
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Elimina la sala de les preferides"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Make room favorite"
 msgstr "Fes preferida la sala"
 
-#: src/qml/RoomInformation.qml:122
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Mostra les ubicacions per a aquesta sala"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "Membres"
 
-#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
+#: src/qml/RoomInformation.qml:145 src/qml/SpaceHomePage.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Convida un usuari"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:148
 #, kde-format
 msgid "Invite user to room"
 msgstr "Convida un usuari a la sala"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membre"
 msgstr[1] "%1 membres"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "No member count"
 msgstr "No hi ha comptador de membres"
@@ -3664,6 +3619,30 @@ msgstr ""
 #, kde-format
 msgid "Message Source"
 msgstr "Codi font del missatge"
+
+#: src/qml/RoomSearchPage.qml:25
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Cerca missatges"
+
+#: src/qml/RoomSearchPage.qml:36
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgid "Find messages…"
+msgstr "Envia un missatge…"
+
+#: src/qml/RoomSearchPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching"
+msgstr "Introduïu un text per a iniciar la cerca"
+
+#: src/qml/RoomSearchPage.qml:38
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgid "No messages found"
+msgstr "No s'ha trobat cap resultat"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -3812,22 +3791,6 @@ msgstr ""
 "Els membres nous poden veure l'historial de missatges a partir del punt que "
 "es van unir a la sala."
 
-#: src/qml/SearchPage.qml:18
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Cerca missatges"
-
-#: src/qml/SearchPage.qml:74
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr "Introduïu un text per a iniciar la cerca"
-
-#: src/qml/SearchPage.qml:80
-#, kde-format
-msgid "No results found"
-msgstr "No s'ha trobat cap resultat"
-
 #: src/qml/Security.qml:17
 #, kde-format
 msgctxt "@title"
@@ -3900,6 +3863,53 @@ msgstr "Fes que aquest espai sigui el pare canònic"
 msgctxt "@title"
 msgid "Select Spaces"
 msgstr "Selecció dels espais"
+
+#: src/qml/ServerComboBox.qml:45
+#, kde-format
+msgid "Add New Server"
+msgstr "Afegir un servidor nou"
+
+#: src/qml/ServerComboBox.qml:60
+#, kde-format
+msgid "Home Server"
+msgstr "Servidor domèstic"
+
+#: src/qml/ServerComboBox.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "Afegeix un servidor nou"
+
+#: src/qml/ServerComboBox.qml:99
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "Afegeix un servidor"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Valid server entered"
+msgstr "S'ha introduït un servidor vàlid"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr "Aquest servidor no es pot resoldre o ja s'ha afegit"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "El text que heu introduït no és un URL vàlid"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr "Introduïu l'URL del servidor (p. ex. kde.org)"
+
+#: src/qml/ServerComboBox.qml:124
+#, kde-format
+msgid "Server URL"
+msgstr "URL del servidor"
 
 #: src/qml/ServerData.qml:20
 #, kde-format

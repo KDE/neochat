@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2023-12-17 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1760,7 +1760,7 @@ msgid "Make this parent official"
 msgstr "இந்தத் தாயை அதிகாரப்பூர்வமானதாக்கு"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:183
+#: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2133,6 +2133,29 @@ msgstr "தேடு"
 #, kde-format
 msgid "Create New"
 msgstr "புதியதை உருவாக்கு"
+
+#: src/qml/ExploreRoomsPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "அரங்குகளை உலாவு"
+
+#: src/qml/ExploreRoomsPage.qml:79
+#, kde-format
+msgid "Enter a room address"
+msgstr "அரங்கின் முகவரியை உள்ளிடுக"
+
+#: src/qml/ExploreRoomsPage.qml:93
+#, kde-format
+msgid "Find a room..."
+msgstr "அரங்கைத் தேடு..."
+
+#: src/qml/ExploreRoomsPage.qml:94
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "பொது அரங்குகள் கிடைக்கவில்லை"
 
 #: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
@@ -2769,74 +2792,6 @@ msgstr "வரவழை"
 msgid "User is either already a member or has been invited"
 msgstr "பயனர் ஏற்கனவே இவ்வரங்குக்கு வரவழைக்கப்பட்டுள்ளார், அல்லது இவ்வரங்கில் உள்ளார்"
 
-#: src/qml/JoinRoomPage.qml:40
-#, kde-format
-msgid "Explore Rooms"
-msgstr "அரங்குகளை உலாவு"
-
-#: src/qml/JoinRoomPage.qml:58
-#, kde-format
-msgid "Find a room..."
-msgstr "அரங்கைத் தேடு..."
-
-#: src/qml/JoinRoomPage.qml:84
-#, kde-format
-msgid "Add New Server"
-msgstr "புதிய சேவையகத்தை சேர்"
-
-#: src/qml/JoinRoomPage.qml:99
-#, kde-format
-msgid "Home Server"
-msgstr "தாய் சேவையகம்"
-
-#: src/qml/JoinRoomPage.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "புதிய சேவையகத்தை சேர்"
-
-#: src/qml/JoinRoomPage.qml:138
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "சேவையகத்தைச் சேர்ப்பது"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Valid server entered"
-msgstr "செல்லுபடியாகும் சேவையகம் உள்ளிடப்பட்டது"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "உள்ளிட்ட உரை ஓர் முறையான முகவரி அல்ல"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "சேவையகத்தின் முகவரியை உள்ளிடவும், எ.கா. kde.org"
-
-#: src/qml/JoinRoomPage.qml:159
-#, kde-format
-msgid "Server URL"
-msgstr "சேவையக முகவரி"
-
-#: src/qml/JoinRoomPage.qml:239
-#, kde-format
-msgid "Enter a room address"
-msgstr "அரங்கின் முகவரியை உள்ளிடுக"
-
-#: src/qml/JoinRoomPage.qml:265
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "பொது அரங்குகள் கிடைக்கவில்லை"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2907,7 +2862,7 @@ msgstr "இடத்தை தேர்வு செய்"
 msgid "Send this location"
 msgstr "இவ்விடத்தை அனுப்பு"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:126
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3552,51 +3507,51 @@ msgstr "நிரலாக்க கருவிகளைத் திற"
 msgid "Search in this room"
 msgstr "இவ்வரங்கில் தேடு"
 
-#: src/qml/RoomInformation.qml:102
+#: src/qml/RoomInformation.qml:101
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "தேடல்"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "பிடித்தவற்றிலிருந்து அரங்கை நீக்கு"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Make room favorite"
 msgstr "அரங்கைப் பிடித்ததாகக் குறி"
 
-#: src/qml/RoomInformation.qml:122
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr "இவ்வரங்கிலுள்ள இருப்பிடங்களைக் காட்டு"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "உறுப்பினர்கள்"
 
-#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
+#: src/qml/RoomInformation.qml:145 src/qml/SpaceHomePage.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "பயனரை வரவழைப்பது"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:148
 #, kde-format
 msgid "Invite user to room"
 msgstr "பயனரை ஓர் அரங்குக்கு வரவழை"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 உறுப்பினர்"
 msgstr[1] "%1 உறுப்பினர்கள்"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
@@ -3643,6 +3598,30 @@ msgstr "நியோச்சாட் தொடர்பற்று உள்�
 #, kde-format
 msgid "Message Source"
 msgstr "செய்தியின் மூலம்"
+
+#: src/qml/RoomSearchPage.qml:25
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "செய்திகளில் தேடு"
+
+#: src/qml/RoomSearchPage.qml:36
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgid "Find messages…"
+msgstr "செய்தியை அனுப்பு…"
+
+#: src/qml/RoomSearchPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching"
+msgstr "தேடுவதற்கான உரையை உள்ளிடுங்கள்"
+
+#: src/qml/RoomSearchPage.qml:38
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgid "No messages found"
+msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -3785,22 +3764,6 @@ msgid ""
 msgstr ""
 "புதிய உறுப்பினர்கள், அவர்கள் சேர்ந்ததற்கு பின்னுள்ள செய்திகளை மட்டும் வரலாற்றில் பார்க்கலாம்."
 
-#: src/qml/SearchPage.qml:18
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "செய்திகளில் தேடு"
-
-#: src/qml/SearchPage.qml:74
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr "தேடுவதற்கான உரையை உள்ளிடுங்கள்"
-
-#: src/qml/SearchPage.qml:80
-#, kde-format
-msgid "No results found"
-msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
-
 #: src/qml/Security.qml:17
 #, kde-format
 msgctxt "@title"
@@ -3871,6 +3834,53 @@ msgstr "இந்த இடத்தை செந்தர தாயாக்க
 msgctxt "@title"
 msgid "Select Spaces"
 msgstr "இடங்களை தேர்ந்தெடுக்கவும்"
+
+#: src/qml/ServerComboBox.qml:45
+#, kde-format
+msgid "Add New Server"
+msgstr "புதிய சேவையகத்தை சேர்"
+
+#: src/qml/ServerComboBox.qml:60
+#, kde-format
+msgid "Home Server"
+msgstr "தாய் சேவையகம்"
+
+#: src/qml/ServerComboBox.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "புதிய சேவையகத்தை சேர்"
+
+#: src/qml/ServerComboBox.qml:99
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "சேவையகத்தைச் சேர்ப்பது"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Valid server entered"
+msgstr "செல்லுபடியாகும் சேவையகம் உள்ளிடப்பட்டது"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "உள்ளிட்ட உரை ஓர் முறையான முகவரி அல்ல"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr "சேவையகத்தின் முகவரியை உள்ளிடவும், எ.கா. kde.org"
+
+#: src/qml/ServerComboBox.qml:124
+#, kde-format
+msgid "Server URL"
+msgstr "சேவையக முகவரி"
 
 #: src/qml/ServerData.qml:20
 #, kde-format

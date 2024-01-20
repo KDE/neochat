@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2024-01-14 13:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1759,7 +1759,7 @@ msgid "Make this parent official"
 msgstr "Deze ouder officieel maken"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:183
+#: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2136,6 +2136,29 @@ msgstr "Zoeken"
 #, kde-format
 msgid "Create New"
 msgstr "Nieuwe aanmaken"
+
+#: src/qml/ExploreRoomsPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Rooms verkennen"
+
+#: src/qml/ExploreRoomsPage.qml:79
+#, kde-format
+msgid "Enter a room address"
+msgstr "Een room-adres invoeren"
+
+#: src/qml/ExploreRoomsPage.qml:93
+#, kde-format
+msgid "Find a room..."
+msgstr "Een room zoeken..."
+
+#: src/qml/ExploreRoomsPage.qml:94
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Geen publieke rooms gevonden"
 
 #: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
@@ -2773,74 +2796,6 @@ msgstr "Uitnodiging versturen"
 msgid "User is either already a member or has been invited"
 msgstr "Gebruiker is of al een lid of is uitgenodigd"
 
-#: src/qml/JoinRoomPage.qml:40
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Rooms verkennen"
-
-#: src/qml/JoinRoomPage.qml:58
-#, kde-format
-msgid "Find a room..."
-msgstr "Een room zoeken..."
-
-#: src/qml/JoinRoomPage.qml:84
-#, kde-format
-msgid "Add New Server"
-msgstr "Nieuwe server toevoegen"
-
-#: src/qml/JoinRoomPage.qml:99
-#, kde-format
-msgid "Home Server"
-msgstr "Homeserver"
-
-#: src/qml/JoinRoomPage.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "Nieuwe server toevoegen"
-
-#: src/qml/JoinRoomPage.qml:138
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "Server toevoegen"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Valid server entered"
-msgstr "Geldige server ingevoerd"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "Deze server is niet te vinden of is al toegevoegd"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "De ingevoerde tekst is geen geldige URL"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "Server-URL invoeren bijv. kde.org"
-
-#: src/qml/JoinRoomPage.qml:159
-#, kde-format
-msgid "Server URL"
-msgstr "URL-adres server"
-
-#: src/qml/JoinRoomPage.qml:239
-#, kde-format
-msgid "Enter a room address"
-msgstr "Een room-adres invoeren"
-
-#: src/qml/JoinRoomPage.qml:265
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Geen publieke rooms gevonden"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2911,7 +2866,7 @@ msgstr "Een locatie kiezen"
 msgid "Send this location"
 msgstr "Deze locatie verzenden"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:126
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3561,51 +3516,51 @@ msgstr "Hulpmiddelen voor ontwikkelaars openen"
 msgid "Search in this room"
 msgstr "In deze room zoeken"
 
-#: src/qml/RoomInformation.qml:102
+#: src/qml/RoomInformation.qml:101
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Room uit favorieten verwijderen"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Make room favorite"
 msgstr "Room als favoriet instellen"
 
-#: src/qml/RoomInformation.qml:122
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Locaties in deze room tonen"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "Leden"
 
-#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
+#: src/qml/RoomInformation.qml:145 src/qml/SpaceHomePage.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Een gebruiker uitnodigen"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:148
 #, kde-format
 msgid "Invite user to room"
 msgstr "Gebruiker uitnodigen in room"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 lid"
 msgstr[1] "%1 leden"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "No member count"
 msgstr "Geen aantal leden"
@@ -3652,6 +3607,30 @@ msgstr "NeoChat is offline. Controleer uw netwerkverbinding."
 #, kde-format
 msgid "Message Source"
 msgstr "Berichtinhoud"
+
+#: src/qml/RoomSearchPage.qml:25
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Berichten doorzoeken"
+
+#: src/qml/RoomSearchPage.qml:36
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgid "Find messages…"
+msgstr "Een bericht verzenden…"
+
+#: src/qml/RoomSearchPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching"
+msgstr "Een tekst invoeren om te beginnen met zoeken"
+
+#: src/qml/RoomSearchPage.qml:38
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgid "No messages found"
+msgstr "Geen resultaten gevonden"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -3801,22 +3780,6 @@ msgstr ""
 "Nieuwe leden kunnen de geschiedenis van de berichten bekijken vanaf het punt "
 "dat ze meedoen in de room."
 
-#: src/qml/SearchPage.qml:18
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Berichten doorzoeken"
-
-#: src/qml/SearchPage.qml:74
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr "Een tekst invoeren om te beginnen met zoeken"
-
-#: src/qml/SearchPage.qml:80
-#, kde-format
-msgid "No results found"
-msgstr "Geen resultaten gevonden"
-
 #: src/qml/Security.qml:17
 #, kde-format
 msgctxt "@title"
@@ -3889,6 +3852,53 @@ msgstr "Deze ruimte de canonieke ouder maken"
 msgctxt "@title"
 msgid "Select Spaces"
 msgstr "Ruimten selecteren"
+
+#: src/qml/ServerComboBox.qml:45
+#, kde-format
+msgid "Add New Server"
+msgstr "Nieuwe server toevoegen"
+
+#: src/qml/ServerComboBox.qml:60
+#, kde-format
+msgid "Home Server"
+msgstr "Homeserver"
+
+#: src/qml/ServerComboBox.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "Nieuwe server toevoegen"
+
+#: src/qml/ServerComboBox.qml:99
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "Server toevoegen"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Valid server entered"
+msgstr "Geldige server ingevoerd"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr "Deze server is niet te vinden of is al toegevoegd"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "De ingevoerde tekst is geen geldige URL"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr "Server-URL invoeren bijv. kde.org"
+
+#: src/qml/ServerComboBox.qml:124
+#, kde-format
+msgid "Server URL"
+msgstr "URL-adres server"
 
 #: src/qml/ServerData.qml:20
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2024-01-10 21:33+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1779,7 +1779,7 @@ msgid "Make this parent official"
 msgstr "Назначить этот псевдоним каноническим псевдонимом комнаты"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:183
+#: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2160,6 +2160,30 @@ msgstr "Поиск"
 #, kde-format
 msgid "Create New"
 msgstr "Создать"
+
+#: src/qml/ExploreRoomsPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Обзор комнат"
+
+#: src/qml/ExploreRoomsPage.qml:79
+#, kde-format
+msgid "Enter a room address"
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:93
+#, kde-format
+msgid "Find a room..."
+msgstr "Введите название комнаты…"
+
+#: src/qml/ExploreRoomsPage.qml:94
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Не найдено ни одной комнаты"
 
 #: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
@@ -2811,77 +2835,6 @@ msgstr "Отправить приглашение"
 msgid "User is either already a member or has been invited"
 msgstr "Пользователь либо уже является участником, либо приглашён"
 
-#: src/qml/JoinRoomPage.qml:40
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Обзор комнат"
-
-#: src/qml/JoinRoomPage.qml:58
-#, kde-format
-msgid "Find a room..."
-msgstr "Введите название комнаты…"
-
-#: src/qml/JoinRoomPage.qml:84
-#, kde-format
-msgid "Add New Server"
-msgstr "Добавить сервер"
-
-#: src/qml/JoinRoomPage.qml:99
-#, kde-format
-msgid "Home Server"
-msgstr "Домашний сервер"
-
-#: src/qml/JoinRoomPage.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "Добавить сервер"
-
-#: src/qml/JoinRoomPage.qml:138
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "Добавление сервера"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Valid server entered"
-msgstr "Введено допустимое имя сервера"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr ""
-"Не удалось разрешить имя этого сервера в ip-адрес или этот сервер уже "
-"добавлен"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "Введённый текст не является допустимым URL"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "Введите адрес сервера, например: kde.org"
-
-#: src/qml/JoinRoomPage.qml:159
-#, kde-format
-msgid "Server URL"
-msgstr "Адрес сервера"
-
-#: src/qml/JoinRoomPage.qml:239
-#, kde-format
-msgid "Enter a room address"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:265
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Не найдено ни одной комнаты"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2953,7 +2906,7 @@ msgstr "Выбор местоположения"
 msgid "Send this location"
 msgstr "Отправить это местоположение"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:126
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3617,44 +3570,44 @@ msgstr "Открыть инструменты разработчика"
 msgid "Search in this room"
 msgstr "Искать в этой комнате"
 
-#: src/qml/RoomInformation.qml:102
+#: src/qml/RoomInformation.qml:101
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Убрать комнату из избранного"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Make room favorite"
 msgstr "Добавить комнату в избранное"
 
-#: src/qml/RoomInformation.qml:122
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Показать местоположения для этой комнаты"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "Участники"
 
-#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
+#: src/qml/RoomInformation.qml:145 src/qml/SpaceHomePage.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Пригласить пользователя"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:148
 #, kde-format
 msgid "Invite user to room"
 msgstr "Пригласить пользователя в комнату"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -3663,7 +3616,7 @@ msgstr[1] "%1 участника"
 msgstr[2] "%1 участников"
 msgstr[3] "%1 участник"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "No member count"
 msgstr "Количество участников не подсчитывается"
@@ -3712,6 +3665,30 @@ msgstr ""
 #, kde-format
 msgid "Message Source"
 msgstr "Исходный код сообщения"
+
+#: src/qml/RoomSearchPage.qml:25
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Поиск сообщений"
+
+#: src/qml/RoomSearchPage.qml:36
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgid "Find messages…"
+msgstr "Введите текст сообщения…"
+
+#: src/qml/RoomSearchPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching"
+msgstr "Введите текст чтобы начать поиск"
+
+#: src/qml/RoomSearchPage.qml:38
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgid "No messages found"
+msgstr "Ничего не найдено"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -3865,22 +3842,6 @@ msgstr ""
 "Новые участники могут просматривать историю сообщений с того момента, как "
 "они присоединились к комнате."
 
-#: src/qml/SearchPage.qml:18
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Поиск сообщений"
-
-#: src/qml/SearchPage.qml:74
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr "Введите текст чтобы начать поиск"
-
-#: src/qml/SearchPage.qml:80
-#, kde-format
-msgid "No results found"
-msgstr "Ничего не найдено"
-
 #: src/qml/Security.qml:17
 #, kde-format
 msgctxt "@title"
@@ -3958,6 +3919,55 @@ msgstr "Назначить этот псевдоним каноническим 
 msgctxt "@title"
 msgid "Select Spaces"
 msgstr "Выделить все"
+
+#: src/qml/ServerComboBox.qml:45
+#, kde-format
+msgid "Add New Server"
+msgstr "Добавить сервер"
+
+#: src/qml/ServerComboBox.qml:60
+#, kde-format
+msgid "Home Server"
+msgstr "Домашний сервер"
+
+#: src/qml/ServerComboBox.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "Добавить сервер"
+
+#: src/qml/ServerComboBox.qml:99
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "Добавление сервера"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Valid server entered"
+msgstr "Введено допустимое имя сервера"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr ""
+"Не удалось разрешить имя этого сервера в ip-адрес или этот сервер уже "
+"добавлен"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "Введённый текст не является допустимым URL"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr "Введите адрес сервера, например: kde.org"
+
+#: src/qml/ServerComboBox.qml:124
+#, kde-format
+msgid "Server URL"
+msgstr "Адрес сервера"
 
 #: src/qml/ServerData.qml:20
 #, kde-format

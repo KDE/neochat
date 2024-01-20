@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2023-09-04 20:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1786,7 +1786,7 @@ msgid "Make this parent official"
 msgstr "Gör detta alias till rummets normala alias"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:183
+#: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2163,6 +2163,33 @@ msgstr "Sök"
 #| msgid "Create space"
 msgid "Create New"
 msgstr "Skapa rymd"
+
+#: src/qml/ExploreRoomsPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Utforska rum"
+
+#: src/qml/ExploreRoomsPage.qml:79
+#, fuzzy, kde-format
+#| msgctxt "@label Parameter of a command"
+#| msgid "<room-address>"
+msgid "Enter a room address"
+msgstr "<rumadress>"
+
+#: src/qml/ExploreRoomsPage.qml:93
+#, kde-format
+msgid "Find a room..."
+msgstr "Sök efter ett rum..."
+
+#: src/qml/ExploreRoomsPage.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Inga rum hittades"
 
 #: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
@@ -2809,79 +2836,6 @@ msgstr "Skicka inbjudan"
 msgid "User is either already a member or has been invited"
 msgstr "Användaren är antingen redan en medlem eller har blivit inbjuden"
 
-#: src/qml/JoinRoomPage.qml:40
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Utforska rum"
-
-#: src/qml/JoinRoomPage.qml:58
-#, kde-format
-msgid "Find a room..."
-msgstr "Sök efter ett rum..."
-
-#: src/qml/JoinRoomPage.qml:84
-#, kde-format
-msgid "Add New Server"
-msgstr "Lägg till ny server"
-
-#: src/qml/JoinRoomPage.qml:99
-#, kde-format
-msgid "Home Server"
-msgstr "Hemserver"
-
-#: src/qml/JoinRoomPage.qml:106
-#, fuzzy, kde-format
-#| msgid "Add new server"
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "Lägg till ny server"
-
-#: src/qml/JoinRoomPage.qml:138
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "Lägg till server"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Valid server entered"
-msgstr "Giltig server angiven"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "Servern kan inte lösas upp eller har redan lagts till"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "Den angivna texten är inte en giltig webbadress"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "Skriv in serverwebbadress t.ex. kde.org"
-
-#: src/qml/JoinRoomPage.qml:159
-#, kde-format
-msgid "Server URL"
-msgstr "Serverwebbadress"
-
-#: src/qml/JoinRoomPage.qml:239
-#, fuzzy, kde-format
-#| msgctxt "@label Parameter of a command"
-#| msgid "<room-address>"
-msgid "Enter a room address"
-msgstr "<rumadress>"
-
-#: src/qml/JoinRoomPage.qml:265
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No rooms found"
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Inga rum hittades"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2953,7 +2907,7 @@ msgstr "Välj en plats"
 msgid "Send this location"
 msgstr "Skicka platsen"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:126
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3609,51 +3563,51 @@ msgstr "Öppna utvecklingsverktyg"
 msgid "Search in this room"
 msgstr "Sök i rummet"
 
-#: src/qml/RoomInformation.qml:102
+#: src/qml/RoomInformation.qml:101
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Sök"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Ta bort rum från favoriter"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Make room favorite"
 msgstr "Gör rum till favorit"
 
-#: src/qml/RoomInformation.qml:122
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Visa platser för rummet"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "Medlemmar"
 
-#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
+#: src/qml/RoomInformation.qml:145 src/qml/SpaceHomePage.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Bjud in en användare"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:148
 #, kde-format
 msgid "Invite user to room"
 msgstr "Bjöd in användare till ett rum"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 medlem"
 msgstr[1] "%1 medlemmar"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "No member count"
 msgstr "Ingen medlemsräkning"
@@ -3700,6 +3654,30 @@ msgstr "NeoChat är nedkopplat. Kontrollera nätverksanslutningen."
 #, kde-format
 msgid "Message Source"
 msgstr "Meddelandekälla"
+
+#: src/qml/RoomSearchPage.qml:25
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Sök meddelanden"
+
+#: src/qml/RoomSearchPage.qml:36
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgid "Find messages…"
+msgstr "Skicka ett meddelande…"
+
+#: src/qml/RoomSearchPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching"
+msgstr "Skriv in en text för att börja söka"
+
+#: src/qml/RoomSearchPage.qml:38
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgid "No messages found"
+msgstr "Inga resultat hittades"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -3850,22 +3828,6 @@ msgstr ""
 "Nya medlemmar kan se meddelandehistoriken från den punkt då gick med i "
 "rummet."
 
-#: src/qml/SearchPage.qml:18
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Sök meddelanden"
-
-#: src/qml/SearchPage.qml:74
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr "Skriv in en text för att börja söka"
-
-#: src/qml/SearchPage.qml:80
-#, kde-format
-msgid "No results found"
-msgstr "Inga resultat hittades"
-
 #: src/qml/Security.qml:17
 #, fuzzy, kde-format
 #| msgid "Security"
@@ -3948,6 +3910,54 @@ msgstr "Gör detta alias till rummets normala alias"
 msgctxt "@title"
 msgid "Select Spaces"
 msgstr "Markera alla"
+
+#: src/qml/ServerComboBox.qml:45
+#, kde-format
+msgid "Add New Server"
+msgstr "Lägg till ny server"
+
+#: src/qml/ServerComboBox.qml:60
+#, kde-format
+msgid "Home Server"
+msgstr "Hemserver"
+
+#: src/qml/ServerComboBox.qml:67
+#, fuzzy, kde-format
+#| msgid "Add new server"
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "Lägg till ny server"
+
+#: src/qml/ServerComboBox.qml:99
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "Lägg till server"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Valid server entered"
+msgstr "Giltig server angiven"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr "Servern kan inte lösas upp eller har redan lagts till"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "Den angivna texten är inte en giltig webbadress"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr "Skriv in serverwebbadress t.ex. kde.org"
+
+#: src/qml/ServerComboBox.qml:124
+#, kde-format
+msgid "Server URL"
+msgstr "Serverwebbadress"
 
 #: src/qml/ServerData.qml:20
 #, kde-format

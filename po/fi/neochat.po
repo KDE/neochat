@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2023-09-27 21:55+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1791,7 +1791,7 @@ msgid "Make this parent official"
 msgstr "Tee tästä huoneen kanoninen alias"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:183
+#: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2170,6 +2170,32 @@ msgstr "Etsi"
 #| msgid "Create space"
 msgid "Create New"
 msgstr "Luo tila"
+
+#: src/qml/ExploreRoomsPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Tutki huoneita"
+
+#: src/qml/ExploreRoomsPage.qml:79
+#, fuzzy, kde-format
+#| msgctxt "@label Parameter of a command"
+#| msgid "<room-address>"
+msgid "Enter a room address"
+msgstr "<huoneosoite>"
+
+#: src/qml/ExploreRoomsPage.qml:93
+#, kde-format
+msgid "Find a room..."
+msgstr "Etsi huonetta…"
+
+#: src/qml/ExploreRoomsPage.qml:94
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Huoneita ei löytynyt"
 
 #: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
@@ -2813,77 +2839,6 @@ msgstr "Lähetä kutsu"
 msgid "User is either already a member or has been invited"
 msgstr "Käyttäjä joko on jo jäsen tai on kutsuttu jäseneksi"
 
-#: src/qml/JoinRoomPage.qml:40
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Tutki huoneita"
-
-#: src/qml/JoinRoomPage.qml:58
-#, kde-format
-msgid "Find a room..."
-msgstr "Etsi huonetta…"
-
-#: src/qml/JoinRoomPage.qml:84
-#, kde-format
-msgid "Add New Server"
-msgstr "Lisää uusi palvelin"
-
-#: src/qml/JoinRoomPage.qml:99
-#, kde-format
-msgid "Home Server"
-msgstr "Kotipalvelin"
-
-#: src/qml/JoinRoomPage.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "Lisää uusi palvelin"
-
-#: src/qml/JoinRoomPage.qml:138
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "Lisää palvelin"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Valid server entered"
-msgstr "Annettiin kelvollinen palvelin"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "Tätä palvelinta ei voi ratkaista tai se on jo lisätty"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "Annettu teksti ei ole kelvollinen verkko-osoite"
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "Anna palvelimen verkko-osoite, esim. kde.org"
-
-#: src/qml/JoinRoomPage.qml:159
-#, kde-format
-msgid "Server URL"
-msgstr "Palvelimen verkko-osoite"
-
-#: src/qml/JoinRoomPage.qml:239
-#, fuzzy, kde-format
-#| msgctxt "@label Parameter of a command"
-#| msgid "<room-address>"
-msgid "Enter a room address"
-msgstr "<huoneosoite>"
-
-#: src/qml/JoinRoomPage.qml:265
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Huoneita ei löytynyt"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2954,7 +2909,7 @@ msgstr "Valitse sijainti"
 msgid "Send this location"
 msgstr "Lähetä tämä sijainti"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:126
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3611,51 +3566,51 @@ msgstr "Avaa kehitystyökalut"
 msgid "Search in this room"
 msgstr "Etsi tästä huoneesta"
 
-#: src/qml/RoomInformation.qml:102
+#: src/qml/RoomInformation.qml:101
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Etsi"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Poista huone suosikeista"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Make room favorite"
 msgstr "Merkitse huone suosikiksi"
 
-#: src/qml/RoomInformation.qml:122
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Näytä sijainnit tälle huoneelle"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "Jäsenet"
 
-#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
+#: src/qml/RoomInformation.qml:145 src/qml/SpaceHomePage.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Kutsu käyttäjä"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:148
 #, kde-format
 msgid "Invite user to room"
 msgstr "Kutsu käyttäjä huoneeseen"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 jäsen"
 msgstr[1] "%1 jäsentä"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, kde-format
 msgid "No member count"
 msgstr "Ei jäsenmäärää"
@@ -3702,6 +3657,30 @@ msgstr "NeoChatillä ei ole yhteyttä. Tarkista verkkoyhteytesi."
 #, kde-format
 msgid "Message Source"
 msgstr "Viestin lähde"
+
+#: src/qml/RoomSearchPage.qml:25
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Etsi viestejä"
+
+#: src/qml/RoomSearchPage.qml:36
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgid "Find messages…"
+msgstr "Lähetä viesti…"
+
+#: src/qml/RoomSearchPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching"
+msgstr "Aloita haku kirjoittamalla tekstiä"
+
+#: src/qml/RoomSearchPage.qml:38
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgid "No messages found"
+msgstr "Ei hakutuloksia"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -3843,22 +3822,6 @@ msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr "Uudet jäsenet voivat katsella viestihistoriaa huoneeseen liityttyään."
 
-#: src/qml/SearchPage.qml:18
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Etsi viestejä"
-
-#: src/qml/SearchPage.qml:74
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr "Aloita haku kirjoittamalla tekstiä"
-
-#: src/qml/SearchPage.qml:80
-#, kde-format
-msgid "No results found"
-msgstr "Ei hakutuloksia"
-
 #: src/qml/Security.qml:17
 #, fuzzy, kde-format
 #| msgid "Security"
@@ -3941,6 +3904,53 @@ msgstr "Tee tästä huoneen kanoninen alias"
 msgctxt "@title"
 msgid "Select Spaces"
 msgstr "Valitse kaikki"
+
+#: src/qml/ServerComboBox.qml:45
+#, kde-format
+msgid "Add New Server"
+msgstr "Lisää uusi palvelin"
+
+#: src/qml/ServerComboBox.qml:60
+#, kde-format
+msgid "Home Server"
+msgstr "Kotipalvelin"
+
+#: src/qml/ServerComboBox.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "Lisää uusi palvelin"
+
+#: src/qml/ServerComboBox.qml:99
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "Lisää palvelin"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Valid server entered"
+msgstr "Annettiin kelvollinen palvelin"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr "Tätä palvelinta ei voi ratkaista tai se on jo lisätty"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "Annettu teksti ei ole kelvollinen verkko-osoite"
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr "Anna palvelimen verkko-osoite, esim. kde.org"
+
+#: src/qml/ServerComboBox.qml:124
+#, kde-format
+msgid "Server URL"
+msgstr "Palvelimen verkko-osoite"
 
 #: src/qml/ServerData.qml:20
 #, kde-format

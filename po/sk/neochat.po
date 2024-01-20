@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1938,7 +1938,7 @@ msgid "Make this parent official"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
-#: src/qml/JoinRoomPage.qml:183
+#: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2335,6 +2335,32 @@ msgstr ""
 #| msgid "Rooms and private chats:"
 msgid "Create New"
 msgstr "Miestnosti a súkromné chaty:"
+
+#: src/qml/ExploreRoomsPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Prehliadať miestnosti"
+
+#: src/qml/ExploreRoomsPage.qml:79
+#, fuzzy, kde-format
+#| msgctxt "@label Parameter of a command"
+#| msgid "<room-address>"
+msgid "Enter a room address"
+msgstr "<room-address>"
+
+#: src/qml/ExploreRoomsPage.qml:93
+#, kde-format
+msgid "Find a room..."
+msgstr "Nájsť miestnosť..."
+
+#: src/qml/ExploreRoomsPage.qml:94
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Žiadne miestnosti neboli nájdené"
 
 #: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
@@ -3017,78 +3043,6 @@ msgstr "Odoslať pozvanie"
 msgid "User is either already a member or has been invited"
 msgstr ""
 
-#: src/qml/JoinRoomPage.qml:40
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Prehliadať miestnosti"
-
-#: src/qml/JoinRoomPage.qml:58
-#, kde-format
-msgid "Find a room..."
-msgstr "Nájsť miestnosť..."
-
-#: src/qml/JoinRoomPage.qml:84
-#, kde-format
-msgid "Add New Server"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
-msgid "Home Server"
-msgstr "Domáci server:"
-
-#: src/qml/JoinRoomPage.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:138
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Valid server entered"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:151
-#, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:159
-#, kde-format
-msgid "Server URL"
-msgstr ""
-
-#: src/qml/JoinRoomPage.qml:239
-#, fuzzy, kde-format
-#| msgctxt "@label Parameter of a command"
-#| msgid "<room-address>"
-msgid "Enter a room address"
-msgstr "<room-address>"
-
-#: src/qml/JoinRoomPage.qml:265
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Žiadne miestnosti neboli nájdené"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, fuzzy, kde-format
 #| msgid "Show notifications"
@@ -3164,7 +3118,7 @@ msgstr "Vybrať miestny súbor"
 msgid "Send this location"
 msgstr "Zobraziť upozornenia"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:126
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "Locations on a map"
@@ -3872,47 +3826,47 @@ msgstr ""
 msgid "Search in this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/qml/RoomInformation.qml:102
+#: src/qml/RoomInformation.qml:101
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Odstrániť miestnosť z obľúbených"
 
-#: src/qml/RoomInformation.qml:111
+#: src/qml/RoomInformation.qml:110
 #, kde-format
 msgid "Make room favorite"
 msgstr "Nastaviť miestnosť ako pbľúbenú"
 
-#: src/qml/RoomInformation.qml:122
+#: src/qml/RoomInformation.qml:121
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Show locations for this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "Členovia"
 
-#: src/qml/RoomInformation.qml:146 src/qml/SpaceHomePage.qml:49
+#: src/qml/RoomInformation.qml:145 src/qml/SpaceHomePage.qml:49
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Pozvať používateľa"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:148
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Invite user to room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3922,7 +3876,7 @@ msgstr[0] "%1 Člen"
 msgstr[1] "%1 Členovia"
 msgstr[2] "%1 Členov"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:155
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
@@ -3972,6 +3926,30 @@ msgstr "NeoChat je offline. Skontrolujte svoje sieťové pripojenie."
 #, kde-format
 msgid "Message Source"
 msgstr "Zdroj správy"
+
+#: src/qml/RoomSearchPage.qml:25
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Priame správy"
+
+#: src/qml/RoomSearchPage.qml:36
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Find messages…"
+msgstr "Odoslať správu"
+
+#: src/qml/RoomSearchPage.qml:37
+#, kde-format
+msgid "Enter text to start searching"
+msgstr ""
+
+#: src/qml/RoomSearchPage.qml:38
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "No messages found"
+msgstr "Žiadne miestnosti neboli nájdené"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -4118,24 +4096,6 @@ msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
 
-#: src/qml/SearchPage.qml:18
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Priame správy"
-
-#: src/qml/SearchPage.qml:74
-#, kde-format
-msgid "Enter a text to start searching"
-msgstr ""
-
-#: src/qml/SearchPage.qml:80
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "No results found"
-msgstr "Žiadne miestnosti neboli nájdené"
-
 #: src/qml/Security.qml:17
 #, fuzzy, kde-format
 #| msgid "Security"
@@ -4214,6 +4174,54 @@ msgstr ""
 msgctxt "@title"
 msgid "Select Spaces"
 msgstr "Vybrať všetko"
+
+#: src/qml/ServerComboBox.qml:45
+#, kde-format
+msgid "Add New Server"
+msgstr ""
+
+#: src/qml/ServerComboBox.qml:60
+#, fuzzy, kde-format
+#| msgid "Homeserver:"
+msgid "Home Server"
+msgstr "Domáci server:"
+
+#: src/qml/ServerComboBox.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr ""
+
+#: src/qml/ServerComboBox.qml:99
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr ""
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Valid server entered"
+msgstr ""
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr ""
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr ""
+
+#: src/qml/ServerComboBox.qml:116
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr ""
+
+#: src/qml/ServerComboBox.qml:124
+#, kde-format
+msgid "Server URL"
+msgstr ""
 
 #: src/qml/ServerData.qml:20
 #, kde-format
