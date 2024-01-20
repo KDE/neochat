@@ -87,13 +87,6 @@ public:
     bool isFlatpak() const;
 
     /**
-     * @brief Force a QQuickTextDocument to refresh when images are loaded.
-     *
-     * HACK: This is a workaround for QTBUG 93281.
-     */
-    Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
-
-    /**
      * @brief Start listening for notifications in dbus-activated mode.
      * These notifications will quit the application when closed.
      */

@@ -47,11 +47,6 @@ TextEdit {
 
     persistentSelection: true
 
-    // Work around QTBUG 93281
-    Component.onCompleted: if (text.includes("<img")) {
-        Controller.forceRefreshTextDocument(root.textDocument, root)
-    }
-
     text: "<style>
 table {
     width:100%;

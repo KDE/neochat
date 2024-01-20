@@ -289,12 +289,6 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
     Q_EMIT activeConnectionChanged();
 }
 
-void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item)
-{
-    // HACK: Workaround bug QTBUG 93281
-    connect(textDocument->textDocument(), SIGNAL(imagesLoaded()), item, SLOT(updateWholeDocument()));
-}
-
 void Controller::listenForNotifications()
 {
 #ifdef HAVE_KUNIFIEDPUSH
