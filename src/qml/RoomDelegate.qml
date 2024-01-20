@@ -115,6 +115,7 @@ Delegates.RoundedItemDelegate {
             visible: root.hasNotifications
             color: Kirigami.Theme.textColor
             horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
             background: Rectangle {
                 visible: notificationCount > 0
                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
