@@ -281,6 +281,15 @@ bool NeoChatConnection::directChatExists(Quotient::User *user)
     return directChats().contains(user);
 }
 
+void NeoChatConnection::openOrCreateDirectChat(const QString &userId)
+{
+    if (auto user = this->user(userId)) {
+        openOrCreateDirectChat(user);
+    } else {
+        qWarning() << "openOrCreateDirectChat: Couldn't get user object for ID " << userId << ", unable to open/request direct chat.";
+    }
+}
+
 void NeoChatConnection::openOrCreateDirectChat(User *user)
 {
     const auto existing = directChats();

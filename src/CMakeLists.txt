@@ -169,7 +169,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ManualRoomDialog.qml
         qml/ExplorerDelegate.qml
         qml/InviteUserPage.qml
-        qml/StartChatPage.qml
         qml/ImageEditorPage.qml
         qml/WelcomePage.qml
         qml/General.qml
@@ -304,6 +303,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/TimelineEndDelegate.qml
         qml/SearchPage.qml
         qml/ServerComboBox.qml
+        qml/UserSearchPage.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

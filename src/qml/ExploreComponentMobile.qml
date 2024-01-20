@@ -64,10 +64,10 @@ ColumnLayout {
                 }
             },
             Kirigami.Action {
-                text: i18n("Start a Chat")
+                text: i18n("Find your friends")
                 icon.name: "list-add-user"
                 onTriggered: {
-                    pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/StartChatPage.qml", {connection: root.connection}, {title: i18nc("@title", "Start a Chat")})
+                    pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
                     exploreTabBar.currentIndex = -1;
                 }
             },

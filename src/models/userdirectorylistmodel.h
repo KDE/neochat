@@ -35,24 +35,24 @@ class UserDirectoryListModel : public QAbstractListModel
     Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
     /**
-     * @brief The keyword to use in the search.
+     * @brief The text to search the public room list for.
      */
-    Q_PROPERTY(QString keyword READ keyword WRITE setKeyword NOTIFY keywordChanged)
+    Q_PROPERTY(QString searchText READ searchText WRITE setSearchText NOTIFY searchTextChanged)
 
     /**
-     * @brief Whether the current results have been truncated.
+     * @brief Whether the model is searching.
      */
-    Q_PROPERTY(bool limited READ limited NOTIFY limitedChanged)
+    Q_PROPERTY(bool searching READ searching NOTIFY searchingChanged)
 
 public:
     /**
      * @brief Defines the model roles.
      */
     enum EventRoles {
-        NameRole = Qt::DisplayRole + 1, /**< The user's display name. */
+        DisplayNameRole = Qt::DisplayRole, /**< The user's display name. */
         AvatarRole, /**< The source URL for the user's avatar. */
         UserIDRole, /**< Matrix ID of the user. */
-        DirectChatsRole, /**< A list of direct chat matrix IDs with the user. */
+        DirectChatExistsRole, /**< Whether there is already a direct chat with the user. */
     };
 
     explicit UserDirectoryListModel(QObject *parent = nullptr);
@@ -60,17 +60,17 @@ public:
     [[nodiscard]] Quotient::Connection *connection() const;
     void setConnection(Quotient::Connection *conn);
 
-    [[nodiscard]] QString keyword() const;
-    void setKeyword(const QString &value);
+    [[nodiscard]] QString searchText() const;
+    void setSearchText(const QString &searchText);
 
-    [[nodiscard]] bool limited() const;
+    [[nodiscard]] bool searching() const;
 
     /**
      * @brief Get the given role value at the given index.
      *
      * @sa QAbstractItemModel::data
      */
-    [[nodiscard]] QVariant data(const QModelIndex &index, int role = NameRole) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
      * @brief Number of rows in the model.
@@ -87,23 +87,23 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     /**
-     * @brief Start the user search.
+     * @brief Search the user directory.
+     *
+     * @param limit the maximum number of rooms to load.
      */
-    Q_INVOKABLE void search(int count = 50);
+    Q_INVOKABLE void search(int limit = 50);
 
 Q_SIGNALS:
     void connectionChanged();
-    void keywordChanged();
-    void limitedChanged();
+    void searchTextChanged();
+    void searchingChanged();
 
 private:
     Quotient::Connection *m_connection = nullptr;
-    QString m_keyword;
-    bool m_limited = false;
+    QString m_searchText;
 
     bool attempted = false;
-
     QList<Quotient::SearchUserDirectoryJob::User> users;
 
-    Quotient::SearchUserDirectoryJob *job = nullptr;
+    Quotient::SearchUserDirectoryJob *m_job = nullptr;
 };

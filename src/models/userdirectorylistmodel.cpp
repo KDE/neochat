@@ -26,7 +26,6 @@ void UserDirectoryListModel::setConnection(Connection *conn)
 
     beginResetModel();
 
-    m_limited = false;
     attempted = false;
     users.clear();
 
@@ -37,53 +36,44 @@ void UserDirectoryListModel::setConnection(Connection *conn)
     endResetModel();
 
     m_connection = conn;
-
-    if (job) {
-        job->abandon();
-        job = nullptr;
-    }
-
     Q_EMIT connectionChanged();
-    Q_EMIT limitedChanged();
+
+    if (m_job) {
+        m_job->abandon();
+        m_job = nullptr;
+        Q_EMIT searchingChanged();
+    }
 }
 
-QString UserDirectoryListModel::keyword() const
+QString UserDirectoryListModel::searchText() const
 {
-    return m_keyword;
+    return m_searchText;
 }
 
-void UserDirectoryListModel::setKeyword(const QString &value)
+void UserDirectoryListModel::setSearchText(const QString &value)
 {
-    if (m_keyword == value) {
+    if (m_searchText == value) {
         return;
     }
 
-    m_keyword = value;
+    m_searchText = value;
+    Q_EMIT searchTextChanged();
 
-    m_limited = false;
     attempted = false;
-
-    if (job) {
-        job->abandon();
-        job = nullptr;
-    }
-
-    Q_EMIT keywordChanged();
-    Q_EMIT limitedChanged();
 }
 
-bool UserDirectoryListModel::limited() const
+bool UserDirectoryListModel::searching() const
 {
-    return m_limited;
+    return m_job != nullptr;
 }
 
-void UserDirectoryListModel::search(int count)
+void UserDirectoryListModel::search(int limit)
 {
-    if (count < 1) {
+    if (limit < 1) {
         return;
     }
 
-    if (job) {
+    if (m_job) {
         qDebug() << "UserDirectoryListModel: Other jobs running, ignore";
 
         return;
@@ -93,25 +83,22 @@ void UserDirectoryListModel::search(int count)
         return;
     }
 
-    job = m_connection->callApi<SearchUserDirectoryJob>(m_keyword, count);
+    m_job = m_connection->callApi<SearchUserDirectoryJob>(m_searchText, limit);
+    Q_EMIT searchingChanged();
 
-    connect(job, &BaseJob::finished, this, [this] {
+    connect(m_job, &BaseJob::finished, this, [this] {
         attempted = true;
 
-        if (job->status() == BaseJob::Success) {
-            auto users = job->results();
+        if (m_job->status() == BaseJob::Success) {
+            auto users = m_job->results();
 
             this->beginResetModel();
-
             this->users = users;
-            this->m_limited = job->limited();
-
             this->endResetModel();
         }
 
-        this->job = nullptr;
-
-        Q_EMIT limitedChanged();
+        this->m_job = nullptr;
+        Q_EMIT searchingChanged();
     });
 }
 
@@ -127,7 +114,7 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
         return {};
     }
     auto user = users.at(index.row());
-    if (role == NameRole) {
+    if (role == DisplayNameRole) {
         auto displayName = user.displayName;
         if (!displayName.isEmpty()) {
             return displayName;
@@ -142,18 +129,17 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
     }
     if (role == AvatarRole) {
         auto avatarUrl = user.avatarUrl;
-
-        if (avatarUrl.isEmpty()) {
-            return QString();
+        if (avatarUrl.isEmpty() || !m_connection) {
+            return QUrl();
         }
-        return avatarUrl.url().remove(0, 6);
+        return m_connection->makeMediaUrl(avatarUrl);
     }
     if (role == UserIDRole) {
         return user.userId;
     }
-    if (role == DirectChatsRole) {
+    if (role == DirectChatExistsRole) {
         if (!m_connection) {
-            return QStringList();
+            return false;
         };
 
         auto userObj = m_connection->user(user.userId);
@@ -162,11 +148,11 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
         if (userObj && directChats.contains(userObj)) {
             auto directChatsForUser = directChats.values(userObj);
             if (!directChatsForUser.isEmpty()) {
-                return QVariant::fromValue(directChatsForUser);
+                return true;
             }
         }
 
-        return QStringList();
+        return false;
     }
 
     return {};
@@ -176,10 +162,10 @@ QHash<int, QByteArray> UserDirectoryListModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
 
-    roles[NameRole] = "name";
-    roles[AvatarRole] = "avatar";
-    roles[UserIDRole] = "userID";
-    roles[DirectChatsRole] = "directChats";
+    roles[DisplayNameRole] = "displayName";
+    roles[AvatarRole] = "avatarUrl";
+    roles[UserIDRole] = "userId";
+    roles[DirectChatExistsRole] = "directChatExists";
 
     return roles;
 }

@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
 
         Kirigami.SearchField {
             id: identifierField
-            property bool isUserID: text.match(/@(.+):(.+)/g)
+            property bool isUserId: text.match(/@(.+):(.+)/g)
             Layout.fillWidth: true
 
             placeholderText: i18n("Find a user...")
@@ -39,7 +39,7 @@ Kirigami.ScrollablePage {
         }
 
         QQC2.Button {
-            visible: identifierField.isUserID
+            visible: identifierField.isUserId
 
             text: i18n("Add")
             highlighted: true
@@ -59,7 +59,7 @@ Kirigami.ScrollablePage {
             id: userDictListModel
 
             connection: root.room.connection
-            keyword: identifierField.text
+            searchText: identifierField.text
         }
 
         Kirigami.PlaceholderMessage {
@@ -73,25 +73,25 @@ Kirigami.ScrollablePage {
         delegate: Delegates.RoundedItemDelegate {
             id: delegate
 
-            required property string userID
-            required property string name
-            required property string avatar
+            required property string userId
+            required property string displayName
+            required property url avatarUrl
 
-            property bool inRoom: room && room.containsUser(userID)
+            property bool inRoom: room && room.containsUser(userId)
 
-            text: name
+            text: displayName
 
             contentItem: RowLayout {
                 KirigamiComponents.Avatar {
                     Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                    source: delegate.avatar ? ("image://mxc/" + delegate.avatar) : ""
-                    name: delegate.name
+                    source: delegate.avatarUrl
+                    name: delegate.displayName
                 }
 
                 Delegates.SubtitleContentItem {
                     itemDelegate: delegate
-                    subtitle: delegate.userID
+                    subtitle: delegate.userId
                     labelItem.textFormat: Text.PlainText
                 }
 
@@ -107,7 +107,7 @@ Kirigami.ScrollablePage {
                         if (inRoom) {
                             checked = true
                         } else {
-                            room.inviteToRoom(delegate.userID);
+                            room.inviteToRoom(delegate.userId);
                             applicationWindow().pageStack.layers.pop();
                         }
                     }

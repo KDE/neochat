@@ -9,6 +9,7 @@ import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 import org.kde.neochat.config
@@ -159,8 +160,15 @@ Kirigami.Page {
                     anchors.centerIn: parent
                     width: parent.width - (Kirigami.Units.largeSpacing * 4)
                     visible: listView.count == 0
-                    text: sortFilterRoomListModel.filterText.length > 0 ? i18n("No rooms found") : i18n("Join some rooms to get started")
-                    helpfulAction: Kirigami.Action {
+                    text: if (sortFilterRoomListModel.filterText.length > 0) {
+                        return spaceDrawer.showDirectChats ? i18n("No friends found") : i18n("No rooms found");
+                    } else {
+                        return spaceDrawer.showDirectChats ? i18n("You haven't added any of your friends yet, click below to search for them.") : i18n("Join some rooms to get started");
+                    }
+                    helpfulAction: spaceDrawer.showDirectChats ? userSearchAction : exploreRoomAction
+
+                    Kirigami.Action {
+                        id: exploreRoomAction
                         icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
                         text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
                         onTriggered: {
@@ -178,6 +186,13 @@ Kirigami.Page {
                                 }
                             })
                         }
+                    }
+
+                    Kirigami.Action {
+                        id: userSearchAction
+                        icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
+                        text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in friend directory") : i18n("Find your friends")
+                        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
                     }
                 }
 
@@ -285,6 +300,16 @@ Kirigami.Page {
                         Keys.onEnterPressed: RoomManager.enterRoom(currentRoom)
                         Keys.onReturnPressed: RoomManager.enterRoom(currentRoom)
                     }
+                }
+
+                footer: Delegates.RoundedItemDelegate {
+                    visible: listView.view.count > 0 && spaceDrawer.showDirectChats
+                    text: i18n("Find your friends")
+                    icon.name: "list-add-user"
+                    icon.width: Kirigami.Units.gridUnit * 2
+                    icon.height: Kirigami.Units.gridUnit * 2
+
+                    onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
                 }
             }
         }

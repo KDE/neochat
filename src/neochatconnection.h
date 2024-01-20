@@ -95,7 +95,14 @@ public:
     Q_INVOKABLE bool directChatExists(Quotient::User *user);
 
     /**
-     * @brief Join a direct chat with the given user.
+     * @brief Join a direct chat with the given user ID.
+     *
+     * If a direct chat with the user doesn't exist one is created and then joined.
+     */
+    Q_INVOKABLE void openOrCreateDirectChat(const QString &userId);
+
+    /**
+     * @brief Join a direct chat with the given user object.
      *
      * If a direct chat with the user doesn't exist one is created and then joined.
      */

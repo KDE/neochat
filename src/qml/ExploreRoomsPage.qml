@@ -90,7 +90,7 @@ SearchPage {
         indeterminate: true
     }
 
-    searchFieldPlaceholder: i18n("Find a room...")
+    searchFieldPlaceholder: i18n("Find a room…")
     noResultPlaceholderMessage: i18nc("@info:label", "No public rooms found")
 
     Component {

@@ -45,13 +45,13 @@ Labs.MenuBar {
         title: i18nc("menu", "File")
 
         Labs.MenuItem {
-            text: i18nc("menu", "New Private Chat…")
-            enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && AccountRegistry.accountCount > 0
-            onTriggered: pushReplaceLayer("qrc:/org/kde/neochat/qml/StartChatPage.qml", {connection: root.connection})
+            text: i18nc("menu", "Find your friends")
+            enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
+            onTriggered: pushReplaceLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
         }
         Labs.MenuItem {
             text: i18nc("menu", "New Group…")
-            enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && AccountRegistry.accountCount > 0
+            enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
             shortcut: StandardKey.New
             onTriggered: {
                 const dialog = createRoomDialog.createObject(root.overlay)

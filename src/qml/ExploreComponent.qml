@@ -32,9 +32,9 @@ RowLayout {
         }
     }
     property Kirigami.Action chatAction: Kirigami.Action {
-        text: i18n("Start a Chat")
+        text: i18n("Find your friends")
         icon.name: "list-add-user"
-        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/StartChatPage.qml", {connection: root.connection}, {title: i18nc("@title", "Start a Chat")})
+        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
     }
     property Kirigami.Action roomAction: Kirigami.Action {
         text: i18n("Create a Room")
