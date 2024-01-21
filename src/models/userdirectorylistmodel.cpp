@@ -59,6 +59,12 @@ void UserDirectoryListModel::setSearchText(const QString &value)
     m_searchText = value;
     Q_EMIT searchTextChanged();
 
+    if (m_job) {
+        m_job->abandon();
+        m_job = nullptr;
+        Q_EMIT searchingChanged();
+    }
+
     attempted = false;
 }
 

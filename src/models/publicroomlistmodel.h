@@ -108,6 +108,13 @@ public:
 
     [[nodiscard]] bool searching() const;
 
+    /**
+     * @brief Search the room directory.
+     *
+     * @param limit the maximum number of rooms to load.
+     */
+    Q_INVOKABLE void search(int limit = 50);
+
 private:
     QPointer<Quotient::Connection> m_connection = nullptr;
     QString m_server;
@@ -117,9 +124,9 @@ private:
     /**
      * @brief Load the next set of rooms.
      *
-     * @param count the maximum number of rooms to load.
+     * @param limit the maximum number of rooms to load.
      */
-    void next(int count = 50);
+    void next(int limit = 50);
     bool canFetchMore(const QModelIndex &parent) const override;
     void fetchMore(const QModelIndex &parent) override;
 

@@ -110,6 +110,7 @@ Kirigami.ScrollablePage {
                 Keys.onEnterPressed: searchButton.clicked()
                 Keys.onReturnPressed: searchButton.clicked()
                 onTextChanged: {
+                    searchTimer.restart()
                     if (model) {
                         model.searchText = text;
                     }
@@ -122,6 +123,14 @@ Kirigami.ScrollablePage {
                     if (typeof model.search === 'function') {
                         model.search()
                     }
+                }
+            }
+            Timer {
+                id: searchTimer
+                interval: 500
+                running: true
+                onTriggered: if (typeof model.search === 'function') {
+                    model.search()
                 }
             }
         }
@@ -149,7 +158,7 @@ Kirigami.ScrollablePage {
 
         Kirigami.LoadingPlaceholder {
             anchors.centerIn: parent
-            visible: root.model.searching
+            visible: searchField.text.length > 0 && listView.count === 0 && root.model.searching
         }
     }
 }

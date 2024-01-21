@@ -325,6 +325,15 @@ ecm_qt_declare_logging_category(neochat
 )
 
 ecm_qt_declare_logging_category(neochat
+    HEADER "publicroomlist_logging.h"
+    IDENTIFIER "PublicRoomList"
+    CATEGORY_NAME "org.kde.neochat.publicroomlistmodel"
+    DESCRIPTION "Neochat: publicroomlistmodel"
+    DEFAULT_SEVERITY Info
+    EXPORT NEOCHAT
+)
+
+ecm_qt_declare_logging_category(neochat
     HEADER "eventhandler_logging.h"
     IDENTIFIER "EventHandling"
     CATEGORY_NAME "org.kde.neochat.eventhandler"

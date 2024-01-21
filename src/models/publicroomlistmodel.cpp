@@ -5,6 +5,8 @@
 
 #include <Quotient/connection.h>
 
+#include "publicroomlist_logging.h"
+
 using namespace Quotient;
 
 PublicRoomListModel::PublicRoomListModel(QObject *parent)
@@ -70,7 +72,6 @@ void PublicRoomListModel::setServer(const QString &value)
     nextBatch = QString();
     attempted = false;
     rooms.clear();
-    Q_EMIT searchingChanged();
 
     endResetModel();
 
@@ -99,26 +100,16 @@ void PublicRoomListModel::setSearchText(const QString &value)
     }
 
     m_searchText = value;
-
-    beginResetModel();
+    Q_EMIT searchTextChanged();
 
     nextBatch = QString();
     attempted = false;
-    rooms.clear();
-
-    endResetModel();
 
     if (job) {
         job->abandon();
         job = nullptr;
         Q_EMIT searchingChanged();
     }
-
-    if (m_connection) {
-        next();
-    }
-
-    Q_EMIT searchTextChanged();
 }
 
 bool PublicRoomListModel::showOnlySpaces() const
@@ -135,15 +126,28 @@ void PublicRoomListModel::setShowOnlySpaces(bool showOnlySpaces)
     Q_EMIT showOnlySpacesChanged();
 }
 
-void PublicRoomListModel::next(int count)
+void PublicRoomListModel::search(int limit)
 {
-    if (count < 1) {
+    if (limit < 1 || attempted) {
         return;
     }
 
     if (job) {
-        qDebug() << "PublicRoomListModel: Other jobs running, ignore";
+        qCDebug(PublicRoomList) << "Other job running, ignore";
+        return;
+    }
 
+    next(limit);
+}
+
+void PublicRoomListModel::next(int limit)
+{
+    if (m_connection == nullptr || limit < 1) {
+        return;
+    }
+
+    if (job) {
+        qCDebug(PublicRoomList) << "Other job running, ignore";
         return;
     }
 
@@ -151,11 +155,17 @@ void PublicRoomListModel::next(int count)
     if (m_showOnlySpaces) {
         roomTypes += QLatin1String("m.space");
     }
-    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_searchText, roomTypes});
+    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, limit, nextBatch, QueryPublicRoomsJob::Filter{m_searchText, roomTypes});
     Q_EMIT searchingChanged();
 
     connect(job, &BaseJob::finished, this, [this] {
-        attempted = true;
+        if (!attempted) {
+            beginResetModel();
+            rooms.clear();
+            endResetModel();
+
+            attempted = true;
+        }
 
         if (job->status() == BaseJob::Success) {
             nextBatch = job->nextBatch();
@@ -177,8 +187,7 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
     }
 
     if (index.row() >= rooms.count()) {
-        qDebug() << "PublicRoomListModel, something's wrong: index.row() >= "
-                    "rooms.count()";
+        qCDebug(PublicRoomList) << "something's wrong: index.row() >= rooms.count()";
         return {};
     }
     auto room = rooms.at(index.row());
@@ -267,7 +276,7 @@ int PublicRoomListModel::rowCount(const QModelIndex &parent) const
 bool PublicRoomListModel::canFetchMore(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return !(attempted && nextBatch.isEmpty());
+    return !nextBatch.isEmpty();
 }
 
 void PublicRoomListModel::fetchMore(const QModelIndex &parent)
