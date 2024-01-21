@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
-"PO-Revision-Date: 2023-08-19 22:34+0400\n"
+"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"PO-Revision-Date: 2024-01-20 21:03+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,9 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
-#: src/controller.cpp:121 src/controller.cpp:315
+#: src/controller.cpp:121 src/controller.cpp:309
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -463,10 +463,9 @@ msgid "Matrix client"
 msgstr "عميل ماتركس"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020بلاك هات، 2020-2023 مجتمع كِيدِي"
+msgstr "© 2018-2020بلاك هات، 2020-2024 مجتمع كِيدِي"
 
 #: src/main.cpp:134
 #, kde-format
@@ -521,10 +520,9 @@ msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
 
 #: src/main.cpp:147
-#, fuzzy, kde-format
-#| msgid "A Qt5 library to write cross-platform clients for Matrix"
+#, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "مكتبة Qt5 لكتابة عملاء عابرة للأنظمة لماتركس"
+msgstr "مكتبة Qt لكتابة عملاء عابرة للأنظمة لماتركس"
 
 #: src/main.cpp:149
 #, kde-format
@@ -1072,15 +1070,11 @@ msgid "Messages containing the local part of my Matrix ID"
 msgstr "الرسائل التي تحوي على اسم العرض الخاص بي"
 
 #: src/models/pushrulemodel.cpp:30
-#, fuzzy
-#| msgid "Whole room (@room) notifications"
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
 msgstr "كل إشعارات الغرفة (@غرفة)"
 
 #: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Invites to a room"
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "دعوات إلى غرفة"
@@ -1132,7 +1126,7 @@ msgstr "مدعو"
 msgid "Favorite"
 msgstr "المفضّلة"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1220,15 +1214,13 @@ msgid "Open this invitation in NeoChat"
 msgstr "افتح هذه الدعوة في نيوتشات"
 
 #: src/notificationsmanager.cpp:257
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "اقبل"
 
 #: src/notificationsmanager.cpp:258
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "ارفض"
@@ -1675,27 +1667,27 @@ msgstr "هل أنت متأكد أنك تريد الخروج ؟"
 msgid "Open in New Window"
 msgstr "افتح في نافذة جديدة"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "أزل من المفضلة"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Add to Favourites"
 msgstr "أضف للمفضلة"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Reprioritize"
 msgstr "أعطه أولولية"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Deprioritize"
 msgstr "أزل الأولوية"
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
 #, kde-format
 msgid "Mark as Read"
 msgstr "علّم كمقروءة"
@@ -1718,18 +1710,18 @@ msgstr "انسخ العنوان للحافظة"
 msgid "Notification State"
 msgstr "حالة الإشعارات"
 
-#: src/qml/ContextMenu.qml:75
+#: src/qml/ContextMenu.qml:76
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "استخدم الإعداد العموميّ"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "الكلّ"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1737,20 +1729,20 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@الكلمات المفتاحية والإشارات"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "مغلق"
 
-#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
-#: src/qml/ContextMenu.qml:192 src/qml/RoomDrawer.qml:104
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
 #: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, kde-format
 msgid "Room Settings"
 msgstr "إعدادات الغرفة"
 
-#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
 #, kde-format
 msgid "Leave Room"
 msgstr "اترك الغرفة"
@@ -1835,7 +1827,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:179
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2147,24 +2139,25 @@ msgid ""
 msgstr "هذه الرسالة مشفرة ولم يشارك المرسل المفتاح مع هذا الجهاز."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Explore rooms"
 msgstr "استكشف الغرف"
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/StartChatPage.qml:20
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
-msgid "Start a Chat"
-msgstr "ابدأ دردشة..."
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
+#: src/qml/RoomListPage.qml:312
+#, kde-format
 msgctxt "@title"
-msgid "Start a Chat"
-msgstr "ابدأ دردشة..."
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2207,8 +2200,9 @@ msgid "Enter a room address"
 msgstr ""
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Find a room..."
+#, fuzzy, kde-format
+#| msgid "Find a room..."
+msgid "Find a room…"
 msgstr "اعثر على غرفة..."
 
 #: src/qml/ExploreRoomsPage.qml:94
@@ -2605,8 +2599,8 @@ msgstr "ملف"
 #: src/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "دردشة خاصة جديدة...."
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -2837,7 +2831,7 @@ msgstr "اقبل"
 msgid "Invite a User"
 msgstr "أدعو مستخدم"
 
-#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
 msgstr "اعثر على مستخدم…"
@@ -2847,7 +2841,7 @@ msgstr "اعثر على مستخدم…"
 msgid "Add"
 msgstr "أضف"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
+#: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
 msgstr "لا يوجد مستخدمين"
@@ -3549,7 +3543,7 @@ msgstr "حالة الغرفة لـ %1"
 msgid "Muted room"
 msgstr "غرفة مكتومة"
 
-#: src/qml/RoomDelegate.qml:139
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "اضبط الغرفة"
@@ -3659,28 +3653,46 @@ msgstr[5] "%1 عضو"
 msgid "No member count"
 msgstr "بلا عدد أعضاء"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "No friends found"
+msgstr "لم يعثر على غرف"
+
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "No rooms found"
 msgstr "لم يعثر على غرف"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:166
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+
+#: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "انضم لبعض الغرف لتبدأ"
 
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Search in room directory"
 msgstr "ابحث في دليل الغرف"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgid "Search in friend directory"
+msgstr "ابحث في دليل الغرف"
+
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "اطوِ %1"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4288,21 +4300,6 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
-#: src/qml/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "دردشة"
-
-#: src/qml/StartChatPage.qml:94
-#, kde-format
-msgid "Join existing chat"
-msgstr "انضم إلى دردشة موجودة"
-
-#: src/qml/StartChatPage.qml:115
-#, kde-format
-msgid "Create new chat"
-msgstr "أنشئ دردشة جديدة"
-
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4458,6 +4455,30 @@ msgstr "المستخدم"
 #| msgid "No users available"
 msgid "Username unavailable"
 msgstr "لا يوجد مستخدمين"
+
+#: src/qml/UserSearchPage.qml:32
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:80
+#, kde-format
+msgid "Find your friends…"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching for your friends"
+msgstr "ادخل نص لتبدأ البحث"
+
+#: src/qml/UserSearchPage.qml:82
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "لا نتائج"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4772,6 +4793,28 @@ msgstr "أظهر"
 #, kde-format
 msgid "Quit"
 msgstr "أنهِ"
+
+#~ msgid "Start a Chat"
+#~ msgstr "ابدأ دردشة..."
+
+#, fuzzy
+#~| msgid "Start a Chat"
+#~ msgctxt "@title"
+#~ msgid "Start a Chat"
+#~ msgstr "ابدأ دردشة..."
+
+#~ msgctxt "menu"
+#~ msgid "New Private Chat…"
+#~ msgstr "دردشة خاصة جديدة...."
+
+#~ msgid "Chat"
+#~ msgstr "دردشة"
+
+#~ msgid "Join existing chat"
+#~ msgstr "انضم إلى دردشة موجودة"
+
+#~ msgid "Create new chat"
+#~ msgstr "أنشئ دردشة جديدة"
 
 #~ msgid "Rooms and private chats"
 #~ msgstr "الغرف والدردشات الخاصة"

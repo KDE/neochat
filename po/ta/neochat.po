@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
+"POT-Creation-Date: 2024-01-21 00:37+0000\n"
 "PO-Revision-Date: 2023-12-17 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: src/controller.cpp:121 src/controller.cpp:315
+#: src/controller.cpp:121 src/controller.cpp:309
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -1090,7 +1090,7 @@ msgstr "வரவழைப்புகள்"
 msgid "Favorite"
 msgstr "பிடித்தவை"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1627,27 +1627,27 @@ msgstr "கணக்கிலிருந்து உறுதியாக வ�
 msgid "Open in New Window"
 msgstr "புதிய சாளரத்தில் திற"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "பிடித்தவற்றிலிருந்து நீக்கு"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Add to Favourites"
 msgstr "பிடித்தவற்றில் சேர்"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Reprioritize"
 msgstr "முக்கியமானதாகக் குறி"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Deprioritize"
 msgstr "முக்கியமல்ல என்று குறி"
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
 #, kde-format
 msgid "Mark as Read"
 msgstr "படித்ததாகக் குறி"
@@ -1670,18 +1670,18 @@ msgstr "முகவரியை பிடிப்புப்பலகைக�
 msgid "Notification State"
 msgstr "அறிவிப்புகள்"
 
-#: src/qml/ContextMenu.qml:75
+#: src/qml/ContextMenu.qml:76
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "பொதுவான அமைப்பை பயன்படுத்து"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "அனைத்துக்கும்"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1689,20 +1689,20 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "முதன்மைச்சொற்களுக்கும் @ கொண்டு குறிப்பிடப்படும்போதும்"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "முடக்கு"
 
-#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
-#: src/qml/ContextMenu.qml:192 src/qml/RoomDrawer.qml:104
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
 #: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, kde-format
 msgid "Room Settings"
 msgstr "அரங்கின் அமைப்புகள்"
 
-#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
 #, kde-format
 msgid "Leave Room"
 msgstr "அரங்கிலிருந்து வெளியேறு"
@@ -1779,7 +1779,7 @@ msgstr "அரங்கை தேர்ந்தெடு"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:179
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2091,23 +2091,25 @@ msgstr ""
 "இந்த செய்தி மறையாக்கம் செய்யப்பட்டுள்ளது, ஆனால் அனுப்புநர் இச்சாதனத்துடன் சாவியை பகிரவில்லை."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Explore rooms"
 msgstr "அரங்குப்பட்டியலில் உலாவுங்கள்"
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/StartChatPage.qml:20
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
-msgid "Start a Chat"
-msgstr "உரையாடலைத் துவக்கு"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
+#: src/qml/RoomListPage.qml:312
 #, kde-format
 msgctxt "@title"
-msgid "Start a Chat"
-msgstr "உரையாடலைத் துவக்கு"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2147,8 +2149,9 @@ msgid "Enter a room address"
 msgstr "அரங்கின் முகவரியை உள்ளிடுக"
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Find a room..."
+#, fuzzy, kde-format
+#| msgid "Find a room..."
+msgid "Find a room…"
 msgstr "அரங்கைத் தேடு..."
 
 #: src/qml/ExploreRoomsPage.qml:94
@@ -2539,8 +2542,8 @@ msgstr "கோப்பு"
 #: src/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "புதிய தனிப்பட்ட உரையாடல்…"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -2767,7 +2770,7 @@ msgstr "ஏற்றுக்கொள்"
 msgid "Invite a User"
 msgstr "பயனரை வரவழை"
 
-#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
 msgstr "பயனரைத் தேடு..."
@@ -2777,7 +2780,7 @@ msgstr "பயனரைத் தேடு..."
 msgid "Add"
 msgstr "சேர்"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
+#: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
 msgstr "எந்த பயனர்களும் கிடைக்கவில்லை"
@@ -3455,7 +3458,7 @@ msgstr "அரங்கின் நிலை"
 msgid "Muted room"
 msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 
-#: src/qml/RoomDelegate.qml:139
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "அரங்கை அமை"
@@ -3556,28 +3559,46 @@ msgstr[1] "%1 உறுப்பினர்கள்"
 msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "No friends found"
+msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
+
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "No rooms found"
 msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:166
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+
+#: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "தொடங்க, சில அரங்குகளில் சேருங்கள்"
 
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Search in room directory"
 msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgid "Search in friend directory"
+msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
+
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "%1 தனை சுருக்கு"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4156,21 +4177,6 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "SSO முகவரியை மீண்டும் திற"
 
-#: src/qml/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "உரையாடல்"
-
-#: src/qml/StartChatPage.qml:94
-#, kde-format
-msgid "Join existing chat"
-msgstr "ஏற்கனவேயுள்ள உரையாடலில் நுழை"
-
-#: src/qml/StartChatPage.qml:115
-#, kde-format
-msgid "Create new chat"
-msgstr "புதிய உரையாடலை உருவாக்கு"
-
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4318,6 +4324,30 @@ msgstr "பயனர் பெயர்:"
 #, kde-format
 msgid "Username unavailable"
 msgstr "இப்பெயர் கிடைக்கவில்லை"
+
+#: src/qml/UserSearchPage.qml:32
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:80
+#, kde-format
+msgid "Find your friends…"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching for your friends"
+msgstr "தேடுவதற்கான உரையை உள்ளிடுங்கள்"
+
+#: src/qml/UserSearchPage.qml:82
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4629,6 +4659,26 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid "Start a Chat"
+#~ msgstr "உரையாடலைத் துவக்கு"
+
+#~ msgctxt "@title"
+#~ msgid "Start a Chat"
+#~ msgstr "உரையாடலைத் துவக்கு"
+
+#~ msgctxt "menu"
+#~ msgid "New Private Chat…"
+#~ msgstr "புதிய தனிப்பட்ட உரையாடல்…"
+
+#~ msgid "Chat"
+#~ msgstr "உரையாடல்"
+
+#~ msgid "Join existing chat"
+#~ msgstr "ஏற்கனவேயுள்ள உரையாடலில் நுழை"
+
+#~ msgid "Create new chat"
+#~ msgstr "புதிய உரையாடலை உருவாக்கு"
 
 #~ msgid "Rooms and private chats"
 #~ msgstr "அரங்குகளும் தனிப்பட்ட உரையாடல்களும்:"

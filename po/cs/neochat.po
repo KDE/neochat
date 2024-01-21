@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
+"POT-Creation-Date: 2024-01-21 00:37+0000\n"
 "PO-Revision-Date: 2023-11-23 10:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: src/controller.cpp:121 src/controller.cpp:315
+#: src/controller.cpp:121 src/controller.cpp:309
 #, kde-format
 msgid "Receiving push notifications"
 msgstr ""
@@ -1095,7 +1095,7 @@ msgstr ""
 msgid "Favorite"
 msgstr "Oblíbené"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1631,27 +1631,27 @@ msgstr ""
 msgid "Open in New Window"
 msgstr "Otevřít v novém okně"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Odstranit z oblíbených"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Přidat k oblíbeným"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Reprioritize"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Deprioritize"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
 #, kde-format
 msgid "Mark as Read"
 msgstr "Označit jako přečtený"
@@ -1674,18 +1674,18 @@ msgstr "Kopírovat adresu do schránky"
 msgid "Notification State"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:75
+#: src/qml/ContextMenu.qml:76
 #, kde-format
 msgid "Follow Global Setting"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Vše"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1693,20 +1693,20 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Vypnuto"
 
-#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
-#: src/qml/ContextMenu.qml:192 src/qml/RoomDrawer.qml:104
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
 #: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, kde-format
 msgid "Room Settings"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
 #, kde-format
 msgid "Leave Room"
 msgstr "Opustit místnost"
@@ -1783,7 +1783,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:179
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2090,23 +2090,25 @@ msgid ""
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/StartChatPage.qml:20
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
-msgid "Start a Chat"
-msgstr "Zahájit rozhovor"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
+#: src/qml/RoomListPage.qml:312
 #, kde-format
 msgctxt "@title"
-msgid "Start a Chat"
-msgstr "Zahájit rozhovor"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2146,9 +2148,10 @@ msgid "Enter a room address"
 msgstr ""
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Find a room..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgid "Find a room…"
+msgstr "Poslat správu…"
 
 #: src/qml/ExploreRoomsPage.qml:94
 #, kde-format
@@ -2538,8 +2541,8 @@ msgstr "Soubor"
 #: src/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "Nový soukromý rozhovor..."
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -2764,7 +2767,7 @@ msgstr "Přijmout"
 msgid "Invite a User"
 msgstr ""
 
-#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
 msgstr ""
@@ -2774,7 +2777,7 @@ msgstr ""
 msgid "Add"
 msgstr "Přidat"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
+#: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
 msgstr ""
@@ -3449,7 +3452,7 @@ msgstr ""
 msgid "Muted room"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:139
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr ""
@@ -3551,28 +3554,45 @@ msgstr[2] "%1 členů"
 msgid "No member count"
 msgstr "Žádný počet členů"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgid "No friends found"
+msgstr "Nenalezeny žádné výsledky"
+
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:166
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+
+#: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:194
+#, kde-format
+msgid "Search in friend directory"
+msgstr ""
+
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Svinout %1"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4145,21 +4165,6 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
-#: src/qml/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "Rozhovor"
-
-#: src/qml/StartChatPage.qml:94
-#, kde-format
-msgid "Join existing chat"
-msgstr ""
-
-#: src/qml/StartChatPage.qml:115
-#, kde-format
-msgid "Create new chat"
-msgstr "Vytvořit nový rozhovor"
-
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4307,6 +4312,29 @@ msgstr "Uživatelské jméno:"
 #, kde-format
 msgid "Username unavailable"
 msgstr ""
+
+#: src/qml/UserSearchPage.qml:32
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:80
+#, kde-format
+msgid "Find your friends…"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:81
+#, kde-format
+msgid "Enter text to start searching for your friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:82
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "Nenalezeny žádné výsledky"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4604,6 +4632,23 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgid "Start a Chat"
+#~ msgstr "Zahájit rozhovor"
+
+#~ msgctxt "@title"
+#~ msgid "Start a Chat"
+#~ msgstr "Zahájit rozhovor"
+
+#~ msgctxt "menu"
+#~ msgid "New Private Chat…"
+#~ msgstr "Nový soukromý rozhovor..."
+
+#~ msgid "Chat"
+#~ msgstr "Rozhovor"
+
+#~ msgid "Create new chat"
+#~ msgstr "Vytvořit nový rozhovor"
 
 #~ msgid "Separated"
 #~ msgstr "Oddělený(á)"

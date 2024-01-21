@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
+"POT-Creation-Date: 2024-01-21 00:37+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-POFile-SpellExtra: Rusakov Quotient gif webp novaalcunha libQuotient\n"
 "X-POFile-SpellExtra: push Lat Lon\n"
 
-#: src/controller.cpp:121 src/controller.cpp:315
+#: src/controller.cpp:121 src/controller.cpp:309
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -1118,7 +1118,7 @@ msgstr "Convidado"
 msgid "Favorite"
 msgstr "Favorito"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1662,27 +1662,27 @@ msgstr "Tem a certeza que deseja sair?"
 msgid "Open in New Window"
 msgstr "Abrir numa Nova Janela"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Remover dos Favoritos"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Adicionar aos Favoritos"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Reprioritize"
 msgstr "Aumentar a Prioridade"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Deprioritize"
 msgstr "Reduzir a Prioridade"
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marcar como Lido"
@@ -1705,18 +1705,18 @@ msgstr "Copiar o Endereço para a Área de Transferência"
 msgid "Notification State"
 msgstr "Estado das Notificações"
 
-#: src/qml/ContextMenu.qml:75
+#: src/qml/ContextMenu.qml:76
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "Seguir a Configuração Global"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Tudo"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1724,20 +1724,20 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Menções e Palavras-Chave"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Desligado"
 
-#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
-#: src/qml/ContextMenu.qml:192 src/qml/RoomDrawer.qml:104
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
 #: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, kde-format
 msgid "Room Settings"
 msgstr "Configuração da Sala"
 
-#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
 #, kde-format
 msgid "Leave Room"
 msgstr "Sair da Sala"
@@ -1822,7 +1822,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:179
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2143,24 +2143,25 @@ msgstr ""
 "dispositivo."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explorar as salas"
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/StartChatPage.qml:20
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
-msgid "Start a Chat"
-msgstr "Iniciar uma Conversa"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
+#: src/qml/RoomListPage.qml:312
+#, kde-format
 msgctxt "@title"
-msgid "Start a Chat"
-msgstr "Iniciar uma Conversa"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2203,8 +2204,9 @@ msgid "Enter a room address"
 msgstr ""
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Find a room..."
+#, fuzzy, kde-format
+#| msgid "Find a room..."
+msgid "Find a room…"
 msgstr "Procurar uma sala..."
 
 #: src/qml/ExploreRoomsPage.qml:94
@@ -2603,8 +2605,8 @@ msgstr "Ficheiro"
 #: src/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "Nova Conversa Privada…"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -2835,7 +2837,7 @@ msgstr "Aceitar"
 msgid "Invite a User"
 msgstr "Convidar um Utilizador"
 
-#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
 msgstr "Procurar um utilizador..."
@@ -2845,7 +2847,7 @@ msgstr "Procurar um utilizador..."
 msgid "Add"
 msgstr "Adicionar"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
+#: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
 msgstr "Sem utilizadores disponíveis"
@@ -3549,7 +3551,7 @@ msgstr "Estado da Sala de %1"
 msgid "Muted room"
 msgstr "Sala em silêncio"
 
-#: src/qml/RoomDelegate.qml:139
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "Configurar a sala"
@@ -3656,28 +3658,46 @@ msgstr[1] "%1 membros"
 msgid "No member count"
 msgstr "Sem número de membros"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "No friends found"
+msgstr "Não foram encontradas salas"
+
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "No rooms found"
 msgstr "Não foram encontradas salas"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:166
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+
+#: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Junte-se a algumas salas para começar"
 
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Search in room directory"
 msgstr "Procurar na lista de salas"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgid "Search in friend directory"
+msgstr "Procurar na lista de salas"
+
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:238
 #, fuzzy, kde-format
 #| msgid "Expand preview"
 msgctxt "Expand <section name"
@@ -4292,23 +4312,6 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
-#: src/qml/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "Conversar"
-
-#: src/qml/StartChatPage.qml:94
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
-msgid "Join existing chat"
-msgstr "Autenticar-se numa conta existente"
-
-#: src/qml/StartChatPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Create rooms and chats"
-msgid "Create new chat"
-msgstr "Criar salas e conversas"
-
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4460,6 +4463,30 @@ msgstr "Utilizador"
 #| msgid "No users available"
 msgid "Username unavailable"
 msgstr "Sem utilizadores disponíveis"
+
+#: src/qml/UserSearchPage.qml:32
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:80
+#, kde-format
+msgid "Find your friends…"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgid "Enter text to start searching for your friends"
+msgstr "Introduza texto para iniciar a pesquisa"
+
+#: src/qml/UserSearchPage.qml:82
+#, fuzzy, kde-format
+#| msgid "No results found"
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "Não foram encontrados resultados"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4802,6 +4829,32 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgid "Start a Chat"
+#~ msgstr "Iniciar uma Conversa"
+
+#, fuzzy
+#~| msgid "Start a Chat"
+#~ msgctxt "@title"
+#~ msgid "Start a Chat"
+#~ msgstr "Iniciar uma Conversa"
+
+#~ msgctxt "menu"
+#~ msgid "New Private Chat…"
+#~ msgstr "Nova Conversa Privada…"
+
+#~ msgid "Chat"
+#~ msgstr "Conversar"
+
+#, fuzzy
+#~| msgid "Log in to an existing account"
+#~ msgid "Join existing chat"
+#~ msgstr "Autenticar-se numa conta existente"
+
+#, fuzzy
+#~| msgid "Create rooms and chats"
+#~ msgid "Create new chat"
+#~ msgstr "Criar salas e conversas"
 
 #~ msgid "Rooms and private chats"
 #~ msgstr "Salas e conversas privadas"

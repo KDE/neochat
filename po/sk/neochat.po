@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
+"POT-Creation-Date: 2024-01-21 00:37+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/controller.cpp:121 src/controller.cpp:315
+#: src/controller.cpp:121 src/controller.cpp:309
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Receiving push notifications"
@@ -1216,7 +1216,7 @@ msgstr "Pozvaný"
 msgid "Favorite"
 msgstr "Obľúbené"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1794,27 +1794,27 @@ msgstr ""
 msgid "Open in New Window"
 msgstr "Otvoriť v novom okne"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Odstrániť z obľúbených"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Pridať do obľúbených"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Reprioritize"
 msgstr "Zmeniť prioritu"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Deprioritize"
 msgstr "Neuprednostňovať"
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
 #, kde-format
 msgid "Mark as Read"
 msgstr "Označiť ako prečítané"
@@ -1838,18 +1838,18 @@ msgstr ""
 msgid "Notification State"
 msgstr "Zobraziť upozornenia"
 
-#: src/qml/ContextMenu.qml:75
+#: src/qml/ContextMenu.qml:76
 #, kde-format
 msgid "Follow Global Setting"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1857,21 +1857,21 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
-#: src/qml/ContextMenu.qml:192 src/qml/RoomDrawer.qml:104
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
 #: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Room Settings"
 msgstr "Nastavenia miestnosti"
 
-#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
 #, kde-format
 msgid "Leave Room"
 msgstr "Opustiť miestnosť"
@@ -1957,7 +1957,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:179
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2289,24 +2289,25 @@ msgid ""
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Explore rooms"
 msgstr "Prehliadať miestnosti"
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/StartChatPage.qml:20
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
-msgid "Start a Chat"
-msgstr "Začať rozhovor"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
+#: src/qml/RoomListPage.qml:312
+#, kde-format
 msgctxt "@title"
-msgid "Start a Chat"
-msgstr "Začať rozhovor"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2351,8 +2352,9 @@ msgid "Enter a room address"
 msgstr "<room-address>"
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Find a room..."
+#, fuzzy, kde-format
+#| msgid "Find a room..."
+msgid "Find a room…"
 msgstr "Nájsť miestnosť..."
 
 #: src/qml/ExploreRoomsPage.qml:94
@@ -2778,11 +2780,10 @@ msgid "File"
 msgstr "Súbor"
 
 #: src/qml/GlobalMenu.qml:48
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "Otvoriť súkromný chat"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -3018,7 +3019,7 @@ msgstr "Prijať"
 msgid "Invite a User"
 msgstr "Pozvať používateľa"
 
-#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
 msgstr "Nájsť používateľa..."
@@ -3028,7 +3029,7 @@ msgstr "Nájsť používateľa..."
 msgid "Add"
 msgstr "Pridať"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
+#: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
 msgstr "Nie sú k dispozícii žiadni používatelia"
@@ -3768,7 +3769,7 @@ msgstr "Nastavenia miestnosti - %1"
 msgid "Muted room"
 msgstr "Stlmený"
 
-#: src/qml/RoomDelegate.qml:139
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "Nastaviť miestnosť"
@@ -3882,28 +3883,46 @@ msgstr[2] "%1 Členov"
 msgid "No member count"
 msgstr "Žiadny počet členov"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "No friends found"
+msgstr "Žiadne miestnosti neboli nájdené"
+
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "No rooms found"
 msgstr "Žiadne miestnosti neboli nájdené"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:166
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+
+#: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pripojte sa k niektorým miestnostiam a začnite"
 
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Search in room directory"
 msgstr "Vyhľadajte v adresári miestnosti"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgid "Search in friend directory"
+msgstr "Vyhľadajte v adresári miestnosti"
+
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:238
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
@@ -4518,22 +4537,6 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
-#: src/qml/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "Rozhovor"
-
-#: src/qml/StartChatPage.qml:94
-#, kde-format
-msgid "Join existing chat"
-msgstr ""
-
-#: src/qml/StartChatPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
-msgid "Create new chat"
-msgstr "Miestnosti a súkromné chaty:"
-
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4692,6 +4695,29 @@ msgstr "Používateľské meno"
 #| msgid "No users available"
 msgid "Username unavailable"
 msgstr "Nie sú k dispozícii žiadni používatelia"
+
+#: src/qml/UserSearchPage.qml:32
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:80
+#, kde-format
+msgid "Find your friends…"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:81
+#, kde-format
+msgid "Enter text to start searching for your friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:82
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "Žiadne miestnosti neboli nájdené"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4999,6 +5025,29 @@ msgstr "Zobraziť"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
+
+#~ msgid "Start a Chat"
+#~ msgstr "Začať rozhovor"
+
+#, fuzzy
+#~| msgid "Start a Chat"
+#~ msgctxt "@title"
+#~ msgid "Start a Chat"
+#~ msgstr "Začať rozhovor"
+
+#, fuzzy
+#~| msgid "Open a private chat"
+#~ msgctxt "menu"
+#~ msgid "New Private Chat…"
+#~ msgstr "Otvoriť súkromný chat"
+
+#~ msgid "Chat"
+#~ msgstr "Rozhovor"
+
+#, fuzzy
+#~| msgid "Rooms and private chats:"
+#~ msgid "Create new chat"
+#~ msgstr "Miestnosti a súkromné chaty:"
 
 #, fuzzy
 #~| msgid "Rooms and private chats:"

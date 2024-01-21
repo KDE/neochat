@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
-"PO-Revision-Date: 2024-01-14 12:36+0100\n"
+"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"PO-Revision-Date: 2024-01-20 15:45+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/controller.cpp:121 src/controller.cpp:315
+#: src/controller.cpp:121 src/controller.cpp:309
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricevante puŝ-sciigojn"
@@ -1087,7 +1087,7 @@ msgstr "Invititaj"
 msgid "Favorite"
 msgstr "Ŝatata"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
 msgstr "Amikoj"
@@ -1624,27 +1624,27 @@ msgstr "Ĉu vi certas, ke vi volas elsaluti?"
 msgid "Open in New Window"
 msgstr "Malfermi en Nova Fenestro"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Forigi el Favoritoj"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Aldoni al Favoritoj"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Reprioritize"
 msgstr "Reprioritigi"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Deprioritize"
 msgstr "Malprioritigi"
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marki kiel Legita"
@@ -1667,18 +1667,18 @@ msgstr "Kopii Adreson al Tondujo"
 msgid "Notification State"
 msgstr "Sciigostato"
 
-#: src/qml/ContextMenu.qml:75
+#: src/qml/ContextMenu.qml:76
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "Sekvi Ĉiean Agordon"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Ĉiuj"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1686,20 +1686,20 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Mencioj kaj Ŝlosilvortoj"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Malŝaltita"
 
-#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
-#: src/qml/ContextMenu.qml:192 src/qml/RoomDrawer.qml:104
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
 #: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, kde-format
 msgid "Room Settings"
 msgstr "Ĉambraj Agordoj"
 
-#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
 #, kde-format
 msgid "Leave Room"
 msgstr "Forlasi Ĉambron"
@@ -1776,7 +1776,7 @@ msgstr "Elekti ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:179
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2090,23 +2090,25 @@ msgstr ""
 "tiu aparato."
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esplori ĉambrojn"
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/StartChatPage.qml:20
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
-msgid "Start a Chat"
-msgstr "Komenci Babiladon"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
+#: src/qml/RoomListPage.qml:312
 #, kde-format
 msgctxt "@title"
-msgid "Start a Chat"
-msgstr "Komenci Babiladon"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2134,8 +2136,7 @@ msgid "Create New"
 msgstr "Krei Novan"
 
 #: src/qml/ExploreRoomsPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
 msgstr "Esplori Ĉambrojn"
@@ -2146,8 +2147,9 @@ msgid "Enter a room address"
 msgstr "Enigi ĉambro-adreson"
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Find a room..."
+#, fuzzy, kde-format
+#| msgid "Find a room..."
+msgid "Find a room…"
 msgstr "Trovi ĉambron..."
 
 #: src/qml/ExploreRoomsPage.qml:94
@@ -2537,8 +2539,8 @@ msgstr "Dosiero"
 #: src/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "Nova Privata Babilejo…"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -2765,7 +2767,7 @@ msgstr "Akcepti"
 msgid "Invite a User"
 msgstr "Inviti Uzanton"
 
-#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
 msgstr "Trovi uzanton..."
@@ -2775,7 +2777,7 @@ msgstr "Trovi uzanton..."
 msgid "Add"
 msgstr "Aldoni"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
+#: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
 msgstr "Neniuj uzantoj disponeblaj"
@@ -3459,7 +3461,7 @@ msgstr "Ĉambra Stato"
 msgid "Muted room"
 msgstr "Silentigita ĉambro"
 
-#: src/qml/RoomDelegate.qml:139
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "Agordi ĉambron"
@@ -3560,28 +3562,46 @@ msgstr[1] "%1 membroj"
 msgid "No member count"
 msgstr "Neniu membrokalkulo"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "No friends found"
+msgstr "Neniuj ĉambroj trovitaj"
+
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "No rooms found"
 msgstr "Neniuj ĉambroj trovitaj"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:166
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+
+#: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Aliĝi al iuj ĉambroj por komenci"
 
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Search in room directory"
 msgstr "Serĉi en ĉambra dosierujo"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgid "Search in friend directory"
+msgstr "Serĉi en ĉambra dosierujo"
+
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Kolapsi %1"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -3610,22 +3630,19 @@ msgid "Search Messages"
 msgstr "Serĉi Mesaĝojn"
 
 #: src/qml/RoomSearchPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "Find messages…"
-msgstr "Sendi mesaĝon…"
+msgstr "Trovi mesaĝojn…"
 
 #: src/qml/RoomSearchPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Enter a text to start searching"
+#, kde-format
 msgid "Enter text to start searching"
 msgstr "Enigi tekston por komenci serĉi"
 
 #: src/qml/RoomSearchPage.qml:38
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgid "No messages found"
-msgstr "Neniuj rezultoj trovitaj"
+msgstr "Trovis neniujn mesaĝojn"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -4164,21 +4181,6 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "Remalfermi SSO-URL"
 
-#: src/qml/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "Babilado"
-
-#: src/qml/StartChatPage.qml:94
-#, kde-format
-msgid "Join existing chat"
-msgstr "Aliĝi al ekzistanta babilejo"
-
-#: src/qml/StartChatPage.qml:115
-#, kde-format
-msgid "Create new chat"
-msgstr "Krei novan babilejon"
-
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4328,6 +4330,30 @@ msgstr "Uzantnomo:"
 #, kde-format
 msgid "Username unavailable"
 msgstr "Uzantnomo nedisponebla"
+
+#: src/qml/UserSearchPage.qml:32
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:80
+#, kde-format
+msgid "Find your friends…"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching"
+msgid "Enter text to start searching for your friends"
+msgstr "Enigi tekston por komenci serĉi"
+
+#: src/qml/UserSearchPage.qml:82
+#, fuzzy, kde-format
+#| msgid "No messages found"
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "Trovis neniujn mesaĝojn"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4640,6 +4666,26 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgid "Start a Chat"
+#~ msgstr "Komenci Babiladon"
+
+#~ msgctxt "@title"
+#~ msgid "Start a Chat"
+#~ msgstr "Komenci Babiladon"
+
+#~ msgctxt "menu"
+#~ msgid "New Private Chat…"
+#~ msgstr "Nova Privata Babilejo…"
+
+#~ msgid "Chat"
+#~ msgstr "Babilado"
+
+#~ msgid "Join existing chat"
+#~ msgstr "Aliĝi al ekzistanta babilejo"
+
+#~ msgid "Create new chat"
+#~ msgstr "Krei novan babilejon"
 
 #~ msgid "Rooms and private chats"
 #~ msgstr "Ĉambroj kaj privataj babilejoj"

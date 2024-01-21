@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
+"POT-Creation-Date: 2024-01-21 00:37+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#: src/controller.cpp:121 src/controller.cpp:315
+#: src/controller.cpp:121 src/controller.cpp:309
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Receiving push notifications"
@@ -1157,7 +1157,7 @@ msgstr "Invitat"
 msgid "Favorite"
 msgstr "Preferet"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1708,27 +1708,27 @@ msgstr ""
 msgid "Open in New Window"
 msgstr "Aperter in nov fenestre"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, fuzzy, kde-format
 msgid "Remove from Favourites"
 msgstr "Li preferet"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Adjunter al preferet"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Reprioritize"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Deprioritize"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marcar quam leet"
@@ -1753,18 +1753,18 @@ msgstr "Copiar li adresse al Paperiere"
 msgid "Notification State"
 msgstr "State:"
 
-#: src/qml/ContextMenu.qml:75
+#: src/qml/ContextMenu.qml:76
 #, fuzzy, kde-format
 msgid "Follow Global Setting"
 msgstr "Global"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Omni"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, fuzzy, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1772,20 +1772,20 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "Mentiones"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, fuzzy, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "No"
 
-#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
-#: src/qml/ContextMenu.qml:192 src/qml/RoomDrawer.qml:104
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
 #: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, fuzzy, kde-format
 msgid "Room Settings"
 msgstr "Parametres del chambre"
 
-#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
 #, fuzzy, kde-format
 msgid "Leave Room"
 msgstr "Forlassar li chambre"
@@ -1871,7 +1871,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:179
 #: src/qml/SelectParentDialog.qml:131
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2194,24 +2194,25 @@ msgid ""
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explorar chambres"
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/StartChatPage.qml:20
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
-msgid "Start a Chat"
-msgstr "Iniciar conversation"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
+#: src/qml/RoomListPage.qml:312
+#, kde-format
 msgctxt "@title"
-msgid "Start a Chat"
-msgstr "Iniciar conversation"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2254,8 +2255,9 @@ msgid "Enter a room address"
 msgstr ""
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Find a room..."
+#, fuzzy, kde-format
+#| msgid "Find a room..."
+msgid "Find a room…"
 msgstr "Trovar un chambre..."
 
 #: src/qml/ExploreRoomsPage.qml:94
@@ -2667,8 +2669,8 @@ msgstr "File"
 #: src/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "Nov privat conversation..."
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -2901,7 +2903,7 @@ msgstr "Acceptar"
 msgid "Invite a User"
 msgstr "Invitar un usator"
 
-#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
 msgstr "Trovar un usator..."
@@ -2911,7 +2913,7 @@ msgstr "Trovar un usator..."
 msgid "Add"
 msgstr "Adjunter"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
+#: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
 msgstr "Null usatores disponibil"
@@ -3626,7 +3628,7 @@ msgstr "Nómine del chambre"
 msgid "Muted room"
 msgstr "Assurdat"
 
-#: src/qml/RoomDelegate.qml:139
+#: src/qml/RoomDelegate.qml:140
 #, fuzzy, kde-format
 msgid "Configure room"
 msgstr "Configurar"
@@ -3736,28 +3738,44 @@ msgstr[1] "%1 membres"
 msgid "No member count"
 msgstr "Sin númere de membres"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
+#, fuzzy, kde-format
+msgid "No friends found"
+msgstr "Chambres"
+
+#: src/qml/RoomListPage.qml:164
 #, fuzzy, kde-format
 msgid "No rooms found"
 msgstr "Chambres"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:166
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+
+#: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, fuzzy, kde-format
 msgid "Search in room directory"
 msgstr "DIRECTORIA"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:194
+#, fuzzy, kde-format
+msgid "Search in friend directory"
+msgstr "DIRECTORIA"
+
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:238
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
@@ -4362,22 +4380,6 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
-#: src/qml/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "Conversation"
-
-#: src/qml/StartChatPage.qml:94
-#, kde-format
-msgid "Join existing chat"
-msgstr ""
-
-#: src/qml/StartChatPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
-msgid "Create new chat"
-msgstr "Chambres e privat conversationes:"
-
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4535,6 +4537,28 @@ msgstr "Bannir ti usator"
 #| msgid "No users available"
 msgid "Username unavailable"
 msgstr "Null usatores disponibil"
+
+#: src/qml/UserSearchPage.qml:32
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:80
+#, kde-format
+msgid "Find your friends…"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:81
+#, kde-format
+msgid "Enter text to start searching for your friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:82
+#, fuzzy, kde-format
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "Chambres"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4839,6 +4863,27 @@ msgstr "Monstrar"
 #, kde-format
 msgid "Quit"
 msgstr "Surtir"
+
+#~ msgid "Start a Chat"
+#~ msgstr "Iniciar conversation"
+
+#, fuzzy
+#~| msgid "Start a Chat"
+#~ msgctxt "@title"
+#~ msgid "Start a Chat"
+#~ msgstr "Iniciar conversation"
+
+#~ msgctxt "menu"
+#~ msgid "New Private Chat…"
+#~ msgstr "Nov privat conversation..."
+
+#~ msgid "Chat"
+#~ msgstr "Conversation"
+
+#, fuzzy
+#~| msgid "Rooms and private chats:"
+#~ msgid "Create new chat"
+#~ msgstr "Chambres e privat conversationes:"
 
 #, fuzzy
 #~| msgid "Rooms and private chats:"

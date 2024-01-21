@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 00:37+0000\n"
-"PO-Revision-Date: 2024-01-14 20:51+0900\n"
+"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"PO-Revision-Date: 2024-01-21 02:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,9 +18,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 23.08.4\n"
 
-#: src/controller.cpp:121 src/controller.cpp:315
+#: src/controller.cpp:121 src/controller.cpp:309
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -1083,7 +1083,7 @@ msgstr "已邀請"
 msgid "Favorite"
 msgstr "最愛"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
 msgstr "好友"
@@ -1620,27 +1620,27 @@ msgstr "您確定要登出嗎？"
 msgid "Open in New Window"
 msgstr "在新視窗開啟"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "從最愛中移除"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
 #, kde-format
 msgid "Add to Favourites"
 msgstr "加入最愛"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Reprioritize"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
 #, kde-format
 msgid "Deprioritize"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
 #, kde-format
 msgid "Mark as Read"
 msgstr "標記為已讀"
@@ -1663,18 +1663,18 @@ msgstr "複製位址到剪貼簿"
 msgid "Notification State"
 msgstr "通知狀態"
 
-#: src/qml/ContextMenu.qml:75
+#: src/qml/ContextMenu.qml:76
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "跟隨全域設定"
 
-#: src/qml/ContextMenu.qml:86 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "全部"
 
-#: src/qml/ContextMenu.qml:97 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1682,20 +1682,20 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Mention 提及與關鍵字"
 
-#: src/qml/ContextMenu.qml:108 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "關閉"
 
-#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:123
-#: src/qml/ContextMenu.qml:192 src/qml/RoomDrawer.qml:104
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
+#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
 #: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
 #, kde-format
 msgid "Room Settings"
 msgstr "聊天室設定"
 
-#: src/qml/ContextMenu.qml:129 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
 #, kde-format
 msgid "Leave Room"
 msgstr "離開聊天室"
@@ -1772,7 +1772,7 @@ msgstr "選取聊天室"
 
 #: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
 #: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:171
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:179
 #: src/qml/SelectParentDialog.qml:131
 #, kde-format
 msgctxt "@title"
@@ -2080,23 +2080,25 @@ msgid ""
 msgstr "這個訊息已加密而傳送者並未與本裝置分享金鑰。"
 
 #: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Explore rooms"
 msgstr "瀏覽聊天室"
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/StartChatPage.qml:20
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
-msgid "Start a Chat"
-msgstr "開始私人聊天"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
+#: src/qml/RoomListPage.qml:312
 #, kde-format
 msgctxt "@title"
-msgid "Start a Chat"
-msgstr "開始私人聊天"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2124,8 +2126,7 @@ msgid "Create New"
 msgstr "建立新的"
 
 #: src/qml/ExploreRoomsPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
 msgstr "瀏覽聊天室"
@@ -2136,8 +2137,9 @@ msgid "Enter a room address"
 msgstr "輸入聊天室位址"
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Find a room..."
+#, fuzzy, kde-format
+#| msgid "Find a room..."
+msgid "Find a room…"
 msgstr "尋找聊天室..."
 
 #: src/qml/ExploreRoomsPage.qml:94
@@ -2526,8 +2528,8 @@ msgstr "檔案"
 #: src/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "menu"
-msgid "New Private Chat…"
-msgstr "新私人聊天…"
+msgid "Find your friends"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -2752,7 +2754,7 @@ msgstr "接受"
 msgid "Invite a User"
 msgstr "邀請一個使用者"
 
-#: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
+#: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
 msgstr "尋找使用者..."
@@ -2762,7 +2764,7 @@ msgstr "尋找使用者..."
 msgid "Add"
 msgstr "新增"
 
-#: src/qml/InviteUserPage.qml:70 src/qml/StartChatPage.qml:135
+#: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
 msgstr "沒有可用的使用者"
@@ -3437,7 +3439,7 @@ msgstr "聊天室狀態"
 msgid "Muted room"
 msgstr "已靜音的聊天室"
 
-#: src/qml/RoomDelegate.qml:139
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "設定聊天室"
@@ -3537,28 +3539,46 @@ msgstr[0] "%1 名成員"
 msgid "No member count"
 msgstr "無成員計數"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:164
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "No friends found"
+msgstr "找不到聊天室"
+
+#: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "No rooms found"
 msgstr "找不到聊天室"
 
-#: src/qml/RoomListPage.qml:162
+#: src/qml/RoomListPage.qml:166
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+
+#: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "先加入一些聊天室吧"
 
-#: src/qml/RoomListPage.qml:165
+#: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Search in room directory"
 msgstr "在聊天室目錄裡搜尋"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:194
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgid "Search in friend directory"
+msgstr "在聊天室目錄裡搜尋"
+
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "折疊 %1"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -3587,22 +3607,19 @@ msgid "Search Messages"
 msgstr "搜尋訊息"
 
 #: src/qml/RoomSearchPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "Find messages…"
-msgstr "傳送訊息…"
+msgstr "尋找訊息…"
 
 #: src/qml/RoomSearchPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Enter a text to start searching"
+#, kde-format
 msgid "Enter text to start searching"
 msgstr "輸入文字開始搜尋"
 
 #: src/qml/RoomSearchPage.qml:38
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgid "No messages found"
-msgstr "找不到結果"
+msgstr "找不到訊息"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -4130,21 +4147,6 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "重新開啟一次性登入 (SSO) 網址"
 
-#: src/qml/StartChatPage.qml:40
-#, kde-format
-msgid "Chat"
-msgstr "私人聊天"
-
-#: src/qml/StartChatPage.qml:94
-#, kde-format
-msgid "Join existing chat"
-msgstr "加入現有的聊天"
-
-#: src/qml/StartChatPage.qml:115
-#, kde-format
-msgid "Create new chat"
-msgstr "建立新的私人聊天"
-
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4290,6 +4292,30 @@ msgstr "使用者名稱："
 #, kde-format
 msgid "Username unavailable"
 msgstr "使用者名稱無法使用"
+
+#: src/qml/UserSearchPage.qml:32
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:80
+#, kde-format
+msgid "Find your friends…"
+msgstr ""
+
+#: src/qml/UserSearchPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching"
+msgid "Enter text to start searching for your friends"
+msgstr "輸入文字開始搜尋"
+
+#: src/qml/UserSearchPage.qml:82
+#, fuzzy, kde-format
+#| msgid "No messages found"
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "找不到訊息"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4590,6 +4616,26 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
+
+#~ msgid "Start a Chat"
+#~ msgstr "開始私人聊天"
+
+#~ msgctxt "@title"
+#~ msgid "Start a Chat"
+#~ msgstr "開始私人聊天"
+
+#~ msgctxt "menu"
+#~ msgid "New Private Chat…"
+#~ msgstr "新私人聊天…"
+
+#~ msgid "Chat"
+#~ msgstr "私人聊天"
+
+#~ msgid "Join existing chat"
+#~ msgstr "加入現有的聊天"
+
+#~ msgid "Create new chat"
+#~ msgstr "建立新的私人聊天"
 
 #~ msgid "Rooms and private chats"
 #~ msgstr "聊天室與私人聊天"
