@@ -102,7 +102,7 @@ QQC2.Control {
                         Layout.maximumHeight: width - Kirigami.Units.smallSpacing
                         Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
-                        text: i18nc("@button View all one-on-one chats with your friends.", "Friends")
+                        text: root.connection.localUserId == "@nicofee:matrix.org" ? i18n("People I vaguely sometimes chat with and Nate Graham") : i18nc("@button View all one-on-one chats with your friends.", "Friends")
                         contentItem: Kirigami.Icon {
                             source: "system-users"
                         }
