@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-14 03:07+0000\n"
-"PO-Revision-Date: 2024-01-08 13:15+0100\n"
+"PO-Revision-Date: 2024-01-21 21:59+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -473,10 +473,9 @@ msgid "Matrix client"
 msgstr "Matrix kliens"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© Black Hat, 2018-2020, A KDE közösség, 2020-2022"
+msgstr "© Black Hat, 2018-2020., A KDE közösség, 2020-2024."
 
 #: src/main.cpp:134
 #, kde-format
@@ -531,10 +530,9 @@ msgid "Your emails"
 msgstr "ulysses@fsf.hu,aronkvh@gmail.com"
 
 #: src/main.cpp:147
-#, fuzzy, kde-format
-#| msgid "A Qt5 library to write cross-platform clients for Matrix"
+#, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "Qt5 könyvtár cross-platform Matrix kliensek létrehozásához"
+msgstr "Qt programkönyvtár keresztplatformos Matrix kliensek írásához"
 
 #: src/main.cpp:149
 #, kde-format
@@ -953,27 +951,24 @@ msgid "Custom"
 msgstr "Egyedi"
 
 #: src/models/imagepacksmodel.cpp:87
-#, fuzzy, kde-format
-#| msgid "Own Stickers"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr "Saját emojik"
+msgstr "Saját matricák"
 
 #: src/models/imagepacksmodel.cpp:87
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "Emojik"
+msgstr "Saját emodzsik"
 
 #: src/models/messagefiltermodel.cpp:125
-#, fuzzy, kde-format
-#| msgid ": %1"
+#, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ": %1"
-msgstr[1] ": %1"
+msgstr[0] " %1"
+msgstr[1] " %1 %2 alkalommal"
 
 #: src/models/messagefiltermodel.cpp:129
 #, kde-format
@@ -1011,43 +1006,31 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
 #: src/models/pushrulemodel.cpp:20
-#, fuzzy
-#| msgid "Enable notifications for this account"
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "Értesítések engedélyezése a fióknál"
 
 #: src/models/pushrulemodel.cpp:21
-#, fuzzy
-#| msgid "Messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
 msgstr "Üzenetekről kétszemélyes beszélgetésekben"
 
 #: src/models/pushrulemodel.cpp:22
-#, fuzzy
-#| msgid "Encrypted messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
 msgstr "Titkosított üzenetekről kétszemélyes beszélgetésekben"
 
 #: src/models/pushrulemodel.cpp:23
-#, fuzzy
-#| msgid "Messages in group chats"
 msgctxt "Notification type"
 msgid "Messages in group chats"
-msgstr "Üzenetekről csoportos csevegésekben"
+msgstr "Üzenetekről csoportos beszélgetésekben"
 
 #: src/models/pushrulemodel.cpp:24
-#, fuzzy
-#| msgid "Messages in encrypted group chats"
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
-msgstr "Titkosított üzenetekről csoportos csevegésekben"
+msgstr "Titkosított üzenetekről csoportos beszélgetésekben"
 
 #: src/models/pushrulemodel.cpp:25
-#, fuzzy
-#| msgid "Room upgrade messages"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "Szobafrissítési üzenetekről"
@@ -3004,11 +2987,10 @@ msgid "Send this location"
 msgstr "A hely elküldése"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
-msgstr "Értesítések"
+msgstr "Helyek"
 
 #: src/qml/LocationsPage.qml:51
 #, fuzzy, kde-format
@@ -3059,8 +3041,7 @@ msgid "Login"
 msgstr "Bejelentkezés"
 
 #: src/qml/LoginRegister.qml:29
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Regisztráció"
@@ -3135,12 +3116,10 @@ msgid "Forward"
 msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "Az üzenet bejelentése"
+msgstr "Üzenet továbbítása"
 
 #: src/qml/MessageDelegateContextMenu.qml:156
 #, kde-format
@@ -3262,17 +3241,15 @@ msgid "Delete keyword"
 msgstr "Kulcsszó törlése"
 
 #: src/qml/NotificationsView.qml:19 src/qml/RoomListPage.qml:146
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Értesítések"
 
 #: src/qml/NotificationsView.qml:34
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "No Notifications"
-msgstr "Értesítések"
+msgstr "Nincsenek értesítések"
 
 #: src/qml/OpenFileDialog.qml:12
 #, fuzzy, kde-format
@@ -3508,10 +3485,9 @@ msgid "Last read: %1"
 msgstr "Utoljára olvasva: %1"
 
 #: src/qml/RegisterPassword.qml:28
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "Új jelszó megerősítése:"
+msgstr "Jelszó megerősítése:"
 
 #: src/qml/RegisterPassword.qml:31
 #, fuzzy, kde-format
@@ -3642,10 +3618,9 @@ msgid "Media"
 msgstr ""
 
 #: src/qml/RoomDrawerPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Settings"
-msgstr "A szoba beállításai"
+msgstr "Beállítások"
 
 #: src/qml/RoomInformation.qml:41
 #, fuzzy, kde-format
@@ -3947,8 +3922,7 @@ msgid "No results found"
 msgstr "Nincs találat"
 
 #: src/qml/Security.qml:17
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@title"
 msgid "Security"
 msgstr "Biztonság"
@@ -3960,23 +3934,19 @@ msgid "Keys"
 msgstr ""
 
 #: src/qml/Security.qml:25
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "Device key"
-msgstr "Eszközök"
+msgstr "Eszközkulcs"
 
 #: src/qml/Security.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Encryption"
+#, kde-format
 msgid "Encryption key"
-msgstr "Titkosítás"
+msgstr "Titkosítási kulcs"
 
 #: src/qml/Security.qml:33
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgid "Device id"
-msgstr "Eszközök"
+msgstr "Eszközazonosító"
 
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
@@ -4055,10 +4025,9 @@ msgid "Appearance"
 msgstr "Megjelenés"
 
 #: src/qml/SettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "Stickers & Emojis"
-msgstr "Matricák"
+msgstr "Matricák és emodzsik"
 
 #: src/qml/SettingsPage.qml:72
 #, kde-format
@@ -4096,8 +4065,7 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "A kép megosztott URL-je  <a href='%1'>%1</a>"
 
 #: src/qml/SonnetConfigPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Spellchecking"
+#, kde-format
 msgctxt "@title"
 msgid "Spellchecking"
 msgstr "Helyesírás-ellenőrzés"
@@ -4179,18 +4147,15 @@ msgid "Add word"
 msgstr "Szó hozzáadása"
 
 #: src/qml/SonnetConfigPage.qml:200
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Szó törlése"
 
 #: src/qml/SpaceDrawer.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show All Rooms"
+#, kde-format
 msgid "All Rooms"
-msgstr "Az összes szoba megjelenítése"
+msgstr "Minden szoba"
 
 #: src/qml/SpaceHierarchyDelegate.qml:84
 #, kde-format
@@ -4198,20 +4163,16 @@ msgid "Suggested"
 msgstr ""
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr "%1 tag"
+msgstr " tag - "
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "number of room members"
 msgid " members"
-msgstr "%1 tag"
+msgstr " tag"
 
 #: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
@@ -4221,8 +4182,7 @@ msgid "Add new child"
 msgstr "Új alias hozzáadása"
 
 #: src/qml/SpaceHierarchyDelegate.qml:113
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Eltávolítás"
@@ -4454,10 +4414,9 @@ msgid "Login"
 msgstr "Bejelentkezés"
 
 #: src/qml/Username.qml:18
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username:"
-msgstr "Felhasználónév"
+msgstr "Felhasználónév:"
 
 #: src/qml/Username.qml:21
 #, fuzzy, kde-format
@@ -4654,32 +4613,27 @@ msgid "Welcome"
 msgstr "Üdvözlet"
 
 #: src/qml/WelcomePage.qml:45
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "Üdvözlet a Matrix-ban"
+msgstr "Üdvözli a NeoChat"
 
 #: src/qml/WelcomePage.qml:53
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
-msgstr "Bejelentkezés meglévő fiókba"
+msgstr "Folytatás meglévő fiókkal"
 
 #: src/qml/WelcomePage.qml:74
-#, fuzzy, kde-format
-#| msgctxt "Job heading, like 'Copying'"
-#| msgid "Uploading"
+#, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "Betöltés"
+msgstr "%1 (betöltés)"
 
 #: src/qml/WelcomePage.qml:81
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr "Bejelentkezés meglévő fiókba"
+msgstr "Bejelentkezés vagy új fiók létrehozása"
 
 #: src/qml/WelcomePage.qml:162
 #, kde-format
@@ -4688,22 +4642,19 @@ msgid "Go back"
 msgstr ""
 
 #: src/registration.cpp:300
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgid "No server."
-msgstr "Szerver hozzáadása"
+msgstr "Nincs kiszolgáló."
 
 #: src/registration.cpp:302
 #, kde-format
 msgid "Checking Server availability."
-msgstr ""
+msgstr "Kiszolgáló elérhetőségének ellenőrzése."
 
 #: src/registration.cpp:304
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "This is not a valid server."
-msgstr "A beírt szöveg nem érvényes URL"
+msgstr "Ez nem egy érvényes kiszolgáló."
 
 #: src/registration.cpp:306
 #, kde-format
@@ -4711,26 +4662,22 @@ msgid "Registration for this server is disabled."
 msgstr ""
 
 #: src/registration.cpp:308
-#, fuzzy, kde-format
-#| msgid "No name"
+#, kde-format
 msgid "No username."
-msgstr "Nincs név"
+msgstr "Nincs felhasználónév."
 
 #: src/registration.cpp:310
 #, kde-format
 msgid "Checking username availability."
-msgstr ""
+msgstr "Felhasználónév elérhetőségének ellenőrzése."
 
 #: src/registration.cpp:312
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "This username is not available."
-msgstr "Nincsenek felhasználók"
+msgstr "A felhasználónév nem érhető el."
 
 #: src/registration.cpp:314
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
+#, kde-format
 msgid "Continue"
 msgstr "Tovább"
 
