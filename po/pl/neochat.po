@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the neochat package.
 #
 # Karol Kosek <krkk@krkk.ct8.pl>, 2020.
-# SPDX-FileCopyrightText: 2021, 2022, 2023 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-21 00:37+0000\n"
-"PO-Revision-Date: 2023-12-16 11:13+0100\n"
-"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
+"PO-Revision-Date: 2024-01-21 08:12+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/controller.cpp:121 src/controller.cpp:309
 #, kde-format
@@ -460,10 +460,9 @@ msgid "Matrix client"
 msgstr "Klient Matrix"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2023 społeczność KDE"
+msgstr "© 2018-2020 Black Hat, 2020-2024 Społeczność KDE"
 
 #: src/main.cpp:134
 #, kde-format
@@ -1096,7 +1095,7 @@ msgstr "Ulubione"
 #: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
 #, kde-format
 msgid "Friends"
-msgstr ""
+msgstr "Znajomi"
 
 #: src/models/roomlistmodel.cpp:421
 #, kde-format
@@ -2110,7 +2109,7 @@ msgstr "Przeglądaj pokoje"
 #: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
 #, kde-format
 msgid "Find your friends"
-msgstr ""
+msgstr "Znajdź swoich znajomych"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
 #: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
@@ -2118,7 +2117,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
-msgstr ""
+msgstr "Znajdź swoich znajomych"
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2146,8 +2145,7 @@ msgid "Create New"
 msgstr "Utwórz nowy"
 
 #: src/qml/ExploreRoomsPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
 msgstr "Przeglądaj pokoje"
@@ -2158,8 +2156,7 @@ msgid "Enter a room address"
 msgstr "Wpisz adres pokoju"
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Find a room..."
+#, kde-format
 msgid "Find a room…"
 msgstr "Znajdź pokój…"
 
@@ -2198,23 +2195,21 @@ msgid "Stop Download"
 msgstr "Zatrzymaj pobieranie"
 
 #: src/qml/FileDelegate.qml:216
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgid "Coach: %1, Seat: %2"
-msgstr "Szer.: %1, Dł.: %2"
+msgstr "Autobus: %1 Siedzenie: %2"
 
 #: src/qml/FileDelegate.qml:258
 #, kde-format
 msgctxt "<start time> - <end time>"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
 #: src/qml/FileDelegate.qml:269
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "Wyślij do KDE Itinerary"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2552,7 +2547,7 @@ msgstr "Plik"
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
-msgstr ""
+msgstr "Znajdź swoich znajomych"
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
@@ -3576,21 +3571,22 @@ msgid "No member count"
 msgstr "Brak liczby członków"
 
 #: src/qml/RoomListPage.qml:164
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "No friends found"
-msgstr "Nie znaleziono pokojów"
+msgstr "Nie znaleziono żadnych znajomych"
 
 #: src/qml/RoomListPage.qml:164
 #, kde-format
 msgid "No rooms found"
-msgstr "Nie znaleziono pokojów"
+msgstr "Nie znaleziono żadnych pokojów"
 
 #: src/qml/RoomListPage.qml:166
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
+"Nie masz jeszcze żadnych swoich znajomych, naciśnij poniżej, aby ich "
+"poszukać."
 
 #: src/qml/RoomListPage.qml:166
 #, kde-format
@@ -3600,13 +3596,12 @@ msgstr "Aby rozpocząć, dołącz do dowolnego pokoju"
 #: src/qml/RoomListPage.qml:173
 #, kde-format
 msgid "Search in room directory"
-msgstr "Szukaj w katalogu pokojów"
+msgstr "Poszukaj w katalogu pokojów"
 
 #: src/qml/RoomListPage.qml:194
-#, fuzzy, kde-format
-#| msgid "Search in room directory"
+#, kde-format
 msgid "Search in friend directory"
-msgstr "Szukaj w katalogu pokojów"
+msgstr "Poszukaj w katalogu znajomych"
 
 #: src/qml/RoomListPage.qml:238
 #, kde-format
@@ -3643,22 +3638,19 @@ msgid "Search Messages"
 msgstr "Poszukaj wiadomości"
 
 #: src/qml/RoomSearchPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "Find messages…"
-msgstr "Wyślij wiadomość…"
+msgstr "Znajdź wiadomości…"
 
 #: src/qml/RoomSearchPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Enter a text to start searching"
+#, kde-format
 msgid "Enter text to start searching"
 msgstr "Wpisz tekst, aby rozpocząć wyszukiwanie"
 
 #: src/qml/RoomSearchPage.qml:38
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgid "No messages found"
-msgstr "Nie znaleziono wyników"
+msgstr "Nie znaleziono żadnych wiadomości"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
@@ -4091,11 +4083,10 @@ msgstr "Wszystkie pokoje"
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
-msgstr ""
+msgstr "Znajomi"
 
 #: src/qml/SpaceDrawer.qml:192
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgid "Create a space"
 msgstr "Utwórz przestrzeń"
 
@@ -4304,13 +4295,12 @@ msgstr "Usuń wiadomości"
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
-msgstr ""
+msgstr "Porozmawiaj z %1"
 
 #: src/qml/UserDetailDialog.qml:218
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Invite to private chat"
-msgstr "Rozpocznij prywatną rozmowę"
+msgstr "Zaproś do prywatnej rozmowy"
 
 #: src/qml/UserDetailDialog.qml:229
 #, kde-format
@@ -4352,25 +4342,23 @@ msgstr "Nazwa użytkownika jest niedostępna"
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
-msgstr ""
+msgstr "Znajdź swoich znajomych"
 
 #: src/qml/UserSearchPage.qml:80
 #, kde-format
 msgid "Find your friends…"
-msgstr ""
+msgstr "Znajdź swoich znajomych…"
 
 #: src/qml/UserSearchPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Enter a text to start searching"
+#, kde-format
 msgid "Enter text to start searching for your friends"
-msgstr "Wpisz tekst, aby rozpocząć wyszukiwanie"
+msgstr "Wpisz tekst, aby zacząć szukać swoich znajomych"
 
 #: src/qml/UserSearchPage.qml:82
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
-msgstr "Nie znaleziono wyników"
+msgstr "Nie znaleziono niczego, co by odpowiadało"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
