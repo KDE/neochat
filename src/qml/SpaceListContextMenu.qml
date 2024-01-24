@@ -29,7 +29,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "View Space")
                 icon.name: "view-list-details"
-                onTriggered: RoomManager.enterSpaceHome(room);
+                onTriggered: RoomManager.resolveResource(room.id);
             }
 
             QQC2.MenuItem {
@@ -109,7 +109,7 @@ Loader {
                 FormCard.FormButtonDelegate {
                     text: i18nc("'Space' is a matrix space", "View Space")
                     icon.name: "view-list-details"
-                    onClicked: RoomManager.enterRoom(room);
+                    onClicked: RoomManager.resolveResource(root.room.id);
                 }
 
                 FormCard.FormButtonDelegate {

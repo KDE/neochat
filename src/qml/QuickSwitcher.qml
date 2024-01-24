@@ -59,11 +59,11 @@ QQC2.Dialog {
             }
         }
         Keys.onEnterPressed: {
-            RoomManager.enterRoom(roomList.currentItem.currentRoom);
+            RoomManager.resolveResource(roomList.currentItem.currentRoom.id);
             root.close();
         }
         Keys.onReturnPressed: {
-            RoomManager.enterRoom(roomList.currentItem.currentRoom);
+            RoomManager.resolveResource(roomList.currentItem.currentRoom.id);
             root.close();
         }
         focusSequence: ""
@@ -92,23 +92,8 @@ QQC2.Dialog {
 
             delegate: RoomDelegate {
                 filterText: searchField.text
-
                 connection: root.connection
-
-                onSelected: {
-                    RoomManager.enterRoom(currentRoom);
-                    root.close()
-                }
-
-                Keys.onEnterPressed: {
-                    RoomManager.enterRoom(currentRoom);
-                    root.close();
-                }
-
-                Keys.onReturnPressed: {
-                    RoomManager.enterRoom(currentRoom);
-                    root.close();
-                }
+                onSelected: root.close()
             }
         }
     }

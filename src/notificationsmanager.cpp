@@ -216,7 +216,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         auto connection = dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localUser()->id()));
         Controller::instance().setActiveConnection(connection);
         RoomManager::instance().setConnection(connection);
-        RoomManager::instance().enterRoom(room);
+        RoomManager::instance().resolveResource(room->id());
     });
 
     if (canReply) {
@@ -251,7 +251,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom, const QS
         }
         WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         notification->close();
-        RoomManager::instance().enterRoom(room);
+        RoomManager::instance().resolveResource(room->id());
     });
 
     const auto acceptAction = notification->addAction(i18nc("@action:button The thing being accepted is an invitation to chat", "Accept"));

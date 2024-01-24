@@ -326,7 +326,7 @@ Kirigami.ApplicationWindow {
         target: root.connection
 
         function onDirectChatAvailable(directChat) {
-            RoomManager.enterRoom(root.connection.room(directChat.id));
+            RoomManager.resolveResource(directChat.id);
         }
         function onNewKeyVerificationSession(session) {
             applicationWindow().pageStack.pushDialogLayer(keyVerificationDialogComponent, {

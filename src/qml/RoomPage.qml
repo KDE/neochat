@@ -206,7 +206,7 @@ Kirigami.Page {
         target: root.connection
         function onJoinedRoom(room, invited) {
             if(root.currentRoom.id === invited.id) {
-                RoomManager.enterRoom(room);
+                RoomManager.resolveResource(room.id);
             }
         }
     }

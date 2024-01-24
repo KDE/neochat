@@ -34,11 +34,13 @@ Delegates.RoundedItemDelegate {
     signal selected()
 
     Accessible.name: root.displayName
-    Accessible.onPressAction: selected()
-    Keys.onSpacePressed: selected()
-    Keys.onEnterPressed: selected()
+    Accessible.onPressAction: select()
 
     onPressAndHold: createRoomListContextMenu()
+
+    Keys.onSpacePressed: select()
+    Keys.onEnterPressed: select()
+    Keys.onReturnPressed: select()
 
     TapHandler {
         acceptedButtons: Qt.RightButton | Qt.LeftButton
@@ -46,7 +48,7 @@ Delegates.RoundedItemDelegate {
             if (button === Qt.RightButton) {
                 root.createRoomListContextMenu();
             } else {
-                root.selected();
+                select()
             }
         }
     }
@@ -143,6 +145,11 @@ Delegates.RoundedItemDelegate {
             icon.name: "configure"
             onClicked: createRoomListContextMenu()
         }
+    }
+
+    function select() {
+        RoomManager.resolveResource(currentRoom.id);
+        root.selected()
     }
 
     function createRoomListContextMenu() {

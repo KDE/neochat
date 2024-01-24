@@ -179,11 +179,7 @@ Kirigami.Page {
                                 title: i18nc("@title", "Explore Rooms")
                             })
                             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                                if (isJoined) {
-                                    RoomManager.enterRoom(root.connection.room(roomId))
-                                } else {
-                                    RoomManager.resolveResource(roomId, "join")
-                                }
+                                RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join")
                             })
                         }
                     }
@@ -294,11 +290,6 @@ Kirigami.Page {
                         height: visible ? implicitHeight : 0
 
                         visible: categoryVisible || filterText.length > 0
-
-                        onSelected: RoomManager.enterRoom(currentRoom)
-
-                        Keys.onEnterPressed: RoomManager.enterRoom(currentRoom)
-                        Keys.onReturnPressed: RoomManager.enterRoom(currentRoom)
                     }
                 }
 

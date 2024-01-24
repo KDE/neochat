@@ -85,14 +85,7 @@ void Runner::Run(const QString &id, const QString &actionId)
 {
     Q_UNUSED(actionId);
 
-    NeoChatRoom *room = qobject_cast<NeoChatRoom *>(roomListModel()->connection()->room(id));
-
-    if (!room) {
-        return;
-    }
-
-    RoomManager::instance().enterRoom(room);
-
+    RoomManager::instance().resolveResource(id);
     WindowController::instance().showAndRaiseWindow(QString());
 }
 

@@ -240,7 +240,7 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
         Q_EMIT Controller::instance().errorOccured(i18n("Room creation failed: %1", job->errorString()), {});
     });
     connectSingleShot(this, &Connection::newRoom, this, [](Room *room) {
-        RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(room));
+        RoomManager::instance().resolveResource(room->id());
     });
 }
 
@@ -272,7 +272,7 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
         Q_EMIT Controller::instance().errorOccured(i18n("Space creation failed: %1", job->errorString()), {});
     });
     connectSingleShot(this, &Connection::newRoom, this, [](Room *room) {
-        RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(room));
+        RoomManager::instance().resolveResource(room->id());
     });
 }
 
@@ -295,9 +295,9 @@ void NeoChatConnection::openOrCreateDirectChat(User *user)
     const auto existing = directChats();
 
     if (existing.contains(user)) {
-        const auto room = static_cast<NeoChatRoom *>(this->room(existing.value(user)));
+        const auto room = this->room(existing.value(user));
         if (room) {
-            RoomManager::instance().enterRoom(room);
+            RoomManager::instance().resolveResource(room->id());
             return;
         }
     }

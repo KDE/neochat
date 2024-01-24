@@ -34,7 +34,6 @@ Item {
     required property NeoChatRoom parentRoom
 
     signal createRoom()
-    signal enterRoom()
 
     Delegates.RoundedItemDelegate {
         anchors.centerIn: root
@@ -146,11 +145,7 @@ Item {
                 if (root.isSpace) {
                     root.treeView.toggleExpanded(row)
                 } else {
-                    if (root.isJoined) {
-                        root.enterRoom()
-                    } else {
-                        RoomManager.resolveResource(root.roomId, "join")
-                    }
+                    RoomManager.resolveResource(root.roomId, root.isJoined ? "" : "join")
                 }
             }
         }

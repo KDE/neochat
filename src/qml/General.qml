@@ -373,7 +373,7 @@ FormCard.FormCardPage {
         actions: Kirigami.Action {
             text: i18n("See older messages…")
             onTriggered: {
-                RoomManager.enterRoom(root.connection.room(room.predecessorId));
+                RoomManager.resolveResource(room.predecessorId);
                 root.close();
             }
         }
@@ -387,7 +387,7 @@ FormCard.FormCardPage {
         actions: Kirigami.Action {
             text: i18n("See new room…")
             onTriggered: {
-                RoomManager.enterRoom(root.connection.room(room.successorId));
+                RoomManager.resolveResource(room.successorId);
                 root.close();
             }
         }

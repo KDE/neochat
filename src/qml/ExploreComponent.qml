@@ -23,11 +23,7 @@ RowLayout {
         onTriggered: {
             let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                if (isJoined) {
-                    RoomManager.enterRoom(root.connection.room(roomId))
-                } else {
-                    RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, "join")
-                }
+                RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join")
             })
         }
     }

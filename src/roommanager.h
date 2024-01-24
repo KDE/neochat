@@ -137,13 +137,6 @@ public:
     Q_INVOKABLE void loadInitialRoom();
 
     /**
-     * @brief Enter the given room.
-     *
-     * This method will tell NeoChat to open the message list with the given room.
-     */
-    Q_INVOKABLE void enterRoom(NeoChatRoom *room);
-
-    /**
      * @brief Open a new window with the given room.
      *
      * The open window will have its own message list for the given room.
@@ -154,13 +147,6 @@ public:
      * @brief Leave the room and close it if it is open.
      */
     Q_INVOKABLE void leaveRoom(NeoChatRoom *room);
-
-    /**
-     * @brief Enter the home page of the given space.
-     *
-     * This method will tell NeoChat to open the home page for the given space.
-     */
-    Q_INVOKABLE void enterSpaceHome(NeoChatRoom *spaceRoom);
 
     /**
      * @brief Knock a room.

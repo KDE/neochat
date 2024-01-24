@@ -42,10 +42,10 @@ QQC2.ItemDelegate {
         }
     }
 
-    onClicked: RoomManager.enterRoom(root.currentRoom)
+    onClicked: RoomManager.resolveResource(currentRoom.id)
 
-    Keys.onEnterPressed: RoomManager.enterRoom(root.currentRoom)
-    Keys.onReturnPressed: RoomManager.enterRoom(root.currentRoom)
+    Keys.onEnterPressed: RoomManager.resolveResource(currentRoom.id)
+    Keys.onReturnPressed: RoomManager.resolveResource(currentRoom.id)
 
     QQC2.ToolTip.visible: text.length > 0 && hovered
     QQC2.ToolTip.text: root.displayName ?? ""

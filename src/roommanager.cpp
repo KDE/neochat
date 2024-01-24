@@ -102,7 +102,7 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
 
         if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
             connectSingleShot(m_connection, &Connection::newRoom, this, [this, uri](Room *room) {
-                enterRoom(dynamic_cast<NeoChatRoom *>(room));
+                resolveResource(room->id());
             });
         }
     }
@@ -191,80 +191,15 @@ void RoomManager::openRoomForActiveConnection()
         const auto room = qobject_cast<NeoChatRoom *>(m_connection->room(roomId));
 
         if (room) {
-            if (room->isSpace()) {
-                enterSpaceHome(room);
-            } else {
-                enterRoom(room);
-            }
+            resolveResource(room->id());
         }
     }
-}
-
-void RoomManager::enterRoom(NeoChatRoom *room)
-{
-    if (m_currentRoom && !m_currentRoom->editCache()->editId().isEmpty()) {
-        m_currentRoom->editCache()->setEditId({});
-    }
-    if (m_currentRoom && m_chatDocumentHandler) {
-        // We're doing these things here because it is critical that they are switched at the same time
-        if (m_chatDocumentHandler->document()) {
-            m_currentRoom->mainCache()->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
-            m_chatDocumentHandler->setRoom(room);
-            m_chatDocumentHandler->document()->textDocument()->setPlainText(room->mainCache()->savedText());
-            room->mainCache()->setText(room->mainCache()->savedText());
-        } else {
-            m_chatDocumentHandler->setRoom(room);
-        }
-    }
-    m_lastCurrentRoom = std::exchange(m_currentRoom, room);
-    Q_EMIT currentRoomChanged();
-
-    if (!m_lastCurrentRoom) {
-        Q_EMIT pushRoom(room, QString());
-    } else {
-        Q_EMIT replaceRoom(m_currentRoom, QString());
-    }
-
-    if (room && room->timelineSize() == 0) {
-        room->getPreviousContent(20);
-    }
-
-    // Save last open room
-    m_lastRoomConfig.writeEntry(m_connection->userId(), room->id());
 }
 
 void RoomManager::openWindow(NeoChatRoom *room)
 {
     // forward the call to QML
     Q_EMIT openRoomInNewWindow(room);
-}
-
-void RoomManager::enterSpaceHome(NeoChatRoom *spaceRoom)
-{
-    if (!spaceRoom->isSpace()) {
-        return;
-    }
-    // If replacing a normal room message timeline make sure any edit is cancelled.
-    if (m_currentRoom && !m_currentRoom->editCache()->editId().isEmpty()) {
-        m_currentRoom->editCache()->setEditId({});
-    }
-    // Save the chatbar text for the current room if any before switching
-    if (m_currentRoom && m_chatDocumentHandler) {
-        if (m_chatDocumentHandler->document()) {
-            m_currentRoom->mainCache()->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
-        }
-    }
-    m_lastCurrentRoom = std::exchange(m_currentRoom, spaceRoom);
-    Q_EMIT currentRoomChanged();
-
-    if (!m_lastCurrentRoom) {
-        Q_EMIT pushSpaceHome(spaceRoom);
-    } else {
-        Q_EMIT replaceSpaceHome(m_currentRoom);
-    }
-
-    // Save last open room
-    m_lastRoomConfig.writeEntry(m_connection->userId(), spaceRoom->id());
 }
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
@@ -290,19 +225,46 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
     auto neoChatRoom = qobject_cast<NeoChatRoom *>(room);
     Q_ASSERT(neoChatRoom != nullptr);
 
+    if (m_currentRoom && !m_currentRoom->editCache()->editId().isEmpty()) {
+        m_currentRoom->editCache()->setEditId({});
+    }
+    if (m_currentRoom && !m_currentRoom->isSpace() && m_chatDocumentHandler) {
+        // We're doing these things here because it is critical that they are switched at the same time
+        if (m_chatDocumentHandler->document()) {
+            m_currentRoom->mainCache()->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
+            m_chatDocumentHandler->setRoom(neoChatRoom);
+            m_chatDocumentHandler->document()->textDocument()->setPlainText(neoChatRoom->mainCache()->savedText());
+            neoChatRoom->mainCache()->setText(neoChatRoom->mainCache()->savedText());
+        } else {
+            m_chatDocumentHandler->setRoom(neoChatRoom);
+        }
+    }
+
     if (m_currentRoom) {
         if (m_currentRoom->id() == room->id()) {
             Q_EMIT goToEvent(eventId);
         } else {
             m_lastCurrentRoom = std::exchange(m_currentRoom, neoChatRoom);
             Q_EMIT currentRoomChanged();
-            Q_EMIT replaceRoom(neoChatRoom, eventId);
+
+            if (neoChatRoom->isSpace()) {
+                Q_EMIT replaceSpaceHome(neoChatRoom);
+            } else {
+                Q_EMIT replaceRoom(neoChatRoom, eventId);
+            }
         }
     } else {
         m_lastCurrentRoom = std::exchange(m_currentRoom, neoChatRoom);
         Q_EMIT currentRoomChanged();
-        Q_EMIT pushRoom(neoChatRoom, eventId);
+        if (neoChatRoom->isSpace()) {
+            Q_EMIT pushSpaceHome(neoChatRoom);
+        } else {
+            Q_EMIT pushRoom(neoChatRoom, eventId);
+        }
     }
+
+    // Save last open room
+    m_lastRoomConfig.writeEntry(m_connection->userId(), room->id());
 }
 
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
@@ -311,7 +273,7 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
     connectSingleShot(job, &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
         if (finish->status() == Quotient::BaseJob::Success) {
             connectSingleShot(account, &Quotient::Connection::newRoom, this, [this](Quotient::Room *room) {
-                enterRoom(dynamic_cast<NeoChatRoom *>(room));
+                resolveResource(room->id());
             });
         } else {
             Q_EMIT warning(i18n("Failed to join room"), finish->errorString());

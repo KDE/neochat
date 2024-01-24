@@ -117,7 +117,6 @@ Kirigami.Page {
 
                 delegate: SpaceHierarchyDelegate {
                     onCreateRoom: _private.createRoom(roomId)
-                    onEnterRoom: _private.enterRoom(roomId)
                 }
             }
 
@@ -166,13 +165,6 @@ Kirigami.Page {
                 }
             })
             dialog.newChild.connect(childName => {spaceChildrenModel.addPendingChild(childName)})
-        }
-
-        function enterRoom(roomId) {
-            let room = root.currentRoom.connection.room(roomId)
-            if (room) {
-                RoomManager.enterRoom(room)
-            }
         }
     }
 }

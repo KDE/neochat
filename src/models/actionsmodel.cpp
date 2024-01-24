@@ -230,7 +230,7 @@ QList<ActionsModel::Action> actions{
             }
             auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
             if (targetRoom) {
-                RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(targetRoom));
+                RoomManager::instance().resolveResource(targetRoom->id());
                 return QString();
             }
             Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
@@ -256,7 +256,7 @@ QList<ActionsModel::Action> actions{
             }
             auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
             if (targetRoom) {
-                RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(targetRoom));
+                RoomManager::instance().resolveResource(targetRoom->id());
                 return QString();
             }
             Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
