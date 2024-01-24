@@ -13,11 +13,11 @@ import org.kde.kirigamiaddons.labs.components as Components
 import org.kde.neochat
 
 /**
- * @brief Component for finding rooms for the public list.
+ * @brief Component for finding users from the public list.
  *
- * This component is based on a SearchPage, adding the functionality to select or
- * enter a server in the header, as well as the ability to manually type a room in
- * if the public room search cannot find it.
+ * This component is based on a SearchPage and allows the user to enter a search
+ * term into the input field and then search the room for messages with text that
+ * matches the input.
  *
  * @sa SearchPage
  */
@@ -36,6 +36,15 @@ SearchPage {
     model: UserDirectoryListModel {
         id: userSearchModel
         connection: root.connection
+    }
+
+    listHeaderDelegate: Delegates.RoundedItemDelegate {
+        onClicked: _private.openManualUserDialog()
+
+        text: i18n("Enter a user ID")
+        icon.name: "list-add-user"
+        icon.width: Kirigami.Units.gridUnit * 2
+        icon.height: Kirigami.Units.gridUnit * 2
     }
 
     modelDelegate: Delegates.RoundedItemDelegate {
@@ -82,18 +91,15 @@ SearchPage {
     noResultPlaceholderMessage: i18nc("@info:label", "No matches found")
 
     Component {
-        id: manualRoomDialog
-        ManualRoomDialog {}
+        id: manualUserDialog
+        ManualUserDialog {}
     }
 
     QtObject {
         id: _private
-        function openManualRoomDialog() {
-            let dialog = manualRoomDialog.createObject(applicationWindow().overlay, {connection: root.connection});
-            dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
-                root.closeDialog();
-            });
+        function openManualUserDialog() {
+            let dialog = manualUserDialog.createObject(applicationWindow().overlay, {connection: root.connection});
+            dialog.accepted.connect(() => {root.closeDialog();});
             dialog.open();
         }
     }

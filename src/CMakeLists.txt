@@ -304,6 +304,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/SearchPage.qml
         qml/ServerComboBox.qml
         qml/UserSearchPage.qml
+        qml/ManualUserDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
