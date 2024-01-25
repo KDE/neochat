@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"POT-Creation-Date: 2024-01-25 00:37+0000\n"
 "PO-Revision-Date: 2023-10-09 00:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1102,7 +1102,7 @@ msgstr "초대 받음"
 msgid "Favorite"
 msgstr "책갈피"
 
-#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1721,15 +1721,15 @@ msgstr "대화방 설정"
 msgid "Leave Room"
 msgstr "대화방 떠나기"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:47
+#: src/qml/ExploreComponentMobile.qml:147 src/qml/SpaceDrawer.qml:196
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "스페이스 만들기"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
-#: src/qml/ExploreComponentMobile.qml:139
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:39
+#: src/qml/ExploreComponentMobile.qml:135
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
@@ -1802,7 +1802,7 @@ msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "입장함"
@@ -2112,32 +2112,32 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "대화방 탐색"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:31 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
+#: src/qml/RoomListPage.qml:190 src/qml/RoomListPage.qml:298
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
-#: src/qml/RoomListPage.qml:312
+#: src/qml/ExploreComponent.qml:33 src/qml/ExploreComponentMobile.qml:66
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:191
+#: src/qml/RoomListPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
+#: src/qml/ExploreComponent.qml:36 src/qml/ExploreComponentMobile.qml:132
 #, kde-format
 msgid "Create a Room"
 msgstr "대화방 만들기"
 
-#: src/qml/ExploreComponent.qml:48 src/qml/ExploreComponentMobile.qml:148
+#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:144
 #, kde-format
 msgid "Create a Space"
 msgstr "스페이스 만들기"
 
-#: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
+#: src/qml/ExploreComponent.qml:67 src/qml/ExploreComponent.qml:128
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "대화방과 개인 대화 만들기"
@@ -2149,7 +2149,7 @@ msgstr "대화방과 개인 대화 만들기"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/ExploreComponentMobile.qml:75
+#: src/qml/ExploreComponentMobile.qml:71
 #, fuzzy, kde-format
 #| msgid "Create space"
 msgid "Create New"
@@ -2581,19 +2581,19 @@ msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "대화 탐색…"
 
-#: src/qml/GlobalMenu.qml:76
+#: src/qml/GlobalMenu.qml:72
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "편집"
 
-#: src/qml/GlobalMenu.qml:80
+#: src/qml/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "보기"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2601,31 +2601,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "빠른 전환기 열기"
 
-#: src/qml/GlobalMenu.qml:89
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "창"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "전체 화면 나가기"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "전체 화면으로 전환"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:98
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "도움말"
 
-#: src/qml/GlobalMenu.qml:105
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2987,7 +2987,8 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "대화방 ID"
 
-#: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:43 src/qml/ManualUserDialog.qml:37
+#: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr ""
@@ -3006,6 +3007,30 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The input is not a valid room ID or alias"
+msgstr "입력한 텍스트가 올바른 URL이 아님"
+
+#: src/qml/ManualUserDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "User"
+msgctxt "@title"
+msgid "User ID"
+msgstr "사용자"
+
+#: src/qml/ManualUserDialog.qml:53
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "User ID:"
+msgstr "사용자"
+
+#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr ""
+
+#: src/qml/ManualUserDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The input is not a valid user ID"
 msgstr "입력한 텍스트가 올바른 URL이 아님"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
@@ -3483,12 +3508,12 @@ msgstr "대화방 계정 데이터"
 msgid "Room State"
 msgstr "대화방 상태"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:109
 #, kde-format
 msgid "Muted room"
 msgstr "대화방 음소거됨"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:142
 #, kde-format
 msgid "Configure room"
 msgstr "대화방 설정"
@@ -3615,19 +3640,19 @@ msgstr "시작하려면 대화방에 입장하십시오"
 msgid "Search in room directory"
 msgstr "대화방 디렉터리에서 검색"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:190
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgid "Search in friend directory"
 msgstr "대화방 디렉터리에서 검색"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "%1 접기"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4117,42 +4142,42 @@ msgstr ""
 msgid "Create a space"
 msgstr "스페이스 만들기"
 
-#: src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr "명 - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr "명"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr "새 자식 추가"
 
-#: src/qml/SpaceHierarchyDelegate.qml:113
+#: src/qml/SpaceHierarchyDelegate.qml:112
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "삭제"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4176,7 +4201,7 @@ msgctxt "@button"
 msgid "Space settings"
 msgstr "스페이스 설정"
 
-#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#: src/qml/SpaceHomePage.qml:151 src/qml/SpaceHomePage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"
@@ -4371,18 +4396,24 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:80
+#: src/qml/UserSearchPage.qml:44
+#, fuzzy, kde-format
+#| msgid "Enter your Matrix ID"
+msgid "Enter a user ID"
+msgstr "Matrix ID 입력"
+
+#: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:81
+#: src/qml/UserSearchPage.qml:90
 #, fuzzy, kde-format
 #| msgid "Enter a text to start searching"
 msgid "Enter text to start searching for your friends"
 msgstr "검색을 시작하려면 텍스트를 입력하십시오"
 
-#: src/qml/UserSearchPage.qml:82
+#: src/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgctxt "@info:label"
@@ -4655,32 +4686,32 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "대화방 목록에 %1이(가) 없습니다. 계정과 철자를 확인하십시오."
 
-#: src/roommanager.cpp:317
+#: src/roommanager.cpp:279
 #, kde-format
 msgid "Failed to join room"
 msgstr "대화방에 입장할 수 없음"
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:294
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1'에 입장을 요청함"
 
-#: src/roommanager.cpp:335
+#: src/roommanager.cpp:297
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "대화방 입장 요청을 할 수 없음"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "No application for the link"
 msgstr "링크에 사용할 수 있는 앱 없음"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "운영 체제에서 링크를 열 수 있는 앱을 찾을 수 없습니다."
 
-#: src/roommanager.cpp:350
+#: src/roommanager.cpp:312
 #, kde-format
 msgid "Could not open URL"
 msgstr "URL을 열 수 없음"
@@ -4822,9 +4853,6 @@ msgstr "끝내기"
 #~ msgctxt "@title"
 #~ msgid "Login"
 #~ msgstr "로그인"
-
-#~ msgid "Enter your Matrix ID"
-#~ msgstr "Matrix ID 입력"
 
 #~ msgid "Login Methods"
 #~ msgstr "로그인 방법"

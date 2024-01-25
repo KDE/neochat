@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"POT-Creation-Date: 2024-01-25 00:37+0000\n"
 "PO-Revision-Date: 2024-01-22 17:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1083,7 +1083,7 @@ msgstr "已邀請"
 msgid "Favorite"
 msgstr "最愛"
 
-#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
 msgstr "好友"
@@ -1700,15 +1700,15 @@ msgstr "聊天室設定"
 msgid "Leave Room"
 msgstr "離開聊天室"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:47
+#: src/qml/ExploreComponentMobile.qml:147 src/qml/SpaceDrawer.qml:196
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "建立一個聊天空間"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
-#: src/qml/ExploreComponentMobile.qml:139
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:39
+#: src/qml/ExploreComponentMobile.qml:135
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
@@ -1780,7 +1780,7 @@ msgid "Explore Rooms"
 msgstr "瀏覽聊天室"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "已加入"
@@ -2085,32 +2085,32 @@ msgstr "這個訊息已加密而傳送者並未與本裝置分享金鑰。"
 msgid "Explore rooms"
 msgstr "瀏覽聊天室"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:31 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
+#: src/qml/RoomListPage.qml:190 src/qml/RoomListPage.qml:298
 #, kde-format
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
-#: src/qml/RoomListPage.qml:312
+#: src/qml/ExploreComponent.qml:33 src/qml/ExploreComponentMobile.qml:66
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:191
+#: src/qml/RoomListPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
+#: src/qml/ExploreComponent.qml:36 src/qml/ExploreComponentMobile.qml:132
 #, kde-format
 msgid "Create a Room"
 msgstr "建立聊天室"
 
-#: src/qml/ExploreComponent.qml:48 src/qml/ExploreComponentMobile.qml:148
+#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:144
 #, kde-format
 msgid "Create a Space"
 msgstr "建立一個聊天空間"
 
-#: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
+#: src/qml/ExploreComponent.qml:67 src/qml/ExploreComponent.qml:128
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "建立聊天室或私人聊天"
@@ -2120,7 +2120,7 @@ msgstr "建立聊天室或私人聊天"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/qml/ExploreComponentMobile.qml:75
+#: src/qml/ExploreComponentMobile.qml:71
 #, kde-format
 msgid "Create New"
 msgstr "建立新的"
@@ -2542,19 +2542,19 @@ msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "瀏覽私人聊天…"
 
-#: src/qml/GlobalMenu.qml:76
+#: src/qml/GlobalMenu.qml:72
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "編輯"
 
-#: src/qml/GlobalMenu.qml:80
+#: src/qml/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "檢視"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2562,31 +2562,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "開啟快速切換器"
 
-#: src/qml/GlobalMenu.qml:89
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "視窗"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "離開全螢幕"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "進入全螢幕"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:98
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "說明"
 
-#: src/qml/GlobalMenu.qml:105
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2945,7 +2945,8 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "聊天室 ID 或別名"
 
-#: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:43 src/qml/ManualUserDialog.qml:37
+#: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr "確定"
@@ -2963,6 +2964,30 @@ msgstr "必須以 # 或 ! 開頭，# 代表別名，! 代表 ID"
 #: src/qml/ManualRoomDialog.qml:95
 #, kde-format
 msgid "The input is not a valid room ID or alias"
+msgstr "輸入值不是有效的聊天室 ID 或別名"
+
+#: src/qml/ManualUserDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "User"
+msgctxt "@title"
+msgid "User ID"
+msgstr "使用者"
+
+#: src/qml/ManualUserDialog.qml:53
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "User ID:"
+msgstr "使用者"
+
+#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr ""
+
+#: src/qml/ManualUserDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "The input is not a valid room ID or alias"
+msgid "The input is not a valid user ID"
 msgstr "輸入值不是有效的聊天室 ID 或別名"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
@@ -3433,12 +3458,12 @@ msgstr "聊天室帳號資料"
 msgid "Room State"
 msgstr "聊天室狀態"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:109
 #, kde-format
 msgid "Muted room"
 msgstr "已靜音的聊天室"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:142
 #, kde-format
 msgid "Configure room"
 msgstr "設定聊天室"
@@ -3564,18 +3589,18 @@ msgstr "先加入一些聊天室吧"
 msgid "Search in room directory"
 msgstr "在聊天室目錄裡搜尋"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:190
 #, kde-format
 msgid "Search in friend directory"
 msgstr "在朋友目錄裡搜尋"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "折疊 %1"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4045,42 +4070,42 @@ msgstr "好友"
 msgid "Create a space"
 msgstr "建立一個聊天空間"
 
-#: src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Suggested"
 msgstr "建議"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " 成員 - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " 成員"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr "新增新的子聊天室"
 
-#: src/qml/SpaceHierarchyDelegate.qml:113
+#: src/qml/SpaceHierarchyDelegate.qml:112
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "移除"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "取消標記為建議"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4104,7 +4129,7 @@ msgctxt "@button"
 msgid "Space settings"
 msgstr "聊天空間設定"
 
-#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#: src/qml/SpaceHomePage.qml:151 src/qml/SpaceHomePage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"
@@ -4296,17 +4321,23 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "尋找您的朋友"
 
-#: src/qml/UserSearchPage.qml:80
+#: src/qml/UserSearchPage.qml:44
+#, fuzzy, kde-format
+#| msgid "unbanned a user"
+msgid "Enter a user ID"
+msgstr "已解除封鎖一個使用者"
+
+#: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
 msgstr "尋找您的朋友…"
 
-#: src/qml/UserSearchPage.qml:81
+#: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "輸入文字開始搜尋朋友"
 
-#: src/qml/UserSearchPage.qml:82
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -4572,32 +4603,32 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "聊天室列表裡沒有 %1。請檢查拼字和帳號。"
 
-#: src/roommanager.cpp:317
+#: src/roommanager.cpp:279
 #, kde-format
 msgid "Failed to join room"
 msgstr "加入聊天室失敗"
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:294
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
-#: src/roommanager.cpp:335
+#: src/roommanager.cpp:297
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "請求加入聊天室失敗"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "No application for the link"
 msgstr "連結沒有對應的應用程式"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "您的作業系統無法找到連結對應的應用程式。"
 
-#: src/roommanager.cpp:350
+#: src/roommanager.cpp:312
 #, kde-format
 msgid "Could not open URL"
 msgstr "無法開啟網址"

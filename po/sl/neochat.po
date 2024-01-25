@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"POT-Creation-Date: 2024-01-25 00:37+0000\n"
 "PO-Revision-Date: 2024-01-23 13:19+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/controller.cpp:121 src/controller.cpp:309
@@ -1098,7 +1098,7 @@ msgstr "Povabljen"
 msgid "Favorite"
 msgstr "Priljubljen"
 
-#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
 msgstr "Prijatelji"
@@ -1715,15 +1715,15 @@ msgstr "Nastavitve sobe"
 msgid "Leave Room"
 msgstr "Zapusti sobo"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:47
+#: src/qml/ExploreComponentMobile.qml:147 src/qml/SpaceDrawer.qml:196
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "Ustvari prostor"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
-#: src/qml/ExploreComponentMobile.qml:139
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:39
+#: src/qml/ExploreComponentMobile.qml:135
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
@@ -1795,7 +1795,7 @@ msgid "Explore Rooms"
 msgstr "Razišči sobe"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Pridružen"
@@ -2104,32 +2104,32 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "Razišči sobe"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:31 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
+#: src/qml/RoomListPage.qml:190 src/qml/RoomListPage.qml:298
 #, kde-format
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
-#: src/qml/RoomListPage.qml:312
+#: src/qml/ExploreComponent.qml:33 src/qml/ExploreComponentMobile.qml:66
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:191
+#: src/qml/RoomListPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
+#: src/qml/ExploreComponent.qml:36 src/qml/ExploreComponentMobile.qml:132
 #, kde-format
 msgid "Create a Room"
 msgstr "Ustvari sobo"
 
-#: src/qml/ExploreComponent.qml:48 src/qml/ExploreComponentMobile.qml:148
+#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:144
 #, kde-format
 msgid "Create a Space"
 msgstr "Ustvari prostor"
 
-#: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
+#: src/qml/ExploreComponent.qml:67 src/qml/ExploreComponent.qml:128
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Ustvari sobe in klepete"
@@ -2139,7 +2139,7 @@ msgstr "Ustvari sobe in klepete"
 msgid "Search"
 msgstr "Išči"
 
-#: src/qml/ExploreComponentMobile.qml:75
+#: src/qml/ExploreComponentMobile.qml:71
 #, kde-format
 msgid "Create New"
 msgstr "Ustvari nov"
@@ -2563,19 +2563,19 @@ msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Brskaj po debatah…"
 
-#: src/qml/GlobalMenu.qml:76
+#: src/qml/GlobalMenu.qml:72
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Uredi"
 
-#: src/qml/GlobalMenu.qml:80
+#: src/qml/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Pogled"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2583,31 +2583,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Odpri hitri preklopnik"
 
-#: src/qml/GlobalMenu.qml:89
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Okno"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Izhod iz celozaslonskega načina"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Vstopi na celotni zaslon"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:98
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Pomoč"
 
-#: src/qml/GlobalMenu.qml:105
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2968,7 +2968,8 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "ID sobe ali vzdevek"
 
-#: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:43 src/qml/ManualUserDialog.qml:37
+#: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr "V redu"
@@ -2986,6 +2987,30 @@ msgstr "Se mora začeti z # za vzdevek ali ! za ID"
 #: src/qml/ManualRoomDialog.qml:95
 #, kde-format
 msgid "The input is not a valid room ID or alias"
+msgstr "Vneseno ni veljavni ID sobe ali vzdevek"
+
+#: src/qml/ManualUserDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "User"
+msgctxt "@title"
+msgid "User ID"
+msgstr "Uporabnik"
+
+#: src/qml/ManualUserDialog.qml:53
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "User ID:"
+msgstr "Uporabnik"
+
+#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr ""
+
+#: src/qml/ManualUserDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "The input is not a valid room ID or alias"
+msgid "The input is not a valid user ID"
 msgstr "Vneseno ni veljavni ID sobe ali vzdevek"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
@@ -3460,12 +3485,12 @@ msgstr "Podatki o računu sobe"
 msgid "Room State"
 msgstr "Stanje sobe"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:109
 #, kde-format
 msgid "Muted room"
 msgstr "Utišana soba"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:142
 #, kde-format
 msgid "Configure room"
 msgstr "Nastavi sobo"
@@ -3596,18 +3621,18 @@ msgstr "Pridruži se nekaj sobam za začetek"
 msgid "Search in room directory"
 msgstr "Poišči v imeniku sob"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:190
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Poišči v imeniku prijateljev"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Strni %1"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4090,42 +4115,42 @@ msgstr "Prijatelji"
 msgid "Create a space"
 msgstr "Ustvari prostor"
 
-#: src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Suggested"
 msgstr "Predlagano"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " člani - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " člani"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Dodaj novega odvisnega"
 
-#: src/qml/SpaceHierarchyDelegate.qml:113
+#: src/qml/SpaceHierarchyDelegate.qml:112
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "Ne naredi predlaganega"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4149,7 +4174,7 @@ msgctxt "@button"
 msgid "Space settings"
 msgstr "Nastavitve prostora"
 
-#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#: src/qml/SpaceHomePage.qml:151 src/qml/SpaceHomePage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"
@@ -4345,17 +4370,23 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Poišči vaše prijatelje"
 
-#: src/qml/UserSearchPage.qml:80
+#: src/qml/UserSearchPage.qml:44
+#, fuzzy, kde-format
+#| msgid "Enter your Matrix ID"
+msgid "Enter a user ID"
+msgstr "Vnesite vaš Matrix ID"
+
+#: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
 msgstr "Poišči vaše prijatelje…"
 
-#: src/qml/UserSearchPage.qml:81
+#: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "Vnesite besedilo za začetek iskanja vaših prijateljev"
 
-#: src/qml/UserSearchPage.qml:82
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -4642,32 +4673,32 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "Soba %1 ne obstaja na seznamu sob. Preverite črkovanje in račun."
 
-#: src/roommanager.cpp:317
+#: src/roommanager.cpp:279
 #, kde-format
 msgid "Failed to join room"
 msgstr "Neuspela pridružitev v sobo"
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:294
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Prosili ste za pridružitev k '%1'"
 
-#: src/roommanager.cpp:335
+#: src/roommanager.cpp:297
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Neuspela prošnja za pridružitev v sobo"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "No application for the link"
 msgstr "Ni aplikacije za povezavo"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Vaš operacijski sistem ni mogel najti aplikacije za povezavo."
 
-#: src/roommanager.cpp:350
+#: src/roommanager.cpp:312
 #, kde-format
 msgid "Could not open URL"
 msgstr "Ni bilo mogoče odpreti URL"
@@ -4807,9 +4838,6 @@ msgstr "Zapusti"
 #~ msgctxt "@title"
 #~ msgid "Login"
 #~ msgstr "Prijava"
-
-#~ msgid "Enter your Matrix ID"
-#~ msgstr "Vnesite vaš Matrix ID"
 
 #~ msgid "Login Methods"
 #~ msgstr "Metode prijave"

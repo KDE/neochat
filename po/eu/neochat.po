@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"POT-Creation-Date: 2024-01-25 00:37+0000\n"
 "PO-Revision-Date: 2024-01-21 17:46+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1091,7 +1091,7 @@ msgstr "Gonbidatuta"
 msgid "Favorite"
 msgstr "Gogokoak"
 
-#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
 msgstr "Lagunak"
@@ -1710,15 +1710,15 @@ msgstr "Gelaren ezarpenak"
 msgid "Leave Room"
 msgstr "Irten gelatik"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:47
+#: src/qml/ExploreComponentMobile.qml:147 src/qml/SpaceDrawer.qml:196
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "Sortu toki bat"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
-#: src/qml/ExploreComponentMobile.qml:139
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:39
+#: src/qml/ExploreComponentMobile.qml:135
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
@@ -1790,7 +1790,7 @@ msgid "Explore Rooms"
 msgstr "Esploratu gelak"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Batu da"
@@ -2099,32 +2099,32 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "Esploratu gelak"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:31 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
+#: src/qml/RoomListPage.qml:190 src/qml/RoomListPage.qml:298
 #, kde-format
 msgid "Find your friends"
 msgstr "Aurkitu zure lagunak"
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
-#: src/qml/RoomListPage.qml:312
+#: src/qml/ExploreComponent.qml:33 src/qml/ExploreComponentMobile.qml:66
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:191
+#: src/qml/RoomListPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Aurkitu zure lagunak"
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
+#: src/qml/ExploreComponent.qml:36 src/qml/ExploreComponentMobile.qml:132
 #, kde-format
 msgid "Create a Room"
 msgstr "Sortu gela bat"
 
-#: src/qml/ExploreComponent.qml:48 src/qml/ExploreComponentMobile.qml:148
+#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:144
 #, kde-format
 msgid "Create a Space"
 msgstr "Sortu toki bat"
 
-#: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
+#: src/qml/ExploreComponent.qml:67 src/qml/ExploreComponent.qml:128
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Gelak eta berriketak sortzea"
@@ -2134,7 +2134,7 @@ msgstr "Gelak eta berriketak sortzea"
 msgid "Search"
 msgstr "Bilatu"
 
-#: src/qml/ExploreComponentMobile.qml:75
+#: src/qml/ExploreComponentMobile.qml:71
 #, kde-format
 msgid "Create New"
 msgstr "Sortu berria"
@@ -2558,19 +2558,19 @@ msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Berriketak arakatu..."
 
-#: src/qml/GlobalMenu.qml:76
+#: src/qml/GlobalMenu.qml:72
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Editatu"
 
-#: src/qml/GlobalMenu.qml:80
+#: src/qml/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Ikuspegia"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2578,31 +2578,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Ireki aldatzaile azkarra"
 
-#: src/qml/GlobalMenu.qml:89
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Leihoa"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Irten pantaila-betetik"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Sartu pantaila-betean"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:98
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Laguntza"
 
-#: src/qml/GlobalMenu.qml:105
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2964,7 +2964,8 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "Gelaren ID edo goitizena"
 
-#: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:43 src/qml/ManualUserDialog.qml:37
+#: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr "Ados"
@@ -2982,6 +2983,30 @@ msgstr " # bidez hasi behar da goitizen baterako edo ! bidez ID baterako"
 #: src/qml/ManualRoomDialog.qml:95
 #, kde-format
 msgid "The input is not a valid room ID or alias"
+msgstr "Sarrera ez da gela ID edo goitizen balioduna"
+
+#: src/qml/ManualUserDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "User"
+msgctxt "@title"
+msgid "User ID"
+msgstr "Erabiltzailea"
+
+#: src/qml/ManualUserDialog.qml:53
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "User ID:"
+msgstr "Erabiltzailea"
+
+#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr ""
+
+#: src/qml/ManualUserDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "The input is not a valid room ID or alias"
+msgid "The input is not a valid user ID"
 msgstr "Sarrera ez da gela ID edo goitizen balioduna"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
@@ -3455,12 +3480,12 @@ msgstr "Gela-kontuaren datuak"
 msgid "Room State"
 msgstr "Gelaren egoera"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:109
 #, kde-format
 msgid "Muted room"
 msgstr "Isilarazitako gela"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:142
 #, kde-format
 msgid "Configure room"
 msgstr "Konfiguratu gela"
@@ -3589,18 +3614,18 @@ msgstr "Hasteko, batu gela batzuetara"
 msgid "Search in room directory"
 msgstr "Bilatu gelen direktorioan"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:190
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Bilatu lagun direktorioan"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Tolestu %1"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4080,42 +4105,42 @@ msgstr "Lagunak"
 msgid "Create a space"
 msgstr "Sortu toki bat"
 
-#: src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Suggested"
 msgstr "Iradokita"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " bazkide -"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " bazkide"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Gehitu haur berria"
 
-#: src/qml/SpaceHierarchyDelegate.qml:113
+#: src/qml/SpaceHierarchyDelegate.qml:112
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Kendu"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "Ez egin iradokitakoa"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4139,7 +4164,7 @@ msgctxt "@button"
 msgid "Space settings"
 msgstr "Tokiaren ezarpenak"
 
-#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#: src/qml/SpaceHomePage.qml:151 src/qml/SpaceHomePage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"
@@ -4336,17 +4361,23 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Aurkitu zure lagunak"
 
-#: src/qml/UserSearchPage.qml:80
+#: src/qml/UserSearchPage.qml:44
+#, fuzzy, kde-format
+#| msgid "Enter your Matrix ID"
+msgid "Enter a user ID"
+msgstr "Sartu zure Matrix-eko ID"
+
+#: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
 msgstr "Aurkitu zure lagunak…"
 
-#: src/qml/UserSearchPage.qml:81
+#: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "Sartu zure lagunak bilatzen hasteko testua"
 
-#: src/qml/UserSearchPage.qml:82
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -4636,33 +4667,33 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "Gelen zerrendan ez dago %1 gelarik. Ortografia eta kontua aztertu."
 
-#: src/roommanager.cpp:317
+#: src/roommanager.cpp:279
 #, kde-format
 msgid "Failed to join room"
 msgstr "Gelara batzea huts egin du"
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:294
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1'(e)ra batzea eskatu duzu"
 
-#: src/roommanager.cpp:335
+#: src/roommanager.cpp:297
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Gelara batzeko eskaerak huts egin du"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "No application for the link"
 msgstr "Ez dago estekarentzako programarik"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "Zure sistema eragileak ezin izan du estekarentzako aplikaziorik aurkitu."
 
-#: src/roommanager.cpp:350
+#: src/roommanager.cpp:312
 #, kde-format
 msgid "Could not open URL"
 msgstr "Ezin izan du URLa ireki"
@@ -4803,9 +4834,6 @@ msgstr "Irten"
 #~ msgctxt "@title"
 #~ msgid "Login"
 #~ msgstr "Saio-hastea"
-
-#~ msgid "Enter your Matrix ID"
-#~ msgstr "Sartu zure Matrix-eko ID"
 
 #~ msgid "Login Methods"
 #~ msgstr "Saio-hasteko metodoak"

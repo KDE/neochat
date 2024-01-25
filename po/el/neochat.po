@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"POT-Creation-Date: 2024-01-25 00:37+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1150,7 +1150,7 @@ msgstr "Προσκλήθηκε"
 msgid "Favorite"
 msgstr "Προτιμώμενο"
 
-#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1781,8 +1781,8 @@ msgstr "Ρυθμίσεις αίθουσας"
 msgid "Leave Room"
 msgstr "Αποχώρηση από την αίθουσα"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:47
+#: src/qml/ExploreComponentMobile.qml:147 src/qml/SpaceDrawer.qml:196
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -1790,8 +1790,8 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
-#: src/qml/ExploreComponentMobile.qml:139
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:39
+#: src/qml/ExploreComponentMobile.qml:135
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -1873,7 +1873,7 @@ msgid "Explore Rooms"
 msgstr "Εξερεύνηση αιθουσών"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Εισήλθε"
@@ -2200,34 +2200,34 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "Εξερεύνηση αιθουσών"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:31 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
+#: src/qml/RoomListPage.qml:190 src/qml/RoomListPage.qml:298
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
-#: src/qml/RoomListPage.qml:312
+#: src/qml/ExploreComponent.qml:33 src/qml/ExploreComponentMobile.qml:66
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:191
+#: src/qml/RoomListPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
+#: src/qml/ExploreComponent.qml:36 src/qml/ExploreComponentMobile.qml:132
 #, kde-format
 msgid "Create a Room"
 msgstr "Δημιουργία μιας αίθουσας"
 
-#: src/qml/ExploreComponent.qml:48 src/qml/ExploreComponentMobile.qml:148
+#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:144
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
 msgid "Create a Space"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
+#: src/qml/ExploreComponent.qml:67 src/qml/ExploreComponent.qml:128
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats"
 msgid "Create rooms and chats"
@@ -2240,7 +2240,7 @@ msgstr "Αίθουσες και ιδιωτικές συνομιλίες"
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: src/qml/ExploreComponentMobile.qml:75
+#: src/qml/ExploreComponentMobile.qml:71
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -2685,19 +2685,19 @@ msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Περιήγηση στις συνομιλίες…"
 
-#: src/qml/GlobalMenu.qml:76
+#: src/qml/GlobalMenu.qml:72
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: src/qml/GlobalMenu.qml:80
+#: src/qml/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Προβολή"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2705,31 +2705,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Άνοιγμα γρήγορου εναλλάκτη"
 
-#: src/qml/GlobalMenu.qml:89
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Παράθυρο"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Έξοδος από πλήρη οθόνη"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Είσοδος σε πλήρη οθόνη"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:98
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: src/qml/GlobalMenu.qml:105
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -3105,7 +3105,8 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "Room ID"
 
-#: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:43 src/qml/ManualUserDialog.qml:37
+#: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr ""
@@ -3124,6 +3125,30 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The input is not a valid room ID or alias"
+msgstr "Το δοσμένο κείμενο δεν είναι έγκυρο url"
+
+#: src/qml/ManualUserDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "User"
+msgctxt "@title"
+msgid "User ID"
+msgstr "Χρήστης"
+
+#: src/qml/ManualUserDialog.qml:53
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "User ID:"
+msgstr "Χρήστης"
+
+#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr ""
+
+#: src/qml/ManualUserDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The input is not a valid user ID"
 msgstr "Το δοσμένο κείμενο δεν είναι έγκυρο url"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
@@ -3625,12 +3650,12 @@ msgstr "Δεν βρέθηκαν αίθουσες"
 msgid "Room State"
 msgstr "Κατάσταση αίθουσας - %1"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:109
 #, kde-format
 msgid "Muted room"
 msgstr "Αίθουσα σε σίγαση"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:142
 #, kde-format
 msgid "Configure room"
 msgstr "Διαμόρφωση αίθουσας"
@@ -3768,19 +3793,19 @@ msgstr "Μπορείς να εισέλθεις σε κάποιες αίθουσ�
 msgid "Search in room directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:190
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgid "Search in friend directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
@@ -4296,12 +4321,12 @@ msgstr ""
 msgid "Create a space"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -4309,7 +4334,7 @@ msgctxt "number of room members"
 msgid " members - "
 msgstr "%1 μέλος"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -4317,27 +4342,27 @@ msgctxt "number of room members"
 msgid " members"
 msgstr "%1 μέλος"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Προσθήκη νέου ψευδωνύμου"
 
-#: src/qml/SpaceHierarchyDelegate.qml:113
+#: src/qml/SpaceHierarchyDelegate.qml:112
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@button"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4365,7 +4390,7 @@ msgctxt "@button"
 msgid "Space settings"
 msgstr "Ρυθμίσεις χώρου"
 
-#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#: src/qml/SpaceHomePage.qml:151 src/qml/SpaceHomePage.qml:157
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -4566,18 +4591,24 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:80
+#: src/qml/UserSearchPage.qml:44
+#, fuzzy, kde-format
+#| msgid "Enter your Matrix ID"
+msgid "Enter a user ID"
+msgstr "Δώσε το αναγνωριστικό σου στο Matrix"
+
+#: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:81
+#: src/qml/UserSearchPage.qml:90
 #, fuzzy, kde-format
 #| msgid "Enter a text to start searching"
 msgid "Enter text to start searching for your friends"
 msgstr "Δώσε ένα κείμενο για να ξεκινήσει η αναζήτηση"
 
-#: src/qml/UserSearchPage.qml:82
+#: src/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgctxt "@info:label"
@@ -4879,34 +4910,34 @@ msgid ""
 msgstr ""
 "Δεν υπάρχει αίθουσα %1 στη λίστα. Έλεγξε την ορθογραφία και τον λογαριασμό."
 
-#: src/roommanager.cpp:317
+#: src/roommanager.cpp:279
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to join room"
 msgstr "Προσκαλεί σε μια αίθουσα"
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:294
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:335
+#: src/roommanager.cpp:297
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to request joining room"
 msgstr "Προσκαλεί σε μια αίθουσα"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "No application for the link"
 msgstr "Καμία εφαρμογή για τον σύνδεσμο"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Το λειτουργικό σου σύστημα δεν βρήκε εφαρμογή για τον σύνδεσμο."
 
-#: src/roommanager.cpp:350
+#: src/roommanager.cpp:312
 #, kde-format
 msgid "Could not open URL"
 msgstr "Αδυναμία ανοίγματος του URL"
@@ -5057,9 +5088,6 @@ msgstr "Έξοδος"
 #~ msgctxt "@title"
 #~ msgid "Login"
 #~ msgstr "Σύνδεση"
-
-#~ msgid "Enter your Matrix ID"
-#~ msgstr "Δώσε το αναγνωριστικό σου στο Matrix"
 
 #~ msgid "Login Methods"
 #~ msgstr "Μέθοδοι σύνδεσης"

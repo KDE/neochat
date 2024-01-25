@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:37+0000\n"
+"POT-Creation-Date: 2024-01-25 00:37+0000\n"
 "PO-Revision-Date: 2024-01-21 21:59+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1101,7 +1101,7 @@ msgstr "Meghívva"
 msgid "Favorite"
 msgstr "Kedvenc"
 
-#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:73
+#: src/models/roomlistmodel.cpp:419 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -1729,8 +1729,8 @@ msgstr "A szoba beállításai"
 msgid "Leave Room"
 msgstr "Szoba elhagyása"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:51
-#: src/qml/ExploreComponentMobile.qml:151 src/qml/SpaceDrawer.qml:196
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:47
+#: src/qml/ExploreComponentMobile.qml:147 src/qml/SpaceDrawer.qml:196
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -1738,8 +1738,8 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "A Tér elhagyása"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:43
-#: src/qml/ExploreComponentMobile.qml:139
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:39
+#: src/qml/ExploreComponentMobile.qml:135
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -1819,7 +1819,7 @@ msgid "Explore Rooms"
 msgstr "Szobák felfedezése"
 
 #: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Csatlakozva"
@@ -2150,34 +2150,34 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "Szobák felfedezése"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:31 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:307
+#: src/qml/RoomListPage.qml:190 src/qml/RoomListPage.qml:298
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
-#: src/qml/RoomListPage.qml:312
+#: src/qml/ExploreComponent.qml:33 src/qml/ExploreComponentMobile.qml:66
+#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:191
+#: src/qml/RoomListPage.qml:303
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
+#: src/qml/ExploreComponent.qml:36 src/qml/ExploreComponentMobile.qml:132
 #, kde-format
 msgid "Create a Room"
 msgstr "Szoba létrehozása"
 
-#: src/qml/ExploreComponent.qml:48 src/qml/ExploreComponentMobile.qml:148
+#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:144
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
 msgid "Create a Space"
 msgstr "A Tér elhagyása"
 
-#: src/qml/ExploreComponent.qml:71 src/qml/ExploreComponent.qml:132
+#: src/qml/ExploreComponent.qml:67 src/qml/ExploreComponent.qml:128
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Szobák és privát beszélgetések létrehozása"
@@ -2189,7 +2189,7 @@ msgstr "Szobák és privát beszélgetések létrehozása"
 msgid "Search"
 msgstr "Keresés"
 
-#: src/qml/ExploreComponentMobile.qml:75
+#: src/qml/ExploreComponentMobile.qml:71
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -2632,19 +2632,19 @@ msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Chatek böngészése..."
 
-#: src/qml/GlobalMenu.qml:76
+#: src/qml/GlobalMenu.qml:72
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: src/qml/GlobalMenu.qml:80
+#: src/qml/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Nézet"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2652,31 +2652,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Nyissa meg a Gyorsváltót"
 
-#: src/qml/GlobalMenu.qml:89
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Ablak"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Kilépés a teljes képernyős módból"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Teljes képernyő"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:98
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Segítség"
 
-#: src/qml/GlobalMenu.qml:105
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -3048,7 +3048,8 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "Szobaazonosító"
 
-#: src/qml/ManualRoomDialog.qml:43 src/qml/SelectParentDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:43 src/qml/ManualUserDialog.qml:37
+#: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr ""
@@ -3067,6 +3068,30 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The input is not a valid room ID or alias"
+msgstr "A beírt szöveg nem érvényes URL"
+
+#: src/qml/ManualUserDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "User"
+msgctxt "@title"
+msgid "User ID"
+msgstr "Felhasználónév"
+
+#: src/qml/ManualUserDialog.qml:53
+#, fuzzy, kde-format
+#| msgid "User"
+msgid "User ID:"
+msgstr "Felhasználónév"
+
+#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr ""
+
+#: src/qml/ManualUserDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The input is not a valid user ID"
 msgstr "A beírt szöveg nem érvényes URL"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
@@ -3551,12 +3576,12 @@ msgstr "Fókadatok: %1 -%2"
 msgid "Room State"
 msgstr "Szoba állapota - %1"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:109
 #, kde-format
 msgid "Muted room"
 msgstr "Némított szoba"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:142
 #, kde-format
 msgid "Configure room"
 msgstr "Szoba beállítása"
@@ -3690,19 +3715,19 @@ msgstr "Csatlakozz néhány szobához kezdésként"
 msgid "Search in room directory"
 msgstr "Keresés a szobakönyvtárban"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:190
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgid "Search in friend directory"
 msgstr "Keresés a szobakönyvtárban"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:234
 #, fuzzy, kde-format
 #| msgid "Expand preview"
 msgctxt "Expand <section name"
@@ -4204,43 +4229,43 @@ msgstr ""
 msgid "Create a space"
 msgstr "A Tér elhagyása"
 
-#: src/qml/SpaceHierarchyDelegate.qml:84
+#: src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " tag - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:92
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " tag"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Új alias hozzáadása"
 
-#: src/qml/SpaceHierarchyDelegate.qml:113
+#: src/qml/SpaceHierarchyDelegate.qml:112
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:133
+#: src/qml/SpaceHierarchyDelegate.qml:132
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4268,7 +4293,7 @@ msgctxt "@button"
 msgid "Space settings"
 msgstr "A Tér beállításai"
 
-#: src/qml/SpaceHomePage.qml:152 src/qml/SpaceHomePage.qml:158
+#: src/qml/SpaceHomePage.qml:151 src/qml/SpaceHomePage.qml:157
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -4467,18 +4492,24 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:80
+#: src/qml/UserSearchPage.qml:44
+#, fuzzy, kde-format
+#| msgid "Enter your Matrix ID"
+msgid "Enter a user ID"
+msgstr "Írja be Matrix azonosítóját"
+
+#: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:81
+#: src/qml/UserSearchPage.qml:90
 #, fuzzy, kde-format
 #| msgid "Enter a text to start searching"
 msgid "Enter text to start searching for your friends"
 msgstr "Írjon be egy szöveget a kereséshez"
 
-#: src/qml/UserSearchPage.qml:82
+#: src/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgctxt "@info:label"
@@ -4770,32 +4801,32 @@ msgstr ""
 "A szoba ' %1 ' nem található a szobakönyvtárban. Ellenőrizze a helyesírást "
 "és a fiókot."
 
-#: src/roommanager.cpp:317
+#: src/roommanager.cpp:279
 #, kde-format
 msgid "Failed to join room"
 msgstr "Nem sikerült csatlakozni a szobához"
 
-#: src/roommanager.cpp:332
+#: src/roommanager.cpp:294
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Csatlakozási kérelmet küldtél ehhez:  '%1'"
 
-#: src/roommanager.cpp:335
+#: src/roommanager.cpp:297
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "A csatlakozási kérelem sikertelen"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "No application for the link"
 msgstr "Nincs megfelelő alkalmazás a linkhez"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:306
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Az operációs rendszere nem talált alkalmazást a hivatkozáshoz."
 
-#: src/roommanager.cpp:350
+#: src/roommanager.cpp:312
 #, kde-format
 msgid "Could not open URL"
 msgstr "Nem sikerült megyitni az URL-t"
@@ -4942,9 +4973,6 @@ msgstr "Kilépés"
 #~ msgctxt "@title"
 #~ msgid "Login"
 #~ msgstr "Bejelentkezés"
-
-#~ msgid "Enter your Matrix ID"
-#~ msgstr "Írja be Matrix azonosítóját"
 
 #~ msgid "Login Methods"
 #~ msgstr "Bejelentkezési módok"
