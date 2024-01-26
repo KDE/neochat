@@ -148,6 +148,8 @@ add_library(neochat STATIC
     models/itinerarymodel.h
     proxycontroller.cpp
     proxycontroller.h
+    models/linemodel.cpp
+    models/linemodel.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
