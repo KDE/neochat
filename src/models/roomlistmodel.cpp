@@ -348,9 +348,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         if (room->lastEvent() == nullptr || room->lastEventIsSpoiler()) {
             return QString();
         }
-        EventHandler eventHandler;
-        eventHandler.setRoom(room);
-        eventHandler.setEvent(room->lastEvent());
+        EventHandler eventHandler(room, room->lastEvent());
         return eventHandler.subtitleText();
     }
     if (role == AvatarImageRole) {

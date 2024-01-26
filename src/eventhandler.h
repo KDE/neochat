@@ -31,30 +31,12 @@ class ReactionModel;
  *       information. This is to minimize warnings from QML especially during startup
  *       and room changes.
  */
-class EventHandler : public QObject
+class EventHandler
 {
-    Q_OBJECT
+    Q_GADGET
 
 public:
-    /**
-     * @brief Return the current room the EventHandler is using.
-     */
-    const NeoChatRoom *getRoom() const;
-
-    /**
-     * @brief Set the current room the EventHandler to using.
-     */
-    void setRoom(const NeoChatRoom *room);
-
-    /**
-     * @brief Return the current event the EventHandler is using.
-     */
-    const Quotient::Event *getEvent() const;
-
-    /**
-     * @brief Set the current event the EventHandler to using.
-     */
-    void setEvent(const Quotient::RoomEvent *event);
+    EventHandler(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
      * @brief Return the Matrix ID of the event.

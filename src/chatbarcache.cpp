@@ -114,10 +114,9 @@ QString ChatBarCache::relationMessage() const
         qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
         return {};
     }
-    EventHandler eventhandler;
-    eventhandler.setRoom(room);
+
     if (auto event = room->findInTimeline(m_relationId); event != room->historyEdge()) {
-        eventhandler.setEvent(&**event);
+        EventHandler eventhandler(room, &**event);
         return eventhandler.getPlainBody();
     }
     return {};

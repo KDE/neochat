@@ -31,34 +31,10 @@
 
 using namespace Quotient;
 
-const NeoChatRoom *EventHandler::getRoom() const
+EventHandler::EventHandler(const NeoChatRoom *room, const RoomEvent *event)
+    : m_room(room)
+    , m_event(event)
 {
-    return m_room;
-}
-
-void EventHandler::setRoom(const NeoChatRoom *room)
-{
-    if (room == m_room) {
-        return;
-    }
-    m_room = room;
-}
-
-const Quotient::Event *EventHandler::getEvent() const
-{
-    return m_event;
-}
-
-void EventHandler::setEvent(const Quotient::RoomEvent *event)
-{
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "cannot setEvent when m_room is set to nullptr.";
-        return;
-    }
-    if (event == m_event) {
-        return;
-    }
-    m_event = event;
 }
 
 QString EventHandler::getId() const

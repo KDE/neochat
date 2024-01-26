@@ -79,9 +79,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     auto row = index.row();
     const auto &event = *m_result->results[row].result;
 
-    EventHandler eventHandler;
-    eventHandler.setRoom(m_room);
-    eventHandler.setEvent(&event);
+    EventHandler eventHandler(m_room, &event);
 
     switch (role) {
     case DisplayRole:

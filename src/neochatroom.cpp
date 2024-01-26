@@ -502,9 +502,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
     }
 
     if (isThread) {
-        EventHandler eventHandler;
-        eventHandler.setRoom(this);
-        eventHandler.setEvent(&**replyIt);
+        EventHandler eventHandler(this, &**replyIt);
 
         const bool isFallingBack = !eventHandler.isThreaded();
 
@@ -551,9 +549,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
     if (isReply) {
         const auto &replyEvt = **replyIt;
 
-        EventHandler eventHandler;
-        eventHandler.setRoom(this);
-        eventHandler.setEvent(&**replyIt);
+        EventHandler eventHandler(this, &**replyIt);
 
         // clang-format off
         QJsonObject json{

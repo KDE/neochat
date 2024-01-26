@@ -481,9 +481,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     const auto pendingIt = m_currentRoom->pendingEvents().crbegin() + std::min(row, timelineBaseIndex());
     const auto &evt = isPending ? **pendingIt : **timelineIt;
 
-    EventHandler eventHandler;
-    eventHandler.setRoom(m_currentRoom);
-    eventHandler.setEvent(&evt);
+    EventHandler eventHandler(m_currentRoom, &evt);
 
     if (role == Qt::DisplayRole) {
         if (evt.isRedacted()) {

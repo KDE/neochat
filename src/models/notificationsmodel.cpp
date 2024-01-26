@@ -122,9 +122,7 @@ void NotificationsModel::loadData()
                 const auto &authorAvatar = avatar.isValid() && avatar.scheme() == QStringLiteral("mxc") ? avatar : QUrl();
 
                 const auto &roomEvent = eventCast<const RoomEvent>(notification.event.get());
-                EventHandler eventHandler;
-                eventHandler.setRoom(dynamic_cast<NeoChatRoom *>(room));
-                eventHandler.setEvent(roomEvent);
+                EventHandler eventHandler(dynamic_cast<NeoChatRoom *>(room), roomEvent);
                 beginInsertRows({}, m_notifications.length(), m_notifications.length());
                 m_notifications += Notification{
                     .roomId = notification.roomId,
