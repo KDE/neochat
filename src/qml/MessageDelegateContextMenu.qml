@@ -135,7 +135,7 @@ Loader {
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
-            onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.plainText : root.selectedText)
+            onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.selectedText : root.plainText)
         },
         Kirigami.Action {
             text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
