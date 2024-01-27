@@ -153,11 +153,14 @@ TimelineDelegate {
                 Layout.fillWidth: true
                 visible: root.folded
 
-                text: root.aggregateDisplay
+                text: `<style>a {color: ${Kirigami.Theme.textColor}}</style>` + root.aggregateDisplay
                 elide: Qt.ElideRight
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
                 onLinkActivated: RoomManager.resolveResource(link)
+                HoverHandler {
+                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+                }
             }
             Item {
                 Layout.fillWidth: true

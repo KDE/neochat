@@ -321,8 +321,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
             }
 
             if (prettyPrint) {
-                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
-                                  .arg(e.userId(), Utils::getUserColor(m_room->user(e.userId())->hueF()).name(), subjectName);
+                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\">%2</a>").arg(e.userId(), subjectName);
             }
 
             // The below code assumes senderName output in AuthorRole

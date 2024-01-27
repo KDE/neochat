@@ -127,9 +127,8 @@ QString MessageFilterModel::aggregateEventToString(int sourceRow) const
         chunks.removeDuplicates();
         // The author text is either "n users" if > 1 user or the matrix.to link to a single user.
         QString userText = uniqueAuthors.length() > 1 ? i18ncp("n users", " %1 user ", " %1 users ", uniqueAuthors.length())
-                                                      : QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a> ")
+                                                      : QStringLiteral("<a href=\"https://matrix.to/#/%1\">%3</a> ")
                                                             .arg(uniqueAuthors[0].toMap()[QStringLiteral("id")].toString(),
-                                                                 uniqueAuthors[0].toMap()[QStringLiteral("color")].toString(),
                                                                  uniqueAuthors[0].toMap()[QStringLiteral("displayName")].toString().toHtmlEscaped());
 
         QString chunksText;

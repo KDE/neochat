@@ -70,9 +70,12 @@ RowLayout {
         id: label
         Layout.alignment: Qt.AlignVCenter
         Layout.fillWidth: true
-        text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${root.author.id}" style="color: ${root.author.color}">${root.authorDisplayName}</a> ${root.text}`
+        text: `<style>a {text-decoration: none; color: ${Kirigami.Theme.textColor};}</style><a href="https://matrix.to/#/${root.author.id}">${root.authorDisplayName}</a> ${root.text}`
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
         onLinkActivated: link => RoomManager.resolveResource(link)
+        HoverHandler {
+            cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+        }
     }
 }
