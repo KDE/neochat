@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-14 03:07+0000\n"
-"PO-Revision-Date: 2024-01-22 17:41+0900\n"
+"PO-Revision-Date: 2024-01-26 17:19+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: src/controller.cpp:121 src/controller.cpp:327
 #, kde-format
@@ -1634,12 +1634,12 @@ msgstr "加入最愛"
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Reprioritize"
-msgstr ""
+msgstr "重新給予優先權"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Deprioritize"
-msgstr ""
+msgstr "降低優先權"
 
 #: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:206
 #, kde-format
@@ -1751,7 +1751,7 @@ msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
 "official parent."
 msgid "Make this parent official"
-msgstr ""
+msgstr "將此上層聊天空間設為官方"
 
 #: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
 #: src/qml/JoinRoomPage.qml:183
@@ -1789,13 +1789,13 @@ msgstr "已加入"
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
-msgstr ""
+msgstr "您在子項目有足夠權限來設定這個狀態"
 
 #: src/qml/CreateRoomDialog.qml:202
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
-msgstr ""
+msgstr "您在子項目沒有足夠權限來設定這個狀態"
 
 #: src/qml/CreateRoomDialog.qml:219
 #, kde-format
@@ -1803,7 +1803,7 @@ msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr ""
+msgstr "將此聊天空間設為主要上層聊天空間"
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2310,7 +2310,7 @@ msgstr "這個聊天室預設已停用網址預覽"
 #: src/qml/General.qml:283
 #, kde-format
 msgid "Official Parent Spaces"
-msgstr ""
+msgstr "官方上層聊天空間"
 
 #: src/qml/General.qml:316
 #, kde-format
@@ -2320,23 +2320,23 @@ msgstr "主要"
 #: src/qml/General.qml:323
 #, kde-format
 msgid "Make canonical parent"
-msgstr ""
+msgstr "標記為主要上層"
 
 #: src/qml/General.qml:337
 #, kde-format
 msgid "Remove parent"
-msgstr ""
+msgstr "移除上層"
 
 #: src/qml/General.qml:351
 #, kde-format
 msgid "This room has no official parent spaces."
-msgstr ""
+msgstr "此聊天室沒有任何官方上層聊天空間。"
 
 #: src/qml/General.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
-msgstr ""
+msgstr "新增官方上層項目"
 
 #: src/qml/General.qml:370
 #, kde-format
@@ -3389,19 +3389,19 @@ msgstr "密碼不符。"
 #, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr ""
+msgstr "移除子項目"
 
 #: src/qml/RemoveChildDialog.qml:39
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
-msgstr ""
+msgstr "子項目 %1 會從聊天空間 %2 中移除"
 
 #: src/qml/RemoveChildDialog.qml:46
 #, kde-format
 msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
-msgstr ""
+msgstr "目前聊天空間是此聊天室的官方上層聊天空間，要清除這個設定嗎？"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
@@ -3813,7 +3813,7 @@ msgstr "裝置 ID"
 #, kde-format
 msgctxt "@title"
 msgid "Select new official parent"
-msgstr ""
+msgstr "選擇新的官方上層項目"
 
 #: src/qml/SelectParentDialog.qml:52
 #, kde-format
@@ -3824,13 +3824,13 @@ msgstr "選擇親聊天空間"
 #: src/qml/SelectParentDialog.qml:147
 #, kde-format
 msgid "Set this room as a child of the space %1"
-msgstr ""
+msgstr "將此聊天室設為聊天空間 %1 之子"
 
 #: src/qml/SelectParentDialog.qml:154
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
-msgstr ""
+msgstr "您在上層項目沒有足夠權限來設定這個狀態"
 
 #: src/qml/SelectParentDialog.qml:154
 #, kde-format
@@ -3840,12 +3840,12 @@ msgstr "選取的聊天室不是聊天空間"
 #: src/qml/SelectParentDialog.qml:154
 #, kde-format
 msgid "You do not have the privileges to complete this action"
-msgstr ""
+msgstr "您沒有足夠權限以完成此動作"
 
 #: src/qml/SelectParentDialog.qml:159
 #, kde-format
 msgid "Make this space the canonical parent"
-msgstr ""
+msgstr "將此聊天空間設為主要上層聊天空間"
 
 #: src/qml/SelectSpacesDialog.qml:35
 #, kde-format
