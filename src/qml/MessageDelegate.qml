@@ -228,14 +228,14 @@ TimelineDelegate {
      *
      * @note Used for positioning the hover actions.
      */
-    readonly property real bubbleX: bubble.x + bubble.anchors.leftMargin
+    readonly property real bubbleX: bubble.x + avatarBubbleRow.x + mainContainer.leftPadding
 
     /**
      * @brief The y position of the message bubble.
      *
      * @note Used for positioning the hover actions.
      */
-    readonly property alias bubbleY: mainContainer.y
+    readonly property real bubbleY: mainContainer.y + (Config.compactLayout ? 0 : mainContainer.topPadding)
 
     /**
      * @brief The width of the message bubble.
@@ -319,13 +319,10 @@ TimelineDelegate {
         }
         QQC2.ItemDelegate {
             id: mainContainer
-
             Layout.fillWidth: true
-            Layout.topMargin: root.showAuthor || root.alwaysShowAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            Layout.rightMargin: Kirigami.Units.smallSpacing
 
-            implicitHeight: Math.max(root.showAuthor || root.alwaysShowAuthor ? avatar.implicitHeight : 0, bubble.height)
+            leftPadding: Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.largeSpacing
 
             Component.onCompleted: {
                 if (root.isReply && root.replyDelegateType === DelegateType.Other) {
@@ -340,78 +337,60 @@ TimelineDelegate {
                 }
             }
 
-            KirigamiComponents.AvatarButton {
-                id: avatar
-                width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2: 0
-                height: width
-                anchors {
-                    left: parent.left
-                    leftMargin: Kirigami.Units.smallSpacing
-                    top: parent.top
-                    topMargin: Kirigami.Units.smallSpacing
-                }
+            contentItem: RowLayout {
+                RowLayout {
+                    id: avatarBubbleRow
+                    Layout.alignment: _private.showUserMessageOnRight && !Config.compactLayout ? Qt.AlignRight : Qt.AlignLeft
+                    KirigamiComponents.AvatarButton {
+                        id: avatar
+                        Layout.topMargin: Config.compactLayout ? Kirigami.Units.smallSpacing / 2 : 0
+                        Layout.alignment: Qt.AlignTop
+                        implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+                        implicitHeight: implicitWidth
 
-                visible: (root.showAuthor || root.alwaysShowAuthor) &&
-                    Config.showAvatarInTimeline &&
-                    (Config.compactLayout || !_private.showUserMessageOnRight)
-                name: root.author.displayName
-                source: root.author.avatarSource
-                color: root.author.color
-                QQC2.ToolTip.text: root.author.escapedDisplayName
+                        visible: (root.showAuthor || root.alwaysShowAuthor) &&
+                            Config.showAvatarInTimeline &&
+                            (Config.compactLayout || !_private.showUserMessageOnRight)
+                        name: root.author.displayName
+                        source: root.author.avatarSource
+                        color: root.author.color
+                        QQC2.ToolTip.text: root.author.escapedDisplayName
 
-                onClicked: RoomManager.resolveResource(root.author.id, "mention")
-            }
-            Bubble {
-                id: bubble
-                anchors.left: avatar.right
-                anchors.leftMargin: Kirigami.Units.largeSpacing
-                anchors.rightMargin: Kirigami.Units.largeSpacing
-                maxContentWidth: root.contentMaxWidth
-
-                topPadding: Config.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
-                bottomPadding: Config.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
-                leftPadding: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-                rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-
-                state: _private.showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
-                // states for anchor animations on window resize
-                // as setting anchors to undefined did not work reliably
-                states: [
-                    State {
-                        name: "userMessageOnRight"
-                        AnchorChanges {
-                            target: bubble
-                            anchors.left: undefined
-                            anchors.right: parent.right
-                        }
-                    },
-                    State {
-                        name: "userMessageOnLeft"
-                        AnchorChanges {
-                            target: bubble
-                            anchors.left: avatar.right
-                            anchors.right: undefined
-                        }
+                        onClicked: RoomManager.resolveResource(root.author.id, "mention")
                     }
-                ]
+                    Item {
+                        visible: !avatar.visible
+                        implicitWidth: avatar.implicitWidth
+                    }
+                    Bubble {
+                        id: bubble
+                        Layout.fillWidth: Config.compactLayout ? true : false
+                        maxContentWidth: root.contentMaxWidth
 
-                author: root.author
-                showAuthor: root.showAuthor || root.alwaysShowAuthor
-                time: root.time
-                timeString: root.timeString
+                        topPadding: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing
+                        bottomPadding: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing
+                        leftPadding: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+                        rightPadding: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
-                showHighlight: root.showHighlight
+                        author: root.author
+                        showAuthor: root.showAuthor || root.alwaysShowAuthor
+                        time: root.time
+                        timeString: root.timeString
 
-                isReply: root.isReply
-                replyId: root.replyId
-                replyAuthor: root.replyAuthor
-                replyDelegateType: root.replyDelegateType
-                replyDisplay: root.replyDisplay
-                replyMediaInfo: root.replyMediaInfo
+                        showHighlight: root.showHighlight
 
-                onReplyClicked: (eventId) => {root.replyClicked(eventId)}
+                        isReply: root.isReply
+                        replyId: root.replyId
+                        replyAuthor: root.replyAuthor
+                        replyDelegateType: root.replyDelegateType
+                        replyDisplay: root.replyDisplay
+                        replyMediaInfo: root.replyMediaInfo
 
-                showBackground: root.cardBackground && !Config.compactLayout
+                        onReplyClicked: (eventId) => {root.replyClicked(eventId)}
+
+                        showBackground: root.cardBackground && !Config.compactLayout
+                    }
+                }
             }
 
             background: Rectangle {
@@ -434,8 +413,9 @@ TimelineDelegate {
         ReactionDelegate {
             Layout.maximumWidth: root.width - Kirigami.Units.largeSpacing * 2
             Layout.alignment: _private.showUserMessageOnRight ? Qt.AlignRight : Qt.AlignLeft
-            Layout.leftMargin: _private.showUserMessageOnRight ? 0 : bubble.x + bubble.anchors.leftMargin
+            Layout.leftMargin: _private.showUserMessageOnRight ? 0 : bubble.x + mainContainer.leftPadding
             Layout.rightMargin: _private.showUserMessageOnRight ? Kirigami.Units.largeSpacing : 0
+            Layout.bottomMargin: Config.compactLayout ? Kirigami.Units.smallSpacing : 0
 
             visible: root.showReactions
             model: root.reaction
@@ -458,7 +438,7 @@ TimelineDelegate {
             startPercentWidth: Config.compactLayout || root.alwaysMaxWidth ? 100 : 90
             endPercentWidth: Config.compactLayout || root.alwaysMaxWidth ? 100 : 60
 
-            parentWidth: mainContainer.availableWidth - (Config.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
+            parentWidth: mainContainer.availableWidth - (Config.showAvatarInTimeline ? avatar.width + avatarBubbleRow.spacing : 0)
         }
     }
 
