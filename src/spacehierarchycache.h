@@ -31,11 +31,6 @@ class SpaceHierarchyCache : public QObject
     QML_SINGLETON
 
     Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
-    Q_PROPERTY(QString recommendedSpaceId READ recommendedSpaceId CONSTANT)
-    Q_PROPERTY(QString recommendedSpaceAvatar READ recommendedSpaceAvatar CONSTANT)
-    Q_PROPERTY(QString recommendedSpaceDisplayName READ recommendedSpaceDisplayName CONSTANT)
-    Q_PROPERTY(QString recommendedSpaceDescription READ recommendedSpaceDescription CONSTANT)
-    Q_PROPERTY(bool recommendedSpaceHidden READ recommendedSpaceHidden WRITE setRecommendedSpaceHidden NOTIFY recommendedSpaceHiddenChanged)
 
 public:
     static SpaceHierarchyCache &instance()
@@ -62,18 +57,9 @@ public:
     NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
 
-    QString recommendedSpaceId() const;
-    QString recommendedSpaceAvatar() const;
-    QString recommendedSpaceDisplayName() const;
-    QString recommendedSpaceDescription() const;
-
-    bool recommendedSpaceHidden() const;
-    void setRecommendedSpaceHidden(bool hidden);
-
 Q_SIGNALS:
     void spaceHierarchyChanged();
     void connectionChanged();
-    void recommendedSpaceHiddenChanged();
 
 private Q_SLOTS:
     void addSpaceToHierarchy(Quotient::Room *room);
