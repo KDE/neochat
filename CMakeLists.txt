@@ -48,6 +48,11 @@ endif()
 
 set(QUOTIENT_FORCE_NAMESPACED_INCLUDES TRUE)
 
+set(RECOMMENDED_SPACE_ID "" CACHE STRING "The matrix ID of a space that will be recommended to the user. Only relevant to distros")
+set(RECOMMENDED_SPACE_DISPLAYNAME "" CACHE STRING "The displayname of a space that will be recommended to the user. Only relevant to distros")
+set(RECOMMENDED_SPACE_AVATAR "" CACHE STRING "mxc url of a space that will be recommended to the user. Only relevant to distros")
+set(RECOMMENDED_SPACE_DESCRIPTION "" CACHE STRING "Description of a space that will be recommended to the user. Only relevant to distros")
+
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX NEOCHAT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h

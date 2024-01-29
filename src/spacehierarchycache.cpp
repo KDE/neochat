@@ -6,6 +6,9 @@
 #include <Quotient/csapi/space_hierarchy.h>
 #include <Quotient/qt_connection_util.h>
 
+#include <KConfigGroup>
+#include <KSharedConfig>
+
 #include "neochatroom.h"
 
 using namespace Quotient;
@@ -109,6 +112,40 @@ void SpaceHierarchyCache::setConnection(NeoChatConnection *connection)
     cacheSpaceHierarchy();
     connect(connection, &Connection::joinedRoom, this, &SpaceHierarchyCache::addSpaceToHierarchy);
     connect(connection, &Connection::aboutToDeleteRoom, this, &SpaceHierarchyCache::removeSpaceFromHierarchy);
+}
+
+QString SpaceHierarchyCache::recommendedSpaceId() const
+{
+    return QStringLiteral(RECOMMENDED_SPACE_ID);
+}
+
+QString SpaceHierarchyCache::recommendedSpaceAvatar() const
+{
+    return QStringLiteral(RECOMMENDED_SPACE_AVATAR);
+}
+
+QString SpaceHierarchyCache::recommendedSpaceDisplayName() const
+{
+    return QStringLiteral(RECOMMENDED_SPACE_DISPLAYNAME);
+}
+
+QString SpaceHierarchyCache::recommendedSpaceDescription() const
+{
+    return QStringLiteral(RECOMMENDED_SPACE_DESCRIPTION);
+}
+
+bool SpaceHierarchyCache::recommendedSpaceHidden() const
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), QStringLiteral("recommendedSpace"));
+    return group.readEntry<bool>(QStringLiteral("hidden"), false);
+}
+
+void SpaceHierarchyCache::setRecommendedSpaceHidden(bool hidden)
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), QStringLiteral("recommendedSpace"));
+    group.writeEntry(QStringLiteral("hidden"), hidden);
+    group.sync();
+    Q_EMIT recommendedSpaceHiddenChanged();
 }
 
 #include "moc_spacehierarchycache.cpp"

@@ -307,10 +307,16 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ServerComboBox.qml
         qml/UserSearchPage.qml
         qml/ManualUserDialog.qml
+        qml/RecommendedSpaceDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
 )
+
+target_compile_definitions(neochat PRIVATE "RECOMMENDED_SPACE_ID=\"${RECOMMENDED_SPACE_ID}\"")
+target_compile_definitions(neochat PRIVATE "RECOMMENDED_SPACE_AVATAR=\"${RECOMMENDED_SPACE_AVATAR}\"")
+target_compile_definitions(neochat PRIVATE "RECOMMENDED_SPACE_DESCRIPTION=\"${RECOMMENDED_SPACE_DESCRIPTION}\"")
+target_compile_definitions(neochat PRIVATE "RECOMMENDED_SPACE_DISPLAYNAME=\"${RECOMMENDED_SPACE_DISPLAYNAME}\"")
 
 configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
 

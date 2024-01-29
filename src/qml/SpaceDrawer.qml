@@ -176,6 +176,41 @@ QQC2.Control {
                         }
                     }
 
+                    AvatarTabButton {
+                        id: recommendedSpaceButton
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: width - Kirigami.Units.smallSpacing
+                        Layout.maximumHeight: width - Kirigami.Units.smallSpacing
+
+                        visible: SpaceHierarchyCache.recommendedSpaceId.length > 0 && !root.connection.room(SpaceHierarchyCache.recommendedSpaceId) && !SpaceHierarchyCache.recommendedSpaceHidden
+
+                        text: i18nc("Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
+                        source: root.connection.makeMediaUrl(SpaceHierarchyCache.recommendedSpaceAvatar)
+                        onClicked: {
+                            let dialog = pageStack.pushDialogLayer(Qt.resolvedUrl("qrc:/org/kde/neochat/qml/RecommendedSpaceDialog.qml"), {
+                                connection: root.connection
+                            }, {
+                                title: i18nc("@title Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
+                            });
+                        }
+                        Rectangle {
+                            color: Kirigami.Theme.backgroundColor
+                            width: Kirigami.Units.gridUnit * 1.5
+                            height: width
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: Kirigami.Units.smallSpacing
+                            anchors.rightMargin: Kirigami.Units.smallSpacing * 2
+                            anchors.right: parent.right
+                            radius: width / 2
+                            z: parent.z + 1
+                            Kirigami.Icon {
+                                anchors.fill: parent
+                                z: parent + 1
+                                source: "list-add"
+                            }
+                        }
+                    }
+
                     Kirigami.Separator {
                         Layout.fillWidth: true
                         Layout.topMargin: Kirigami.Units.smallSpacing / 2
