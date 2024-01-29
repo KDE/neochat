@@ -314,6 +314,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/PollComponent.qml
         qml/LinkPreviewComponent.qml
         qml/LoadComponent.qml
+        qml/RecommendedSpaceDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
