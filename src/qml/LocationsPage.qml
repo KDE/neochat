@@ -55,7 +55,7 @@ Kirigami.Page {
         Connections {
             target: mapView.map
             function onCopyrightLinkActivated() {
-                Qt.openUrlExternally(link)
+                Qt.openUrlExternally(link);
             }
         }
     }

@@ -24,8 +24,7 @@ FormCard.FormCardPage {
     property bool newEmoticon: false
     required property var emoticonType
 
-    title: emoticonType === EmoticonFormCard.Stickers ? (newEmoticon ? i18nc("@title", "Add Sticker") : i18nc("@title", "Edit Sticker"))
-            : (newEmoticon ? i18nc("@title", "Add Emoji") : i18nc("@title", "Edit Emoji"))
+    title: emoticonType === EmoticonFormCard.Stickers ? (newEmoticon ? i18nc("@title", "Add Sticker") : i18nc("@title", "Edit Sticker")) : (newEmoticon ? i18nc("@title", "Add Emoji") : i18nc("@title", "Edit Emoji"))
 
     FormCard.FormHeader {
         title: emoticonType === EmoticonFormCard.Stickers ? i18n("Sticker") : i18n("Emoji")
@@ -67,23 +66,22 @@ FormCard.FormCardPage {
                     MouseArea {
                         id: mouseArea
                         anchors.fill: parent
-                        property var fileDialog: null;
+                        property var fileDialog: null
                         cursorShape: Qt.PointingHandCursor
 
                         onClicked: {
                             if (fileDialog != null) {
                                 return;
                             }
-
-                            fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.Overlay)
-                            fileDialog.chosen.connect(function(receivedSource) {
+                            fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.Overlay);
+                            fileDialog.chosen.connect(function (receivedSource) {
                                 mouseArea.fileDialog = null;
                                 if (!receivedSource) {
                                     return;
                                 }
                                 parent.source = receivedSource;
                             });
-                            fileDialog.onRejected.connect(function() {
+                            fileDialog.onRejected.connect(function () {
                                 mouseArea.fileDialog = null;
                             });
                             fileDialog.open();
@@ -112,19 +110,19 @@ FormCard.FormCardPage {
             enabled: !root.newEmoticon || (image.source.toString().length > 0 && shortcode.text && description.text)
             onClicked: {
                 if (root.newEmoticon) {
-                    model.addEmoticon(image.source, shortcode.text, description.text, emoticonType === EmoticonFormCard.Stickers ? "sticker" : "emoticon")
+                    model.addEmoticon(image.source, shortcode.text, description.text, emoticonType === EmoticonFormCard.Stickers ? "sticker" : "emoticon");
                 } else {
                     if (description.text !== root.description) {
-                        root.model.setEmoticonBody(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, description.text)
+                        root.model.setEmoticonBody(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, description.text);
                     }
                     if (shortcode.text !== root.shortcode) {
-                        root.model.setEmoticonShortcode(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, shortcode.text)
+                        root.model.setEmoticonShortcode(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, shortcode.text);
                     }
                     if (image.source + "" !== root.url) {
-                        root.model.setEmoticonImage(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, image.source)
+                        root.model.setEmoticonImage(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, image.source);
                     }
                 }
-                root.closeDialog()
+                root.closeDialog();
             }
         }
     }

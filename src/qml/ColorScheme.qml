@@ -16,7 +16,7 @@ FormCard.FormComboBoxDelegate {
     textRole: "display"
     valueRole: "display"
     model: ColorSchemer.model
-    Component.onCompleted: currentIndex = ColorSchemer.indexForScheme(Config.colorScheme);
+    Component.onCompleted: currentIndex = ColorSchemer.indexForScheme(Config.colorScheme)
     onCurrentValueChanged: {
         ColorSchemer.apply(currentIndex);
         Config.colorScheme = ColorSchemer.nameForIndex(currentIndex);

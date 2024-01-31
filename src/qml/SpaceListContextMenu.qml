@@ -21,7 +21,7 @@ Loader {
     property NeoChatRoom room
     required property NeoChatConnection connection
 
-    signal closed()
+    signal closed
 
     Component {
         id: regularMenu
@@ -29,23 +29,28 @@ Loader {
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "View Space")
                 icon.name: "view-list-details"
-                onTriggered: RoomManager.resolveResource(room.id);
+                onTriggered: RoomManager.resolveResource(room.id)
             }
 
             QQC2.MenuItem {
                 text: i18nc("@action:inmenu", "Copy Address to Clipboard")
                 icon.name: "edit-copy"
                 onTriggered: if (room.canonicalAlias.length === 0) {
-                    Clipboard.saveText(room.id)
+                    Clipboard.saveText(room.id);
                 } else {
-                    Clipboard.saveText(room.canonicalAlias)
+                    Clipboard.saveText(room.canonicalAlias);
                 }
             }
 
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Space Settings")
                 icon.name: 'settings-configure'
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {room: room, connection: connection}, { title: i18n("Space Settings") })
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                    room: room,
+                    connection: connection
+                }, {
+                    title: i18n("Space Settings")
+                })
             }
 
             QQC2.MenuSeparator {}
@@ -57,8 +62,8 @@ Loader {
             }
 
             onClosed: {
-                root.closed()
-                regularMenu.destroy()
+                root.closed();
+                regularMenu.destroy();
             }
         }
     }
@@ -109,7 +114,7 @@ Loader {
                 FormCard.FormButtonDelegate {
                     text: i18nc("'Space' is a matrix space", "View Space")
                     icon.name: "view-list-details"
-                    onClicked: RoomManager.resolveResource(root.room.id);
+                    onClicked: RoomManager.resolveResource(root.room.id)
                 }
 
                 FormCard.FormButtonDelegate {
@@ -125,7 +130,12 @@ Loader {
                 FormCard.FormButtonDelegate {
                     text: i18nc("'Space' is a matrix space", "Space Settings")
                     icon.name: 'settings-configure'
-                    onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {room: room, connection: connection}, { title: i18n("Space Settings") })
+                    onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                        room: room,
+                        connection: connection
+                    }, {
+                        title: i18n("Space Settings")
+                    })
                 }
 
                 FormCard.FormButtonDelegate {

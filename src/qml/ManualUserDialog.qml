@@ -20,7 +20,7 @@ Kirigami.Dialog {
     /**
      * @brief Thrown when a user is selected.
      */
-    signal userSelected()
+    signal userSelected
 
     title: i18nc("@title", "User ID")
 
@@ -37,7 +37,7 @@ Kirigami.Dialog {
             text: i18n("OK")
             icon.name: "dialog-ok"
             onTriggered: {
-                root.connection.openOrCreateDirectChat(userIdText.text)
+                root.connection.openOrCreateDirectChat(userIdText.text);
                 root.accept();
             }
         }
@@ -75,7 +75,7 @@ Kirigami.Dialog {
     }
 
     onVisibleChanged: {
-        userIdText.forceActiveFocus()
-        timer.restart()
+        userIdText.forceActiveFocus();
+        timer.restart();
     }
 }

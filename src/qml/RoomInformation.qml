@@ -82,7 +82,12 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/DevtoolsPage.qml", {room: root.room, connection: root.connection}, {title: i18n("Developer Tools")})
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/DevtoolsPage.qml", {
+                        room: root.room,
+                        connection: root.connection
+                    }, {
+                        title: i18n("Developer Tools")
+                    });
                 }
             }
 
@@ -99,7 +104,7 @@ QQC2.ScrollView {
                         room: root.room
                     }, {
                         title: i18nc("@action:title", "Search")
-                    })
+                    });
                 }
             }
 
@@ -142,7 +147,11 @@ QQC2.ScrollView {
                     icon.name: "list-add-user"
 
                     onClicked: {
-                        applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/InviteUserPage.qml", {room: root.room}, {title: i18nc("@title", "Invite a User")})
+                        applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/InviteUserPage.qml", {
+                            room: root.room
+                        }, {
+                            title: i18nc("@title", "Invite a User")
+                        });
                     }
 
                     QQC2.ToolTip.text: i18n("Invite user to room")
@@ -160,7 +169,9 @@ QQC2.ScrollView {
                 id: userListSearchField
 
                 visible: !root.room.isDirectChat()
-                onVisibleChanged: if (visible) forceActiveFocus()
+                onVisibleChanged: if (visible) {
+                    forceActiveFocus();
+                }
                 Layout.fillWidth: true
                 Layout.leftMargin: Kirigami.Units.largeSpacing
                 Layout.rightMargin: Kirigami.Units.largeSpacing
@@ -168,7 +179,7 @@ QQC2.ScrollView {
 
                 focusSequence: "Ctrl+Shift+F"
 
-                onAccepted: sortedMessageEventModel.filterString = text;
+                onAccepted: sortedMessageEventModel.filterString = text
             }
         }
 
@@ -205,7 +216,7 @@ QQC2.ScrollView {
 
             onClicked: {
                 userDelegate.highlighted = true;
-                RoomManager.resolveResource(userDelegate.userId, "mention")
+                RoomManager.resolveResource(userDelegate.userId, "mention");
             }
 
             contentItem: RowLayout {
@@ -258,6 +269,6 @@ QQC2.ScrollView {
         if (root.headerItem) {
             root.headerItem.userListSearchField.text = "";
         }
-        userList.currentIndex = -1
+        userList.currentIndex = -1;
     }
 }

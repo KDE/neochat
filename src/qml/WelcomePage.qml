@@ -62,8 +62,8 @@ FormCard.FormCardPage {
             delegate: FormCard.FormButtonDelegate {
                 text: model.userId
                 onClicked: {
-                    Controller.activeConnection = model.connection
-                    root.connectionChosen()
+                    Controller.activeConnection = model.connection;
+                    root.connectionChosen();
                 }
             }
         }
@@ -96,9 +96,9 @@ FormCard.FormCardPage {
                     headerMessage.text = "";
                     headerMessage.visible = false;
                     if (!module.item.noControls) {
-                        module.item.forceActiveFocus()
+                        module.item.forceActiveFocus();
                     } else {
-                        continueButton.forceActiveFocus()
+                        continueButton.forceActiveFocus();
                     }
                 }
 
@@ -122,16 +122,16 @@ FormCard.FormCardPage {
                 target: Registration
                 function onNextStepChanged() {
                     if (Registration.nextStep === "m.login.recaptcha") {
-                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Captcha.qml")
+                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Captcha.qml");
                     }
                     if (Registration.nextStep === "m.login.terms") {
-                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Terms.qml")
+                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Terms.qml");
                     }
                     if (Registration.nextStep === "m.login.email.identity") {
-                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Email.qml")
+                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Email.qml");
                     }
                     if (Registration.nextStep === "loading") {
-                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Loading.qml")
+                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Loading.qml");
                     }
                 }
             }
@@ -168,10 +168,10 @@ FormCard.FormCardPage {
     }
 
     Component.onCompleted: {
-        LoginHelper.init()
-        module.item.forceActiveFocus()
-        Registration.username = ""
-        Registration.password = ""
-        Registration.email = ""
+        LoginHelper.init();
+        module.item.forceActiveFocus();
+        Registration.username = "";
+        Registration.password = "";
+        Registration.email = "";
     }
 }

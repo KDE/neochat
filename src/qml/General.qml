@@ -48,15 +48,13 @@ FormCard.FormCardPage {
                     display: QQC2.AbstractButton.IconOnly
 
                     onClicked: {
-                        const fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay)
-
-                        fileDialog.chosen.connect(function(path) {
-                            if (!path) return
-
-                            room.changeAvatar(path)
-                        })
-
-                        fileDialog.open()
+                        const fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay);
+                        fileDialog.chosen.connect(function (path) {
+                            if (!path)
+                                return;
+                            room.changeAvatar(path);
+                        });
+                        fileDialog.open();
                     }
 
                     QQC2.ToolTip.text: text
@@ -107,11 +105,10 @@ FormCard.FormCardPage {
                     text: i18n("Save")
                     onClicked: {
                         if (room.name != roomNameField.text) {
-                            room.setName(roomNameField.text)
+                            room.setName(roomNameField.text);
                         }
-
                         if (room.topic != roomTopicField.text) {
-                            room.setTopic(roomTopicField.text)
+                            room.setTopic(roomTopicField.text);
                         }
                     }
                 }
@@ -129,7 +126,7 @@ FormCard.FormCardPage {
                 display: QQC2.AbstractButton.IconOnly
 
                 onClicked: {
-                    Clipboard.saveText(room.id)
+                    Clipboard.saveText(room.id);
                 }
 
                 QQC2.ToolTip.text: text
@@ -149,8 +146,8 @@ FormCard.FormCardPage {
 
                 onClicked: {
                     if (room.canSwitchVersions()) {
-                        roomUpgradeSheet.currentRoomVersion = room.version
-                        roomUpgradeSheet.open()
+                        roomUpgradeSheet.currentRoomVersion = room.version;
+                        roomUpgradeSheet.open();
                     }
                 }
 
@@ -186,7 +183,7 @@ FormCard.FormCardPage {
                         display: QQC2.AbstractButton.IconOnly
 
                         onClicked: {
-                            room.setCanonicalAlias(modelData)
+                            room.setCanonicalAlias(modelData);
                         }
                         QQC2.ToolTip {
                             text: setCanonicalAliasButton.text
@@ -201,7 +198,7 @@ FormCard.FormCardPage {
                         display: QQC2.AbstractButton.IconOnly
 
                         onClicked: {
-                            room.unmapAlias(modelData)
+                            room.unmapAlias(modelData);
                         }
                         QQC2.ToolTip {
                             text: deleteButton.text
@@ -209,13 +206,12 @@ FormCard.FormCardPage {
                         }
                     }
                 ]
-
             }
         }
         FormCard.AbstractFormDelegate {
             visible: room.canSendState("m.room.canonical_alias")
 
-            contentItem : RowLayout {
+            contentItem: RowLayout {
                 Kirigami.ActionTextField {
                     id: aliasAddField
 
@@ -227,12 +223,12 @@ FormCard.FormCardPage {
                         icon.name: "edit-clear"
                         visible: aliasAddField.text.length > 0
                         onTriggered: {
-                            aliasAddField.text = ""
+                            aliasAddField.text = "";
                         }
                     }
 
                     onAccepted: {
-                        room.mapAlias(aliasAddField.text)
+                        room.mapAlias(aliasAddField.text);
                     }
                 }
                 QQC2.Button {
@@ -245,7 +241,7 @@ FormCard.FormCardPage {
                     enabled: aliasAddField.text.length > 0
 
                     onClicked: {
-                        room.mapAlias(aliasAddField.text)
+                        room.mapAlias(aliasAddField.text);
                     }
 
                     QQC2.ToolTip {
@@ -266,7 +262,7 @@ FormCard.FormCardPage {
             checked: room.defaultUrlPreviewState
             visible: room.canSendState("org.matrix.room.preview_urls")
             onToggled: {
-                room.defaultUrlPreviewState = checked
+                room.defaultUrlPreviewState = checked;
             }
         }
         FormCard.FormCheckDelegate {
@@ -275,7 +271,7 @@ FormCard.FormCardPage {
             description: room.defaultUrlPreviewState ? i18n("URL previews are enabled by default in this room") : i18n("URL previews are disabled by default in this room")
             checked: room.urlPreviewEnabled
             onToggled: {
-                room.urlPreviewEnabled = checked
+                room.urlPreviewEnabled = checked;
             }
         }
     }
@@ -353,7 +349,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             visible: root.room.canSendState("m.space.parent")
             text: i18nc("@action:button", "Add new official parent")
-            onClicked: selectParentDialog.createObject(applicationWindow().overlay).open();
+            onClicked: selectParentDialog.createObject(applicationWindow().overlay).open()
 
             Component {
                 id: selectParentDialog
@@ -418,11 +414,10 @@ FormCard.FormCardPage {
             QQC2.Button {
                 text: i18n("Confirm")
                 onClicked: {
-                    room.switchVersion(spinBox.value)
-                    roomUpgradeSheet.close()
+                    room.switchVersion(spinBox.value);
+                    roomUpgradeSheet.close();
                 }
             }
         }
     }
 }
-

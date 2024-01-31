@@ -19,7 +19,7 @@ QQC2.ScrollView {
     required property NeoChatRoom currentRoom
     onCurrentRoomChanged: {
         roomChanging = true;
-        roomChangingTimer.restart()
+        roomChangingTimer.restart();
         applicationWindow().hoverLinkIndicator.text = "";
         messageListView.positionViewAtBeginning();
         hasScrolledUpBefore = false;
@@ -54,9 +54,9 @@ QQC2.ScrollView {
     property alias interactive: messageListView.interactive
 
     /// Used to determine if scrolling to the bottom should mark the message as unread
-    property bool hasScrolledUpBefore: false;
+    property bool hasScrolledUpBefore: false
 
-    signal focusChatBar()
+    signal focusChatBar
 
     QQC2.ScrollBar.vertical.interactive: false
 
@@ -100,8 +100,8 @@ QQC2.ScrollView {
             id: roomChangingTimer
             interval: 1000
             onTriggered: {
-                root.roomChanging = false
-                markReadIfVisibleTimer.reset()
+                root.roomChanging = false;
+                markReadIfVisibleTimer.reset();
             }
         }
         onAtYEndChanged: if (!root.roomChanging) {
@@ -169,7 +169,7 @@ QQC2.ScrollView {
                     if (!Kirigami.Settings.isMobile) {
                         root.focusChatBar();
                     }
-                    messageListView.goToEvent(root.currentRoom.readMarkerEventId)
+                    messageListView.goToEvent(root.currentRoom.readMarkerEventId);
                 }
                 icon.name: "go-up"
                 shortcut: "Shift+PgUp"
@@ -231,12 +231,7 @@ QQC2.ScrollView {
         TypingPane {
             id: typingPane
             visible: root.currentRoom && root.currentRoom.usersTyping.length > 0
-            labelText: visible ? i18ncp(
-                "Message displayed when some users are typing", "%2 is typing", "%2 are typing",
-                root.currentRoom.usersTyping.length,
-                root.currentRoom.usersTyping.map(user => user.displayName).join(", ")
-            ) :
-            ""
+            labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.currentRoom.usersTyping.length, root.currentRoom.usersTyping.map(user => user.displayName).join(", ")) : ""
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             height: visible ? implicitHeight : 0
@@ -251,9 +246,9 @@ QQC2.ScrollView {
         }
 
         function goToEvent(eventID) {
-            const index = eventToIndex(eventID)
-            messageListView.positionViewAtIndex(index, ListView.Center)
-            itemAtIndex(index).isTemporaryHighlighted = true
+            const index = eventToIndex(eventID);
+            messageListView.positionViewAtIndex(index, ListView.Center);
+            itemAtIndex(index).isTemporaryHighlighted = true;
         }
 
         HoverActions {
@@ -272,7 +267,7 @@ QQC2.ScrollView {
             target: root.timelineModel
 
             function onRowsInserted() {
-                markReadIfVisibleTimer.reset()
+                markReadIfVisibleTimer.reset();
             }
         }
 
@@ -283,8 +278,10 @@ QQC2.ScrollView {
             onTriggered: root.currentRoom.markAllMessagesAsRead()
 
             function reset() {
-                restart()
-                running = Qt.binding(function() { return messageListView.allUnreadVisible() && applicationWindow().active && (root.currentRoom.timelineSize > 0 || root.currentRoom.allHistoryLoaded) })
+                restart();
+                running = Qt.binding(function () {
+                    return messageListView.allUnreadVisible() && applicationWindow().active && (root.currentRoom.timelineSize > 0 || root.currentRoom.allHistoryLoaded);
+                });
             }
         }
 
@@ -298,13 +295,13 @@ QQC2.ScrollView {
 
                 function processFancyEffectsReason(fancyEffect) {
                     if (fancyEffect === "snowflake") {
-                        fancyEffectsContainer.showSnowEffect()
+                        fancyEffectsContainer.showSnowEffect();
                     }
                     if (fancyEffect === "fireworks") {
-                        fancyEffectsContainer.showFireworksEffect()
+                        fancyEffectsContainer.showFireworksEffect();
                     }
                     if (fancyEffect === "confetti") {
-                        fancyEffectsContainer.showConfettiEffect()
+                        fancyEffectsContainer.showConfettiEffect();
                     }
                 }
 
@@ -313,7 +310,7 @@ QQC2.ScrollView {
                     target: root.timelineModel.messageEventModel
 
                     function onFancyEffectsReasonFound(fancyEffect) {
-                        fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
+                        fancyEffectsContainer.processFancyEffectsReason(fancyEffect);
                     }
                 }
 
@@ -322,62 +319,62 @@ QQC2.ScrollView {
                     target: actionsHandler
 
                     function onShowEffect(fancyEffect) {
-                        fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
+                        fancyEffectsContainer.processFancyEffectsReason(fancyEffect);
                     }
                 }
             }
         }
 
         function goToLastMessage() {
-            root.currentRoom.markAllMessagesAsRead()
+            root.currentRoom.markAllMessagesAsRead();
             // scroll to the very end, i.e to messageListView.YEnd
-            messageListView.positionViewAtIndex(0, ListView.End)
+            messageListView.positionViewAtIndex(0, ListView.End);
         }
 
         function eventToIndex(eventID) {
-            const index = root.timelineModel.messageEventModel.eventIdToRow(eventID)
+            const index = root.timelineModel.messageEventModel.eventIdToRow(eventID);
             if (index === -1)
-                return -1
-            return root.messageFilterModel.mapFromSource(root.timelineModel.index(index, 0)).row
+                return -1;
+            return root.messageFilterModel.mapFromSource(root.timelineModel.index(index, 0)).row;
         }
 
         function firstVisibleIndex() {
             let center = messageListView.x + messageListView.width / 2;
-            let index = -1
-            let i = 0
+            let index = -1;
+            let i = 0;
             while (index === -1 && i < 100) {
                 index = messageListView.indexAt(center, messageListView.y + messageListView.contentY + i);
                 i++;
             }
-            return index
+            return index;
         }
 
         function lastVisibleIndex() {
             let center = messageListView.x + messageListView.width / 2;
-            let index = -1
-            let i = 0
+            let index = -1;
+            let i = 0;
             while (index === -1 && i < 100) {
                 index = messageListView.indexAt(center, messageListView.y + messageListView.contentY + messageListView.height - i);
-                i++
+                i++;
             }
             return index;
         }
 
         function allUnreadVisible() {
-            let readMarkerRow = eventToIndex(root.currentRoom.readMarkerEventId)
+            let readMarkerRow = eventToIndex(root.currentRoom.readMarkerEventId);
             if (readMarkerRow >= 0 && readMarkerRow < firstVisibleIndex() && messageListView.atYEnd) {
-                return true
+                return true;
             }
-            return false
+            return false;
         }
 
         function setHoverActionsToDelegate(delegate) {
-            hoverActions.delegate = delegate
+            hoverActions.delegate = delegate;
         }
     }
 
     function goToLastMessage() {
-        messageListView.goToLastMessage()
+        messageListView.goToLastMessage();
     }
 
     function pageUp() {
@@ -395,6 +392,6 @@ QQC2.ScrollView {
     }
 
     function positionViewAtBeginning() {
-        messageListView.positionViewAtBeginning()
+        messageListView.positionViewAtBeginning();
     }
 }

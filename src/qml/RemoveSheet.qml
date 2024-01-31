@@ -46,11 +46,11 @@ Kirigami.Page {
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 onClicked: {
                     if (root.userId.length > 0) {
-                        root.room.deleteMessagesByUser(root.userId, reason.text)
+                        root.room.deleteMessagesByUser(root.userId, reason.text);
                     } else {
                         root.room.redactEvent(root.eventId, reason.text);
                     }
-                    root.closeDialog()
+                    root.closeDialog();
                 }
             }
             QQC2.Button {

@@ -37,7 +37,7 @@ Components.AlbumMaximizeComponent {
     downloadAction: Components.DownloadAction {
         id: downloadAction
         onTriggered: {
-            currentRoom.downloadFile(root.currentEventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.currentEventId))
+            currentRoom.downloadFile(root.currentEventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.currentEventId));
         }
     }
 
@@ -46,7 +46,7 @@ Components.AlbumMaximizeComponent {
 
         function onFileTransferProgress(id, progress, total) {
             if (id == root.currentEventId) {
-                downloadAction.progress = progress / total * 100.0
+                downloadAction.progress = progress / total * 100.0;
             }
         }
     }
@@ -55,7 +55,7 @@ Components.AlbumMaximizeComponent {
         target: content
 
         function onCurrentIndexChanged() {
-            downloadAction.progress = currentProgressInfo.progress / currentProgressInfo.total * 100.0
+            downloadAction.progress = currentProgressInfo.progress / currentProgressInfo.total * 100.0;
         }
     }
 
@@ -87,25 +87,18 @@ Components.AlbumMaximizeComponent {
             }
         }
     }
-    onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId,
-                                                  root.currentAuthor,
-                                                  root.currentDelegateType,
-                                                  root.currentPlainText,
-                                                  "",
-                                                  "",
-                                                  root.currentMimeType,
-                                                  root.currentProgressInfo)
+    onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId, root.currentAuthor, root.currentDelegateType, root.currentPlainText, "", "", root.currentMimeType, root.currentProgressInfo)
 
     onSaveItem: {
-        var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay)
-        dialog.open()
-        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.currentEventId)
+        var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay);
+        dialog.open();
+        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.currentEventId);
     }
 
     Connections {
         target: RoomManager
         function onCloseFullScreen() {
-            root.close()
+            root.close();
         }
     }
 
@@ -115,12 +108,12 @@ Components.AlbumMaximizeComponent {
             fileMode: FileDialog.SaveFile
             folder: root.saveFolder
             onAccepted: {
-                Config.lastSaveDirectory = folder
-                Config.save()
+                Config.lastSaveDirectory = folder;
+                Config.save();
                 if (!currentFile) {
                     return;
                 }
-                currentRoom.downloadFile(rooteventId, currentFile)
+                currentRoom.downloadFile(rooteventId, currentFile);
             }
         }
     }

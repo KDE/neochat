@@ -47,24 +47,32 @@ Labs.MenuBar {
         Labs.MenuItem {
             text: i18nc("menu", "Find your friends")
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
-            onTriggered: pushReplaceLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
+            onTriggered: pushReplaceLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Find your friends")
+            })
         }
         Labs.MenuItem {
             text: i18nc("menu", "New Group…")
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
             shortcut: StandardKey.New
             onTriggered: {
-                const dialog = createRoomDialog.createObject(root.overlay)
-                dialog.open()
+                const dialog = createRoomDialog.createObject(root.overlay);
+                dialog.open();
             }
         }
         Labs.MenuItem {
             text: i18nc("menu", "Browse Chats…")
             onTriggered: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
+                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                    connection: root.connection
+                }, {
+                    title: i18nc("@title", "Explore Rooms")
+                });
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                    RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join")
-                })
+                    RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
+                });
             }
         }
     }

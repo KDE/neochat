@@ -19,10 +19,10 @@ LoginStep {
     Connections {
         target: LoginHelper
         function onSsoUrlChanged() {
-            UrlHelper.openUrl(LoginHelper.ssoUrl)
+            UrlHelper.openUrl(LoginHelper.ssoUrl);
         }
         function onConnected() {
-            processed("qrc:/org/kde/neochat/qml/Loading.qml")
+            processed("qrc:/org/kde/neochat/qml/Loading.qml");
         }
     }
 
@@ -39,4 +39,3 @@ LoginStep {
         onTriggered: UrlHelper.openUrl(LoginHelper.ssoUrl)
     }
 }
-

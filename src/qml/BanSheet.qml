@@ -44,8 +44,8 @@ Kirigami.Page {
                 icon.name: "im-ban-user"
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 onClicked: {
-                    root.room.ban(root.userId, reason.text)
-                    root.closeDialog()
+                    root.room.ban(root.userId, reason.text);
+                    root.closeDialog();
                 }
             }
             QQC2.Button {

@@ -54,15 +54,14 @@ Kirigami.Page {
                     sharingSuccess.sendEvent();
                     Clipboard.saveText(jobView.output.url);
                 }
-                root.closeDialog()
+                root.closeDialog();
             } else if (state === Purpose.PurposeJobController.Error) {
                 // Show failure notification
                 sharingFailed.sendEvent();
-
-                root.closeDialog()
+                root.closeDialog();
             } else if (state === Purpose.PurposeJobController.Cancelled) {
                 // Do nothing
-                root.closeDialog()
+                root.closeDialog();
             }
         }
     }

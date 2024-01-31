@@ -42,8 +42,10 @@ MessageDelegate {
             TapHandler {
                 acceptedButtons: Qt.LeftButton
                 onTapped: {
-                    let map = fullScreenMap.createObject(parent, {liveLocationModel: liveLocationModel});
-                    map.open()
+                    let map = fullScreenMap.createObject(parent, {
+                        liveLocationModel: liveLocationModel
+                    });
+                    map.open();
                 }
                 onLongPressed: openMessageContext("")
             }
@@ -54,7 +56,7 @@ MessageDelegate {
             Connections {
                 target: mapView.map
                 function onCopyrightLinkActivated() {
-                    Qt.openUrlExternally(link)
+                    Qt.openUrlExternally(link);
                 }
             }
         }

@@ -33,7 +33,7 @@ Item {
     required property bool canRemove
     required property NeoChatRoom parentRoom
 
-    signal createRoom()
+    signal createRoom
 
     Delegates.RoundedItemDelegate {
         anchors.centerIn: root
@@ -143,9 +143,9 @@ Item {
         TapHandler {
             onTapped: {
                 if (root.isSpace) {
-                    root.treeView.toggleExpanded(row)
+                    root.treeView.toggleExpanded(row);
                 } else {
-                    RoomManager.resolveResource(root.roomId, root.isJoined ? "" : "join")
+                    RoomManager.resolveResource(root.roomId, root.isJoined ? "" : "join");
                 }
             }
         }

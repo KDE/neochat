@@ -183,7 +183,7 @@ QQC2.Control {
             Connections {
                 target: replyLoader.item
                 function onReplyClicked() {
-                    replyClicked(root.replyId)
+                    replyClicked(root.replyId);
                 }
             }
         }
@@ -202,20 +202,22 @@ QQC2.Control {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
         color: if (root.author.isLocalUser) {
-            return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
+            return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15);
         } else if (root.showHighlight) {
-            return Kirigami.Theme.positiveBackgroundColor
+            return Kirigami.Theme.positiveBackgroundColor;
         } else {
-            return Kirigami.Theme.backgroundColor
+            return Kirigami.Theme.backgroundColor;
         }
         radius: Kirigami.Units.smallSpacing
         shadow {
-            size:  Kirigami.Units.smallSpacing
+            size: Kirigami.Units.smallSpacing
             color: root.showHighlight ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
         }
 
         Behavior on color {
-            ColorAnimation { duration: Kirigami.Units.shortDuration }
+            ColorAnimation {
+                duration: Kirigami.Units.shortDuration
+            }
         }
     }
 

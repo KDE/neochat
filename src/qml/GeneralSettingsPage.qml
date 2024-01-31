@@ -26,12 +26,15 @@ FormCard.FormCardPage {
             visible: Controller.supportSystemTray
             enabled: !Config.isSystemTrayImmutable
             onToggled: {
-                Config.systemTray = checked
-                Config.save()
+                Config.systemTray = checked;
+                Config.save();
             }
         }
 
-        FormCard.FormDelegateSeparator { above: closeDelegate; below: minimizeDelegate }
+        FormCard.FormDelegateSeparator {
+            above: closeDelegate
+            below: minimizeDelegate
+        }
 
         FormCard.FormCheckDelegate {
             id: minimizeDelegate
@@ -40,12 +43,15 @@ FormCard.FormCardPage {
             visible: Controller.supportSystemTray && !Kirigami.Settings.isMobile
             enabled: Config.systemTray && !Config.isMinimizeToSystemTrayOnStartupImmutable
             onToggled: {
-                Config.minimizeToSystemTrayOnStartup = checked
-                Config.save()
+                Config.minimizeToSystemTrayOnStartup = checked;
+                Config.save();
             }
         }
 
-        FormCard.FormDelegateSeparator { above: minimizeDelegate; below: automaticallyDelegate }
+        FormCard.FormDelegateSeparator {
+            above: minimizeDelegate
+            below: automaticallyDelegate
+        }
 
         FormCard.FormCheckDelegate {
             id: automaticallyDelegate
@@ -54,8 +60,8 @@ FormCard.FormCardPage {
             enabled: !Config.isAutoRoomInfoDrawerImmutable
             visible: Qt.platform.os !== "android"
             onToggled: {
-                Config.autoRoomInfoDrawer = checked
-                Config.save()
+                Config.autoRoomInfoDrawer = checked;
+                Config.save();
             }
         }
     }
@@ -69,12 +75,15 @@ FormCard.FormCardPage {
             checked: Config.showDeletedMessages
             enabled: !Config.isShowDeletedMessagesImmutable
             onToggled: {
-                Config.showDeletedMessages = checked
-                Config.save()
+                Config.showDeletedMessages = checked;
+                Config.save();
             }
         }
 
-        FormCard.FormDelegateSeparator { above: showDeletedMessages; below: showStateEvents }
+        FormCard.FormDelegateSeparator {
+            above: showDeletedMessages
+            below: showStateEvents
+        }
 
         FormCard.FormCheckDelegate {
             id: showStateEvents
@@ -82,15 +91,16 @@ FormCard.FormCardPage {
             checked: Config.showStateEvent
             enabled: !Config.isShowStateEventImmutable
             onToggled: {
-                Config.showStateEvent = checked
-                Config.save()
+                Config.showStateEvent = checked;
+                Config.save();
             }
         }
 
         FormCard.FormDelegateSeparator {
             visible: Config.showStateEvent
             above: showStateEvents
-            below: showLeaveJoinEventDelegate }
+            below: showLeaveJoinEventDelegate
+        }
 
         FormCard.FormCheckDelegate {
             id: showLeaveJoinEventDelegate
@@ -99,8 +109,8 @@ FormCard.FormCardPage {
             checked: Config.showLeaveJoinEvent
             enabled: !Config.isShowLeaveJoinEventImmutable
             onToggled: {
-                Config.showLeaveJoinEvent = checked
-                Config.save()
+                Config.showLeaveJoinEvent = checked;
+                Config.save();
             }
         }
 
@@ -117,8 +127,8 @@ FormCard.FormCardPage {
             checked: Config.showRename
             enabled: !Config.isShowRenameImmutable
             onToggled: {
-                Config.showRename = checked
-                Config.save()
+                Config.showRename = checked;
+                Config.save();
             }
         }
 
@@ -135,8 +145,8 @@ FormCard.FormCardPage {
             checked: Config.showAvatarUpdate
             enabled: !Config.isShowAvatarUpdateImmutable
             onToggled: {
-                Config.showAvatarUpdate = checked
-                Config.save()
+                Config.showAvatarUpdate = checked;
+                Config.save();
             }
         }
     }
@@ -150,19 +160,22 @@ FormCard.FormCardPage {
             checked: Config.allowQuickEdit
             enabled: !Config.isAllowQuickEditImmutable
             onToggled: {
-                Config.allowQuickEdit = checked
-                Config.save()
+                Config.allowQuickEdit = checked;
+                Config.save();
             }
         }
-        FormCard.FormDelegateSeparator { above: quickEditCheckbox; below: typingNotificationsDelegate }
+        FormCard.FormDelegateSeparator {
+            above: quickEditCheckbox
+            below: typingNotificationsDelegate
+        }
         FormCard.FormCheckDelegate {
             id: typingNotificationsDelegate
             text: i18n("Send typing notifications")
             checked: Config.typingNotifications
             enabled: !Config.isTypingNotificationsImmutable
             onToggled: {
-                Config.typingNotifications = checked
-                Config.save()
+                Config.typingNotifications = checked;
+                Config.save();
             }
         }
     }
@@ -175,8 +188,8 @@ FormCard.FormCardPage {
             checked: Config.developerTools
             enabled: !Config.isDeveloperToolsImmutable
             onToggled: {
-                Config.developerTools = checked
-                Config.save()
+                Config.developerTools = checked;
+                Config.save();
             }
         }
     }

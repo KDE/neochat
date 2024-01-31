@@ -38,7 +38,7 @@ QQC2.Dialog {
             text: i18n("Activate Encryption")
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             onClicked: {
-                root.room.activateEncryption()
+                root.room.activateEncryption();
                 root.close();
             }
         }

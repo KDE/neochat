@@ -51,7 +51,7 @@ FormCard.FormCard {
                     emoticonType: root.emoticonType
                 }, {
                     title: root.emoticonType === EmoticonFormCard.Emojis ? i18nc("@title", "Edit Emoji") : i18nc("@title", "Edit Sticker")
-                });
+                })
 
                 contentItem: ColumnLayout {
                     Image {
@@ -101,7 +101,7 @@ FormCard.FormCard {
                 emoticonType: root.emoticonType
             }, {
                 title: root.emoticonType === EmoticonFormCard.Emojis ? i18nc("@title", "Add Emoji") : i18nc("@title", "Add Sticker")
-            });
+            })
             contentItem: ColumnLayout {
                 spacing: 0
                 Kirigami.Icon {

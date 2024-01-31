@@ -37,7 +37,7 @@ Kirigami.Dialog {
             text: i18n("OK")
             icon.name: "dialog-ok"
             onTriggered: {
-                root.room.addParent(chosenRoomDelegate.roomId, makeCanonicalCheck.checked, existingOfficialCheck.checked)
+                root.room.addParent(chosenRoomDelegate.roomId, makeCanonicalCheck.checked, existingOfficialCheck.checked);
                 root.close();
             }
         }
@@ -49,7 +49,12 @@ Kirigami.Dialog {
             visible: !chosenRoomDelegate.visible
             text: i18nc("@action:button", "Pick room")
             onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.room.connection, showOnlySpaces: true}, {title: i18nc("@title", "Choose Parent Space")})
+                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                    connection: root.room.connection,
+                    showOnlySpaces: true
+                }, {
+                    title: i18nc("@title", "Choose Parent Space")
+                });
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
                     chosenRoomDelegate.displayName = displayName;
@@ -59,7 +64,7 @@ Kirigami.Dialog {
                     chosenRoomDelegate.memberCount = memberCount;
                     chosenRoomDelegate.isJoined = isJoined;
                     chosenRoomDelegate.visible = true;
-                })
+                });
             }
         }
         FormCard.AbstractFormDelegate {
@@ -104,7 +109,7 @@ Kirigami.Dialog {
                     QQC2.Label {
                         Layout.fillWidth: true
                         visible: text
-                        text: chosenRoomDelegate.topic ? chosenRoomDelegate.topic.replace(/(\r\n\t|\n|\r\t)/gm," ") : ""
+                        text: chosenRoomDelegate.topic ? chosenRoomDelegate.topic.replace(/(\r\n\t|\n|\r\t)/gm, " ") : ""
                         textFormat: Text.PlainText
                         elide: Text.ElideRight
                         wrapMode: Text.NoWrap
@@ -128,7 +133,12 @@ Kirigami.Dialog {
             }
 
             onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.room.connection, showOnlySpaces: true}, {title: i18nc("@title", "Explore Rooms")})
+                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                    connection: root.room.connection,
+                    showOnlySpaces: true
+                }, {
+                    title: i18nc("@title", "Explore Rooms")
+                });
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
                     chosenRoomDelegate.displayName = displayName;
@@ -138,7 +148,7 @@ Kirigami.Dialog {
                     chosenRoomDelegate.memberCount = memberCount;
                     chosenRoomDelegate.isJoined = isJoined;
                     chosenRoomDelegate.visible = true;
-                })
+                });
             }
         }
         FormCard.FormCheckDelegate {

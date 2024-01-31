@@ -27,11 +27,10 @@ QQC2.Popup {
             text: i18n("Choose local file")
 
             onClicked: {
-                root.close()
-
-                var fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay)
-                fileDialog.chosen.connect(path => root.chosen(path))
-                fileDialog.open()
+                root.close();
+                var fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay);
+                fileDialog.chosen.connect(path => root.chosen(path));
+                fileDialog.open();
             }
         }
 
@@ -46,11 +45,11 @@ QQC2.Popup {
             icon.name: 'insert-image'
             text: i18n("Clipboard image")
             onClicked: {
-                const path = StandardPaths.standardLocations(StandardPaths.CacheLocation)[0] + "/screenshots/" + (new Date()).getTime() + ".png"
+                const path = StandardPaths.standardLocations(StandardPaths.CacheLocation)[0] + "/screenshots/" + (new Date()).getTime() + ".png";
                 if (!Clipboard.saveImage(path)) {
                     return;
                 }
-                root.chosen(path)
+                root.chosen(path);
                 root.close();
             }
         }

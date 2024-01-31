@@ -27,7 +27,7 @@ Kirigami.OverlayDrawer {
         if (Config.roomDrawerWidth === -1) {
             return Kirigami.Units.gridUnit * 20;
         } else {
-            return Config.roomDrawerWidth
+            return Config.roomDrawerWidth;
         }
     }
 
@@ -53,9 +53,9 @@ Kirigami.OverlayDrawer {
                 return;
             }
             if (Qt.application.layoutDirection === Qt.RightToLeft) {
-                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, Config.roomDrawerWidth - _lastX + mapToGlobal(mouseX, mouseY).x))
+                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, Config.roomDrawerWidth - _lastX + mapToGlobal(mouseX, mouseY).x));
             } else {
-                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, Config.roomDrawerWidth + _lastX - mapToGlobal(mouseX, mouseY).x))
+                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, Config.roomDrawerWidth + _lastX - mapToGlobal(mouseX, mouseY).x));
             }
         }
     }
@@ -65,7 +65,8 @@ Kirigami.OverlayDrawer {
 
     // If modal has been changed and the drawer is closed automatically then dim on popup open will have been switched off in main.qml so switch it back on after the animation completes.
     // This is to avoid dim being active for a split second when the drawer is switched to modal which looks terrible.
-    onAnimatingChanged: if (dim === false) dim = undefined
+    onAnimatingChanged: if (dim === false)
+        dim = undefined
 
     topPadding: 0
     bottomPadding: 0
@@ -101,7 +102,12 @@ Kirigami.OverlayDrawer {
                         text: i18n("Room settings")
                         display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {room: room, connection: root.connection}, { title: i18n("Room Settings") })
+                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                            room: room,
+                            connection: root.connection
+                        }, {
+                            title: i18n("Room Settings")
+                        })
 
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay

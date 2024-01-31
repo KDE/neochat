@@ -15,8 +15,8 @@ Delegates.RoundedItemDelegate {
 
     property url source
 
-    signal contextMenuRequested()
-    signal selected()
+    signal contextMenuRequested
+    signal selected
 
     padding: Kirigami.Units.largeSpacing
 
@@ -24,9 +24,9 @@ Delegates.RoundedItemDelegate {
     QQC2.ToolTip.text: text
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
-    Accessible.onPressAction: selected();
-    Keys.onSpacePressed: selected();
-    Keys.onEnterPressed: selected();
+    Accessible.onPressAction: selected()
+    Keys.onSpacePressed: selected()
+    Keys.onEnterPressed: selected()
 
     onPressAndHold: root.contextMenuRequested()
 

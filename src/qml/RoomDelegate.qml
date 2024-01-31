@@ -31,7 +31,7 @@ Delegates.RoundedItemDelegate {
 
     readonly property bool hasNotifications: currentRoom.pushNotificationState === PushNotificationState.MentionKeyword || currentRoom.isLowPriority ? highlightCount > 0 : notificationCount > 0
 
-    signal selected()
+    signal selected
 
     Accessible.name: root.displayName
     Accessible.onPressAction: select()
@@ -48,7 +48,7 @@ Delegates.RoundedItemDelegate {
             if (button === Qt.RightButton) {
                 root.createRoomListContextMenu();
             } else {
-                select()
+                select();
             }
         }
     }
@@ -57,7 +57,7 @@ Delegates.RoundedItemDelegate {
         spacing: Kirigami.Units.largeSpacing
 
         Components.Avatar {
-            source: root.avatar ? "image://mxc/" +  root.avatar : ""
+            source: root.avatar ? "image://mxc/" + root.avatar : ""
             name: root.displayName
             visible: Config.showAvatarInRoomDrawer
             implicitHeight: Kirigami.Units.gridUnit + (Config.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
@@ -149,11 +149,11 @@ Delegates.RoundedItemDelegate {
 
     function select() {
         RoomManager.resolveResource(currentRoom.id);
-        root.selected()
+        root.selected();
     }
 
     function createRoomListContextMenu() {
-        const component = Qt.createComponent("qrc:/org/kde/neochat/qml/ContextMenu.qml")
+        const component = Qt.createComponent("qrc:/org/kde/neochat/qml/ContextMenu.qml");
         if (component.status === Component.Error) {
             console.error(component.errorString());
         }
@@ -165,13 +165,12 @@ Delegates.RoundedItemDelegate {
             configButton.visible = true;
             configButton.down = true;
         }
-        menu.closed.connect(function() {
+        menu.closed.connect(function () {
             configButton.down = undefined;
             configButton.visible = Qt.binding(() => {
-                return root.hovered && !Kirigami.Settings.isMobile
-                    && !Config.compactRoomList;
+                return root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList;
             });
-        })
-        menu.open()
+        });
+        menu.open();
     }
 }

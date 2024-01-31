@@ -35,8 +35,8 @@ FormCard.FormCardPage {
             icon.name: "emblem-warning"
             enabled: passwordField.text.length > 0
             onClicked: {
-                root.connection.deactivateAccount(passwordField.text)
-                root.closeDialog()
+                root.connection.deactivateAccount(passwordField.text);
+                root.closeDialog();
             }
         }
     }

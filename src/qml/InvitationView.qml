@@ -26,14 +26,14 @@ Kirigami.PlaceholderMessage {
             }
         }
         QQC2.Button {
-            Layout.alignment : Qt.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter
             text: i18n("Reject")
 
-            onClicked: RoomManager.leaveRoom(root.currentRoom);
+            onClicked: RoomManager.leaveRoom(root.currentRoom)
         }
 
         QQC2.Button {
-            Layout.alignment : Qt.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter
             text: i18n("Accept")
 
             onClicked: {

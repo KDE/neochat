@@ -13,10 +13,11 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    onActiveFocusChanged: if (activeFocus) matrixIdField.forceActiveFocus()
+    onActiveFocusChanged: if (activeFocus)
+        matrixIdField.forceActiveFocus()
 
     Component.onCompleted: {
-        LoginHelper.matrixId = ""
+        LoginHelper.matrixId = "";
     }
 
     FormCard.FormTextFieldDelegate {
@@ -25,16 +26,16 @@ LoginStep {
         placeholderText: "@user:example.org"
         Accessible.name: i18n("Matrix ID")
         onTextChanged: {
-            LoginHelper.matrixId = text
+            LoginHelper.matrixId = text;
         }
 
         Keys.onReturnPressed: {
-            root.nextAction.trigger()
+            root.nextAction.trigger();
         }
     }
 
     nextAction: Kirigami.Action {
-        text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ?  i18n("Loading…") : i18nc("@action:button", "Continue")
+        text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ? i18n("Loading…") : i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
                 processed("qrc:/org/kde/neochat/qml/LoginMethod.qml");
@@ -48,7 +49,7 @@ LoginStep {
     }
     previousAction: Kirigami.Action {
         onTriggered: {
-            root.processed("qrc:/org/kde/neochat/qml/LoginRegister.qml")
+            root.processed("qrc:/org/kde/neochat/qml/LoginRegister.qml");
         }
     }
 }

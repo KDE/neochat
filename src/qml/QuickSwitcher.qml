@@ -26,7 +26,6 @@ QQC2.Dialog {
 
     anchors.centerIn: applicationWindow().overlay
 
-
     Shortcut {
         sequence: "Ctrl+K"
         onActivated: root.open()
@@ -34,28 +33,28 @@ QQC2.Dialog {
 
     onVisibleChanged: {
         if (!visible) {
-            return
+            return;
         }
-        searchField.forceActiveFocus()
-        searchField.text = ""
-        roomList.currentIndex = 0
+        searchField.forceActiveFocus();
+        searchField.text = "";
+        roomList.currentIndex = 0;
     }
 
     header: Kirigami.SearchField {
         id: searchField
         Keys.onDownPressed: {
-            roomList.forceActiveFocus()
+            roomList.forceActiveFocus();
             if (roomList.currentIndex < roomList.count - 1) {
-                roomList.currentIndex++
+                roomList.currentIndex++;
             } else {
-                roomList.currentIndex = 0
+                roomList.currentIndex = 0;
             }
         }
         Keys.onUpPressed: {
             if (roomList.currentIndex === 0) {
-                roomList.currentIndex = roomList.count - 1
+                roomList.currentIndex = roomList.count - 1;
             } else {
-                roomList.currentIndex--
+                roomList.currentIndex--;
             }
         }
         Keys.onEnterPressed: {

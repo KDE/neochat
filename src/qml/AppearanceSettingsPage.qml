@@ -31,7 +31,9 @@ FormCard.FormCardPage {
                 Item {
                     Layout.fillWidth: true
                 }
-                QQC2.ButtonGroup { id: themeGroup }
+                QQC2.ButtonGroup {
+                    id: themeGroup
+                }
                 ThemeRadioButton {
                     thin: timelineModeSetting.width < Kirigami.Units.gridUnit * 22
                     innerObject: [
@@ -196,7 +198,9 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { below: compactRoomListDelegate }
+        FormCard.FormDelegateSeparator {
+            below: compactRoomListDelegate
+        }
 
         FormCard.FormCheckDelegate {
             id: compactRoomListDelegate
@@ -208,7 +212,11 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: compactRoomListDelegate ; below: colorSchemeDelegate.item ; visible: colorSchemeDelegate.visible }
+        FormCard.FormDelegateSeparator {
+            above: compactRoomListDelegate
+            below: colorSchemeDelegate.item
+            visible: colorSchemeDelegate.visible
+        }
 
         Loader {
             id: colorSchemeDelegate
@@ -231,7 +239,10 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: showFancyEffectsDelegate ; below: hasWindowSystemDelegate }
+        FormCard.FormDelegateSeparator {
+            above: showFancyEffectsDelegate
+            below: hasWindowSystemDelegate
+        }
 
         FormCard.FormCheckDelegate {
             id: hasWindowSystemDelegate
@@ -245,7 +256,10 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: hasWindowSystemDelegate; below: transparencyDelegate }
+        FormCard.FormDelegateSeparator {
+            above: hasWindowSystemDelegate
+            below: transparencyDelegate
+        }
 
         FormCard.AbstractFormDelegate {
             id: transparencyDelegate
@@ -269,7 +283,9 @@ FormCard.FormCardPage {
                     }
                     Layout.fillWidth: true
 
-                    HoverHandler { id: sliderHover }
+                    HoverHandler {
+                        id: sliderHover
+                    }
                     QQC2.ToolTip.visible: sliderHover.hovered && !enabled
                     QQC2.ToolTip.text: i18n("Only enabled if the transparent chat page is enabled.")
                 }
@@ -280,7 +296,11 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: transparencyDelegate; below: showLocalMessagesOnRightDelegate; visible: transparencyDelegate.visible }
+        FormCard.FormDelegateSeparator {
+            above: transparencyDelegate
+            below: showLocalMessagesOnRightDelegate
+            visible: transparencyDelegate.visible
+        }
 
         FormCard.FormCheckDelegate {
             id: showLocalMessagesOnRightDelegate
@@ -288,24 +308,26 @@ FormCard.FormCardPage {
             checked: Config.showLocalMessagesOnRight
             enabled: !Config.isShowLocalMessagesOnRightImmutable && !Config.compactLayout
             onToggled: {
-                Config.showLocalMessagesOnRight = checked
-                Config.save()
+                Config.showLocalMessagesOnRight = checked;
+                Config.save();
             }
         }
 
-        FormCard.FormDelegateSeparator { above: showLocalMessagesOnRightDelegate; below: showLinkPreviewDelegate }
+        FormCard.FormDelegateSeparator {
+            above: showLocalMessagesOnRightDelegate
+            below: showLinkPreviewDelegate
+        }
 
         FormCard.FormCheckDelegate {
             id: showLinkPreviewDelegate
             text: i18n("Show links preview in the chat messages")
             checked: Config.showLinkPreview
             onToggled: {
-                Config.showLinkPreview = checked
-                Config.save()
+                Config.showLinkPreview = checked;
+                Config.save();
             }
         }
     }
-
 
     FormCard.FormHeader {
         title: i18n("Show Avatar")
@@ -315,8 +337,8 @@ FormCard.FormCardPage {
             text: i18n("In chat")
             checked: Config.showAvatarInTimeline
             onToggled: {
-                Config.showAvatarInTimeline = checked
-                Config.save()
+                Config.showAvatarInTimeline = checked;
+                Config.save();
             }
             enabled: !Config.isShowAvatarInTimelineImmutable
         }
@@ -326,8 +348,8 @@ FormCard.FormCardPage {
             checked: Config.showAvatarInRoomDrawer
             enabled: !Config.isShowAvatarInRoomDrawerImmutable
             onToggled: {
-                Config.showAvatarInRoomDrawer = checked
-                Config.save()
+                Config.showAvatarInRoomDrawer = checked;
+                Config.save();
             }
         }
     }

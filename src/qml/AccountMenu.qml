@@ -24,24 +24,24 @@ QQC2.Menu {
             connection: root.connection
         }, {
             title: i18n("Account editor")
-        });
+        })
     }
     QQC2.MenuItem {
         text: i18n("Notification settings")
         icon.name: "notifications"
         onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
             defaultPage: "notifications",
-            connection: root.connection,
+            connection: root.connection
         }, {
             title: i18n("Configure")
-        });
+        })
     }
     QQC2.MenuItem {
         text: i18n("Devices")
         icon.name: "computer-symbolic"
         onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
             defaultPage: "devices",
-            connection: root.connection,
+            connection: root.connection
         }, {
             title: i18n("Configure")
         })

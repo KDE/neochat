@@ -44,8 +44,8 @@ Kirigami.Page {
                 icon.name: "dialog-warning-symbolic"
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 onClicked: {
-                    root.room.reportEvent(eventId, reason.text)
-                    root.closeDialog()
+                    root.room.reportEvent(eventId, reason.text);
+                    root.closeDialog();
                 }
             }
             QQC2.Button {

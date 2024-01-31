@@ -27,10 +27,10 @@ QQC2.Popup {
                 const format = {
                     start: "**",
                     end: "**",
-                    extra: "",
-                }
-                formattingSelected(format, selectionStart, selectionEnd)
-                root.close()
+                    extra: ""
+                };
+                formattingSelected(format, selectionStart, selectionEnd);
+                root.close();
             }
 
             QQC2.ToolTip.text: text
@@ -46,10 +46,10 @@ QQC2.Popup {
                 const format = {
                     start: "*",
                     end: "*",
-                    extra: "",
-                }
-                formattingSelected(format, selectionStart, selectionEnd)
-                root.close()
+                    extra: ""
+                };
+                formattingSelected(format, selectionStart, selectionEnd);
+                root.close();
             }
 
             QQC2.ToolTip.text: text
@@ -65,10 +65,10 @@ QQC2.Popup {
                 const format = {
                     start: "<del>",
                     end: "</del>",
-                    extra: "",
-                }
-                formattingSelected(format, selectionStart, selectionEnd)
-                root.close()
+                    extra: ""
+                };
+                formattingSelected(format, selectionStart, selectionEnd);
+                root.close();
             }
 
             QQC2.ToolTip.text: text
@@ -84,10 +84,10 @@ QQC2.Popup {
                 const format = {
                     start: "`",
                     end: "`",
-                    extra: "",
-                }
-                formattingSelected(format, selectionStart, selectionEnd)
-                root.close()
+                    extra: ""
+                };
+                formattingSelected(format, selectionStart, selectionEnd);
+                root.close();
             }
 
             QQC2.ToolTip.text: text
@@ -103,10 +103,10 @@ QQC2.Popup {
                 const format = {
                     start: selectionStart == 0 ? ">" : "\n>",
                     end: "\n\n",
-                    extra: "",
-                }
-                formattingSelected(format, selectionStart, selectionEnd)
-                root.close()
+                    extra: ""
+                };
+                formattingSelected(format, selectionStart, selectionEnd);
+                root.close();
             }
 
             QQC2.ToolTip.text: text
@@ -122,10 +122,10 @@ QQC2.Popup {
                 const format = {
                     start: "[",
                     end: "](",
-                    extra: ")",
-                }
-                formattingSelected(format, selectionStart, selectionEnd)
-                root.close()
+                    extra: ")"
+                };
+                formattingSelected(format, selectionStart, selectionEnd);
+                root.close();
             }
 
             QQC2.ToolTip.text: text

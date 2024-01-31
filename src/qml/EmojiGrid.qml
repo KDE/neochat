@@ -22,7 +22,7 @@ QQC2.ScrollView {
     signal stickerChosen(int index)
 
     onActiveFocusChanged: if (activeFocus) {
-        emojis.forceActiveFocus()
+        emojis.forceActiveFocus();
     }
 
     GridView {
@@ -34,9 +34,9 @@ QQC2.ScrollView {
         currentIndex: -1
         keyNavigationEnabled: true
         onActiveFocusChanged: if (activeFocus && currentIndex === -1) {
-            currentIndex = 0
+            currentIndex = 0;
         } else {
-            currentIndex = -1
+            currentIndex = -1;
         }
         onModelChanged: currentIndex = -1
 
@@ -61,19 +61,23 @@ QQC2.ScrollView {
             Keys.onReturnPressed: clicked()
             onClicked: {
                 if (root.stickers) {
-                    root.stickerChosen(model.index)
+                    root.stickerChosen(model.index);
                 }
-                root.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode)
-                EmojiModel.emojiUsed(modelData)
+                root.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode);
+                EmojiModel.emojiUsed(modelData);
             }
             Keys.onSpacePressed: pressAndHold()
             onPressAndHold: {
                 if (EmojiModel.tones(modelData.shortName).length === 0) {
                     return;
                 }
-                let tones = tonesPopupComponent.createObject(emojiDelegate, {shortName: modelData.shortName, unicode: modelData.unicode, categoryIconSize: root.targetIconSize})
-                tones.open()
-                tones.forceActiveFocus()
+                let tones = tonesPopupComponent.createObject(emojiDelegate, {
+                    shortName: modelData.shortName,
+                    unicode: modelData.unicode,
+                    categoryIconSize: root.targetIconSize
+                });
+                tones.open();
+                tones.forceActiveFocus();
             }
             showTones: !!modelData && EmojiModel.tones(modelData.shortName).length > 0
         }

@@ -257,7 +257,7 @@ TimelineDelegate {
     /**
      * @brief Open the any message media externally.
      */
-    signal openExternally()
+    signal openExternally
 
     /**
      * @brief The reply has been clicked.
@@ -293,7 +293,9 @@ TimelineDelegate {
      */
     property bool isTemporaryHighlighted: false
 
-    onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) temporaryHighlightTimer.start()
+    onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
+        temporaryHighlightTimer.start();
+    }
 
     Timer {
         id: temporaryHighlightTimer
@@ -329,20 +331,20 @@ TimelineDelegate {
 
             Component.onCompleted: {
                 if (root.isReply && root.replyDelegateType === DelegateType.Other) {
-                    root.room.loadReply(root.eventId, root.replyId)
+                    root.room.loadReply(root.eventId, root.replyId);
                 }
             }
 
             // show hover actions
             onHoveredChanged: {
                 if (hovered && !Kirigami.Settings.isMobile) {
-                    root.setHoverActionsToDelegate()
+                    root.setHoverActionsToDelegate();
                 }
             }
 
             KirigamiComponents.AvatarButton {
                 id: avatar
-                width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2: 0
+                width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2 : 0
                 height: width
                 anchors {
                     left: parent.left
@@ -351,9 +353,7 @@ TimelineDelegate {
                     topMargin: Kirigami.Units.smallSpacing
                 }
 
-                visible: (root.showAuthor || root.alwaysShowAuthor) &&
-                    Config.showAvatarInTimeline &&
-                    (Config.compactLayout || !_private.showUserMessageOnRight)
+                visible: (root.showAuthor || root.alwaysShowAuthor) && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
                 source: root.author.avatarSource
                 color: root.author.color
@@ -409,7 +409,9 @@ TimelineDelegate {
                 replyDisplay: root.replyDisplay
                 replyMediaInfo: root.replyMediaInfo
 
-                onReplyClicked: (eventId) => {root.replyClicked(eventId)}
+                onReplyClicked: eventId => {
+                    root.replyClicked(eventId);
+                }
 
                 showBackground: root.cardBackground && !Config.compactLayout
             }
@@ -440,7 +442,7 @@ TimelineDelegate {
             visible: root.showReactions
             model: root.reaction
 
-            onReactionClicked: (reaction) => root.room.toggleReaction(root.eventId, reaction)
+            onReactionClicked: reaction => root.room.toggleReaction(root.eventId, reaction)
         }
         AvatarFlow {
             Layout.alignment: Qt.AlignRight
@@ -463,13 +465,13 @@ TimelineDelegate {
     }
 
     function isVisibleInTimeline() {
-            let yoff = Math.round(y - ListView.view.contentY);
-            return (yoff + height > 0 && yoff < ListView.view.height)
+        let yoff = Math.round(y - ListView.view.contentY);
+        return (yoff + height > 0 && yoff < ListView.view.height);
     }
 
     function setHoverActionsToDelegate() {
         if (ListView.view.setHoverActionsToDelegate) {
-            ListView.view.setHoverActionsToDelegate(root)
+            ListView.view.setHoverActionsToDelegate(root);
         }
     }
 

@@ -25,7 +25,7 @@ KirigamiSettings.CategorizedSettings {
                 return {
                     room: root.room,
                     connection: root.connection
-                }
+                };
             }
         },
         KirigamiSettings.SettingAction {
@@ -36,7 +36,7 @@ KirigamiSettings.CategorizedSettings {
             initialProperties: {
                 return {
                     room: root.room
-                }
+                };
             }
         },
         KirigamiSettings.SettingAction {
@@ -47,7 +47,7 @@ KirigamiSettings.CategorizedSettings {
             initialProperties: {
                 return {
                     room: root.room
-                }
+                };
             }
         },
         KirigamiSettings.SettingAction {
@@ -58,7 +58,7 @@ KirigamiSettings.CategorizedSettings {
             initialProperties: {
                 return {
                     room: root.room
-                }
+                };
             }
         }
     ]

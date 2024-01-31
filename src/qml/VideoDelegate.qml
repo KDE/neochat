@@ -59,12 +59,11 @@ MessageDelegate {
 
     onDownloadedChanged: {
         if (downloaded) {
-            vid.source = root.progressInfo.localPath
+            vid.source = root.progressInfo.localPath;
         }
-
         if (downloaded && playOnFinished) {
-            playSavedFile()
-            playOnFinished = false
+            playSavedFile();
+            playOnFinished = false;
         }
     }
 
@@ -207,19 +206,19 @@ MessageDelegate {
 
                     onClicked: {
                         if (vid.volume > 0) {
-                            vid.volume = 0
+                            vid.volume = 0;
                         } else {
                             if (unmuteVolume === 0) {
-                                vid.volume = 1
+                                vid.volume = 1;
                             } else {
-                                vid.volume = unmuteVolume
+                                vid.volume = unmuteVolume;
                             }
                         }
                     }
                     onHoveredChanged: {
                         if (!hovered && (vid.state === "paused" || vid.state === "playing")) {
-                            videoControlTimer.restart()
-                            volumePopupTimer.restart()
+                            videoControlTimer.restart();
+                            volumePopupTimer.restart();
                         }
                     }
 
@@ -243,13 +242,13 @@ MessageDelegate {
                             to: 1
                             value: vid.volume
                             onMoved: {
-                                vid.volume = value
-                                volumeButton.unmuteVolume = value
+                                vid.volume = value;
+                                volumeButton.unmuteVolume = value;
                             }
                             onHoveredChanged: {
                                 if (!hovered && (vid.state === "paused" || vid.state === "playing")) {
-                                    videoControlTimer.restart()
-                                    volumePopupTimer.restart()
+                                    videoControlTimer.restart();
+                                    volumePopupTimer.restart();
                                 }
                             }
                         }
@@ -261,8 +260,8 @@ MessageDelegate {
                             id: volumePopupHoverHandler
                             onHoveredChanged: {
                                 if (!hovered && (vid.state === "paused" || vid.state === "playing")) {
-                                    videoControlTimer.restart()
-                                    volumePopupTimer.restart()
+                                    videoControlTimer.restart();
+                                    volumePopupTimer.restart();
                                 }
                             }
                         }
@@ -290,13 +289,13 @@ MessageDelegate {
                         text: i18n("Maximize")
                         icon.name: "view-fullscreen"
                         onTriggered: {
-                            root.ListView.view.interactive = false
-                            vid.pause()
+                            root.ListView.view.interactive = false;
+                            vid.pause();
                             // We need to make sure the index is that of the MediaMessageFilterModel.
                             if (root.ListView.view.model instanceof MessageFilterModel) {
-                                RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index))
+                                RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index));
                             } else {
-                                RoomManager.maximizeMedia(root.index)
+                                RoomManager.maximizeMedia(root.index);
                             }
                         }
                     }
@@ -326,7 +325,7 @@ MessageDelegate {
             id: videoHoverHandler
             onHoveredChanged: {
                 if (!hovered && (vid.state === "paused" || vid.state === "playing")) {
-                    videoControlTimer.restart()
+                    videoControlTimer.restart();
                 }
             }
         }
@@ -336,12 +335,12 @@ MessageDelegate {
             gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
             onTapped: if (root.progressInfo.completed) {
                 if (vid.playbackState == MediaPlayer.PlayingState) {
-                    vid.pause()
+                    vid.pause();
                 } else {
-                    vid.play()
+                    vid.play();
                 }
             } else {
-                root.downloadAndPlay()
+                root.downloadAndPlay();
             }
         }
 
@@ -355,15 +354,15 @@ MessageDelegate {
 
     function downloadAndPlay() {
         if (vid.downloaded) {
-            playSavedFile()
+            playSavedFile();
         } else {
-            playOnFinished = true
-            root.room.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId))
+            playOnFinished = true;
+            root.room.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId));
         }
     }
 
     function playSavedFile() {
-        vid.stop()
-        vid.play()
+        vid.stop();
+        vid.play();
     }
 }

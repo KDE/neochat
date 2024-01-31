@@ -11,7 +11,9 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    onActiveFocusChanged: if (activeFocus) usernameField.forceActiveFocus()
+    onActiveFocusChanged: if (activeFocus) {
+        usernameField.forceActiveFocus();
+    }
 
     FormCard.FormTextFieldDelegate {
         id: usernameField
@@ -21,7 +23,7 @@ LoginStep {
         statusMessage: Registration.status === Registration.UsernameTaken ? i18n("Username unavailable") : ""
         Keys.onReturnPressed: {
             if (root.nextAction.enabled) {
-                root.nextAction.trigger()
+                root.nextAction.trigger();
             }
         }
     }

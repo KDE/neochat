@@ -94,7 +94,7 @@ ColumnLayout {
                 }, {
                     title: i18n("Event Source"),
                     width: Kirigami.Units.gridUnit * 25
-                });
+                })
             }
         }
     }

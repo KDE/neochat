@@ -115,11 +115,11 @@ Loader {
                 }, {
                     title: i18nc("@title", "Forward Message"),
                     width: Kirigami.Units.gridUnit * 25
-                })
-                page.chosen.connect(function(targetRoomId) {
-                    root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText.length > 0 ? root.htmlText : root.plainText)
-                    page.closeDialog()
-                })
+                });
+                page.chosen.connect(function (targetRoomId) {
+                    root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText.length > 0 ? root.htmlText : root.plainText);
+                    page.closeDialog();
+                });
             }
         },
         Kirigami.Action {
@@ -127,7 +127,10 @@ Loader {
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
             icon.color: "red"
-            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/RemoveSheet.qml", {room: currentRoom, eventId: eventId}, {
+            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/RemoveSheet.qml", {
+                room: currentRoom,
+                eventId: eventId
+            }, {
                 title: i18nc("@title", "Remove Message"),
                 width: Kirigami.Units.gridUnit * 25
             })
@@ -141,7 +144,10 @@ Loader {
             text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
             icon.name: "dialog-warning-symbolic"
             visible: !author.isLocalUser
-            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ReportSheet.qml", {room: currentRoom, eventId: eventId}, {
+            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ReportSheet.qml", {
+                room: currentRoom,
+                eventId: eventId
+            }, {
                 title: i18nc("@title", "Report Message"),
                 width: Kirigami.Units.gridUnit * 25
             })
@@ -156,7 +162,7 @@ Loader {
             text: i18n("Copy Link")
             icon.name: "edit-copy"
             onTriggered: {
-                Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId)
+                Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId);
             }
         }
     ]
@@ -180,12 +186,14 @@ Loader {
                             icon.name: modelData.icon.name
                             onTriggered: modelData.trigger()
                         }
-                        onObjectAdded: (index, object) => {menuItem.insertItem(0, object)}
+                        onObjectAdded: (index, object) => {
+                            menuItem.insertItem(0, object);
+                        }
                     }
                 }
                 onObjectAdded: (index, object) => {
                     object.visible = false;
-                    menu.addMenu(object)
+                    menu.addMenu(object);
                 }
             }
 
@@ -194,7 +202,7 @@ Loader {
                 QQC2.MenuItem {
                     visible: modelData.visible
                     action: modelData
-                    onClicked: root.item.close();
+                    onClicked: root.item.close()
                 }
             }
             QQC2.Menu {
@@ -202,7 +210,7 @@ Loader {
                 title: i18n("Search for '%1'", webshortcutmodel.trunkatedSearchText)
                 property bool isVisible: webshortcutmodel.enabled
                 Component.onCompleted: {
-                    webshortcutmenu.parent.visible = isVisible
+                    webshortcutmenu.parent.visible = isVisible;
                 }
                 onIsVisibleChanged: webshortcutmenu.parent.visible = isVisible
                 Instantiator {
@@ -279,7 +287,7 @@ Loader {
                                 visible: modelData.visible
                                 text: modelData.text
                                 onClicked: {
-                                    modelData.triggered()
+                                    modelData.triggered();
                                     root.item.close();
                                 }
                             }
@@ -315,7 +323,7 @@ Loader {
                                 Layout.fillWidth: true
                                 wrapMode: Text.WordWrap
 
-                                onLinkActivated: RoomManager.resolveResource(link, "join");
+                                onLinkActivated: RoomManager.resolveResource(link, "join")
                             }
                         }
                     }
@@ -361,7 +369,7 @@ Loader {
                             visible: modelData.visible
                             text: modelData.text
                             onClicked: {
-                                modelData.triggered()
+                                modelData.triggered();
                                 root.item.close();
                             }
                         }
@@ -401,4 +409,3 @@ Loader {
         }
     }
 }
-

@@ -43,16 +43,16 @@ MessageDelegateContextMenu {
             text: i18n("Open Externally")
             icon.name: "document-open"
             onTriggered: {
-                currentRoom.openEventMediaExternally(root.eventId)
+                currentRoom.openEventMediaExternally(root.eventId);
             }
         },
         Kirigami.Action {
             text: i18n("Save As")
             icon.name: "document-save"
             onTriggered: {
-                var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay)
-                dialog.open()
-                dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
+                var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay);
+                dialog.open();
+                dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId);
             }
         },
         Kirigami.Action {
@@ -61,14 +61,14 @@ MessageDelegateContextMenu {
             onTriggered: {
                 currentRoom.mainCache.replyId = eventId;
                 currentRoom.editCache.editId = "";
-                RoomManager.requestFullScreenClose()
+                RoomManager.requestFullScreenClose();
             }
         },
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
             onTriggered: {
-                currentRoom.copyEventMedia(root.eventId)
+                currentRoom.copyEventMedia(root.eventId);
             }
         },
         Kirigami.Action {
@@ -76,7 +76,10 @@ MessageDelegateContextMenu {
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
             icon.color: "red"
-            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/RemoveSheet.qml", {room: currentRoom, eventId: eventId}, {
+            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/RemoveSheet.qml", {
+                room: currentRoom,
+                eventId: eventId
+            }, {
                 title: i18nc("@title", "Remove Message"),
                 width: Kirigami.Units.gridUnit * 25
             })
@@ -85,7 +88,10 @@ MessageDelegateContextMenu {
             text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
             icon.name: "dialog-warning-symbolic"
             visible: author.id !== currentRoom.localUser.id
-            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ReportSheet.qml", {room: currentRoom, eventId: eventId}, {
+            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ReportSheet.qml", {
+                room: currentRoom,
+                eventId: eventId
+            }, {
                 title: i18nc("@title", "Report Message"),
                 width: Kirigami.Units.gridUnit * 25
             })
@@ -109,10 +115,10 @@ MessageDelegateContextMenu {
                 'urls': [],
                 'mimeType': [root.mimeType]
             }
-            property string filename: StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId);
+            property string filename: StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId)
 
             doBeforeSharing: () => {
-                currentRoom.downloadFile(eventId, filename)
+                currentRoom.downloadFile(eventId, filename);
             }
             Component.onCompleted: {
                 shareAction.inputData = {
@@ -132,9 +138,9 @@ MessageDelegateContextMenu {
                 if (!currentFile) {
                     return;
                 }
-                Config.lastSaveDirectory = folder
-                Config.save()
-                currentRoom.downloadFile(eventId, currentFile)
+                Config.lastSaveDirectory = folder;
+                Config.save();
+                currentRoom.downloadFile(eventId, currentFile);
             }
         }
     }

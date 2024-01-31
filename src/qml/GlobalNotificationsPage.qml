@@ -30,7 +30,7 @@ FormCard.FormCardPage {
             checked: root.pushRuleModel.globalNotificationsEnabled
             enabled: root.pushRuleModel.globalNotificationsSet
             onToggled: {
-                root.pushRuleModel.globalNotificationsEnabled = checked
+                root.pushRuleModel.globalNotificationsEnabled = checked;
             }
         }
     }
@@ -42,8 +42,8 @@ FormCard.FormCardPage {
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
-                filterRowCallback: function(source_row, source_parent) {
-                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
+                filterRowCallback: function (source_row, source_parent) {
+                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole);
                     return sectionRole == PushRuleSection.Room;
                 }
             }
@@ -59,8 +59,8 @@ FormCard.FormCardPage {
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
-                filterRowCallback: function(source_row, source_parent) {
-                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
+                filterRowCallback: function (source_row, source_parent) {
+                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole);
                     return sectionRole == PushRuleSection.Mentions;
                 }
             }
@@ -77,8 +77,8 @@ FormCard.FormCardPage {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
 
-                filterRowCallback: function(source_row, source_parent) {
-                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
+                filterRowCallback: function (source_row, source_parent) {
+                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole);
                     return sectionRole == PushRuleSection.Keywords;
                 }
             }
@@ -88,7 +88,7 @@ FormCard.FormCardPage {
         FormCard.AbstractFormDelegate {
             Layout.fillWidth: true
 
-            contentItem : RowLayout {
+            contentItem: RowLayout {
                 Kirigami.ActionTextField {
                     id: keywordAddField
 
@@ -101,13 +101,13 @@ FormCard.FormCardPage {
                         icon.name: "edit-clear"
                         visible: keywordAddField.text.length > 0
                         onTriggered: {
-                            keywordAddField.text = ""
+                            keywordAddField.text = "";
                         }
                     }
 
                     onAccepted: {
-                        root.pushRuleModel.addKeyword(keywordAddField.text)
-                        keywordAddField.text = ""
+                        root.pushRuleModel.addKeyword(keywordAddField.text);
+                        keywordAddField.text = "";
                     }
                 }
                 QQC2.Button {
@@ -120,8 +120,8 @@ FormCard.FormCardPage {
                     enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown
 
                     onClicked: {
-                        root.pushRuleModel.addKeyword(keywordAddField.text)
-                        keywordAddField.text = ""
+                        root.pushRuleModel.addKeyword(keywordAddField.text);
+                        keywordAddField.text = "";
                     }
 
                     QQC2.ToolTip {
@@ -140,8 +140,8 @@ FormCard.FormCardPage {
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
-                filterRowCallback: function(source_row, source_parent) {
-                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
+                filterRowCallback: function (source_row, source_parent) {
+                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole);
                     return sectionRole == PushRuleSection.Invites;
                 }
             }
@@ -161,8 +161,8 @@ FormCard.FormCardPage {
             model: KSortFilterProxyModel {
                 id: unknownModel
                 sourceModel: root.pushRuleModel
-                filterRowCallback: function(source_row, source_parent) {
-                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
+                filterRowCallback: function (source_row, source_parent) {
+                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole);
                     return sectionRole == PushRuleSection.Unknown;
                 }
             }
@@ -175,9 +175,9 @@ FormCard.FormCardPage {
         id: ruleDelegate
         NotificationRuleItem {
             onDeleteRule: {
-                root.pushRuleModel.removeKeyword(id)
+                root.pushRuleModel.removeKeyword(id);
             }
-            onActionChanged: (action) => root.pushRuleModel.setPushRuleAction(id, action)
+            onActionChanged: action => root.pushRuleModel.setPushRuleAction(id, action)
         }
     }
 }

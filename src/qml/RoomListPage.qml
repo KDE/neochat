@@ -47,7 +47,7 @@ Kirigami.Page {
     Connections {
         target: RoomManager
         function onCurrentRoomChanged() {
-            itemSelection.setCurrentIndex(roomListModel.index(roomListModel.rowForRoom(RoomManager.currentRoom), 0), ItemSelectionModel.SelectCurrent)
+            itemSelection.setCurrentIndex(roomListModel.index(roomListModel.rowForRoom(RoomManager.currentRoom), 0), ItemSelectionModel.SelectCurrent);
         }
     }
 
@@ -74,24 +74,24 @@ Kirigami.Page {
     }
 
     function goToNextRoom() {
-        goToNextRoomFiltered((item) => item.visible);
+        goToNextRoomFiltered(item => item.visible);
     }
 
     function goToPreviousRoom() {
-        goToPreviousRoomFiltered((item) => item.visible);
+        goToPreviousRoomFiltered(item => item.visible);
     }
 
     function goToNextUnreadRoom() {
-        goToNextRoomFiltered((item) => (item.visible && item.hasUnread));
+        goToNextRoomFiltered(item => (item.visible && item.hasUnread));
     }
 
     function goToPreviousUnreadRoom() {
-        goToPreviousRoomFiltered((item) => (item.visible && item.hasUnread));
+        goToPreviousRoomFiltered(item => (item.visible && item.hasUnread));
     }
 
     titleDelegate: Loader {
         Layout.fillWidth: true
-        sourceComponent:  Kirigami.Settings.isMobile ? userInfo : exploreComponent
+        sourceComponent: Kirigami.Settings.isMobile ? userInfo : exploreComponent
     }
 
     padding: 0
@@ -107,7 +107,7 @@ Kirigami.Page {
 
             connection: root.connection
 
-            onSelectionChanged: root.spaceChanging = true;
+            onSelectionChanged: root.spaceChanging = true
             onSpacesUpdated: sortFilterRoomListModel.invalidate()
         }
 
@@ -145,7 +145,7 @@ Kirigami.Page {
                     rightPadding: Kirigami.Units.largeSpacing
                     bottomPadding: Kirigami.Units.largeSpacing
 
-                    onClicked: quickView.item.open();
+                    onClicked: quickView.item.open()
 
                     Kirigami.Icon {
                         anchors.centerIn: parent
@@ -181,10 +181,10 @@ Kirigami.Page {
                                 keyword: sortFilterRoomListModel.filterText
                             }, {
                                 title: i18nc("@title", "Explore Rooms")
-                            })
+                            });
                             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                                RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join")
-                            })
+                                RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
+                            });
                         }
                     }
 
@@ -192,7 +192,11 @@ Kirigami.Page {
                         id: userSearchAction
                         icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
                         text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in friend directory") : i18n("Find your friends")
-                        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
+                        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
+                            connection: root.connection
+                        }, {
+                            title: i18nc("@title", "Find your friends")
+                        })
                     }
                 }
 
@@ -208,8 +212,8 @@ Kirigami.Page {
                     sourceModel: root.roomListModel
                     roomSortOrder: SortFilterRoomListModel.Categories
                     onLayoutChanged: {
-                        layoutTimer.restart()
-                        listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row
+                        layoutTimer.restart();
+                        listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row;
                     }
                     activeSpaceId: spaceDrawer.selectedSpaceId
                     mode: spaceDrawer.showDirectChats ? SortFilterRoomListModel.DirectChats : SortFilterRoomListModel.Rooms
@@ -317,7 +321,11 @@ Kirigami.Page {
                     icon.width: Kirigami.Units.gridUnit * 2
                     icon.height: Kirigami.Units.gridUnit * 2
 
-                    onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
+                    onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
+                        connection: root.connection
+                    }, {
+                        title: i18nc("@title", "Find your friends")
+                    })
                 }
             }
         }
@@ -402,8 +410,8 @@ Kirigami.Page {
         ExploreComponentMobile {
             connection: root.connection
 
-            onTextChanged: (newText) => {
-                sortFilterRoomListModel.filterText = newText
+            onTextChanged: newText => {
+                sortFilterRoomListModel.filterText = newText;
             }
         }
     }

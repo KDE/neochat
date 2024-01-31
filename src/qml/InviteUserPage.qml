@@ -45,7 +45,7 @@ Kirigami.ScrollablePage {
             highlighted: true
 
             onClicked: {
-                room.inviteToRoom(identifierField.text)
+                room.inviteToRoom(identifierField.text);
             }
         }
     }
@@ -105,7 +105,7 @@ Kirigami.ScrollablePage {
 
                     onToggled: {
                         if (inRoom) {
-                            checked = true
+                            checked = true;
                         } else {
                             room.inviteToRoom(delegate.userId);
                             applicationWindow().pageStack.layers.pop();

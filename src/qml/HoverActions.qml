@@ -35,7 +35,7 @@ QQC2.Control {
     /**
      * @brief Request that the chat bar be focussed.
      */
-    signal focusChatBar()
+    signal focusChatBar
 
     topPadding: 0
     bottomPadding: 0
@@ -51,7 +51,7 @@ QQC2.Control {
         if (visible) {
             // HACK: delay disapearing by 200ms, otherwise this can create some glitches
             // See https://invent.kde.org/network/neochat/-/issues/333
-            showActionsTimer.restart()
+            showActionsTimer.restart();
         }
     }
     Timer {
@@ -124,7 +124,7 @@ QQC2.Control {
                 id: emojiDialog
                 currentRoom: root.currentRoom
                 showQuickReaction: true
-                onChosen: (emoji) => {
+                onChosen: emoji => {
                     root.currentRoom.toggleReaction(root.delegate.eventId, emoji);
                     if (!Kirigami.Settings.isMobile) {
                         root.focusChatBar();

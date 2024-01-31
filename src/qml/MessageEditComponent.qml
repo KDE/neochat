@@ -14,8 +14,8 @@ QQC2.TextArea {
 
     required property NeoChatRoom room
     onRoomChanged: {
-        _private.chatBarCache = room.editCache
-        _private.chatBarCache.relationIdChanged.connect(_private.updateEditText)
+        _private.chatBarCache = room.editCache;
+        _private.chatBarCache.relationIdChanged.connect(_private.updateEditText);
     }
 
     /**
@@ -37,37 +37,37 @@ QQC2.TextArea {
     wrapMode: TextEdit.Wrap
 
     onTextChanged: {
-        _private.chatBarCache.text = text
+        _private.chatBarCache.text = text;
     }
 
     Keys.onEnterPressed: {
         if (completionMenu.visible) {
-            completionMenu.complete()
+            completionMenu.complete();
         } else if (event.modifiers & Qt.ShiftModifier) {
-            root.insert(cursorPosition, "\n")
+            root.insert(cursorPosition, "\n");
         } else {
             root.postEdit();
         }
     }
     Keys.onReturnPressed: {
         if (completionMenu.visible) {
-            completionMenu.complete()
+            completionMenu.complete();
         } else if (event.modifiers & Qt.ShiftModifier) {
-            root.insert(cursorPosition, "\n")
+            root.insert(cursorPosition, "\n");
         } else {
             root.postEdit();
         }
     }
     Keys.onTabPressed: {
         if (completionMenu.visible) {
-            completionMenu.complete()
+            completionMenu.complete();
         }
     }
     Keys.onPressed: event => {
         if (event.key === Qt.Key_Up && completionMenu.visible) {
-            completionMenu.decrementIndex()
+            completionMenu.decrementIndex();
         } else if (event.key === Qt.Key_Down && completionMenu.visible) {
-            completionMenu.incrementIndex()
+            completionMenu.incrementIndex();
         }
     }
 
@@ -156,12 +156,10 @@ QQC2.TextArea {
 
         function updateEditText() {
             if (chatBarCache?.isEditing && chatBarCache.relationMessage.length > 0) {
-                root.text = chatBarCache.relationMessage
+                root.text = chatBarCache.relationMessage;
                 root.forceActiveFocus();
                 root.cursorPosition = root.length;
             }
         }
     }
 }
-
-

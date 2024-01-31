@@ -11,7 +11,9 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    onActiveFocusChanged: if (activeFocus) passwordField.forceActiveFocus()
+    onActiveFocusChanged: if (activeFocus) {
+        passwordField.forceActiveFocus();
+    }
 
     FormCard.FormTextFieldDelegate {
         id: passwordField
@@ -19,7 +21,7 @@ LoginStep {
         echoMode: TextInput.Password
         onTextChanged: Registration.password = text
         Keys.onReturnPressed: {
-            confirmPasswordField.forceActiveFocus()
+            confirmPasswordField.forceActiveFocus();
         }
     }
 
@@ -31,15 +33,15 @@ LoginStep {
         statusMessage: passwordField.text.length === confirmPasswordField.text.length && passwordField.text !== confirmPasswordField.text ? i18n("The passwords do not match.") : ""
         Keys.onReturnPressed: {
             if (root.nextAction.enabled) {
-                root.nextAction.trigger()
+                root.nextAction.trigger();
             }
         }
     }
 
     nextAction: Kirigami.Action {
         onTriggered: {
-            passwordField.enabled = false
-            Registration.registerAccount()
+            passwordField.enabled = false;
+            Registration.registerAccount();
         }
         enabled: passwordField.text === confirmPasswordField.text
     }

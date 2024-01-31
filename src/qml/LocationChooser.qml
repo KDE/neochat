@@ -50,7 +50,7 @@ Components.AbstractMaximizeComponent {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                root.location = mapView.map.toCoordinate(Qt.point(mouseX, mouseY), false)
+                root.location = mapView.map.toCoordinate(Qt.point(mouseX, mouseY), false);
             }
         }
 
@@ -84,7 +84,7 @@ Components.AbstractMaximizeComponent {
         Connections {
             target: mapView.map
             function onCopyrightLinkActivated() {
-                Qt.openUrlExternally(link)
+                Qt.openUrlExternally(link);
             }
         }
     }

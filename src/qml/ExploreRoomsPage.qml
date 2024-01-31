@@ -41,13 +41,7 @@ SearchPage {
      * upon as required, e.g. joining or entering the room or adding the room as
      * the child of a space.
      */
-    signal roomSelected(string roomId,
-                        string displayName,
-                        url avatarUrl,
-                        string alias,
-                        string topic,
-                        int memberCount,
-                        bool isJoined)
+    signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
     title: i18nc("@action:title", "Explore Rooms")
 
@@ -101,7 +95,9 @@ SearchPage {
     QtObject {
         id: _private
         function openManualRoomDialog() {
-            let dialog = manualRoomDialog.createObject(applicationWindow().overlay, {connection: root.connection});
+            let dialog = manualRoomDialog.createObject(applicationWindow().overlay, {
+                connection: root.connection
+            });
             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                 root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
                 root.closeDialog();

@@ -21,7 +21,9 @@ QQC2.Popup {
 
     visible: completions.count > 0
 
-    onVisibleChanged: if (visible) root.open()
+    onVisibleChanged: if (visible) {
+        root.open();
+    }
 
     RoomListModel {
         id: roomListModel
@@ -33,15 +35,15 @@ QQC2.Popup {
     }
 
     function incrementIndex() {
-        completions.incrementCurrentIndex()
+        completions.incrementCurrentIndex();
     }
 
     function decrementIndex() {
-        completions.decrementCurrentIndex()
+        completions.decrementCurrentIndex();
     }
 
     function complete() {
-        root.chatDocumentHandler.complete(completions.currentIndex)
+        root.chatDocumentHandler.complete(completions.currentIndex);
     }
 
     leftPadding: 0

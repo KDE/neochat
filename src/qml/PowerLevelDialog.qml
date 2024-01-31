@@ -24,7 +24,7 @@ Kirigami.Dialog {
 
     onOpened: {
         if (root.opened) {
-            powerLevelComboBox.currentIndex = powerLevelComboBox.indexOfValue(root.powerLevel)
+            powerLevelComboBox.currentIndex = powerLevelComboBox.indexOfValue(root.powerLevel);
         }
     }
 
@@ -41,9 +41,18 @@ Kirigami.Dialog {
 
             // Done this way so we can have translated strings.
             Component.onCompleted: {
-                powerLevelModel.append({"text": i18n("Member (0)"), "powerLevel": 0});
-                powerLevelModel.append({"text": i18n("Moderator (50)"), "powerLevel": 50});
-                powerLevelModel.append({"text": i18n("Admin (100)"), "powerLevel": 100});
+                powerLevelModel.append({
+                    "text": i18n("Member (0)"),
+                    "powerLevel": 0
+                });
+                powerLevelModel.append({
+                    "text": i18n("Moderator (50)"),
+                    "powerLevel": 50
+                });
+                powerLevelModel.append({
+                    "text": i18n("Admin (100)"),
+                    "powerLevel": 100
+                });
             }
         }
     }
@@ -52,9 +61,9 @@ Kirigami.Dialog {
             text: i18n("Confirm")
             icon.name: "dialog-ok"
             onTriggered: {
-                root.room.setUserPowerLevel(root.userId, powerLevelComboBox.currentValue)
-                root.close()
-                root.destroy()
+                root.room.setUserPowerLevel(root.userId, powerLevelComboBox.currentValue);
+                root.close();
+                root.destroy();
             }
         }
     ]

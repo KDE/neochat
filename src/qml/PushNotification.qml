@@ -32,31 +32,31 @@ FormCard.FormCardPage {
             checked: room.pushNotificationState === PushNotificationState.Default
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
-                room.pushNotificationState = PushNotificationState.Default
+                room.pushNotificationState = PushNotificationState.Default;
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("As in 'notify for all messages'","All")
+            text: i18nc("As in 'notify for all messages'", "All")
             checked: room.pushNotificationState === PushNotificationState.All
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
-                room.pushNotificationState = PushNotificationState.All
+                room.pushNotificationState = PushNotificationState.All;
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'","@Mentions and Keywords")
+            text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'", "@Mentions and Keywords")
             checked: room.pushNotificationState === PushNotificationState.MentionKeyword
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
-                room.pushNotificationState = PushNotificationState.MentionKeyword
+                room.pushNotificationState = PushNotificationState.MentionKeyword;
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("As in 'do not notify for any messages'","Off")
+            text: i18nc("As in 'do not notify for any messages'", "Off")
             checked: room.pushNotificationState === PushNotificationState.Mute
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
-                room.pushNotificationState = PushNotificationState.Mute
+                room.pushNotificationState = PushNotificationState.Mute;
             }
         }
     }
@@ -69,9 +69,9 @@ FormCard.FormCardPage {
             model: KSortFilterProxyModel {
                 sourceModel: root.pushRuleModel
 
-                filterRowCallback: function(source_row, source_parent) {
-                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole)
-                    let roomIdRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.RoomIdRole)
+                filterRowCallback: function (source_row, source_parent) {
+                    let sectionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.SectionRole);
+                    let roomIdRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PushRuleModel.RoomIdRole);
                     return sectionRole == PushRuleSection.RoomKeywords && roomIdRole == root.room.id;
                 }
             }
@@ -82,16 +82,16 @@ FormCard.FormCardPage {
                 id: ruleDelegate
                 NotificationRuleItem {
                     onDeleteRule: {
-                        root.pushRuleModel.removeKeyword(id)
+                        root.pushRuleModel.removeKeyword(id);
                     }
-                    onActionChanged: (action) => root.pushRuleModel.setPushRuleAction(id, action)
+                    onActionChanged: action => root.pushRuleModel.setPushRuleAction(id, action)
                 }
             }
         }
         FormCard.AbstractFormDelegate {
             Layout.fillWidth: true
 
-            contentItem : RowLayout {
+            contentItem: RowLayout {
                 Kirigami.ActionTextField {
                     id: keywordAddField
 
@@ -104,13 +104,13 @@ FormCard.FormCardPage {
                         icon.name: "edit-clear"
                         visible: keywordAddField.text.length > 0
                         onTriggered: {
-                            keywordAddField.text = ""
+                            keywordAddField.text = "";
                         }
                     }
 
                     onAccepted: {
-                        root.pushRuleModel.addKeyword(keywordAddField.text, root.room.id)
-                        keywordAddField.text = ""
+                        root.pushRuleModel.addKeyword(keywordAddField.text, root.room.id);
+                        keywordAddField.text = "";
                     }
                 }
                 QQC2.Button {
@@ -123,8 +123,8 @@ FormCard.FormCardPage {
                     enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown && keywordAddField.text.length > 0
 
                     onClicked: {
-                        root.pushRuleModel.addKeyword(keywordAddField.text, root.room.id)
-                        keywordAddField.text = ""
+                        root.pushRuleModel.addKeyword(keywordAddField.text, root.room.id);
+                        keywordAddField.text = "";
                     }
 
                     QQC2.ToolTip {

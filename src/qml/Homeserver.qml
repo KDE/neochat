@@ -12,7 +12,9 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    onActiveFocusChanged: if (activeFocus) urlField.forceActiveFocus()
+    onActiveFocusChanged: if (activeFocus) {
+        urlField.forceActiveFocus();
+    }
 
     FormCard.FormTextFieldDelegate {
         id: urlField
@@ -24,7 +26,7 @@ LoginStep {
         statusMessage: Registration.status === Registration.ServerNoRegistration ? i18n("Registration is disabled on this server.") : ""
         Keys.onReturnPressed: {
             if (root.nextAction.enabled) {
-                root.nextAction.trigger()
+                root.nextAction.trigger();
             }
         }
     }
@@ -38,7 +40,7 @@ LoginStep {
     nextAction: Kirigami.Action {
         text: Registration.testing ? i18n("Loading") : null
         enabled: Registration.status > Registration.ServerNoRegistration
-        onTriggered: root.processed("qrc:/org/kde/neochat/qml/Username.qml");
+        onTriggered: root.processed("qrc:/org/kde/neochat/qml/Username.qml")
     }
     previousAction: Kirigami.Action {
         onTriggered: root.processed("qrc:/org/kde/neochat/qml/LoginRegister.qml")

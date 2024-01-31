@@ -27,7 +27,7 @@ FormCard.FormCardPage {
             checked: currentType === 0
             enabled: !Config.isProxyTypeImmutable
             onToggled: {
-                currentType = 0
+                currentType = 0;
             }
         }
         FormCard.FormRadioDelegate {
@@ -35,7 +35,7 @@ FormCard.FormCardPage {
             checked: currentType === 1
             enabled: !Config.isProxyTypeImmutable
             onToggled: {
-                currentType = 1
+                currentType = 1;
             }
         }
         FormCard.FormRadioDelegate {
@@ -43,7 +43,7 @@ FormCard.FormCardPage {
             checked: currentType === 2
             enabled: !Config.isProxyTypeImmutable
             onToggled: {
-                currentType = 2
+                currentType = 2;
             }
         }
     }
@@ -58,7 +58,7 @@ FormCard.FormCardPage {
             text: Config.proxyHost
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
-                proxyConfigChanged = true
+                proxyConfigChanged = true;
             }
         }
         FormCard.FormSpinBoxDelegate {
@@ -67,11 +67,11 @@ FormCard.FormCardPage {
             value: Config.proxyPort
             from: 0
             to: 65536
-            textFromValue: function(value, locale) {
-                return value // it will add a thousands separator if we don't do this, not sure why
+            textFromValue: function (value, locale) {
+                return value; // it will add a thousands separator if we don't do this, not sure why
             }
             onValueChanged: {
-                proxyConfigChanged = true
+                proxyConfigChanged = true;
             }
         }
         FormCard.FormTextFieldDelegate {
@@ -80,7 +80,7 @@ FormCard.FormCardPage {
             text: Config.proxyUser
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
-                proxyConfigChanged = true
+                proxyConfigChanged = true;
             }
         }
         FormCard.FormTextFieldDelegate {
@@ -90,7 +90,7 @@ FormCard.FormCardPage {
             echoMode: TextInput.Password
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
-                proxyConfigChanged = true
+                proxyConfigChanged = true;
             }
         }
     }
@@ -102,24 +102,24 @@ FormCard.FormCardPage {
                 Layout.fillWidth: true
             }
 
-            QQC2.Button  {
+            QQC2.Button {
                 text: i18n("Apply")
                 enabled: currentType !== Config.proxyType || proxyConfigChanged
                 onClicked: {
-                    Config.proxyType = currentType
-                    Config.proxyHost = hostField.text
-                    Config.proxyPort = portField.value
-                    Config.proxyUser = userField.text
-                    Config.proxyPassword = passwordField.text
-                    Config.save()
-                    proxyConfigChanged = false
-                    ProxyController.setApplicationProxy()
+                    Config.proxyType = currentType;
+                    Config.proxyHost = hostField.text;
+                    Config.proxyPort = portField.value;
+                    Config.proxyUser = userField.text;
+                    Config.proxyPassword = passwordField.text;
+                    Config.save();
+                    proxyConfigChanged = false;
+                    ProxyController.setApplicationProxy();
                 }
             }
         }
     }
 
     Component.onCompleted: {
-        currentType = Config.proxyType
+        currentType = Config.proxyType;
     }
 }

@@ -42,7 +42,7 @@ Loader {
                     delegate: Rectangle {
                         id: dot
                         color: Kirigami.Theme.textColor
-                        radius: height/2
+                        radius: height / 2
                         implicitWidth: fontMetrics.xHeight
                         implicitHeight: fontMetrics.xHeight
                         // rotating 45 degrees makes the dots look a bit smoother when scaled up
@@ -54,36 +54,48 @@ Loader {
                         // Not everyone can see this, but I'm pretty sure it's there.
                         SequentialAnimation {
                             running: true
-                            PauseAnimation { duration: dotRow.duration * index / 2 }
+                            PauseAnimation {
+                                duration: dotRow.duration * index / 2
+                            }
                             SequentialAnimation {
                                 loops: Animation.Infinite
                                 ParallelAnimation {
                                     // Animators unfortunately sync up instead of being
                                     // staggered, so I'm using NumberAnimations instead.
                                     NumberAnimation {
-                                        target: dot; property: "scale";
-                                        from: 1; to: 1.33
+                                        target: dot
+                                        property: "scale"
+                                        from: 1
+                                        to: 1.33
                                         duration: dotRow.duration
                                     }
                                     NumberAnimation {
-                                        target: dot; property: "opacity"
-                                        from: 0.5; to: 1
+                                        target: dot
+                                        property: "opacity"
+                                        from: 0.5
+                                        to: 1
                                         duration: dotRow.duration
                                     }
                                 }
                                 ParallelAnimation {
                                     NumberAnimation {
-                                        target: dot; property: "scale"
-                                        from: 1.33; to: 1
+                                        target: dot
+                                        property: "scale"
+                                        from: 1.33
+                                        to: 1
                                         duration: dotRow.duration
                                     }
                                     NumberAnimation {
-                                        target: dot; property: "opacity"
-                                        from: 1; to: 0.5
+                                        target: dot
+                                        property: "opacity"
+                                        from: 1
+                                        to: 0.5
                                         duration: dotRow.duration
                                     }
                                 }
-                                PauseAnimation { duration: dotRow.duration }
+                                PauseAnimation {
+                                    duration: dotRow.duration
+                                }
                             }
                         }
                     }

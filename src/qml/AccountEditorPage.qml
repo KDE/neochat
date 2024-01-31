@@ -40,9 +40,8 @@ FormCard.FormCardPage {
             if (fileDialog) {
                 return;
             }
-
             fileDialog = openFileDialog.createObject(this);
-            fileDialog.chosen.connect((receivedSource) => {
+            fileDialog.chosen.connect(receivedSource => {
                 if (!receivedSource) {
                     return;
                 }
@@ -137,7 +136,9 @@ FormCard.FormCardPage {
             visible: root.connection !== undefined && root.connection.canChangePassword === false
             text: i18n("Your server doesn't support changing your password")
         }
-        FormCard.FormDelegateSeparator { visible: root.connection !== undefined && root.connection.canChangePassword === false }
+        FormCard.FormDelegateSeparator {
+            visible: root.connection !== undefined && root.connection.canChangePassword === false
+        }
         FormCard.FormTextFieldDelegate {
             id: currentPassword
             label: i18n("Current Password:")
@@ -212,7 +213,11 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             id: deactivateAccountButton
             text: i18n("Deactivate Account")
-            onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ConfirmDeactivateAccountDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Confirm Deactivating Account")})
+            onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ConfirmDeactivateAccountDialog.qml", {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Confirm Deactivating Account")
+            })
         }
     }
 

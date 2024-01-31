@@ -12,7 +12,9 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    onActiveFocusChanged: if (activeFocus) emailField.forceActiveFocus()
+    onActiveFocusChanged: if (activeFocus) {
+        emailField.forceActiveFocus();
+    }
 
     FormCard.FormTextFieldDelegate {
         id: emailField
@@ -21,7 +23,7 @@ LoginStep {
         onTextChanged: Registration.email = text
         Keys.onReturnPressed: {
             if (root.nextAction.enabled) {
-                root.nextAction.trigger()
+                root.nextAction.trigger();
             }
         }
     }
@@ -44,11 +46,11 @@ LoginStep {
         enabled: emailField.text.length > 0
         onTriggered: {
             if (confirmMessage.visible) {
-                Registration.registerAccount()
+                Registration.registerAccount();
             } else {
-                Registration.registerEmail()
-                confirmMessage.visible = true
-                resendButton.visible = true
+                Registration.registerEmail();
+                confirmMessage.visible = true;
+                resendButton.visible = true;
             }
         }
     }

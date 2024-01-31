@@ -67,7 +67,7 @@ MessageDelegate {
                     target: playButton
                     icon.name: "media-playback-stop"
                     onClicked: {
-                        root.room.cancelFileTransfer(root.eventId)
+                        root.room.cancelFileTransfer(root.eventId);
                     }
                 }
             },
@@ -78,7 +78,7 @@ MessageDelegate {
                     target: playButton
                     icon.name: "media-playback-start"
                     onClicked: {
-                        audio.play()
+                        audio.play();
                     }
                 }
             },

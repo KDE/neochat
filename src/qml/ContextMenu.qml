@@ -21,7 +21,7 @@ Loader {
     property NeoChatRoom room
     required property NeoChatConnection connection
 
-    signal closed()
+    signal closed
 
     Component {
         id: regularMenu
@@ -30,7 +30,7 @@ Loader {
                 id: newWindow
                 text: i18n("Open in New Window")
                 icon.name: "window-new"
-                onTriggered: RoomManager.openWindow(room);
+                onTriggered: RoomManager.openWindow(room)
                 visible: !Kirigami.Settings.isMobile
             }
 
@@ -60,11 +60,11 @@ Loader {
                 text: room.isDirectChat() ? i18nc("@action:inmenu", "Copy user's Matrix ID to Clipboard") : i18nc("@action:inmenu", "Copy Address to Clipboard")
                 icon.name: "edit-copy"
                 onTriggered: if (room.isDirectChat()) {
-                    Clipboard.saveText(room.directChatRemoteUser.id)
+                    Clipboard.saveText(room.directChatRemoteUser.id);
                 } else if (room.canonicalAlias.length === 0) {
-                    Clipboard.saveText(room.id)
+                    Clipboard.saveText(room.id);
                 } else {
-                    Clipboard.saveText(room.canonicalAlias)
+                    Clipboard.saveText(room.canonicalAlias);
                 }
             }
 
@@ -80,40 +80,40 @@ Loader {
                     checked: room.pushNotificationState === PushNotificationState.Default
                     enabled: room.pushNotificationState != PushNotificationState.Unknown
                     onTriggered: {
-                        room.pushNotificationState = PushNotificationState.Default
+                        room.pushNotificationState = PushNotificationState.Default;
                     }
                 }
                 QQC2.MenuItem {
-                    text: i18nc("As in 'notify for all messages'","All")
+                    text: i18nc("As in 'notify for all messages'", "All")
                     icon.name: "notifications"
                     checkable: true
                     autoExclusive: true
                     checked: room.pushNotificationState === PushNotificationState.All
                     enabled: room.pushNotificationState != PushNotificationState.Unknown
                     onTriggered: {
-                        room.pushNotificationState = PushNotificationState.All
+                        room.pushNotificationState = PushNotificationState.All;
                     }
                 }
                 QQC2.MenuItem {
-                    text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'","@Mentions and Keywords")
+                    text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'", "@Mentions and Keywords")
                     icon.name: "im-user"
                     checkable: true
                     autoExclusive: true
                     checked: room.pushNotificationState === PushNotificationState.MentionKeyword
                     enabled: room.pushNotificationState != PushNotificationState.Unknown
                     onTriggered: {
-                        room.pushNotificationState = PushNotificationState.MentionKeyword
+                        room.pushNotificationState = PushNotificationState.MentionKeyword;
                     }
                 }
                 QQC2.MenuItem {
-                    text: i18nc("As in 'do not notify for any messages'","Off")
+                    text: i18nc("As in 'do not notify for any messages'", "Off")
                     icon.name: "notifications-disabled"
                     checkable: true
                     autoExclusive: true
                     checked: room.pushNotificationState === PushNotificationState.Mute
                     enabled: room.pushNotificationState != PushNotificationState.Unknown
                     onTriggered: {
-                        room.pushNotificationState = PushNotificationState.Mute
+                        room.pushNotificationState = PushNotificationState.Mute;
                     }
                 }
             }
@@ -121,7 +121,12 @@ Loader {
             QQC2.MenuItem {
                 text: i18n("Room Settings")
                 icon.name: "configure"
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {room: room, connection: connection}, { title: i18n("Room Settings") })
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                    room: room,
+                    connection: connection
+                }, {
+                    title: i18n("Room Settings")
+                })
             }
 
             QQC2.MenuSeparator {}
@@ -133,7 +138,7 @@ Loader {
             }
 
             onClosed: {
-                root.closed()
+                root.closed();
             }
         }
     }
@@ -190,8 +195,13 @@ Loader {
                     QQC2.ToolButton {
                         icon.name: 'settings-configure'
                         onClicked: {
-                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {room: room, connection: root.connection}, { title: i18n("Room Settings") })
-                            drawer.close()
+                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                                room: room,
+                                connection: root.connection
+                            }, {
+                                title: i18n("Room Settings")
+                            });
+                            drawer.close();
                         }
                     }
                 }
@@ -214,8 +224,8 @@ Loader {
                     text: i18n("Leave Room")
                     icon.name: "go-previous"
                     onClicked: {
-                        RoomManager.leaveRoom(room)
-                        drawer.close()
+                        RoomManager.leaveRoom(room);
+                        drawer.close();
                     }
                     Layout.fillWidth: true
                 }

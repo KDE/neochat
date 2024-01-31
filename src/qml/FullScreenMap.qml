@@ -36,8 +36,7 @@ ApplicationWindow {
     MapView {
         id: mapView
         anchors.fill: parent
-        map.center: root.liveLocationModel ?  QtPositioning.coordinate(root.liveLocationModel.boundingBox.y, root.liveLocationModel.boundingBox.x)
-            : QtPositioning.coordinate(root.latitude, root.longitude)
+        map.center: root.liveLocationModel ? QtPositioning.coordinate(root.liveLocationModel.boundingBox.y, root.liveLocationModel.boundingBox.x) : QtPositioning.coordinate(root.latitude, root.longitude)
         map.zoomLevel: 15
         map.plugin: OsmLocationPlugin.plugin
         LocationMapItem {
@@ -57,7 +56,7 @@ ApplicationWindow {
         Connections {
             target: mapView.map
             function onCopyrightLinkActivated() {
-                Qt.openUrlExternally(link)
+                Qt.openUrlExternally(link);
             }
         }
     }

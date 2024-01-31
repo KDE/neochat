@@ -49,7 +49,7 @@ QQC2.ComboBox {
         bottomInset: index === ListView.view.count - 1 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
 
         onClicked: if (isAddServerDelegate) {
-            addServerSheet.open()
+            addServerSheet.open();
         }
 
         contentItem: RowLayout {
@@ -71,7 +71,7 @@ QQC2.ComboBox {
                 onClicked: {
                     if (root.currentIndex === serverItem.index && serverItem.isDeletable) {
                         root.currentIndex = 0;
-                        root.server = root.currentValue
+                        root.server = root.currentValue;
                         root.popup.close();
                     }
                     if (serverItem.isAddServerDelegate) {
@@ -87,7 +87,7 @@ QQC2.ComboBox {
 
     onActivated: {
         if (currentIndex !== count - 1) {
-            root.server = root.currentValue
+            root.server = root.currentValue;
         }
     }
 
@@ -99,14 +99,14 @@ QQC2.ComboBox {
         title: i18nc("@title:window", "Add server")
 
         onOpened: if (!serverUrlField.isValidServer && !addServerSheet.opened) {
-            root.currentIndex = 0
-            root.server = root.currentValue
+            root.currentIndex = 0;
+            root.server = root.currentValue;
         } else if (addServerSheet.opened) {
-            serverUrlField.forceActiveFocus()
+            serverUrlField.forceActiveFocus();
         }
 
         onClosed: if (serverUrlField.length <= 0) {
-            root.currentIndex = root.indexOfValue(root.server)
+            root.currentIndex = root.indexOfValue(root.server);
         }
 
         contentItem: Kirigami.FormLayout {
@@ -123,8 +123,8 @@ QQC2.ComboBox {
 
                 Kirigami.FormData.label: i18n("Server URL")
                 onTextChanged: {
-                    if(acceptableInput) {
-                        serverListModel.checkServer(text)
+                    if (acceptableInput) {
+                        serverListModel.checkServer(text);
                     }
                 }
 
@@ -136,7 +136,7 @@ QQC2.ComboBox {
                     target: serverListModel
                     function onServerCheckComplete(url, valid) {
                         if (url == serverUrlField.text && valid) {
-                            serverUrlField.isValidServer = true
+                            serverUrlField.isValidServer = true;
                         }
                     }
                 }
@@ -148,14 +148,13 @@ QQC2.ComboBox {
                 text: i18nc("@action:button", "Ok")
                 enabled: serverUrlField.acceptableInput && serverUrlField.isValidServer
                 onClicked: {
-                    serverListModel.addServer(serverUrlField.text)
-                    root.currentIndex = root.indexOfValue(serverUrlField.text)
-                    root.server = root.currentValue
-                    serverUrlField.text = ""
+                    serverListModel.addServer(serverUrlField.text);
+                    root.currentIndex = root.indexOfValue(serverUrlField.text);
+                    root.server = root.currentValue;
+                    serverUrlField.text = "";
                     addServerSheet.close();
                 }
             }
         }
     }
-
 }

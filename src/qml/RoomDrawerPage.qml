@@ -44,7 +44,12 @@ Kirigami.Page {
             displayHint: Kirigami.DisplayHint.IconOnly
             text: i18n("Settings")
             icon.name: "settings-configure"
-            onTriggered: applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {room: root.room, connection: root.connection}, { title: i18n("Room Settings") })
+            onTriggered: applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                room: root.room,
+                connection: root.connection
+            }, {
+                title: i18n("Room Settings")
+            })
         }
     ]
 
@@ -96,14 +101,14 @@ Kirigami.Page {
         target: applicationWindow().pageStack
         onWideModeChanged: {
             if (applicationWindow().pageStack.wideMode) {
-                console.log("widemode pop")
-                applicationWindow().pageStack.pop()
+                console.log("widemode pop");
+                applicationWindow().pageStack.pop();
             }
         }
     }
 
     onBackRequested: event => {
         event.accepted = true;
-        applicationWindow().pageStack.pop()
+        applicationWindow().pageStack.pop();
     }
 }

@@ -49,22 +49,30 @@ FormCard.FormCardPage {
             valueRole: "isSpace"
 
             Component.onCompleted: {
-                currentIndex = indexOfValue(root.isSpace)
-                roomTypeModel.append({"text":  i18n("Room"), "isSpace": false});
-                roomTypeModel.append({"text":  i18n("Space"), "isSpace": true});
-                roomTypeCombo.currentIndex = 0
-                roomTypeCombo.isInitialising = false
+                currentIndex = indexOfValue(root.isSpace);
+                roomTypeModel.append({
+                    "text": i18n("Room"),
+                    "isSpace": false
+                });
+                roomTypeModel.append({
+                    "text": i18n("Space"),
+                    "isSpace": true
+                });
+                roomTypeCombo.currentIndex = 0;
+                roomTypeCombo.isInitialising = false;
             }
             onCurrentValueChanged: {
                 if (!isInitialising) {
-                    root.isSpace = currentValue
+                    root.isSpace = currentValue;
                 }
             }
         }
         FormCard.FormTextFieldDelegate {
             id: roomNameField
             label: i18n("Name:")
-            onAccepted: if (roomNameField.text.length > 0) roomTopicField.forceActiveFocus();
+            onAccepted: if (roomNameField.text.length > 0) {
+                roomTopicField.forceActiveFocus();
+            }
         }
 
         FormCard.FormTextFieldDelegate {
@@ -88,8 +96,8 @@ FormCard.FormCardPage {
                 } else {
                     root.connection.createRoom(roomNameField.text, roomTopicField.text, root.parentId, newOfficialCheck.checked);
                 }
-                root.newChild(roomNameField.text)
-                root.closeDialog()
+                root.newChild(roomNameField.text);
+                root.closeDialog();
             }
         }
     }
@@ -103,7 +111,11 @@ FormCard.FormCardPage {
             visible: !chosenRoomDelegate.visible
             text: i18nc("@action:button", "Pick room")
             onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
+                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                    connection: root.connection
+                }, {
+                    title: i18nc("@title", "Explore Rooms")
+                });
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
                     chosenRoomDelegate.displayName = displayName;
@@ -113,7 +125,7 @@ FormCard.FormCardPage {
                     chosenRoomDelegate.memberCount = memberCount;
                     chosenRoomDelegate.isJoined = isJoined;
                     chosenRoomDelegate.visible = true;
-                })
+                });
             }
         }
         FormCard.AbstractFormDelegate {
@@ -158,7 +170,7 @@ FormCard.FormCardPage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         visible: text
-                        text: chosenRoomDelegate.topic ? chosenRoomDelegate.topic.replace(/(\r\n\t|\n|\r\t)/gm," ") : ""
+                        text: chosenRoomDelegate.topic ? chosenRoomDelegate.topic.replace(/(\r\n\t|\n|\r\t)/gm, " ") : ""
                         textFormat: Text.PlainText
                         elide: Text.ElideRight
                         wrapMode: Text.NoWrap
@@ -182,7 +194,11 @@ FormCard.FormCardPage {
             }
 
             onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
+                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                    connection: root.connection
+                }, {
+                    title: i18nc("@title", "Explore Rooms")
+                });
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
                     chosenRoomDelegate.displayName = displayName;
@@ -192,7 +208,7 @@ FormCard.FormCardPage {
                     chosenRoomDelegate.memberCount = memberCount;
                     chosenRoomDelegate.isJoined = isJoined;
                     chosenRoomDelegate.visible = true;
-                })
+                });
             }
         }
         FormCard.FormCheckDelegate {

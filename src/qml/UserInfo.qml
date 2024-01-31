@@ -120,7 +120,11 @@ RowLayout {
     }
     QQC2.ToolButton {
         icon.name: "settings-configure"
-        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {connection: root.connection}, { title: i18n("Configure") })
+        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
+            connection: root.connection
+        }, {
+            title: i18n("Configure")
+        })
         text: i18n("Open Settings")
         display: QQC2.AbstractButton.IconOnly
         Layout.minimumWidth: Layout.preferredWidth
@@ -143,10 +147,11 @@ RowLayout {
         parent: root
 
         visible: switchUserButton.checked
-        onVisibleChanged: if (visible) accounts.forceActiveFocus()
+        onVisibleChanged: if (visible)
+            accounts.forceActiveFocus()
 
         x: -Kirigami.Units.smallSpacing
-        y: root.bottomEdge ? -height - Kirigami.Units.smallSpacing - 1  : root.height + Kirigami.Units.smallSpacing - 1
+        y: root.bottomEdge ? -height - Kirigami.Units.smallSpacing - 1 : root.height + Kirigami.Units.smallSpacing - 1
         width: root.width + (root.bottomEdge ? 0 : Kirigami.Units.smallSpacing * 2)
         leftPadding: 0
         rightPadding: 0
@@ -181,20 +186,20 @@ RowLayout {
 
                 onClicked: {
                     pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/WelcomePage.qml", {}, {
-                        title: i18nc("@title:window", "Login"),
+                        title: i18nc("@title:window", "Login")
                     });
                     if (switchUserButton.checked) {
-                        switchUserButton.checked = false
+                        switchUserButton.checked = false;
                     }
-                    accounts.currentIndex = Controller.activeConnectionIndex
+                    accounts.currentIndex = Controller.activeConnectionIndex;
                 }
                 Keys.onUpPressed: {
-                    accounts.currentIndex = accounts.count - 1
-                    accounts.forceActiveFocus()
+                    accounts.currentIndex = accounts.count - 1;
+                    accounts.forceActiveFocus();
                 }
                 Keys.onDownPressed: {
-                    accounts.currentIndex = 0
-                    accounts.forceActiveFocus()
+                    accounts.currentIndex = 0;
+                    accounts.forceActiveFocus();
                 }
             }
             clip: true
@@ -203,24 +208,24 @@ RowLayout {
             keyNavigationEnabled: false
             Keys.onDownPressed: {
                 if (accounts.currentIndex === accounts.count - 1) {
-                    addAccount.forceActiveFocus()
-                    accounts.currentIndex = -1
+                    addAccount.forceActiveFocus();
+                    accounts.currentIndex = -1;
                 } else {
-                    accounts.incrementCurrentIndex()
+                    accounts.incrementCurrentIndex();
                 }
             }
             Keys.onUpPressed: {
                 if (accounts.currentIndex === 0) {
-                    addAccount.forceActiveFocus()
-                    accounts.currentIndex = -1
+                    addAccount.forceActiveFocus();
+                    accounts.currentIndex = -1;
                 } else {
-                    accounts.decrementCurrentIndex()
+                    accounts.decrementCurrentIndex();
                 }
             }
 
             Keys.onReleased: if (event.key == Qt.Key_Escape) {
                 if (switchUserButton.checked) {
-                    switchUserButton.checked = false
+                    switchUserButton.checked = false;
                 }
             }
 
@@ -262,9 +267,9 @@ RowLayout {
                 }
 
                 onClicked: {
-                    Controller.activeConnection = userDelegate.connection
+                    Controller.activeConnection = userDelegate.connection;
                     if (switchUserButton.checked) {
-                        switchUserButton.checked = false
+                        switchUserButton.checked = false;
                     }
                 }
             }

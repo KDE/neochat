@@ -73,7 +73,7 @@ RowLayout {
     /**
      * @brief The reply has been clicked.
      */
-    signal replyClicked()
+    signal replyClicked
 
     spacing: Kirigami.Units.largeSpacing
 
@@ -118,20 +118,20 @@ RowLayout {
 
             sourceComponent: {
                 switch (root.type) {
-                    case DelegateType.Image:
-                    case DelegateType.Sticker:
-                        return imageComponent;
-                    case DelegateType.Message:
-                    case DelegateType.Notice:
-                        return textComponent;
-                    case DelegateType.File:
-                    case DelegateType.Video:
-                    case DelegateType.Audio:
-                        return mimeComponent;
-                    case DelegateType.Encrypted:
-                        return encryptedComponent;
-                    default:
-                        return textComponent;
+                case DelegateType.Image:
+                case DelegateType.Sticker:
+                    return imageComponent;
+                case DelegateType.Message:
+                case DelegateType.Notice:
+                    return textComponent;
+                case DelegateType.File:
+                case DelegateType.Video:
+                case DelegateType.Audio:
+                    return mimeComponent;
+                case DelegateType.Encrypted:
+                    return encryptedComponent;
+                default:
+                    return textComponent;
                 }
             }
         }

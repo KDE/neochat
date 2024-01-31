@@ -67,8 +67,8 @@ MapQuickItem {
             anchors.bottom: mainIcon.top
             anchors.horizontalCenter: mainIcon.horizontalCenter
             transform: Rotation {
-                origin.x: headingIcon.width/2
-                origin.y: headingIcon.height + mainIcon.height/2
+                origin.x: headingIcon.width / 2
+                origin.y: headingIcon.height + mainIcon.height / 2
                 angle: root.heading
             }
         }

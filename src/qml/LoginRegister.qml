@@ -11,7 +11,9 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    onActiveFocusChanged: if (activeFocus) loginButton.forceActiveFocus(Qt.TabFocusReason)
+    onActiveFocusChanged: if (activeFocus) {
+        loginButton.forceActiveFocus(Qt.TabFocusReason);
+    }
 
     Layout.fillWidth: true
 

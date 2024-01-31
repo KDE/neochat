@@ -42,8 +42,8 @@ Kirigami.Dialog {
                 ids.push(spaceGroup.buttons[i].modelData.id);
             }
         }
-        root.room.setJoinRule("restricted", ids)
-        console.warn(ids)
+        root.room.setJoinRule("restricted", ids);
+        console.warn(ids);
     }
 
     QQC2.ButtonGroup {

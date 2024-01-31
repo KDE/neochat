@@ -10,33 +10,33 @@ import org.kde.kirigami as Kirigami
 Item {
     id: root
     property bool enabled: false
-    property int effectInterval: Kirigami.Units.veryLongDuration*10;
+    property int effectInterval: Kirigami.Units.veryLongDuration * 10
     property color darkSnowColor: "grey"
     property bool isThemeDark: Kirigami.Theme.backgroundColor.hslLightness <= darkSnowColor.hslLightness
 
     function showConfettiEffect() {
-        confettiTimer.start()
+        confettiTimer.start();
     }
 
     function showSnowEffect() {
-        snowTimer.start()
+        snowTimer.start();
     }
 
     function showFireworksEffect() {
-        fireworksTimer.start()
+        fireworksTimer.start();
     }
 
     // Confetti
 
     Timer {
         id: confettiTimer
-        interval: root.effectInterval;
-        running: false;
-        repeat: false;
-        triggeredOnStart: true;
+        interval: root.effectInterval
+        running: false
+        repeat: false
+        triggeredOnStart: true
         onTriggered: {
             if (root.enabled) {
-                confettiSystem.running = !confettiSystem.running
+                confettiSystem.running = !confettiSystem.running;
             }
         }
     }
@@ -48,15 +48,17 @@ Item {
         running: false
         onRunningChanged: {
             if (running) {
-                opacity = 1
+                opacity = 1;
             } else {
-                opacity = 0
+                opacity = 0;
             }
         }
 
         Behavior on opacity {
             SequentialAnimation {
-                NumberAnimation { duration: Kirigami.Units.longDuration }
+                NumberAnimation {
+                    duration: Kirigami.Units.longDuration
+                }
             }
         }
 
@@ -76,8 +78,8 @@ Item {
                 top: parent.top
             }
 
-            sizeVariation: Kirigami.Units.iconSizes.small/2
-            lifeSpan: Kirigami.Units.veryLongDuration*10
+            sizeVariation: Kirigami.Units.iconSizes.small / 2
+            lifeSpan: Kirigami.Units.veryLongDuration * 10
             size: Kirigami.Units.iconSizes.small
 
             velocity: AngleDirection {
@@ -92,13 +94,13 @@ Item {
 
     Timer {
         id: snowTimer
-        interval: root.effectInterval;
-        running: false;
-        repeat: false;
-        triggeredOnStart: true;
+        interval: root.effectInterval
+        running: false
+        repeat: false
+        triggeredOnStart: true
         onTriggered: {
             if (root.enabled) {
-                snowSystem.running = !snowSystem.running
+                snowSystem.running = !snowSystem.running;
             }
         }
     }
@@ -110,15 +112,17 @@ Item {
         running: false
         onRunningChanged: {
             if (running) {
-                opacity = 1
+                opacity = 1;
             } else {
-                opacity = 0
+                opacity = 0;
             }
         }
 
         Behavior on opacity {
             SequentialAnimation {
-                NumberAnimation { duration: Kirigami.Units.longDuration }
+                NumberAnimation {
+                    duration: Kirigami.Units.longDuration
+                }
             }
         }
 
@@ -141,7 +145,7 @@ Item {
             }
 
             sizeVariation: Kirigami.Units.iconSizes.medium
-            lifeSpan: Kirigami.Units.veryLongDuration*10
+            lifeSpan: Kirigami.Units.veryLongDuration * 10
             size: Kirigami.Units.iconSizes.large
             emitRate: 42
 
@@ -157,13 +161,13 @@ Item {
 
     Timer {
         id: fireworksTimer
-        interval: root.effectInterval;
-        running: false;
-        repeat: false;
-        triggeredOnStart: true;
+        interval: root.effectInterval
+        running: false
+        repeat: false
+        triggeredOnStart: true
         onTriggered: {
             if (root.enabled) {
-                fireworksInternalTimer.running = !fireworksInternalTimer.running
+                fireworksInternalTimer.running = !fireworksInternalTimer.running;
             }
         }
     }
@@ -175,11 +179,11 @@ Item {
         running: false
         repeat: true
         onTriggered: {
-            var x = Math.random() * parent.width
-            var y = Math.random() * parent.height
-            customEmit(x, y)
-            customEmit(x, y)
-            customEmit(x, y)
+            var x = Math.random() * parent.width;
+            var y = Math.random() * parent.height;
+            customEmit(x, y);
+            customEmit(x, y);
+            customEmit(x, y);
         }
     }
 
@@ -189,15 +193,17 @@ Item {
         running: fireworksInternalTimer.running
         onRunningChanged: {
             if (running) {
-                opacity = 1
+                opacity = 1;
             } else {
-                opacity = 0
+                opacity = 0;
             }
         }
 
         Behavior on opacity {
             SequentialAnimation {
-                NumberAnimation { duration: Kirigami.Units.longDuration }
+                NumberAnimation {
+                    duration: Kirigami.Units.longDuration
+                }
             }
         }
     }
@@ -256,39 +262,42 @@ Item {
                 running: true
                 onTriggered: {
                     container.destroy();
-                    var randomHue = Math.random()
-                    var lightness = root.isThemeDark ? 0.8 : 0.7
-                    fireworksParticleA.color = Qt.hsla(randomHue, 0.8, lightness, 1)
-                    fireworksParticleB.color = Qt.hsla(1-randomHue, 0.8, lightness, 1)
+                    var randomHue = Math.random();
+                    var lightness = root.isThemeDark ? 0.8 : 0.7;
+                    fireworksParticleA.color = Qt.hsla(randomHue, 0.8, lightness, 1);
+                    fireworksParticleB.color = Qt.hsla(1 - randomHue, 0.8, lightness, 1);
                 }
             }
-            velocity: AngleDirection {angleVariation:360; magnitude: 200}
+            velocity: AngleDirection {
+                angleVariation: 360
+                magnitude: 200
+            }
         }
     }
 
-    function customEmit(x,y) {
-        var currentSize = Math.round(Math.random() * 200) + 40
-        var currentLifeSpan = Math.round(Math.random() * 1000) + 100
-        for (var i=0; i<8; i++) {
+    function customEmit(x, y) {
+        var currentSize = Math.round(Math.random() * 200) + 40;
+        var currentLifeSpan = Math.round(Math.random() * 1000) + 100;
+        for (var i = 0; i < 8; i++) {
             var obj = emitterComp.createObject(parent);
-            obj.x = x
-            obj.y = y
-            obj.targetX = Math.random() * currentSize - currentSize/2 + obj.x
-            obj.targetY = Math.random() * currentSize - currentSize/2 + obj.y
-            obj.life = Math.round(Math.random() * 23) + 150
-            obj.emitRate = Math.round(Math.random() * 32) + 5
-            obj.lifeSpan = currentLifeSpan
+            obj.x = x;
+            obj.y = y;
+            obj.targetX = Math.random() * currentSize - currentSize / 2 + obj.x;
+            obj.targetY = Math.random() * currentSize - currentSize / 2 + obj.y;
+            obj.life = Math.round(Math.random() * 23) + 150;
+            obj.emitRate = Math.round(Math.random() * 32) + 5;
+            obj.lifeSpan = currentLifeSpan;
             const group = Math.round(Math.random() * 3);
             switch (group) {
-                case 0:
-                    obj.group = "light";
-                    break;
-                case 1:
-                    obj.group = "a";
-                    break;
-                case 2:
-                    obj.group = "b";
-                    break;
+            case 0:
+                obj.group = "light";
+                break;
+            case 1:
+                obj.group = "a";
+                break;
+            case 2:
+                obj.group = "b";
+                break;
             }
         }
     }

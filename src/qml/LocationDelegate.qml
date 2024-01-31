@@ -58,8 +58,13 @@ MessageDelegate {
             TapHandler {
                 acceptedButtons: Qt.LeftButton
                 onTapped: {
-                    let map = fullScreenMap.createObject(parent, {latitude: root.latitude, longitude: root.longitude, asset: root.asset, author: root.author});
-                    map.open()
+                    let map = fullScreenMap.createObject(parent, {
+                        latitude: root.latitude,
+                        longitude: root.longitude,
+                        asset: root.asset,
+                        author: root.author
+                    });
+                    map.open();
                 }
                 onLongPressed: openMessageContext("")
             }
@@ -70,13 +75,13 @@ MessageDelegate {
             Connections {
                 target: mapView.map
                 function onCopyrightLinkActivated() {
-                    Qt.openUrlExternally(link)
+                    Qt.openUrlExternally(link);
                 }
             }
         }
         Component {
             id: fullScreenMap
-            FullScreenMap { }
+            FullScreenMap {}
         }
 
         RichLabel {

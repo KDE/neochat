@@ -31,7 +31,7 @@ Loader {
      * When the content of the link preview is larger than this it will be
      * elided/hidden until maximized.
      */
-    property var defaultHeight : Kirigami.Units.gridUnit * 3 + Kirigami.Units.smallSpacing * 2
+    property var defaultHeight: Kirigami.Units.gridUnit * 3 + Kirigami.Units.smallSpacing * 2
 
     /**
      * @brief Whether the loading indicator should animate if visible.
@@ -146,4 +146,3 @@ Loader {
         }
     }
 }
-

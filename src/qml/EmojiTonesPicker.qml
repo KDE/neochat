@@ -63,9 +63,9 @@ QQC2.Popup {
             Keys.onEnterPressed: clicked()
             Keys.onReturnPressed: clicked()
             onClicked: {
-                root.chosen(modelData.unicode)
-                EmojiModel.emojiUsed(modelData)
-                root.close()
+                root.chosen(modelData.unicode);
+                EmojiModel.emojiUsed(modelData);
+                root.close();
             }
         }
     }

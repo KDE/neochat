@@ -46,7 +46,11 @@ Kirigami.Page {
                         visible: root.currentRoom.canSendState("invite")
                         text: i18nc("@button", "Invite user to space")
                         icon.name: "list-add-user"
-                        onClicked: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/InviteUserPage.qml", {room: root.currentRoom}, {title: i18nc("@title", "Invite a User")})
+                        onClicked: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/InviteUserPage.qml", {
+                            room: root.currentRoom
+                        }, {
+                            title: i18nc("@title", "Invite a User")
+                        })
                     }
                     QQC2.Button {
                         visible: root.currentRoom.canSendState("m.space.child")
@@ -66,7 +70,12 @@ Kirigami.Page {
                         text: i18nc("@button", "Space settings")
                         icon.name: "settings-configure"
                         display: QQC2.AbstractButton.IconOnly
-                        onClicked: applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {room: root.currentRoom, connection: root.currentRoom.connection}, { title: i18n("Room Settings") })
+                        onClicked: applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                            room: root.currentRoom,
+                            connection: root.currentRoom.connection
+                        }, {
+                            title: i18n("Room Settings")
+                        })
 
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -103,7 +112,9 @@ Kirigami.Page {
 
             TreeView {
                 id: spaceTree
-                columnWidthProvider: function (column) { return spaceTree.width }
+                columnWidthProvider: function (column) {
+                    return spaceTree.width;
+                }
 
                 clip: true
 
@@ -150,21 +161,23 @@ Kirigami.Page {
             let dialog = applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {
                 title: i18nc("@title", "Create a Child"),
                 connection: root.currentRoom.connection,
-                parentId : parentId,
+                parentId: parentId,
                 showChildType: true,
                 showCreateChoice: true
             }, {
                 title: i18nc("@title", "Create a Child")
-            })
+            });
             dialog.addChild.connect((childId, setChildParent, canonical) => {
                 // We have to get a room object from the connection as we may not
                 // be adding to the top level parent.
-                let parent = root.currentRoom.connection.room(parentId)
+                let parent = root.currentRoom.connection.room(parentId);
                 if (parent) {
-                    parent.addChild(childId, setChildParent, canonical)
+                    parent.addChild(childId, setChildParent, canonical);
                 }
-            })
-            dialog.newChild.connect(childName => {spaceChildrenModel.addPendingChild(childName)})
+            });
+            dialog.newChild.connect(childName => {
+                spaceChildrenModel.addPendingChild(childName);
+            });
         }
     }
 }

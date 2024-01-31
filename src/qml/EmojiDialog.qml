@@ -25,16 +25,16 @@ QQC2.Popup {
     Connections {
         target: RoomManager
         function onCurrentRoomChanged() {
-            root.close()
+            root.close();
         }
     }
 
     onVisibleChanged: {
         if (!visible) {
-            emojiPicker.clearSearchField()
-            return
+            emojiPicker.clearSearchField();
+            return;
         }
-        emojiPicker.forceActiveFocus()
+        emojiPicker.forceActiveFocus();
     }
 
     background: Kirigami.ShadowedRectangle {
@@ -68,8 +68,10 @@ QQC2.Popup {
         includeCustom: root.includeCustom
         showQuickReaction: root.showQuickReaction
         onChosen: emoji => {
-            root.chosen(emoji)
-            if (root.closeOnChosen) root.close()
+            root.chosen(emoji);
+            if (root.closeOnChosen) {
+                root.close();
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ LoginStep {
 
     nextAction: Kirigami.Action {
         onTriggered: {
-            Registration.registerAccount()
+            Registration.registerAccount();
         }
     }
     previousAction: Kirigami.Action {

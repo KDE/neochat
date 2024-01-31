@@ -13,7 +13,7 @@ import org.kde.neochat
 ColumnLayout {
     id: root
 
-    signal attachmentCancelled()
+    signal attachmentCancelled
 
     property string attachmentPath
 
@@ -47,7 +47,7 @@ ColumnLayout {
 
             onClicked: {
                 let imageEditor = applicationWindow().pageStack.layers.push(imageEditorPage);
-                imageEditor.newPathChanged.connect(function(newPath) {
+                imageEditor.newPathChanged.connect(function (newPath) {
                     applicationWindow().pageStack.layers.pop();
                     root.attachmentPath = newPath;
                 });
@@ -61,7 +61,7 @@ ColumnLayout {
             action: Kirigami.Action {
                 text: i18n("Cancel sending attachment")
                 icon.name: "dialog-close"
-                onTriggered: attachmentCancelled();
+                onTriggered: attachmentCancelled()
                 shortcut: "Escape"
             }
             QQC2.ToolTip.text: text
@@ -81,14 +81,14 @@ ColumnLayout {
 
         onSourceChanged: {
             // Reset source size height, which affect implicitHeight
-            sourceSize.height = -1
+            sourceSize.height = -1;
         }
 
         onSourceSizeChanged: {
             if (implicitHeight > Kirigami.Units.gridUnit * 8) {
                 // This can save a lot of RAM when loading large images.
                 // It also improves visual quality for large images.
-                sourceSize.height = Kirigami.Units.gridUnit * 8
+                sourceSize.height = Kirigami.Units.gridUnit * 8;
             }
         }
 

@@ -68,7 +68,7 @@ FormCard.AbstractFormDelegate {
                     text: i18n("Cancel editing display name")
                     icon.name: "edit-delete-remove"
                     onTriggered: {
-                        root.editDeviceName = false
+                        root.editDeviceName = false;
                     }
                 },
                 Kirigami.Action {
@@ -76,7 +76,7 @@ FormCard.AbstractFormDelegate {
                     icon.name: "checkmark"
                     visible: nameField.text !== root.displayName
                     onTriggered: {
-                        devicesModel.setName(root.id, nameField.text)
+                        devicesModel.setName(root.id, nameField.text);
                     }
                 }
             ]
@@ -104,7 +104,7 @@ FormCard.AbstractFormDelegate {
                 text: i18n("Verify device")
                 icon.name: "security-low-symbolic"
                 onTriggered: {
-                    devicesModel.connection.startKeyVerificationSession(devicesModel.connection.localUserId, root.id)
+                    devicesModel.connection.startKeyVerificationSession(devicesModel.connection.localUserId, root.id);
                 }
             }
             QQC2.ToolTip {
@@ -119,8 +119,8 @@ FormCard.AbstractFormDelegate {
                 text: i18n("Logout device")
                 icon.name: "edit-delete-remove"
                 onTriggered: {
-                    passwordSheet.deviceId = root.id
-                    passwordSheet.open()
+                    passwordSheet.deviceId = root.id;
+                    passwordSheet.open();
                 }
             }
             QQC2.ToolTip {

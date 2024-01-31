@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
             id: roomDelegate
             filterText: ""
             onSelected: {
-                root.chosen(roomDelegate.currentRoom.id)
+                root.chosen(roomDelegate.currentRoom.id);
             }
             connection: root.connection
         }

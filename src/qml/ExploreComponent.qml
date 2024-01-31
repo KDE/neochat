@@ -21,22 +21,34 @@ RowLayout {
         text: i18n("Explore rooms")
         icon.name: "compass"
         onTriggered: {
-            let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {connection: root.connection}, {title: i18nc("@title", "Explore Rooms")})
+            let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Explore Rooms")
+            });
             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join")
-            })
+                RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
+            });
         }
     }
     property Kirigami.Action chatAction: Kirigami.Action {
         text: i18n("Find your friends")
         icon.name: "list-add-user"
-        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {connection: root.connection}, {title: i18nc("@title", "Find your friends")})
+        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
+            connection: root.connection
+        }, {
+            title: i18nc("@title", "Find your friends")
+        })
     }
     property Kirigami.Action roomAction: Kirigami.Action {
         text: i18n("Create a Room")
         icon.name: "system-users-symbolic"
         onTriggered: {
-            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Create a Room")})
+            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Create a Room")
+            });
         }
         shortcut: StandardKey.New
     }
@@ -44,7 +56,13 @@ RowLayout {
         text: i18n("Create a Space")
         icon.name: "list-add"
         onTriggered: {
-            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {connection: root.connection, isSpace: true, title: i18nc("@title", "Create a Space")}, {title: i18nc("@title", "Create a Space")})
+            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {
+                connection: root.connection,
+                isSpace: true,
+                title: i18nc("@title", "Create a Space")
+            }, {
+                title: i18nc("@title", "Create a Space")
+            });
         }
     }
 
@@ -72,7 +90,7 @@ RowLayout {
                     menu.open();
                 } else {
                     const menu = desktopMenu.createObject(menuButton);
-                    menu.closed.connect(menuButton.toggle)
+                    menu.closed.connect(menuButton.toggle);
                     menu.open();
                 }
             }

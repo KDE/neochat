@@ -30,25 +30,13 @@ Delegates.RoundedItemDelegate {
      * upon as required, e.g. joining or entering the room or adding the room as
      * the child of a space.
      */
-    signal roomSelected(string roomId,
-                        string displayName,
-                        url avatarUrl,
-                        string alias,
-                        string topic,
-                        int memberCount,
-                        bool isJoined)
+    signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
     onClicked: {
         if (!isJoined) {
             justJoined = true;
         }
-        root.roomSelected(root.roomId,
-                          root.displayName,
-                          root.avatarUrl,
-                          root.alias,
-                          root.topic,
-                          root.memberCount,
-                          root.isJoined)
+        root.roomSelected(root.roomId, root.displayName, root.avatarUrl, root.alias, root.topic, root.memberCount, root.isJoined);
     }
 
     contentItem: RowLayout {
@@ -85,7 +73,7 @@ Delegates.RoundedItemDelegate {
             QQC2.Label {
                 Layout.fillWidth: true
                 visible: text
-                text: root.topic ? root.topic.replace(/(\r\n\t|\n|\r\t)/gm," ") : ""
+                text: root.topic ? root.topic.replace(/(\r\n\t|\n|\r\t)/gm, " ") : ""
                 textFormat: Text.PlainText
                 elide: Text.ElideRight
                 wrapMode: Text.NoWrap

@@ -31,7 +31,10 @@ Kirigami.ScrollablePage {
             }
         }
 
-        FormCard.FormDelegateSeparator { below: enable; above: skipUppercase }
+        FormCard.FormDelegateSeparator {
+            below: enable
+            above: skipUppercase
+        }
 
         FormCard.FormCheckDelegate {
             id: skipUppercase
@@ -43,7 +46,10 @@ Kirigami.ScrollablePage {
             }
         }
 
-        FormCard.FormDelegateSeparator { below: skipUppercase; above: skipRunTogether }
+        FormCard.FormDelegateSeparator {
+            below: skipUppercase
+            above: skipRunTogether
+        }
 
         FormCard.FormCheckDelegate {
             id: skipRunTogether
@@ -55,7 +61,10 @@ Kirigami.ScrollablePage {
             }
         }
 
-        FormCard.FormDelegateSeparator { below: skipRunTogether; above: autodetectLanguageCheckbox }
+        FormCard.FormDelegateSeparator {
+            below: skipRunTogether
+            above: autodetectLanguageCheckbox
+        }
 
         FormCard.FormCheckDelegate {
             id: autodetectLanguageCheckbox
@@ -67,12 +76,19 @@ Kirigami.ScrollablePage {
             }
         }
 
-        FormCard.FormDelegateSeparator { below: autodetectLanguageCheckbox; above: selectedDefaultLanguage }
+        FormCard.FormDelegateSeparator {
+            below: autodetectLanguageCheckbox
+            above: selectedDefaultLanguage
+        }
 
         FormCard.FormComboBoxDelegate {
             id: selectedDefaultLanguage
             text: i18n("Selected default language:")
-            model: isEmpty ? [{"display": i18n("None")}] : settings.dictionaryModel
+            model: isEmpty ? [
+                {
+                    "display": i18n("None")
+                }
+            ] : settings.dictionaryModel
             textRole: "display"
             displayMode: Kirigami.Settings.isMobile ? FormCard.FormComboBoxDelegate.Dialog : FormCard.FormComboBoxDelegate.Page
             valueRole: "languageCode"
@@ -84,10 +100,13 @@ Kirigami.ScrollablePage {
                     currentIndex = indexOfValue(settings.defaultLanguage);
                 }
             }
-            onActivated: settings.defaultLanguage = currentValue;
+            onActivated: settings.defaultLanguage = currentValue
         }
 
-        FormCard.FormDelegateSeparator { below: selectedDefaultLanguage; above: spellCheckingLanguage }
+        FormCard.FormDelegateSeparator {
+            below: selectedDefaultLanguage
+            above: spellCheckingLanguage
+        }
 
         FormCard.FormButtonDelegate {
             id: spellCheckingLanguage
@@ -96,18 +115,21 @@ Kirigami.ScrollablePage {
             enabled: autodetectLanguageCheckbox.checked
             onClicked: pageStack.pushDialogLayer(spellCheckingLanguageList, {}, {
                 width: pageStack.width - Kirigami.Units.gridUnit * 5,
-                height: pageStack.height - Kirigami.Units.gridUnit * 5,
+                height: pageStack.height - Kirigami.Units.gridUnit * 5
             })
         }
 
-        FormCard.FormDelegateSeparator { below: spellCheckingLanguageList; above: personalDictionary }
+        FormCard.FormDelegateSeparator {
+            below: spellCheckingLanguageList
+            above: personalDictionary
+        }
 
         FormCard.FormButtonDelegate {
             id: personalDictionary
             text: i18n("Open Personal Dictionary")
             onClicked: pageStack.pushDialogLayer(dictionaryPage, {}, {
                 width: pageStack.width - Kirigami.Units.gridUnit * 5,
-                height: pageStack.height - Kirigami.Units.gridUnit * 5,
+                height: pageStack.height - Kirigami.Units.gridUnit * 5
             })
         }
 
@@ -126,8 +148,8 @@ Kirigami.ScrollablePage {
                         width: scroll.width
                         contentItem: RowLayout {
                             QQC2.Label {
-                                Layout.fillWidth: true
                                 id: label
+                                Layout.fillWidth: true
                                 text: model.display
                             }
                             Kirigami.Icon {

@@ -20,13 +20,7 @@ Kirigami.Dialog {
     /**
      * @brief Signal emitted when a valid room id or alias is entered.
      */
-    signal roomSelected(string roomId,
-                        string displayName,
-                        url avatarUrl,
-                        string alias,
-                        string topic,
-                        int memberCount,
-                        bool isJoined)
+    signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
     title: i18nc("@title", "Room ID or Alias")
 
@@ -54,7 +48,7 @@ Kirigami.Dialog {
                 if (roomIdAliasText.room) {
                     roomId = roomIdAliasText.room.id;
                     displayName = roomIdAliasText.room.displayName;
-                    avatarUrl = roomIdAliasText.room.avatarUrl.toString().length > 0 ? connection.makeMediaUrl(roomIdAliasText.room.avatarUrl) : ""
+                    avatarUrl = roomIdAliasText.room.avatarUrl.toString().length > 0 ? connection.makeMediaUrl(roomIdAliasText.room.avatarUrl) : "";
                     alias = roomIdAliasText.room.canonicalAlias;
                     topic = roomIdAliasText.room.topic;
                     memberCount = roomIdAliasText.room.joinedCount;
@@ -112,7 +106,7 @@ Kirigami.Dialog {
     }
 
     onVisibleChanged: {
-        roomIdAliasText.forceActiveFocus()
-        timer.restart()
+        roomIdAliasText.forceActiveFocus();
+        timer.restart();
     }
 }

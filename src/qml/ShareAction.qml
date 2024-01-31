@@ -42,7 +42,7 @@ Kirigami.Action {
 Purpose.PurposeAlternativesModel {
     pluginType: "Export"
 }', root._instantiator);
-            purposeModel.inputData = Qt.binding(function() {
+            purposeModel.inputData = Qt.binding(function () {
                 return root.inputData;
             });
             _instantiator.model = purposeModel;
@@ -59,12 +59,12 @@ Purpose.PurposeAlternativesModel {
                     title: root.tooltip,
                     index: index,
                     model: root._instantiator.model
-                })
+                });
             }
         }
         onObjectAdded: (index, object) => {
             object.index = index;
-            root.children.push(object)
+            root.children.push(object);
         }
         onObjectRemoved: (index, object) => root.children = Array.from(root.children).filter(obj => obj.pluginId !== object.pluginId)
     }

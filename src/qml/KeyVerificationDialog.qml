@@ -74,7 +74,9 @@ Kirigami.Page {
         visible: root.session.state === KeyVerificationSession.INCOMING
         QQC2.DialogButtonBox {
             anchors.fill: parent
-            Item { Layout.fillWidth: true }
+            Item {
+                Layout.fillWidth: true
+            }
             QQC2.Button {
                 text: i18n("Accept")
                 icon.name: "dialog-ok"

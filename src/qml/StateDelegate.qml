@@ -199,7 +199,7 @@ TimelineDelegate {
     }
 
     function toggleFolded() {
-        folded = !folded
-        foldedChanged()
+        folded = !folded;
+        foldedChanged();
     }
 }

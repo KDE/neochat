@@ -43,7 +43,7 @@ MessageDelegate {
     property bool autoOpenFile: false
 
     onDownloadedChanged: {
-        itineraryModel.path = root.progressInfo.localPath
+        itineraryModel.path = root.progressInfo.localPath;
         if (autoOpenFile) {
             openSavedFile();
         }
@@ -52,9 +52,9 @@ MessageDelegate {
     onOpenContextMenu: RoomManager.viewEventMenu(eventId, author, delegateType, plainText, "", "", mediaInfo.mimeType, progressInfo)
 
     function saveFileAs() {
-        const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
-        dialog.open()
-        dialog.currentFile = dialog.folder + "/" + root.room.fileNameToDownload(root.eventId)
+        const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay);
+        dialog.open();
+        dialog.currentFile = dialog.folder + "/" + root.room.fileNameToDownload(root.eventId);
     }
 
     function openSavedFile() {
@@ -183,10 +183,10 @@ MessageDelegate {
                     fileMode: FileDialog.SaveFile
                     folder: Config.lastSaveDirectory.length > 0 ? Config.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
                     onAccepted: {
-                        Config.lastSaveDirectory = folder
-                        Config.save()
+                        Config.lastSaveDirectory = folder;
+                        Config.save();
                         if (autoOpenFile) {
-                            UrlHelper.copyTo(root.progressInfo.localPath, file)
+                            UrlHelper.copyTo(root.progressInfo.localPath, file);
                         } else {
                             root.room.download(root.eventId, file);
                         }
@@ -213,9 +213,9 @@ MessageDelegate {
                                 text: model.name
                             }
                             QQC2.Label {
-                                 text: model.coach ? i18n("Coach: %1, Seat: %2", model.coach, model.seat) : ""
-                                 visible: model.coach
-                                 opacity: 0.7
+                                text: model.coach ? i18n("Coach: %1, Seat: %2", model.coach, model.seat) : ""
+                                visible: model.coach
+                                opacity: 0.7
                             }
                         }
                         RowLayout {
@@ -234,7 +234,7 @@ MessageDelegate {
                             }
                             ColumnLayout {
                                 QQC2.Label {
-                                    text: model.arrivalStation + (model.arrivalPlatform ?  (" [" + model.arrivalPlatform + "]") : "")
+                                    text: model.arrivalStation + (model.arrivalPlatform ? (" [" + model.arrivalPlatform + "]") : "")
                                 }
                                 QQC2.Label {
                                     text: model.arrivalTime

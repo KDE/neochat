@@ -25,8 +25,8 @@ QQC2.Control {
 
     property bool showDirectChats: false
 
-    signal selectionChanged()
-    signal spacesUpdated()
+    signal selectionChanged
+    signal spacesUpdated
 
     contentItem: Loader {
         id: sidebarColumn
@@ -67,9 +67,11 @@ QQC2.Control {
                             source: "notifications"
                         }
 
-                        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/NotificationsView.qml", {connection: root.connection}, {
+                        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/NotificationsView.qml", {
+                            connection: root.connection
+                        }, {
                             title: i18nc("@title", "Notifications")
-                        });
+                        })
                     }
 
                     Kirigami.Separator {
@@ -93,9 +95,9 @@ QQC2.Control {
 
                         checked: root.selectedSpaceId === "" && root.showDirectChats === false
                         onClicked: {
-                            root.showDirectChats = false
-                            root.selectedSpaceId = ""
-                            root.selectionChanged()
+                            root.showDirectChats = false;
+                            root.selectedSpaceId = "";
+                            root.selectionChanged();
                         }
                     }
                     AvatarTabButton {
@@ -113,9 +115,9 @@ QQC2.Control {
 
                         checked: root.showDirectChats === true
                         onClicked: {
-                            root.showDirectChats = true
-                            root.selectedSpaceId = ""
-                            root.selectionChanged()
+                            root.showDirectChats = true;
+                            root.selectedSpaceId = "";
+                            root.selectionChanged();
                         }
 
                         QQC2.Label {
@@ -154,7 +156,7 @@ QQC2.Control {
                         }
                         onCountChanged: {
                             if (!root.connection.room(root.selectedSpaceId)) {
-                                root.selectedSpaceId = ""
+                                root.selectedSpaceId = "";
                             }
                         }
 
@@ -174,12 +176,12 @@ QQC2.Control {
                             source: avatar ? ("image://mxc/" + avatar) : ""
 
                             onSelected: {
-                                root.showDirectChats = false
+                                root.showDirectChats = false;
                                 if (!SpaceHierarchyCache.isSpaceChild(roomId, RoomManager.currentRoom.id) || root.selectedSpaceId == roomId) {
-                                    RoomManager.resolveResource(currentRoom.id)
+                                    RoomManager.resolveResource(currentRoom.id);
                                 }
-                                root.selectedSpaceId = roomId
-                                root.selectionChanged()
+                                root.selectedSpaceId = roomId;
+                                root.selectionChanged();
                             }
                             checked: root.selectedSpaceId === roomId
                             onContextMenuRequested: root.createContextMenu(currentRoom)
@@ -203,8 +205,13 @@ QQC2.Control {
                         contentItem: Kirigami.Icon {
                             source: "list-add"
                         }
-                        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {connection: root.connection, isSpace: true, title: i18nc("@title", "Create a Space")}, {title: i18nc("@title", "Create a Space")})
-
+                        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {
+                            connection: root.connection,
+                            isSpace: true,
+                            title: i18nc("@title", "Create a Space")
+                        }, {
+                            title: i18nc("@title", "Create a Space")
+                        })
                     }
                 }
             }
@@ -216,7 +223,7 @@ QQC2.Control {
             room: room,
             connection: root.connection
         });
-        context.open()
+        context.open();
     }
     Component {
         id: spaceListContextMenu

@@ -20,9 +20,9 @@ ColumnLayout {
 
     readonly property var currentEmojiModel: {
         if (includeCustom) {
-            EmojiModel.categoriesWithCustom
+            EmojiModel.categoriesWithCustom;
         } else {
-            EmojiModel.categories
+            EmojiModel.categories;
         }
     }
 
@@ -73,8 +73,12 @@ ColumnLayout {
             focus: true
             orientation: ListView.Horizontal
 
-            Keys.onReturnPressed: if (emojiGrid.count > 0) emojiGrid.focus = true
-            Keys.onEnterPressed: if (emojiGrid.count > 0) emojiGrid.focus = true
+            Keys.onReturnPressed: if (emojiGrid.count > 0) {
+                emojiGrid.focus = true;
+            }
+            Keys.onEnterPressed: if (emojiGrid.count > 0) {
+                emojiGrid.focus = true;
+            }
 
             KeyNavigation.down: emojiGrid.count > 0 ? emojiGrid : categories
             KeyNavigation.tab: emojiGrid.count > 0 ? emojiGrid : categories
@@ -208,6 +212,6 @@ ColumnLayout {
     }
 
     function clearSearchField() {
-        searchField.text = ""
+        searchField.text = "";
     }
 }

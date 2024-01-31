@@ -19,7 +19,9 @@ TimelineDelegate {
 
         property bool isTemporaryHighlighted: false
 
-        onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) temporaryHighlightTimer.start()
+        onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
+            temporaryHighlightTimer.start();
+        }
 
         Timer {
             id: temporaryHighlightTimer
@@ -36,9 +38,9 @@ TimelineDelegate {
             id: readMarkerBackground
             color: {
                 if (root.isTemporaryHighlighted) {
-                    return Kirigami.Theme.positiveBackgroundColor
+                    return Kirigami.Theme.positiveBackgroundColor;
                 } else {
-                    return Kirigami.Theme.backgroundColor
+                    return Kirigami.Theme.backgroundColor;
                 }
             }
             Kirigami.Theme.inherit: false
@@ -51,7 +53,11 @@ TimelineDelegate {
             border.width: 1
 
             Behavior on color {
-                ColorAnimation {target: readMarkerBackground; duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutCubic}
+                ColorAnimation {
+                    target: readMarkerBackground
+                    duration: Kirigami.Units.veryLongDuration
+                    easing.type: Easing.InOutCubic
+                }
             }
         }
     }

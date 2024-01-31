@@ -57,8 +57,8 @@ SearchPage {
         text: displayName
 
         onClicked: {
-            root.connection.openOrCreateDirectChat(userDelegate.userId)
-            root.closeDialog()
+            root.connection.openOrCreateDirectChat(userDelegate.userId);
+            root.closeDialog();
         }
 
         contentItem: RowLayout {
@@ -98,8 +98,12 @@ SearchPage {
     QtObject {
         id: _private
         function openManualUserDialog() {
-            let dialog = manualUserDialog.createObject(applicationWindow().overlay, {connection: root.connection});
-            dialog.accepted.connect(() => {root.closeDialog();});
+            let dialog = manualUserDialog.createObject(applicationWindow().overlay, {
+                connection: root.connection
+            });
+            dialog.accepted.connect(() => {
+                root.closeDialog();
+            });
             dialog.open();
         }
     }

@@ -85,10 +85,10 @@ Kirigami.Dialog {
                         title: root.user.displayName,
                         subtitle: root.user.id,
                         avatarColor: root.user.color,
-                        avatarSource: root.user.avatarSource,
+                        avatarSource: root.user.avatarSource
                     });
-                    root.close()
-                    map.open()
+                    root.close();
+                    map.open();
                 }
 
                 QQC2.ToolTip.visible: hovered
@@ -107,8 +107,8 @@ Kirigami.Dialog {
                 text: room.connection.isIgnored(root.user.object) ? i18n("Unignore this user") : i18n("Ignore this user")
                 icon.name: "im-invisible-user"
                 onTriggered: {
-                    root.close()
-                    room.connection.isIgnored(root.user.object) ? room.connection.removeFromIgnoredUsers(root.user.object) : room.connection.addToIgnoredUsers(root.user.object)
+                    root.close();
+                    room.connection.isIgnored(root.user.object) ? room.connection.removeFromIgnoredUsers(root.user.object) : room.connection.addToIgnoredUsers(root.user.object);
                 }
             }
         }
@@ -120,8 +120,8 @@ Kirigami.Dialog {
                 text: i18n("Kick this user")
                 icon.name: "im-kick-user"
                 onTriggered: {
-                    room.kickMember(root.user.id)
-                    root.close()
+                    room.kickMember(root.user.id);
+                    root.close();
                 }
             }
         }
@@ -134,8 +134,8 @@ Kirigami.Dialog {
                 text: i18n("Invite this user")
                 icon.name: "list-add-user"
                 onTriggered: {
-                    room.inviteToRoom(root.user.id)
-                    root.close()
+                    room.inviteToRoom(root.user.id);
+                    root.close();
                 }
             }
         }
@@ -148,11 +148,14 @@ Kirigami.Dialog {
                 icon.name: "im-ban-user"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/BanSheet.qml", {room: root.room, userId: root.user.id}, {
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/BanSheet.qml", {
+                        room: root.room,
+                        userId: root.user.id
+                    }, {
                         title: i18nc("@title", "Ban User"),
                         width: Kirigami.Units.gridUnit * 25
-                    })
-                    root.close()
+                    });
+                    root.close();
                 }
             }
         }
@@ -165,8 +168,8 @@ Kirigami.Dialog {
                 icon.name: "im-irc"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    room.unban(root.user.id)
-                    root.close()
+                    room.unban(root.user.id);
+                    root.close();
                 }
             }
         }
@@ -182,8 +185,8 @@ Kirigami.Dialog {
                         userId: root.user.id,
                         powerLevel: root.room.getUserPowerLevel(root.user.id)
                     });
-                    dialog.open()
-                    root.close()
+                    dialog.open();
+                    root.close();
                 }
             }
 
@@ -203,11 +206,14 @@ Kirigami.Dialog {
                 icon.name: "delete"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/RemoveSheet.qml", {room: root.room, userId: root.user.id}, {
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/RemoveSheet.qml", {
+                        room: root.room,
+                        userId: root.user.id
+                    }, {
                         title: i18nc("@title", "Remove Messages"),
                         width: Kirigami.Units.gridUnit * 25
-                    })
-                    root.close()
+                    });
+                    root.close();
                 }
             }
         }
@@ -218,8 +224,8 @@ Kirigami.Dialog {
                 text: root.room.connection.directChatExists(root.user.object) ? i18nc("%1 is the name of the user.", "Chat with %1", root.user.displayName) : i18n("Invite to private chat")
                 icon.name: "document-send"
                 onTriggered: {
-                    root.room.connection.openOrCreateDirectChat(root.user.object)
-                    root.close()
+                    root.room.connection.openOrCreateDirectChat(root.user.object);
+                    root.close();
                 }
             }
         }
@@ -229,7 +235,7 @@ Kirigami.Dialog {
                 text: i18n("Copy link")
                 icon.name: "username-copy"
                 onTriggered: {
-                    Clipboard.saveText("https://matrix.to/#/" + root.user.id)
+                    Clipboard.saveText("https://matrix.to/#/" + root.user.id);
                 }
             }
         }
@@ -239,4 +245,3 @@ Kirigami.Dialog {
         QrCodeMaximizeComponent {}
     }
 }
-

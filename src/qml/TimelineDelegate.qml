@@ -97,7 +97,6 @@ Item {
         if (!contentItem) {
             return;
         }
-
         contentItem.parent = contentItemParent;
         contentItem.anchors.fill = contentItem.parent;
     }

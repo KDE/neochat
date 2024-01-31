@@ -80,7 +80,7 @@ FormCard.FormCardPage {
                             connection: accountDelegate.connection
                             onAccepted: {
                                 if (AccountRegistry.accountCount === 1) {
-                                    root.Window.window.close()
+                                    root.Window.window.close();
                                 }
                             }
                         }
@@ -93,7 +93,9 @@ FormCard.FormCardPage {
                 }
             }
         }
-        FormCard.FormDelegateSeparator { below: addAccountDelegate }
+        FormCard.FormDelegateSeparator {
+            below: addAccountDelegate
+        }
 
         FormCard.FormButtonDelegate {
             id: addAccountDelegate
@@ -107,7 +109,7 @@ FormCard.FormCardPage {
         target: Controller
         function onConnectionAdded() {
             if (pageStack.layers.depth > 2) {
-                pageStack.layers.pop()
+                pageStack.layers.pop();
             }
         }
     }

@@ -57,15 +57,15 @@ QQC2.Control {
             property bool isBusy: root.currentRoom && root.currentRoom.hasFileUploading
 
             // Matrix does not allow sending attachments in replies
-            visible: _private.chatBarCache.replyId.length === 0  && _private.chatBarCache.attachmentPath.length === 0
+            visible: _private.chatBarCache.replyId.length === 0 && _private.chatBarCache.attachmentPath.length === 0
             icon.name: "mail-attachment"
             text: i18n("Attach an image or file")
             displayHint: Kirigami.DisplayHint.IconOnly
 
             onTriggered: {
-                let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(applicationWindow().overlay)
-                dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path)
-                dialog.open()
+                let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(applicationWindow().overlay);
+                dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
+                dialog.open();
             }
 
             tooltip: text
@@ -83,9 +83,9 @@ QQC2.Control {
 
             onTriggered: {
                 if (emojiDialog.visible) {
-                    emojiDialog.close()
+                    emojiDialog.close();
                 } else {
-                    emojiDialog.open()
+                    emojiDialog.open();
                 }
             }
             tooltip: text
@@ -98,7 +98,9 @@ QQC2.Control {
             displayHint: QQC2.AbstractButton.IconOnly
 
             onTriggered: {
-                locationChooser.createObject(QQC2.ApplicationWindow.overlay, {room: root.currentRoom}).open()
+                locationChooser.createObject(QQC2.ApplicationWindow.overlay, {
+                    room: root.currentRoom
+                }).open();
             }
             tooltip: text
         },
@@ -113,7 +115,7 @@ QQC2.Control {
             checkable: true
 
             onTriggered: {
-                _private.postMessage()
+                _private.postMessage();
             }
 
             tooltip: text
@@ -123,7 +125,7 @@ QQC2.Control {
     /**
      * @brief A message has been sent from the chat bar.
      */
-    signal messageSent()
+    signal messageSent
 
     spacing: 0
 
@@ -134,7 +136,7 @@ QQC2.Control {
         color: Kirigami.Theme.backgroundColor
         Kirigami.Separator {
             anchors.left: parent.left
-            anchors.right:parent.right
+            anchors.right: parent.right
             anchors.top: parent.top
         }
     }
@@ -146,7 +148,8 @@ QQC2.Control {
 
     contentItem: ColumnLayout {
         spacing: 0
-        Item { // Required to adjust for the top separator
+        Item {
+            // Required to adjust for the top separator
             Layout.preferredHeight: 1
             Layout.fillWidth: true
         }
@@ -200,17 +203,17 @@ QQC2.Control {
 
                     onTextChanged: {
                         if (!repeatTimer.running && Config.typingNotifications) {
-                            var textExists = text.length > 0
-                            root.currentRoom.sendTypingNotification(textExists)
-                            textExists ? repeatTimer.start() : repeatTimer.stop()
+                            var textExists = text.length > 0;
+                            root.currentRoom.sendTypingNotification(textExists);
+                            textExists ? repeatTimer.start() : repeatTimer.stop();
                         }
-                        _private.chatBarCache.text = text
+                        _private.chatBarCache.text = text;
                     }
                     onSelectedTextChanged: {
                         if (selectedText.length > 0) {
-                            quickFormatBar.selectionStart = selectionStart
-                            quickFormatBar.selectionEnd = selectionEnd
-                            quickFormatBar.open()
+                            quickFormatBar.selectionStart = selectionStart;
+                            quickFormatBar.selectionEnd = selectionEnd;
+                            quickFormatBar.open();
                         }
                     }
 
@@ -225,42 +228,42 @@ QQC2.Control {
 
                     Keys.onDeletePressed: {
                         if (selectedText.length > 0) {
-                            remove(selectionStart, selectionEnd)
+                            remove(selectionStart, selectionEnd);
                         } else {
-                            remove(cursorPosition, cursorPosition + 1)
+                            remove(cursorPosition, cursorPosition + 1);
                         }
                         if (textField.text == selectedText || textField.text.length <= 1) {
-                            root.currentRoom.sendTypingNotification(false)
-                            repeatTimer.stop()
+                            root.currentRoom.sendTypingNotification(false);
+                            repeatTimer.stop();
                         }
                         if (quickFormatBar.visible) {
-                            quickFormatBar.close()
+                            quickFormatBar.close();
                         }
                     }
                     Keys.onEnterPressed: event => {
                         if (completionMenu.visible) {
-                            completionMenu.complete()
+                            completionMenu.complete();
                         } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
-                            textField.insert(cursorPosition, "\n")
+                            textField.insert(cursorPosition, "\n");
                         } else {
                             _private.postMessage();
                         }
                     }
                     Keys.onReturnPressed: event => {
                         if (completionMenu.visible) {
-                            completionMenu.complete()
+                            completionMenu.complete();
                         } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
-                            textField.insert(cursorPosition, "\n")
+                            textField.insert(cursorPosition, "\n");
                         } else {
                             _private.postMessage();
                         }
                     }
                     Keys.onTabPressed: {
                         if (completionMenu.visible) {
-                            completionMenu.complete()
+                            completionMenu.complete();
                         }
                     }
-                    Keys.onPressed: (event) => {
+                    Keys.onPressed: event => {
                         if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
                             event.accepted = _private.pasteImage();
                         } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
@@ -268,26 +271,26 @@ QQC2.Control {
                         } else if (event.key === Qt.Key_Up && textField.text.length === 0) {
                             root.currentRoom.editLastMessage();
                         } else if (event.key === Qt.Key_Up && completionMenu.visible) {
-                            completionMenu.decrementIndex()
+                            completionMenu.decrementIndex();
                         } else if (event.key === Qt.Key_Down && completionMenu.visible) {
-                            completionMenu.incrementIndex()
+                            completionMenu.incrementIndex();
                         } else if (event.key === Qt.Key_Backspace) {
                             if (textField.text == selectedText || textField.text.length <= 1) {
-                                root.currentRoom.sendTypingNotification(false)
-                                repeatTimer.stop()
+                                root.currentRoom.sendTypingNotification(false);
+                                repeatTimer.stop();
                             }
                             if (quickFormatBar.visible && selectedText.length > 0) {
-                                quickFormatBar.close()
+                                quickFormatBar.close();
                             }
                         }
                     }
                     Keys.onShortcutOverride: event => {
                         if (completionMenu.visible) {
-                            completionMenu.close()
+                            completionMenu.close();
                         } else if ((_private.chatBarCache.isReplying || _private.chatBarCache.attachmentPath.length > 0) && event.key === Qt.Key_Escape) {
-                            _private.chatBarCache.attachmentPath = ""
-                            _private.chatBarCache.replyId = ""
-                            _private.chatBarCache.threadId = ""
+                            _private.chatBarCache.attachmentPath = "";
+                            _private.chatBarCache.replyId = "";
+                            _private.chatBarCache.threadId = "";
                             event.accepted = true;
                         }
                     }
@@ -358,7 +361,7 @@ QQC2.Control {
 
             onAttachmentCancelled: {
                 _private.chatBarCache.attachmentPath = "";
-                root.forceActiveFocus()
+                root.forceActiveFocus();
             }
         }
     }
@@ -370,11 +373,11 @@ QQC2.Control {
 
         function postMessage() {
             root.actionsHandler.handleMessageEvent(_private.chatBarCache);
-            repeatTimer.stop()
+            repeatTimer.stop();
             root.currentRoom.markAllMessagesAsRead();
             textField.clear();
             _private.chatBarCache.replyId = "";
-            messageSent()
+            messageSent();
         }
 
         function formatText(format, selectionStart, selectionEnd) {
@@ -386,21 +389,19 @@ QQC2.Control {
             */
             let innerText = textField.text.substr(selectionStart, selectionEnd - selectionStart);
             if (innerText.charAt(innerText.length - 1) === " ") {
-                let trimmedRightString = innerText.replace(/\s*$/,"");
+                let trimmedRightString = innerText.replace(/\s*$/, "");
                 let trimDifference = innerText.length - trimmedRightString.length;
                 selectionEnd -= trimDifference;
             }
             if (innerText.charAt(0) === " ") {
-                let trimmedLeftString = innerText.replace(/^\s*/,"");
+                let trimmedLeftString = innerText.replace(/^\s*/, "");
                 let trimDifference = innerText.length - trimmedLeftString.length;
                 selectionStart = selectionStart + trimDifference;
             }
-
             let startText = textField.text.substr(0, selectionStart);
             // Needs updating with the new selectionStart and selectionEnd with white space trimmed.
             innerText = textField.text.substr(selectionStart, selectionEnd - selectionStart);
             let endText = textField.text.substr(selectionEnd);
-
             textField.text = "";
             textField.text = startText + format.start + innerText + format.end + format.extra + endText;
 
@@ -495,13 +496,14 @@ QQC2.Control {
         currentRoom: root.currentRoom
 
         onChosen: emoji => insertText(emoji)
-        onClosed: if (emojiAction.checked) emojiAction.checked = false
+        onClosed: if (emojiAction.checked) {
+            emojiAction.checked = false;
+        }
     }
 
     function insertText(text) {
         let initialCursorPosition = textField.cursorPosition;
-
-        textField.text = textField.text.substr(0, initialCursorPosition) + text + textField.text.substr(initialCursorPosition)
-        textField.cursorPosition = initialCursorPosition + text.length
+        textField.text = textField.text.substr(0, initialCursorPosition) + text + textField.text.substr(initialCursorPosition);
+        textField.cursorPosition = initialCursorPosition + text.length;
     }
 }

@@ -15,8 +15,8 @@ Column {
 
     required property var model
 
-    signal accept()
-    signal reject()
+    signal accept
+    signal reject
 
     visible: dialog.session.state === KeyVerificationSession.WAITINGFORVERIFICATION
     anchors.centerIn: parent
@@ -46,7 +46,7 @@ Column {
             anchors.bottom: parent.bottom
             text: i18n("They don't match")
             icon.name: "dialog-cancel"
-            onClicked:  root.reject()
+            onClicked: root.reject()
         }
     }
 }

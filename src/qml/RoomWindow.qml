@@ -41,7 +41,7 @@ Kirigami.ApplicationWindow {
     }
 
     onCurrentRoomChanged: if (!currentRoom) {
-        root.close()
+        root.close();
     }
 
     property Item hoverLinkIndicator: QQC2.Control {
@@ -58,7 +58,7 @@ Kirigami.ApplicationWindow {
         }
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         background: Rectangle {
-             color: Kirigami.Theme.backgroundColor
+            color: Kirigami.Theme.backgroundColor
         }
     }
 }

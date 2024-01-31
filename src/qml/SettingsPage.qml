@@ -35,7 +35,7 @@ KirigamiSettings.CategorizedSettings {
             initialProperties: {
                 return {
                     connection: root.connection
-                }
+                };
             }
         },
         KirigamiSettings.SettingAction {
@@ -46,7 +46,7 @@ KirigamiSettings.CategorizedSettings {
             initialProperties: {
                 return {
                     connection: root.connection
-                }
+                };
             }
         },
         KirigamiSettings.SettingAction {
@@ -63,10 +63,9 @@ KirigamiSettings.CategorizedSettings {
             initialProperties: {
                 return {
                     connection: root.connection
-                }
+                };
             }
         },
-
         KirigamiSettings.SettingAction {
             actionName: "spellChecking"
             text: i18n("Spell Checking")
@@ -88,7 +87,7 @@ KirigamiSettings.CategorizedSettings {
             initialProperties: {
                 return {
                     connection: root.connection
-                }
+                };
             }
         },
         KirigamiSettings.SettingAction {

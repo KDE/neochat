@@ -31,7 +31,6 @@ FormCard.FormCardPage {
         connection: root.connection
     }
 
-
     property Component emoticonEditorPage: Component {
         id: emoticonEditorPage
         EmoticonEditorPage {}

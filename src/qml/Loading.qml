@@ -23,7 +23,7 @@ LoginStep {
     Connections {
         target: Controller
         function onConnectionAdded(connection) {
-            connection.syncDone.connect(() => root.closeDialog())
+            connection.syncDone.connect(() => root.closeDialog());
         }
     }
 }

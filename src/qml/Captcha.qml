@@ -20,7 +20,7 @@ LoginStep {
             url: "http://localhost:20847"
             implicitHeight: 500
             onLoadingChanged: {
-                webview.runJavaScript("document.body.style.background = '" + Kirigami.Theme.backgroundColor + "'")
+                webview.runJavaScript("document.body.style.background = '" + Kirigami.Theme.backgroundColor + "'");
             }
 
             Timer {
@@ -29,15 +29,15 @@ LoginStep {
                 running: true
                 interval: 300
                 onTriggered: {
-                    if(!webview.visible) {
-                        return
+                    if (!webview.visible) {
+                        return;
                     }
-                    webview.runJavaScript("!!grecaptcha ? grecaptcha.getResponse() : \"\"", function(response){
-                        if(!webview.visible || !response)
-                            return
+                    webview.runJavaScript("!!grecaptcha ? grecaptcha.getResponse() : \"\"", function (response) {
+                        if (!webview.visible || !response)
+                            return;
                         timer.running = false;
                         Registration.recaptchaResponse = response;
-                    })
+                    });
                 }
             }
         }

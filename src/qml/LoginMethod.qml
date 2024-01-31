@@ -11,7 +11,9 @@ import org.kde.neochat
 LoginStep {
     id: root
 
-    onActiveFocusChanged: if (activeFocus) loginPasswordButton.forceActiveFocus()
+    onActiveFocusChanged: if (activeFocus) {
+        loginPasswordButton.forceActiveFocus();
+    }
 
     FormCard.FormButtonDelegate {
         id: loginPasswordButton

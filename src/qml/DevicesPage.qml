@@ -53,7 +53,7 @@ FormCard.FormCardPage {
     FormCard.AbstractFormDelegate {
         Layout.fillWidth: true
         visible: root.connection && devicesModel.count === 0 // We can assume 0 means loading since there is at least one device
-        contentItem: Kirigami.LoadingPlaceholder { }
+        contentItem: Kirigami.LoadingPlaceholder {}
     }
 
     Kirigami.InlineMessage {
@@ -87,9 +87,9 @@ FormCard.FormCardPage {
                 text: i18nc("As in 'Remove this device'", "Remove")
                 icon.name: "delete"
                 onTriggered: {
-                    devicesModel.logout(passwordSheet.deviceId, passwordField.text)
-                    passwordField.text = ""
-                    passwordSheet.close()
+                    devicesModel.logout(passwordSheet.deviceId, passwordField.text);
+                    passwordField.text = "";
+                    passwordSheet.close();
                 }
             }
         ]

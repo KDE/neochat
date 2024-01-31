@@ -36,7 +36,7 @@ Kirigami.ApplicationWindow {
             onConnectionChosen: {
                 pageStack.replace(roomListComponent);
                 roomListLoaded = true;
-                roomListPage = pageStack.currentItem
+                roomListPage = pageStack.currentItem;
                 RoomManager.loadInitialRoom();
             }
         }
@@ -49,10 +49,10 @@ Kirigami.ApplicationWindow {
     }
 
     onConnectionChanged: {
-        CustomEmojiModel.connection = root.connection
-        MatrixImageProvider.connection = root.connection
-        RoomManager.connection = root.connection
-        SpaceHierarchyCache.connection = root.connection
+        CustomEmojiModel.connection = root.connection;
+        MatrixImageProvider.connection = root.connection;
+        RoomManager.connection = root.connection;
+        SpaceHierarchyCache.connection = root.connection;
     }
 
     Connections {
@@ -60,7 +60,7 @@ Kirigami.ApplicationWindow {
         function onLoaded() {
             pageStack.replace(roomListComponent);
             roomListLoaded = true;
-            roomListPage = pageStack.currentItem
+            roomListPage = pageStack.currentItem;
             RoomManager.loadInitialRoom();
         }
     }
@@ -68,7 +68,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: root.quitAction
         function onTriggered() {
-            Qt.quit()
+            Qt.quit();
         }
     }
 
@@ -94,13 +94,22 @@ Kirigami.ApplicationWindow {
         enabled: false // Disable on startup to avoid writing wrong values if the window is hidden
         target: root
 
-        function onClosing() { WindowController.saveGeometry(); }
-        function onWidthChanged() { saveWindowGeometryTimer.restart(); }
-        function onHeightChanged() { saveWindowGeometryTimer.restart(); }
-        function onXChanged() { saveWindowGeometryTimer.restart(); }
-        function onYChanged() { saveWindowGeometryTimer.restart(); }
+        function onClosing() {
+            WindowController.saveGeometry();
+        }
+        function onWidthChanged() {
+            saveWindowGeometryTimer.restart();
+        }
+        function onHeightChanged() {
+            saveWindowGeometryTimer.restart();
+        }
+        function onXChanged() {
+            saveWindowGeometryTimer.restart();
+        }
+        function onYChanged() {
+            saveWindowGeometryTimer.restart();
+        }
     }
-
 
     Loader {
         id: quickView
@@ -114,7 +123,9 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onPushRoom(room, event) {
-            root.roomPage = pageStack.push("qrc:/org/kde/neochat/qml/RoomPage.qml", {connection: root.connection});
+            root.roomPage = pageStack.push("qrc:/org/kde/neochat/qml/RoomPage.qml", {
+                connection: root.connection
+            });
             root.roomPage.forceActiveFocus();
             if (event.length > 0) {
                 roomPage.goToEvent(event);
@@ -131,7 +142,9 @@ Kirigami.ApplicationWindow {
                 pageStack.currentIndex = pageStack.depth - 1;
             } else {
                 pageStack.pop();
-                root.roomPage = pageStack.push("qrc:/org/kde/neochat/qml/RoomPage.qml", {connection: root.connection});
+                root.roomPage = pageStack.push("qrc:/org/kde/neochat/qml/RoomPage.qml", {
+                    connection: root.connection
+                });
                 root.spaceHomePage = null;
             }
             root.roomPage.forceActiveFocus();
@@ -159,14 +172,17 @@ Kirigami.ApplicationWindow {
         }
 
         function onOpenRoomInNewWindow(room) {
-            const secondaryWindow = roomWindow.createObject(undefined, {currentRoom: room, connection: root.connection});
+            const secondaryWindow = roomWindow.createObject(undefined, {
+                currentRoom: room,
+                connection: root.connection
+            });
             secondaryWindow.width = root.width - pageStack.get(0).width;
             secondaryWindow.show();
         }
 
         function onAskDirectChatConfirmation(user) {
             askDirectChatConfirmationComponent.createObject(QQC2.ApplicationWindow.overlay, {
-                user: user,
+                user: user
             }).open();
         }
     }
@@ -182,7 +198,7 @@ Kirigami.ApplicationWindow {
     function openRoomDrawer() {
         pageStack.push("qrc:/org/kde/neochat/qml/RoomDrawerPage.qml", {
             connection: root.connection
-        })
+        });
     }
 
     contextDrawer: RoomDrawer {
@@ -198,7 +214,7 @@ Kirigami.ApplicationWindow {
         Connections {
             target: contextDrawer.handle.children[0]
             function onClicked() {
-                contextDrawer.drawerUserState = contextDrawer.drawerOpen
+                contextDrawer.drawerUserState = contextDrawer.drawerOpen;
             }
         }
 
@@ -206,8 +222,8 @@ Kirigami.ApplicationWindow {
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: {
             if (Config.autoRoomInfoDrawer) {
-                drawerOpen = !modal && drawerUserState
-                dim = false
+                drawerOpen = !modal && drawerUserState;
+                dim = false;
             }
         }
         enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3 && (pageStack.visibleItems.length > 1 || pageStack.currentIndex > 0) && !Kirigami.Settings.isMobile && root.pageStack.wideMode
@@ -215,10 +231,10 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        CustomEmojiModel.connection = root.connection
-        MatrixImageProvider.connection = root.connection
-        RoomManager.connection = root.connection
-        SpaceHierarchyCache.connection = root.connection
+        CustomEmojiModel.connection = root.connection;
+        MatrixImageProvider.connection = root.connection;
+        RoomManager.connection = root.connection;
+        SpaceHierarchyCache.connection = root.connection;
         WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
         if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && Config.systemTray) {
             restoreWindowGeometryConnections.enabled = true; // To restore window size and position
@@ -239,12 +255,12 @@ Kirigami.ApplicationWindow {
 
     // blur effect
     color: Config.blur && !Config.compactLayout ? "transparent" : Kirigami.Theme.backgroundColor
-    
+
     // we need to apply the translucency effect separately on top of the color
     background: Rectangle {
         color: Config.blur && !Config.compactLayout ? Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 1 - Config.transparency) : "transparent"
     }
-    
+
     Component {
         id: roomListComponent
         RoomListPage {
@@ -319,7 +335,7 @@ Kirigami.ApplicationWindow {
 
     Component {
         id: keyVerificationDialogComponent
-        KeyVerificationDialog { }
+        KeyVerificationDialog {}
     }
 
     Connections {
@@ -330,15 +346,15 @@ Kirigami.ApplicationWindow {
         }
         function onNewKeyVerificationSession(session) {
             applicationWindow().pageStack.pushDialogLayer(keyVerificationDialogComponent, {
-                session: session,
+                session: session
             }, {
                 title: i18nc("@title:window", "Session Verification")
             });
         }
         function onUserConsentRequired(url) {
-            let consent = consentSheetComponent.createObject(QQC2.ApplicationWindow.overlay)
-            consent.url = url
-            consent.open()
+            let consent = consentSheetComponent.createObject(QQC2.ApplicationWindow.overlay);
+            consent.url = url;
+            consent.open();
         }
     }
 
@@ -383,7 +399,7 @@ Kirigami.ApplicationWindow {
 
         Kirigami.OverlaySheet {
             id: askDirectChatConfirmation
-            required property var user;
+            required property var user
 
             parent: QQC2.ApplicationWindow.overlay
             title: i18n("Start a chat")
@@ -397,13 +413,13 @@ Kirigami.ApplicationWindow {
                     user.requestDirectChat();
                     askDirectChatConfirmation.close();
                 }
-                onRejected: askDirectChatConfirmation.close();
+                onRejected: askDirectChatConfirmation.close()
             }
         }
     }
 
     property Item hoverLinkIndicator: QQC2.Control {
-        parent: overlay.parent 
+        parent: overlay.parent
         property string text
         opacity: linkText.text.length > 0 ? 1 : 0
 
@@ -416,14 +432,18 @@ Kirigami.ApplicationWindow {
         }
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         background: Rectangle {
-             color: Kirigami.Theme.backgroundColor
+            color: Kirigami.Theme.backgroundColor
         }
     }
 
     Shortcut {
         sequence: "Ctrl+Shift+,"
         onActivated: {
-            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {connection: root.connection}, { title: i18n("Configure") })
+            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
+                connection: root.connection
+            }, {
+                title: i18n("Configure")
+            });
         }
     }
 }

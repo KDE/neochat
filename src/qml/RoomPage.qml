@@ -125,7 +125,7 @@ Kirigami.Page {
             actionsHandler: root.actionsHandler
             onFocusChatBar: {
                 if (chatBarLoader.item) {
-                    chatBarLoader.item.forceActiveFocus()
+                    chatBarLoader.item.forceActiveFocus();
                 }
             }
         }
@@ -175,9 +175,9 @@ Kirigami.Page {
     Connections {
         target: RoomManager
         function onCurrentRoomChanged() {
-            if(!RoomManager.currentRoom) {
-                if(pageStack.lastItem === root) {
-                    pageStack.pop()
+            if (!RoomManager.currentRoom) {
+                if (pageStack.lastItem === root) {
+                    pageStack.pop();
                 }
             } else if (root.currentRoom.isInvite) {
                 root.currentRoom.clearInvitationNotification();
@@ -205,7 +205,7 @@ Kirigami.Page {
     Connections {
         target: root.connection
         function onJoinedRoom(room, invited) {
-            if(root.currentRoom.id === invited.id) {
+            if (root.currentRoom.id === invited.id) {
                 RoomManager.resolveResource(room.id);
             }
         }
@@ -219,10 +219,10 @@ Kirigami.Page {
             return;
         } else if (event.key === Qt.Key_PageUp) {
             event.accepted = true;
-            timelineViewLoader.item.pageUp()
+            timelineViewLoader.item.pageUp();
         } else if (event.key === Qt.Key_PageDown) {
             event.accepted = true;
-            timelineViewLoader.item.pageDown()
+            timelineViewLoader.item.pageDown();
         }
     }
 
@@ -237,14 +237,14 @@ Kirigami.Page {
 
     function warning(title, message) {
         banner.text = `${title}<br />${message}`;
-        banner.type =  Kirigami.MessageType.Warning;
+        banner.type = Kirigami.MessageType.Warning;
         banner.visible = true;
     }
 
     Connections {
         target: RoomManager
         function onShowUserDetail(user) {
-            root.showUserDetail(user)
+            root.showUserDetail(user);
         }
 
         function onShowEventSource(eventId) {
@@ -283,19 +283,19 @@ Kirigami.Page {
         function onShowMaximizedMedia(index) {
             var popup = maximizeComponent.createObject(QQC2.Overlay.overlay, {
                 initialIndex: index
-            })
+            });
             popup.closed.connect(() => {
-                timelineViewLoader.item.interactive = true
-                popup.destroy()
-            })
-            popup.open()
+                timelineViewLoader.item.interactive = true;
+                popup.destroy();
+            });
+            popup.open();
         }
     }
 
     function showUserDetail(user) {
         userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
             room: root.currentRoom,
-            user: root.currentRoom.getUser(user.id),
+            user: root.currentRoom.getUser(user.id)
         }).open();
     }
 

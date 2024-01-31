@@ -24,17 +24,17 @@ FormCard.AbstractFormDelegate {
     readonly property bool highlightOn: isNotificationRuleHighlight(ruleAction)
 
     signal actionChanged(int action)
-    signal deleteRule()
+    signal deleteRule
 
     enabled: ruleAction !== PushRuleAction.Unknown
 
     text: name
 
     onClicked: {
-        notificationAction = nextNotificationRuleAction(notificationAction)
+        notificationAction = nextNotificationRuleAction(notificationAction);
     }
 
-    contentItem : RowLayout {
+    contentItem: RowLayout {
         spacing: Kirigami.Units.largeSpacing
 
         QQC2.Label {
@@ -78,7 +78,7 @@ FormCard.AbstractFormDelegate {
                 enabled: root.enabled
                 down: checked
                 onToggled: {
-                    root.actionChanged(root.notifcationRuleAction())
+                    root.actionChanged(root.notifcationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -99,7 +99,7 @@ FormCard.AbstractFormDelegate {
                 enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
-                    root.actionChanged(root.notifcationRuleAction())
+                    root.actionChanged(root.notifcationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -121,7 +121,7 @@ FormCard.AbstractFormDelegate {
                 enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
-                    root.actionChanged(root.notifcationRuleAction())
+                    root.actionChanged(root.notifcationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -138,7 +138,7 @@ FormCard.AbstractFormDelegate {
                 visible: root.deletable
 
                 onClicked: {
-                    root.deleteRule()
+                    root.deleteRule();
                 }
             }
         }
@@ -147,57 +147,49 @@ FormCard.AbstractFormDelegate {
     function notifcationRuleAction() {
         if (onButton.checked) {
             if (noisyButton.checked && highlightButton.checked && root.highlightable) {
-                return PushRuleAction.NoisyHighlight
+                return PushRuleAction.NoisyHighlight;
             } else if (noisyButton.checked) {
-                return PushRuleAction.Noisy
+                return PushRuleAction.Noisy;
             } else if (highlightButton.checked && root.highlightable) {
-                return PushRuleAction.Highlight
+                return PushRuleAction.Highlight;
             } else {
-                return PushRuleAction.On
+                return PushRuleAction.On;
             }
         } else {
-            return PushRuleAction.Off
+            return PushRuleAction.Off;
         }
     }
 
     function nextNotificationRuleAction(action) {
-        let finished = false
-
+        let finished = false;
         if (action == PushRuleAction.NoisyHighlight) {
-            action = PushRuleAction.Off
+            action = PushRuleAction.Off;
         } else {
-            action += 1
+            action += 1;
         }
-
         while (!finished) {
             if (action == PushRuleAction.Off && !root.notificationsOnModifiable) {
-                action = PushRuleAction.On
+                action = PushRuleAction.On;
             } else if (action == PushRuleAction.Noisy) {
-                action = PushRuleAction.Highlight
+                action = PushRuleAction.Highlight;
             } else if (action == PushRuleAction.Highlight && !root.highlightable) {
-                action = PushRuleAction.Off
+                action = PushRuleAction.Off;
             } else {
-                finished = true
+                finished = true;
             }
         }
-
-        actionChanged(action)
+        actionChanged(action);
     }
 
     function isNotificationRuleOn(action) {
-        return action == PushRuleAction.On ||
-            action == PushRuleAction.Noisy ||
-            action == PushRuleAction.Highlight ||
-            action == PushRuleAction.NoisyHighlight
+        return action == PushRuleAction.On || action == PushRuleAction.Noisy || action == PushRuleAction.Highlight || action == PushRuleAction.NoisyHighlight;
     }
 
     function isNotificationRuleNoisy(action) {
-        return action == PushRuleAction.Noisy ||
-            action == PushRuleAction.NoisyHighlight
+        return action == PushRuleAction.Noisy || action == PushRuleAction.NoisyHighlight;
     }
 
     function isNotificationRuleHighlight(action) {
-        return action == PushRuleAction.Highlight ||
-            action == PushRuleAction.NoisyHighlight
+        return action == PushRuleAction.Highlight || action == PushRuleAction.NoisyHighlight;
     }
 }

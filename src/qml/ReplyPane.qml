@@ -89,7 +89,7 @@ RowLayout {
         text: i18nc("@action:button", "Cancel reply")
         icon.name: "dialog-close"
         onClicked: {
-            root.cancel()
+            root.cancel();
         }
         QQC2.ToolTip.text: text
         QQC2.ToolTip.visible: hovered
