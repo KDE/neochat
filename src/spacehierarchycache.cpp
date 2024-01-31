@@ -74,6 +74,11 @@ void SpaceHierarchyCache::removeSpaceFromHierarchy(Quotient::Room *room)
     }
 }
 
+bool SpaceHierarchyCache::isSpaceChild(const QString &spaceId, const QString &roomId)
+{
+    return getRoomListForSpace(spaceId, false).contains(roomId);
+}
+
 QList<QString> &SpaceHierarchyCache::getRoomListForSpace(const QString &spaceId, bool updateCache)
 {
     if (updateCache) {
@@ -82,11 +87,11 @@ QList<QString> &SpaceHierarchyCache::getRoomListForSpace(const QString &spaceId,
     return m_spaceHierarchy[spaceId];
 }
 
-bool SpaceHierarchyCache::isChildSpace(const QString &spaceId) const
+bool SpaceHierarchyCache::isChild(const QString &roomId) const
 {
     const auto childrens = m_spaceHierarchy.values();
     for (const auto &children : childrens) {
-        if (children.contains(spaceId)) {
+        if (children.contains(roomId)) {
             return true;
         }
     }

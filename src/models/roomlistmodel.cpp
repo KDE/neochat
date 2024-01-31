@@ -361,7 +361,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return room->isSpace();
     }
     if (role == IsChildSpaceRole) {
-        return SpaceHierarchyCache::instance().isChildSpace(room->id());
+        return SpaceHierarchyCache::instance().isChild(room->id());
     }
     if (role == ReplacementIdRole) {
         return room->successorId();

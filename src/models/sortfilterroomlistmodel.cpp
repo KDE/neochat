@@ -106,7 +106,10 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
     }
 
     if (m_activeSpaceId.isEmpty()) {
-        return acceptRoom;
+        if (!SpaceHierarchyCache::instance().isChild(sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::RoomIdRole).toString())) {
+            return acceptRoom;
+        }
+        return false;
     } else {
         const auto &rooms = SpaceHierarchyCache::instance().getRoomListForSpace(m_activeSpaceId, false);
         return std::find(rooms.begin(), rooms.end(), sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::RoomIdRole).toString())

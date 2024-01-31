@@ -25,6 +25,8 @@ QQC2.Control {
 
     property bool showDirectChats: false
 
+    signal spacesUpdated()
+
     contentItem: Loader {
         id: sidebarColumn
         z: 0
@@ -83,9 +85,9 @@ QQC2.Control {
                         Layout.maximumHeight: width - Kirigami.Units.smallSpacing
                         Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
-                        text: i18n("All Rooms")
+                        text: i18n("Home")
                         contentItem: Kirigami.Icon {
-                            source: "globe"
+                            source: "user-home-symbolic"
                         }
 
                         checked: root.selectedSpaceId === "" && root.showDirectChats === false
@@ -145,6 +147,7 @@ QQC2.Control {
                             sourceModel: RoomListModel {
                                 connection: root.connection
                             }
+                            onLayoutChanged: root.spacesUpdated()
                         }
                         onCountChanged: {
                             if (!root.connection.room(root.selectedSpaceId)) {
@@ -169,6 +172,9 @@ QQC2.Control {
 
                             onSelected: {
                                 root.showDirectChats = false
+                                if (!SpaceHierarchyCache.isSpaceChild(roomId, RoomManager.currentRoom.id) || root.selectedSpaceId == roomId) {
+                                    RoomManager.enterSpaceHome(currentRoom)
+                                }
                                 root.selectedSpaceId = roomId
                             }
                             checked: root.selectedSpaceId === roomId

@@ -105,6 +105,8 @@ Kirigami.Page {
             Layout.fillHeight: true
 
             connection: root.connection
+
+            onSpacesUpdated: sortFilterRoomListModel.invalidate()
         }
 
         Kirigami.Separator {
@@ -204,10 +206,22 @@ Kirigami.Page {
                     sourceModel: root.roomListModel
                     roomSortOrder: SortFilterRoomListModel.Categories
                     onLayoutChanged: {
+                        layoutTimer.restart()
                         listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row
                     }
                     activeSpaceId: spaceDrawer.selectedSpaceId
                     mode: spaceDrawer.showDirectChats ? SortFilterRoomListModel.DirectChats : SortFilterRoomListModel.Rooms
+                }
+
+                // HACK: This is the only way to guarantee the correct choice when
+                // there are multiple property changes that invalidate the filter. I.e.
+                // in this case activeSpaceId followed by mode.
+                Timer {
+                    id: layoutTimer
+                    interval: 100
+                    onTriggered: if (spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) {
+                        RoomManager.enterRoom(listView.itemAtIndex(0).currentRoom)
+                    }
                 }
 
                 section {

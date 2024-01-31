@@ -45,14 +45,23 @@ public:
     }
 
     /**
+     * @brief Whether the given room is a member of the given space.
+     */
+    Q_INVOKABLE bool isSpaceChild(const QString &spaceId, const QString &roomId);
+
+    /**
      * @brief Return the list of child rooms for the given space ID.
      */
     [[nodiscard]] QList<QString> &getRoomListForSpace(const QString &spaceId, bool updateCache);
 
     /**
-     * @brief Returns whether the space is a child space of any other space.
+     * @brief Returns whether the room is a child space of any space.
+     *
+     * @note We need to do this from the hierarchy as it is not guaranteed that the
+     *       child knows it's in a space. See
+     *       https://spec.matrix.org/v1.8/client-server-api/#managing-roomsspaces-included-in-a-space
      */
-    [[nodiscard]] bool isChildSpace(const QString &spaceId) const;
+    [[nodiscard]] bool isChild(const QString &roomId) const;
 
     NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
