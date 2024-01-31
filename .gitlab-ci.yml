@@ -2,18 +2,15 @@
 # SPDX-License-Identifier: CC0-1.0
 
 include:
-  # - project: sysadmin/ci-utilities
-  #   file:
-  #     - /gitlab-templates/reuse-lint.yml
-  #     - /gitlab-templates/android.yml
-  #     # - /gitlab-templates/linux.yml
-  #     - /gitlab-templates/linux-qt6.yml
-  #     - /gitlab-templates/windows.yml
-  #     # - /gitlab-templates/freebsd.yml
-  #     - /gitlab-templates/flatpak.yml
-  #     - /gitlab-templates/craft-android-apks.yml
   - project: sysadmin/ci-utilities
-    ref: work/kloecker/test-unifiedwindowssigner
     file:
+      - /gitlab-templates/reuse-lint.yml
+      - /gitlab-templates/android.yml
+      # - /gitlab-templates/linux.yml
+      - /gitlab-templates/linux-qt6.yml
+      - /gitlab-templates/windows.yml
+      # - /gitlab-templates/freebsd.yml
+      - /gitlab-templates/flatpak.yml
+      - /gitlab-templates/craft-android-apks.yml
       - /gitlab-templates/craft-windows-x86-64.yml
-      # - /gitlab-templates/craft-windows-appx-qt5.yml
+      - /gitlab-templates/craft-windows-appx-qt5.yml
