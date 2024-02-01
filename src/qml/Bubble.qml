@@ -8,7 +8,6 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 /**
  * @brief A chat bubble for displaying the content of message events.

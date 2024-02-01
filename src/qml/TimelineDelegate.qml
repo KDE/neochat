@@ -55,7 +55,7 @@ Item {
         id: contentItemParent
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        anchors.leftMargin: state === "alignLeft" ? Kirigami.Units.smallSpacing : 0
+        anchors.leftMargin: state === "alignLeft" ? Kirigami.Units.largeSpacing : 0
 
         state: Config.compactLayout || root.alwaysMaxWidth ? "alignLeft" : "alignCenter"
         // Align left when in compact mode and center when using bubbles
