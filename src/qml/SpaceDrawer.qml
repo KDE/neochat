@@ -173,7 +173,7 @@ QQC2.Control {
                             onSelected: {
                                 root.showDirectChats = false
                                 if (!SpaceHierarchyCache.isSpaceChild(roomId, RoomManager.currentRoom.id) || root.selectedSpaceId == roomId) {
-                                    RoomManager.enterSpaceHome(currentRoom)
+                                    RoomManager.resolveResource(currentRoom.id)
                                 }
                                 root.selectedSpaceId = roomId
                             }

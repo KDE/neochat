@@ -220,7 +220,7 @@ Kirigami.Page {
                     id: layoutTimer
                     interval: 100
                     onTriggered: if (spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) {
-                        RoomManager.enterRoom(listView.itemAtIndex(0).currentRoom)
+                        RoomManager.resolveResource(listView.itemAtIndex(0).currentRoom.id)
                     }
                 }
 
