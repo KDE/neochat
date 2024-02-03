@@ -29,7 +29,7 @@ Delegates.RoundedItemDelegate {
 
     required property string displayName
 
-    readonly property bool hasNotifications: notificationCount > 0
+    readonly property bool hasNotifications: currentRoom.pushNotificationState === PushNotificationState.MentionKeyword || currentRoom.isLowPriority ? highlightCount > 0 : notificationCount > 0
 
     signal selected()
 
@@ -105,7 +105,7 @@ Delegates.RoundedItemDelegate {
             enabled: false
             implicitWidth: Kirigami.Units.iconSizes.smallMedium
             implicitHeight: Kirigami.Units.iconSizes.smallMedium
-            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && !hasNotifications
+            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible
             Accessible.name: i18n("Muted room")
             Layout.rightMargin: Kirigami.Units.smallSpacing
         }
@@ -113,13 +113,13 @@ Delegates.RoundedItemDelegate {
         QQC2.Label {
             id: notificationCountLabel
 
-            text: root.notificationCount
-            visible: root.hasNotifications
+            text: currentRoom.pushNotificationState === PushNotificationState.MentionKeyword || currentRoom.isLowPriority ? root.highlightCount : root.notificationCount
+            visible: root.hasNotifications && currentRoom.pushNotificationState !== PushNotificationState.Mute
             color: Kirigami.Theme.textColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             background: Rectangle {
-                visible: notificationCount > 0
+                visible: root.hasNotifications
                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
                 color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
                 opacity: highlightCount > 0 ? 1 : 0.3
