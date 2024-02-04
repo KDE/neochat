@@ -126,6 +126,11 @@ public:
     bool isSpace() const;
 
     /**
+     * @brief Return the m.space.child stripped state Json for the given child.
+     */
+    QJsonObject childState(const SpaceTreeItem *child) const;
+
+    /**
      * @brief Return the m.space.child state event content for the given child.
      */
     QJsonObject childStateContent(const SpaceTreeItem *child) const;

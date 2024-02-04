@@ -244,6 +244,20 @@ QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
         }
         return QVariant::fromValue(nullptr);
     }
+    if (role == OrderRole) {
+        if (child->parentItem() == nullptr) {
+            return QString();
+        }
+        const auto childState = child->parentItem()->childStateContent(child);
+        return childState[QLatin1String("order")].toString();
+    }
+    if (role == ChildTimestampRole) {
+        if (child->parentItem() == nullptr) {
+            return QString();
+        }
+        const auto childState = child->parentItem()->childState(child);
+        return childState[QLatin1String("origin_server_ts")].toString();
+    }
 
     return {};
 }
@@ -325,6 +339,8 @@ QHash<int, QByteArray> SpaceChildrenModel::roleNames() const
     roles[IsDeclaredParentRole] = "isDeclaredParent";
     roles[CanRemove] = "canRemove";
     roles[ParentRoomRole] = "parentRoom";
+    roles[OrderRole] = "order";
+    roles[ChildTimestampRole] = "childTimestamp";
 
     return roles;
 }

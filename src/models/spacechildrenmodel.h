@@ -51,6 +51,8 @@ public:
         IsDeclaredParentRole,
         CanRemove,
         ParentRoomRole,
+        OrderRole,
+        ChildTimestampRole,
     };
 
     explicit SpaceChildrenModel(QObject *parent = nullptr);

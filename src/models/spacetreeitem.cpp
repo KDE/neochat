@@ -141,6 +141,22 @@ bool SpaceTreeItem::isSpace() const
     return m_isSpace;
 }
 
+QJsonObject SpaceTreeItem::childState(const SpaceTreeItem *child) const
+{
+    if (child == nullptr) {
+        return {};
+    }
+    if (child->parentItem() != this) {
+        return {};
+    }
+    for (const auto &childState : m_childStates) {
+        if (childState->stateKey() == child->id()) {
+            return childState->fullJson();
+        }
+    }
+    return {};
+}
+
 QJsonObject SpaceTreeItem::childStateContent(const SpaceTreeItem *child) const
 {
     if (child == nullptr) {
