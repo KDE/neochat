@@ -25,6 +25,7 @@ QQC2.Control {
 
     property bool showDirectChats: false
 
+    signal selectionChanged()
     signal spacesUpdated()
 
     contentItem: Loader {
@@ -94,6 +95,7 @@ QQC2.Control {
                         onClicked: {
                             root.showDirectChats = false
                             root.selectedSpaceId = ""
+                            root.selectionChanged()
                         }
                     }
                     AvatarTabButton {
@@ -113,6 +115,7 @@ QQC2.Control {
                         onClicked: {
                             root.showDirectChats = true
                             root.selectedSpaceId = ""
+                            root.selectionChanged()
                         }
 
                         QQC2.Label {
@@ -176,6 +179,7 @@ QQC2.Control {
                                     RoomManager.resolveResource(currentRoom.id)
                                 }
                                 root.selectedSpaceId = roomId
+                                root.selectionChanged()
                             }
                             checked: root.selectedSpaceId === roomId
                             onContextMenuRequested: root.createContextMenu(currentRoom)

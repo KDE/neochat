@@ -32,6 +32,7 @@ Kirigami.Page {
     readonly property RoomListModel roomListModel: RoomListModel {
         connection: root.connection
     }
+    property bool spaceChanging: false
 
     readonly property bool collapsed: Config.collapsed
 
@@ -106,6 +107,7 @@ Kirigami.Page {
 
             connection: root.connection
 
+            onSelectionChanged: root.spaceChanging = true;
             onSpacesUpdated: sortFilterRoomListModel.invalidate()
         }
 
@@ -218,9 +220,10 @@ Kirigami.Page {
                 // in this case activeSpaceId followed by mode.
                 Timer {
                     id: layoutTimer
-                    interval: 100
-                    onTriggered: if (spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) {
-                        RoomManager.resolveResource(listView.itemAtIndex(0).currentRoom.id)
+                    interval: 300
+                    onTriggered: if ((spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) && root.spaceChanging) {
+                        RoomManager.resolveResource(listView.itemAtIndex(0).currentRoom.id);
+                        root.spaceChanging = false;
                     }
                 }
 
