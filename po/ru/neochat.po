@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-06 00:38+0000\n"
-"PO-Revision-Date: 2024-01-10 21:33+0300\n"
+"PO-Revision-Date: 2024-02-08 15:45+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -464,12 +464,11 @@ msgid "Matrix client"
 msgstr "Клиент Matrix"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr ""
 "© Black Hat 2018-2020\n"
-"© Сообщество KDE 2020-2023"
+"© Сообщество KDE 2020-2024"
 
 #: src/main.cpp:134
 #, kde-format
@@ -1111,7 +1110,7 @@ msgstr "Избранные"
 #: src/models/roomlistmodel.cpp:417 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
-msgstr ""
+msgstr "Друзья"
 
 #: src/models/roomlistmodel.cpp:419
 #, kde-format
@@ -1543,7 +1542,7 @@ msgstr "Вложить изображение или файл"
 #: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "Эмодзи и наклейки"
 
 #: src/qml/ChatBar.qml:97
 #, fuzzy, kde-format
@@ -1835,7 +1834,7 @@ msgstr "Назначить этот псевдоним каноническим 
 #, kde-format
 msgctxt "@label"
 msgid "%1, Last activity: %2"
-msgstr ""
+msgstr "%1, последняя активность: %2"
 
 #: src/qml/DeviceDelegate.qml:59
 #, kde-format
@@ -1913,8 +1912,7 @@ msgid "Password:"
 msgstr "Пароль:"
 
 #: src/qml/DevicesPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Удалить"
@@ -1969,13 +1967,12 @@ msgstr "Выделить все"
 #: src/qml/Email.qml:19
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "Добавить адрес эл. почты:"
 
 #: src/qml/Email.qml:31
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgid "Confirm e-mail address"
-msgstr "Подтвердить новое отображаемое имя"
+msgstr "Подтвердить адрес эл. почты"
 
 #: src/qml/Email.qml:33
 #, kde-format
@@ -1983,12 +1980,15 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"Эл. письмо для подтверждения адреса электронной почты было отправлено. В "
+"полученном письме перейдите по ссылке подтверждения, после чего продолжите в "
+"этом окне."
 
 #: src/qml/Email.qml:38
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "Повторно отправить эл. письмо для подтверждения"
 
 #: src/qml/EmojiGrid.qml:83
 #, kde-format
@@ -2152,9 +2152,7 @@ msgid "Create rooms and chats"
 msgstr "Создать комнаты и чаты"
 
 #: src/qml/ExploreComponentMobile.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search"
+#, kde-format
 msgid "Search"
 msgstr "Поиск"
 
@@ -2164,8 +2162,7 @@ msgid "Create New"
 msgstr "Создать"
 
 #: src/qml/ExploreRoomsPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
 msgstr "Обзор комнат"
@@ -2173,20 +2170,18 @@ msgstr "Обзор комнат"
 #: src/qml/ExploreRoomsPage.qml:79
 #, kde-format
 msgid "Enter a room address"
-msgstr ""
+msgstr "Введите адрес комнаты"
 
 #: src/qml/ExploreRoomsPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Find a room..."
+#, kde-format
 msgid "Find a room…"
 msgstr "Введите название комнаты…"
 
 #: src/qml/ExploreRoomsPage.qml:94
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
-msgstr "Не найдено ни одной комнаты"
+msgstr "Не найдено ни одной общедоступной комнаты"
 
 #: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
 #, kde-format
@@ -2217,23 +2212,21 @@ msgid "Stop Download"
 msgstr "Остановить загрузку"
 
 #: src/qml/FileDelegate.qml:216
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#, kde-format
 msgid "Coach: %1, Seat: %2"
-msgstr "Широта: %1, долгота: %2"
+msgstr "Вагон: %1, место: %2"
 
 #: src/qml/FileDelegate.qml:258
 #, kde-format
 msgctxt "<start time> - <end time>"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 — %2"
 
 #: src/qml/FileDelegate.qml:269
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "Передать в KDE Itinerary"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2418,10 +2411,9 @@ msgid "Remove parent"
 msgstr "Удалить сообщение"
 
 #: src/qml/General.qml:351
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgid "This room has no official parent spaces."
-msgstr "Эта комната была заменена."
+msgstr "Для этой комнаты нет официальных родительских пространств."
 
 #: src/qml/General.qml:355
 #, fuzzy, kde-format
@@ -2713,7 +2705,7 @@ msgstr "Адрес сервера:"
 #: src/qml/Homeserver.qml:24
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "Регистрация пользователей отключена на этом сервере."
 
 #: src/qml/Homeserver.qml:39 src/qml/Username.qml:36
 #, fuzzy, kde-format
@@ -3031,28 +3023,25 @@ msgid "The input is not a valid room ID or alias"
 msgstr "Введённый текст не является допустимым URL"
 
 #: src/qml/ManualUserDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgctxt "@title"
 msgid "User ID"
-msgstr "Пользователь"
+msgstr "Идентификатор пользователя"
 
 #: src/qml/ManualUserDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgid "User ID:"
-msgstr "Пользователь"
+msgstr "Идентификатор пользователя:"
 
 #: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
 #, kde-format
 msgid "User IDs Must start with @"
-msgstr ""
+msgstr "Идентификатор пользователя должен начинаться с символа «@»"
 
 #: src/qml/ManualUserDialog.qml:62
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The input is not a valid user ID"
-msgstr "Введённый текст не является допустимым URL"
+msgstr "Введённый текст не является допустимым идентификатором пользователя"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -3377,11 +3366,10 @@ msgid "(Ended)"
 msgstr "(Завершено)"
 
 #: src/qml/PowerLevelDialog.qml:15
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
-msgstr "Изменить уровень возможностей пользователя"
+msgstr "Изменение уровня возможностей пользователя"
 
 #: src/qml/PowerLevelDialog.qml:35
 #, kde-format
@@ -3435,16 +3423,14 @@ msgid "Last read: %1"
 msgstr "Последнее сообщение прочитано: %1"
 
 #: src/qml/RegisterPassword.qml:28
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "Проверка нового пароля:"
+msgstr "Проверка пароля:"
 
 #: src/qml/RegisterPassword.qml:31
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "The passwords do not match."
-msgstr "Пароли не совпадают"
+msgstr "Пароли не совпадают."
 
 #: src/qml/RemoveChildDialog.qml:27
 #, fuzzy, kde-format
@@ -3508,10 +3494,10 @@ msgid "Reason for reporting this message"
 msgstr "Причина жалобы на это сообщение"
 
 #: src/qml/RoomData.qml:20
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title"
 msgid "Choose Room"
-msgstr "Выберите файл на компьютере"
+msgstr "Выбор комнаты"
 
 #: src/qml/RoomData.qml:37
 #, fuzzy, kde-format
