@@ -42,7 +42,8 @@ MessageDelegate {
     bubbleContent: ColumnLayout {
         MediaPlayer {
             id: audio
-            source: root.progressInfo.localPath
+            onErrorOccurred: (error, errorString) => console.warn("Audio playback error:" + error + errorString)
+            audioOutput: AudioOutput {}
         }
 
         states: [
@@ -73,18 +74,19 @@ MessageDelegate {
             },
             State {
                 name: "paused"
-                when: root.progressInfo.completed && (audio.playbackState === Audio.StoppedState || audio.playbackState === Audio.PausedState)
+                when: root.progressInfo.completed && (audio.playbackState === MediaPlayer.StoppedState || audio.playbackState === MediaPlayer.PausedState)
                 PropertyChanges {
                     target: playButton
                     icon.name: "media-playback-start"
                     onClicked: {
-                        audio.play()
+                        audio.source = root.progressInfo.localPath;
+                        audio.play();
                     }
                 }
             },
             State {
                 name: "playing"
-                when: root.progressInfo.completed && audio.playbackState === Audio.PlayingState
+                when: root.progressInfo.completed && audio.playbackState === MediaPlayer.PlayingState
 
                 PropertyChanges {
                     target: playButton
