@@ -34,7 +34,25 @@ QQC2.Control {
 
     onActiveFocusChanged: textField.forceActiveFocus()
 
-    onCurrentRoomChanged: _private.chatBarCache = currentRoom.mainCache
+    onCurrentRoomChanged: {
+        _private.chatBarCache = currentRoom.mainCache
+        if (ShareHandler.text.length > 0 && ShareHandler.room === root.currentRoom.id) {
+            textField.text = ShareHandler.text;
+            ShareHandler.text = "";
+            ShareHandler.room = "";
+        }
+    }
+
+    Connections {
+        target: ShareHandler
+        function onRoomChanged(): void {
+            if (ShareHandler.text.length > 0 && ShareHandler.room === root.currentRoom.id) {
+                textField.text = ShareHandler.text;
+                ShareHandler.text = "";
+                ShareHandler.room = "";
+            }
+        }
+    }
 
     /**
      * @brief The ActionsHandler object to use.

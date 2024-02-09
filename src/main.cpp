@@ -44,6 +44,7 @@
 #include "neochatconfig.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
+#include "sharehandler.h"
 
 #ifdef HAVE_RUNNER
 #include "runner.h"
@@ -186,6 +187,9 @@ int main(int argc, char *argv[])
     parser.addOption(dbusActivatedOption);
 #endif
 
+    QCommandLineOption shareOption(QStringLiteral("share"), i18n("Share a URL to Matrix"), QStringLiteral("text"));
+    parser.addOption(shareOption);
+
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
@@ -215,26 +219,32 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_KDBUSADDONS
     service.connect(&service,
-                    &KDBusService::activateRequested,
-                    &RoomManager::instance(),
-                    [&engine](const QStringList &arguments, const QString &workingDirectory) {
-                        Q_UNUSED(workingDirectory);
+        &KDBusService::activateRequested,
+        &RoomManager::instance(),
+        [&engine](const QStringList &arguments, const QString &workingDirectory) {
+            Q_UNUSED(workingDirectory);
 
-                        QWindow *window = windowFromEngine(&engine);
-                        KWindowSystem::updateStartupId(window);
+            QWindow *window = windowFromEngine(&engine);
+            KWindowSystem::updateStartupId(window);
 
-                        WindowController::instance().showAndRaiseWindow(QString());
+            WindowController::instance().showAndRaiseWindow(QString());
 
-                        // Open matrix uri
-                        if (arguments.isEmpty()) {
-                            return;
-                        }
-                        auto args = arguments;
-                        args.removeFirst();
-                        for (const auto &arg : args) {
-                            RoomManager::instance().resolveResource(arg);
-                        }
-                    });
+            // Open matrix uri
+            if (arguments.isEmpty()) {
+                return;
+            }
+
+            auto args = arguments;
+            args.removeFirst();
+            if (args.length() == 2 && args[0] == "--share"_ls) {
+                ShareHandler::instance().setText(args[1]);
+                return;
+            }
+
+            for (const auto &arg : args) {
+                RoomManager::instance().resolveResource(arg);
+            }
+        });
 #endif
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
@@ -247,6 +257,10 @@ int main(int argc, char *argv[])
         });
     }
 
+    if (parser.isSet("share"_ls)) {
+        ShareHandler::instance().setText(parser.value(shareOption));
+    }
+
     engine.addImageProvider(QLatin1String("mxc"), MatrixImageProvider::create(&engine, &engine));
     engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
 
@@ -255,7 +269,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    if (!parser.positionalArguments().isEmpty()) {
+    if (!parser.positionalArguments().isEmpty() && !parser.isSet("share"_ls)) {
         RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
     }
 

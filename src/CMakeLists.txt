@@ -3,6 +3,10 @@
 # SPDX-FileCopyrightText: 2020-2021 Tobias Fella <tobias.fella@kde.org>
 # SPDX-License-Identifier: BSD-2-Clause
 
+if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT NEOCHAT_FLATPAK AND NOT NEOCHAT_APPIMAGE)
+    add_subdirectory(purpose)
+endif()
+
 add_library(neochat STATIC
     controller.cpp
     controller.h
@@ -165,6 +169,8 @@ add_library(neochat STATIC
     mediamanager.h
     models/statekeysmodel.cpp
     models/statekeysmodel.h
+    sharehandler.cpp
+    sharehandler.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN

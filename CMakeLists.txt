@@ -72,6 +72,10 @@ set_package_properties(KF6Kirigami PROPERTIES
 )
 find_package(KF6KirigamiAddons 0.7.2 REQUIRED)
 
+if (UNIX AND NOT APPLE AND NOT ANDROID AND NOT NEOCHAT_FLATPAK AND NOT NEOCHAT_APPIMAGE)
+    find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Purpose)
+endif ()
+
 if(ANDROID)
     find_package(OpenSSL)
     set_package_properties(OpenSSL PROPERTIES

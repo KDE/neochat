@@ -53,6 +53,9 @@ Kirigami.ApplicationWindow {
         MatrixImageProvider.connection = root.connection;
         RoomManager.connection = root.connection;
         SpaceHierarchyCache.connection = root.connection;
+        if (ShareHandler.text && root.connection) {
+            root.handleShare();
+        }
     }
 
     Connections {
@@ -236,6 +239,9 @@ Kirigami.ApplicationWindow {
         RoomManager.connection = root.connection;
         SpaceHierarchyCache.connection = root.connection;
         WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
+        if (ShareHandler.text && root.connection) {
+            root.handleShare()
+        }
         if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && Config.systemTray) {
             restoreWindowGeometryConnections.enabled = true; // To restore window size and position
         } else {
@@ -449,5 +455,26 @@ Kirigami.ApplicationWindow {
                 height: Kirigami.Units.gridUnit * 42
             });
         }
+    }
+    Connections {
+        target: ShareHandler
+        function onTextChanged(): void {
+            if (root.connection && ShareHandler.text.length > 0) {
+                handleShare();
+            }
+        }
+    }
+    function handleShare(): void {
+        const dialog = applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ChooseRoomDialog.qml", {
+            connection: root.connection
+        }, {
+            title: i18nc("@title", "Share"),
+            width: Kirigami.Units.gridUnit * 25
+        })
+        dialog.chosen.connect(function(targetRoomId) {
+            RoomManager.resolveResource(targetRoomId)
+            ShareHandler.room = targetRoomId
+            dialog.closeDialog()
+        })
     }
 }
