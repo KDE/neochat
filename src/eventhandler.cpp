@@ -21,7 +21,10 @@
 
 #include "delegatetype.h"
 #include "eventhandler_logging.h"
+#include "events/locationbeaconevent.h"
 #include "events/pollevent.h"
+#include "events/serveraclevent.h"
+#include "events/widgetevent.h"
 #include "linkpreviewer.h"
 #include "models/reactionmodel.h"
 #include "neochatconfig.h"
@@ -432,22 +435,22 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
         [](const RoomPowerLevelsEvent &) {
             return i18nc("'power level' means permission level", "changed the power levels for this room");
         },
+        [](const LocationBeaconEvent &e) {
+            return e.contentJson()["description"_ls].toString();
+        },
+        [](const ServerAclEvent &) {
+            return i18n("changed the server access control lists for this room");
+        },
+        [](const WidgetEvent &e) {
+            if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
+                return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"_ls].toString());
+            }
+            if (e.contentJson().isEmpty()) {
+                return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"_ls]["prev_content"_ls]["name"_ls].toString());
+            }
+            return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"_ls].toString());
+        },
         [prettyPrint](const StateEvent &e) {
-            if (e.matrixType() == QLatin1String("m.room.server_acl")) {
-                return i18n("changed the server access control lists for this room");
-            }
-            if (e.matrixType() == QLatin1String("im.vector.modular.widgets")) {
-                if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
-                    return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"_ls].toString());
-                }
-                if (e.contentJson().isEmpty()) {
-                    return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"_ls]["prev_content"_ls]["name"_ls].toString());
-                }
-                return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"_ls].toString());
-            }
-            if (e.matrixType() == "org.matrix.msc3672.beacon_info"_ls) {
-                return e.contentJson()["description"_ls].toString();
-            }
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
                                           : i18n("updated %1 state for %2", e.matrixType(), prettyPrint ? e.stateKey().toHtmlEscaped() : e.stateKey());
         },
@@ -601,19 +604,22 @@ QString EventHandler::getGenericBody() const
         [](const RoomPowerLevelsEvent &) {
             return i18nc("'power level' means permission level", "changed the power levels for this room");
         },
-        [](const StateEvent &e) {
-            if (e.matrixType() == QLatin1String("m.room.server_acl")) {
-                return i18n("changed the server access control lists for this room");
+        [](const LocationBeaconEvent &) {
+            return i18n("sent a live location beacon");
+        },
+        [](const ServerAclEvent &) {
+            return i18n("changed the server access control lists for this room");
+        },
+        [](const WidgetEvent &e) {
+            if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
+                return i18n("added a widget");
             }
-            if (e.matrixType() == QLatin1String("im.vector.modular.widgets")) {
-                if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
-                    return i18n("added a widget");
-                }
-                if (e.contentJson().isEmpty()) {
-                    return i18n("removed a widget");
-                }
-                return i18n("configured a widget");
+            if (e.contentJson().isEmpty()) {
+                return i18n("removed a widget");
             }
+            return i18n("configured a widget");
+        },
+        [](const StateEvent &) {
             return i18n("updated the state");
         },
         [](const PollStartEvent &e) {

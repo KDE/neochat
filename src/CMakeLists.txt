@@ -150,6 +150,9 @@ add_library(neochat STATIC
     proxycontroller.h
     models/linemodel.cpp
     models/linemodel.h
+    events/locationbeaconevent.h
+    events/serveraclevent.h
+    events/widgetevent.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
