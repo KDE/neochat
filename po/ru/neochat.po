@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-06 00:38+0000\n"
-"PO-Revision-Date: 2024-02-08 15:45+0300\n"
+"PO-Revision-Date: 2024-02-09 23:09+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: src/controller.cpp:121 src/controller.cpp:309
 #, fuzzy, kde-format
@@ -1545,9 +1545,9 @@ msgid "Emojis & Stickers"
 msgstr "Эмодзи и наклейки"
 
 #: src/qml/ChatBar.qml:97
-#, fuzzy, kde-format
+#, kde-format
 msgid "Send a Location"
-msgstr "Отправить приглашение"
+msgstr "Отправить местоположение"
 
 #: src/qml/ChatBar.qml:111
 #, kde-format
@@ -2070,7 +2070,7 @@ msgstr "Сменить изображение"
 #: src/qml/EmoticonEditorPage.qml:60
 #, kde-format
 msgid "Set Image"
-msgstr ""
+msgstr "Установить изображение"
 
 #: src/qml/EmoticonEditorPage.qml:100
 #, kde-format
@@ -2140,11 +2140,9 @@ msgid "Create a Room"
 msgstr "Создать комнату"
 
 #: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:144
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create a Space"
-msgstr "Покинуть пространство"
+msgstr "Создать пространство"
 
 #: src/qml/ExploreComponent.qml:67 src/qml/ExploreComponent.qml:128
 #, kde-format
@@ -3506,10 +3504,9 @@ msgid "Room Id: %1"
 msgstr "Идентификатор комнаты"
 
 #: src/qml/RoomData.qml:40
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Показывать смену имён"
+msgstr "Показывать события m.room.member"
 
 #: src/qml/RoomData.qml:52
 #, kde-format
@@ -4004,25 +4001,22 @@ msgstr "Адрес сервера"
 #: src/qml/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Возможности сервера"
 
 #: src/qml/ServerData.qml:24
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Проверка нового пароля:"
+msgstr "Может изменять пароль"
 
 #: src/qml/ServerData.qml:29
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Стандартные разрешения"
+msgstr "Стандартная версия комнаты"
 
 #: src/qml/ServerData.qml:37
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Версия комнаты"
+msgstr "Доступные версии комнаты"
 
 #: src/qml/SettingsPage.qml:26
 #, kde-format
@@ -4032,7 +4026,7 @@ msgstr "Внешний вид"
 #: src/qml/SettingsPage.qml:60
 #, kde-format
 msgid "Stickers & Emojis"
-msgstr ""
+msgstr "Наклейки и эмодзи"
 
 #: src/qml/SettingsPage.qml:72
 #, kde-format
@@ -4070,7 +4064,7 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Ссылка общего доступа для изображения: <a href='%1'>%1</a>"
 
 #: src/qml/SonnetConfigPage.qml:17
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title"
 msgid "Spellchecking"
 msgstr "Проверка орфографии"
@@ -4103,12 +4097,12 @@ msgstr "Язык по умолчанию:"
 #: src/qml/SonnetConfigPage.qml:75
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Нет"
 
 #: src/qml/SonnetConfigPage.qml:94
-#, fuzzy, kde-format
+#, kde-format
 msgid "Additional spell checking languages"
-msgstr "Языки с поддержкой проверки орфографии"
+msgstr "Дополнительные языки с поддержкой проверки орфографии"
 
 #: src/qml/SonnetConfigPage.qml:95
 #, kde-format
@@ -4125,15 +4119,15 @@ msgid "Open Personal Dictionary"
 msgstr "Открыть личный словарь"
 
 #: src/qml/SonnetConfigPage.qml:118
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr "Языки с поддержкой проверки орфографии"
 
 #: src/qml/SonnetConfigPage.qml:124 src/qml/SonnetConfigPage.qml:142
-#, fuzzy, kde-format
+#, kde-format
 msgid "Default Language"
-msgstr "Язык по умолчанию:"
+msgstr "Язык по умолчанию"
 
 #: src/qml/SonnetConfigPage.qml:155
 #, kde-format
@@ -4152,8 +4146,7 @@ msgid "Add word"
 msgstr "Добавить слово"
 
 #: src/qml/SonnetConfigPage.qml:200
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Удалить слово"
@@ -4634,7 +4627,7 @@ msgstr "Громкость"
 #: src/qml/VideoDelegate.qml:290
 #, kde-format
 msgid "Maximize"
-msgstr ""
+msgstr "Развернуть"
 
 #: src/qml/WelcomePage.qml:24
 #, kde-format
@@ -4675,11 +4668,9 @@ msgid "Go back"
 msgstr "Назад"
 
 #: src/registration.cpp:300
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgid "No server."
-msgstr "Добавление сервера"
+msgstr "Сервер отсутствует."
 
 #: src/registration.cpp:302
 #, kde-format
