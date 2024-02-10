@@ -5,11 +5,17 @@
 
 #include <Quotient/accountregistry.h>
 #include <Quotient/connection.h>
+#include <Quotient/jobs/basejob.h>
 #include <Quotient/qt_connection_util.h>
 
 #include "controller.h"
 
 #include <KLocalizedString>
+
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QTcpServer>
 
 using namespace Quotient;
 
@@ -58,8 +64,86 @@ void LoginHelper::init()
             setHomeserverReachable(true);
             m_testing = false;
             Q_EMIT testingChanged();
-            m_supportsSso = m_connection->supportsSso();
-            m_supportsPassword = m_connection->supportsPasswordAuth();
+            static QNetworkAccessManager *nam;
+            if (!nam) {
+                nam = new QNetworkAccessManager(this);
+                auto configUrl = QStringLiteral("%1.well-known/openid-configuration").arg(m_connection->authIssuer());
+                QNetworkRequest request((QUrl(configUrl)));
+                auto reply = nam->get(request);
+
+                connect(reply, &QNetworkReply::finished, this, [this, reply] {
+                    auto configurationJson = QJsonDocument::fromJson(reply->readAll()).object();
+
+                    QJsonObject metadata{
+                        {"client_name"_ls, "NeoChat"_ls},
+                        {"client_uri"_ls, "https://apps.kde.org/neochat"_ls},
+                        {"logo_uri"_ls, "https://apps.kde.org/app-icons/org.kde.neochat.svg"_ls},
+                        {"contacts"_ls, QJsonArray{"tobias.fella@kde.org"_ls}},
+                        {"tos_uri"_ls, "https://apps.kde.org/neochat"_ls},
+                        {"policy_uri"_ls, "https://apps.kde.org/neochat"_ls},
+                        {"redirect_uris"_ls, QJsonArray{"http://127.0.0.1:21431/redirect"_ls}},
+                        {"application_type"_ls, "native"_ls},
+                    };
+                    QNetworkRequest request(QUrl(configurationJson["registration_endpoint"_ls].toString()));
+                    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json"_ls);
+                    auto reply = nam->post(request, QJsonDocument(metadata).toJson());
+                    connect(reply, &QNetworkReply::finished, this, [reply, configurationJson, this] {
+                        auto json = QJsonDocument::fromJson(reply->readAll()).object();
+                        auto authorizationEndpoint = configurationJson["authorization_endpoint"_ls].toString();
+                        QUrl authUrl(authorizationEndpoint);
+                        QUrlQuery query;
+                        // query.addQueryItem(QLatin1String("code_challenge"), challengeString);
+                        // query.addQueryItem(QStringLiteral("code_challenge_method"), QLatin1String("S256"));
+                        query.addQueryItem(QStringLiteral("client_id"), json["client_id"_ls].toString());
+                        query.addQueryItem(QStringLiteral("redirect_uri"), QLatin1String("http://127.0.0.1:21431/redirect"));
+                        query.addQueryItem(QStringLiteral("response_type"), QLatin1String("code"));
+                        query.addQueryItem(QStringLiteral("scope"), QLatin1String("device:ABCDEF api:*"));
+                        // query.addQueryItem(QLatin1String("state"), m_state);
+                        authUrl.setQuery(query);
+                        qWarning() << "open" << authUrl.toString();
+
+                        auto server = new QTcpServer(this);
+                        server->listen(QHostAddress(QStringLiteral("127.0.0.1")), 21431);
+                        connect(server, &QTcpServer::newConnection, this, [this, server]() {
+                            auto connection = server->nextPendingConnection();
+                            connect(connection, &QIODevice::readyRead, this, [this, connection]() {
+                                auto data = QString::fromLatin1(connection->readAll());
+                                qWarning() << data;
+                                // QRegularExpression codeRegex(QStringLiteral("code=([a-f0-9]+)&"));
+                                // auto code = codeRegex.match(data).captured(1);
+                                // QRegularExpression stateRegex(QStringLiteral("state=([0-9]+)"));
+                                connection->write("HTTP/1.0 200 OK\r\n\r\nYou can return to NeoChat now.");
+                                connection->close();
+                                // if (stateRegex.match(data).captured(1) != m_state) {
+                                //     return;
+                                // }
+                                // auto tokenUrl = buildUrl(QStringLiteral("/oauth/token"));
+                                // QUrlQuery query;
+                                // query.addQueryItem(QLatin1String("grant_type"), QStringLiteral("authorization_code"));
+                                // query.addQueryItem(QLatin1String("code"), QString::fromLatin1(QUrl::toPercentEncoding(code)));
+                                // query.addQueryItem(QLatin1String("redirect_uri"),
+                                // QString::fromLatin1(QUrl::toPercentEncoding(QStringLiteral("http://127.0.0.1:11450"))));
+                                // query.addQueryItem(QLatin1String("code_verifier"), QString::fromLatin1(m_verifier));
+                                // query.addQueryItem(QLatin1String("client_id"), QLatin1String("98"));
+                                // QNetworkRequest request(tokenUrl);
+                                // request.setHeader(QNetworkRequest::ContentTypeHeader,
+                                //     QStringLiteral("application/x-www-form-urlencoded"));
+                                // auto reply = nam->post(request, query.toString(QUrl::FullyEncoded).toUtf8());
+                                // connect(reply, &QNetworkReply::finished, this, [this, reply](){
+                                //     auto json = QJsonDocument::fromJson(reply->readAll()).object();
+                                //     setAccessToken(json[QLatin1String("access_token")].toString());
+                                //     const auto refreshToken = json[QLatin1String("refresh_token")].toString();
+                                //     writeKeychain(QStringLiteral("traewelling-access"), m_accessToken);
+                                //     writeKeychain(QStringLiteral("traewelling-refresh"), refreshToken);
+                                //     loadData();
+                                // });
+                            });
+                        });
+
+                        // auto reply = nam->post(request, QJsonDocument(authorizationData).toJson());
+                    });
+                });
+            }
             Q_EMIT loginFlowsChanged();
         });
     });
