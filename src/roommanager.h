@@ -9,6 +9,7 @@
 #include <QQmlEngine>
 #include <Quotient/room.h>
 #include <Quotient/uriresolver.h>
+#include <KConfigGroup>
 
 #include "chatdocumenthandler.h"
 #include "enums/delegatetype.h"
@@ -86,6 +87,11 @@ class RoomManager : public QObject, public UriResolverBase
      * @sa room
      */
     Q_PROPERTY(bool hasOpenRoom READ hasOpenRoom NOTIFY currentRoomChanged)
+
+    /**
+     * @brief The room ID of the last space entered.
+     */
+    Q_PROPERTY(QString lastSpaceId READ lastSpaceId CONSTANT)
 
     /**
      * @brief The ChatDocumentHandler for the open room.
@@ -199,6 +205,8 @@ public:
      * @brief Set a URL to be loaded as the initial room.
      */
     void setUrlArgument(const QString &arg);
+
+    QString lastSpaceId();
 
     NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
@@ -331,6 +339,7 @@ private:
     QString m_arg;
     KSharedConfig::Ptr m_config;
     KConfigGroup m_lastRoomConfig;
+    KConfigGroup m_lastSpaceConfig;
     QPointer<ChatDocumentHandler> m_chatDocumentHandler;
 
     TimelineModel *m_timelineModel;

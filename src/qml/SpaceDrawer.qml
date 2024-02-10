@@ -21,7 +21,14 @@ QQC2.Control {
     topPadding: 0
     bottomPadding: 0
 
-    property string selectedSpaceId
+    property string selectedSpaceId: RoomManager.lastSpaceId
+    Connections {
+        target: RoomManager
+        function onConnectionChanged() {
+            // We need to rebind as any previous change will have been overwritten.
+            selectedSpaceId = RoomManager.lastSpaceId
+        }
+    }
 
     property bool showDirectChats: false
 

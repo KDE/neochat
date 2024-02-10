@@ -35,6 +35,7 @@ RoomManager::RoomManager(QObject *parent)
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
 {
     m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
+    m_lastSpaceConfig = m_config->group(QStringLiteral("LastOpenSpace"));
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_timelineModel->setRoom(m_currentRoom);
@@ -172,6 +173,14 @@ void RoomManager::loadInitialRoom()
     connect(this, &RoomManager::connectionChanged, this, &RoomManager::openRoomForActiveConnection);
 }
 
+QString RoomManager::lastSpaceId()
+{
+    if (!m_connection) {
+        return {};
+    }
+    return m_lastSpaceConfig.readEntry(m_connection->userId(), QString());
+}
+
 void RoomManager::openRoomForActiveConnection()
 {
     if (!m_connection) {
@@ -248,6 +257,7 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
             Q_EMIT currentRoomChanged();
 
             if (neoChatRoom->isSpace()) {
+                m_lastSpaceConfig.writeEntry(m_connection->userId(), room->id());
                 Q_EMIT replaceSpaceHome(neoChatRoom);
             } else {
                 Q_EMIT replaceRoom(neoChatRoom, eventId);
@@ -257,6 +267,7 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
         m_lastCurrentRoom = std::exchange(m_currentRoom, neoChatRoom);
         Q_EMIT currentRoomChanged();
         if (neoChatRoom->isSpace()) {
+            m_lastSpaceConfig.writeEntry(m_connection->userId(), room->id());
             Q_EMIT pushSpaceHome(neoChatRoom);
         } else {
             Q_EMIT pushRoom(neoChatRoom, eventId);
