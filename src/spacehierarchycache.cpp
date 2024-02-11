@@ -5,6 +5,7 @@
 
 #include <Quotient/csapi/space_hierarchy.h>
 #include <Quotient/qt_connection_util.h>
+#include <Quotient/quotient_common.h>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -50,11 +51,33 @@ void SpaceHierarchyCache::cacheSpaceHierarchy()
     }
 }
 
+void SpaceHierarchyCache::populateFromState(const QString &spaceId, const QString &rootId)
+{
+    if (const auto &room = m_connection->room(spaceId)) {
+        for (const auto &event : room->currentState().eventsOfType("m.space.child"_ls)) {
+            if (const auto &child = m_connection->room(event->stateKey())) {
+                m_spaceHierarchy[rootId] += event->stateKey();
+                auto successor = child;
+                do {
+                    m_spaceHierarchy[rootId] += successor->id();
+                } while ((successor = successor->successor(JoinState::Join)));
+                if (dynamic_cast<NeoChatRoom *>(child)->isSpace()) {
+                    populateFromState(child->id(), rootId);
+                }
+            }
+        }
+    }
+    Q_EMIT spaceHierarchyChanged();
+}
+
 void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
 {
     if (!m_connection) {
         return;
     }
+
+    populateFromState(spaceId, spaceId);
+
     auto job = m_connection->callApi<GetSpaceHierarchyJob>(spaceId);
 
     connect(job, &BaseJob::success, this, [this, job, spaceId]() {

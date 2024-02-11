@@ -102,6 +102,8 @@ private Q_SLOTS:
 private:
     explicit SpaceHierarchyCache(QObject *parent = nullptr);
 
+    void populateFromState(const QString &roomId, const QString &rootId);
+
     QList<QString> m_activeSpaceRooms;
     QHash<QString, QList<QString>> m_spaceHierarchy;
     void cacheSpaceHierarchy();
