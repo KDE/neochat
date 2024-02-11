@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-06 00:38+0000\n"
+"POT-Creation-Date: 2024-02-11 00:38+0000\n"
 "PO-Revision-Date: 2023-09-04 20:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -64,351 +64,356 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Kan inte läsa åtkomstsymbol"
 
-#: src/eventhandler.cpp:301 src/eventhandler.cpp:505
+#: src/eventhandler.cpp:304 src/eventhandler.cpp:508
 #: src/models/messageeventmodel.cpp:489
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Meddelandet har tagits bort]</i>"
 
-#: src/eventhandler.cpp:301 src/models/messageeventmodel.cpp:490
+#: src/eventhandler.cpp:304 src/models/messageeventmodel.cpp:490
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Meddelandet har tagits bort: %1]</i>"
 
-#: src/eventhandler.cpp:331
+#: src/eventhandler.cpp:334
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "bjöd in %1 till rummet igen"
 
-#: src/eventhandler.cpp:333
+#: src/eventhandler.cpp:336
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:342 src/eventhandler.cpp:529
+#: src/eventhandler.cpp:345 src/eventhandler.cpp:532
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "gick med i rummet (upprepat)"
 
-#: src/eventhandler.cpp:344
+#: src/eventhandler.cpp:347
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "bjöd in %1 till rummet"
 
-#: src/eventhandler.cpp:344 src/eventhandler.cpp:531
+#: src/eventhandler.cpp:347 src/eventhandler.cpp:534
 #, kde-format
 msgid "joined the room"
 msgstr "gick med i rummet"
 
-#: src/eventhandler.cpp:348
+#: src/eventhandler.cpp:351
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:355 src/eventhandler.cpp:539
+#: src/eventhandler.cpp:358 src/eventhandler.cpp:542
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "tog bort sitt visningsnamn"
 
-#: src/eventhandler.cpp:358
+#: src/eventhandler.cpp:361
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "ändrade sitt visningsnamn till %1"
 
-#: src/eventhandler.cpp:364 src/eventhandler.cpp:546
+#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
 #, kde-format
 msgid " and "
 msgstr " och "
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:370 src/eventhandler.cpp:552
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "tog bort sin avatar"
 
-#: src/eventhandler.cpp:369 src/eventhandler.cpp:551
+#: src/eventhandler.cpp:372 src/eventhandler.cpp:554
 #, kde-format
 msgid "set an avatar"
 msgstr "tilldela en avatar"
 
-#: src/eventhandler.cpp:371 src/eventhandler.cpp:553
+#: src/eventhandler.cpp:374 src/eventhandler.cpp:556
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "uppdaterade sin avatar"
 
-#: src/eventhandler.cpp:375 src/eventhandler.cpp:557
+#: src/eventhandler.cpp:378 src/eventhandler.cpp:560
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "ändrade ingenting"
 
-#: src/eventhandler.cpp:381
+#: src/eventhandler.cpp:384
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "drog tillbaka inbjudan av %1"
 
-#: src/eventhandler.cpp:381 src/eventhandler.cpp:563
+#: src/eventhandler.cpp:384 src/eventhandler.cpp:566
 #, kde-format
 msgid "rejected the invitation"
 msgstr "nekade till inbjudan"
 
-#: src/eventhandler.cpp:385
+#: src/eventhandler.cpp:388
 #, kde-format
 msgid "unbanned %1"
 msgstr "tog bort bannlysning av %1"
 
-#: src/eventhandler.cpp:385 src/eventhandler.cpp:567
+#: src/eventhandler.cpp:388 src/eventhandler.cpp:570
 #, kde-format
 msgid "self-unbanned"
 msgstr "tog bort bannlysning av sig själv"
 
-#: src/eventhandler.cpp:388
+#: src/eventhandler.cpp:391
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "har flyttat %1 utanför rummet: %2"
 
-#: src/eventhandler.cpp:389 src/eventhandler.cpp:569
+#: src/eventhandler.cpp:392 src/eventhandler.cpp:572
 #, kde-format
 msgid "left the room"
 msgstr "lämnade rummet"
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:396
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "bannlyste %1 från rummet"
 
-#: src/eventhandler.cpp:395
+#: src/eventhandler.cpp:398
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "bannlyste %1 från rummet: %2"
 
-#: src/eventhandler.cpp:398 src/eventhandler.cpp:574
+#: src/eventhandler.cpp:401 src/eventhandler.cpp:577
 #, kde-format
 msgid "self-banned from the room"
 msgstr "bannlyste sig själv från rummet"
 
-#: src/eventhandler.cpp:402 src/eventhandler.cpp:577
+#: src/eventhandler.cpp:405 src/eventhandler.cpp:580
 #, kde-format
 msgid "requested an invite"
 msgstr "frågade efter en inbjudan"
 
-#: src/eventhandler.cpp:402
+#: src/eventhandler.cpp:405
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "frågade efter en inbjudan med orsaken: %1"
 
-#: src/eventhandler.cpp:406 src/eventhandler.cpp:581
+#: src/eventhandler.cpp:409 src/eventhandler.cpp:584
 #, kde-format
 msgid "made something unknown"
 msgstr "gjorde någonting okänt"
 
-#: src/eventhandler.cpp:409 src/eventhandler.cpp:584
+#: src/eventhandler.cpp:412 src/eventhandler.cpp:587
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "tog bort rummets huvudsakliga alias"
 
-#: src/eventhandler.cpp:409
+#: src/eventhandler.cpp:412
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ställde in rummets huvudsakliga alias till: %1"
 
-#: src/eventhandler.cpp:412 src/eventhandler.cpp:587
+#: src/eventhandler.cpp:415 src/eventhandler.cpp:590
 #, kde-format
 msgid "cleared the room name"
 msgstr "tog bort rummets namn"
 
-#: src/eventhandler.cpp:412
+#: src/eventhandler.cpp:415
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ställ in rummets namn till: %1"
 
-#: src/eventhandler.cpp:415 src/eventhandler.cpp:590
+#: src/eventhandler.cpp:418 src/eventhandler.cpp:593
 #, kde-format
 msgid "cleared the topic"
 msgstr "tog bort ämnet"
 
-#: src/eventhandler.cpp:416
+#: src/eventhandler.cpp:419
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ställ in ämnet till: %1"
 
-#: src/eventhandler.cpp:422 src/eventhandler.cpp:593
+#: src/eventhandler.cpp:425 src/eventhandler.cpp:596
 #, kde-format
 msgid "changed the room avatar"
 msgstr "ändrade rummets avatar"
 
-#: src/eventhandler.cpp:425 src/eventhandler.cpp:596
+#: src/eventhandler.cpp:428 src/eventhandler.cpp:599
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "aktiverade kryptering hela vägen"
 
-#: src/eventhandler.cpp:429
+#: src/eventhandler.cpp:432
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "uppgraderade rummet till version %1"
 
-#: src/eventhandler.cpp:430
+#: src/eventhandler.cpp:433
 #, kde-format
 msgid "created the room, version %1"
 msgstr "skapade rummet, version %1"
 
-#: src/eventhandler.cpp:433 src/eventhandler.cpp:602
+#: src/eventhandler.cpp:436 src/eventhandler.cpp:605
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "ändrade rummets effektnivåer"
 
-#: src/eventhandler.cpp:437 src/eventhandler.cpp:606
+#: src/eventhandler.cpp:442 src/eventhandler.cpp:611
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "ändrade serverns åtkomstkontrollista för rummet"
 
-#: src/eventhandler.cpp:441
+#: src/eventhandler.cpp:446
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "lade till grafisk komponent %1"
 
-#: src/eventhandler.cpp:444
+#: src/eventhandler.cpp:449
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "tog bort grafisk komponent %1"
 
-#: src/eventhandler.cpp:446
+#: src/eventhandler.cpp:451
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "ställde in grafisk komponent %1"
 
-#: src/eventhandler.cpp:451
+#: src/eventhandler.cpp:454
 #, kde-format
 msgid "updated %1 state"
 msgstr "uppdaterade tillstånd %1"
 
-#: src/eventhandler.cpp:452
+#: src/eventhandler.cpp:455
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "uppdaterade tillstånd %1 för %2"
 
-#: src/eventhandler.cpp:457 src/eventhandler.cpp:623
+#: src/eventhandler.cpp:460 src/eventhandler.cpp:629
 #, kde-format
 msgid "Unknown event"
 msgstr "Okänd händelse"
 
-#: src/eventhandler.cpp:472
+#: src/eventhandler.cpp:475
 #, kde-format
 msgid "a file"
 msgstr "en fil"
 
-#: src/eventhandler.cpp:512
+#: src/eventhandler.cpp:515
 #, kde-format
 msgid "sent a message"
 msgstr "skickade ett meddelande"
 
-#: src/eventhandler.cpp:516
+#: src/eventhandler.cpp:519
 #, kde-format
 msgid "sent a sticker"
 msgstr "skickade ett klistermärke"
 
-#: src/eventhandler.cpp:522
+#: src/eventhandler.cpp:525
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "bjöd in någon till rummet igen"
 
-#: src/eventhandler.cpp:531
+#: src/eventhandler.cpp:534
 #, kde-format
 msgid "invited someone to the room"
 msgstr "bjöd in någon till rummet"
 
-#: src/eventhandler.cpp:541
+#: src/eventhandler.cpp:544
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "ändrade sitt visningsnamn"
 
-#: src/eventhandler.cpp:563
+#: src/eventhandler.cpp:566
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "drog tillbaka en användares inbjudan"
 
-#: src/eventhandler.cpp:567
+#: src/eventhandler.cpp:570
 #, kde-format
 msgid "unbanned a user"
 msgstr "tog bort bannlysning av en användare"
 
-#: src/eventhandler.cpp:569
+#: src/eventhandler.cpp:572
 #, kde-format
 msgid "put a user out of the room"
 msgstr "flyttade en användare utan ur rummet"
 
-#: src/eventhandler.cpp:572
+#: src/eventhandler.cpp:575
 #, kde-format
 msgid "banned a user from the room"
 msgstr "bannlyste en användare från rummet"
 
-#: src/eventhandler.cpp:584
+#: src/eventhandler.cpp:587
 #, kde-format
 msgid "set the room main alias"
 msgstr "ställde in rummets huvudsakliga alias"
 
-#: src/eventhandler.cpp:587
+#: src/eventhandler.cpp:590
 #, kde-format
 msgid "set the room name"
 msgstr "ställde in rummets namn"
 
-#: src/eventhandler.cpp:590
+#: src/eventhandler.cpp:593
 #, kde-format
 msgid "set the topic"
 msgstr "ställde in ämnet"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:602
 #, kde-format
 msgid "upgraded the room version"
 msgstr "uppgraderade rummets version"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:602
 #, kde-format
 msgid "created the room"
 msgstr "skapade rummet"
 
-#: src/eventhandler.cpp:610
+#: src/eventhandler.cpp:608
+#, kde-format
+msgid "sent a live location beacon"
+msgstr ""
+
+#: src/eventhandler.cpp:615
 #, kde-format
 msgid "added a widget"
 msgstr "lade till en grafisk komponent"
 
-#: src/eventhandler.cpp:613
+#: src/eventhandler.cpp:618
 #, kde-format
 msgid "removed a widget"
 msgstr "tog bort en grafisk komponent"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:620
 #, kde-format
 msgid "configured a widget"
 msgstr "ställde in en grafisk komponent"
 
-#: src/eventhandler.cpp:617
+#: src/eventhandler.cpp:623
 #, kde-format
 msgid "updated the state"
 msgstr "uppdaterade tillståndet"
 
-#: src/eventhandler.cpp:621
+#: src/eventhandler.cpp:627
 #, kde-format
 msgid "started a poll"
 msgstr "startade en opinionsundersökning"
 
-#: src/eventhandler.cpp:1029
+#: src/eventhandler.cpp:1035
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 användare: "
 msgstr[1] "%1 användare: "
 
-#: src/eventhandler.cpp:1032
+#: src/eventhandler.cpp:1038
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1162,7 +1167,7 @@ msgstr "Latitud: %1, Longitud: %2"
 msgid "Encrypted Message"
 msgstr "Krypterat meddelande"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:301
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:317
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1241,112 +1246,112 @@ msgstr "Om KDE"
 msgid "Edit Account"
 msgstr "Redigera konto"
 
-#: src/qml/AccountEditorPage.qml:61
+#: src/qml/AccountEditorPage.qml:60
 #, kde-format
 msgid "Upload new avatar"
 msgstr "Ladda upp ny avatar"
 
-#: src/qml/AccountEditorPage.qml:78
+#: src/qml/AccountEditorPage.qml:77
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Ta bort nuvarande avatar"
 
-#: src/qml/AccountEditorPage.qml:101
+#: src/qml/AccountEditorPage.qml:100
 #, kde-format
 msgid "User information"
 msgstr "Användarinformation"
 
-#: src/qml/AccountEditorPage.qml:106 src/qml/CreateRoomDialog.qml:66
+#: src/qml/AccountEditorPage.qml:105 src/qml/CreateRoomDialog.qml:72
 #, kde-format
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/qml/AccountEditorPage.qml:112
+#: src/qml/AccountEditorPage.qml:111
 #, kde-format
 msgid "Label:"
 msgstr "Beteckning:"
 
-#: src/qml/AccountEditorPage.qml:117 src/qml/AccountEditorPage.qml:170
-#: src/qml/EmoticonEditorPage.qml:110 src/qml/General.qml:107
+#: src/qml/AccountEditorPage.qml:116 src/qml/AccountEditorPage.qml:171
+#: src/qml/EmoticonEditorPage.qml:108 src/qml/General.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Spara"
 
-#: src/qml/AccountEditorPage.qml:133
+#: src/qml/AccountEditorPage.qml:132
 #: src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/qml/NetworkProxyPage.qml:88 src/qml/Password.qml:31
+#: src/qml/NetworkProxyPage.qml:88 src/qml/Password.qml:32
 #, kde-format
 msgid "Password"
 msgstr "Lösenord"
 
-#: src/qml/AccountEditorPage.qml:138
+#: src/qml/AccountEditorPage.qml:137
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Servern stöder inte ändring av ditt lösenord"
 
-#: src/qml/AccountEditorPage.qml:143
+#: src/qml/AccountEditorPage.qml:144
 #, kde-format
 msgid "Current Password:"
 msgstr "Nuvarande lösenord:"
 
-#: src/qml/AccountEditorPage.qml:150
+#: src/qml/AccountEditorPage.qml:151
 #, kde-format
 msgid "New Password:"
 msgstr "Nytt lösenord:"
 
-#: src/qml/AccountEditorPage.qml:157
+#: src/qml/AccountEditorPage.qml:158
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Bekräfta nytt lösenord:"
 
-#: src/qml/AccountEditorPage.qml:162
+#: src/qml/AccountEditorPage.qml:163
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Lösenorden stämmer inte överens"
 
-#: src/qml/AccountEditorPage.qml:176
+#: src/qml/AccountEditorPage.qml:177
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Lösenord stämmer inte"
 
-#: src/qml/AccountEditorPage.qml:184
+#: src/qml/AccountEditorPage.qml:185
 #, kde-format
 msgid "Server Information"
 msgstr "Serverinformation"
 
-#: src/qml/AccountEditorPage.qml:188
+#: src/qml/AccountEditorPage.qml:189
 #, kde-format
 msgid "Homeserver url"
 msgstr "Webbadress för hemserver"
 
-#: src/qml/AccountEditorPage.qml:209
+#: src/qml/AccountEditorPage.qml:210
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Kontohantering"
 
-#: src/qml/AccountEditorPage.qml:214
+#: src/qml/AccountEditorPage.qml:215
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Inaktivera konto"
 
-#: src/qml/AccountEditorPage.qml:215
+#: src/qml/AccountEditorPage.qml:219
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "Bekräfta inaktivering av konto"
 
-#: src/qml/AccountEditorPage.qml:223
+#: src/qml/AccountEditorPage.qml:228
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Lösenord ändrat med lyckat resultat"
 
-#: src/qml/AccountEditorPage.qml:225
+#: src/qml/AccountEditorPage.qml:230
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Felaktigt lösenord inmatat"
 
-#: src/qml/AccountEditorPage.qml:227
+#: src/qml/AccountEditorPage.qml:232
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Okänt problem vid försök att ändra lösenord"
@@ -1368,13 +1373,13 @@ msgid "Notification settings"
 msgstr "Underrättelseinställningar"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:426 src/qml/UserInfo.qml:123
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:445 src/qml/UserInfo.qml:126
 #, kde-format
 msgid "Configure"
 msgstr "Anpassa"
 
 #: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
-#: src/qml/SettingsPage.qml:85
+#: src/qml/SettingsPage.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "Enheter"
@@ -1390,7 +1395,7 @@ msgstr "Logga ut"
 msgid "Accounts"
 msgstr "Konton"
 
-#: src/qml/AccountsPage.qml:100 src/qml/UserInfo.qml:174
+#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:179
 #, kde-format
 msgid "Add Account"
 msgstr "Lägg till konto"
@@ -1406,62 +1411,62 @@ msgstr "Utseende"
 msgid "General theme"
 msgstr "Allmänt tema"
 
-#: src/qml/AppearanceSettingsPage.qml:114
+#: src/qml/AppearanceSettingsPage.qml:116
 #, kde-format
 msgid "Bubbles"
 msgstr "Bubblor"
 
-#: src/qml/AppearanceSettingsPage.qml:183
+#: src/qml/AppearanceSettingsPage.qml:185
 #, kde-format
 msgid "Compact"
 msgstr "Kompakt"
 
-#: src/qml/AppearanceSettingsPage.qml:203
+#: src/qml/AppearanceSettingsPage.qml:207
 #, kde-format
 msgid "Use compact room list"
 msgstr "Använd kompakt rumslista"
 
-#: src/qml/AppearanceSettingsPage.qml:225
+#: src/qml/AppearanceSettingsPage.qml:233
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "Visa snygga effekter i chatt"
 
-#: src/qml/AppearanceSettingsPage.qml:239
+#: src/qml/AppearanceSettingsPage.qml:250
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Använd genomskinlig chattsida"
 
-#: src/qml/AppearanceSettingsPage.qml:257
+#: src/qml/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Transparency"
 msgstr "Genomskinlighet"
 
-#: src/qml/AppearanceSettingsPage.qml:274
+#: src/qml/AppearanceSettingsPage.qml:290
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Bara aktiverad om den genomskinliga chattsidan är aktiverad."
 
-#: src/qml/AppearanceSettingsPage.qml:287
+#: src/qml/AppearanceSettingsPage.qml:307
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Visa dina meddelanden till höger"
 
-#: src/qml/AppearanceSettingsPage.qml:300
+#: src/qml/AppearanceSettingsPage.qml:323
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Visa förhandsgranskning av länkar i chattmeddelanden"
 
-#: src/qml/AppearanceSettingsPage.qml:311
+#: src/qml/AppearanceSettingsPage.qml:333
 #, kde-format
 msgid "Show Avatar"
 msgstr "Visa avatar"
 
-#: src/qml/AppearanceSettingsPage.qml:315
+#: src/qml/AppearanceSettingsPage.qml:337
 #, kde-format
 msgid "In chat"
 msgstr "I chatt"
 
-#: src/qml/AppearanceSettingsPage.qml:325
+#: src/qml/AppearanceSettingsPage.qml:347
 #, kde-format
 msgid "In sidebar"
 msgstr "I sidorad"
@@ -1471,7 +1476,7 @@ msgstr "I sidorad"
 msgid "Choose local file"
 msgstr "Välj lokal fil"
 
-#: src/qml/AttachDialog.qml:47
+#: src/qml/AttachDialog.qml:46
 #, kde-format
 msgid "Clipboard image"
 msgstr "Klippbordsbild"
@@ -1551,23 +1556,23 @@ msgstr "Emoji och klistermärken"
 msgid "Send a Location"
 msgstr "Skicka en plats"
 
-#: src/qml/ChatBar.qml:111
+#: src/qml/ChatBar.qml:113
 #, kde-format
 msgid "Send message"
 msgstr "Skicka meddelande"
 
-#: src/qml/ChatBar.qml:188
+#: src/qml/ChatBar.qml:191
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Skicka ett krypterat meddelande…"
 
-#: src/qml/ChatBar.qml:188
+#: src/qml/ChatBar.qml:191
 #, fuzzy, kde-format
 #| msgid "Set an attachment caption..."
 msgid "Set an attachment caption…"
 msgstr "Lägg till en rubrik för bilagan..."
 
-#: src/qml/ChatBar.qml:188
+#: src/qml/ChatBar.qml:191
 #, kde-format
 msgid "Send a message…"
 msgstr "Skicka ett meddelande…"
@@ -1627,7 +1632,7 @@ msgid ""
 msgstr "Det går inte att inaktivera kryptering efter den har aktiverats."
 
 #: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
-#: src/qml/ImageEditorPage.qml:126
+#: src/qml/ImageEditorPage.qml:124
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
@@ -1647,27 +1652,27 @@ msgstr "Är du säker på att du vill logga ut?"
 msgid "Open in New Window"
 msgstr "Öppna i nytt fönster"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Ta bort från favoriter"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:186
+#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Lägg till i favoriter"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
 #, kde-format
 msgid "Reprioritize"
 msgstr "Omprioritera"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:200
+#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
 #, kde-format
 msgid "Deprioritize"
 msgstr "Nerprioritera"
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:207
+#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:217
 #, kde-format
 msgid "Mark as Read"
 msgstr "Markera som läst"
@@ -1679,7 +1684,7 @@ msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Kopiera användarens Matrix-identifierare till klippbordet"
 
 #: src/qml/ContextMenu.qml:60 src/qml/SpaceListContextMenu.qml:36
-#: src/qml/SpaceListContextMenu.qml:116
+#: src/qml/SpaceListContextMenu.qml:121
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -1715,27 +1720,29 @@ msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Av"
 
-#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:124
-#: src/qml/ContextMenu.qml:193 src/qml/RoomDrawer.qml:104
-#: src/qml/RoomDrawerPage.qml:47 src/qml/SpaceHomePage.qml:69
+#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:128
+#: src/qml/ContextMenu.qml:202 src/qml/RoomDrawer.qml:109
+#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:77
 #, kde-format
 msgid "Room Settings"
 msgstr "Rumsinställningar"
 
-#: src/qml/ContextMenu.qml:130 src/qml/ContextMenu.qml:214
+#: src/qml/ContextMenu.qml:135 src/qml/ContextMenu.qml:224
 #, kde-format
 msgid "Leave Room"
 msgstr "Lämna rum"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:47
-#: src/qml/ExploreComponentMobile.qml:147 src/qml/SpaceDrawer.qml:206
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:62
+#: src/qml/ExploreComponent.qml:64 src/qml/ExploreComponentMobile.qml:162
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:218
+#: src/qml/SpaceDrawer.qml:220
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "Skapa ett utrymme"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:39
-#: src/qml/ExploreComponentMobile.qml:135
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:50
+#: src/qml/ExploreComponentMobile.qml:146
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
@@ -1760,23 +1767,23 @@ msgstr "Rumsinformation"
 msgid "Select type"
 msgstr "Markera alla"
 
-#: src/qml/CreateRoomDialog.qml:53 src/qml/RoomData.qml:25
+#: src/qml/CreateRoomDialog.qml:54 src/qml/RoomData.qml:25
 #, kde-format
 msgid "Room"
 msgstr "Rum"
 
-#: src/qml/CreateRoomDialog.qml:54
+#: src/qml/CreateRoomDialog.qml:58
 #, fuzzy, kde-format
 #| msgid "Spaces"
 msgid "Space"
 msgstr "Utrymmen"
 
-#: src/qml/CreateRoomDialog.qml:72
+#: src/qml/CreateRoomDialog.qml:80
 #, kde-format
 msgid "Topic:"
 msgstr "Ämne:"
 
-#: src/qml/CreateRoomDialog.qml:78 src/qml/CreateRoomDialog.qml:201
+#: src/qml/CreateRoomDialog.qml:86 src/qml/CreateRoomDialog.qml:217
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
 msgctxt ""
@@ -1785,51 +1792,51 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "Gör detta alias till rummets normala alias"
 
-#: src/qml/CreateRoomDialog.qml:83 src/qml/CreateRoomDialog.qml:225
+#: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
 #: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ok"
 
-#: src/qml/CreateRoomDialog.qml:98
+#: src/qml/CreateRoomDialog.qml:106
 #, kde-format
 msgid "Select Existing Room"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:104 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:112 src/qml/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:185
-#: src/qml/ExploreComponent.qml:24 src/qml/ExploreComponentMobile.qml:55
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:183
-#: src/qml/SelectParentDialog.qml:131
+#: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
+#: src/qml/ExploreComponent.qml:27 src/qml/ExploreComponentMobile.qml:58
+#: src/qml/GlobalMenu.qml:71 src/qml/RoomListPage.qml:183
+#: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Utforska rum"
 
-#: src/qml/CreateRoomDialog.qml:154 src/qml/ExplorerDelegate.qml:81
-#: src/qml/SelectParentDialog.qml:100 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:69
+#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:83
 #, kde-format
 msgid "Joined"
 msgstr "Sammanfogat"
 
-#: src/qml/CreateRoomDialog.qml:202
+#: src/qml/CreateRoomDialog.qml:218
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:202
+#: src/qml/CreateRoomDialog.qml:218
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:219
+#: src/qml/CreateRoomDialog.qml:235
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
 msgctxt ""
@@ -1875,7 +1882,7 @@ msgid "Logout device"
 msgstr "Logga ut från enhet"
 
 #: src/qml/DevicesPage.qml:20 src/qml/LoadingDelegate.qml:13
-#: src/qml/Login.qml:37 src/qml/NotificationsView.qml:34
+#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39
 #, kde-format
 msgid "Loading…"
@@ -1911,8 +1918,8 @@ msgstr "Logga in för att visa inloggade enheter för ditt konto."
 msgid "Remove device"
 msgstr "Ta bort enhet"
 
-#: src/qml/DevicesPage.qml:81 src/qml/Password.qml:27
-#: src/qml/RegisterPassword.qml:18
+#: src/qml/DevicesPage.qml:81 src/qml/Password.qml:28
+#: src/qml/RegisterPassword.qml:20
 #, kde-format
 msgid "Password:"
 msgstr "Lösenord:"
@@ -1924,7 +1931,7 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Ta bort"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:85
+#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:89
 #, kde-format
 msgid "Developer Tools"
 msgstr "Utvecklingsverktyg"
@@ -1941,47 +1948,47 @@ msgctxt "text editing menu action"
 msgid "Redo"
 msgstr "Gör om"
 
-#: src/qml/EditMenu.qml:38
+#: src/qml/EditMenu.qml:37
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
 msgstr "Klipp ut"
 
-#: src/qml/EditMenu.qml:48
+#: src/qml/EditMenu.qml:47
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
 msgstr "Kopiera"
 
-#: src/qml/EditMenu.qml:58
+#: src/qml/EditMenu.qml:57
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "Klistra in"
 
-#: src/qml/EditMenu.qml:68
+#: src/qml/EditMenu.qml:67
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "Ta bort"
 
-#: src/qml/EditMenu.qml:81
+#: src/qml/EditMenu.qml:79
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Markera alla"
 
-#: src/qml/Email.qml:19
+#: src/qml/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
 msgstr "Lägg till en e-postadress:"
 
-#: src/qml/Email.qml:31
+#: src/qml/Email.qml:33
 #, kde-format
 msgid "Confirm e-mail address"
 msgstr "Bekräfta e-postadress"
 
-#: src/qml/Email.qml:33
+#: src/qml/Email.qml:35
 #, kde-format
 msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
@@ -1990,18 +1997,18 @@ msgstr ""
 "Ett bekräftelsebrev har skickats till din adress. Fortsätt här <b>efter</b> "
 "bekräftelselänken i brevet har klickats på"
 
-#: src/qml/Email.qml:38
+#: src/qml/Email.qml:40
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
 msgstr "Skicka bekräftelsebrev igen"
 
-#: src/qml/EmojiGrid.qml:83
+#: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
 msgstr "Inga klistermärken"
 
-#: src/qml/EmojiGrid.qml:83
+#: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No emojis"
 msgstr "Inga emoji"
@@ -2035,8 +2042,20 @@ msgstr "De stämmer inte"
 #: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
 #, kde-format
 msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Redigera emoji"
+
+#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
 msgid "Edit Sticker"
 msgstr "Redigera klistermärke"
+
+#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Lägg till emoji"
 
 #: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
 #, kde-format
@@ -2044,44 +2063,32 @@ msgctxt "@title"
 msgid "Add Sticker"
 msgstr "Lägg till klistermärke"
 
-#: src/qml/EmoticonEditorPage.qml:28 src/qml/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Redigera emoji"
-
-#: src/qml/EmoticonEditorPage.qml:28 src/qml/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Lägg till emoji"
-
-#: src/qml/EmoticonEditorPage.qml:31
+#: src/qml/EmoticonEditorPage.qml:30
 #, kde-format
 msgid "Sticker"
 msgstr "Klistermärke"
 
-#: src/qml/EmoticonEditorPage.qml:31
+#: src/qml/EmoticonEditorPage.qml:30
 #, kde-format
 msgid "Emoji"
 msgstr "Emoji"
 
-#: src/qml/EmoticonEditorPage.qml:60
+#: src/qml/EmoticonEditorPage.qml:59
 #, kde-format
 msgid "Change Image"
 msgstr "Ändra bild"
 
-#: src/qml/EmoticonEditorPage.qml:60
+#: src/qml/EmoticonEditorPage.qml:59
 #, kde-format
 msgid "Set Image"
 msgstr "Ange bild"
 
-#: src/qml/EmoticonEditorPage.qml:100
+#: src/qml/EmoticonEditorPage.qml:98
 #, kde-format
 msgid "Shortcode:"
 msgstr "Kort kod:"
 
-#: src/qml/EmoticonEditorPage.qml:105
+#: src/qml/EmoticonEditorPage.qml:103
 #, kde-format
 msgid "Description:"
 msgstr "Beskrivning:"
@@ -2123,32 +2130,32 @@ msgstr ""
 msgid "Explore rooms"
 msgstr "Utforska rum"
 
-#: src/qml/ExploreComponent.qml:31 src/qml/ExploreComponentMobile.qml:63
-#: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:54
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:315
+#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:58
+#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:319
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:33 src/qml/ExploreComponentMobile.qml:66
-#: src/qml/GlobalMenu.qml:50 src/qml/RoomListPage.qml:195
-#: src/qml/RoomListPage.qml:320
+#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:73
+#: src/qml/GlobalMenu.qml:53 src/qml/RoomListPage.qml:198
+#: src/qml/RoomListPage.qml:327
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:36 src/qml/ExploreComponentMobile.qml:132
+#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
 msgid "Create a Room"
 msgstr "Skapa ett rum"
 
-#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:144
+#: src/qml/ExploreComponent.qml:56 src/qml/ExploreComponentMobile.qml:156
 #, kde-format
 msgid "Create a Space"
 msgstr "Skapa ett utrymme"
 
-#: src/qml/ExploreComponent.qml:67 src/qml/ExploreComponent.qml:128
+#: src/qml/ExploreComponent.qml:85 src/qml/ExploreComponent.qml:146
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Skapa rum och chatter"
@@ -2160,33 +2167,33 @@ msgstr "Skapa rum och chatter"
 msgid "Search"
 msgstr "Sök"
 
-#: src/qml/ExploreComponentMobile.qml:71
+#: src/qml/ExploreComponentMobile.qml:79
 #, fuzzy, kde-format
 #| msgid "Create space"
 msgid "Create New"
 msgstr "Skapa rymd"
 
-#: src/qml/ExploreRoomsPage.qml:52
+#: src/qml/ExploreRoomsPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt "@action:title"
 msgid "Explore Rooms"
 msgstr "Utforska rum"
 
-#: src/qml/ExploreRoomsPage.qml:79
+#: src/qml/ExploreRoomsPage.qml:73
 #, fuzzy, kde-format
 #| msgctxt "@label Parameter of a command"
 #| msgid "<room-address>"
 msgid "Enter a room address"
 msgstr "<rumadress>"
 
-#: src/qml/ExploreRoomsPage.qml:93
+#: src/qml/ExploreRoomsPage.qml:87
 #, fuzzy, kde-format
 #| msgid "Find a room..."
 msgid "Find a room…"
 msgstr "Sök efter ett rum..."
 
-#: src/qml/ExploreRoomsPage.qml:94
+#: src/qml/ExploreRoomsPage.qml:88
 #, fuzzy, kde-format
 #| msgctxt "@info:label"
 #| msgid "No rooms found"
@@ -2252,7 +2259,7 @@ msgid "Save As"
 msgstr "Spara som"
 
 #: src/qml/FileDelegateContextMenu.qml:68
-#: src/qml/MessageDelegateContextMenu.qml:136
+#: src/qml/MessageDelegateContextMenu.qml:139
 #, kde-format
 msgid "Copy"
 msgstr "Kopiera"
@@ -2263,30 +2270,30 @@ msgstr "Kopiera"
 msgid "Remove"
 msgstr "Ta bort"
 
-#: src/qml/FileDelegateContextMenu.qml:80
-#: src/qml/MessageDelegateContextMenu.qml:131
+#: src/qml/FileDelegateContextMenu.qml:83
+#: src/qml/MessageDelegateContextMenu.qml:134
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Ta bort meddelande"
 
-#: src/qml/FileDelegateContextMenu.qml:85
-#: src/qml/MessageDelegateContextMenu.qml:141 src/qml/ReportSheet.qml:43
+#: src/qml/FileDelegateContextMenu.qml:88
+#: src/qml/MessageDelegateContextMenu.qml:144 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Rapportera"
 
-#: src/qml/FileDelegateContextMenu.qml:89
-#: src/qml/MessageDelegateContextMenu.qml:145
+#: src/qml/FileDelegateContextMenu.qml:95
+#: src/qml/MessageDelegateContextMenu.qml:151
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Rapportera meddelande"
 
-#: src/qml/FileDelegateContextMenu.qml:94
-#: src/qml/MessageDelegateContextMenu.qml:151
+#: src/qml/FileDelegateContextMenu.qml:100
+#: src/qml/MessageDelegateContextMenu.qml:157
 #, kde-format
 msgid "View Source"
 msgstr "Visa källa"
@@ -2296,7 +2303,7 @@ msgstr "Visa källa"
 msgid "View Location"
 msgstr "Visa plats"
 
-#: src/qml/FullScreenMap.qml:69
+#: src/qml/FullScreenMap.qml:68
 #, kde-format
 msgid "Close"
 msgstr "Stäng"
@@ -2311,160 +2318,160 @@ msgstr "Rumsinformation"
 msgid "Update avatar"
 msgstr "uppdaterade avatar"
 
-#: src/qml/General.qml:72
+#: src/qml/General.qml:70
 #, kde-format
 msgid "Room name:"
 msgstr "Rummets namn:"
 
-#: src/qml/General.qml:82
+#: src/qml/General.qml:80
 #, kde-format
 msgid "Room topic:"
 msgstr "Rummets ämne:"
 
-#: src/qml/General.qml:122
+#: src/qml/General.qml:119
 #, kde-format
 msgid "Room ID"
 msgstr "Rumsidentifierare"
 
-#: src/qml/General.qml:127
+#: src/qml/General.qml:124
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Kopiera rumsidentifierare till klippbordet"
 
-#: src/qml/General.qml:141
+#: src/qml/General.qml:138
 #, kde-format
 msgid "Room version"
 msgstr "Rumsversion"
 
-#: src/qml/General.qml:147
+#: src/qml/General.qml:144
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Uppgradera rum"
 
-#: src/qml/General.qml:166
+#: src/qml/General.qml:163
 #, kde-format
 msgid "Aliases"
 msgstr "Alias"
 
-#: src/qml/General.qml:171
+#: src/qml/General.qml:168
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Inget normalt alias angivet"
 
-#: src/qml/General.qml:184
+#: src/qml/General.qml:181
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Gör detta alias till rummets normala alias"
 
-#: src/qml/General.qml:199
+#: src/qml/General.qml:196
 #, kde-format
 msgid "Delete alias"
 msgstr "Ta bort alias"
 
-#: src/qml/General.qml:224
+#: src/qml/General.qml:220
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#nytt_alias:server.org"
 
-#: src/qml/General.qml:241
+#: src/qml/General.qml:237
 #, kde-format
 msgid "Add new alias"
 msgstr "Lägg till nytt alias"
 
-#: src/qml/General.qml:261
+#: src/qml/General.qml:257
 #, kde-format
 msgid "URL Previews"
 msgstr "Förhandsgranskningar av webbadresser"
 
-#: src/qml/General.qml:265
+#: src/qml/General.qml:261
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 "Aktivera förhandsgranskningar av webbadresser som förval för rumsmedlemmar"
 
-#: src/qml/General.qml:273
+#: src/qml/General.qml:269
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Aktivera förhandsgranskningar av webbadresser"
 
-#: src/qml/General.qml:275
+#: src/qml/General.qml:271
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "Förhandsgranskningar av webbadresser är aktiverade i rummet som förval"
 
-#: src/qml/General.qml:275
+#: src/qml/General.qml:271
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr ""
 "Förhandsgranskningar av webbadresser är inaktiverade i rummet som förval"
 
-#: src/qml/General.qml:283
+#: src/qml/General.qml:279
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr ""
 
-#: src/qml/General.qml:316
+#: src/qml/General.qml:312
 #, fuzzy, kde-format
 #| msgid "Canonical Alias:"
 msgid "Canonical"
 msgstr "Normalt alias:"
 
-#: src/qml/General.qml:323
+#: src/qml/General.qml:319
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
 msgid "Make canonical parent"
 msgstr "Inget normalt alias angivet"
 
-#: src/qml/General.qml:337
+#: src/qml/General.qml:333
 #, fuzzy, kde-format
 #| msgid "Remove Message"
 msgid "Remove parent"
 msgstr "Ta bort meddelande"
 
-#: src/qml/General.qml:351
+#: src/qml/General.qml:347
 #, fuzzy, kde-format
 #| msgid "This room has been replaced."
 msgid "This room has no official parent spaces."
 msgstr "Rummet har ersatts."
 
-#: src/qml/General.qml:355
+#: src/qml/General.qml:351
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Inget normalt alias angivet"
 
-#: src/qml/General.qml:370
+#: src/qml/General.qml:366
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Rummet fortsätter ett annat samtal."
 
-#: src/qml/General.qml:374
+#: src/qml/General.qml:370
 #, kde-format
 msgid "See older messages…"
 msgstr "Visa äldre meddelanden..."
 
-#: src/qml/General.qml:384
+#: src/qml/General.qml:380
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Rummet har ersatts."
 
-#: src/qml/General.qml:388
+#: src/qml/General.qml:384
 #, kde-format
 msgid "See new room…"
 msgstr "Visa nytt rum…"
 
-#: src/qml/General.qml:409
+#: src/qml/General.qml:405
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Uppgradera rummet"
 
-#: src/qml/General.qml:413
+#: src/qml/General.qml:409
 #, kde-format
 msgid "Select new version"
 msgstr "Välj ny version"
 
-#: src/qml/General.qml:419 src/qml/PowerLevelDialog.qml:52
+#: src/qml/General.qml:415 src/qml/PowerLevelDialog.qml:61
 #, kde-format
 msgid "Confirm"
 msgstr "Bekräfta"
@@ -2485,70 +2492,70 @@ msgstr "Allmänna inställningar"
 msgid "Show in System Tray"
 msgstr "Visa i systembricka"
 
-#: src/qml/GeneralSettingsPage.qml:38
+#: src/qml/GeneralSettingsPage.qml:41
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Minimera till systembrickan vid start"
 
-#: src/qml/GeneralSettingsPage.qml:52
+#: src/qml/GeneralSettingsPage.qml:58
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Dölj eller visa rumsinformation automatiskt när fönstrets storlek ändras"
 
-#: src/qml/GeneralSettingsPage.qml:63
+#: src/qml/GeneralSettingsPage.qml:69
 #, kde-format
 msgid "Timeline Events"
 msgstr "Tidslinjehändelser"
 
-#: src/qml/GeneralSettingsPage.qml:68
+#: src/qml/GeneralSettingsPage.qml:74
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Visa borttagna meddelanden"
 
-#: src/qml/GeneralSettingsPage.qml:81
+#: src/qml/GeneralSettingsPage.qml:90
 #, kde-format
 msgid "Show state events"
 msgstr "Visa tillståndshändelser"
 
-#: src/qml/GeneralSettingsPage.qml:98
+#: src/qml/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Visa händelserna lämna och gå med"
 
-#: src/qml/GeneralSettingsPage.qml:116
+#: src/qml/GeneralSettingsPage.qml:126
 #, kde-format
 msgid "Show name change events"
 msgstr "Visa namnändringshändelser"
 
-#: src/qml/GeneralSettingsPage.qml:134
+#: src/qml/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Visa uppdateringshändelser för avatarer"
 
-#: src/qml/GeneralSettingsPage.qml:144
+#: src/qml/GeneralSettingsPage.qml:154
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/qml/GeneralSettingsPage.qml:149
+#: src/qml/GeneralSettingsPage.qml:159
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Använd syntaxen s/text/ersättning för att redigera ditt senaste meddelande"
 
-#: src/qml/GeneralSettingsPage.qml:160
+#: src/qml/GeneralSettingsPage.qml:173
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Skicka skrivunderrättelser"
 
-#: src/qml/GeneralSettingsPage.qml:170
+#: src/qml/GeneralSettingsPage.qml:183
 #, kde-format
 msgid "Developer Settings"
 msgstr "Utvecklarinställningar"
 
-#: src/qml/GeneralSettingsPage.qml:174
+#: src/qml/GeneralSettingsPage.qml:187
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Aktivera utvecklingsverktyg"
@@ -2588,31 +2595,31 @@ msgctxt "menu"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/GlobalMenu.qml:53
+#: src/qml/GlobalMenu.qml:57
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Ny grupp…"
 
-#: src/qml/GlobalMenu.qml:62
+#: src/qml/GlobalMenu.qml:66
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Bläddra i chattar…"
 
-#: src/qml/GlobalMenu.qml:72
+#: src/qml/GlobalMenu.qml:80
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Redigera"
 
-#: src/qml/GlobalMenu.qml:76
+#: src/qml/GlobalMenu.qml:84
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Visa"
 
-#: src/qml/GlobalMenu.qml:79
+#: src/qml/GlobalMenu.qml:87
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2620,31 +2627,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Öppna Snabbyte"
 
-#: src/qml/GlobalMenu.qml:85
+#: src/qml/GlobalMenu.qml:93
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Fönster"
 
-#: src/qml/GlobalMenu.qml:92
+#: src/qml/GlobalMenu.qml:100
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Avsluta fullskärm"
 
-#: src/qml/GlobalMenu.qml:92
+#: src/qml/GlobalMenu.qml:100
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Gå till fullskärm"
 
-#: src/qml/GlobalMenu.qml:98
+#: src/qml/GlobalMenu.qml:106
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/qml/GlobalMenu.qml:101
+#: src/qml/GlobalMenu.qml:109
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2701,22 +2708,22 @@ msgstr "Inbjudningar"
 msgid "Unknown"
 msgstr "Okänd"
 
-#: src/qml/GroupChatDrawerHeader.qml:65 src/qml/TimelineEndDelegate.qml:64
+#: src/qml/GroupChatDrawerHeader.qml:64 src/qml/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
 msgstr "Inget namn"
 
-#: src/qml/Homeserver.qml:19
+#: src/qml/Homeserver.qml:21
 #, kde-format
 msgid "Server Url:"
 msgstr "Serverwebbadress:"
 
-#: src/qml/Homeserver.qml:24
+#: src/qml/Homeserver.qml:26
 #, kde-format
 msgid "Registration is disabled on this server."
 msgstr "Registrering är inaktiverad på servern."
 
-#: src/qml/Homeserver.qml:39 src/qml/Username.qml:36
+#: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
 #, kde-format
 msgid "Loading"
 msgstr "Läser in"
@@ -2757,31 +2764,31 @@ msgstr ""
 "Kunde inte spara filen. Kontrollera om du har korrekta rättigheter att "
 "redigera cachekatalogen."
 
-#: src/qml/ImageEditorPage.qml:126 src/qml/ImageEditorPage.qml:143
+#: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Beskär"
 
-#: src/qml/ImageEditorPage.qml:148
+#: src/qml/ImageEditorPage.qml:145
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Rotera åt vänster"
 
-#: src/qml/ImageEditorPage.qml:154
+#: src/qml/ImageEditorPage.qml:151
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Rotera åt höger"
 
-#: src/qml/ImageEditorPage.qml:160
+#: src/qml/ImageEditorPage.qml:157
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Vänd"
 
-#: src/qml/ImageEditorPage.qml:166
+#: src/qml/ImageEditorPage.qml:163
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -2804,7 +2811,7 @@ msgstr "Sluta ignorera användaren"
 msgid "Reject"
 msgstr "Avslå"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:81
 #, kde-format
 msgid "Accept"
 msgstr "Acceptera"
@@ -2875,7 +2882,7 @@ msgstr "Jämför en uppsättning emoji på båda enheter"
 msgid "Successfully verified device **%1**"
 msgstr "Verifierade enhet **%1** med lyckat resultat"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:87
 #, kde-format
 msgid "Decline"
 msgstr "Neka"
@@ -2910,7 +2917,7 @@ msgstr "Välj en plats"
 msgid "Send this location"
 msgstr "Skicka platsen"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:126
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:131
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -2921,63 +2928,63 @@ msgstr "Platser"
 msgid "There are no locations shared in this room."
 msgstr "Det finns inga platser delade i rummet."
 
-#: src/qml/Login.qml:24
+#: src/qml/Login.qml:25
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix-identifierare"
 
-#: src/qml/Login.qml:26
+#: src/qml/Login.qml:27
 #, kde-format
 msgid "Matrix ID"
 msgstr "Matrix-identifierare"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:154
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: src/qml/Login.qml:37
+#: src/qml/Login.qml:38
 #, kde-format
 msgid "Already logged in"
 msgstr "Redan inloggad"
 
-#: src/qml/LoginMethod.qml:18
+#: src/qml/LoginMethod.qml:20
 #, kde-format
 msgctxt "@action:button"
 msgid "Login with password"
 msgstr "Logga in med lösenord"
 
-#: src/qml/LoginMethod.qml:24
+#: src/qml/LoginMethod.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Logga in med engångsinloggning"
 
-#: src/qml/LoginRegister.qml:22 src/qml/Password.qml:40
+#: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Logga in"
 
-#: src/qml/LoginRegister.qml:29
+#: src/qml/LoginRegister.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Registrera"
 
-#: src/qml/main.qml:335
+#: src/qml/main.qml:351
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sessionsverifikation"
 
-#: src/qml/main.qml:352
+#: src/qml/main.qml:368
 #, kde-format
 msgid "User consent"
 msgstr "Användargodkännande"
 
-#: src/qml/main.qml:357
+#: src/qml/main.qml:373
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2986,45 +2993,45 @@ msgstr ""
 "Din hemserver kräver att du godkänner dess villkor innan den kan användas. "
 "Klicka på knappen nedan för att läsa dem."
 
-#: src/qml/main.qml:362
+#: src/qml/main.qml:378
 #, kde-format
 msgid "Open"
 msgstr "Öppna"
 
-#: src/qml/main.qml:389
+#: src/qml/main.qml:405
 #, kde-format
 msgid "Start a chat"
 msgstr "Starta en chatt"
 
-#: src/qml/main.qml:391
+#: src/qml/main.qml:407
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vill du starta en chatt med %1?"
 
-#: src/qml/ManualRoomDialog.qml:31
+#: src/qml/ManualRoomDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "Room ID"
 msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "Rumsidentifierare"
 
-#: src/qml/ManualRoomDialog.qml:43 src/qml/ManualUserDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:37
 #: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr ""
 
-#: src/qml/ManualRoomDialog.qml:86
+#: src/qml/ManualRoomDialog.qml:80
 #, kde-format
 msgid "Room ID or Alias:"
 msgstr ""
 
-#: src/qml/ManualRoomDialog.qml:89 src/qml/ManualRoomDialog.qml:97
+#: src/qml/ManualRoomDialog.qml:83 src/qml/ManualRoomDialog.qml:91
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
 msgstr ""
 
-#: src/qml/ManualRoomDialog.qml:95
+#: src/qml/ManualRoomDialog.qml:89
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The input is not a valid room ID or alias"
@@ -3066,17 +3073,17 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "Vidarebefordra meddelande"
 
-#: src/qml/MessageDelegateContextMenu.qml:156
+#: src/qml/MessageDelegateContextMenu.qml:162
 #, kde-format
 msgid "Copy Link"
 msgstr "Kopiera länk"
 
-#: src/qml/MessageDelegateContextMenu.qml:202
+#: src/qml/MessageDelegateContextMenu.qml:210
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Sök efter '%1'"
 
-#: src/qml/MessageDelegateContextMenu.qml:223
+#: src/qml/MessageDelegateContextMenu.qml:231
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Anpassa webbgenvägar..."
@@ -3099,7 +3106,7 @@ msgstr "Avbryt redigering"
 msgid "Event Source"
 msgstr "Händelsekälla"
 
-#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:79
+#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
 msgid "Network Proxy"
 msgstr "Nätverksproxy"
@@ -3185,7 +3192,7 @@ msgstr "Aktivera meddelandefärgläggning"
 msgid "Delete keyword"
 msgstr "Ta bort nyckelord"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:71
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:80
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -3205,7 +3212,7 @@ msgstr "Underrättelser"
 msgid "Select a File"
 msgstr "Markera alla"
 
-#: src/qml/Password.qml:32
+#: src/qml/Password.qml:33
 #, kde-format
 msgid "Invalid username or password"
 msgstr "Ogiltigt användarnamn eller lösenord"
@@ -3215,145 +3222,145 @@ msgstr "Ogiltigt användarnamn eller lösenord"
 msgid "Privileged Users"
 msgstr "Privilegierade användare"
 
-#: src/qml/Permissions.qml:71 src/qml/PowerLevelDialog.qml:44
+#: src/qml/Permissions.qml:72 src/qml/PowerLevelDialog.qml:45
 #, kde-format
 msgid "Member (0)"
 msgstr "Medlem (0)"
 
-#: src/qml/Permissions.qml:72 src/qml/PowerLevelDialog.qml:45
+#: src/qml/Permissions.qml:76 src/qml/PowerLevelDialog.qml:49
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Moderator (50)"
 
-#: src/qml/Permissions.qml:73 src/qml/PowerLevelDialog.qml:46
+#: src/qml/Permissions.qml:80 src/qml/PowerLevelDialog.qml:53
 #, kde-format
 msgid "Admin (100)"
 msgstr "Administratör (100)"
 
-#: src/qml/Permissions.qml:232
+#: src/qml/Permissions.qml:242
 #, kde-format
 msgid "Default permissions"
 msgstr "Normala rättigheter"
 
-#: src/qml/Permissions.qml:237
+#: src/qml/Permissions.qml:247
 #, kde-format
 msgid "Default user power level"
 msgstr "Normal maktnivå för användare"
 
-#: src/qml/Permissions.qml:238
+#: src/qml/Permissions.qml:248
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "Maktnivå för alla nya användare när de går med i rummet"
 
-#: src/qml/Permissions.qml:246
+#: src/qml/Permissions.qml:258
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Normal maktnivå för att ställa in rummets tillstånd"
 
-#: src/qml/Permissions.qml:247
+#: src/qml/Permissions.qml:259
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Den används för alla tillståndshändelser som inte har sina egna poster här"
 
-#: src/qml/Permissions.qml:255
+#: src/qml/Permissions.qml:269
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Normal maktnivå för att skicka meddelanden"
 
-#: src/qml/Permissions.qml:256
+#: src/qml/Permissions.qml:270
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 "Den används för alla meddelandehändelser som inte har sina egna poster här"
 
-#: src/qml/Permissions.qml:267
+#: src/qml/Permissions.qml:283
 #, kde-format
 msgid "Basic permissions"
 msgstr "Grundrättigheter"
 
-#: src/qml/Permissions.qml:272
+#: src/qml/Permissions.qml:288
 #, kde-format
 msgid "Invite users"
 msgstr "Bjud in användare"
 
-#: src/qml/Permissions.qml:280
+#: src/qml/Permissions.qml:298
 #, kde-format
 msgid "Kick users"
 msgstr "Kasta ut användare"
 
-#: src/qml/Permissions.qml:288
+#: src/qml/Permissions.qml:308
 #, kde-format
 msgid "Ban users"
 msgstr "Bannlys användare"
 
-#: src/qml/Permissions.qml:296
+#: src/qml/Permissions.qml:318
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Ta bort meddelande skickat av andra användare"
 
-#: src/qml/Permissions.qml:307
+#: src/qml/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr "Händelserättigheter"
 
-#: src/qml/Permissions.qml:312
+#: src/qml/Permissions.qml:336
 #, kde-format
 msgid "Change user permissions"
 msgstr "Ändra användarrättigheter"
 
-#: src/qml/Permissions.qml:321
+#: src/qml/Permissions.qml:347
 #, kde-format
 msgid "Change the room name"
 msgstr "Ändra rummets namn"
 
-#: src/qml/Permissions.qml:330
+#: src/qml/Permissions.qml:358
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Ändra rummets avatar"
 
-#: src/qml/Permissions.qml:339
+#: src/qml/Permissions.qml:369
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Ändra rummets normala alias"
 
-#: src/qml/Permissions.qml:348
+#: src/qml/Permissions.qml:380
 #, kde-format
 msgid "Change the room topic"
 msgstr "Ändra rummets ämne"
 
-#: src/qml/Permissions.qml:357
+#: src/qml/Permissions.qml:391
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Aktivera kryptering för rummet"
 
-#: src/qml/Permissions.qml:366
+#: src/qml/Permissions.qml:402
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Ändra synlighet för rummets historik"
 
-#: src/qml/Permissions.qml:375
+#: src/qml/Permissions.qml:413
 #, kde-format
 msgid "Set pinned events"
 msgstr "Ange uppfästa händelser"
 
-#: src/qml/Permissions.qml:384
+#: src/qml/Permissions.qml:424
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Uppgradera rummet"
 
-#: src/qml/Permissions.qml:393
+#: src/qml/Permissions.qml:435
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Ange rummets server åtkomstkontrollista (ACL)"
 
-#: src/qml/Permissions.qml:403
+#: src/qml/Permissions.qml:447
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Ange utrymmets underliggande rum"
 
-#: src/qml/Permissions.qml:412
+#: src/qml/Permissions.qml:458
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Ange rummets överliggande utrymme"
@@ -3424,18 +3431,18 @@ msgstr "Citat"
 msgid "Insert link"
 msgstr "Infoga länk"
 
-#: src/qml/ReadMarkerDelegate.qml:32
+#: src/qml/ReadMarkerDelegate.qml:34
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Senast läst: %1"
 
-#: src/qml/RegisterPassword.qml:28
+#: src/qml/RegisterPassword.qml:30
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Bekräfta lösenord:"
 
-#: src/qml/RegisterPassword.qml:31
+#: src/qml/RegisterPassword.qml:33
 #, kde-format
 msgid "The passwords do not match."
 msgstr "Lösenorden stämmer inte."
@@ -3542,17 +3549,17 @@ msgstr "Tystat rum"
 msgid "Configure room"
 msgstr "Anpassa rum"
 
-#: src/qml/RoomDrawer.qml:101
+#: src/qml/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
 msgstr "Rumsinställningar"
 
-#: src/qml/RoomDrawer.qml:146 src/qml/RoomDrawerPage.qml:83
+#: src/qml/RoomDrawer.qml:152 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Information"
 msgstr "Information"
 
-#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
+#: src/qml/RoomDrawer.qml:157 src/qml/RoomDrawerPage.qml:93
 #, kde-format
 msgid "Media"
 msgstr "Media"
@@ -3586,56 +3593,56 @@ msgstr "Alternativ"
 msgid "Open developer tools"
 msgstr "Öppna utvecklingsverktyg"
 
-#: src/qml/RoomInformation.qml:93
+#: src/qml/RoomInformation.qml:98
 #, kde-format
 msgid "Search in this room"
 msgstr "Sök i rummet"
 
-#: src/qml/RoomInformation.qml:101
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Sök"
 
-#: src/qml/RoomInformation.qml:110
+#: src/qml/RoomInformation.qml:115
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Ta bort rum från favoriter"
 
-#: src/qml/RoomInformation.qml:110
+#: src/qml/RoomInformation.qml:115
 #, kde-format
 msgid "Make room favorite"
 msgstr "Gör rum till favorit"
 
-#: src/qml/RoomInformation.qml:121
+#: src/qml/RoomInformation.qml:126
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Visa platser för rummet"
 
-#: src/qml/RoomInformation.qml:133
+#: src/qml/RoomInformation.qml:138
 #, kde-format
 msgid "Members"
 msgstr "Medlemmar"
 
-#: src/qml/RoomInformation.qml:145 src/qml/SpaceHomePage.qml:49
+#: src/qml/RoomInformation.qml:153 src/qml/SpaceHomePage.qml:52
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Bjud in en användare"
 
-#: src/qml/RoomInformation.qml:148
+#: src/qml/RoomInformation.qml:157
 #, kde-format
 msgid "Invite user to room"
 msgstr "Bjöd in användare till ett rum"
 
-#: src/qml/RoomInformation.qml:155
+#: src/qml/RoomInformation.qml:164
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 medlem"
 msgstr[1] "%1 medlemmar"
 
-#: src/qml/RoomInformation.qml:155
+#: src/qml/RoomInformation.qml:164
 #, kde-format
 msgid "No member count"
 msgstr "Ingen medlemsräkning"
@@ -3673,13 +3680,13 @@ msgstr "Sök i rumkatalog"
 msgid "Search in friend directory"
 msgstr "Sök i rumkatalog"
 
-#: src/qml/RoomListPage.qml:251
+#: src/qml/RoomListPage.qml:255
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Dra ihop %1"
 
-#: src/qml/RoomListPage.qml:251
+#: src/qml/RoomListPage.qml:255
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -3750,49 +3757,49 @@ msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "När den väl har aktiverats, kan kryptering inte inaktiveras."
 
-#: src/qml/RoomSecurity.qml:40
+#: src/qml/RoomSecurity.qml:42
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Åtkomst"
 
-#: src/qml/RoomSecurity.qml:44
+#: src/qml/RoomSecurity.qml:46
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Privat (endast inbjudan)"
 
-#: src/qml/RoomSecurity.qml:45
+#: src/qml/RoomSecurity.qml:47
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Bara inbjudna kan gå med."
 
-#: src/qml/RoomSecurity.qml:53
+#: src/qml/RoomSecurity.qml:55
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Utrymmesmedlemmar"
 
-#: src/qml/RoomSecurity.qml:54
+#: src/qml/RoomSecurity.qml:56
 #, fuzzy, kde-format
 #| msgid "Anyone in a space can find and join."
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Alla i ett utrymme kan söka och gå med."
 
-#: src/qml/RoomSecurity.qml:64
+#: src/qml/RoomSecurity.qml:65
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Select spaces"
 msgstr "Markera alla"
 
-#: src/qml/RoomSecurity.qml:82
+#: src/qml/RoomSecurity.qml:83
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "knackning"
 
-#: src/qml/RoomSecurity.qml:83
+#: src/qml/RoomSecurity.qml:84
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
@@ -3913,7 +3920,7 @@ msgctxt "@title"
 msgid "Select new official parent"
 msgstr "Inget normalt alias angivet"
 
-#: src/qml/SelectParentDialog.qml:52
+#: src/qml/SelectParentDialog.qml:56
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Create a Space"
@@ -3921,29 +3928,29 @@ msgctxt "@title"
 msgid "Choose Parent Space"
 msgstr "Skapa ett utrymme"
 
-#: src/qml/SelectParentDialog.qml:147
+#: src/qml/SelectParentDialog.qml:157
 #, fuzzy, kde-format
 #| msgid "Set the children of this space"
 msgid "Set this room as a child of the space %1"
 msgstr "Ange utrymmets underliggande rum"
 
-#: src/qml/SelectParentDialog.qml:154
+#: src/qml/SelectParentDialog.qml:164
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
 
-#: src/qml/SelectParentDialog.qml:154
+#: src/qml/SelectParentDialog.qml:164
 #, kde-format
 msgid "The selected room is not a space"
 msgstr ""
 
-#: src/qml/SelectParentDialog.qml:154
+#: src/qml/SelectParentDialog.qml:164
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
-#: src/qml/SelectParentDialog.qml:159
+#: src/qml/SelectParentDialog.qml:169
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
 msgid "Make this space the canonical parent"
@@ -4035,17 +4042,17 @@ msgstr "Utseende"
 msgid "Stickers & Emojis"
 msgstr "Klistermärken och emoji"
 
-#: src/qml/SettingsPage.qml:72
+#: src/qml/SettingsPage.qml:71
 #, kde-format
 msgid "Spell Checking"
 msgstr "Stavningskontroll"
 
-#: src/qml/SettingsPage.qml:96
+#: src/qml/SettingsPage.qml:95
 #, kde-format
 msgid "About NeoChat"
 msgstr "Om NeoChat"
 
-#: src/qml/SettingsPage.qml:102
+#: src/qml/SettingsPage.qml:101
 #, kde-format
 msgid "About KDE"
 msgstr "Om KDE"
@@ -4081,37 +4088,37 @@ msgstr "Stavningskontroll"
 msgid "Enable automatic spell checking"
 msgstr "Aktivera automatisk stavningskontroll"
 
-#: src/qml/SonnetConfigPage.qml:39
+#: src/qml/SonnetConfigPage.qml:42
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Ignorera ord med stora bokstäver"
 
-#: src/qml/SonnetConfigPage.qml:51
+#: src/qml/SonnetConfigPage.qml:57
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Ignorera ord med bindestreck"
 
-#: src/qml/SonnetConfigPage.qml:63
+#: src/qml/SonnetConfigPage.qml:72
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Identifiera automatiskt språk"
 
-#: src/qml/SonnetConfigPage.qml:74
+#: src/qml/SonnetConfigPage.qml:86
 #, kde-format
 msgid "Selected default language:"
 msgstr "Valt standardspråk:"
 
-#: src/qml/SonnetConfigPage.qml:75
+#: src/qml/SonnetConfigPage.qml:89
 #, kde-format
 msgid "None"
 msgstr "Inget"
 
-#: src/qml/SonnetConfigPage.qml:94
+#: src/qml/SonnetConfigPage.qml:113
 #, kde-format
 msgid "Additional spell checking languages"
 msgstr "Ytterligare språk för stavningskontroll"
 
-#: src/qml/SonnetConfigPage.qml:95
+#: src/qml/SonnetConfigPage.qml:114
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -4120,63 +4127,63 @@ msgstr ""
 "%1 tillhandahåller stavningskontroll och förslag för språken som listas här "
 "när automatisk identifiering är aktiverad."
 
-#: src/qml/SonnetConfigPage.qml:107
+#: src/qml/SonnetConfigPage.qml:129
 #, kde-format
 msgid "Open Personal Dictionary"
 msgstr "Öppna personlig ordlista"
 
-#: src/qml/SonnetConfigPage.qml:118
+#: src/qml/SonnetConfigPage.qml:140
 #, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr "Språk för stavningskontroll"
 
-#: src/qml/SonnetConfigPage.qml:124 src/qml/SonnetConfigPage.qml:142
+#: src/qml/SonnetConfigPage.qml:146 src/qml/SonnetConfigPage.qml:164
 #, kde-format
 msgid "Default Language"
 msgstr "Standardspråk"
 
-#: src/qml/SonnetConfigPage.qml:155
+#: src/qml/SonnetConfigPage.qml:177
 #, kde-format
 msgid "Spell checking dictionary"
 msgstr "Ordlista för stavningskontroll"
 
-#: src/qml/SonnetConfigPage.qml:162
+#: src/qml/SonnetConfigPage.qml:184
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "Lägg till ett nytt ord i din personliga ordlista…"
 
-#: src/qml/SonnetConfigPage.qml:165
+#: src/qml/SonnetConfigPage.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Lägg till ord"
 
-#: src/qml/SonnetConfigPage.qml:200
+#: src/qml/SonnetConfigPage.qml:222
 #, fuzzy, kde-format
 #| msgid "Delete word"
 msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Ta bort ord"
 
-#: src/qml/SpaceDrawer.qml:65
+#: src/qml/SpaceDrawer.qml:72
 #, fuzzy, kde-format
 #| msgid "Mute notifications"
 msgid "View notifications"
 msgstr "Tysta underrättelser"
 
-#: src/qml/SpaceDrawer.qml:89
+#: src/qml/SpaceDrawer.qml:98
 #, kde-format
 msgid "Home"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:109
+#: src/qml/SpaceDrawer.qml:118
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:202
+#: src/qml/SpaceDrawer.qml:211
 #, fuzzy, kde-format
 #| msgid "Create a Space"
 msgid "Create a space"
@@ -4203,7 +4210,7 @@ msgctxt "number of room members"
 msgid " members"
 msgstr "%1 medlem"
 
-#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:53
+#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:57
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
@@ -4236,7 +4243,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Bjöd in användare till ett rum"
 
-#: src/qml/SpaceHomePage.qml:58
+#: src/qml/SpaceHomePage.qml:62
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -4244,14 +4251,14 @@ msgctxt "@button"
 msgid "Leave the space"
 msgstr "Lämna utrymme"
 
-#: src/qml/SpaceHomePage.qml:66
+#: src/qml/SpaceHomePage.qml:70
 #, fuzzy, kde-format
 #| msgid "Space Settings"
 msgctxt "@button"
 msgid "Space settings"
 msgstr "Utrymmesinställningar"
 
-#: src/qml/SpaceHomePage.qml:151 src/qml/SpaceHomePage.qml:157
+#: src/qml/SpaceHomePage.qml:162 src/qml/SpaceHomePage.qml:168
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Create a Room"
@@ -4259,24 +4266,24 @@ msgctxt "@title"
 msgid "Create a Child"
 msgstr "Skapa ett rum"
 
-#: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:110
+#: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:115
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Visa utrymme"
 
-#: src/qml/SpaceListContextMenu.qml:46 src/qml/SpaceListContextMenu.qml:126
+#: src/qml/SpaceListContextMenu.qml:46 src/qml/SpaceListContextMenu.qml:131
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Utrymmesinställningar"
 
-#: src/qml/SpaceListContextMenu.qml:48 src/qml/SpaceListContextMenu.qml:128
+#: src/qml/SpaceListContextMenu.qml:52 src/qml/SpaceListContextMenu.qml:137
 #, kde-format
 msgid "Space Settings"
 msgstr "Utrymmesinställningar"
 
-#: src/qml/SpaceListContextMenu.qml:54 src/qml/SpaceListContextMenu.qml:132
+#: src/qml/SpaceListContextMenu.qml:59 src/qml/SpaceListContextMenu.qml:142
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -4307,7 +4314,7 @@ msgstr ""
 "Genom att fortsätta med registreringen, går du med på följande allmänna "
 "villkor:"
 
-#: src/qml/TimelineEndDelegate.qml:85
+#: src/qml/TimelineEndDelegate.qml:84
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
@@ -4329,7 +4336,7 @@ msgstr "Gå till sista meddelande"
 msgid "Drag items here to share them"
 msgstr "Dra objekt hit för att dela dem"
 
-#: src/qml/TimelineView.qml:235
+#: src/qml/TimelineView.qml:234
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4370,46 +4377,46 @@ msgstr "Bjud in användaren"
 msgid "Ban this user"
 msgstr "Bannlys användaren"
 
-#: src/qml/UserDetailDialog.qml:152
+#: src/qml/UserDetailDialog.qml:155
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Bannlys användare"
 
-#: src/qml/UserDetailDialog.qml:164
+#: src/qml/UserDetailDialog.qml:167
 #, kde-format
 msgid "Unban this user"
 msgstr "Sluta bannlysa användaren"
 
-#: src/qml/UserDetailDialog.qml:177
+#: src/qml/UserDetailDialog.qml:180
 #, kde-format
 msgid "Set user power level"
 msgstr "Ställ in användarens maktnivå"
 
-#: src/qml/UserDetailDialog.qml:202
+#: src/qml/UserDetailDialog.qml:205
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Ta bort senaste meddelanden från användaren"
 
-#: src/qml/UserDetailDialog.qml:207
+#: src/qml/UserDetailDialog.qml:213
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Ta bort meddelanden"
 
-#: src/qml/UserDetailDialog.qml:218
+#: src/qml/UserDetailDialog.qml:224
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:218
+#: src/qml/UserDetailDialog.qml:224
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgid "Invite to private chat"
 msgstr "Starta en privat chatt"
 
-#: src/qml/UserDetailDialog.qml:229
+#: src/qml/UserDetailDialog.qml:235
 #, kde-format
 msgid "Copy link"
 msgstr "Kopiera länk"
@@ -4419,28 +4426,28 @@ msgstr "Kopiera länk"
 msgid "Switch User"
 msgstr "Byt användare"
 
-#: src/qml/UserInfo.qml:124
+#: src/qml/UserInfo.qml:128
 #, kde-format
 msgid "Open Settings"
 msgstr "Öppna inställningarna"
 
-#: src/qml/UserInfo.qml:177
+#: src/qml/UserInfo.qml:182
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Logga in på ett befintligt konto"
 
-#: src/qml/UserInfo.qml:184
+#: src/qml/UserInfo.qml:189
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Logga in"
 
-#: src/qml/Username.qml:18
+#: src/qml/Username.qml:20
 #, kde-format
 msgid "Username:"
 msgstr "Användarnamn:"
 
-#: src/qml/Username.qml:21
+#: src/qml/Username.qml:23
 #, kde-format
 msgid "Username unavailable"
 msgstr "Användarnamn inte tillgängligt"
@@ -4642,18 +4649,18 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Sessionsverifikationen avbröts på grund av ett okänt fel."
 
-#: src/qml/VideoDelegate.qml:142
+#: src/qml/VideoDelegate.qml:141
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/VideoDelegate.qml:206
+#: src/qml/VideoDelegate.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volym"
 
-#: src/qml/VideoDelegate.qml:290
+#: src/qml/VideoDelegate.qml:289
 #, kde-format
 msgid "Maximize"
 msgstr "Maximera"
@@ -4742,22 +4749,22 @@ msgstr "Fortsätt"
 msgid "Working"
 msgstr "Arbetar"
 
-#: src/roommanager.cpp:83
+#: src/roommanager.cpp:84
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Felformad eller tom Matrix-identifierare"
 
-#: src/roommanager.cpp:83
+#: src/roommanager.cpp:84
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 är inte en korrekt Matrix-identifierare"
 
-#: src/roommanager.cpp:99
+#: src/roommanager.cpp:100
 #, kde-format
 msgid "Room not found"
 msgstr "Rummet hittades inte"
 
-#: src/roommanager.cpp:99
+#: src/roommanager.cpp:100
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -4765,32 +4772,32 @@ msgstr ""
 "Det finns inget rum som heter %1 i listan över rum. Kontrollera stavningen "
 "och kontot."
 
-#: src/roommanager.cpp:279
+#: src/roommanager.cpp:290
 #, kde-format
 msgid "Failed to join room"
 msgstr "Misslyckades gå med i rum"
 
-#: src/roommanager.cpp:294
+#: src/roommanager.cpp:305
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du frågade om att gå med i '%1'"
 
-#: src/roommanager.cpp:297
+#: src/roommanager.cpp:308
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Misslyckades fråga om att gå med i rum"
 
-#: src/roommanager.cpp:306
+#: src/roommanager.cpp:317
 #, kde-format
 msgid "No application for the link"
 msgstr "Inget program för länken"
 
-#: src/roommanager.cpp:306
+#: src/roommanager.cpp:317
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Ditt operativsystem kunde inte hitta något program för länken."
 
-#: src/roommanager.cpp:312
+#: src/roommanager.cpp:323
 #, kde-format
 msgid "Could not open URL"
 msgstr "Kunde inte öppna  webbadress"
