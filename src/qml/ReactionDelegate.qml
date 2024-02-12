@@ -39,14 +39,17 @@ Flow {
             width: Math.max(contentItem.implicitWidth + leftPadding + rightPadding, height)
             height: Math.round(Kirigami.Units.gridUnit * 1.5)
 
-            contentItem: QQC2.Label {
-                id: reactionLabel
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                text: reactionDelegate.textContent
-                background: null
-                wrapMode: TextEdit.NoWrap
-                textFormat: Text.RichText
+            contentItem: Item {
+                QQC2.Label {
+                    id: reactionLabel
+                    anchors.centerIn: parent
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    text: reactionDelegate.textContent
+                    background: null
+                    wrapMode: TextEdit.NoWrap
+                    textFormat: Text.RichText
+                }
             }
 
             padding: Kirigami.Units.smallSpacing
@@ -66,6 +69,7 @@ Flow {
 
             hoverEnabled: true
 
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: reactionDelegate.toolTip
         }

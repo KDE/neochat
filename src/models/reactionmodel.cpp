@@ -80,7 +80,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
                       "%2 reacted with %3",
                       reaction.authors.count(),
                       text,
-                      reactionText(reaction.reaction));
+                      m_shortcodes.contains(reaction.reaction) ? m_shortcodes[reaction.reaction] : reactionText(reaction.reaction));
         return text;
     }
 
@@ -111,6 +111,7 @@ void ReactionModel::updateReactions()
     beginResetModel();
 
     m_reactions.clear();
+    m_shortcodes.clear();
 
     const auto &annotations = m_room->relatedEvents(*m_event, Quotient::EventRelation::AnnotationType);
     if (annotations.isEmpty()) {
@@ -125,6 +126,9 @@ void ReactionModel::updateReactions()
         }
         if (const auto &e = eventCast<const Quotient::ReactionEvent>(a)) {
             reactions[e->key()].append(m_room->user(e->senderId()));
+            if (e->contentJson()[QStringLiteral("shortcode")].toString().length()) {
+                m_shortcodes[e->key()] = e->contentJson()[QStringLiteral("shortcode")].toString().toHtmlEscaped();
+            }
         }
     }
 
@@ -158,8 +162,18 @@ QHash<int, QByteArray> ReactionModel::roleNames() const
     };
 }
 
-QString ReactionModel::reactionText(const QString &text)
+QString ReactionModel::reactionText(QString text) const
 {
+    text = text.toHtmlEscaped();
+    if (text.startsWith(QStringLiteral("mxc://"))) {
+        static QFont font;
+        static int size = font.pixelSize();
+        if (size == -1) {
+            size = font.pointSizeF() * 1.333;
+        }
+        return QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%2\">")
+            .arg(m_room->connection()->makeMediaUrl(QUrl(text)).toString(), QString::number(size));
+    }
     const auto isEmoji = [](const QString &text) {
 #ifdef HAVE_ICU
         QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);

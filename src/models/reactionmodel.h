@@ -71,8 +71,9 @@ private:
     const NeoChatRoom *m_room;
     const Quotient::RoomMessageEvent *m_event;
     QList<Reaction> m_reactions;
+    QMap<QString, QString> m_shortcodes;
 
     void updateReactions();
-    static QString reactionText(const QString &text);
+    QString reactionText(QString text) const;
 };
 Q_DECLARE_METATYPE(ReactionModel *)
