@@ -110,6 +110,12 @@ FormCard.FormCardPage {
                     }
                 }
             }
+            onCountChanged: {
+                if (loadingAccounts.count === 0 && loadedAccounts.count === 1 && showExisting) {
+                    Controller.activeConnection = AccountRegistry.data(AccountRegistry.index(0, 0), 257);
+                    root.connectionChosen();
+                }
+            }
         }
     }
 
