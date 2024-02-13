@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-11 00:38+0000\n"
+"POT-Creation-Date: 2024-02-13 00:38+0000\n"
 "PO-Revision-Date: 2024-02-11 07:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/controller.cpp:121 src/controller.cpp:309
@@ -1361,19 +1361,19 @@ msgstr "Urejevalnik računa"
 msgid "Notification settings"
 msgstr "Nastavitve obvestil"
 
-#: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:46
+#: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
 #: src/qml/GlobalMenu.qml:34 src/qml/main.qml:445 src/qml/UserInfo.qml:126
 #, kde-format
 msgid "Configure"
 msgstr "Nastavi"
 
-#: src/qml/AccountMenu.qml:40 src/qml/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:42 src/qml/DevicesPage.qml:17
 #: src/qml/SettingsPage.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "Naprave"
 
-#: src/qml/AccountMenu.qml:50 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:54 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Odjavi se"
@@ -1384,7 +1384,7 @@ msgstr "Odjavi se"
 msgid "Accounts"
 msgstr "Računi"
 
-#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:179
+#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:181
 #, kde-format
 msgid "Add Account"
 msgstr "Dodaj račun"
@@ -1794,7 +1794,7 @@ msgstr "Poberite sobo"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:27 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:71 src/qml/RoomListPage.qml:183
+#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:183
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -2112,14 +2112,14 @@ msgid "Explore rooms"
 msgstr "Razišči sobe"
 
 #: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
-#: src/qml/GlobalMenu.qml:49 src/qml/GlobalMenu.qml:58
+#: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
 #: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:319
 #, kde-format
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:53 src/qml/RoomListPage.qml:198
+#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:198
 #: src/qml/RoomListPage.qml:327
 #, kde-format
 msgctxt "@title"
@@ -2540,49 +2540,49 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Nastavi NeoChat..."
 
-#: src/qml/GlobalMenu.qml:38
+#: src/qml/GlobalMenu.qml:40
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Zapusti NeoChat"
 
-#: src/qml/GlobalMenu.qml:45
+#: src/qml/GlobalMenu.qml:47
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Datoteka"
 
-#: src/qml/GlobalMenu.qml:48
+#: src/qml/GlobalMenu.qml:50
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
 msgstr "Najdi vaše prijatelje"
 
-#: src/qml/GlobalMenu.qml:57
+#: src/qml/GlobalMenu.qml:59
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Nova skupina…"
 
-#: src/qml/GlobalMenu.qml:66
+#: src/qml/GlobalMenu.qml:68
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Brskaj po debatah…"
 
-#: src/qml/GlobalMenu.qml:80
+#: src/qml/GlobalMenu.qml:82
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Uredi"
 
-#: src/qml/GlobalMenu.qml:84
+#: src/qml/GlobalMenu.qml:86
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Pogled"
 
-#: src/qml/GlobalMenu.qml:87
+#: src/qml/GlobalMenu.qml:89
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2590,31 +2590,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Odpri hitri preklopnik"
 
-#: src/qml/GlobalMenu.qml:93
+#: src/qml/GlobalMenu.qml:95
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Okno"
 
-#: src/qml/GlobalMenu.qml:100
+#: src/qml/GlobalMenu.qml:102
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Izhod iz celozaslonskega načina"
 
-#: src/qml/GlobalMenu.qml:100
+#: src/qml/GlobalMenu.qml:102
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Vstopi na celotni zaslon"
 
-#: src/qml/GlobalMenu.qml:106
+#: src/qml/GlobalMenu.qml:108
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Pomoč"
 
-#: src/qml/GlobalMenu.qml:109
+#: src/qml/GlobalMenu.qml:111
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -4342,17 +4342,17 @@ msgstr "Kopiraj povezavo"
 msgid "Switch User"
 msgstr "Preklopi uporabnika"
 
-#: src/qml/UserInfo.qml:128
+#: src/qml/UserInfo.qml:130
 #, kde-format
 msgid "Open Settings"
 msgstr "Odpri nastavitve"
 
-#: src/qml/UserInfo.qml:182
+#: src/qml/UserInfo.qml:184
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Prijavite se na obstoječi račun"
 
-#: src/qml/UserInfo.qml:189
+#: src/qml/UserInfo.qml:191
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
