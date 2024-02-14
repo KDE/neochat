@@ -70,9 +70,45 @@ FormCard.FormCardPage {
         Repeater {
             id: loadingAccounts
             model: Controller.accountsLoading
-            delegate: FormCard.FormButtonDelegate {
-                text: i18nc("As in 'this account is still loading'", "%1 (loading)", modelData)
-                enabled: false
+            delegate: FormCard.AbstractFormDelegate {
+                id: loadingDelegate
+
+                topPadding: Kirigami.Units.smallSpacing
+                bottomPadding: Kirigami.Units.smallSpacing
+
+                background: null
+                contentItem: RowLayout {
+                    spacing: 0
+
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        text: i18nc("As in 'this account is still loading'", "%1 (loading)", modelData)
+                        elide: Text.ElideRight
+                        wrapMode: Text.Wrap
+                        maximumLineCount: 2
+                        color: Kirigami.Theme.disabledTextColor
+                        Accessible.ignored: true // base class sets this text on root already
+                    }
+
+                    QQC2.ToolButton {
+                        text: i18nc("@action:button", "Remove this account")
+                        icon.name: "edit-delete-remove"
+                        onClicked: Controller.removeConnection(modelData)
+                        display: QQC2.Button.IconOnly
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.visible: hovered
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        enabled: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                    }
+
+                    FormCard.FormArrow {
+                        Layout.leftMargin: Kirigami.Units.smallSpacing
+                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                        direction: Qt.RightArrow
+                        visible: root.background.visible
+                    }
+                }
             }
         }
     }
