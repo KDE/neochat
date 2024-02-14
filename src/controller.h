@@ -110,6 +110,8 @@ public:
 
     static void setTestMode(bool testMode);
 
+    Q_INVOKABLE void removeConnection(const QString &userId);
+
 private:
     explicit Controller(QObject *parent = nullptr);
 
@@ -123,6 +125,7 @@ private:
 
     Quotient::AccountRegistry m_accountRegistry;
     QStringList m_accountsLoading;
+    QMap<QString, QPointer<Quotient::Connection>> m_connectionsLoading;
     QString m_endpoint;
 
 private Q_SLOTS:

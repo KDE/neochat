@@ -178,10 +178,12 @@ void Controller::invokeLogin()
                 }
 
                 auto connection = new NeoChatConnection(account.homeserver());
-                connect(connection, &NeoChatConnection::connected, this, [this, connection] {
+                m_connectionsLoading[accountId] = connection;
+                connect(connection, &NeoChatConnection::connected, this, [this, connection, accountId] {
                     connection->loadState();
                     addConnection(connection);
                     m_accountsLoading.removeAll(connection->userId());
+                    m_connectionsLoading.remove(accountId);
                     Q_EMIT accountsLoadingChanged();
                 });
                 connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
@@ -377,4 +379,14 @@ AccountRegistry &Controller::accounts()
 void Controller::setTestMode(bool test)
 {
     testMode = test;
+}
+
+void Controller::removeConnection(const QString &userId)
+{
+    if (m_connectionsLoading.contains(userId) && m_connectionsLoading[userId]) {
+        auto connection = m_connectionsLoading[userId];
+        m_accountsLoading.removeAll(userId);
+        Q_EMIT accountsLoadingChanged();
+        SettingsGroup("Accounts"_ls).remove(userId);
+    }
 }
