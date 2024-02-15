@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 00:38+0000\n"
+"POT-Creation-Date: 2024-02-15 00:37+0000\n"
 "PO-Revision-Date: 2023-02-25 01:00+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,47 +18,47 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 
-#: src/controller.cpp:121 src/controller.cpp:309
+#: src/controller.cpp:121 src/controller.cpp:311
 #, kde-format
 msgid "Receiving push notifications"
 msgstr ""
 
-#: src/controller.cpp:188
+#: src/controller.cpp:190
 #, kde-format
 msgid "Network Error: %1"
 msgstr ""
 
-#: src/controller.cpp:210
+#: src/controller.cpp:212
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:210
+#: src/controller.cpp:212
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:214
+#: src/controller.cpp:216
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:214
+#: src/controller.cpp:216
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:217
+#: src/controller.cpp:219
 #, kde-format
 msgid "No keychain available."
 msgstr ""
 
-#: src/controller.cpp:217
+#: src/controller.cpp:219
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:220
+#: src/controller.cpp:222
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
@@ -2881,7 +2881,7 @@ msgstr ""
 msgid "Matrix ID"
 msgstr ""
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:154
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -4529,19 +4529,25 @@ msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:74
+#: src/qml/WelcomePage.qml:85
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:81
+#: src/qml/WelcomePage.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr ""
+
+#: src/qml/WelcomePage.qml:123
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:162
+#: src/qml/WelcomePage.qml:204
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"

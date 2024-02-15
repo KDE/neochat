@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 00:38+0000\n"
+"POT-Creation-Date: 2024-02-15 00:37+0000\n"
 "PO-Revision-Date: 2023-12-17 16:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -17,49 +17,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: src/controller.cpp:121 src/controller.cpp:309
+#: src/controller.cpp:121 src/controller.cpp:311
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
 
-#: src/controller.cpp:188
+#: src/controller.cpp:190
 #, kde-format
 msgid "Network Error: %1"
 msgstr "பிணைய சிக்கல்: %1"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:212
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "அணுகல் டோக்கன் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:212
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "நீக்கப்பட்டுள்ளதா?"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:216
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "சாவிக்கொத்தை அணுக முடியவில்லை"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:216
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "அணுகல் டோக்கனை படிக்க நியோச்சாட்டை அனுமதிக்கவும்"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:219
 #, kde-format
 msgid "No keychain available."
 msgstr "எந்த சாவிக்கொத்தும் கிடைக்கவில்லை"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:219
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "ஓர் சாவிக்கொத்து நிரலை நிறுவுங்கள், எ.கா. லினக்ஸில் KWallet அல்லது GNOME keyring."
 
-#: src/controller.cpp:220
+#: src/controller.cpp:222
 #, kde-format
 msgid "Unable to read access token"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
@@ -2893,7 +2893,7 @@ msgstr "Matrix கணக்குப்பெயர்:"
 msgid "Matrix ID"
 msgstr "Matrix கணக்குப்பெயர்"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:154
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -4572,19 +4572,26 @@ msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
 
-#: src/qml/WelcomePage.qml:74
+#: src/qml/WelcomePage.qml:85
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (ஏற்றப்படுகிறது)"
 
-#: src/qml/WelcomePage.qml:81
+#: src/qml/WelcomePage.qml:94
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "இந்தக் கணக்கைத் திருத்து"
+
+#: src/qml/WelcomePage.qml:123
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "கணக்கில் நுழையவும் அல்லது புதியதை உருவாக்கவும்"
 
-#: src/qml/WelcomePage.qml:162
+#: src/qml/WelcomePage.qml:204
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
