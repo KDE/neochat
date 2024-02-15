@@ -39,17 +39,15 @@ Flow {
             width: Math.max(contentItem.implicitWidth + leftPadding + rightPadding, height)
             height: Math.round(Kirigami.Units.gridUnit * 1.5)
 
-            contentItem: Item {
-                QQC2.Label {
-                    id: reactionLabel
-                    anchors.centerIn: parent
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    text: reactionDelegate.textContent
-                    background: null
-                    wrapMode: TextEdit.NoWrap
-                    textFormat: Text.RichText
-                }
+            contentItem: QQC2.Label {
+                id: reactionLabel
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                text: reactionDelegate.textContent
+                background: null
+                wrapMode: TextEdit.NoWrap
+                textFormat: Text.RichText
             }
 
             padding: Kirigami.Units.smallSpacing
