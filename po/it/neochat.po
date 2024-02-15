@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-14 03:07+0000\n"
+"POT-Creation-Date: 2024-02-15 02:21+0000\n"
 "PO-Revision-Date: 2024-01-25 14:17+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,58 +17,58 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: src/controller.cpp:121 src/controller.cpp:327
+#: src/controller.cpp:121 src/controller.cpp:329
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricezione delle notifiche push"
 
-#: src/controller.cpp:188
+#: src/controller.cpp:190
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Errore di rete: %1"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:212
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Il token di accesso non è stato trovato"
 
-#: src/controller.cpp:210
+#: src/controller.cpp:212
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Forse è stato eliminato?"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:216
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "L'accesso al portachiavi è stato negato."
 
-#: src/controller.cpp:214
+#: src/controller.cpp:216
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Consenti a Neochat di leggere il token di accesso"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:219
 #, kde-format
 msgid "No keychain available."
 msgstr "Nessun portachiavi trovato."
 
-#: src/controller.cpp:217
+#: src/controller.cpp:219
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installa un portachiavi, ad es. KWallet o il portachiavi di GNOME su Linux"
 
-#: src/controller.cpp:220
+#: src/controller.cpp:222
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Impossibile leggere il token di accesso"
 
-#: src/controller.cpp:296
+#: src/controller.cpp:298
 #, kde-format
 msgid "File too large to download."
 msgstr "File troppo grande per essere scaricato."
 
-#: src/controller.cpp:296
+#: src/controller.cpp:298
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Contatta l'amministratore del server Matrix per assistenza."
@@ -2941,7 +2941,7 @@ msgstr "ID Matrix:"
 msgid "Matrix ID"
 msgstr "ID Matrix"
 
-#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:154
+#: src/qml/Login.qml:37 src/qml/WelcomePage.qml:196
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -4531,19 +4531,26 @@ msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Continua con un account esistente"
 
-#: src/qml/WelcomePage.qml:74
+#: src/qml/WelcomePage.qml:85
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (caricamento)"
 
-#: src/qml/WelcomePage.qml:81
+#: src/qml/WelcomePage.qml:94
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "Modifica questo account"
+
+#: src/qml/WelcomePage.qml:123
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Accedi o crea con un nuovo account"
 
-#: src/qml/WelcomePage.qml:162
+#: src/qml/WelcomePage.qml:204
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
