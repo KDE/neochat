@@ -23,7 +23,7 @@ ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, const NeoC
 {
     if (m_event != nullptr && m_room != nullptr) {
         connect(m_room, &NeoChatRoom::updatedEvent, this, [this](const QString &eventId) {
-            if (m_event->id() == eventId) {
+            if (m_event && m_event->id() == eventId) {
                 updateReactions();
             }
         });
