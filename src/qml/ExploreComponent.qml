@@ -66,13 +66,18 @@ RowLayout {
         }
     }
 
+    /**
+     * @brief Emitted when the text is changed in the search field.
+     */
+    signal textChanged(string newText)
+
     Kirigami.SearchField {
         Layout.topMargin: Kirigami.Units.smallSpacing
         Layout.bottomMargin: Kirigami.Units.smallSpacing
         Layout.fillWidth: true
         Layout.preferredWidth: root.desiredWidth ? root.desiredWidth - menuButton.width - root.spacing : -1
         visible: !root.collapsed
-        onTextChanged: sortFilterRoomListModel.filterText = text
+        onTextChanged: root.textChanged(text)
         KeyNavigation.tab: listView
     }
 

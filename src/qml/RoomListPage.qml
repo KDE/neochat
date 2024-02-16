@@ -402,6 +402,10 @@ Kirigami.Page {
             desiredWidth: root.width - Kirigami.Units.largeSpacing
             collapsed: root.collapsed
             connection: root.connection
+
+            onTextChanged: newText => {
+                sortFilterRoomListModel.filterText = newText;
+            }
         }
     }
 
