@@ -108,6 +108,32 @@ QQC2.Control {
                             RoomManager.lastSpaceId = "";
                             root.selectionChanged();
                         }
+
+                        QQC2.Label {
+                            id: homeNotificationCountLabel
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.rightMargin: Kirigami.Units.smallSpacing / 2
+                            z: 1
+                            width: Math.max(homeNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
+                            height: Kirigami.Units.iconSizes.smallMedium
+
+                            text: root.connection.homeNotifications > 0 ? root.connection.homeNotifications : ""
+                            visible: root.connection.homeNotifications > 0 && (root.selectedSpaceId !== "" || root.showDirectChats === true)
+                            color: Kirigami.Theme.textColor
+                            horizontalAlignment: Text.AlignHCenter
+                            background: Rectangle {
+                                visible: true
+                                Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                                color: Kirigami.Theme.positiveTextColor
+                                radius: height / 2
+                            }
+
+                            TextMetrics {
+                                id: homeNotificationCountTextMetrics
+                                text: homeNotificationCountLabel.text
+                            }
+                        }
                     }
                     AvatarTabButton {
                         id: directChatButton
@@ -132,16 +158,16 @@ QQC2.Control {
                         }
 
                         QQC2.Label {
-                            id: notificationCountLabel
+                            id: directChatNotificationCountLabel
                             anchors.top: parent.top
                             anchors.right: parent.right
                             anchors.rightMargin: Kirigami.Units.smallSpacing / 2
                             z: 1
-                            width: Math.max(notificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
+                            width: Math.max(directChatNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
                             height: Kirigami.Units.iconSizes.smallMedium
 
                             text: root.connection.directChatNotifications > 0 ? root.connection.directChatNotifications : ""
-                            visible: root.connection.directChatNotifications > 0 || root.connection.directChatInvites
+                            visible: (root.connection.directChatNotifications > 0 || root.connection.directChatInvites) && root.showDirectChats === false
                             color: Kirigami.Theme.textColor
                             horizontalAlignment: Text.AlignHCenter
                             background: Rectangle {
@@ -152,8 +178,8 @@ QQC2.Control {
                             }
 
                             TextMetrics {
-                                id: notificationCountTextMetrics
-                                text: notificationCountLabel.text
+                                id: directChatNotificationCountTextMetrics
+                                text: directChatNotificationCountLabel.text
                             }
                         }
                     }
@@ -199,6 +225,32 @@ QQC2.Control {
                             }
                             checked: root.selectedSpaceId === roomId
                             onContextMenuRequested: root.createContextMenu(currentRoom)
+
+                            QQC2.Label {
+                                id: notificationCountLabel
+                                anchors.top: parent.top
+                                anchors.right: parent.right
+                                anchors.rightMargin: Kirigami.Units.smallSpacing / 2
+                                z: 1
+                                width: Math.max(notificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
+                                height: Kirigami.Units.iconSizes.smallMedium
+
+                                text: spaceDelegate.currentRoom.childrenNotificationCount > 0 ? spaceDelegate.currentRoom.childrenNotificationCount : ""
+                                visible: spaceDelegate.currentRoom.childrenNotificationCount > 0 && root.selectedSpaceId != spaceDelegate.roomId
+                                color: Kirigami.Theme.textColor
+                                horizontalAlignment: Text.AlignHCenter
+                                background: Rectangle {
+                                    visible: true
+                                    Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                                    color: Kirigami.Theme.positiveTextColor
+                                    radius: height / 2
+                                }
+
+                                TextMetrics {
+                                    id: notificationCountTextMetrics
+                                    text: notificationCountLabel.text
+                                }
+                            }
                         }
                     }
 

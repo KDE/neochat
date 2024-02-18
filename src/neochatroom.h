@@ -127,6 +127,13 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(bool isSpace READ isSpace CONSTANT)
 
     /**
+     * @brief The number of notifications in this room's children.
+     *
+     * Will always return 0 if this is not a space.
+     */
+    Q_PROPERTY(qsizetype childrenNotificationCount READ childrenNotificationCount NOTIFY childrenNotificationCountChanged)
+
+    /**
      * @brief Whether the local user has an invite to the room.
      *
      * False for any other state including if the local user is a member.
@@ -526,6 +533,8 @@ public:
 
     [[nodiscard]] bool isSpace();
 
+    qsizetype childrenNotificationCount();
+
     /**
      * @brief Add the given room as a child.
      *
@@ -815,6 +824,7 @@ Q_SIGNALS:
     void parentIdsChanged();
     void canonicalParentChanged();
     void lastActiveTimeChanged();
+    void childrenNotificationCountChanged();
     void isInviteChanged();
     void readOnlyChanged();
     void displayNameChanged();

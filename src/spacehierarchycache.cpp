@@ -7,6 +7,7 @@
 #include <Quotient/qt_connection_util.h>
 
 #include "neochatroom.h"
+#include "roomlistmodel.h"
 
 using namespace Quotient;
 
@@ -33,6 +34,15 @@ void SpaceHierarchyCache::cacheSpaceHierarchy()
                 }
             });
         }
+
+        connect(neoChatRoom, &NeoChatRoom::unreadStatsChanged, this, [this, neoChatRoom]() {
+            if (neoChatRoom != nullptr) {
+                const auto parents = parentSpaces(neoChatRoom->id());
+                if (parents.count() > 0) {
+                    Q_EMIT spaceNotifcationCountChanged(parents);
+                }
+            }
+        });
     }
 }
 
@@ -74,6 +84,18 @@ void SpaceHierarchyCache::removeSpaceFromHierarchy(Quotient::Room *room)
     }
 }
 
+QStringList SpaceHierarchyCache::parentSpaces(const QString &roomId)
+{
+    auto spaces = m_spaceHierarchy.keys();
+    QStringList parents;
+    for (const auto &space : spaces) {
+        if (m_spaceHierarchy[space].contains(roomId)) {
+            parents += space;
+        }
+    }
+    return parents;
+}
+
 bool SpaceHierarchyCache::isSpaceChild(const QString &spaceId, const QString &roomId)
 {
     return getRoomListForSpace(spaceId, false).contains(roomId);
@@ -85,6 +107,31 @@ QList<QString> &SpaceHierarchyCache::getRoomListForSpace(const QString &spaceId,
         populateSpaceHierarchy(spaceId);
     }
     return m_spaceHierarchy[spaceId];
+}
+
+qsizetype SpaceHierarchyCache::notificationCountForSpace(const QString &spaceId)
+{
+    qsizetype notifications = 0;
+    auto children = m_spaceHierarchy[spaceId];
+    QStringList added;
+
+    for (const auto &childId : children) {
+        if (const auto child = static_cast<NeoChatRoom *>(m_connection->room(childId))) {
+            auto category = RoomListModel::category(child);
+            if (!added.contains(child->id()) && child->successorId().isEmpty()) {
+                switch (category) {
+                case NeoChatRoomType::Normal:
+                case NeoChatRoomType::Favorite:
+                    notifications += child->notificationCount();
+                    break;
+                default:
+                    notifications += child->highlightCount();
+                }
+                added += child->id();
+            }
+        }
+    }
+    return notifications;
 }
 
 bool SpaceHierarchyCache::isChild(const QString &roomId) const

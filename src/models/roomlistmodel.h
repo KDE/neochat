@@ -117,6 +117,11 @@ public:
     Q_INVOKABLE [[nodiscard]] NeoChatRoom *roomAt(int row) const;
 
     /**
+     * @brief The category for the given room.
+     */
+    static NeoChatRoomType::Types category(NeoChatRoom *room);
+
+    /**
      * @brief Return a string to represent the given room category.
      */
     Q_INVOKABLE [[nodiscard]] static QString categoryName(int category);

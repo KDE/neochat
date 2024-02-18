@@ -8,7 +8,9 @@
 #include "controller.h"
 #include "jobs/neochatchangepasswordjob.h"
 #include "jobs/neochatdeactivateaccountjob.h"
+#include "neochatroom.h"
 #include "roommanager.h"
+#include "spacehierarchycache.h"
 
 #include <Quotient/connection.h>
 #include <Quotient/quotient_common.h>
@@ -97,6 +99,21 @@ void NeoChatConnection::connectSignals()
             Q_EMIT directChatInvitesChanged();
         }
     });
+
+    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
+        Q_EMIT homeNotificationsChanged();
+    });
+    for (const auto room : allRooms()) {
+        connect(room, &NeoChatRoom::unreadStatsChanged, this, [this, room]() {
+            if (room != nullptr) {
+                auto category = RoomListModel::category(static_cast<NeoChatRoom *>(room));
+                if (!SpaceHierarchyCache::instance().isChild(room->id()) && (category == NeoChatRoomType::Normal || category == NeoChatRoomType::Favorite)
+                    && room->successorId().isEmpty()) {
+                    Q_EMIT homeNotificationsChanged();
+                }
+            }
+        });
+    }
 }
 
 void NeoChatConnection::logout(bool serverSideLogout)
@@ -314,6 +331,29 @@ qsizetype NeoChatConnection::directChatNotifications() const
                 notifications += chat->notificationCount();
                 added += chatId;
             }
+        }
+    }
+    return notifications;
+}
+
+qsizetype NeoChatConnection::homeNotifications() const
+{
+    qsizetype notifications = 0;
+    QStringList added;
+    const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
+    for (const auto &room : allRooms()) {
+        auto category = RoomListModel::category(static_cast<NeoChatRoom *>(room));
+        if (!added.contains(room->id()) && room->joinState() == JoinState::Join && !room->isDirectChat() && !spaceHierarchyCache.isChild(room->id())
+            && room->successorId().isEmpty()) {
+            switch (category) {
+            case NeoChatRoomType::Normal:
+            case NeoChatRoomType::Favorite:
+                notifications += room->notificationCount();
+                break;
+            default:
+                notifications += room->highlightCount();
+            }
+            added += room->id();
         }
     }
     return notifications;

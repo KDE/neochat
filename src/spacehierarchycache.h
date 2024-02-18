@@ -45,6 +45,11 @@ public:
     }
 
     /**
+     * @brief Returns the list of parent spaces for a child if any.
+     */
+    QStringList parentSpaces(const QString &roomId);
+
+    /**
      * @brief Whether the given room is a member of the given space.
      */
     Q_INVOKABLE bool isSpaceChild(const QString &spaceId, const QString &roomId);
@@ -53,6 +58,11 @@ public:
      * @brief Return the list of child rooms for the given space ID.
      */
     [[nodiscard]] QList<QString> &getRoomListForSpace(const QString &spaceId, bool updateCache);
+
+    /**
+     * @brief Return the number of notifications for the child rooms in a given space ID.
+     */
+    qsizetype notificationCountForSpace(const QString &spaceId);
 
     /**
      * @brief Returns whether the room is a child space of any space.
@@ -69,6 +79,7 @@ public:
 Q_SIGNALS:
     void spaceHierarchyChanged();
     void connectionChanged();
+    void spaceNotifcationCountChanged(const QStringList &spaces);
 
 private Q_SLOTS:
     void addSpaceToHierarchy(Quotient::Room *room);

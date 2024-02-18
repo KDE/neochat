@@ -33,6 +33,11 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(qsizetype directChatNotifications READ directChatNotifications NOTIFY directChatNotificationsChanged)
 
     /**
+     * @brief The total number of notifications for all rooms in the home tab.
+     */
+    Q_PROPERTY(qsizetype homeNotifications READ homeNotifications NOTIFY homeNotificationsChanged)
+
+    /**
      * @brief Whether there is at least one invite to a direct chat.
      */
     Q_PROPERTY(bool directChatInvites READ directChatInvites NOTIFY directChatInvitesChanged)
@@ -109,6 +114,7 @@ public:
     Q_INVOKABLE void openOrCreateDirectChat(Quotient::User *user);
 
     qsizetype directChatNotifications() const;
+    qsizetype homeNotifications() const;
     bool directChatInvites() const;
 
     // note: this is intentionally a copied QString because
@@ -123,6 +129,7 @@ public:
 Q_SIGNALS:
     void labelChanged();
     void directChatNotificationsChanged();
+    void homeNotificationsChanged();
     void directChatInvitesChanged();
     void isOnlineChanged();
     void passwordStatus(NeoChatConnection::PasswordStatus status);

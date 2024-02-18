@@ -298,30 +298,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return room->topic();
     }
     if (role == CategoryRole) {
-        if (room->joinState() == JoinState::Invite) {
-            return NeoChatRoomType::Invited;
-        }
-        if (room->isFavourite()) {
-            return NeoChatRoomType::Favorite;
-        }
-        if (room->isLowPriority()) {
-            return NeoChatRoomType::Deprioritized;
-        }
-        if (room->isDirectChat()) {
-            return NeoChatRoomType::Direct;
-        }
-        const RoomCreateEvent *creationEvent = room->creation();
-        if (!creationEvent) {
-            return NeoChatRoomType::Normal;
-        }
-        QJsonObject contentJson = creationEvent->contentJson();
-        QJsonObject::const_iterator typeIter = contentJson.find("type"_ls);
-        if (typeIter != contentJson.end()) {
-            if (typeIter.value().toString() == "m.space"_ls) {
-                return NeoChatRoomType::Space;
-            }
-        }
-        return NeoChatRoomType::Normal;
+        return category(room);
     }
     if (role == NotificationCountRole) {
         return room->notificationCount();
@@ -404,6 +381,26 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[IsChildSpaceRole] = "isChildSpace";
     roles[IsDirectChat] = "isDirectChat";
     return roles;
+}
+
+NeoChatRoomType::Types RoomListModel::category(NeoChatRoom *room)
+{
+    if (room->isSpace()) {
+        return NeoChatRoomType::Space;
+    }
+    if (room->joinState() == JoinState::Invite) {
+        return NeoChatRoomType::Invited;
+    }
+    if (room->isFavourite()) {
+        return NeoChatRoomType::Favorite;
+    }
+    if (room->isLowPriority()) {
+        return NeoChatRoomType::Deprioritized;
+    }
+    if (room->isDirectChat()) {
+        return NeoChatRoomType::Direct;
+    }
+    return NeoChatRoomType::Normal;
 }
 
 QString RoomListModel::categoryName(int category)

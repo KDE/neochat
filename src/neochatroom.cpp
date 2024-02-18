@@ -42,6 +42,7 @@
 #include "neochatconfig.h"
 #include "notificationsmanager.h"
 #include "roomlastmessageprovider.h"
+#include "spacehierarchycache.h"
 #include "texthandler.h"
 #include "urlhelper.h"
 #include "utils.h"
@@ -123,6 +124,16 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &Room::accountDataChanged, this, [this](QString type) {
         if (type == "org.matrix.room.preview_urls"_ls) {
             Q_EMIT urlPreviewEnabledChanged();
+        }
+    });
+    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
+        if (isSpace()) {
+            Q_EMIT childrenNotificationCountChanged();
+        }
+    });
+    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceNotifcationCountChanged, this, [this](const QStringList &spaces) {
+        if (spaces.contains(id())) {
+            Q_EMIT childrenNotificationCountChanged();
         }
     });
 }
@@ -1276,6 +1287,14 @@ bool NeoChatRoom::isSpace()
     }
 
     return creationEvent->roomType() == RoomType::Space;
+}
+
+qsizetype NeoChatRoom::childrenNotificationCount()
+{
+    if (!isSpace()) {
+        return 0;
+    }
+    return SpaceHierarchyCache::instance().notificationCountForSpace(id());
 }
 
 void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool canonical, bool suggested)
