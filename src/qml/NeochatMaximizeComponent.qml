@@ -26,12 +26,6 @@ Components.AlbumMaximizeComponent {
 
     readonly property var currentTime: model.data(model.index(content.currentIndex, 0), MessageEventModel.TimeRole)
 
-    readonly property var currentDelegateType: model.data(model.index(content.currentIndex, 0), MessageEventModel.DelegateTypeRole)
-
-    readonly property string currentPlainText: model.data(model.index(content.currentIndex, 0), MessageEventModel.PlainText)
-
-    readonly property var currentMimeType: model.data(model.index(content.currentIndex, 0), MessageEventModel.MimeTypeRole)
-
     readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), MessageEventModel.ProgressInfoRole)
 
     downloadAction: Components.DownloadAction {
@@ -87,7 +81,8 @@ Components.AlbumMaximizeComponent {
             }
         }
     }
-    onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId, root.currentAuthor, root.currentDelegateType, root.currentPlainText, "", "", root.currentMimeType, root.currentProgressInfo)
+
+    onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId, root.currentRoom)
 
     onSaveItem: {
         var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay);

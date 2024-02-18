@@ -5,6 +5,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import Qt.labs.qmlmodels
 
 import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
@@ -24,6 +25,16 @@ RowLayout {
     id: root
 
     /**
+     * @brief The matrix ID of the reply event.
+     */
+    required property var replyComponentType
+
+    /**
+     * @brief The matrix ID of the reply event.
+     */
+    required property var replyEventId
+
+    /**
      * @brief The reply author.
      *
      * This should consist of the following:
@@ -39,17 +50,12 @@ RowLayout {
      *
      * @sa Quotient::User
      */
-    required property var author
+    required property var replyAuthor
 
     /**
-     * @brief The delegate type of the reply message.
+     * @brief The display text of the message replied to.
      */
-    required property int type
-
-    /**
-     * @brief The display text of the message.
-     */
-    required property string display
+    required property string replyDisplay
 
     /**
      * @brief The media info for the reply event.
@@ -66,15 +72,19 @@ RowLayout {
      *  - height - The height in pixels of the audio media (image/video only).
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads (image/video only).
      */
-    required property var mediaInfo
+    required property var replyMediaInfo
 
-    property real contentMaxWidth
+    /**
+     * @brief The maximum width that the bubble's content can be.
+     */
+    property real maxContentWidth: -1
 
     /**
      * @brief The reply has been clicked.
      */
-    signal replyClicked
+    signal replyClicked(string eventID)
 
+    implicitHeight: contentColumn.implicitHeight
     spacing: Kirigami.Units.largeSpacing
 
     Rectangle {
@@ -82,12 +92,17 @@ RowLayout {
         Layout.fillHeight: true
 
         implicitWidth: Kirigami.Units.smallSpacing
-        color: root.author.color
+        color: root.replyAuthor.color
     }
     ColumnLayout {
+        id: contentColumn
+        implicitHeight: headerRow.implicitHeight + (root.replyComponentType != MessageComponentType.Other ? contentRepeater.itemAt(0).implicitHeight + spacing : 0)
         spacing: Kirigami.Units.smallSpacing
 
         RowLayout {
+            id: headerRow
+            implicitHeight: Math.max(replyAvatar.implicitHeight, replyName.implicitHeight)
+            Layout.maximumWidth: root.maxContentWidth
             spacing: Kirigami.Units.largeSpacing
 
             KirigamiComponents.Avatar {
@@ -96,42 +111,87 @@ RowLayout {
                 implicitWidth: Kirigami.Units.iconSizes.small
                 implicitHeight: Kirigami.Units.iconSizes.small
 
-                source: root.author.avatarSource
-                name: root.author.displayName
-                color: root.author.color
+                source: root.replyAuthor.avatarSource
+                name: root.replyAuthor.displayName
+                color: root.replyAuthor.color
             }
             QQC2.Label {
                 id: replyName
                 Layout.fillWidth: true
 
-                color: root.author.color
-                text: root.author.displayName
+                color: root.replyAuthor.color
+                text: root.replyAuthor.displayName
                 elide: Text.ElideRight
             }
         }
-        Loader {
-            id: loader
+        Repeater {
+            id: contentRepeater
+            model: [root.replyComponentType]
+            delegate: DelegateChooser {
+                role: "modelData"
 
-            Layout.fillWidth: true
-            Layout.maximumHeight: loader.item && (root.type == DelegateType.Image || root.type == DelegateType.Sticker) ? loader.item.height : loader.item.implicitHeight
-            Layout.columnSpan: 2
+                DelegateChoice {
+                    roleValue: MessageComponentType.Text
+                    delegate: TextComponent {
+                        display: root.replyDisplay
+                        maxContentWidth: _private.availableContentWidth
 
-            sourceComponent: {
-                switch (root.type) {
-                case DelegateType.Image:
-                case DelegateType.Sticker:
-                    return imageComponent;
-                case DelegateType.Message:
-                case DelegateType.Notice:
-                    return textComponent;
-                case DelegateType.File:
-                case DelegateType.Video:
-                case DelegateType.Audio:
-                    return mimeComponent;
-                case DelegateType.Encrypted:
-                    return encryptedComponent;
-                default:
-                    return textComponent;
+                        HoverHandler {
+                            enabled: !hoveredLink
+                            cursorShape: Qt.PointingHandCursor
+                        }
+                        TapHandler {
+                            enabled: !hoveredLink
+                            acceptedButtons: Qt.LeftButton
+                            onTapped: root.replyClicked(root.replyEventId)
+                        }
+                    }
+                }
+                DelegateChoice {
+                    roleValue: MessageComponentType.Image
+                    delegate: Image {
+                        id: image
+                        Layout.maximumWidth: mediaSizeHelper.currentSize.width
+                        Layout.maximumHeight: mediaSizeHelper.currentSize.height
+                        source: root?.replyMediaInfo.source ?? ""
+
+                        MediaSizeHelper {
+                            id: mediaSizeHelper
+                            contentMaxWidth: _private.availableContentWidth
+                            mediaWidth: root?.replyMediaInfo.width ?? -1
+                            mediaHeight: root?.replyMediaInfo.height ?? -1
+                        }
+                    }
+                }
+                DelegateChoice {
+                    roleValue: MessageComponentType.File
+                    delegate: MimeComponent {
+                        mimeIconSource: root.replyMediaInfo.mimeIcon
+                        label: root.replyDisplay
+                        subLabel: root.replyComponentType === DelegateType.File ? Format.formatByteSize(root.replyMediaInfo.size) : Format.formatDuration(root.replyMediaInfo.duration)
+                    }
+                }
+                DelegateChoice {
+                    roleValue: MessageComponentType.Video
+                    delegate: MimeComponent {
+                        mimeIconSource: root.replyMediaInfo.mimeIcon
+                        label: root.replyDisplay
+                        subLabel: root.replyComponentType === DelegateType.File ? Format.formatByteSize(root.replyMediaInfo.size) : Format.formatDuration(root.replyMediaInfo.duration)
+                    }
+                }
+                DelegateChoice {
+                    roleValue: MessageComponentType.Audio
+                    delegate: MimeComponent {
+                        mimeIconSource: root.replyMediaInfo.mimeIcon
+                        label: root.replyDisplay
+                        subLabel: root.replyComponentType === DelegateType.File ? Format.formatByteSize(root.replyMediaInfo.size) : Format.formatDuration(root.replyMediaInfo.duration)
+                    }
+                }
+                DelegateChoice {
+                    roleValue: MessageComponentType.Encrypted
+                    delegate: TextComponent {
+                        display: i18n("This message is encrypted and the sender has not shared the key with this device.")
+                    }
                 }
             }
         }
@@ -141,55 +201,11 @@ RowLayout {
     }
     TapHandler {
         acceptedButtons: Qt.LeftButton
-        onTapped: root.replyClicked()
+        onTapped: root.replyClicked(root.replyEventId)
     }
-
-    Component {
-        id: textComponent
-        RichLabel {
-            textMessage: root.display
-
-            HoverHandler {
-                enabled: !hoveredLink
-                cursorShape: Qt.PointingHandCursor
-            }
-            TapHandler {
-                enabled: !hoveredLink
-                acceptedButtons: Qt.LeftButton
-                onTapped: root.replyClicked()
-            }
-        }
-    }
-    Component {
-        id: imageComponent
-        Image {
-            id: image
-            width: mediaSizeHelper.currentSize.width
-            height: mediaSizeHelper.currentSize.height
-            fillMode: Image.PreserveAspectFit
-            source: root?.mediaInfo.source ?? ""
-
-            MediaSizeHelper {
-                id: mediaSizeHelper
-                contentMaxWidth: root.contentMaxWidth - verticalBorder.width - root.spacing
-                mediaWidth: root?.mediaInfo.width ?? -1
-                mediaHeight: root?.mediaInfo.height ?? -1
-            }
-        }
-    }
-    Component {
-        id: mimeComponent
-        MimeComponent {
-            mimeIconSource: root.mediaInfo.mimeIcon
-            label: root.display
-            subLabel: root.type === DelegateType.File ? Format.formatByteSize(root.mediaInfo.size) : Format.formatDuration(root.mediaInfo.duration)
-        }
-    }
-    Component {
-        id: encryptedComponent
-        RichLabel {
-            textMessage: i18n("This message is encrypted and the sender has not shared the key with this device.")
-            textFormat: Text.RichText
-        }
+    QtObject {
+        id: _private
+        // The space available for the component after taking away the border
+        readonly property real availableContentWidth: root.maxContentWidth - verticalBorder.implicitWidth - root.spacing
     }
 }

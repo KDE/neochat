@@ -88,19 +88,9 @@ TimelineDelegate {
     property bool alwaysShowAuthor: false
 
     /**
-     * @brief The delegate type of the message.
+     * @brief The model to visualise the content of the message.
      */
-    required property int delegateType
-
-    /**
-     * @brief The display text of the message.
-     */
-    required property string display
-
-    /**
-     * @brief The display text of the message as plain text.
-     */
-    required property string plainText
+    required property MessageContentModel contentModel
 
     /**
      * @brief The date of the event as a string.
@@ -142,64 +132,9 @@ TimelineDelegate {
      */
     required property bool showReadMarkers
 
-    /**
-     * @brief The matrix ID of the reply event.
-     */
-    required property var replyId
-
-    /**
-     * @brief The reply author.
-     *
-     * This should consist of the following:
-     *  - id - The matrix ID of the reply author.
-     *  - isLocalUser - Whether the reply author is the local user.
-     *  - avatarSource - The mxc URL for the reply author's avatar in the current room.
-     *  - avatarMediaId - The media ID of the reply author's avatar.
-     *  - avatarUrl - The mxc URL for the reply author's avatar.
-     *  - displayName - The display name of the reply author.
-     *  - display - The name of the reply author.
-     *  - color - The color for the reply author.
-     *  - object - The Quotient::User object for the reply author.
-     *
-     * @sa Quotient::User
-     */
-    required property var replyAuthor
-
-    /**
-     * @brief The delegate type of the message replied to.
-     */
-    required property int replyDelegateType
-
-    /**
-     * @brief The display text of the message replied to.
-     */
-    required property string replyDisplay
-
-    /**
-     * @brief The media info for the reply event.
-     *
-     * This could be an image, audio, video or file.
-     *
-     * This should consist of the following:
-     *  - source - The mxc URL for the media.
-     *  - mimeType - The MIME type of the media.
-     *  - mimeIcon - The MIME icon name.
-     *  - size - The file size in bytes.
-     *  - duration - The length in seconds of the audio media (audio/video only).
-     *  - width - The width in pixels of the audio media (image/video only).
-     *  - height - The height in pixels of the audio media (image/video only).
-     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads (image/video only).
-     */
-    required property var replyMediaInfo
-
     required property bool isThreaded
 
     required property string threadRoot
-
-    /**
-     * @brief Whether this message is replying to another.
-     */
-    required property bool isReply
 
     /**
      * @brief Whether this message has a local user mention.
@@ -210,13 +145,6 @@ TimelineDelegate {
      * @brief Whether an event is waiting to be accepted by the server.
      */
     required property bool isPending
-
-    /**
-     * @brief Progress info when downloading files.
-     *
-     * @sa Quotient::FileTransferInfo
-     */
-    required property var progressInfo
 
     /**
      * @brief Whether an encrypted message is sent in a verified session.
@@ -250,11 +178,6 @@ TimelineDelegate {
     readonly property alias hovered: bubble.hovered
 
     /**
-     * @brief Open the context menu for the message.
-     */
-    signal openContextMenu
-
-    /**
      * @brief Open the any message media externally.
      */
     signal openExternally
@@ -268,7 +191,7 @@ TimelineDelegate {
     /**
      * @brief The main delegate content item to show in the bubble.
      */
-    property alias bubbleContent: bubble.content
+    property var bubbleContent
 
     /**
      * @brief Whether the bubble background is enabled.
@@ -292,6 +215,11 @@ TimelineDelegate {
      * is clicked.
      */
     property bool isTemporaryHighlighted: false
+
+    /**
+     * @brief The user selected text.
+     */
+    property string selectedText: ""
 
     onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
         temporaryHighlightTimer.start();
@@ -328,12 +256,6 @@ TimelineDelegate {
             Layout.rightMargin: Kirigami.Units.smallSpacing
 
             implicitHeight: Math.max(root.showAuthor || root.alwaysShowAuthor ? avatar.implicitHeight : 0, bubble.height)
-
-            Component.onCompleted: {
-                if (root.isReply && root.replyDelegateType === DelegateType.Other) {
-                    root.room.loadReply(root.eventId, root.replyId);
-                }
-            }
 
             // show hover actions
             onHoveredChanged: {
@@ -395,23 +317,24 @@ TimelineDelegate {
                     }
                 ]
 
+                room: root.room
+
                 author: root.author
                 showAuthor: root.showAuthor || root.alwaysShowAuthor
                 time: root.time
                 timeString: root.timeString
 
-                showHighlight: root.showHighlight
+                contentModel: root.contentModel
+                actionsHandler: root.ListView.view?.actionsHandler ?? null
+                timeline: root.ListView.view
 
-                isReply: root.isReply
-                replyId: root.replyId
-                replyAuthor: root.replyAuthor
-                replyDelegateType: root.replyDelegateType
-                replyDisplay: root.replyDisplay
-                replyMediaInfo: root.replyMediaInfo
+                showHighlight: root.showHighlight
 
                 onReplyClicked: eventId => {
                     root.replyClicked(eventId);
                 }
+                onSelectedTextChanged: (selectedText) => {root.selectedText = selectedText;}
+                onShowMessageMenu: _private.showMessageMenu()
 
                 showBackground: root.cardBackground && !Config.compactLayout
             }
@@ -424,12 +347,12 @@ TimelineDelegate {
 
             TapHandler {
                 acceptedButtons: Qt.RightButton
-                onTapped: root.openContextMenu()
+                onTapped: _private.showMessageMenu()
             }
 
             TapHandler {
                 acceptedButtons: Qt.LeftButton
-                onLongPressed: root.openContextMenu()
+                onLongPressed: _private.showMessageMenu()
             }
         }
 
@@ -482,5 +405,9 @@ TimelineDelegate {
          * @brief Whether local user messages should be aligned right.
          */
         property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !root.alwaysMaxWidth
+
+        function showMessageMenu() {
+            RoomManager.viewEventMenu(root.eventId, root.room, root.selectedText)
+        }
     }
 }

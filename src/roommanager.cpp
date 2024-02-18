@@ -5,7 +5,8 @@
 #include "roommanager.h"
 
 #include "chatbarcache.h"
-#include "enums/delegatetype.h"
+#include "eventhandler.h"
+#include "messagecomponenttype.h"
 #include "models/timelinemodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
@@ -127,22 +128,27 @@ void RoomManager::viewEventSource(const QString &eventId)
     Q_EMIT showEventSource(eventId);
 }
 
-void RoomManager::viewEventMenu(const QString &eventId,
-                                const QVariantMap &author,
-                                DelegateType::Type delegateType,
-                                const QString &plainText,
-                                const QString &htmlText,
-                                const QString &selectedText,
-                                const QString &mimeType,
-                                const FileTransferInfo &progressInfo)
+void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, const QString &selectedText)
 {
-    if (delegateType == DelegateType::Image || delegateType == DelegateType::Video || delegateType == DelegateType::Audio
-        || delegateType == DelegateType::File) {
-        Q_EMIT showFileMenu(eventId, author, delegateType, plainText, mimeType, progressInfo);
+    const auto &event = **room->findInTimeline(eventId);
+    const auto eventHandler = EventHandler(room, &event);
+
+    if (eventHandler.getMediaInfo().contains("mimeType"_ls)) {
+        Q_EMIT showFileMenu(eventId,
+                            eventHandler.getAuthor(),
+                            eventHandler.messageComponentType(),
+                            eventHandler.getPlainBody(),
+                            eventHandler.getMediaInfo()["mimeType"_ls].toString(),
+                            room->fileTransferInfo(eventId));
         return;
     }
 
-    Q_EMIT showMessageMenu(eventId, author, delegateType, plainText, htmlText, selectedText);
+    Q_EMIT showMessageMenu(eventId,
+                           eventHandler.getAuthor(),
+                           eventHandler.messageComponentType(),
+                           eventHandler.getPlainBody(),
+                           eventHandler.getRichBody(),
+                           selectedText);
 }
 
 bool RoomManager::hasOpenRoom() const

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2021 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick
@@ -24,64 +25,8 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: DelegateType.Emote
-        delegate: TextDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
         roleValue: DelegateType.Message
-        delegate: TextDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.Notice
-        delegate: TextDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.Image
-        delegate: ImageDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.Sticker
-        delegate: ImageDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.Audio
-        delegate: AudioDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.Video
-        delegate: VideoDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.File
-        delegate: FileDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.Encrypted
-        delegate: EncryptedDelegate {
+        delegate: MessageDelegate {
             room: root.room
         }
     }
@@ -89,27 +34,6 @@ DelegateChooser {
     DelegateChoice {
         roleValue: DelegateType.ReadMarker
         delegate: ReadMarkerDelegate {}
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.Poll
-        delegate: PollDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.Location
-        delegate: LocationDelegate {
-            room: root.room
-        }
-    }
-
-    DelegateChoice {
-        roleValue: DelegateType.LiveLocation
-        delegate: LiveLocationDelegate {
-            room: root.room
-        }
     }
 
     DelegateChoice {

@@ -103,7 +103,6 @@ void MessageEventModelTest::simpleTimeline()
 
     QCOMPARE(model->data(model->index(1)), QStringLiteral("<b>This is an example<br>text message</b>"));
     QCOMPARE(model->data(model->index(1), MessageEventModel::DelegateTypeRole), DelegateType::Message);
-    QCOMPARE(model->data(model->index(1), MessageEventModel::PlainText), QStringLiteral("This is an example\ntext message"));
     QCOMPARE(model->data(model->index(1), MessageEventModel::EventIdRole), QStringLiteral("$153456789:example.org"));
 
     QTest::ignoreMessage(QtWarningMsg, "Index QModelIndex(-1,-1,0x0,QObject(0x0)) is not valid (expected valid)");

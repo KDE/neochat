@@ -6,6 +6,13 @@
 #include <QObject>
 #include <QQmlEngine>
 
+#include <Quotient/events/encryptedevent.h>
+#include <Quotient/events/roomevent.h>
+#include <Quotient/events/roommessageevent.h>
+#include <Quotient/events/stickerevent.h>
+
+#include "events/pollevent.h"
+
 /**
  * @class DelegateType
  *
@@ -26,23 +33,34 @@ public:
      *       similar to the spec it is not the same.
      */
     enum Type {
-        Emote, /**< A message that begins with /me. */
-        Notice, /**< A notice event. */
-        Image, /**< A message that is an image. */
-        Audio, /**< A message that is an audio recording. */
-        Video, /**< A message that is a video. */
-        File, /**< A message that is a file. */
         Message, /**< A text message. */
-        Sticker, /**< A message that is a sticker. */
         State, /**< A state event in the room. */
-        Encrypted, /**< An encrypted message that cannot be decrypted. */
         ReadMarker, /**< The local user read marker. */
-        Poll, /**< The initial event for a poll. */
-        Location, /**< A location event. */
-        LiveLocation, /**< The initial event of a shared live location (i.e., the place where this is supposed to be shown in the timeline). */
         Loading, /**< A delegate to tell the user more messages are being loaded. */
         TimelineEnd, /**< A delegate to inform that all messages are loaded. */
         Other, /**< Anything that cannot be classified as another type. */
     };
     Q_ENUM(Type);
+
+    /**
+     * @brief Return the delegate type for the given event.
+     *
+     * @param event the event to return a type for.
+     *
+     * @sa Type
+     */
+    static Type typeForEvent(const Quotient::RoomEvent &event)
+    {
+        if (event.is<Quotient::RoomMessageEvent>() || event.is<Quotient::StickerEvent>() || event.is<Quotient::EncryptedEvent>()
+            || event.is<Quotient::PollStartEvent>()) {
+            return Message;
+        }
+        if (event.isStateEvent()) {
+            if (event.matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
+                return Message;
+            }
+            return State;
+        }
+        return Other;
+    }
 };

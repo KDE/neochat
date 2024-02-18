@@ -3,9 +3,9 @@
 
 #include "mediamessagefiltermodel.h"
 
+#include <Quotient/events/roommessageevent.h>
 #include <Quotient/room.h>
 
-#include "enums/delegatetype.h"
 #include "messageeventmodel.h"
 #include "messagefiltermodel.h"
 
@@ -20,8 +20,8 @@ bool MediaMessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex 
 {
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
-    if (index.data(MessageEventModel::DelegateTypeRole).toInt() == DelegateType::Image
-        || index.data(MessageEventModel::DelegateTypeRole).toInt() == DelegateType::Video) {
+    if (index.data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("image"))
+        || index.data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("video"))) {
         return true;
     }
     return false;
@@ -30,9 +30,9 @@ bool MediaMessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex 
 QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
 {
     if (role == SourceRole) {
-        if (mapToSource(index).data(MessageEventModel::DelegateTypeRole).toInt() == DelegateType::Image) {
+        if (mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("image"))) {
             return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("source")].toUrl();
-        } else if (mapToSource(index).data(MessageEventModel::DelegateTypeRole).toInt() == DelegateType::Video) {
+        } else if (mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("video"))) {
             auto progressInfo = mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>();
 
             if (progressInfo.completed()) {
@@ -48,7 +48,7 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
         return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("tempInfo")].toMap()[QStringLiteral("source")].toUrl();
     }
     if (role == TypeRole) {
-        if (mapToSource(index).data(MessageEventModel::DelegateTypeRole).toInt() == DelegateType::Image) {
+        if (mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("image"))) {
             return MediaType::Image;
         } else {
             return MediaType::Video;

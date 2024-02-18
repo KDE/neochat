@@ -153,6 +153,9 @@ add_library(neochat STATIC
     events/locationbeaconevent.h
     events/serveraclevent.h
     events/widgetevent.h
+    enums/messagecomponenttype.h
+    models/messagecontentmodel.cpp
+    models/messagecontentmodel.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
@@ -198,21 +201,12 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/TimelineDelegate.qml
         qml/ReplyComponent.qml
         qml/StateDelegate.qml
-        qml/RichLabel.qml
         qml/MessageDelegate.qml
         qml/Bubble.qml
         qml/SectionDelegate.qml
-        qml/VideoDelegate.qml
         qml/ReactionDelegate.qml
-        qml/LinkPreviewDelegate.qml
-        qml/AudioDelegate.qml
-        qml/FileDelegate.qml
-        qml/ImageDelegate.qml
-        qml/EncryptedDelegate.qml
         qml/EventDelegate.qml
-        qml/TextDelegate.qml
         qml/ReadMarkerDelegate.qml
-        qml/PollDelegate.qml
         qml/MimeComponent.qml
         qml/StateComponent.qml
         qml/MessageEditComponent.qml
@@ -276,14 +270,12 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/EmojiDelegate.qml
         qml/EmojiGrid.qml
         qml/RoomSearchPage.qml
-        qml/LocationDelegate.qml
         qml/LocationChooser.qml
         qml/TimelineView.qml
         qml/InvitationView.qml
         qml/AvatarTabButton.qml
         qml/SpaceDrawer.qml
         qml/OsmLocationPlugin.qml
-        qml/LiveLocationDelegate.qml
         qml/FullScreenMap.qml
         qml/LocationsPage.qml
         qml/LocationMapItem.qml
@@ -310,6 +302,18 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ServerComboBox.qml
         qml/UserSearchPage.qml
         qml/ManualUserDialog.qml
+        qml/MessageComponentChooser.qml
+        qml/TextComponent.qml
+        qml/ImageComponent.qml
+        qml/VideoComponent.qml
+        qml/AudioComponent.qml
+        qml/EncryptedComponent.qml
+        qml/FileComponent.qml
+        qml/LocationComponent.qml
+        qml/LiveLocationComponent.qml
+        qml/PollComponent.qml
+        qml/LinkPreviewComponent.qml
+        qml/LoadComponent.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

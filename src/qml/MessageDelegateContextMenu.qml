@@ -59,7 +59,7 @@ Loader {
     /**
      * @brief The delegate type of the message.
      */
-    required property int delegateType
+    required property int messageComponentType
 
     /**
      * @brief The display text of the message as plain text.
@@ -96,7 +96,7 @@ Loader {
                 currentRoom.editCache.editId = eventId;
                 currentRoom.mainCache.replyId = "";
             }
-            visible: author.isLocalUser && (root.delegateType === DelegateType.Emote || root.delegateType === DelegateType.Message)
+            visible: author.isLocalUser && (root.messageComponentType === MessageComponentType.Emote || root.messageComponentType === MessageComponentType.Message)
         },
         Kirigami.Action {
             text: i18n("Reply")

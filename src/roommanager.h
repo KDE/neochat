@@ -12,7 +12,8 @@
 #include <KConfigGroup>
 
 #include "chatdocumenthandler.h"
-#include "enums/delegatetype.h"
+#include "enums/messagecomponenttype.h"
+#include "eventhandler.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/timelinemodel.h"
@@ -182,16 +183,9 @@ public:
     Q_INVOKABLE void viewEventSource(const QString &eventId);
 
     /**
-     * @brief Show a conterxt menu for the given event.
+     * @brief Show a context menu for the given event.
      */
-    Q_INVOKABLE void viewEventMenu(const QString &eventId,
-                                   const QVariantMap &author,
-                                   DelegateType::Type delegateType,
-                                   const QString &plainText,
-                                   const QString &htmlText = {},
-                                   const QString &selectedText = {},
-                                   const QString &mimeType = {},
-                                   const FileTransferInfo &progressInfo = {});
+    Q_INVOKABLE void viewEventMenu(const QString &eventId, NeoChatRoom *room, const QString &selectedText = {});
 
     /**
      * @brief Call this when the current used connection is dropped.
@@ -299,7 +293,7 @@ Q_SIGNALS:
      */
     void showMessageMenu(const QString &eventId,
                          const QVariantMap &author,
-                         DelegateType::Type delegateType,
+                         MessageComponentType::Type messageComponentType,
                          const QString &plainText,
                          const QString &htmlText,
                          const QString &selectedText);
@@ -309,7 +303,7 @@ Q_SIGNALS:
      */
     void showFileMenu(const QString &eventId,
                       const QVariantMap &author,
-                      DelegateType::Type delegateType,
+                      MessageComponentType::Type messageComponentType,
                       const QString &plainText,
                       const QString &mimeType,
                       const FileTransferInfo &progressInfo);

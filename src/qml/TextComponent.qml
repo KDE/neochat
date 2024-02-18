@@ -1,27 +1,29 @@
 // SPDX-FileCopyrightText: 2020 Black Hat <bhat@encom.eu.org>
+// SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick
 import QtQuick.Layouts
 
-import org.kde.neochat
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
+
 /**
- * @brief A component to show the rich display text of text message.
+ * @brief A component to show rich text from a message.
  */
 TextEdit {
     id: root
 
     /**
-     * @brief The rich text message to display.
+     * @brief The display text of the message.
      */
-    property string textMessage
+    required property string display
 
     /**
      * @brief Whether this message is replying to another.
      */
-    property bool isReply
+    property bool isReply: false
 
     /**
      * @brief Regex for detecting a message with a single emoji.
@@ -31,7 +33,7 @@ TextEdit {
     /**
      * @brief Whether the message is an emoji
      */
-    readonly property var isEmoji: isEmojiRegex.test(textMessage)
+    readonly property var isEmoji: isEmojiRegex.test(display)
 
     /**
      * @brief Regex for detecting a message with a spoiler.
@@ -41,9 +43,23 @@ TextEdit {
     /**
      * @brief Whether a spoiler should be revealed.
      */
-    property bool spoilerRevealed: !hasSpoiler.test(textMessage)
+    property bool spoilerRevealed: !hasSpoiler.test(display)
 
-    ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
+    /**
+     * @brief The maximum width that the bubble's content can be.
+     */
+    property real maxContentWidth: -1
+
+    /**
+     * @brief Request a context menu be show for the message.
+     */
+    signal showMessageMenu()
+
+    Layout.fillWidth: true
+    Layout.fillHeight: true
+    Layout.maximumWidth: root.maxContentWidth
+
+    ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
 
     persistentSelection: true
 
@@ -91,7 +107,7 @@ a{
     background: " + Kirigami.Theme.textColor + ";
 }
 " : "") + "
-</style>" + textMessage
+</style>" + display
 
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
@@ -106,8 +122,8 @@ a{
     textFormat: Text.RichText
 
     onLinkActivated: link => {
-        spoilerRevealed = true;
-        RoomManager.resolveResource(link, "join");
+        spoilerRevealed = true
+        RoomManager.resolveResource(link, "join")
     }
     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
         applicationWindow().hoverLinkIndicator.text = hoveredLink;
@@ -116,11 +132,16 @@ a{
     }
 
     HoverHandler {
-        cursorShape: (parent.hoveredLink || !spoilerRevealed) ? Qt.PointingHandCursor : Qt.IBeamCursor
+        cursorShape: (root.hoveredLink || !spoilerRevealed) ? Qt.PointingHandCursor : Qt.IBeamCursor
     }
 
     TapHandler {
-        enabled: !parent.hoveredLink && !spoilerRevealed
+        enabled: !root.hoveredLink && !spoilerRevealed
         onTapped: spoilerRevealed = true
+    }
+    TapHandler {
+        enabled: !root.hoveredLink
+        acceptedButtons: Qt.LeftButton
+        onLongPressed: root.showMessageMenu()
     }
 }

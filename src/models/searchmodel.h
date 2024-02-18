@@ -51,8 +51,7 @@ public:
      * since the same delegates are used.
      */
     enum Roles {
-        DisplayRole = Qt::DisplayRole,
-        DelegateTypeRole,
+        DelegateTypeRole = Qt::DisplayRole + 1,
         ShowAuthorRole,
         AuthorRole,
         ShowSectionRole,
@@ -63,25 +62,15 @@ public:
         ExcessReadMarkersRole,
         HighlightRole,
         ReadMarkersString,
-        PlainTextRole,
         VerifiedRole,
-        ProgressInfoRole,
         ShowReactionsRole,
-        IsReplyRole,
-        ReplyAuthorRole,
-        ReplyIdRole,
-        ReplyDelegateTypeRole,
-        ReplyDisplayRole,
-        ReplyMediaInfoRole,
         ReactionRole,
         ReadMarkersRole,
         IsPendingRole,
         ShowReadMarkersRole,
-        MimeTypeRole,
-        ShowLinkPreviewRole,
-        LinkPreviewRole,
         IsThreadedRole,
         ThreadRootRole,
+        ContentModelRole,
     };
     Q_ENUM(Roles)
     explicit SearchModel(QObject *parent = nullptr);

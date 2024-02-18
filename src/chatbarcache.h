@@ -186,7 +186,7 @@ public:
 
 Q_SIGNALS:
     void textChanged();
-    void relationIdChanged();
+    void relationIdChanged(const QString &oldEventId, const QString &newEventId);
     void threadIdChanged();
     void attachmentPathChanged();
 

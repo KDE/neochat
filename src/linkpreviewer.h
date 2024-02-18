@@ -60,7 +60,7 @@ class LinkPreviewer : public QObject
     Q_PROPERTY(bool empty READ empty NOTIFY emptyChanged)
 
 public:
-    explicit LinkPreviewer(const NeoChatRoom *room = nullptr, const Quotient::RoomMessageEvent *event = nullptr);
+    explicit LinkPreviewer(const NeoChatRoom *room = nullptr, const Quotient::RoomMessageEvent *event = nullptr, QObject *parent = nullptr);
 
     [[nodiscard]] QUrl url() const;
     [[nodiscard]] bool loaded() const;

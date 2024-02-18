@@ -23,6 +23,11 @@ QQC2.Control {
     id: root
 
     /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
+    required property NeoChatRoom room
+
+    /**
      * @brief The message author.
      *
      * This should consist of the following:
@@ -61,69 +66,27 @@ QQC2.Control {
     property bool showHighlight: false
 
     /**
-     * @brief The main delegate content item to show in the bubble.
+     * @brief The model to visualise the content of the message.
      */
-    property Item content
+    required property MessageContentModel contentModel
 
     /**
-     * @brief Whether this message is replying to another.
-     */
-    property bool isReply: false
-
-    /**
-     * @brief The matrix ID of the reply event.
-     */
-    required property var replyId
-
-    /**
-     * @brief The reply author.
+     * @brief The ActionsHandler object to use.
      *
-     * This should consist of the following:
-     *  - id - The matrix ID of the reply author.
-     *  - isLocalUser - Whether the reply author is the local user.
-     *  - avatarSource - The mxc URL for the reply author's avatar in the current room.
-     *  - avatarMediaId - The media ID of the reply author's avatar.
-     *  - avatarUrl - The mxc URL for the reply author's avatar.
-     *  - displayName - The display name of the reply author.
-     *  - display - The name of the reply author.
-     *  - color - The color for the reply author.
-     *  - object - The Quotient::User object for the reply author.
-     *
-     * @sa Quotient::User
+     * This is expected to have the correct room set otherwise messages will be sent
+     * to the wrong room.
      */
-    required property var replyAuthor
-
-    /**
-     * @brief The delegate type of the message replied to.
-     */
-    required property int replyDelegateType
-
-    /**
-     * @brief The display text of the message replied to.
-     */
-    required property string replyDisplay
-
-    /**
-     * @brief The media info for the reply event.
-     *
-     * This could be an image, audio, video or file.
-     *
-     * This should consist of the following:
-     *  - source - The mxc URL for the media.
-     *  - mimeType - The MIME type of the media.
-     *  - mimeIcon - The MIME icon name.
-     *  - size - The file size in bytes.
-     *  - duration - The length in seconds of the audio media (audio/video only).
-     *  - width - The width in pixels of the audio media (image/video only).
-     *  - height - The height in pixels of the audio media (image/video only).
-     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads (image/video only).
-     */
-    required property var replyMediaInfo
+    property ActionsHandler actionsHandler
 
     /**
      * @brief Whether the bubble background should be shown.
      */
     property alias showBackground: bubbleBackground.visible
+
+    /**
+     * @brief The timeline ListView this component is being used in.
+     */
+    required property ListView timeline
 
     /**
      * @brief The maximum width that the bubble's content can be.
@@ -135,11 +98,26 @@ QQC2.Control {
      */
     signal replyClicked(string eventID)
 
+    /**
+     * @brief The user selected text has changed.
+     */
+    signal selectedTextChanged(string selectedText)
+
+    /**
+     * @brief Request a context menu be show for the message.
+     */
+    signal showMessageMenu()
+
     contentItem: ColumnLayout {
+        id: contentColumn
+        spacing: Kirigami.Units.smallSpacing
         RowLayout {
+            id: headerRow
             Layout.maximumWidth: root.maxContentWidth
+            implicitHeight: Math.max(nameButton.implicitHeight, timeLabel.implicitHeight)
             visible: root.showAuthor
             QQC2.AbstractButton {
+                id: nameButton
                 Layout.fillWidth: true
                 contentItem: QQC2.Label {
                     text: root.author.displayName
@@ -152,6 +130,7 @@ QQC2.Control {
                 onClicked: RoomManager.resolveResource(root.author.id, "mention")
             }
             QQC2.Label {
+                id: timeLabel
                 text: root.timeString
                 horizontalAlignment: Text.AlignRight
                 color: Kirigami.Theme.disabledTextColor
@@ -164,35 +143,19 @@ QQC2.Control {
                 }
             }
         }
-        Loader {
-            id: replyLoader
-            Layout.fillWidth: true
-            Layout.maximumWidth: root.maxContentWidth
+        Repeater {
+            id: contentRepeater
+            model: root.contentModel
+            delegate: MessageComponentChooser {
+                room: root.room
+                actionsHandler: root.actionsHandler
+                timeline: root.timeline
+                maxContentWidth: root.maxContentWidth
 
-            active: root.isReply && root.replyDelegateType !== DelegateType.Other
-            visible: active
-
-            sourceComponent: ReplyComponent {
-                author: root.replyAuthor
-                type: root.replyDelegateType
-                display: root.replyDisplay
-                mediaInfo: root.replyMediaInfo
-                contentMaxWidth: root.maxContentWidth
+                onReplyClicked: (eventId) => {root.replyClicked(eventId)}
+                onSelectedTextChanged: (selectedText) => {root.selectedTextChanged(selectedText);}
+                onShowMessageMenu: root.showMessageMenu()
             }
-
-            Connections {
-                target: replyLoader.item
-                function onReplyClicked() {
-                    replyClicked(root.replyId);
-                }
-            }
-        }
-        Item {
-            id: contentParent
-            Layout.fillWidth: true
-            Layout.maximumWidth: root.maxContentWidth
-            implicitWidth: root.content ? root.content.implicitWidth : 0
-            implicitHeight: root.content ? root.content.implicitHeight : 0
         }
     }
 
@@ -219,13 +182,5 @@ QQC2.Control {
                 duration: Kirigami.Units.shortDuration
             }
         }
-    }
-
-    onContentChanged: {
-        if (!root.content) {
-            return;
-        }
-        root.content.parent = contentParent;
-        root.content.anchors.fill = contentParent;
     }
 }

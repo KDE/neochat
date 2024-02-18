@@ -11,7 +11,7 @@
 #include <Quotient/events/roomevent.h>
 #include <Quotient/events/roommessageevent.h>
 
-#include "enums/delegatetype.h"
+#include "enums/messagecomponenttype.h"
 
 class LinkPreviewer;
 class NeoChatRoom;
@@ -44,13 +44,9 @@ public:
     QString getId() const;
 
     /**
-     * @brief Return the DelegateType of the event.
-     *
-     * @note While similar this is not the matrix event or message type. This is
-     *       to tell a QML ListView what delegate to show for each event. So while
-     *       similar to the spec it is not the same.
+     * @brief The MessageComponentType to use to visualise the main event content.
      */
-    DelegateType::Type getDelegateType() const;
+    MessageComponentType::Type messageComponentType() const;
 
     /**
      * @brief Get the author of the event in context of the room.
@@ -224,13 +220,9 @@ public:
     QString getReplyId() const;
 
     /**
-     * @brief Return the DelegateType of the event replied to.
-     *
-     * @note While similar this is not the matrix event or message type. This is
-     *       to tell a QML ListView what delegate to show for each event. So while
-     *       similar to the spec it is not the same.
+     * @brief The MessageComponentType to use to visualise the reply content.
      */
-    DelegateType::Type getReplyDelegateType() const;
+    MessageComponentType::Type replyMessageComponentType() const;
 
     /**
      * @brief Get the author of the event replied to in context of the room.
@@ -385,8 +377,6 @@ private:
     const Quotient::RoomEvent *m_event = nullptr;
 
     KFormat m_format;
-
-    DelegateType::Type getDelegateTypeForEvent(const Quotient::RoomEvent *event) const;
 
     QString getBody(const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines) const;
     QString getMessageBody(const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines) const;

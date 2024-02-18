@@ -14,18 +14,19 @@
 #include <Quotient/events/roomavatarevent.h>
 #include <Quotient/events/roomcanonicalaliasevent.h>
 #include <Quotient/events/roommemberevent.h>
+#include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 #include <Quotient/events/simplestateevents.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/quotient_common.h>
 
-#include "delegatetype.h"
 #include "eventhandler_logging.h"
 #include "events/locationbeaconevent.h"
 #include "events/pollevent.h"
 #include "events/serveraclevent.h"
 #include "events/widgetevent.h"
 #include "linkpreviewer.h"
+#include "messagecomponenttype.h"
 #include "models/reactionmodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
@@ -50,62 +51,14 @@ QString EventHandler::getId() const
     return !m_event->id().isEmpty() ? m_event->id() : m_event->transactionId();
 }
 
-DelegateType::Type EventHandler::getDelegateTypeForEvent(const Quotient::RoomEvent *event) const
-{
-    if (auto e = eventCast<const RoomMessageEvent>(event)) {
-        switch (e->msgtype()) {
-        case MessageEventType::Emote:
-            return DelegateType::Emote;
-        case MessageEventType::Notice:
-            return DelegateType::Notice;
-        case MessageEventType::Image:
-            return DelegateType::Image;
-        case MessageEventType::Audio:
-            return DelegateType::Audio;
-        case MessageEventType::Video:
-            return DelegateType::Video;
-        case MessageEventType::Location:
-            return DelegateType::Location;
-        default:
-            break;
-        }
-        if (e->hasFileContent()) {
-            return DelegateType::File;
-        }
-
-        return DelegateType::Message;
-    }
-    if (is<const StickerEvent>(*event)) {
-        return DelegateType::Sticker;
-    }
-    if (event->isStateEvent()) {
-        if (event->matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
-            return DelegateType::LiveLocation;
-        }
-        return DelegateType::State;
-    }
-    if (is<const EncryptedEvent>(*event)) {
-        return DelegateType::Encrypted;
-    }
-    if (is<PollStartEvent>(*event)) {
-        const auto pollEvent = eventCast<const PollStartEvent>(event);
-        if (pollEvent->isRedacted()) {
-            return DelegateType::Message;
-        }
-        return DelegateType::Poll;
-    }
-
-    return DelegateType::Other;
-}
-
-DelegateType::Type EventHandler::getDelegateType() const
+MessageComponentType::Type EventHandler::messageComponentType() const
 {
     if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getDelegateType called with m_event set to nullptr.";
-        return DelegateType::Other;
+        qCWarning(EventHandling) << "messageComponentType called with m_event set to nullptr.";
+        return MessageComponentType::Other;
     }
 
-    return getDelegateTypeForEvent(m_event);
+    return MessageComponentType::typeForEvent(*m_event);
 }
 
 QVariantMap EventHandler::getAuthor(bool isPending) const
@@ -776,22 +729,22 @@ QString EventHandler::getReplyId() const
     return m_event->contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
 }
 
-DelegateType::Type EventHandler::getReplyDelegateType() const
+MessageComponentType::Type EventHandler::replyMessageComponentType() const
 {
     if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getReplyDelegateType called with m_room set to nullptr.";
-        return DelegateType::Other;
+        qCWarning(EventHandling) << "replyMessageComponentType called with m_room set to nullptr.";
+        return MessageComponentType::Other;
     }
     if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getReplyDelegateType called with m_event set to nullptr.";
-        return DelegateType::Other;
+        qCWarning(EventHandling) << "replyMessageComponentType called with m_event set to nullptr.";
+        return MessageComponentType::Other;
     }
 
     auto replyEvent = m_room->getReplyForEvent(*m_event);
     if (replyEvent == nullptr) {
-        return DelegateType::Other;
+        return MessageComponentType::Other;
     }
-    return getDelegateTypeForEvent(replyEvent);
+    return MessageComponentType::typeForEvent(*replyEvent);
 }
 
 QVariantMap EventHandler::getReplyAuthor() const

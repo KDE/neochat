@@ -256,23 +256,23 @@ Kirigami.Page {
             });
         }
 
-        function onShowMessageMenu(eventId, author, delegateType, plainText, htmlText, selectedText) {
+        function onShowMessageMenu(eventId, author, messageComponentType, plainText, htmlText, selectedText) {
             const contextMenu = messageDelegateContextMenu.createObject(root, {
                 selectedText: selectedText,
                 author: author,
                 eventId: eventId,
-                delegateType: delegateType,
+                messageComponentType: messageComponentType,
                 plainText: plainText,
                 htmlText: htmlText
             });
             contextMenu.open();
         }
 
-        function onShowFileMenu(eventId, author, delegateType, plainText, mimeType, progressInfo) {
+        function onShowFileMenu(eventId, author, messageComponentType, plainText, mimeType, progressInfo) {
             const contextMenu = fileDelegateContextMenu.createObject(root, {
                 author: author,
                 eventId: eventId,
-                delegateType: delegateType,
+                messageComponentType: messageComponentType,
                 plainText: plainText,
                 mimeType: mimeType,
                 progressInfo: progressInfo

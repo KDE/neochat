@@ -47,8 +47,8 @@ QQC2.ScrollView {
             role: "type"
 
             DelegateChoice {
-                roleValue: 0//MediaMessageFilterModel.Image
-                delegate: ImageDelegate {
+                roleValue: MediaMessageFilterModel.Image
+                delegate: MessageDelegate {
                     alwaysShowAuthor: true
                     alwaysMaxWidth: true
                     cardBackground: false
@@ -57,8 +57,8 @@ QQC2.ScrollView {
             }
 
             DelegateChoice {
-                roleValue: 1//MediaMessageFilterModel.Video
-                delegate: VideoDelegate {
+                roleValue: MediaMessageFilterModel.Video
+                delegate: MessageDelegate {
                     alwaysShowAuthor: true
                     alwaysMaxWidth: true
                     cardBackground: false

@@ -43,14 +43,14 @@ void ChatBarCache::setReplyId(const QString &replyId)
     if (m_relationType == Reply && m_relationId == replyId) {
         return;
     }
-    m_relationId = replyId;
+    const auto oldEventId = std::exchange(m_relationId, replyId);
     if (m_relationId.isEmpty()) {
         m_relationType = None;
     } else {
         m_relationType = Reply;
     }
     m_attachmentPath = QString();
-    Q_EMIT relationIdChanged();
+    Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT attachmentPathChanged();
 }
 
@@ -72,14 +72,14 @@ void ChatBarCache::setEditId(const QString &editId)
     if (m_relationType == Edit && m_relationId == editId) {
         return;
     }
-    m_relationId = editId;
+    const auto oldEventId = std::exchange(m_relationId, editId);
     if (m_relationId.isEmpty()) {
         m_relationType = None;
     } else {
         m_relationType = Edit;
     }
     m_attachmentPath = QString();
-    Q_EMIT relationIdChanged();
+    Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT attachmentPathChanged();
 }
 
@@ -153,9 +153,9 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
     }
     m_attachmentPath = attachmentPath;
     m_relationType = None;
-    m_relationId = QString();
+    const auto oldEventId = std::exchange(m_relationId, QString());
     Q_EMIT attachmentPathChanged();
-    Q_EMIT relationIdChanged();
+    Q_EMIT relationIdChanged(oldEventId, m_relationId);
 }
 
 QList<Mention> *ChatBarCache::mentions()

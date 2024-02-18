@@ -7,6 +7,9 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+/**
+ * @brief A component to show media based upon its mime type.
+ */
 RowLayout {
     property alias mimeIconSource: icon.source
     property alias label: nameLabel.text

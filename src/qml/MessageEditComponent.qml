@@ -9,13 +9,19 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 
+/**
+ * @brief A component to show an edit text field for a text message being edited.
+ */
 QQC2.TextArea {
     id: root
 
+    /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
     required property NeoChatRoom room
     onRoomChanged: {
         _private.chatBarCache = room.editCache;
-        _private.chatBarCache.relationIdChanged.connect(_private.updateEditText);
+        _private.chatBarCache.relationIdChanged.connect(_private.updateEditText());
     }
 
     /**
@@ -26,10 +32,19 @@ QQC2.TextArea {
      */
     required property ActionsHandler actionsHandler
 
-    property string messageId
-
     property var minimumHeight: editButtons.height + topPadding + bottomPadding
     property var preferredWidth: editTextMetrics.advanceWidth + rightPadding + Kirigami.Units.smallSpacing + Kirigami.Units.gridUnit
+
+    /**
+     * @brief The maximum width that the bubble's content can be.
+     */
+    property real maxContentWidth: -1
+
+    Layout.fillWidth: true
+    Layout.maximumWidth: root.maxContentWidth
+
+    Component.onCompleted: _private.updateEditText()
+
     rightPadding: editButtons.width + editButtons.anchors.rightMargin * 2
 
     color: Kirigami.Theme.textColor

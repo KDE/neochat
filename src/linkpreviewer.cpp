@@ -13,8 +13,8 @@
 
 using namespace Quotient;
 
-LinkPreviewer::LinkPreviewer(const NeoChatRoom *room, const Quotient::RoomMessageEvent *event)
-    : QObject(nullptr)
+LinkPreviewer::LinkPreviewer(const NeoChatRoom *room, const Quotient::RoomMessageEvent *event, QObject *parent)
+    : QObject(parent)
     , m_currentRoom(room)
     , m_event(event)
     , m_loaded(false)

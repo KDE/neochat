@@ -3,8 +3,9 @@
 
 #include "searchmodel.h"
 
+#include "enums/delegatetype.h"
 #include "eventhandler.h"
-#include "messageeventmodel.h"
+#include "models/messagecontentmodel.h"
 #include "neochatroom.h"
 
 #include <QGuiApplication>
@@ -82,8 +83,6 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     EventHandler eventHandler(m_room, &event);
 
     switch (role) {
-    case DisplayRole:
-        return eventHandler.getRichBody();
     case ShowAuthorRole:
         return true;
     case AuthorRole:
@@ -103,21 +102,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return false;
     case ShowReadMarkersRole:
         return false;
-    case IsReplyRole:
-        return eventHandler.hasReply();
-    case ReplyIdRole:
-        return eventHandler.hasReply();
-    case ReplyAuthorRole:
-        return eventHandler.getReplyAuthor();
-    case ReplyDelegateTypeRole:
-        return eventHandler.getReplyDelegateType();
-    case ReplyDisplayRole:
-        return eventHandler.getReplyRichBody();
-    case ReplyMediaInfoRole:
-        return eventHandler.getReplyMediaInfo();
     case IsPendingRole:
-        return false;
-    case ShowLinkPreviewRole:
         return false;
     case HighlightRole:
         return eventHandler.isHighlighted();
@@ -127,6 +112,17 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return eventHandler.isThreaded();
     case ThreadRootRole:
         return eventHandler.threadRoot();
+    case ContentModelRole: {
+        if (!event.isStateEvent()) {
+            return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(&event, m_room));
+        }
+        if (event.isStateEvent()) {
+            if (event.matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
+                return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(&event, m_room));
+            }
+        }
+        return {};
+    }
     }
     return DelegateType::Message;
 }
@@ -144,7 +140,6 @@ QHash<int, QByteArray> SearchModel::roleNames() const
 {
     return {
         {DelegateTypeRole, "delegateType"},
-        {DisplayRole, "display"},
         {AuthorRole, "author"},
         {ShowSectionRole, "showSection"},
         {SectionRole, "section"},
@@ -155,25 +150,15 @@ QHash<int, QByteArray> SearchModel::roleNames() const
         {ExcessReadMarkersRole, "excessReadMarkers"},
         {HighlightRole, "isHighlighted"},
         {ReadMarkersString, "readMarkersString"},
-        {PlainTextRole, "plainText"},
         {VerifiedRole, "verified"},
-        {ProgressInfoRole, "progressInfo"},
         {ShowReactionsRole, "showReactions"},
-        {IsReplyRole, "isReply"},
-        {ReplyAuthorRole, "replyAuthor"},
-        {ReplyIdRole, "replyId"},
-        {ReplyDelegateTypeRole, "replyDelegateType"},
-        {ReplyDisplayRole, "replyDisplay"},
-        {ReplyMediaInfoRole, "replyMediaInfo"},
         {ReactionRole, "reaction"},
         {ReadMarkersRole, "readMarkers"},
         {IsPendingRole, "isPending"},
         {ShowReadMarkersRole, "showReadMarkers"},
-        {MimeTypeRole, "mimeType"},
-        {ShowLinkPreviewRole, "showLinkPreview"},
-        {LinkPreviewRole, "linkPreview"},
         {IsThreadedRole, "isThreaded"},
         {ThreadRootRole, "threadRoot"},
+        {ContentModelRole, "contentModel"},
     };
 }
 
@@ -189,19 +174,6 @@ void SearchModel::setRoom(NeoChatRoom *room)
     }
     m_room = room;
     Q_EMIT roomChanged();
-
-    connect(m_room, &NeoChatRoom::replyLoaded, this, [this](const auto &eventId, const auto &replyId) {
-        Q_UNUSED(replyId);
-        const auto &results = m_result->results;
-        auto it = std::find_if(results.begin(), results.end(), [eventId](const auto &event) {
-            return event.result->id() == eventId;
-        });
-        if (it == results.end()) {
-            return;
-        }
-        auto row = it - results.begin();
-        Q_EMIT dataChanged(index(row, 0), index(row, 0), {ReplyDelegateTypeRole, ReplyDisplayRole, ReplyMediaInfoRole, ReplyAuthorRole});
-    });
 }
 
 bool SearchModel::searching() const

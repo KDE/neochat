@@ -40,7 +40,6 @@ public:
      */
     enum EventRoles {
         DelegateTypeRole = Qt::UserRole + 1, /**< The delegate type of the message. */
-        PlainText, /**< Plain text representation of the message. */
         EventIdRole, /**< The matrix event ID of the event. */
         TimeRole, /**< The timestamp for when the event was sent (as a QDateTime). */
         TimeStringRole, /**< The timestamp for when the event was sent as a string (in QLocale::ShortFormat). */
@@ -50,18 +49,9 @@ public:
         SpecialMarksRole, /**< Whether the event is hidden or not. */
         ProgressInfoRole, /**< Progress info when downloading files. */
         GenericDisplayRole, /**< A generic string based upon the message type. */
-
-        ShowLinkPreviewRole, /**< Whether a link preview should be shown. */
-        LinkPreviewRole, /**< The link preview details. */
-
         MediaInfoRole, /**< The media info for the event. */
 
-        IsReplyRole, /**< Is the message a reply to another event. */
-        ReplyAuthor, /**< The author of the event that was replied to. */
-        ReplyIdRole, /**< The matrix ID of the message that was replied to. */
-        ReplyDelegateTypeRole, /**< The delegate type of the message that was replied to. */
-        ReplyDisplayRole, /**< The body of the message that was replied to. */
-        ReplyMediaInfoRole, /**< The media info of the message that was replied to. */
+        ContentModelRole, /**< The MessageContentModel for the event. */
 
         IsThreadedRole,
         ThreadRootRole,
@@ -80,10 +70,6 @@ public:
         AuthorDisplayNameRole, /**< The displayname for the event's sender; for name change events, the old displayname. */
         IsRedactedRole, /**< Whether an event has been deleted. */
         IsPendingRole, /**< Whether an event is waiting to be accepted by the server. */
-        LatitudeRole, /**< Latitude for a location event. */
-        LongitudeRole, /**< Longitude for a location event. */
-        AssetRole, /**< Type of location event, e.g. self pin of the user location. */
-        PollHandlerRole, /**< The PollHandler for the event, if any. */
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)
@@ -135,7 +121,6 @@ private:
     bool movingEvent = false;
     KFormat m_format;
 
-    QMap<QString, QSharedPointer<LinkPreviewer>> m_linkPreviewers;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     [[nodiscard]] int timelineBaseIndex() const;

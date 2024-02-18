@@ -12,7 +12,6 @@
 #include <Quotient/quotient_common.h>
 #include <Quotient/syncdata.h>
 
-#include "enums/delegatetype.h"
 #include "linkpreviewer.h"
 #include "models/reactionmodel.h"
 #include "neochatroom.h"
@@ -37,9 +36,6 @@ private Q_SLOTS:
 
     void eventId();
     void nullEventId();
-    void delegateType_data();
-    void delegateType();
-    void nullDelegateType();
     void author();
     void nullAuthor();
     void authorDisplayName();
@@ -67,8 +63,6 @@ private Q_SLOTS:
     void nullHasReply();
     void replyId();
     void nullReplyId();
-    void replyDelegateType();
-    void nullReplyDelegateType();
     void replyAuthor();
     void nullReplyAuthor();
     void replyBody();
@@ -100,35 +94,6 @@ void EventHandlerTest::nullEventId()
     EventHandler noEventHandler(room, nullptr);
     QTest::ignoreMessage(QtWarningMsg, "getId called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getId(), QString());
-}
-
-void EventHandlerTest::delegateType_data()
-{
-    QTest::addColumn<int>("eventNum");
-    QTest::addColumn<DelegateType::Type>("delegateType");
-
-    QTest::newRow("message") << 0 << DelegateType::Message;
-    QTest::newRow("state") << 1 << DelegateType::State;
-    QTest::newRow("message 2") << 2 << DelegateType::Message;
-    QTest::newRow("reaction") << 3 << DelegateType::Other;
-    QTest::newRow("video") << 4 << DelegateType::Video;
-    QTest::newRow("location") << 7 << DelegateType::Location;
-}
-
-void EventHandlerTest::delegateType()
-{
-    QFETCH(int, eventNum);
-    QFETCH(DelegateType::Type, delegateType);
-
-    EventHandler eventHandler(room, room->messageEvents().at(eventNum).get());
-    QCOMPARE(eventHandler.getDelegateType(), delegateType);
-}
-
-void EventHandlerTest::nullDelegateType()
-{
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getDelegateType called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getDelegateType(), DelegateType::Other);
 }
 
 void EventHandlerTest::author()
@@ -407,25 +372,6 @@ void EventHandlerTest::nullReplyId()
     EventHandler noEventHandler(room, nullptr);
     QTest::ignoreMessage(QtWarningMsg, "getReplyId called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getReplyId(), QString());
-}
-
-void EventHandlerTest::replyDelegateType()
-{
-    EventHandler eventHandlerReply(room, room->messageEvents().at(5).get());
-    QCOMPARE(eventHandlerReply.getReplyDelegateType(), DelegateType::Message);
-
-    EventHandler eventHandlerNoReply(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoReply.getReplyDelegateType(), DelegateType::Other);
-}
-
-void EventHandlerTest::nullReplyDelegateType()
-{
-    QTest::ignoreMessage(QtWarningMsg, "getReplyDelegateType called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getReplyDelegateType(), DelegateType::Other);
-
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getReplyDelegateType called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReplyDelegateType(), DelegateType::Other);
 }
 
 void EventHandlerTest::replyAuthor()
