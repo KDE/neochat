@@ -118,7 +118,10 @@ Video {
             PropertyChanges {
                 target: playButton
                 icon.name: "media-playback-start"
-                onClicked: root.play()
+                onClicked: {
+                    MediaManager.startPlayback();
+                    root.play();
+                }
             }
         },
         State {
@@ -135,6 +138,15 @@ Video {
             }
         }
     ]
+
+    Connections {
+        target: MediaManager
+        function onPlaybackStarted() {
+            if (root.playbackState === MediaPlayer.PlayingState) {
+                root.pause();
+            }
+        }
+    }
 
     Image {
         id: mediaThumbnail
@@ -350,6 +362,7 @@ Video {
             if (root.playbackState == MediaPlayer.PlayingState) {
                 root.pause();
             } else {
+                MediaManager.startPlayback();
                 root.play();
             }
         } else {
@@ -375,6 +388,7 @@ Video {
 
     function playSavedFile() {
         root.stop();
+        MediaManager.startPlayback();
         root.play();
     }
 }

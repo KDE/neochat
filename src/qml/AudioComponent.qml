@@ -105,6 +105,7 @@ ColumnLayout {
                 icon.name: "media-playback-start"
                 onClicked: {
                     audio.source = root.fileTransferInfo.localPath;
+                    MediaManager.startPlayback();
                     audio.play();
                 }
             }
@@ -122,6 +123,15 @@ ColumnLayout {
             }
         }
     ]
+
+    Connections {
+        target: MediaManager
+        function onPlaybackStarted() {
+            if (audio.playbackState === MediaPlayer.PlayingState) {
+                audio.pause();
+            }
+        }
+    }
 
     RowLayout {
         QQC2.ToolButton {

@@ -161,6 +161,8 @@ add_library(neochat STATIC
     enums/neochatroomtype.h
     models/sortfilterroomtreemodel.cpp
     models/sortfilterroomtreemodel.h
+    mediamanager.cpp
+    mediamanager.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
