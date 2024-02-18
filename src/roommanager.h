@@ -92,7 +92,12 @@ class RoomManager : public QObject, public UriResolverBase
     /**
      * @brief The room ID of the last space entered.
      */
-    Q_PROPERTY(QString lastSpaceId READ lastSpaceId CONSTANT)
+    Q_PROPERTY(QString lastSpaceId READ lastSpaceId WRITE setLastSpaceId CONSTANT)
+
+    /**
+     * @brief Whether the last SpaceDrawer category selected was direct chats.
+     */
+    Q_PROPERTY(bool directChatsActive READ directChatsActive WRITE setDirectChatsActive CONSTANT)
 
     /**
      * @brief The ChatDocumentHandler for the open room.
@@ -200,7 +205,11 @@ public:
      */
     void setUrlArgument(const QString &arg);
 
-    QString lastSpaceId();
+    QString lastSpaceId() const;
+    void setLastSpaceId(const QString &lastSpaceId);
+
+    bool directChatsActive() const;
+    void setDirectChatsActive(bool directChatsActive);
 
     NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
@@ -334,6 +343,7 @@ private:
     KSharedConfig::Ptr m_config;
     KConfigGroup m_lastRoomConfig;
     KConfigGroup m_lastSpaceConfig;
+    KConfigGroup m_directChatsConfig;
     QPointer<ChatDocumentHandler> m_chatDocumentHandler;
 
     TimelineModel *m_timelineModel;

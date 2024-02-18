@@ -37,6 +37,7 @@ RoomManager::RoomManager(QObject *parent)
 {
     m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
     m_lastSpaceConfig = m_config->group(QStringLiteral("LastOpenSpace"));
+    m_directChatsConfig = m_config->group(QStringLiteral("DirectChatsActive"));
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_timelineModel->setRoom(m_currentRoom);
@@ -179,12 +180,46 @@ void RoomManager::loadInitialRoom()
     connect(this, &RoomManager::connectionChanged, this, &RoomManager::openRoomForActiveConnection);
 }
 
-QString RoomManager::lastSpaceId()
+QString RoomManager::lastSpaceId() const
 {
     if (!m_connection) {
         return {};
     }
     return m_lastSpaceConfig.readEntry(m_connection->userId(), QString());
+}
+
+void RoomManager::setLastSpaceId(const QString &lastSpaceId)
+{
+    if (!m_connection) {
+        return;
+    }
+
+    const auto currentLastSpaceId = m_lastSpaceConfig.readEntry(m_connection->userId(), QString());
+    if (lastSpaceId == currentLastSpaceId) {
+        return;
+    }
+    m_lastSpaceConfig.writeEntry(m_connection->userId(), lastSpaceId);
+}
+
+bool RoomManager::directChatsActive() const
+{
+    if (!m_connection) {
+        return {};
+    }
+    return m_directChatsConfig.readEntry(m_connection->userId(), bool());
+}
+
+void RoomManager::setDirectChatsActive(bool directChatsActive)
+{
+    if (!m_connection) {
+        return;
+    }
+
+    const auto currentDirectChatsActive = m_directChatsConfig.readEntry(m_connection->userId(), bool());
+    if (directChatsActive == currentDirectChatsActive) {
+        return;
+    }
+    m_directChatsConfig.writeEntry(m_connection->userId(), directChatsActive);
 }
 
 void RoomManager::openRoomForActiveConnection()

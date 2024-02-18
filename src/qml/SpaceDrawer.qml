@@ -30,7 +30,7 @@ QQC2.Control {
         }
     }
 
-    property bool showDirectChats: false
+    property bool showDirectChats: RoomManager.directChatsActive
 
     signal selectionChanged
     signal spacesUpdated
@@ -103,7 +103,9 @@ QQC2.Control {
                         checked: root.selectedSpaceId === "" && root.showDirectChats === false
                         onClicked: {
                             root.showDirectChats = false;
+                            RoomManager.directChatsActive = false;
                             root.selectedSpaceId = "";
+                            RoomManager.lastSpaceId = "";
                             root.selectionChanged();
                         }
                     }
@@ -123,7 +125,9 @@ QQC2.Control {
                         checked: root.showDirectChats === true
                         onClicked: {
                             root.showDirectChats = true;
+                            RoomManager.directChatsActive = true;
                             root.selectedSpaceId = "";
+                            RoomManager.lastSpaceId = "";
                             root.selectionChanged();
                         }
 
@@ -184,8 +188,11 @@ QQC2.Control {
 
                             onSelected: {
                                 root.showDirectChats = false;
+                                RoomManager.directChatsActive = false;
                                 if (!SpaceHierarchyCache.isSpaceChild(roomId, RoomManager.currentRoom.id) || root.selectedSpaceId == roomId) {
                                     RoomManager.resolveResource(currentRoom.id);
+                                } else {
+                                    RoomManager.lastSpaceId = currentRoom.id;
                                 }
                                 root.selectedSpaceId = roomId;
                                 root.selectionChanged();
