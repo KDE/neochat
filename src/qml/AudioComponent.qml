@@ -104,7 +104,7 @@ ColumnLayout {
                 target: playButton
                 icon.name: "media-playback-start"
                 onClicked: {
-                    audio.source = root.progressInfo.localPath;
+                    audio.source = root.fileTransferInfo.localPath;
                     audio.play()
                 }
             }
