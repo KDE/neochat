@@ -40,7 +40,7 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
         });
         connect(m_room, &NeoChatRoom::replyLoaded, this, [this](const QString &eventId, const QString &replyId) {
             Q_UNUSED(eventId)
-            if (m_event != nullptr && m_event != nullptr) {
+            if (m_event != nullptr && m_room != nullptr) {
                 const auto eventHandler = EventHandler(m_room, m_event);
                 if (replyId == eventHandler.getReplyId()) {
                     // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
@@ -51,22 +51,22 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
             }
         });
         connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
-            if (m_event != nullptr && m_event != nullptr && eventId == m_event->id()) {
+            if (m_event != nullptr && eventId == m_event->id()) {
                 Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
-            if (m_event != nullptr && m_event != nullptr && eventId == m_event->id()) {
+            if (m_event != nullptr && eventId == m_event->id()) {
                 Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
-            if (m_event != nullptr && m_event != nullptr && eventId == m_event->id()) {
+            if (m_event != nullptr && eventId == m_event->id()) {
                 Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
-            if (m_event != nullptr && m_event != nullptr && eventId == m_event->id()) {
+            if (m_event != nullptr && eventId == m_event->id()) {
                 Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
             }
         });
