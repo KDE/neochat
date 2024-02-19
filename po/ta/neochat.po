@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2023-12-17 16:40+0530\n"
+"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"PO-Revision-Date: 2024-02-18 16:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,11 +15,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/controller.cpp:121 src/controller.cpp:311
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgid "Receiving push notifications"
 msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
 
@@ -64,356 +63,357 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
 
-#: src/eventhandler.cpp:304 src/eventhandler.cpp:508
-#: src/models/messageeventmodel.cpp:489
+#: src/eventhandler.cpp:257 src/eventhandler.cpp:461
+#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது]</i>"
 
-#: src/eventhandler.cpp:304 src/models/messageeventmodel.cpp:490
+#: src/eventhandler.cpp:257 src/models/messagecontentmodel.cpp:119
+#: src/models/messageeventmodel.cpp:464
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது: %1]</i>"
 
-#: src/eventhandler.cpp:334
+#: src/eventhandler.cpp:287
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 என்பவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
 
-#: src/eventhandler.cpp:336
+#: src/eventhandler.cpp:289
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:345 src/eventhandler.cpp:532
+#: src/eventhandler.cpp:298 src/eventhandler.cpp:485
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "அரங்கில் சேர்ந்தார் (மறுபடியும்)"
 
-#: src/eventhandler.cpp:347
+#: src/eventhandler.cpp:300
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 என்பவரை அரங்குக்கு வரவழைத்தார்"
 
-#: src/eventhandler.cpp:347 src/eventhandler.cpp:534
+#: src/eventhandler.cpp:300 src/eventhandler.cpp:487
 #, kde-format
 msgid "joined the room"
 msgstr "அரங்கில் சேர்ந்தார்"
 
-#: src/eventhandler.cpp:351
+#: src/eventhandler.cpp:304
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:358 src/eventhandler.cpp:542
+#: src/eventhandler.cpp:311 src/eventhandler.cpp:495
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "அவருடைய காட்டப்படும் பெயரை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:361
+#: src/eventhandler.cpp:314
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:320 src/eventhandler.cpp:502
 #, kde-format
 msgid " and "
 msgstr " மற்றும் "
 
-#: src/eventhandler.cpp:370 src/eventhandler.cpp:552
+#: src/eventhandler.cpp:323 src/eventhandler.cpp:505
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "அவருடைய சின்னத்தை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:372 src/eventhandler.cpp:554
+#: src/eventhandler.cpp:325 src/eventhandler.cpp:507
 #, kde-format
 msgid "set an avatar"
 msgstr "ஒரு சின்னத்தை அமைத்தார்"
 
-#: src/eventhandler.cpp:374 src/eventhandler.cpp:556
+#: src/eventhandler.cpp:327 src/eventhandler.cpp:509
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "அவருடைய சின்னத்தை மாற்றினார்"
 
-#: src/eventhandler.cpp:378 src/eventhandler.cpp:560
+#: src/eventhandler.cpp:331 src/eventhandler.cpp:513
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "எதையும் மாற்றவில்லை"
 
-#: src/eventhandler.cpp:384
+#: src/eventhandler.cpp:337
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "%1 என்பவருக்கான அழைப்பை திரும்பப்பெற்றார்"
 
-#: src/eventhandler.cpp:384 src/eventhandler.cpp:566
+#: src/eventhandler.cpp:337 src/eventhandler.cpp:519
 #, kde-format
 msgid "rejected the invitation"
 msgstr "அழைப்பை மறுத்தார்"
 
-#: src/eventhandler.cpp:388
+#: src/eventhandler.cpp:341
 #, kde-format
 msgid "unbanned %1"
 msgstr "%1 மீதான தடையை நீக்கினார்"
 
-#: src/eventhandler.cpp:388 src/eventhandler.cpp:570
+#: src/eventhandler.cpp:341 src/eventhandler.cpp:523
 #, kde-format
 msgid "self-unbanned"
 msgstr "தன்மேல் உள்ள தடையை நீக்கினார்"
 
-#: src/eventhandler.cpp:391
+#: src/eventhandler.cpp:344
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்: %2"
 
-#: src/eventhandler.cpp:392 src/eventhandler.cpp:572
+#: src/eventhandler.cpp:345 src/eventhandler.cpp:525
 #, kde-format
 msgid "left the room"
 msgstr "அரங்கைவிட்டு வெளியேறினார்"
 
-#: src/eventhandler.cpp:396
+#: src/eventhandler.cpp:349
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/eventhandler.cpp:398
+#: src/eventhandler.cpp:351
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்: %2"
 
-#: src/eventhandler.cpp:401 src/eventhandler.cpp:577
+#: src/eventhandler.cpp:354 src/eventhandler.cpp:530
 #, kde-format
 msgid "self-banned from the room"
 msgstr "தன்னை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/eventhandler.cpp:405 src/eventhandler.cpp:580
+#: src/eventhandler.cpp:358 src/eventhandler.cpp:533
 #, kde-format
 msgid "requested an invite"
 msgstr "வரவழைப்பு கோரினார்"
 
-#: src/eventhandler.cpp:405
+#: src/eventhandler.cpp:358
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "இக்காரணங்காட்டி வரவழைப்பு கோரினார்: %1"
 
-#: src/eventhandler.cpp:409 src/eventhandler.cpp:584
+#: src/eventhandler.cpp:362 src/eventhandler.cpp:537
 #, kde-format
 msgid "made something unknown"
 msgstr "எதையோ தெரியாதவாறு செய்தார்"
 
-#: src/eventhandler.cpp:412 src/eventhandler.cpp:587
+#: src/eventhandler.cpp:365 src/eventhandler.cpp:540
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "அரங்கின் பிரதான மாற்றுப்பெயரை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:412
+#: src/eventhandler.cpp:365
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "அரங்கின் மாற்றுப்பெயரை %1 என்று அமைத்தார்"
 
-#: src/eventhandler.cpp:415 src/eventhandler.cpp:590
+#: src/eventhandler.cpp:368 src/eventhandler.cpp:543
 #, kde-format
 msgid "cleared the room name"
 msgstr "அரங்கின் பெயரை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:415
+#: src/eventhandler.cpp:368
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "அரங்கின் பெயரை %1 என்று அமைத்தார்"
 
-#: src/eventhandler.cpp:418 src/eventhandler.cpp:593
+#: src/eventhandler.cpp:371 src/eventhandler.cpp:546
 #, kde-format
 msgid "cleared the topic"
 msgstr "தலைப்பை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:419
+#: src/eventhandler.cpp:372
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "தலைப்பை %1 என்று அமைத்தார்"
 
-#: src/eventhandler.cpp:425 src/eventhandler.cpp:596
+#: src/eventhandler.cpp:378 src/eventhandler.cpp:549
 #, kde-format
 msgid "changed the room avatar"
 msgstr "அரங்கின் சின்னத்தை மாற்றினார்"
 
-#: src/eventhandler.cpp:428 src/eventhandler.cpp:599
+#: src/eventhandler.cpp:381 src/eventhandler.cpp:552
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "தொடக்கத்திலிருந்து முடிவுவரை மறையாக்கம் பயன்படுத்தப்படுவதை இயக்கியுள்ளார்"
 
-#: src/eventhandler.cpp:432
+#: src/eventhandler.cpp:385
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "அரங்கை %1 பதிப்புக்கு மேம்படுத்தினார்"
 
-#: src/eventhandler.cpp:433
+#: src/eventhandler.cpp:386
 #, kde-format
 msgid "created the room, version %1"
 msgstr "அரங்கை உருவாக்கினார், பதிப்பு %1"
 
-#: src/eventhandler.cpp:436 src/eventhandler.cpp:605
+#: src/eventhandler.cpp:389 src/eventhandler.cpp:558
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "இந்த அரங்கிற்கான அனுமதிகளை மாற்றினார்"
 
-#: src/eventhandler.cpp:442 src/eventhandler.cpp:611
+#: src/eventhandler.cpp:395 src/eventhandler.cpp:564
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "இந்த அரங்கிற்கான சேவையக அணுகல் கட்டுப்பாட்டு பட்டியலை மாற்றியுள்ளார்"
 
-#: src/eventhandler.cpp:446
+#: src/eventhandler.cpp:399
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "%1 பலகையை சேர்த்தார்"
 
-#: src/eventhandler.cpp:449
+#: src/eventhandler.cpp:402
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "%1 பலகையை நீக்கினார்"
 
-#: src/eventhandler.cpp:451
+#: src/eventhandler.cpp:404
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "%1 பலகையை அமைத்தார்"
 
-#: src/eventhandler.cpp:454
+#: src/eventhandler.cpp:407
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 நிலையை புதுப்பித்தார்"
 
-#: src/eventhandler.cpp:455
+#: src/eventhandler.cpp:408
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2 என்பதற்கு %1 நிலையை புதுப்பித்தார்"
 
-#: src/eventhandler.cpp:460 src/eventhandler.cpp:629
+#: src/eventhandler.cpp:413 src/eventhandler.cpp:582
 #, kde-format
 msgid "Unknown event"
 msgstr "தெரியாத நிகழ்வு"
 
-#: src/eventhandler.cpp:475
+#: src/eventhandler.cpp:428
 #, kde-format
 msgid "a file"
 msgstr "ஒரு கோப்பு"
 
-#: src/eventhandler.cpp:515
+#: src/eventhandler.cpp:468
 #, kde-format
 msgid "sent a message"
 msgstr "செய்தியை அனுப்பினார்"
 
-#: src/eventhandler.cpp:519
+#: src/eventhandler.cpp:472
 #, kde-format
 msgid "sent a sticker"
 msgstr "ஒட்டியை அனுப்பினார்"
 
-#: src/eventhandler.cpp:525
+#: src/eventhandler.cpp:478
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "ஒருவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
 
-#: src/eventhandler.cpp:534
+#: src/eventhandler.cpp:487
 #, kde-format
 msgid "invited someone to the room"
 msgstr "எவரையே அரங்குக்கு வரவழைத்தார்"
 
-#: src/eventhandler.cpp:544
+#: src/eventhandler.cpp:497
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "தன் காட்சிப்பெயரை மாற்றினார்"
 
-#: src/eventhandler.cpp:566
+#: src/eventhandler.cpp:519
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "ஒருவருக்கு விடுத்த வரவழைப்பை திரும்பப்பெற்றார்"
 
-#: src/eventhandler.cpp:570
+#: src/eventhandler.cpp:523
 #, kde-format
 msgid "unbanned a user"
 msgstr "ஒருவர் மீதான தடையை நீக்கினார்"
 
-#: src/eventhandler.cpp:572
+#: src/eventhandler.cpp:525
 #, kde-format
 msgid "put a user out of the room"
 msgstr "ஒருவரை அரங்குகிலிருந்து வெளியே அனுப்பினார்"
 
-#: src/eventhandler.cpp:575
+#: src/eventhandler.cpp:528
 #, kde-format
 msgid "banned a user from the room"
 msgstr "ஒருவரை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/eventhandler.cpp:587
+#: src/eventhandler.cpp:540
 #, kde-format
 msgid "set the room main alias"
 msgstr "அரங்கின் மாற்றுப்பெயரை அமைத்தார்"
 
-#: src/eventhandler.cpp:590
+#: src/eventhandler.cpp:543
 #, kde-format
 msgid "set the room name"
 msgstr "அரங்கின் பெயரை அமைத்தார்"
 
-#: src/eventhandler.cpp:593
+#: src/eventhandler.cpp:546
 #, kde-format
 msgid "set the topic"
 msgstr "தலைப்பை அமைத்தார்"
 
-#: src/eventhandler.cpp:602
+#: src/eventhandler.cpp:555
 #, kde-format
 msgid "upgraded the room version"
 msgstr "அரங்கின் பதிப்பை மேம்படுத்தினார்"
 
-#: src/eventhandler.cpp:602
+#: src/eventhandler.cpp:555
 #, kde-format
 msgid "created the room"
 msgstr "அரங்கை உருவாக்கினார்"
 
-#: src/eventhandler.cpp:608
+#: src/eventhandler.cpp:561
 #, kde-format
 msgid "sent a live location beacon"
-msgstr ""
+msgstr "நேரலை இருப்பிடக் குறியை அனுப்பினார்"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:568
 #, kde-format
 msgid "added a widget"
 msgstr "ஓர் உட்பொதிநிரலை சேர்த்தார்"
 
-#: src/eventhandler.cpp:618
+#: src/eventhandler.cpp:571
 #, kde-format
 msgid "removed a widget"
 msgstr "ஓர் உட்பொதிநிரலை நீக்கினார்"
 
-#: src/eventhandler.cpp:620
+#: src/eventhandler.cpp:573
 #, kde-format
 msgid "configured a widget"
 msgstr "ஓர் உட்பொதிநிரல் மாற்றியமைத்தார்"
 
-#: src/eventhandler.cpp:623
+#: src/eventhandler.cpp:576
 #, kde-format
 msgid "updated the state"
 msgstr "நிலையை புதுப்பித்தார்"
 
-#: src/eventhandler.cpp:627
+#: src/eventhandler.cpp:580
 #, kde-format
 msgid "started a poll"
 msgstr "கருத்தாய்வை துவக்கினார்"
 
-#: src/eventhandler.cpp:1035
+#: src/eventhandler.cpp:988
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 பயனர்: "
 msgstr[1] "%1 பயனர்கள்: "
 
-#: src/eventhandler.cpp:1038
+#: src/eventhandler.cpp:991
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -464,10 +464,9 @@ msgid "Matrix client"
 msgstr "Matrix வாங்கி"
 
 #: src/main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020 பிளாக் ஹாட், 2020-2023 கே.டீ.யீ. சமூகம்"
+msgstr "© 2018-2020 பிளாக் ஹாட், 2020-2024 கே.டீ.யீ. சமூகம்"
 
 #: src/main.cpp:134
 #, kde-format
@@ -1085,62 +1084,62 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 %3 என்று எதிர்வினையிட்டார்"
 msgstr[1] "%2 %3 என்று எதிர்வினையிட்டனர்"
 
-#: src/models/roomlistmodel.cpp:413
+#: src/models/roomlistmodel.cpp:410
 #, kde-format
 msgid "Invited"
 msgstr "வரவழைப்புகள்"
 
-#: src/models/roomlistmodel.cpp:415
+#: src/models/roomlistmodel.cpp:412
 #, kde-format
 msgid "Favorite"
 msgstr "பிடித்தவை"
 
-#: src/models/roomlistmodel.cpp:417 src/qml/UserSearchPage.qml:82
+#: src/models/roomlistmodel.cpp:414 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
-msgstr ""
+msgstr "நண்பர்கள்"
 
-#: src/models/roomlistmodel.cpp:419
+#: src/models/roomlistmodel.cpp:416
 #, kde-format
 msgid "Normal"
 msgstr "சாதாரணமானவை"
 
-#: src/models/roomlistmodel.cpp:421
+#: src/models/roomlistmodel.cpp:418
 #, kde-format
 msgid "Low priority"
 msgstr "முக்கியமில்லாதவை"
 
-#: src/models/roomlistmodel.cpp:423
+#: src/models/roomlistmodel.cpp:420
 #, kde-format
 msgid "Spaces"
 msgstr "இடங்கள்"
 
-#: src/neochatconnection.cpp:69
+#: src/neochatconnection.cpp:71
 #, kde-format
 msgid "File too large to download."
 msgstr "கோப்பு பெரிதாக இருப்பதால் பதிவிறக்க முடியாது."
 
-#: src/neochatconnection.cpp:69
+#: src/neochatconnection.cpp:71
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக நிர்வாகியை தொடர்புகொள்ளுங்கள்."
 
-#: src/neochatconnection.cpp:240
+#: src/neochatconnection.cpp:257
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatconnection.cpp:272
+#: src/neochatconnection.cpp:289
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1568 src/neochatroom.cpp:1569
+#: src/neochatroom.cpp:1587 src/neochatroom.cpp:1588
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1843 src/neochatroom.cpp:1851
+#: src/neochatroom.cpp:1862 src/neochatroom.cpp:1870
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1714,8 +1713,8 @@ msgstr "அரங்கிலிருந்து வெளியேறு"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:62
 #: src/qml/ExploreComponent.qml:64 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:218
-#: src/qml/SpaceDrawer.qml:220
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:314
+#: src/qml/SpaceDrawer.qml:316
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1802,13 +1801,13 @@ msgstr "சேர்ந்தவை"
 #: src/qml/CreateRoomDialog.qml:218
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
-msgstr ""
+msgstr "சார்ந்ததில் இந்நிலையை அமைக்கும் உரிமை உங்களிடம் உள்ளது"
 
 #: src/qml/CreateRoomDialog.qml:218
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
-msgstr ""
+msgstr "சார்ந்ததில் இந்நிலையை அமைக்கும் உரிமை உங்களிடம் இல்லை"
 
 #: src/qml/CreateRoomDialog.qml:235
 #, kde-format
@@ -2089,7 +2088,7 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "ஒட்டிகளும் முகவடிகளும்"
 
-#: src/qml/EncryptedDelegate.qml:20 src/qml/ReplyComponent.qml:191
+#: src/qml/EncryptedComponent.qml:21 src/qml/ReplyComponent.qml:193
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -2108,7 +2107,7 @@ msgstr "அரங்குப்பட்டியலில் உலாவு�
 #: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:319
 #, kde-format
 msgid "Find your friends"
-msgstr ""
+msgstr "நண்பர்களைக் கண்டுபிடி"
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:73
 #: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:198
@@ -2116,7 +2115,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
-msgstr ""
+msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
 
 #: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
@@ -2128,7 +2127,7 @@ msgstr "அரங்கை உருவாக்கு"
 msgid "Create a Space"
 msgstr "இடத்தை உருவாக்கு"
 
-#: src/qml/ExploreComponent.qml:85 src/qml/ExploreComponent.qml:146
+#: src/qml/ExploreComponent.qml:90 src/qml/ExploreComponent.qml:151
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"
@@ -2144,11 +2143,10 @@ msgid "Create New"
 msgstr "புதியதை உருவாக்கு"
 
 #: src/qml/ExploreRoomsPage.qml:46
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
-msgstr "அரங்குகளை உலாவு"
+msgstr "அரங்குப்பட்டியலில் உலாவுங்கள்"
 
 #: src/qml/ExploreRoomsPage.qml:73
 #, kde-format
@@ -2156,10 +2154,9 @@ msgid "Enter a room address"
 msgstr "அரங்கின் முகவரியை உள்ளிடுக"
 
 #: src/qml/ExploreRoomsPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Find a room..."
+#, kde-format
 msgid "Find a room…"
-msgstr "அரங்கைத் தேடு..."
+msgstr "அரங்கைத் தேடு…"
 
 #: src/qml/ExploreRoomsPage.qml:88
 #, kde-format
@@ -2167,14 +2164,14 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "பொது அரங்குகள் கிடைக்கவில்லை"
 
-#: src/qml/FileDelegate.qml:83 src/qml/FileDelegate.qml:174
+#: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "பதிவிறக்கு"
 
-#: src/qml/FileDelegate.qml:99 src/qml/FileDelegate.qml:165
+#: src/qml/FileComponent.qml:125 src/qml/FileComponent.qml:191
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2182,33 +2179,31 @@ msgctxt ""
 msgid "Open File"
 msgstr "கோப்பை திற"
 
-#: src/qml/FileDelegate.qml:114
+#: src/qml/FileComponent.qml:140
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/FileDelegate.qml:119
+#: src/qml/FileComponent.qml:145
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "பதிவிறக்கத்தை நிறுத்து"
 
-#: src/qml/FileDelegate.qml:216
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
+#: src/qml/FileComponent.qml:242
+#, kde-format
 msgid "Coach: %1, Seat: %2"
-msgstr "அட்ச: %1, தீர்க்க: %2"
+msgstr "பெட்டி: %1, இருக்கை: %2"
 
-#: src/qml/FileDelegate.qml:258
+#: src/qml/FileComponent.qml:284
 #, kde-format
 msgctxt "<start time> - <end time>"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
-#: src/qml/FileDelegate.qml:269
+#: src/qml/FileComponent.qml:295
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
@@ -2550,7 +2545,7 @@ msgstr "கோப்பு"
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
-msgstr ""
+msgstr "நண்பர்களைக் கண்டுபிடி"
 
 #: src/qml/GlobalMenu.qml:59
 #, kde-format
@@ -2842,17 +2837,23 @@ msgstr "**%1** சாதனம் வெற்றிகரமாக உறுத
 msgid "Decline"
 msgstr "நிராகரி"
 
-#: src/qml/LinkPreviewDelegate.qml:113
+#: src/qml/LinkPreviewComponent.qml:121
 #, kde-format
 msgid "Shrink preview"
 msgstr "முன்னோட்டத்தை சிறிதாக்கு"
 
-#: src/qml/LinkPreviewDelegate.qml:113
+#: src/qml/LinkPreviewComponent.qml:121
 #, kde-format
 msgid "Expand preview"
 msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 
-#: src/qml/LinkPreviewDelegate.qml:144
+#: src/qml/LoadComponent.qml:53
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgid "Loading reply"
+msgstr "ஏற்றப்படுகிறது…"
+
+#: src/qml/LoadComponent.qml:55
 #, kde-format
 msgid "Loading URL preview"
 msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
@@ -2991,28 +2992,25 @@ msgid "The input is not a valid room ID or alias"
 msgstr "உள்ளிட்ட உரை ஓர் முறையான அரங்கடையாளமோ மாற்றுப்பெயரோ இல்லை"
 
 #: src/qml/ManualUserDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgctxt "@title"
 msgid "User ID"
-msgstr "பயனர்"
+msgstr "பயனர் அடையாளம்"
 
 #: src/qml/ManualUserDialog.qml:53
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgid "User ID:"
-msgstr "பயனர்"
+msgstr "பயனர் அடையாளம்:"
 
 #: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
 #, kde-format
 msgid "User IDs Must start with @"
-msgstr ""
+msgstr "பயனர் அடையாளம் @ என்று தொடங்க வேண்டும்"
 
 #: src/qml/ManualUserDialog.qml:62
-#, fuzzy, kde-format
-#| msgid "The input is not a valid room ID or alias"
+#, kde-format
 msgid "The input is not a valid user ID"
-msgstr "உள்ளிட்ட உரை ஓர் முறையான அரங்கடையாளமோ மாற்றுப்பெயரோ இல்லை"
+msgstr "உள்ளிட்டது முறையான பயனர் அடையாளம் இல்லை"
 
 #: src/qml/MessageDelegateContextMenu.qml:110
 #, kde-format
@@ -3041,13 +3039,13 @@ msgstr "'%1' என்பதை தேடு"
 msgid "Configure Web Shortcuts..."
 msgstr "இணைய சுருக்குவழிகளை அமை..."
 
-#: src/qml/MessageEditComponent.qml:87
+#: src/qml/MessageEditComponent.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "திருத்தத்தை உறுதிசெய்"
 
-#: src/qml/MessageEditComponent.qml:99
+#: src/qml/MessageEditComponent.qml:114
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -3314,14 +3312,14 @@ msgstr "இவ்விடத்தில் சார்ந்த அரங்�
 msgid "Set the parent space of this room"
 msgstr "இவ்வரங்கின் தாய் இடத்தை அமைப்பது"
 
-#: src/qml/PollDelegate.qml:57
+#: src/qml/PollComponent.qml:73
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "%1 பயனரின் வாக்கின் அடிப்படையில்"
 msgstr[1] "%1 பயனர்களின் வாக்குகளின் அடிப்படையில்"
 
-#: src/qml/PollDelegate.qml:57
+#: src/qml/PollComponent.qml:73
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -3383,6 +3381,27 @@ msgstr "இணைப்பை நுழை"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "கடைசியாக படித்தது: %1"
+
+#: src/qml/RecommendedSpaceDialog.qml:26
+#, fuzzy, kde-format
+#| msgid "Join"
+msgctxt "@title Join <name of a space>"
+msgid "Join %1"
+msgstr "சேர்"
+
+#: src/qml/RecommendedSpaceDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Join"
+msgctxt "@action:button"
+msgid "Join"
+msgstr "சேர்"
+
+#: src/qml/RecommendedSpaceDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "Ignore"
+msgctxt "@action:button"
+msgid "Ignore"
+msgstr "பொருட்படுத்தாதே"
 
 #: src/qml/RegisterPassword.qml:30
 #, kde-format
@@ -3592,10 +3611,9 @@ msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
 
 #: src/qml/RoomListPage.qml:168
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "No friends found"
-msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
+msgstr "நண்பர்கள் யாரும் கிடைக்கவில்லை"
 
 #: src/qml/RoomListPage.qml:168
 #, kde-format
@@ -3607,6 +3625,7 @@ msgstr "எந்த அரங்குகளும் கிடைக்கவ�
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
+"உங்கள் நண்பர்களை நீங்கள் இன்னம் சேர்க்கவில்லை. அவர்களைக் கண்டுபிடிக்க கீழே கிளிக் செய்யவும்."
 
 #: src/qml/RoomListPage.qml:170
 #, kde-format
@@ -3619,10 +3638,9 @@ msgid "Search in room directory"
 msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
 
 #: src/qml/RoomListPage.qml:194
-#, fuzzy, kde-format
-#| msgid "Search in room directory"
+#, kde-format
 msgid "Search in friend directory"
-msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
+msgstr "நண்பர்களின் பட்டியலில் தேடுங்கள்"
 
 #: src/qml/RoomListPage.qml:255
 #, kde-format
@@ -3659,20 +3677,17 @@ msgid "Search Messages"
 msgstr "செய்திகளில் தேடு"
 
 #: src/qml/RoomSearchPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "Find messages…"
-msgstr "செய்தியை அனுப்பு…"
+msgstr "செய்திகளைக் கண்டுபிடி"
 
 #: src/qml/RoomSearchPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Enter a text to start searching"
+#, kde-format
 msgid "Enter text to start searching"
-msgstr "தேடுவதற்கான உரையை உள்ளிடுங்கள்"
+msgstr "தேடுவதற்கான உரையை உள்ளிடவும்"
 
 #: src/qml/RoomSearchPage.qml:38
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgid "No messages found"
 msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
 
@@ -4096,17 +4111,23 @@ msgstr "அறிவிப்புகளைக் காட்டு"
 #: src/qml/SpaceDrawer.qml:98
 #, kde-format
 msgid "Home"
-msgstr ""
+msgstr "முகப்பு"
 
-#: src/qml/SpaceDrawer.qml:118
+#: src/qml/SpaceDrawer.qml:146
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
-msgstr ""
+msgstr "நண்பர்கள்"
 
-#: src/qml/SpaceDrawer.qml:211
+#: src/qml/SpaceDrawer.qml:265
 #, fuzzy, kde-format
-#| msgid "Create a Space"
+#| msgid "Join"
+msgctxt "Join <name of a space>"
+msgid "Join %1"
+msgstr "சேர்"
+
+#: src/qml/SpaceDrawer.qml:307
+#, kde-format
 msgid "Create a space"
 msgstr "இடத்தை உருவாக்கு"
 
@@ -4313,13 +4334,12 @@ msgstr "செய்திகளை நீக்குவது"
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
-msgstr ""
+msgstr "%1 உடன் உரையாடு"
 
 #: src/qml/UserDetailDialog.qml:224
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Invite to private chat"
-msgstr "தனிப்பட்ட உரையாடலைத் துவக்கு"
+msgstr "தனிப்பட்ட உரையாடலுக்கு அழை"
 
 #: src/qml/UserDetailDialog.qml:235
 #, kde-format
@@ -4361,31 +4381,28 @@ msgstr "இப்பெயர் கிடைக்கவில்லை"
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
-msgstr ""
+msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
 
 #: src/qml/UserSearchPage.qml:44
-#, fuzzy, kde-format
-#| msgid "Enter your Matrix ID"
+#, kde-format
 msgid "Enter a user ID"
-msgstr "உங்கள் Matrix கணக்கின் பெயரை உள்ளிடுங்கள்"
+msgstr "பயனர் அடையாளத்தை உள்ளிடவும்"
 
 #: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
-msgstr ""
+msgstr "உங்கள் நண்பர்களைக் கண்டுபிடியுங்கள்…"
 
 #: src/qml/UserSearchPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Enter a text to start searching"
+#, kde-format
 msgid "Enter text to start searching for your friends"
-msgstr "தேடுவதற்கான உரையை உள்ளிடுங்கள்"
+msgstr "நண்பர்களைத் தேடுவதற்கு எதையாவது உள்ளிடுங்கள்"
 
 #: src/qml/UserSearchPage.qml:91
-#, fuzzy, kde-format
-#| msgid "No results found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
-msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
+msgstr "யாரும் கண்டுபிடிக்கப்படவில்லை"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
@@ -4540,18 +4557,18 @@ msgstr "சாவிகள் பொருந்தாமையால் தொ�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "தெரியாத சிக்கலால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VideoDelegate.qml:141
+#: src/qml/VideoComponent.qml:155
 #, kde-format
 msgid "Video"
 msgstr "ஒளிக்காட்சி"
 
-#: src/qml/VideoDelegate.qml:205
+#: src/qml/VideoComponent.qml:219
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "ஒலியளவு"
 
-#: src/qml/VideoDelegate.qml:289
+#: src/qml/VideoComponent.qml:303
 #, kde-format
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
@@ -4579,11 +4596,10 @@ msgid "%1 (loading)"
 msgstr "%1 (ஏற்றப்படுகிறது)"
 
 #: src/qml/WelcomePage.qml:94
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
-msgstr "இந்தக் கணக்கைத் திருத்து"
+msgstr "இந்தக் கணக்கை நீக்கு"
 
 #: src/qml/WelcomePage.qml:123
 #, kde-format
@@ -4642,55 +4658,55 @@ msgstr "தொடர்"
 msgid "Working"
 msgstr "வேலை செய்கிறது"
 
-#: src/roommanager.cpp:84
+#: src/roommanager.cpp:86
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "செல்லுபடியாகாத அல்லது காலியான Matrix கணக்குப்பெயர்"
 
-#: src/roommanager.cpp:84
+#: src/roommanager.cpp:86
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ஒரு முறையான Matrix கணக்குப்பெயர் அல்ல"
 
-#: src/roommanager.cpp:100
+#: src/roommanager.cpp:102
 #, kde-format
 msgid "Room not found"
 msgstr "அரங்கு கண்டுபிடிக்கப்படவில்லை"
 
-#: src/roommanager.cpp:100
+#: src/roommanager.cpp:102
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 "அரங்குகளின் பட்டியலில் %1 என்று எந்த அரங்கும் இல்லை. எழுத்தாக்கம் மற்றும் கணக்கை சரிபாருங்கள்."
 
-#: src/roommanager.cpp:290
+#: src/roommanager.cpp:331
 #, kde-format
 msgid "Failed to join room"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:305
+#: src/roommanager.cpp:346
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/roommanager.cpp:308
+#: src/roommanager.cpp:349
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:317
+#: src/roommanager.cpp:358
 #, kde-format
 msgid "No application for the link"
 msgstr "இணைப்புக்கேற்ற செயலி இல்லை"
 
-#: src/roommanager.cpp:317
+#: src/roommanager.cpp:358
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "இந்த இணைப்பைத் திறக்கக் கூடிய செயலியை உங்கள் இயக்குதளத்தால் கண்டுபிடிக்க முடியவில்லை."
 
-#: src/roommanager.cpp:323
+#: src/roommanager.cpp:364
 #, kde-format
 msgid "Could not open URL"
 msgstr "முகவரியைத் திறக்க முடியவில்லை"
@@ -4776,9 +4792,6 @@ msgstr "வெளியேறு"
 
 #~ msgid "View"
 #~ msgstr "பார்"
-
-#~ msgid "Join"
-#~ msgstr "சேர்"
 
 #~ msgid "No Topic"
 #~ msgstr "தலைப்பு இல்லை"
@@ -5025,9 +5038,6 @@ msgstr "வெளியேறு"
 
 #~ msgid "Add to dictionary"
 #~ msgstr "அகரமுதலியில் சேர்"
-
-#~ msgid "Ignore"
-#~ msgstr "பொருட்படுத்தாதே"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Undo"
