@@ -10,6 +10,7 @@
 #include <KSharedConfig>
 
 #include "neochatroom.h"
+#include "neochatroomtype.h"
 #include "roomlistmodel.h"
 
 using namespace Quotient;
@@ -120,7 +121,7 @@ qsizetype SpaceHierarchyCache::notificationCountForSpace(const QString &spaceId)
 
     for (const auto &childId : children) {
         if (const auto child = static_cast<NeoChatRoom *>(m_connection->room(childId))) {
-            auto category = RoomListModel::category(child);
+            auto category = NeoChatRoomType::typeForRoom(child);
             if (!added.contains(child->id()) && child->successorId().isEmpty()) {
                 switch (category) {
                 case NeoChatRoomType::Normal:

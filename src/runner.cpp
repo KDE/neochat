@@ -5,7 +5,9 @@
 
 #include <QDBusMetaType>
 
+#include "controller.h"
 #include "neochatroom.h"
+#include "roomlistmodel.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
 
@@ -27,6 +29,12 @@ RemoteImage Runner::serializeImage(const QImage &image)
 Runner::Runner()
     : QObject()
 {
+    m_sourceModel = new RoomListModel(this);
+    m_model.setSourceModel(m_sourceModel);
+    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
+        m_sourceModel->setConnection(Controller::instance().activeConnection());
+    });
+
     qDBusRegisterMetaType<RemoteMatch>();
     qDBusRegisterMetaType<RemoteMatches>();
     qDBusRegisterMetaType<RemoteAction>();

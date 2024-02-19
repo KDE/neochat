@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQml.Models
+import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
@@ -24,50 +25,41 @@ Kirigami.Page {
      * @note Other objects can access the value but the private function makes sure
      *       that only the internal members can modify it.
      */
-    readonly property int currentWidth: _private.currentWidth + spaceListWidth
+    readonly property int currentWidth: _private.currentWidth + spaceListWidth + 1
     readonly property alias spaceListWidth: spaceDrawer.width
 
     required property NeoChatConnection connection
 
-    readonly property RoomListModel roomListModel: RoomListModel {
+    readonly property RoomTreeModel roomTreeModel: RoomTreeModel {
         connection: root.connection
     }
-    property bool spaceChanging: false
+    property bool spaceChanging: true
 
     readonly property bool collapsed: Config.collapsed
 
-    property var enteredRoom: null
-
-    onCollapsedChanged: if (collapsed) {
-        sortFilterRoomListModel.filterText = "";
-    }
-
-    Component.onCompleted: Runner.roomListModel = root.roomListModel
-
-    Connections {
-        target: RoomManager
-        function onCurrentRoomChanged() {
-            itemSelection.setCurrentIndex(roomListModel.index(roomListModel.rowForRoom(RoomManager.currentRoom), 0), ItemSelectionModel.SelectCurrent);
+    onCollapsedChanged: {
+        if (collapsed) {
+            sortFilterRoomTreeModel.filterText = "";
         }
     }
 
     function goToNextRoomFiltered(condition) {
-        let index = listView.currentIndex;
-        while (index++ !== listView.count - 1) {
-            if (condition(listView.itemAtIndex(index))) {
-                listView.currentIndex = index;
-                listView.currentItem.clicked();
+        let index = treeView.currentIndex;
+        while (index++ !== treeView.count - 1) {
+            if (condition(treeView.itemAtIndex(index))) {
+                treeView.currentIndex = index;
+                treeView.currentItem.clicked();
                 return;
             }
         }
     }
 
     function goToPreviousRoomFiltered(condition) {
-        let index = listView.currentIndex;
+        let index = treeView.currentIndex;
         while (index-- !== 0) {
-            if (condition(listView.itemAtIndex(index))) {
-                listView.currentIndex = index;
-                listView.currentItem.clicked();
+            if (condition(treeView.itemAtIndex(index))) {
+                treeView.currentIndex = index;
+                treeView.currentItem.clicked();
                 return;
             }
         }
@@ -108,7 +100,7 @@ Kirigami.Page {
             connection: root.connection
 
             onSelectionChanged: root.spaceChanging = true
-            onSpacesUpdated: sortFilterRoomListModel.invalidate()
+            onSpacesUpdated: sortFilterRoomTreeModel.invalidate()
         }
 
         Kirigami.Separator {
@@ -126,213 +118,151 @@ Kirigami.Page {
                 Kirigami.Theme.colorSet: Kirigami.Theme.View
             }
 
-            ListView {
-                id: listView
+            Keys.onDownPressed: ; // Do not delete 🫠
+            Keys.onUpPressed: ; // These make sure the scrollview doesn't also scroll while going through the roomlist using the arrow keys
 
-                activeFocusOnTab: true
-                clip: true
-
+            contentItem: TreeView {
+                id: treeView
                 topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
 
-                header: QQC2.ItemDelegate {
-                    width: visible ? ListView.view.width : 0
-                    height: visible ? Kirigami.Units.gridUnit * 2 : 0
+                clip: true
+                reuseItems: false
 
-                    visible: root.collapsed
-
-                    topPadding: Kirigami.Units.largeSpacing
-                    leftPadding: Kirigami.Units.largeSpacing
-                    rightPadding: Kirigami.Units.largeSpacing
-                    bottomPadding: Kirigami.Units.largeSpacing
-
-                    onClicked: quickView.item.open()
-
-                    Kirigami.Icon {
-                        anchors.centerIn: parent
-                        width: Kirigami.Units.iconSizes.smallMedium
-                        height: Kirigami.Units.iconSizes.smallMedium
-                        source: "search"
+                onLayoutChanged: {
+                    if (sortFilterRoomTreeModel.filterTextJustChanged) {
+                        treeView.expandRecursively();
+                        sortFilterRoomTreeModel.filterTextJustChanged = false;
                     }
-
-                    Kirigami.Separator {
-                        width: parent.width
-                        anchors.bottom: parent.bottom
-                    }
-                }
-
-                Kirigami.PlaceholderMessage {
-                    anchors.centerIn: parent
-                    width: parent.width - (Kirigami.Units.largeSpacing * 4)
-                    visible: listView.count == 0
-                    text: if (sortFilterRoomListModel.filterText.length > 0) {
-                        return spaceDrawer.showDirectChats ? i18n("No friends found") : i18n("No rooms found");
-                    } else {
-                        return spaceDrawer.showDirectChats ? i18n("You haven't added any of your friends yet, click below to search for them.") : i18n("Join some rooms to get started");
-                    }
-                    helpfulAction: spaceDrawer.showDirectChats ? userSearchAction : exploreRoomAction
-
-                    Kirigami.Action {
-                        id: exploreRoomAction
-                        icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
-                        text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
-                        onTriggered: {
-                            let dialog = pageStack.layers.push("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
-                                connection: root.connection,
-                                keyword: sortFilterRoomListModel.filterText
-                            }, {
-                                title: i18nc("@title", "Explore Rooms")
-                            });
-                            dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                                RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
-                            });
+                    if (root.spaceChanging) {
+                        treeView.expandRecursively();
+                        if (spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) {
+                            RoomManager.resolveResource(treeView.itemAtIndex(treeView.index(1, 0)).currentRoom.id);
                         }
-                    }
-
-                    Kirigami.Action {
-                        id: userSearchAction
-                        icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
-                        text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in friend directory") : i18n("Find your friends")
-                        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
-                            connection: root.connection
-                        }, {
-                            title: i18nc("@title", "Find your friends")
-                        })
-                    }
-                }
-
-                ItemSelectionModel {
-                    id: itemSelection
-                    model: root.roomListModel
-                    onCurrentChanged: (current, previous) => listView.currentIndex = sortFilterRoomListModel.mapFromSource(current).row
-                }
-
-                model: SortFilterRoomListModel {
-                    id: sortFilterRoomListModel
-
-                    sourceModel: root.roomListModel
-                    roomSortOrder: SortFilterRoomListModel.Categories
-                    onLayoutChanged: {
-                        layoutTimer.restart();
-                        listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row;
-                    }
-                    activeSpaceId: spaceDrawer.selectedSpaceId
-                    mode: spaceDrawer.showDirectChats ? SortFilterRoomListModel.DirectChats : SortFilterRoomListModel.Rooms
-                }
-
-                // HACK: This is the only way to guarantee the correct choice when
-                // there are multiple property changes that invalidate the filter. I.e.
-                // in this case activeSpaceId followed by mode.
-                Timer {
-                    id: layoutTimer
-                    interval: 300
-                    onTriggered: if ((spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) && root.spaceChanging) {
-                        RoomManager.resolveResource(listView.itemAtIndex(0).currentRoom.id);
                         root.spaceChanging = false;
                     }
                 }
 
-                section {
-                    property: "category"
-                    delegate: root.collapsed ? foldButton : sectionHeader
+                model: SortFilterRoomTreeModel {
+                    id: sortFilterRoomTreeModel
+
+                    property bool filterTextJustChanged: false
+
+                    sourceModel: root.roomTreeModel
+                    roomSortOrder: SortFilterRoomTreeModel.Categories
+                    activeSpaceId: spaceDrawer.selectedSpaceId
+                    mode: spaceDrawer.showDirectChats ? SortFilterRoomTreeModel.DirectChats : SortFilterRoomTreeModel.Rooms
                 }
 
-                Component {
-                    id: sectionHeader
-                    Kirigami.ListSectionHeader {
-                        height: implicitHeight
-                        width: listView.width
-                        label: roomListModel.categoryName(section)
-                        action: Kirigami.Action {
-                            onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
-                        }
+                selectionModel: ItemSelectionModel {}
 
-                        QQC2.ToolButton {
-                            icon {
-                                name: roomListModel.categoryVisible(section) ? "go-up" : "go-down"
-                                width: Kirigami.Units.iconSizes.small
-                                height: Kirigami.Units.iconSizes.small
-                            }
-                            text: roomListModel.categoryVisible(section) ? i18nc("Collapse <section name>", "Collapse %1", roomListModel.categoryName(section)) : i18nc("Expand <section name", "Expand %1", roomListModel.categoryName(section))
-                            display: QQC2.Button.IconOnly
+                delegate: DelegateChooser {
+                    role: "delegateType"
 
-                            QQC2.ToolTip.text: text
-                            QQC2.ToolTip.visible: hovered
-                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-
-                            onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
+                    DelegateChoice {
+                        roleValue: "section"
+                        delegate: RoomTreeSection {
+                            collapsed: root.collapsed
                         }
                     }
-                }
-                Component {
-                    id: foldButton
-                    Item {
-                        width: ListView.view.width
-                        height: visible ? width : 0
-                        QQC2.ToolButton {
-                            id: button
-                            anchors.centerIn: parent
 
-                            icon {
-                                name: hovered ? (roomListModel.categoryVisible(section) ? "go-up" : "go-down") : roomListModel.categoryIconName(section)
+                    DelegateChoice {
+                        roleValue: "normal"
+                        delegate: RoomDelegate {
+                            id: roomDelegate
+                            required property int row
+                            required property TreeView treeView
+                            required property bool current
+                            onCurrentChanged: if (current) {
+                                forceActiveFocus(Qt.TabFocusReason)
+                            }
+
+                            implicitWidth: treeView.width
+                            connection: root.connection
+                            collapsed: root.collapsed
+                            highlighted: RoomManager.currentRoom === currentRoom
+                        }
+                    }
+
+                    DelegateChoice {
+                        roleValue: "search"
+                        delegate: Delegates.RoundedItemDelegate {
+                            required property TreeView treeView
+
+                            implicitWidth: treeView.width
+                            onClicked: quickView.item.open()
+
+                            contentItem: Kirigami.Icon {
                                 width: Kirigami.Units.iconSizes.smallMedium
                                 height: Kirigami.Units.iconSizes.smallMedium
+                                source: "search"
                             }
-
-                            onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
-
-                            QQC2.ToolTip.text: roomListModel.categoryName(section)
-                            QQC2.ToolTip.visible: hovered
-                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         }
                     }
-                }
 
-                reuseItems: true
-                currentIndex: -1 // we don't want any room highlighted by default
+                    DelegateChoice {
+                        roleValue: "addDirect"
+                        delegate: Delegates.RoundedItemDelegate {
+                            text: i18n("Find your friends")
+                            icon.name: "list-add-user"
+                            icon.width: Kirigami.Units.gridUnit * 2
+                            icon.height: Kirigami.Units.gridUnit * 2
 
-                delegate: root.collapsed ? collapsedModeListComponent : normalModeListComponent
-
-                Component {
-                    id: collapsedModeListComponent
-
-                    CollapsedRoomDelegate {
-                        filterText: sortFilterRoomListModel.filterText
+                            onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
+                                connection: root.connection
+                            }, {
+                                title: i18nc("@title", "Find your friends")
+                            })
+                        }
                     }
-                }
-
-                Component {
-                    id: normalModeListComponent
-
-                    RoomDelegate {
-                        filterText: sortFilterRoomListModel.filterText
-
-                        connection: root.connection
-
-                        height: visible ? implicitHeight : 0
-
-                        visible: categoryVisible || filterText.length > 0
-                    }
-                }
-
-                footer: Delegates.RoundedItemDelegate {
-                    visible: listView.view.count > 0 && spaceDrawer.showDirectChats
-                    text: i18n("Find your friends")
-                    icon.name: "list-add-user"
-                    icon.width: Kirigami.Units.gridUnit * 2
-                    icon.height: Kirigami.Units.gridUnit * 2
-
-                    onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
-                        connection: root.connection
-                    }, {
-                        title: i18nc("@title", "Find your friends")
-                    })
                 }
             }
         }
     }
 
+    Kirigami.PlaceholderMessage {
+        anchors.centerIn: parent
+        anchors.horizontalCenterOffset: (spaceDrawer.width + 1) / 2
+        width: scrollView.width - Kirigami.Units.largeSpacing * 4
+        visible: treeView.rows == 0
+        text: if (sortFilterRoomTreeModel.filterText.length > 0) {
+            return spaceDrawer.showDirectChats ? i18n("No friends found") : i18n("No rooms found");
+        } else {
+            return spaceDrawer.showDirectChats ? i18n("You haven't added any of your friends yet, click below to search for them.") : i18n("Join some rooms to get started");
+        }
+        helpfulAction: spaceDrawer.showDirectChats ? userSearchAction : exploreRoomAction
+
+        Kirigami.Action {
+            id: exploreRoomAction
+            icon.name: sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
+            text: sortFilterRoomTreeModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
+            onTriggered: {
+                let dialog = pageStack.layers.push("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                    connection: root.connection,
+                    keyword: sortFilterRoomTreeModel.filterText
+                }, {
+                    title: i18nc("@title", "Explore Rooms")
+                });
+                dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
+                    RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
+                });
+            }
+        }
+
+        Kirigami.Action {
+            id: userSearchAction
+            icon.name: sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
+            text: sortFilterRoomTreeModel.filterText.length > 0 ? i18n("Search in friend directory") : i18n("Find your friends")
+            onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Find your friends")
+            })
+        }
+    }
+
     footer: Loader {
         width: parent.width
+        active: !root.collapsed
         sourceComponent: Kirigami.Settings.isMobile ? exploreComponentMobile : userInfoDesktop
     }
 
@@ -404,7 +334,8 @@ Kirigami.Page {
             connection: root.connection
 
             onTextChanged: newText => {
-                sortFilterRoomListModel.filterText = newText;
+                sortFilterRoomTreeModel.filterText = newText;
+                sortFilterRoomTreeModel.filterTextJustChanged = true;
             }
         }
     }
@@ -415,7 +346,7 @@ Kirigami.Page {
             connection: root.connection
 
             onTextChanged: newText => {
-                sortFilterRoomListModel.filterText = newText;
+                sortFilterRoomTreeModel.filterText = newText;
             }
         }
     }
@@ -429,6 +360,6 @@ Kirigami.Page {
         property int currentWidth: Config.collapsed ? collapsedSize : defaultWidth
         readonly property int defaultWidth: Kirigami.Units.gridUnit * 17
         readonly property int collapseWidth: Kirigami.Units.gridUnit * 10
-        readonly property int collapsedSize: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 3 + (scrollView.QQC2.ScrollBar.vertical.visible ? scrollView.QQC2.ScrollBar.vertical.width : 0)
+        readonly property int collapsedSize: Kirigami.Units.gridUnit + (Config.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2) + Kirigami.Units.largeSpacing * 2 + (scrollView.QQC2.ScrollBar.vertical.visible ? scrollView.QQC2.ScrollBar.vertical.width : 0)
     }
 }

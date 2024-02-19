@@ -90,9 +90,8 @@ QQC2.Dialog {
             }
 
             delegate: RoomDelegate {
-                filterText: searchField.text
                 connection: root.connection
-                onSelected: root.close()
+                onClicked: root.close()
             }
         }
     }

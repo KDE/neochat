@@ -17,6 +17,8 @@ RowLayout {
     property bool collapsed: false
     required property NeoChatConnection connection
 
+    property alias roomSearchFieldFocussed: roomSearchField.activeFocus
+
     property Kirigami.Action exploreAction: Kirigami.Action {
         text: i18n("Explore rooms")
         icon.name: "compass"
@@ -72,13 +74,14 @@ RowLayout {
     signal textChanged(string newText)
 
     Kirigami.SearchField {
+        id: roomSearchField
         Layout.topMargin: Kirigami.Units.smallSpacing
         Layout.bottomMargin: Kirigami.Units.smallSpacing
         Layout.fillWidth: true
         Layout.preferredWidth: root.desiredWidth ? root.desiredWidth - menuButton.width - root.spacing : -1
         visible: !root.collapsed
         onTextChanged: root.textChanged(text)
-        KeyNavigation.tab: listView
+        KeyNavigation.tab: treeView
     }
 
     QQC2.ToolButton {

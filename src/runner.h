@@ -204,6 +204,6 @@ private:
     RemoteImage serializeImage(const QImage &image);
 
     SortFilterRoomListModel m_model;
-    RoomListModel m_sourceModel;
+    RoomListModel *m_sourceModel;
     Runner();
 };

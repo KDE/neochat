@@ -28,11 +28,6 @@ Q_DECLARE_METATYPE(Quotient::JoinState)
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    const auto collapsedSections = NeoChatConfig::collapsedSections();
-    for (auto collapsedSection : collapsedSections) {
-        m_categoryVisibility[collapsedSection] = false;
-    }
-
     connect(this, &RoomListModel::highlightCountChanged, this, [this]() {
 #if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
 #ifndef Q_OS_ANDROID
@@ -298,7 +293,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return room->topic();
     }
     if (role == CategoryRole) {
-        return category(room);
+        return NeoChatRoomType::typeForRoom(room);
     }
     if (role == NotificationCountRole) {
         return room->notificationCount();
@@ -317,9 +312,6 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     }
     if (role == CurrentRoomRole) {
         return QVariant::fromValue(room);
-    }
-    if (role == CategoryVisibleRole) {
-        return m_categoryVisibility.value(data(index, CategoryRole).toInt(), true);
     }
     if (role == SubtitleTextRole) {
         if (room->lastEvent() == nullptr || room->lastEventIsSpoiler()) {
@@ -374,94 +366,12 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[LastActiveTimeRole] = "lastActiveTime";
     roles[JoinStateRole] = "joinState";
     roles[CurrentRoomRole] = "currentRoom";
-    roles[CategoryVisibleRole] = "categoryVisible";
     roles[SubtitleTextRole] = "subtitleText";
     roles[IsSpaceRole] = "isSpace";
     roles[RoomIdRole] = "roomId";
     roles[IsChildSpaceRole] = "isChildSpace";
     roles[IsDirectChat] = "isDirectChat";
     return roles;
-}
-
-NeoChatRoomType::Types RoomListModel::category(NeoChatRoom *room)
-{
-    if (room->isSpace()) {
-        return NeoChatRoomType::Space;
-    }
-    if (room->joinState() == JoinState::Invite) {
-        return NeoChatRoomType::Invited;
-    }
-    if (room->isFavourite()) {
-        return NeoChatRoomType::Favorite;
-    }
-    if (room->isLowPriority()) {
-        return NeoChatRoomType::Deprioritized;
-    }
-    if (room->isDirectChat()) {
-        return NeoChatRoomType::Direct;
-    }
-    return NeoChatRoomType::Normal;
-}
-
-QString RoomListModel::categoryName(int category)
-{
-    switch (category) {
-    case NeoChatRoomType::Invited:
-        return i18n("Invited");
-    case NeoChatRoomType::Favorite:
-        return i18n("Favorite");
-    case NeoChatRoomType::Direct:
-        return i18n("Friends");
-    case NeoChatRoomType::Normal:
-        return i18n("Normal");
-    case NeoChatRoomType::Deprioritized:
-        return i18n("Low priority");
-    case NeoChatRoomType::Space:
-        return i18n("Spaces");
-    default:
-        return {};
-    }
-}
-
-QString RoomListModel::categoryIconName(int category)
-{
-    switch (category) {
-    case NeoChatRoomType::Invited:
-        return QStringLiteral("user-invisible");
-    case NeoChatRoomType::Favorite:
-        return QStringLiteral("favorite");
-    case NeoChatRoomType::Direct:
-        return QStringLiteral("dialog-messages");
-    case NeoChatRoomType::Normal:
-        return QStringLiteral("group");
-    case NeoChatRoomType::Deprioritized:
-        return QStringLiteral("object-order-lower");
-    case NeoChatRoomType::Space:
-        return QStringLiteral("group");
-    default:
-        return QStringLiteral("tools-report-bug");
-    }
-}
-
-void RoomListModel::setCategoryVisible(int category, bool visible)
-{
-    beginResetModel();
-    auto collapsedSections = NeoChatConfig::collapsedSections();
-    if (visible) {
-        collapsedSections.removeAll(category);
-    } else {
-        collapsedSections.push_back(category);
-    }
-    NeoChatConfig::setCollapsedSections(collapsedSections);
-    NeoChatConfig::self()->save();
-
-    m_categoryVisibility[category] = visible;
-    endResetModel();
-}
-
-bool RoomListModel::categoryVisible(int category) const
-{
-    return m_categoryVisibility.value(category, true);
 }
 
 NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)

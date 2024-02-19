@@ -6,6 +6,8 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include "enums/neochatroomtype.h"
+
 class NeoChatRoom;
 
 namespace Quotient
@@ -13,27 +15,6 @@ namespace Quotient
 class Connection;
 class Room;
 }
-
-class NeoChatRoomType : public QObject
-{
-    Q_OBJECT
-    QML_ELEMENT
-    QML_UNCREATABLE("")
-
-public:
-    /**
-     * @brief Defines the room list categories a room can be assigned.
-     */
-    enum Types {
-        Invited = 1, /**< The user has been invited to the room. */
-        Favorite, /**< The room is set as a favourite. */
-        Direct, /**< The room is a direct chat. */
-        Normal, /**< The default category for a joined room. */
-        Deprioritized, /**< The room is set as low priority. */
-        Space, /**< The room is a space. */
-    };
-    Q_ENUM(Types)
-};
 
 /**
  * @class RoomListModel
@@ -70,7 +51,6 @@ public:
         LastActiveTimeRole, /**< The timestamp of the last event sent in the room. */
         JoinStateRole, /**< The local user's join state in the room. */
         CurrentRoomRole, /**< The room object for the room. */
-        CategoryVisibleRole, /**< If the room's category is visible. */
         SubtitleTextRole, /**< The text to show as the room subtitle. */
         AvatarImageRole, /**< The room avatar as an image. */
         RoomIdRole, /**< The room matrix ID. */
@@ -117,35 +97,6 @@ public:
     Q_INVOKABLE [[nodiscard]] NeoChatRoom *roomAt(int row) const;
 
     /**
-     * @brief The category for the given room.
-     */
-    static NeoChatRoomType::Types category(NeoChatRoom *room);
-
-    /**
-     * @brief Return a string to represent the given room category.
-     */
-    Q_INVOKABLE [[nodiscard]] static QString categoryName(int category);
-
-    /**
-     * @brief Return a string with the name of the given room category icon.
-     */
-    Q_INVOKABLE [[nodiscard]] static QString categoryIconName(int category);
-
-    /**
-     * @brief Set whether a given category should be visible or not.
-     *
-     * @param category the NeoChatRoomType::Types value for the category (it's an
-     *                 int due to the pain of Q_INVOKABLES and cpp enums).
-     * @param visible true if the category should be visible, false if not.
-     */
-    Q_INVOKABLE void setCategoryVisible(int category, bool visible);
-
-    /**
-     * @brief Return whether a room category is set to be visible.
-     */
-    Q_INVOKABLE [[nodiscard]] bool categoryVisible(int category) const;
-
-    /**
      * @brief Return the model row for the given room.
      */
     Q_INVOKABLE [[nodiscard]] int rowForRoom(NeoChatRoom *room) const;
@@ -169,8 +120,6 @@ private Q_SLOTS:
 private:
     Quotient::Connection *m_connection = nullptr;
     QList<NeoChatRoom *> m_rooms;
-
-    QMap<int, bool> m_categoryVisibility;
 
     int m_notificationCount = 0;
     int m_highlightCount = 0;

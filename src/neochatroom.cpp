@@ -1279,7 +1279,7 @@ void NeoChatRoom::removeParent(const QString &parentId)
     }
 }
 
-bool NeoChatRoom::isSpace()
+bool NeoChatRoom::isSpace() const
 {
     const auto creationEvent = this->creation();
     if (!creationEvent) {

@@ -56,6 +56,8 @@ add_library(neochat STATIC
     notificationsmanager.h
     models/sortfilterroomlistmodel.cpp
     models/sortfilterroomlistmodel.h
+    models/roomtreemodel.cpp
+    models/roomtreemodel.h
     chatdocumenthandler.cpp
     chatdocumenthandler.h
     models/devicesmodel.cpp
@@ -156,6 +158,9 @@ add_library(neochat STATIC
     enums/messagecomponenttype.h
     models/messagecontentmodel.cpp
     models/messagecontentmodel.h
+    enums/neochatroomtype.h
+    models/sortfilterroomtreemodel.cpp
+    models/sortfilterroomtreemodel.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
@@ -315,6 +320,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/LinkPreviewComponent.qml
         qml/LoadComponent.qml
         qml/RecommendedSpaceDialog.qml
+        qml/RoomTreeSection.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

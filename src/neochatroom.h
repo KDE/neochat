@@ -531,7 +531,7 @@ public:
      */
     Q_INVOKABLE void removeParent(const QString &parentId);
 
-    [[nodiscard]] bool isSpace();
+    [[nodiscard]] bool isSpace() const;
 
     qsizetype childrenNotificationCount();
 

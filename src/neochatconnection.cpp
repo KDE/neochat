@@ -106,7 +106,7 @@ void NeoChatConnection::connectSignals()
     for (const auto room : allRooms()) {
         connect(room, &NeoChatRoom::unreadStatsChanged, this, [this, room]() {
             if (room != nullptr) {
-                auto category = RoomListModel::category(static_cast<NeoChatRoom *>(room));
+                auto category = NeoChatRoomType::typeForRoom(static_cast<NeoChatRoom *>(room));
                 if (!SpaceHierarchyCache::instance().isChild(room->id()) && (category == NeoChatRoomType::Normal || category == NeoChatRoomType::Favorite)
                     && room->successorId().isEmpty()) {
                     Q_EMIT homeNotificationsChanged();
@@ -342,7 +342,7 @@ qsizetype NeoChatConnection::homeNotifications() const
     QStringList added;
     const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
     for (const auto &room : allRooms()) {
-        auto category = RoomListModel::category(static_cast<NeoChatRoom *>(room));
+        auto category = NeoChatRoomType::typeForRoom(static_cast<NeoChatRoom *>(room));
         if (!added.contains(room->id()) && room->joinState() == JoinState::Join && !room->isDirectChat() && !spaceHierarchyCache.isChild(room->id())
             && room->successorId().isEmpty()) {
             switch (category) {

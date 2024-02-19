@@ -22,35 +22,27 @@ Delegates.RoundedItemDelegate {
     required property int highlightCount
     required property NeoChatRoom currentRoom
     required property NeoChatConnection connection
-    required property bool categoryVisible
-    required property string filterText
     required property string avatar
     required property string subtitleText
-
     required property string displayName
+
+    property bool collapsed: false
 
     readonly property bool hasNotifications: currentRoom.pushNotificationState === PushNotificationState.MentionKeyword || currentRoom.isLowPriority ? highlightCount > 0 : notificationCount > 0
 
-    signal selected
-
     Accessible.name: root.displayName
-    Accessible.onPressAction: select()
+    Accessible.onPressAction: clicked()
 
+    onClicked: RoomManager.resolveResource(currentRoom.id);
     onPressAndHold: createRoomListContextMenu()
 
-    Keys.onSpacePressed: select()
-    Keys.onEnterPressed: select()
-    Keys.onReturnPressed: select()
+    Keys.onSpacePressed: clicked()
+    Keys.onEnterPressed: clicked()
+    Keys.onReturnPressed: clicked()
 
     TapHandler {
-        acceptedButtons: Qt.RightButton | Qt.LeftButton
-        onTapped: (eventPoint, button) => {
-            if (button === Qt.RightButton) {
-                root.createRoomListContextMenu();
-            } else {
-                select();
-            }
-        }
+        acceptedButtons: Qt.RightButton
+        onTapped: (eventPoint, button) => root.createRoomListContextMenu();
     }
 
     contentItem: RowLayout {
@@ -72,6 +64,7 @@ Delegates.RoundedItemDelegate {
 
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
+            visible: !root.collapsed
 
             QQC2.Label {
                 id: label
@@ -105,7 +98,7 @@ Delegates.RoundedItemDelegate {
             enabled: false
             implicitWidth: Kirigami.Units.iconSizes.smallMedium
             implicitHeight: Kirigami.Units.iconSizes.smallMedium
-            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible
+            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && !root.collapsed
             Accessible.name: i18n("Muted room")
             Layout.rightMargin: Kirigami.Units.smallSpacing
         }
@@ -114,7 +107,7 @@ Delegates.RoundedItemDelegate {
             id: notificationCountLabel
 
             text: currentRoom.pushNotificationState === PushNotificationState.MentionKeyword || currentRoom.isLowPriority ? root.highlightCount : root.notificationCount
-            visible: root.hasNotifications && currentRoom.pushNotificationState !== PushNotificationState.Mute
+            visible: root.hasNotifications && currentRoom.pushNotificationState !== PushNotificationState.Mute && !root.collapsed
             color: Kirigami.Theme.textColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -138,18 +131,13 @@ Delegates.RoundedItemDelegate {
 
         QQC2.Button {
             id: configButton
-            visible: root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList
+            visible: root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList && !root.collapsed
             text: i18n("Configure room")
             display: QQC2.Button.IconOnly
 
             icon.name: "configure"
             onClicked: createRoomListContextMenu()
         }
-    }
-
-    function select() {
-        RoomManager.resolveResource(currentRoom.id);
-        root.selected();
     }
 
     function createRoomListContextMenu() {

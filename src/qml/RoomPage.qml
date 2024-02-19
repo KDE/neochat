@@ -212,12 +212,7 @@ Kirigami.Page {
     }
 
     Keys.onPressed: event => {
-        if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
-            event.accepted = true;
-            chatBarLoader.item.insertText(event.text);
-            chatBarLoader.item.forceActiveFocus();
-            return;
-        } else if (event.key === Qt.Key_PageUp) {
+        if (event.key === Qt.Key_PageUp) {
             event.accepted = true;
             timelineViewLoader.item.pageUp();
         } else if (event.key === Qt.Key_PageDown) {
