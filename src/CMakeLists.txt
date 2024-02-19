@@ -293,7 +293,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/RoomInformation.qml
         qml/RoomMedia.qml
         qml/ChooseRoomDialog.qml
-        qml/ShareAction.qml
         qml/SpaceHomePage.qml
         qml/SpaceHierarchyDelegate.qml
         qml/RemoveChildDialog.qml
@@ -331,6 +330,16 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/confetti.png
         qml/glowdot.png
 )
+
+if(UNIX)
+    qt_target_qml_sources(neochat QML_FILES qml/ShareAction.qml)
+else()
+    set_source_files_properties(qml/ShareActionStub.qml PROPERTIES
+        QT_RESOURCE_ALIAS qml/ShareAction.qml
+    )
+    qt_target_qml_sources(neochat QML_FILES qml/ShareActionStub.qml)
+endif()
+
 
 configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
 

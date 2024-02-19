@@ -3,12 +3,16 @@
 
 import QtQuick
 import QtQuick.Layouts
+
 import org.kde.kirigami as Kirigami
+import org.kde.purpose as Purpose
+
+import org.kde.neochat
 
 /**
- * Action that allows an user to share data with other apps and service
+ * Action that allows a user to share data with other apps and services
  * installed on their computer. The goal of this high level API is to
- * adapte itself for each platform and adopt the native component.
+ * adapt itself for each platform and adopt the native component.
  *
  * TODO add Android support
  */
@@ -19,7 +23,6 @@ Kirigami.Action {
     text: i18n("Share")
     tooltip: i18n("Share the selected media")
 
-    property var doBeforeSharing: () => {}
     visible: false
 
     /**
@@ -34,19 +37,15 @@ Kirigami.Action {
      * }
      * @endcode
      */
-    property var inputData: ({})
+    property var inputData
+
+    required property string eventId
+    required property NeoChatRoom room
 
     property Instantiator _instantiator: Instantiator {
-        Component.onCompleted: {
-            const purposeModel = Qt.createQmlObject('import org.kde.purpose as Purpose;
-Purpose.PurposeAlternativesModel {
-    pluginType: "Export"
-}', root._instantiator);
-            purposeModel.inputData = Qt.binding(function () {
-                return root.inputData;
-            });
-            _instantiator.model = purposeModel;
-            root.visible = true;
+        model: Purpose.PurposeAlternativesModel {
+            pluginType: "Export"
+            inputData: root.inputData
         }
 
         delegate: Kirigami.Action {
@@ -54,12 +53,21 @@ Purpose.PurposeAlternativesModel {
             text: model.display
             icon.name: model.iconName
             onTriggered: {
-                doBeforeSharing();
+                root.room.download(root.eventId, root.inputData.urls[0]);
+                root.room.fileTransferCompleted.connect(share);
+            }
+            function share(id) {
+                if (id != root.eventId) {
+                    return;
+                }
                 applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/ShareDialog.qml', {
-                    title: root.tooltip,
+                    title: root.text,
                     index: index,
                     model: root._instantiator.model
+                }, {
+                    title: i18nc("@title", "Share")
                 });
+                root.room.fileTransferCompleted.disconnect(share);
             }
         }
         onObjectAdded: (index, object) => {

@@ -5,6 +5,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.Action {
     property var inputData: ({})
-    property var doBeforeSharing: () => {}
+    property var room
+    property string eventId
     visible: false
 }

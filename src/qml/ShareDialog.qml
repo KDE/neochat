@@ -8,9 +8,12 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
+
 import org.kde.purpose as Purpose
-import org.kde.notification
 import org.kde.kirigami as Kirigami
+import org.kde.notification
+
+import org.kde.neochat
 
 Kirigami.Page {
     id: root
@@ -30,29 +33,31 @@ Kirigami.Page {
 
     Notification {
         id: sharingFailed
-        eventId: "sharingFailed"
+        eventId: "Share"
         text: i18n("Sharing failed")
         urgency: Notification.NormalUrgency
     }
 
     Notification {
         id: sharingSuccess
-        eventId: "sharingSuccess"
+        eventId: "Share"
         flags: Notification.Persistent
     }
 
-    Component.onCompleted: jobView.start()
+    Component.onCompleted: {
+        jobView.start();
+    }
 
-    contentItem: Purpose.JobView {
+    Purpose.JobView {
         id: jobView
+
+        anchors.fill: parent
         onStateChanged: {
             if (state === Purpose.PurposeJobController.Finished) {
-                if (jobView.job.output.url !== "") {
-                    // Show share url
-                    // TODO no needed anymore in purpose > 5.90
-                    sharingSuccess.text = i18n("Shared url for image is <a href='%1'>%1</a>", jobView.output.url);
+                if (jobView.job?.output?.url?.length > 0) {
+                    sharingSuccess.text = i18n("Shared url for image is <a href='%1'>%1</a>", jobView.job.output.url);
                     sharingSuccess.sendEvent();
-                    Clipboard.saveText(jobView.output.url);
+                    Clipboard.saveText(jobView.job.output.url);
                 }
                 root.closeDialog();
             } else if (state === Purpose.PurposeJobController.Error) {

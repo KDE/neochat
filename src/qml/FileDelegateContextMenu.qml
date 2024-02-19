@@ -89,20 +89,12 @@ DelegateContextMenu {
         ShareAction {
             id: shareAction
             inputData: {
-                'urls': [],
-                'mimeType': [root.mimeType]
+                "urls": [filename],
+                "mimeType": [root.mimeType]
             }
+            room: currentRoom
+            eventId: root.eventId
             property string filename: StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId)
-
-            doBeforeSharing: () => {
-                currentRoom.downloadFile(eventId, filename);
-            }
-            Component.onCompleted: {
-                shareAction.inputData = {
-                    urls: [filename],
-                    mimeType: [root.mimeType]
-                };
-            }
         }
     ]
 
