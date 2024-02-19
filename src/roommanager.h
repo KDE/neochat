@@ -92,12 +92,12 @@ class RoomManager : public QObject, public UriResolverBase
     /**
      * @brief The room ID of the last space entered.
      */
-    Q_PROPERTY(QString lastSpaceId READ lastSpaceId WRITE setLastSpaceId CONSTANT)
+    Q_PROPERTY(QString lastSpaceId READ lastSpaceId WRITE setLastSpaceId NOTIFY directChatsActiveChanged)
 
     /**
      * @brief Whether the last SpaceDrawer category selected was direct chats.
      */
-    Q_PROPERTY(bool directChatsActive READ directChatsActive WRITE setDirectChatsActive CONSTANT)
+    Q_PROPERTY(bool directChatsActive READ directChatsActive WRITE setDirectChatsActive NOTIFY directChatsActiveChanged)
 
     /**
      * @brief The ChatDocumentHandler for the open room.
@@ -333,6 +333,9 @@ Q_SIGNALS:
     void chatDocumentHandlerChanged();
 
     void connectionChanged();
+
+    void directChatsActiveChanged();
+    void lastSpaceIdChanged();
 
 private:
     void openRoomForActiveConnection();

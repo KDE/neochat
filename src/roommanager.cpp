@@ -199,6 +199,7 @@ void RoomManager::setLastSpaceId(const QString &lastSpaceId)
         return;
     }
     m_lastSpaceConfig.writeEntry(m_connection->userId(), lastSpaceId);
+    Q_EMIT lastSpaceIdChanged();
 }
 
 bool RoomManager::directChatsActive() const
@@ -220,6 +221,7 @@ void RoomManager::setDirectChatsActive(bool directChatsActive)
         return;
     }
     m_directChatsConfig.writeEntry(m_connection->userId(), directChatsActive);
+    Q_EMIT directChatsActiveChanged();
 }
 
 void RoomManager::openRoomForActiveConnection()
