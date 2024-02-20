@@ -64,11 +64,13 @@ void ImagePacksModel::setRoom(NeoChatRoom *room)
     }
     m_room = room;
 
-    connect(m_room->connection(), &Connection::accountDataChanged, this, [this](const QString &type) {
-        if (type == "im.ponies.user_emotes"_ls) {
-            reloadImages();
-        }
-    });
+    if (m_room) {
+        connect(m_room->connection(), &Connection::accountDataChanged, this, [this](const QString &type) {
+            if (type == "im.ponies.user_emotes"_ls) {
+                reloadImages();
+            }
+        });
+    }
     // TODO listen to packs changing
     reloadImages();
     Q_EMIT roomChanged();
@@ -76,6 +78,9 @@ void ImagePacksModel::setRoom(NeoChatRoom *room)
 
 void ImagePacksModel::reloadImages()
 {
+    if (!m_room) {
+        return;
+    }
     beginResetModel();
     m_events.clear();
 
