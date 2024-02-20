@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-19 00:37+0000\n"
-"PO-Revision-Date: 2024-02-15 12:31+0100\n"
+"POT-Creation-Date: 2024-02-20 00:37+0000\n"
+"PO-Revision-Date: 2024-02-19 09:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -65,6 +65,41 @@ msgstr ""
 #, kde-format
 msgid "Unable to read access token"
 msgstr "No s'ha pogut llegir el testimoni d'accés"
+
+#: src/enums/neochatroomtype.h:59
+#, kde-format
+msgid "Invited"
+msgstr "Convidat"
+
+#: src/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Favorite"
+msgstr "Preferit"
+
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
+#, kde-format
+msgid "Friends"
+msgstr "Amics"
+
+#: src/enums/neochatroomtype.h:65
+#, kde-format
+msgid "Normal"
+msgstr "Normal"
+
+#: src/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Low priority"
+msgstr "Prioritat baixa"
+
+#: src/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Spaces"
+msgstr "Espais"
+
+#: src/enums/neochatroomtype.h:71 src/qml/ExploreComponentMobile.qml:36
+#, kde-format
+msgid "Search"
+msgstr "Cerca"
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
 #: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
@@ -1087,36 +1122,6 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 ha reaccionat amb %3"
 msgstr[1] "%2 han reaccionat amb %3"
 
-#: src/models/roomlistmodel.cpp:410
-#, kde-format
-msgid "Invited"
-msgstr "Convidat"
-
-#: src/models/roomlistmodel.cpp:412
-#, kde-format
-msgid "Favorite"
-msgstr "Preferit"
-
-#: src/models/roomlistmodel.cpp:414 src/qml/UserSearchPage.qml:82
-#, kde-format
-msgid "Friends"
-msgstr "Amics"
-
-#: src/models/roomlistmodel.cpp:416
-#, kde-format
-msgid "Normal"
-msgstr "Normal"
-
-#: src/models/roomlistmodel.cpp:418
-#, kde-format
-msgid "Low priority"
-msgstr "Prioritat baixa"
-
-#: src/models/roomlistmodel.cpp:420
-#, kde-format
-msgid "Spaces"
-msgstr "Espais"
-
 #: src/neochatconnection.cpp:71
 #, kde-format
 msgid "File too large to download."
@@ -1163,8 +1168,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Obre el NeoChat en aquesta sala"
 
-#: src/notificationsmanager.cpp:223 src/qml/FileDelegateContextMenu.qml:59
-#: src/qml/HoverActions.qml:102 src/qml/MessageDelegateContextMenu.qml:102
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:104
+#: src/qml/HoverActions.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
@@ -1470,7 +1475,7 @@ msgid "Attachment:"
 msgstr "Adjunt:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
-#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:93
+#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
@@ -1714,8 +1719,8 @@ msgstr "Configuració de la sala"
 msgid "Leave Room"
 msgstr "Surt de la sala"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:62
-#: src/qml/ExploreComponent.qml:64 src/qml/ExploreComponentMobile.qml:162
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
+#: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
 #: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:314
 #: src/qml/SpaceDrawer.qml:316
 #, kde-format
@@ -1723,7 +1728,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Creació d'un espai"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:50
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
 #: src/qml/ExploreComponentMobile.qml:146
 #, kde-format
 msgctxt "@title"
@@ -1787,8 +1792,8 @@ msgid "Pick room"
 msgstr "Tria la sala"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
-#: src/qml/ExploreComponent.qml:27 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:183
+#: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
+#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:243
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1822,6 +1827,46 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Fes que aquest espai sigui el pare canònic"
+
+#: src/qml/DelegateContextMenu.qml:87 src/qml/FileDelegateContextMenu.qml:92
+#, kde-format
+msgid "View Source"
+msgstr "Mostra el codi font"
+
+#: src/qml/DelegateContextMenu.qml:94 src/qml/FileDelegateContextMenu.qml:68
+#, kde-format
+msgid "Remove"
+msgstr "Elimina"
+
+#: src/qml/DelegateContextMenu.qml:98 src/qml/FileDelegateContextMenu.qml:75
+#, kde-format
+msgctxt "@title"
+msgid "Remove Message"
+msgstr "Eliminació d'un missatge"
+
+#: src/qml/DelegateContextMenu.qml:114 src/qml/FileDelegateContextMenu.qml:80
+#: src/qml/ReportSheet.qml:43
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "Informa"
+
+#: src/qml/DelegateContextMenu.qml:118 src/qml/FileDelegateContextMenu.qml:87
+#, kde-format
+msgctxt "@title"
+msgid "Report Message"
+msgstr "Informa del missatge"
+
+#: src/qml/DelegateContextMenu.qml:161
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Cerca «%1»"
+
+#: src/qml/DelegateContextMenu.qml:182
+#, kde-format
+msgid "Configure Web Shortcuts..."
+msgstr "Configura les dreceres web..."
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2106,46 +2151,41 @@ msgstr ""
 "Aquest missatge està encriptat i el remitent no ha compartit la clau amb "
 "aquest dispositiu."
 
-#: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:177
+#: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
+#: src/qml/RoomListPage.qml:237
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explora les sales"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:319
+#: src/qml/RoomListPage.qml:205 src/qml/RoomListPage.qml:254
 #, kde-format
 msgid "Find your friends"
 msgstr "Cerqueu els vostres amics"
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:198
-#: src/qml/RoomListPage.qml:327
+#: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
+#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:213
+#: src/qml/RoomListPage.qml:258
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Cerca d'amics"
 
-#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:140
+#: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
 msgid "Create a Room"
 msgstr "Crea una sala"
 
-#: src/qml/ExploreComponent.qml:56 src/qml/ExploreComponentMobile.qml:156
+#: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:156
 #, kde-format
 msgid "Create a Space"
 msgstr "Crea un espai"
 
-#: src/qml/ExploreComponent.qml:90 src/qml/ExploreComponent.qml:151
+#: src/qml/ExploreComponent.qml:93 src/qml/ExploreComponent.qml:154
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Crea sales i xats"
-
-#: src/qml/ExploreComponentMobile.qml:36
-#, kde-format
-msgid "Search"
-msgstr "Cerca"
 
 #: src/qml/ExploreComponentMobile.qml:79
 #, kde-format
@@ -2229,45 +2269,11 @@ msgstr "Obre externament"
 msgid "Save As"
 msgstr "Desa com a"
 
-#: src/qml/FileDelegateContextMenu.qml:68
-#: src/qml/MessageDelegateContextMenu.qml:139
+#: src/qml/FileDelegateContextMenu.qml:60
+#: src/qml/MessageDelegateContextMenu.qml:65
 #, kde-format
 msgid "Copy"
 msgstr "Copia"
-
-#: src/qml/FileDelegateContextMenu.qml:76
-#: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Remove"
-msgstr "Elimina"
-
-#: src/qml/FileDelegateContextMenu.qml:83
-#: src/qml/MessageDelegateContextMenu.qml:134
-#, kde-format
-msgctxt "@title"
-msgid "Remove Message"
-msgstr "Eliminació d'un missatge"
-
-#: src/qml/FileDelegateContextMenu.qml:88
-#: src/qml/MessageDelegateContextMenu.qml:144 src/qml/ReportSheet.qml:43
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr "Informa"
-
-#: src/qml/FileDelegateContextMenu.qml:95
-#: src/qml/MessageDelegateContextMenu.qml:151
-#, kde-format
-msgctxt "@title"
-msgid "Report Message"
-msgstr "Informa del missatge"
-
-#: src/qml/FileDelegateContextMenu.qml:100
-#: src/qml/MessageDelegateContextMenu.qml:157
-#, kde-format
-msgid "View Source"
-msgstr "Mostra el codi font"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2866,10 +2872,9 @@ msgid "Expand preview"
 msgstr "Expandeix la vista prèvia"
 
 #: src/qml/LoadComponent.qml:53
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgid "Loading reply"
-msgstr "S'està carregant"
+msgstr "S'està carregant la resposta"
 
 #: src/qml/LoadComponent.qml:55
 #, kde-format
@@ -3031,32 +3036,22 @@ msgstr "Els ID d'usuari cal que comencin per una @"
 msgid "The input is not a valid user ID"
 msgstr "L'entrada no és un ID d'usuari vàlid"
 
-#: src/qml/MessageDelegateContextMenu.qml:110
+#: src/qml/MessageDelegateContextMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr "Reenvia"
 
-#: src/qml/MessageDelegateContextMenu.qml:116
+#: src/qml/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Reenviament de missatge"
 
-#: src/qml/MessageDelegateContextMenu.qml:162
+#: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
 msgid "Copy Link"
 msgstr "Copia l'enllaç"
-
-#: src/qml/MessageDelegateContextMenu.qml:210
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Cerca «%1»"
-
-#: src/qml/MessageDelegateContextMenu.qml:231
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr "Configura les dreceres web..."
 
 #: src/qml/MessageEditComponent.qml:102
 #, kde-format
@@ -3406,24 +3401,22 @@ msgid "Last read: %1"
 msgstr "Última lectura: %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Joined"
+#, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
-msgstr "Us heu unit"
+msgstr "Uneix-te a %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Joined"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join"
-msgstr "Us heu unit"
+msgstr "Uneix-te"
 
 #: src/qml/RecommendedSpaceDialog.qml:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
-msgstr ""
+msgstr "Ignora"
 
 #: src/qml/RegisterPassword.qml:30
 #, kde-format
@@ -3526,12 +3519,12 @@ msgstr "Dades de comptatge de la sala"
 msgid "Room State"
 msgstr "Estat de la sala"
 
-#: src/qml/RoomDelegate.qml:109
+#: src/qml/RoomDelegate.qml:102
 #, kde-format
 msgid "Muted room"
 msgstr "Sala silenciada"
 
-#: src/qml/RoomDelegate.qml:142
+#: src/qml/RoomDelegate.qml:135
 #, kde-format
 msgid "Configure room"
 msgstr "Configura la sala"
@@ -3632,17 +3625,17 @@ msgstr[1] "%1 membres"
 msgid "No member count"
 msgstr "No hi ha comptador de membres"
 
-#: src/qml/RoomListPage.qml:168
+#: src/qml/RoomListPage.qml:228
 #, kde-format
 msgid "No friends found"
 msgstr "No s'ha trobat cap amic"
 
-#: src/qml/RoomListPage.qml:168
+#: src/qml/RoomListPage.qml:228
 #, kde-format
 msgid "No rooms found"
 msgstr "No s'ha trobat cap sala"
 
-#: src/qml/RoomListPage.qml:170
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -3650,32 +3643,20 @@ msgstr ""
 "Encara no heu afegit cap dels vostres amics, feu clic a sota per a cercar-"
 "los."
 
-#: src/qml/RoomListPage.qml:170
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Uniu-vos a diverses sales per a començar"
 
-#: src/qml/RoomListPage.qml:177
+#: src/qml/RoomListPage.qml:237
 #, kde-format
 msgid "Search in room directory"
 msgstr "Cerca en el directori de sales"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:254
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Cerca en el directori d'amics"
-
-#: src/qml/RoomListPage.qml:255
-#, kde-format
-msgctxt "Collapse <section name>"
-msgid "Collapse %1"
-msgstr "Redueix %1"
-
-#: src/qml/RoomListPage.qml:255
-#, kde-format
-msgctxt "Expand <section name"
-msgid "Expand %1"
-msgstr "Expandeix %1"
 
 #: src/qml/RoomMedia.qml:28
 #, kde-format
@@ -3690,7 +3671,7 @@ msgstr ""
 "El NeoChat està en fora de línia. Comproveu l'estat de la vostra connexió de "
 "xarxa."
 
-#: src/qml/RoomPage.qml:254
+#: src/qml/RoomPage.qml:249
 #, kde-format
 msgid "Message Source"
 msgstr "Codi font del missatge"
@@ -3862,6 +3843,18 @@ msgid ""
 msgstr ""
 "Els membres nous poden veure l'historial de missatges a partir del punt que "
 "es van unir a la sala."
+
+#: src/qml/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr "Redueix %1"
+
+#: src/qml/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Expandeix %1"
 
 #: src/qml/Security.qml:17
 #, kde-format
@@ -4153,11 +4146,10 @@ msgid "Friends"
 msgstr "Amics"
 
 #: src/qml/SpaceDrawer.qml:265
-#, fuzzy, kde-format
-#| msgid "Joined"
+#, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
-msgstr "Us heu unit"
+msgstr "Uneix-te a %1"
 
 #: src/qml/SpaceDrawer.qml:307
 #, kde-format
@@ -4738,32 +4730,32 @@ msgstr ""
 "No hi ha cap sala %1 a la llista de sales. Comproveu l'ortografia i el "
 "compte."
 
-#: src/roommanager.cpp:331
+#: src/roommanager.cpp:333
 #, kde-format
 msgid "Failed to join room"
 msgstr "Ha fallat en unir-se a la sala"
 
-#: src/roommanager.cpp:346
+#: src/roommanager.cpp:348
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Heu sol·licitat unir-vos a «%1»"
 
-#: src/roommanager.cpp:349
+#: src/roommanager.cpp:351
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Ha fallat en sol·licitar unir-vos a la sala"
 
-#: src/roommanager.cpp:358
+#: src/roommanager.cpp:360
 #, kde-format
 msgid "No application for the link"
 msgstr "No hi ha cap aplicació per a l'enllaç"
 
-#: src/roommanager.cpp:358
+#: src/roommanager.cpp:360
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "El sistema operatiu no ha pogut trobar cap aplicació per a l'enllaç."
 
-#: src/roommanager.cpp:364
+#: src/roommanager.cpp:366
 #, kde-format
 msgid "Could not open URL"
 msgstr "No s'ha pogut obrir l'URL"

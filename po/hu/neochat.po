@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"POT-Creation-Date: 2024-02-20 00:37+0000\n"
 "PO-Revision-Date: 2024-02-13 11:57+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -65,6 +65,43 @@ msgstr ""
 #, kde-format
 msgid "Unable to read access token"
 msgstr "A hozzáférési token olvasása nem sikerült"
+
+#: src/enums/neochatroomtype.h:59
+#, kde-format
+msgid "Invited"
+msgstr "Meghívva"
+
+#: src/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Favorite"
+msgstr "Kedvenc"
+
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
+#, kde-format
+msgid "Friends"
+msgstr ""
+
+#: src/enums/neochatroomtype.h:65
+#, kde-format
+msgid "Normal"
+msgstr "Normál"
+
+#: src/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Low priority"
+msgstr "Alacsony prioritás"
+
+#: src/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Spaces"
+msgstr "Terek"
+
+#: src/enums/neochatroomtype.h:71 src/qml/ExploreComponentMobile.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search"
+msgid "Search"
+msgstr "Keresés"
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
 #: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
@@ -1094,36 +1131,6 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 reakciója: %3"
 msgstr[1] "%2 reakciója: %3"
 
-#: src/models/roomlistmodel.cpp:410
-#, kde-format
-msgid "Invited"
-msgstr "Meghívva"
-
-#: src/models/roomlistmodel.cpp:412
-#, kde-format
-msgid "Favorite"
-msgstr "Kedvenc"
-
-#: src/models/roomlistmodel.cpp:414 src/qml/UserSearchPage.qml:82
-#, kde-format
-msgid "Friends"
-msgstr ""
-
-#: src/models/roomlistmodel.cpp:416
-#, kde-format
-msgid "Normal"
-msgstr "Normál"
-
-#: src/models/roomlistmodel.cpp:418
-#, kde-format
-msgid "Low priority"
-msgstr "Alacsony prioritás"
-
-#: src/models/roomlistmodel.cpp:420
-#, kde-format
-msgid "Spaces"
-msgstr "Terek"
-
 #: src/neochatconnection.cpp:71
 #, kde-format
 msgid "File too large to download."
@@ -1173,8 +1180,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/notificationsmanager.cpp:223 src/qml/FileDelegateContextMenu.qml:59
-#: src/qml/HoverActions.qml:102 src/qml/MessageDelegateContextMenu.qml:102
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:104
+#: src/qml/HoverActions.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Válasz"
@@ -1484,7 +1491,7 @@ msgid "Attachment:"
 msgstr "Csatolmány:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
-#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:93
+#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
 #, kde-format
 msgid "Edit"
 msgstr "Szerkesztés"
@@ -1729,8 +1736,8 @@ msgstr "A szoba beállításai"
 msgid "Leave Room"
 msgstr "Szoba elhagyása"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:62
-#: src/qml/ExploreComponent.qml:64 src/qml/ExploreComponentMobile.qml:162
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
+#: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
 #: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:314
 #: src/qml/SpaceDrawer.qml:316
 #, fuzzy, kde-format
@@ -1740,7 +1747,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "A Tér elhagyása"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:50
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
 #: src/qml/ExploreComponentMobile.qml:146
 #, fuzzy, kde-format
 #| msgid "Create a Room"
@@ -1811,8 +1818,8 @@ msgid "Pick room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
-#: src/qml/ExploreComponent.qml:27 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:183
+#: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
+#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:243
 #: src/qml/SelectParentDialog.qml:140
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -1845,6 +1852,46 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Legyen ez az alias a szoba normalizált aliasa"
+
+#: src/qml/DelegateContextMenu.qml:87 src/qml/FileDelegateContextMenu.qml:92
+#, kde-format
+msgid "View Source"
+msgstr "Forrás megtekintése"
+
+#: src/qml/DelegateContextMenu.qml:94 src/qml/FileDelegateContextMenu.qml:68
+#, kde-format
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: src/qml/DelegateContextMenu.qml:98 src/qml/FileDelegateContextMenu.qml:75
+#, kde-format
+msgctxt "@title"
+msgid "Remove Message"
+msgstr "Az üzenet eltávolítása"
+
+#: src/qml/DelegateContextMenu.qml:114 src/qml/FileDelegateContextMenu.qml:80
+#: src/qml/ReportSheet.qml:43
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "Jelentés"
+
+#: src/qml/DelegateContextMenu.qml:118 src/qml/FileDelegateContextMenu.qml:87
+#, kde-format
+msgctxt "@title"
+msgid "Report Message"
+msgstr "Az üzenet bejelentése"
+
+#: src/qml/DelegateContextMenu.qml:161
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Keresés: '%1'"
+
+#: src/qml/DelegateContextMenu.qml:182
+#, kde-format
+msgid "Configure Web Shortcuts..."
+msgstr "Webes parancsikonok konfigurálása ..."
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2146,50 +2193,43 @@ msgstr ""
 "Ez az üzenet titkosítva van, és a feladó nem osztotta meg a kulcsot ezzel az "
 "eszközzel."
 
-#: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:177
+#: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
+#: src/qml/RoomListPage.qml:237
 #, kde-format
 msgid "Explore rooms"
 msgstr "Szobák felfedezése"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:319
+#: src/qml/RoomListPage.qml:205 src/qml/RoomListPage.qml:254
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:198
-#: src/qml/RoomListPage.qml:327
+#: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
+#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:213
+#: src/qml/RoomListPage.qml:258
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:140
+#: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
 msgid "Create a Room"
 msgstr "Szoba létrehozása"
 
-#: src/qml/ExploreComponent.qml:56 src/qml/ExploreComponentMobile.qml:156
+#: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:156
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
 msgid "Create a Space"
 msgstr "A Tér elhagyása"
 
-#: src/qml/ExploreComponent.qml:90 src/qml/ExploreComponent.qml:151
+#: src/qml/ExploreComponent.qml:93 src/qml/ExploreComponent.qml:154
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Szobák és privát beszélgetések létrehozása"
-
-#: src/qml/ExploreComponentMobile.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search"
-msgid "Search"
-msgstr "Keresés"
 
 #: src/qml/ExploreComponentMobile.qml:79
 #, fuzzy, kde-format
@@ -2282,45 +2322,11 @@ msgstr "Megnyitás külső programmal"
 msgid "Save As"
 msgstr "Mentés másként"
 
-#: src/qml/FileDelegateContextMenu.qml:68
-#: src/qml/MessageDelegateContextMenu.qml:139
+#: src/qml/FileDelegateContextMenu.qml:60
+#: src/qml/MessageDelegateContextMenu.qml:65
 #, kde-format
 msgid "Copy"
 msgstr "Másolás"
-
-#: src/qml/FileDelegateContextMenu.qml:76
-#: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Remove"
-msgstr "Eltávolítás"
-
-#: src/qml/FileDelegateContextMenu.qml:83
-#: src/qml/MessageDelegateContextMenu.qml:134
-#, kde-format
-msgctxt "@title"
-msgid "Remove Message"
-msgstr "Az üzenet eltávolítása"
-
-#: src/qml/FileDelegateContextMenu.qml:88
-#: src/qml/MessageDelegateContextMenu.qml:144 src/qml/ReportSheet.qml:43
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr "Jelentés"
-
-#: src/qml/FileDelegateContextMenu.qml:95
-#: src/qml/MessageDelegateContextMenu.qml:151
-#, kde-format
-msgctxt "@title"
-msgid "Report Message"
-msgstr "Az üzenet bejelentése"
-
-#: src/qml/FileDelegateContextMenu.qml:100
-#: src/qml/MessageDelegateContextMenu.qml:157
-#, kde-format
-msgid "View Source"
-msgstr "Forrás megtekintése"
 
 #: src/qml/FullScreenMap.qml:23
 #, fuzzy, kde-format
@@ -3102,32 +3108,22 @@ msgstr ""
 msgid "The input is not a valid user ID"
 msgstr "A beírt szöveg nem érvényes URL"
 
-#: src/qml/MessageDelegateContextMenu.qml:110
+#: src/qml/MessageDelegateContextMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/MessageDelegateContextMenu.qml:116
+#: src/qml/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Üzenet továbbítása"
 
-#: src/qml/MessageDelegateContextMenu.qml:162
+#: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
 msgid "Copy Link"
 msgstr "A link másolása"
-
-#: src/qml/MessageDelegateContextMenu.qml:210
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Keresés: '%1'"
-
-#: src/qml/MessageDelegateContextMenu.qml:231
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr "Webes parancsikonok konfigurálása ..."
 
 #: src/qml/MessageEditComponent.qml:102
 #, kde-format
@@ -3605,12 +3601,12 @@ msgstr "Fókadatok: %1 -%2"
 msgid "Room State"
 msgstr "Szoba állapota - %1"
 
-#: src/qml/RoomDelegate.qml:109
+#: src/qml/RoomDelegate.qml:102
 #, kde-format
 msgid "Muted room"
 msgstr "Némított szoba"
 
-#: src/qml/RoomDelegate.qml:142
+#: src/qml/RoomDelegate.qml:135
 #, kde-format
 msgid "Configure room"
 msgstr "Szoba beállítása"
@@ -3717,51 +3713,38 @@ msgstr[1] "%1 tag"
 msgid "No member count"
 msgstr "Nincs tagszám"
 
-#: src/qml/RoomListPage.qml:168
+#: src/qml/RoomListPage.qml:228
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "No friends found"
 msgstr "Nem található szoba"
 
-#: src/qml/RoomListPage.qml:168
+#: src/qml/RoomListPage.qml:228
 #, kde-format
 msgid "No rooms found"
 msgstr "Nem található szoba"
 
-#: src/qml/RoomListPage.qml:170
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/qml/RoomListPage.qml:170
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Csatlakozz néhány szobához kezdésként"
 
-#: src/qml/RoomListPage.qml:177
+#: src/qml/RoomListPage.qml:237
 #, kde-format
 msgid "Search in room directory"
 msgstr "Keresés a szobakönyvtárban"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:254
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgid "Search in friend directory"
 msgstr "Keresés a szobakönyvtárban"
-
-#: src/qml/RoomListPage.qml:255
-#, kde-format
-msgctxt "Collapse <section name>"
-msgid "Collapse %1"
-msgstr ""
-
-#: src/qml/RoomListPage.qml:255
-#, fuzzy, kde-format
-#| msgid "Expand preview"
-msgctxt "Expand <section name"
-msgid "Expand %1"
-msgstr "Az előnézet nagyítása"
 
 #: src/qml/RoomMedia.qml:28
 #, fuzzy, kde-format
@@ -3776,7 +3759,7 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "A NeoChat offline állapotban van. Kérjük, ellenőrizze a hálózati kapcsolatot."
 
-#: src/qml/RoomPage.qml:254
+#: src/qml/RoomPage.qml:249
 #, kde-format
 msgid "Message Source"
 msgstr "Üzenet forrása"
@@ -3954,6 +3937,19 @@ msgid ""
 msgstr ""
 "Az új tagok megtekinthetik a korábbi üzeneteket attól a ponttól kezdve, "
 "amikor csatlakoztak a szobához."
+
+#: src/qml/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/RoomTreeSection.qml:71
+#, fuzzy, kde-format
+#| msgid "Expand preview"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Az előnézet nagyítása"
 
 #: src/qml/Security.qml:17
 #, kde-format
@@ -4844,32 +4840,32 @@ msgstr ""
 "A szoba ' %1 ' nem található a szobakönyvtárban. Ellenőrizze a helyesírást "
 "és a fiókot."
 
-#: src/roommanager.cpp:331
+#: src/roommanager.cpp:333
 #, kde-format
 msgid "Failed to join room"
 msgstr "Nem sikerült csatlakozni a szobához"
 
-#: src/roommanager.cpp:346
+#: src/roommanager.cpp:348
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Csatlakozási kérelmet küldtél ehhez:  '%1'"
 
-#: src/roommanager.cpp:349
+#: src/roommanager.cpp:351
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "A csatlakozási kérelem sikertelen"
 
-#: src/roommanager.cpp:358
+#: src/roommanager.cpp:360
 #, kde-format
 msgid "No application for the link"
 msgstr "Nincs megfelelő alkalmazás a linkhez"
 
-#: src/roommanager.cpp:358
+#: src/roommanager.cpp:360
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Az operációs rendszere nem talált alkalmazást a hivatkozáshoz."
 
-#: src/roommanager.cpp:364
+#: src/roommanager.cpp:366
 #, kde-format
 msgid "Could not open URL"
 msgstr "Nem sikerült megyitni az URL-t"

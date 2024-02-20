@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-19 00:37+0000\n"
+"POT-Creation-Date: 2024-02-20 00:37+0000\n"
 "PO-Revision-Date: 2024-02-18 16:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -62,6 +62,41 @@ msgstr ""
 #, kde-format
 msgid "Unable to read access token"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
+
+#: src/enums/neochatroomtype.h:59
+#, kde-format
+msgid "Invited"
+msgstr "வரவழைப்புகள்"
+
+#: src/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Favorite"
+msgstr "பிடித்தவை"
+
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
+#, kde-format
+msgid "Friends"
+msgstr "நண்பர்கள்"
+
+#: src/enums/neochatroomtype.h:65
+#, kde-format
+msgid "Normal"
+msgstr "சாதாரணமானவை"
+
+#: src/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Low priority"
+msgstr "முக்கியமில்லாதவை"
+
+#: src/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Spaces"
+msgstr "இடங்கள்"
+
+#: src/enums/neochatroomtype.h:71 src/qml/ExploreComponentMobile.qml:36
+#, kde-format
+msgid "Search"
+msgstr "தேடு"
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
 #: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
@@ -1084,36 +1119,6 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 %3 என்று எதிர்வினையிட்டார்"
 msgstr[1] "%2 %3 என்று எதிர்வினையிட்டனர்"
 
-#: src/models/roomlistmodel.cpp:410
-#, kde-format
-msgid "Invited"
-msgstr "வரவழைப்புகள்"
-
-#: src/models/roomlistmodel.cpp:412
-#, kde-format
-msgid "Favorite"
-msgstr "பிடித்தவை"
-
-#: src/models/roomlistmodel.cpp:414 src/qml/UserSearchPage.qml:82
-#, kde-format
-msgid "Friends"
-msgstr "நண்பர்கள்"
-
-#: src/models/roomlistmodel.cpp:416
-#, kde-format
-msgid "Normal"
-msgstr "சாதாரணமானவை"
-
-#: src/models/roomlistmodel.cpp:418
-#, kde-format
-msgid "Low priority"
-msgstr "முக்கியமில்லாதவை"
-
-#: src/models/roomlistmodel.cpp:420
-#, kde-format
-msgid "Spaces"
-msgstr "இடங்கள்"
-
 #: src/neochatconnection.cpp:71
 #, kde-format
 msgid "File too large to download."
@@ -1160,8 +1165,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "இந்த அரங்கில் நியோச்சாட்டை திற"
 
-#: src/notificationsmanager.cpp:223 src/qml/FileDelegateContextMenu.qml:59
-#: src/qml/HoverActions.qml:102 src/qml/MessageDelegateContextMenu.qml:102
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:104
+#: src/qml/HoverActions.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
@@ -1467,7 +1472,7 @@ msgid "Attachment:"
 msgstr "உடனிணைப்பு:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
-#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:93
+#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
 #, kde-format
 msgid "Edit"
 msgstr "திருத்து"
@@ -1711,8 +1716,8 @@ msgstr "அரங்கின் அமைப்புகள்"
 msgid "Leave Room"
 msgstr "அரங்கிலிருந்து வெளியேறு"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:62
-#: src/qml/ExploreComponent.qml:64 src/qml/ExploreComponentMobile.qml:162
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
+#: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
 #: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:314
 #: src/qml/SpaceDrawer.qml:316
 #, kde-format
@@ -1720,7 +1725,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "இடத்தை உருவாக்குவது"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:50
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
 #: src/qml/ExploreComponentMobile.qml:146
 #, kde-format
 msgctxt "@title"
@@ -1784,8 +1789,8 @@ msgid "Pick room"
 msgstr "அரங்கை தேர்ந்தெடு"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
-#: src/qml/ExploreComponent.qml:27 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:183
+#: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
+#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:243
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1816,6 +1821,46 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "இதை அரங்கின் செந்தர தாயாக இந்த இடத்தை ஆக்கு"
+
+#: src/qml/DelegateContextMenu.qml:87 src/qml/FileDelegateContextMenu.qml:92
+#, kde-format
+msgid "View Source"
+msgstr "மூலத்தைப் பார்"
+
+#: src/qml/DelegateContextMenu.qml:94 src/qml/FileDelegateContextMenu.qml:68
+#, kde-format
+msgid "Remove"
+msgstr "நீக்கு"
+
+#: src/qml/DelegateContextMenu.qml:98 src/qml/FileDelegateContextMenu.qml:75
+#, kde-format
+msgctxt "@title"
+msgid "Remove Message"
+msgstr "செய்தியை நீக்குவது"
+
+#: src/qml/DelegateContextMenu.qml:114 src/qml/FileDelegateContextMenu.qml:80
+#: src/qml/ReportSheet.qml:43
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "புகாரளி"
+
+#: src/qml/DelegateContextMenu.qml:118 src/qml/FileDelegateContextMenu.qml:87
+#, kde-format
+msgctxt "@title"
+msgid "Report Message"
+msgstr "செய்தியைப் பற்றி புகாரளித்தல்"
+
+#: src/qml/DelegateContextMenu.qml:161
+#, kde-format
+msgid "Search for '%1'"
+msgstr "'%1' என்பதை தேடு"
+
+#: src/qml/DelegateContextMenu.qml:182
+#, kde-format
+msgid "Configure Web Shortcuts..."
+msgstr "இணைய சுருக்குவழிகளை அமை..."
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
@@ -2096,46 +2141,41 @@ msgid ""
 msgstr ""
 "இந்த செய்தி மறையாக்கம் செய்யப்பட்டுள்ளது, ஆனால் அனுப்புநர் இச்சாதனத்துடன் சாவியை பகிரவில்லை."
 
-#: src/qml/ExploreComponent.qml:21 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:177
+#: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
+#: src/qml/RoomListPage.qml:237
 #, kde-format
 msgid "Explore rooms"
 msgstr "அரங்குப்பட்டியலில் உலாவுங்கள்"
 
-#: src/qml/ExploreComponent.qml:35 src/qml/ExploreComponentMobile.qml:67
+#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
-#: src/qml/RoomListPage.qml:194 src/qml/RoomListPage.qml:319
+#: src/qml/RoomListPage.qml:205 src/qml/RoomListPage.qml:254
 #, kde-format
 msgid "Find your friends"
 msgstr "நண்பர்களைக் கண்டுபிடி"
 
-#: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:198
-#: src/qml/RoomListPage.qml:327
+#: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
+#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:213
+#: src/qml/RoomListPage.qml:258
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
 
-#: src/qml/ExploreComponent.qml:44 src/qml/ExploreComponentMobile.qml:140
+#: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
 msgid "Create a Room"
 msgstr "அரங்கை உருவாக்கு"
 
-#: src/qml/ExploreComponent.qml:56 src/qml/ExploreComponentMobile.qml:156
+#: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:156
 #, kde-format
 msgid "Create a Space"
 msgstr "இடத்தை உருவாக்கு"
 
-#: src/qml/ExploreComponent.qml:90 src/qml/ExploreComponent.qml:151
+#: src/qml/ExploreComponent.qml:93 src/qml/ExploreComponent.qml:154
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"
-
-#: src/qml/ExploreComponentMobile.qml:36
-#, kde-format
-msgid "Search"
-msgstr "தேடு"
 
 #: src/qml/ExploreComponentMobile.qml:79
 #, kde-format
@@ -2219,45 +2259,11 @@ msgstr "வெளியமைவாகத் திற"
 msgid "Save As"
 msgstr "இவ்வாறு சேமி"
 
-#: src/qml/FileDelegateContextMenu.qml:68
-#: src/qml/MessageDelegateContextMenu.qml:139
+#: src/qml/FileDelegateContextMenu.qml:60
+#: src/qml/MessageDelegateContextMenu.qml:65
 #, kde-format
 msgid "Copy"
 msgstr "நகலெடு"
-
-#: src/qml/FileDelegateContextMenu.qml:76
-#: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Remove"
-msgstr "நீக்கு"
-
-#: src/qml/FileDelegateContextMenu.qml:83
-#: src/qml/MessageDelegateContextMenu.qml:134
-#, kde-format
-msgctxt "@title"
-msgid "Remove Message"
-msgstr "செய்தியை நீக்குவது"
-
-#: src/qml/FileDelegateContextMenu.qml:88
-#: src/qml/MessageDelegateContextMenu.qml:144 src/qml/ReportSheet.qml:43
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr "புகாரளி"
-
-#: src/qml/FileDelegateContextMenu.qml:95
-#: src/qml/MessageDelegateContextMenu.qml:151
-#, kde-format
-msgctxt "@title"
-msgid "Report Message"
-msgstr "செய்தியைப் பற்றி புகாரளித்தல்"
-
-#: src/qml/FileDelegateContextMenu.qml:100
-#: src/qml/MessageDelegateContextMenu.qml:157
-#, kde-format
-msgid "View Source"
-msgstr "மூலத்தைப் பார்"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -3012,32 +3018,22 @@ msgstr "பயனர் அடையாளம் @ என்று தொடங�
 msgid "The input is not a valid user ID"
 msgstr "உள்ளிட்டது முறையான பயனர் அடையாளம் இல்லை"
 
-#: src/qml/MessageDelegateContextMenu.qml:110
+#: src/qml/MessageDelegateContextMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr "முன்ன‍னுப்பு"
 
-#: src/qml/MessageDelegateContextMenu.qml:116
+#: src/qml/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "செய்தியை முன்ன‍னுப்புவது"
 
-#: src/qml/MessageDelegateContextMenu.qml:162
+#: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
 msgid "Copy Link"
 msgstr "இணைப்பை நகலெடு"
-
-#: src/qml/MessageDelegateContextMenu.qml:210
-#, kde-format
-msgid "Search for '%1'"
-msgstr "'%1' என்பதை தேடு"
-
-#: src/qml/MessageDelegateContextMenu.qml:231
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr "இணைய சுருக்குவழிகளை அமை..."
 
 #: src/qml/MessageEditComponent.qml:102
 #, kde-format
@@ -3504,12 +3500,12 @@ msgstr "அரங்கிற்கான கணக்கு விவரங்�
 msgid "Room State"
 msgstr "அரங்கின் நிலை"
 
-#: src/qml/RoomDelegate.qml:109
+#: src/qml/RoomDelegate.qml:102
 #, kde-format
 msgid "Muted room"
 msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 
-#: src/qml/RoomDelegate.qml:142
+#: src/qml/RoomDelegate.qml:135
 #, kde-format
 msgid "Configure room"
 msgstr "அரங்கை அமை"
@@ -3610,49 +3606,37 @@ msgstr[1] "%1 உறுப்பினர்கள்"
 msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
 
-#: src/qml/RoomListPage.qml:168
+#: src/qml/RoomListPage.qml:228
 #, kde-format
 msgid "No friends found"
 msgstr "நண்பர்கள் யாரும் கிடைக்கவில்லை"
 
-#: src/qml/RoomListPage.qml:168
+#: src/qml/RoomListPage.qml:228
 #, kde-format
 msgid "No rooms found"
 msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
 
-#: src/qml/RoomListPage.qml:170
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 "உங்கள் நண்பர்களை நீங்கள் இன்னம் சேர்க்கவில்லை. அவர்களைக் கண்டுபிடிக்க கீழே கிளிக் செய்யவும்."
 
-#: src/qml/RoomListPage.qml:170
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "தொடங்க, சில அரங்குகளில் சேருங்கள்"
 
-#: src/qml/RoomListPage.qml:177
+#: src/qml/RoomListPage.qml:237
 #, kde-format
 msgid "Search in room directory"
 msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
 
-#: src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:254
 #, kde-format
 msgid "Search in friend directory"
 msgstr "நண்பர்களின் பட்டியலில் தேடுங்கள்"
-
-#: src/qml/RoomListPage.qml:255
-#, kde-format
-msgctxt "Collapse <section name>"
-msgid "Collapse %1"
-msgstr "%1 தனை சுருக்கு"
-
-#: src/qml/RoomListPage.qml:255
-#, kde-format
-msgctxt "Expand <section name"
-msgid "Expand %1"
-msgstr "%1 தனை விரி"
 
 #: src/qml/RoomMedia.qml:28
 #, kde-format
@@ -3665,7 +3649,7 @@ msgstr "அரங்கிலுள்ள படங்கள்"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. உங்கள் பிணைய இணைப்பை சரிபாருங்கள்."
 
-#: src/qml/RoomPage.qml:254
+#: src/qml/RoomPage.qml:249
 #, kde-format
 msgid "Message Source"
 msgstr "செய்தியின் மூலம்"
@@ -3831,6 +3815,18 @@ msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
 "புதிய உறுப்பினர்கள், அவர்கள் சேர்ந்ததற்கு பின்னுள்ள செய்திகளை மட்டும் வரலாற்றில் பார்க்கலாம்."
+
+#: src/qml/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr "%1 தனை சுருக்கு"
+
+#: src/qml/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "%1 தனை விரி"
 
 #: src/qml/Security.qml:17
 #, kde-format
@@ -4680,33 +4676,33 @@ msgid ""
 msgstr ""
 "அரங்குகளின் பட்டியலில் %1 என்று எந்த அரங்கும் இல்லை. எழுத்தாக்கம் மற்றும் கணக்கை சரிபாருங்கள்."
 
-#: src/roommanager.cpp:331
+#: src/roommanager.cpp:333
 #, kde-format
 msgid "Failed to join room"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:346
+#: src/roommanager.cpp:348
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/roommanager.cpp:349
+#: src/roommanager.cpp:351
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:358
+#: src/roommanager.cpp:360
 #, kde-format
 msgid "No application for the link"
 msgstr "இணைப்புக்கேற்ற செயலி இல்லை"
 
-#: src/roommanager.cpp:358
+#: src/roommanager.cpp:360
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "இந்த இணைப்பைத் திறக்கக் கூடிய செயலியை உங்கள் இயக்குதளத்தால் கண்டுபிடிக்க முடியவில்லை."
 
-#: src/roommanager.cpp:364
+#: src/roommanager.cpp:366
 #, kde-format
 msgid "Could not open URL"
 msgstr "முகவரியைத் திறக்க முடியவில்லை"
