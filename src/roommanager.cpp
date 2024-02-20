@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2021 Carl Schwan <carlschwan@kde.org>
-// SPDX-FileCopyrightText: 2021 Alexey Rusakov <TODO>
+// SPDX-FileCopyrightText: 2021 Alexey Rusakov <Kitsune-Ral@users.sf.net>
 // SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "roommanager.h"
