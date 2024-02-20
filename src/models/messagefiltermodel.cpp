@@ -80,8 +80,24 @@ QVariant MessageFilterModel::data(const QModelIndex &index, int role) const
         return authorList(mapToSource(index).row());
     } else if (role == ExcessAuthorsRole) {
         return excessAuthors(mapToSource(index).row());
+    } else if (role == ShowAuthorRole) {
+        for (auto r = index.row() + 1; r < rowCount(); ++r) {
+            auto i = this->index(r, 0);
+            // Note !itemData(i).empty() is a check for instances where rows have been removed, e.g. when the read marker is moved.
+            // While the row is removed the subsequent row indexes are not changed so we need to skip over the removed index.
+            // See - https://doc.qt.io/qt-5/qabstractitemmodel.html#beginRemoveRows
+            if (data(i, MessageEventModel::SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
+                return data(i, MessageEventModel::AuthorRole) != data(index, MessageEventModel::AuthorRole)
+                    || data(i, MessageEventModel::DelegateTypeRole) == DelegateType::State
+                    || data(i, MessageEventModel::TimeRole).toDateTime().msecsTo(data(index, MessageEventModel::TimeRole).toDateTime()) > 600000
+                    || data(i, MessageEventModel::TimeRole).toDateTime().toLocalTime().date().day()
+                    != data(index, MessageEventModel::TimeRole).toDateTime().toLocalTime().date().day();
+            }
+        }
+
+        return true;
     }
-    return sourceModel()->data(mapToSource(index), role);
+    return QSortFilterProxyModel::data(index, role);
 }
 
 QHash<int, QByteArray> MessageFilterModel::roleNames() const
@@ -91,6 +107,7 @@ QHash<int, QByteArray> MessageFilterModel::roleNames() const
     roles[StateEventsRole] = "stateEvents";
     roles[AuthorListRole] = "authorList";
     roles[ExcessAuthorsRole] = "excessAuthors";
+    roles[ShowAuthorRole] = "showAuthor";
     return roles;
 }
 

@@ -56,7 +56,6 @@ public:
         IsThreadedRole,
         ThreadRootRole,
 
-        ShowAuthorRole, /**< Whether the author's name should be shown. */
         ShowSectionRole, /**< Whether the section header should be shown. */
 
         ReadMarkersRole, /**< The first 5 other users at the event for read marker tracking. */

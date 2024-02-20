@@ -24,6 +24,7 @@
 #include "events/pollevent.h"
 #include "linkpreviewer.h"
 #include "messagecontentmodel.h"
+#include "models/messagefiltermodel.h"
 #include "models/reactionmodel.h"
 #include "texthandler.h"
 
@@ -43,7 +44,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ProgressInfoRole] = "progressInfo";
     roles[IsThreadedRole] = "isThreaded";
     roles[ThreadRootRole] = "threadRoot";
-    roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
     roles[ReadMarkersRole] = "readMarkers";
     roles[ExcessReadMarkersRole] = "excessReadMarkers";
@@ -176,7 +176,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             if (biggest < m_currentRoom->maxTimelineIndex()) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() - biggest + timelineBaseIndex() - 1;
-                refreshEventRoles(rowBelowInserted, {ShowAuthorRole});
+                refreshEventRoles(rowBelowInserted, {MessageFilterModel::ShowAuthorRole});
             }
             for (auto i = m_currentRoom->maxTimelineIndex() - biggest; i <= m_currentRoom->maxTimelineIndex() - lowest; ++i) {
                 refreshLastUserEvents(i);
@@ -206,7 +206,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             refreshRow(timelineBaseIndex()); // Refresh the looks
             refreshLastUserEvents(0);
             if (timelineBaseIndex() > 0) { // Refresh below, see #312
-                refreshEventRoles(timelineBaseIndex() - 1, {ShowAuthorRole});
+                refreshEventRoles(timelineBaseIndex() - 1, {MessageFilterModel::ShowAuthorRole});
             }
         });
         connect(m_currentRoom, &Room::pendingEventChanged, this, &MessageEventModel::refreshRow);
@@ -547,25 +547,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == ThreadRootRole) {
         return eventHandler.threadRoot();
-    }
-
-    if (role == ShowAuthorRole) {
-        for (auto r = row + 1; r < rowCount(); ++r) {
-            auto i = index(r);
-            // Note !itemData(i).empty() is a check for instances where rows have been removed, e.g. when the read marker is moved.
-            // While the row is removed the subsequent row indexes are not changed so we need to skip over the removed index.
-            // See - https://doc.qt.io/qt-5/qabstractitemmodel.html#beginRemoveRows
-            if (data(i, SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
-                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, DelegateTypeRole) == DelegateType::State
-                    || data(i, TimeRole).toDateTime().msecsTo(data(idx, TimeRole).toDateTime()) > 600000
-                    || data(i, TimeRole).toDateTime().toLocalTime().date().day() != data(idx, TimeRole).toDateTime().toLocalTime().date().day()
-                    // FIXME: This should not be necessary; the proper fix is to calculate this role in MessageFilterModel with the knowledge about the filtered
-                    // events.
-                    || data(i, IsRedactedRole).toBool();
-            }
-        }
-
-        return true;
     }
 
     if (role == ShowSectionRole) {
