@@ -231,7 +231,7 @@ QHash<int, QByteArray> RoomTreeModel::roleNames() const
 // TODO room type changes
 QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()) {
+    if (!checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid)) {
         return QVariant();
     }
 
