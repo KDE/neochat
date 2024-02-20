@@ -76,23 +76,6 @@ DelegateContextMenu {
                 width: Kirigami.Units.gridUnit * 25
             })
         },
-        Kirigami.Action {
-            text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
-            icon.name: "dialog-warning-symbolic"
-            visible: author.id !== currentRoom.localUser.id
-            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ReportSheet.qml", {
-                room: currentRoom,
-                eventId: eventId
-            }, {
-                title: i18nc("@title", "Report Message"),
-                width: Kirigami.Units.gridUnit * 25
-            })
-        },
-        Kirigami.Action {
-            text: i18n("View Source")
-            icon.name: "code-context"
-            onTriggered: RoomManager.viewEventSource(root.eventId)
-        },
         DelegateContextMenu.ReportMessageAction {},
         DelegateContextMenu.ViewSourceAction {}
     ]
