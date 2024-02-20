@@ -37,7 +37,9 @@ void RoomTreeModel::setConnection(NeoChatConnection *connection)
     if (m_connection == connection) {
         return;
     }
-    disconnect(m_connection.get(), nullptr, this, nullptr);
+    if (m_connection) {
+        disconnect(m_connection.get(), nullptr, this, nullptr);
+    }
     m_connection = connection;
     beginResetModel();
     initializeCategories();
