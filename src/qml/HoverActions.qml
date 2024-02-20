@@ -7,6 +7,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
+import org.kde.neochat.config
 
 /**
  * @brief A component that provides a set of actions when a message is hovered in the timeline.
@@ -108,7 +109,7 @@ QQC2.Control {
                     }
                 },
                 Kirigami.Action {
-                    visible: !root.currentRoom.readOnly
+                    visible: Config.threads && !root.currentRoom.readOnly
                     text: i18n("Reply in Thread")
                     icon.name: "dialog-messages"
                     onTriggered: {
