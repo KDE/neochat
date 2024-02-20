@@ -46,6 +46,7 @@ void RoomTreeModel::setConnection(NeoChatConnection *connection)
     endResetModel();
     connect(connection, &Connection::newRoom, this, &RoomTreeModel::newRoom);
     connect(connection, &Connection::leftRoom, this, &RoomTreeModel::leftRoom);
+    connect(connection, &Connection::aboutToDeleteRoom, this, &RoomTreeModel::leftRoom);
 
     for (const auto &room : m_connection->allRooms()) {
         newRoom(dynamic_cast<NeoChatRoom *>(room));
