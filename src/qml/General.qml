@@ -146,8 +146,8 @@ FormCard.FormCardPage {
 
                 onClicked: {
                     if (room.canSwitchVersions()) {
-                        roomUpgradeSheet.currentRoomVersion = room.version;
-                        roomUpgradeSheet.open();
+                        roomUpgradeDialog.currentRoomVersion = room.version;
+                        roomUpgradeDialog.open();
                     }
                 }
 
@@ -397,27 +397,32 @@ FormCard.FormCardPage {
         }
     }
 
-    property Kirigami.OverlaySheet roomUpgradeSheet: Kirigami.OverlaySheet {
-        id: roomUpgradeSheet
+    property Kirigami.Dialog roomUpgradeDialog: Kirigami.Dialog {
+        id: roomUpgradeDialog
 
         property var currentRoomVersion
 
+        width: Kirigami.Units.gridUnit * 16
+
         title: i18n("Upgrade the Room")
-        Kirigami.FormLayout {
-            QQC2.SpinBox {
+        ColumnLayout {
+            FormCard.FormSpinBoxDelegate {
                 id: spinBox
-                Kirigami.FormData.label: i18n("Select new version")
+                label: i18n("Select new version")
                 from: room.version
                 to: room.maxRoomVersion
                 value: room.version
             }
-            QQC2.Button {
+        }
+        customFooterActions: [
+            Kirigami.Action {
                 text: i18n("Confirm")
-                onClicked: {
+                icon.name: "dialog-ok"
+                onTriggered: {
                     room.switchVersion(spinBox.value);
-                    roomUpgradeSheet.close();
+                    roomUpgradeDialog.close();
                 }
             }
-        }
+        ]
     }
 }
