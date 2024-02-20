@@ -173,7 +173,7 @@ Kirigami.Page {
                             required property TreeView treeView
                             required property bool current
                             onCurrentChanged: if (current) {
-                                forceActiveFocus(Qt.TabFocusReason)
+                                forceActiveFocus(Qt.TabFocusReason);
                             }
 
                             implicitWidth: treeView.width

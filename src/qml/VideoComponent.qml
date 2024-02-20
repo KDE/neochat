@@ -59,12 +59,11 @@ Video {
     readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
     onDownloadedChanged: {
         if (downloaded) {
-            root.source = root.fileTransferInfo.localPath
+            root.source = root.fileTransferInfo.localPath;
         }
-
         if (downloaded && playOnFinished) {
-            playSavedFile()
-            playOnFinished = false
+            playSavedFile();
+            playOnFinished = false;
         }
     }
 
@@ -220,19 +219,19 @@ Video {
 
                 onClicked: {
                     if (root.volume > 0) {
-                        root.volume = 0
+                        root.volume = 0;
                     } else {
                         if (unmuteVolume === 0) {
-                            root.volume = 1
+                            root.volume = 1;
                         } else {
-                            root.volume = unmuteVolume
+                            root.volume = unmuteVolume;
                         }
                     }
                 }
                 onHoveredChanged: {
                     if (!hovered && (root.state === "paused" || root.state === "playing")) {
-                        videoControlTimer.restart()
-                        volumePopupTimer.restart()
+                        videoControlTimer.restart();
+                        volumePopupTimer.restart();
                     }
                 }
 
@@ -256,13 +255,13 @@ Video {
                         to: 1
                         value: root.volume
                         onMoved: {
-                            root.volume = value
-                            volumeButton.unmuteVolume = value
+                            root.volume = value;
+                            volumeButton.unmuteVolume = value;
                         }
                         onHoveredChanged: {
                             if (!hovered && (root.state === "paused" || root.state === "playing")) {
-                                rooteoControlTimer.restart()
-                                volumePopupTimer.restart()
+                                rooteoControlTimer.restart();
+                                volumePopupTimer.restart();
                             }
                         }
                     }
@@ -274,8 +273,8 @@ Video {
                         id: volumePopupHoverHandler
                         onHoveredChanged: {
                             if (!hovered && (root.state === "paused" || root.state === "playing")) {
-                                videoControlTimer.restart()
-                                volumePopupTimer.restart()
+                                videoControlTimer.restart();
+                                volumePopupTimer.restart();
                             }
                         }
                     }
@@ -303,13 +302,13 @@ Video {
                     text: i18n("Maximize")
                     icon.name: "view-fullscreen"
                     onTriggered: {
-                        root.timeline.interactive = false
-                        root.pause()
+                        root.timeline.interactive = false;
+                        root.pause();
                         // We need to make sure the index is that of the MediaMessageFilterModel.
                         if (root.timeline.model instanceof MessageFilterModel) {
-                            RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index))
+                            RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index));
                         } else {
-                            RoomManager.maximizeMedia(root.index)
+                            RoomManager.maximizeMedia(root.index);
                         }
                     }
                 }
@@ -339,7 +338,7 @@ Video {
         id: videoHoverHandler
         onHoveredChanged: {
             if (!hovered && (root.state === "paused" || root.state === "playing")) {
-                videoControlTimer.restart()
+                videoControlTimer.restart();
             }
         }
     }
@@ -349,12 +348,12 @@ Video {
         gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
         onTapped: if (root.fileTransferInfo.completed) {
             if (root.playbackState == MediaPlayer.PlayingState) {
-                root.pause()
+                root.pause();
             } else {
-                root.play()
+                root.play();
             }
         } else {
-            root.downloadAndPlay()
+            root.downloadAndPlay();
         }
     }
 
@@ -367,15 +366,15 @@ Video {
 
     function downloadAndPlay() {
         if (root.downloaded) {
-            playSavedFile()
+            playSavedFile();
         } else {
-            playOnFinished = true
-            root.room.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId))
+            playOnFinished = true;
+            root.room.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId));
         }
     }
 
     function playSavedFile() {
-        root.stop()
-        root.play()
+        root.stop();
+        root.play();
     }
 }

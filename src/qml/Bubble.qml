@@ -106,7 +106,7 @@ QQC2.Control {
     /**
      * @brief Request a context menu be show for the message.
      */
-    signal showMessageMenu()
+    signal showMessageMenu
 
     contentItem: ColumnLayout {
         id: contentColumn
@@ -152,8 +152,12 @@ QQC2.Control {
                 timeline: root.timeline
                 maxContentWidth: root.maxContentWidth
 
-                onReplyClicked: (eventId) => {root.replyClicked(eventId)}
-                onSelectedTextChanged: (selectedText) => {root.selectedTextChanged(selectedText);}
+                onReplyClicked: eventId => {
+                    root.replyClicked(eventId);
+                }
+                onSelectedTextChanged: selectedText => {
+                    root.selectedTextChanged(selectedText);
+                }
                 onShowMessageMenu: root.showMessageMenu()
             }
         }

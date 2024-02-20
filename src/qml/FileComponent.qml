@@ -59,7 +59,7 @@ ColumnLayout {
      */
     readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
     onDownloadedChanged: {
-        itineraryModel.path = root.fileTransferInfo.localPath
+        itineraryModel.path = root.fileTransferInfo.localPath;
         if (autoOpenFile) {
             openSavedFile();
         }
@@ -76,9 +76,9 @@ ColumnLayout {
     property real maxContentWidth: -1
 
     function saveFileAs() {
-        const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
-        dialog.open()
-        dialog.currentFile = dialog.folder + "/" + root.room.fileNameToDownload(root.eventId)
+        const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay);
+        dialog.open();
+        dialog.currentFile = dialog.folder + "/" + root.room.fileNameToDownload(root.eventId);
     }
 
     function openSavedFile() {
@@ -209,10 +209,10 @@ ColumnLayout {
                 fileMode: FileDialog.SaveFile
                 folder: Config.lastSaveDirectory.length > 0 ? Config.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
                 onAccepted: {
-                    Config.lastSaveDirectory = folder
-                    Config.save()
+                    Config.lastSaveDirectory = folder;
+                    Config.save();
                     if (autoOpenFile) {
-                        UrlHelper.copyTo(root.fileTransferInfo.localPath, file)
+                        UrlHelper.copyTo(root.fileTransferInfo.localPath, file);
                     } else {
                         root.room.download(root.eventId, file);
                     }
@@ -239,9 +239,9 @@ ColumnLayout {
                             text: model.name
                         }
                         QQC2.Label {
-                                text: model.coach ? i18n("Coach: %1, Seat: %2", model.coach, model.seat) : ""
-                                visible: model.coach
-                                opacity: 0.7
+                            text: model.coach ? i18n("Coach: %1, Seat: %2", model.coach, model.seat) : ""
+                            visible: model.coach
+                            opacity: 0.7
                         }
                     }
                     RowLayout {
@@ -260,7 +260,7 @@ ColumnLayout {
                         }
                         ColumnLayout {
                             QQC2.Label {
-                                text: model.arrivalStation + (model.arrivalPlatform ?  (" [" + model.arrivalPlatform + "]") : "")
+                                text: model.arrivalStation + (model.arrivalPlatform ? (" [" + model.arrivalPlatform + "]") : "")
                             }
                             QQC2.Label {
                                 text: model.arrivalTime

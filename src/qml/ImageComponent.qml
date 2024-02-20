@@ -129,32 +129,34 @@ Item {
         acceptedButtons: Qt.LeftButton
         gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
         onTapped: {
-            root.QQC2.ToolTip.hide()
+            root.QQC2.ToolTip.hide();
             if (root.mediaInfo.animated) {
-                _private.imageItem.paused = true
+                _private.imageItem.paused = true;
             }
-            root.timeline.interactive = false
+            root.timeline.interactive = false;
             // We need to make sure the index is that of the MediaMessageFilterModel.
             if (root.timeline.model instanceof MessageFilterModel) {
-                RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index))
+                RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index));
             } else {
-                RoomManager.maximizeMedia(root.index)
+                RoomManager.maximizeMedia(root.index);
             }
         }
     }
 
     function downloadAndOpen() {
         if (_private.downloaded) {
-            openSavedFile()
+            openSavedFile();
         } else {
-            openOnFinished = true
-            root.room.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId))
+            openOnFinished = true;
+            root.room.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId));
         }
     }
 
     function openSavedFile() {
-        if (UrlHelper.openUrl(root.fileTransferInfo.localPath)) return;
-        if (UrlHelper.openUrl(root.fileTransferInfo.localDir)) return;
+        if (UrlHelper.openUrl(root.fileTransferInfo.localPath))
+            return;
+        if (UrlHelper.openUrl(root.fileTransferInfo.localDir))
+            return;
     }
 
     MediaSizeHelper {

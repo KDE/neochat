@@ -53,7 +53,7 @@ TextEdit {
     /**
      * @brief Request a context menu be show for the message.
      */
-    signal showMessageMenu()
+    signal showMessageMenu
 
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -122,8 +122,8 @@ a{
     textFormat: Text.RichText
 
     onLinkActivated: link => {
-        spoilerRevealed = true
-        RoomManager.resolveResource(link, "join")
+        spoilerRevealed = true;
+        RoomManager.resolveResource(link, "join");
     }
     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
         applicationWindow().hoverLinkIndicator.text = hoveredLink;

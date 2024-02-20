@@ -19,7 +19,7 @@ QQC2.ItemDelegate {
     required property int row
     required property bool current
     onCurrentChanged: if (current) {
-        collapseButton.forceActiveFocus(Qt.TabFocusReason)
+        collapseButton.forceActiveFocus(Qt.TabFocusReason);
     }
     required property bool selected
 

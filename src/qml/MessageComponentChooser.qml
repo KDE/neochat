@@ -48,7 +48,7 @@ DelegateChooser {
     /**
      * @brief Request a context menu be show for the message.
      */
-    signal showMessageMenu()
+    signal showMessageMenu
 
     role: "componentType"
 
@@ -56,7 +56,7 @@ DelegateChooser {
         roleValue: MessageComponentType.Text
         delegate: TextComponent {
             maxContentWidth: root.maxContentWidth
-            onSelectedTextChanged: root.selectedTextChanged(selectedText);
+            onSelectedTextChanged: root.selectedTextChanged(selectedText)
             onShowMessageMenu: root.showMessageMenu()
         }
     }
@@ -129,7 +129,9 @@ DelegateChooser {
         roleValue: MessageComponentType.Reply
         delegate: ReplyComponent {
             maxContentWidth: root.maxContentWidth
-            onReplyClicked: (eventId) => {root.replyClicked(eventId)}
+            onReplyClicked: eventId => {
+                root.replyClicked(eventId);
+            }
         }
     }
 

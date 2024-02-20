@@ -26,7 +26,7 @@ QQC2.Control {
         target: RoomManager
         function onConnectionChanged() {
             // We need to rebind as any previous change will have been overwritten.
-            selectedSpaceId = RoomManager.lastSpaceId
+            selectedSpaceId = RoomManager.lastSpaceId;
         }
     }
 
@@ -267,7 +267,7 @@ QQC2.Control {
                         onClicked: {
                             recommendedSpaceDialogComponent.createObject(QQC2.ApplicationWindow.overlay, {
                                 connection: root.connection
-                            }).open()
+                            }).open();
                         }
                         Component {
                             id: recommendedSpaceDialogComponent

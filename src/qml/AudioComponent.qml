@@ -57,7 +57,7 @@ ColumnLayout {
      */
     readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
     onDownloadedChanged: if (downloaded) {
-        audio.play()
+        audio.play();
     }
 
     /**
@@ -93,7 +93,7 @@ ColumnLayout {
                 target: playButton
                 icon.name: "media-playback-stop"
                 onClicked: {
-                    root.room.cancelFileTransfer(root.eventId)
+                    root.room.cancelFileTransfer(root.eventId);
                 }
             }
         },
@@ -105,7 +105,7 @@ ColumnLayout {
                 icon.name: "media-playback-start"
                 onClicked: {
                     audio.source = root.fileTransferInfo.localPath;
-                    audio.play()
+                    audio.play();
                 }
             }
         },

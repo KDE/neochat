@@ -49,11 +49,10 @@ RowLayout {
         level: 2
         text: {
             switch (root.type) {
-                case LoadComponent.Reply:
-                    return i18n("Loading reply");
-                case LoadComponent.LinkPreview:
-                    return i18n("Loading URL preview");
-
+            case LoadComponent.Reply:
+                return i18n("Loading reply");
+            case LoadComponent.LinkPreview:
+                return i18n("Loading URL preview");
             }
         }
     }

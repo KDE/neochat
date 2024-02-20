@@ -33,7 +33,7 @@ Delegates.RoundedItemDelegate {
     Accessible.name: root.displayName
     Accessible.onPressAction: clicked()
 
-    onClicked: RoomManager.resolveResource(currentRoom.id);
+    onClicked: RoomManager.resolveResource(currentRoom.id)
     onPressAndHold: createRoomListContextMenu()
 
     Keys.onSpacePressed: clicked()
@@ -42,7 +42,7 @@ Delegates.RoundedItemDelegate {
 
     TapHandler {
         acceptedButtons: Qt.RightButton
-        onTapped: (eventPoint, button) => root.createRoomListContextMenu();
+        onTapped: (eventPoint, button) => root.createRoomListContextMenu()
     }
 
     contentItem: RowLayout {

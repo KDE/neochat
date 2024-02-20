@@ -333,7 +333,9 @@ TimelineDelegate {
                 onReplyClicked: eventId => {
                     root.replyClicked(eventId);
                 }
-                onSelectedTextChanged: (selectedText) => {root.selectedText = selectedText;}
+                onSelectedTextChanged: selectedText => {
+                    root.selectedText = selectedText;
+                }
                 onShowMessageMenu: _private.showMessageMenu()
 
                 showBackground: root.cardBackground && !Config.compactLayout
@@ -407,7 +409,7 @@ TimelineDelegate {
         property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !root.alwaysMaxWidth
 
         function showMessageMenu() {
-            RoomManager.viewEventMenu(root.eventId, root.room, root.selectedText)
+            RoomManager.viewEventMenu(root.eventId, root.room, root.selectedText);
         }
     }
 }

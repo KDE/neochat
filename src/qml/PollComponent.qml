@@ -69,7 +69,7 @@ ColumnLayout {
         }
     }
     Label {
-        visible: root.pollHandler.kind  == "org.matrix.msc3381.poll.disclosed" || root.pollHandler.hasEnded
+        visible: root.pollHandler.kind == "org.matrix.msc3381.poll.disclosed" || root.pollHandler.hasEnded
         text: i18np("Based on votes by %1 user", "Based on votes by %1 users", root.pollHandler.answerCount) + (root.pollHandler.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
         font.pointSize: questionLabel.font.pointSize * 0.8
     }

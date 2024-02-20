@@ -15,7 +15,6 @@ Kirigami.Dialog {
 
     property var connection
 
-
     parent: applicationWindow().overlay
 
     leftPadding: 0
@@ -47,22 +46,21 @@ Kirigami.Dialog {
                     }
                 }
             }
-
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Join")
             onClicked: {
-                SpaceHierarchyCache.recommendedSpaceHidden = true
-                RoomManager.resolveResource(SpaceHierarchyCache.recommendedSpaceId, "join")
-                root.close()
+                SpaceHierarchyCache.recommendedSpaceHidden = true;
+                RoomManager.resolveResource(SpaceHierarchyCache.recommendedSpaceId, "join");
+                root.close();
             }
         }
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Ignore")
             onClicked: {
-                SpaceHierarchyCache.recommendedSpaceHidden = true
-                root.close()
+                SpaceHierarchyCache.recommendedSpaceHidden = true;
+                root.close();
             }
         }
     }
