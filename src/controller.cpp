@@ -120,7 +120,9 @@ Controller::Controller(QObject *parent)
         }
     });
 
-    connector->registerClient(i18n("Receiving push notifications"));
+    connector->registerClient(
+        i18nc("The reason for using push notifications, as in: '[Push notifications are used for] Receiving notifications for new messages'",
+              "Receiving notifications for new messages"));
 
     m_endpoint = connector->endpoint();
 #endif
