@@ -231,6 +231,9 @@ void NeoChatRoom::acceptInvitation()
 
 void NeoChatRoom::forget()
 {
+    if (const auto &predecessor = dynamic_cast<NeoChatRoom *>(this->predecessor(JoinState::Join))) {
+        predecessor->forget();
+    }
     connection()->forgetRoom(id());
 }
 
