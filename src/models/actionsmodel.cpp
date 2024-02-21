@@ -354,17 +354,12 @@ QList<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
-            auto user = room->connection()->users()[text];
-            if (room->connection()->ignoredUsers().contains(user->id())) {
+            if (room->connection()->ignoredUsers().contains(text)) {
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<username> is already ignored.", "%1 is already ignored.", text));
                 return QString();
             }
-            if (user) {
-                room->connection()->addToIgnoredUsers(user);
-                Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> is now ignored", "%1 is now ignored.", text));
-            } else {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("<username> is not a known user", "%1 is not a known user.", text));
-            }
+            room->connection()->addToIgnoredUsers(room->connection()->user(text));
+            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> is now ignored", "%1 is now ignored.", text));
             return QString();
         },
         false,
@@ -382,17 +377,12 @@ QList<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
-            auto user = room->connection()->users()[text];
-            if (user) {
-                if (!room->connection()->ignoredUsers().contains(user->id())) {
-                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<username> is not ignored.", "%1 is not ignored.", text));
-                    return QString();
-                }
-                room->connection()->removeFromIgnoredUsers(user);
-                Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> is no longer ignored.", "%1 is no longer ignored.", text));
-            } else {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("<username> is not a known user", "%1 is not a known user.", text));
+            if (!room->connection()->ignoredUsers().contains(text)) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<username> is not ignored.", "%1 is not ignored.", text));
+                return QString();
             }
+            room->connection()->removeFromIgnoredUsers(room->connection()->user(text));
+            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> is no longer ignored.", "%1 is no longer ignored.", text));
             return QString();
         },
         false,
