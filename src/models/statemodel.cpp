@@ -10,16 +10,16 @@ StateModel::StateModel(QObject *parent)
 
 QHash<int, QByteArray> StateModel::roleNames() const
 {
-    return {{TypeRole, "type"}, {StateKeyRole, "stateKey"}};
+    return {{TypeRole, "type"}, {EventCountRole, "eventCount"}};
 }
 QVariant StateModel::data(const QModelIndex &index, int role) const
 {
     auto row = index.row();
     switch (role) {
     case TypeRole:
-        return m_stateEvents[row].first;
-    case StateKeyRole:
-        return m_stateEvents[row].second;
+        return m_stateEvents.keys()[row];
+    case EventCountRole:
+        return m_stateEvents.values()[row].count();
     }
     return {};
 }
@@ -27,7 +27,7 @@ QVariant StateModel::data(const QModelIndex &index, int role) const
 int StateModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_room->currentState().events().size();
+    return m_stateEvents.count();
 }
 
 NeoChatRoom *StateModel::room() const
@@ -35,26 +35,39 @@ NeoChatRoom *StateModel::room() const
     return m_room;
 }
 
+void StateModel::loadState()
+{
+    beginResetModel();
+    m_stateEvents.clear();
+    const auto keys = m_room->currentState().events().keys();
+    for (const auto &[type, stateKey] : keys) {
+        if (!m_stateEvents.contains(type)) {
+            m_stateEvents[type] = {};
+        }
+        m_stateEvents[type] += stateKey;
+    }
+    endResetModel();
+}
+
 void StateModel::setRoom(NeoChatRoom *room)
 {
     m_room = room;
     Q_EMIT roomChanged();
-    beginResetModel();
-    m_stateEvents.clear();
-    m_stateEvents = m_room->currentState().events().keys();
-    endResetModel();
+    loadState();
+
     connect(room, &NeoChatRoom::changed, this, [this] {
-        beginResetModel();
-        m_stateEvents.clear();
-        m_stateEvents = m_room->currentState().events().keys();
-        endResetModel();
+        loadState();
     });
 }
 
 QByteArray StateModel::stateEventJson(const QModelIndex &index)
 {
     auto row = index.row();
-    return QJsonDocument(m_room->currentState().events()[m_stateEvents[row]]->fullJson()).toJson();
+    const auto type = m_stateEvents.keys()[row];
+    const auto stateKey = m_stateEvents.values()[row][0];
+    const auto event = m_room->currentState().get(type, stateKey);
+
+    return QJsonDocument(event->fullJson()).toJson();
 }
 
 #include "moc_statemodel.cpp"

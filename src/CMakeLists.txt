@@ -163,6 +163,8 @@ add_library(neochat STATIC
     models/sortfilterroomtreemodel.h
     mediamanager.cpp
     mediamanager.h
+    models/statekeysmodel.cpp
+    models/statekeysmodel.h
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
@@ -327,6 +329,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/FeatureFlagPage.qml
         qml/IgnoredUsersDialog.qml
         qml/AccountData.qml
+        qml/StateKeys.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

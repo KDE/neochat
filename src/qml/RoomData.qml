@@ -36,38 +36,20 @@ ColumnLayout {
         FormCard.FormTextDelegate {
             text: i18n("Room Id: %1", root.room.id)
         }
-        FormCard.FormCheckDelegate {
-            text: i18n("Show m.room.member events")
-            checked: true
-            onToggled: {
-                if (checked) {
-                    stateEventFilterModel.removeStateEventTypeFiltered("m.room.member");
-                } else {
-                    stateEventFilterModel.addStateEventTypeFiltered("m.room.member");
-                }
-            }
-        }
-        FormCard.FormCheckDelegate {
-            id: roomAccountDataVisibleCheck
-            text: i18n("Show room account data")
-            checked: false
-        }
     }
     FormCard.FormHeader {
-        visible: roomAccountDataVisibleCheck.checked
         title: i18n("Room Account Data")
     }
     FormCard.FormCard {
-        visible: roomAccountDataVisibleCheck.checked
         Repeater {
             model: root.room.accountDataEventTypes
             delegate: FormCard.FormButtonDelegate {
                 text: modelData
                 onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
-                    "sourceText": root.room.roomAcountDataJson(text)
+                    sourceText: root.room.roomAcountDataJson(text)
                 }, {
-                    "title": i18n("Event Source"),
-                    "width": Kirigami.Units.gridUnit * 25
+                    title: i18n("Event Source"),
+                    width: Kirigami.Units.gridUnit * 25
                 })
             }
         }
@@ -78,24 +60,36 @@ ColumnLayout {
     }
     FormCard.FormCard {
         Repeater {
-            model: StateFilterModel {
-                id: stateEventFilterModel
-                sourceModel: StateModel {
-                    id: stateModel
-                    room: root.room
-                }
+            model: StateModel {
+                id: stateModel
+                room: root.room
             }
 
             delegate: FormCard.FormButtonDelegate {
                 text: model.type
-                description: model.stateKey
-                onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
-                    sourceText: stateModel.stateEventJson(stateEventFilterModel.mapToSource(stateEventFilterModel.index(model.index, 0)))
-                }, {
-                    title: i18n("Event Source"),
-                    width: Kirigami.Units.gridUnit * 25
-                })
+                description: i18ncp("'Event' being some JSON data, not something physically happening.", "%1 event of this type", "%1 events of this type", model.eventCount)
+                onClicked: {
+                    if (model.eventCount === 1) {
+                        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
+                            sourceText: stateModel.stateEventJson(stateModel.index(model.index, 0))
+                        }, {
+                            title: i18n("Event Source"),
+                            width: Kirigami.Units.gridUnit * 25
+                        })
+                    } else {
+                        pageStack.pushDialogLayer(stateKeysComponent, {
+                            room: root.room,
+                            eventType: model.type
+                        }, {
+                            title: i18nc("'Event' being some JSON data, not something physically happening.", "Event Information")
+                        });
+                    }
+                }
             }
+        }
+        Component {
+            id: stateKeysComponent
+            StateKeys {}
         }
     }
 }

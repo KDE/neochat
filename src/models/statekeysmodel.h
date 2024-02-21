@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #pragma once
@@ -9,11 +9,11 @@
 #include "neochatroom.h"
 
 /**
- * @class StateModel
+ * @class StateKeysModel
  *
- * This class defines the model for visualising the state events in a room.
+ * This class defines the model for visualising the state keys for a certain type in a room.
  */
-class StateModel : public QAbstractListModel
+class StateKeysModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
@@ -21,22 +21,29 @@ class StateModel : public QAbstractListModel
     /**
      * @brief The current room that the model is getting its state events from.
      */
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged REQUIRED)
+
+    /**
+     * @brief The event type to list the stateKeys for
+     */
+    Q_PROPERTY(QString eventType READ eventType WRITE setEventType NOTIFY eventTypeChanged REQUIRED)
 
 public:
     /**
      * @brief Defines the model roles.
      */
     enum Roles {
-        TypeRole = 0, /**< The type of the state event. */
-        EventCountRole, /**< Number of events of this type. */
+        StateKeyRole, /**< The state key of the state event. */
     };
     Q_ENUM(Roles)
 
-    explicit StateModel(QObject *parent = nullptr);
+    explicit StateKeysModel(QObject *parent = nullptr);
 
     NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
+
+    QString eventType() const;
+    void setEventType(const QString &eventType);
 
     /**
      * @brief Get the given role value at the given index.
@@ -66,13 +73,11 @@ public:
 
 Q_SIGNALS:
     void roomChanged();
+    void eventTypeChanged();
 
 private:
     NeoChatRoom *m_room = nullptr;
-
-    /**
-     * @brief A map from state event type to number of events of that type
-     */
-    QMap<QString, QList<QString>> m_stateEvents;
+    QString m_eventType;
+    QVector<const Quotient::StateEvent *> m_stateKeys;
     void loadState();
 };
