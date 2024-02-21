@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-20 00:37+0000\n"
+"POT-Creation-Date: 2024-02-21 00:37+0000\n"
 "PO-Revision-Date: 2024-02-19 08:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,54 +16,63 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/controller.cpp:121 src/controller.cpp:311
-#, kde-format
-msgid "Receiving push notifications"
+#: src/controller.cpp:125
+#, fuzzy, kde-format
+#| msgid "Receiving push notifications"
+msgctxt ""
+"The reason for using push notifications, as in: '[Push notifications are "
+"used for] Receiving notifications for new messages'"
+msgid "Receiving notifications for new messages"
 msgstr "Sprejemanje potisnih obvestil"
 
-#: src/controller.cpp:190
+#: src/controller.cpp:194
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Napaka omrežja: %1"
 
-#: src/controller.cpp:212
+#: src/controller.cpp:216
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Žetona za dostop ni bilo mogoče najti"
 
-#: src/controller.cpp:212
+#: src/controller.cpp:216
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ali je bil mogoče izbrisan?"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:220
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Dostop do verige ključev je bil zavrnjen."
 
-#: src/controller.cpp:216
+#: src/controller.cpp:220
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Dovolite, da NeoChat prebere žeton za dostop"
 
-#: src/controller.cpp:219
+#: src/controller.cpp:223
 #, kde-format
 msgid "No keychain available."
 msgstr "Nobene verige ključev ni na voljo."
 
-#: src/controller.cpp:219
+#: src/controller.cpp:223
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Namestite verigo ključev, npr. KWallet ali GNOME Keyring v Linux"
 
-#: src/controller.cpp:222
+#: src/controller.cpp:226
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Žetona za dostop ni mogoče prebrati"
+
+#: src/controller.cpp:315
+#, kde-format
+msgid "Receiving push notifications"
+msgstr "Sprejemanje potisnih obvestil"
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -543,8 +552,9 @@ msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
 #: src/main.cpp:142
-#, kde-format
-msgid "Maintainer of Quotient"
+#, fuzzy, kde-format
+#| msgid "Maintainer of Quotient"
+msgid "Maintainer of libQuotient"
 msgstr "Vzdrževalec programa Quotient"
 
 #: src/main.cpp:143
@@ -979,13 +989,13 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Po meri"
 
-#: src/models/imagepacksmodel.cpp:87
+#: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "Lastne nalepke"
 
-#: src/models/imagepacksmodel.cpp:87
+#: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
@@ -1149,12 +1159,12 @@ msgstr "Ustvarjanje sobe ni uspelo: %1"
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
 
-#: src/neochatroom.cpp:1587 src/neochatroom.cpp:1588
+#: src/neochatroom.cpp:1590 src/neochatroom.cpp:1591
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Poročilo uspešno poslano."
 
-#: src/neochatroom.cpp:1862 src/neochatroom.cpp:1870
+#: src/neochatroom.cpp:1865 src/neochatroom.cpp:1873
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1175,8 +1185,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
-#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:104
-#: src/qml/HoverActions.qml:102
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
+#: src/qml/HoverActions.qml:103
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
@@ -1481,7 +1491,7 @@ msgstr "Slika odložišča"
 msgid "Attachment:"
 msgstr "Priloga:"
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:94
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
 #, kde-format
 msgid "Edit"
@@ -1832,7 +1842,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Določi ta prostor kot kanonično nadrejenega"
 
-#: src/qml/DelegateContextMenu.qml:87 src/qml/FileDelegateContextMenu.qml:92
+#: src/qml/DelegateContextMenu.qml:87
 #, kde-format
 msgid "View Source"
 msgstr "Poglej vir"
@@ -1842,32 +1852,31 @@ msgstr "Poglej vir"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/qml/DelegateContextMenu.qml:98 src/qml/FileDelegateContextMenu.qml:75
+#: src/qml/DelegateContextMenu.qml:101 src/qml/FileDelegateContextMenu.qml:75
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Odstrani sporočilo"
 
-#: src/qml/DelegateContextMenu.qml:114 src/qml/FileDelegateContextMenu.qml:80
-#: src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:117 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Poročilo"
 
-#: src/qml/DelegateContextMenu.qml:118 src/qml/FileDelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Poročaj sporočilo"
 
-#: src/qml/DelegateContextMenu.qml:161
+#: src/qml/DelegateContextMenu.qml:169
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Poišči za '%1'"
 
-#: src/qml/DelegateContextMenu.qml:182
+#: src/qml/DelegateContextMenu.qml:190
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Nastavi spletne bližnjice…"
@@ -2698,17 +2707,17 @@ msgstr "Registracija je onemogočena na tem strežniku."
 msgid "Loading"
 msgstr "Nalaganje"
 
-#: src/qml/HoverActions.qml:74
+#: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "To sporočilo je bilo poslano iz verificirane naprave"
 
-#: src/qml/HoverActions.qml:87
+#: src/qml/HoverActions.qml:88
 #, kde-format
 msgid "React"
 msgstr "Reagiraj"
 
-#: src/qml/HoverActions.qml:112
+#: src/qml/HoverActions.qml:113
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
@@ -3390,19 +3399,19 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Zadnje prebrano: %1"
 
-#: src/qml/RecommendedSpaceDialog.qml:26
+#: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
 msgstr "Pridruži se %1"
 
-#: src/qml/RecommendedSpaceDialog.qml:54
+#: src/qml/RecommendedSpaceDialog.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Pridruži se"
 
-#: src/qml/RecommendedSpaceDialog.qml:62
+#: src/qml/RecommendedSpaceDialog.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
@@ -4586,18 +4595,18 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verifikacija seje je bila preklicana zaradi neznane napake."
 
-#: src/qml/VideoComponent.qml:155
+#: src/qml/VideoComponent.qml:166
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/VideoComponent.qml:219
+#: src/qml/VideoComponent.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Glasnost"
 
-#: src/qml/VideoComponent.qml:303
+#: src/qml/VideoComponent.qml:314
 #, kde-format
 msgid "Maximize"
 msgstr "Razpni"

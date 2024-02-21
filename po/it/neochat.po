@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-20 00:37+0000\n"
+"POT-Creation-Date: 2024-02-21 00:37+0000\n"
 "PO-Revision-Date: 2024-02-16 09:14+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,51 +17,60 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: src/controller.cpp:121 src/controller.cpp:311
-#, kde-format
-msgid "Receiving push notifications"
+#: src/controller.cpp:125
+#, fuzzy, kde-format
+#| msgid "Receiving push notifications"
+msgctxt ""
+"The reason for using push notifications, as in: '[Push notifications are "
+"used for] Receiving notifications for new messages'"
+msgid "Receiving notifications for new messages"
 msgstr "Ricezione delle notifiche push"
 
-#: src/controller.cpp:190
+#: src/controller.cpp:194
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Errore di rete: %1"
 
-#: src/controller.cpp:212
+#: src/controller.cpp:216
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Il token di accesso non è stato trovato"
 
-#: src/controller.cpp:212
+#: src/controller.cpp:216
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Forse è stato eliminato?"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:220
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "L'accesso al portachiavi è stato negato."
 
-#: src/controller.cpp:216
+#: src/controller.cpp:220
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Consenti a Neochat di leggere il token di accesso"
 
-#: src/controller.cpp:219
+#: src/controller.cpp:223
 #, kde-format
 msgid "No keychain available."
 msgstr "Nessun portachiavi trovato."
 
-#: src/controller.cpp:219
+#: src/controller.cpp:223
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installa un portachiavi, ad es. KWallet o il portachiavi di GNOME su Linux"
 
-#: src/controller.cpp:222
+#: src/controller.cpp:226
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Impossibile leggere il token di accesso"
+
+#: src/controller.cpp:315
+#, kde-format
+msgid "Receiving push notifications"
+msgstr "Ricezione delle notifiche push"
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -539,8 +548,9 @@ msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
 #: src/main.cpp:142
-#, kde-format
-msgid "Maintainer of Quotient"
+#, fuzzy, kde-format
+#| msgid "Maintainer of Quotient"
+msgid "Maintainer of libQuotient"
 msgstr "Responsabile di Quotient"
 
 #: src/main.cpp:143
@@ -978,13 +988,13 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalizzati"
 
-#: src/models/imagepacksmodel.cpp:87
+#: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "I propri adesivi"
 
-#: src/models/imagepacksmodel.cpp:87
+#: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
@@ -1140,12 +1150,12 @@ msgstr "Creazione della stanza non riuscita: %1"
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
 
-#: src/neochatroom.cpp:1587 src/neochatroom.cpp:1588
+#: src/neochatroom.cpp:1590 src/neochatroom.cpp:1591
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Segnalazione inviata correttamente."
 
-#: src/neochatroom.cpp:1862 src/neochatroom.cpp:1870
+#: src/neochatroom.cpp:1865 src/neochatroom.cpp:1873
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1166,8 +1176,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Apri NeoChat in questa stanza"
 
-#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:104
-#: src/qml/HoverActions.qml:102
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
+#: src/qml/HoverActions.qml:103
 #, kde-format
 msgid "Reply"
 msgstr "Rispondi"
@@ -1472,7 +1482,7 @@ msgstr "Immagine dagli appunti"
 msgid "Attachment:"
 msgstr "Allegato:"
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:94
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
 #, kde-format
 msgid "Edit"
@@ -1828,7 +1838,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Rendi questo spazio il genitore canonico"
 
-#: src/qml/DelegateContextMenu.qml:87 src/qml/FileDelegateContextMenu.qml:92
+#: src/qml/DelegateContextMenu.qml:87
 #, kde-format
 msgid "View Source"
 msgstr "Visualizza sorgente"
@@ -1838,32 +1848,31 @@ msgstr "Visualizza sorgente"
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: src/qml/DelegateContextMenu.qml:98 src/qml/FileDelegateContextMenu.qml:75
+#: src/qml/DelegateContextMenu.qml:101 src/qml/FileDelegateContextMenu.qml:75
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Rimuovi il messaggio"
 
-#: src/qml/DelegateContextMenu.qml:114 src/qml/FileDelegateContextMenu.qml:80
-#: src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:117 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Segnala"
 
-#: src/qml/DelegateContextMenu.qml:118 src/qml/FileDelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Messaggio della segnalazione"
 
-#: src/qml/DelegateContextMenu.qml:161
+#: src/qml/DelegateContextMenu.qml:169
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Cerca «%1»"
 
-#: src/qml/DelegateContextMenu.qml:182
+#: src/qml/DelegateContextMenu.qml:190
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configura le scorciatoie web..."
@@ -2705,17 +2714,17 @@ msgstr "La registrazione è disabilitata su questo server."
 msgid "Loading"
 msgstr "Caricamento"
 
-#: src/qml/HoverActions.qml:74
+#: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Questo messaggio è stato inviato da un dispositivo verificato"
 
-#: src/qml/HoverActions.qml:87
+#: src/qml/HoverActions.qml:88
 #, kde-format
 msgid "React"
 msgstr "Reagisci"
 
-#: src/qml/HoverActions.qml:112
+#: src/qml/HoverActions.qml:113
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Rispondi nella conversazione"
@@ -3401,21 +3410,21 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Ultima lettura: %1"
 
-#: src/qml/RecommendedSpaceDialog.qml:26
+#: src/qml/RecommendedSpaceDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
 msgstr "Entra"
 
-#: src/qml/RecommendedSpaceDialog.qml:54
+#: src/qml/RecommendedSpaceDialog.qml:52
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Entra"
 
-#: src/qml/RecommendedSpaceDialog.qml:62
+#: src/qml/RecommendedSpaceDialog.qml:60
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action:button"
@@ -4616,18 +4625,18 @@ msgstr ""
 "La verifica della sessione è stata annullata a causa di un errore "
 "sconosciuto."
 
-#: src/qml/VideoComponent.qml:155
+#: src/qml/VideoComponent.qml:166
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/VideoComponent.qml:219
+#: src/qml/VideoComponent.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volume"
 
-#: src/qml/VideoComponent.qml:303
+#: src/qml/VideoComponent.qml:314
 #, kde-format
 msgid "Maximize"
 msgstr "Massimizza"

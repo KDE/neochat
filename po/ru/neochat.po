@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-20 00:37+0000\n"
+"POT-Creation-Date: 2024-02-21 00:37+0000\n"
 "PO-Revision-Date: 2024-02-09 23:09+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -19,53 +19,62 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 24.01.95\n"
 
-#: src/controller.cpp:121 src/controller.cpp:311
+#: src/controller.cpp:125
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
-msgid "Receiving push notifications"
+msgctxt ""
+"The reason for using push notifications, as in: '[Push notifications are "
+"used for] Receiving notifications for new messages'"
+msgid "Receiving notifications for new messages"
 msgstr "Отправлять уведомления о наборе текста"
 
-#: src/controller.cpp:190
+#: src/controller.cpp:194
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ошибка сети: %1"
 
-#: src/controller.cpp:212
+#: src/controller.cpp:216
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не найден токен доступа"
 
-#: src/controller.cpp:212
+#: src/controller.cpp:216
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Возможно, он был удалён."
 
-#: src/controller.cpp:216
+#: src/controller.cpp:220
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Не удалось получить доступ к связке ключей."
 
-#: src/controller.cpp:216
+#: src/controller.cpp:220
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Разрешите приложению NeoChat прочитать токен доступа"
 
-#: src/controller.cpp:219
+#: src/controller.cpp:223
 #, kde-format
 msgid "No keychain available."
 msgstr "Нет ни одной доступной связки ключей."
 
-#: src/controller.cpp:219
+#: src/controller.cpp:223
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Установите приложение, предоставляющее службу связки ключей, например "
 "KWallet или Gnome Keyring."
 
-#: src/controller.cpp:222
+#: src/controller.cpp:226
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не удалось прочитать токен доступа"
+
+#: src/controller.cpp:315
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgid "Receiving push notifications"
+msgstr "Отправлять уведомления о наборе текста"
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -547,8 +556,9 @@ msgid "Alexey Rusakov"
 msgstr "Алексей Русаков"
 
 #: src/main.cpp:142
-#, kde-format
-msgid "Maintainer of Quotient"
+#, fuzzy, kde-format
+#| msgid "Maintainer of Quotient"
+msgid "Maintainer of libQuotient"
 msgstr "Сопровождающий Quotient"
 
 #: src/main.cpp:143
@@ -985,13 +995,13 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Пользовательские"
 
-#: src/models/imagepacksmodel.cpp:87
+#: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "Свои наклейки"
 
-#: src/models/imagepacksmodel.cpp:87
+#: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
@@ -1158,12 +1168,12 @@ msgstr "Не удалось создать комнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не удалось создать пространство: %1"
 
-#: src/neochatroom.cpp:1587 src/neochatroom.cpp:1588
+#: src/neochatroom.cpp:1590 src/neochatroom.cpp:1591
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Жалоба отправлена."
 
-#: src/neochatroom.cpp:1862 src/neochatroom.cpp:1870
+#: src/neochatroom.cpp:1865 src/neochatroom.cpp:1873
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1184,8 +1194,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:104
-#: src/qml/HoverActions.qml:102
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
+#: src/qml/HoverActions.qml:103
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
@@ -1490,7 +1500,7 @@ msgstr "Изображение из буфера обмена"
 msgid "Attachment:"
 msgstr "Вложение:"
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:94
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
 #, kde-format
 msgid "Edit"
@@ -1843,7 +1853,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Назначить этот псевдоним каноническим псевдонимом комнаты"
 
-#: src/qml/DelegateContextMenu.qml:87 src/qml/FileDelegateContextMenu.qml:92
+#: src/qml/DelegateContextMenu.qml:87
 #, kde-format
 msgid "View Source"
 msgstr "Исходный код"
@@ -1853,32 +1863,31 @@ msgstr "Исходный код"
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/qml/DelegateContextMenu.qml:98 src/qml/FileDelegateContextMenu.qml:75
+#: src/qml/DelegateContextMenu.qml:101 src/qml/FileDelegateContextMenu.qml:75
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Удаление сообщения"
 
-#: src/qml/DelegateContextMenu.qml:114 src/qml/FileDelegateContextMenu.qml:80
-#: src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:117 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Пожаловаться"
 
-#: src/qml/DelegateContextMenu.qml:118 src/qml/FileDelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Жалоба на сообщение"
 
-#: src/qml/DelegateContextMenu.qml:161
+#: src/qml/DelegateContextMenu.qml:169
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Поиск «%1»"
 
-#: src/qml/DelegateContextMenu.qml:182
+#: src/qml/DelegateContextMenu.qml:190
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Настроить веб-сокращения…"
@@ -2725,17 +2734,17 @@ msgstr "Регистрация пользователей отключена н�
 msgid "Loading"
 msgstr "Загрузка..."
 
-#: src/qml/HoverActions.qml:74
+#: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Это сообщение было отправлено с проверенного устройства"
 
-#: src/qml/HoverActions.qml:87
+#: src/qml/HoverActions.qml:88
 #, kde-format
 msgid "React"
 msgstr "Реакция"
 
-#: src/qml/HoverActions.qml:112
+#: src/qml/HoverActions.qml:113
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Ответить в ветке"
@@ -3430,21 +3439,21 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Последнее сообщение прочитано: %1"
 
-#: src/qml/RecommendedSpaceDialog.qml:26
+#: src/qml/RecommendedSpaceDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
 msgstr "Присоединиться"
 
-#: src/qml/RecommendedSpaceDialog.qml:54
+#: src/qml/RecommendedSpaceDialog.qml:52
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Присоединиться"
 
-#: src/qml/RecommendedSpaceDialog.qml:62
+#: src/qml/RecommendedSpaceDialog.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
@@ -4650,18 +4659,18 @@ msgstr "Удалённая сторона отменила проверку: к�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Проверка отменена: произошла неизвестная ошибка."
 
-#: src/qml/VideoComponent.qml:155
+#: src/qml/VideoComponent.qml:166
 #, kde-format
 msgid "Video"
 msgstr "Видео"
 
-#: src/qml/VideoComponent.qml:219
+#: src/qml/VideoComponent.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Громкость"
 
-#: src/qml/VideoComponent.qml:303
+#: src/qml/VideoComponent.qml:314
 #, kde-format
 msgid "Maximize"
 msgstr "Развернуть"
