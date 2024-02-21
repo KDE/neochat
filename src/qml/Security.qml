@@ -33,4 +33,22 @@ FormCard.FormCardPage {
             description: i18n("Device id")
         }
     }
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Ignored Users")
+    }
+    FormCard.FormCard {
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "Manage ignored users")
+            onClicked: pageStack.pushDialogLayer(ignoredUsersDialogComponent, {}, {
+                title: i18nc("@title:window", "Ignored Users")
+            });
+        }
+    }
+
+    Component {
+        id: ignoredUsersDialogComponent
+        IgnoredUsersDialog {
+            connection: root.connection
+        }
+    }
 }

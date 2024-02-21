@@ -326,6 +326,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/DelegateContextMenu.qml
         qml/ShareDialog.qml
         qml/FeatureFlagPage.qml
+        qml/IgnoredUsersDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
