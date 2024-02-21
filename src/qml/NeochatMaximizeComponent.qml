@@ -112,7 +112,7 @@ Components.AlbumMaximizeComponent {
     Component {
         id: saveAsDialog
         Platform.FileDialog {
-            fileMode: FileDialog.SaveFile
+            fileMode: Platform.FileDialog.SaveFile
             folder: root.saveFolder
             onAccepted: {
                 Config.lastSaveDirectory = folder
@@ -120,7 +120,7 @@ Components.AlbumMaximizeComponent {
                 if (!currentFile) {
                     return;
                 }
-                currentRoom.downloadFile(rooteventId, currentFile)
+                currentRoom.downloadFile(root.currentEventId, currentFile);
             }
         }
     }
