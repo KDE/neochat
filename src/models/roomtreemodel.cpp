@@ -58,6 +58,16 @@ void RoomTreeModel::newRoom(Room *r)
 {
     const auto room = dynamic_cast<NeoChatRoom *>(r);
     const auto type = NeoChatRoomType::typeForRoom(room);
+    // Check if the room is already in the model.
+    const auto checkRoomIndex = indexForRoom(room);
+    if (checkRoomIndex.isValid()) {
+        // If the room is in the wrong type category for whatever reason, move it.
+        if (checkRoomIndex.parent().row() != type) {
+            moveRoom(room);
+        }
+        return;
+    }
+
     beginInsertRows(index(type, 0), m_rooms[type].size(), m_rooms[type].size());
     m_rooms[type].append(room);
     connectRoomSignals(room);
@@ -315,10 +325,17 @@ QModelIndex RoomTreeModel::indexForRoom(NeoChatRoom *room) const
         return {};
     }
 
+    // Try and find by checking type.
     const auto type = NeoChatRoomType::typeForRoom(room);
     auto row = m_rooms[type].indexOf(room);
     if (row >= 0) {
         return index(row, 0, index(type, 0));
+    }
+    // Double check that the room isn't in the wrong category.
+    for (const auto &key : m_rooms.keys()) {
+        if (m_rooms[key].contains(room)) {
+            return index(m_rooms[key].indexOf(room), 0, index(key, 0));
+        }
     }
     return {};
 }
