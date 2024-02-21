@@ -29,6 +29,9 @@ FormCard.FormCardPage {
         QQC2.TabButton {
             text: qsTr("Server Info")
         }
+        QQC2.TabButton {
+            text: i18nc("@title:tab", "Feature Flags")
+        }
     }
 
     StackLayout {
@@ -43,5 +46,6 @@ FormCard.FormCardPage {
         ServerData {
             connection: root.connection
         }
+        FeatureFlagPage {}
     }
 }
