@@ -30,6 +30,9 @@ FormCard.FormCardPage {
             text: qsTr("Server Info")
         }
         QQC2.TabButton {
+            text: i18nc("@title:tab", "Account Data")
+        }
+        QQC2.TabButton {
             text: i18nc("@title:tab", "Feature Flags")
         }
     }
@@ -44,6 +47,9 @@ FormCard.FormCardPage {
             connection: root.connection
         }
         ServerData {
+            connection: root.connection
+        }
+        AccountData {
             connection: root.connection
         }
         FeatureFlagPage {}

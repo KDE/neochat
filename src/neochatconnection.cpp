@@ -4,6 +4,7 @@
 #include "neochatconnection.h"
 
 #include <QImageReader>
+#include <QJsonDocument>
 
 #include "controller.h"
 #include "jobs/neochatchangepasswordjob.h"
@@ -432,6 +433,11 @@ void NeoChatConnection::setIsOnline(bool isOnline)
     }
     m_isOnline = isOnline;
     Q_EMIT isOnlineChanged();
+}
+
+QString NeoChatConnection::accountDataJsonString(const QString &type) const
+{
+    return QString::fromUtf8(QJsonDocument(accountDataJson(type)).toJson());
 }
 
 #include "moc_neochatconnection.cpp"

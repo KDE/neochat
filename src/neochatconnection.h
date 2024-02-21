@@ -113,6 +113,11 @@ public:
      */
     Q_INVOKABLE void openOrCreateDirectChat(Quotient::User *user);
 
+    /**
+     * @brief Get the account data with \param type as a formatted JSON string.
+     */
+    Q_INVOKABLE QString accountDataJsonString(const QString &type) const;
+
     qsizetype directChatNotifications() const;
     qsizetype homeNotifications() const;
     bool directChatInvites() const;
