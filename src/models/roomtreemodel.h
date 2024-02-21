@@ -16,6 +16,30 @@ class Room;
 class NeoChatConnection;
 class NeoChatRoom;
 
+class TreeItem
+{
+public:
+    using TreeData = std::variant<NeoChatRoom *, NeoChatRoomType::Types>;
+
+    explicit TreeItem(TreeData data, TreeItem *parentItem = nullptr);
+
+    TreeItem *child(int row);
+    int childCount() const;
+    QVariant data(int role) const;
+    void appendChild(std::unique_ptr<TreeItem> &&child);
+    bool insertChildren(int position, int count, TreeData treeData);
+    TreeItem *parentItem() const;
+    bool removeChildren(int position, int count);
+    bool removeColumns(int position, int columns);
+    int row() const;
+    TreeData treeData() const;
+
+private:
+    std::vector<std::unique_ptr<TreeItem>> m_childItems;
+    TreeData m_treeData;
+    TreeItem *m_parentItem;
+};
+
 class RoomTreeModel : public QAbstractItemModel
 {
     Q_OBJECT
@@ -76,6 +100,8 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
+    TreeItem *getItem(const QModelIndex &index) const;
+
     Q_INVOKABLE QModelIndex indexForRoom(NeoChatRoom *room) const;
 
 Q_SIGNALS:
@@ -83,7 +109,6 @@ Q_SIGNALS:
 
 private:
     QPointer<NeoChatConnection> m_connection = nullptr;
-    QMap<NeoChatRoomType::Types, QList<QPointer<NeoChatRoom>>> m_rooms;
 
     void initializeCategories();
     void connectRoomSignals(NeoChatRoom *room);
@@ -93,4 +118,6 @@ private:
     void moveRoom(Quotient::Room *room);
 
     void refreshRoomRoles(NeoChatRoom *room, const QList<int> &roles = {});
+
+    std::unique_ptr<TreeItem> m_rootItem;
 };
