@@ -56,6 +56,8 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
         return;
     }
     auto job = m_connection->callApi<GetSpaceHierarchyJob>(spaceId);
+    auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_ls), "Cache"_ls);
+    m_spaceHierarchy.insert(spaceId, group.readEntry(spaceId, QStringList()));
 
     connect(job, &BaseJob::success, this, [this, job, spaceId]() {
         const auto rooms = job->rooms();
@@ -67,6 +69,9 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
         }
         m_spaceHierarchy.insert(spaceId, roomList);
         Q_EMIT spaceHierarchyChanged();
+        auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_ls), "Cache"_ls);
+        group.writeEntry(spaceId, roomList);
+        group.sync();
     });
 }
 
