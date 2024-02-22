@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
-"PO-Revision-Date: 2024-02-19 12:16+0300\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"PO-Revision-Date: 2024-02-21 17:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,16 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: src/controller.cpp:125
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Anında bildirimler alınıyor"
+msgstr "Yeni iletiler için bildirimler alınıyor"
 
 #: src/controller.cpp:194
 #, kde-format
@@ -549,10 +548,9 @@ msgid "Alexey Rusakov"
 msgstr "Aleksey Rusakov"
 
 #: src/main.cpp:142
-#, fuzzy, kde-format
-#| msgid "Maintainer of Quotient"
+#, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Quotient bakımcısı"
+msgstr "libQuotient bakımcısı"
 
 #: src/main.cpp:143
 #, kde-format
@@ -1963,6 +1961,12 @@ msgstr "Kaldır"
 msgid "Developer Tools"
 msgstr "Geliştirici Araçları"
 
+#: src/qml/DevtoolsPage.qml:33
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
 #: src/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -2213,6 +2217,12 @@ msgstr "Bir Oda Bul…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Genel oda bulunamadı"
+
+#: src/qml/FeatureFlagPage.qml:21
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
 
 #: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
 #, kde-format

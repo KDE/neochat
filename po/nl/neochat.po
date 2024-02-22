@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
-"PO-Revision-Date: 2024-02-19 09:58+0100\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"PO-Revision-Date: 2024-02-21 12:13+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -19,13 +19,12 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 
 #: src/controller.cpp:125
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Push-meldingen ontvangen"
+msgstr "Meldingen voor nieuwe berichten worden ontvangen"
 
 #: src/controller.cpp:194
 #, kde-format
@@ -549,10 +548,9 @@ msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
 #: src/main.cpp:142
-#, fuzzy, kde-format
-#| msgid "Maintainer of Quotient"
+#, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Onderhouder van Quotient"
+msgstr "Onderhouder van libQuotient"
 
 #: src/main.cpp:143
 #, kde-format
@@ -1965,6 +1963,12 @@ msgstr "Verwijderen"
 msgid "Developer Tools"
 msgstr "Hulpmiddelen voor ontwikkelaars"
 
+#: src/qml/DevtoolsPage.qml:33
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
 #: src/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -2217,6 +2221,12 @@ msgstr "Een room zoeken…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Geen publieke rooms gevonden"
+
+#: src/qml/FeatureFlagPage.qml:21
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
 
 #: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
 #, kde-format

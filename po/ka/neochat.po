@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
-"PO-Revision-Date: 2024-02-19 05:20+0100\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"PO-Revision-Date: 2024-02-21 05:03+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -19,13 +19,12 @@ msgstr ""
 "X-Generator: Poedit 3.3.2\n"
 
 #: src/controller.cpp:125
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "პუშ გაფრთხილებების მიღება"
+msgstr "გაფრთხილებების მიღება ახალი შეტყობინებებისთვის"
 
 #: src/controller.cpp:194
 #, kde-format
@@ -548,10 +547,9 @@ msgid "Alexey Rusakov"
 msgstr "ალექსეი რუსაკოვი"
 
 #: src/main.cpp:142
-#, fuzzy, kde-format
-#| msgid "Maintainer of Quotient"
+#, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "კოვოტიენტის პროგრამისტი"
+msgstr "წამყვანი პროგრამისტი პროექტისთვის libQuotient"
 
 #: src/main.cpp:143
 #, kde-format
@@ -1961,6 +1959,12 @@ msgstr "წაშლა"
 msgid "Developer Tools"
 msgstr "პროგრამირება"
 
+#: src/qml/DevtoolsPage.qml:33
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
 #: src/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -2212,6 +2216,12 @@ msgstr "ოთახის პოვნა…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "საჯარო ოთახი ვერ ვიპოვე"
+
+#: src/qml/FeatureFlagPage.qml:21
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
 
 #: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
 #, kde-format

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
-"PO-Revision-Date: 2024-02-19 09:53+0100\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"PO-Revision-Date: 2024-02-21 16:22+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -21,13 +21,12 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:125
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Rebre les notificacions «push»"
+msgstr "Rebre les notificacions dels missatges nous"
 
 #: src/controller.cpp:194
 #, kde-format
@@ -552,10 +551,9 @@ msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
 #: src/main.cpp:142
-#, fuzzy, kde-format
-#| msgid "Maintainer of Quotient"
+#, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Mantenidor del Quotient"
+msgstr "Mantenidor de la libQuotient"
 
 #: src/main.cpp:143
 #, kde-format
@@ -1969,6 +1967,12 @@ msgstr "Elimina"
 msgid "Developer Tools"
 msgstr "Eines de desenvolupament"
 
+#: src/qml/DevtoolsPage.qml:33
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
 #: src/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -2222,6 +2226,12 @@ msgstr "Cerca una sala…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "No s'ha trobat cap sala pública"
+
+#: src/qml/FeatureFlagPage.qml:21
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
 
 #: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
 #, kde-format

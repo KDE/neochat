@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
-"PO-Revision-Date: 2024-02-19 08:31+0100\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"PO-Revision-Date: 2024-02-21 06:27+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -21,13 +21,12 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/controller.cpp:125
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Sprejemanje potisnih obvestil"
+msgstr "Sprejemanje obvestil za nova sporočila"
 
 #: src/controller.cpp:194
 #, kde-format
@@ -552,10 +551,9 @@ msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
 #: src/main.cpp:142
-#, fuzzy, kde-format
-#| msgid "Maintainer of Quotient"
+#, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Vzdrževalec programa Quotient"
+msgstr "Vzdrževalec knjižnice libQuotient"
 
 #: src/main.cpp:143
 #, kde-format
@@ -1971,6 +1969,12 @@ msgstr "Odstrani"
 msgid "Developer Tools"
 msgstr "Razvojna orodja"
 
+#: src/qml/DevtoolsPage.qml:33
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
 #: src/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -2222,6 +2226,12 @@ msgstr "Najdi sobo…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Nobene javne sobe ni najdene"
+
+#: src/qml/FeatureFlagPage.qml:21
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
 
 #: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
 #, kde-format

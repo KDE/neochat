@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 00:37+0000\n"
-"PO-Revision-Date: 2024-02-15 12:31+0100\n"
+"POT-Creation-Date: 2024-02-22 00:37+0000\n"
+"PO-Revision-Date: 2024-02-19 09:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1968,6 +1968,12 @@ msgstr "Elimina"
 msgid "Developer Tools"
 msgstr "Eines de desenvolupament"
 
+#: src/qml/DevtoolsPage.qml:33
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
 #: src/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -2221,6 +2227,12 @@ msgstr "Busca una sala…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "No s'ha trobat cap sala pública"
+
+#: src/qml/FeatureFlagPage.qml:21
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
 
 #: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
 #, kde-format
@@ -2881,10 +2893,9 @@ msgid "Expand preview"
 msgstr "Expandix la vista prèvia"
 
 #: src/qml/LoadComponent.qml:53
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgid "Loading reply"
-msgstr "S'està carregant"
+msgstr "S'està carregant la resposta"
 
 #: src/qml/LoadComponent.qml:55
 #, kde-format
@@ -3411,24 +3422,22 @@ msgid "Last read: %1"
 msgstr "Última lectura: %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Joined"
+#, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
-msgstr "Vos heu unit"
+msgstr "Unix-te a %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Joined"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join"
-msgstr "Vos heu unit"
+msgstr "Unix-te"
 
 #: src/qml/RecommendedSpaceDialog.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
-msgstr ""
+msgstr "Ignora"
 
 #: src/qml/RegisterPassword.qml:30
 #, kde-format
@@ -4157,11 +4166,10 @@ msgid "Friends"
 msgstr "Amics"
 
 #: src/qml/SpaceDrawer.qml:265
-#, fuzzy, kde-format
-#| msgid "Joined"
+#, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
-msgstr "Vos heu unit"
+msgstr "Unix-te a %1"
 
 #: src/qml/SpaceDrawer.qml:307
 #, kde-format
