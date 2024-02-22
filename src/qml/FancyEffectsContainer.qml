@@ -63,7 +63,7 @@ Item {
         }
 
         ImageParticle {
-            source: "qrc:/org/kde/neochat/qml/confetti.png"
+            source: "qrc:/qt/qml/org/kde/neochat/qml/confetti.png"
             entryEffect: ImageParticle.Scale
             rotationVariation: 360
             rotationVelocity: 90
@@ -211,7 +211,7 @@ Item {
     ImageParticle {
         id: fireworksParticleA
         system: fireworksSystem
-        source: "qrc:/org/kde/neochat/qml/glowdot.png"
+        source: "qrc:/qt/qml/org/kde/neochat/qml/glowdot.png"
         alphaVariation: root.isThemeDark ? 0.1 : 0.1
         alpha: root.isThemeDark ? 0.5 : 1
         groups: ["a"]
@@ -222,7 +222,7 @@ Item {
 
     ImageParticle {
         system: fireworksSystem
-        source: "qrc:/org/kde/neochat/qml/glowdot.png"
+        source: "qrc:/qt/qml/org/kde/neochat/qml/glowdot.png"
         color: root.isThemeDark ? "white" : "gold"
         alphaVariation: root.isThemeDark ? 0.1 : 0.1
         alpha: root.isThemeDark ? 0.5 : 1
@@ -235,7 +235,7 @@ Item {
     ImageParticle {
         id: fireworksParticleB
         system: fireworksSystem
-        source: "qrc:/org/kde/neochat/qml/glowdot.png"
+        source: "qrc:/qt/qml/org/kde/neochat/qml/glowdot.png"
         alphaVariation: root.isThemeDark ? 0.1 : 0.1
         alpha: root.isThemeDark ? 0.5 : 1
         groups: ["b"]

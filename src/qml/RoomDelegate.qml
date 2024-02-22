@@ -141,7 +141,7 @@ Delegates.RoundedItemDelegate {
     }
 
     function createRoomListContextMenu() {
-        const component = Qt.createComponent("qrc:/org/kde/neochat/qml/ContextMenu.qml");
+        const component = Qt.createComponent(Qt.createComponent('org.kde.neochat', 'ContextMenu.qml'));
         if (component.status === Component.Error) {
             console.error(component.errorString());
         }

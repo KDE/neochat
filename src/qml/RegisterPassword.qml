@@ -47,6 +47,6 @@ LoginStep {
     }
 
     previousAction: Kirigami.Action {
-        onTriggered: root.processed("qrc:/org/kde/neochat/qml/Username.qml")
+        onTriggered: root.processed("Username.qml")
     }
 }

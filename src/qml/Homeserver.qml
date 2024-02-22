@@ -40,9 +40,9 @@ LoginStep {
     nextAction: Kirigami.Action {
         text: Registration.testing ? i18n("Loading") : null
         enabled: Registration.status > Registration.ServerNoRegistration
-        onTriggered: root.processed("qrc:/org/kde/neochat/qml/Username.qml")
+        onTriggered: root.processed("Username.qml")
     }
     previousAction: Kirigami.Action {
-        onTriggered: root.processed("qrc:/org/kde/neochat/qml/LoginRegister.qml")
+        onTriggered: root.processed("LoginRegister.qml")
     }
 }

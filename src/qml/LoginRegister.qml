@@ -22,13 +22,13 @@ LoginStep {
     FormCard.FormButtonDelegate {
         id: loginButton
         text: i18nc("@action:button", "Login")
-        onClicked: root.processed("qrc:/org/kde/neochat/qml/Login.qml")
+        onClicked: root.processed("Login.qml")
     }
 
     FormCard.FormDelegateSeparator {}
 
     FormCard.FormButtonDelegate {
         text: i18nc("@action:button", "Register")
-        onClicked: root.processed("qrc:/org/kde/neochat/qml/Homeserver.qml")
+        onClicked: root.processed("Homeserver.qml")
     }
 }

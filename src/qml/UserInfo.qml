@@ -51,7 +51,7 @@ RowLayout {
                 if (button == Qt.RightButton) {
                     accountMenu.open();
                 } else {
-                    pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/org/kde/neochat/qml/AccountEditorPage.qml'), {
+                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'AccountEditorPage.qml'), {
                         connection: root.connection
                     }, {
                         title: i18n("Account editor")
@@ -120,7 +120,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         icon.name: "settings-configure"
-        onClicked: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
+        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'SettingsPage.qml'), {
             connection: root.connection
         }, {
             title: i18n("Configure"),
@@ -187,7 +187,7 @@ RowLayout {
                 }
 
                 onClicked: {
-                    pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/WelcomePage.qml", {}, {
+                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'WelcomePage.qml'), {}, {
                         title: i18nc("@title:window", "Login")
                     });
                     if (switchUserButton.checked) {

@@ -121,7 +121,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18n("Room Settings")
                 icon.name: "configure"
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
                     room: room,
                     connection: connection
                 }, {
@@ -195,7 +195,7 @@ Loader {
                     QQC2.ToolButton {
                         icon.name: 'settings-configure'
                         onClicked: {
-                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
                                 room: room,
                                 connection: root.connection
                             }, {

@@ -20,7 +20,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Edit this account")
         icon.name: "document-edit"
-        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/AccountEditorPage.qml", {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'AccountEditorPage.qml'), {
             connection: root.connection
         }, {
             title: i18n("Account editor")
@@ -29,7 +29,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Notification settings")
         icon.name: "notifications"
-        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'SettingsPage.qml'), {
             defaultPage: "notifications",
             connection: root.connection
         }, {
@@ -41,7 +41,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Devices")
         icon.name: "computer-symbolic"
-        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'SettingsPage.qml'), {
             defaultPage: "devices",
             connection: root.connection
         }, {

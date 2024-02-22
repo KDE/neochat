@@ -15,9 +15,10 @@ FormCard.FormCardPage {
     id: root
 
     property bool showExisting: false
-    property bool _showExisting: showExisting && module.source == root.initialStep
+    property bool _showExisting: showExisting && root.currentStepString === root.initialStep
     property alias currentStep: module.item
-    property string initialStep: "qrc:/org/kde/neochat/qml/LoginRegister.qml"
+    property string currentStepString: initialStep
+    property string initialStep: "LoginRegister.qml"
 
     signal connectionChosen
 
@@ -127,14 +128,15 @@ FormCard.FormCardPage {
         Loader {
             id: module
             Layout.fillWidth: true
-            source: root.initialStep
+            sourceComponent: Qt.createComponent('org.kde.neochat', root.initialStep)
 
             Connections {
                 id: stepConnections
                 target: currentStep
 
-                function onProcessed(nextUrl: string): void {
-                    module.source = nextUrl;
+                function onProcessed(nextStep: string): void {
+                    module.source = nextStep;
+                    root.currentStepString = nextStep;
                     headerMessage.text = "";
                     headerMessage.visible = false;
                     if (!module.item.noControls) {
@@ -164,16 +166,16 @@ FormCard.FormCardPage {
                 target: Registration
                 function onNextStepChanged() {
                     if (Registration.nextStep === "m.login.recaptcha") {
-                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Captcha.qml");
+                        stepConnections.onProcessed("Captcha.qml");
                     }
                     if (Registration.nextStep === "m.login.terms") {
-                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Terms.qml");
+                        stepConnections.onProcessed("Terms.qml");
                     }
                     if (Registration.nextStep === "m.login.email.identity") {
-                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Email.qml");
+                        stepConnections.onProcessed("Email.qml");
                     }
                     if (Registration.nextStep === "loading") {
-                        stepConnections.onProcessed("qrc:/org/kde/neochat/qml/Loading.qml");
+                        stepConnections.onProcessed("Loading.qml");
                     }
                 }
             }

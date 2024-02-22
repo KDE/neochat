@@ -45,7 +45,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Space Settings")
                 icon.name: 'settings-configure'
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
                     room: room,
                     connection: connection
                 }, {
@@ -130,7 +130,7 @@ Loader {
                 FormCard.FormButtonDelegate {
                     text: i18nc("'Space' is a matrix space", "Space Settings")
                     icon.name: 'settings-configure'
-                    onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+                    onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
                         room: room,
                         connection: connection
                     }, {

@@ -111,7 +111,7 @@ FormCard.FormCardPage {
             visible: !chosenRoomDelegate.visible
             text: i18nc("@action:button", "Pick room")
             onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage.qml'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Explore Rooms")
@@ -194,7 +194,7 @@ FormCard.FormCardPage {
             }
 
             onClicked: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage.qml'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Explore Rooms")

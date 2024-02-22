@@ -94,7 +94,7 @@ Loader {
         text: i18n("Remove")
         icon.name: "edit-delete-remove"
         icon.color: "red"
-        onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/RemoveSheet.qml", {
+        onTriggered: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RemoveSheet.qml'), {
             room: currentRoom,
             eventId: eventId
         }, {
@@ -117,7 +117,7 @@ Loader {
         text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
         icon.name: "dialog-warning-symbolic"
         visible: !author.isLocalUser
-        onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ReportSheet.qml", {
+        onTriggered: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReportSheet.qml'), {
             room: currentRoom,
             eventId: eventId
         }, {

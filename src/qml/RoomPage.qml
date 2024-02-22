@@ -243,7 +243,7 @@ Kirigami.Page {
         }
 
         function onShowEventSource(eventId) {
-            applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/MessageSourceSheet.qml', {
+            applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
                 sourceText: root.currentRoom.getEventJsonSource(eventId)
             }, {
                 title: i18n("Message Source"),

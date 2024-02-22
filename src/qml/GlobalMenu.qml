@@ -28,7 +28,7 @@ Labs.MenuBar {
             text: i18nc("menu", "Configure NeoChat...")
 
             shortcut: StandardKey.Preferences
-            onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
+            onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'SettingsPage.qml'), {
                 connection: root.connection
             }, {
                 title: i18n("Configure"),
@@ -49,7 +49,7 @@ Labs.MenuBar {
         Labs.MenuItem {
             text: i18nc("menu", "Find your friends")
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
-            onTriggered: pushReplaceLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
+            onTriggered: pushReplaceLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage.qml'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Find your friends")
@@ -67,7 +67,7 @@ Labs.MenuBar {
         Labs.MenuItem {
             text: i18nc("menu", "Browse Chats…")
             onTriggered: {
-                let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage.qml'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Explore Rooms")

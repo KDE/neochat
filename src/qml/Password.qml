@@ -15,7 +15,7 @@ LoginStep {
     Connections {
         target: LoginHelper
         function onConnected() {
-            processed("qrc:/org/kde/neochat/qml/Loading.qml");
+            processed("Loading.qml");
         }
     }
 
@@ -46,6 +46,6 @@ LoginStep {
         }
     }
     previousAction: Kirigami.Action {
-        onTriggered: processed("qrc:/org/kde/neochat/qml/Login.qml")
+        onTriggered: processed("Login.qml")
     }
 }

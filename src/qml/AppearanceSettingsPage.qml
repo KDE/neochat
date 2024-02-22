@@ -221,7 +221,7 @@ FormCard.FormCardPage {
         Loader {
             id: colorSchemeDelegate
             visible: item !== null
-            source: "qrc:/org/kde/neochat/qml/ColorScheme.qml"
+            sourceComponent: Qt.createComponent('org.kde.neochat', 'ColorScheme.qml')
             Layout.fillWidth: true
         }
     }

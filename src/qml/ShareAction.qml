@@ -60,7 +60,7 @@ Kirigami.Action {
                 if (id != root.eventId) {
                     return;
                 }
-                applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/ShareDialog.qml', {
+                applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "ShareDialog.qml"), {
                     title: root.text,
                     index: index,
                     model: root._instantiator.model

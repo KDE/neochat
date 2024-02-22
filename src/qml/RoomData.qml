@@ -63,7 +63,7 @@ ColumnLayout {
             model: root.room.accountDataEventTypes
             delegate: FormCard.FormButtonDelegate {
                 text: modelData
-                onClicked: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/MessageSourceSheet.qml", {
+                onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
                     "sourceText": root.room.roomAcountDataJson(text)
                 }, {
                     "title": i18n("Event Source"),
@@ -89,7 +89,7 @@ ColumnLayout {
             delegate: FormCard.FormButtonDelegate {
                 text: model.type
                 description: model.stateKey
-                onClicked: applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/MessageSourceSheet.qml', {
+                onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
                     sourceText: stateModel.stateEventJson(stateEventFilterModel.mapToSource(stateEventFilterModel.index(model.index, 0)))
                 }, {
                     title: i18n("Event Source"),

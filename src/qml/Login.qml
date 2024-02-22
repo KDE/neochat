@@ -38,18 +38,18 @@ LoginStep {
         text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ? i18n("Loading…") : i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
-                processed("qrc:/org/kde/neochat/qml/LoginMethod.qml");
+                processed("LoginMethod.qml");
             } else if (LoginHelper.supportsSso) {
-                processed("qrc:/org/kde/neochat/qml/Sso.qml");
+                processed("Sso.qml");
             } else {
-                processed("qrc:/org/kde/neochat/qml/Password.qml");
+                processed("Password.qml");
             }
         }
         enabled: LoginHelper.homeserverReachable
     }
     previousAction: Kirigami.Action {
         onTriggered: {
-            root.processed("qrc:/org/kde/neochat/qml/LoginRegister.qml");
+            root.processed("LoginRegister.qml");
         }
     }
 }

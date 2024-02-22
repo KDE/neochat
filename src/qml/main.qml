@@ -123,7 +123,7 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onPushRoom(room, event) {
-            root.roomPage = pageStack.push("qrc:/org/kde/neochat/qml/RoomPage.qml", {
+            root.roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage.qml'), {
                 connection: root.connection
             });
             root.roomPage.forceActiveFocus();
@@ -133,7 +133,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onPushSpaceHome(room) {
-            root.spaceHomePage = pageStack.push("qrc:/org/kde/neochat/qml/SpaceHomePage.qml");
+            root.spaceHomePage = pageStack.push(Qt.createComponent('org.kde.neochat', 'SpaceHomePage.qml'));
             root.spaceHomePage.forceActiveFocus();
         }
 
@@ -142,7 +142,7 @@ Kirigami.ApplicationWindow {
                 pageStack.currentIndex = pageStack.depth - 1;
             } else {
                 pageStack.pop();
-                root.roomPage = pageStack.push("qrc:/org/kde/neochat/qml/RoomPage.qml", {
+                root.roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage.qml'), {
                     connection: root.connection
                 });
                 root.spaceHomePage = null;
@@ -158,7 +158,7 @@ Kirigami.ApplicationWindow {
                 pageStack.currentIndex = pageStack.depth - 1;
             } else {
                 pageStack.pop();
-                root.spaceHomePage = pageStack.push("qrc:/org/kde/neochat/qml/SpaceHomePage.qml");
+                root.spaceHomePage = pageStack.push(Qt.createComponent('org.kde.neochat', 'SpaceHomePage.qml'));
                 root.roomPage = null;
             }
             root.spaceHomePage.forceActiveFocus();
@@ -196,7 +196,7 @@ Kirigami.ApplicationWindow {
     }
 
     function openRoomDrawer() {
-        pageStack.push("qrc:/org/kde/neochat/qml/RoomDrawerPage.qml", {
+        pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomDrawerPage.qml'), {
             connection: root.connection
         });
     }
@@ -305,7 +305,7 @@ Kirigami.ApplicationWindow {
                 RoomManager.reset();
                 pageStack.clear();
                 roomListLoaded = false;
-                pageStack.push("qrc:/org/kde/neochat/qml/WelcomePage.qml");
+                pageStack.push(Qt.createComponent('org.kde.neochat', '.qml'));
             }
         }
     }
@@ -439,7 +439,7 @@ Kirigami.ApplicationWindow {
     Shortcut {
         sequence: "Ctrl+Shift+,"
         onActivated: {
-            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/SettingsPage.qml", {
+            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'SettingsPage.qml'), {
                 connection: root.connection
             }, {
                 title: i18n("Configure"),

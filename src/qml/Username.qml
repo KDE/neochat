@@ -37,11 +37,11 @@ LoginStep {
     nextAction: Kirigami.Action {
         text: Registration.status === Registration.TestingUsername ? i18n("Loading") : null
 
-        onTriggered: root.processed("qrc:/org/kde/neochat/qml/RegisterPassword.qml")
+        onTriggered: root.processed("RegisterPassword.qml")
         enabled: Registration.status === Registration.Ready
     }
 
     previousAction: Kirigami.Action {
-        onTriggered: root.processed("qrc:/org/kde/neochat/qml/Homeserver.qml")
+        onTriggered: root.processed("Homeserver.qml")
     }
 }

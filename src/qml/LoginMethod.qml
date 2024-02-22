@@ -18,12 +18,12 @@ LoginStep {
     FormCard.FormButtonDelegate {
         id: loginPasswordButton
         text: i18nc("@action:button", "Login with password")
-        onClicked: processed("qrc:/org/kde/neochat/qml/Password.qml")
+        onClicked: processed("Password.qml")
     }
 
     FormCard.FormButtonDelegate {
         id: loginSsoButton
         text: i18nc("@action:button", "Login with single sign-on")
-        onClicked: processed("qrc:/org/kde/neochat/qml/Sso.qml")
+        onClicked: processed("Sso.qml")
     }
 }

@@ -23,7 +23,7 @@ RowLayout {
         text: i18n("Explore rooms")
         icon.name: "compass"
         onTriggered: {
-            let dialog = pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ExploreRoomsPage.qml", {
+            let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage.qml'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Explore Rooms")
@@ -36,7 +36,7 @@ RowLayout {
     property Kirigami.Action chatAction: Kirigami.Action {
         text: i18n("Find your friends")
         icon.name: "list-add-user"
-        onTriggered: pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/UserSearchPage.qml", {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage.qml'), {
             connection: root.connection
         }, {
             title: i18nc("@title", "Find your friends")
@@ -46,7 +46,7 @@ RowLayout {
         text: i18n("Create a Room")
         icon.name: "system-users-symbolic"
         onTriggered: {
-            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {
+            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog.qml'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Create a Room")
@@ -58,7 +58,7 @@ RowLayout {
         text: i18n("Create a Space")
         icon.name: "list-add"
         onTriggered: {
-            pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/CreateRoomDialog.qml", {
+            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog.qml'), {
                 connection: root.connection,
                 isSpace: true,
                 title: i18nc("@title", "Create a Space")

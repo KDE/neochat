@@ -58,6 +58,9 @@ set_package_properties(Qt6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
+
+qt_policy(SET QTP0001 NEW)
+
 find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons Sonnet ItemModels ColorScheme)
 set_package_properties(KF6 PROPERTIES
     TYPE REQUIRED

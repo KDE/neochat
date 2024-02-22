@@ -44,7 +44,7 @@ Kirigami.Page {
             displayHint: Kirigami.DisplayHint.IconOnly
             text: i18n("Settings")
             icon.name: "settings-configure"
-            onTriggered: applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/Categories.qml', {
+            onTriggered: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
                 room: root.room,
                 connection: root.connection
             }, {

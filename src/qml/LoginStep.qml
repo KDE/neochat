@@ -21,7 +21,7 @@ ColumnLayout {
     property QQC2.Action previousAction: null
 
     /// Called when switching to the next step.
-    signal processed(url nextUrl)
+    signal processed(string nextComponent)
 
     /// Show a message in a banner at the top of the page.
     signal showMessage(string message)
