@@ -39,7 +39,7 @@ Loader {
             }
 
             QQC2.MenuItem {
-                text: room.isFavourite ? i18n("Remove from Favourites") : i18n("Add to Favourites")
+                text: room.isFavourite ? i18n("Remove from Favorites") : i18n("Add to Favorites")
                 icon.name: room.isFavourite ? "bookmark-remove" : "bookmark-new"
                 onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
             }
