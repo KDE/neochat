@@ -90,7 +90,7 @@ QQC2.Control {
                     onTriggered: emojiDialog.open()
                 },
                 Kirigami.Action {
-                    visible: root.delegate && root.delegate.author.isLocalUser && (root.delegate.delegateType === DelegateType.Emote || root.delegate.delegateType === DelegateType.Message) && !root.currentRoom.readOnly
+                    visible: root.delegate && root.delegate.isEditable && !root.currentRoom.readOnly
                     text: i18n("Edit")
                     icon.name: "document-edit"
                     onTriggered: {

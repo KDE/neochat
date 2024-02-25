@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include "messageeventmodel.h"
+#include "messagecomponenttype.h"
 #include "messageeventmodel_logging.h"
 
 #include "neochatconfig.h"
@@ -58,6 +59,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[IsPendingRole] = "isPending";
     roles[ContentModelRole] = "contentModel";
     roles[MediaInfoRole] = "mediaInfo";
+    roles[IsEditableRole] = "isEditable";
     return roles;
 }
 
@@ -616,6 +618,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == MediaInfoRole) {
         return eventHandler.getMediaInfo();
+    }
+
+    if (role == IsEditableRole) {
+        return eventHandler.messageComponentType() == MessageComponentType::Text && evt.senderId() == m_currentRoom->localUser()->id();
     }
 
     return {};

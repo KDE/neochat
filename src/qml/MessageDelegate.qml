@@ -147,6 +147,11 @@ TimelineDelegate {
     required property bool isPending
 
     /**
+     * @brief Whether the event can be edited by the local user.
+     */
+    required property bool isEditable
+
+    /**
      * @brief Whether an encrypted message is sent in a verified session.
      */
     required property bool verified

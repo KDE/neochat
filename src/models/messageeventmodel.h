@@ -69,6 +69,7 @@ public:
         AuthorDisplayNameRole, /**< The displayname for the event's sender; for name change events, the old displayname. */
         IsRedactedRole, /**< Whether an event has been deleted. */
         IsPendingRole, /**< Whether an event is waiting to be accepted by the server. */
+        IsEditableRole, /**< Whether the event can be edited by the user. */
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)
