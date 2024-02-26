@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-23 00:37+0000\n"
+"POT-Creation-Date: 2024-02-26 00:37+0000\n"
 "PO-Revision-Date: 2024-02-23 09:39+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -106,13 +106,13 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
-#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
+#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ce message a été supprimé]</i>"
 
 #: src/eventhandler.cpp:257 src/models/messagecontentmodel.cpp:119
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Ce message a été supprimé : %1]</i>"
@@ -1131,23 +1131,23 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 a réagi à %3"
 msgstr[1] "%2 a réagi à %3"
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "File too large to download."
 msgstr "Fichier trop volumineux pour être téléchargé"
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Veuillez contact votre administrateur du serveur « Matrix » pour de l'aide."
 
-#: src/neochatconnection.cpp:257
+#: src/neochatconnection.cpp:258
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Impossible de créer le salon : %1"
 
-#: src/neochatconnection.cpp:289
+#: src/neochatconnection.cpp:290
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer un espace : %1"
@@ -1238,6 +1238,20 @@ msgstr "À propos de NeoChat"
 msgctxt "@title:window"
 msgid "About KDE"
 msgstr "À propos de KDE"
+
+#: src/qml/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "Données sur les comptes de salons"
+
+#: src/qml/AccountData.qml:29
+#, fuzzy, kde-format
+#| msgid "Event Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "Source de l'évènement"
 
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
@@ -1653,14 +1667,16 @@ msgstr "Voulez-vous vraiment vous déconnecter ?"
 msgid "Open in New Window"
 msgstr "Ouvrir dans une nouvelle fenêtre"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Remove from Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Remove from Favourites"
+msgid "Remove from Favorites"
 msgstr "Supprimer de vos préférés"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Add to Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Add to Favourites"
+msgid "Add to Favorites"
 msgstr "Ajouter à vos préférés"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
@@ -1732,6 +1748,16 @@ msgstr "Configuration du salon"
 #, kde-format
 msgid "Leave Room"
 msgstr "Quitter un salon"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "Supprimer de vos préférés"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Add to Favourites"
+msgstr "Ajouter à vos préférés"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -1974,6 +2000,13 @@ msgid "Developer Tools"
 msgstr "Outils de développement"
 
 #: src/qml/DevtoolsPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "Données sur les comptes de salons"
+
+#: src/qml/DevtoolsPage.qml:36
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -2456,17 +2489,17 @@ msgstr "Ce salon a été remplacé."
 msgid "See new room…"
 msgstr "Voir un nouveau salon..."
 
-#: src/qml/General.qml:405
+#: src/qml/General.qml:407
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Mettre à jour le salon"
 
-#: src/qml/General.qml:409
+#: src/qml/General.qml:411
 #, kde-format
 msgid "Select new version"
 msgstr "Sélectionner une nouvelle version"
 
-#: src/qml/General.qml:415 src/qml/PowerLevelDialog.qml:61
+#: src/qml/General.qml:419 src/qml/PowerLevelDialog.qml:61
 #, kde-format
 msgid "Confirm"
 msgstr "Confirmer"
@@ -2741,6 +2774,33 @@ msgstr "Réaction"
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Répondre dans le fil de discussions"
+
+#: src/qml/IgnoredUsersDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Ignored Users"
+msgstr "Ignorer cet utilisateur"
+
+#: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Ignorer cet utilisateur"
+
+#: src/qml/IgnoredUsersDialog.qml:29
+#, kde-format
+msgctxt "Placeholder message when no user is ignored"
+msgid "You are not ignoring any users"
+msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Unignore this user"
+msgstr "Re-considérer cet utilisateur"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -3914,6 +3974,21 @@ msgstr "Clé de chiffrement"
 msgid "Device id"
 msgstr "Identifiant de périphérique"
 
+#: src/qml/Security.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@action:button The thing being rejected is an invitation to chat"
+#| msgid "Reject and ignore user"
+msgctxt "@action:button"
+msgid "Manage ignored users"
+msgstr "Rejeter et ignorer un utilisateur"
+
+#: src/qml/Security.qml:43
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "Ignorer cet utilisateur"
+
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
 msgctxt "@title"
@@ -4052,22 +4127,29 @@ msgstr "À propos de NeoChat"
 msgid "About KDE"
 msgstr "À propos de KDE"
 
-#: src/qml/ShareAction.qml:19
+#: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
 msgstr "Partager"
 
-#: src/qml/ShareAction.qml:20
+#: src/qml/ShareAction.qml:24
 #, kde-format
 msgid "Share the selected media"
 msgstr "Partager le média sélectionné"
 
-#: src/qml/ShareDialog.qml:34
+#: src/qml/ShareAction.qml:68
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@title"
+msgid "Share"
+msgstr "Partager"
+
+#: src/qml/ShareDialog.qml:37
 #, kde-format
 msgid "Sharing failed"
 msgstr "Échec de la partage"
 
-#: src/qml/ShareDialog.qml:53
+#: src/qml/ShareDialog.qml:58
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "URL partagé pour l'image est <a href='%1'>%1</a>."

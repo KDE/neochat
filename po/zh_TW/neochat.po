@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-23 00:37+0000\n"
+"POT-Creation-Date: 2024-02-26 00:37+0000\n"
 "PO-Revision-Date: 2024-02-15 17:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -110,13 +110,13 @@ msgid "Search"
 msgstr "搜尋"
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
-#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
+#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[此訊息已被刪除]</i>"
 
 #: src/eventhandler.cpp:257 src/models/messagecontentmodel.cpp:119
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[此訊息已被刪除：%1]</i>"
@@ -1124,22 +1124,22 @@ msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 用 %3 反應"
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "File too large to download."
 msgstr "要下載的檔案太大了。"
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "請聯絡您的 matrix 伺服器管理員以求支援。"
 
-#: src/neochatconnection.cpp:257
+#: src/neochatconnection.cpp:258
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室建立失敗：%1"
 
-#: src/neochatconnection.cpp:289
+#: src/neochatconnection.cpp:290
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
@@ -1230,6 +1230,20 @@ msgstr "關於 NeoChat"
 msgctxt "@title:window"
 msgid "About KDE"
 msgstr "關於 KDE"
+
+#: src/qml/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "聊天室帳號資料"
+
+#: src/qml/AccountData.qml:29
+#, fuzzy, kde-format
+#| msgid "Event Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "事件原始碼"
 
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
@@ -1641,14 +1655,16 @@ msgstr "您確定要登出嗎？"
 msgid "Open in New Window"
 msgstr "在新視窗開啟"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Remove from Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Remove from Favourites"
+msgid "Remove from Favorites"
 msgstr "從最愛中移除"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Add to Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Add to Favourites"
+msgid "Add to Favorites"
 msgstr "加入最愛"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
@@ -1720,6 +1736,16 @@ msgstr "聊天室設定"
 #, kde-format
 msgid "Leave Room"
 msgstr "離開聊天室"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "從最愛中移除"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Add to Favourites"
+msgstr "加入最愛"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -1957,6 +1983,13 @@ msgid "Developer Tools"
 msgstr "開發者工具"
 
 #: src/qml/DevtoolsPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "聊天室帳號資料"
+
+#: src/qml/DevtoolsPage.qml:36
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -2433,17 +2466,17 @@ msgstr "這個聊天室已被取代。"
 msgid "See new room…"
 msgstr "查看新聊天室…"
 
-#: src/qml/General.qml:405
+#: src/qml/General.qml:407
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "更新聊天室"
 
-#: src/qml/General.qml:409
+#: src/qml/General.qml:411
 #, kde-format
 msgid "Select new version"
 msgstr "選取新版本"
 
-#: src/qml/General.qml:415 src/qml/PowerLevelDialog.qml:61
+#: src/qml/General.qml:419 src/qml/PowerLevelDialog.qml:61
 #, kde-format
 msgid "Confirm"
 msgstr "確認"
@@ -2712,6 +2745,33 @@ msgstr "反應"
 #, kde-format
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
+
+#: src/qml/IgnoredUsersDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Ignored Users"
+msgstr "忽略這個使用者"
+
+#: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "忽略這個使用者"
+
+#: src/qml/IgnoredUsersDialog.qml:29
+#, kde-format
+msgctxt "Placeholder message when no user is ignored"
+msgid "You are not ignoring any users"
+msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Unignore this user"
+msgstr "取消忽略這個使用者"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -3855,6 +3915,21 @@ msgstr "加密金鑰"
 msgid "Device id"
 msgstr "裝置 ID"
 
+#: src/qml/Security.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@action:button The thing being rejected is an invitation to chat"
+#| msgid "Reject and ignore user"
+msgctxt "@action:button"
+msgid "Manage ignored users"
+msgstr "拒絕並忽略使用者"
+
+#: src/qml/Security.qml:43
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "忽略這個使用者"
+
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
 msgctxt "@title"
@@ -3991,22 +4066,29 @@ msgstr "關於 NeoChat"
 msgid "About KDE"
 msgstr "關於 KDE"
 
-#: src/qml/ShareAction.qml:19
+#: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
 msgstr "分享"
 
-#: src/qml/ShareAction.qml:20
+#: src/qml/ShareAction.qml:24
 #, kde-format
 msgid "Share the selected media"
 msgstr "分享選取的媒體"
 
-#: src/qml/ShareDialog.qml:34
+#: src/qml/ShareAction.qml:68
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@title"
+msgid "Share"
+msgstr "分享"
+
+#: src/qml/ShareDialog.qml:37
 #, kde-format
 msgid "Sharing failed"
 msgstr "分享失敗"
 
-#: src/qml/ShareDialog.qml:53
+#: src/qml/ShareDialog.qml:58
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "影像分享後的網址是 <a href='%1'>%1</a>"

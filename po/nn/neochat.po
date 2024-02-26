@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-23 00:37+0000\n"
+"POT-Creation-Date: 2024-02-26 00:37+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -116,13 +116,13 @@ msgid "Search"
 msgstr "Søk"
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
-#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
+#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Denne meldinga er sletta]</i>"
 
 #: src/eventhandler.cpp:257 src/models/messagecontentmodel.cpp:119
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Denne meldinga er sletta: %1]</i>"
@@ -1152,22 +1152,22 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 reagerte med %3"
 msgstr[1] "%2 reagerte med %3"
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "File too large to download."
 msgstr "Fila er for stor til å kunna lastast ned."
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Ta kontakt med administratoren av Matrix-tenaren for brukarstøtte."
 
-#: src/neochatconnection.cpp:257
+#: src/neochatconnection.cpp:258
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Feil ved romregistrering: %1"
 
-#: src/neochatconnection.cpp:289
+#: src/neochatconnection.cpp:290
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
@@ -1261,6 +1261,21 @@ msgstr "Om NeoChat"
 msgctxt "@title:window"
 msgid "About KDE"
 msgstr "Om KDE"
+
+#: src/qml/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "Konto­detaljar"
+
+#: src/qml/AccountData.qml:29
+#, fuzzy, kde-format
+#| msgid "Event Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "Hendingskjelde"
 
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
@@ -1670,14 +1685,16 @@ msgstr "Er du sikker på at du vil logga ut?"
 msgid "Open in New Window"
 msgstr "Opna i nytt vindauge"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Remove from Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Remove from Favourites"
+msgid "Remove from Favorites"
 msgstr "Fjern frå favorittar"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Add to Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Add to Favourites"
+msgid "Add to Favorites"
 msgstr "Merk som favoritt"
 
 # Er det motsette av nedprioritering, så «reprioriter» blir feil (det kan vera både opp og ned).
@@ -1750,6 +1767,16 @@ msgstr "Romval"
 #, kde-format
 msgid "Leave Room"
 msgstr "Forlat rommet"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "Fjern frå favorittar"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Add to Favourites"
+msgstr "Merk som favoritt"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -1996,6 +2023,14 @@ msgid "Developer Tools"
 msgstr "Utviklarverktøy"
 
 #: src/qml/DevtoolsPage.qml:33
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "Konto­detaljar"
+
+#: src/qml/DevtoolsPage.qml:36
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -2489,17 +2524,17 @@ msgstr "Rommet er bytt ut."
 msgid "See new room…"
 msgstr "Sjå det nye rommet …"
 
-#: src/qml/General.qml:405
+#: src/qml/General.qml:407
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Oppgrader rommet"
 
-#: src/qml/General.qml:409
+#: src/qml/General.qml:411
 #, kde-format
 msgid "Select new version"
 msgstr "Vel ny versjon"
 
-#: src/qml/General.qml:415 src/qml/PowerLevelDialog.qml:61
+#: src/qml/General.qml:419 src/qml/PowerLevelDialog.qml:61
 #, kde-format
 msgid "Confirm"
 msgstr "Stadfest"
@@ -2768,6 +2803,33 @@ msgstr "Reager"
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Ignored Users"
+msgstr "Ignorer brukaren"
+
+#: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Ignorer brukaren"
+
+#: src/qml/IgnoredUsersDialog.qml:29
+#, kde-format
+msgctxt "Placeholder message when no user is ignored"
+msgid "You are not ignoring any users"
+msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Unignore this user"
+msgstr "Avignorer brukaren"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -3961,6 +4023,20 @@ msgstr "Kryptering"
 msgid "Device id"
 msgstr "Einingar"
 
+#: src/qml/Security.qml:41
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Manage ignored users"
+msgstr "Avignorer brukaren"
+
+#: src/qml/Security.qml:43
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "Ignorer brukaren"
+
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
@@ -4105,22 +4181,29 @@ msgstr "Om NeoChat"
 msgid "About KDE"
 msgstr "Om KDE"
 
-#: src/qml/ShareAction.qml:19
+#: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
 msgstr "Del"
 
-#: src/qml/ShareAction.qml:20
+#: src/qml/ShareAction.qml:24
 #, kde-format
 msgid "Share the selected media"
 msgstr "Del valde medium"
 
-#: src/qml/ShareDialog.qml:34
+#: src/qml/ShareAction.qml:68
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@title"
+msgid "Share"
+msgstr "Del"
+
+#: src/qml/ShareDialog.qml:37
 #, kde-format
 msgid "Sharing failed"
 msgstr "Feil ved deling"
 
-#: src/qml/ShareDialog.qml:53
+#: src/qml/ShareDialog.qml:58
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Delt adresse for biletet er <a href='%1'>%1</a>"

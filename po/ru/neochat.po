@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-23 00:37+0000\n"
+"POT-Creation-Date: 2024-02-26 00:37+0000\n"
 "PO-Revision-Date: 2024-02-09 23:09+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -112,13 +112,13 @@ msgid "Search"
 msgstr "Поиск"
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
-#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
+#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Это сообщение было удалено]</i>"
 
 #: src/eventhandler.cpp:257 src/models/messagecontentmodel.cpp:119
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Cообщение было удалено: %1]</i>"
@@ -1148,22 +1148,22 @@ msgstr[1] "%2 пользователя использовали %3"
 msgstr[2] "%2 пользователей использовали %3"
 msgstr[3] "%2 пользователь использовал %3"
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "File too large to download."
 msgstr "Слишком большой файл для загрузки."
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Обратитесь за помощью к администратору сервера Matrix."
 
-#: src/neochatconnection.cpp:257
+#: src/neochatconnection.cpp:258
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Не удалось создать комнату: %1"
 
-#: src/neochatconnection.cpp:289
+#: src/neochatconnection.cpp:290
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не удалось создать пространство: %1"
@@ -1254,6 +1254,20 @@ msgstr "О приложении NeoChat"
 msgctxt "@title:window"
 msgid "About KDE"
 msgstr "О KDE"
+
+#: src/qml/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "Данные учётной записи комнаты"
+
+#: src/qml/AccountData.qml:29
+#, fuzzy, kde-format
+#| msgid "Event Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "Исходный код события"
 
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
@@ -1663,14 +1677,16 @@ msgstr "Выйти из учётной записи?"
 msgid "Open in New Window"
 msgstr "Открыть в новом окне"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Remove from Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Remove from Favourites"
+msgid "Remove from Favorites"
 msgstr "Убрать из избранного"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Add to Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Add to Favourites"
+msgid "Add to Favorites"
 msgstr "Добавить в избранное"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
@@ -1742,6 +1758,16 @@ msgstr "Параметры комнаты"
 #, kde-format
 msgid "Leave Room"
 msgstr "Покинуть комнату"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "Убрать из избранного"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Add to Favourites"
+msgstr "Добавить в избранное"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -1985,6 +2011,13 @@ msgid "Developer Tools"
 msgstr "Инструменты разработчика"
 
 #: src/qml/DevtoolsPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "Данные учётной записи комнаты"
+
+#: src/qml/DevtoolsPage.qml:36
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -2475,17 +2508,17 @@ msgstr "Эта комната была заменена."
 msgid "See new room…"
 msgstr "Посмотреть новую комнату…"
 
-#: src/qml/General.qml:405
+#: src/qml/General.qml:407
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Обновление комнаты"
 
-#: src/qml/General.qml:409
+#: src/qml/General.qml:411
 #, kde-format
 msgid "Select new version"
 msgstr "Выберите новую версию"
 
-#: src/qml/General.qml:415 src/qml/PowerLevelDialog.qml:61
+#: src/qml/General.qml:419 src/qml/PowerLevelDialog.qml:61
 #, kde-format
 msgid "Confirm"
 msgstr "Подтвердить"
@@ -2760,6 +2793,33 @@ msgstr "Реакция"
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Ответить в ветке"
+
+#: src/qml/IgnoredUsersDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Ignored Users"
+msgstr "Игнорировать этого пользователя"
+
+#: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Игнорировать этого пользователя"
+
+#: src/qml/IgnoredUsersDialog.qml:29
+#, kde-format
+msgctxt "Placeholder message when no user is ignored"
+msgid "You are not ignoring any users"
+msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Unignore this user"
+msgstr "Перестать игнорировать этого пользователя"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -3949,6 +4009,21 @@ msgstr "Ключ шифрования файла"
 msgid "Device id"
 msgstr "Идентификатор устройства"
 
+#: src/qml/Security.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@action:button The thing being rejected is an invitation to chat"
+#| msgid "Reject and ignore user"
+msgctxt "@action:button"
+msgid "Manage ignored users"
+msgstr "Отклонить и игнорировать пользователя"
+
+#: src/qml/Security.qml:43
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "Игнорировать этого пользователя"
+
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
@@ -4094,22 +4169,29 @@ msgstr "О программе NeoChat"
 msgid "About KDE"
 msgstr "О KDE"
 
-#: src/qml/ShareAction.qml:19
+#: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
 msgstr "Опубликовать"
 
-#: src/qml/ShareAction.qml:20
+#: src/qml/ShareAction.qml:24
 #, kde-format
 msgid "Share the selected media"
 msgstr "Опубликовать выбранные файлы"
 
-#: src/qml/ShareDialog.qml:34
+#: src/qml/ShareAction.qml:68
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@title"
+msgid "Share"
+msgstr "Опубликовать"
+
+#: src/qml/ShareDialog.qml:37
 #, kde-format
 msgid "Sharing failed"
 msgstr "Ошибка публикации"
 
-#: src/qml/ShareDialog.qml:53
+#: src/qml/ShareDialog.qml:58
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Ссылка общего доступа для изображения: <a href='%1'>%1</a>"

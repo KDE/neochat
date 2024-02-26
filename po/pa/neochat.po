@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-23 00:37+0000\n"
+"POT-Creation-Date: 2024-02-26 00:37+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -110,13 +110,13 @@ msgid "Search"
 msgstr ""
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
-#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
+#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ਇਹ ਸੁਨੇਹਾ ਹਟਾਇਆ ਗਿਆ ਸੀ]</i>"
 
 #: src/eventhandler.cpp:257 src/models/messagecontentmodel.cpp:119
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[ਇਹ ਸੁਨੇਹਾ ਹਟਾਇਆ ਗਿਆ ਸੀ: %1]</i>"
@@ -1231,23 +1231,23 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:257
+#: src/neochatconnection.cpp:258
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 
-#: src/neochatconnection.cpp:289
+#: src/neochatconnection.cpp:290
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1346,6 +1346,20 @@ msgstr "ਨਿਓ-ਚੈਟ ਬਾਰੇ"
 msgctxt "@title:window"
 msgid "About KDE"
 msgstr "ਇਸ ਬਾਰੇ"
+
+#: src/qml/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/qml/AccountData.qml:29
+#, fuzzy, kde-format
+#| msgid "View Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "ਸਰੋਤ ਵੇਖੋ"
 
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
@@ -1788,14 +1802,16 @@ msgstr ""
 msgid "Open in New Window"
 msgstr "ਨਵੀਂ ਵਿੰਡੋ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Remove from Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Remove from Favourites"
+msgid "Remove from Favorites"
 msgstr "ਮਨਪਸੰਦ ਵਿੱਚੋਂ ਹਟਾਓ"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Add to Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Add to Favourites"
+msgid "Add to Favorites"
 msgstr "ਮਨਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
@@ -1873,6 +1889,16 @@ msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
 #, kde-format
 msgid "Leave Room"
 msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "ਮਨਪਸੰਦ ਵਿੱਚੋਂ ਹਟਾਓ"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Add to Favourites"
+msgstr "ਮਨਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -2134,6 +2160,13 @@ msgid "Developer Tools"
 msgstr ""
 
 #: src/qml/DevtoolsPage.qml:33
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/qml/DevtoolsPage.qml:36
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -2646,19 +2679,19 @@ msgstr "ਇਸ ਰੂਮ ਨੂੰ ਬਦਲਿਆ ਗਿਆ ਹੈ।"
 msgid "See new room…"
 msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
 
-#: src/qml/General.qml:405
+#: src/qml/General.qml:407
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "Upgrade the Room"
 msgstr "ਰੂਮ ਛੱਡਿਆ"
 
-#: src/qml/General.qml:409
+#: src/qml/General.qml:411
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgid "Select new version"
 msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
 
-#: src/qml/General.qml:415 src/qml/PowerLevelDialog.qml:61
+#: src/qml/General.qml:419 src/qml/PowerLevelDialog.qml:61
 #, kde-format
 msgid "Confirm"
 msgstr "ਤਸਦੀਕ ਕਰੋ"
@@ -2944,6 +2977,33 @@ msgstr "ਅਸਰ"
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Ignored Users"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
+
+#: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
+
+#: src/qml/IgnoredUsersDialog.qml:29
+#, kde-format
+msgctxt "Placeholder message when no user is ignored"
+msgid "You are not ignoring any users"
+msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Unignore this user"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -4186,6 +4246,20 @@ msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼�
 msgid "Device id"
 msgstr "ਡਿਵਾਈਸ"
 
+#: src/qml/Security.qml:41
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Manage ignored users"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
+
+#: src/qml/Security.qml:43
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
+
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "See new room..."
@@ -4331,23 +4405,29 @@ msgstr "ਨਿਓ-ਚੈਟ ਬਾਰੇ"
 msgid "About KDE"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: src/qml/ShareAction.qml:19
+#: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
 msgstr ""
 
-#: src/qml/ShareAction.qml:20
+#: src/qml/ShareAction.qml:24
 #, kde-format
 msgid "Share the selected media"
 msgstr ""
 
-#: src/qml/ShareDialog.qml:34
+#: src/qml/ShareAction.qml:68
+#, kde-format
+msgctxt "@title"
+msgid "Share"
+msgstr ""
+
+#: src/qml/ShareDialog.qml:37
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Sharing failed"
 msgstr "ਲਾਗਇਨ ਫੇਲ੍ਹ ਹੈ"
 
-#: src/qml/ShareDialog.qml:53
+#: src/qml/ShareDialog.qml:58
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr ""

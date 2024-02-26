@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-23 00:37+0000\n"
+"POT-Creation-Date: 2024-02-26 00:37+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -112,13 +112,13 @@ msgid "Search"
 msgstr "Αναζήτηση"
 
 #: src/eventhandler.cpp:257 src/eventhandler.cpp:461
-#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:463
+#: src/models/messagecontentmodel.cpp:118 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε]</i>"
 
 #: src/eventhandler.cpp:257 src/models/messagecontentmodel.cpp:119
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε: %1]</i>"
@@ -1193,23 +1193,23 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 αντέδρασε με %3"
 msgstr[1] "%2 αντέδρασαν με %3"
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/neochatconnection.cpp:71
+#: src/neochatconnection.cpp:72
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:257
+#: src/neochatconnection.cpp:258
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/neochatconnection.cpp:289
+#: src/neochatconnection.cpp:290
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1304,6 +1304,20 @@ msgstr "Σχετικά με το NeoChat"
 msgctxt "@title:window"
 msgid "About KDE"
 msgstr ""
+
+#: src/qml/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "Δεν βρέθηκαν αίθουσες"
+
+#: src/qml/AccountData.qml:29
+#, fuzzy, kde-format
+#| msgid "Event Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "Πηγή γεγονότος"
 
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
@@ -1722,14 +1736,16 @@ msgstr "Θέλεις σίγουρα να αποσυνδεθείς;"
 msgid "Open in New Window"
 msgstr "Άνοιγμα σε νέο παράθυρο"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Remove from Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Remove from Favourites"
+msgid "Remove from Favorites"
 msgstr "Αφαίρεση από τα προτιμώμενα"
 
-#: src/qml/ContextMenu.qml:42 src/qml/ContextMenu.qml:191
-#, kde-format
-msgid "Add to Favourites"
+#: src/qml/ContextMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Add to Favourites"
+msgid "Add to Favorites"
 msgstr "Προσθήκη στα προτιμώμενα"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
@@ -1803,6 +1819,16 @@ msgstr "Ρυθμίσεις αίθουσας"
 #, kde-format
 msgid "Leave Room"
 msgstr "Αποχώρηση από την αίθουσα"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "Αφαίρεση από τα προτιμώμενα"
+
+#: src/qml/ContextMenu.qml:191
+#, kde-format
+msgid "Add to Favourites"
+msgstr "Προσθήκη στα προτιμώμενα"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -2057,6 +2083,13 @@ msgid "Developer Tools"
 msgstr "Εργαλεία προγραμματιστή"
 
 #: src/qml/DevtoolsPage.qml:33
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "Δεν βρέθηκαν αίθουσες"
+
+#: src/qml/DevtoolsPage.qml:36
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -2570,17 +2603,17 @@ msgstr "Αυτή η αίθουσα έχει αντικατασταθεί."
 msgid "See new room…"
 msgstr "Δες τη νέα αίθουσα…"
 
-#: src/qml/General.qml:405
+#: src/qml/General.qml:407
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Αναβάθμιση της αίθουσας"
 
-#: src/qml/General.qml:409
+#: src/qml/General.qml:411
 #, kde-format
 msgid "Select new version"
 msgstr "Επιλογή νέας έκδοσης"
 
-#: src/qml/General.qml:415 src/qml/PowerLevelDialog.qml:61
+#: src/qml/General.qml:419 src/qml/PowerLevelDialog.qml:61
 #, kde-format
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
@@ -2858,6 +2891,33 @@ msgstr "Αντίδραση"
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:18
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Ignored Users"
+msgstr "Αγνόηση αυτού του χρήστη"
+
+#: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Αγνόηση αυτού του χρήστη"
+
+#: src/qml/IgnoredUsersDialog.qml:29
+#, kde-format
+msgctxt "Placeholder message when no user is ignored"
+msgid "You are not ignoring any users"
+msgstr ""
+
+#: src/qml/IgnoredUsersDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Unignore this user"
+msgstr "Αναίρεση αγνόησης αυτού του χρήστη"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -4085,6 +4145,20 @@ msgstr "Κρυπτογράφηση"
 msgid "Device id"
 msgstr "Συσκευές"
 
+#: src/qml/Security.qml:41
+#, fuzzy, kde-format
+#| msgid "Unignore this user"
+msgctxt "@action:button"
+msgid "Manage ignored users"
+msgstr "Αναίρεση αγνόησης αυτού του χρήστη"
+
+#: src/qml/Security.qml:43
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "Αγνόηση αυτού του χρήστη"
+
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
@@ -4232,22 +4306,29 @@ msgstr "Σχετικά με το NeoChat"
 msgid "About KDE"
 msgstr ""
 
-#: src/qml/ShareAction.qml:19
+#: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
 msgstr "Διαμοιρασμός"
 
-#: src/qml/ShareAction.qml:20
+#: src/qml/ShareAction.qml:24
 #, kde-format
 msgid "Share the selected media"
 msgstr "Διαμοιρασμός του επιλεγμένου μέσου"
 
-#: src/qml/ShareDialog.qml:34
+#: src/qml/ShareAction.qml:68
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@title"
+msgid "Share"
+msgstr "Διαμοιρασμός"
+
+#: src/qml/ShareDialog.qml:37
 #, kde-format
 msgid "Sharing failed"
 msgstr "Αποτυχία διαμοιρασμού"
 
-#: src/qml/ShareDialog.qml:53
+#: src/qml/ShareDialog.qml:58
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Το κοινόχρηστο url για την εικόνα είναι το <a href='%1'>%1</a>"
