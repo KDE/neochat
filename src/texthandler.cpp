@@ -6,16 +6,18 @@
 #include <QDebug>
 #include <QGuiApplication>
 #include <QStringLiteral>
+#include <QTextBlock>
 #include <QUrl>
 
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/util.h>
-#include <qstringliteral.h>
 
 #include <cmark.h>
 
 #include <Kirigami/Platform/PlatformTheme>
 
+#include "messagecomponenttype.h"
+#include "messagecontentmodel.h"
 #include "models/customemojimodel.h"
 #include "utils.h"
 
@@ -39,6 +41,13 @@ static const QStringList allowedLinkSchemes = {QStringLiteral("https"),
                                                QStringLiteral("ftp"),
                                                QStringLiteral("mailto"),
                                                QStringLiteral("magnet")};
+static const QStringList blockTags = {QStringLiteral("blockquote"),
+                                      QStringLiteral("p"),
+                                      QStringLiteral("ul"),
+                                      QStringLiteral("ol"),
+                                      QStringLiteral("div"),
+                                      QStringLiteral("table"),
+                                      QStringLiteral("pre")};
 
 QString TextHandler::data() const
 {
@@ -56,7 +65,7 @@ QString TextHandler::handleSendText()
     m_pos = 0;
     m_dataBuffer = markdownToHTML(m_data);
 
-    nextTokenType();
+    m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
 
     // Strip any disallowed tags/attributes.
     QString outputString;
@@ -73,22 +82,23 @@ QString TextHandler::handleSendText()
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
             break;
         case Tag:
-            if (!isAllowedTag(getTagType())) {
+            if (!isAllowedTag(getTagType(m_nextToken))) {
                 nextTokenBuffer = QString();
             }
-            nextTokenBuffer = cleanAttributes(getTagType(), nextTokenBuffer);
+            nextTokenBuffer = cleanAttributes(getTagType(m_nextToken), nextTokenBuffer);
         default:
             break;
         }
 
         outputString.append(nextTokenBuffer);
 
-        nextTokenType();
+        m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     }
     return outputString;
 }
 
-QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines)
+QString
+TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines, bool isEdited)
 {
     m_pos = 0;
     m_dataBuffer = m_data;
@@ -122,7 +132,7 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
 
     // Strip any disallowed tags/attributes.
     QString outputString;
-    nextTokenType();
+    m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     while (m_pos < m_dataBuffer.length()) {
         next();
 
@@ -130,61 +140,28 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
         if (m_nextTokenType == Type::Text || m_nextTokenType == Type::TextCode) {
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
         } else if (m_nextTokenType == Type::Tag) {
-            if (!isAllowedTag(getTagType())) {
+            if (!isAllowedTag(getTagType(m_nextToken))) {
                 nextTokenBuffer = QString();
-            } else if ((getTagType() == QStringLiteral("br") && stripNewlines)) {
+            } else if ((getTagType(m_nextToken) == QStringLiteral("br") && stripNewlines)) {
                 nextTokenBuffer = u' ';
             }
-            nextTokenBuffer = cleanAttributes(getTagType(), nextTokenBuffer);
+            nextTokenBuffer = cleanAttributes(getTagType(m_nextToken), nextTokenBuffer);
         }
 
         outputString.append(nextTokenBuffer);
 
-        nextTokenType();
+        m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     }
 
-    // Apply user style to blockquotes
-    // Unfortunately some attributes can be only be used on table cells, so we need to wrap the content in one.
-    outputString.replace(TextRegex::blockQuote, QStringLiteral(R"(<blockquote><table><tr><td>“\1”</td></tr></table></blockquote>)"));
-
-    // If the message is an emote add the user pill to the front of the message.
-    if (event != nullptr) {
-        auto e = eventCast<const Quotient::RoomMessageEvent>(event);
-        if (e->msgtype() == Quotient::MessageEventType::Emote) {
-            auto author = room->user(e->senderId());
-            QString emoteString = QStringLiteral("* <a href=\"https://matrix.to/#/") + e->senderId() + QStringLiteral("\" style=\"color:")
-                + Utils::getUserColor(author->hueF()).name() + QStringLiteral("\">") + author->displayname(room) + QStringLiteral("</a> ");
-            if (outputString.startsWith(QStringLiteral("<p>"))) {
-                outputString.insert(3, emoteString);
-            } else {
-                outputString.prepend(emoteString);
-            }
-        }
-    }
-
-    if (auto e = eventCast<const Quotient::RoomMessageEvent>(event)) {
-        bool isEdited = !e->unsignedJson().isEmpty() && e->unsignedJson().contains(QStringLiteral("m.relations"))
-            && e->unsignedJson()[QStringLiteral("m.relations")].toObject().contains(QStringLiteral("m.replace"));
-        if (isEdited) {
-            Kirigami::Platform::PlatformTheme *theme =
-                static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
-
-            QString editTextColor;
-            if (theme != nullptr) {
-                editTextColor = theme->disabledTextColor().name();
-            } else {
-                editTextColor = QStringLiteral("#000000");
-            }
-            QString editedString = QStringLiteral(" <span style=\"color:") + editTextColor + QStringLiteral("\">(edited)</span>");
-            if (outputString.endsWith(QStringLiteral("</p>"))) {
-                outputString.insert(outputString.length() - 4, editedString);
-            } else if (outputString.endsWith(QStringLiteral("</pre>")) || outputString.endsWith(QStringLiteral("</blockquote>"))
-                       || outputString.endsWith(QStringLiteral("</table>")) || outputString.endsWith(QStringLiteral("</ol>"))
-                       || outputString.endsWith(QStringLiteral("</ul>"))) {
-                outputString.append(QStringLiteral("<p>%1</p>").arg(editedString));
-            } else {
-                outputString.append(editedString);
-            }
+    if (isEdited) {
+        if (outputString.endsWith(QStringLiteral("</p>"))) {
+            outputString.insert(outputString.length() - 4, editString());
+        } else if (outputString.endsWith(QStringLiteral("</pre>")) || outputString.endsWith(QStringLiteral("</blockquote>"))
+                   || outputString.endsWith(QStringLiteral("</table>")) || outputString.endsWith(QStringLiteral("</ol>"))
+                   || outputString.endsWith(QStringLiteral("</ul>"))) {
+            outputString.append(QStringLiteral("<p>%1</p>").arg(editString()));
+        } else {
+            outputString.append(editString());
         }
     }
 
@@ -231,7 +208,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
 
     // Strip all tags/attributes except code blocks which will be escaped.
     QString outputString;
-    nextTokenType();
+    m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     while (m_pos < m_dataBuffer.length()) {
         next();
 
@@ -239,7 +216,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
         if (m_nextTokenType == Type::TextCode) {
             nextTokenBuffer = unescapeHtml(nextTokenBuffer);
         } else if (m_nextTokenType == Type::Tag) {
-            if (getTagType() == QStringLiteral("br") && !stripNewlines) {
+            if (getTagType(m_nextToken) == QStringLiteral("br") && !stripNewlines) {
                 nextTokenBuffer = u'\n';
             } else {
                 nextTokenBuffer = QString();
@@ -248,7 +225,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
 
         outputString.append(nextTokenBuffer);
 
-        nextTokenType();
+        m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     }
 
     // Escaping then unescaping allows < and > to be maintained in a plain text string
@@ -280,38 +257,150 @@ void TextHandler::next()
     m_pos = tokenEnd + (m_nextTokenType == Type::Tag ? 1 : 0);
 }
 
-void TextHandler::nextTokenType()
+TextHandler::Type TextHandler::nextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType) const
 {
-    if (m_pos >= m_dataBuffer.length()) {
+    if (currentPos >= string.length()) {
         // This is to stop the function accessing an index outside the length of
-        // m_dataBuffer during the final loop.
-        m_nextTokenType = Type::End;
-    } else if (m_nextTokenType == Type::Tag && getTagType() == QStringLiteral("code") && !isCloseTag()
-               && m_dataBuffer.indexOf(QStringLiteral("</code>"), m_pos) != m_pos) {
-        m_nextTokenType = Type::TextCode;
-    } else if (m_dataBuffer[m_pos] == u'<' && m_dataBuffer[m_pos + 1] != u' ') {
-        m_nextTokenType = Type::Tag;
+        // string during the final loop.
+        return Type::End;
+    } else if (currentTokenType == Type::Tag && getTagType(currentToken) == QStringLiteral("code") && !isCloseTag(currentToken)
+               && string.indexOf(QStringLiteral("</code>"), currentPos) != currentPos) {
+        return Type::TextCode;
+    } else if (string[currentPos] == u'<' && string[currentPos + 1] != u' ') {
+        return Type::Tag;
     } else {
-        m_nextTokenType = Type::Text;
+        return Type::Text;
     }
 }
 
-QString TextHandler::getTagType() const
+int TextHandler::nextBlockPos(const QString &string)
 {
-    if (m_nextToken.isEmpty()) {
+    if (string.isEmpty()) {
+        return -1;
+    }
+
+    const auto nextTokenType = this->nextTokenType(string, 0, {}, Text);
+    // If there is no tag at the start we need to handle potentially having some
+    // text with no <p> tag.
+    if (nextTokenType == Text) {
+        int pos = 0;
+        while (pos < string.size()) {
+            pos = string.indexOf(u'<', pos);
+            if (pos == -1) {
+                pos = string.size();
+            } else {
+                const auto tagType = getTagType(string.mid(pos, string.indexOf(u'>', pos) - pos));
+                if (blockTags.contains(tagType)) {
+                    return pos;
+                }
+            }
+            pos++;
+        }
+        return string.size();
+    }
+
+    int tagEndPos = string.indexOf(u'>');
+    QString tag = string.first(tagEndPos + 1);
+    QString tagType = getTagType(tag);
+    // If the start tag is not a block tag there can be only 1 block.
+    if (!blockTags.contains(tagType)) {
+        return string.size();
+    }
+
+    int closeTagPos = string.indexOf(QStringLiteral("</%1>").arg(tagType));
+    // If the close tag can't be found assume malformed html and process as single block.
+    if (closeTagPos == -1) {
+        return string.size();
+    }
+
+    return closeTagPos + tag.size() + 1;
+}
+
+MessageComponent TextHandler::nextBlock(const QString &string,
+                                        int nextBlockPos,
+                                        Qt::TextFormat inputFormat,
+                                        const NeoChatRoom *room,
+                                        const Quotient::RoomEvent *event,
+                                        bool isEdited)
+{
+    if (string.isEmpty()) {
+        return {};
+    }
+
+    int tagEndPos = string.indexOf(u'>');
+    QString tag = string.first(tagEndPos + 1);
+    QString tagType = getTagType(tag);
+    const auto messageComponentType = MessageComponentType::typeForTag(tagType);
+    QVariantMap attributes;
+    if (messageComponentType == MessageComponentType::Code) {
+        attributes = getAttributes(QStringLiteral("code"), string.mid(tagEndPos + 1, string.indexOf(u'>', tagEndPos + 1) - tagEndPos));
+    }
+
+    auto content = stripBlockTags(string.first(nextBlockPos), tagType);
+    setData(content);
+    switch (messageComponentType) {
+    case MessageComponentType::Code:
+        content = unescapeHtml(content);
+        break;
+    default:
+        content = handleRecieveRichText(inputFormat, room, event, false, isEdited);
+    }
+    return MessageComponent{messageComponentType, content, attributes};
+}
+
+QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
+{
+    if (blockTags.contains(tagType) && tagType != QStringLiteral("ol") && tagType != QStringLiteral("ul") && tagType != QStringLiteral("table")) {
+        string.replace(QLatin1String("<%1>").arg(tagType), QString()).replace(QLatin1String("</%1>").arg(tagType), QString());
+    }
+
+    if (string.startsWith(QStringLiteral("\n"))) {
+        string.remove(0, 1);
+    }
+    if (string.endsWith(QStringLiteral("\n"))) {
+        string.remove(string.size() - 1, string.size());
+    }
+    if (tagType == QStringLiteral("pre")) {
+        if (string.startsWith(QStringLiteral("<code"))) {
+            string.remove(0, string.indexOf(u'>') + 1);
+            string.remove(string.size() - 7, string.size());
+        }
+        if (string.endsWith(QStringLiteral("\n"))) {
+            string.remove(string.size() - 1, string.size());
+        }
+    }
+    if (tagType == QStringLiteral("blockquote")) {
+        if (string.startsWith(QStringLiteral("<p>"))) {
+            string.remove(0, 3);
+            string.remove(string.size() - 4, string.size());
+        }
+        if (!string.startsWith(u'"')) {
+            string.prepend(u'"');
+        }
+        if (!string.endsWith(u'"')) {
+            string.append(u'"');
+        }
+    }
+
+    return string;
+}
+
+QString TextHandler::getTagType(const QString &tagToken) const
+{
+    if (tagToken.isEmpty()) {
         return QString();
     }
-    const int tagTypeStart = m_nextToken[1] == u'/' ? 2 : 1;
-    const int tagTypeEnd = m_nextToken.indexOf(TextRegex::endTagType, tagTypeStart);
-    return m_nextToken.mid(tagTypeStart, tagTypeEnd - tagTypeStart);
+    const int tagTypeStart = tagToken[1] == u'/' ? 2 : 1;
+    const int tagTypeEnd = tagToken.indexOf(TextRegex::endTagType, tagTypeStart);
+    return tagToken.mid(tagTypeStart, tagTypeEnd - tagTypeStart);
 }
 
-bool TextHandler::isCloseTag() const
+bool TextHandler::isCloseTag(const QString &tagToken) const
 {
-    if (m_nextToken.isEmpty()) {
+    if (tagToken.isEmpty()) {
         return false;
     }
-    return m_nextToken[1] == u'/';
+    return tagToken[1] == u'/';
 }
 
 QString TextHandler::getAttributeType(const QString &string)
@@ -323,13 +412,17 @@ QString TextHandler::getAttributeType(const QString &string)
     return string.left(equalsPos);
 }
 
-QString TextHandler::getAttributeData(const QString &string)
+QString TextHandler::getAttributeData(const QString &string, bool stripQuotes)
 {
     if (!string.contains(u'=')) {
         return QStringLiteral();
     }
     const int equalsPos = string.indexOf(u'=');
-    return string.right(string.length() - equalsPos - 1);
+    auto data = string.right(string.length() - equalsPos - 1);
+    if (stripQuotes) {
+        data = TextRegex::attributeData.match(data).captured(1);
+    }
+    return data;
 }
 
 bool TextHandler::isAllowedTag(const QString &type)
@@ -397,6 +490,88 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
     }
 
     return tagString;
+}
+
+QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagString)
+{
+    QVariantMap attributes;
+    int nextAttributeIndex = tagString.indexOf(u' ', 1);
+
+    if (nextAttributeIndex != -1) {
+        QString nextAttribute;
+        int nextSpaceIndex;
+        nextAttributeIndex += 1;
+
+        while (nextAttributeIndex < tagString.length()) {
+            nextSpaceIndex = tagString.indexOf(TextRegex::endTagType, nextAttributeIndex);
+            if (nextSpaceIndex == -1) {
+                nextSpaceIndex = tagString.length();
+            }
+            nextAttribute = tagString.mid(nextAttributeIndex, nextSpaceIndex - nextAttributeIndex);
+
+            if (isAllowedAttribute(tag, getAttributeType(nextAttribute))) {
+                if (tag == QStringLiteral("img") && getAttributeType(nextAttribute) == QStringLiteral("src")) {
+                    QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
+                    if (isAllowedLink(attributeData, true)) {
+                        attributes[getAttributeType(nextAttribute)] = getAttributeData(nextAttribute, true);
+                    }
+                } else if (tag == u'a' && getAttributeType(nextAttribute) == QStringLiteral("href")) {
+                    QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
+                    if (isAllowedLink(attributeData)) {
+                        attributes[getAttributeType(nextAttribute)] = getAttributeData(nextAttribute, true);
+                    }
+                } else if (tag == QStringLiteral("code") && getAttributeType(nextAttribute) == QStringLiteral("class")) {
+                    if (getAttributeData(nextAttribute).remove(u'"').startsWith(QStringLiteral("language-"))) {
+                        attributes[getAttributeType(nextAttribute)] = convertCodeLanguageString(getAttributeData(nextAttribute, true));
+                    }
+                } else {
+                    attributes[getAttributeType(nextAttribute)] = getAttributeData(nextAttribute, true);
+                }
+            }
+            nextAttributeIndex = nextSpaceIndex + 1;
+        }
+    }
+    return attributes;
+}
+
+QList<MessageComponent>
+TextHandler::textComponents(QString string, Qt::TextFormat inputFormat, const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isEdited)
+{
+    if (string.isEmpty()) {
+        return {};
+    }
+
+    // Strip mx-reply if present.
+    string.remove(TextRegex::removeRichReply);
+
+    QList<MessageComponent> components;
+    while (!string.isEmpty()) {
+        const auto nextBlockPos = this->nextBlockPos(string);
+        const auto nextBlock = this->nextBlock(string, nextBlockPos, inputFormat, room, event, nextBlockPos == string.size() ? isEdited : false);
+        components += nextBlock;
+        string.remove(0, nextBlockPos);
+
+        if (string.startsWith(QStringLiteral("\n"))) {
+            string.remove(0, 1);
+        }
+        string = string.trimmed();
+
+        if (event != nullptr && room != nullptr) {
+            if (auto e = eventCast<const Quotient::RoomMessageEvent>(event); e->msgtype() == Quotient::MessageEventType::Emote && components.size() == 1) {
+                if (components[0].type == MessageComponentType::Text) {
+                    components[0].content = emoteString(room, event) + components[0].content;
+                } else {
+                    components.prepend(MessageComponent{MessageComponentType::Text, emoteString(room, event), {}});
+                }
+            }
+        }
+    }
+
+    if (isEdited && components.last().type != MessageComponentType::Text) {
+        components += MessageComponent{MessageComponentType::Text, editString(), {}};
+    }
+
+    return components;
 }
 
 QString TextHandler::markdownToHTML(const QString &markdown)
@@ -491,6 +666,59 @@ QString TextHandler::linkifyUrls(QString stringIn)
     }
 
     return stringIn;
+}
+
+QString TextHandler::editString() const
+{
+    Kirigami::Platform::PlatformTheme *theme =
+        static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+
+    QString editTextColor;
+    if (theme != nullptr) {
+        editTextColor = theme->disabledTextColor().name();
+    } else {
+        editTextColor = QStringLiteral("#000000");
+    }
+    return QStringLiteral(" <span style=\"color:") + editTextColor + QStringLiteral("\">(edited)</span>");
+}
+
+QString TextHandler::emoteString(const NeoChatRoom *room, const Quotient::RoomEvent *event) const
+{
+    if (room == nullptr || event == nullptr) {
+        return {};
+    }
+
+    auto e = eventCast<const Quotient::RoomMessageEvent>(event);
+    auto author = room->user(e->senderId());
+    return QStringLiteral("* <a href=\"https://matrix.to/#/") + e->senderId() + QStringLiteral("\" style=\"color:") + Utils::getUserColor(author->hueF()).name()
+        + QStringLiteral("\">") + author->displayname(room) + QStringLiteral("</a> ");
+}
+
+QString TextHandler::convertCodeLanguageString(const QString &languageString)
+{
+    const int equalsPos = languageString.indexOf(u'-');
+    auto data = languageString.right(languageString.length() - equalsPos - 1);
+
+    // The standard markdown syntax uses lower case. This will get a subgroup of
+    // single word languages to work.
+    if (data.first(1).isLower()) {
+        data[0] = data[0].toUpper();
+    }
+
+    if (data == QStringLiteral("Cpp")) {
+        data = QStringLiteral("C++");
+    }
+    if (data == QStringLiteral("Json")) {
+        data = QStringLiteral("JSON");
+    }
+    if (data == QStringLiteral("Html")) {
+        data = QStringLiteral("HTML");
+    }
+    if (data == QStringLiteral("Qml")) {
+        data = QStringLiteral("QML");
+    }
+
+    return data;
 }
 
 #include "moc_texthandler.cpp"

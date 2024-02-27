@@ -80,6 +80,28 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageComponentType.Code
+        delegate: CodeComponent {
+            maxContentWidth: root.maxContentWidth
+            onSelectedTextChanged: selectedText => {
+                root.selectedTextChanged(selectedText);
+            }
+            onShowMessageMenu: root.showMessageMenu()
+        }
+    }
+
+    DelegateChoice {
+        roleValue: MessageComponentType.Quote
+        delegate: QuoteComponent {
+            maxContentWidth: root.maxContentWidth
+            onSelectedTextChanged: selectedText => {
+                root.selectedTextChanged(selectedText);
+            }
+            onShowMessageMenu: root.showMessageMenu()
+        }
+    }
+
+    DelegateChoice {
         roleValue: MessageComponentType.Audio
         delegate: AudioComponent {
             room: root.room

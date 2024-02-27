@@ -9,6 +9,7 @@
 #include <QString>
 #include <QStringList>
 
+#include "models/messagecontentmodel.h"
 #include "neochatroom.h"
 
 namespace Quotient
@@ -75,7 +76,8 @@ public:
     QString handleRecieveRichText(Qt::TextFormat inputFormat = Qt::RichText,
                                   const NeoChatRoom *room = nullptr,
                                   const Quotient::RoomEvent *event = nullptr,
-                                  bool stripNewlines = false);
+                                  bool stripNewlines = false,
+                                  bool isEdited = false);
 
     /**
      * @brief Handle the text as a plain output for a message being received.
@@ -94,6 +96,18 @@ public:
      */
     QString handleRecievePlainText(Qt::TextFormat inputFormat = Qt::PlainText, const bool &stripNewlines = false);
 
+    /**
+     * @brief Split the given string into MessageComponent blocks.
+     *
+     * Separate blocks are used for thing like paragraphs, codeblocks and quotes.
+     * Each block will have handleRecieveRichText() called on it.
+     */
+    QList<MessageComponent> textComponents(QString string,
+                                           Qt::TextFormat inputFormat = Qt::RichText,
+                                           const NeoChatRoom *room = nullptr,
+                                           const Quotient::RoomEvent *event = nullptr,
+                                           bool isEdited = false);
+
 private:
     QString m_data;
 
@@ -103,19 +117,34 @@ private:
     QString m_nextToken;
 
     void next();
-    void nextTokenType();
+    Type nextTokenType(const QString &string, int currentPos, const QString &currentToken, Type currentTokenType) const;
 
-    QString getTagType() const;
-    bool isCloseTag() const;
+    int nextBlockPos(const QString &string);
+    MessageComponent nextBlock(const QString &string,
+                               int nextBlockPos,
+                               Qt::TextFormat inputFormat = Qt::RichText,
+                               const NeoChatRoom *room = nullptr,
+                               const Quotient::RoomEvent *event = nullptr,
+                               bool isEdited = false);
+    QString stripBlockTags(QString string, const QString &tagType) const;
+
+    QString getTagType(const QString &tagToken) const;
+    bool isCloseTag(const QString &tagToken) const;
     QString getAttributeType(const QString &string);
-    QString getAttributeData(const QString &string);
+    QString getAttributeData(const QString &string, bool stripQuotes = false);
     bool isAllowedTag(const QString &type);
     bool isAllowedAttribute(const QString &tag, const QString &attribute);
     bool isAllowedLink(const QString &link, bool isImg = false);
     QString cleanAttributes(const QString &tag, const QString &tagString);
+    QVariantMap getAttributes(const QString &tag, const QString &tagString);
 
     QString markdownToHTML(const QString &markdown);
     QString escapeHtml(QString stringIn);
     QString unescapeHtml(QString stringIn);
     QString linkifyUrls(QString stringIn);
+
+    QString editString() const;
+    QString emoteString(const NeoChatRoom *room = nullptr, const Quotient::RoomEvent *event = nullptr) const;
+
+    static QString convertCodeLanguageString(const QString &languageString);
 };

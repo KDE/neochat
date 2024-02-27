@@ -37,6 +37,8 @@ public:
         Image, /**< A message that is an image. */
         Audio, /**< A message that is an audio recording. */
         Video, /**< A message that is a video. */
+        Code, /**< A code section. */
+        Quote, /**< A quote section. */
         File, /**< A message that is a file. */
         Poll, /**< The initial event for a poll. */
         Location, /**< A location event. */
@@ -103,5 +105,23 @@ public:
         }
 
         return MessageComponentType::Other;
+    }
+
+    /**
+     * @brief Return MessageComponentType for the given html tag.
+     *
+     * @param tag the tag name to return a type for.
+     *
+     * @sa Type
+     */
+    static Type typeForTag(const QString &tag)
+    {
+        if (tag == QLatin1String("pre") || tag == QLatin1String("pre")) {
+            return Code;
+        }
+        if (tag == QLatin1String("blockquote")) {
+            return Quote;
+        }
+        return Text;
     }
 };

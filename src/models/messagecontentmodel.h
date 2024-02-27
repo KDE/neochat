@@ -6,10 +6,21 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
 #include "linkpreviewer.h"
-#include "messagecomponenttype.h"
 #include "neochatroom.h"
+
+struct MessageComponent {
+    MessageComponentType::Type type;
+    QString content;
+    QVariantMap attributes;
+
+    int operator==(const MessageComponent &right) const
+    {
+        return type == right.type && content == right.content && attributes == right.attributes;
+    }
+};
 
 /**
  * @class MessageContentModel
@@ -29,6 +40,7 @@ public:
     enum Roles {
         DisplayRole = Qt::DisplayRole, /**< The display text for the message. */
         ComponentTypeRole, /**< The type of component to visualise the message. */
+        ComponentAttributesRole, /**< The attributes of the component. */
         EventIdRole, /**< The matrix event ID of the event. */
         AuthorRole, /**< The author of the event. */
         MediaInfoRole, /**< The media info for the event. */
@@ -76,8 +88,8 @@ private:
     NeoChatRoom *m_room = nullptr;
     const Quotient::RoomEvent *m_event = nullptr;
 
-    QVector<MessageComponentType::Type> m_components;
-    void updateComponents();
+    QList<MessageComponent> m_components;
+    void updateComponents(bool isEditing = false);
 
     LinkPreviewer *m_linkPreviewer = nullptr;
 };

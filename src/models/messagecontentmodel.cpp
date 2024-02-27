@@ -4,6 +4,7 @@
 #include "messagecontentmodel.h"
 
 #include <Quotient/events/redactionevent.h>
+#include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>
@@ -13,6 +14,7 @@
 #include "eventhandler.h"
 #include "linkpreviewer.h"
 #include "neochatroom.h"
+#include "texthandler.h"
 
 MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoChatRoom *room)
     : QAbstractListModel(nullptr)
@@ -45,7 +47,7 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
                 if (replyId == eventHandler.getReplyId()) {
                     // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
                     beginResetModel();
-                    m_components[0] = MessageComponentType::Reply;
+                    m_components[0].type = MessageComponentType::Reply;
                     endResetModel();
                 }
             }
@@ -74,6 +76,7 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
             if (m_event != nullptr && (oldEventId == m_event->id() || newEventId == m_event->id())) {
                 // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
                 beginResetModel();
+                updateComponents(newEventId == m_event->id());
                 endResetModel();
             }
         });
@@ -87,7 +90,7 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
                 if (m_linkPreviewer->loaded()) {
                     // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
                     beginResetModel();
-                    m_components[m_components.size() - 1] = MessageComponentType::LinkPreview;
+                    m_components[m_components.size() - 1].type = MessageComponentType::LinkPreview;
                     endResetModel();
                 }
             });
@@ -111,6 +114,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     }
 
     EventHandler eventHandler(m_room, m_event);
+    const auto component = m_components[index.row()];
 
     if (role == DisplayRole) {
         if (m_event->isRedacted()) {
@@ -118,14 +122,16 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
             return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>")
                                       : i18n("<i>[This message was deleted: %1]</i>", m_event->redactedBecause()->reason());
         }
+        if (!component.content.isEmpty()) {
+            return component.content;
+        }
         return eventHandler.getRichBody();
     }
     if (role == ComponentTypeRole) {
-        const auto component = m_components[index.row()];
-        if (component == MessageComponentType::Text && !m_event->id().isEmpty() && m_room->editCache()->editId() == m_event->id()) {
-            return MessageComponentType::Edit;
-        }
-        return component;
+        return component.type;
+    }
+    if (role == ComponentAttributesRole) {
+        return component.attributes;
     }
     if (role == EventIdRole) {
         return eventHandler.getId();
@@ -198,6 +204,7 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles[DisplayRole] = "display";
     roles[ComponentTypeRole] = "componentType";
+    roles[ComponentAttributesRole] = "componentAttributes";
     roles[EventIdRole] = "eventId";
     roles[AuthorRole] = "author";
     roles[MediaInfoRole] = "mediaInfo";
@@ -216,7 +223,7 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     return roles;
 }
 
-void MessageContentModel::updateComponents()
+void MessageContentModel::updateComponents(bool isEditing)
 {
     beginResetModel();
     m_components.clear();
@@ -224,20 +231,30 @@ void MessageContentModel::updateComponents()
     EventHandler eventHandler(m_room, m_event);
     if (eventHandler.hasReply()) {
         if (m_room->findInTimeline(eventHandler.getReplyId()) == m_room->historyEdge()) {
-            m_components += MessageComponentType::ReplyLoad;
+            m_components += MessageComponent{MessageComponentType::ReplyLoad, QString(), {}};
             m_room->loadReply(m_event->id(), eventHandler.getReplyId());
         } else {
-            m_components += MessageComponentType::Reply;
+            m_components += MessageComponent{MessageComponentType::Reply, QString(), {}};
         }
     }
 
-    m_components += eventHandler.messageComponentType();
+    if (isEditing) {
+        m_components += MessageComponent{MessageComponentType::Edit, QString(), {}};
+    } else {
+        if (eventHandler.messageComponentType() == MessageComponentType::Text) {
+            const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
+            auto body = EventHandler::rawMessageBody(*event);
+            m_components.append(TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced()));
+        } else {
+            m_components += MessageComponent{eventHandler.messageComponentType(), QString(), {}};
+        }
+    }
 
     if (m_linkPreviewer != nullptr) {
         if (m_linkPreviewer->loaded()) {
-            m_components += MessageComponentType::LinkPreview;
+            m_components += MessageComponent{MessageComponentType::LinkPreview, QString(), {}};
         } else {
-            m_components += MessageComponentType::LinkPreviewLoad;
+            m_components += MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {}};
         }
     }
 

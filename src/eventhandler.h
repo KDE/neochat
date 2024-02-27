@@ -138,6 +138,22 @@ public:
     bool isHidden();
 
     /**
+     * @brief The input format of the body in the message.
+     *
+     * I.e. if the message has only a body the format will be Qt::PlainText, if it
+     * has a formatted body it will be Qt::RichText.
+     */
+    static Qt::TextFormat messageBodyInputFormat(const Quotient::RoomMessageEvent &event);
+
+    /**
+     * @brief Output a string for the room message content without any formatting.
+     *
+     * This is the content of the formatted_body key if present or the body key if
+     * not.
+     */
+    static QString rawMessageBody(const Quotient::RoomMessageEvent &event);
+
+    /**
      * @brief Output a string for the message content ready for display in a rich text field.
      *
      * The output string is dependant upon the event type and the desired output format.

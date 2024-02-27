@@ -232,6 +232,36 @@ bool EventHandler::isHidden()
     return false;
 }
 
+Qt::TextFormat EventHandler::messageBodyInputFormat(const Quotient::RoomMessageEvent &event)
+{
+    if (event.mimeType().name() == "text/plain"_ls) {
+        return Qt::PlainText;
+    } else {
+        return Qt::RichText;
+    }
+}
+
+QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
+{
+    if (event.hasFileContent()) {
+        auto fileCaption = event.content()->fileInfo()->originalName;
+        if (fileCaption.isEmpty()) {
+            fileCaption = event.plainBody();
+        } else if (event.content()->fileInfo()->originalName != event.plainBody()) {
+            fileCaption = event.plainBody() + " | "_ls + fileCaption;
+        }
+        return fileCaption;
+    }
+
+    QString body;
+    if (event.hasTextContent() && event.content()) {
+        body = static_cast<const MessageEventContent::TextContent *>(event.content())->body;
+    } else {
+        body = event.plainBody();
+    }
+    return body;
+}
+
 QString EventHandler::getRichBody(bool stripNewlines) const
 {
     if (m_event == nullptr) {
@@ -445,7 +475,7 @@ QString EventHandler::getMessageBody(const RoomMessageEvent &event, Qt::TextForm
     }
 
     if (format == Qt::RichText) {
-        return textHandler.handleRecieveRichText(inputFormat, m_room, &event, stripNewlines);
+        return textHandler.handleRecieveRichText(inputFormat, m_room, &event, stripNewlines, event.isReplaced());
     } else {
         return textHandler.handleRecievePlainText(inputFormat, stripNewlines);
     }

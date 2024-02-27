@@ -10,7 +10,9 @@
 #include <Quotient/syncdata.h>
 #include <qnamespace.h>
 
+#include "enums/messagecomponenttype.h"
 #include "models/customemojimodel.h"
+#include "models/messagecontentmodel.h"
 #include "neochatconnection.h"
 #include "utils.h"
 
@@ -33,7 +35,6 @@ private Q_SLOTS:
     void stripDisallowedTags();
     void stripDisallowedAttributes();
     void emptyCodeTags();
-    void formatBlockQuote();
 
     void sendSimpleStringCase();
     void sendSingleParaMarkup();
@@ -59,11 +60,13 @@ private Q_SLOTS:
     void receiveRichtextIn();
     void receiveRichMxcUrl();
     void receiveRichPlainUrl();
-    void receiveRichEmote();
     void receiveRichEdited_data();
     void receiveRichEdited();
     void receiveLineSeparator();
     void receiveRichCodeUrl();
+
+    void componentOutput_data();
+    void componentOutput();
 };
 
 void TextHandlerTest::initTestCase()
@@ -137,16 +140,6 @@ void TextHandlerTest::emptyCodeTags()
 
     QCOMPARE(testTextHandler.handleSendText(), testOutputString);
     QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
-}
-
-void TextHandlerTest::formatBlockQuote()
-{
-    auto input = QStringLiteral("<blockquote>\n<p>Lorem Ispum</p>\n</blockquote>");
-    auto expectedOutput = QStringLiteral("<blockquote><table><tr><td>\u201CLorem Ispum\u201D</td></tr></table></blockquote>");
-
-    TextHandler testTextHandler;
-    testTextHandler.setData(input);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), expectedOutput);
 }
 
 void TextHandlerTest::sendSimpleStringCase()
@@ -470,22 +463,6 @@ void TextHandlerTest::receiveRichPlainUrl()
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringMxId);
 }
 
-// Test that user pill is add to an emote message.
-// N.B. The second message in the test timeline is marked as an emote.
-void TextHandlerTest::receiveRichEmote()
-{
-    auto event = room->messageEvents().at(1).get();
-    auto author = room->user(event->senderId());
-    const QString testInputString = QStringLiteral("This is an emote.");
-    const QString testOutputString = QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:")
-        + Utils::getUserColor(author->hueF()).name() + QStringLiteral("\">@example:example.org</a> This is an emote.");
-
-    TextHandler testTextHandler;
-    testTextHandler.setData(testInputString);
-
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, event), testOutputString);
-}
-
 void TextHandlerTest::receiveRichEdited_data()
 {
     QTest::addColumn<QString>("testInputString");
@@ -494,9 +471,6 @@ void TextHandlerTest::receiveRichEdited_data()
     QTest::newRow("basic") << QStringLiteral("Edited") << QStringLiteral("Edited <span style=\"color:#000000\">(edited)</span>");
     QTest::newRow("multiple paragraphs") << QStringLiteral("<p>Edited</p>\n<p>Edited</p>")
                                          << QStringLiteral("<p>Edited</p>\n<p>Edited <span style=\"color:#000000\">(edited)</span></p>");
-    QTest::newRow("blockquote")
-        << QStringLiteral("<blockquote>Edited</blockquote>")
-        << QStringLiteral("<blockquote><table><tr><td>\u201CEdited\u201D</td></tr></table></blockquote><p> <span style=\"color:#000000\">(edited)</span></p>");
 }
 
 void TextHandlerTest::receiveRichEdited()
@@ -507,7 +481,8 @@ void TextHandlerTest::receiveRichEdited()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(2).get()), testOutputString);
+    const auto event = eventCast<const Quotient::RoomMessageEvent>(room->messageEvents().at(2).get());
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, event, false, event->isReplaced()), testOutputString);
 }
 
 void TextHandlerTest::receiveLineSeparator()
@@ -524,6 +499,45 @@ void TextHandlerTest::receiveRichCodeUrl()
     TextHandler testTextHandler;
     testTextHandler.setData(input);
     QCOMPARE(testTextHandler.handleRecieveRichText(), input);
+}
+
+void TextHandlerTest::componentOutput_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QList<MessageComponent>>("testOutputComponents");
+
+    QTest::newRow("multiple paragraphs") << QStringLiteral("<p>Text</p>\n<p>Text</p>")
+                                         << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
+                                                                    MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
+    QTest::newRow("code") << QStringLiteral("<p>Text</p>\n<pre><code class=\"language-html\">Some code\n</code></pre>")
+                          << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
+                                                     MessageComponent{MessageComponentType::Code,
+                                                                      QStringLiteral("Some code"),
+                                                                      QVariantMap{{QStringLiteral("class"), QStringLiteral("HTML")}}}};
+    QTest::newRow("quote") << QStringLiteral("<p>Text</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>")
+                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
+                                                      MessageComponent{MessageComponentType::Quote, QStringLiteral("\"blockquote\""), {}}};
+    QTest::newRow("no tag first paragraph") << QStringLiteral("Text\n<p>Text</p>")
+                                            << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
+                                                                       MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
+    QTest::newRow("no tag last paragraph") << QStringLiteral("<p>Text</p>\nText")
+                                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
+                                                                      MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
+    QTest::newRow("inline code") << QStringLiteral("<p><code>https://kde.org</code></p>\n<p>Text</p>")
+                                 << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("<code>https://kde.org</code>"), {}},
+                                                            MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
+    QTest::newRow("inline code single block") << QStringLiteral("<code>https://kde.org</code>")
+                                              << QList<MessageComponent>{
+                                                     MessageComponent{MessageComponentType::Text, QStringLiteral("<code>https://kde.org</code>"), {}}};
+}
+
+void TextHandlerTest::componentOutput()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QList<MessageComponent>, testOutputComponents);
+
+    TextHandler testTextHandler;
+    QCOMPARE(testTextHandler.textComponents(testInputString), testOutputComponents);
 }
 
 QTEST_MAIN(TextHandlerTest)
