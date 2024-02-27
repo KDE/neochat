@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1235,7 +1235,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "대화방 계정 데이터"
 
-#: src/qml/AccountData.qml:29
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, fuzzy, kde-format
 #| msgid "Event Source"
 msgctxt "@title:window"
@@ -2971,7 +2971,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3118,8 +3118,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "편집 취소"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "이벤트 소스"
@@ -3546,25 +3546,29 @@ msgstr "대화방 선택"
 msgid "Room Id: %1"
 msgstr "대화방 ID: %1"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "m.room.member 이벤트 표시"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "대화방 계정 데이터 표시"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "대화방 계정 데이터"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
 msgstr "대화방 상태"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "서버 정보"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -4309,6 +4313,14 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "SSO URL 다시 열기"
 
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
+
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4643,41 +4655,41 @@ msgstr "음량"
 msgid "Maximize"
 msgstr "최대화"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "환영합니다"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "NeoChat에 오신 것을 환영합니다"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "기존 계정으로 진행"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1(불러오는 중)"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "이 계정 삭제"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "기존 계정에 로그인하거나 새 계정 만들기"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4788,6 +4800,12 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "m.room.member 이벤트 표시"
+
+#~ msgid "Show room account data"
+#~ msgstr "대화방 계정 데이터 표시"
 
 #~ msgid "All Rooms"
 #~ msgstr "모든 대화방"

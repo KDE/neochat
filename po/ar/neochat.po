@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
 "PO-Revision-Date: 2024-01-20 21:03+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1284,7 +1284,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "بيانات الحساب الغرفة لـ %1 - %2"
 
-#: src/qml/AccountData.qml:29
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, fuzzy, kde-format
 #| msgid "Event Source"
 msgctxt "@title:window"
@@ -3049,7 +3049,7 @@ msgstr "معرف ماتركس:"
 msgid "Matrix ID"
 msgstr "معرف ماتركس"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3206,8 +3206,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "ألغِ التحرير"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "مصدر الحدث"
@@ -3652,27 +3652,36 @@ msgstr "اختر موقعاً جغرافياً"
 msgid "Room Id: %1"
 msgstr "رقم الغرفة"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "أظهر أحداث m.room.member"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "أظهر بيانات حساب الغرفة"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, fuzzy, kde-format
 #| msgid "Room Account Data for %1 - %2"
 msgid "Room Account Data"
 msgstr "بيانات الحساب الغرفة لـ %1 - %2"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, fuzzy, kde-format
 #| msgid "Room State for %1"
 msgid "Room State"
 msgstr "حالة الغرفة لـ %1"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "معلومات الخادوم"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -4464,6 +4473,14 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
+
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4812,25 +4829,25 @@ msgstr "الصوت"
 msgid "Maximize"
 msgstr "كبّر"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "مرحباً"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgid "Welcome to NeoChat"
 msgstr "أهلا في ماتركس"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "لج إلى حساب موجود"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, fuzzy, kde-format
 #| msgctxt "Job heading, like 'Copying'"
 #| msgid "Uploading"
@@ -4838,21 +4855,21 @@ msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "يرفع"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, fuzzy, kde-format
 #| msgid "Edit this account"
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "حرر هذا الحساب"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "لج إلى حساب موجود"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4970,6 +4987,12 @@ msgstr "أظهر"
 #, kde-format
 msgid "Quit"
 msgstr "أنهِ"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "أظهر أحداث m.room.member"
+
+#~ msgid "Show room account data"
+#~ msgstr "أظهر بيانات حساب الغرفة"
 
 #~ msgid "All Rooms"
 #~ msgstr "كل الغرف"

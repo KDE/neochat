@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
 "PO-Revision-Date: 2024-02-18 16:41+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1243,7 +1243,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "அரங்கிற்கான கணக்கு விவரங்கள்"
 
-#: src/qml/AccountData.qml:29
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, fuzzy, kde-format
 #| msgid "Event Source"
 msgctxt "@title:window"
@@ -2981,7 +2981,7 @@ msgstr "Matrix கணக்குப்பெயர்:"
 msgid "Matrix ID"
 msgstr "Matrix கணக்குப்பெயர்"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3128,8 +3128,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "திருத்துவதை ரத்து செய்"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "நிகழ்வுக்கான மூலம்"
@@ -3561,25 +3561,30 @@ msgstr "அரங்கைத் தேர்வு செய்தல்"
 msgid "Room Id: %1"
 msgstr "அரங்கின் அடையாள எண்: %1"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "m.room.member நிகழ்வுகளை காட்டு"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "அரங்கு கணக்கு விவரங்களை காட்டு"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "அரங்கிற்கான கணக்கு விவரங்கள்"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
 msgstr "அரங்கின் நிலை"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "சேவையக விவரங்கள்"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -4329,6 +4334,14 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "SSO முகவரியை மீண்டும் திற"
 
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
+
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4672,41 +4685,41 @@ msgstr "ஒலியளவு"
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "நல்வரவு"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "நியோச்சாட்டுக்கு நல்வரவு"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (ஏற்றப்படுகிறது)"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "இந்தக் கணக்கை நீக்கு"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "கணக்கில் நுழையவும் அல்லது புதியதை உருவாக்கவும்"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4819,6 +4832,12 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "m.room.member நிகழ்வுகளை காட்டு"
+
+#~ msgid "Show room account data"
+#~ msgstr "அரங்கு கணக்கு விவரங்களை காட்டு"
 
 #~ msgid "All Rooms"
 #~ msgstr "அனைத்து அரங்குகள்"

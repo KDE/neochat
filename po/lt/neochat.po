@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
 "PO-Revision-Date: 2023-02-25 01:00+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1245,7 +1245,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr ""
 
-#: src/qml/AccountData.qml:29
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
@@ -2964,7 +2964,7 @@ msgstr ""
 msgid "Matrix ID"
 msgstr ""
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3109,8 +3109,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr ""
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr ""
@@ -3538,24 +3538,30 @@ msgstr ""
 msgid "Room Id: %1"
 msgstr ""
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr ""
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr ""
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr ""
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
+msgstr ""
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/qml/RoomData.qml:84
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
 msgstr ""
 
 #: src/qml/RoomDelegate.qml:102
@@ -4296,6 +4302,14 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
+
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4628,41 +4642,41 @@ msgstr ""
 msgid "Maximize"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"

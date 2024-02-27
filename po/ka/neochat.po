@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
-"PO-Revision-Date: 2024-02-22 02:49+0100\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"PO-Revision-Date: 2024-02-26 06:46+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1233,15 +1233,13 @@ msgid "About KDE"
 msgstr "KDE-ს შესახებ"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "ოთახის ანგარიშის მონაცემები"
+msgstr "ანგარიშის მონაცემები"
 
-#: src/qml/AccountData.qml:29
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "მოვლენის წყარო"
@@ -1657,14 +1655,12 @@ msgid "Open in New Window"
 msgstr "ახალ ფანჯარაში გახსნა"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "რჩეულებიდან წაშლა"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "რჩეულებში ჩამატება"
 
@@ -1986,11 +1982,10 @@ msgid "Developer Tools"
 msgstr "პროგრამირება"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "ოთახის ანგარიშის მონაცემები"
+msgstr "ანგარიშის მონაცემები"
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
@@ -2754,28 +2749,25 @@ msgid "Reply in Thread"
 msgstr "ნაკადში პასუხი"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "ამ მომხმარებლის იგნორირება"
+msgstr "დაიგნორებული მომხმარებლები"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "ამ მომხმარებლის იგნორირება"
+msgstr "დაიგნორებული მომხმარებლები"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "მომხმარებლები იგნორის სიაში არ გყავთ"
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "ამ მომხმარებლის იგნორის გაუქმება"
@@ -2978,7 +2970,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3125,8 +3117,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "ჩასწორების გაუქმება"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "მოვლენის წყარო"
@@ -3557,25 +3549,30 @@ msgstr "აირჩიეთ ოთახი"
 msgid "Room Id: %1"
 msgstr "ოთახის ID: %1"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "'m.room.member' მოვლენების ჩვენება"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "ოთახის ანგარიშს მონაცემების ჩვენება"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "ოთახის ანგარიშის მონაცემები"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
 msgstr "ოთახის მდგომარეობა"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "ინფორმაცია სერვერის შესახებ"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3936,19 +3933,16 @@ msgid "Device id"
 msgstr "მოწყობილობის ID"
 
 #: src/qml/Security.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "მომხმარებლის უარყოფა და იგნორი"
+msgstr "დაიგნორებული მომხმარებლების მართვა"
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "ამ მომხმარებლის იგნორირება"
+msgstr "დაიგნორებული მომხმარებლები"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4098,8 +4092,7 @@ msgid "Share the selected media"
 msgstr "მონიშნული მედიის გაზიარება"
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
 msgstr "გაზიარება"
@@ -4327,6 +4320,14 @@ msgstr "დაასრულეთ ავთენტიკაციის პ�
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "SSO შესვლის ბმულის ხელახლა გახსნა"
+
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -4676,41 +4677,41 @@ msgstr "ხმის სიმაღლე"
 msgid "Maximize"
 msgstr "გადიდება"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "კეთილი იყოს თქვენი მობრძანება"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "კეთილი იყოს თქვენი მობრძანება NeoChat-ში"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "არსებული ანგარიშით გაგრძელება"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (ჩატვირთვა)"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "ამ ანგარიშის წაშლა"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "შედით ან შექმენით ახალი ანგარიში"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4821,6 +4822,12 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "'m.room.member' მოვლენების ჩვენება"
+
+#~ msgid "Show room account data"
+#~ msgstr "ოთახის ანგარიშს მონაცემების ჩვენება"
 
 #~ msgid "All Rooms"
 #~ msgstr "ყველა ოთახი"

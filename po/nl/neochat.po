@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
-"PO-Revision-Date: 2024-02-22 11:55+0100\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"PO-Revision-Date: 2024-02-26 11:04+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1234,15 +1234,13 @@ msgid "About KDE"
 msgstr "Over KDE"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Roomaccountgegevens"
+msgstr "Accountgegevens"
 
-#: src/qml/AccountData.qml:29
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Gebeurtenisbron"
@@ -1660,16 +1658,14 @@ msgid "Open in New Window"
 msgstr "In nieuw venster openen"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
-msgstr "Uit favorieten verwijderen"
+msgstr "Uit Favorieten verwijderen"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
-msgstr "Aan favorieten toevoegen"
+msgstr "Aan Favorieten toevoegen"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
 #, kde-format
@@ -1990,11 +1986,10 @@ msgid "Developer Tools"
 msgstr "Hulpmiddelen voor ontwikkelaars"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Roomaccountgegevens"
+msgstr "Accountgegevens"
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
@@ -2762,28 +2757,25 @@ msgid "Reply in Thread"
 msgstr "In discussie antwoorden"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Deze gebruiker negeren"
+msgstr "Genegeerde gebruikers"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Deze gebruiker negeren"
+msgstr "Genegeerde gebruikers"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "U negeert geen enkele gebruiker"
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Negeren van deze gebruiker ongedaan maken"
@@ -2986,7 +2978,7 @@ msgstr "Matrix-ID:"
 msgid "Matrix ID"
 msgstr "Matrix-ID"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3133,8 +3125,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Bewerking annuleren"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "Gebeurtenisbron"
@@ -3568,25 +3560,30 @@ msgstr "Room kiezen"
 msgid "Room Id: %1"
 msgstr "Room-id: %1"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "M.room.leden-gebeurtenissen tonen"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "Roomaccountgegevens tonen"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "Roomaccountgegevens"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
 msgstr "Roomstatus"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Serverinformatie"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3952,19 +3949,16 @@ msgid "Device id"
 msgstr "Apparaat-id"
 
 #: src/qml/Security.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "Gebruiker afwijzen en negeren"
+msgstr "Genegeerde gebruikers beheren"
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Deze gebruiker negeren"
+msgstr "Genegeerde gebruikers"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4115,8 +4109,7 @@ msgid "Share the selected media"
 msgstr "De geselecteerde media delen"
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
 msgstr "Delen"
@@ -4344,6 +4337,14 @@ msgstr "Het aanmeldproces vervolgen in uw browser."
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "SSO URL opnieuw openen"
+
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -4712,41 +4713,41 @@ msgstr "Volume"
 msgid "Maximize"
 msgstr "Maximaliseren"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "Welkom"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Welkom bij NeoChat"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Doorgaan met een bestaand account"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (bezig met laden)"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Dit account verwijderen"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Aanmelden of een nieuw account aanmaken"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4859,6 +4860,12 @@ msgstr "Tonen"
 #, kde-format
 msgid "Quit"
 msgstr "Afsluiten"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "M.room.leden-gebeurtenissen tonen"
+
+#~ msgid "Show room account data"
+#~ msgstr "Roomaccountgegevens tonen"
 
 #~ msgid "All Rooms"
 #~ msgstr "Alle rooms"

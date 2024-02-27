@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
-"PO-Revision-Date: 2024-02-22 13:22+0200\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"PO-Revision-Date: 2024-02-26 15:23+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1252,15 +1252,13 @@ msgid "About KDE"
 msgstr "Про KDE"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Дані облікового запису кімнати"
+msgstr "Дані облікового запису"
 
-#: src/qml/AccountData.qml:29
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Джерело подій"
@@ -1677,14 +1675,12 @@ msgid "Open in New Window"
 msgstr "Відкрити у новому вікні"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "Вилучити з улюблених"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "Додати до улюблених"
 
@@ -2010,11 +2006,10 @@ msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Дані облікового запису кімнати"
+msgstr "Дані облікового запису"
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
@@ -2784,28 +2779,25 @@ msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Ігнорувати цього користувача"
+msgstr "Ігноровані користувачі"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Ігнорувати цього користувача"
+msgstr "Ігноровані користувачі"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "Ви не ігноруєте жодного користувача"
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Скасувати ігнорування цього користувача"
@@ -3008,7 +3000,7 @@ msgstr "Ідентифікатор Matrix:"
 msgid "Matrix ID"
 msgstr "Ід. Matrix"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3156,8 +3148,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Скасувати редагування"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "Джерело подій"
@@ -3592,25 +3584,32 @@ msgstr "Виберіть кімнату"
 msgid "Room Id: %1"
 msgstr "Ід. кімнати: %1"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "Показати події m.room.member"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "Показати дані облікового запису кімнати"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "Дані облікового запису кімнати"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
 msgstr "Стан кімнати"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Інформація про сервер"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3978,19 +3977,16 @@ msgid "Device id"
 msgstr "Ідентифікатор пристрою"
 
 #: src/qml/Security.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "Відмовити та ігнорувати користувача"
+msgstr "Керування ігнорованими користувачами"
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Ігнорувати цього користувача"
+msgstr "Ігноровані користувачі"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4141,11 +4137,10 @@ msgid "Share the selected media"
 msgstr "Оприлюднити позначені мультимедійні дані"
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
-msgstr "Оприлюднити"
+msgstr "Оприлюднення"
 
 #: src/qml/ShareDialog.qml:37
 #, kde-format
@@ -4370,6 +4365,14 @@ msgstr "Продовжіть процедуру входу до системи �
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "Повторно відкрити адресу SSO"
+
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -4730,41 +4733,41 @@ msgstr "Гучність"
 msgid "Maximize"
 msgstr "Максимізувати"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "Вітаємо"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Вітаємо у NeoChat"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Продовжити з наявним обліковим записом"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (завантаження)"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Вилучити цей обліковий запис"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Увійдіть до облікового запису або створіть обліковий запис"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4879,6 +4882,12 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "Показати події m.room.member"
+
+#~ msgid "Show room account data"
+#~ msgstr "Показати дані облікового запису кімнати"
 
 #~ msgid "All Rooms"
 #~ msgstr "Усі кімнати"

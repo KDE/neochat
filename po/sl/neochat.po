@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
-"PO-Revision-Date: 2024-02-22 04:45+0100\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"PO-Revision-Date: 2024-02-26 06:53+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1245,15 +1245,13 @@ msgid "About KDE"
 msgstr "O KDE"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Podatki o računu sobe"
+msgstr "Podatki o računu"
 
-#: src/qml/AccountData.qml:29
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Vir dogodka"
@@ -1669,14 +1667,12 @@ msgid "Open in New Window"
 msgstr "Odpri v novem oknu"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "Odstrani iz priljubljenih"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "Dodaj med priljubljene"
 
@@ -1996,11 +1992,10 @@ msgid "Developer Tools"
 msgstr "Razvojna orodja"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Podatki o računu sobe"
+msgstr "Podatki o računu"
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
@@ -2766,31 +2761,28 @@ msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Prezri tega uporabnika"
+msgstr "Prezrti uporabniki"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Prezri tega uporabnika"
+msgstr "Prezrti uporabniki"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "Ne ignorirate nobenega uporabnika"
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr "Ne prezri tega uporabnika"
+msgstr "Prekliči ignoriranje tega uporabnika"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2990,7 +2982,7 @@ msgstr "Matrixov ID:"
 msgid "Matrix ID"
 msgstr "Matrixov ID"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3137,8 +3129,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Prekliči urejanje"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "Vir dogodka"
@@ -3568,25 +3560,32 @@ msgstr "Izberi sobo"
 msgid "Room Id: %1"
 msgstr "ID sobe: %1"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "Prikaži dogodke m.room.member"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "Pokaži podatke o računu sobe"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "Podatki o računu sobe"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
 msgstr "Stanje sobe"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Informacije o strežniku"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3952,19 +3951,16 @@ msgid "Device id"
 msgstr "Določilnik naprave"
 
 #: src/qml/Security.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "Zavrni in prezri uporabnika"
+msgstr "Upravljaj prezrte uporabnike"
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Prezri tega uporabnika"
+msgstr "Prezrti uporabniki"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4115,8 +4111,7 @@ msgid "Share the selected media"
 msgstr "Deli izbrane medije"
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
 msgstr "Deli"
@@ -4344,6 +4339,14 @@ msgstr "Nadaljuje s prijavo v vašem brskalniku."
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "Ponovno odpri URL za enovito prijavo"
+
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -4703,41 +4706,41 @@ msgstr "Glasnost"
 msgid "Maximize"
 msgstr "Razpni"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "Dobrodošli"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Dobrodošli v NeoChat"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Nadaljuj na obstoječem računu"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (nalaganje)"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Odstrani ta račun"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Prijavite se ali ustvarite nov račun"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4848,6 +4851,12 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "Prikaži dogodke m.room.member"
+
+#~ msgid "Show room account data"
+#~ msgstr "Pokaži podatke o računu sobe"
 
 #~ msgid "All Rooms"
 #~ msgstr "Vse sobe"

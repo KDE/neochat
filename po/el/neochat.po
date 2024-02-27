@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1312,7 +1312,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/AccountData.qml:29
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, fuzzy, kde-format
 #| msgid "Event Source"
 msgctxt "@title:window"
@@ -3125,7 +3125,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID:"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3285,8 +3285,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Ακύρωση"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "Πηγή γεγονότος"
@@ -3737,29 +3737,32 @@ msgstr "Επιλογή τοπικού αρχείου"
 msgid "Room Id: %1"
 msgstr "Room ID"
 
-#: src/qml/RoomData.qml:40
-#, fuzzy, kde-format
-#| msgid "Show name change events"
-msgid "Show m.room.member events"
-msgstr "Να εμφανίζονται γεγονότα αλλαγής ονομάτων"
-
-#: src/qml/RoomData.qml:52
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "Show room account data"
-msgstr "Δεν βρέθηκαν αίθουσες"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "Room Account Data"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, fuzzy, kde-format
 #| msgid "Room State - %1"
 msgid "Room State"
 msgstr "Κατάσταση αίθουσας - %1"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Πληροφορίες εξυπηρετητή"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -4569,6 +4572,14 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
+
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4934,25 +4945,25 @@ msgstr ""
 msgid "Maximize"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "Καλώς ήρθατε"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgid "Welcome to NeoChat"
 msgstr "Καλώς ήρθατε στο Matrix"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Σύνδεση με υφιστάμενο λογαριασμό"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, fuzzy, kde-format
 #| msgctxt "Job heading, like 'Copying'"
 #| msgid "Uploading"
@@ -4960,21 +4971,21 @@ msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "Γίνεται αποστολή"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, fuzzy, kde-format
 #| msgid "Edit this account"
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Επεξεργασία αυτού του λογαριασμού"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Σύνδεση με υφιστάμενο λογαριασμό"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -5095,6 +5106,16 @@ msgstr "Εμφάνιση"
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
+
+#, fuzzy
+#~| msgid "Show name change events"
+#~ msgid "Show m.room.member events"
+#~ msgstr "Να εμφανίζονται γεγονότα αλλαγής ονομάτων"
+
+#, fuzzy
+#~| msgid "No rooms found"
+#~ msgid "Show room account data"
+#~ msgstr "Δεν βρέθηκαν αίθουσες"
 
 #, fuzzy
 #~| msgctxt "@action:button"

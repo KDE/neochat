@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
-"PO-Revision-Date: 2024-02-22 21:39+0100\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"PO-Revision-Date: 2024-02-26 23:52+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1240,15 +1240,13 @@ msgid "About KDE"
 msgstr "KDEri buruz"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Gela-kontuaren datuak"
+msgstr "Kontuaren datuak"
 
-#: src/qml/AccountData.qml:29
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Ekitaldi sorburua"
@@ -1664,14 +1662,12 @@ msgid "Open in New Window"
 msgstr "Ireki leiho berrian"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "Kendu gogokoetatik"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "Gehitu gogokoetara"
 
@@ -1992,17 +1988,16 @@ msgid "Developer Tools"
 msgstr "Garatzailearen tresnak"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Gela-kontuaren datuak"
+msgstr "Kontuaren datuak"
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
-msgstr ""
+msgstr "Ezaugarrien banderak"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2761,31 +2756,28 @@ msgid "Reply in Thread"
 msgstr "Erantzun harian"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Ez ikusi erabiltzaile hau"
+msgstr "Ezikusitako erabiltzaileak"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Ez ikusi erabiltzaile hau"
+msgstr "Ezikusitako erabiltzaileak"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "Ez diozu ezikusiarena egiten inongo erabiltzaileri"
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr "Erabiltzaile honi ez ikusi egiteari utzi"
+msgstr "Erabiltzaile horri ezikusiarena egiteari utzi"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2985,7 +2977,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3133,8 +3125,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Utzi editatutakoa"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "Ekitaldi sorburua"
@@ -3563,25 +3555,30 @@ msgstr "Hautatu gela"
 msgid "Room Id: %1"
 msgstr "Gelaren ID: %1"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "Erakutsi «m.room.member» gertaerak"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "Erakutsi gela-kontuaren datuak"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "Gela-kontuaren datuak"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
 msgstr "Gelaren egoera"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Zerbitzariaren informazioa"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3943,19 +3940,16 @@ msgid "Device id"
 msgstr "Gailuaren ID"
 
 #: src/qml/Security.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "Errefusatu eta erabiltzailea ezikusi"
+msgstr "Kudeatu ezikusitako erabiltzaileak"
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Ez ikusi erabiltzaile hau"
+msgstr "Ezikusitako erabiltzaileak"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4105,8 +4099,7 @@ msgid "Share the selected media"
 msgstr "Partekatu hautatutako hedabideak"
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
 msgstr "Partekatu"
@@ -4334,6 +4327,14 @@ msgstr "Jarraitu saio-hasteko prozesua zure arakatzailean."
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "Berrireki SSO URL"
+
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -4697,41 +4698,41 @@ msgstr "Bolumena"
 msgid "Maximize"
 msgstr "Maximizatu"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "Ongi etorri"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Ongi etorri «NeoChat»era"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Jarraitu aurrez dagoen kontu batekin"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (Zamatzen)"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Kendu kontu hau"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Saioa hasi edo sortu kontu bat"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4843,6 +4844,12 @@ msgstr "Erakutsi"
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "Erakutsi «m.room.member» gertaerak"
+
+#~ msgid "Show room account data"
+#~ msgstr "Erakutsi gela-kontuaren datuak"
 
 #~ msgid "All Rooms"
 #~ msgstr "Gela guztiak"

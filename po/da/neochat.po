@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -1270,7 +1270,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Konti"
 
-#: src/qml/AccountData.qml:29
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@title:window"
@@ -3060,7 +3060,7 @@ msgstr ""
 msgid "Matrix ID"
 msgstr ""
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3216,8 +3216,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Annullér"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgid "Event Source"
@@ -3666,27 +3666,32 @@ msgstr ""
 msgid "Room Id: %1"
 msgstr "Værelsesnavn:"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr ""
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr ""
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "Room Account Data"
 msgstr "Konti"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgid "Room State"
 msgstr "Værelsesnavn:"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Indstillinger"
 
 #: src/qml/RoomDelegate.qml:102
 #, fuzzy, kde-format
@@ -4454,6 +4459,14 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
+
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4794,44 +4807,44 @@ msgstr ""
 msgid "Maximize"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, fuzzy, kde-format
 #| msgid "Chat"
 msgid "Welcome to NeoChat"
 msgstr "Chat"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "Indlæser"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Send besked"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr ""
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"

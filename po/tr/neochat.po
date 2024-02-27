@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
-"PO-Revision-Date: 2024-02-22 19:30+0300\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
+"PO-Revision-Date: 2024-02-26 13:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: src/controller.cpp:125
 #, kde-format
@@ -1234,15 +1234,13 @@ msgid "About KDE"
 msgstr "KDE Hakkında"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Oda Hesabı Bilgisi"
+msgstr "Hesap Verisi"
 
-#: src/qml/AccountData.qml:29
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Olay Kaynağı"
@@ -1660,14 +1658,12 @@ msgid "Open in New Window"
 msgstr "Yeni Pencerede Aç"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "Sık Kullanılanlardan Kaldır"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "Sık Kullanılanlara Ekle"
 
@@ -1988,11 +1984,10 @@ msgid "Developer Tools"
 msgstr "Geliştirici Araçları"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Oda Hesabı Bilgisi"
+msgstr "Hesap Verisi"
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
@@ -2756,28 +2751,25 @@ msgid "Reply in Thread"
 msgstr "İleti dizisinde yanıtla"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Bu Kullanıcıyı Yok Say"
+msgstr "Yok Sayılan Kullanıcılar"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Bu Kullanıcıyı Yok Say"
+msgstr "Yok Sayılan Kullanıcılar"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "Hiçbir kullanıcıyı yok saymıyorsunuz"
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Bu Kullanıcıyı Yok Sayma"
@@ -2980,7 +2972,7 @@ msgstr "Matrix kimliği:"
 msgid "Matrix ID"
 msgstr "Matrix Kimliği"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3127,8 +3119,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Düzenlemeyi iptal et"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "Olay Kaynağı"
@@ -3557,25 +3549,30 @@ msgstr "Oda Seç"
 msgid "Room Id: %1"
 msgstr "Oda kimliği: %1"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "m.room.member olaylarını göster"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "Oda hesap bilgisini göster"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "Oda Hesabı Bilgisi"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, kde-format
 msgid "Room State"
 msgstr "Oda Durumu"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Sunucu Bilgisi"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3938,19 +3935,16 @@ msgid "Device id"
 msgstr "Aygıt kimliği"
 
 #: src/qml/Security.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "Kullanıcıyı Reddet ve Yok Say"
+msgstr "Yok Sayılan Kullanıcıları Yönet"
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Bu Kullanıcıyı Yok Say"
+msgstr "Yok Sayılan Kullanıcılar"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4100,8 +4094,7 @@ msgid "Share the selected media"
 msgstr "Seçili ortamı paylaş"
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
 msgstr "Paylaş"
@@ -4329,6 +4322,14 @@ msgstr "Oturum açma işlemini tarayıcıda sürdürün."
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "SSO URL'sini Yeniden Aç"
+
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -4688,41 +4689,41 @@ msgstr "Ses Düzeyi"
 msgid "Maximize"
 msgstr "Son Ses"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "Hoş Geldiniz"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "NeoChat'e hoş geldiniz"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Var Olan Bir Hesapla Sürdür"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (yükleniyor)"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Bu hesabı kaldır"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Oturum Aç veya Hesap Oluştur"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4833,6 +4834,12 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "m.room.member olaylarını göster"
+
+#~ msgid "Show room account data"
+#~ msgstr "Oda hesap bilgisini göster"
 
 #~ msgid "All Rooms"
 #~ msgstr "Tüm Odalar"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-26 00:37+0000\n"
+"POT-Creation-Date: 2024-02-27 00:37+0000\n"
 "PO-Revision-Date: 2024-02-09 23:09+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1262,7 +1262,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Данные учётной записи комнаты"
 
-#: src/qml/AccountData.qml:29
+#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, fuzzy, kde-format
 #| msgid "Event Source"
 msgctxt "@title:window"
@@ -3021,7 +3021,7 @@ msgstr "Идентификатор Matrix:"
 msgid "Matrix ID"
 msgstr "Идентификатор Matrix"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:196
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -3171,8 +3171,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Отменить изменение"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:69
-#: src/qml/RoomData.qml:95
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
+#: src/qml/RoomData.qml:76
 #, kde-format
 msgid "Event Source"
 msgstr "Исходный код события"
@@ -3614,26 +3614,33 @@ msgstr "Выбор комнаты"
 msgid "Room Id: %1"
 msgstr "Идентификатор комнаты"
 
-#: src/qml/RoomData.qml:40
-#, kde-format
-msgid "Show m.room.member events"
-msgstr "Показывать события m.room.member"
-
-#: src/qml/RoomData.qml:52
-#, kde-format
-msgid "Show room account data"
-msgstr "Показывать данные учётной записи комнаты"
-
-#: src/qml/RoomData.qml:58
+#: src/qml/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "Данные учётной записи комнаты"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:59
 #, fuzzy, kde-format
 #| msgid "Room State - %1"
 msgid "Room State"
 msgstr "Просмотр событий комнаты «%1»"
+
+#: src/qml/RoomData.qml:70
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/qml/RoomData.qml:84
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Информация о сервере"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -4422,6 +4429,14 @@ msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr ""
 
+#: src/qml/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
+
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
@@ -4769,24 +4784,24 @@ msgstr "Громкость"
 msgid "Maximize"
 msgstr "Развернуть"
 
-#: src/qml/WelcomePage.qml:24
+#: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "Добро пожаловать"
 
-#: src/qml/WelcomePage.qml:45
+#: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Добро пожаловать в NeoChat"
 
-#: src/qml/WelcomePage.qml:53
+#: src/qml/WelcomePage.qml:54
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Войти в существующую учётную запись"
 
-#: src/qml/WelcomePage.qml:85
+#: src/qml/WelcomePage.qml:86
 #, fuzzy, kde-format
 #| msgctxt "Job heading, like 'Copying'"
 #| msgid "Uploading"
@@ -4794,21 +4809,21 @@ msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "Отправка"
 
-#: src/qml/WelcomePage.qml:94
+#: src/qml/WelcomePage.qml:95
 #, fuzzy, kde-format
 #| msgid "Edit this account"
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Изменить эту учётную запись"
 
-#: src/qml/WelcomePage.qml:123
+#: src/qml/WelcomePage.qml:124
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Войти в существующую учётную запись"
 
-#: src/qml/WelcomePage.qml:204
+#: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
@@ -4923,6 +4938,12 @@ msgstr "Показать"
 #, kde-format
 msgid "Quit"
 msgstr "Выход"
+
+#~ msgid "Show m.room.member events"
+#~ msgstr "Показывать события m.room.member"
+
+#~ msgid "Show room account data"
+#~ msgstr "Показывать данные учётной записи комнаты"
 
 #, fuzzy
 #~| msgctxt "@action:button"
