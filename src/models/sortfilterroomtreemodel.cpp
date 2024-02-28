@@ -13,6 +13,12 @@
 SortFilterRoomTreeModel::SortFilterRoomTreeModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
+    connect(NeoChatConfig::self(), &NeoChatConfig::SortOrderChanged, this, [this]() {
+        setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
+        invalidateFilter();
+    });
+
     setRecursiveFilteringEnabled(true);
     sort(0);
     invalidateFilter();
@@ -29,48 +35,75 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(QObject *parent)
 void SortFilterRoomTreeModel::setRoomSortOrder(SortFilterRoomTreeModel::RoomSortOrder sortOrder)
 {
     m_sortOrder = sortOrder;
-    Q_EMIT roomSortOrderChanged();
     if (sortOrder == SortFilterRoomTreeModel::Alphabetical) {
         setSortRole(RoomTreeModel::DisplayNameRole);
-    } else if (sortOrder == SortFilterRoomTreeModel::LastActivity) {
+    } else if (sortOrder == SortFilterRoomTreeModel::Activity) {
         setSortRole(RoomTreeModel::LastActiveTimeRole);
     }
     invalidate();
 }
 
-SortFilterRoomTreeModel::RoomSortOrder SortFilterRoomTreeModel::roomSortOrder() const
+static const QVector<RoomTreeModel::EventRoles> alphabeticalSortPriorities{
+    // Does exactly what it says on the tin.
+    RoomTreeModel::DisplayNameRole,
+};
+
+static const QVector<RoomTreeModel::EventRoles> activitySortPriorities{
+    // Anything useful at the top, quiet rooms at the bottom
+    RoomTreeModel::AttentionRole,
+    // Organize by highlights, notifications, unread favorites, all other unread, in that order
+    RoomTreeModel::HighlightCountRole,
+    RoomTreeModel::NotificationCountRole,
+    RoomTreeModel::FavouriteRole,
+    // Finally sort by last activity time
+    RoomTreeModel::LastActiveTimeRole,
+};
+
+bool SortFilterRoomTreeModel::roleCmp(const QVariant &sortLeft, const QVariant &sortRight) const
 {
-    return m_sortOrder;
+    switch (sortLeft.typeId()) {
+    case QMetaType::Bool:
+        return (sortLeft == sortRight) ? false : sortLeft.toBool();
+    case QMetaType::QString:
+        return sortLeft.toString() < sortRight.toString();
+    case QMetaType::Int:
+        return sortLeft.toInt() > sortRight.toInt();
+    case QMetaType::QDateTime:
+        return sortLeft.toDateTime() > sortRight.toDateTime();
+    default:
+        return false;
+    }
+}
+
+bool SortFilterRoomTreeModel::prioritiesCmp(const QVector<RoomTreeModel::EventRoles> &priorities,
+                                            const QModelIndex &source_left,
+                                            const QModelIndex &source_right) const
+{
+    for (RoomTreeModel::EventRoles sortRole : priorities) {
+        const auto sortLeft = sourceModel()->data(source_left, sortRole);
+        const auto sortRight = sourceModel()->data(source_right, sortRole);
+        if (sortLeft != sortRight) {
+            return roleCmp(sortLeft, sortRight);
+        }
+    }
+    return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 
 bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
-    if (m_sortOrder == SortFilterRoomTreeModel::LastActivity) {
-        // display favorite rooms always on top
-        const auto categoryLeft = static_cast<NeoChatRoomType::Types>(sourceModel()->data(source_left, RoomTreeModel::CategoryRole).toInt());
-        const auto categoryRight = static_cast<NeoChatRoomType::Types>(sourceModel()->data(source_right, RoomTreeModel::CategoryRole).toInt());
+    // Don't sort the top level categories.
+    if (!source_left.parent().isValid() || !source_right.parent().isValid()) {
+        return false;
+    }
 
-        if (categoryLeft == NeoChatRoomType::Types::Favorite && categoryRight == NeoChatRoomType::Types::Favorite) {
-            return sourceModel()->data(source_left, RoomTreeModel::LastActiveTimeRole).toDateTime()
-                > sourceModel()->data(source_right, RoomTreeModel::LastActiveTimeRole).toDateTime();
-        }
-        if (categoryLeft == NeoChatRoomType::Types::Favorite) {
-            return true;
-        } else if (categoryRight == NeoChatRoomType::Types::Favorite) {
-            return false;
-        }
+    switch (m_sortOrder) {
+    case SortFilterRoomTreeModel::Alphabetical:
+        return prioritiesCmp(alphabeticalSortPriorities, source_left, source_right);
+    case SortFilterRoomTreeModel::Activity:
+        return prioritiesCmp(activitySortPriorities, source_left, source_right);
+    }
 
-        return sourceModel()->data(source_left, RoomTreeModel::LastActiveTimeRole).toDateTime()
-            > sourceModel()->data(source_right, RoomTreeModel::LastActiveTimeRole).toDateTime();
-    }
-    if (m_sortOrder != SortFilterRoomTreeModel::Categories) {
-        return QSortFilterProxyModel::lessThan(source_left, source_right);
-    }
-    if (sourceModel()->data(source_left, RoomTreeModel::CategoryRole) != sourceModel()->data(source_right, RoomTreeModel::CategoryRole)) {
-        return sourceModel()->data(source_left, RoomTreeModel::CategoryRole).toInt() < sourceModel()->data(source_right, RoomTreeModel::CategoryRole).toInt();
-    }
-    return sourceModel()->data(source_left, RoomTreeModel::LastActiveTimeRole).toDateTime()
-        > sourceModel()->data(source_right, RoomTreeModel::LastActiveTimeRole).toDateTime();
+    return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 
 void SortFilterRoomTreeModel::setFilterText(const QString &text)

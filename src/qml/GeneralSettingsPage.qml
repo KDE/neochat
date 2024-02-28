@@ -66,6 +66,29 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
+        title: i18n("Room list sort order")
+    }
+    FormCard.FormCard {
+        FormCard.FormRadioDelegate {
+            text: i18nc("As in 'sort something based on last activity'", "Activity")
+            checked: Config.sortOrder === 1
+            enabled: !Config.isSortOrderImmutable
+            onToggled: {
+                Config.sortOrder = 1
+                Config.save()
+            }
+        }
+        FormCard.FormRadioDelegate {
+            text: i18nc("As in 'sort something alphabetically'", "Alphabetical")
+            checked: Config.sortOrder === 0
+            enabled: !Config.isSortOrderImmutable
+            onToggled: {
+                Config.sortOrder = 0
+                Config.save()
+            }
+        }
+    }
+    FormCard.FormHeader {
         title: i18n("Timeline Events")
     }
     FormCard.FormCard {

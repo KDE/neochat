@@ -7,6 +7,8 @@
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
+#include "models/roomtreemodel.h"
+
 /**
  * @class SortFilterRoomTreeModel
  *
@@ -32,13 +34,6 @@ class SortFilterRoomTreeModel : public QSortFilterProxyModel
     QML_ELEMENT
 
     /**
-     * @brief The order by which the rooms will be sorted.
-     *
-     * @sa RoomSortOrder
-     */
-    Q_PROPERTY(RoomSortOrder roomSortOrder READ roomSortOrder WRITE setRoomSortOrder NOTIFY roomSortOrderChanged)
-
-    /**
      * @brief The text to use to filter room names.
      */
     Q_PROPERTY(QString filterText READ filterText READ filterText WRITE setFilterText NOTIFY filterTextChanged)
@@ -56,8 +51,7 @@ class SortFilterRoomTreeModel : public QSortFilterProxyModel
 public:
     enum RoomSortOrder {
         Alphabetical,
-        LastActivity,
-        Categories,
+        Activity,
     };
     Q_ENUM(RoomSortOrder)
 
@@ -71,7 +65,6 @@ public:
     explicit SortFilterRoomTreeModel(QObject *parent = nullptr);
 
     void setRoomSortOrder(RoomSortOrder sortOrder);
-    [[nodiscard]] RoomSortOrder roomSortOrder() const;
 
     void setFilterText(const QString &text);
     [[nodiscard]] QString filterText() const;
@@ -98,14 +91,16 @@ protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 Q_SIGNALS:
-    void roomSortOrderChanged();
     void filterTextChanged();
     void activeSpaceIdChanged();
     void modeChanged();
 
 private:
-    RoomSortOrder m_sortOrder = Categories;
+    RoomSortOrder m_sortOrder = Activity;
     Mode m_mode = All;
     QString m_filterText;
     QString m_activeSpaceId;
+
+    bool roleCmp(const QVariant &left, const QVariant &right) const;
+    bool prioritiesCmp(const QVector<RoomTreeModel::EventRoles> &priorities, const QModelIndex &left, const QModelIndex &right) const;
 };

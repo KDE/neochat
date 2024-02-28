@@ -148,7 +148,6 @@ Kirigami.Page {
                     property bool filterTextJustChanged: false
 
                     sourceModel: root.roomTreeModel
-                    roomSortOrder: SortFilterRoomTreeModel.Categories
                     activeSpaceId: spaceDrawer.selectedSpaceId
                     mode: spaceDrawer.showDirectChats ? SortFilterRoomTreeModel.DirectChats : SortFilterRoomTreeModel.Rooms
                 }

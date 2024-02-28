@@ -220,6 +220,8 @@ QHash<int, QByteArray> RoomTreeModel::roleNames() const
     roles[IsDirectChat] = "isDirectChat";
     roles[DelegateTypeRole] = "delegateType";
     roles[IconRole] = "icon";
+    roles[AttentionRole] = "attention";
+    roles[FavouriteRole] = "favourite";
     return roles;
 }
 
@@ -270,10 +272,10 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         return NeoChatRoomType::typeForRoom(room);
     }
     if (role == NotificationCountRole) {
-        return room->notificationCount();
+        return int(room->notificationCount());
     }
     if (role == HighlightCountRole) {
-        return room->highlightCount();
+        return int(room->highlightCount());
     }
     if (role == LastActiveTimeRole) {
         return room->lastActiveTime();
@@ -314,6 +316,12 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
     }
     if (role == DelegateTypeRole) {
         return QStringLiteral("normal");
+    }
+    if (role == AttentionRole) {
+        return room->notificationCount() + room->highlightCount() > 0;
+    }
+    if (role == FavouriteRole) {
+        return room->isFavourite();
     }
 
     return {};

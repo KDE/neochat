@@ -47,6 +47,8 @@ public:
         IsDirectChat, /**< Whether this room is a direct chat. */
         DelegateTypeRole,
         IconRole,
+        AttentionRole, /**< Whether there are any notifications. */
+        FavouriteRole, /**< Whether the room is favourited. */
     };
     Q_ENUM(EventRoles)
     explicit RoomTreeModel(QObject *parent = nullptr);
