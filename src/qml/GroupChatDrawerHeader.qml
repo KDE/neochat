@@ -83,8 +83,7 @@ ColumnLayout {
 
         visible: text.length > 0
 
-        text: root.room && root.room.topic ? root.room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : ""
-        readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
+        text: root.room && root.room.topic ? root.room.topic : ""
         textFormat: TextEdit.MarkdownText
         wrapMode: Text.Wrap
         onLinkActivated: link => UrlHelper.openUrl(link)
