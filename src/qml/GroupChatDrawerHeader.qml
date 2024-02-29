@@ -87,5 +87,10 @@ ColumnLayout {
         textFormat: TextEdit.MarkdownText
         wrapMode: Text.Wrap
         onLinkActivated: link => UrlHelper.openUrl(link)
+        onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
+            applicationWindow().hoverLinkIndicator.text = hoveredLink;
+        } else {
+            applicationWindow().hoverLinkIndicator.text = "";
+        }
     }
 }
