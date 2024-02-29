@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:37+0000\n"
+"POT-Creation-Date: 2024-02-29 00:37+0000\n"
 "PO-Revision-Date: 2024-02-05 11:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1824,7 +1824,7 @@ msgstr "选择聊天室"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:243
+#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:242
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -2184,21 +2184,21 @@ msgid ""
 msgstr "此消息已加密，但发送者尚未与此设备共享密钥。"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:237
+#: src/qml/RoomListPage.qml:236
 #, kde-format
 msgid "Explore rooms"
 msgstr "探索聊天室"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
-#: src/qml/RoomListPage.qml:205 src/qml/RoomListPage.qml:254
+#: src/qml/RoomListPage.qml:204 src/qml/RoomListPage.qml:253
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:213
-#: src/qml/RoomListPage.qml:258
+#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:212
+#: src/qml/RoomListPage.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2511,57 +2511,77 @@ msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "调整窗口大小时自动展示/隐藏聊天室信息"
 
 #: src/qml/GeneralSettingsPage.qml:69
+#, fuzzy, kde-format
+#| msgid "<room alias or id>"
+msgid "Room list sort order"
+msgstr "<聊天室别名或 ID>"
+
+#: src/qml/GeneralSettingsPage.qml:73
+#, fuzzy, kde-format
+#| msgctxt "'Activities' is a category of emoji"
+#| msgid "Activities"
+msgctxt "As in 'sort something based on last activity'"
+msgid "Activity"
+msgstr "活动"
+
+#: src/qml/GeneralSettingsPage.qml:82
+#, kde-format
+msgctxt "As in 'sort something alphabetically'"
+msgid "Alphabetical"
+msgstr ""
+
+#: src/qml/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Timeline Events"
 msgstr "时间线事件"
 
-#: src/qml/GeneralSettingsPage.qml:74
+#: src/qml/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Show deleted messages"
 msgstr "显示已被删除的消息"
 
-#: src/qml/GeneralSettingsPage.qml:90
+#: src/qml/GeneralSettingsPage.qml:113
 #, kde-format
 msgid "Show state events"
 msgstr ""
 
-#: src/qml/GeneralSettingsPage.qml:108
+#: src/qml/GeneralSettingsPage.qml:131
 #, kde-format
 msgid "Show leave and join events"
 msgstr "显示离开和加入事件"
 
-#: src/qml/GeneralSettingsPage.qml:126
+#: src/qml/GeneralSettingsPage.qml:149
 #, kde-format
 msgid "Show name change events"
 msgstr "显示名称更改事件"
 
-#: src/qml/GeneralSettingsPage.qml:144
+#: src/qml/GeneralSettingsPage.qml:167
 #, kde-format
 msgid "Show avatar update events"
 msgstr "显示头像更新事件"
 
-#: src/qml/GeneralSettingsPage.qml:154
+#: src/qml/GeneralSettingsPage.qml:177
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "编辑器"
 
-#: src/qml/GeneralSettingsPage.qml:159
+#: src/qml/GeneralSettingsPage.qml:182
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "使用 s/原始文本/替换文本 语法来修改你的上一条信息"
 
-#: src/qml/GeneralSettingsPage.qml:173
+#: src/qml/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Send typing notifications"
 msgstr "发送输入中状态"
 
-#: src/qml/GeneralSettingsPage.qml:183
+#: src/qml/GeneralSettingsPage.qml:206
 #, kde-format
 msgid "Developer Settings"
 msgstr "开发者设置"
 
-#: src/qml/GeneralSettingsPage.qml:187
+#: src/qml/GeneralSettingsPage.qml:210
 #, kde-format
 msgid "Enable developer tools"
 msgstr "启用开发者工具"
@@ -3676,33 +3696,33 @@ msgstr[0] "%1 位成员"
 msgid "No member count"
 msgstr "无成员计数"
 
-#: src/qml/RoomListPage.qml:228
+#: src/qml/RoomListPage.qml:227
 #, kde-format
 msgid "No friends found"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:228
+#: src/qml/RoomListPage.qml:227
 #, kde-format
 msgid "No rooms found"
 msgstr "没有找到聊天室"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "加入聊天室，开始畅聊"
 
-#: src/qml/RoomListPage.qml:237
+#: src/qml/RoomListPage.qml:236
 #, kde-format
 msgid "Search in room directory"
 msgstr "在聊天室目录中搜索"
 
-#: src/qml/RoomListPage.qml:254
+#: src/qml/RoomListPage.qml:253
 #, kde-format
 msgid "Search in friend directory"
 msgstr ""

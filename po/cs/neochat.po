@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:37+0000\n"
+"POT-Creation-Date: 2024-02-29 00:37+0000\n"
 "PO-Revision-Date: 2023-11-23 10:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1237,19 +1237,16 @@ msgid "About KDE"
 msgstr "O KDE"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account details dialog"
-#| msgid "Account Details"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Podrobnosti o účtu"
+msgstr ""
 
 #: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
-msgstr "Zobrazit zdroj"
+msgstr ""
 
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
@@ -1661,16 +1658,14 @@ msgid "Open in New Window"
 msgstr "Otevřít v novém okně"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "Odstranit z oblíbených"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
-msgstr "Přidat k oblíbeným"
+msgstr "Přidat do oblíbených"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
 #, kde-format
@@ -1826,7 +1821,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:243
+#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:242
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1988,12 +1983,10 @@ msgid "Developer Tools"
 msgstr "Vývojové nástroje"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account details dialog"
-#| msgid "Account Details"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Podrobnosti o účtu"
+msgstr ""
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
@@ -2186,21 +2179,21 @@ msgid ""
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:237
+#: src/qml/RoomListPage.qml:236
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
-#: src/qml/RoomListPage.qml:205 src/qml/RoomListPage.qml:254
+#: src/qml/RoomListPage.qml:204 src/qml/RoomListPage.qml:253
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:213
-#: src/qml/RoomListPage.qml:258
+#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:212
+#: src/qml/RoomListPage.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2514,56 +2507,75 @@ msgstr ""
 
 #: src/qml/GeneralSettingsPage.qml:69
 #, kde-format
+msgid "Room list sort order"
+msgstr ""
+
+#: src/qml/GeneralSettingsPage.qml:73
+#, fuzzy, kde-format
+#| msgctxt "'Activities' is a category of emoji"
+#| msgid "Activities"
+msgctxt "As in 'sort something based on last activity'"
+msgid "Activity"
+msgstr "Aktivity"
+
+#: src/qml/GeneralSettingsPage.qml:82
+#, kde-format
+msgctxt "As in 'sort something alphabetically'"
+msgid "Alphabetical"
+msgstr ""
+
+#: src/qml/GeneralSettingsPage.qml:92
+#, kde-format
 msgid "Timeline Events"
 msgstr ""
 
-#: src/qml/GeneralSettingsPage.qml:74
+#: src/qml/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Show deleted messages"
 msgstr ""
 
-#: src/qml/GeneralSettingsPage.qml:90
+#: src/qml/GeneralSettingsPage.qml:113
 #, kde-format
 msgid "Show state events"
 msgstr "Zobrazit stav událostí"
 
-#: src/qml/GeneralSettingsPage.qml:108
+#: src/qml/GeneralSettingsPage.qml:131
 #, kde-format
 msgid "Show leave and join events"
 msgstr ""
 
-#: src/qml/GeneralSettingsPage.qml:126
+#: src/qml/GeneralSettingsPage.qml:149
 #, kde-format
 msgid "Show name change events"
 msgstr ""
 
-#: src/qml/GeneralSettingsPage.qml:144
+#: src/qml/GeneralSettingsPage.qml:167
 #, kde-format
 msgid "Show avatar update events"
 msgstr ""
 
-#: src/qml/GeneralSettingsPage.qml:154
+#: src/qml/GeneralSettingsPage.qml:177
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/qml/GeneralSettingsPage.qml:159
+#: src/qml/GeneralSettingsPage.qml:182
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 
-#: src/qml/GeneralSettingsPage.qml:173
+#: src/qml/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Posílat oznamování o psaní"
 
-#: src/qml/GeneralSettingsPage.qml:183
+#: src/qml/GeneralSettingsPage.qml:206
 #, kde-format
 msgid "Developer Settings"
 msgstr ""
 
-#: src/qml/GeneralSettingsPage.qml:187
+#: src/qml/GeneralSettingsPage.qml:210
 #, kde-format
 msgid "Enable developer tools"
 msgstr ""
@@ -2752,18 +2764,16 @@ msgid "Reply in Thread"
 msgstr "Odpovědět ve vláknu"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Invite users"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Pozvat uživatele"
+msgstr ""
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Invite users"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Pozvat uživatele"
+msgstr ""
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
@@ -2772,11 +2782,10 @@ msgid "You are not ignoring any users"
 msgstr ""
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unban this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr "Od blokovat tohoto uživatele"
+msgstr ""
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -3568,11 +3577,10 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: src/qml/RoomData.qml:84
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
-msgstr "Informace o serveru"
+msgstr ""
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3681,33 +3689,33 @@ msgstr[2] "%1 členů"
 msgid "No member count"
 msgstr "Žádný počet členů"
 
-#: src/qml/RoomListPage.qml:228
+#: src/qml/RoomListPage.qml:227
 #, kde-format
 msgid "No friends found"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:228
+#: src/qml/RoomListPage.qml:227
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:237
+#: src/qml/RoomListPage.qml:236
 #, kde-format
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:254
+#: src/qml/RoomListPage.qml:253
 #, kde-format
 msgid "Search in friend directory"
 msgstr ""
@@ -3932,11 +3940,10 @@ msgid "Manage ignored users"
 msgstr ""
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Invite users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Pozvat uživatele"
+msgstr ""
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4085,11 +4092,10 @@ msgid "Share the selected media"
 msgstr ""
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
-msgstr "Sdílet"
+msgstr ""
 
 #: src/qml/ShareDialog.qml:37
 #, kde-format
@@ -4799,6 +4805,3 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
-
-#~ msgid "Show room account data"
-#~ msgstr "Zadejte data účtu pokoje"

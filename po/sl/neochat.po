@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-28 00:37+0000\n"
+"POT-Creation-Date: 2024-02-29 00:37+0000\n"
 "PO-Revision-Date: 2024-02-27 07:58+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1830,7 +1830,7 @@ msgstr "Poberite sobo"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:243
+#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:242
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -2193,21 +2193,21 @@ msgstr ""
 "To sporočilo je šifrirano in pošiljatelj še ni delil ključa s to napravo."
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:237
+#: src/qml/RoomListPage.qml:236
 #, kde-format
 msgid "Explore rooms"
 msgstr "Razišči sobe"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
-#: src/qml/RoomListPage.qml:205 src/qml/RoomListPage.qml:254
+#: src/qml/RoomListPage.qml:204 src/qml/RoomListPage.qml:253
 #, kde-format
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:213
-#: src/qml/RoomListPage.qml:258
+#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:212
+#: src/qml/RoomListPage.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2521,58 +2521,78 @@ msgstr ""
 "Samodejno skrij/razkrij informacije o sobi ob spreminjanju velikosti okna"
 
 #: src/qml/GeneralSettingsPage.qml:69
+#, fuzzy, kde-format
+#| msgid "<room alias or id>"
+msgid "Room list sort order"
+msgstr "<določilnik sobe ali vzdevek>"
+
+#: src/qml/GeneralSettingsPage.qml:73
+#, fuzzy, kde-format
+#| msgctxt "'Activities' is a category of emoji"
+#| msgid "Activities"
+msgctxt "As in 'sort something based on last activity'"
+msgid "Activity"
+msgstr "Dejavnosti"
+
+#: src/qml/GeneralSettingsPage.qml:82
+#, kde-format
+msgctxt "As in 'sort something alphabetically'"
+msgid "Alphabetical"
+msgstr ""
+
+#: src/qml/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Timeline Events"
 msgstr "Dogodki na časovnici"
 
-#: src/qml/GeneralSettingsPage.qml:74
+#: src/qml/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Prikaži zbrisana sporočila"
 
-#: src/qml/GeneralSettingsPage.qml:90
+#: src/qml/GeneralSettingsPage.qml:113
 #, kde-format
 msgid "Show state events"
 msgstr "Prikaži dogodke stanj"
 
-#: src/qml/GeneralSettingsPage.qml:108
+#: src/qml/GeneralSettingsPage.qml:131
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Prikaži dogodke odhodov in prihodov"
 
-#: src/qml/GeneralSettingsPage.qml:126
+#: src/qml/GeneralSettingsPage.qml:149
 #, kde-format
 msgid "Show name change events"
 msgstr "Prikaži dogodke spremembe imen"
 
-#: src/qml/GeneralSettingsPage.qml:144
+#: src/qml/GeneralSettingsPage.qml:167
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Prikaži dogodke posodobitve avatarjev"
 
-#: src/qml/GeneralSettingsPage.qml:154
+#: src/qml/GeneralSettingsPage.qml:177
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Urejevalnik"
 
-#: src/qml/GeneralSettingsPage.qml:159
+#: src/qml/GeneralSettingsPage.qml:182
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Uporabi skladnjo s/besedilo/zamenjava za urejanje vašega zadnjega sporočila"
 
-#: src/qml/GeneralSettingsPage.qml:173
+#: src/qml/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Pošlji besedilna obvestila"
 
-#: src/qml/GeneralSettingsPage.qml:183
+#: src/qml/GeneralSettingsPage.qml:206
 #, kde-format
 msgid "Developer Settings"
 msgstr "Nastavitve razvoja"
 
-#: src/qml/GeneralSettingsPage.qml:187
+#: src/qml/GeneralSettingsPage.qml:210
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Omogoči razvojna orodja"
@@ -3694,17 +3714,17 @@ msgstr[3] "%1 članov"
 msgid "No member count"
 msgstr "Ni števila članov"
 
-#: src/qml/RoomListPage.qml:228
+#: src/qml/RoomListPage.qml:227
 #, kde-format
 msgid "No friends found"
 msgstr "Ni najti nobenega prijatelja"
 
-#: src/qml/RoomListPage.qml:228
+#: src/qml/RoomListPage.qml:227
 #, kde-format
 msgid "No rooms found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -3712,17 +3732,17 @@ msgstr ""
 "Dodali niste še nobenega od svojih prijateljev, kliknite spodaj, da jih "
 "poiščete."
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pridruži se nekaj sobam za začetek"
 
-#: src/qml/RoomListPage.qml:237
+#: src/qml/RoomListPage.qml:236
 #, kde-format
 msgid "Search in room directory"
 msgstr "Poišči v imeniku sob"
 
-#: src/qml/RoomListPage.qml:254
+#: src/qml/RoomListPage.qml:253
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Poišči v imeniku prijateljev"
