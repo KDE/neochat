@@ -133,18 +133,39 @@ QQC2.ScrollView {
             return index;
         }
 
-        footer: SectionDelegate {
-            id: sectionBanner
-
-            anchors.left: parent.left
-            anchors.leftMargin: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.contentItem.parent.x : 0
-            anchors.right: parent.right
-
-            maxWidth: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.contentItem.width : 0
+        footer: Item {
             z: 3
-            visible: !!messageListView.sectionBannerItem && messageListView.sectionBannerItem.ListView.section !== "" && !Config.blur
-            labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
-            colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
+            width: root.width
+            visible: messageListView.sectionBannerItem && messageListView.sectionBannerItem.ListView.section !== "" && !Config.blur
+
+            SectionDelegate {
+                id: sectionDelegate
+                anchors.leftMargin: state === "alignLeft" ? Kirigami.Units.largeSpacing : 0
+                state: Config.compactLayout ? "alignLeft" : "alignCenter"
+                // Align left when in compact mode and center when using bubbles
+                states: [
+                    State {
+                        name: "alignLeft"
+                        AnchorChanges {
+                            target: sectionDelegate
+                            anchors.horizontalCenter: undefined
+                            anchors.left: parent ? parent.left : undefined
+                        }
+                    },
+                    State {
+                        name: "alignCenter"
+                        AnchorChanges {
+                            target: sectionDelegate
+                            anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
+                            anchors.left: undefined
+                        }
+                    }
+                ]
+
+                width: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.contentItem.width : 0
+                labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
+                colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
+            }
         }
         footerPositioning: ListView.OverlayHeader
 
