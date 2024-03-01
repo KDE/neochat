@@ -125,7 +125,8 @@ QQC2.Control {
                             background: Rectangle {
                                 visible: true
                                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                                color: Kirigami.Theme.positiveTextColor
+                                Kirigami.Theme.inherit: false
+                                color: root.connection.homeHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                                 radius: height / 2
                             }
 
@@ -173,7 +174,8 @@ QQC2.Control {
                             background: Rectangle {
                                 visible: true
                                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                                color: Kirigami.Theme.positiveTextColor
+                                Kirigami.Theme.inherit: false
+                                color: root.connection.directChatsHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                                 radius: height / 2
                             }
 
@@ -239,10 +241,12 @@ QQC2.Control {
                                 visible: spaceDelegate.currentRoom.childrenNotificationCount > 0 && root.selectedSpaceId != spaceDelegate.roomId
                                 color: Kirigami.Theme.textColor
                                 horizontalAlignment: Text.AlignHCenter
+                                verticalAlignment: Text.AlignVCenter
                                 background: Rectangle {
                                     visible: true
                                     Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                                    color: Kirigami.Theme.positiveTextColor
+                                    Kirigami.Theme.inherit: false
+                                    color: spaceDelegate.currentRoom.childrenHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                                     radius: height / 2
                                 }
 

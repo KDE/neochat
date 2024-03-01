@@ -26,6 +26,7 @@
 #include <Quotient/qt_connection_util.h>
 
 #include "neochatconfig.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 #include "notificationsmanager.h"
 #include "proxycontroller.h"
@@ -35,6 +36,14 @@
 #include "trayicon.h"
 #elif !defined(Q_OS_ANDROID)
 #include "trayicon_sni.h"
+#endif
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
+#ifndef Q_OS_ANDROID
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusMessage>
+#endif
 #endif
 
 bool testMode = false;
@@ -149,6 +158,7 @@ void Controller::addConnection(NeoChatConnection *c)
     connect(c, &NeoChatConnection::loggedOut, this, [this, c] {
         dropConnection(c);
     });
+    connect(c, &NeoChatConnection::badgeNotificationCountChanged, this, &Controller::updateBadgeNotificationCount);
 
     c->sync();
 
@@ -291,7 +301,14 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
     if (connection == m_connection) {
         return;
     }
+
     m_connection = connection;
+
+    if (m_connection != nullptr) {
+        m_connection->refreshBadgeNotificationCount();
+        updateBadgeNotificationCount(m_connection, m_connection->badgeNotificationCount());
+    }
+
     Q_EMIT activeConnectionChanged();
 }
 
@@ -314,6 +331,36 @@ void Controller::listenForNotifications()
 
     connector->registerClient(i18n("Receiving push notifications"));
 #endif
+}
+
+void Controller::updateBadgeNotificationCount(NeoChatConnection *connection, int count)
+{
+    if (connection == m_connection) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
+#ifndef Q_OS_ANDROID
+        // copied from Telegram desktop
+        const auto launcherUrl = "application://org.kde.neochat.desktop"_ls;
+        // Gnome requires that count is a 64bit integer
+        const qint64 counterSlice = std::min(count, 9999);
+        QVariantMap dbusUnityProperties;
+
+        if (counterSlice > 0) {
+            dbusUnityProperties["count"_ls] = counterSlice;
+            dbusUnityProperties["count-visible"_ls] = true;
+        } else {
+            dbusUnityProperties["count-visible"_ls] = false;
+        }
+
+        auto signal = QDBusMessage::createSignal("/com/canonical/unity/launcherentry/neochat"_ls, "com.canonical.Unity.LauncherEntry"_ls, "Update"_ls);
+
+        signal.setArguments({launcherUrl, dbusUnityProperties});
+
+        QDBusConnection::sessionBus().send(signal);
+#endif // Q_OS_ANDROID
+#else
+        qGuiApp->setBadgeNumber(count);
+#endif // QT_VERSION_CHECK(6, 6, 0)
+    }
 }
 
 bool Controller::isFlatpak() const

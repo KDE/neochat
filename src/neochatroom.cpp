@@ -10,6 +10,7 @@
 #include <QTemporaryFile>
 
 #include <Quotient/jobs/basejob.h>
+#include <Quotient/quotient_common.h>
 #include <Quotient/user.h>
 #include <qcoro/qcorosignal.h>
 
@@ -129,13 +130,30 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
         if (isSpace()) {
             Q_EMIT childrenNotificationCountChanged();
+            Q_EMIT childrenHaveHighlightNotificationsChanged();
         }
     });
     connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceNotifcationCountChanged, this, [this](const QStringList &spaces) {
         if (spaces.contains(id())) {
             Q_EMIT childrenNotificationCountChanged();
+            Q_EMIT childrenHaveHighlightNotificationsChanged();
         }
     });
+}
+
+int NeoChatRoom::contextAwareNotificationCount() const
+{
+    // DOn't include spaces, rooms that the user hasn't joined and rooms where the user has joined the successor.
+    if (isSpace() || joinState() != JoinState::Join || successor(JoinState::Join) != nullptr) {
+        return 0;
+    }
+    if (m_currentPushNotificationState == PushNotificationState::Mute) {
+        return 0;
+    }
+    if (m_currentPushNotificationState == PushNotificationState::MentionKeyword || isLowPriority()) {
+        return int(highlightCount());
+    }
+    return int(notificationCount());
 }
 
 bool NeoChatRoom::hasFileUploading() const
@@ -1298,6 +1316,14 @@ qsizetype NeoChatRoom::childrenNotificationCount()
         return 0;
     }
     return SpaceHierarchyCache::instance().notificationCountForSpace(id());
+}
+
+bool NeoChatRoom::childrenHaveHighlightNotifications() const
+{
+    if (!isSpace()) {
+        return false;
+    }
+    return SpaceHierarchyCache::instance().spaceHasHighlightNotifications(id());
 }
 
 void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool canonical, bool suggested)

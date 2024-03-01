@@ -33,9 +33,19 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(qsizetype directChatNotifications READ directChatNotifications NOTIFY directChatNotificationsChanged)
 
     /**
+     * @brief Whether any direct chats have highlight notifications.
+     */
+    Q_PROPERTY(bool directChatsHaveHighlightNotifications READ directChatsHaveHighlightNotifications NOTIFY directChatsHaveHighlightNotificationsChanged)
+
+    /**
      * @brief The total number of notifications for all rooms in the home tab.
      */
     Q_PROPERTY(qsizetype homeNotifications READ homeNotifications NOTIFY homeNotificationsChanged)
+
+    /**
+     * @brief Whether any of the rooms in the home tab have highlight notifications.
+     */
+    Q_PROPERTY(bool homeHaveHighlightNotifications READ homeHaveHighlightNotifications NOTIFY homeHaveHighlightNotificationsChanged)
 
     /**
      * @brief Whether there is at least one invite to a direct chat.
@@ -119,7 +129,13 @@ public:
     Q_INVOKABLE QString accountDataJsonString(const QString &type) const;
 
     qsizetype directChatNotifications() const;
+    bool directChatsHaveHighlightNotifications() const;
     qsizetype homeNotifications() const;
+    bool homeHaveHighlightNotifications() const;
+
+    int badgeNotificationCount() const;
+    void refreshBadgeNotificationCount();
+
     bool directChatInvites() const;
 
     // note: this is intentionally a copied QString because
@@ -134,15 +150,20 @@ public:
 Q_SIGNALS:
     void labelChanged();
     void directChatNotificationsChanged();
+    void directChatsHaveHighlightNotificationsChanged();
     void homeNotificationsChanged();
+    void homeHaveHighlightNotificationsChanged();
     void directChatInvitesChanged();
     void isOnlineChanged();
     void passwordStatus(NeoChatConnection::PasswordStatus status);
     void userConsentRequired(QUrl url);
+    void badgeNotificationCountChanged(NeoChatConnection *connection, int count);
 
 private:
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);
 
     void connectSignals();
+
+    int m_badgeNotificationCount = 0;
 };

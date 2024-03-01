@@ -31,11 +31,6 @@ class RoomListModel : public QAbstractListModel
      */
     Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
-    /**
-     * @brief The total number of notifications for all the rooms.
-     */
-    Q_PROPERTY(int notificationCount READ notificationCount NOTIFY notificationCountChanged)
-
 public:
     /**
      * @brief Defines the model roles.
@@ -46,8 +41,8 @@ public:
         CanonicalAliasRole, /**< The room canonical alias. */
         TopicRole, /**< The room topic. */
         CategoryRole, /**< The room category, e.g favourite. */
-        NotificationCountRole, /**< The number of notifications in the room. */
-        HighlightCountRole, /**< The number of highlighted messages in the room. */
+        ContextNotificationCountRole, /**< The context aware notification count for the room. */
+        HasHighlightNotificationsRole, /**< Whether there are any highlight notifications. */
         LastActiveTimeRole, /**< The timestamp of the last event sent in the room. */
         JoinStateRole, /**< The local user's join state in the room. */
         CurrentRoomRole, /**< The room object for the room. */
@@ -66,9 +61,6 @@ public:
 
     [[nodiscard]] Quotient::Connection *connection() const;
     void setConnection(Quotient::Connection *connection);
-
-    [[nodiscard]] int notificationCount() const;
-    [[nodiscard]] int highlightCount() const;
 
     /**
      * @brief Get the given role value at the given index.
@@ -114,23 +106,16 @@ private Q_SLOTS:
     void updateRoom(Quotient::Room *room, Quotient::Room *prev);
     void deleteRoom(Quotient::Room *room);
     void refresh(NeoChatRoom *room, const QList<int> &roles = {});
-    void refreshNotificationCount();
-    void refreshHighlightCount();
 
 private:
     Quotient::Connection *m_connection = nullptr;
     QList<NeoChatRoom *> m_rooms;
 
-    int m_notificationCount = 0;
-    int m_highlightCount = 0;
     QString m_activeSpaceId;
 
     void connectRoomSignals(NeoChatRoom *room);
 
 Q_SIGNALS:
     void connectionChanged();
-    void notificationCountChanged();
-    void highlightCountChanged();
-
     void roomAdded(NeoChatRoom *_t1);
 };

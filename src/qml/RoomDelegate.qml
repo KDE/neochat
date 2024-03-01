@@ -18,8 +18,8 @@ Delegates.RoundedItemDelegate {
     id: root
 
     required property int index
-    required property int notificationCount
-    required property int highlightCount
+    required property int contextNotificationCount
+    required property bool hasHighlightNotifications
     required property NeoChatRoom currentRoom
     required property NeoChatConnection connection
     required property string avatar
@@ -28,7 +28,7 @@ Delegates.RoundedItemDelegate {
 
     property bool collapsed: false
 
-    readonly property bool hasNotifications: currentRoom.pushNotificationState === PushNotificationState.MentionKeyword || currentRoom.isLowPriority ? highlightCount > 0 : notificationCount > 0
+    readonly property bool hasNotifications: contextNotificationCount > 0
 
     Accessible.name: root.displayName
     Accessible.onPressAction: clicked()
@@ -106,16 +106,16 @@ Delegates.RoundedItemDelegate {
         QQC2.Label {
             id: notificationCountLabel
 
-            text: currentRoom.pushNotificationState === PushNotificationState.MentionKeyword || currentRoom.isLowPriority ? root.highlightCount : root.notificationCount
-            visible: root.hasNotifications && currentRoom.pushNotificationState !== PushNotificationState.Mute && !root.collapsed
+            text: root.contextNotificationCount
+            visible: root.hasNotifications && !root.collapsed
             color: Kirigami.Theme.textColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             background: Rectangle {
                 visible: root.hasNotifications
                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
-                opacity: highlightCount > 0 ? 1 : 0.3
+                Kirigami.Theme.inherit: false
+                color: root.hasHighlightNotifications > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                 radius: height / 2
             }
 
@@ -141,7 +141,7 @@ Delegates.RoundedItemDelegate {
     }
 
     function createRoomListContextMenu() {
-        const component = Qt.createComponent(Qt.createComponent('org.kde.neochat', 'ContextMenu.qml'));
+        const component = Qt.createComponent('org.kde.neochat', 'ContextMenu.qml');
         if (component.status === Component.Error) {
             console.error(component.errorString());
         }

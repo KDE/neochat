@@ -77,7 +77,9 @@ void NeoChatConnection::connectSignals()
         for (const auto &chatId : additions) {
             if (const auto chat = room(chatId)) {
                 connect(chat, &Room::unreadStatsChanged, this, [this]() {
+                    refreshBadgeNotificationCount();
                     Q_EMIT directChatNotificationsChanged();
+                    Q_EMIT directChatsHaveHighlightNotificationsChanged();
                 });
             }
         }
@@ -91,29 +93,51 @@ void NeoChatConnection::connectSignals()
         if (room->isDirectChat()) {
             connect(room, &Room::unreadStatsChanged, this, [this]() {
                 Q_EMIT directChatNotificationsChanged();
+                Q_EMIT directChatsHaveHighlightNotificationsChanged();
             });
         }
+        connect(room, &Room::unreadStatsChanged, this, [this]() {
+            refreshBadgeNotificationCount();
+            Q_EMIT homeNotificationsChanged();
+            Q_EMIT homeHaveHighlightNotificationsChanged();
+        });
     });
     connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {
         Q_UNUSED(room)
         if (prev && prev->isDirectChat()) {
             Q_EMIT directChatInvitesChanged();
+            Q_EMIT directChatNotificationsChanged();
+            Q_EMIT directChatsHaveHighlightNotificationsChanged();
         }
+        refreshBadgeNotificationCount();
+        Q_EMIT homeNotificationsChanged();
+        Q_EMIT homeHaveHighlightNotificationsChanged();
     });
 
     connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
+        refreshBadgeNotificationCount();
         Q_EMIT homeNotificationsChanged();
+        Q_EMIT homeHaveHighlightNotificationsChanged();
     });
-    for (const auto room : allRooms()) {
-        connect(room, &NeoChatRoom::unreadStatsChanged, this, [this, room]() {
-            if (room != nullptr) {
-                auto category = NeoChatRoomType::typeForRoom(static_cast<NeoChatRoom *>(room));
-                if (!SpaceHierarchyCache::instance().isChild(room->id()) && (category == NeoChatRoomType::Normal || category == NeoChatRoomType::Favorite)
-                    && room->successorId().isEmpty()) {
-                    Q_EMIT homeNotificationsChanged();
-                }
-            }
-        });
+}
+
+int NeoChatConnection::badgeNotificationCount() const
+{
+    return m_badgeNotificationCount;
+}
+
+void NeoChatConnection::refreshBadgeNotificationCount()
+{
+    int count = 0;
+    for (const auto &r : allRooms()) {
+        if (const auto room = static_cast<NeoChatRoom *>(r)) {
+            count += room->contextAwareNotificationCount();
+        }
+    }
+
+    if (count != m_badgeNotificationCount) {
+        m_badgeNotificationCount = count;
+        Q_EMIT badgeNotificationCountChanged(this, m_badgeNotificationCount);
     }
 }
 
@@ -329,7 +353,7 @@ qsizetype NeoChatConnection::directChatNotifications() const
     for (const auto &chatId : directChats()) {
         if (!added.contains(chatId)) {
             if (const auto chat = room(chatId)) {
-                notifications += chat->notificationCount();
+                notifications += dynamic_cast<NeoChatRoom *>(chat)->contextAwareNotificationCount();
                 added += chatId;
             }
         }
@@ -337,27 +361,45 @@ qsizetype NeoChatConnection::directChatNotifications() const
     return notifications;
 }
 
+bool NeoChatConnection::directChatsHaveHighlightNotifications() const
+{
+    for (const auto &childId : directChats()) {
+        if (const auto child = static_cast<NeoChatRoom *>(room(childId))) {
+            if (child->highlightCount() > 0) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 qsizetype NeoChatConnection::homeNotifications() const
 {
     qsizetype notifications = 0;
     QStringList added;
     const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
-    for (const auto &room : allRooms()) {
-        auto category = NeoChatRoomType::typeForRoom(static_cast<NeoChatRoom *>(room));
-        if (!added.contains(room->id()) && room->joinState() == JoinState::Join && !room->isDirectChat() && !spaceHierarchyCache.isChild(room->id())
-            && room->successorId().isEmpty()) {
-            switch (category) {
-            case NeoChatRoomType::Normal:
-            case NeoChatRoomType::Favorite:
-                notifications += room->notificationCount();
-                break;
-            default:
-                notifications += room->highlightCount();
+    for (const auto &r : allRooms()) {
+        if (const auto room = static_cast<NeoChatRoom *>(r)) {
+            if (!added.contains(room->id()) && !room->isDirectChat() && !spaceHierarchyCache.isChild(room->id())) {
+                notifications += dynamic_cast<NeoChatRoom *>(room)->contextAwareNotificationCount();
+                added += room->id();
             }
-            added += room->id();
         }
     }
     return notifications;
+}
+
+bool NeoChatConnection::homeHaveHighlightNotifications() const
+{
+    const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
+    for (const auto &r : allRooms()) {
+        if (const auto room = static_cast<NeoChatRoom *>(r)) {
+            if (!room->isDirectChat() && !spaceHierarchyCache.isChild(room->id()) && room->highlightCount() > 0) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 bool NeoChatConnection::directChatInvites() const

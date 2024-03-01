@@ -134,6 +134,13 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(qsizetype childrenNotificationCount READ childrenNotificationCount NOTIFY childrenNotificationCountChanged)
 
     /**
+     * @brief Whether this room's children have any highlight notifications.
+     *
+     * Will always return false if this is not a space.
+     */
+    Q_PROPERTY(bool childrenHaveHighlightNotifications READ childrenHaveHighlightNotifications NOTIFY childrenHaveHighlightNotificationsChanged)
+
+    /**
      * @brief Whether the local user has an invite to the room.
      *
      * False for any other state including if the local user is a member.
@@ -405,6 +412,16 @@ public:
      */
     [[nodiscard]] bool lastEventIsSpoiler() const;
 
+    /**
+     * @brief Return the notification count for the room accounting for tags and notification state.
+     *
+     * The following rules are observed:
+     *  - Rooms tagged as low priority or mentions and keywords notification state
+     *    only return the number of highlights.
+     *  - Muted rooms always return 0.
+     */
+    int contextAwareNotificationCount() const;
+
     [[nodiscard]] bool hasFileUploading() const;
     void setHasFileUploading(bool value);
 
@@ -534,6 +551,8 @@ public:
     [[nodiscard]] bool isSpace() const;
 
     qsizetype childrenNotificationCount();
+
+    bool childrenHaveHighlightNotifications() const;
 
     /**
      * @brief Add the given room as a child.
@@ -825,6 +844,7 @@ Q_SIGNALS:
     void canonicalParentChanged();
     void lastActiveTimeChanged();
     void childrenNotificationCountChanged();
+    void childrenHaveHighlightNotificationsChanged();
     void isInviteChanged();
     void readOnlyChanged();
     void displayNameChanged();

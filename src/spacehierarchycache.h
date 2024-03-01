@@ -70,6 +70,11 @@ public:
     qsizetype notificationCountForSpace(const QString &spaceId);
 
     /**
+     * @brief Whether any of the child rooms have highlight notifications.
+     */
+    bool spaceHasHighlightNotifications(const QString &spaceId);
+
+    /**
      * @brief Returns whether the room is a child space of any space.
      *
      * @note We need to do this from the hierarchy as it is not guaranteed that the

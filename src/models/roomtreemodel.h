@@ -33,8 +33,8 @@ public:
         CanonicalAliasRole, /**< The room canonical alias. */
         TopicRole, /**< The room topic. */
         CategoryRole, /**< The room category, e.g favourite. */
-        NotificationCountRole, /**< The number of notifications in the room. */
-        HighlightCountRole, /**< The number of highlighted messages in the room. */
+        ContextNotificationCountRole, /**< The context aware notification count for the room. */
+        HasHighlightNotificationsRole, /**< Whether there are any highlight notifications. */
         LastActiveTimeRole, /**< The timestamp of the last event sent in the room. */
         JoinStateRole, /**< The local user's join state in the room. */
         CurrentRoomRole, /**< The room object for the room. */

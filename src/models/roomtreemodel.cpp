@@ -127,7 +127,7 @@ void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
         refreshRoomRoles(room, {DisplayNameRole});
     });
     connect(room, &Room::unreadStatsChanged, this, [this, room] {
-        refreshRoomRoles(room, {NotificationCountRole, HighlightCountRole});
+        refreshRoomRoles(room, {ContextNotificationCountRole, HasHighlightNotificationsRole});
     });
     connect(room, &Room::avatarChanged, this, [this, room] {
         refreshRoomRoles(room, {AvatarRole});
@@ -143,6 +143,9 @@ void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
     });
     connect(room, &Room::pendingEventMerged, this, [this, room] {
         refreshRoomRoles(room, {SubtitleTextRole});
+    });
+    connect(room, &NeoChatRoom::pushNotificationStateChanged, this, [this, room] {
+        refreshRoomRoles(room, {ContextNotificationCountRole, HasHighlightNotificationsRole});
     });
 }
 
@@ -208,8 +211,8 @@ QHash<int, QByteArray> RoomTreeModel::roleNames() const
     roles[CanonicalAliasRole] = "canonicalAlias";
     roles[TopicRole] = "topic";
     roles[CategoryRole] = "category";
-    roles[NotificationCountRole] = "notificationCount";
-    roles[HighlightCountRole] = "highlightCount";
+    roles[ContextNotificationCountRole] = "contextNotificationCount";
+    roles[HasHighlightNotificationsRole] = "hasHighlightNotifications";
     roles[LastActiveTimeRole] = "lastActiveTime";
     roles[JoinStateRole] = "joinState";
     roles[CurrentRoomRole] = "currentRoom";
@@ -271,11 +274,11 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
     if (role == CategoryRole) {
         return NeoChatRoomType::typeForRoom(room);
     }
-    if (role == NotificationCountRole) {
-        return int(room->notificationCount());
+    if (role == ContextNotificationCountRole) {
+        return int(room->contextAwareNotificationCount());
     }
-    if (role == HighlightCountRole) {
-        return int(room->highlightCount());
+    if (role == HasHighlightNotificationsRole) {
+        return room->highlightCount() > 0 && room->contextAwareNotificationCount() > 0;
     }
     if (role == LastActiveTimeRole) {
         return room->lastActiveTime();

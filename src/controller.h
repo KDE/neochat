@@ -117,6 +117,7 @@ private:
 private Q_SLOTS:
     void invokeLogin();
     void setQuitOnLastWindowClosed();
+    void updateBadgeNotificationCount(NeoChatConnection *connection, int count);
 
 Q_SIGNALS:
     void errorOccured(const QString &error, const QString &detail);

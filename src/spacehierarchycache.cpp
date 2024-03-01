@@ -126,21 +126,26 @@ qsizetype SpaceHierarchyCache::notificationCountForSpace(const QString &spaceId)
 
     for (const auto &childId : children) {
         if (const auto child = static_cast<NeoChatRoom *>(m_connection->room(childId))) {
-            auto category = NeoChatRoomType::typeForRoom(child);
-            if (!added.contains(child->id()) && child->successorId().isEmpty()) {
-                switch (category) {
-                case NeoChatRoomType::Normal:
-                case NeoChatRoomType::Favorite:
-                    notifications += child->notificationCount();
-                    break;
-                default:
-                    notifications += child->highlightCount();
-                }
+            if (!added.contains(child->id())) {
+                notifications += child->contextAwareNotificationCount();
                 added += child->id();
             }
         }
     }
     return notifications;
+}
+
+bool SpaceHierarchyCache::spaceHasHighlightNotifications(const QString &spaceId)
+{
+    auto children = m_spaceHierarchy[spaceId];
+    for (const auto &childId : children) {
+        if (const auto child = static_cast<NeoChatRoom *>(m_connection->room(childId))) {
+            if (child->highlightCount() > 0) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 bool SpaceHierarchyCache::isChild(const QString &roomId) const

@@ -52,8 +52,8 @@ static const QVector<RoomTreeModel::EventRoles> activitySortPriorities{
     // Anything useful at the top, quiet rooms at the bottom
     RoomTreeModel::AttentionRole,
     // Organize by highlights, notifications, unread favorites, all other unread, in that order
-    RoomTreeModel::HighlightCountRole,
-    RoomTreeModel::NotificationCountRole,
+    RoomTreeModel::HasHighlightNotificationsRole,
+    RoomTreeModel::ContextNotificationCountRole,
     RoomTreeModel::FavouriteRole,
     // Finally sort by last activity time
     RoomTreeModel::LastActiveTimeRole,

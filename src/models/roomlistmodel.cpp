@@ -9,17 +9,7 @@
 #include "roommanager.h"
 #include "spacehierarchycache.h"
 
-#include <QDebug>
-#if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
-#ifndef Q_OS_ANDROID
-#include <QDBusConnection>
-#include <QDBusInterface>
-#include <QDBusMessage>
-#endif
-#endif
-
 #include <KLocalizedString>
-#include <QGuiApplication>
 
 using namespace Quotient;
 
@@ -28,32 +18,6 @@ Q_DECLARE_METATYPE(Quotient::JoinState)
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(this, &RoomListModel::highlightCountChanged, this, [this]() {
-#if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
-#ifndef Q_OS_ANDROID
-        // copied from Telegram desktop
-        const auto launcherUrl = "application://org.kde.neochat.desktop"_ls;
-        // Gnome requires that count is a 64bit integer
-        const qint64 counterSlice = std::min(m_highlightCount, 9999);
-        QVariantMap dbusUnityProperties;
-
-        if (counterSlice > 0) {
-            dbusUnityProperties["count"_ls] = counterSlice;
-            dbusUnityProperties["count-visible"_ls] = true;
-        } else {
-            dbusUnityProperties["count-visible"_ls] = false;
-        }
-
-        auto signal = QDBusMessage::createSignal("/com/canonical/unity/launcherentry/neochat"_ls, "com.canonical.Unity.LauncherEntry"_ls, "Update"_ls);
-
-        signal.setArguments({launcherUrl, dbusUnityProperties});
-
-        QDBusConnection::sessionBus().send(signal);
-#endif // Q_OS_ANDROID
-#else
-        qGuiApp->setBadgeNumber(m_highlightCount);
-#endif // QT_VERSION_CHECK(6, 6, 0)
-    });
     connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
         Q_EMIT dataChanged(index(0, 0), index(rowCount(), 0), {IsChildSpaceRole});
     });
@@ -122,7 +86,6 @@ void RoomListModel::doResetModel()
         doAddRoom(room);
     }
     endResetModel();
-    refreshNotificationCount();
 }
 
 NeoChatRoom *RoomListModel::roomAt(int row) const
@@ -148,7 +111,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         refresh(room, {DisplayNameRole});
     });
     connect(room, &Room::unreadStatsChanged, this, [this, room] {
-        refresh(room, {NotificationCountRole, HighlightCountRole});
+        refresh(room, {ContextNotificationCountRole, HasHighlightNotificationsRole});
     });
     connect(room, &Room::notificationCountChanged, this, [this, room] {
         refresh(room);
@@ -171,44 +134,6 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::pendingEventMerged, this, [this, room] {
         refresh(room, {SubtitleTextRole});
     });
-    connect(room, &Room::unreadStatsChanged, this, &RoomListModel::refreshNotificationCount);
-    connect(room, &Room::highlightCountChanged, this, &RoomListModel::refreshHighlightCount);
-}
-
-int RoomListModel::notificationCount() const
-{
-    return m_notificationCount;
-}
-
-int RoomListModel::highlightCount() const
-{
-    return m_highlightCount;
-}
-
-void RoomListModel::refreshNotificationCount()
-{
-    int count = 0;
-    for (auto room : std::as_const(m_rooms)) {
-        count += room->notificationCount();
-    }
-    if (m_notificationCount == count) {
-        return;
-    }
-    m_notificationCount = count;
-    Q_EMIT notificationCountChanged();
-}
-
-void RoomListModel::refreshHighlightCount()
-{
-    int count = 0;
-    for (auto room : std::as_const(m_rooms)) {
-        count += room->highlightCount();
-    }
-    if (m_highlightCount == count) {
-        return;
-    }
-    m_highlightCount = count;
-    Q_EMIT highlightCountChanged();
 }
 
 void RoomListModel::updateRoom(Room *room, Room *prev)
@@ -295,11 +220,11 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == CategoryRole) {
         return NeoChatRoomType::typeForRoom(room);
     }
-    if (role == NotificationCountRole) {
-        return room->notificationCount();
+    if (role == ContextNotificationCountRole) {
+        return room->contextAwareNotificationCount();
     }
-    if (role == HighlightCountRole) {
-        return room->highlightCount();
+    if (role == HasHighlightNotificationsRole) {
+        return room->highlightCount() > 0 && room->contextAwareNotificationCount() > 0;
     }
     if (role == LastActiveTimeRole) {
         return room->lastActiveTime();
@@ -361,8 +286,8 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[CanonicalAliasRole] = "canonicalAlias";
     roles[TopicRole] = "topic";
     roles[CategoryRole] = "category";
-    roles[NotificationCountRole] = "notificationCount";
-    roles[HighlightCountRole] = "highlightCount";
+    roles[ContextNotificationCountRole] = "contextNotificationCount";
+    roles[HasHighlightNotificationsRole] = "hasHighlightNotifications";
     roles[LastActiveTimeRole] = "lastActiveTime";
     roles[JoinStateRole] = "joinState";
     roles[CurrentRoomRole] = "currentRoom";
