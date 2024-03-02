@@ -51,6 +51,18 @@ QQC2.Menu {
         })
     }
     QQC2.MenuItem {
+        text: i18n("Open developer tools")
+        icon.name: "tools"
+        visible: Config.developerTools
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'DevtoolsPage.qml'), {
+            connection: root.connection
+        }, {
+            title: i18nc("@title:window", "Developer Tools"),
+            width: Kirigami.Units.gridUnit * 50,
+            height: Kirigami.Units.gridUnit * 42
+        })
+    }
+    QQC2.MenuItem {
         text: i18n("Logout")
         icon.name: "list-remove-user"
         onTriggered: confirmLogoutDialogComponent.createObject(applicationWindow().overlay).open()

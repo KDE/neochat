@@ -68,7 +68,7 @@ Q_SIGNALS:
     void roomChanged();
 
 private:
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room;
 
     /**
      * @brief A map from state event type to number of events of that type

@@ -39,9 +39,12 @@ ColumnLayout {
     }
     FormCard.FormHeader {
         title: i18n("Room Account Data")
+        visible: roomAccountData.count > 0
     }
     FormCard.FormCard {
+        visible: roomAccountData.count > 0
         Repeater {
+            id: roomAccountData
             model: root.room.accountDataEventTypes
             delegate: FormCard.FormButtonDelegate {
                 text: modelData
@@ -57,9 +60,12 @@ ColumnLayout {
     FormCard.FormHeader {
         id: stateEventListHeader
         title: i18n("Room State")
+        visible: roomState.count > 0
     }
     FormCard.FormCard {
+        visible: roomState.count > 0
         Repeater {
+            id: roomState
             model: StateModel {
                 id: stateModel
                 room: root.room

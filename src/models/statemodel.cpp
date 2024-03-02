@@ -39,6 +39,9 @@ void StateModel::loadState()
 {
     beginResetModel();
     m_stateEvents.clear();
+    if (!m_room) {
+        return;
+    }
     const auto keys = m_room->currentState().events().keys();
     for (const auto &[type, stateKey] : keys) {
         if (!m_stateEvents.contains(type)) {
