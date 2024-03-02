@@ -77,12 +77,14 @@ void StateKeysModel::setEventType(const QString &eventType)
     loadState();
 }
 
-QByteArray StateKeysModel::stateEventJson(const QModelIndex &index)
+QByteArray StateKeysModel::stateEventJson(const QString &type, const QString &stateKey)
 {
-    const auto row = index.row();
-    const auto event = m_stateKeys[row];
-    const auto json = event->fullJson();
-    return QJsonDocument(json).toJson();
+    return QJsonDocument(m_room->currentState().get(type, stateKey)->fullJson()).toJson();
+}
+
+QByteArray StateKeysModel::stateEventContentJson(const QString &type, const QString &stateKey)
+{
+    return QJsonDocument(m_room->currentState().get(type, stateKey)->contentJson()).toJson();
 }
 
 #include "moc_statekeysmodel.cpp"

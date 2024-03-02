@@ -10,7 +10,11 @@ StateModel::StateModel(QObject *parent)
 
 QHash<int, QByteArray> StateModel::roleNames() const
 {
-    return {{TypeRole, "type"}, {EventCountRole, "eventCount"}};
+    return {
+        {TypeRole, "type"},
+        {EventCountRole, "eventCount"},
+        {StateKeyRole, "stateKey"},
+    };
 }
 QVariant StateModel::data(const QModelIndex &index, int role) const
 {
@@ -20,6 +24,8 @@ QVariant StateModel::data(const QModelIndex &index, int role) const
         return m_stateEvents.keys()[row];
     case EventCountRole:
         return m_stateEvents.values()[row].count();
+    case StateKeyRole:
+        return m_stateEvents.values()[row][0];
     }
     return {};
 }
@@ -63,14 +69,14 @@ void StateModel::setRoom(NeoChatRoom *room)
     });
 }
 
-QByteArray StateModel::stateEventJson(const QModelIndex &index)
+QByteArray StateModel::stateEventJson(const QString &type, const QString &stateKey)
 {
-    auto row = index.row();
-    const auto type = m_stateEvents.keys()[row];
-    const auto stateKey = m_stateEvents.values()[row][0];
-    const auto event = m_room->currentState().get(type, stateKey);
+    return QJsonDocument(m_room->currentState().get(type, stateKey)->fullJson()).toJson();
+}
 
-    return QJsonDocument(event->fullJson()).toJson();
+QByteArray StateModel::stateEventContentJson(const QString &type, const QString &stateKey)
+{
+    return QJsonDocument(m_room->currentState().get(type, stateKey)->contentJson()).toJson();
 }
 
 #include "moc_statemodel.cpp"

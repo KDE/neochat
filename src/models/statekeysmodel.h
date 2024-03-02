@@ -69,7 +69,12 @@ public:
     /**
      * @brief Get the full JSON for an event.
      */
-    Q_INVOKABLE QByteArray stateEventJson(const QModelIndex &index);
+    Q_INVOKABLE QByteArray stateEventJson(const QString &type, const QString &stateKey);
+
+    /**
+     * @brief Get the content JSON for an event.
+     */
+    Q_INVOKABLE QByteArray stateEventContentJson(const QString &type, const QString &stateKey);
 
 Q_SIGNALS:
     void roomChanged();

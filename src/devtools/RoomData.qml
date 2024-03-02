@@ -74,14 +74,9 @@ ColumnLayout {
                 description: i18ncp("'Event' being some JSON data, not something physically happening.", "%1 event of this type", "%1 events of this type", model.eventCount)
                 onClicked: {
                     if (model.eventCount === 1) {
-                        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
-                            sourceText: stateModel.stateEventJson(stateModel.index(model.index, 0))
-                        }, {
-                            title: i18n("Event Source"),
-                            width: Kirigami.Units.gridUnit * 25
-                        })
+                        openEventSource(model.type, model.stateKey);
                     } else {
-                        pageStack.pushDialogLayer(stateKeysComponent, {
+                        pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'StateKeys'), {
                             room: root.room,
                             eventType: model.type
                         }, {
@@ -91,9 +86,17 @@ ColumnLayout {
                 }
             }
         }
-        Component {
-            id: stateKeysComponent
-            StateKeys {}
-        }
+    }
+    function openEventSource(type: string, stateKey: string): void {
+        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+            model: stateModel,
+            allowEdit: true,
+            room: root.room,
+            type: type,
+            stateKey: stateKey,
+        }, {
+            title: i18n("Event Source"),
+            width: Kirigami.Units.gridUnit * 25
+        });
     }
 }

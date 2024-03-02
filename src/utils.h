@@ -30,10 +30,12 @@ public:
     }
 
     Q_INVOKABLE QVariantMap getUser(Quotient::User *user) const;
+    Q_INVOKABLE bool isValidJson(const QByteArray &json);
 
 private:
     QmlUtils() = default;
 };
+
 
 namespace Utils
 {

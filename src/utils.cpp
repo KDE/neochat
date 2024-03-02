@@ -3,6 +3,8 @@
 
 #include "utils.h"
 
+#include <QJsonDocument>
+
 using namespace Quotient;
 
 static const QVariantMap emptyUser = {
@@ -40,4 +42,9 @@ QVariantMap QmlUtils::getUser(User *user) const
         {QStringLiteral("color"), Utils::getUserColor(user->hueF())},
         {QStringLiteral("object"), QVariant::fromValue(user)},
     };
+}
+
+bool QmlUtils::isValidJson(const QByteArray &json)
+{
+    return !QJsonDocument::fromJson(json).isNull();
 }
