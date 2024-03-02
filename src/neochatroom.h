@@ -659,6 +659,8 @@ public:
      * */
     Q_INVOKABLE void setCanonicalAlias(const QString &newAlias);
 
+    Q_INVOKABLE void setRoomState(const QString &type, const QString &stateKey, const QByteArray &content);
+
     PushNotificationState::State pushNotificationState() const;
     void setPushNotificationState(PushNotificationState::State state);
 

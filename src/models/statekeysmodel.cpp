@@ -82,4 +82,12 @@ QByteArray StateKeysModel::stateEventJson(const QModelIndex &index)
     return QJsonDocument(json).toJson();
 }
 
+QByteArray StateKeysModel::stateEventContentJson(const QModelIndex &index)
+{
+    const auto row = index.row();
+    const auto event = m_stateKeys[row];
+    const auto json = event->contentJson();
+    return QJsonDocument(json).toJson();
+}
+
 #include "moc_statekeysmodel.cpp"

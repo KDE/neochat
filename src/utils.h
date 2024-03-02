@@ -4,7 +4,29 @@
 #include <QColor>
 #include <QGuiApplication>
 #include <QPalette>
+#include <QQmlEngine>
 #include <QRegularExpression>
+
+class QmlUtils : public QObject
+{
+    Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
+
+public:
+    static QmlUtils &instance()
+    {
+        static QmlUtils _instance;
+        return _instance;
+    }
+    static QmlUtils *create(QQmlEngine *, QJSEngine *)
+    {
+        QQmlEngine::setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
+    }
+
+    Q_INVOKABLE bool isValidJson(const QByteArray &json);
+};
 
 namespace Utils
 {

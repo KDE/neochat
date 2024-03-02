@@ -30,6 +30,7 @@ public:
     enum Roles {
         TypeRole = 0, /**< The type of the state event. */
         EventCountRole, /**< Number of events of this type. */
+        StateKeyRole, /**<State key. Only valid if there's exactly one event of this type. */
     };
     Q_ENUM(Roles)
 
@@ -64,6 +65,11 @@ public:
      */
     Q_INVOKABLE QByteArray stateEventJson(const QModelIndex &index);
 
+    /**
+     * @brief Get the content JSON for an event.
+     */
+    Q_INVOKABLE QByteArray stateEventContentJson(const QModelIndex &index);
+
 Q_SIGNALS:
     void roomChanged();
 
@@ -71,7 +77,7 @@ private:
     QPointer<NeoChatRoom> m_room;
 
     /**
-     * @brief A map from state event type to number of events of that type
+     * @brief A map from state event type to state keys
      */
     QMap<QString, QList<QString>> m_stateEvents;
     void loadState();

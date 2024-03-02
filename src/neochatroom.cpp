@@ -1981,4 +1981,9 @@ User *NeoChatRoom::invitingUser() const
     return connection()->user(currentState().get<RoomMemberEvent>(connection()->userId())->senderId());
 }
 
+void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, const QByteArray &content)
+{
+    setState(type, stateKey, QJsonDocument::fromJson(content).object());
+}
+
 #include "moc_neochatroom.cpp"

@@ -71,6 +71,11 @@ public:
      */
     Q_INVOKABLE QByteArray stateEventJson(const QModelIndex &index);
 
+    /**
+     * @brief Get the content JSON for an event.
+     */
+    Q_INVOKABLE QByteArray stateEventContentJson(const QModelIndex &index);
+
 Q_SIGNALS:
     void roomChanged();
     void eventTypeChanged();

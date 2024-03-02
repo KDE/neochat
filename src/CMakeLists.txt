@@ -126,6 +126,7 @@ add_library(neochat STATIC
     events/pollevent.cpp
     pollhandler.cpp
     utils.h
+    utils.cpp
     registration.cpp
     neochatconnection.cpp
     neochatconnection.h
@@ -309,6 +310,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/IgnoredUsersDialog.qml
         qml/AccountData.qml
         qml/StateKeys.qml
+        qml/EditStateDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
