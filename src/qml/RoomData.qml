@@ -23,8 +23,9 @@ ColumnLayout {
         FormCard.FormComboBoxDelegate {
             id: roomComboBox
             text: i18n("Room")
-            textRole: "displayName"
+            textRole: "escapedDisplayName"
             valueRole: "roomId"
+            displayText: roomListModel.data(roomListModel.index(currentIndex, 0), RoomListModel.DisplayNameRole)
             model: RoomListModel {
                 id: roomListModel
                 connection: root.connection

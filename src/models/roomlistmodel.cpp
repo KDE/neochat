@@ -208,6 +208,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == DisplayNameRole) {
         return room->displayName();
     }
+    if (role == EscapedDisplayNameRole) {
+        return room->displayName().toHtmlEscaped();
+    }
     if (role == AvatarRole) {
         return room->avatarMediaId();
     }
@@ -282,6 +285,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[DisplayNameRole] = "displayName";
+    roles[EscapedDisplayNameRole] = "escapedDisplayName";
     roles[AvatarRole] = "avatar";
     roles[CanonicalAliasRole] = "canonicalAlias";
     roles[TopicRole] = "topic";

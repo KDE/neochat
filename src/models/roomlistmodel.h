@@ -37,6 +37,7 @@ public:
      */
     enum EventRoles {
         DisplayNameRole = Qt::DisplayRole, /**< The display name of the room. */
+        EscapedDisplayNameRole, /**< HTML-Escaped display name of the room. */
         AvatarRole, /**< The source URL for the room's avatar. */
         CanonicalAliasRole, /**< The room canonical alias. */
         TopicRole, /**< The room topic. */
