@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 00:37+0000\n"
+"POT-Creation-Date: 2024-03-02 00:37+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: src/controller.cpp:125
+#: src/controller.cpp:134
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -25,47 +25,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "새 메시지 알림 수신 중"
 
-#: src/controller.cpp:194
+#: src/controller.cpp:204
 #, kde-format
 msgid "Network Error: %1"
 msgstr "네트워크 오류: %1"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:226
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "접근 토큰을 찾을 수 없음"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:226
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "삭제되었을 수도 있습니다."
 
-#: src/controller.cpp:220
+#: src/controller.cpp:230
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "키체인 접근이 거부되었습니다."
 
-#: src/controller.cpp:220
+#: src/controller.cpp:230
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat에서 접근 토큰 사용을 허용하십시오"
 
-#: src/controller.cpp:223
+#: src/controller.cpp:233
 #, kde-format
 msgid "No keychain available."
 msgstr "키체인을 사용할 수 없습니다."
 
-#: src/controller.cpp:223
+#: src/controller.cpp:233
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "키체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모음 등이 있습니다"
 
-#: src/controller.cpp:226
+#: src/controller.cpp:236
 #, kde-format
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:315
+#: src/controller.cpp:332
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "푸시 알림 수신 중"
@@ -687,8 +687,8 @@ msgid "Sends the given message as a notice"
 msgstr "지정한 메시지를 공지로 전송"
 
 #: src/models/actionsmodel.cpp:192 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:431
-#: src/models/actionsmodel.cpp:469 src/models/actionsmodel.cpp:504
+#: src/models/actionsmodel.cpp:377 src/models/actionsmodel.cpp:421
+#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:494
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -723,8 +723,8 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 님이 대화방으로 초대됨"
 
-#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:372
-#: src/models/actionsmodel.cpp:400 src/models/actionsmodel.cpp:492
+#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:367
+#: src/models/actionsmodel.cpp:390 src/models/actionsmodel.cpp:482
 msgid "<user id>"
 msgstr "<사용자 id>"
 
@@ -787,133 +787,127 @@ msgstr "전역 표시 이름을 변경함"
 msgid "Changes your display name in this room"
 msgstr "이 대화방에서의 표시 이름을 변경함"
 
-#: src/models/actionsmodel.cpp:359
+#: src/models/actionsmodel.cpp:358
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 님은 이미 무시 중입니다."
 
-#: src/models/actionsmodel.cpp:364
+#: src/models/actionsmodel.cpp:362
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 님이 무시되었습니다."
 
-#: src/models/actionsmodel.cpp:366 src/models/actionsmodel.cpp:394
-#, kde-format
-msgctxt "<username> is not a known user"
-msgid "%1 is not a known user."
-msgstr "%1 님은 알려진 사용자가 아닙니다."
-
-#: src/models/actionsmodel.cpp:373
+#: src/models/actionsmodel.cpp:368
 msgid "Ignores the given user"
 msgstr "지정한 사용자 무시"
 
-#: src/models/actionsmodel.cpp:388
+#: src/models/actionsmodel.cpp:381
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 님은 무시 중이 아닙니다."
 
-#: src/models/actionsmodel.cpp:392
+#: src/models/actionsmodel.cpp:385
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 님이 더 이상 무시되지 않습니다."
 
-#: src/models/actionsmodel.cpp:401
+#: src/models/actionsmodel.cpp:391
 msgid "Unignores the given user"
 msgstr "지정한 사용자 무시 해제"
 
-#: src/models/actionsmodel.cpp:420
+#: src/models/actionsmodel.cpp:410
 msgid "<reaction text>"
 msgstr "<반응 텍스트>"
 
-#: src/models/actionsmodel.cpp:421
+#: src/models/actionsmodel.cpp:411
 msgid "React to the message with the given text"
 msgstr "메시지에 지정한 텍스트로 반응"
 
-#: src/models/actionsmodel.cpp:436
+#: src/models/actionsmodel.cpp:426
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 님은 이미 이 대화방에서 차단되어 있습니다."
 
-#: src/models/actionsmodel.cpp:444
+#: src/models/actionsmodel.cpp:434
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "이 대화방에서 사용자를 차단할 수 없습니다."
 
-#: src/models/actionsmodel.cpp:450
+#: src/models/actionsmodel.cpp:440
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "이 대화방에서 %1 님을 차단할 수 없습니다."
 
-#: src/models/actionsmodel.cpp:454
+#: src/models/actionsmodel.cpp:444
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 님이 이 대화방에서 차단되었습니다."
 
-#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:536
+#: src/models/actionsmodel.cpp:449 src/models/actionsmodel.cpp:526
 msgid "<user id> [<reason>]"
 msgstr "<사용자 id> [<이유>]"
 
-#: src/models/actionsmodel.cpp:460
+#: src/models/actionsmodel.cpp:450
 msgid "Bans the given user"
 msgstr "지정한 사용자 차단"
 
-#: src/models/actionsmodel.cpp:477
+#: src/models/actionsmodel.cpp:467
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "이 대화방에서 사용자를 차단 해제할 수 없습니다."
 
-#: src/models/actionsmodel.cpp:482
+#: src/models/actionsmodel.cpp:472
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 님이 이 대화방에서 차단되지 않았습니다."
 
-#: src/models/actionsmodel.cpp:486
+#: src/models/actionsmodel.cpp:476
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 님이 이 대화방에서 차단 해제되었습니다."
 
-#: src/models/actionsmodel.cpp:493
+#: src/models/actionsmodel.cpp:483
 msgid "Removes the ban of the given user"
 msgstr "지정한 사용자의 차단 해제"
 
-#: src/models/actionsmodel.cpp:508
+#: src/models/actionsmodel.cpp:498
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "자기 자신을 대화방에서 추방할 수 없습니다."
 
-#: src/models/actionsmodel.cpp:512
+#: src/models/actionsmodel.cpp:502
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 님이 이 대화방에 없습니다."
 
-#: src/models/actionsmodel.cpp:521
+#: src/models/actionsmodel.cpp:511
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "이 대화방에서 사용자를 추방할 수 없습니다."
 
-#: src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:517
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "이 대화방에서 %1 님을 추방할 수 없습니다."
 
-#: src/models/actionsmodel.cpp:531
+#: src/models/actionsmodel.cpp:521
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 님이 이 대화방에서 추방당했습니다."
 
-#: src/models/actionsmodel.cpp:537
+#: src/models/actionsmodel.cpp:527
 msgid "Removes the user from the room"
 msgstr "대화방에서 사용자 제거"
 
@@ -1131,22 +1125,22 @@ msgstr "파일이 다운로드하기에 너무 큽니다."
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/neochatconnection.cpp:258
+#: src/neochatconnection.cpp:282
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: %1"
 
-#: src/neochatconnection.cpp:290
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/neochatroom.cpp:1590 src/neochatroom.cpp:1591
+#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/neochatroom.cpp:1865 src/neochatroom.cpp:1873
+#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1746,8 +1740,8 @@ msgstr "책갈피에 추가"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:314
-#: src/qml/SpaceDrawer.qml:316
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:318
+#: src/qml/SpaceDrawer.qml:320
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -4217,19 +4211,19 @@ msgstr "알림 표시"
 msgid "Home"
 msgstr "홈"
 
-#: src/qml/SpaceDrawer.qml:146
+#: src/qml/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "친구"
 
-#: src/qml/SpaceDrawer.qml:265
+#: src/qml/SpaceDrawer.qml:269
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 입장"
 
-#: src/qml/SpaceDrawer.qml:307
+#: src/qml/SpaceDrawer.qml:311
 #, kde-format
 msgid "Create a space"
 msgstr "스페이스 만들기"
@@ -4820,6 +4814,10 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgctxt "<username> is not a known user"
+#~ msgid "%1 is not a known user."
+#~ msgstr "%1 님은 알려진 사용자가 아닙니다."
 
 #~ msgid "Show m.room.member events"
 #~ msgstr "m.room.member 이벤트 표시"

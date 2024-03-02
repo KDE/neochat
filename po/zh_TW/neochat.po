@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 00:37+0000\n"
+"POT-Creation-Date: 2024-03-02 00:37+0000\n"
 "PO-Revision-Date: 2024-03-01 06:23+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 24.04.70\n"
 
-#: src/controller.cpp:125
+#: src/controller.cpp:134
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -28,47 +28,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "正在接收新訊息的通知"
 
-#: src/controller.cpp:194
+#: src/controller.cpp:204
 #, kde-format
 msgid "Network Error: %1"
 msgstr "網路錯誤：%1"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:226
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "找不到存取權杖"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:226
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "或許它已被刪除？"
 
-#: src/controller.cpp:220
+#: src/controller.cpp:230
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "鑰匙圈存取被拒絕。"
 
-#: src/controller.cpp:220
+#: src/controller.cpp:230
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "請允許 NeoChat 讀取存取權杖"
 
-#: src/controller.cpp:223
+#: src/controller.cpp:233
 #, kde-format
 msgid "No keychain available."
 msgstr "沒有可用的鑰匙圈。"
 
-#: src/controller.cpp:223
+#: src/controller.cpp:233
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
 
-#: src/controller.cpp:226
+#: src/controller.cpp:236
 #, kde-format
 msgid "Unable to read access token"
 msgstr "無法讀取存取權杖"
 
-#: src/controller.cpp:315
+#: src/controller.cpp:332
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -688,8 +688,8 @@ msgid "Sends the given message as a notice"
 msgstr "將指定訊息作為公告傳送"
 
 #: src/models/actionsmodel.cpp:192 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:431
-#: src/models/actionsmodel.cpp:469 src/models/actionsmodel.cpp:504
+#: src/models/actionsmodel.cpp:377 src/models/actionsmodel.cpp:421
+#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:494
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -724,8 +724,8 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 已邀請到這個聊天室裡"
 
-#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:372
-#: src/models/actionsmodel.cpp:400 src/models/actionsmodel.cpp:492
+#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:367
+#: src/models/actionsmodel.cpp:390 src/models/actionsmodel.cpp:482
 msgid "<user id>"
 msgstr "<使用者 id>"
 
@@ -788,133 +788,127 @@ msgstr "變更您的全域顯示名稱"
 msgid "Changes your display name in this room"
 msgstr "變更您在這個聊天室裡的顯示名稱"
 
-#: src/models/actionsmodel.cpp:359
+#: src/models/actionsmodel.cpp:358
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 已經被忽略。"
 
-#: src/models/actionsmodel.cpp:364
+#: src/models/actionsmodel.cpp:362
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 已被忽略。"
 
-#: src/models/actionsmodel.cpp:366 src/models/actionsmodel.cpp:394
-#, kde-format
-msgctxt "<username> is not a known user"
-msgid "%1 is not a known user."
-msgstr "%1 不是一個已知的使用者。"
-
-#: src/models/actionsmodel.cpp:373
+#: src/models/actionsmodel.cpp:368
 msgid "Ignores the given user"
 msgstr "忽略指定的使用者"
 
-#: src/models/actionsmodel.cpp:388
+#: src/models/actionsmodel.cpp:381
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 並未被忽略。"
 
-#: src/models/actionsmodel.cpp:392
+#: src/models/actionsmodel.cpp:385
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 已不再被忽略。"
 
-#: src/models/actionsmodel.cpp:401
+#: src/models/actionsmodel.cpp:391
 msgid "Unignores the given user"
 msgstr "取消忽略指定的使用者"
 
-#: src/models/actionsmodel.cpp:420
+#: src/models/actionsmodel.cpp:410
 msgid "<reaction text>"
 msgstr "<反應文字>"
 
-#: src/models/actionsmodel.cpp:421
+#: src/models/actionsmodel.cpp:411
 msgid "React to the message with the given text"
 msgstr "用指定文字對訊息進行反應"
 
-#: src/models/actionsmodel.cpp:436
+#: src/models/actionsmodel.cpp:426
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 本來就已被這個聊天室封鎖。"
 
-#: src/models/actionsmodel.cpp:444
+#: src/models/actionsmodel.cpp:434
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "您不被允許從這個聊天室封鎖使用者。"
 
-#: src/models/actionsmodel.cpp:450
+#: src/models/actionsmodel.cpp:440
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "您不被允許從這個聊天室封鎖 %1。"
 
-#: src/models/actionsmodel.cpp:454
+#: src/models/actionsmodel.cpp:444
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 已被這個聊天室封鎖。"
 
-#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:536
+#: src/models/actionsmodel.cpp:449 src/models/actionsmodel.cpp:526
 msgid "<user id> [<reason>]"
 msgstr "<使用者 id> [<原因>]"
 
-#: src/models/actionsmodel.cpp:460
+#: src/models/actionsmodel.cpp:450
 msgid "Bans the given user"
 msgstr "封鎖指定的使用者"
 
-#: src/models/actionsmodel.cpp:477
+#: src/models/actionsmodel.cpp:467
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "您不被允許從這個聊天室解除封鎖使用者。"
 
-#: src/models/actionsmodel.cpp:482
+#: src/models/actionsmodel.cpp:472
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 未被從這個聊天室封鎖。"
 
-#: src/models/actionsmodel.cpp:486
+#: src/models/actionsmodel.cpp:476
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 已被這個聊天室解除封鎖。"
 
-#: src/models/actionsmodel.cpp:493
+#: src/models/actionsmodel.cpp:483
 msgid "Removes the ban of the given user"
 msgstr "解除指定使用者的封鎖"
 
-#: src/models/actionsmodel.cpp:508
+#: src/models/actionsmodel.cpp:498
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "您無法從聊天室踢出自己。"
 
-#: src/models/actionsmodel.cpp:512
+#: src/models/actionsmodel.cpp:502
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 不在這個聊天室裡。"
 
-#: src/models/actionsmodel.cpp:521
+#: src/models/actionsmodel.cpp:511
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "您不被允許從這個聊天室踢出使用者。"
 
-#: src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:517
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "您不被允許從這個聊天室踢出 %1。"
 
-#: src/models/actionsmodel.cpp:531
+#: src/models/actionsmodel.cpp:521
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 已被踢出這個聊天室。"
 
-#: src/models/actionsmodel.cpp:537
+#: src/models/actionsmodel.cpp:527
 msgid "Removes the user from the room"
 msgstr "從聊天室移除使用者"
 
@@ -1132,22 +1126,22 @@ msgstr "要下載的檔案太大了。"
 msgid "Contact your matrix server administrator for support."
 msgstr "請聯絡您的 matrix 伺服器管理員以求支援。"
 
-#: src/neochatconnection.cpp:258
+#: src/neochatconnection.cpp:282
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室建立失敗：%1"
 
-#: src/neochatconnection.cpp:290
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
 
-#: src/neochatroom.cpp:1590 src/neochatroom.cpp:1591
+#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
 #, kde-format
 msgid "Report sent successfully."
 msgstr "已成功傳送檢舉"
 
-#: src/neochatroom.cpp:1865 src/neochatroom.cpp:1873
+#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1743,8 +1737,8 @@ msgstr "加入最愛"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:314
-#: src/qml/SpaceDrawer.qml:316
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:318
+#: src/qml/SpaceDrawer.qml:320
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -4192,19 +4186,19 @@ msgstr "檢視通知"
 msgid "Home"
 msgstr "首頁"
 
-#: src/qml/SpaceDrawer.qml:146
+#: src/qml/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "好友"
 
-#: src/qml/SpaceDrawer.qml:265
+#: src/qml/SpaceDrawer.qml:269
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "加入 %1"
 
-#: src/qml/SpaceDrawer.qml:307
+#: src/qml/SpaceDrawer.qml:311
 #, kde-format
 msgid "Create a space"
 msgstr "建立一個聊天空間"
@@ -4794,6 +4788,10 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
+
+#~ msgctxt "<username> is not a known user"
+#~ msgid "%1 is not a known user."
+#~ msgstr "%1 不是一個已知的使用者。"
 
 #~ msgid "Show m.room.member events"
 #~ msgstr "顯示 m.room.member 事件"

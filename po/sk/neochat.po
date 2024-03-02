@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-29 00:37+0000\n"
+"POT-Creation-Date: 2024-03-02 00:37+0000\n"
 "PO-Revision-Date: 2024-01-23 09:01+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/controller.cpp:125
+#: src/controller.cpp:134
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt ""
@@ -25,49 +25,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Zobraziť upozornenia"
 
-#: src/controller.cpp:194
+#: src/controller.cpp:204
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Chyba siete: %1"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:226
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found"
 msgstr "Prístupový token (voliteľný)"
 
-#: src/controller.cpp:216
+#: src/controller.cpp:226
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Možno bol odstránený?"
 
-#: src/controller.cpp:220
+#: src/controller.cpp:230
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Prístup ku kľúčenke bol zamietnutý."
 
-#: src/controller.cpp:220
+#: src/controller.cpp:230
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Prosím, povoľte NeoChatu čítať prístupový token"
 
-#: src/controller.cpp:223
+#: src/controller.cpp:233
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "No keychain available."
 msgstr "Nie je dostupná žiadna kľúčenka."
 
-#: src/controller.cpp:223
+#: src/controller.cpp:233
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:226
+#: src/controller.cpp:236
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Nepodarilo sa prečítať prístupový token"
 
-#: src/controller.cpp:315
+#: src/controller.cpp:332
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Receiving push notifications"
@@ -729,8 +729,8 @@ msgid "Sends the given message as a notice"
 msgstr "Odošle danú správu zafarebnú ako dúha"
 
 #: src/models/actionsmodel.cpp:192 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:431
-#: src/models/actionsmodel.cpp:469 src/models/actionsmodel.cpp:504
+#: src/models/actionsmodel.cpp:377 src/models/actionsmodel.cpp:421
+#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:494
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -770,8 +770,8 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:372
-#: src/models/actionsmodel.cpp:400 src/models/actionsmodel.cpp:492
+#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:367
+#: src/models/actionsmodel.cpp:390 src/models/actionsmodel.cpp:482
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<user-id>"
@@ -851,157 +851,151 @@ msgstr "zmenili svoje zobrazované meno na %1"
 msgid "Changes your display name in this room"
 msgstr "zmenili svoje zobrazované meno na %1"
 
-#: src/models/actionsmodel.cpp:359
+#: src/models/actionsmodel.cpp:358
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:364
+#: src/models/actionsmodel.cpp:362
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:366 src/models/actionsmodel.cpp:394
-#, kde-format
-msgctxt "<username> is not a known user"
-msgid "%1 is not a known user."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:373
+#: src/models/actionsmodel.cpp:368
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Ignores the given user"
 msgstr "Ignorovať tohto používateľa"
 
-#: src/models/actionsmodel.cpp:388
+#: src/models/actionsmodel.cpp:381
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:392
+#: src/models/actionsmodel.cpp:385
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:401
+#: src/models/actionsmodel.cpp:391
 #, fuzzy
 #| msgid "Unignore this user"
 msgid "Unignores the given user"
 msgstr "Prestať ignorovať tohto požívateľa"
 
-#: src/models/actionsmodel.cpp:420
+#: src/models/actionsmodel.cpp:410
 msgid "<reaction text>"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:421
+#: src/models/actionsmodel.cpp:411
 #, fuzzy
 #| msgid "React to this message with a text"
 msgid "React to the message with the given text"
 msgstr "Reagovať na túto správu textom"
 
-#: src/models/actionsmodel.cpp:436
+#: src/models/actionsmodel.cpp:426
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "zakázal %1 z miestnosti: %2"
 
-#: src/models/actionsmodel.cpp:444
+#: src/models/actionsmodel.cpp:434
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are not allowed to ban users from this room."
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/models/actionsmodel.cpp:450
+#: src/models/actionsmodel.cpp:440
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/models/actionsmodel.cpp:454
+#: src/models/actionsmodel.cpp:444
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "zakázal %1 z miestnosti: %2"
 
-#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:536
+#: src/models/actionsmodel.cpp:449 src/models/actionsmodel.cpp:526
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<user-id>"
 msgid "<user id> [<reason>]"
 msgstr "<user-id>"
 
-#: src/models/actionsmodel.cpp:460
+#: src/models/actionsmodel.cpp:450
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Bans the given user"
 msgstr "Ignorovať tohto používateľa"
 
-#: src/models/actionsmodel.cpp:477
+#: src/models/actionsmodel.cpp:467
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are not allowed to unban users from this room."
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/models/actionsmodel.cpp:482
+#: src/models/actionsmodel.cpp:472
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "zakázal %1 z miestnosti: %2"
 
-#: src/models/actionsmodel.cpp:486
+#: src/models/actionsmodel.cpp:476
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "zakázal %1 z miestnosti: %2"
 
-#: src/models/actionsmodel.cpp:493
+#: src/models/actionsmodel.cpp:483
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Removes the ban of the given user"
 msgstr "Ignorovať tohto používateľa"
 
-#: src/models/actionsmodel.cpp:508
+#: src/models/actionsmodel.cpp:498
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:512
+#: src/models/actionsmodel.cpp:502
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/models/actionsmodel.cpp:521
+#: src/models/actionsmodel.cpp:511
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are not allowed to kick users from this room."
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:517
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/models/actionsmodel.cpp:531
+#: src/models/actionsmodel.cpp:521
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "zakázal %1 z miestnosti: %2"
 
-#: src/models/actionsmodel.cpp:537
+#: src/models/actionsmodel.cpp:527
 #, fuzzy
 #| msgid "invited %1 to the room"
 msgid "Removes the user from the room"
@@ -1252,25 +1246,25 @@ msgstr ""
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:258
+#: src/neochatconnection.cpp:282
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/neochatconnection.cpp:290
+#: src/neochatconnection.cpp:314
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/neochatroom.cpp:1590 src/neochatroom.cpp:1591
+#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Heslo úspešne zmenené"
 
-#: src/neochatroom.cpp:1865 src/neochatroom.cpp:1873
+#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1910,8 +1904,8 @@ msgstr "Pridať do obľúbených"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:314
-#: src/qml/SpaceDrawer.qml:316
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:318
+#: src/qml/SpaceDrawer.qml:320
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -4564,20 +4558,20 @@ msgstr "Zobraziť upozornenia"
 msgid "Home"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:146
+#: src/qml/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:265
+#: src/qml/SpaceDrawer.qml:269
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Pripojiť"
 
-#: src/qml/SpaceDrawer.qml:307
+#: src/qml/SpaceDrawer.qml:311
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Create a space"
