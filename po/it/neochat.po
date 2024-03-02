@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-21 02:23+0000\n"
+"POT-Creation-Date: 2024-03-02 02:25+0000\n"
 "PO-Revision-Date: 2024-02-16 09:14+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -648,8 +648,8 @@ msgid "Sends the given message as a notice"
 msgstr "Invia il messaggio specificato come avviso"
 
 #: src/models/actionsmodel.cpp:192 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:431
-#: src/models/actionsmodel.cpp:469 src/models/actionsmodel.cpp:504
+#: src/models/actionsmodel.cpp:377 src/models/actionsmodel.cpp:421
+#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:494
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -684,8 +684,8 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 è stato invitato in questa stanza"
 
-#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:372
-#: src/models/actionsmodel.cpp:400 src/models/actionsmodel.cpp:492
+#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:367
+#: src/models/actionsmodel.cpp:390 src/models/actionsmodel.cpp:482
 msgid "<user id>"
 msgstr "<id utente>"
 
@@ -749,135 +749,129 @@ msgstr "Modifica il nome visualizzato globale"
 msgid "Changes your display name in this room"
 msgstr "Cambia il nome visualizzato in questa stanza"
 
-#: src/models/actionsmodel.cpp:359
+#: src/models/actionsmodel.cpp:358
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 è già ignorato."
 
-#: src/models/actionsmodel.cpp:364
+#: src/models/actionsmodel.cpp:362
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 ora è ignorato."
 
-#: src/models/actionsmodel.cpp:366 src/models/actionsmodel.cpp:394
-#, kde-format
-msgctxt "<username> is not a known user"
-msgid "%1 is not a known user."
-msgstr "%1 non è un utente conosciuto."
-
-#: src/models/actionsmodel.cpp:373
+#: src/models/actionsmodel.cpp:368
 msgid "Ignores the given user"
 msgstr "Ignora l'utente specificato"
 
-#: src/models/actionsmodel.cpp:388
+#: src/models/actionsmodel.cpp:381
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 non è ignorato."
 
-#: src/models/actionsmodel.cpp:392
+#: src/models/actionsmodel.cpp:385
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 non è più ignorato."
 
-#: src/models/actionsmodel.cpp:401
+#: src/models/actionsmodel.cpp:391
 msgid "Unignores the given user"
 msgstr "Non ignorare l'utente specificato"
 
-#: src/models/actionsmodel.cpp:420
+#: src/models/actionsmodel.cpp:410
 msgid "<reaction text>"
 msgstr "<testo di reazione>"
 
-#: src/models/actionsmodel.cpp:421
+#: src/models/actionsmodel.cpp:411
 msgid "React to the message with the given text"
 msgstr "Reagisci al messaggio con il testo indicato"
 
-#: src/models/actionsmodel.cpp:436
+#: src/models/actionsmodel.cpp:426
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 è già stato bandito da questa stanza virtuale."
 
-#: src/models/actionsmodel.cpp:444
+#: src/models/actionsmodel.cpp:434
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Non sei autorizzato a bandire gli utenti da questa stanza."
 
-#: src/models/actionsmodel.cpp:450
+#: src/models/actionsmodel.cpp:440
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Non puoi bandire %1 da questa stanza virtuale."
 
-#: src/models/actionsmodel.cpp:454
+#: src/models/actionsmodel.cpp:444
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 è stato bandito da questa stanza."
 
-#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:536
+#: src/models/actionsmodel.cpp:449 src/models/actionsmodel.cpp:526
 msgid "<user id> [<reason>]"
 msgstr "<id utente> [<motivo>]"
 
-#: src/models/actionsmodel.cpp:460
+#: src/models/actionsmodel.cpp:450
 msgid "Bans the given user"
 msgstr "Bandisce l'utente specificato"
 
-#: src/models/actionsmodel.cpp:477
+#: src/models/actionsmodel.cpp:467
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr ""
 "Non sei autorizzato a rimuovere il bando degli utenti da questa stanza "
 "virtuale."
 
-#: src/models/actionsmodel.cpp:482
+#: src/models/actionsmodel.cpp:472
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 non è stato bandito da questa stanza virtuale."
 
-#: src/models/actionsmodel.cpp:486
+#: src/models/actionsmodel.cpp:476
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "Il bando per %1 è stato rimosso da questa stanza virtuale."
 
-#: src/models/actionsmodel.cpp:493
+#: src/models/actionsmodel.cpp:483
 msgid "Removes the ban of the given user"
 msgstr "Rimuove il bando dell'utente specificato"
 
-#: src/models/actionsmodel.cpp:508
+#: src/models/actionsmodel.cpp:498
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Non puoi espellerti dalla stanza."
 
-#: src/models/actionsmodel.cpp:512
+#: src/models/actionsmodel.cpp:502
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 non è in questa stanza."
 
-#: src/models/actionsmodel.cpp:521
+#: src/models/actionsmodel.cpp:511
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Non ti è consentito espellere gli utenti da questa stanza."
 
-#: src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:517
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Non puoi espellere %1 da questa stanza virtuale."
 
-#: src/models/actionsmodel.cpp:531
+#: src/models/actionsmodel.cpp:521
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 è stato espulso da questa stanza."
 
-#: src/models/actionsmodel.cpp:537
+#: src/models/actionsmodel.cpp:527
 msgid "Removes the user from the room"
 msgstr "Rimuove l'utente dalla stanza"
 
@@ -4664,6 +4658,10 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Esci"
+
+#~ msgctxt "<username> is not a known user"
+#~ msgid "%1 is not a known user."
+#~ msgstr "%1 non è un utente conosciuto."
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr "Accesso non riuscito: token di accesso non valido o revocato"
