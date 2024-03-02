@@ -260,7 +260,10 @@ QVariantList NeoChatRoom::getUsersTyping() const
     auto users = usersTyping();
     users.removeAll(localUser());
     QVariantList userVariants;
-    for (User *user : users) {
+    for (const auto &user : users) {
+        if (connection()->isIgnored(user->id())) {
+            continue;
+        }
         userVariants.append(QVariantMap{
             {"id"_ls, user->id()},
             {"avatarMediaId"_ls, user->avatarMediaId(this)},
