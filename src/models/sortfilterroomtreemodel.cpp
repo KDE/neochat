@@ -119,19 +119,25 @@ QString SortFilterRoomTreeModel::filterText() const
 
 bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
+    // root node
     if (!source_parent.isValid()) {
-        if (sourceModel()->data(sourceModel()->index(source_row, 0), RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::Search
-            && NeoChatConfig::collapsed()) {
+        return true;
+    }
+
+    const QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
+    if (!index.isValid()) {
+        qWarning() << source_row << source_parent << sourceModel()->rowCount(source_parent);
+    }
+
+    if (sourceModel()->data(index, RoomTreeModel::IsCategoryRole).toBool()) {
+        if (sourceModel()->data(index, RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::Search && NeoChatConfig::collapsed()) {
             return true;
         }
-        if (sourceModel()->data(sourceModel()->index(source_row, 0), RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::AddDirect
-            && m_mode == DirectChats) {
+        if (sourceModel()->data(index, RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::AddDirect && m_mode == DirectChats) {
             return true;
         }
         return false;
     }
-
-    QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
 
     bool acceptRoom = sourceModel()->data(index, RoomTreeModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
         && sourceModel()->data(index, RoomTreeModel::IsSpaceRole).toBool() == false;

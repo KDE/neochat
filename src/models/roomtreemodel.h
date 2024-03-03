@@ -21,7 +21,7 @@ class TreeItem
 public:
     using TreeData = std::variant<NeoChatRoom *, NeoChatRoomType::Types>;
 
-    explicit TreeItem(TreeData data, TreeItem *parentItem = nullptr);
+    explicit TreeItem(TreeData data, TreeItem *parentItem);
 
     TreeItem *child(int row);
     int childCount() const;
@@ -74,6 +74,7 @@ public:
         IconRole,
         AttentionRole, /**< Whether there are any notifications. */
         FavouriteRole, /**< Whether the room is favourited. */
+        IsCategoryRole, /**< Whether the item in the model is a category */
     };
     Q_ENUM(EventRoles)
     explicit RoomTreeModel(QObject *parent = nullptr);

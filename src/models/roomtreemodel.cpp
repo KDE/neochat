@@ -83,6 +83,8 @@ QVariant TreeItem::data(int role) const
     if (std::holds_alternative<NeoChatRoomType::Types>(m_treeData)) {
         const auto row = this->row();
         switch (role) {
+        case RoomTreeModel::IsCategoryRole:
+            return true;
         case RoomTreeModel::DisplayNameRole:
             return NeoChatRoomType::typeName(row);
         case RoomTreeModel::DelegateTypeRole:
@@ -105,6 +107,8 @@ QVariant TreeItem::data(int role) const
     const auto room = std::get<NeoChatRoom *>(m_treeData);
 
     switch (role) {
+    case RoomTreeModel::IsCategoryRole:
+        return false;
     case RoomTreeModel::DisplayNameRole:
         return room->displayName();
     case RoomTreeModel::AvatarRole:
@@ -187,7 +191,7 @@ RoomTreeModel::RoomTreeModel(QObject *parent)
 
 void RoomTreeModel::initializeCategories()
 {
-    m_rootItem.reset(new TreeItem(nullptr));
+    m_rootItem.reset(new TreeItem(nullptr, nullptr));
     for (int i = 0; i < NeoChatRoomType::TypesCount; i++) {
         m_rootItem->appendChild(std::make_unique<TreeItem>(NeoChatRoomType::Types(i), m_rootItem.get()));
     }
@@ -239,8 +243,7 @@ void RoomTreeModel::newRoom(Room *r)
 
     auto categoryItem = m_rootItem->child(type);
     beginInsertRows(index(type, 0), categoryItem->childCount(), categoryItem->childCount());
-    categoryItem->appendChild(std::make_unique<TreeItem>(room));
-    qWarning() << "append" << index(type, 0) << categoryItem->childCount();
+    categoryItem->appendChild(std::make_unique<TreeItem>(room, categoryItem));
     connectRoomSignals(room);
     endInsertRows();
 }
@@ -299,17 +302,22 @@ void RoomTreeModel::moveRoom(Quotient::Room *room)
     auto newParentItem = getItem(newParent);
     Q_ASSERT(newParentItem);
 
+    qWarning() << "Moving" << room << "from" << oldType << "row" << oldRow << "to" << newType << "row" << newParentItem->childCount();
+
     // HACK: We're doing this as a remove then insert because  moving doesn't work
     // properly with DelegateChooser for whatever reason.
 
+    Q_ASSERT(checkIndex(index(oldRow, 0, oldParent), QAbstractItemModel::CheckIndexOption::IndexIsValid));
     beginRemoveRows(oldParent, oldRow, oldRow);
     const bool success = oldParentItem->removeChildren(oldRow, 1);
     Q_ASSERT(success);
     endRemoveRows();
 
     beginInsertRows(newParent, newParentItem->childCount(), newParentItem->childCount());
-    newParentItem->appendChild(std::make_unique<TreeItem>(neochatRoom));
+    newParentItem->appendChild(std::make_unique<TreeItem>(neochatRoom, newParentItem));
     endInsertRows();
+
+    // Q_ASSERT(checkIndex(index(newParentItem->childCount() - 1, 0, newParent), QAbstractItemModel::CheckIndexOption::IndexIsValid));
 }
 
 void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
@@ -358,8 +366,8 @@ NeoChatConnection *RoomTreeModel::connection() const
 
 int RoomTreeModel::columnCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
-    return 1;
+    const TreeItem *parentItem = getItem(parent);
+    return parentItem ? 1 : 0;
 }
 
 int RoomTreeModel::rowCount(const QModelIndex &parent) const
@@ -370,17 +378,15 @@ int RoomTreeModel::rowCount(const QModelIndex &parent) const
 
 QModelIndex RoomTreeModel::parent(const QModelIndex &index) const
 {
-    qWarning() << "getting parent from" << index;
     if (!index.isValid()) {
         return {};
     }
 
     TreeItem *childItem = getItem(index);
-    TreeItem *parentItem = childItem ? childItem->parentItem() : nullptr;
+    Q_ASSERT(childItem);
+    TreeItem *parentItem = childItem->parentItem();
 
-    qWarning() << parentItem << m_rootItem.get();
-
-    return (parentItem != m_rootItem.get() && parentItem != nullptr) ? createIndex(parentItem->row(), 0, parentItem) : QModelIndex{};
+    return parentItem != m_rootItem.get() ? createIndex(parentItem->row(), 0, parentItem) : QModelIndex{};
 }
 
 QModelIndex RoomTreeModel::index(int row, int column, const QModelIndex &parent) const
@@ -426,7 +432,11 @@ QHash<int, QByteArray> RoomTreeModel::roleNames() const
 // TODO room type changes
 QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
 {
-    Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid));
+    if (!checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid)) {
+        qWarning() << index.row() << rowCount(index.parent());
+        Q_ASSERT(false);
+        return {};
+    }
 
     return getItem(index)->data(role);
 }
