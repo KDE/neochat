@@ -425,10 +425,12 @@ Kirigami.ApplicationWindow {
 
         z: 20
         x: 0
+        Accessible.ignored: true
         y: parent.height - implicitHeight
         contentItem: QQC2.Label {
             id: linkText
             text: parent.text.startsWith("https://matrix.to/") ? "" : parent.text
+            Accessible.description: i18nc("@info screenreader", "The currently selected link")
         }
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         background: Rectangle {
