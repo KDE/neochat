@@ -240,6 +240,8 @@ void MessageContentModel::updateComponents(bool isEditing)
 
     if (isEditing) {
         m_components += MessageComponent{MessageComponentType::Edit, QString(), {}};
+    } else if (m_event->isRedacted()) {
+        m_components += MessageComponent{MessageComponentType::Text, QString(), {}};
     } else {
         if (eventHandler.messageComponentType() == MessageComponentType::Text) {
             const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
