@@ -136,7 +136,11 @@ Kirigami.Page {
                     if (root.spaceChanging) {
                         treeView.expandRecursively();
                         if (spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) {
-                            RoomManager.resolveResource(treeView.itemAtIndex(treeView.index(1, 0)).currentRoom.id);
+                            const item = treeView.itemAtIndex(treeView.index(1, 0))
+                            if (!item) {
+                                return;
+                            }
+                            RoomManager.resolveResource(item.currentRoom.id);
                         }
                         root.spaceChanging = false;
                     }
