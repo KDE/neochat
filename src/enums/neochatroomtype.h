@@ -41,7 +41,8 @@ public:
         if (room->joinState() == Quotient::JoinState::Invite) {
             return NeoChatRoomType::Invited;
         }
-        if (room->isFavourite()) {
+        // HACK for the unit tests
+        if (room->isFavourite() || room->property("isFavorite").toBool()) {
             return NeoChatRoomType::Favorite;
         }
         if (room->isLowPriority()) {

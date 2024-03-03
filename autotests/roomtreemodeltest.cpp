@@ -6,6 +6,7 @@
 
 #include "enums/neochatroomtype.h"
 #include "models/roomtreemodel.h"
+#include "models/sortfilterroomtreemodel.h"
 #include "neochatconnection.h"
 #include "testutils.h"
 
@@ -30,12 +31,18 @@ void RoomTreeModelTest::testTreeModel()
 
     RoomTreeModel model;
     model.setConnection(connection);
+
+    SortFilterRoomTreeModel filterModel;
+    filterModel.setSourceModel(&model);
+
     QAbstractItemModelTester tester(&model);
+    QAbstractItemModelTester testerFilter(&filterModel);
 
     QCOMPARE(model.rowCount(), static_cast<int>(NeoChatRoomType::TypesCount));
 
     // Check data category
     auto category = static_cast<int>(NeoChatRoomType::typeForRoom(room));
+    QCOMPARE(category, NeoChatRoomType::Normal);
     auto normalCategoryIdx = model.index(category, 0);
     QCOMPARE(model.data(normalCategoryIdx, RoomTreeModel::DisplayNameRole).toString(), QStringLiteral("Normal"));
     QCOMPARE(model.data(normalCategoryIdx, RoomTreeModel::DelegateTypeRole).toString(), QStringLiteral("section"));
@@ -48,7 +55,14 @@ void RoomTreeModelTest::testTreeModel()
     QCOMPARE(model.data(roomIdx, RoomTreeModel::CurrentRoomRole).value<NeoChatRoom *>(), room);
     QCOMPARE(model.data(roomIdx, RoomTreeModel::CategoryRole).toInt(), category);
 
-    QVERIFY(false);
+    // Move room
+    room->setProperty("isFavorite", true);
+    model.moveRoom(room);
+
+    auto newCategory = static_cast<int>(NeoChatRoomType::typeForRoom(room));
+    QCOMPARE(newCategory, NeoChatRoomType::Favorite);
+    auto newCategoryIdx = model.index(newCategory, 0);
+    QVERIFY(newCategoryIdx != normalCategoryIdx);
 }
 
 QTEST_MAIN(RoomTreeModelTest)

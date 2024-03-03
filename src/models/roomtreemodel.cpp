@@ -44,6 +44,7 @@ bool TreeItem::removeChildren(int position, int count)
 
     for (int row = 0; row < count; ++row) {
         m_childItems.erase(m_childItems.cbegin() + position);
+        qWarning() << "removing" << position;
     }
 
     return true;
@@ -246,6 +247,7 @@ void RoomTreeModel::newRoom(Room *r)
     categoryItem->appendChild(std::make_unique<TreeItem>(room, categoryItem));
     connectRoomSignals(room);
     endInsertRows();
+    qWarning() << "adding room" << type << "new count" << categoryItem->childCount();
 }
 
 void RoomTreeModel::leftRoom(Room *r)
@@ -301,8 +303,6 @@ void RoomTreeModel::moveRoom(Quotient::Room *room)
     const auto newParent = index(newType, 0, {});
     auto newParentItem = getItem(newParent);
     Q_ASSERT(newParentItem);
-
-    qWarning() << "Moving" << room << "from" << oldType << "row" << oldRow << "to" << newType << "row" << newParentItem->childCount();
 
     // HACK: We're doing this as a remove then insert because  moving doesn't work
     // properly with DelegateChooser for whatever reason.

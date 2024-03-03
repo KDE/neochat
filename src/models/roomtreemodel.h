@@ -15,6 +15,7 @@ class Room;
 
 class NeoChatConnection;
 class NeoChatRoom;
+class RoomTreeModelTest;
 
 class TreeItem
 {
@@ -122,4 +123,6 @@ private:
     void refreshRoomRoles(NeoChatRoom *room, const QList<int> &roles = {});
 
     std::unique_ptr<TreeItem> m_rootItem;
+
+    friend RoomTreeModelTest;
 };

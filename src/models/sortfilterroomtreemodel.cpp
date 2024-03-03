@@ -127,6 +127,7 @@ bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex
     const QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
     if (!index.isValid()) {
         qWarning() << source_row << source_parent << sourceModel()->rowCount(source_parent);
+        return true;
     }
 
     if (sourceModel()->data(index, RoomTreeModel::IsCategoryRole).toBool()) {
