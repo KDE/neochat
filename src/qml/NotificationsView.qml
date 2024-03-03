@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
         }
 
         footer: Kirigami.PlaceholderMessage {
-            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width
             text: i18n("Loading…")
             visible: notificationsModel.nextToken.length > 0 && listView.count > 0
         }
