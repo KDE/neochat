@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:37+0000\n"
+"POT-Creation-Date: 2024-03-03 00:38+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1166,12 +1166,12 @@ msgstr "Feil ved romregistrering: %1"
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
+#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
+#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1414,7 +1414,19 @@ msgstr "Set opp"
 msgid "Devices"
 msgstr "Einingar"
 
-#: src/qml/AccountMenu.qml:54 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#, kde-format
+msgid "Open developer tools"
+msgstr "Opna utviklarverktøy"
+
+#: src/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "Utviklarverktøy"
+
+#: src/qml/AccountMenu.qml:66 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Logg ut"
@@ -3199,8 +3211,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Avbryt redigering"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
-#: src/qml/RoomData.qml:76
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
+#: src/qml/RoomData.qml:83
 #, kde-format
 msgid "Event Source"
 msgstr "Hendingskjelde"
@@ -3639,22 +3651,22 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr ""
 
-#: src/qml/RoomData.qml:37
+#: src/qml/RoomData.qml:38
 #, kde-format
 msgid "Room Id: %1"
 msgstr ""
 
-#: src/qml/RoomData.qml:41
+#: src/qml/RoomData.qml:42
 #, kde-format
 msgid "Room Account Data"
 msgstr ""
 
-#: src/qml/RoomData.qml:59
+#: src/qml/RoomData.qml:63
 #, kde-format
 msgid "Room State"
 msgstr ""
 
-#: src/qml/RoomData.qml:70
+#: src/qml/RoomData.qml:77
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -3662,7 +3674,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/qml/RoomData.qml:84
+#: src/qml/RoomData.qml:91
 #, fuzzy, kde-format
 #| msgid "Server Information"
 msgctxt "'Event' being some JSON data, not something physically happening."
@@ -3718,11 +3730,6 @@ msgstr ""
 #, kde-format
 msgid "Options"
 msgstr "Handlingar"
-
-#: src/qml/RoomInformation.qml:79
-#, kde-format
-msgid "Open developer tools"
-msgstr "Opna utviklarverktøy"
 
 #: src/qml/RoomInformation.qml:98
 #, kde-format
@@ -4483,22 +4490,22 @@ msgid ""
 "this point."
 msgstr ""
 
-#: src/qml/TimelineView.qml:179
+#: src/qml/TimelineView.qml:200
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Gå til første ulesne melding"
 
-#: src/qml/TimelineView.qml:202
+#: src/qml/TimelineView.qml:223
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Gå til nyaste melding"
 
-#: src/qml/TimelineView.qml:227
+#: src/qml/TimelineView.qml:248
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Dra element her for å dela dei"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:255
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

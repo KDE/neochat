@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:37+0000\n"
-"PO-Revision-Date: 2024-02-24 16:54+0100\n"
+"POT-Creation-Date: 2024-03-03 00:38+0000\n"
+"PO-Revision-Date: 2024-03-02 13:43+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -228,12 +228,12 @@ msgstr "zbanował %1 w tym pokoju"
 #: src/eventhandler.cpp:381
 #, kde-format
 msgid "banned %1 from the room: %2"
-msgstr "zbanował(a) %1 z pokoju: %2"
+msgstr "zbanował %1 w pokoju: %2"
 
 #: src/eventhandler.cpp:384 src/eventhandler.cpp:560
 #, kde-format
 msgid "self-banned from the room"
-msgstr "samozbanowany(a) z pokoju"
+msgstr "samozbanowany w pokoju"
 
 #: src/eventhandler.cpp:388 src/eventhandler.cpp:563
 #, kde-format
@@ -393,7 +393,7 @@ msgstr "umieścił(a) użytkownika poza pokojem"
 #: src/eventhandler.cpp:558
 #, kde-format
 msgid "banned a user from the room"
-msgstr "zbanował(a) użytkownika w tym pokoju"
+msgstr "zbanował użytkownika w tym pokoju"
 
 #: src/eventhandler.cpp:570
 #, kde-format
@@ -1074,12 +1074,12 @@ msgstr "Wiadomości zawierające moją wyświetlaną nazwę"
 #: src/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr "Wiadomości, które wspominają moje ID Matriksa"
+msgstr "Wiadomości, które wzmiankują moje ID Matriksa"
 
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr "Wiadomości, które wspominają pokój"
+msgstr "Wiadomości, które wzmiankują o pokoju"
 
 #: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
@@ -1145,12 +1145,12 @@ msgstr "Nie udało się utworzyć pokoju: %1"
 msgid "Space creation failed: %1"
 msgstr "Nie udało się utworzyć przestrzeni: %1"
 
-#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
+#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
 
-#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
+#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1208,7 +1208,7 @@ msgstr "Odrzuć"
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
-msgstr "Odrzuć lub pomijaj użytkownika"
+msgstr "Odrzuć lub wycisz użytkownika"
 
 #: src/notificationsmanager.cpp:319
 #, kde-format
@@ -1233,15 +1233,13 @@ msgid "About KDE"
 msgstr "O KDE"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Dane konta pokoju"
+msgstr "Dane konta"
 
 #: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Źródło wydarzenia"
@@ -1249,12 +1247,12 @@ msgstr "Źródło wydarzenia"
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
 msgid "Edit Account"
-msgstr "Edytuj konto"
+msgstr "Dostosowywanie konta"
 
 #: src/qml/AccountEditorPage.qml:60
 #, kde-format
 msgid "Upload new avatar"
-msgstr "Wyślij nowy awatar"
+msgstr "Ustaw nowy awatar"
 
 #: src/qml/AccountEditorPage.qml:77
 #, kde-format
@@ -1307,7 +1305,7 @@ msgstr "Nowe hasło:"
 #: src/qml/AccountEditorPage.qml:158
 #, kde-format
 msgid "Confirm new Password:"
-msgstr "Potwierdź nowe hasło:"
+msgstr "Nowe hasło jeszcze raz:"
 
 #: src/qml/AccountEditorPage.qml:163
 #, kde-format
@@ -1389,7 +1387,19 @@ msgstr "Ustawienia"
 msgid "Devices"
 msgstr "Urządzenia"
 
-#: src/qml/AccountMenu.qml:54 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#, kde-format
+msgid "Open developer tools"
+msgstr "Otwórz narzędzia programisty"
+
+#: src/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "Narzędzia programisty"
+
+#: src/qml/AccountMenu.qml:66 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Wyloguj"
@@ -1434,7 +1444,7 @@ msgstr "Użyj zwartego spisu pokojów"
 #: src/qml/AppearanceSettingsPage.qml:233
 #, kde-format
 msgid "Show fancy effects in chat"
-msgstr "Pokaż ciekawe efekty w rozmowie"
+msgstr "Pokaż ładne efekty w oknie rozmowy"
 
 #: src/qml/AppearanceSettingsPage.qml:250
 #, kde-format
@@ -1459,7 +1469,7 @@ msgstr "Pokaż swoje wiadomości po prawej"
 #: src/qml/AppearanceSettingsPage.qml:323
 #, kde-format
 msgid "Show links preview in the chat messages"
-msgstr "Pokaż podglądy odnośników w wiadomościach rozmowy"
+msgstr "Pokaż podglądy odnośników w wiadomościach"
 
 #: src/qml/AppearanceSettingsPage.qml:333
 #, kde-format
@@ -1469,7 +1479,7 @@ msgstr "Pokaż awatar"
 #: src/qml/AppearanceSettingsPage.qml:337
 #, kde-format
 msgid "In chat"
-msgstr "W rozmowie"
+msgstr "W oknie rozmowy"
 
 #: src/qml/AppearanceSettingsPage.qml:347
 #, kde-format
@@ -1644,7 +1654,7 @@ msgstr "Anuluj"
 #: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
 #, kde-format
 msgid "Sign out"
-msgstr "Wypisz"
+msgstr "Wyjdź"
 
 #: src/qml/ConfirmLogoutDialog.qml:21
 #, kde-format
@@ -1657,14 +1667,12 @@ msgid "Open in New Window"
 msgstr "Otwórz w nowym oknie"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "Usuń z ulubionych"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "Dodaj do ulubionych"
 
@@ -1699,7 +1707,7 @@ msgstr "Skopiuj adres do schowka"
 #: src/qml/ContextMenu.qml:72
 #, kde-format
 msgid "Notification State"
-msgstr "Stan powiadomienia"
+msgstr "Zakres powiadamiania"
 
 #: src/qml/ContextMenu.qml:76
 #, kde-format
@@ -1890,7 +1898,7 @@ msgstr "Zgłoś wiadomość"
 #: src/qml/DelegateContextMenu.qml:169
 #, kde-format
 msgid "Search for '%1'"
-msgstr "Znajdź '%1'"
+msgstr "Poszukaj '%1'"
 
 #: src/qml/DelegateContextMenu.qml:190
 #, kde-format
@@ -1986,14 +1994,13 @@ msgstr "Usuń"
 #: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:89
 #, kde-format
 msgid "Developer Tools"
-msgstr "Narzędzia programistów"
+msgstr "Narzędzia programisty"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Dane konta pokoju"
+msgstr "Dane konta"
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
@@ -2202,7 +2209,7 @@ msgstr "Przeglądaj pokoje"
 #: src/qml/RoomListPage.qml:204 src/qml/RoomListPage.qml:253
 #, kde-format
 msgid "Find your friends"
-msgstr "Znajdź swoich znajomych"
+msgstr "Poszukaj swoich znajomych"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
 #: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:212
@@ -2210,7 +2217,7 @@ msgstr "Znajdź swoich znajomych"
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
-msgstr "Znajdź swoich znajomych"
+msgstr "Poszukaj swoich znajomych"
 
 #: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
@@ -2236,7 +2243,7 @@ msgstr "Utwórz nowy"
 #, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
-msgstr "Przeglądaj pokoje"
+msgstr "Przegląd pokojów"
 
 #: src/qml/ExploreRoomsPage.qml:73
 #, kde-format
@@ -2246,7 +2253,7 @@ msgstr "Wpisz adres pokoju"
 #: src/qml/ExploreRoomsPage.qml:87
 #, kde-format
 msgid "Find a room…"
-msgstr "Znajdź pokój…"
+msgstr "Poszukaj pokoju…"
 
 #: src/qml/ExploreRoomsPage.qml:88
 #, kde-format
@@ -2374,7 +2381,7 @@ msgstr "Uaktualnij pokój"
 #: src/qml/General.qml:163
 #, kde-format
 msgid "Aliases"
-msgstr "Aliasy"
+msgstr "Inne nazwy"
 
 #: src/qml/General.qml:168
 #, kde-format
@@ -2519,24 +2526,21 @@ msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "Sam ukryj/odkryj szczegóły pokoju przy zmienianiu rozmiaru okna"
 
 #: src/qml/GeneralSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "<room alias or id>"
+#, kde-format
 msgid "Room list sort order"
-msgstr "<alias lub id pokoju>"
+msgstr "Porządek szeregowania wykazu pokojów"
 
 #: src/qml/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "'Activities' is a category of emoji"
-#| msgid "Activities"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
-msgstr "Aktywności"
+msgstr "Ruch"
 
 #: src/qml/GeneralSettingsPage.qml:82
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alfabetycznie"
 
 #: src/qml/GeneralSettingsPage.qml:92
 #, kde-format
@@ -2556,7 +2560,7 @@ msgstr "Pokaż stany zdarzeń"
 #: src/qml/GeneralSettingsPage.qml:131
 #, kde-format
 msgid "Show leave and join events"
-msgstr "Pokaż dołączenia i opuszczania"
+msgstr "Pokaż, gdy ktoś dołączy lub opuści"
 
 #: src/qml/GeneralSettingsPage.qml:149
 #, kde-format
@@ -2577,7 +2581,9 @@ msgstr "Edytor"
 #: src/qml/GeneralSettingsPage.qml:182
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
-msgstr "Użyj składni s/tekst/zastąpienie do zmiany swojej ostatniej wiadomości"
+msgstr ""
+"Użyj składni \"s/tekst do zastąpienia/tekst zastępujący\" do zmieniania "
+"swojej ostatniej wiadomości"
 
 #: src/qml/GeneralSettingsPage.qml:196
 #, kde-format
@@ -2592,7 +2598,7 @@ msgstr "Ustawienia programisty"
 #: src/qml/GeneralSettingsPage.qml:210
 #, kde-format
 msgid "Enable developer tools"
-msgstr "Włącz narzędzia programistów"
+msgstr "Włącz narzędzia programisty"
 
 #: src/qml/GlobalMenu.qml:20
 #, kde-format
@@ -2627,7 +2633,7 @@ msgstr "Plik"
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
-msgstr "Znajdź swoich znajomych"
+msgstr "Poszukaj swoich znajomych"
 
 #: src/qml/GlobalMenu.qml:59
 #, kde-format
@@ -2715,7 +2721,7 @@ msgstr "Powiadomienia pokoju"
 #: src/qml/GlobalNotificationsPage.qml:56
 #, kde-format
 msgid "@Mentions"
-msgstr "@Wspomnienia"
+msgstr "@Wzmianki"
 
 #: src/qml/GlobalNotificationsPage.qml:73 src/qml/PushNotification.qml:65
 #, kde-format
@@ -2778,31 +2784,28 @@ msgid "Reply in Thread"
 msgstr "Odpowiedz w wątku"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Wycisz tego użytkownika"
+msgstr "Pomijani użytkownicy"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Wycisz tego użytkownika"
+msgstr "Pomijani użytkownicy"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "Nie pomijasz żadnego użytkownika"
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr "Usuń wyciszenie tego użytkownika"
+msgstr "Nie pomijaj tego użytkownika"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2864,7 +2867,7 @@ msgstr "Czy przyjąć to zaproszenie?"
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr "Odrzuć i pomijaj użytkownika"
+msgstr "Odrzuć i wycisz użytkownika"
 
 #: src/qml/InvitationView.qml:30
 #, kde-format
@@ -2884,7 +2887,7 @@ msgstr "Zaproś użytkownika"
 #: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
-msgstr "Znajdź użytkownika…"
+msgstr "Poszukaj użytkownika…"
 
 #: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
 #, kde-format
@@ -3149,8 +3152,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Anuluj edytowanie"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
-#: src/qml/RoomData.qml:76
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
+#: src/qml/RoomData.qml:83
 #, kde-format
 msgid "Event Source"
 msgstr "Źródło wydarzenia"
@@ -3163,7 +3166,7 @@ msgstr "Pośrednik sieciowy"
 #: src/qml/NetworkProxyPage.qml:26
 #, kde-format
 msgid "System Default"
-msgstr "Domyślne systemowe"
+msgstr "Domyślny systemowy"
 
 #: src/qml/NetworkProxyPage.qml:34
 #, kde-format
@@ -3580,36 +3583,35 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Wybierz pokój"
 
-#: src/qml/RoomData.qml:37
+#: src/qml/RoomData.qml:38
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Id pokoju: %1"
 
-#: src/qml/RoomData.qml:41
+#: src/qml/RoomData.qml:42
 #, kde-format
 msgid "Room Account Data"
 msgstr "Dane konta pokoju"
 
-#: src/qml/RoomData.qml:59
+#: src/qml/RoomData.qml:63
 #, kde-format
 msgid "Room State"
 msgstr "Stan pokoju"
 
-#: src/qml/RoomData.qml:70
+#: src/qml/RoomData.qml:77
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 zdarzenie tego rodzaju"
+msgstr[1] "%1 zdarzenia tego rodzaju"
+msgstr[2] "%1 zdarzeń tego rodzaju"
 
-#: src/qml/RoomData.qml:84
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#: src/qml/RoomData.qml:91
+#, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
-msgstr "Szczegóły serwera"
+msgstr "Szczegóły zdarzenia"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3657,11 +3659,6 @@ msgstr "Informacje o pokoju"
 #, kde-format
 msgid "Options"
 msgstr "Ustawienia"
-
-#: src/qml/RoomInformation.qml:79
-#, kde-format
-msgid "Open developer tools"
-msgstr "Otwórz narzędzia programistów"
 
 #: src/qml/RoomInformation.qml:98
 #, kde-format
@@ -3776,7 +3773,7 @@ msgstr "Poszukaj wiadomości"
 #: src/qml/RoomSearchPage.qml:36
 #, kde-format
 msgid "Find messages…"
-msgstr "Znajdź wiadomości…"
+msgstr "Poszukaj wiadomości…"
 
 #: src/qml/RoomSearchPage.qml:37
 #, kde-format
@@ -3972,19 +3969,16 @@ msgid "Device id"
 msgstr "ID urządzenia"
 
 #: src/qml/Security.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "Odrzuć i pomijaj użytkownika"
+msgstr "Zarządzaj pomijaniem użytkowników"
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Wycisz tego użytkownika"
+msgstr "Pomijani użytkownicy"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4135,8 +4129,7 @@ msgid "Share the selected media"
 msgstr "Udostępnij zaznaczone treści"
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
 msgstr "Udostępnij"
@@ -4160,7 +4153,7 @@ msgstr "Sprawdzanie pisowni"
 #: src/qml/SonnetConfigPage.qml:27
 #, kde-format
 msgid "Enable automatic spell checking"
-msgstr "Samoczynnie sprawdzaj pisownię"
+msgstr "Sam sprawdzaj pisownię"
 
 #: src/qml/SonnetConfigPage.qml:42
 #, kde-format
@@ -4371,7 +4364,7 @@ msgctxt ""
 "The name of one instance of a state of configuration. Unless you really know "
 "what you're doing, best leave this untranslated."
 msgid "State Keys"
-msgstr ""
+msgstr "Klawisze stanu"
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -4393,22 +4386,22 @@ msgid ""
 msgstr ""
 "Jest to początek rozmowy. Nie ma wiadomości historycznych poza ten punkt."
 
-#: src/qml/TimelineView.qml:179
+#: src/qml/TimelineView.qml:200
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Przeskocz do pierwszej nieprzeczytanej wiadomości"
 
-#: src/qml/TimelineView.qml:202
+#: src/qml/TimelineView.qml:223
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Przeskocz do ostatniej wiadomości"
 
-#: src/qml/TimelineView.qml:227
+#: src/qml/TimelineView.qml:248
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Przeciągnij tutaj elementy, aby je udostępnić"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:255
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4494,7 +4487,7 @@ msgstr "Skopiuj odnośnik"
 #: src/qml/UserInfo.qml:96
 #, kde-format
 msgid "Switch User"
-msgstr "Przełącz użytkownika"
+msgstr "Przełącz na innego użytkownika"
 
 #: src/qml/UserInfo.qml:130
 #, kde-format
@@ -4504,7 +4497,7 @@ msgstr "Otwórz ustawienia"
 #: src/qml/UserInfo.qml:184
 #, kde-format
 msgid "Log in to an existing account"
-msgstr "Wejdź na istniejące konto"
+msgstr "Użyj już istniejącego konta"
 
 #: src/qml/UserInfo.qml:191
 #, kde-format
@@ -4526,7 +4519,7 @@ msgstr "Nazwa użytkownika jest niedostępna"
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
-msgstr "Znajdź swoich znajomych"
+msgstr "Poszukaj swoich znajomych"
 
 #: src/qml/UserSearchPage.qml:44
 #, kde-format
@@ -4536,7 +4529,7 @@ msgstr "Wpisz ID użytkownika"
 #: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
-msgstr "Znajdź swoich znajomych…"
+msgstr "Poszukaj swoich znajomych…"
 
 #: src/qml/UserSearchPage.qml:90
 #, kde-format
@@ -4764,13 +4757,13 @@ msgstr "Usuń to konto"
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr "Wejdź lub utwórz nowe konto"
+msgstr "Wejdź na konto lub utwórz nowe"
 
 #: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
-msgstr "Przejdź wstecz"
+msgstr "Cofnij się"
 
 #: src/registration.cpp:300
 #, kde-format
@@ -4810,7 +4803,7 @@ msgstr "Ta nazwa użytkownika jest niedostępna."
 #: src/registration.cpp:314
 #, kde-format
 msgid "Continue"
-msgstr "Kontynuuj"
+msgstr "Dalej"
 
 #: src/registration.cpp:316
 #, kde-format
@@ -4820,7 +4813,7 @@ msgstr "Pracuje"
 #: src/roommanager.cpp:86
 #, kde-format
 msgid "Malformed or empty Matrix id"
-msgstr "Zniekształcony lub pusty id Matriksa"
+msgstr "Identyfikator Matriksa jest pusty lub zapisany złą składnią"
 
 #: src/roommanager.cpp:86
 #, kde-format

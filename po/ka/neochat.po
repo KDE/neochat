@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:37+0000\n"
+"POT-Creation-Date: 2024-03-03 00:38+0000\n"
 "PO-Revision-Date: 2024-02-29 02:46+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1139,12 +1139,12 @@ msgstr "ოთახის შექმნის შეცდომა: %1"
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
 
-#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
+#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
 
-#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
+#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1381,7 +1381,19 @@ msgstr "მორგება"
 msgid "Devices"
 msgstr "მოწყობილობები"
 
-#: src/qml/AccountMenu.qml:54 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#, kde-format
+msgid "Open developer tools"
+msgstr "პროგრამისტის ხელსაწყოების გახსნა"
+
+#: src/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "პროგრამირება"
+
+#: src/qml/AccountMenu.qml:66 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "გასვლა"
@@ -3128,8 +3140,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "ჩასწორების გაუქმება"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
-#: src/qml/RoomData.qml:76
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
+#: src/qml/RoomData.qml:83
 #, kde-format
 msgid "Event Source"
 msgstr "მოვლენის წყარო"
@@ -3555,22 +3567,22 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "აირჩიეთ ოთახი"
 
-#: src/qml/RoomData.qml:37
+#: src/qml/RoomData.qml:38
 #, kde-format
 msgid "Room Id: %1"
 msgstr "ოთახის ID: %1"
 
-#: src/qml/RoomData.qml:41
+#: src/qml/RoomData.qml:42
 #, kde-format
 msgid "Room Account Data"
 msgstr "ოთახის ანგარიშის მონაცემები"
 
-#: src/qml/RoomData.qml:59
+#: src/qml/RoomData.qml:63
 #, kde-format
 msgid "Room State"
 msgstr "ოთახის მდგომარეობა"
 
-#: src/qml/RoomData.qml:70
+#: src/qml/RoomData.qml:77
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -3578,7 +3590,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "ამ ტიპის %1 მოვლენა"
 msgstr[1] "ამ ტიპის %1 მოვლენა"
 
-#: src/qml/RoomData.qml:84
+#: src/qml/RoomData.qml:91
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -3630,11 +3642,6 @@ msgstr "ინფორმაცია ოთახის შესახებ"
 #, kde-format
 msgid "Options"
 msgstr "პარამეტრები"
-
-#: src/qml/RoomInformation.qml:79
-#, kde-format
-msgid "Open developer tools"
-msgstr "პროგრამისტის ხელსაწყოების გახსნა"
 
 #: src/qml/RoomInformation.qml:98
 #, kde-format
@@ -4361,22 +4368,22 @@ msgid ""
 msgstr ""
 "ეს ჩატის დასაწყისია. ამ წერტილამდე, ისტორიაში, შეტყობინებები არ არსებობს."
 
-#: src/qml/TimelineView.qml:179
+#: src/qml/TimelineView.qml:200
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "პირველ წაუკითხავ შეტყობინებაზე გადასვლა"
 
-#: src/qml/TimelineView.qml:202
+#: src/qml/TimelineView.qml:223
 #, kde-format
 msgid "Jump to latest message"
 msgstr "უახლეს შეტყობინებებზე გადასვლა"
 
-#: src/qml/TimelineView.qml:227
+#: src/qml/TimelineView.qml:248
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "გადმოათრიეთ საგნები აქ, მათ გასაზიარებლად"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:255
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:37+0000\n"
+"POT-Creation-Date: 2024-03-03 00:38+0000\n"
 "PO-Revision-Date: 2024-02-28 22:58+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -1140,12 +1140,12 @@ msgstr "Kreado de ĉambro malsukcesis: %1"
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
 
-#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
+#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raporto sukcese sendita."
 
-#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
+#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1382,7 +1382,19 @@ msgstr "Agordi"
 msgid "Devices"
 msgstr "Aparatoj"
 
-#: src/qml/AccountMenu.qml:54 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#, kde-format
+msgid "Open developer tools"
+msgstr "Malfermi programistajn ilojn"
+
+#: src/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "Iloj por programistoj"
+
+#: src/qml/AccountMenu.qml:66 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Elsaluti"
@@ -3133,8 +3145,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Nuligi redakton"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
-#: src/qml/RoomData.qml:76
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
+#: src/qml/RoomData.qml:83
 #, kde-format
 msgid "Event Source"
 msgstr "Event Fonto"
@@ -3564,22 +3576,22 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Elekti Ĉambron"
 
-#: src/qml/RoomData.qml:37
+#: src/qml/RoomData.qml:38
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Ĉambro Id: %1"
 
-#: src/qml/RoomData.qml:41
+#: src/qml/RoomData.qml:42
 #, kde-format
 msgid "Room Account Data"
 msgstr "Datumoj pri Ĉambro-Konto"
 
-#: src/qml/RoomData.qml:59
+#: src/qml/RoomData.qml:63
 #, kde-format
 msgid "Room State"
 msgstr "Ĉambra Stato"
 
-#: src/qml/RoomData.qml:70
+#: src/qml/RoomData.qml:77
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -3587,7 +3599,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 evento de ĉi tipo"
 msgstr[1] "%1 eventoj de ĉi tipo"
 
-#: src/qml/RoomData.qml:84
+#: src/qml/RoomData.qml:91
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -3639,11 +3651,6 @@ msgstr "Informoj pri ĉambro"
 #, kde-format
 msgid "Options"
 msgstr "Opcioj"
-
-#: src/qml/RoomInformation.qml:79
-#, kde-format
-msgid "Open developer tools"
-msgstr "Malfermi programistajn ilojn"
 
 #: src/qml/RoomInformation.qml:98
 #, kde-format
@@ -4371,22 +4378,22 @@ msgstr ""
 "Ĉi tio estas komenco de la babilo. Ne estas historiaj mesaĝoj preter ĉi "
 "punkto."
 
-#: src/qml/TimelineView.qml:179
+#: src/qml/TimelineView.qml:200
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Salti al la unua nelegita mesaĝo"
 
-#: src/qml/TimelineView.qml:202
+#: src/qml/TimelineView.qml:223
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Salti al la plej nova mesaĝo"
 
-#: src/qml/TimelineView.qml:227
+#: src/qml/TimelineView.qml:248
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Treni erojn ĉi tien por dividi ilin"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:255
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

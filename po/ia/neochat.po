@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:37+0000\n"
+"POT-Creation-Date: 2024-03-03 00:38+0000\n"
 "PO-Revision-Date: 2024-02-29 15:58+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1142,12 +1142,12 @@ msgstr "Creation de sala falleva: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Creation de spatio falleva: \"%1\""
 
-#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
+#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Reporto inviate con successo."
 
-#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
+#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1384,7 +1384,19 @@ msgstr "Configura"
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/qml/AccountMenu.qml:54 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#, kde-format
+msgid "Open developer tools"
+msgstr "Aperi instrumentos de disveloppator"
+
+#: src/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "Instrumentos de disveloppator"
+
+#: src/qml/AccountMenu.qml:66 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Clausura de session"
@@ -3140,8 +3152,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Cancella modificar"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
-#: src/qml/RoomData.qml:76
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
+#: src/qml/RoomData.qml:83
 #, kde-format
 msgid "Event Source"
 msgstr "Fonte de evento"
@@ -3567,22 +3579,22 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Selige Sala"
 
-#: src/qml/RoomData.qml:37
+#: src/qml/RoomData.qml:38
 #, kde-format
 msgid "Room Id: %1"
 msgstr "ID de Sala: %1"
 
-#: src/qml/RoomData.qml:41
+#: src/qml/RoomData.qml:42
 #, kde-format
 msgid "Room Account Data"
 msgstr "Datos de conto de sala"
 
-#: src/qml/RoomData.qml:59
+#: src/qml/RoomData.qml:63
 #, kde-format
 msgid "Room State"
 msgstr "Stato de sala "
 
-#: src/qml/RoomData.qml:70
+#: src/qml/RoomData.qml:77
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -3590,7 +3602,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 evento de iste typo"
 msgstr[1] "%1 eventos de iste typo"
 
-#: src/qml/RoomData.qml:84
+#: src/qml/RoomData.qml:91
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -3642,11 +3654,6 @@ msgstr "Information de sala"
 #, kde-format
 msgid "Options"
 msgstr "Optiones"
-
-#: src/qml/RoomInformation.qml:79
-#, kde-format
-msgid "Open developer tools"
-msgstr "Aperi instrumentos de disveloppator"
 
 #: src/qml/RoomInformation.qml:98
 #, kde-format
@@ -4378,22 +4385,22 @@ msgstr ""
 "Isto es le initio del conversation in directo (chat). Il non ha alcun "
 "messages historic ultra iste puncto."
 
-#: src/qml/TimelineView.qml:179
+#: src/qml/TimelineView.qml:200
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Salta al prime message non legite"
 
-#: src/qml/TimelineView.qml:202
+#: src/qml/TimelineView.qml:223
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Salta al ultime message"
 
-#: src/qml/TimelineView.qml:227
+#: src/qml/TimelineView.qml:248
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Trahe elementos hic per compartir los"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:255
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

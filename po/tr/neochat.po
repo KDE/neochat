@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 00:37+0000\n"
-"PO-Revision-Date: 2024-02-29 16:48+0300\n"
+"POT-Creation-Date: 2024-03-03 00:38+0000\n"
+"PO-Revision-Date: 2024-03-02 23:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1140,12 +1140,12 @@ msgstr "Oda oluşturulamadı: %1"
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
 
-#: src/neochatroom.cpp:1616 src/neochatroom.cpp:1617
+#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/neochatroom.cpp:1891 src/neochatroom.cpp:1899
+#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1382,7 +1382,19 @@ msgstr "Yapılandır"
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: src/qml/AccountMenu.qml:54 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#, kde-format
+msgid "Open developer tools"
+msgstr "Geliştirici araçlarını aç"
+
+#: src/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "Geliştirici Araçları"
+
+#: src/qml/AccountMenu.qml:66 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Oturumu Kapat"
@@ -1711,7 +1723,7 @@ msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
 "keyword'"
 msgid "@Mentions and Keywords"
-msgstr "@Değinmeleri ve Anahtar Sözcükler"
+msgstr "@Değinmeler ve Anahtar Sözcükler"
 
 #: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
@@ -1880,7 +1892,7 @@ msgstr "İletiyi Bildir"
 #: src/qml/DelegateContextMenu.qml:169
 #, kde-format
 msgid "Search for '%1'"
-msgstr "Ara: ‘%1’"
+msgstr "Ara: “%1”"
 
 #: src/qml/DelegateContextMenu.qml:190
 #, kde-format
@@ -2699,7 +2711,7 @@ msgstr "Oda Bildirimleri"
 #: src/qml/GlobalNotificationsPage.qml:56
 #, kde-format
 msgid "@Mentions"
-msgstr "@Değinmeleri"
+msgstr "@Değinmeler"
 
 #: src/qml/GlobalNotificationsPage.qml:73 src/qml/PushNotification.qml:65
 #, kde-format
@@ -3130,8 +3142,8 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Düzenlemeyi iptal et"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:51
-#: src/qml/RoomData.qml:76
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
+#: src/qml/RoomData.qml:83
 #, kde-format
 msgid "Event Source"
 msgstr "Olay Kaynağı"
@@ -3555,22 +3567,22 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Oda Seç"
 
-#: src/qml/RoomData.qml:37
+#: src/qml/RoomData.qml:38
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Oda kimliği: %1"
 
-#: src/qml/RoomData.qml:41
+#: src/qml/RoomData.qml:42
 #, kde-format
 msgid "Room Account Data"
 msgstr "Oda Hesabı Bilgisi"
 
-#: src/qml/RoomData.qml:59
+#: src/qml/RoomData.qml:63
 #, kde-format
 msgid "Room State"
 msgstr "Oda Durumu"
 
-#: src/qml/RoomData.qml:70
+#: src/qml/RoomData.qml:77
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -3578,7 +3590,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "bu türden %1 olay"
 msgstr[1] "bu türden %1 olay"
 
-#: src/qml/RoomData.qml:84
+#: src/qml/RoomData.qml:91
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -3630,11 +3642,6 @@ msgstr "Oda Bilgisi"
 #, kde-format
 msgid "Options"
 msgstr "Seçenekler"
-
-#: src/qml/RoomInformation.qml:79
-#, kde-format
-msgid "Open developer tools"
-msgstr "Geliştirici araçlarını aç"
 
 #: src/qml/RoomInformation.qml:98
 #, kde-format
@@ -4363,22 +4370,22 @@ msgstr ""
 "Burası sohbetin başlangıcıdır. Bu noktanın gerisinde herhangi bir ileti "
 "yoktur."
 
-#: src/qml/TimelineView.qml:179
+#: src/qml/TimelineView.qml:200
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "İlk okunmayan iletiye atla"
 
-#: src/qml/TimelineView.qml:202
+#: src/qml/TimelineView.qml:223
 #, kde-format
 msgid "Jump to latest message"
 msgstr "En son iletiye atla"
 
-#: src/qml/TimelineView.qml:227
+#: src/qml/TimelineView.qml:248
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Onları paylaşmak için ögeleri buraya sürükleyin"
 
-#: src/qml/TimelineView.qml:234
+#: src/qml/TimelineView.qml:255
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4463,12 +4470,12 @@ msgstr "Bağlantıyı Kopyala"
 #: src/qml/UserInfo.qml:96
 #, kde-format
 msgid "Switch User"
-msgstr "Kullanıcı Değiştir"
+msgstr "Kullanıcı değiştir"
 
 #: src/qml/UserInfo.qml:130
 #, kde-format
 msgid "Open Settings"
-msgstr "Ayarları Aç"
+msgstr "Ayarları aç"
 
 #: src/qml/UserInfo.qml:184
 #, kde-format
@@ -4844,103 +4851,3 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
-
-#~ msgctxt "<username> is not a known user"
-#~ msgid "%1 is not a known user."
-#~ msgstr "%1, bilinen bir kullanıcı değil."
-
-#~ msgid "Show m.room.member events"
-#~ msgstr "m.room.member olaylarını göster"
-
-#~ msgid "Show room account data"
-#~ msgstr "Oda hesap bilgisini göster"
-
-#~ msgid "All Rooms"
-#~ msgstr "Tüm Odalar"
-
-#~ msgid "Start a Chat"
-#~ msgstr "Bir Sohbet Başlat"
-
-#~ msgctxt "@title"
-#~ msgid "Start a Chat"
-#~ msgstr "Bir Sohbet Başlat"
-
-#~ msgctxt "menu"
-#~ msgid "New Private Chat…"
-#~ msgstr "Yeni Özel Sohbet…"
-
-#~ msgid "Chat"
-#~ msgstr "Sohbet"
-
-#~ msgid "Join existing chat"
-#~ msgstr "Var olan sohbete katıl"
-
-#~ msgid "Create new chat"
-#~ msgstr "Yeni sohbet oluştur"
-
-#~ msgid "Rooms and private chats"
-#~ msgstr "Odalar ve Özel Sohbetler"
-
-#~ msgid "Separated"
-#~ msgstr "Ayrı"
-
-#~ msgid "Intermixed"
-#~ msgstr "Karışık"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Doğrudan İletiler"
-
-#~ msgid "Login Failed: Access Token invalid or revoked"
-#~ msgstr ""
-#~ "Oturum açma başarısız: Erişim jetonu geçersiz veya yürürlükten kaldırıldı"
-
-#~ msgid "[REDACTED]"
-#~ msgstr "[DEĞİŞTİRİLDİ]"
-
-#~ msgid "[REDACTED: %1]"
-#~ msgstr "[DEĞİŞTİRİLDİ: %1]"
-
-#~ msgid "The room id you are trying to join is not valid"
-#~ msgstr "Katılmaya çalıştığınız oda geçerli değil"
-
-#~ msgctxt "n times"
-#~ msgid " %1 time "
-#~ msgid_plural " %1 times "
-#~ msgstr[0] " %1 kez "
-#~ msgstr[1] " %1 kez "
-
-#~ msgid "Please choose a file"
-#~ msgstr "Lütfen bir dosya seçin"
-
-#~ msgid "Replying to:"
-#~ msgstr "Şu kişi yanıtlanıyor:"
-
-#~ msgid "Log in to a different account or create a new account."
-#~ msgstr "Başka bir hesaba oturum açın veya yeni bir hesap oluşturun."
-
-#~ msgid ""
-#~ "Welcome to NeoChat! Continue by logging in or creating a new account."
-#~ msgstr ""
-#~ "NeoChat'e hoş geldiniz! Oturum açarak veya yeni bir hesap oluşturarak "
-#~ "sürdürün."
-
-#~ msgid "View"
-#~ msgstr "Görünüm"
-
-#~ msgid "No Topic"
-#~ msgstr "Konu Yok"
-
-#~| msgctxt "@button"
-#~| msgid "Add new child"
-#~ msgid "The child "
-#~ msgstr "Alt öge "
-
-#~ msgctxt "@title"
-#~ msgid "Room Information"
-#~ msgstr "Oda Bilgisi"
-
-#~ msgid "Space name"
-#~ msgstr "Alan adı"
-
-#~ msgid "Space topic (optional)"
-#~ msgstr "Alan konusu (isteğe bağlı)"
