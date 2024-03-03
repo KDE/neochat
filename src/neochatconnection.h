@@ -147,6 +147,12 @@ public:
 
     bool isOnline() const;
 
+    /**
+     * Add room directly in the connection.
+     * @internal for tests
+     */
+    void addRoom(Quotient::Room *room);
+
 Q_SIGNALS:
     void labelChanged();
     void directChatNotificationsChanged();

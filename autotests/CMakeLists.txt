@@ -24,6 +24,11 @@ ecm_add_test(
 )
 
 ecm_add_test(
+    roomtreemodeltest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+)
+
+ecm_add_test(
     mediasizehelpertest.cpp
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME mediasizehelpertest

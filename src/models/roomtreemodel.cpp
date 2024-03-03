@@ -174,6 +174,11 @@ std::optional<int> TreeItem::position(Quotient::Room *room) const
     return std::nullopt;
 }
 
+TreeItem::TreeData TreeItem::treeData() const
+{
+    return m_treeData;
+}
+
 RoomTreeModel::RoomTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
@@ -191,8 +196,7 @@ void RoomTreeModel::initializeCategories()
 TreeItem *RoomTreeModel::getItem(const QModelIndex &index) const
 {
     if (index.isValid()) {
-        if (auto *item = static_cast<TreeItem *>(index.internalPointer()))
-            return item;
+        return static_cast<TreeItem *>(index.internalPointer());
     }
     return m_rootItem.get();
 }
@@ -236,6 +240,7 @@ void RoomTreeModel::newRoom(Room *r)
     auto categoryItem = m_rootItem->child(type);
     beginInsertRows(index(type, 0), categoryItem->childCount(), categoryItem->childCount());
     categoryItem->appendChild(std::make_unique<TreeItem>(room));
+    qWarning() << "append" << index(type, 0) << categoryItem->childCount();
     connectRoomSignals(room);
     endInsertRows();
 }
@@ -280,7 +285,8 @@ void RoomTreeModel::moveRoom(Quotient::Room *room)
     if (oldRow == -1) {
         return;
     }
-    const auto newType = NeoChatRoomType::typeForRoom(dynamic_cast<NeoChatRoom *>(room));
+    auto neochatRoom = dynamic_cast<NeoChatRoom *>(room);
+    const auto newType = NeoChatRoomType::typeForRoom(neochatRoom);
     if (newType == oldType) {
         return;
     }
@@ -302,7 +308,7 @@ void RoomTreeModel::moveRoom(Quotient::Room *room)
     endRemoveRows();
 
     beginInsertRows(newParent, newParentItem->childCount(), newParentItem->childCount());
-    newParentItem->appendChild(std::make_unique<TreeItem>(room));
+    newParentItem->appendChild(std::make_unique<TreeItem>(neochatRoom));
     endInsertRows();
 }
 
@@ -358,21 +364,21 @@ int RoomTreeModel::columnCount(const QModelIndex &parent) const
 
 int RoomTreeModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid() && parent.column() > 0) {
-        return 0;
-    }
-
     const TreeItem *parentItem = getItem(parent);
     return parentItem ? parentItem->childCount() : 0;
 }
 
 QModelIndex RoomTreeModel::parent(const QModelIndex &index) const
 {
-    if (!index.isValid())
+    qWarning() << "getting parent from" << index;
+    if (!index.isValid()) {
         return {};
+    }
 
     TreeItem *childItem = getItem(index);
     TreeItem *parentItem = childItem ? childItem->parentItem() : nullptr;
+
+    qWarning() << parentItem << m_rootItem.get();
 
     return (parentItem != m_rootItem.get() && parentItem != nullptr) ? createIndex(parentItem->row(), 0, parentItem) : QModelIndex{};
 }
@@ -384,9 +390,7 @@ QModelIndex RoomTreeModel::index(int row, int column, const QModelIndex &parent)
     }
 
     TreeItem *parentItem = getItem(parent);
-    if (!parentItem) {
-        return {};
-    }
+    Q_ASSERT(parentItem);
 
     if (auto *childItem = parentItem->child(row)) {
         return createIndex(row, column, childItem);

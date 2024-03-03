@@ -5,9 +5,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#include <Quotient/connection.h>
-#include <Quotient/quotient_common.h>
-#include <Quotient/syncdata.h>
+#include "neochatconnection.h"
 
 #include "testutils.h"
 
@@ -27,7 +25,8 @@ private Q_SLOTS:
 
 void NeoChatRoomTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
+    auto connection = new NeoChatConnection;
+    Connection::makeMockConnection(connection, QStringLiteral("@bob:kde.org"));
     room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), "test-min-sync.json"_ls);
 }
 

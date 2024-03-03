@@ -482,4 +482,9 @@ QString NeoChatConnection::accountDataJsonString(const QString &type) const
     return QString::fromUtf8(QJsonDocument(accountDataJson(type)).toJson());
 }
 
+void NeoChatConnection::addRoom(Quotient::Room *room)
+{
+    Connection::addRoom(room, false);
+}
+
 #include "moc_neochatconnection.cpp"
