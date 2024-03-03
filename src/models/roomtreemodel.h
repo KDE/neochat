@@ -31,6 +31,7 @@ public:
     TreeItem *parentItem() const;
     bool removeChildren(int position, int count);
     bool removeColumns(int position, int columns);
+    std::optional<int> position(Quotient::Room *room) const;
     int row() const;
     TreeData treeData() const;
 

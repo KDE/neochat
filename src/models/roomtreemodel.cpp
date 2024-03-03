@@ -115,10 +115,10 @@ QVariant TreeItem::data(int role) const
         return room->topic();
     case RoomTreeModel::CategoryRole:
         return NeoChatRoomType::typeForRoom(room);
-    case RoomTreeModel::NotificationCountRole:
-        return room->notificationCount();
-    case RoomTreeModel::HighlightCountRole:
-        return room->highlightCount();
+    case RoomTreeModel::ContextNotificationCountRole:
+        return room->contextAwareNotificationCount();
+    case RoomTreeModel::HasHighlightNotificationsRole:
+        return room->highlightCount() > 0 && room->contextAwareNotificationCount() > 0;
     case RoomTreeModel::LastActiveTimeRole:
         return room->lastActiveTime();
     case RoomTreeModel::JoinStateRole:
@@ -159,6 +159,21 @@ TreeItem *TreeItem::parentItem() const
     return m_parentItem;
 }
 
+std::optional<int> TreeItem::position(Quotient::Room *room) const
+{
+    Q_ASSERT_X(std::holds_alternative<NeoChatRoomType::Types>(m_treeData), __FUNCTION__, "containsRoom only works in category items");
+
+    int i = 0;
+    for (const auto &child : m_childItems) {
+        if (std::get<NeoChatRoom *>(child->treeData()) == room) {
+            return i;
+        }
+        i++;
+    }
+
+    return std::nullopt;
+}
+
 RoomTreeModel::RoomTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
@@ -167,15 +182,8 @@ RoomTreeModel::RoomTreeModel(QObject *parent)
 
 void RoomTreeModel::initializeCategories()
 {
-    for (const auto &key : m_rooms.keys()) {
-        for (const auto &room : m_rooms[key]) {
-            room->disconnect(this);
-        }
-    }
-    m_rooms.clear();
-
     m_rootItem.reset(new TreeItem(nullptr));
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < NeoChatRoomType::TypesCount; i++) {
         m_rootItem->appendChild(std::make_unique<TreeItem>(NeoChatRoomType::Types(i), m_rootItem.get()));
     }
 }
@@ -225,8 +233,9 @@ void RoomTreeModel::newRoom(Room *r)
         return;
     }
 
-    beginInsertRows(index(type, 0), m_rooms[type].size(), m_rooms[type].size());
-    m_rooms[type].append(room);
+    auto categoryItem = m_rootItem->child(type);
+    beginInsertRows(index(type, 0), categoryItem->childCount(), categoryItem->childCount());
+    categoryItem->appendChild(std::make_unique<TreeItem>(room));
     connectRoomSignals(room);
     endInsertRows();
 }
@@ -240,10 +249,12 @@ void RoomTreeModel::leftRoom(Room *r)
         return;
     }
 
+    auto parentItem = getItem(idx.parent());
+    Q_ASSERT(parentItem);
+
     beginRemoveRows(idx.parent(), idx.row(), idx.row());
-    const bool success = parentItem->removeChildren(position, rows);
-    m_rooms[type][row]->disconnect(this);
-    m_rooms[type].removeAt(row);
+    const bool success = parentItem->removeChildren(idx.row(), 1);
+    room->disconnect(this);
     endRemoveRows();
 
     if (success) {
@@ -257,10 +268,12 @@ void RoomTreeModel::moveRoom(Quotient::Room *room)
     // NeoChatRoomType::typeForRoom doesn't match it's current location. So find the room.
     NeoChatRoomType::Types oldType;
     int oldRow = -1;
-    for (const auto &key : m_rooms.keys()) {
-        if (m_rooms[key].contains(room)) {
-            oldType = key;
-            oldRow = m_rooms[key].indexOf(room);
+    for (int i = 0; i < NeoChatRoomType::TypesCount; i++) {
+        auto categoryItem = m_rootItem->child(i);
+        auto position = categoryItem->position(room);
+        if (position) {
+            oldType = static_cast<NeoChatRoomType::Types>(i);
+            oldRow = *position;
         }
     }
 
@@ -273,14 +286,23 @@ void RoomTreeModel::moveRoom(Quotient::Room *room)
     }
 
     const auto oldParent = index(oldType, 0, {});
+    auto oldParentItem = getItem(oldParent);
+    Q_ASSERT(oldParentItem);
+
     const auto newParent = index(newType, 0, {});
+    auto newParentItem = getItem(newParent);
+    Q_ASSERT(newParentItem);
+
     // HACK: We're doing this as a remove then insert because  moving doesn't work
     // properly with DelegateChooser for whatever reason.
+
     beginRemoveRows(oldParent, oldRow, oldRow);
-    m_rooms[oldType].removeAt(oldRow);
+    const bool success = oldParentItem->removeChildren(oldRow, 1);
+    Q_ASSERT(success);
     endRemoveRows();
-    beginInsertRows(newParent, m_rooms[newType].size(), m_rooms[newType].size());
-    m_rooms[newType].append(dynamic_cast<NeoChatRoom *>(room));
+
+    beginInsertRows(newParent, newParentItem->childCount(), newParentItem->childCount());
+    newParentItem->appendChild(std::make_unique<TreeItem>(room));
     endInsertRows();
 }
 
