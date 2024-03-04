@@ -350,8 +350,9 @@ MessageComponent TextHandler::nextBlock(const QString &string,
 
 QString TextHandler::stripBlockTags(QString string, const QString &tagType) const
 {
-    if (blockTags.contains(tagType) && tagType != QStringLiteral("ol") && tagType != QStringLiteral("ul") && tagType != QStringLiteral("table")) {
-        string.replace(QLatin1String("<%1>").arg(tagType), QString()).replace(QLatin1String("</%1>").arg(tagType), QString());
+    if (blockTags.contains(tagType) && tagType != QStringLiteral("ol") && tagType != QStringLiteral("ul") && tagType != QStringLiteral("table")
+        && string.startsWith(QLatin1String("<%1").arg(tagType))) {
+        string.remove(0, string.indexOf(u'>') + 1).remove(string.indexOf(QLatin1String("</%1>").arg(tagType)), string.size());
     }
 
     if (string.startsWith(QStringLiteral("\n"))) {
@@ -363,7 +364,7 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
     if (tagType == QStringLiteral("pre")) {
         if (string.startsWith(QStringLiteral("<code"))) {
             string.remove(0, string.indexOf(u'>') + 1);
-            string.remove(string.size() - 7, string.size());
+            string.remove(string.indexOf(QLatin1String("</code>")), string.size());
         }
         if (string.endsWith(QStringLiteral("\n"))) {
             string.remove(string.size() - 1, string.size());
@@ -371,8 +372,8 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
     }
     if (tagType == QStringLiteral("blockquote")) {
         if (string.startsWith(QStringLiteral("<p>"))) {
-            string.remove(0, 3);
-            string.remove(string.size() - 4, string.size());
+            string.remove(0, string.indexOf(u'>') + 1);
+            string.remove(string.indexOf(QLatin1String("</p>")), string.size());
         }
         if (!string.startsWith(u'"')) {
             string.prepend(u'"');
