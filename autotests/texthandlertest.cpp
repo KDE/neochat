@@ -513,7 +513,7 @@ void TextHandlerTest::componentOutput_data()
                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
                                                      MessageComponent{MessageComponentType::Code,
                                                                       QStringLiteral("Some code"),
-                                                                      QVariantMap{{QStringLiteral("class"), QStringLiteral("HTML")}}}};
+                                                                      QVariantMap{{QStringLiteral("class"), QStringLiteral("html")}}}};
     QTest::newRow("quote") << QStringLiteral("<p>Text</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>")
                            << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
                                                       MessageComponent{MessageComponentType::Quote, QStringLiteral("\"blockquote\""), {}}};

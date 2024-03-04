@@ -697,28 +697,7 @@ QString TextHandler::emoteString(const NeoChatRoom *room, const Quotient::RoomEv
 QString TextHandler::convertCodeLanguageString(const QString &languageString)
 {
     const int equalsPos = languageString.indexOf(u'-');
-    auto data = languageString.right(languageString.length() - equalsPos - 1);
-
-    // The standard markdown syntax uses lower case. This will get a subgroup of
-    // single word languages to work.
-    if (data.first(1).isLower()) {
-        data[0] = data[0].toUpper();
-    }
-
-    if (data == QStringLiteral("Cpp")) {
-        data = QStringLiteral("C++");
-    }
-    if (data == QStringLiteral("Json")) {
-        data = QStringLiteral("JSON");
-    }
-    if (data == QStringLiteral("Html")) {
-        data = QStringLiteral("HTML");
-    }
-    if (data == QStringLiteral("Qml")) {
-        data = QStringLiteral("QML");
-    }
-
-    return data;
+    return languageString.right(languageString.length() - equalsPos - 1);
 }
 
 #include "moc_texthandler.cpp"
