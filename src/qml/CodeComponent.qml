@@ -108,8 +108,32 @@ QQC2.Control {
         }
     }
 
+    QQC2.Button {
+        anchors {
+            top: parent.top
+            topMargin: Kirigami.Units.smallSpacing
+            right: parent.right
+            rightMargin: Kirigami.Units.smallSpacing
+        }
+        visible: root.hovered
+        icon.name: "edit-copy"
+        text: i18n("Copy to clipboard")
+        display: QQC2.AbstractButton.IconOnly
+
+        onClicked: Clipboard.saveText(root.display);
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+    }
+
     background: Rectangle {
         color: Kirigami.Theme.backgroundColor
         radius: Kirigami.Units.smallSpacing
+        border {
+            width: root.hovered ? 1 : 0
+            color: Kirigami.Theme.highlightColor
+        }
+
     }
 }
