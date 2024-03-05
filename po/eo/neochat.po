@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-04 00:37+0000\n"
-"PO-Revision-Date: 2024-02-28 22:58+0100\n"
+"POT-Creation-Date: 2024-03-05 00:37+0000\n"
+"PO-Revision-Date: 2024-03-04 23:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1388,11 +1388,10 @@ msgid "Open developer tools"
 msgstr "Malfermi programistajn ilojn"
 
 #: src/qml/AccountMenu.qml:60
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
-msgstr "Iloj por programistoj"
+msgstr "Evoluistaj Iloj"
 
 #: src/qml/AccountMenu.qml:66 src/qml/AccountsPage.qml:72
 #, kde-format
@@ -1591,6 +1590,12 @@ msgstr "Sendi mesaĝon…"
 msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Elekti Ĉambron"
+
+#: src/qml/CodeComponent.qml:120
+#, fuzzy, kde-format
+#| msgid "Copy room ID to clipboard"
+msgid "Copy to clipboard"
+msgstr "Kopii ĉambro-ID al tondujo"
 
 #: src/qml/ColorScheme.qml:15
 #, kde-format
@@ -2518,15 +2523,12 @@ msgstr ""
 "Aŭtomate kaŝi/malkaŝi la ĉambrajn informojn dum regrandigo de la fenestro"
 
 #: src/qml/GeneralSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "<room alias or id>"
+#, kde-format
 msgid "Room list sort order"
-msgstr "<ĉambra kaŝnomo aŭ identigilo>"
+msgstr "Ĉambrolista ordigospeco"
 
 #: src/qml/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "'Activities' is a category of emoji"
-#| msgid "Activities"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Aktivecoj"
@@ -2535,7 +2537,7 @@ msgstr "Aktivecoj"
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alfabeta"
 
 #: src/qml/GeneralSettingsPage.qml:92
 #, kde-format
@@ -4850,7 +4852,3 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
-
-#~ msgctxt "<username> is not a known user"
-#~ msgid "%1 is not a known user."
-#~ msgstr "%1 ne estas konata uzanto."
