@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-05 00:37+0000\n"
-"PO-Revision-Date: 2024-03-03 14:17+0100\n"
+"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"PO-Revision-Date: 2024-03-05 11:55+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1371,7 +1371,7 @@ msgid "Notification settings"
 msgstr "Instellingen van meldingen"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:445 src/qml/UserInfo.qml:126
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:126
 #, kde-format
 msgid "Configure"
 msgstr "Configureren"
@@ -1592,10 +1592,9 @@ msgid "Choose a Room"
 msgstr "Een room kiezen"
 
 #: src/qml/CodeComponent.qml:120
-#, fuzzy, kde-format
-#| msgid "Copy room ID to clipboard"
+#, kde-format
 msgid "Copy to clipboard"
-msgstr "Room-ID kopiëren naar klembord"
+msgstr "Naar klembord kopiëren"
 
 #: src/qml/ColorScheme.qml:15
 #, kde-format
@@ -3075,6 +3074,12 @@ msgstr "Een chat starten"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Wilt u een chat beginnen met %1?"
+
+#: src/qml/main.qml:433
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
