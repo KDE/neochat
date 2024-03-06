@@ -12,5 +12,9 @@ include:
       # - /gitlab-templates/freebsd.yml
       - /gitlab-templates/flatpak.yml
       - /gitlab-templates/craft-android-apks.yml
-      - /gitlab-templates/craft-windows-x86-64.yml
+      # - /gitlab-templates/craft-windows-x86-64.yml
       - /gitlab-templates/craft-windows-appx-qt5.yml
+  - project: sysadmin/ci-utilities
+    ref: work/kloecker/publish-windows-builds
+    file:
+      - /gitlab-templates/craft-windows-x86-64.yml
