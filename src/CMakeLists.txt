@@ -501,7 +501,7 @@ if(NOT ANDROID)
     set_target_properties(neochat-app PROPERTIES OUTPUT_NAME "neochat")
 endif()
 
-if(TARGET KF6::DBusAddons)
+if(TARGET KF6::DBusAddons AND NOT WIN32)
     target_link_libraries(neochat PUBLIC KF6::DBusAddons)
     target_compile_definitions(neochat PUBLIC -DHAVE_KDBUSADDONS)
 endif()
