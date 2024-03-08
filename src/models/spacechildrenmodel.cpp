@@ -38,13 +38,6 @@ void SpaceChildrenModel::setSpace(NeoChatRoom *space)
     m_space = space;
     Q_EMIT spaceChanged();
 
-    for (auto job : m_currentJobs) {
-        if (job) {
-            job->abandon();
-        }
-    }
-    m_currentJobs.clear();
-
     auto connection = m_space->connection();
     connect(connection, &Quotient::Connection::loadedRoomState, this, [this](Quotient::Room *room) {
         if (m_pendingChildren.contains(room->name())) {
@@ -66,6 +59,17 @@ bool SpaceChildrenModel::loading() const
 
 void SpaceChildrenModel::refreshModel()
 {
+    for (auto job : m_currentJobs) {
+        if (job) {
+            job->abandon();
+        }
+    }
+    m_currentJobs.clear();
+
+    if (m_space == nullptr) {
+        return;
+    }
+
     beginResetModel();
     m_replacedRooms.clear();
     delete m_rootItem;
@@ -120,8 +124,7 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
                     insertChildren(job->rooms(), index(insertRow, 0, parent));
                 });
             }
-            parentItem->insertChild(insertRow,
-                                    new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()),
+            parentItem->insertChild(new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()),
                                                       parentItem,
                                                       children[i].roomId,
                                                       children[i].name,

@@ -37,6 +37,11 @@ SpaceTreeItem::~SpaceTreeItem()
     qDeleteAll(m_children);
 }
 
+bool SpaceTreeItem::operator==(const SpaceTreeItem &other) const
+{
+    return m_id == other.id();
+}
+
 SpaceTreeItem *SpaceTreeItem::child(int number)
 {
     if (number < 0 || number >= m_children.size()) {
@@ -50,12 +55,20 @@ int SpaceTreeItem::childCount() const
     return m_children.count();
 }
 
-bool SpaceTreeItem::insertChild(int row, SpaceTreeItem *newChild)
+bool SpaceTreeItem::insertChild(SpaceTreeItem *newChild)
 {
-    if (row < 0 || row > m_children.size()) {
+    if (newChild == nullptr) {
         return false;
     }
-    m_children.insert(row, newChild);
+
+    for (auto it = m_children.begin(), end = m_children.end(); it != end; ++it) {
+        if (*it == newChild) {
+            *it = newChild;
+            return true;
+        }
+    }
+
+    m_children.append(newChild);
     return true;
 }
 

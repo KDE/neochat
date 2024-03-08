@@ -35,6 +35,8 @@ public:
                            Quotient::StateEvents childStates = {});
     ~SpaceTreeItem();
 
+    bool operator==(const SpaceTreeItem &other) const;
+
     /**
      * @brief Return the child at the given row number.
      *
@@ -48,9 +50,9 @@ public:
     int childCount() const;
 
     /**
-     * @brief Insert the given child at the given row number.
+     * @brief Insert the given child.
      */
-    bool insertChild(int row, SpaceTreeItem *newChild);
+    bool insertChild(SpaceTreeItem *newChild);
 
     /**
      * @brief Remove the child at the given row number.
