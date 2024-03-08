@@ -11,7 +11,7 @@ import org.kde.neochat
 KirigamiSettings.CategorizedSettings {
     id: root
 
-    required property NeoChatConnection connection
+    property NeoChatConnection connection
 
     objectName: "settingsPage"
     actions: [

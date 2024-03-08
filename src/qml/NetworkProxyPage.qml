@@ -13,7 +13,7 @@ import org.kde.neochat.config
 FormCard.FormCardPage {
     id: root
 
-    title: i18nc("@title:window", "General")
+    title: i18nc("@title:window", "Proxy")
 
     property int currentType
     property bool proxyConfigChanged: false

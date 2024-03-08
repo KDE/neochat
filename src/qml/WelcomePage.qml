@@ -211,6 +211,17 @@ FormCard.FormCardPage {
         }
     }
 
+    FormCard.FormCard {
+        Layout.topMargin: Kirigami.Units.largeSpacing
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "Open proxy settings")
+            icon.name: "settings-configure"
+            onClicked: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "NetworkProxyPage.qml"), {}, {
+                title: i18nc("@title:window", "Proxy Settings")
+            });
+        }
+    }
+
     Component.onCompleted: {
         LoginHelper.init();
         module.item.forceActiveFocus();
