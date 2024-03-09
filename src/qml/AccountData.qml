@@ -23,7 +23,7 @@ ColumnLayout {
             model: root.connection.accountDataEventTypes
             delegate: FormCard.FormButtonDelegate {
                 text: modelData
-                onClicked: applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/MessageSourceSheet.qml", {
+                onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
                     sourceText: root.connection.accountDataJsonString(modelData)
                 }, {
                     title: i18nc("@title:window", "Event Source"),

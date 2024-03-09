@@ -31,7 +31,7 @@ FormCard.FormCardPage {
 
             delegate: FormCard.FormButtonDelegate {
                 text: model.stateKey
-                onClicked: applicationWindow().pageStack.pushDialogLayer('qrc:/org/kde/neochat/qml/MessageSourceSheet.qml', {
+                onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
                     sourceText: stateKeysModel.stateEventJson(stateKeysModel.index(model.index, 0))
                 }, {
                     title: i18nc("@title:window", "Event Source"),
