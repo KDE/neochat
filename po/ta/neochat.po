@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-06 00:38+0000\n"
-"PO-Revision-Date: 2024-02-18 16:41+0530\n"
+"PO-Revision-Date: 2024-03-08 20:45+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,16 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: src/controller.cpp:134
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
+msgstr "புதிய செய்திகளுக்கான அறிவிப்புகளைப் பெறுவதற்கு"
 
 #: src/controller.cpp:204
 #, kde-format
@@ -548,10 +547,9 @@ msgid "Alexey Rusakov"
 msgstr "அலெக்செய் ருசாக்கொவ்"
 
 #: src/main.cpp:142
-#, fuzzy, kde-format
-#| msgid "Maintainer of Quotient"
+#, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Quotient-இன் பராமரிப்பாளர்"
+msgstr "libQuotient-இன் பராமரிப்பாளர்"
 
 #: src/main.cpp:143
 #, kde-format
@@ -1034,7 +1032,7 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
@@ -1231,11 +1229,10 @@ msgid "About KDE"
 msgstr "கே.டீ.யீ. பற்றி"
 
 #: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "அரங்கிற்கான கணக்கு விவரங்கள்"
+msgstr "கணக்கு விவரங்கள்"
 
 #: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, fuzzy, kde-format
@@ -1393,8 +1390,7 @@ msgid "Open developer tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
 
 #: src/qml/AccountMenu.qml:60
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
@@ -1598,10 +1594,9 @@ msgid "Choose a Room"
 msgstr "அரங்கைத் தேர்வு செய்தல்"
 
 #: src/qml/CodeComponent.qml:120
-#, fuzzy, kde-format
-#| msgid "Copy room ID to clipboard"
+#, kde-format
 msgid "Copy to clipboard"
-msgstr "அரங்கின் முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
+msgstr "பிடிப்புப்பலகைக்கு நகலெடு"
 
 #: src/qml/ColorScheme.qml:15
 #, kde-format
@@ -1673,14 +1668,12 @@ msgid "Open in New Window"
 msgstr "புதிய சாளரத்தில் திற"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "பிடித்தவற்றிலிருந்து நீக்கு"
 
 #: src/qml/ContextMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "பிடித்தவற்றில் சேர்"
 
@@ -2000,11 +1993,10 @@ msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
 
 #: src/qml/DevtoolsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "அரங்கிற்கான கணக்கு விவரங்கள்"
+msgstr "கணக்கு விவரங்கள்"
 
 #: src/qml/DevtoolsPage.qml:36
 #, kde-format
@@ -2268,7 +2260,7 @@ msgstr "பொது அரங்குகள் கிடைக்கவில�
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
-msgstr ""
+msgstr "தொடர்கள்"
 
 #: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
 #, kde-format
@@ -2529,24 +2521,21 @@ msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "சாளரத்தின் அளவை மாற்றும்போது அரங்கின் விவரங்களை தானாக காட்டு/மறை"
 
 #: src/qml/GeneralSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "<room alias or id>"
+#, kde-format
 msgid "Room list sort order"
-msgstr "<அரங்கின் மாற்றுப்பெயர் அல்லது அடையாளம்>"
+msgstr "அரங்குகளை வரிசைப்படுத்தும் முறை"
 
 #: src/qml/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "'Activities' is a category of emoji"
-#| msgid "Activities"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
-msgstr "செயல்கள்"
+msgstr "கடைசி செயல்பாடு"
 
 #: src/qml/GeneralSettingsPage.qml:82
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
-msgstr ""
+msgstr "அகரவரிசை"
 
 #: src/qml/GeneralSettingsPage.qml:92
 #, kde-format
@@ -2788,28 +2777,25 @@ msgid "Reply in Thread"
 msgstr "தொடரில் பதிலளி"
 
 #: src/qml/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "இந்த பயனரை பொருட்படுத்தாதே"
+msgstr "பொருட்படுத்தப்படா பயனர்கள்"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "இந்த பயனரை பொருட்படுத்தாதே"
+msgstr "பொருட்படுத்தப்படா பயனர்கள்"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "எந்த பயனர்களையும் நீங்கள் புறக்கணிக்கவில்லை"
 
 #: src/qml/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "இந்த பயனரை பொருட்படுத்தாமல் இருந்ததை செயல்தவிர்"
@@ -2967,10 +2953,9 @@ msgid "Expand preview"
 msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 
 #: src/qml/LoadComponent.qml:53
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgid "Loading reply"
-msgstr "ஏற்றப்படுகிறது…"
+msgstr "பதில் ஏற்றப்படுகிறது…"
 
 #: src/qml/LoadComponent.qml:55
 #, kde-format
@@ -3087,7 +3072,7 @@ msgstr "உறுதியாக %1 என்பவருடன் உரைய�
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
-msgstr ""
+msgstr "தற்போது தேர்ந்தெடுத்துள்ள இணைப்பு"
 
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
@@ -3498,22 +3483,19 @@ msgid "Last read: %1"
 msgstr "கடைசியாக படித்தது: %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
-msgstr "சேர்"
+msgstr "%1 தனில் சேர்"
 
 #: src/qml/RecommendedSpaceDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "சேர்"
 
 #: src/qml/RecommendedSpaceDialog.qml:60
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "பொருட்படுத்தாதே"
@@ -3614,15 +3596,14 @@ msgstr "அரங்கின் நிலை"
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "இவ்வகையான %1 நிகழ்வு"
+msgstr[1] "இவ்வகையான %1 நிகழ்வுகள்"
 
 #: src/qml/RoomData.qml:91
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
-msgstr "சேவையக விவரங்கள்"
+msgstr "நிகழ்வு விவரங்கள்"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3975,19 +3956,16 @@ msgid "Device id"
 msgstr "சாதன அடையாளம்"
 
 #: src/qml/Security.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "மறுத்து பயனரைத் தடு"
+msgstr "பொருட்படுத்தப்படா பயனர்களை நிர்வகி"
 
 #: src/qml/Security.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "இந்த பயனரை பொருட்படுத்தாதே"
+msgstr "பொருட்படுத்தப்படா பயனர்கள்"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4136,11 +4114,10 @@ msgid "Share the selected media"
 msgstr "தேர்ந்தெடுத்துள்ளதை பகிர்"
 
 #: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
-msgstr "பகிர்"
+msgstr "பகிர்வது"
 
 #: src/qml/ShareDialog.qml:37
 #, kde-format
@@ -4257,11 +4234,10 @@ msgid "Friends"
 msgstr "நண்பர்கள்"
 
 #: src/qml/SpaceDrawer.qml:269
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
-msgstr "சேர்"
+msgstr "%1 தனில் சேர்"
 
 #: src/qml/SpaceDrawer.qml:311
 #, kde-format
