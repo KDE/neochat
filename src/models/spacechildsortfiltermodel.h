@@ -46,6 +46,8 @@ protected:
      */
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
+    Q_INVOKABLE void move(const QModelIndex &currentIndex, const QModelIndex &targetIndex);
+
 Q_SIGNALS:
     void filterTextChanged();
 

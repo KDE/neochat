@@ -60,4 +60,65 @@ bool SpaceChildSortFilterModel::filterAcceptsRow(int sourceRow, const QModelInde
     return true;
 }
 
+void SpaceChildSortFilterModel::move(const QModelIndex &currentIndex, const QModelIndex &targetIndex)
+{
+    const auto rootSpace = dynamic_cast<SpaceChildrenModel *>(sourceModel())->space();
+    if (rootSpace == nullptr) {
+        return;
+    }
+
+    const auto connection = rootSpace->connection();
+
+    const auto currentParent = currentIndex.parent();
+    auto targetParent = targetIndex.parent();
+    NeoChatRoom *currentParentSpace = nullptr;
+    if (!currentParent.isValid()) {
+        currentParentSpace = rootSpace;
+    } else {
+        currentParentSpace = static_cast<NeoChatRoom *>(connection->room(currentParent.data(SpaceChildrenModel::RoomIDRole).toString()));
+    }
+    NeoChatRoom *targetParentSpace = nullptr;
+    if (!targetParent.isValid()) {
+        targetParentSpace = rootSpace;
+    } else {
+        targetParentSpace = static_cast<NeoChatRoom *>(connection->room(targetParent.data(SpaceChildrenModel::RoomIDRole).toString()));
+    }
+    // If both parents are not resolvable to a room object we don't have the permissions
+    // required for this action.
+    if (currentParentSpace == nullptr || targetParentSpace == nullptr) {
+        return;
+    }
+
+    const auto currentRow = currentIndex.row();
+    auto targetRow = targetIndex.row();
+
+    const auto moveRoomId = currentIndex.data(SpaceChildrenModel::RoomIDRole).toString();
+    auto targetRoom = static_cast<NeoChatRoom *>(connection->room(targetIndex.data(SpaceChildrenModel::RoomIDRole).toString()));
+    // If the target room is a space, assume we want to drop the room into it.
+    if (targetRoom != nullptr && targetRoom->isSpace()) {
+        targetParent = targetIndex;
+        targetParentSpace = targetRoom;
+        targetRow = rowCount(targetParent);
+    }
+
+    const auto newRowCount = rowCount(targetParent) + (currentParentSpace != targetParentSpace ? 1 : 0);
+    for (int i = 0; i < newRowCount; i++) {
+        if (currentParentSpace == targetParentSpace && i == currentRow) {
+            continue;
+        }
+
+        targetParentSpace->setChildOrder(index(i, 0, targetParent).data(SpaceChildrenModel::RoomIDRole).toString(),
+                                         QString::number(i > targetRow ? i + 1 : i, 36));
+
+        if (i == targetRow) {
+            if (currentParentSpace != targetParentSpace) {
+                currentParentSpace->removeChild(moveRoomId, true);
+                targetParentSpace->addChild(moveRoomId, true, false, false, QString::number(i + 1, 36));
+            } else {
+                targetParentSpace->setChildOrder(currentIndex.data(SpaceChildrenModel::RoomIDRole).toString(), QString::number(i + 1, 36));
+            }
+        }
+    }
+}
+
 #include "moc_spacechildsortfiltermodel.cpp"

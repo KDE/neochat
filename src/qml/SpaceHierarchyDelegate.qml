@@ -18,6 +18,7 @@ Item {
     required property bool expanded
     required property int hasChildren
     required property int depth
+    required property int row
     required property string roomId
     required property string displayName
     required property url avatarUrl
@@ -36,10 +37,17 @@ Item {
     signal createRoom
 
     Delegates.RoundedItemDelegate {
-        anchors.centerIn: root
+        id: mainDelegate
+        property int row: root.row
+
+        anchors.horizontalCenter: root.horizontalCenter
+        anchors.verticalCenter: root.verticalCenter
         width: sizeHelper.currentWidth
 
+        highlighted: dropArea.containsDrag
+
         contentItem: RowLayout {
+            z: 1
             spacing: Kirigami.Units.largeSpacing
 
             RowLayout {
@@ -140,14 +148,54 @@ Item {
             }
         }
 
-        TapHandler {
-            onTapped: {
+        MouseArea {
+            id: dragArea
+            anchors.fill: parent
+
+            drag.target: mainDelegate
+            drag.axis: Drag.YAxis
+
+            drag.onActiveChanged: {
+                if (!dragArea.drag.active) {
+                    mainDelegate.Drag.drop();
+                }
+            }
+
+            onClicked: {
                 if (root.isSpace) {
-                    root.treeView.toggleExpanded(row);
+                    root.treeView.toggleExpanded(root.row);
                 } else {
                     RoomManager.resolveResource(root.roomId, root.isJoined ? "" : "join");
                 }
             }
+        }
+
+        states: [
+            State {
+                when: mainDelegate.Drag.active && root.parentRoom.canSendState("m.space.child")
+                ParentChange {
+                    target: mainDelegate
+                    parent: root.treeView
+                }
+
+                AnchorChanges {
+                    target: mainDelegate
+                    anchors.horizontalCenter: undefined
+                    anchors.verticalCenter: undefined
+                }
+            }
+        ]
+
+        Drag.active: dragArea.drag.active
+        Drag.hotSpot.x: mainDelegate.width / 2
+        Drag.hotSpot.y: Kirigami.Units.smallSpacing
+    }
+
+    DropArea {
+        id: dropArea
+        anchors.fill: parent
+        onDropped: (drag) => {
+            root.treeView.model.move(root.treeView.index(drag.source.row, 0), root.treeView.index(root.row, 0))
         }
     }
 

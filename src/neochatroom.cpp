@@ -1329,7 +1329,7 @@ bool NeoChatRoom::childrenHaveHighlightNotifications() const
     return SpaceHierarchyCache::instance().spaceHasHighlightNotifications(id());
 }
 
-void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool canonical, bool suggested)
+void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool canonical, bool suggested, const QString &order)
 {
     if (!isSpace()) {
         return;
@@ -1337,7 +1337,9 @@ void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool can
     if (!canSendEvent("m.space.child"_ls)) {
         return;
     }
-    setState("m.space.child"_ls, childId, QJsonObject{{QLatin1String("via"), QJsonArray{connection()->domain()}}, {"suggested"_ls, suggested}});
+    setState("m.space.child"_ls,
+             childId,
+             QJsonObject{{QLatin1String("via"), QJsonArray{connection()->domain()}}, {"suggested"_ls, suggested}, {"order"_ls, order}});
 
     if (setChildParent) {
         if (auto child = static_cast<NeoChatRoom *>(connection()->room(childId))) {
@@ -1399,6 +1401,28 @@ void NeoChatRoom::toggleChildSuggested(const QString &childId)
     if (const auto childEvent = currentState().get("m.space.child"_ls, childId)) {
         auto content = childEvent->contentJson();
         content.insert("suggested"_ls, !childEvent->contentPart<bool>("suggested"_ls));
+        setState("m.space.child"_ls, childId, content);
+    }
+}
+
+void NeoChatRoom::setChildOrder(const QString &childId, const QString &order)
+{
+    if (!isSpace()) {
+        return;
+    }
+    if (!canSendEvent("m.space.child"_ls)) {
+        return;
+    }
+    if (const auto childEvent = currentState().get("m.space.child"_ls, childId)) {
+        auto content = childEvent->contentJson();
+        if (!content.contains("via"_ls)) {
+            return;
+        }
+        if (content.value("order"_ls).toString() == order) {
+            return;
+        }
+
+        content.insert("order"_ls, order);
         setState("m.space.child"_ls, childId, content);
     }
 }

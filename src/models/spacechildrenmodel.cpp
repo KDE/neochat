@@ -8,6 +8,7 @@
 #include <Quotient/room.h>
 
 #include "neochatconnection.h"
+#include "neochatroom.h"
 
 SpaceChildrenModel::SpaceChildrenModel(QObject *parent)
     : QAbstractItemModel(parent)
@@ -32,7 +33,8 @@ void SpaceChildrenModel::setSpace(NeoChatRoom *space)
     }
     // disconnect the new room signal from the old connection in case it is different.
     if (m_space != nullptr) {
-        disconnect(m_space->connection(), &Quotient::Connection::loadedRoomState, this, nullptr);
+        m_space->connection()->disconnect(this);
+        m_space->disconnect(this);
     }
 
     m_space = space;
@@ -115,6 +117,11 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
                 const auto successorId = room->successorId();
                 if (!successorId.isEmpty()) {
                     m_replacedRooms += successorId;
+                }
+                if (dynamic_cast<NeoChatRoom *>(room)->isSpace()) {
+                    connect(room, &Quotient::Room::changed, this, [this]() {
+                        refreshModel();
+                    });
                 }
             }
             if (children[i].childrenState.size() > 0) {
