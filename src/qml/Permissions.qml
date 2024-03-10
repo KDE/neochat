@@ -51,7 +51,7 @@ FormCard.FormCardPage {
                     spacing: Kirigami.Units.largeSpacing
                     QQC2.Label {
                         id: powerLevelLabel
-                        visible: !room.canSendState("m.room.power_levels") || (room.getUserPowerLevel(room.localUser.id) <= model.powerLevel && model.userId != room.localUser.id)
+                        visible: !room.canSendState("m.room.power_levels") || (room.getUserPowerLevel(room.localMember.id) <= model.powerLevel && model.userId != room.localMember.id)
                         text: powerLevelString
                         color: Kirigami.Theme.disabledTextColor
                     }

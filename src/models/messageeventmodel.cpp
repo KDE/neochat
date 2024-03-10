@@ -251,7 +251,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginResetModel();
             endResetModel();
         });
-        qCDebug(MessageEvent) << "Connected to room" << room->id() << "as" << room->localUser()->id();
+        qCDebug(MessageEvent) << "Connected to room" << room->id() << "as" << room->localMember().id();
     } else {
         lastReadEventId.clear();
     }
@@ -621,7 +621,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsEditableRole) {
-        return eventHandler.messageComponentType() == MessageComponentType::Text && evt.senderId() == m_currentRoom->localUser()->id();
+        return eventHandler.messageComponentType() == MessageComponentType::Text && evt.senderId() == m_currentRoom->localMember().id();
     }
 
     return {};

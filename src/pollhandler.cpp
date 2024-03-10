@@ -154,7 +154,7 @@ void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId
         return;
     }
     QStringList ownAnswers;
-    for (const auto &answer : m_answers[room->localUser()->id()].toArray()) {
+    for (const auto &answer : m_answers[room->localMember().id()].toArray()) {
         ownAnswers += answer.toString();
     }
     if (ownAnswers.contains(answerId)) {
@@ -169,7 +169,7 @@ void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId
     }
 
     auto response = new PollResponseEvent(eventId, ownAnswers);
-    handleAnswer(response->contentJson(), room->localUser()->id(), QDateTime::currentDateTime());
+    handleAnswer(response->contentJson(), room->localMember().id(), QDateTime::currentDateTime());
     room->postEvent(response);
 }
 
