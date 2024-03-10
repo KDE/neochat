@@ -30,7 +30,7 @@ ColumnLayout {
                 id: roomListModel
                 connection: root.connection
             }
-            currentIndex: -1
+            currentIndex: 0
             Component.onCompleted: currentIndex = roomListModel.rowForRoom(root.room)
             onCurrentValueChanged: root.room = roomListModel.roomByAliasOrId(roomComboBox.currentValue)
         }

@@ -119,6 +119,22 @@ RowLayout {
         visible: false
     }
     QQC2.ToolButton {
+        visible: Config.developerTools
+        icon.name: "tools"
+        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'DevtoolsPage.qml'), {
+            connection: root.connection
+        }, {
+            title: i18n("Developer Tools")
+        });
+        text: i18n("Open developer tools")
+        display: QQC2.AbstractButton.IconOnly
+        Layout.minimumWidth: Layout.preferredWidth
+        Layout.alignment: Qt.AlignRight
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+    }
+    QQC2.ToolButton {
         icon.name: "settings-configure"
         onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'SettingsPage.qml'), {
             connection: root.connection

@@ -38,7 +38,7 @@ ColumnLayout {
     }
     FormCard.FormCard {
         Repeater {
-            model: room.connection.getSupportedRoomVersions()
+            model: root.connection.getSupportedRoomVersions()
 
             delegate: FormCard.FormTextDelegate {
                 text: modelData.id

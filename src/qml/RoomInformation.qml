@@ -73,25 +73,6 @@ QQC2.ScrollView {
             }
 
             Delegates.RoundedItemDelegate {
-                id: devtoolsButton
-
-                icon.name: "tools"
-                text: i18n("Open developer tools")
-                visible: Config.developerTools && !root.room.isSpace
-
-                Layout.fillWidth: true
-
-                onClicked: {
-                    applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'DevtoolsPage.qml'), {
-                        room: root.room,
-                        connection: root.connection
-                    }, {
-                        title: i18n("Developer Tools")
-                    });
-                }
-            }
-
-            Delegates.RoundedItemDelegate {
                 id: searchButton
                 visible: !root.room.isSpace
                 icon.name: "search"
