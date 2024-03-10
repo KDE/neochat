@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"POT-Creation-Date: 2024-03-10 00:37+0000\n"
 "PO-Revision-Date: 2024-02-13 11:57+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2573,7 +2573,7 @@ msgstr "Válassza ki az új verziót"
 msgid "Confirm"
 msgstr "Megerősítés"
 
-#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#: src/qml/GeneralSettingsPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
@@ -3261,6 +3261,12 @@ msgstr "A szerkesztés elvetése"
 #, kde-format
 msgid "Event Source"
 msgstr "Az esemény forrása"
+
+#: src/qml/NetworkProxyPage.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy"
+msgstr ""
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -4919,6 +4925,20 @@ msgstr "Bejelentkezés vagy új fiók létrehozása"
 msgctxt "@action:button"
 msgid "Go back"
 msgstr ""
+
+#: src/qml/WelcomePage.qml:217
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Beállítások megnyitása"
+
+#: src/qml/WelcomePage.qml:220
+#, fuzzy, kde-format
+#| msgid "Proxy Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Proxybeállítások"
 
 #: src/registration.cpp:300
 #, kde-format

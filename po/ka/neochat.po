@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"POT-Creation-Date: 2024-03-10 00:37+0000\n"
 "PO-Revision-Date: 2024-03-06 05:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2493,7 +2493,7 @@ msgstr "აირჩიეთ ახალი ვერსია"
 msgid "Confirm"
 msgstr "დადასტურება"
 
-#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#: src/qml/GeneralSettingsPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
@@ -3155,6 +3155,13 @@ msgstr "ჩასწორების გაუქმება"
 #, kde-format
 msgid "Event Source"
 msgstr "მოვლენის წყარო"
+
+#: src/qml/NetworkProxyPage.qml:16
+#, fuzzy, kde-format
+#| msgid "Proxy Port"
+msgctxt "@title:window"
+msgid "Proxy"
+msgstr "პროქსის პორტი"
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -4744,6 +4751,20 @@ msgctxt "@action:button"
 msgid "Go back"
 msgstr "უკან დაბრუნება"
 
+#: src/qml/WelcomePage.qml:217
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "პარამეტრების გახსნა"
+
+#: src/qml/WelcomePage.qml:220
+#, fuzzy, kde-format
+#| msgid "Proxy Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "პროქსის მორგება"
+
 #: src/registration.cpp:300
 #, kde-format
 msgid "No server."
@@ -5100,9 +5121,6 @@ msgstr "დატოვება"
 
 #~ msgid "Edit device"
 #~ msgstr "მოწყობილობის ჩასწორება"
-
-#~ msgid "Proxy Port"
-#~ msgstr "პროქსის პორტი"
 
 #~ msgid "Avatar:"
 #~ msgstr "ავატარი:"

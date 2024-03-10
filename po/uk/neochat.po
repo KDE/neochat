@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"POT-Creation-Date: 2024-03-10 00:37+0000\n"
 "PO-Revision-Date: 2024-03-06 08:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2520,7 +2520,7 @@ msgstr "Виберіть нову версію"
 msgid "Confirm"
 msgstr "Підтвердити"
 
-#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#: src/qml/GeneralSettingsPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
@@ -3186,6 +3186,13 @@ msgstr "Скасувати редагування"
 #, kde-format
 msgid "Event Source"
 msgstr "Джерело подій"
+
+#: src/qml/NetworkProxyPage.qml:16
+#, fuzzy, kde-format
+#| msgid "Proxy Port"
+msgctxt "@title:window"
+msgid "Proxy"
+msgstr "Порт проксі-сервера"
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -4800,6 +4807,20 @@ msgctxt "@action:button"
 msgid "Go back"
 msgstr "Назад"
 
+#: src/qml/WelcomePage.qml:217
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Відкрити налаштування"
+
+#: src/qml/WelcomePage.qml:220
+#, fuzzy, kde-format
+#| msgid "Proxy Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Налаштування проксі"
+
 #: src/registration.cpp:300
 #, kde-format
 msgid "No server."
@@ -5193,9 +5214,6 @@ msgstr "Вийти"
 
 #~ msgid "Peeker width"
 #~ msgstr "Ширина захоплення"
-
-#~ msgid "Proxy Port"
-#~ msgstr "Порт проксі-сервера"
 
 #~ msgid "Avatar:"
 #~ msgstr "Аватар:"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"POT-Creation-Date: 2024-03-10 00:37+0000\n"
 "PO-Revision-Date: 2024-03-06 18:42+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2484,7 +2484,7 @@ msgstr "選取新版本"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#: src/qml/GeneralSettingsPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
@@ -3144,6 +3144,12 @@ msgstr "取消編輯"
 #, kde-format
 msgid "Event Source"
 msgstr "事件原始碼"
+
+#: src/qml/NetworkProxyPage.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy"
+msgstr ""
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -4699,6 +4705,20 @@ msgstr "登入或建立新帳號"
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "返回"
+
+#: src/qml/WelcomePage.qml:217
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "開啟設定"
+
+#: src/qml/WelcomePage.qml:220
+#, fuzzy, kde-format
+#| msgid "Proxy Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "代理伺服器設定"
 
 #: src/registration.cpp:300
 #, kde-format

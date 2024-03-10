@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"POT-Creation-Date: 2024-03-10 00:37+0000\n"
 "PO-Revision-Date: 2024-03-02 13:43+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2505,7 +2505,7 @@ msgstr "Wybierz nową wersję"
 msgid "Confirm"
 msgstr "Potwierdź"
 
-#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#: src/qml/GeneralSettingsPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
@@ -3169,6 +3169,12 @@ msgstr "Anuluj edytowanie"
 #, kde-format
 msgid "Event Source"
 msgstr "Źródło wydarzenia"
+
+#: src/qml/NetworkProxyPage.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy"
+msgstr ""
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -4776,6 +4782,20 @@ msgstr "Wejdź na konto lub utwórz nowe"
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Cofnij się"
+
+#: src/qml/WelcomePage.qml:217
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Otwórz ustawienia"
+
+#: src/qml/WelcomePage.qml:220
+#, fuzzy, kde-format
+#| msgid "Proxy Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Ustawienia pośrednika"
 
 #: src/registration.cpp:300
 #, kde-format

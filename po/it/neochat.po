@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
+"POT-Creation-Date: 2024-03-10 00:37+0000\n"
 "PO-Revision-Date: 2024-03-01 09:51+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -2511,7 +2511,7 @@ msgstr "Seleziona la nuova versione"
 msgid "Confirm"
 msgstr "Conferma"
 
-#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#: src/qml/GeneralSettingsPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
@@ -3176,6 +3176,13 @@ msgstr "Annulla la modifica"
 #, kde-format
 msgid "Event Source"
 msgstr "Sorgente dell'evento"
+
+#: src/qml/NetworkProxyPage.qml:16
+#, fuzzy, kde-format
+#| msgid "Proxy Port"
+msgctxt "@title:window"
+msgid "Proxy"
+msgstr "Porta del proxy"
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -4798,6 +4805,20 @@ msgctxt "@action:button"
 msgid "Go back"
 msgstr "Indietro"
 
+#: src/qml/WelcomePage.qml:217
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Apri le impostazioni"
+
+#: src/qml/WelcomePage.qml:220
+#, fuzzy, kde-format
+#| msgid "Proxy Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Impostazioni del proxy"
+
 #: src/registration.cpp:300
 #, kde-format
 msgid "No server."
@@ -5188,9 +5209,6 @@ msgstr "Esci"
 
 #~ msgid "Edit device"
 #~ msgstr "Modifica il dispositivo"
-
-#~ msgid "Proxy Port"
-#~ msgstr "Porta del proxy"
 
 #~ msgid "Avatar:"
 #~ msgstr "Avatar:"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-06 00:38+0000\n"
-"PO-Revision-Date: 2024-02-29 12:52\n"
+"POT-Creation-Date: 2024-03-10 00:37+0000\n"
+"PO-Revision-Date: 2024-03-09 04:46\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1387,8 +1387,7 @@ msgid "Open developer tools"
 msgstr "打开开发者工具"
 
 #: src/qml/AccountMenu.qml:60
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "开发者工具"
@@ -1592,10 +1591,9 @@ msgid "Choose a Room"
 msgstr "选择聊天室"
 
 #: src/qml/CodeComponent.qml:120
-#, fuzzy, kde-format
-#| msgid "Copy room ID to clipboard"
+#, kde-format
 msgid "Copy to clipboard"
-msgstr "复制聊天室 ID 到剪切板"
+msgstr ""
 
 #: src/qml/ColorScheme.qml:15
 #, kde-format
@@ -2489,7 +2487,7 @@ msgstr "选择新版本"
 msgid "Confirm"
 msgstr "确认"
 
-#: src/qml/GeneralSettingsPage.qml:15 src/qml/NetworkProxyPage.qml:16
+#: src/qml/GeneralSettingsPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
@@ -2516,18 +2514,15 @@ msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "调整窗口大小时自动展示/隐藏聊天室信息"
 
 #: src/qml/GeneralSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "<room alias or id>"
+#, kde-format
 msgid "Room list sort order"
-msgstr "<聊天室别名或 ID>"
+msgstr ""
 
 #: src/qml/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "'Activities' is a category of emoji"
-#| msgid "Activities"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
-msgstr "活动"
+msgstr ""
 
 #: src/qml/GeneralSettingsPage.qml:82
 #, kde-format
@@ -3150,6 +3145,12 @@ msgstr "取消编辑"
 #, kde-format
 msgid "Event Source"
 msgstr "事件源码"
+
+#: src/qml/NetworkProxyPage.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy"
+msgstr ""
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -4706,6 +4707,20 @@ msgctxt "@action:button"
 msgid "Go back"
 msgstr "返回"
 
+#: src/qml/WelcomePage.qml:217
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "打开设置"
+
+#: src/qml/WelcomePage.qml:220
+#, fuzzy, kde-format
+#| msgid "Proxy Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "代理设置"
+
 #: src/registration.cpp:300
 #, kde-format
 msgid "No server."
@@ -4811,7 +4826,3 @@ msgstr "显示"
 #, kde-format
 msgid "Quit"
 msgstr "退出"
-
-#~ msgctxt "<username> is not a known user"
-#~ msgid "%1 is not a known user."
-#~ msgstr "%1 不是已知用户。"
