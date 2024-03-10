@@ -68,7 +68,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
                     text += i18nc("Separate the usernames of users", " and ");
                 }
             }
-            text += reaction.authors.at(i).toMap()[QStringLiteral("displayName")].toString();
+            text += reaction.authors.at(i).displayName();
         }
 
         if (reaction.authors.count() > 3) {
@@ -84,13 +84,9 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
         return text;
     }
 
-    if (role == AuthorsRole) {
-        return reaction.authors;
-    }
-
     if (role == HasLocalUser) {
         for (auto author : reaction.authors) {
-            if (author.toMap()[QStringLiteral("id")] == m_room->localMember().id()) {
+            if (author.id() == m_room->localMember().id()) {
                 return true;
             }
         }
@@ -119,13 +115,13 @@ void ReactionModel::updateReactions()
         return;
     };
 
-    QMap<QString, QList<Quotient::User *>> reactions = {};
+    QMap<QString, QList<Quotient::RoomMember>> reactions = {};
     for (const auto &a : annotations) {
         if (a->isRedacted()) { // Just in case?
             continue;
         }
         if (const auto &e = eventCast<const Quotient::ReactionEvent>(a)) {
-            reactions[e->key()].append(m_room->user(e->senderId()));
+            reactions[e->key()].append(m_room->member(e->senderId()));
             if (e->contentJson()[QStringLiteral("shortcode")].toString().length()) {
                 m_shortcodes[e->key()] = e->contentJson()[QStringLiteral("shortcode")].toString().toHtmlEscaped();
             }
@@ -136,15 +132,14 @@ void ReactionModel::updateReactions()
         endResetModel();
         return;
     }
-
     auto i = reactions.constBegin();
     while (i != reactions.constEnd()) {
-        QVariantList authors;
-        for (const auto &author : i.value()) {
-            authors.append(m_room->getUser(author));
+        QList<Quotient::RoomMember> members;
+        for (const auto &member : i.value()) {
+            members.append(member);
         }
 
-        m_reactions.append(ReactionModel::Reaction{i.key(), authors});
+        m_reactions.append(ReactionModel::Reaction{i.key(), members});
         ++i;
     }
 
@@ -157,7 +152,6 @@ QHash<int, QByteArray> ReactionModel::roleNames() const
         {TextContentRole, "textContent"},
         {ReactionRole, "reaction"},
         {ToolTipRole, "toolTip"},
-        {AuthorsRole, "authors"},
         {HasLocalUser, "hasLocalUser"},
     };
 }

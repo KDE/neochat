@@ -21,10 +21,6 @@ import org.kde.neochat
  */
 QQC2.Control {
     id: root
-    /**
-     * @brief The current connection for the local user.
-     */
-    required property NeoChatConnection connection
 
     /**
      * @brief The NeoChatRoom the delegate is being displayed in.

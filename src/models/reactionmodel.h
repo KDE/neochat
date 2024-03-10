@@ -25,7 +25,7 @@ public:
      */
     struct Reaction {
         QString reaction; /**< The reaction emoji. */
-        QVariantList authors; /**< The list of authors who sent the given reaction. */
+        QList<Quotient::RoomMember> authors; /**< The list of authors who sent the given reaction. */
     };
 
     /**
@@ -35,7 +35,6 @@ public:
         TextContentRole = Qt::DisplayRole, /**< The text to show in the reaction. */
         ReactionRole, /**< The reaction emoji. */
         ToolTipRole, /**< The tool tip to show for the reaction. */
-        AuthorsRole, /**< The list of authors who sent the given reaction. */
         HasLocalUser, /**< Whether the local user is in the list of authors. */
     };
 
