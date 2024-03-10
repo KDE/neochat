@@ -11,9 +11,9 @@
 
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
-#include <Quotient/user.h>
 #include <qcoro/qcorosignal.h>
 
+#include <Quotient/avatar.h>
 #include <Quotient/connection.h>
 #include <Quotient/csapi/account-data.h>
 #include <Quotient/csapi/directory.h>
@@ -103,8 +103,8 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         }
         auto roomMemberEvent = currentState().get<RoomMemberEvent>(localMember().id());
         QImage avatar_image;
-        if (roomMemberEvent && !user(roomMemberEvent->senderId())->avatarUrl(this).isEmpty()) {
-            avatar_image = user(roomMemberEvent->senderId())->avatar(128, this);
+        if (roomMemberEvent && !member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
+            avatar_image = memberAvatar(roomMemberEvent->senderId()).get(this->connection(), 128, [] {});
         } else {
             qWarning() << "using this room's avatar";
             avatar_image = avatar(128);
@@ -257,18 +257,16 @@ void NeoChatRoom::forget()
 
 QVariantList NeoChatRoom::getUsersTyping() const
 {
-    auto users = usersTyping();
-    users.removeAll(localUser());
+    auto members = membersTyping();
+    members.removeAll(localMember());
     QVariantList userVariants;
-    for (const auto &user : users) {
-        if (connection()->isIgnored(user->id())) {
+    for (const auto &member : members) {
+        if (connection()->isIgnored(member.id())) {
             continue;
         }
         userVariants.append(QVariantMap{
-            {"id"_ls, user->id()},
-            {"avatarMediaId"_ls, user->avatarMediaId(this)},
-            {"displayName"_ls, user->displayname(this)},
-            {"display"_ls, user->name()},
+            {"id"_ls, member.id()},
+            {"displayName"_ls, member.displayName()},
         });
     }
     return userVariants;
@@ -1895,20 +1893,6 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
     return QJsonDocument(accountData(eventType)->fullJson()).toJson();
 }
 
-QUrl NeoChatRoom::avatarForMember(Quotient::User *user) const
-{
-    const auto &url = memberAvatarUrl(user->id());
-    if (url.isEmpty() || url.scheme() != "mxc"_ls) {
-        return {};
-    }
-    auto avatar = connection()->makeMediaUrl(url);
-    if (avatar.isValid() && avatar.scheme() == QStringLiteral("mxc")) {
-        return avatar;
-    } else {
-        return QUrl();
-    }
-}
-
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
 {
     const QString &replyEventId = event.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
@@ -1937,10 +1921,9 @@ void NeoChatRoom::loadReply(const QString &eventId, const QString &replyId)
         Q_EMIT replyLoaded(eventId, replyId);
     });
 }
-
-User *NeoChatRoom::invitingUser() const
+QString NeoChatRoom::invitingUserId() const
 {
-    return connection()->user(currentState().get<RoomMemberEvent>(connection()->userId())->senderId());
+    return currentState().get<RoomMemberEvent>(connection()->userId())->senderId();
 }
 
 #include "moc_neochatroom.cpp"

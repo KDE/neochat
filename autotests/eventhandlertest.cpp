@@ -109,7 +109,7 @@ void EventHandlerTest::author()
     QCOMPARE(eventHandlerAuthor.displayName(), author.displayName());
     QCOMPARE(eventHandlerAuthor.avatarUrl(), author.avatarUrl());
     QCOMPARE(eventHandlerAuthor.avatarMediaId(), author.avatarMediaId());
-    QCOMPARE(eventHandlerAuthor.color(), Utils::getUserColor(author.hueF()));
+    QCOMPARE(eventHandlerAuthor.color(), author.color());
 }
 
 void EventHandlerTest::nullAuthor()
@@ -386,7 +386,7 @@ void EventHandlerTest::replyAuthor()
     QCOMPARE(eventHandlerReplyAuthor.displayName(), replyAuthor.displayName());
     QCOMPARE(eventHandlerReplyAuthor.avatarUrl(), replyAuthor.avatarUrl());
     QCOMPARE(eventHandlerReplyAuthor.avatarMediaId(), replyAuthor.avatarMediaId());
-    QCOMPARE(eventHandlerReplyAuthor.color(), Utils::getUserColor(replyAuthor.hueF()));
+    QCOMPARE(eventHandlerReplyAuthor.color(), replyAuthor.color());
 
     EventHandler eventHandlerNoAuthor(room, room->messageEvents().at(0).get());
     QCOMPARE(eventHandlerNoAuthor.getReplyAuthor(), RoomMember());

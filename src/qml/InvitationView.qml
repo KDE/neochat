@@ -22,7 +22,7 @@ Kirigami.PlaceholderMessage {
 
             onClicked: {
                 RoomManager.leaveRoom(root.currentRoom);
-                root.currentRoom.connection.addToIgnoredUsers(root.currentRoom.invitingUser());
+                root.currentRoom.connection.addToIgnoredUsers(root.currentRoom.invitingUserId());
             }
         }
         QQC2.Button {

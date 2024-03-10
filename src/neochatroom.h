@@ -12,7 +12,6 @@
 
 #include <QCoroTask>
 #include <Quotient/roommember.h>
-#include <Quotient/user.h>
 
 #include "enums/pushrule.h"
 #include "events/pollevent.h"
@@ -734,8 +733,6 @@ public:
      */
     Q_INVOKABLE QByteArray roomAcountDataJson(const QString &eventType);
 
-    Q_INVOKABLE [[nodiscard]] QUrl avatarForMember(Quotient::User *user) const;
-
     /**
      * @brief Returns the event that is being replied to. This includes events that were manually loaded using NeoChatRoom::loadReply.
      */
@@ -751,7 +748,7 @@ public:
     /**
      * If we're invited to this room, the user that invited us. Undefined in other cases.
      */
-    Q_INVOKABLE Quotient::User *invitingUser() const;
+    Q_INVOKABLE QString invitingUserId() const;
 
 private:
     QSet<const Quotient::RoomEvent *> highlights;

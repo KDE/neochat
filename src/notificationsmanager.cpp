@@ -276,7 +276,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom, const QS
             return;
         }
         RoomManager::instance().leaveRoom(room);
-        room->connection()->addToIgnoredUsers(room->invitingUser());
+        room->connection()->addToIgnoredUsers(room->invitingUserId());
         notification->close();
     });
     connect(notification, &KNotification::closed, this, [this, room]() {
