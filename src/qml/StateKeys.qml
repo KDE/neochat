@@ -32,12 +32,11 @@ FormCard.FormCardPage {
             delegate: FormCard.FormButtonDelegate {
                 text: model.stateKey
                 onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "MessageSourceSheet.qml"), {
-                    sourceText: stateKeysModel.stateEventJson(stateKeysModel.index(model.index, 0)),
+                    model: stateKeysModel,
                     allowEdit: true,
                     room: root.room,
                     type: root.eventType,
-                    stateKey: model.stateKey,
-                    contentJson: stateKeysModel.stateEventContentJson(stateKeysModel.index(model.index, 0))
+                    stateKey: model.stateKey
                 }, {
                     title: i18nc("@title:window", "Event Source"),
                     width: Kirigami.Units.gridUnit * 25

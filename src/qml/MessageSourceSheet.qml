@@ -14,18 +14,30 @@ import org.kde.neochat
 Kirigami.Page {
     id: root
 
-    required property string sourceText
-    property bool allowEdit: false
-
+    property var model
     property NeoChatRoom room
+
     property string type
     property string stateKey
-    property string contentJson
+
+    property bool allowEdit: false
+
+    property string contentJson: model.stateEventContentJson(root.type, root.stateKey)
+    property string sourceText: model.stateEventJson(root.type, root.stateKey)
 
     topPadding: 0
     leftPadding: 0
     rightPadding: 0
     bottomPadding: 0
+
+    Connections {
+        enabled: root.model
+        target: root.room
+        function onChanged(): void {
+            root.contentJson = model.stateEventContentJson(root.type, root.stateKey);
+            root.sourceText = model.stateEventJson(root.type, root.stateKey);
+        }
+    }
 
     title: i18n("Event Source")
 

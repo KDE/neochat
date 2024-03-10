@@ -78,12 +78,11 @@ ColumnLayout {
                 onClicked: {
                     if (model.eventCount === 1) {
                         onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
-                            sourceText: stateModel.stateEventJson(stateModel.index(model.index, 0)),
+                            model: stateModel,
                             allowEdit: true,
                             room: root.room,
                             type: model.type,
                             stateKey: model.stateKey,
-                            contentJson: stateModel.stateEventContentJson(stateModel.index(model.index, 0))
                         }, {
                             title: i18n("Event Source"),
                             width: Kirigami.Units.gridUnit * 25

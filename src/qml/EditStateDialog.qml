@@ -35,9 +35,12 @@ Kirigami.Page {
             enabled: sourceTextArea.text !== root.sourceText
         },
         Kirigami.Action {
-            text: i18nc("@action As in 'edit the state of this rooms'", "Edit state")
+            text: i18nc("@action As in 'Apply the changes'", "Apply")
             icon.name: "document-edit"
-            onTriggered: root.room.setRoomState(root.type, root.stateKey, sourceTextArea.text)
+            onTriggered: {
+                root.room.setRoomState(root.type, root.stateKey, sourceTextArea.text);
+                root.closeDialog();
+            }
             enabled: QmlUtils.isValidJson(sourceTextArea.text)
         }
     ]

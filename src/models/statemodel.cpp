@@ -69,24 +69,14 @@ void StateModel::setRoom(NeoChatRoom *room)
     });
 }
 
-QByteArray StateModel::stateEventJson(const QModelIndex &index)
+QByteArray StateModel::stateEventJson(const QString &type, const QString &stateKey)
 {
-    auto row = index.row();
-    const auto type = m_stateEvents.keys()[row];
-    const auto stateKey = m_stateEvents.values()[row][0];
-    const auto event = m_room->currentState().get(type, stateKey);
-
-    return QJsonDocument(event->fullJson()).toJson();
+    return QJsonDocument(m_room->currentState().get(type, stateKey)->fullJson()).toJson();
 }
 
-QByteArray StateModel::stateEventContentJson(const QModelIndex &index)
+QByteArray StateModel::stateEventContentJson(const QString &type, const QString &stateKey)
 {
-    auto row = index.row();
-    const auto type = m_stateEvents.keys()[row];
-    const auto stateKey = m_stateEvents.values()[row][0];
-    const auto event = m_room->currentState().get(type, stateKey);
-
-    return QJsonDocument(event->contentJson()).toJson();
+    return QJsonDocument(m_room->currentState().get(type, stateKey)->contentJson()).toJson();
 }
 
 #include "moc_statemodel.cpp"
