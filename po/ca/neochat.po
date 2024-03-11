@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:37+0000\n"
-"PO-Revision-Date: 2024-03-06 10:16+0100\n"
+"POT-Creation-Date: 2024-03-11 00:38+0000\n"
+"PO-Revision-Date: 2024-03-10 12:45+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -426,7 +426,7 @@ msgstr "ha creat la sala"
 #: src/eventhandler.cpp:591
 #, kde-format
 msgid "sent a live location beacon"
-msgstr "s'ha enviat un balisa d'ubicació en directe"
+msgstr "s'ha enviat una balisa d'ubicació en directe"
 
 #: src/eventhandler.cpp:598
 #, kde-format
@@ -623,7 +623,7 @@ msgstr "Sortida d'aquesta sala."
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr "«%1» no sembla pas un ID de sala o un alias."
+msgstr "«%1» no sembla pas un ID de sala o un àlies."
 
 #: src/models/actionsmodel.cpp:39
 #, kde-format
@@ -745,7 +745,7 @@ msgstr "S'uneix a la sala %1."
 
 #: src/models/actionsmodel.cpp:242 src/models/actionsmodel.cpp:297
 msgid "<room alias or id>"
-msgstr "<alias o ID de sala>"
+msgstr "<àlies o ID de sala>"
 
 #: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:298
 msgid "Joins the given room"
@@ -759,7 +759,7 @@ msgstr "Sol·licita permís a la sala %1."
 
 #: src/models/actionsmodel.cpp:274
 msgid "<room alias or id> [<reason>]"
-msgstr "<alias o ID de sala> [<motiu>]"
+msgstr "<àlies o ID de sala> [<motiu>]"
 
 #: src/models/actionsmodel.cpp:275
 msgid "Requests to join the given room"
@@ -773,7 +773,7 @@ msgstr "Ja esteu en la sala %1."
 
 #: src/models/actionsmodel.cpp:305 src/models/actionsmodel.cpp:313
 msgid "[<room alias or id>]"
-msgstr "[<alias o ID de sala>]"
+msgstr "[<àlies o ID de sala>]"
 
 #: src/models/actionsmodel.cpp:306 src/models/actionsmodel.cpp:314
 msgid "Leaves the given room or this room, if there is none given"
@@ -1144,12 +1144,12 @@ msgstr "Ha fallat la creació de la sala: %1"
 msgid "Space creation failed: %1"
 msgstr "Ha fallat la creació de l'espai: %1"
 
-#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
+#: src/neochatroom.cpp:1643 src/neochatroom.cpp:1644
 #, kde-format
 msgid "Report sent successfully."
 msgstr "L'informe s'ha enviat correctament."
 
-#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
+#: src/neochatroom.cpp:1918 src/neochatroom.cpp:1926
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1375,7 +1375,7 @@ msgid "Notification settings"
 msgstr "Configuració de les notificacions"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:126
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:142
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
@@ -1386,7 +1386,7 @@ msgstr "Configura"
 msgid "Devices"
 msgstr "Dispositius"
 
-#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#: src/qml/AccountMenu.qml:54 src/qml/UserInfo.qml:129
 #, kde-format
 msgid "Open developer tools"
 msgstr "Obre les eines de desenvolupament"
@@ -1408,7 +1408,7 @@ msgstr "Desconnecta"
 msgid "Accounts"
 msgstr "Comptes"
 
-#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:181
+#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:197
 #, kde-format
 msgid "Add Account"
 msgstr "Afegeix un compte"
@@ -1841,7 +1841,7 @@ msgid "Explore Rooms"
 msgstr "Exploració de sales"
 
 #: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:69
-#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Joined"
 msgstr "Us heu unit"
@@ -1994,7 +1994,7 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:89
+#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:127
 #, kde-format
 msgid "Developer Tools"
 msgstr "Eines de desenvolupament"
@@ -2994,7 +2994,7 @@ msgstr "Trieu una ubicació"
 msgid "Send this location"
 msgstr "Envia aquesta ubicació"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:131
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:112
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3179,7 +3179,7 @@ msgstr "Codi font de l'esdeveniment"
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
-msgstr ""
+msgstr "Servidor intermediari"
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -3680,56 +3680,56 @@ msgstr "Informació de la sala"
 msgid "Options"
 msgstr "Opcions"
 
-#: src/qml/RoomInformation.qml:98
+#: src/qml/RoomInformation.qml:79
 #, kde-format
 msgid "Search in this room"
 msgstr "Cerca en aquesta sala"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:87
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/qml/RoomInformation.qml:115
+#: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Elimina la sala de les preferides"
 
-#: src/qml/RoomInformation.qml:115
+#: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Make room favorite"
 msgstr "Fes preferida la sala"
 
-#: src/qml/RoomInformation.qml:126
+#: src/qml/RoomInformation.qml:107
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Mostra les ubicacions per a aquesta sala"
 
-#: src/qml/RoomInformation.qml:138
+#: src/qml/RoomInformation.qml:119
 #, kde-format
 msgid "Members"
 msgstr "Membres"
 
-#: src/qml/RoomInformation.qml:153 src/qml/SpaceHomePage.qml:52
+#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:52
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Convida un usuari"
 
-#: src/qml/RoomInformation.qml:157
+#: src/qml/RoomInformation.qml:138
 #, kde-format
 msgid "Invite user to room"
 msgstr "Convida un usuari a la sala"
 
-#: src/qml/RoomInformation.qml:164
+#: src/qml/RoomInformation.qml:145
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membre"
 msgstr[1] "%1 membres"
 
-#: src/qml/RoomInformation.qml:164
+#: src/qml/RoomInformation.qml:145
 #, kde-format
 msgid "No member count"
 msgstr "No hi ha comptador de membres"
@@ -4283,42 +4283,42 @@ msgstr "Uneix-te a %1"
 msgid "Create a space"
 msgstr "Creació d'un espai"
 
-#: src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Suggested"
 msgstr "Suggerits"
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:100
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " membres - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:100
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " membres"
 
-#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:57
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:57
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Afegeix un fill nou"
 
-#: src/qml/SpaceHierarchyDelegate.qml:112
+#: src/qml/SpaceHierarchyDelegate.qml:120
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/qml/SpaceHierarchyDelegate.qml:132
+#: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "No donis suggeriments"
 
-#: src/qml/SpaceHierarchyDelegate.qml:132
+#: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4514,17 +4514,17 @@ msgstr "Copia l'enllaç"
 msgid "Switch User"
 msgstr "Commuta d'usuari"
 
-#: src/qml/UserInfo.qml:130
+#: src/qml/UserInfo.qml:146
 #, kde-format
 msgid "Open Settings"
 msgstr "Obre la configuració"
 
-#: src/qml/UserInfo.qml:184
+#: src/qml/UserInfo.qml:200
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Inicia la sessió amb un compte existent"
 
-#: src/qml/UserInfo.qml:191
+#: src/qml/UserInfo.qml:207
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -4798,15 +4798,13 @@ msgid "Go back"
 msgstr "Enrere"
 
 #: src/qml/WelcomePage.qml:217
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open proxy settings"
-msgstr "Obre la configuració"
+msgstr "Obre la configuració del servidor intermediari"
 
 #: src/qml/WelcomePage.qml:220
-#, fuzzy, kde-format
-#| msgid "Proxy Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "Configuració del servidor intermediari"

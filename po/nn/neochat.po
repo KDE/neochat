@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:37+0000\n"
+"POT-Creation-Date: 2024-03-11 00:38+0000\n"
 "PO-Revision-Date: 2023-08-24 21:25+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1166,12 +1166,12 @@ msgstr "Feil ved romregistrering: %1"
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
+#: src/neochatroom.cpp:1643 src/neochatroom.cpp:1644
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
+#: src/neochatroom.cpp:1918 src/neochatroom.cpp:1926
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1403,7 +1403,7 @@ msgid "Notification settings"
 msgstr "Varslings­innstillingar"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:126
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:142
 #, kde-format
 msgid "Configure"
 msgstr "Set opp"
@@ -1414,7 +1414,7 @@ msgstr "Set opp"
 msgid "Devices"
 msgstr "Einingar"
 
-#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#: src/qml/AccountMenu.qml:54 src/qml/UserInfo.qml:129
 #, kde-format
 msgid "Open developer tools"
 msgstr "Opna utviklarverktøy"
@@ -1437,7 +1437,7 @@ msgstr "Logg ut"
 msgid "Accounts"
 msgstr "Kontoar"
 
-#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:181
+#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:197
 #, kde-format
 msgid "Add Account"
 msgstr "Legg til konto"
@@ -1879,7 +1879,7 @@ msgid "Explore Rooms"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:69
-#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Joined"
 msgstr "Vart med"
@@ -2029,7 +2029,7 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:89
+#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:127
 #, kde-format
 msgid "Developer Tools"
 msgstr "Utviklarverktøy"
@@ -3044,7 +3044,7 @@ msgstr "Vel posisjon"
 msgid "Send this location"
 msgstr "Send denne posisjonen"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:131
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:112
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3749,56 +3749,56 @@ msgstr ""
 msgid "Options"
 msgstr "Handlingar"
 
-#: src/qml/RoomInformation.qml:98
+#: src/qml/RoomInformation.qml:79
 #, kde-format
 msgid "Search in this room"
 msgstr "Søk i rommet"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:87
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Søk"
 
-#: src/qml/RoomInformation.qml:115
+#: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Fjern rommet frå favorittar"
 
-#: src/qml/RoomInformation.qml:115
+#: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Make room favorite"
 msgstr "Gjer rommet til favoritt"
 
-#: src/qml/RoomInformation.qml:126
+#: src/qml/RoomInformation.qml:107
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Vis posisjonar i rommet"
 
-#: src/qml/RoomInformation.qml:138
+#: src/qml/RoomInformation.qml:119
 #, kde-format
 msgid "Members"
 msgstr "Medlemmar"
 
-#: src/qml/RoomInformation.qml:153 src/qml/SpaceHomePage.qml:52
+#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:52
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Inviter ein brukar"
 
-#: src/qml/RoomInformation.qml:157
+#: src/qml/RoomInformation.qml:138
 #, kde-format
 msgid "Invite user to room"
 msgstr "Inviter brukar til rommet"
 
-#: src/qml/RoomInformation.qml:164
+#: src/qml/RoomInformation.qml:145
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 medlem"
 msgstr[1] "%1 medlemmar"
 
-#: src/qml/RoomInformation.qml:164
+#: src/qml/RoomInformation.qml:145
 #, kde-format
 msgid "No member count"
 msgstr "Manglar medlemstal"
@@ -4371,12 +4371,12 @@ msgstr "Vart med"
 msgid "Create a space"
 msgstr "Opprett område"
 
-#: src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:100
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -4384,7 +4384,7 @@ msgctxt "number of room members"
 msgid " members - "
 msgstr "%1 medlem"
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:100
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -4392,27 +4392,27 @@ msgctxt "number of room members"
 msgid " members"
 msgstr "%1 medlem"
 
-#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:57
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:57
 #, fuzzy, kde-format
 #| msgid "Add new alias"
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Registrer nytt alias"
 
-#: src/qml/SpaceHierarchyDelegate.qml:112
+#: src/qml/SpaceHierarchyDelegate.qml:120
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@button"
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/qml/SpaceHierarchyDelegate.qml:132
+#: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:132
+#: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4613,17 +4613,17 @@ msgstr "Kopier lenkje"
 msgid "Switch User"
 msgstr "Byt brukar"
 
-#: src/qml/UserInfo.qml:130
+#: src/qml/UserInfo.qml:146
 #, kde-format
 msgid "Open Settings"
 msgstr "Opna innstillingar"
 
-#: src/qml/UserInfo.qml:184
+#: src/qml/UserInfo.qml:200
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Logg på registrert konto"
 
-#: src/qml/UserInfo.qml:191
+#: src/qml/UserInfo.qml:207
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:37+0000\n"
-"PO-Revision-Date: 2024-03-08 23:17+0300\n"
+"POT-Creation-Date: 2024-03-11 00:38+0000\n"
+"PO-Revision-Date: 2024-03-10 11:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1140,12 +1140,12 @@ msgstr "Oda oluşturulamadı: %1"
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
 
-#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
+#: src/neochatroom.cpp:1643 src/neochatroom.cpp:1644
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
+#: src/neochatroom.cpp:1918 src/neochatroom.cpp:1926
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1371,7 +1371,7 @@ msgid "Notification settings"
 msgstr "Bildirim ayarları"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:126
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:142
 #, kde-format
 msgid "Configure"
 msgstr "Yapılandır"
@@ -1382,7 +1382,7 @@ msgstr "Yapılandır"
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#: src/qml/AccountMenu.qml:54 src/qml/UserInfo.qml:129
 #, kde-format
 msgid "Open developer tools"
 msgstr "Geliştirici araçlarını aç"
@@ -1404,7 +1404,7 @@ msgstr "Oturumu Kapat"
 msgid "Accounts"
 msgstr "Hesaplar"
 
-#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:181
+#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:197
 #, kde-format
 msgid "Add Account"
 msgstr "Hesap Ekle"
@@ -1839,7 +1839,7 @@ msgid "Explore Rooms"
 msgstr "Odaları Keşfet"
 
 #: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:69
-#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Joined"
 msgstr "Katılınan"
@@ -1988,7 +1988,7 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:89
+#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:127
 #, kde-format
 msgid "Developer Tools"
 msgstr "Geliştirici Araçları"
@@ -2978,7 +2978,7 @@ msgstr "Konum Seç"
 msgid "Send this location"
 msgstr "Bu konumu gönder"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:131
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:112
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3162,7 +3162,7 @@ msgstr "Olay Kaynağı"
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
-msgstr ""
+msgstr "Vekil"
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -3659,56 +3659,56 @@ msgstr "Oda Bilgisi"
 msgid "Options"
 msgstr "Seçenekler"
 
-#: src/qml/RoomInformation.qml:98
+#: src/qml/RoomInformation.qml:79
 #, kde-format
 msgid "Search in this room"
 msgstr "Bu odada ara"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:87
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Ara"
 
-#: src/qml/RoomInformation.qml:115
+#: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Odayı sık kullanılanlardan kaldır"
 
-#: src/qml/RoomInformation.qml:115
+#: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Make room favorite"
 msgstr "Odayı sık kullanılanlara ekle"
 
-#: src/qml/RoomInformation.qml:126
+#: src/qml/RoomInformation.qml:107
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Bu oda için olan konumları göster"
 
-#: src/qml/RoomInformation.qml:138
+#: src/qml/RoomInformation.qml:119
 #, kde-format
 msgid "Members"
 msgstr "Üyeler"
 
-#: src/qml/RoomInformation.qml:153 src/qml/SpaceHomePage.qml:52
+#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:52
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Kullanıcıyı Davet Et"
 
-#: src/qml/RoomInformation.qml:157
+#: src/qml/RoomInformation.qml:138
 #, kde-format
 msgid "Invite user to room"
 msgstr "Kullanıcıyı Odaya Davet Et"
 
-#: src/qml/RoomInformation.qml:164
+#: src/qml/RoomInformation.qml:145
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 üye"
 msgstr[1] "%1 üye"
 
-#: src/qml/RoomInformation.qml:164
+#: src/qml/RoomInformation.qml:145
 #, kde-format
 msgid "No member count"
 msgstr "Üye sayısı yok"
@@ -4257,42 +4257,42 @@ msgstr "Katıl: %1"
 msgid "Create a space"
 msgstr "Bir alan oluştur"
 
-#: src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Suggested"
 msgstr "Önerilen"
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:100
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
 msgstr " üye — "
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:100
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
 msgstr " üye"
 
-#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:57
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:57
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr "Yeni Alt Öge Ekle"
 
-#: src/qml/SpaceHierarchyDelegate.qml:112
+#: src/qml/SpaceHierarchyDelegate.qml:120
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/qml/SpaceHierarchyDelegate.qml:132
+#: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "Önerilen Yapma"
 
-#: src/qml/SpaceHierarchyDelegate.qml:132
+#: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4488,17 +4488,17 @@ msgstr "Bağlantıyı Kopyala"
 msgid "Switch User"
 msgstr "Kullanıcı değiştir"
 
-#: src/qml/UserInfo.qml:130
+#: src/qml/UserInfo.qml:146
 #, kde-format
 msgid "Open Settings"
 msgstr "Ayarları aç"
 
-#: src/qml/UserInfo.qml:184
+#: src/qml/UserInfo.qml:200
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Var olan bir hesaba oturum aç"
 
-#: src/qml/UserInfo.qml:191
+#: src/qml/UserInfo.qml:207
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -4763,15 +4763,13 @@ msgid "Go back"
 msgstr "Geri Git"
 
 #: src/qml/WelcomePage.qml:217
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open proxy settings"
-msgstr "Ayarları aç"
+msgstr "Vekil Ayarlarını Aç"
 
 #: src/qml/WelcomePage.qml:220
-#, fuzzy, kde-format
-#| msgid "Proxy Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "Vekil Ayarları"

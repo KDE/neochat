@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:37+0000\n"
+"POT-Creation-Date: 2024-03-11 00:38+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1272,13 +1272,13 @@ msgstr "Otaq yaradıla bilmədi: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/neochatroom.cpp:1619 src/neochatroom.cpp:1620
+#: src/neochatroom.cpp:1643 src/neochatroom.cpp:1644
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/neochatroom.cpp:1894 src/neochatroom.cpp:1902
+#: src/neochatroom.cpp:1918 src/neochatroom.cpp:1926
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1525,7 +1525,7 @@ msgid "Notification settings"
 msgstr "Bildirişlərdə göstərmək"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:126
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:142
 #, kde-format
 msgid "Configure"
 msgstr "Tənzimləyin"
@@ -1536,7 +1536,7 @@ msgstr "Tənzimləyin"
 msgid "Devices"
 msgstr "Cihazlar"
 
-#: src/qml/AccountMenu.qml:54 src/qml/RoomInformation.qml:79
+#: src/qml/AccountMenu.qml:54 src/qml/UserInfo.qml:129
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
@@ -1559,7 +1559,7 @@ msgstr "Çıxış"
 msgid "Accounts"
 msgstr "İstifadəçi Hesabları"
 
-#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:181
+#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:197
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
@@ -2027,7 +2027,7 @@ msgid "Explore Rooms"
 msgstr "Otaqlara baxış"
 
 #: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:69
-#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Joined"
 msgstr "Qoşuldu"
@@ -2188,7 +2188,7 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Silmək"
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/RoomInformation.qml:89
+#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:127
 #, kde-format
 msgid "Developer Tools"
 msgstr ""
@@ -3254,7 +3254,7 @@ msgstr "Yerli faylı seçin"
 msgid "Send this location"
 msgstr "\"Yazır\" bildirişi göndərilsin"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:131
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:112
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "Locations on a map"
@@ -4002,53 +4002,53 @@ msgstr "Otaq haqqında"
 msgid "Options"
 msgstr "Seçimlər:"
 
-#: src/qml/RoomInformation.qml:98
+#: src/qml/RoomInformation.qml:79
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Search in this room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:87
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:115
+#: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Otağı seçilmişlərdən silin"
 
-#: src/qml/RoomInformation.qml:115
+#: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Make room favorite"
 msgstr "Otağı seçilmiş edin"
 
-#: src/qml/RoomInformation.qml:126
+#: src/qml/RoomInformation.qml:107
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Show locations for this room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/RoomInformation.qml:138
+#: src/qml/RoomInformation.qml:119
 #, kde-format
 msgid "Members"
 msgstr "Üzvlər"
 
-#: src/qml/RoomInformation.qml:153 src/qml/SpaceHomePage.qml:52
+#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:52
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "İstifadəçi dəvət etmək"
 
-#: src/qml/RoomInformation.qml:157
+#: src/qml/RoomInformation.qml:138
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Invite user to room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/qml/RoomInformation.qml:164
+#: src/qml/RoomInformation.qml:145
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -4057,7 +4057,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 Üzv"
 msgstr[1] "%1 Üzvlər"
 
-#: src/qml/RoomInformation.qml:164
+#: src/qml/RoomInformation.qml:145
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
@@ -4636,12 +4636,12 @@ msgstr "Qoşulun"
 msgid "Create a space"
 msgstr "Otaq yaratmaq"
 
-#: src/qml/SpaceHierarchyDelegate.qml:83
+#: src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:100
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -4649,7 +4649,7 @@ msgctxt "number of room members"
 msgid " members - "
 msgstr "%1 Üzv"
 
-#: src/qml/SpaceHierarchyDelegate.qml:92
+#: src/qml/SpaceHierarchyDelegate.qml:100
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -4657,26 +4657,26 @@ msgctxt "number of room members"
 msgid " members"
 msgstr "%1 Üzv"
 
-#: src/qml/SpaceHierarchyDelegate.qml:101 src/qml/SpaceHomePage.qml:57
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:57
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:112
+#: src/qml/SpaceHierarchyDelegate.qml:120
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@button"
 msgid "Remove"
 msgstr "Silmək"
 
-#: src/qml/SpaceHierarchyDelegate.qml:132
+#: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:132
+#: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
@@ -4885,18 +4885,18 @@ msgstr "Kopyalamaq"
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/UserInfo.qml:130
+#: src/qml/UserInfo.qml:146
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"
 msgstr "Ayarlar"
 
-#: src/qml/UserInfo.qml:184
+#: src/qml/UserInfo.qml:200
 #, kde-format
 msgid "Log in to an existing account"
 msgstr ""
 
-#: src/qml/UserInfo.qml:191
+#: src/qml/UserInfo.qml:207
 #, fuzzy, kde-format
 #| msgid "Login"
 msgctxt "@title:window"
