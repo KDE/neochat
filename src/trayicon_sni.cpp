@@ -11,10 +11,6 @@ TrayIcon::TrayIcon(QObject *parent)
 {
     setCategory(KStatusNotifierItem::ItemCategory::Communications);
     setIconByName(QStringLiteral("org.kde.neochat.tray"));
-    connect(this, &KStatusNotifierItem::activateRequested, this, [this] {
-        KWindowSystem::setCurrentXdgActivationToken(providedToken());
-        WindowController::instance().toggleWindow();
-    });
 
     connect(&WindowController::instance(), &WindowController::windowChanged, this, [this] {
         setAssociatedWindow(WindowController::instance().window());
