@@ -79,6 +79,10 @@ QQC2.ScrollView {
 
         model: root.messageFilterModel
 
+        onCountChanged: if (root.roomChanging) {
+            root.positionViewAtBeginning();
+        }
+
         Timer {
             interval: 1000
             running: messageListView.atYBeginning
