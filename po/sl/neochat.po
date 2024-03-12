@@ -2,14 +2,15 @@
 # This file is distributed under the same license as the neochat package.
 #
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021, 2022, 2023.
 # Martin Srebotnjak <miles@filmsi.net>, 2021,2022.
+# SPDX-FileCopyrightText: 2024 Jure Repinc <jlp@holodeck1.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-02 02:25+0000\n"
-"PO-Revision-Date: 2024-02-18 06:06+0100\n"
+"PO-Revision-Date: 2024-03-11 23:11+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -240,12 +241,12 @@ msgstr "je nastavil ime sobe na: %1"
 #: src/eventhandler.cpp:440 src/eventhandler.cpp:615
 #, kde-format
 msgid "cleared the topic"
-msgstr "je očistil temo debate"
+msgstr "je počistil temo"
 
 #: src/eventhandler.cpp:441
 #, kde-format
 msgid "set the topic to: %1"
-msgstr "je nastavil temo debate na: %1"
+msgstr "je nastavil temo na: %1"
 
 #: src/eventhandler.cpp:447 src/eventhandler.cpp:618
 #, kde-format
@@ -375,7 +376,7 @@ msgstr "je nastavil ime sobe"
 #: src/eventhandler.cpp:615
 #, kde-format
 msgid "set the topic"
-msgstr "je nastavil temo debate"
+msgstr "je nastavil temo"
 
 #: src/eventhandler.cpp:624
 #, kde-format
@@ -416,10 +417,10 @@ msgstr "je začel glasovanje"
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] "%1 uporabnik: "
-msgstr[1] "%1 uporabnika: "
-msgstr[2] "%1 uporabniki: "
-msgstr[3] "%1 uporabnikov: "
+msgstr[0] "%1 uporabnikov: "
+msgstr[1] "%1 uporabnik: "
+msgstr[2] "%1 uporabnika: "
+msgstr[3] "%1 uporabniki: "
 
 #: src/eventhandler.cpp:1057
 #, kde-format
@@ -474,7 +475,7 @@ msgstr "Matrixov odjemalec"
 #: src/main.cpp:133
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2024 skupnost KDE"
+msgstr "© 2018–2020 Black Hat, 2020–2024 skupnost KDE"
 
 #: src/main.cpp:134
 #, kde-format
@@ -514,30 +515,30 @@ msgstr "Alexey Rusakov"
 #: src/main.cpp:142
 #, kde-format
 msgid "Maintainer of Quotient"
-msgstr "Vzdrževalec programa Quotient"
+msgstr "Vzdrževalec Quotient"
 
 #: src/main.cpp:143
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Matjaž Jeran,Martin Srebotnjak"
+msgstr "Jure Repinc,Matjaž Jeran,Martin Srebotnjak"
 
 #: src/main.cpp:143
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
+msgstr "jlp@holodeck1.com,matjaz.jeran@amis.net,miles@filmsi.net"
 
 #: src/main.cpp:147
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "Knjižnica Qt5 za pisanje odjemalcev za več platform za Matrix"
+msgstr "Knjižnica Qt za pisanje odjemalcev za Matrix za več platform"
 
 #: src/main.cpp:149
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
-msgstr "%1 (zgrajeno na %2)"
+msgstr "%1 (zgrajeno z %2)"
 
 #: src/main.cpp:175
 #, kde-format
@@ -547,7 +548,7 @@ msgstr "Odjemalec za komunikacijski protokol matrix"
 #: src/main.cpp:176
 #, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "Podpira matriko: shema url"
+msgstr "Podpira matrix: shemo URL"
 
 #: src/main.cpp:177
 #, kde-format
@@ -567,7 +568,7 @@ msgstr "Samo za interno rabo."
 #: src/matriximageprovider.cpp:40
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
-msgstr "Id medija '%1' ne sledi vzorcu strežnik/mediaId"
+msgstr "Določilnik medija »%1« ne sledi vzorcu strežnik/mediaId"
 
 #: src/matriximageprovider.cpp:98
 #, kde-format
@@ -584,7 +585,7 @@ msgstr "Zapušča to sobo."
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr "'%1' ne izgleda kot določilnik sobe ali vzdevek."
+msgstr "»%1« ne izgleda kot določilnik vzdevek sobe."
 
 #: src/models/actionsmodel.cpp:39
 #, kde-format
@@ -657,7 +658,7 @@ msgstr "Pošlji dano sporočilo kot obvestilo"
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
-msgstr "'%1' ne izgleda kot določilnik matrike."
+msgstr "»%1« ne izgleda kot določilnik Matrix."
 
 #: src/models/actionsmodel.cpp:197
 #, kde-format
@@ -969,10 +970,10 @@ msgstr[3] " %1 %2 krat"
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] " %1 uporabnik "
-msgstr[1] " %1 uporabnika "
-msgstr[2] " %1 uporabniki "
-msgstr[3] " %1 uporabnikov "
+msgstr[0] " %1 uporabnikov "
+msgstr[1] " %1 uporabnik "
+msgstr[2] " %1 uporabnika "
+msgstr[3] " %1 uporabniki "
 
 #: src/models/messagefiltermodel.cpp:139
 #, kde-format
@@ -1077,30 +1078,30 @@ msgstr " in "
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
 msgid_plural " and %1 others"
-msgstr[0] " in %1 ostal"
-msgstr[1] " in %1 ostala"
-msgstr[2] " in %1 ostali"
-msgstr[3] " in %1 ostalih"
+msgstr[0] " in %1 drugih"
+msgstr[1] " in %1 drug"
+msgstr[2] " in %1 druga"
+msgstr[3] " in %1 drugi"
 
 #: src/models/reactionmodel.cpp:79
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 je reagiral z %3"
-msgstr[1] "%2 sta reagirala z %3"
-msgstr[2] "%2 so reagirali z %3"
-msgstr[3] "%2 je reagiralo z %3"
+msgstr[0] "%2 se jih je odzvalo z %3"
+msgstr[1] "%2 se je odzval z %3"
+msgstr[2] "%2 sta se odzvala z %3"
+msgstr[3] "%2 so se odzvali z %3"
 
 #: src/models/roomlistmodel.cpp:411
 #, kde-format
 msgid "Invited"
-msgstr "Povabljen"
+msgstr "Povabila"
 
 #: src/models/roomlistmodel.cpp:413
 #, kde-format
 msgid "Favorite"
-msgstr "Priljubljen"
+msgstr "Priljubljeno"
 
 #: src/models/roomlistmodel.cpp:415
 #, kde-format
@@ -1110,7 +1111,7 @@ msgstr "Neposredna sporočila"
 #: src/models/roomlistmodel.cpp:417
 #, kde-format
 msgid "Normal"
-msgstr "Normalno"
+msgstr "Običajno"
 
 #: src/models/roomlistmodel.cpp:419
 #, kde-format
@@ -1167,7 +1168,7 @@ msgstr "Odgovori"
 #: src/notificationsmanager.cpp:224
 #, kde-format
 msgid "Reply..."
-msgstr "Odgovori..."
+msgstr "Odgovori …"
 
 #: src/notificationsmanager.cpp:243
 #, kde-format
@@ -1427,7 +1428,7 @@ msgstr "Omogočeno je le, če je omogočena prosojna stran za klepet."
 #: src/qml/AppearanceSettingsPage.qml:287
 #, kde-format
 msgid "Show your messages on the right"
-msgstr "Pokaži sporočila na desni strani"
+msgstr "Pokaži lastna sporočila na desni strani"
 
 #: src/qml/AppearanceSettingsPage.qml:300
 #, kde-format
@@ -1542,17 +1543,17 @@ msgstr "Pošlji sporočilo"
 #: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send an encrypted message…"
-msgstr "Pošlji šifrirano sporočilo…"
+msgstr "Pošlji šifrirano sporočilo …"
 
 #: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Set an attachment caption…"
-msgstr "Nastavite napis priloge…"
+msgstr "Nastavi napis priloge …"
 
 #: src/qml/ChatBar.qml:188
 #, kde-format
 msgid "Send a message…"
-msgstr "Pošlji sporočilo…"
+msgstr "Pošlji sporočilo …"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -1854,7 +1855,7 @@ msgstr "Odjavi napravo"
 #: src/qml/NotificationsView.qml:39
 #, kde-format
 msgid "Loading…"
-msgstr "Nalaganje…"
+msgstr "Nalaganje …"
 
 #: src/qml/DevicesPage.qml:33
 #, kde-format
@@ -1978,7 +1979,7 @@ msgstr "Ni nalepk"
 #: src/qml/EmojiGrid.qml:83
 #, kde-format
 msgid "No emojis"
-msgstr "Ni emodžijev"
+msgstr "Ni čustvenčkov"
 
 #: src/qml/EmojiPicker.qml:52 src/qml/EmoticonsPage.qml:19
 #, kde-format
@@ -1995,7 +1996,7 @@ msgstr "Nalepke"
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
-"Potrdi, da so čustvenčki spodaj prikazani na obeh napravah v enakem "
+"Potrdite, da so čustvenčki spodaj prikazani na obeh napravah v enakem "
 "zaporedju."
 
 #: src/qml/EmojiSas.qml:41
@@ -2103,13 +2104,13 @@ msgstr "Razišči sobe"
 #: src/qml/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
-msgstr "Začni debato"
+msgstr "Začni pogovor"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:70
 #, kde-format
 msgctxt "@title"
 msgid "Start a Chat"
-msgstr "Začni klepet"
+msgstr "Začni pogovor"
 
 #: src/qml/ExploreComponent.qml:40 src/qml/ExploreComponentMobile.qml:136
 #, kde-format
@@ -2212,12 +2213,12 @@ msgstr "Poročaj sporočilo"
 #: src/qml/MessageDelegateContextMenu.qml:151
 #, kde-format
 msgid "View Source"
-msgstr "Poglej vir"
+msgstr "Prikaži vir"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
 msgid "View Location"
-msgstr "Poglej lokacijo"
+msgstr "Prikaži mesto"
 
 #: src/qml/FullScreenMap.qml:69
 #, kde-format
@@ -2242,7 +2243,7 @@ msgstr "Ime sobe:"
 #: src/qml/General.qml:82
 #, kde-format
 msgid "Room topic:"
-msgstr "Tema debate sobe:"
+msgstr "Tema sobe:"
 
 #: src/qml/General.qml:122
 #, kde-format
@@ -2353,12 +2354,12 @@ msgstr "Dodaj novega uradno nadrejenega"
 #: src/qml/General.qml:370
 #, kde-format
 msgid "This room continues another conversation."
-msgstr "Ta soba nadaljuje z drugo debato."
+msgstr "Ta soba nadaljuje drug klepet."
 
 #: src/qml/General.qml:374
 #, kde-format
 msgid "See older messages…"
-msgstr "Poglej starejša sporočila…"
+msgstr "Prikaži starejša sporočila …"
 
 #: src/qml/General.qml:384
 #, kde-format
@@ -2368,7 +2369,7 @@ msgstr "Ta soba je bila zamenjana."
 #: src/qml/General.qml:388
 #, kde-format
 msgid "See new room…"
-msgstr "Poglej novo sobo…"
+msgstr "Prikaži novo sobo …"
 
 #: src/qml/General.qml:409
 #, kde-format
@@ -2455,7 +2456,7 @@ msgstr "Ločeno"
 #: src/qml/GeneralSettingsPage.qml:157
 #, kde-format
 msgid "Intermixed"
-msgstr "Zmešano"
+msgstr "Mešano"
 
 #: src/qml/GeneralSettingsPage.qml:167
 #, kde-format
@@ -2472,7 +2473,7 @@ msgstr ""
 #: src/qml/GeneralSettingsPage.qml:183
 #, kde-format
 msgid "Send typing notifications"
-msgstr "Pošlji besedilna obvestila"
+msgstr "Pošlji obvestila tipkanja"
 
 #: src/qml/GeneralSettingsPage.qml:193
 #, kde-format
@@ -2493,13 +2494,13 @@ msgstr "NeoChat"
 #: src/qml/GlobalMenu.qml:27
 #, kde-format
 msgid "Configure NeoChat..."
-msgstr "Nastavi NeoChat..."
+msgstr "Nastavi NeoChat …"
 
 #: src/qml/GlobalMenu.qml:28
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
-msgstr "Nastavi NeoChat..."
+msgstr "Nastavi NeoChat …"
 
 #: src/qml/GlobalMenu.qml:38
 #, kde-format
@@ -2517,19 +2518,19 @@ msgstr "Datoteka"
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
-msgstr "Nov zasebni razgovor…"
+msgstr "Nov zasebni klepet…"
 
 #: src/qml/GlobalMenu.qml:53
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
-msgstr "Nova skupina…"
+msgstr "Nova skupina …"
 
 #: src/qml/GlobalMenu.qml:62
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
-msgstr "Brskaj po debatah…"
+msgstr "Brskaj po klepetih …"
 
 #: src/qml/GlobalMenu.qml:76
 #, kde-format
@@ -2615,7 +2616,7 @@ msgstr "Ključne besede"
 #: src/qml/GlobalNotificationsPage.qml:97 src/qml/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
-msgstr "Ključna beseda…"
+msgstr "Ključna beseda …"
 
 #: src/qml/GlobalNotificationsPage.qml:116 src/qml/PushNotification.qml:119
 #, kde-format
@@ -2660,7 +2661,7 @@ msgstr "To sporočilo je bilo poslano iz verificirane naprave"
 #: src/qml/HoverActions.qml:88
 #, kde-format
 msgid "React"
-msgstr "Reagiraj"
+msgstr "Odzovi se"
 
 #: src/qml/HoverActions.qml:113
 #, kde-format
@@ -2721,7 +2722,7 @@ msgstr "Prezrcali"
 #: src/qml/InvitationView.qml:17
 #, kde-format
 msgid "Accept this invitation?"
-msgstr "Ali sprejemate povabilo?"
+msgstr "Ali sprejmete povabilo?"
 
 #: src/qml/InvitationView.qml:21
 #, kde-format
@@ -2732,12 +2733,12 @@ msgstr "Zavrni in prezri uporabnika"
 #: src/qml/InvitationView.qml:30
 #, kde-format
 msgid "Reject"
-msgstr "Zavračam"
+msgstr "Zavrni"
 
 #: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
-msgstr "Sprejemam"
+msgstr "Sprejmi"
 
 #: src/qml/InviteUserPage.qml:19
 #, kde-format
@@ -2747,7 +2748,7 @@ msgstr "Povabi uporabnika"
 #: src/qml/InviteUserPage.qml:37 src/qml/StartChatPage.qml:32
 #, kde-format
 msgid "Find a user..."
-msgstr "Najdi uporabnika..."
+msgstr "Najdi uporabnika …"
 
 #: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
 #, kde-format
@@ -2777,7 +2778,7 @@ msgstr "Razišči sobe"
 #: src/qml/JoinRoomPage.qml:58
 #, kde-format
 msgid "Find a room..."
-msgstr "Najdi sobo..."
+msgstr "Najdi sobo …"
 
 #: src/qml/JoinRoomPage.qml:84
 #, kde-format
@@ -2850,7 +2851,7 @@ msgstr "Čakanje na napravo, da sprejme verifikacijo."
 #: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr "Prihajajoča zahtevek verifikacije ključa iz naprave **%1**"
+msgstr "Prejet zahtevek verifikacije ključa iz naprave **%1**"
 
 #: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
@@ -2961,7 +2962,7 @@ msgstr "Prijava"
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
-msgstr "Registriraj"
+msgstr "Registracija"
 
 #: src/qml/main.qml:335
 #, kde-format
@@ -2991,12 +2992,12 @@ msgstr "Odpri"
 #: src/qml/main.qml:389
 #, kde-format
 msgid "Start a chat"
-msgstr "Začni pogovor"
+msgstr "Začni klepet"
 
 #: src/qml/main.qml:391
 #, kde-format
 msgid "Do you want to start a chat with %1?"
-msgstr "Ali želite začeti pogovor s %1?"
+msgstr "Ali želite začeti klepet z %1?"
 
 #: src/qml/ManualRoomDialog.qml:31
 #, kde-format
@@ -3044,12 +3045,12 @@ msgstr "Kopiraj povezavo"
 #: src/qml/MessageDelegateContextMenu.qml:202
 #, kde-format
 msgid "Search for '%1'"
-msgstr "Poišči za '%1'"
+msgstr "Poišči »%1«"
 
 #: src/qml/MessageDelegateContextMenu.qml:223
 #, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "Nastavi spletne bližnjice…"
+msgstr "Nastavi spletne bližnjice …"
 
 #: src/qml/MessageEditComponent.qml:87
 #, kde-format
@@ -3327,9 +3328,9 @@ msgstr "Nastavi nadrejeni prostor te sobe"
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] "Glede na glas %1 uporabnika"
-msgstr[1] "Glede na glasova %1 uporabnikov"
-msgstr[2] "Glede na glasove %1 uporabnikov"
+msgstr[0] "Glede na glasove %1 uporabnikov"
+msgstr[1] "Glede na glas %1 uporabnika"
+msgstr[2] "Glede na glasova %1 uporabnikov"
 msgstr[3] "Glede na glasove %1 uporabnikov"
 
 #: src/qml/PollDelegate.qml:57
@@ -3484,7 +3485,7 @@ msgstr "Prikaži dogodke m.room.member"
 #: src/qml/RoomData.qml:52
 #, kde-format
 msgid "Show room account data"
-msgstr "Pokaži podatke o računu sobe"
+msgstr "Prikaži podatke o računu sobe"
 
 #: src/qml/RoomData.qml:58
 #, kde-format
@@ -3562,17 +3563,17 @@ msgstr "Išči"
 #: src/qml/RoomInformation.qml:111
 #, kde-format
 msgid "Remove room from favorites"
-msgstr "Odstrani sobo izmed priljubljenih"
+msgstr "Odstrani sobo iz priljubljenih"
 
 #: src/qml/RoomInformation.qml:111
 #, kde-format
 msgid "Make room favorite"
-msgstr "Proglasi sobo za priljubljeno"
+msgstr "Dodaj sobo med priljubljene"
 
 #: src/qml/RoomInformation.qml:122
 #, kde-format
 msgid "Show locations for this room"
-msgstr "Pokaži lokacije za to sobo"
+msgstr "Pokaži mesta za to sobo"
 
 #: src/qml/RoomInformation.qml:134
 #, kde-format
@@ -3594,10 +3595,10 @@ msgstr "Povabite uporabnika v sobo"
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "%1 član"
-msgstr[1] "%1 člana"
-msgstr[2] "%1 člani"
-msgstr[3] "%1 članov"
+msgstr[0] "%1 članov"
+msgstr[1] "%1 član"
+msgstr[2] "%1 člana"
+msgstr[3] "%1 člani"
 
 #: src/qml/RoomInformation.qml:156
 #, kde-format
@@ -3607,7 +3608,7 @@ msgstr "Ni števila članov"
 #: src/qml/RoomListPage.qml:134
 #, kde-format
 msgid "View notifications"
-msgstr "Poglej obvestila"
+msgstr "Prikaži obvestila"
 
 #: src/qml/RoomListPage.qml:180
 #, kde-format
@@ -3807,12 +3808,12 @@ msgstr "Išči sporočila"
 #: src/qml/SearchPage.qml:74
 #, kde-format
 msgid "Enter a text to start searching"
-msgstr "Vnesite besedilo, da začnem iskati"
+msgstr "Vnesite besedilo za začetek iskanja"
 
 #: src/qml/SearchPage.qml:80
 #, kde-format
 msgid "No results found"
-msgstr "Ni najdenih zadetkov"
+msgstr "Najden ni bil noben rezultat"
 
 #: src/qml/Security.qml:17
 #, kde-format
@@ -4026,7 +4027,7 @@ msgstr "Slovar preverjanja črkovanja"
 #: src/qml/SonnetConfigPage.qml:162
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
-msgstr "Dodaj novo besedo v osebni slovar…"
+msgstr "Dodaj novo besedo v osebni slovar …"
 
 #: src/qml/SonnetConfigPage.qml:165
 #, kde-format
@@ -4054,7 +4055,7 @@ msgstr "Predlagano"
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr " člani - "
+msgstr " člani – "
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -4114,7 +4115,7 @@ msgstr "Ustvari odvisnega"
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr "Poglej prostor"
+msgstr "Prikaži prostor"
 
 #: src/qml/SpaceListContextMenu.qml:46 src/qml/SpaceListContextMenu.qml:126
 #, kde-format
@@ -4147,12 +4148,12 @@ msgstr "Ponovno odpri URL za enovito prijavo"
 #: src/qml/StartChatPage.qml:40
 #, kde-format
 msgid "Chat"
-msgstr "Debata"
+msgstr "Klepet"
 
 #: src/qml/StartChatPage.qml:94
 #, kde-format
 msgid "Join existing chat"
-msgstr "Pridružite se obstoječem klepetu"
+msgstr "Pridruži se obstoječemu klepetu"
 
 #: src/qml/StartChatPage.qml:115
 #, kde-format
@@ -4200,9 +4201,9 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 tipka"
-msgstr[1] "%2 tipkata"
-msgstr[2] "%2 tipkajo"
-msgstr[3] "%2 tipka"
+msgstr[1] "%2 tipka"
+msgstr[2] "%2 tipkata"
+msgstr[3] "%2 tipkajo"
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format
@@ -4265,7 +4266,7 @@ msgstr "Odstrani sporočila"
 #: src/qml/UserDetailDialog.qml:218
 #, kde-format
 msgid "Open a private chat"
-msgstr "Odpri zasebni razgovor"
+msgstr "Odpri zasebni klepet"
 
 #: src/qml/UserDetailDialog.qml:229
 #, kde-format
@@ -4598,7 +4599,7 @@ msgstr "Neuspela pridružitev v sobo"
 #: src/roommanager.cpp:332
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr "Prosili ste za pridružitev k '%1'"
+msgstr "Prosili ste za pridružitev v »%1«"
 
 #: src/roommanager.cpp:335
 #, kde-format
@@ -4630,284 +4631,212 @@ msgstr "Prikaži"
 msgid "Quit"
 msgstr "Zapusti"
 
-#~ msgctxt "<username> is not a known user"
-#~ msgid "%1 is not a known user."
-#~ msgstr "%1 ni znan uporabnik."
+#~ msgctxt ""
+#~ "The reason for using push notifications, as in: '[Push notifications are "
+#~ "used for] Receiving notifications for new messages'"
+#~ msgid "Receiving notifications for new messages"
+#~ msgstr "Sprejemanje obvestil za nova sporočila"
 
-#~ msgid "Login Failed: Access Token invalid or revoked"
-#~ msgstr "Neuspela prijava: Žeton za dostop je neveljaven ali preklican"
+#~ msgid "Friends"
+#~ msgstr "Prijatelji"
 
-#~ msgid "[REDACTED]"
-#~ msgstr "[PREKRIVANJE PODATKOV]"
+#~ msgid "sent a live location beacon"
+#~ msgstr "je v živo posvetil žarek iz lokacije"
 
-#~ msgid "[REDACTED: %1]"
-#~ msgstr "[PREKRIVANJE PODATKOV: %1]"
+#~ msgctxt "@title:group"
+#~ msgid "Account Data"
+#~ msgstr "Podatki o računu"
 
-#~ msgid "The room id you are trying to join is not valid"
-#~ msgstr "Identifikacija sobe, kamor se poskušate pridružiti, ni veljavna"
+#~ msgctxt "@title:window"
+#~ msgid "Event Source"
+#~ msgstr "Vir dogodka"
 
-#~ msgctxt "n times"
-#~ msgid " %1 time "
-#~ msgid_plural " %1 times "
-#~ msgstr[0] " %1 krat "
-#~ msgstr[1] " %1 krat "
-#~ msgstr[2] " %1 krat "
-#~ msgstr[3] " %1 krat "
+#~ msgctxt "@title:window"
+#~ msgid "Developer Tools"
+#~ msgstr "Razvojna orodja"
 
-#~ msgid "Please choose a file"
-#~ msgstr "Izberite datoteko"
+#~ msgid "Copy to clipboard"
+#~ msgstr "Kopiraj na odložišče"
 
-#~ msgid "Replying to:"
-#~ msgstr "Odgovarjanje:"
+#~ msgid "Remove from Favorites"
+#~ msgstr "Odstrani iz priljubljenih"
 
-#~ msgid "Log in to a different account or create a new account."
-#~ msgstr "Prijavite se na drugi račun ali ustvarite novi račun."
+#~ msgid "Add to Favorites"
+#~ msgstr "Dodaj med priljubljene"
 
-#~ msgid ""
-#~ "Welcome to NeoChat! Continue by logging in or creating a new account."
-#~ msgstr ""
-#~ "Dobrodošli v NeoChat! Nadaljuje s prijavo ali ustvarjanjem novega računa."
+#~ msgctxt "@title:tab"
+#~ msgid "Account Data"
+#~ msgstr "Podatki o računu"
 
-#~ msgid "View"
-#~ msgstr "Vpogled"
+#~ msgctxt "@title:tab"
+#~ msgid "Feature Flags"
+#~ msgstr "Zastavice zmogljivosti"
 
+#~ msgid "Find your friends"
+#~ msgstr "Poišči vaše prijatelje"
+
+#~ msgctxt "@title"
+#~ msgid "Find your friends"
+#~ msgstr "Poišči vaše prijatelje"
+
+#~ msgctxt "@action:title"
+#~ msgid "Explore Rooms"
+#~ msgstr "Razišči sobe"
+
+#~ msgctxt "@option:check Enable the matrix 'threads' feature"
+#~ msgid "Threads"
+#~ msgstr "Niti"
+
+#~ msgid "Coach: %1, Seat: %2"
+#~ msgstr "Vozilo: %1, Sedež: %2"
+
+#~ msgctxt "<start time> - <end time>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgctxt "@action"
+#~ msgid "Send to KDE Itinerary"
+#~ msgstr "Pošlji v KDE Itinerary"
+
+#~ msgid "Room list sort order"
+#~ msgstr "Vrstni red seznama sob"
+
+#~ msgctxt "As in 'sort something based on last activity'"
+#~ msgid "Activity"
+#~ msgstr "Dejavnost"
+
+#~ msgctxt "As in 'sort something alphabetically'"
+#~ msgid "Alphabetical"
+#~ msgstr "Abecedni"
+
+#~ msgctxt "menu"
+#~ msgid "Find your friends"
+#~ msgstr "Najdi vaše prijatelje"
+
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "Prezrti uporabniki"
+
+#~ msgctxt "@title:group"
+#~ msgid "Ignored Users"
+#~ msgstr "Prezrti uporabniki"
+
+#~ msgctxt "Placeholder message when no user is ignored"
+#~ msgid "You are not ignoring any users"
+#~ msgstr "Ne ignorirate nobenega uporabnika"
+
+#~ msgctxt "@action:button"
+#~ msgid "Unignore this user"
+#~ msgstr "Prekliči ignoriranje tega uporabnika"
+
+#~ msgid "Loading reply"
+#~ msgstr "Nalaganje odgovora"
+
+#~ msgctxt "@info screenreader"
+#~ msgid "The currently selected link"
+#~ msgstr "Trenutno izbrana povezava"
+
+#~ msgctxt "@title"
+#~ msgid "User ID"
+#~ msgstr "Določilnik uporabnika"
+
+#~ msgid "User ID:"
+#~ msgstr "Določilnik uporabnika:"
+
+#~ msgid "User IDs Must start with @"
+#~ msgstr "Določilnik uporabnika se mora začeti z @"
+
+#~ msgid "The input is not a valid user ID"
+#~ msgstr "Vneseno ni veljavni določilnik uporabnika"
+
+#~ msgctxt "@title Join <name of a space>"
+#~ msgid "Join %1"
+#~ msgstr "Pridruži se %1"
+
+#~ msgctxt "@action:button"
 #~ msgid "Join"
 #~ msgstr "Pridruži se"
 
-#~ msgid "No Topic"
-#~ msgstr "Ni teme debate"
+#~ msgctxt "@action:button"
+#~ msgid "Ignore"
+#~ msgstr "Prezri"
 
-#~ msgid "The child "
-#~ msgstr "Otrok "
+#~ msgctxt "'Event' being some JSON data, not something physically happening."
+#~ msgid "%1 event of this type"
+#~ msgid_plural "%1 events of this type"
+#~ msgstr[0] "%1 dogodkov te vrste"
+#~ msgstr[1] "%1 dogodek te vrste"
+#~ msgstr[2] "%1 dogodka te vrste"
+#~ msgstr[3] "%1 dogodki te vrste"
 
-#~ msgctxt "@title"
-#~ msgid "Room Information"
-#~ msgstr "Informacije o sobi"
+#~ msgctxt "'Event' being some JSON data, not something physically happening."
+#~ msgid "Event Information"
+#~ msgstr "Informacije o dogodku"
 
-#~ msgid "Space name"
-#~ msgstr "Ime prostora"
+#~ msgid ""
+#~ "You haven't added any of your friends yet, click below to search for them."
+#~ msgstr ""
+#~ "Dodali niste še nobenega od svojih prijateljev, kliknite spodaj, da jih "
+#~ "poiščete."
 
-#~ msgid "Space topic (optional)"
-#~ msgstr "Tema prostora (neobvezno)"
+#~ msgid "Search in friend directory"
+#~ msgstr "Poišči v imeniku prijateljev"
 
-#~ msgid "Accept Invitation"
-#~ msgstr "Sprejmi povabilo"
+#~ msgid "Find messages…"
+#~ msgstr "Najdi sporočila…"
 
-#~ msgid "Reject Invitation"
-#~ msgstr "Zavrnil povabilo"
-
-#~ msgid "Today"
-#~ msgstr "Danes"
-
-#~ msgid "Yesterday"
-#~ msgstr "Včeraj"
-
-#~ msgid "The day before yesterday"
-#~ msgstr "Predvčerajšnjim"
-
-#~ msgid "Room information"
-#~ msgstr "Informacije o sobi"
-
-#~ msgid "Search user in room"
-#~ msgstr "Išči uporabnika v sobi"
-
-#~ msgctxt "@title"
-#~ msgid "Select a Homeserver"
-#~ msgstr "Izberi domači strežnik"
-
-#~ msgid "Homeserver:"
-#~ msgstr "Domači strežnik:"
-
-#~ msgid "Other..."
-#~ msgstr "Ostalo..."
-
-#~ msgid "Url:"
-#~ msgstr "Spletni naslov:"
-
-#~ msgctxt "@title"
-#~ msgid "Login"
-#~ msgstr "Prijava"
-
-#~ msgid "Enter your Matrix ID"
-#~ msgstr "Vnesite vaš Matrix ID"
-
-#~ msgid "Login Methods"
-#~ msgstr "Metode prijave"
-
-#~ msgid "Login"
-#~ msgstr "Prijava"
-
-#~ msgctxt "@title"
-#~ msgid "Password"
-#~ msgstr "Geslo"
+#~ msgid "No messages found"
+#~ msgstr "Ni najdenih sporočil"
 
 #~ msgctxt "@action:button"
-#~ msgid "Back"
-#~ msgstr "Nazaj"
-
-#~ msgid "No Canonical Alias"
-#~ msgstr "Ni kanoničnega vzdevka"
-
-#~ msgid ""
-#~ "This room is encrypted. Build libQuotient with encryption enabled to send "
-#~ "encrypted messages."
-#~ msgstr ""
-#~ "Ta soba je šifrirana. Izgradite libQuotient z omogočenim šifriranjem za "
-#~ "pošiljanje šifriranih sporočil."
-
-#~ msgid "Messages containing my keywords"
-#~ msgstr "Sporočila, ki vsebujejo moje ključne besede"
+#~ msgid "Manage ignored users"
+#~ msgstr "Upravljaj prezrte uporabnike"
 
 #~ msgctxt "@title:window"
-#~ msgid "Custom Emojis"
-#~ msgstr "Emodžiji po meri"
+#~ msgid "Ignored Users"
+#~ msgstr "Prezrti uporabniki"
 
-#~ msgid "No custom inline stickers found"
-#~ msgstr "Ni najdenih vstavnih nalepk"
+#~ msgctxt "@title"
+#~ msgid "Share"
+#~ msgstr "Deli"
 
-#~ msgid "new_emoji_name_here"
-#~ msgstr "ime_novega_emodžija_tukaj"
+#~ msgid "Home"
+#~ msgstr "Domov"
 
-#~ msgid "Images (*.png *.gif *.webp)"
-#~ msgstr "Slike (*.png *.gif *.webp)"
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Prijatelji"
 
-#~ msgid "Custom Emojis"
-#~ msgstr "Emodžiji po meri"
+#~ msgctxt "Join <name of a space>"
+#~ msgid "Join %1"
+#~ msgstr "Pridruži se %1"
 
-#~ msgid "No Name"
-#~ msgstr "Ni imena"
+#~ msgid "Create a space"
+#~ msgstr "Ustvari prostor"
 
-#~ msgid "Add an Emoji"
-#~ msgstr "Dodaj čustvenčka"
+#~ msgctxt ""
+#~ "The name of one instance of a state of configuration. Unless you really "
+#~ "know what you're doing, best leave this untranslated."
+#~ msgid "State Keys"
+#~ msgstr "Ključi stanja"
 
-#~ msgid "Options:"
-#~ msgstr "Možnosti:"
+#~ msgctxt "%1 is the name of the user."
+#~ msgid "Chat with %1"
+#~ msgstr "Klepet z %1"
 
-#~ msgid "Zoom in"
-#~ msgstr "Približaj"
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Poišči vaše prijatelje"
 
-#~ msgid "Zoom out"
-#~ msgstr "Oddalji"
+#~ msgid "Enter a user ID"
+#~ msgstr "Vnesite določilnik uporabnika (ID)"
 
-#~ msgid "Rotate left"
-#~ msgstr "Zasukaj v levo"
+#~ msgid "Find your friends…"
+#~ msgstr "Poišči vaše prijatelje…"
 
-#~ msgid "Rotate right"
-#~ msgstr "Zasukaj v desno"
+#~ msgid "Enter text to start searching for your friends"
+#~ msgstr "Vnesite besedilo za začetek iskanja vaših prijateljev"
 
-#~ msgid "Save as"
-#~ msgstr "Shrani kot"
-
-#~ msgid " (edited)"
-#~ msgstr " (urejano)"
-
-#~ msgid "Room Name"
-#~ msgstr "Ime sobe"
-
-#~ msgid "Room Topic"
-#~ msgstr "Tema debate sobe"
-
-#~ msgid "Edit Message"
-#~ msgstr "Uredi sporočilo"
-
-#~ msgid "Editing message:"
-#~ msgstr "Uredi sporočilo:"
-
-#~ msgid "Owner"
-#~ msgstr "Lastnik"
-
-#~ msgid "Mod"
-#~ msgstr "Moderator"
-
-#~ msgid "Muted"
-#~ msgstr "Utišan"
-
-#~ msgid ""
-#~ "This room is encrypted. Sending encrypted messages is not yet supported."
-#~ msgstr "Ta soba je šifrirana. Pošiljanje šifriranih sporočil še ni podprto."
-
-#~ msgid "Custom"
-#~ msgstr "Po meri"
-
-#~ msgid "Timeline"
-#~ msgstr "Časovnica"
-
-#~ msgid "In Chat"
-#~ msgstr "V debati"
-
-#~ msgid "Themes"
-#~ msgstr "Teme"
-
-#~ msgid "Displays action"
-#~ msgstr "Prikaži dejavnost"
-
-#~ msgid "Sends a message as plain text, without interpreting it as markdown"
-#~ msgstr ""
-#~ "Pošlji sporočilo kot enostavno besedilo brez interpretacije markdowna"
-
-#~ msgid "Sends a message as html, without interpreting it as markdown"
-#~ msgstr "Pošlji sporočilo kot html brez interpretacije markdowna"
-
-#~ msgid "Sends the given message coloured as a rainbow"
-#~ msgstr "Pošlji dano sporočilo obarvano kot mavrica"
-
-#~ msgid "Sends the given emote coloured as a rainbow"
-#~ msgstr "Pošlji dan čustvenček obarvan kot mavrica"
-
-#~ msgid "Joins room with given address"
-#~ msgstr "Pridruži sobo danemu naslovu"
-
-#~ msgid "Leave room"
-#~ msgstr "Zapusti sobo"
-
-#~ msgid "Invites user with given id to current room"
-#~ msgstr "Povabi uporabnika z dano identifikacijo v trenutno sobo"
-
-#~ msgid "React to this message with a text"
-#~ msgstr "Odzovi se na to sporočilo z besedilom"
-
-#~ msgid "Edit device"
-#~ msgstr "Uredi napravo"
-
-#~ msgid "Peeker width"
-#~ msgstr "Širina špranje"
-
-#~ msgid "Proxy Port"
-#~ msgstr "Vrata posrednika"
-
-#~ msgid "Avatar:"
-#~ msgstr "Avatar:"
-
-#~ msgid "Add an account"
-#~ msgstr "Dodaj račun"
-
-#~ msgid "Notifications and events:"
-#~ msgstr "Obvestila in dogodki:"
-
-#~ msgid "Proxy Host"
-#~ msgstr "Gostitelj posrednika"
-
-#~ msgid "Online"
-#~ msgstr "Priklopljeno na omrežje"
-
-#~ msgid "Local"
-#~ msgstr "Lokalno"
-
-#~ msgid "Global"
-#~ msgstr "Globalno"
-
-#~ msgid "Invalid command"
-#~ msgstr "Neveljaven ukaz"
-
-#~ msgid "Couldn't find a message to react to"
-#~ msgstr "Ni bilo mogoče najti sporočila, na katerega bi se odzvali"
-
-#~ msgid "Image View - %1"
-#~ msgstr "Pogled slike - %1"
-
-#~| msgid "Send message"
-#~ msgid "All messages"
-#~ msgstr "Vsa sporočila"
-
-#~ msgid "Write your message..."
-#~ msgstr "Napišite vaše sporočilo..."
+#~ msgctxt "@info:label"
+#~ msgid "No matches found"
+#~ msgstr "Ni najdenih zadetkov"
