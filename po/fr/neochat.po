@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-11 00:38+0000\n"
+"POT-Creation-Date: 2024-03-12 00:37+0000\n"
 "PO-Revision-Date: 2024-03-07 08:10+0100\n"
 "Last-Translator: xavier <xyz@yahoo.com>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -495,110 +495,115 @@ msgstr "Erreur du réseau"
 msgid "Login Failed: %1"
 msgstr "La connexion a échoué : %1"
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Matrix client"
 msgstr "Client « Matrix »"
 
-#: src/main.cpp:133
+#: src/main.cpp:134
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018 - 2020 Black Hat 2020-2024 Communauté de KDE"
 
-#: src/main.cpp:134
+#: src/main.cpp:135
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:135 src/main.cpp:139 src/main.cpp:140
+#: src/main.cpp:136 src/main.cpp:140 src/main.cpp:141
 #, kde-format
 msgid "Maintainer"
 msgstr "Mainteneur"
 
-#: src/main.cpp:139
+#: src/main.cpp:140
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:140
+#: src/main.cpp:141
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:141
+#: src/main.cpp:142
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:141
+#: src/main.cpp:142
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Auteur initial de Spectral"
 
-#: src/main.cpp:142
+#: src/main.cpp:143
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:142
+#: src/main.cpp:143
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Mainteneur de la bibliothèque « libQuotient »"
 
-#: src/main.cpp:143
+#: src/main.cpp:144
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Xavier Besnard"
 
-#: src/main.cpp:143
+#: src/main.cpp:144
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@kde.org"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Une bibliothèque Qt pour l'écriture de clients multi-plate-formes pour Matrix"
 
-#: src/main.cpp:149
+#: src/main.cpp:150
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilé en regard de %2)"
 
-#: src/main.cpp:175
+#: src/main.cpp:176
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Un client pour le protocole de communications  Matrix »"
 
-#: src/main.cpp:176
+#: src/main.cpp:177
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Prend en charge le thème d'URL « matrix : »"
 
-#: src/main.cpp:177
+#: src/main.cpp:178
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 "Ignorer toutes les erreurs « SSL », par exemple, les certificats non signés."
 
-#: src/main.cpp:179
+#: src/main.cpp:180
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Uniquement utilisé pour les auto-tests"
 
-#: src/main.cpp:184
+#: src/main.cpp:185
 #, kde-format
 msgid "Internal usage only."
 msgstr "Utilisation interne uniquement."
+
+#: src/main.cpp:190
+#, kde-format
+msgid "Share a URL to Matrix"
+msgstr ""
 
 #: src/matriximageprovider.cpp:40
 #, kde-format
@@ -1162,7 +1167,7 @@ msgstr "Lat : %1, Long : %2"
 msgid "Encrypted Message"
 msgstr "Message chiffré"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:317
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:323
 #, kde-format
 msgid "%1: %2"
 msgstr "%1 : %2"
@@ -1378,7 +1383,7 @@ msgid "Notification settings"
 msgstr "Configuration des notifications"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:142
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:453 src/qml/UserInfo.qml:142
 #, kde-format
 msgid "Configure"
 msgstr "Configurer"
@@ -1558,37 +1563,37 @@ msgstr "Permissions"
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/qml/ChatBar.qml:62
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Joindre une image ou un fichier."
 
-#: src/qml/ChatBar.qml:80
+#: src/qml/ChatBar.qml:98
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Émoticônes et étiquettes auto-collantes"
 
-#: src/qml/ChatBar.qml:97
+#: src/qml/ChatBar.qml:115
 #, kde-format
 msgid "Send a Location"
 msgstr "Envoyer un emplacement"
 
-#: src/qml/ChatBar.qml:113
+#: src/qml/ChatBar.qml:131
 #, kde-format
 msgid "Send message"
 msgstr "Envoyer un message"
 
-#: src/qml/ChatBar.qml:191
+#: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Envoyer un message chiffré..."
 
-#: src/qml/ChatBar.qml:191
+#: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Définir une légende de pièce jointe...."
 
-#: src/qml/ChatBar.qml:191
+#: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Send a message…"
 msgstr "Envoyer un message..."
@@ -3055,18 +3060,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "S'inscrire"
 
-#: src/qml/main.qml:351
+#: src/qml/main.qml:357
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Vérification de la session"
 
-#: src/qml/main.qml:368
+#: src/qml/main.qml:374
 #, kde-format
 msgid "User consent"
 msgstr "Consentement de l'utilisateur"
 
-#: src/qml/main.qml:373
+#: src/qml/main.qml:379
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -3076,26 +3081,32 @@ msgstr ""
 "avant de pouvoir l'utiliser. Veuillez cliquer sur le bouton ci-dessous pour "
 "les lire."
 
-#: src/qml/main.qml:378
+#: src/qml/main.qml:384
 #, kde-format
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/qml/main.qml:405
+#: src/qml/main.qml:411
 #, kde-format
 msgid "Start a chat"
 msgstr "Démarrer une conversation"
 
-#: src/qml/main.qml:407
+#: src/qml/main.qml:413
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Voulez-vous démarrer une discussion avec %1 ?"
 
-#: src/qml/main.qml:433
+#: src/qml/main.qml:439
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Le lien actuellement sélectionné"
+
+#: src/qml/main.qml:471 src/qml/ShareAction.qml:68
+#, kde-format
+msgctxt "@title"
+msgid "Share"
+msgstr "Partager"
 
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
@@ -4164,12 +4175,6 @@ msgstr "Partager"
 #, kde-format
 msgid "Share the selected media"
 msgstr "Partager le média sélectionné"
-
-#: src/qml/ShareAction.qml:68
-#, kde-format
-msgctxt "@title"
-msgid "Share"
-msgstr "Partager"
 
 #: src/qml/ShareDialog.qml:37
 #, kde-format

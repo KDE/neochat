@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-11 00:38+0000\n"
+"POT-Creation-Date: 2024-03-12 00:37+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -496,108 +496,113 @@ msgstr "네트워크 오류"
 msgid "Login Failed: %1"
 msgstr "로그인 실패: %1"
 
-#: src/main.cpp:129
+#: src/main.cpp:130
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:131
+#: src/main.cpp:132
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix 클라이언트"
 
-#: src/main.cpp:133
+#: src/main.cpp:134
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 
-#: src/main.cpp:134
+#: src/main.cpp:135
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:135 src/main.cpp:139 src/main.cpp:140
+#: src/main.cpp:136 src/main.cpp:140 src/main.cpp:141
 #, kde-format
 msgid "Maintainer"
 msgstr "관리자"
 
-#: src/main.cpp:139
+#: src/main.cpp:140
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:140
+#: src/main.cpp:141
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:141
+#: src/main.cpp:142
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:141
+#: src/main.cpp:142
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral의 원 작성자"
 
-#: src/main.cpp:142
+#: src/main.cpp:143
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:142
+#: src/main.cpp:143
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "libQuotient 관리자"
 
-#: src/main.cpp:143
+#: src/main.cpp:144
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "박신조"
 
-#: src/main.cpp:143
+#: src/main.cpp:144
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "크로스 플랫폼 Matrix 클라이언트를 작성할 수 있는 Qt 라이브러리"
 
-#: src/main.cpp:149
+#: src/main.cpp:150
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1(%2(으)로 빌드됨)"
 
-#: src/main.cpp:175
+#: src/main.cpp:176
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 대화 프로토콜 클라이언트"
 
-#: src/main.cpp:176
+#: src/main.cpp:177
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: URL 형식 지원"
 
-#: src/main.cpp:177
+#: src/main.cpp:178
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "모든 SSL 오류(예: 서명되지 않은 인증서)를 무시합니다."
 
-#: src/main.cpp:179
+#: src/main.cpp:180
 #, kde-format
 msgid "Only used for autotests"
 msgstr "자동 테스트에만 사용됨"
 
-#: src/main.cpp:184
+#: src/main.cpp:185
 #, kde-format
 msgid "Internal usage only."
 msgstr "내부 용도입니다."
+
+#: src/main.cpp:190
+#, kde-format
+msgid "Share a URL to Matrix"
+msgstr ""
 
 #: src/matriximageprovider.cpp:40
 #, kde-format
@@ -1151,7 +1156,7 @@ msgstr "위도: %1, 경도: %2"
 msgid "Encrypted Message"
 msgstr "암호화된 메시지"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:317
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:323
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1368,7 +1373,7 @@ msgid "Notification settings"
 msgstr "알림 설정"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:447 src/qml/UserInfo.qml:142
+#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:453 src/qml/UserInfo.qml:142
 #, kde-format
 msgid "Configure"
 msgstr "설정"
@@ -1548,37 +1553,37 @@ msgstr "권한"
 msgid "Notifications"
 msgstr "알림"
 
-#: src/qml/ChatBar.qml:62
+#: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Attach an image or file"
 msgstr "그림이나 파일 첨부"
 
-#: src/qml/ChatBar.qml:80
+#: src/qml/ChatBar.qml:98
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "이모지와 스티커"
 
-#: src/qml/ChatBar.qml:97
+#: src/qml/ChatBar.qml:115
 #, kde-format
 msgid "Send a Location"
 msgstr "위치 보내기"
 
-#: src/qml/ChatBar.qml:113
+#: src/qml/ChatBar.qml:131
 #, kde-format
 msgid "Send message"
 msgstr "메시지 보내기"
 
-#: src/qml/ChatBar.qml:191
+#: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "암호화된 메시지 보내기…"
 
-#: src/qml/ChatBar.qml:191
+#: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "첨부 파일 캡션 설정…"
 
-#: src/qml/ChatBar.qml:191
+#: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Send a message…"
 msgstr "메시지 보내기…"
@@ -3038,18 +3043,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "등록"
 
-#: src/qml/main.qml:351
+#: src/qml/main.qml:357
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/qml/main.qml:368
+#: src/qml/main.qml:374
 #, kde-format
 msgid "User consent"
 msgstr "사용자 동의"
 
-#: src/qml/main.qml:373
+#: src/qml/main.qml:379
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -3058,26 +3063,33 @@ msgstr ""
 "홈 서버를 사용하기 전에 사용 조건에 동의해야 합니다. 아래 단추를 클릭하여 읽"
 "으십시오."
 
-#: src/qml/main.qml:378
+#: src/qml/main.qml:384
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/qml/main.qml:405
+#: src/qml/main.qml:411
 #, kde-format
 msgid "Start a chat"
 msgstr "대화 시작"
 
-#: src/qml/main.qml:407
+#: src/qml/main.qml:413
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
 
-#: src/qml/main.qml:433
+#: src/qml/main.qml:439
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
+
+#: src/qml/main.qml:471 src/qml/ShareAction.qml:68
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@title"
+msgid "Share"
+msgstr "공유"
 
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
@@ -4120,13 +4132,6 @@ msgstr "공유"
 #, kde-format
 msgid "Share the selected media"
 msgstr "선택한 미디어 공유"
-
-#: src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
-msgctxt "@title"
-msgid "Share"
-msgstr "공유"
 
 #: src/qml/ShareDialog.qml:37
 #, kde-format
