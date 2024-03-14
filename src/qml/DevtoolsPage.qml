@@ -23,17 +23,27 @@ FormCard.FormCardPage {
     header: QQC2.TabBar {
         id: tabBar
 
+        readonly property real tabWidth: tabBar.width / tabBar.count
+
         QQC2.TabButton {
             text: qsTr("Room Data")
+
+            implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
             text: qsTr("Server Info")
+
+            implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
             text: i18nc("@title:tab", "Account Data")
+
+            implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
             text: i18nc("@title:tab", "Feature Flags")
+
+            implicitWidth: tabBar.tabWidth
         }
     }
 
