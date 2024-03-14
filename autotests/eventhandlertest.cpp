@@ -55,6 +55,7 @@ private Q_SLOTS:
     void genericBody_data();
     void genericBody();
     void nullGenericBody();
+    void markdownBody();
     void subtitle();
     void nullSubtitle();
     void mediaInfo();
@@ -291,6 +292,13 @@ void EventHandlerTest::nullGenericBody()
     EventHandler noEventHandler(room, nullptr);
     QTest::ignoreMessage(QtWarningMsg, "getGenericBody called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getGenericBody(), QString());
+}
+
+void EventHandlerTest::markdownBody()
+{
+    EventHandler eventHandler(room, room->messageEvents().at(0).get());
+
+    QCOMPARE(eventHandler.getMarkdownBody(), QStringLiteral("This is an example\ntext message"));
 }
 
 void EventHandlerTest::subtitle()
