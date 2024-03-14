@@ -160,6 +160,14 @@ public:
     bool isHidden();
 
     /**
+     * @brief Output a string for the room message content without any formatting.
+     *
+     * This is the content of the formatted_body key if present or the body key if
+     * not.
+     */
+    static QString rawMessageBody(const Quotient::RoomMessageEvent &event);
+
+    /**
      * @brief Output a string for the message content ready for display in a rich text field.
      *
      * The output string is dependant upon the event type and the desired output format.
@@ -190,6 +198,13 @@ public:
      * @param stripNewlines whether the output should have new lines in it.
      */
     QString getPlainBody(bool stripNewlines = false) const;
+
+    /**
+     * @brief Output the original body for the message content, useful for editing the original message.
+     *
+     * The event type must be a room message event.
+     */
+    QString getMarkdownBody() const;
 
     /**
      * @brief Output a generic string for the message content ready for display.

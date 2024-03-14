@@ -155,8 +155,11 @@ QQC2.TextArea {
         onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
 
         function updateEditText() {
+            // This could possibly be undefined due to some esoteric QtQuick issue. Referencing it somewhere in JS is enough.
+            documentHandler.document;
             if (chatBarCache?.isEditing && chatBarCache.relationMessage.length > 0) {
-                root.text = chatBarCache.relationMessage
+                root.text = chatBarCache.relationMessage;
+                chatBarCache.updateMentions(root.textDocument, documentHandler);
                 root.forceActiveFocus();
                 root.cursorPosition = root.length;
             }

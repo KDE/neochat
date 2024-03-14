@@ -3,6 +3,7 @@
 
 #include "chatbarcache.h"
 
+#include "chatdocumenthandler.h"
 #include "eventhandler.h"
 #include "neochatroom.h"
 
@@ -118,7 +119,7 @@ QString ChatBarCache::relationMessage() const
     eventhandler.setRoom(room);
     if (auto event = room->findInTimeline(m_relationId); event != room->historyEdge()) {
         eventhandler.setEvent(&**event);
-        return eventhandler.getPlainBody();
+        return eventhandler.getMarkdownBody();
     }
     return {};
 }
@@ -162,6 +163,54 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
 QList<Mention> *ChatBarCache::mentions()
 {
     return &m_mentions;
+}
+
+void ChatBarCache::updateMentions(QQuickTextDocument *document, ChatDocumentHandler *documentHandler)
+{
+    documentHandler->setDocument(document);
+
+    if (parent() == nullptr) {
+        qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
+        return;
+    }
+    if (m_relationId.isEmpty()) {
+        return;
+    }
+    auto room = dynamic_cast<NeoChatRoom *>(parent());
+    if (room == nullptr) {
+        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
+        return;
+    }
+
+    if (auto event = room->findInTimeline(m_relationId); event != room->historyEdge()) {
+        if (const auto &roomMessageEvent = &*event->viewAs<Quotient::RoomMessageEvent>()) {
+            // Replaces the mentions that are baked into the HTML but plaintext in the original markdown
+            const QRegularExpression re(QStringLiteral(R"lit(<a\shref="https:\/\/matrix.to\/#\/([\S]*)"\s?>([\S]*)<\/a>)lit"));
+
+            m_mentions.clear();
+
+            int linkSize = 0;
+            auto matches = re.globalMatch(EventHandler::rawMessageBody(*roomMessageEvent));
+            while (matches.hasNext()) {
+                const QRegularExpressionMatch match = matches.next();
+                if (match.hasMatch()) {
+                    const QString id = match.captured(1);
+                    const QString name = match.captured(2);
+
+                    const int position = match.capturedStart(0) - linkSize;
+                    const int end = position + name.length();
+                    linkSize += match.capturedLength(0) - name.length();
+
+                    QTextCursor cursor(documentHandler->document()->textDocument());
+                    cursor.setPosition(position);
+                    cursor.setPosition(end, QTextCursor::KeepAnchor);
+                    cursor.setKeepPositionOnInsert(true);
+
+                    m_mentions.push_back(Mention{.cursor = cursor, .text = name, .start = position, .position = end, .id = id});
+                }
+            }
+        }
+    }
 }
 
 QString ChatBarCache::savedText() const

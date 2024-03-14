@@ -300,6 +300,27 @@ bool EventHandler::isHidden()
     return false;
 }
 
+QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
+{
+    if (event.hasFileContent()) {
+        auto fileCaption = event.content()->fileInfo()->originalName;
+        if (fileCaption.isEmpty()) {
+            fileCaption = event.plainBody();
+        } else if (event.content()->fileInfo()->originalName != event.plainBody()) {
+            fileCaption = event.plainBody() + " | "_ls + fileCaption;
+        }
+        return fileCaption;
+    }
+
+    QString body;
+    if (event.hasTextContent() && event.content()) {
+        body = static_cast<const MessageEventContent::TextContent *>(event.content())->body;
+    } else {
+        body = event.plainBody();
+    }
+    return body;
+}
+
 QString EventHandler::getRichBody(bool stripNewlines) const
 {
     if (m_event == nullptr) {
@@ -316,6 +337,22 @@ QString EventHandler::getPlainBody(bool stripNewlines) const
         return {};
     }
     return getBody(m_event, Qt::PlainText, stripNewlines);
+}
+
+QString EventHandler::getMarkdownBody() const
+{
+    if (m_event == nullptr) {
+        qCWarning(EventHandling) << "getMarkdownBody called with m_event set to nullptr.";
+        return {};
+    }
+
+    if (!m_event->is<RoomMessageEvent>()) {
+        qCWarning(EventHandling) << "getMarkdownBody called when m_event isn't a RoomMessageEvent.";
+        return {};
+    }
+
+    const auto roomMessageEvent = eventCast<const RoomMessageEvent>(m_event);
+    return roomMessageEvent->plainBody();
 }
 
 QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines) const
