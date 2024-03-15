@@ -171,7 +171,7 @@ QQC2.TextArea {
 
         function updateEditText() {
             // This could possibly be undefined due to some esoteric QtQuick issue. Referencing it somewhere in JS is enough.
-            documentHandler.textDocument;
+            documentHandler.document;
             if (chatBarCache?.isEditing && chatBarCache.relationMessage.length > 0) {
                 root.text = chatBarCache.relationMessage;
                 chatBarCache.updateMentions(root.textDocument, documentHandler);
