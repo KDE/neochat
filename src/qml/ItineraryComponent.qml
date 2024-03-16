@@ -32,7 +32,6 @@ ColumnLayout {
     Repeater {
         id: itinerary
         model: root.itineraryModel
-        onModelChanged: console.warn(itinerary.count)
         delegate: DelegateChooser {
             role: "type"
             DelegateChoice {
