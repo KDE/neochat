@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-02 02:25+0000\n"
+"POT-Creation-Date: 2024-03-16 03:11+0000\n"
 "PO-Revision-Date: 2024-02-15 17:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -75,350 +75,350 @@ msgstr "要下載的檔案太大了。"
 msgid "Contact your matrix server administrator for support."
 msgstr "請聯絡您的 matrix 伺服器管理員以求支援。"
 
-#: src/eventhandler.cpp:325 src/eventhandler.cpp:530
+#: src/eventhandler.cpp:362 src/eventhandler.cpp:567
 #: src/models/messageeventmodel.cpp:491
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[此訊息已被刪除]</i>"
 
-#: src/eventhandler.cpp:325 src/models/messageeventmodel.cpp:492
+#: src/eventhandler.cpp:362 src/models/messageeventmodel.cpp:492
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[此訊息已被刪除：%1]</i>"
 
-#: src/eventhandler.cpp:356
+#: src/eventhandler.cpp:393
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "已重新邀請 %1 到聊天室裡"
 
-#: src/eventhandler.cpp:358
+#: src/eventhandler.cpp:395
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr "：%1"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:554
+#: src/eventhandler.cpp:404 src/eventhandler.cpp:591
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "已加入聊天室（重複）"
 
-#: src/eventhandler.cpp:369
+#: src/eventhandler.cpp:406
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "已邀請 %1 到聊天室裡"
 
-#: src/eventhandler.cpp:369 src/eventhandler.cpp:556
+#: src/eventhandler.cpp:406 src/eventhandler.cpp:593
 #, kde-format
 msgid "joined the room"
 msgstr "已加入聊天室"
 
-#: src/eventhandler.cpp:373
+#: src/eventhandler.cpp:410
 #, kde-format
 msgid ": %1"
 msgstr "：%1"
 
-#: src/eventhandler.cpp:380 src/eventhandler.cpp:564
+#: src/eventhandler.cpp:417 src/eventhandler.cpp:601
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "將其顯示名稱清除了"
 
-#: src/eventhandler.cpp:383
+#: src/eventhandler.cpp:420
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "將其顯示名稱變更為 %1"
 
-#: src/eventhandler.cpp:389 src/eventhandler.cpp:571
+#: src/eventhandler.cpp:426 src/eventhandler.cpp:608
 #, kde-format
 msgid " and "
 msgstr " 和 "
 
-#: src/eventhandler.cpp:392 src/eventhandler.cpp:574
+#: src/eventhandler.cpp:429 src/eventhandler.cpp:611
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "將其頭貼清除了"
 
-#: src/eventhandler.cpp:394 src/eventhandler.cpp:576
+#: src/eventhandler.cpp:431 src/eventhandler.cpp:613
 #, kde-format
 msgid "set an avatar"
 msgstr "設定了頭貼"
 
-#: src/eventhandler.cpp:396 src/eventhandler.cpp:578
+#: src/eventhandler.cpp:433 src/eventhandler.cpp:615
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "更新了他的頭貼"
 
-#: src/eventhandler.cpp:400 src/eventhandler.cpp:582
+#: src/eventhandler.cpp:437 src/eventhandler.cpp:619
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "什麼都沒改"
 
-#: src/eventhandler.cpp:406
+#: src/eventhandler.cpp:443
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "撤回了 %1 的邀請"
 
-#: src/eventhandler.cpp:406 src/eventhandler.cpp:588
+#: src/eventhandler.cpp:443 src/eventhandler.cpp:625
 #, kde-format
 msgid "rejected the invitation"
 msgstr "拒絕了邀請"
 
-#: src/eventhandler.cpp:410
+#: src/eventhandler.cpp:447
 #, kde-format
 msgid "unbanned %1"
 msgstr "解除了 %1 的封鎖"
 
-#: src/eventhandler.cpp:410 src/eventhandler.cpp:592
+#: src/eventhandler.cpp:447 src/eventhandler.cpp:629
 #, kde-format
 msgid "self-unbanned"
 msgstr "已自我解除封鎖"
 
-#: src/eventhandler.cpp:413
+#: src/eventhandler.cpp:450
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "已將 %1 移出聊天室：%2"
 
-#: src/eventhandler.cpp:414 src/eventhandler.cpp:594
+#: src/eventhandler.cpp:451 src/eventhandler.cpp:631
 #, kde-format
 msgid "left the room"
 msgstr "已離開聊天室"
 
-#: src/eventhandler.cpp:418
+#: src/eventhandler.cpp:455
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "已從聊天室封鎖 %1"
 
-#: src/eventhandler.cpp:420
+#: src/eventhandler.cpp:457
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "已從聊天室封鎖 %1：%2"
 
-#: src/eventhandler.cpp:423 src/eventhandler.cpp:599
+#: src/eventhandler.cpp:460 src/eventhandler.cpp:636
 #, kde-format
 msgid "self-banned from the room"
 msgstr "已從聊天室自行封鎖"
 
-#: src/eventhandler.cpp:427 src/eventhandler.cpp:602
+#: src/eventhandler.cpp:464 src/eventhandler.cpp:639
 #, kde-format
 msgid "requested an invite"
 msgstr "請求了邀請"
 
-#: src/eventhandler.cpp:427
+#: src/eventhandler.cpp:464
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "請求了邀請，理由：%1"
 
-#: src/eventhandler.cpp:431 src/eventhandler.cpp:606
+#: src/eventhandler.cpp:468 src/eventhandler.cpp:643
 #, kde-format
 msgid "made something unknown"
 msgstr ""
 
-#: src/eventhandler.cpp:434 src/eventhandler.cpp:609
+#: src/eventhandler.cpp:471 src/eventhandler.cpp:646
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "清除了聊天室的主別名"
 
-#: src/eventhandler.cpp:434
+#: src/eventhandler.cpp:471
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "設定聊天室的主別名為：%1"
 
-#: src/eventhandler.cpp:437 src/eventhandler.cpp:612
+#: src/eventhandler.cpp:474 src/eventhandler.cpp:649
 #, kde-format
 msgid "cleared the room name"
 msgstr "清除了聊天室名稱"
 
-#: src/eventhandler.cpp:437
+#: src/eventhandler.cpp:474
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "設定聊天室名稱為：%1"
 
-#: src/eventhandler.cpp:440 src/eventhandler.cpp:615
+#: src/eventhandler.cpp:477 src/eventhandler.cpp:652
 #, kde-format
 msgid "cleared the topic"
 msgstr "清除了主題"
 
-#: src/eventhandler.cpp:441
+#: src/eventhandler.cpp:478
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "設定主題為：%1"
 
-#: src/eventhandler.cpp:447 src/eventhandler.cpp:618
+#: src/eventhandler.cpp:484 src/eventhandler.cpp:655
 #, kde-format
 msgid "changed the room avatar"
 msgstr "變更了聊天室頭貼"
 
-#: src/eventhandler.cpp:450 src/eventhandler.cpp:621
+#: src/eventhandler.cpp:487 src/eventhandler.cpp:658
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "啟用了端對端加密"
 
-#: src/eventhandler.cpp:454
+#: src/eventhandler.cpp:491
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "更新了聊天室到版本 %1"
 
-#: src/eventhandler.cpp:455
+#: src/eventhandler.cpp:492
 #, kde-format
 msgid "created the room, version %1"
 msgstr "建立了聊天室，版本 %1"
 
-#: src/eventhandler.cpp:458 src/eventhandler.cpp:627
+#: src/eventhandler.cpp:495 src/eventhandler.cpp:664
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr ""
 
-#: src/eventhandler.cpp:462 src/eventhandler.cpp:631
+#: src/eventhandler.cpp:499 src/eventhandler.cpp:668
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 
-#: src/eventhandler.cpp:466
+#: src/eventhandler.cpp:503
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "新增了 %1 元件"
 
-#: src/eventhandler.cpp:469
+#: src/eventhandler.cpp:506
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "移除了 %1 元件"
 
-#: src/eventhandler.cpp:471
+#: src/eventhandler.cpp:508
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "設定了 %1 元件"
 
-#: src/eventhandler.cpp:476
+#: src/eventhandler.cpp:513
 #, kde-format
 msgid "updated %1 state"
 msgstr "更新了 %1 狀態"
 
-#: src/eventhandler.cpp:477
+#: src/eventhandler.cpp:514
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "為 %2 更新了 %1 狀態"
 
-#: src/eventhandler.cpp:482 src/eventhandler.cpp:648
+#: src/eventhandler.cpp:519 src/eventhandler.cpp:685
 #, kde-format
 msgid "Unknown event"
 msgstr "未知事件"
 
-#: src/eventhandler.cpp:497
+#: src/eventhandler.cpp:534
 #, kde-format
 msgid "a file"
 msgstr "一個檔案"
 
-#: src/eventhandler.cpp:537
+#: src/eventhandler.cpp:574
 #, kde-format
 msgid "sent a message"
 msgstr "傳送了訊息"
 
-#: src/eventhandler.cpp:541
+#: src/eventhandler.cpp:578
 #, kde-format
 msgid "sent a sticker"
 msgstr "傳送了貼圖"
 
-#: src/eventhandler.cpp:547
+#: src/eventhandler.cpp:584
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "已重新邀請某人到聊天室裡"
 
-#: src/eventhandler.cpp:556
+#: src/eventhandler.cpp:593
 #, kde-format
 msgid "invited someone to the room"
 msgstr "已邀請某人到聊天室裡"
 
-#: src/eventhandler.cpp:566
+#: src/eventhandler.cpp:603
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "變更了他的顯示名稱"
 
-#: src/eventhandler.cpp:588
+#: src/eventhandler.cpp:625
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "撤回了一個使用者的邀請"
 
-#: src/eventhandler.cpp:592
+#: src/eventhandler.cpp:629
 #, kde-format
 msgid "unbanned a user"
 msgstr "已解除封鎖一個使用者"
 
-#: src/eventhandler.cpp:594
+#: src/eventhandler.cpp:631
 #, kde-format
 msgid "put a user out of the room"
 msgstr "已將一個使用者移出聊天室"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:634
 #, kde-format
 msgid "banned a user from the room"
 msgstr "已從聊天室封鎖一個使用者"
 
-#: src/eventhandler.cpp:609
+#: src/eventhandler.cpp:646
 #, kde-format
 msgid "set the room main alias"
 msgstr "設定了聊天室的主別名"
 
-#: src/eventhandler.cpp:612
+#: src/eventhandler.cpp:649
 #, kde-format
 msgid "set the room name"
 msgstr "設定了聊天室名稱"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:652
 #, kde-format
 msgid "set the topic"
 msgstr "設定了主題"
 
-#: src/eventhandler.cpp:624
+#: src/eventhandler.cpp:661
 #, kde-format
 msgid "upgraded the room version"
 msgstr "更新了聊天室版本"
 
-#: src/eventhandler.cpp:624
+#: src/eventhandler.cpp:661
 #, kde-format
 msgid "created the room"
 msgstr "建立了聊天室"
 
-#: src/eventhandler.cpp:635
+#: src/eventhandler.cpp:672
 #, kde-format
 msgid "added a widget"
 msgstr "新增了一個元件"
 
-#: src/eventhandler.cpp:638
+#: src/eventhandler.cpp:675
 #, kde-format
 msgid "removed a widget"
 msgstr "移除了一個元件"
 
-#: src/eventhandler.cpp:640
+#: src/eventhandler.cpp:677
 #, kde-format
 msgid "configured a widget"
 msgstr "設定了一個元件"
 
-#: src/eventhandler.cpp:642
+#: src/eventhandler.cpp:679
 #, kde-format
 msgid "updated the state"
 msgstr "更新了狀態"
 
-#: src/eventhandler.cpp:646
+#: src/eventhandler.cpp:683
 #, kde-format
 msgid "started a poll"
 msgstr "開始了投票"
 
-#: src/eventhandler.cpp:1054
+#: src/eventhandler.cpp:1091
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 名使用者："
 
-#: src/eventhandler.cpp:1057
+#: src/eventhandler.cpp:1094
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -458,106 +458,106 @@ msgstr "網路錯誤"
 msgid "Login Failed: %1"
 msgstr "登入失敗：%1"
 
-#: src/main.cpp:129
+#: src/main.cpp:134
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:131
+#: src/main.cpp:136
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix 用戶端"
 
-#: src/main.cpp:133
+#: src/main.cpp:138
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE 社群"
 
-#: src/main.cpp:134
+#: src/main.cpp:139
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:135 src/main.cpp:139 src/main.cpp:140
+#: src/main.cpp:140 src/main.cpp:144 src/main.cpp:145
 #, kde-format
 msgid "Maintainer"
 msgstr "維護者"
 
-#: src/main.cpp:139
+#: src/main.cpp:144
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:140
+#: src/main.cpp:145
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:141
+#: src/main.cpp:146
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:141
+#: src/main.cpp:146
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral 的原始作者"
 
-#: src/main.cpp:142
+#: src/main.cpp:147
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:142
+#: src/main.cpp:147
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Quotient 的維護者"
 
-#: src/main.cpp:143
+#: src/main.cpp:148
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kisaragi Hiu"
 
-#: src/main.cpp:143
+#: src/main.cpp:148
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: src/main.cpp:147
+#: src/main.cpp:152
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "撰寫跨平台 Matrix 用戶端用的 Qt 函式庫"
 
-#: src/main.cpp:149
+#: src/main.cpp:154
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (建置於 %2 上)"
 
-#: src/main.cpp:175
+#: src/main.cpp:180
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 通訊協定的用戶端"
 
-#: src/main.cpp:176
+#: src/main.cpp:181
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "支援 matrix: 網址機制"
 
-#: src/main.cpp:177
+#: src/main.cpp:182
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "忽略所有 SSL 錯誤，例如未簽署的憑證。"
 
-#: src/main.cpp:179
+#: src/main.cpp:184
 #, kde-format
 msgid "Only used for autotests"
 msgstr "僅 autotest 用。"
 
-#: src/main.cpp:184
+#: src/main.cpp:189
 #, kde-format
 msgid "Internal usage only."
 msgstr "僅內部用。"
