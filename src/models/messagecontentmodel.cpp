@@ -64,11 +64,13 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
         });
         connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
             if (m_event != nullptr && eventId == m_event->id()) {
+                updateComponents();
                 Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
             if (m_event != nullptr && eventId == m_event->id()) {
+                updateComponents();
                 Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
             }
         });
@@ -152,6 +154,9 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue(m_room->fileTransferInfo(event->id()));
         }
     }
+    if (role == ItineraryModelRole) {
+        return QVariant::fromValue<ItineraryModel *>(m_itineraryModel);
+    }
     if (role == LatitudeRole) {
         return eventHandler.getLatitude();
     }
@@ -209,6 +214,7 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     roles[AuthorRole] = "author";
     roles[MediaInfoRole] = "mediaInfo";
     roles[FileTransferInfoRole] = "fileTransferInfo";
+    roles[ItineraryModelRole] = "itineraryModel";
     roles[LatitudeRole] = "latitude";
     roles[LongitudeRole] = "longitude";
     roles[AssetRole] = "asset";
@@ -247,6 +253,12 @@ void MessageContentModel::updateComponents(bool isEditing)
             const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
             auto body = EventHandler::rawMessageBody(*event);
             m_components.append(TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced()));
+        } else if (eventHandler.messageComponentType() == MessageComponentType::File) {
+            m_components += MessageComponent{MessageComponentType::File, QString(), {}};
+            updateItineraryModel();
+            if (m_itineraryModel != nullptr) {
+                m_components += MessageComponent{MessageComponentType::Itinerary, QString(), {}};
+            }
         } else {
             m_components += MessageComponent{eventHandler.messageComponentType(), QString(), {}};
         }
@@ -261,4 +273,26 @@ void MessageContentModel::updateComponents(bool isEditing)
     }
 
     endResetModel();
+}
+
+void MessageContentModel::updateItineraryModel()
+{
+    if (m_room == nullptr || m_event == nullptr) {
+        return;
+    }
+
+    if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+        if (event->hasFileContent()) {
+            auto filePath = m_room->fileTransferInfo(event->id()).localPath;
+            if (filePath.isEmpty() && m_itineraryModel != nullptr) {
+                delete m_itineraryModel;
+                m_itineraryModel = nullptr;
+            } else if (!filePath.isEmpty()) {
+                if (m_itineraryModel == nullptr) {
+                    m_itineraryModel = new ItineraryModel(this);
+                }
+                m_itineraryModel->setPath(filePath.toString());
+            }
+        }
+    }
 }

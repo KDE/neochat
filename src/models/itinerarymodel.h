@@ -4,19 +4,16 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QJsonArray>
 #include <QPointer>
 #include <QQmlEngine>
 #include <QString>
-
-#include "neochatconnection.h"
 
 class ItineraryModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
-
-    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
-    Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)
+    QML_UNCREATABLE("")
 
 public:
     enum Roles {
@@ -37,9 +34,6 @@ public:
     Q_ENUM(Roles)
     explicit ItineraryModel(QObject *parent = nullptr);
 
-    void setConnection(NeoChatConnection *connection);
-    NeoChatConnection *connection() const;
-
     QVariant data(const QModelIndex &index, int role) const override;
     int rowCount(const QModelIndex &parent = {}) const override;
 
@@ -50,12 +44,7 @@ public:
 
     Q_INVOKABLE void sendToItinerary();
 
-Q_SIGNALS:
-    void connectionChanged();
-    void pathChanged();
-
 private:
-    QPointer<NeoChatConnection> m_connection;
     QJsonArray m_data;
     QString m_path;
     void loadData();

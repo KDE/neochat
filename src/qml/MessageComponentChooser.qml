@@ -118,6 +118,13 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageComponentType.Itinerary
+        delegate: ItineraryComponent {
+            maxContentWidth: root.maxContentWidth
+        }
+    }
+
+    DelegateChoice {
         roleValue: MessageComponentType.Poll
         delegate: PollComponent {
             room: root.room

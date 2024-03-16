@@ -40,6 +40,7 @@ public:
         Code, /**< A code section. */
         Quote, /**< A quote section. */
         File, /**< A message that is a file. */
+        Itinerary, /**< A preview for a file that can integrate with KDE itinerary.. */
         Poll, /**< The initial event for a poll. */
         Location, /**< A location event. */
         LiveLocation, /**< The initial event of a shared live location (i.e., the place where this is supposed to be shown in the timeline). */

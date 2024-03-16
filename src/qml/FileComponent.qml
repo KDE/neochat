@@ -59,7 +59,6 @@ ColumnLayout {
      */
     readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
     onDownloadedChanged: {
-        itineraryModel.path = root.fileTransferInfo.localPath;
         if (autoOpenFile) {
             openSavedFile();
         }
@@ -145,15 +144,6 @@ ColumnLayout {
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
                     onClicked: root.room.cancelFileTransfer(root.eventId)
                 }
-            },
-            State {
-                name: "raw"
-                when: true
-
-                PropertyChanges {
-                    target: downloadButton
-                    onClicked: root.saveFileAs()
-                }
             }
         ]
 
@@ -196,6 +186,7 @@ ColumnLayout {
         QQC2.Button {
             id: downloadButton
             icon.name: "download"
+            onClicked: root.saveFileAs()
 
             QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
             QQC2.ToolTip.visible: hovered
@@ -219,84 +210,5 @@ ColumnLayout {
                 }
             }
         }
-    }
-    Repeater {
-        id: itinerary
-        model: ItineraryModel {
-            id: itineraryModel
-            connection: root.room.connection
-        }
-        delegate: DelegateChooser {
-            role: "type"
-            DelegateChoice {
-                roleValue: "TrainReservation"
-                delegate: ColumnLayout {
-                    Kirigami.Separator {
-                        Layout.fillWidth: true
-                    }
-                    RowLayout {
-                        QQC2.Label {
-                            text: model.name
-                        }
-                        QQC2.Label {
-                            text: model.coach ? i18n("Coach: %1, Seat: %2", model.coach, model.seat) : ""
-                            visible: model.coach
-                            opacity: 0.7
-                        }
-                    }
-                    RowLayout {
-                        Layout.fillWidth: true
-                        ColumnLayout {
-                            QQC2.Label {
-                                text: model.departureStation + (model.departurePlatform ? (" [" + model.departurePlatform + "]") : "")
-                            }
-                            QQC2.Label {
-                                text: model.departureTime
-                                opacity: 0.7
-                            }
-                        }
-                        Item {
-                            Layout.fillWidth: true
-                        }
-                        ColumnLayout {
-                            QQC2.Label {
-                                text: model.arrivalStation + (model.arrivalPlatform ? (" [" + model.arrivalPlatform + "]") : "")
-                            }
-                            QQC2.Label {
-                                text: model.arrivalTime
-                                opacity: 0.7
-                                Layout.alignment: Qt.AlignRight
-                            }
-                        }
-                    }
-                }
-            }
-            DelegateChoice {
-                roleValue: "LodgingReservation"
-                delegate: ColumnLayout {
-                    Kirigami.Separator {
-                        Layout.fillWidth: true
-                    }
-                    QQC2.Label {
-                        text: model.name
-                    }
-                    QQC2.Label {
-                        text: i18nc("<start time> - <end time>", "%1 - %2", model.startTime, model.endTime)
-                    }
-                    QQC2.Label {
-                        text: model.address
-                    }
-                }
-            }
-        }
-    }
-    QQC2.Button {
-        icon.name: "map-globe"
-        text: i18nc("@action", "Send to KDE Itinerary")
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        onClicked: itineraryModel.sendToItinerary()
-        visible: itinerary.count > 0
     }
 }

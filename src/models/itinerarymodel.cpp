@@ -3,6 +3,7 @@
 
 #include "itinerarymodel.h"
 
+#include <QJsonDocument>
 #include <QProcess>
 
 #include "config-neochat.h"
@@ -14,20 +15,6 @@
 ItineraryModel::ItineraryModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-}
-
-void ItineraryModel::setConnection(NeoChatConnection *connection)
-{
-    if (m_connection == connection) {
-        return;
-    }
-    m_connection = connection;
-    Q_EMIT connectionChanged();
-}
-
-NeoChatConnection *ItineraryModel::connection() const
-{
-    return m_connection;
 }
 
 QVariant ItineraryModel::data(const QModelIndex &index, int role) const
@@ -133,11 +120,7 @@ QString ItineraryModel::path() const
 
 void ItineraryModel::setPath(const QString &path)
 {
-    if (path == m_path) {
-        return;
-    }
     m_path = path;
-    Q_EMIT pathChanged();
     loadData();
 }
 

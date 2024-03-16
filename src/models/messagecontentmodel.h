@@ -8,6 +8,7 @@
 
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
+#include "itinerarymodel.h"
 #include "linkpreviewer.h"
 #include "neochatroom.h"
 
@@ -45,6 +46,7 @@ public:
         AuthorRole, /**< The author of the event. */
         MediaInfoRole, /**< The media info for the event. */
         FileTransferInfoRole, /**< FileTransferInfo for any downloading files. */
+        ItineraryModelRole, /**< The itinerary model for a file. */
         LatitudeRole, /**< Latitude for a location event. */
         LongitudeRole, /**< Longitude for a location event. */
         AssetRole, /**< Type of location event, e.g. self pin of the user location. */
@@ -92,4 +94,7 @@ private:
     void updateComponents(bool isEditing = false);
 
     LinkPreviewer *m_linkPreviewer = nullptr;
+    ItineraryModel *m_itineraryModel = nullptr;
+
+    void updateItineraryModel();
 };

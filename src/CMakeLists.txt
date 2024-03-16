@@ -338,6 +338,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/StateKeys.qml
         qml/CodeComponent.qml
         qml/QuoteComponent.qml
+        qml/ItineraryComponent.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
