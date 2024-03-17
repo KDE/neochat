@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-16 00:38+0000\n"
+"POT-Creation-Date: 2024-03-17 00:37+0000\n"
 "PO-Revision-Date: 2024-02-14 19:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -107,12 +107,12 @@ msgid "Search"
 msgstr "Etsi"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:122 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:124 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Tämä viesti on poistettu]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:123
+#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:125
 #: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -2276,14 +2276,14 @@ msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr ""
 
-#: src/qml/FileComponent.qml:109 src/qml/FileComponent.qml:200
+#: src/qml/FileComponent.qml:108 src/qml/FileComponent.qml:191
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Lataa"
 
-#: src/qml/FileComponent.qml:125 src/qml/FileComponent.qml:191
+#: src/qml/FileComponent.qml:124 src/qml/FileComponent.qml:181
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -2291,35 +2291,18 @@ msgctxt ""
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
-#: src/qml/FileComponent.qml:140
+#: src/qml/FileComponent.qml:139
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/FileComponent.qml:145
+#: src/qml/FileComponent.qml:144
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Keskeytä lataus"
-
-#: src/qml/FileComponent.qml:242
-#, kde-format
-msgid "Coach: %1, Seat: %2"
-msgstr "Vaunu %1, paikka %2"
-
-#: src/qml/FileComponent.qml:284
-#, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
-msgstr "%1 – %2"
-
-#: src/qml/FileComponent.qml:295
-#, kde-format
-msgctxt "@action"
-msgid "Send to KDE Itinerary"
-msgstr "Lähetä KDE Itineraryyn"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2927,6 +2910,23 @@ msgstr "Lähetä kutsu"
 #, kde-format
 msgid "User is either already a member or has been invited"
 msgstr "Käyttäjä joko on jo jäsen tai on kutsuttu jäseneksi"
+
+#: src/qml/ItineraryComponent.qml:48
+#, kde-format
+msgid "Coach: %1, Seat: %2"
+msgstr "Vaunu %1, paikka %2"
+
+#: src/qml/ItineraryComponent.qml:90
+#, kde-format
+msgctxt "<start time> - <end time>"
+msgid "%1 - %2"
+msgstr "%1 – %2"
+
+#: src/qml/ItineraryComponent.qml:101
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
+msgstr "Lähetä KDE Itineraryyn"
 
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
