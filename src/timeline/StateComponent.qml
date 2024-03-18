@@ -8,8 +8,6 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
-import org.kde.neochat
-
 /**
  * @brief A component for visualising a single state event
  */

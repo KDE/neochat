@@ -4,6 +4,7 @@
 import QtQuick
 
 import org.kde.neochat
+import org.kde.neochat.timeline
 
 /**
  * @brief Component for finding messages in a room.

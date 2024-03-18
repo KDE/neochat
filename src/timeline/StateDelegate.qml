@@ -8,7 +8,6 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
-import org.kde.neochat
 import org.kde.neochat.config
 
 /**

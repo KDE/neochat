@@ -213,19 +213,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/RoomData.qml
         qml/ServerData.qml
         qml/EmojiPicker.qml
-        qml/TimelineDelegate.qml
-        qml/ReplyComponent.qml
-        qml/StateDelegate.qml
-        qml/MessageDelegate.qml
-        qml/Bubble.qml
-        qml/SectionDelegate.qml
-        qml/ReactionDelegate.qml
-        qml/EventDelegate.qml
-        qml/ReadMarkerDelegate.qml
-        qml/MimeComponent.qml
-        qml/StateComponent.qml
-        qml/MessageEditComponent.qml
-        qml/AvatarFlow.qml
         qml/LoginStep.qml
         qml/Login.qml
         qml/Homeserver.qml
@@ -310,24 +297,10 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/SelectSpacesDialog.qml
         qml/AttachDialog.qml
         qml/NotificationsView.qml
-        qml/LoadingDelegate.qml
-        qml/TimelineEndDelegate.qml
         qml/SearchPage.qml
         qml/ServerComboBox.qml
         qml/UserSearchPage.qml
         qml/ManualUserDialog.qml
-        qml/MessageComponentChooser.qml
-        qml/TextComponent.qml
-        qml/ImageComponent.qml
-        qml/VideoComponent.qml
-        qml/AudioComponent.qml
-        qml/EncryptedComponent.qml
-        qml/FileComponent.qml
-        qml/LocationComponent.qml
-        qml/LiveLocationComponent.qml
-        qml/PollComponent.qml
-        qml/LinkPreviewComponent.qml
-        qml/LoadComponent.qml
         qml/RecommendedSpaceDialog.qml
         qml/RoomTreeSection.qml
         qml/DelegateContextMenu.qml
@@ -336,13 +309,12 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/IgnoredUsersDialog.qml
         qml/AccountData.qml
         qml/StateKeys.qml
-        qml/CodeComponent.qml
-        qml/QuoteComponent.qml
-        qml/ItineraryComponent.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
 )
+
+add_subdirectory(timeline)
 
 if(UNIX)
     qt_target_qml_sources(neochat QML_FILES qml/ShareAction.qml)
@@ -434,6 +406,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
+target_link_libraries(neochat PRIVATE timelineplugin)
 target_link_libraries(neochat PUBLIC
     Qt::Core
     Qt::Quick

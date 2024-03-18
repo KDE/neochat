@@ -5,8 +5,6 @@ import QtQuick
 
 import org.kde.kirigami as Kirigami
 
-import org.kde.neochat
-
 TimelineDelegate {
     id: root
     contentItem: Kirigami.PlaceholderMessage {

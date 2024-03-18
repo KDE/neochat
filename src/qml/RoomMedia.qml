@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import Qt.labs.qmlmodels
 
 import org.kde.neochat
+import org.kde.neochat.timeline
 
 /**
  * @brief Component for visualising the loaded media items in the room.

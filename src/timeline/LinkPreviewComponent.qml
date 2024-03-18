@@ -8,8 +8,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
-import org.kde.neochat
-
 /**
  * @brief A component to show a link preview from a message.
  */

@@ -13,6 +13,7 @@ import org.kde.kitemmodels
 
 import org.kde.neochat
 import org.kde.neochat.config
+import org.kde.neochat.timeline
 
 QQC2.ScrollView {
     id: root

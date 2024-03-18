@@ -11,6 +11,7 @@
 #include <QQmlNetworkAccessManagerFactory>
 #include <QQuickStyle>
 #include <QQuickWindow>
+#include <QtQml/QQmlExtensionPlugin>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -221,6 +222,8 @@ int main(int argc, char *argv[])
 #ifdef HAVE_KDBUSADDONS
     KDBusService service(KDBusService::Unique);
 #endif
+
+    Q_IMPORT_QML_PLUGIN(org_kde_neochat_timelinePlugin)
 
     qml_register_types_org_kde_neochat();
     qmlRegisterSingletonInstance("org.kde.neochat.config", 1, 0, "Config", NeoChatConfig::self());
