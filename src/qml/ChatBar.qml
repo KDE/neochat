@@ -241,7 +241,7 @@ QQC2.Control {
                         x: textField.cursorRectangle.x
                         y: textField.cursorRectangle.y - height
 
-                        onFormattingSelected: root.formatText(format, selectionStart, selectionEnd)
+                        onFormattingSelected: _private.formatText(format, selectionStart, selectionEnd)
                     }
 
                     Keys.onDeletePressed: {
