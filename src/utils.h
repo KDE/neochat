@@ -37,7 +37,7 @@ static const QRegularExpression strikethrough{QStringLiteral("<del>(.*?)</del>")
 static const QRegularExpression mxcImage{QStringLiteral(R"AAA(<img(.*?)src="mxc:\/\/(.*?)\/(.*?)"(.*?)>)AAA")};
 static const QRegularExpression plainUrl(
     QStringLiteral(
-        R"(<a.*?<\/a>(*SKIP)(*F)|\b((www\.(?!\.)(?!(\w|\.|-)+@)|(https?|ftp):(//)?\w|(magnet|matrix):)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^&!,.\s<>'"\]):])))"),
+        R"(<a.*?<\/a>(*SKIP)(*F)|\b((www\.(?!\.)(?!(\w|\.|-)+@)|(https?|ftp):(//)?\w|(magnet|matrix):)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^?&!,.\s<>'"\]):])))"),
     QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
 static const QRegularExpression
     url(QStringLiteral(R"(\b((www\.(?!\.)(?!(\w|\.|-)+@)|https?:(//)?\w)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^&!,.\s<>'"\]):])))"),
