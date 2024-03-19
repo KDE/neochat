@@ -328,16 +328,13 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         visible: officalParentDelegate?.space.canSendState("m.space.child") && root.room.canSendState("m.space.parent")
                         display: QQC2.AbstractButton.IconOnly
-                        action: Kirigami.Action {
-                            id: removeParentAction
-                            text: i18n("Remove parent")
-                            icon.name: "edit-delete-remove"
-                            onTriggered: root.room.removeParent(officalParentDelegate.modelData)
-                        }
-                        QQC2.ToolTip {
-                            text: removeParentAction.text
-                            delay: Kirigami.Units.toolTipDelay
-                        }
+                        text: i18n("Remove parent")
+                        icon.name: "edit-delete-remove"
+                        onClicked: root.room.removeParent(officalParentDelegate.modelData)
+
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.visible: hovered
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
                 }
             }
