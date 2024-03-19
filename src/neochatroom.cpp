@@ -1298,9 +1298,7 @@ void NeoChatRoom::removeParent(const QString &parentId)
     if (!currentState().contains("m.space.parent"_ls, parentId)) {
         return;
     }
-    if (auto parent = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
-        setState("m.space.parent"_ls, parentId, {});
-    }
+    setState("m.space.parent"_ls, parentId, {});
 }
 
 bool NeoChatRoom::isSpace() const
