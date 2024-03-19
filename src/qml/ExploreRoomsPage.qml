@@ -98,6 +98,7 @@ SearchPage {
             let dialog = manualRoomDialog.createObject(applicationWindow().overlay, {
                 connection: root.connection
             });
+            dialog.parent = root.Window.window.overlay;
             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                 root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
                 root.closeDialog();
