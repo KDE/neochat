@@ -162,6 +162,30 @@ QHash<int, QByteArray> ReactionModel::roleNames() const
     };
 }
 
+bool isEmoji(const QString &text)
+{
+#ifdef HAVE_ICU
+    QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
+    int from = 0;
+    while (finder.toNextBoundary() != -1) {
+        auto to = finder.position();
+        if (text[from].isSpace()) {
+            from = to;
+            continue;
+        }
+
+        auto first = text.mid(from, to - from).toUcs4()[0];
+        if (!u_hasBinaryProperty(first, UCHAR_EMOJI)) {
+            return false;
+        }
+        from = to;
+    }
+    return true;
+#else
+    return false;
+#endif
+}
+
 QString ReactionModel::reactionText(QString text) const
 {
     text = text.toHtmlEscaped();
@@ -174,28 +198,6 @@ QString ReactionModel::reactionText(QString text) const
         return QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%2\">")
             .arg(m_room->connection()->makeMediaUrl(QUrl(text)).toString(), QString::number(size));
     }
-    const auto isEmoji = [](const QString &text) {
-#ifdef HAVE_ICU
-        QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
-        int from = 0;
-        while (finder.toNextBoundary() != -1) {
-            auto to = finder.position();
-            if (text[from].isSpace()) {
-                from = to;
-                continue;
-            }
-
-            auto first = text.mid(from, to - from).toUcs4()[0];
-            if (!u_hasBinaryProperty(first, UCHAR_EMOJI_PRESENTATION)) {
-                return false;
-            }
-            from = to;
-        }
-        return true;
-#else
-        return false;
-#endif
-    };
 
     return isEmoji(text) ? QStringLiteral("<span style=\"font-family: 'emoji';\">") + text + QStringLiteral("</span>") : text;
 }
