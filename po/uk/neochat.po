@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:37+0000\n"
+"POT-Creation-Date: 2024-03-19 00:38+0000\n"
 "PO-Revision-Date: 2024-03-12 20:22+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -502,111 +502,111 @@ msgstr "Помилка у мережі"
 msgid "Login Failed: %1"
 msgstr "Невдала спроба увійти: %1"
 
-#: src/main.cpp:135
+#: src/main.cpp:136
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:137
+#: src/main.cpp:138
 #, kde-format
 msgid "Matrix client"
 msgstr "Клієнт Matrix"
 
-#: src/main.cpp:139
+#: src/main.cpp:140
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© Black Hat, 2018-2020, Спільнота KDE, 2020–2024"
 
-#: src/main.cpp:140
+#: src/main.cpp:141
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:141 src/main.cpp:145 src/main.cpp:146
+#: src/main.cpp:142 src/main.cpp:146 src/main.cpp:147
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: src/main.cpp:145
+#: src/main.cpp:146
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Перший автор Spectral"
 
-#: src/main.cpp:148
+#: src/main.cpp:149
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:148
+#: src/main.cpp:149
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Супровідник libQuotient"
 
-#: src/main.cpp:149
+#: src/main.cpp:150
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: src/main.cpp:149
+#: src/main.cpp:150
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Бібліотека Qt для написання багатоплатформових клієнтських програм для Matrix"
 
-#: src/main.cpp:155
+#: src/main.cpp:156
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (зібрано з %2)"
 
-#: src/main.cpp:181
+#: src/main.cpp:182
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клієнт для протоколу обміну даними matrix"
 
-#: src/main.cpp:182
+#: src/main.cpp:183
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Передбачає підтримку схеми адрес matrix:"
 
-#: src/main.cpp:183
+#: src/main.cpp:184
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ігнорувати усі помилки SSL, наприклад непідписані сертифікати."
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Використовують лише для автоматичного тестування"
 
-#: src/main.cpp:190
+#: src/main.cpp:191
 #, kde-format
 msgid "Internal usage only."
 msgstr "Лише для внутрішнього використання."
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Оприлюднити адресу у Matrix"
@@ -1614,11 +1614,6 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Виберіть кімнату"
 
-#: src/qml/CodeComponent.qml:120
-#, kde-format
-msgid "Copy to clipboard"
-msgstr "Скопіювати до буфера"
-
 #: src/qml/ColorScheme.qml:15
 #, kde-format
 msgid "Color theme"
@@ -1964,9 +1959,9 @@ msgstr "Перевірити пристрій"
 msgid "Logout device"
 msgstr "Вийти з пристрою"
 
-#: src/qml/DevicesPage.qml:20 src/qml/LoadingDelegate.qml:13
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39
+#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:38
+#: src/qml/NotificationsView.qml:34 src/qml/NotificationsView.qml:39
+#: src/timeline/LoadingDelegate.qml:11
 #, kde-format
 msgid "Loading…"
 msgstr "Завантаження…"
@@ -2214,15 +2209,6 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "Наліпки та емоційки"
 
-#: src/qml/EncryptedComponent.qml:21 src/qml/ReplyComponent.qml:193
-#, kde-format
-msgid ""
-"This message is encrypted and the sender has not shared the key with this "
-"device."
-msgstr ""
-"Це повідомлення зашифровано, а відправник не поділився ключем із цим "
-"пристроєм."
-
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
 #: src/qml/RoomListPage.qml:240
 #, kde-format
@@ -2291,34 +2277,6 @@ msgstr "Не знайдено загальнодоступних кімнат"
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Потоки"
-
-#: src/qml/FileComponent.qml:108 src/qml/FileComponent.qml:191
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to download its file"
-msgid "Download"
-msgstr "Отримати"
-
-#: src/qml/FileComponent.qml:124 src/qml/FileComponent.qml:181
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to open its downloaded "
-"file with an appropriate application"
-msgid "Open File"
-msgstr "Відкрити файл"
-
-#: src/qml/FileComponent.qml:139
-#, kde-format
-msgctxt "file download progress"
-msgid "%1 / %2"
-msgstr "%1 з %2"
-
-#: src/qml/FileComponent.qml:144
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; stops downloading the message's file"
-msgid "Stop Download"
-msgstr "Припинити отримання даних"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2758,7 +2716,7 @@ msgstr "Запрошення"
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: src/qml/GroupChatDrawerHeader.qml:64 src/qml/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
 msgstr "Без назви"
@@ -2919,23 +2877,6 @@ msgstr "Надіслати запрошення"
 msgid "User is either already a member or has been invited"
 msgstr "Користувач або вже є учасником або його вже запрошено"
 
-#: src/qml/ItineraryComponent.qml:48
-#, kde-format
-msgid "Coach: %1, Seat: %2"
-msgstr "Вагон: %1, Місце: %2"
-
-#: src/qml/ItineraryComponent.qml:90
-#, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
-msgstr "%1 – %2"
-
-#: src/qml/ItineraryComponent.qml:101
-#, kde-format
-msgctxt "@action"
-msgid "Send to KDE Itinerary"
-msgstr "Надіслати до KDE Itinerary"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2975,26 +2916,6 @@ msgstr "Успішно перевірено пристрій **%1**"
 #, kde-format
 msgid "Decline"
 msgstr "Відхилити"
-
-#: src/qml/LinkPreviewComponent.qml:121
-#, kde-format
-msgid "Shrink preview"
-msgstr "Стиснути попередній перегляд"
-
-#: src/qml/LinkPreviewComponent.qml:121
-#, kde-format
-msgid "Expand preview"
-msgstr "Розгорнути попередній перегляд"
-
-#: src/qml/LoadComponent.qml:53
-#, kde-format
-msgid "Loading reply"
-msgstr "Завантаження відповіді"
-
-#: src/qml/LoadComponent.qml:55
-#, kde-format
-msgid "Loading URL preview"
-msgstr "Завантажуємо попередній перегляд адреси"
 
 #: src/qml/Loading.qml:16
 #, kde-format
@@ -3179,18 +3100,6 @@ msgstr "Спрямувати повідомлення"
 #, kde-format
 msgid "Copy Link"
 msgstr "Копіювати посилання"
-
-#: src/qml/MessageEditComponent.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "Підтвердити редагування"
-
-#: src/qml/MessageEditComponent.qml:114
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel edit"
-msgstr "Скасувати редагування"
 
 #: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
 #: src/qml/RoomData.qml:83
@@ -3462,21 +3371,6 @@ msgstr "Встановити простір дітей"
 msgid "Set the parent space of this room"
 msgstr "Встановити простір батьків цієї кімнати"
 
-#: src/qml/PollComponent.qml:73
-#, kde-format
-msgid "Based on votes by %1 user"
-msgid_plural "Based on votes by %1 users"
-msgstr[0] "На основі голосів %1 користувача"
-msgstr[1] "На основі голосів %1 користувачів"
-msgstr[2] "На основі голосів %1 користувачів"
-msgstr[3] "На основі голосу %1 користувача"
-
-#: src/qml/PollComponent.qml:73
-#, kde-format
-msgctxt "as in 'this vote has ended'"
-msgid "(Ended)"
-msgstr "(Завершено)"
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -3527,12 +3421,6 @@ msgstr "Цитата"
 #, kde-format
 msgid "Insert link"
 msgstr "Вставити посилання"
-
-#: src/qml/ReadMarkerDelegate.qml:34
-#, kde-format
-msgctxt "Relative time since the room was last read"
-msgid "Last read: %1"
-msgstr "Востаннє прочитано: %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
@@ -3795,7 +3683,7 @@ msgstr "Шукати у каталозі кімнат"
 msgid "Search in friend directory"
 msgstr "Шукати у каталозі друзів"
 
-#: src/qml/RoomMedia.qml:28
+#: src/qml/RoomMedia.qml:29
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Media"
@@ -3813,23 +3701,23 @@ msgstr ""
 msgid "Message Source"
 msgstr "Джерело повідомлення"
 
-#: src/qml/RoomSearchPage.qml:25
+#: src/qml/RoomSearchPage.qml:26
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Пошук повідомлень"
 
-#: src/qml/RoomSearchPage.qml:36
+#: src/qml/RoomSearchPage.qml:37
 #, kde-format
 msgid "Find messages…"
 msgstr "Знайти повідомлення…"
 
-#: src/qml/RoomSearchPage.qml:37
+#: src/qml/RoomSearchPage.qml:38
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Введіть фрагмент тексту, щоб почати пошук"
 
-#: src/qml/RoomSearchPage.qml:38
+#: src/qml/RoomSearchPage.qml:39
 #, kde-format
 msgid "No messages found"
 msgstr "Відповідних повідомлень не знайдено"
@@ -4424,29 +4312,22 @@ msgid ""
 "conditions:"
 msgstr "Продовжуючи реєстрацію, ви погоджуєтеся із такими умовами:"
 
-#: src/qml/TimelineEndDelegate.qml:84
-#, kde-format
-msgid ""
-"This is the beginning of the chat. There are no historical messages beyond "
-"this point."
-msgstr "Це початок спілкування. У журналі немає повідомлень за цим пунктом."
-
-#: src/qml/TimelineView.qml:204
+#: src/qml/TimelineView.qml:205
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Перейти до першого непрочитаного повідомлення"
 
-#: src/qml/TimelineView.qml:227
+#: src/qml/TimelineView.qml:228
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Перейти до останнього повідомлення"
 
-#: src/qml/TimelineView.qml:252
+#: src/qml/TimelineView.qml:253
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
-#: src/qml/TimelineView.qml:259
+#: src/qml/TimelineView.qml:260
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4755,22 +4636,6 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Перевірку сеансу скасовано через невідому помилку."
 
-#: src/qml/VideoComponent.qml:166
-#, kde-format
-msgid "Video"
-msgstr "Відео"
-
-#: src/qml/VideoComponent.qml:230
-#, kde-format
-msgctxt "@action:button"
-msgid "Volume"
-msgstr "Гучність"
-
-#: src/qml/VideoComponent.qml:314
-#, kde-format
-msgid "Maximize"
-msgstr "Максимізувати"
-
 #: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
@@ -4922,6 +4787,141 @@ msgstr ""
 #, kde-format
 msgid "Could not open URL"
 msgstr "Не вдається відкрити адресу"
+
+#: src/timeline/CodeComponent.qml:120
+#, kde-format
+msgid "Copy to clipboard"
+msgstr "Скопіювати до буфера"
+
+#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:193
+#, kde-format
+msgid ""
+"This message is encrypted and the sender has not shared the key with this "
+"device."
+msgstr ""
+"Це повідомлення зашифровано, а відправник не поділився ключем із цим "
+"пристроєм."
+
+#: src/timeline/FileComponent.qml:108 src/timeline/FileComponent.qml:191
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to download its file"
+msgid "Download"
+msgstr "Отримати"
+
+#: src/timeline/FileComponent.qml:124 src/timeline/FileComponent.qml:181
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to open its downloaded "
+"file with an appropriate application"
+msgid "Open File"
+msgstr "Відкрити файл"
+
+#: src/timeline/FileComponent.qml:139
+#, kde-format
+msgctxt "file download progress"
+msgid "%1 / %2"
+msgstr "%1 з %2"
+
+#: src/timeline/FileComponent.qml:144
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; stops downloading the message's file"
+msgid "Stop Download"
+msgstr "Припинити отримання даних"
+
+#: src/timeline/ItineraryComponent.qml:48
+#, kde-format
+msgid "Coach: %1, Seat: %2"
+msgstr "Вагон: %1, Місце: %2"
+
+#: src/timeline/ItineraryComponent.qml:90
+#, kde-format
+msgctxt "<start time> - <end time>"
+msgid "%1 - %2"
+msgstr "%1 – %2"
+
+#: src/timeline/ItineraryComponent.qml:101
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
+msgstr "Надіслати до KDE Itinerary"
+
+#: src/timeline/LinkPreviewComponent.qml:119
+#, kde-format
+msgid "Shrink preview"
+msgstr "Стиснути попередній перегляд"
+
+#: src/timeline/LinkPreviewComponent.qml:119
+#, kde-format
+msgid "Expand preview"
+msgstr "Розгорнути попередній перегляд"
+
+#: src/timeline/LoadComponent.qml:53
+#, kde-format
+msgid "Loading reply"
+msgstr "Завантаження відповіді"
+
+#: src/timeline/LoadComponent.qml:55
+#, kde-format
+msgid "Loading URL preview"
+msgstr "Завантажуємо попередній перегляд адреси"
+
+#: src/timeline/MessageEditComponent.qml:102
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "Підтвердити редагування"
+
+#: src/timeline/MessageEditComponent.qml:114
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "Скасувати редагування"
+
+#: src/timeline/PollComponent.qml:73
+#, kde-format
+msgid "Based on votes by %1 user"
+msgid_plural "Based on votes by %1 users"
+msgstr[0] "На основі голосів %1 користувача"
+msgstr[1] "На основі голосів %1 користувачів"
+msgstr[2] "На основі голосів %1 користувачів"
+msgstr[3] "На основі голосу %1 користувача"
+
+#: src/timeline/PollComponent.qml:73
+#, kde-format
+msgctxt "as in 'this vote has ended'"
+msgid "(Ended)"
+msgstr "(Завершено)"
+
+#: src/timeline/ReadMarkerDelegate.qml:32
+#, kde-format
+msgctxt "Relative time since the room was last read"
+msgid "Last read: %1"
+msgstr "Востаннє прочитано: %1"
+
+#: src/timeline/TimelineEndDelegate.qml:84
+#, kde-format
+msgid ""
+"This is the beginning of the chat. There are no historical messages beyond "
+"this point."
+msgstr "Це початок спілкування. У журналі немає повідомлень за цим пунктом."
+
+#: src/timeline/VideoComponent.qml:166
+#, kde-format
+msgid "Video"
+msgstr "Відео"
+
+#: src/timeline/VideoComponent.qml:230
+#, kde-format
+msgctxt "@action:button"
+msgid "Volume"
+msgstr "Гучність"
+
+#: src/timeline/VideoComponent.qml:314
+#, kde-format
+msgid "Maximize"
+msgstr "Максимізувати"
 
 #: src/trayicon.cpp:19
 #, kde-format

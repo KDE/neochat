@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:37+0000\n"
+"POT-Creation-Date: 2024-03-19 00:38+0000\n"
 "PO-Revision-Date: 2024-03-17 05:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -497,110 +497,110 @@ msgstr "Reta Eraro"
 msgid "Login Failed: %1"
 msgstr "Ensaluto Malsukcesis: %1"
 
-#: src/main.cpp:135
+#: src/main.cpp:136
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:137
+#: src/main.cpp:138
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrico-kliento"
 
-#: src/main.cpp:139
+#: src/main.cpp:140
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE-Komunumo"
 
-#: src/main.cpp:140
+#: src/main.cpp:141
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:141 src/main.cpp:145 src/main.cpp:146
+#: src/main.cpp:142 src/main.cpp:146 src/main.cpp:147
 #, kde-format
 msgid "Maintainer"
 msgstr "Prizorganto"
 
-#: src/main.cpp:145
+#: src/main.cpp:146
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "Black Hat"
 msgstr "Nigra Ĉapelo"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Origina verkinto de Spectral"
 
-#: src/main.cpp:148
+#: src/main.cpp:149
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Aleksej Rusakov"
 
-#: src/main.cpp:148
+#: src/main.cpp:149
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Prizorganto de libQuotient"
 
-#: src/main.cpp:149
+#: src/main.cpp:150
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Oliver Kellogg"
 
-#: src/main.cpp:149
+#: src/main.cpp:150
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "okellogg@users.sourceforge.net"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Qt-biblioteko por skribi transplatformajn klientojn por Matrix"
 
-#: src/main.cpp:155
+#: src/main.cpp:156
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (konstruita kontraŭ %2)"
 
-#: src/main.cpp:181
+#: src/main.cpp:182
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Kliento por la matrica komunika protokolo"
 
-#: src/main.cpp:182
+#: src/main.cpp:183
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Elportas matrico: url-skemo"
 
-#: src/main.cpp:183
+#: src/main.cpp:184
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignori ĉiujn SSL-erarojn, ekz., nesubskribitajn atestojn."
 
-#: src/main.cpp:185
+#: src/main.cpp:186
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Nur uzata por aŭtomataj testoj"
 
-#: src/main.cpp:190
+#: src/main.cpp:191
 #, kde-format
 msgid "Internal usage only."
 msgstr "Nur por interna uzo."
 
-#: src/main.cpp:195
+#: src/main.cpp:196
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Kundividi URL al Matrix"
@@ -1596,11 +1596,6 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Elekti Ĉambron"
 
-#: src/qml/CodeComponent.qml:120
-#, kde-format
-msgid "Copy to clipboard"
-msgstr "Kopii al tondujo"
-
 #: src/qml/ColorScheme.qml:15
 #, kde-format
 msgid "Color theme"
@@ -1942,9 +1937,9 @@ msgstr "Kontroli aparaton"
 msgid "Logout device"
 msgstr "Elsaluti aparato"
 
-#: src/qml/DevicesPage.qml:20 src/qml/LoadingDelegate.qml:13
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39
+#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:38
+#: src/qml/NotificationsView.qml:34 src/qml/NotificationsView.qml:39
+#: src/timeline/LoadingDelegate.qml:11
 #, kde-format
 msgid "Loading…"
 msgstr "Ŝargante…"
@@ -2189,15 +2184,6 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "Glumarkoj kaj Emojis"
 
-#: src/qml/EncryptedComponent.qml:21 src/qml/ReplyComponent.qml:193
-#, kde-format
-msgid ""
-"This message is encrypted and the sender has not shared the key with this "
-"device."
-msgstr ""
-"Ĉi tiu mesaĝo estas ĉifrita kaj la sendinto ne dividis la ŝlosilon kun ĉi "
-"tiu aparato."
-
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
 #: src/qml/RoomListPage.qml:240
 #, kde-format
@@ -2266,34 +2252,6 @@ msgstr "Trovis neniujn publikajn ĉambrojn"
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Fadenoj"
-
-#: src/qml/FileComponent.qml:108 src/qml/FileComponent.qml:191
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to download its file"
-msgid "Download"
-msgstr "Elŝutu"
-
-#: src/qml/FileComponent.qml:124 src/qml/FileComponent.qml:181
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to open its downloaded "
-"file with an appropriate application"
-msgid "Open File"
-msgstr "Malfermu Dosieron"
-
-#: src/qml/FileComponent.qml:139
-#, kde-format
-msgctxt "file download progress"
-msgid "%1 / %2"
-msgstr "%1 / %2"
-
-#: src/qml/FileComponent.qml:144
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; stops downloading the message's file"
-msgid "Stop Download"
-msgstr "Ĉesi Elŝuton"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2730,7 +2688,7 @@ msgstr "Invitas"
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: src/qml/GroupChatDrawerHeader.qml:64 src/qml/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
 msgstr "Neniu nomo"
@@ -2891,23 +2849,6 @@ msgstr "Sendi inviton"
 msgid "User is either already a member or has been invited"
 msgstr "Uzanto aŭ jam estas membro aŭ estas invitita"
 
-#: src/qml/ItineraryComponent.qml:48
-#, kde-format
-msgid "Coach: %1, Seat: %2"
-msgstr "Kupeo: %1, Seĝo: %2"
-
-#: src/qml/ItineraryComponent.qml:90
-#, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
-
-#: src/qml/ItineraryComponent.qml:101
-#, kde-format
-msgctxt "@action"
-msgid "Send to KDE Itinerary"
-msgstr "Sendi al KDE-Itinero"
-
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2947,26 +2888,6 @@ msgstr "Sukcese kontrolita aparato **%1**"
 #, kde-format
 msgid "Decline"
 msgstr "Malkresko"
-
-#: src/qml/LinkPreviewComponent.qml:121
-#, kde-format
-msgid "Shrink preview"
-msgstr "Malgrandigi antaŭrigardon"
-
-#: src/qml/LinkPreviewComponent.qml:121
-#, kde-format
-msgid "Expand preview"
-msgstr "Vastigi antaŭrigardon"
-
-#: src/qml/LoadComponent.qml:53
-#, kde-format
-msgid "Loading reply"
-msgstr "Ŝargante respondon"
-
-#: src/qml/LoadComponent.qml:55
-#, kde-format
-msgid "Loading URL preview"
-msgstr "Ŝargante antaŭrigardon de URL"
 
 #: src/qml/Loading.qml:16
 #, kde-format
@@ -3150,18 +3071,6 @@ msgstr "Antaŭen Mesaĝon"
 #, kde-format
 msgid "Copy Link"
 msgstr "Kopii Ligo"
-
-#: src/qml/MessageEditComponent.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "Konfirmi redakton"
-
-#: src/qml/MessageEditComponent.qml:114
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel edit"
-msgstr "Nuligi redakton"
 
 #: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
 #: src/qml/RoomData.qml:83
@@ -3434,19 +3343,6 @@ msgstr "Agordi la infanojn de ĉi tiu spaco"
 msgid "Set the parent space of this room"
 msgstr "Agordi la gepatran spacon de ĉi tiu ĉambro"
 
-#: src/qml/PollComponent.qml:73
-#, kde-format
-msgid "Based on votes by %1 user"
-msgid_plural "Based on votes by %1 users"
-msgstr[0] "Bazita sur voĉdonoj de %1 uzanto"
-msgstr[1] "Bazita sur voĉdonoj de %1 uzantoj"
-
-#: src/qml/PollComponent.qml:73
-#, kde-format
-msgctxt "as in 'this vote has ended'"
-msgid "(Ended)"
-msgstr "(Finis)"
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -3497,12 +3393,6 @@ msgstr "Citaĵo"
 #, kde-format
 msgid "Insert link"
 msgstr "Enigi ligilon"
-
-#: src/qml/ReadMarkerDelegate.qml:34
-#, kde-format
-msgctxt "Relative time since the room was last read"
-msgid "Last read: %1"
-msgstr "Lasta legado: %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
@@ -3762,7 +3652,7 @@ msgstr "Serĉi en ĉambra dosierujo"
 msgid "Search in friend directory"
 msgstr "Serĉi en amika dosierujo"
 
-#: src/qml/RoomMedia.qml:28
+#: src/qml/RoomMedia.qml:29
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Media"
@@ -3778,23 +3668,23 @@ msgstr "NeoChat estas eksterrete. Bonvolu kontroli vian retan konekton."
 msgid "Message Source"
 msgstr "Mesaĝfonto"
 
-#: src/qml/RoomSearchPage.qml:25
+#: src/qml/RoomSearchPage.qml:26
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Serĉi Mesaĝojn"
 
-#: src/qml/RoomSearchPage.qml:36
+#: src/qml/RoomSearchPage.qml:37
 #, kde-format
 msgid "Find messages…"
 msgstr "Trovi mesaĝojn…"
 
-#: src/qml/RoomSearchPage.qml:37
+#: src/qml/RoomSearchPage.qml:38
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Enigi tekston por komenci serĉi"
 
-#: src/qml/RoomSearchPage.qml:38
+#: src/qml/RoomSearchPage.qml:39
 #, kde-format
 msgid "No messages found"
 msgstr "Trovis neniujn mesaĝojn"
@@ -4387,31 +4277,22 @@ msgid ""
 msgstr ""
 "Daŭrigante la registradon, vi konsentas pri la sekvaj terminoj kaj kondiĉoj:"
 
-#: src/qml/TimelineEndDelegate.qml:84
-#, kde-format
-msgid ""
-"This is the beginning of the chat. There are no historical messages beyond "
-"this point."
-msgstr ""
-"Ĉi tio estas komenco de la babilo. Ne estas historiaj mesaĝoj preter ĉi "
-"punkto."
-
-#: src/qml/TimelineView.qml:204
+#: src/qml/TimelineView.qml:205
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Salti al la unua nelegita mesaĝo"
 
-#: src/qml/TimelineView.qml:227
+#: src/qml/TimelineView.qml:228
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Salti al la plej nova mesaĝo"
 
-#: src/qml/TimelineView.qml:252
+#: src/qml/TimelineView.qml:253
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Treni erojn ĉi tien por dividi ilin"
 
-#: src/qml/TimelineView.qml:259
+#: src/qml/TimelineView.qml:260
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4706,22 +4587,6 @@ msgstr "La fora partio nuligis la sean konfirmon ĉar la ŝlosiloj ne kongruas."
 msgid "The session verification was canceled due to an unknown error."
 msgstr "La seancokontrolo estis nuligita pro nekonata eraro."
 
-#: src/qml/VideoComponent.qml:166
-#, kde-format
-msgid "Video"
-msgstr "Video"
-
-#: src/qml/VideoComponent.qml:230
-#, kde-format
-msgctxt "@action:button"
-msgid "Volume"
-msgstr "Laŭteco"
-
-#: src/qml/VideoComponent.qml:314
-#, kde-format
-msgid "Maximize"
-msgstr "Maksimumigi"
-
 #: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
@@ -4870,6 +4735,141 @@ msgstr "Via operaciumo ne povis trovi aplikaĵon por la ligilo."
 #, kde-format
 msgid "Could not open URL"
 msgstr "Ne eblis malfermi URL"
+
+#: src/timeline/CodeComponent.qml:120
+#, kde-format
+msgid "Copy to clipboard"
+msgstr "Kopii al tondujo"
+
+#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:193
+#, kde-format
+msgid ""
+"This message is encrypted and the sender has not shared the key with this "
+"device."
+msgstr ""
+"Ĉi tiu mesaĝo estas ĉifrita kaj la sendinto ne dividis la ŝlosilon kun ĉi "
+"tiu aparato."
+
+#: src/timeline/FileComponent.qml:108 src/timeline/FileComponent.qml:191
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to download its file"
+msgid "Download"
+msgstr "Elŝutu"
+
+#: src/timeline/FileComponent.qml:124 src/timeline/FileComponent.qml:181
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to open its downloaded "
+"file with an appropriate application"
+msgid "Open File"
+msgstr "Malfermu Dosieron"
+
+#: src/timeline/FileComponent.qml:139
+#, kde-format
+msgctxt "file download progress"
+msgid "%1 / %2"
+msgstr "%1 / %2"
+
+#: src/timeline/FileComponent.qml:144
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; stops downloading the message's file"
+msgid "Stop Download"
+msgstr "Ĉesi Elŝuton"
+
+#: src/timeline/ItineraryComponent.qml:48
+#, kde-format
+msgid "Coach: %1, Seat: %2"
+msgstr "Kupeo: %1, Seĝo: %2"
+
+#: src/timeline/ItineraryComponent.qml:90
+#, kde-format
+msgctxt "<start time> - <end time>"
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: src/timeline/ItineraryComponent.qml:101
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
+msgstr "Sendi al KDE-Itinero"
+
+#: src/timeline/LinkPreviewComponent.qml:119
+#, kde-format
+msgid "Shrink preview"
+msgstr "Malgrandigi antaŭrigardon"
+
+#: src/timeline/LinkPreviewComponent.qml:119
+#, kde-format
+msgid "Expand preview"
+msgstr "Vastigi antaŭrigardon"
+
+#: src/timeline/LoadComponent.qml:53
+#, kde-format
+msgid "Loading reply"
+msgstr "Ŝargante respondon"
+
+#: src/timeline/LoadComponent.qml:55
+#, kde-format
+msgid "Loading URL preview"
+msgstr "Ŝargante antaŭrigardon de URL"
+
+#: src/timeline/MessageEditComponent.qml:102
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "Konfirmi redakton"
+
+#: src/timeline/MessageEditComponent.qml:114
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "Nuligi redakton"
+
+#: src/timeline/PollComponent.qml:73
+#, kde-format
+msgid "Based on votes by %1 user"
+msgid_plural "Based on votes by %1 users"
+msgstr[0] "Bazita sur voĉdonoj de %1 uzanto"
+msgstr[1] "Bazita sur voĉdonoj de %1 uzantoj"
+
+#: src/timeline/PollComponent.qml:73
+#, kde-format
+msgctxt "as in 'this vote has ended'"
+msgid "(Ended)"
+msgstr "(Finis)"
+
+#: src/timeline/ReadMarkerDelegate.qml:32
+#, kde-format
+msgctxt "Relative time since the room was last read"
+msgid "Last read: %1"
+msgstr "Lasta legado: %1"
+
+#: src/timeline/TimelineEndDelegate.qml:84
+#, kde-format
+msgid ""
+"This is the beginning of the chat. There are no historical messages beyond "
+"this point."
+msgstr ""
+"Ĉi tio estas komenco de la babilo. Ne estas historiaj mesaĝoj preter ĉi "
+"punkto."
+
+#: src/timeline/VideoComponent.qml:166
+#, kde-format
+msgid "Video"
+msgstr "Video"
+
+#: src/timeline/VideoComponent.qml:230
+#, kde-format
+msgctxt "@action:button"
+msgid "Volume"
+msgstr "Laŭteco"
+
+#: src/timeline/VideoComponent.qml:314
+#, kde-format
+msgid "Maximize"
+msgstr "Maksimumigi"
 
 #: src/trayicon.cpp:19
 #, kde-format
