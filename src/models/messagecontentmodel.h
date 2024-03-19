@@ -97,4 +97,5 @@ private:
     ItineraryModel *m_itineraryModel = nullptr;
 
     void updateItineraryModel();
+    bool m_emptyItinerary = false;
 };

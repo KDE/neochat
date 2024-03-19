@@ -125,6 +125,13 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageComponentType.Pdf
+        delegate: PdfPreviewComponent {
+            maxContentWidth: root.maxContentWidth
+        }
+    }
+
+    DelegateChoice {
         roleValue: MessageComponentType.Poll
         delegate: PollComponent {
             room: root.room

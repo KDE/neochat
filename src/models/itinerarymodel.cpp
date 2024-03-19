@@ -133,6 +133,11 @@ void ItineraryModel::loadData()
         beginResetModel();
         m_data = QJsonDocument::fromJson(data).array();
         endResetModel();
+
+        Q_EMIT loaded();
+    });
+    connect(process, &QProcess::errorOccurred, this, [this]() {
+        Q_EMIT loadErrorOccurred();
     });
 }
 

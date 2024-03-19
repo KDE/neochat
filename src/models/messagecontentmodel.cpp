@@ -3,15 +3,25 @@
 
 #include "messagecontentmodel.h"
 
+#include <QImageReader>
+
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
+#include <Quotient/room.h>
 
 #include <KLocalizedString>
+
+#ifndef Q_OS_ANDROID
+#include <KSyntaxHighlighting/Definition>
+#include <KSyntaxHighlighting/Repository>
+#endif
 
 #include "chatbarcache.h"
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
+#include "filetype.h"
+#include "itinerarymodel.h"
 #include "linkpreviewer.h"
 #include "neochatroom.h"
 #include "texthandler.h"
@@ -255,9 +265,38 @@ void MessageContentModel::updateComponents(bool isEditing)
             m_components.append(TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced()));
         } else if (eventHandler.messageComponentType() == MessageComponentType::File) {
             m_components += MessageComponent{MessageComponentType::File, QString(), {}};
-            updateItineraryModel();
-            if (m_itineraryModel != nullptr) {
-                m_components += MessageComponent{MessageComponentType::Itinerary, QString(), {}};
+            if (m_emptyItinerary) {
+                Quotient::FileTransferInfo fileTransferInfo;
+                if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+                    if (event->hasFileContent()) {
+                        fileTransferInfo = m_room->fileTransferInfo(event->id());
+                    }
+                }
+                if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
+                    fileTransferInfo = m_room->fileTransferInfo(event->id());
+                }
+
+#ifndef Q_OS_ANDROID
+                KSyntaxHighlighting::Repository repository;
+                const auto definitionForFile = repository.definitionForFileName(fileTransferInfo.localPath.toString());
+                if (definitionForFile.isValid() || QFileInfo(fileTransferInfo.localPath.path()).suffix() == QStringLiteral("txt")) {
+                    QFile file(fileTransferInfo.localPath.path());
+                    file.open(QIODevice::ReadOnly);
+                    m_components += MessageComponent{MessageComponentType::Code,
+                                                     QString::fromStdString(file.readAll().toStdString()),
+                                                     {{QStringLiteral("class"), definitionForFile.name()}}};
+                }
+#endif
+
+                if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
+                    QImageReader reader(fileTransferInfo.localPath.path());
+                    m_components += MessageComponent{MessageComponentType::Pdf, QString(), {{QStringLiteral("size"), reader.size()}}};
+                }
+            } else {
+                updateItineraryModel();
+                if (m_itineraryModel != nullptr) {
+                    m_components += MessageComponent{MessageComponentType::Itinerary, QString(), {}};
+                }
             }
         } else {
             m_components += MessageComponent{eventHandler.messageComponentType(), QString(), {}};
@@ -290,6 +329,20 @@ void MessageContentModel::updateItineraryModel()
             } else if (!filePath.isEmpty()) {
                 if (m_itineraryModel == nullptr) {
                     m_itineraryModel = new ItineraryModel(this);
+                    connect(m_itineraryModel, &ItineraryModel::loaded, this, [this]() {
+                        if (m_itineraryModel->rowCount() == 0) {
+                            m_itineraryModel->deleteLater();
+                            m_itineraryModel = nullptr;
+                            m_emptyItinerary = true;
+                            updateComponents();
+                        }
+                    });
+                    connect(m_itineraryModel, &ItineraryModel::loadErrorOccurred, this, [this]() {
+                        m_itineraryModel->deleteLater();
+                        m_itineraryModel = nullptr;
+                        m_emptyItinerary = true;
+                        updateComponents();
+                    });
                 }
                 m_itineraryModel->setPath(filePath.toString());
             }

@@ -41,44 +41,25 @@ QQC2.Control {
     Layout.fillWidth: true
     Layout.fillHeight: true
     Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumHeight: Kirigami.Units.gridUnit * 20
 
     topPadding: 0
     bottomPadding: 0
+    leftPadding: 0
+    rightPadding: 0
 
-    contentItem: RowLayout {
-        spacing: Kirigami.Units.smallSpacing
+    contentItem: QQC2.ScrollView {
+        id: codeScrollView
+        contentWidth: root.maxContentWidth
 
-        ColumnLayout {
-            id: lineNumberColumn
-            spacing: 0
-            Repeater {
-                id: repeater
-                model: LineModel {
-                    id: lineModel
-                    document: codeText.textDocument
-                }
-                delegate: QQC2.Label {
-                    id: label
-                    required property int index
-                    required property int docLineHeight
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: docLineHeight
-                    horizontalAlignment: Text.AlignRight
-                    text: index + 1
-                    color: Kirigami.Theme.disabledTextColor
+        // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+        QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
-                    font.family: "monospace"
-                }
-            }
-        }
-        Kirigami.Separator {
-            Layout.fillHeight: true
-        }
-        TextEdit {
+        QQC2.TextArea {
             id: codeText
-            Layout.fillWidth: true
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
+            leftPadding: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing * 2
 
             text: root.display
             readOnly: true
@@ -100,11 +81,51 @@ QQC2.Control {
                 textEdit: definitionName == "None" ? null : codeText
                 definition: definitionName
             }
+            ColumnLayout {
+                id: lineNumberColumn
+                anchors {
+                    top: codeText.top
+                    topMargin: codeText.topPadding
+                    left: codeText.left
+                    leftMargin: Kirigami.Units.smallSpacing
+                }
+                spacing: 0
+                Repeater {
+                    id: repeater
+                    model: LineModel {
+                        id: lineModel
+                        document: codeText.textDocument
+                    }
+                    delegate: QQC2.Label {
+                        id: label
+                        required property int index
+                        required property int docLineHeight
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: docLineHeight
+                        horizontalAlignment: Text.AlignRight
+                        text: index + 1
+                        color: Kirigami.Theme.disabledTextColor
+
+                        font.family: "monospace"
+                    }
+                }
+            }
 
             TapHandler {
                 acceptedButtons: Qt.LeftButton
                 onLongPressed: root.showMessageMenu()
             }
+
+            background: null
+        }
+    }
+
+    Kirigami.Separator {
+        anchors {
+            top: root.top
+            bottom: root.bottom
+            left: root.left
+            leftMargin: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing
         }
     }
 
@@ -113,7 +134,7 @@ QQC2.Control {
             top: parent.top
             topMargin: Kirigami.Units.smallSpacing
             right: parent.right
-            rightMargin: Kirigami.Units.smallSpacing
+            rightMargin: (codeScrollView.QQC2.ScrollBar.vertical.visible ? codeScrollView.QQC2.ScrollBar.vertical.width : 0) + Kirigami.Units.smallSpacing
         }
         visible: root.hovered
         icon.name: "edit-copy"

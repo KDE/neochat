@@ -41,6 +41,12 @@ FileType::~FileType() noexcept
 {
 }
 
+FileType &FileType::instance()
+{
+    static FileType _instance;
+    return _instance;
+}
+
 QMimeType FileType::mimeTypeForName(const QString &nameOrAlias) const
 {
     Q_D(const FileType);
@@ -111,6 +117,12 @@ QStringList FileType::supportedAnimatedImageFormats() const
 {
     Q_D(const FileType);
     return d->supportedAnimatedImageFormats;
+}
+
+bool FileType::fileHasImage(const QUrl &file) const
+{
+    const auto mimeType = mimeTypeForFile(file.toString());
+    return mimeType.isValid() && supportedImageFormats().contains(mimeType.preferredSuffix());
 }
 
 #include "moc_filetype.cpp"

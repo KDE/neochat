@@ -29,6 +29,7 @@ qt_add_qml_module(timeline
         LocationComponent.qml
         MessageEditComponent.qml
         MimeComponent.qml
+        PdfPreviewComponent.qml
         PollComponent.qml
         QuoteComponent.qml
         ReplyComponent.qml

@@ -41,8 +41,13 @@ class FileType : public QObject
     Q_PROPERTY(QStringList supportedAnimatedImageFormats READ supportedAnimatedImageFormats CONSTANT FINAL)
 
 public:
-    explicit FileType(QObject *parent = nullptr);
     ~FileType();
+    static FileType &instance();
+    static FileType *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
+    }
 
     /**
      * @brief Returns a MIME type for nameOrAlias or an invalid one if none found.
@@ -120,7 +125,11 @@ public:
     QStringList supportedImageFormats() const;
     QStringList supportedAnimatedImageFormats() const;
 
+    bool fileHasImage(const QUrl &file) const;
+
 private:
+    explicit FileType(QObject *parent = nullptr);
+
     const QScopedPointer<FileTypePrivate> d_ptr;
     Q_DECLARE_PRIVATE(FileType)
     Q_DISABLE_COPY(FileType)

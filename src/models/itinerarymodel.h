@@ -44,6 +44,10 @@ public:
 
     Q_INVOKABLE void sendToItinerary();
 
+Q_SIGNALS:
+    void loaded();
+    void loadErrorOccurred();
+
 private:
     QJsonArray m_data;
     QString m_path;
