@@ -214,6 +214,9 @@ Kirigami.ApplicationWindow {
 
         connection: root.connection
 
+        handleOpenIcon.source: "arrow-right"
+        handleClosedIcon.source: "arrow-left"
+
         // Connect to the onClicked function of the RoomDrawer handle button
         Connections {
             target: contextDrawer.handle.children[0]
