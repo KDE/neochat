@@ -14,6 +14,7 @@
 #include "models/actionsmodel.h"
 #include "neochatconfig.h"
 #include "texthandler.h"
+#include "utils.h"
 
 using namespace Quotient;
 
@@ -143,6 +144,26 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, Cha
 
     if (handledText.length() == 0) {
         return;
+    }
+
+    // We want to add back the <mx-reply> if it's in the original message but not in the edit, to preserve the reply.
+    for (auto it = m_room->messageEvents().crbegin(); it != m_room->messageEvents().crend(); it++) {
+        if (const auto event = eventCast<const RoomMessageEvent>(&**it)) {
+            if (event->senderId() == m_room->localUser()->id() && event->hasTextContent()) {
+                QString originalString;
+                if (event->content()) {
+                    originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content())->body;
+                } else {
+                    originalString = event->plainBody();
+                }
+
+                const QRegularExpression exp(TextRegex::removeRichReply);
+                const auto match = exp.match(originalString);
+                if (match.hasCaptured(0) && !handledText.contains(TextRegex::removeRichReply)) {
+                    handledText.prepend(match.captured(0));
+                }
+            }
+        }
     }
 
     m_room->postMessage(text, handledText, messageType, chatBarCache->replyId(), chatBarCache->editId(), chatBarCache->threadId());
