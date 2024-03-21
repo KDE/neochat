@@ -293,7 +293,10 @@ QString EventHandler::getMarkdownBody() const
     }
 
     const auto roomMessageEvent = eventCast<const RoomMessageEvent>(m_event);
-    return roomMessageEvent->plainBody();
+
+    QString plainBody = roomMessageEvent->plainBody();
+    plainBody.remove(TextRegex::removeReply);
+    return plainBody;
 }
 
 QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines) const

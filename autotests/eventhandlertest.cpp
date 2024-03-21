@@ -56,6 +56,7 @@ private Q_SLOTS:
     void genericBody();
     void nullGenericBody();
     void markdownBody();
+    void markdownBodyReply();
     void subtitle();
     void nullSubtitle();
     void mediaInfo();
@@ -299,6 +300,13 @@ void EventHandlerTest::markdownBody()
     EventHandler eventHandler(room, room->messageEvents().at(0).get());
 
     QCOMPARE(eventHandler.getMarkdownBody(), QStringLiteral("This is an example\ntext message"));
+}
+
+void EventHandlerTest::markdownBodyReply()
+{
+    EventHandler eventHandler(room, room->messageEvents().at(5).get());
+
+    QCOMPARE(eventHandler.getMarkdownBody(), QStringLiteral("reply"));
 }
 
 void EventHandlerTest::subtitle()
