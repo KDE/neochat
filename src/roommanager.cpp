@@ -88,7 +88,7 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
         if (!m_connection) {
             return;
         }
-        if (!action.isEmpty()) {
+        if (!action.isEmpty() && (uri.type() != Uri::UserId || action != "join"_ls)) {
             uri.setAction(action);
         }
         // TODO we should allow the user to select a connection.
