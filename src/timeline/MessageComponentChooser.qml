@@ -211,6 +211,13 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageComponentType.Verification
+        delegate: VerificationComponent {
+            room: root.room
+        }
+    }
+
+    DelegateChoice {
         roleValue: MessageComponentType.Other
         delegate: Item {}
     }

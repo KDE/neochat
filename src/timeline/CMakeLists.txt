@@ -43,6 +43,7 @@ qt_add_qml_module(timeline
         StateComponent.qml
         TextComponent.qml
         VideoComponent.qml
+        VerificationComponent.qml
     RESOURCES
         images/bike.svg
         images/bus.svg

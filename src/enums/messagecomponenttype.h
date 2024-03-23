@@ -51,6 +51,7 @@ public:
         LinkPreview, /**< A preview of a URL in the message. */
         LinkPreviewLoad, /**< A loading dialog for a link preview. */
         Edit, /**< A text edit for editing a message. */
+        Verification, /**< A user verification session start message. */
         Other, /**< Anything that cannot be classified as another type. */
     };
     Q_ENUM(Type);
