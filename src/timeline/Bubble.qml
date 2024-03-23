@@ -28,6 +28,11 @@ QQC2.Control {
     required property NeoChatRoom room
 
     /**
+     * @brief The index of the delegate in the model.
+     */
+    required property var index
+
+    /**
      * @brief The message author.
      *
      * This should consist of the following:
@@ -148,6 +153,7 @@ QQC2.Control {
             model: root.contentModel
             delegate: MessageComponentChooser {
                 room: root.room
+                index: root.index
                 actionsHandler: root.actionsHandler
                 timeline: root.timeline
                 maxContentWidth: root.maxContentWidth

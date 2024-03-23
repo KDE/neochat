@@ -323,6 +323,7 @@ TimelineDelegate {
                 ]
 
                 room: root.room
+                index: root.index
 
                 author: root.author
                 showAuthor: root.showAuthor || root.alwaysShowAuthor

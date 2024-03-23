@@ -22,6 +22,11 @@ Item {
     required property NeoChatRoom room
 
     /**
+     * @brief The index of the delegate in the model.
+     */
+    required property var index
+
+    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId

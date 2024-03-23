@@ -18,6 +18,11 @@ DelegateChooser {
     required property NeoChatRoom room
 
     /**
+     * @brief The index of the delegate in the model.
+     */
+    required property var index
+
+    /**
      * @brief The ActionsHandler object to use.
      *
      * This is expected to have the correct room set otherwise messages will be sent
@@ -65,6 +70,7 @@ DelegateChooser {
         roleValue: MessageComponentType.Image
         delegate: ImageComponent {
             room: root.room
+            index: root.index
             timeline: root.timeline
             maxContentWidth: root.maxContentWidth
         }
@@ -74,6 +80,7 @@ DelegateChooser {
         roleValue: MessageComponentType.Video
         delegate: VideoComponent {
             room: root.room
+            index: root.index
             timeline: root.timeline
             maxContentWidth: root.maxContentWidth
         }
