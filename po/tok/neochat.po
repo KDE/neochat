@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-20 00:37+0000\n"
+"POT-Creation-Date: 2024-03-23 00:37+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -512,110 +512,110 @@ msgstr ""
 msgid "Login Failed: %1"
 msgstr "sina ken ala sijelo: %1"
 
-#: src/main.cpp:136
+#: src/main.cpp:141
 #, kde-format
 msgid "NeoChat"
 msgstr ""
 
-#: src/main.cpp:138
+#: src/main.cpp:143
 #, kde-format
 msgid "Matrix client"
 msgstr ""
 
-#: src/main.cpp:140
+#: src/main.cpp:145
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr ""
 
-#: src/main.cpp:141
+#: src/main.cpp:146
 #, kde-format
 msgid "Carl Schwan"
 msgstr ""
 
-#: src/main.cpp:142 src/main.cpp:146 src/main.cpp:147
+#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: src/main.cpp:146
+#: src/main.cpp:151
 #, kde-format
 msgid "Tobias Fella"
 msgstr ""
 
-#: src/main.cpp:147
+#: src/main.cpp:152
 #, kde-format
 msgid "James Graham"
 msgstr ""
 
-#: src/main.cpp:148
+#: src/main.cpp:153
 #, kde-format
 msgid "Black Hat"
 msgstr ""
 
-#: src/main.cpp:148
+#: src/main.cpp:153
 #, kde-format
 msgid "Original author of Spectral"
 msgstr ""
 
-#: src/main.cpp:149
+#: src/main.cpp:154
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr ""
 
-#: src/main.cpp:149
+#: src/main.cpp:154
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr ""
 
-#: src/main.cpp:150
+#: src/main.cpp:155
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "kulupu pi ante toki pi toki pona"
 
-#: src/main.cpp:150
+#: src/main.cpp:155
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: src/main.cpp:154
+#: src/main.cpp:159
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 
-#: src/main.cpp:156
+#: src/main.cpp:161
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:182
+#: src/main.cpp:187
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr ""
 
-#: src/main.cpp:183
+#: src/main.cpp:188
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr ""
 
-#: src/main.cpp:184
+#: src/main.cpp:189
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 
-#: src/main.cpp:186
+#: src/main.cpp:191
 #, kde-format
 msgid "Only used for autotests"
 msgstr ""
 
-#: src/main.cpp:191
+#: src/main.cpp:196
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
 
-#: src/main.cpp:196
+#: src/main.cpp:201
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr ""
@@ -1186,12 +1186,12 @@ msgstr ""
 msgid "Space creation failed: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:1643 src/neochatroom.cpp:1644
+#: src/neochatroom.cpp:1641 src/neochatroom.cpp:1642
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/neochatroom.cpp:1918 src/neochatroom.cpp:1926
+#: src/neochatroom.cpp:1916 src/neochatroom.cpp:1924
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1447,7 +1447,19 @@ msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:66 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:66
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Open Secret Backup"
+msgstr ""
+
+#: src/qml/AccountMenu.qml:70
+#, kde-format
+msgctxt "@title:window"
+msgid "Open Key Backup"
+msgstr ""
+
+#: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr ""
@@ -2317,6 +2329,12 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
+msgstr ""
+
+#: src/qml/FeatureFlagPage.qml:27
+#, kde-format
+msgctxt "@option:check Enable the matrix 'secret backup' feature"
+msgid "Secret Backup"
 msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
@@ -4409,6 +4427,90 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+#: src/qml/UnlockSSSSDialog.qml:19
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@title:window"
+msgid "Load your encrypted messages"
+msgstr "o pana e toki"
+
+#: src/qml/UnlockSSSSDialog.qml:50
+#, kde-format
+msgctxt "@info:status"
+msgid "The security phrase was not correct."
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Passphrase"
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:60
+#, kde-format
+msgctxt "@info"
+msgid "If you have a backup passphrase for this account, enter it below."
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:64
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@label:textbox"
+msgid "Backup Password:"
+msgstr "nimi len:"
+
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:81
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Security Key"
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:85
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a security key for this account, enter it below or upload it as "
+"a file."
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:89
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Security Key:"
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload from File"
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:115
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you can try loading the backup "
+"key from other devices by clicking the button below."
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:124
+#, kde-format
+msgctxt "@action:button"
+msgid "Request from other Devices"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format
