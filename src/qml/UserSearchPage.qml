@@ -101,6 +101,7 @@ SearchPage {
             let dialog = manualUserDialog.createObject(applicationWindow().overlay, {
                 connection: root.connection
             });
+            dialog.parent = root.Window.window.overlay;
             dialog.accepted.connect(() => {
                 root.closeDialog();
             });
