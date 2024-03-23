@@ -36,63 +36,19 @@ ColumnLayout {
             role: "type"
             DelegateChoice {
                 roleValue: "TrainReservation"
-                delegate: ColumnLayout {
-                    Kirigami.Separator {
-                        Layout.fillWidth: true
-                    }
-                    RowLayout {
-                        QQC2.Label {
-                            text: model.name
-                        }
-                        QQC2.Label {
-                            text: model.coach ? i18n("Coach: %1, Seat: %2", model.coach, model.seat) : ""
-                            visible: model.coach
-                            opacity: 0.7
-                        }
-                    }
-                    RowLayout {
-                        Layout.fillWidth: true
-                        ColumnLayout {
-                            QQC2.Label {
-                                text: model.departureStation + (model.departurePlatform ? (" [" + model.departurePlatform + "]") : "")
-                            }
-                            QQC2.Label {
-                                text: model.departureTime
-                                opacity: 0.7
-                            }
-                        }
-                        Item {
-                            Layout.fillWidth: true
-                        }
-                        ColumnLayout {
-                            QQC2.Label {
-                                text: model.arrivalStation + (model.arrivalPlatform ? (" [" + model.arrivalPlatform + "]") : "")
-                            }
-                            QQC2.Label {
-                                text: model.arrivalTime
-                                opacity: 0.7
-                                Layout.alignment: Qt.AlignRight
-                            }
-                        }
-                    }
-                }
+                delegate: TrainReservationComponent {}
             }
             DelegateChoice {
                 roleValue: "LodgingReservation"
-                delegate: ColumnLayout {
-                    Kirigami.Separator {
-                        Layout.fillWidth: true
-                    }
-                    QQC2.Label {
-                        text: model.name
-                    }
-                    QQC2.Label {
-                        text: i18nc("<start time> - <end time>", "%1 - %2", model.startTime, model.endTime)
-                    }
-                    QQC2.Label {
-                        text: model.address
-                    }
-                }
+                delegate: HotelReservationComponent {}
+            }
+            DelegateChoice {
+                roleValue: "FoodEstablishmentReservation"
+                delegate: FoodReservationComponent {}
+            }
+            DelegateChoice {
+                roleValue: "FlightReservation"
+                delegate: FlightReservationComponent {}
             }
         }
     }

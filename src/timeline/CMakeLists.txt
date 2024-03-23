@@ -23,6 +23,13 @@ qt_add_qml_module(timeline
         FileComponent.qml
         ImageComponent.qml
         ItineraryComponent.qml
+        ItineraryReservationComponent.qml
+        JourneySectionStopDelegateLineSegment.qml
+        TransportIcon.qml
+        FoodReservationComponent.qml
+        TrainReservationComponent.qml
+        FlightReservationComponent.qml
+        HotelReservationComponent.qml
         LinkPreviewComponent.qml
         LiveLocationComponent.qml
         LoadComponent.qml
@@ -36,4 +43,30 @@ qt_add_qml_module(timeline
         StateComponent.qml
         TextComponent.qml
         VideoComponent.qml
+    RESOURCES
+        images/bike.svg
+        images/bus.svg
+        images/cablecar.svg
+        images/car.svg
+        images/coach.svg
+        images/couchettecar.svg
+        images/elevator.svg
+        images/escalator.svg
+        images/ferry.svg
+        images/flight.svg
+        images/foodestablishment.svg
+        images/funicular.svg
+        images/longdistancetrain.svg
+        images/rapidtransit.svg
+        images/seat.svg
+        images/shuttle.svg
+        images/sleepingcar.svg
+        images/stairs.svg
+        images/subway.svg
+        images/taxi.svg
+        images/train.svg
+        images/tramway.svg
+        images/transfer.svg
+        images/wait.svg
+        images/walk.svg
 )

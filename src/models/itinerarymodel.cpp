@@ -26,20 +26,68 @@ QVariant ItineraryModel::data(const QModelIndex &index, int role) const
     auto data = m_data[row];
     if (role == NameRole) {
         if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("trainNumber")];
+            auto trainName = QStringLiteral("%1 %2").arg(data[QStringLiteral("reservationFor")][QStringLiteral("trainName")].toString(),
+                                                         data[QStringLiteral("reservationFor")][QStringLiteral("trainNumber")].toString());
+            if (trainName.trimmed().isEmpty()) {
+                return QStringLiteral("%1 to %2")
+                    .arg(data[QStringLiteral("reservationFor")][QStringLiteral("departureStation")][QStringLiteral("name")].toString(),
+                         data[QStringLiteral("reservationFor")][QStringLiteral("arrivalStation")][QStringLiteral("name")].toString());
+                ;
+            }
+            return trainName;
         }
         if (data[QStringLiteral("@type")] == QStringLiteral("LodgingReservation")) {
             return data[QStringLiteral("reservationFor")][QStringLiteral("name")];
+        }
+        if (data[QStringLiteral("@type")] == QStringLiteral("FoodEstablishmentReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("name")];
+        }
+        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
+            return QStringLiteral("%1 %2 %3 → %4")
+                .arg(data[QStringLiteral("reservationFor")][QStringLiteral("airline")][QStringLiteral("iataCode")].toString(),
+                     data[QStringLiteral("reservationFor")][QStringLiteral("flightNumber")].toString(),
+                     data[QStringLiteral("reservationFor")][QStringLiteral("departureAirport")][QStringLiteral("iataCode")].toString(),
+                     data[QStringLiteral("reservationFor")][QStringLiteral("arrivalAirport")][QStringLiteral("iataCode")].toString());
         }
     }
     if (role == TypeRole) {
         return data[QStringLiteral("@type")];
     }
-    if (role == DepartureStationRole) {
-        return data[QStringLiteral("reservationFor")][QStringLiteral("departureStation")][QStringLiteral("name")];
+    if (role == DepartureLocationRole) {
+        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("departureStation")][QStringLiteral("name")];
+        }
+        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("departureAirport")][QStringLiteral("iataCode")];
+        }
     }
-    if (role == ArrivalStationRole) {
-        return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalStation")][QStringLiteral("name")];
+    if (role == DepartureAddressRole) {
+        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("departureStation")][QStringLiteral("address")][QStringLiteral("addressCountry")]
+                .toString();
+        }
+        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("departureAirport")][QStringLiteral("address")][QStringLiteral("addressCountry")]
+                .toString();
+        }
+    }
+    if (role == ArrivalLocationRole) {
+        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalStation")][QStringLiteral("name")];
+        }
+        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalAirport")][QStringLiteral("iataCode")];
+        }
+    }
+    if (role == ArrivalAddressRole) {
+        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalStation")][QStringLiteral("address")][QStringLiteral("addressCountry")]
+                .toString();
+        }
+        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
+            return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalAirport")][QStringLiteral("address")][QStringLiteral("addressCountry")]
+                .toString();
+        }
     }
     if (role == DepartureTimeRole) {
         const auto &time = data[QStringLiteral("reservationFor")][QStringLiteral("departureTime")];
@@ -66,7 +114,16 @@ QVariant ItineraryModel::data(const QModelIndex &index, int role) const
                  addressData[QStringLiteral("addressCountry")].toString());
     }
     if (role == StartTimeRole) {
-        auto dateTime = data[QStringLiteral("checkinTime")][QStringLiteral("@value")].toVariant().toDateTime();
+        QDateTime dateTime;
+        if (data[QStringLiteral("@type")] == QStringLiteral("LodgingReservation")) {
+            dateTime = data[QStringLiteral("checkinTime")][QStringLiteral("@value")].toVariant().toDateTime();
+        }
+        if (data[QStringLiteral("@type")] == QStringLiteral("FoodEstablishmentReservation")) {
+            dateTime = data[QStringLiteral("startTime")][QStringLiteral("@value")].toVariant().toDateTime();
+        }
+        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
+            dateTime = data[QStringLiteral("reservationFor")][QStringLiteral("boardingTime")][QStringLiteral("@value")].toVariant().toDateTime();
+        }
         return dateTime.toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat));
     }
     if (role == EndTimeRole) {
@@ -99,8 +156,10 @@ QHash<int, QByteArray> ItineraryModel::roleNames() const
     return {
         {NameRole, "name"},
         {TypeRole, "type"},
-        {DepartureStationRole, "departureStation"},
-        {ArrivalStationRole, "arrivalStation"},
+        {DepartureLocationRole, "departureLocation"},
+        {DepartureAddressRole, "departureAddress"},
+        {ArrivalLocationRole, "arrivalLocation"},
+        {ArrivalAddressRole, "arrivalAddress"},
         {DepartureTimeRole, "departureTime"},
         {ArrivalTimeRole, "arrivalTime"},
         {AddressRole, "address"},
