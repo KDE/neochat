@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-23 00:37+0000\n"
+"POT-Creation-Date: 2024-03-24 00:38+0000\n"
 "PO-Revision-Date: 2024-03-12 11:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4921,18 +4921,29 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Para la baixada"
 
-#: src/timeline/ItineraryComponent.qml:48
+#: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
-msgid "Coach: %1, Seat: %2"
-msgstr "Cotxe: %1, Seient: %2"
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:90
+#: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:101
+#: src/timeline/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr ""
+
+#: src/timeline/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr ""
+
+#: src/timeline/ItineraryComponent.qml:57
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
@@ -4998,18 +5009,24 @@ msgstr ""
 "Este és el començament del xat. No hi ha missatges històrics més enllà "
 "d'este punt."
 
-#: src/timeline/VideoComponent.qml:166
+#: src/timeline/TrainReservationComponent.qml:124
+#: src/timeline/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr ""
+
+#: src/timeline/VideoComponent.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Vídeo"
 
-#: src/timeline/VideoComponent.qml:230
+#: src/timeline/VideoComponent.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volum"
 
-#: src/timeline/VideoComponent.qml:314
+#: src/timeline/VideoComponent.qml:319
 #, kde-format
 msgid "Maximize"
 msgstr "Maximitza"
@@ -5023,3 +5040,10 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
+
+#~ msgid "Coach: %1, Seat: %2"
+#~ msgstr "Cotxe: %1, Seient: %2"
+
+#~ msgctxt "<start time> - <end time>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"

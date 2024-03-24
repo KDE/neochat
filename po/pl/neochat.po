@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-17 11:35+0100\n"
+"POT-Creation-Date: 2024-03-24 00:38+0000\n"
+"PO-Revision-Date: 2024-03-23 11:15+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1407,13 +1407,13 @@ msgstr "Narzędzia programisty"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "Otwórz kopię zapasową danych poufnych"
 
 #: src/qml/AccountMenu.qml:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "Otwórz kopię zapasową klucza"
 
 #: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
@@ -2278,7 +2278,7 @@ msgstr "Wątki"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Kopia zapasowa danych poufnych"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -4331,48 +4331,46 @@ msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Wyślij wiadomość zaszyfrowaną…"
+msgstr "Wczytaj swoje zaszyfrowane wiadomości"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "Wyrażenie zabezpieczające jest niepoprawne."
 
 #: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "Odblokowywanie przy użyciu hasła"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
+msgstr "Jeśli masz hasło kopii zapasowej dla tego konta, to wpisz je poniżej."
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Hasło:"
+msgstr "Hasło kopii zapasowej:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "Odblokuj"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "Odblokuj przy użyciu klucza zabezpieczającego"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -4381,25 +4379,26 @@ msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 msgstr ""
+"Jeśli masz klucz zabezpieczający dla tego konta, wpisz go poniżej lub wyślij "
+"jako plik."
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "Zabezpieczenia"
+msgstr "Klucz zabezpieczający:"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "Wyślij z pliku"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "Odblokuj z podpisywania krzyżowego"
 
 #: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
@@ -4408,12 +4407,14 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"Jeśli poprzednio potwierdziłeś ważność tego urządzenia, to możesz wczytać "
+"klucz kopii zapasowej z innych urządzeń, naciskając na poniższy przycisk."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "Prośby z innych urządzeń"
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format
@@ -4906,18 +4907,29 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Zatrzymaj pobieranie"
 
-#: src/timeline/ItineraryComponent.qml:48
+#: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
-msgid "Coach: %1, Seat: %2"
-msgstr "Autobus: %1 Siedzenie: %2"
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:90
+#: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:101
+#: src/timeline/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr ""
+
+#: src/timeline/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr ""
+
+#: src/timeline/ItineraryComponent.qml:57
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
@@ -4983,18 +4995,24 @@ msgid ""
 msgstr ""
 "Jest to początek rozmowy. Nie ma wiadomości historycznych poza ten punkt."
 
-#: src/timeline/VideoComponent.qml:166
+#: src/timeline/TrainReservationComponent.qml:124
+#: src/timeline/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr ""
+
+#: src/timeline/VideoComponent.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Wideo"
 
-#: src/timeline/VideoComponent.qml:230
+#: src/timeline/VideoComponent.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Głośność"
 
-#: src/timeline/VideoComponent.qml:314
+#: src/timeline/VideoComponent.qml:319
 #, kde-format
 msgid "Maximize"
 msgstr "Zmaksymalizuj"
@@ -5008,6 +5026,13 @@ msgstr "Pokaż"
 #, kde-format
 msgid "Quit"
 msgstr "Zakończ"
+
+#~ msgid "Coach: %1, Seat: %2"
+#~ msgstr "Autobus: %1 Siedzenie: %2"
+
+#~ msgctxt "<start time> - <end time>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
 
 #~ msgctxt "<username> is not a known user"
 #~ msgid "%1 is not a known user."

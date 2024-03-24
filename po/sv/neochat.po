@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-23 00:37+0000\n"
+"POT-Creation-Date: 2024-03-24 00:38+0000\n"
 "PO-Revision-Date: 2023-09-04 20:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -5022,20 +5022,29 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Stoppa nerladdning"
 
-#: src/timeline/ItineraryComponent.qml:48
-#, fuzzy, kde-format
-#| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-#| msgid "Lat: %1, Lon: %2"
-msgid "Coach: %1, Seat: %2"
-msgstr "Latitud: %1, Longitud: %2"
-
-#: src/timeline/ItineraryComponent.qml:90
+#: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
 msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:101
+#: src/timeline/FlightReservationComponent.qml:90
+#, kde-format
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr ""
+
+#: src/timeline/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr ""
+
+#: src/timeline/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr ""
+
+#: src/timeline/ItineraryComponent.qml:57
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
@@ -5100,18 +5109,24 @@ msgid ""
 "this point."
 msgstr ""
 
-#: src/timeline/VideoComponent.qml:166
+#: src/timeline/TrainReservationComponent.qml:124
+#: src/timeline/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr ""
+
+#: src/timeline/VideoComponent.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/timeline/VideoComponent.qml:230
+#: src/timeline/VideoComponent.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volym"
 
-#: src/timeline/VideoComponent.qml:314
+#: src/timeline/VideoComponent.qml:319
 #, kde-format
 msgid "Maximize"
 msgstr "Maximera"
@@ -5125,6 +5140,12 @@ msgstr "Visa"
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
+
+#, fuzzy
+#~| msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+#~| msgid "Lat: %1, Lon: %2"
+#~ msgid "Coach: %1, Seat: %2"
+#~ msgstr "Latitud: %1, Longitud: %2"
 
 #~ msgctxt "<username> is not a known user"
 #~ msgid "%1 is not a known user."

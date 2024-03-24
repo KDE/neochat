@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-23 00:37+0000\n"
+"POT-Creation-Date: 2024-03-24 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -4862,18 +4862,29 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "다운로드 정지"
 
-#: src/timeline/ItineraryComponent.qml:48
+#: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
-msgid "Coach: %1, Seat: %2"
-msgstr "차량: %1, 좌석: %2"
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:90
+#: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:101
+#: src/timeline/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr ""
+
+#: src/timeline/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr ""
+
+#: src/timeline/ItineraryComponent.qml:57
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
@@ -4936,18 +4947,24 @@ msgid ""
 "this point."
 msgstr "대화의 최초입니다. 이 지점보다 더 오래된 메시지가 없습니다."
 
-#: src/timeline/VideoComponent.qml:166
+#: src/timeline/TrainReservationComponent.qml:124
+#: src/timeline/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr ""
+
+#: src/timeline/VideoComponent.qml:171
 #, kde-format
 msgid "Video"
 msgstr "비디오"
 
-#: src/timeline/VideoComponent.qml:230
+#: src/timeline/VideoComponent.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "음량"
 
-#: src/timeline/VideoComponent.qml:314
+#: src/timeline/VideoComponent.qml:319
 #, kde-format
 msgid "Maximize"
 msgstr "최대화"
@@ -4961,6 +4978,13 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgid "Coach: %1, Seat: %2"
+#~ msgstr "차량: %1, 좌석: %2"
+
+#~ msgctxt "<start time> - <end time>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
 
 #~ msgctxt "<username> is not a known user"
 #~ msgid "%1 is not a known user."

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-12 05:13+0100\n"
+"POT-Creation-Date: 2024-03-24 00:38+0000\n"
+"PO-Revision-Date: 2024-03-23 06:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1401,13 +1401,13 @@ msgstr "პროგრამისტის ხელსაწყოები"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "საიდუმლო მარქაფის გახსნა"
 
 #: src/qml/AccountMenu.qml:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "გასაღების მარქაფის გახსნა"
 
 #: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
@@ -2268,7 +2268,7 @@ msgstr "ნაკადები"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "საიდუმლო მარქაფი"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -4313,48 +4313,46 @@ msgstr[0] "%2 კრეფს"
 msgstr[1] "%2 კრეფს"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "დაშიფრული შეტყობინების გაგზავნა…"
+msgstr "ჩატვირთეთ თქვენი დაშიფრული შეტყობინებები"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "საიდუმლო ფრაზა სწორი არ იყო."
 
 #: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "განბლოკვა საკვანძო ფრაზით"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
+msgstr "თუ გაქვთ საკვანძო ფრაზა ამ ანგარიშისთვის, შეიყვანეთ ის ქვემოთ."
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "პაროლი:"
+msgstr "მარქაფის პაროლი:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "განბლოკვა"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "განბლოკვა უსაფრთხოების გასაღებით"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -4363,25 +4361,26 @@ msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 msgstr ""
+"თუ გაქვთ გასაღები ამ ანგარიშისთვის, შეიყვანეთ ის ქვემოთ, ან ატვირთეთ ფაილის "
+"სახით."
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "უსაფრთხოება"
+msgstr "უსაფრთხოების გასაღები:"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "ატვირთვა ფაილიდან"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "განბლოკვა ჯვარედინი ხელმოწერიდან"
 
 #: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
@@ -4390,12 +4389,14 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"თუ ეს მოწყობილობა ადრე უკვე გადაამოწმეთ, შეგიძლიათ, მარქაფის გასაღების "
+"ჩატვირთვა სხვა მოწყობილობებიდანაც სცადოთ, ქვემოთ ღილაკის დაწკაპუნებით."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "მოთხოვნა სხვა მოწყობილობებიდან"
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format
@@ -4874,18 +4875,29 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "გადმოწერის შეჩერება"
 
-#: src/timeline/ItineraryComponent.qml:48
+#: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
-msgid "Coach: %1, Seat: %2"
-msgstr "გამძღოლი: %1, სავარძელი: %2"
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:90
+#: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
-msgstr "%1 - %2"
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:101
+#: src/timeline/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr ""
+
+#: src/timeline/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr ""
+
+#: src/timeline/ItineraryComponent.qml:57
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
@@ -4950,18 +4962,24 @@ msgid ""
 msgstr ""
 "ეს ჩატის დასაწყისია. ამ წერტილამდე, ისტორიაში, შეტყობინებები არ არსებობს."
 
-#: src/timeline/VideoComponent.qml:166
+#: src/timeline/TrainReservationComponent.qml:124
+#: src/timeline/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr ""
+
+#: src/timeline/VideoComponent.qml:171
 #, kde-format
 msgid "Video"
 msgstr "ვიდეო"
 
-#: src/timeline/VideoComponent.qml:230
+#: src/timeline/VideoComponent.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "ხმის სიმაღლე"
 
-#: src/timeline/VideoComponent.qml:314
+#: src/timeline/VideoComponent.qml:319
 #, kde-format
 msgid "Maximize"
 msgstr "გადიდება"
@@ -4975,6 +4993,13 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgid "Coach: %1, Seat: %2"
+#~ msgstr "გამძღოლი: %1, სავარძელი: %2"
+
+#~ msgctxt "<start time> - <end time>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
 
 #~ msgctxt "<username> is not a known user"
 #~ msgid "%1 is not a known user."

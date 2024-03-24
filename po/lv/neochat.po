@@ -1,21 +1,23 @@
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# Māris Nartišs <maris.kde@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:38+0000\n"
-"PO-Revision-Date: 2024-03-13 11:48+0100\n"
-"Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
-"Language-Team: Italian <kde-i18n-it@kde.org>\n"
-"Language: it\n"
+"PO-Revision-Date: 2024-03-23 20:33+0200\n"
+"Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
+"Language-Team: \n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -23,105 +25,106 @@ msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Ricezione delle notifiche per i nuovi messaggi"
+msgstr "Saņem jaunu ziņu paziņojumus"
 
 #: src/controller.cpp:204
 #, kde-format
 msgid "Network Error: %1"
-msgstr "Errore di rete: %1"
+msgstr "Tīkla kļūda: %1"
 
 #: src/controller.cpp:226
 #, kde-format
 msgid "Access token wasn't found"
-msgstr "Il token di accesso non è stato trovato"
+msgstr "Piekļuves pilnvara nav atrasta"
 
 #: src/controller.cpp:226
 #, kde-format
 msgid "Maybe it was deleted?"
-msgstr "Forse è stato eliminato?"
+msgstr "Varbūt tas ir izdzēsts?"
 
 #: src/controller.cpp:230
 #, kde-format
 msgid "Access to keychain was denied."
-msgstr "L'accesso al portachiavi è stato negato."
+msgstr "Piekļuve atslēgu saišķim ir noraidīta."
 
 #: src/controller.cpp:230
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
-msgstr "Consenti a Neochat di leggere il token di accesso"
+msgstr "Ļaujiet „NeoChat“ nolasīt piekļuves pilnvaru"
 
 #: src/controller.cpp:233
 #, kde-format
 msgid "No keychain available."
-msgstr "Nessun portachiavi trovato."
+msgstr "Atslēgu saišķis nav pieejams."
 
 #: src/controller.cpp:233
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
-"Installa un portachiavi, ad es. KWallet o il portachiavi di GNOME su Linux"
+"Ieinstalējot atslēgu saišķi, piemēram, „KWallet“ vai GNOME atslēgu saišķi "
+"„Linux“ sistēmā"
 
 #: src/controller.cpp:236
 #, kde-format
 msgid "Unable to read access token"
-msgstr "Impossibile leggere il token di accesso"
+msgstr "Nevar nolasīt piekļuves pilnvaru"
 
 #: src/controller.cpp:332
 #, kde-format
 msgid "Receiving push notifications"
-msgstr "Ricezione delle notifiche push"
+msgstr "Saņem pašpiegādes ziņojumus"
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
 msgid "Invited"
-msgstr "Invitato"
+msgstr "Uzaicināts"
 
 #: src/enums/neochatroomtype.h:61
 #, kde-format
 msgid "Favorite"
-msgstr "Preferito"
+msgstr "Iecienīts"
 
 #: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
-msgstr "Amici"
+msgstr "Draugi"
 
 #: src/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Normal"
-msgstr "Normale"
+msgstr "Normāls"
 
 #: src/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Low priority"
-msgstr "Bassa priorità"
+msgstr "Zemas prioritātes"
 
 #: src/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Spaces"
-msgstr "Spazi"
+msgstr "Telpas"
 
 #: src/enums/neochatroomtype.h:71 src/qml/ExploreComponentMobile.qml:36
 #, kde-format
 msgid "Search"
-msgstr "Cerca"
+msgstr "Meklēt"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
 #: src/models/messagecontentmodel.cpp:134 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
-msgstr "<i>[Questo messaggio è stato eliminato]</i>"
+msgstr "<i>[Šī ziņa ir dzēsta]</i>"
 
 #: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:135
 #: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
-msgstr "<i>[Questo messaggio è stato eliminato: %1]</i>"
+msgstr "<i>[Šī ziņa ir dzēsta: %1]</i>"
 
 #: src/eventhandler.cpp:333
 #, kde-format
 msgid "reinvited %1 to the room"
-msgstr "ha invitato nuovamente %1 alla stanza"
+msgstr "atkārtoti uzaicināt istabā %1"
 
 #: src/eventhandler.cpp:335
 #, kde-format
@@ -132,17 +135,17 @@ msgstr ": %1"
 #: src/eventhandler.cpp:344 src/eventhandler.cpp:531
 #, kde-format
 msgid "joined the room (repeated)"
-msgstr "è entrato nella stanza (ripetuto)"
+msgstr "pievienojās istabai (atkārtoti)"
 
 #: src/eventhandler.cpp:346
 #, kde-format
 msgid "invited %1 to the room"
-msgstr "ha invitato %1 alla stanza"
+msgstr "%1 uzaicināts uz istabu"
 
 #: src/eventhandler.cpp:346 src/eventhandler.cpp:533
 #, kde-format
 msgid "joined the room"
-msgstr "è entrato nella stanza"
+msgstr "pievienojās istabai"
 
 #: src/eventhandler.cpp:350
 #, kde-format
@@ -153,308 +156,309 @@ msgstr ": %1"
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
-msgstr "ha cancellato il suo nome visualizzato"
+msgstr "noņēma parādāmo vārdu"
 
 #: src/eventhandler.cpp:360
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
-msgstr "ha cambiato il suo nome visualizzato in %1"
+msgstr "nomainīja savu parādāmo vārdu uz %1"
 
 #: src/eventhandler.cpp:366 src/eventhandler.cpp:548
 #, kde-format
 msgid " and "
-msgstr " e "
+msgstr " un "
 
 #: src/eventhandler.cpp:369 src/eventhandler.cpp:551
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
-msgstr "ha cancellato il suo avatar"
+msgstr "noņēma savu attēlu"
 
 #: src/eventhandler.cpp:371 src/eventhandler.cpp:553
 #, kde-format
 msgid "set an avatar"
-msgstr "ha impostato un avatar"
+msgstr "uzlika attēlu"
 
 #: src/eventhandler.cpp:373 src/eventhandler.cpp:555
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
-msgstr "ha aggiornato il suo avatar"
+msgstr "atjaunināja savu attēlu"
 
 #: src/eventhandler.cpp:377 src/eventhandler.cpp:559
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
-msgstr "nessuna modifica"
+msgstr "neko nemainīja"
 
 #: src/eventhandler.cpp:383
 #, kde-format
 msgid "withdrew %1's invitation"
-msgstr "ha ritirato l'invito di %1"
+msgstr "atcēla %1 uzaicinājumu"
 
 #: src/eventhandler.cpp:383 src/eventhandler.cpp:565
 #, kde-format
 msgid "rejected the invitation"
-msgstr "ha rifiutato l'invito"
+msgstr "noraidīja uzaicinājumu"
 
 #: src/eventhandler.cpp:387
 #, kde-format
 msgid "unbanned %1"
-msgstr "ha rimosso il bando per %1"
+msgstr "noņēma %1 aizliegumu"
 
 #: src/eventhandler.cpp:387 src/eventhandler.cpp:569
 #, kde-format
 msgid "self-unbanned"
-msgstr "ha rimosso il bando da se stesso"
+msgstr "pats sev noņēma aizliegumu"
 
 #: src/eventhandler.cpp:390
 #, kde-format
 msgid "has put %1 out of the room: %2"
-msgstr "ha espulso %1 dalla stanza: %2"
+msgstr "izlika %1 no istabas: %2"
 
 #: src/eventhandler.cpp:391 src/eventhandler.cpp:571
 #, kde-format
 msgid "left the room"
-msgstr "ha abbandonato la stanza"
+msgstr "atstāja istabu"
 
 #: src/eventhandler.cpp:395
 #, kde-format
 msgid "banned %1 from the room"
-msgstr "ha bandito %1 dalla stanza"
+msgstr "aizliedza %1 atrasties istabā"
 
 #: src/eventhandler.cpp:397
 #, kde-format
 msgid "banned %1 from the room: %2"
-msgstr "ha bandito %1 dalla stanza: %2"
+msgstr "aizliedza %1 atrasties istabā: %2"
 
 #: src/eventhandler.cpp:400 src/eventhandler.cpp:576
 #, kde-format
 msgid "self-banned from the room"
-msgstr "auto-bandito dalla stanza"
+msgstr "pats sev aizliedza atrasties istabā"
 
 #: src/eventhandler.cpp:404 src/eventhandler.cpp:579
 #, kde-format
 msgid "requested an invite"
-msgstr "ha richiesto un invito"
+msgstr "pieprasīja uzaicinājumu"
 
 #: src/eventhandler.cpp:404
 #, kde-format
 msgid "requested an invite with reason: %1"
-msgstr "ha richiesto un invito con motivo: %1"
+msgstr "pieprasīja uzaicinājumu ar iemeslu: %1"
 
 #: src/eventhandler.cpp:408 src/eventhandler.cpp:583
 #, kde-format
 msgid "made something unknown"
-msgstr "ha fatto qualcosa di sconosciuto"
+msgstr "izdarīja kaut ko nezināmu"
 
 #: src/eventhandler.cpp:411 src/eventhandler.cpp:586
 #, kde-format
 msgid "cleared the room main alias"
-msgstr "ha cancellato l'alias principale della stanza"
+msgstr "noņēma istabas pamata aizstājējvārdu"
 
 #: src/eventhandler.cpp:411
 #, kde-format
 msgid "set the room main alias to: %1"
-msgstr "ha impostato l'alias principale della stanza a: %1"
+msgstr "iestatīja istabas pamata aizstājējvārdu uz: %1"
 
 #: src/eventhandler.cpp:414 src/eventhandler.cpp:589
 #, kde-format
 msgid "cleared the room name"
-msgstr "ha cancellato il nome della stanza"
+msgstr "noņēma istabas nosaukumu"
 
 #: src/eventhandler.cpp:414
 #, kde-format
 msgid "set the room name to: %1"
-msgstr "ha impostato il nome della stanza a: %1"
+msgstr "istabu nosauca par: %1"
 
 #: src/eventhandler.cpp:417 src/eventhandler.cpp:592
 #, kde-format
 msgid "cleared the topic"
-msgstr "ha cancellato l'argomento"
+msgstr "noņēma tēmu"
 
 #: src/eventhandler.cpp:418
 #, kde-format
 msgid "set the topic to: %1"
-msgstr "ha impostato l'argomento a: %1"
+msgstr "uzlika tēmu: %1"
 
 #: src/eventhandler.cpp:424 src/eventhandler.cpp:595
 #, kde-format
 msgid "changed the room avatar"
-msgstr "ha cambiato l'avatar della stanza"
+msgstr "nomainīja istabas attēlu"
 
 #: src/eventhandler.cpp:427 src/eventhandler.cpp:598
 #, kde-format
 msgid "activated End-to-End Encryption"
-msgstr "ha attivato la cifratura End-to-End"
+msgstr "ieslēdza galšifrēšanu"
 
 #: src/eventhandler.cpp:431
 #, kde-format
 msgid "upgraded the room to version %1"
-msgstr "ha aggiornato la stanza alla versione %1"
+msgstr "atjaunināja istabu uz versiju %1"
 
 #: src/eventhandler.cpp:432
 #, kde-format
 msgid "created the room, version %1"
-msgstr "ha creato la stanza, versione %1"
+msgstr "izveidoja istabu, versija %1"
 
 #: src/eventhandler.cpp:435 src/eventhandler.cpp:604
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
-msgstr "ha modificato i livelli di potenza per questa stanza"
+msgstr "nomainīja šīs istabas svarīguma līmeni"
 
 #: src/eventhandler.cpp:441 src/eventhandler.cpp:610
 #, kde-format
 msgid "changed the server access control lists for this room"
-msgstr "ha modificato la lista di controllo degli accessi per questa stanza"
+msgstr "nomainīja istabas servera piekļuves kontroles saraksu"
 
 #: src/eventhandler.cpp:445
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
-msgstr "aggiunto %1 oggetto"
+msgstr "pievienoja %1 logdaļu"
 
 #: src/eventhandler.cpp:448
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
-msgstr "rimosso %1 oggetto"
+msgstr "noņēma %1 logdaļu"
 
 #: src/eventhandler.cpp:450
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
-msgstr "configurato %1 oggetto"
+msgstr "konfigurēja %1 logdaļu"
 
 #: src/eventhandler.cpp:453
 #, kde-format
 msgid "updated %1 state"
-msgstr "ha aggiornato lo stato di %1"
+msgstr "atjaunināja %1 statusu"
 
 #: src/eventhandler.cpp:454
 #, kde-format
 msgid "updated %1 state for %2"
-msgstr "ha aggiornato lo stato di %1 per %2"
+msgstr "atjaunināja %1 statusu istabai %2"
 
 #: src/eventhandler.cpp:459 src/eventhandler.cpp:628
 #, kde-format
 msgid "Unknown event"
-msgstr "Evento sconosciuto"
+msgstr "Nezināms notikums"
 
 #: src/eventhandler.cpp:474
 #, kde-format
 msgid "a file"
-msgstr "un file"
+msgstr "datne"
 
 #: src/eventhandler.cpp:514
 #, kde-format
 msgid "sent a message"
-msgstr "ha inviato un messaggio"
+msgstr "nosūtīja ziņu"
 
 #: src/eventhandler.cpp:518
 #, kde-format
 msgid "sent a sticker"
-msgstr "ha inviato un adesivo"
+msgstr "nosūtīja uzlīmi"
 
 #: src/eventhandler.cpp:524
 #, kde-format
 msgid "reinvited someone to the room"
-msgstr "ha invitato nuovamente qualcuno alla stanza"
+msgstr "kādu atkārtoti uzaicināja istabā"
 
 #: src/eventhandler.cpp:533
 #, kde-format
 msgid "invited someone to the room"
-msgstr "ha invitato qualcuno alla stanza"
+msgstr "kādu uzaicināja istabā"
 
 #: src/eventhandler.cpp:543
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
-msgstr "ha cambiato il suo nome visualizzato"
+msgstr "nomainīja parādāmo vārdu"
 
 #: src/eventhandler.cpp:565
 #, kde-format
 msgid "withdrew a user's invitation"
-msgstr "ha ritirato l'invito di utente"
+msgstr "atsauca lietotāja uzaicināšanu"
 
 #: src/eventhandler.cpp:569
 #, kde-format
 msgid "unbanned a user"
-msgstr "ha rimosso il bando per un utente"
+msgstr "noņēma lietotāja aizliegumu"
 
 #: src/eventhandler.cpp:571
 #, kde-format
 msgid "put a user out of the room"
-msgstr "ha espulso un utente dalla stanza"
+msgstr "lietotāju izlika no istabas"
 
 #: src/eventhandler.cpp:574
 #, kde-format
 msgid "banned a user from the room"
-msgstr "ha bandito un utente dalla stanza"
+msgstr "aizliedza lietotājam atrasties istabā"
 
 #: src/eventhandler.cpp:586
 #, kde-format
 msgid "set the room main alias"
-msgstr "ha impostato l'alias principale della stanza"
+msgstr "iestatīja istabas pamata aizstājējvārdu"
 
 #: src/eventhandler.cpp:589
 #, kde-format
 msgid "set the room name"
-msgstr "ha impostato il nome della stanza"
+msgstr "iestatīja istabas nosaukumu"
 
 #: src/eventhandler.cpp:592
 #, kde-format
 msgid "set the topic"
-msgstr "ha impostato l'argomento"
+msgstr "iestatīja tēmu"
 
 #: src/eventhandler.cpp:601
 #, kde-format
 msgid "upgraded the room version"
-msgstr "ha aggiornato la versione della stanza"
+msgstr "atjaunināja istabas versiju"
 
 #: src/eventhandler.cpp:601
 #, kde-format
 msgid "created the room"
-msgstr "ha creato la stanza"
+msgstr "izveidoja istabu"
 
 #: src/eventhandler.cpp:607
 #, kde-format
 msgid "sent a live location beacon"
-msgstr "ha inviato un segnale di posizione in tempo reale"
+msgstr "nosūtīja pašreizējās atrašanās bāku"
 
 #: src/eventhandler.cpp:614
 #, kde-format
 msgid "added a widget"
-msgstr "ha aggiunto un oggetto"
+msgstr "pievienota logdaļa"
 
 #: src/eventhandler.cpp:617
 #, kde-format
 msgid "removed a widget"
-msgstr "ha rimosso un oggetto"
+msgstr "noņēma logdaļu"
 
 #: src/eventhandler.cpp:619
 #, kde-format
 msgid "configured a widget"
-msgstr "ha configurato un oggetto"
+msgstr "konfigurēja logdaļu"
 
 #: src/eventhandler.cpp:622
 #, kde-format
 msgid "updated the state"
-msgstr "ha aggiornato lo stato"
+msgstr "atjaunināja statusu"
 
 #: src/eventhandler.cpp:626
 #, kde-format
 msgid "started a poll"
-msgstr "ha avviato un sondaggio"
+msgstr "uzsāka aptauju"
 
 #: src/eventhandler.cpp:1034
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] "1 utente: "
-msgstr[1] "%1 utenti: "
+msgstr[0] "%1 lietotājs: "
+msgstr[1] "%1 lietotāji: "
+msgstr[2] "%1 lietotāju: "
 
 #: src/eventhandler.cpp:1037
 #, kde-format
@@ -466,35 +470,35 @@ msgstr ", "
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "Scaricamento"
+msgstr "Lejupielādē"
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "Invio"
+msgstr "Augšupielādē"
 
 #: src/filetransferpseudojob.cpp:49
 #, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr "Sorgente"
+msgstr "Avots"
 
 #: src/filetransferpseudojob.cpp:50
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr "Destinazione"
+msgstr "Galamērķis"
 
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
-msgstr "Errore di rete"
+msgstr "Tikla kļūda"
 
 #: src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
-msgstr "Accesso non riuscito: %1"
+msgstr "Ierakstīšanās neizdevās: %1"
 
 #: src/main.cpp:141
 #, kde-format
@@ -504,12 +508,12 @@ msgstr "NeoChat"
 #: src/main.cpp:143
 #, kde-format
 msgid "Matrix client"
-msgstr "Client Matrix"
+msgstr "„Matrix“ klients"
 
 #: src/main.cpp:145
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2024 La comunità KDE"
+msgstr "© 2018—2020 Black Hat, 2020—2024 KDE kopiena"
 
 #: src/main.cpp:146
 #, kde-format
@@ -519,7 +523,7 @@ msgstr "Carl Schwan"
 #: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
-msgstr "Responsabile"
+msgstr "Uzturētājs"
 
 #: src/main.cpp:151
 #, kde-format
@@ -539,7 +543,7 @@ msgstr "Black Hat"
 #: src/main.cpp:153
 #, kde-format
 msgid "Original author of Spectral"
-msgstr "Autore originale di Spectral"
+msgstr "Sākotnējais „Spectral“ autors"
 
 #: src/main.cpp:154
 #, kde-format
@@ -549,99 +553,99 @@ msgstr "Alexey Rusakov"
 #: src/main.cpp:154
 #, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Responsabile di libQuotient"
+msgstr "„libQuotient“ uzturētājs"
 
 #: src/main.cpp:155
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vincenzo Reale"
+msgstr "Toms Trasūns"
 
 #: src/main.cpp:155
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "smart2128vr@gmail.com"
+msgstr "toms.trasuns@posteo.net"
 
 #: src/main.cpp:159
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "Una libreria Qt per scrivere client multipiattaforma per Matrix"
+msgstr "„Qt“ bibliotēka starpplatormu „Matrix“ klientiem"
 
 #: src/main.cpp:161
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
-msgstr "%1 (compilato con %2)"
+msgstr "%1 (būvēts pret %2)"
 
 #: src/main.cpp:187
 #, kde-format
 msgid "Client for the matrix communication protocol"
-msgstr "Client per il protocollo di comunicazione matrix"
+msgstr "„Matrix“ komunikācijas protokola klients"
 
 #: src/main.cpp:188
 #, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "Supporta schema URL matrix:"
+msgstr "Atbalsta „matrix:“ adrešu shēmu"
 
 #: src/main.cpp:189
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
-msgstr "Ignora tutti gli errori SSL, ad es. certificati non firmati."
+msgstr "Ignorēt visas SSL kļūdas, piemēram, neparakstītus sertifikātus."
 
 #: src/main.cpp:191
 #, kde-format
 msgid "Only used for autotests"
-msgstr "Utilizzato solo per autotest"
+msgstr "Izmantots tikai automātiskajiem testiem"
 
 #: src/main.cpp:196
 #, kde-format
 msgid "Internal usage only."
-msgstr "Solo per uso interno."
+msgstr "Tikai iekšējai lietošanai."
 
 #: src/main.cpp:201
 #, kde-format
 msgid "Share a URL to Matrix"
-msgstr "Condividi un URL su Matrix"
+msgstr "Dalīties ar URL „Matrix“ klientā"
 
 #: src/matriximageprovider.cpp:40
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
-msgstr "L'ID del supporto «%1» non segue il modello server/mediaId"
+msgstr "Multivides ar ID „%1“ neievēro servera/multivides ID paraugu"
 
 #: src/matriximageprovider.cpp:98
 #, kde-format
 msgid "Image request has been cancelled"
-msgstr "La richiesta dell'immagine è stata annullata"
+msgstr "Attēla pieprasījums ir atcelts"
 
 #: src/models/actionsmodel.cpp:24
 #, kde-format
 msgid "Leaving this room."
-msgstr "Lascia questa stanza."
+msgstr "Pamet šo istabu."
 
 #: src/models/actionsmodel.cpp:31 src/models/actionsmodel.cpp:228
 #: src/models/actionsmodel.cpp:254 src/models/actionsmodel.cpp:284
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr "«%1» non sembra un id di una stanza o un alias."
+msgstr "„%1“ neizskatās pēc istabas ID vai aizstājējvārda."
 
 #: src/models/actionsmodel.cpp:39
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Lascia la stanza %1."
+msgstr "Atstāj istabu „%1“."
 
 #: src/models/actionsmodel.cpp:42
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr "Stanza %1 non trovata."
+msgstr "Istaba „%1“ nav atrasta"
 
 #: src/models/actionsmodel.cpp:50 src/models/actionsmodel.cpp:320
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
-msgstr "Nessun nuovo pseudonimo fornito, non ci saranno modifiche."
+msgstr "Nav norādīta jauna iesauka, nekas netiks mainīts."
 
 #: src/models/actionsmodel.cpp:65 src/models/actionsmodel.cpp:75
 #: src/models/actionsmodel.cpp:85 src/models/actionsmodel.cpp:95
@@ -649,47 +653,47 @@ msgstr "Nessun nuovo pseudonimo fornito, non ci saranno modifiche."
 #: src/models/actionsmodel.cpp:146 src/models/actionsmodel.cpp:162
 #: src/models/actionsmodel.cpp:172 src/models/actionsmodel.cpp:182
 msgid "<message>"
-msgstr "<messaggio>"
+msgstr "<ziņa>"
 
 #: src/models/actionsmodel.cpp:66
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "Antepone ¯\\_(ツ)_/¯ a un messaggio di testo normale"
+msgstr "Vienkārša teksta ziņas sākumam pievieno ¯\\_(ツ)_/¯"
 
 #: src/models/actionsmodel.cpp:76
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "Antepone ( ͡° ͜ʖ ͡°) a un messaggio di testo normale"
+msgstr "Vienkārša teksta ziņas sākumam pievieno  ( ͡° ͜ʖ ͡°)"
 
 #: src/models/actionsmodel.cpp:86
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr "Antepone (╯°□°）╯︵ ┻━┻ a un messaggio di testo semplice"
+msgstr "Vienkārša teksta ziņas sākumam pievieno (╯°□°）╯︵ ┻━┻"
 
 #: src/models/actionsmodel.cpp:96
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "Antepone ┬──┬ ノ( ゜-゜ノ) a un messaggio di testo semplice"
+msgstr "Vienkārša teksta ziņas sākumam pievieno ┬──┬ ノ( ゜-゜ノ)"
 
 #: src/models/actionsmodel.cpp:116
 msgid "Sends the given message colored as a rainbow"
-msgstr "Invia il messaggio specificato colorato come un arcobaleno"
+msgstr "Nosūta ziņu kā varavīksni"
 
 #: src/models/actionsmodel.cpp:136
 msgid "Sends the given emote colored as a rainbow"
-msgstr "Invia l'emoticon specificata colorata come un arcobaleno"
+msgstr "Nosūta emocijzīmi varavīksnes krāsās"
 
 #: src/models/actionsmodel.cpp:147
 msgid "Sends the given message as plain text"
-msgstr "Invia il messaggio fornito come testo normale"
+msgstr "Nosūta ziņu kā vienkāršu tekstu"
 
 #: src/models/actionsmodel.cpp:163
 msgid "Sends the given message as a spoiler"
-msgstr "Invia il dato messaggio come spoiler"
+msgstr "Nosūta ziņu kā noslēpuma atklāšanu"
 
 #: src/models/actionsmodel.cpp:173
 msgid "Sends the given emote"
-msgstr "Invia l'emoticon specificata"
+msgstr "Nosūta emocijzīmi"
 
 #: src/models/actionsmodel.cpp:183
 msgid "Sends the given message as a notice"
-msgstr "Invia il messaggio specificato come avviso"
+msgstr "Nosūta ziņu kā paziņojumu"
 
 #: src/models/actionsmodel.cpp:192 src/models/actionsmodel.cpp:354
 #: src/models/actionsmodel.cpp:377 src/models/actionsmodel.cpp:421
@@ -697,275 +701,272 @@ msgstr "Invia il messaggio specificato come avviso"
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
-msgstr "«%1» non sembra un ID Matrix."
+msgstr "„%1“ neizskatās pēc „Matrix“ ID"
 
 #: src/models/actionsmodel.cpp:197
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "%1 è già invitato in questa stanza virtuale."
+msgstr "%1 jau ir uzaicināts uz šo istabu."
 
 #: src/models/actionsmodel.cpp:201
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "%1 è stato bandito da questa stanza virtuale."
+msgstr "%1 ir aizliegts ienākt šajā istabā."
 
 #: src/models/actionsmodel.cpp:205
 #, kde-format
 msgid "You are already in this room."
-msgstr "Sei già in questa stanza."
+msgstr "Jūs jau esat šajā istabā."
 
 #: src/models/actionsmodel.cpp:209
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "%1 è già in questa stanza."
+msgstr "%1 jau ir šajā istabā."
 
 #: src/models/actionsmodel.cpp:213
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
-msgstr "%1 è stato invitato in questa stanza"
+msgstr "%1 ir uzaicināts šajā istabā"
 
 #: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:367
 #: src/models/actionsmodel.cpp:390 src/models/actionsmodel.cpp:482
 msgid "<user id>"
-msgstr "<id utente>"
+msgstr "<lietotāja id>"
 
 #: src/models/actionsmodel.cpp:219
 msgid "Invites the user to this room"
-msgstr "Invita l'utente in questa stanza virtuale"
+msgstr "Uzaicina lietotāju šajā istabā"
 
 #: src/models/actionsmodel.cpp:236 src/models/actionsmodel.cpp:291
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr "Accesso alla stanza %1."
+msgstr "Pievienojas istabai „%1“."
 
 #: src/models/actionsmodel.cpp:242 src/models/actionsmodel.cpp:297
 msgid "<room alias or id>"
-msgstr "<alias della stanza o id>"
+msgstr "<istabas aizstājējvārds vai ID>"
 
 #: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:298
 msgid "Joins the given room"
-msgstr "Si unisce alla stanza specificata"
+msgstr "Pievienojas istabai"
 
 #: src/models/actionsmodel.cpp:262
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr "Accesso alla stanza %1."
+msgstr "Klauvē pie istabas „%1“."
 
 #: src/models/actionsmodel.cpp:274
 msgid "<room alias or id> [<reason>]"
-msgstr "<alias della stanza o id> [<motivo>]"
+msgstr "<istabas aizstājējvārds vai ID [<iemesls>]"
 
 #: src/models/actionsmodel.cpp:275
 msgid "Requests to join the given room"
-msgstr "Richiede di unirsi alla stanza specificata"
+msgstr "Pieprasa pievienot istabai"
 
 #: src/models/actionsmodel.cpp:288
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr "Se già nella stanza %1"
+msgstr "Jau esat istabā „%1“."
 
 #: src/models/actionsmodel.cpp:305 src/models/actionsmodel.cpp:313
 msgid "[<room alias or id>]"
-msgstr "[<alias della stanza o id>]"
+msgstr "[<istaba aizstājējvārds vai ID>]"
 
 #: src/models/actionsmodel.cpp:306 src/models/actionsmodel.cpp:314
 msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
-"Lascia la stanza specificata o questa stanza, se non ce n'è una specificata"
+msgstr "Pamet doto istabu vai šo istabu, ja neviena nav norādīta"
 
 #: src/models/actionsmodel.cpp:328 src/models/actionsmodel.cpp:336
 #: src/models/actionsmodel.cpp:344
 msgid "<display name>"
-msgstr "<nome visualizzato>"
+msgstr "<parādāmais vārds>"
 
 #: src/models/actionsmodel.cpp:329
 msgid "Changes your global display name"
-msgstr "Modifica il nome visualizzato globale"
+msgstr "Maina globālo parādāmo vārdu"
 
 #: src/models/actionsmodel.cpp:337 src/models/actionsmodel.cpp:345
 msgid "Changes your display name in this room"
-msgstr "Cambia il nome visualizzato in questa stanza"
+msgstr "Maina parādāmo vārdu šajā istabā"
 
 #: src/models/actionsmodel.cpp:358
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
-msgstr "%1 è già ignorato."
+msgstr "%1 jau tiek ignorēts."
 
 #: src/models/actionsmodel.cpp:362
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
-msgstr "%1 ora è ignorato."
+msgstr "%1 tagad tiek ignorēts."
 
 #: src/models/actionsmodel.cpp:368
 msgid "Ignores the given user"
-msgstr "Ignora l'utente specificato"
+msgstr "Ignorē norādīto lietotāju"
 
 #: src/models/actionsmodel.cpp:381
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
-msgstr "%1 non è ignorato."
+msgstr "%1 netiek ignorēts"
 
 #: src/models/actionsmodel.cpp:385
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
-msgstr "%1 non è più ignorato."
+msgstr "%1 vairs netiek ignorēts."
 
 #: src/models/actionsmodel.cpp:391
 msgid "Unignores the given user"
-msgstr "Non ignorare l'utente specificato"
+msgstr "Atceļ lietotāja ignorēšanu"
 
 #: src/models/actionsmodel.cpp:410
 msgid "<reaction text>"
-msgstr "<testo di reazione>"
+msgstr "<reakcijas teksts>"
 
 #: src/models/actionsmodel.cpp:411
 msgid "React to the message with the given text"
-msgstr "Reagisci al messaggio con il testo indicato"
+msgstr "Reakcija uz ziņu ar attiecīgu tekstu"
 
 #: src/models/actionsmodel.cpp:426
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr "%1 è già stato bandito da questa stanza virtuale."
+msgstr "%1 jau ir aizliegts ienākt šajā istabā."
 
 #: src/models/actionsmodel.cpp:434
 #, kde-format
 msgid "You are not allowed to ban users from this room."
-msgstr "Non sei autorizzato a bandire gli utenti da questa stanza."
+msgstr "Jums nav tiesību lietotājiem aizliegt atrasties šajā istabā."
 
 #: src/models/actionsmodel.cpp:440
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
-msgstr "Non puoi bandire %1 da questa stanza virtuale."
+msgstr "Jums nav atļauts lietotājam %1 aizliegt atrasties šajā istabā"
 
 #: src/models/actionsmodel.cpp:444
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr "%1 è stato bandito da questa stanza."
+msgstr "%1 tika aizliegts atrasties šajā istabā."
 
 #: src/models/actionsmodel.cpp:449 src/models/actionsmodel.cpp:526
 msgid "<user id> [<reason>]"
-msgstr "<id utente> [<motivo>]"
+msgstr "<lietotāja ID> [<iemesls>]"
 
 #: src/models/actionsmodel.cpp:450
 msgid "Bans the given user"
-msgstr "Bandisce l'utente specificato"
+msgstr "Aizliedz norādīto lietotāju"
 
 #: src/models/actionsmodel.cpp:467
 #, kde-format
 msgid "You are not allowed to unban users from this room."
-msgstr ""
-"Non sei autorizzato a rimuovere il bando degli utenti da questa stanza "
-"virtuale."
+msgstr "Jums nav tiesību šajā istabā noņemt lietotājiem aizliegumu."
 
 #: src/models/actionsmodel.cpp:472
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
-msgstr "%1 non è stato bandito da questa stanza virtuale."
+msgstr "%1 nav aizliegts šajā istabā."
 
 #: src/models/actionsmodel.cpp:476
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
-msgstr "Il bando per %1 è stato rimosso da questa stanza virtuale."
+msgstr "%1 tika noņemts aizliegums šajā istabā."
 
 #: src/models/actionsmodel.cpp:483
 msgid "Removes the ban of the given user"
-msgstr "Rimuove il bando dell'utente specificato"
+msgstr "Noņem lietotājam aizliegumu"
 
 #: src/models/actionsmodel.cpp:498
 #, kde-format
 msgid "You cannot kick yourself from the room."
-msgstr "Non puoi espellerti dalla stanza."
+msgstr "Nevarat sevi izmest no istabas."
 
 #: src/models/actionsmodel.cpp:502
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
-msgstr "%1 non è in questa stanza."
+msgstr "%1 neatrodas istabā."
 
 #: src/models/actionsmodel.cpp:511
 #, kde-format
 msgid "You are not allowed to kick users from this room."
-msgstr "Non ti è consentito espellere gli utenti da questa stanza."
+msgstr "Jums nav tiesību izmest lietotājus no šīs istabas."
 
 #: src/models/actionsmodel.cpp:517
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
-msgstr "Non puoi espellere %1 da questa stanza virtuale."
+msgstr "Jums nav tiesību izmest %1 no šīs istabas."
 
 #: src/models/actionsmodel.cpp:521
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
-msgstr "%1 è stato espulso da questa stanza."
+msgstr "%1 ir izmests no šīs istabas"
 
 #: src/models/actionsmodel.cpp:527
 msgid "Removes the user from the room"
-msgstr "Rimuove l'utente dalla stanza"
+msgstr "Noņem lietotāju no istabas"
 
 #: src/models/emojimodel.cpp:153 src/models/emojimodel.cpp:211
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Cronologia"
+msgstr "Vēsture"
 
 #: src/models/emojimodel.cpp:158
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
-msgstr "Faccine"
+msgstr "Smaidiņi"
 
 #: src/models/emojimodel.cpp:163
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
-msgstr "Persone"
+msgstr "Cilvēki"
 
 #: src/models/emojimodel.cpp:168
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
-msgstr "Natura"
+msgstr "Daba"
 
 #: src/models/emojimodel.cpp:173
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
-msgstr "Cibo"
+msgstr "Ēdiens"
 
 #: src/models/emojimodel.cpp:178
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
-msgstr "Attività"
+msgstr "Aktivitātes"
 
 #: src/models/emojimodel.cpp:183
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
-msgstr "Viaggi"
+msgstr "Ceļošana"
 
 #: src/models/emojimodel.cpp:188
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
-msgstr "Oggetti"
+msgstr "Objekti"
 
 #: src/models/emojimodel.cpp:193
 #, kde-format
@@ -977,41 +978,43 @@ msgstr "Simboli"
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
-msgstr "Bandiere"
+msgstr "Karogi"
 
 #: src/models/emojimodel.cpp:217
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "Personalizzati"
+msgstr "Dažādi"
 
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr "I propri adesivi"
+msgstr "Savas uzlīmes"
 
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "I propri emoji"
+msgstr "Savas emocijzīmes"
 
 #: src/models/messagefiltermodel.cpp:142
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] " %1"
-msgstr[1] " %1 %2 volte"
+msgstr[0] " %1 %2 reizi"
+msgstr[1] " %1 %2 reizes"
+msgstr[2] " %1 %2 reižu"
 
 #: src/models/messagefiltermodel.cpp:146
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] " %1 utente "
-msgstr[1] " %1 utenti "
+msgstr[0] " %1 lietotājs "
+msgstr[1] " %1 lietotāji "
+msgstr[2] " %1 lietotāju "
 
 #: src/models/messagefiltermodel.cpp:155
 #, kde-format
@@ -1023,13 +1026,13 @@ msgstr ", "
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr " o "
+msgstr " vai "
 
 #: src/models/messagefiltermodel.cpp:159
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
-msgstr " e "
+msgstr " un "
 
 #: src/models/messagefiltermodel.cpp:165
 #, kde-format
@@ -1043,125 +1046,127 @@ msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
-msgstr "Abilita le notifiche per questo account"
+msgstr "Ieslēgt paziņojumus šim kontam"
 
 #: src/models/pushrulemodel.cpp:21
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
-msgstr "Messaggi nelle chat uno a uno"
+msgstr "Ziņas personīgā tērzēšanā"
 
 #: src/models/pushrulemodel.cpp:22
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
-msgstr "Messaggi cifrati nelle chat uno a uno"
+msgstr "Šifrētas ziņas personīgā tērzēšanā"
 
 #: src/models/pushrulemodel.cpp:23
 msgctxt "Notification type"
 msgid "Messages in group chats"
-msgstr "Messaggi nelle chat di gruppo"
+msgstr "Ziņas grupu tērzēšanā"
 
 #: src/models/pushrulemodel.cpp:24
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
-msgstr "Messaggi nelle chat di gruppo cifrate"
+msgstr "Ziņas šifrētā grupu tērzēšanā"
 
 #: src/models/pushrulemodel.cpp:25
 msgctxt "Notification type"
 msgid "Room upgrade messages"
-msgstr "Messaggi di aggiornamento della stanza"
+msgstr "Istabas atjauninājumu ziņas"
 
 #: src/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
 msgid "Messages containing my display name"
-msgstr "Messaggi contenenti il mio nome visualizzato"
+msgstr "Ziņas, kas satur parādāmo vārdu"
 
 #: src/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr "Messaggi che menzionano il mio ID utente Matrix"
+msgstr "Ziņas, kas piemin manu „Matrix“ lietotāja ID"
 
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr "Messaggi che menzionano una stanza"
+msgstr "Ziņas, kas piemin istabu"
 
 #: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
-msgstr "Messaggi contenenti la parte locale del mio ID Matrix"
+msgstr "Ziņas, kas satur mana „Matrix“ ID lokālo daļu"
 
 #: src/models/pushrulemodel.cpp:30
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
-msgstr "Notifiche alla stanza intera (@stanza)"
+msgstr "Visas istabas (@istaba) paziņojumi"
 
 #: src/models/pushrulemodel.cpp:31
 msgctxt "Notification type"
 msgid "Invites to a room"
-msgstr "Inviti a una stanza"
+msgstr "Uzaicinājumi uz istabu"
 
 #: src/models/pushrulemodel.cpp:32
 msgctxt "Notification type"
 msgid "Call invitation"
-msgstr "Invito a chiamata"
+msgstr "Zvana uzaicinājumi"
 
 #: src/models/reactionmodel.cpp:68
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
-msgstr " e "
+msgstr " un "
 
 #: src/models/reactionmodel.cpp:75
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
 msgid_plural " and %1 others"
-msgstr[0] " e %1 altro"
-msgstr[1] " e %1 altri"
+msgstr[0] " un vēl %1"
+msgstr[1] " un vēl %1"
+msgstr[2] " un vēl %1"
 
 #: src/models/reactionmodel.cpp:79
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 ha reagito con %3"
-msgstr[1] "%2 hanno reagito con %3"
+msgstr[0] "%2 reaģēja ar %3"
+msgstr[1] "%2 reaģēja ar %3"
+msgstr[2] "%2 reaģēja ar %3"
 
 #: src/neochatconnection.cpp:72
 #, kde-format
 msgid "File too large to download."
-msgstr "File troppo grande per essere scaricato."
+msgstr "Datne ir par lielu lejupielādei."
 
 #: src/neochatconnection.cpp:72
 #, kde-format
 msgid "Contact your matrix server administrator for support."
-msgstr "Contatta l'amministratore del server Matrix per assistenza."
+msgstr "Atbalstam sazinieties ar sava „Matrix“ servera administratoru."
 
 #: src/neochatconnection.cpp:282
 #, kde-format
 msgid "Room creation failed: %1"
-msgstr "Creazione della stanza non riuscita: %1"
+msgstr "Istabas izveide neizdevās: %1"
 
 #: src/neochatconnection.cpp:314
 #, kde-format
 msgid "Space creation failed: %1"
-msgstr "Creazione dello spazio non riuscita: %1"
+msgstr "Telpas izveide neizdevās: %1"
 
 #: src/neochatroom.cpp:1641 src/neochatroom.cpp:1642
 #, kde-format
 msgid "Report sent successfully."
-msgstr "Segnalazione inviata correttamente."
+msgstr "Ziņojums ir veiksmīgi nosūtīts."
 
 #: src/neochatroom.cpp:1916 src/neochatroom.cpp:1924
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
-msgstr "Lat: %1, Lon: %2"
+msgstr "Plat.: %1, gar.: %2"
 
 #: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:326
 #, kde-format
 msgid "Encrypted Message"
-msgstr "Messaggio cifrato"
+msgstr "Šifrēta ziņa"
 
 #: src/notificationsmanager.cpp:204 src/qml/main.qml:323
 #, kde-format
@@ -1171,46 +1176,46 @@ msgstr "%1: %2"
 #: src/notificationsmanager.cpp:210
 #, kde-format
 msgid "Open NeoChat in this room"
-msgstr "Apri NeoChat in questa stanza"
+msgstr "Atvērt „NeoChat“ šajā istabā"
 
 #: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
 #: src/qml/HoverActions.qml:103
 #, kde-format
 msgid "Reply"
-msgstr "Rispondi"
+msgstr "Atbildēt"
 
 #: src/notificationsmanager.cpp:224
 #, kde-format
 msgid "Reply..."
-msgstr "Rispondi..."
+msgstr "Atbildēt..."
 
 #: src/notificationsmanager.cpp:243
 #, kde-format
 msgid "%1 invited you to a room"
-msgstr "%1 ti ha invitato in una stanza"
+msgstr "%1 jūs uzaicināja uz istabu"
 
 #: src/notificationsmanager.cpp:247
 #, kde-format
 msgid "Open this invitation in NeoChat"
-msgstr "Apri questo invito in NeoChat"
+msgstr "Atvērt šo uzaicinājumu „NeoChat“"
 
 #: src/notificationsmanager.cpp:257
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
-msgstr "Accetta"
+msgstr "Pieņemt"
 
 #: src/notificationsmanager.cpp:258
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
-msgstr "Rifiuta"
+msgstr "Noraidīt"
 
 #: src/notificationsmanager.cpp:259
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
-msgstr "Rifiuta e ignora utente"
+msgstr "Noraidīt un ignorēt lietotāju"
 
 #: src/notificationsmanager.cpp:319
 #, kde-format
@@ -1220,185 +1225,185 @@ msgstr "%1 (%2)"
 #: src/notificationsmanager.cpp:330
 #, kde-format
 msgid "Open NeoChat"
-msgstr "Apri NeoChat"
+msgstr "Atvērt „NeoChat“"
 
 #: src/qml/About.qml:11
 #, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
-msgstr "Informazioni su NeoChat"
+msgstr "Par „NeoChat“"
 
 #: src/qml/AboutKDE.qml:7
 #, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr "Informazioni su KDE"
+msgstr "Par KDE"
 
 #: src/qml/AccountData.qml:19
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Dati account"
+msgstr "Konta informācija"
 
 #: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
-msgstr "Sorgente dell'evento"
+msgstr "Notikuma avots"
 
 #: src/qml/AccountEditorPage.qml:19
 #, kde-format
 msgid "Edit Account"
-msgstr "Modifica account"
+msgstr "Rediģēt kontu"
 
 #: src/qml/AccountEditorPage.qml:60
 #, kde-format
 msgid "Upload new avatar"
-msgstr "Carica un nuovo avatar"
+msgstr "Augšupielādēt jaunu bildi"
 
 #: src/qml/AccountEditorPage.qml:77
 #, kde-format
 msgid "Remove current avatar"
-msgstr "Rimuovi l'avatar attuale"
+msgstr "Noņemt pašreizējo bildi"
 
 #: src/qml/AccountEditorPage.qml:100
 #, kde-format
 msgid "User information"
-msgstr "Informazioni utente"
+msgstr "Lietotāja informācija"
 
 #: src/qml/AccountEditorPage.qml:105 src/qml/CreateRoomDialog.qml:72
 #, kde-format
 msgid "Name:"
-msgstr "Nome:"
+msgstr "Vārds:"
 
 #: src/qml/AccountEditorPage.qml:111
 #, kde-format
 msgid "Label:"
-msgstr "Etichetta:"
+msgstr "Etiķete:"
 
 #: src/qml/AccountEditorPage.qml:116 src/qml/AccountEditorPage.qml:171
 #: src/qml/EmoticonEditorPage.qml:108 src/qml/General.qml:105
 #, kde-format
 msgid "Save"
-msgstr "Salva"
+msgstr "Saglabāt"
 
 #: src/qml/AccountEditorPage.qml:132
 #: src/qml/ConfirmDeactivateAccountDialog.qml:29
 #: src/qml/NetworkProxyPage.qml:88 src/qml/Password.qml:32
 #, kde-format
 msgid "Password"
-msgstr "Password"
+msgstr "Parole"
 
 #: src/qml/AccountEditorPage.qml:137
 #, kde-format
 msgid "Your server doesn't support changing your password"
-msgstr "Il tuo server non supporta la modifica della password"
+msgstr "Jūsu serveris neatbalsta paroles maiņu"
 
 #: src/qml/AccountEditorPage.qml:144
 #, kde-format
 msgid "Current Password:"
-msgstr "Password attuale:"
+msgstr "Pašreizējā parole:"
 
 #: src/qml/AccountEditorPage.qml:151
 #, kde-format
 msgid "New Password:"
-msgstr "Nuova password:"
+msgstr "Jaunā parole:"
 
 #: src/qml/AccountEditorPage.qml:158
 #, kde-format
 msgid "Confirm new Password:"
-msgstr "Conferma la nuova password:"
+msgstr "Apstipriniet jauno paroli:"
 
 #: src/qml/AccountEditorPage.qml:163
 #, kde-format
 msgid "Passwords don't match"
-msgstr "Le password non corrispondono"
+msgstr "Paroles nesakrīt"
 
 #: src/qml/AccountEditorPage.qml:177
 #, kde-format
 msgid "Passwords do not match"
-msgstr "Le password non corrispondono"
+msgstr "Paroles nesakrīt"
 
 #: src/qml/AccountEditorPage.qml:185
 #, kde-format
 msgid "Server Information"
-msgstr "Informazioni server"
+msgstr "Servera informācija"
 
 #: src/qml/AccountEditorPage.qml:189
 #, kde-format
 msgid "Homeserver url"
-msgstr "Server principale"
+msgstr "Mājas servera URL"
 
 #: src/qml/AccountEditorPage.qml:210
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
-msgstr "Gestione degli account"
+msgstr "Konta pārvaldība"
 
 #: src/qml/AccountEditorPage.qml:215
 #, kde-format
 msgid "Deactivate Account"
-msgstr "Disattiva account"
+msgstr "Deaktivizēt kontu"
 
 #: src/qml/AccountEditorPage.qml:219
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
-msgstr "Conferma la disattivazione dell'account"
+msgstr "Apstiprināt konta deaktivizēšanu"
 
 #: src/qml/AccountEditorPage.qml:228
 #, kde-format
 msgid "Password changed successfully"
-msgstr "Password modificata correttamente"
+msgstr "Parole ir veiksmīgi nomainīta"
 
 #: src/qml/AccountEditorPage.qml:230
 #, kde-format
 msgid "Wrong password entered"
-msgstr "È stata digitata una password errata"
+msgstr "Ievadīt nepareiza parole"
 
 #: src/qml/AccountEditorPage.qml:232
 #, kde-format
 msgid "Unknown problem while trying to change password"
-msgstr "Problema sconosciuto durante il tentativo di cambiare la password"
+msgstr "Nezināma problēma, mainot paroli"
 
 #: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
 #, kde-format
 msgid "Edit this account"
-msgstr "Modifica questo account"
+msgstr "Rediģēt kontu"
 
 #: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
 #: src/qml/UserInfo.qml:57
 #, kde-format
 msgid "Account editor"
-msgstr "Editor degli account"
+msgstr "Konta redaktors"
 
 #: src/qml/AccountMenu.qml:30
 #, kde-format
 msgid "Notification settings"
-msgstr "Impostazioni delle notifiche"
+msgstr "Paziņojumu iestatījumi"
 
 #: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
 #: src/qml/GlobalMenu.qml:34 src/qml/main.qml:453 src/qml/UserInfo.qml:142
 #, kde-format
 msgid "Configure"
-msgstr "Configura"
+msgstr "Konfigurēt"
 
 #: src/qml/AccountMenu.qml:42 src/qml/DevicesPage.qml:17
 #: src/qml/SettingsPage.qml:84
 #, kde-format
 msgid "Devices"
-msgstr "Dispositivi"
+msgstr "Ierīces"
 
 #: src/qml/AccountMenu.qml:54 src/qml/UserInfo.qml:129
 #, kde-format
 msgid "Open developer tools"
-msgstr "Apri gli strumenti per sviluppatori"
+msgstr "Atvērt rīkus izstrādātājiem"
 
 #: src/qml/AccountMenu.qml:60
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
-msgstr "Strumenti per sviluppatori"
+msgstr "Rīki izstrādātājiem"
 
 #: src/qml/AccountMenu.qml:66
 #, kde-format
@@ -1415,218 +1420,218 @@ msgstr ""
 #: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
-msgstr "Chiudi sessione"
+msgstr "Izrakstīties"
 
 #: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
 #: src/qml/SettingsPage.qml:54
 #, kde-format
 msgid "Accounts"
-msgstr "Account"
+msgstr "Konti"
 
 #: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:197
 #, kde-format
 msgid "Add Account"
-msgstr "Aggiungi account"
+msgstr "Pievienot kontu"
 
 #: src/qml/AppearanceSettingsPage.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
-msgstr "Aspetto"
+msgstr "Izskats"
 
 #: src/qml/AppearanceSettingsPage.qml:22
 #, kde-format
 msgid "General theme"
-msgstr "Tema generale"
+msgstr "Pamata motīvs"
 
 #: src/qml/AppearanceSettingsPage.qml:116
 #, kde-format
 msgid "Bubbles"
-msgstr "Bolle"
+msgstr "Burbuļi"
 
 #: src/qml/AppearanceSettingsPage.qml:185
 #, kde-format
 msgid "Compact"
-msgstr "Compatta"
+msgstr "Kompakts"
 
 #: src/qml/AppearanceSettingsPage.qml:207
 #, kde-format
 msgid "Use compact room list"
-msgstr "Usa l'elenco  delle stanze compatto"
+msgstr "Izmantot kompaktu istabu sarakstu"
 
 #: src/qml/AppearanceSettingsPage.qml:233
 #, kde-format
 msgid "Show fancy effects in chat"
-msgstr "Mostra effetti eleganti in chat"
+msgstr "Rādīt izskaistinātus tērzēšanas efektus"
 
 #: src/qml/AppearanceSettingsPage.qml:250
 #, kde-format
 msgid "Use transparent chat page"
-msgstr "Usa una pagina di chat trasparente"
+msgstr "Izmantot caurspīdīgu tērzēšanas lapu"
 
 #: src/qml/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Transparency"
-msgstr "Trasparenza"
+msgstr "Caurspīdība"
 
 #: src/qml/AppearanceSettingsPage.qml:290
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
-msgstr "Abilitato solo se la pagina della chat trasparente è abilitata."
+msgstr "Ieslēgts tikai, tad ja ir ieslēgta caurspīdīga tērzēšanas lapa."
 
 #: src/qml/AppearanceSettingsPage.qml:307
 #, kde-format
 msgid "Show your messages on the right"
-msgstr "Mostra i tuoi messaggi sulla destra"
+msgstr "Jūsu ziņas rādīt labajā pusē"
 
 #: src/qml/AppearanceSettingsPage.qml:323
 #, kde-format
 msgid "Show links preview in the chat messages"
-msgstr "Mostra l'anteprima dei collegamenti nei messaggi di chat"
+msgstr "Tērzēšanas ziņās rādī saišu priekšskatījumus"
 
 #: src/qml/AppearanceSettingsPage.qml:333
 #, kde-format
 msgid "Show Avatar"
-msgstr "Mostra avatar"
+msgstr "Rādīt profila bildi"
 
 #: src/qml/AppearanceSettingsPage.qml:337
 #, kde-format
 msgid "In chat"
-msgstr "Nella chat"
+msgstr "Tērzētavā"
 
 #: src/qml/AppearanceSettingsPage.qml:347
 #, kde-format
 msgid "In sidebar"
-msgstr "Nella barra laterale"
+msgstr "Sānu joslā"
 
 #: src/qml/AttachDialog.qml:27
 #, kde-format
 msgid "Choose local file"
-msgstr "Scegli file locale"
+msgstr "Izvēlēties lokālu datni"
 
 #: src/qml/AttachDialog.qml:46
 #, kde-format
 msgid "Clipboard image"
-msgstr "Immagine dagli appunti"
+msgstr "Starpliktuves attēls"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
-msgstr "Allegato:"
+msgstr "Pielikums:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:94
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
 #, kde-format
 msgid "Edit"
-msgstr "Modifica"
+msgstr "Rediģēt"
 
 #: src/qml/AttachmentPane.qml:62
 #, kde-format
 msgid "Cancel sending attachment"
-msgstr "Annulla l'invio dell'allegato"
+msgstr "Atcelt pielikuma sūtīšanu"
 
 #: src/qml/BanSheet.qml:18
 #, kde-format
 msgid "Ban User"
-msgstr "Bandisci utente"
+msgstr "Aizliegt lietotāju"
 
 #: src/qml/BanSheet.qml:27
 #, kde-format
 msgid "Reason for banning this user"
-msgstr "Motivo per bandire questo utente"
+msgstr "Iemesls lietotāja aizliegšanai"
 
 #: src/qml/BanSheet.qml:43
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr "Bando"
+msgstr "Aizliegt"
 
 #: src/qml/BanSheet.qml:52 src/qml/InviteUserPage.qml:24
 #: src/qml/RemoveSheet.qml:57 src/qml/ReportSheet.qml:52
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr "Annulla"
+msgstr "Atcelt"
 
 #: src/qml/Categories.qml:21 src/qml/General.qml:22 src/qml/SettingsPage.qml:20
 #, kde-format
 msgid "General"
-msgstr "Generale"
+msgstr "Pamata"
 
 #: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:20
 #: src/qml/SettingsPage.qml:43
 #, kde-format
 msgid "Security"
-msgstr "Sicurezza"
+msgstr "Drošība"
 
 #: src/qml/Categories.qml:44
 #, kde-format
 msgid "Permissions"
-msgstr "Permessi"
+msgstr "Atļaujas"
 
 #: src/qml/Categories.qml:55 src/qml/SettingsPage.qml:32
 #, kde-format
 msgid "Notifications"
-msgstr "Notifiche"
+msgstr "Paziņojumi"
 
 #: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Attach an image or file"
-msgstr "Allega un'immagine o un file"
+msgstr "Pievienot attēlu vai datni"
 
 #: src/qml/ChatBar.qml:98
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr "Emoji e adesivi"
+msgstr "Emocijzīmes un uzlīmes"
 
 #: src/qml/ChatBar.qml:115
 #, kde-format
 msgid "Send a Location"
-msgstr "Invia una località"
+msgstr "Sūtīt vietu"
 
 #: src/qml/ChatBar.qml:131
 #, kde-format
 msgid "Send message"
-msgstr "Invia messaggio"
+msgstr "Sūtīt ziņu"
 
 #: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Send an encrypted message…"
-msgstr "Invia un messaggio cifrato…"
+msgstr "Sūtīt šifrētu ziņu..."
 
 #: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Set an attachment caption…"
-msgstr "Imposta una didascalia per l'allegato..."
+msgstr "Sūtīt pielikuma virsrakstu..."
 
 #: src/qml/ChatBar.qml:209
 #, kde-format
 msgid "Send a message…"
-msgstr "Invia un messaggio…"
+msgstr "Sūtīt ziņu..."
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
-msgstr "Scegli una stanza"
+msgstr "Izvēlēties istabu"
 
 #: src/qml/ColorScheme.qml:15
 #, kde-format
 msgid "Color theme"
-msgstr "Tema di colori"
+msgstr "Krāsu motīvs"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, kde-format
 msgctxt "@title"
 msgid "Deactivate Account"
-msgstr "Disattiva account"
+msgstr "Deaktivizēt kontu"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:23
 #, kde-format
 msgctxt "@title"
 msgid "Warning"
-msgstr "Avviso"
+msgstr "Uzmanību"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:24
 #, kde-format
@@ -1636,103 +1641,102 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
-"Il tuo account sarà disabilitato definitivamente.\n"
-"L'operazione non può essere annullata.\n"
-"Il tuo ID Matrix non sarà disponibile per nuovi account.\n"
-"I tuoi messaggi rimarranno disponibili."
+"Jūsu konts tiks neatgriezeniski izslēgts.\n"
+"Šo darbību nevar atcelt.\n"
+"Jūsu „Matrix“ ID nebūs pieejams jauniem kontiem.\n"
+"Jūsu ziņas paliks pieejamas."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgid "Deactivate account"
-msgstr "Disattiva account"
+msgstr "Deaktivizēt kontu"
 
 #: src/qml/ConfirmEncryptionDialog.qml:19
 #: src/qml/ConfirmEncryptionDialog.qml:38
 #, kde-format
 msgid "Activate Encryption"
-msgstr "Attiva la cifratura"
+msgstr "Ieslēgt šifrēšanu"
 
 #: src/qml/ConfirmEncryptionDialog.qml:22
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
-msgstr ""
-"Non sarà possibile disattivare la cifratura dopo che è stata abilitata."
+msgstr "Pēc šifrēšanas ieslēgšanas to vairs nevarēs izslēgt."
 
 #: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
 #: src/qml/ImageEditorPage.qml:124
 #, kde-format
 msgid "Cancel"
-msgstr "Annulla"
+msgstr "Atcelt"
 
 #: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
 #, kde-format
 msgid "Sign out"
-msgstr "Esci"
+msgstr "Izrakstīties"
 
 #: src/qml/ConfirmLogoutDialog.qml:21
 #, kde-format
 msgid "Are you sure you want to sign out?"
-msgstr "Sei sicuro di voler uscire?"
+msgstr "Vai tiešām vēlaties izrakstīties?"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
 msgid "Open in New Window"
-msgstr "Apri in una nuova finestra"
+msgstr "Atvērt jaunā logā"
 
 #: src/qml/ContextMenu.qml:42
 #, kde-format
 msgid "Remove from Favorites"
-msgstr "Rimuovi dai preferiti"
+msgstr "Noņemt no iecienītajām"
 
 #: src/qml/ContextMenu.qml:42
 #, kde-format
 msgid "Add to Favorites"
-msgstr "Aggiungi ai preferiti"
+msgstr "Pievienot iecienītajām"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
 #, kde-format
 msgid "Reprioritize"
-msgstr "Modifica la priorità"
+msgstr "Palielināt prioritāti"
 
 #: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
 #, kde-format
 msgid "Deprioritize"
-msgstr "Riduci priorità"
+msgstr "Samazināt prioritāti"
 
 #: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:217
 #, kde-format
 msgid "Mark as Read"
-msgstr "Marca come letto"
+msgstr "Atzīmēt kā lasītu"
 
 #: src/qml/ContextMenu.qml:60
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Copia l'ID Matrix dell'utente negli appunti"
+msgstr "Kopēt starpliktuvē lietotāja „Matrix“ ID"
 
 #: src/qml/ContextMenu.qml:60 src/qml/SpaceListContextMenu.qml:36
 #: src/qml/SpaceListContextMenu.qml:121
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
-msgstr "Copia indirizzo negli appunti"
+msgstr "Kopēt adresi starpliktuvē"
 
 #: src/qml/ContextMenu.qml:72
 #, kde-format
 msgid "Notification State"
-msgstr "Stato delle notifiche"
+msgstr "Paziņojumu statuss"
 
 #: src/qml/ContextMenu.qml:76
 #, kde-format
 msgid "Follow Global Setting"
-msgstr "Segui le impostazioni globali"
+msgstr "Ievērot globālos iestatījumus"
 
 #: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
-msgstr "Tutto"
+msgstr "Visi"
 
 #: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
 #, kde-format
@@ -1740,35 +1744,35 @@ msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
 "keyword'"
 msgid "@Mentions and Keywords"
-msgstr "@menzioni e parole chiave"
+msgstr "@Pieminējumi un atslēgvārdi"
 
 #: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
-msgstr "Spento"
+msgstr "Izslēgti"
 
 #: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:128
 #: src/qml/ContextMenu.qml:202 src/qml/RoomDrawer.qml:109
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:77
 #, kde-format
 msgid "Room Settings"
-msgstr "Impostazioni della stanza"
+msgstr "Istabas iestatījumi"
 
 #: src/qml/ContextMenu.qml:135 src/qml/ContextMenu.qml:224
 #, kde-format
 msgid "Leave Room"
-msgstr "Lascia la stanza"
+msgstr "Pamest istabu"
 
 #: src/qml/ContextMenu.qml:191
 #, kde-format
 msgid "Remove from Favourites"
-msgstr "Rimuovi dai preferiti"
+msgstr "Izņemt no iecienītajām"
 
 #: src/qml/ContextMenu.qml:191
 #, kde-format
 msgid "Add to Favourites"
-msgstr "Aggiungi ai preferiti"
+msgstr "Pievienot iecienītajām"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -1777,44 +1781,44 @@ msgstr "Aggiungi ai preferiti"
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "Crea uno spazio"
+msgstr "Izveidot telpu"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
 #: src/qml/ExploreComponentMobile.qml:146
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
-msgstr "Crea una stanza"
+msgstr "Izveidot istabu"
 
 #: src/qml/CreateRoomDialog.qml:35
 #, kde-format
 msgid "New Space Information"
-msgstr "Nuove informazioni sullo spazio"
+msgstr "Jaunās telpas informācija"
 
 #: src/qml/CreateRoomDialog.qml:35
 #, kde-format
 msgid "New Room Information"
-msgstr "Nuove informazioni sulla stanza"
+msgstr "Jaunās istabas informācija"
 
 #: src/qml/CreateRoomDialog.qml:44
 #, kde-format
 msgid "Select type"
-msgstr "Seleziona tipo"
+msgstr "Atlasīt tipu"
 
 #: src/qml/CreateRoomDialog.qml:54 src/qml/RoomData.qml:25
 #, kde-format
 msgid "Room"
-msgstr "Stanza"
+msgstr "Istaba"
 
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
-msgstr "Spazio"
+msgstr "Telpa"
 
 #: src/qml/CreateRoomDialog.qml:80
 #, kde-format
 msgid "Topic:"
-msgstr "Argomento:"
+msgstr "Tēma:"
 
 #: src/qml/CreateRoomDialog.qml:86 src/qml/CreateRoomDialog.qml:217
 #, kde-format
@@ -1822,25 +1826,25 @@ msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
 "official parent."
 msgid "Make this parent official"
-msgstr "Rendi ufficiale questa genitore"
+msgstr "Padarīt šo vecākobjektu oficiālu"
 
 #: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
 #: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
-msgstr "Ok"
+msgstr "Labi"
 
 #: src/qml/CreateRoomDialog.qml:106
 #, kde-format
 msgid "Select Existing Room"
-msgstr "Seleziona stanza esistente"
+msgstr "Atlasiet pastāvošu istabu"
 
 #: src/qml/CreateRoomDialog.qml:112 src/qml/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
-msgstr "Scegli la stanza"
+msgstr "Izvēlieties istabu"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
@@ -1849,28 +1853,28 @@ msgstr "Scegli la stanza"
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
-msgstr "Esplora le stanze"
+msgstr "Izpētīt istabas"
 
 #: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:69
 #: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Joined"
-msgstr "Entrato"
+msgstr "Pievienojās"
 
 #: src/qml/CreateRoomDialog.qml:218
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
-"Disponi del livello di privilegio richiesto nel figlio per impostare questo "
-"stato"
+"Jums ir nepieciešamais privilēģiju līmenis bērnobjektā, lai iestatītu šo "
+"statusu"
 
 #: src/qml/CreateRoomDialog.qml:218
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
-"Non disponi di un livello di privilegio sufficientemente elevato nel figlio "
-"per impostare questo stato"
+"Jums nav nepieciešamais privilēģiju līmenis bērnobjektā, lai iestatītu šo "
+"statusu"
 
 #: src/qml/CreateRoomDialog.qml:235
 #, kde-format
@@ -1878,202 +1882,200 @@ msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr "Rendi questo spazio il genitore canonico"
+msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
 
 #: src/qml/DelegateContextMenu.qml:87
 #, kde-format
 msgid "View Source"
-msgstr "Visualizza sorgente"
+msgstr "Skatīt avotu"
 
 #: src/qml/DelegateContextMenu.qml:94 src/qml/FileDelegateContextMenu.qml:68
 #, kde-format
 msgid "Remove"
-msgstr "Rimuovi"
+msgstr "Noņemt"
 
 #: src/qml/DelegateContextMenu.qml:101 src/qml/FileDelegateContextMenu.qml:75
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
-msgstr "Rimuovi il messaggio"
+msgstr "Noņemt ziņu"
 
 #: src/qml/DelegateContextMenu.qml:117 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
-msgstr "Segnala"
+msgstr "Ziņot"
 
 #: src/qml/DelegateContextMenu.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
-msgstr "Messaggio della segnalazione"
+msgstr "Ziņot par ziņu"
 
 #: src/qml/DelegateContextMenu.qml:169
 #, kde-format
 msgid "Search for '%1'"
-msgstr "Cerca «%1»"
+msgstr "Meklēt „%1“"
 
 #: src/qml/DelegateContextMenu.qml:190
 #, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "Configura le scorciatoie web..."
+msgstr "Konfigurēt tīmekļa saīsnes..."
 
 #: src/qml/DeviceDelegate.qml:50
 #, kde-format
 msgctxt "@label"
 msgid "%1, Last activity: %2"
-msgstr "%1, ultima attività: %2"
+msgstr "%1, pēdējā aktivitāte: %2"
 
 #: src/qml/DeviceDelegate.qml:59
 #, kde-format
 msgid "New device name"
-msgstr "Nuovo nome del dispositivo"
+msgstr "Jauns ierīces nosaukums"
 
 #: src/qml/DeviceDelegate.qml:68
 #, kde-format
 msgid "Cancel editing display name"
-msgstr "Annulla la modifica del nome visualizzato"
+msgstr "Atcelt parādāmā vārda rediģēšanu"
 
 #: src/qml/DeviceDelegate.qml:75
 #, kde-format
 msgid "Confirm new display name"
-msgstr "Conferma il nuovo nome visualizzato"
+msgstr "Apstiprināt jauno parādāmo vārdu"
 
 #: src/qml/DeviceDelegate.qml:90
 #, kde-format
 msgid "Edit device name"
-msgstr "Modifica il nome del dispositivo"
+msgstr "Rediģēt ierīces nosaukumu"
 
 #: src/qml/DeviceDelegate.qml:104
 #, kde-format
 msgid "Verify device"
-msgstr "Verifica il dispositivo"
+msgstr "Pārbaudīt ierīci"
 
 #: src/qml/DeviceDelegate.qml:119
 #, kde-format
 msgid "Logout device"
-msgstr "Disconnetti il dispositivo"
+msgstr "Izrakstīt ierīci"
 
 #: src/qml/DevicesPage.qml:20 src/qml/Login.qml:38
 #: src/qml/NotificationsView.qml:34 src/qml/NotificationsView.qml:39
 #: src/timeline/LoadingDelegate.qml:11
 #, kde-format
 msgid "Loading…"
-msgstr "Caricamento…"
+msgstr "Ielādē..."
 
 #: src/qml/DevicesPage.qml:33
 #, kde-format
 msgid "This Device"
-msgstr "Questo dispositivo"
+msgstr "Šī ierīce"
 
 #: src/qml/DevicesPage.qml:38
 #, kde-format
 msgid "Verified Devices"
-msgstr "Dispositivi verificati"
+msgstr "Pārbaudītās ierīces"
 
 #: src/qml/DevicesPage.qml:43
 #, kde-format
 msgid "Unverified Devices"
-msgstr "Dispositivi non verificati"
+msgstr "Nepārbaudītās ierīces"
 
 #: src/qml/DevicesPage.qml:48
 #, kde-format
 msgid "Devices without Encryption Support"
-msgstr "Dispositivi con supporto della cifratura"
+msgstr "Ierīces bez šifrēšanas atbalsta"
 
 #: src/qml/DevicesPage.qml:63
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
-msgstr ""
-"Accedi per visualizzare i dispositivi su cui è stato eseguito l'accesso per "
-"il tuo account."
+msgstr "Lūdzu, ierakstieties, ka apskatītu šī konta ierakstītās ierīces."
 
 #: src/qml/DevicesPage.qml:75
 #, kde-format
 msgid "Remove device"
-msgstr "Rimuovi il dispositivo"
+msgstr "Noņemt ierīci"
 
 #: src/qml/DevicesPage.qml:81 src/qml/Password.qml:28
 #: src/qml/RegisterPassword.qml:20
 #, kde-format
 msgid "Password:"
-msgstr "Password:"
+msgstr "Parole:"
 
 #: src/qml/DevicesPage.qml:87
 #, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
-msgstr "Rimuovi"
+msgstr "Noņemt"
 
 #: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:127
 #, kde-format
 msgid "Developer Tools"
-msgstr "Strumenti per sviluppatori"
+msgstr "Rīki izstrādātājiem"
 
 #: src/qml/DevtoolsPage.qml:39
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Dati account"
+msgstr "Konta dati"
 
 #: src/qml/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
-msgstr "Flag di funzionalità"
+msgstr "Iespēju karodziņi"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr "Annulla"
+msgstr "Atsaukt"
 
 #: src/qml/EditMenu.qml:25
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr "Rifai"
+msgstr "Atatsaukt"
 
 #: src/qml/EditMenu.qml:37
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
-msgstr "Taglia"
+msgstr "Izgriezt"
 
 #: src/qml/EditMenu.qml:47
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
-msgstr "Copia"
+msgstr "Kopēt"
 
 #: src/qml/EditMenu.qml:57
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
-msgstr "Incolla"
+msgstr "Ielīmēt"
 
 #: src/qml/EditMenu.qml:67
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr "Elimina"
+msgstr "Dzēst"
 
 #: src/qml/EditMenu.qml:79
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr "Seleziona tutto"
+msgstr "Atlasīt visu"
 
 #: src/qml/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr "Aggiungi un indirizzo di posta elettronica:"
+msgstr "Pievienot e-pasta adresi:"
 
 #: src/qml/Email.qml:33
 #, kde-format
 msgid "Confirm e-mail address"
-msgstr "Conferma l'indirizzo di posta elettronica"
+msgstr "Apstiprināt e-pasta adresi"
 
 #: src/qml/Email.qml:35
 #, kde-format
@@ -2081,142 +2083,141 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
-"Una messaggio di posta di conferma è stato inviato al tuo indirizzo. "
-"Continua qui <b>dopo</b> aver fatto clic sul collegamento di conferma  nel "
-"messaggio"
+"Uz jūsu e-pasta adresi ir nosūtīta apstiprinājum vēstule. Turpiniet <b>pēc</"
+"b> noklikšķināšanas uz apstiprinājuma saites šajā e-pastā"
 
 #: src/qml/Email.qml:40
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr "Invia nuovamente il messaggio di conferma"
+msgstr "Atkātoti nosūtīt apstiprinājuma e-pastu"
 
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
-msgstr "Nessun adesivo"
+msgstr "Nav uzlīmju"
 
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No emojis"
-msgstr "Nessun emoji"
+msgstr "Nav emocijzīmju"
 
 #: src/qml/EmojiPicker.qml:52 src/qml/EmoticonsPage.qml:19
 #, kde-format
 msgid "Emojis"
-msgstr "Emoji"
+msgstr "Emocijzīmes"
 
 #: src/qml/EmojiPicker.qml:59 src/qml/EmoticonsPage.qml:27
 #, kde-format
 msgid "Stickers"
-msgstr "Adesivi"
+msgstr "Uzlīmes"
 
 #: src/qml/EmojiSas.qml:25
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
-"Conferma che gli emoji sottostanti siano visualizzati su entrambi i "
-"dispositivi, nello stesso ordine."
+"Apstipriniet, ka zemāk redzamā emocijzīme ir parādīta abās ierīcēs un šādā "
+"secībā."
 
 #: src/qml/EmojiSas.qml:41
 #, kde-format
 msgid "They match"
-msgstr "Corrispondono"
+msgstr "Tās atbilst"
 
 #: src/qml/EmojiSas.qml:47
 #, kde-format
 msgid "They don't match"
-msgstr "Non corrispondono"
+msgstr "Tās neatbilst"
 
 #: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
-msgstr "Modifica emoji"
+msgstr "Rediģēt emocijzīmi"
 
 #: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "Modifica adesivo"
+msgstr "Rediģēt uzlīmi"
 
 #: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
 #, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
-msgstr "Aggiungi emoji"
+msgstr "Pievienot emocijzīmi"
 
 #: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
 #, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "Aggiungi adesivo"
+msgstr "Pievienot uzlīmi"
 
 #: src/qml/EmoticonEditorPage.qml:30
 #, kde-format
 msgid "Sticker"
-msgstr "Adesivo"
+msgstr "Uzlīme"
 
 #: src/qml/EmoticonEditorPage.qml:30
 #, kde-format
 msgid "Emoji"
-msgstr "Emoji"
+msgstr "Emocijzīme"
 
 #: src/qml/EmoticonEditorPage.qml:59
 #, kde-format
 msgid "Change Image"
-msgstr "Cambia immagine"
+msgstr "Nomainīt attēlu"
 
 #: src/qml/EmoticonEditorPage.qml:59
 #, kde-format
 msgid "Set Image"
-msgstr "Imposta immagine"
+msgstr "Iestatīt attēlu"
 
 #: src/qml/EmoticonEditorPage.qml:98
 #, kde-format
 msgid "Shortcode:"
-msgstr "Scorciatoia:"
+msgstr "Īsais kods:"
 
 #: src/qml/EmoticonEditorPage.qml:103
 #, kde-format
 msgid "Description:"
-msgstr "Descrizione:"
+msgstr "Apraksts:"
 
 #: src/qml/EmoticonFormCard.qml:71
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
-msgstr "Nessuna descrizione"
+msgstr "Nav apraksta"
 
 #: src/qml/EmoticonFormCard.qml:112
 #, kde-format
 msgid "Add Emoji"
-msgstr "Aggiungi emoji"
+msgstr "Pievienot emocijzīmi"
 
 #: src/qml/EmoticonFormCard.qml:112
 #, kde-format
 msgid "Add Sticker"
-msgstr "Aggiungi adesivo"
+msgstr "Pievienot uzlīmi"
 
 #: src/qml/EmoticonsPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Stickers & Emojis"
-msgstr "Adesivi ed emoji"
+msgstr "Uzlīmes un emocijzīmes"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
 #: src/qml/RoomListPage.qml:240
 #, kde-format
 msgid "Explore rooms"
-msgstr "Esplora le stanze"
+msgstr "Izpētīt istabas"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
 #: src/qml/RoomListPage.qml:208 src/qml/RoomListPage.qml:257
 #, kde-format
 msgid "Find your friends"
-msgstr "Trova i tuoi amici"
+msgstr "Atrast draugus"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
 #: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:216
@@ -2224,55 +2225,55 @@ msgstr "Trova i tuoi amici"
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
-msgstr "Trova i tuoi amici"
+msgstr "Atrast draugus"
 
 #: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
 msgid "Create a Room"
-msgstr "Crea una stanza"
+msgstr "Izveidot istabu"
 
 #: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:156
 #, kde-format
 msgid "Create a Space"
-msgstr "Crea uno spazio"
+msgstr "Izveidot telpu"
 
 #: src/qml/ExploreComponent.qml:93 src/qml/ExploreComponent.qml:154
 #, kde-format
 msgid "Create rooms and chats"
-msgstr "Crea stanze e chat"
+msgstr "Izveidot telpas un tērzētavas"
 
 #: src/qml/ExploreComponentMobile.qml:79
 #, kde-format
 msgid "Create New"
-msgstr "Crea nuovo"
+msgstr "Izveidot jaunu"
 
 #: src/qml/ExploreRoomsPage.qml:46
 #, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
-msgstr "Esplora le stanze"
+msgstr "Izpētīt istabas"
 
 #: src/qml/ExploreRoomsPage.qml:73
 #, kde-format
 msgid "Enter a room address"
-msgstr "Digita l'indirizzo di una stanza"
+msgstr "Ievadiet istabas adresi"
 
 #: src/qml/ExploreRoomsPage.qml:87
 #, kde-format
 msgid "Find a room…"
-msgstr "Trova una stanza…"
+msgstr "Atrast istabu..."
 
 #: src/qml/ExploreRoomsPage.qml:88
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
-msgstr "Nessuna stanza pubblica trovata"
+msgstr "Nav atrastas publiskas istabas"
 
 #: src/qml/FeatureFlagPage.qml:21
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
-msgstr "Conversazioni"
+msgstr "Pavedieni"
 
 #: src/qml/FeatureFlagPage.qml:27
 #, kde-format
@@ -2283,297 +2284,288 @@ msgstr ""
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
 msgid "Open Externally"
-msgstr "Apri esternamente"
+msgstr "Atvērt ārēji"
 
 #: src/qml/FileDelegateContextMenu.qml:50
 #, kde-format
 msgid "Save As"
-msgstr "Salva come"
+msgstr "Saglabāt kā"
 
 #: src/qml/FileDelegateContextMenu.qml:60
 #: src/qml/MessageDelegateContextMenu.qml:65
 #, kde-format
 msgid "Copy"
-msgstr "Copia"
+msgstr "Kopēt"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
 msgid "View Location"
-msgstr "Visualizza posizione"
+msgstr "Skatīt vietu"
 
 #: src/qml/FullScreenMap.qml:68
 #, kde-format
 msgid "Close"
-msgstr "Chiudi"
+msgstr "Aizvērt"
 
 #: src/qml/General.qml:25
 #, kde-format
 msgid "Room Information"
-msgstr "Informazioni sulla stanza"
+msgstr "Istabas informācija"
 
 #: src/qml/General.qml:47
 #, kde-format
 msgid "Update avatar"
-msgstr "Aggiorna avatar"
+msgstr "Atjaunināt attēlu"
 
 #: src/qml/General.qml:70
 #, kde-format
 msgid "Room name:"
-msgstr "Nome stanza:"
+msgstr "Istabas nosaukums:"
 
 #: src/qml/General.qml:80
 #, kde-format
 msgid "Room topic:"
-msgstr "Argomento della stanza:"
+msgstr "Istabas tēma:"
 
 #: src/qml/General.qml:119
 #, kde-format
 msgid "Room ID"
-msgstr "ID stanza"
+msgstr "Istabas ID"
 
 #: src/qml/General.qml:124
 #, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Copia l'ID della stanza negli appunti"
+msgstr "Kopēt starpliktuvē istabas ID"
 
 #: src/qml/General.qml:138
 #, kde-format
 msgid "Room version"
-msgstr "Versione della stanza"
+msgstr "Istabas versija"
 
 #: src/qml/General.qml:144
 #, kde-format
 msgid "Upgrade Room"
-msgstr "Aggiorna stanza"
+msgstr "Atjaunināt istabu"
 
 #: src/qml/General.qml:163
 #, kde-format
 msgid "Aliases"
-msgstr "Alias"
+msgstr "Aizstājējvārdi"
 
 #: src/qml/General.qml:168
 #, kde-format
 msgid "No canonical alias set"
-msgstr "Nessun alias canonico impostato"
+msgstr "Nav iestatīti kanoniskie aizstājējvārdi"
 
 #: src/qml/General.qml:181
 #, kde-format
 msgid "Make this alias the room's canonical alias"
-msgstr "Rendi questo alias l'alias canonico della stanza"
+msgstr "Padarīt šo aizstājējvārdu par istabas kanonisko aizstājējvārdu"
 
 #: src/qml/General.qml:196
 #, kde-format
 msgid "Delete alias"
-msgstr "Elimina alias"
+msgstr "Dzēst aizstājējvārdu"
 
 #: src/qml/General.qml:220
 #, kde-format
 msgid "#new_alias:server.org"
-msgstr "#nuovo_alias:server.org"
+msgstr "#jauns_aizstājējvārds:serveris.org"
 
 #: src/qml/General.qml:237
 #, kde-format
 msgid "Add new alias"
-msgstr "Aggiungi nuovo alias"
+msgstr "Pievienot jaunu aizstājējvārdu"
 
 #: src/qml/General.qml:257
 #, kde-format
 msgid "URL Previews"
-msgstr "Anteprime URL"
+msgstr "URL priekšskatījumi"
 
 #: src/qml/General.qml:261
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
-"Abilita le anteprime degli URL per impostazione predefinita per i membri "
-"della stanza"
+msgstr "Ieslēgt URL priekšskatīšanu pēc noklusējuma istabas dalībniekiem"
 
 #: src/qml/General.qml:269
 #, kde-format
 msgid "Enable URL previews"
-msgstr "Abilita le anteprime degli URL"
+msgstr "Ieslēgt URL priekšskatījumus"
 
 #: src/qml/General.qml:271
 #, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr ""
-"Le anteprime degli URL sono abilitate per impostazione predefinita in questa "
-"stanza virtuale"
+msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir ieslēgti"
 
 #: src/qml/General.qml:271
 #, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr ""
-"Le anteprime degli URL sono disattivate per impostazione predefinita in "
-"questa stanza virtuale"
+msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir izslēgti"
 
 #: src/qml/General.qml:279
 #, kde-format
 msgid "Official Parent Spaces"
-msgstr "Spazi genitori ufficiali"
+msgstr "Oficiālās vecākobjektu telpas"
 
 #: src/qml/General.qml:312
 #, kde-format
 msgid "Canonical"
-msgstr "Canonico"
+msgstr "Kanonisks"
 
 #: src/qml/General.qml:319
 #, kde-format
 msgid "Make canonical parent"
-msgstr "Crea genitore canonico"
+msgstr "Izveidot kanonisku vecākobjektu"
 
 #: src/qml/General.qml:331
 #, kde-format
 msgid "Remove parent"
-msgstr "Rimuovi genitore"
+msgstr "Noņemt vecākobjektu"
 
 #: src/qml/General.qml:344
 #, kde-format
 msgid "This room has no official parent spaces."
-msgstr "Questa stanza non ha spazi genitori ufficiali."
+msgstr "Šai telpai nav oficiālas vecākobjekta telpas."
 
 #: src/qml/General.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
-msgstr "Aggiungi un nuovo genitore ufficiale"
+msgstr "Pievienot jaunu oficiālo vecākobjektu"
 
 #: src/qml/General.qml:363
 #, kde-format
 msgid "This room continues another conversation."
-msgstr "Questa stanza continua un'altra conversazione."
+msgstr "Šī istaba turpina citu sarunu"
 
 #: src/qml/General.qml:367
 #, kde-format
 msgid "See older messages…"
-msgstr "Vedi i messaggi più datati..."
+msgstr "Skatīt vecākas ziņas..."
 
 #: src/qml/General.qml:377
 #, kde-format
 msgid "This room has been replaced."
-msgstr "Questa stanza è stata sostituita."
+msgstr "Šī istaba ir aizstāta"
 
 #: src/qml/General.qml:381
 #, kde-format
 msgid "See new room…"
-msgstr "Vedi la nuova stanza…"
+msgstr "Skatīt jauno istabu..."
 
 #: src/qml/General.qml:404
 #, kde-format
 msgid "Upgrade the Room"
-msgstr "Aggiorna la stanza"
+msgstr "Atjaunināt istabu"
 
 #: src/qml/General.qml:408
 #, kde-format
 msgid "Select new version"
-msgstr "Seleziona la nuova versione"
+msgstr "Izvēlēties jauno versiju"
 
 #: src/qml/General.qml:416 src/qml/PowerLevelDialog.qml:61
 #, kde-format
 msgid "Confirm"
-msgstr "Conferma"
+msgstr "Apstiprināt"
 
 #: src/qml/GeneralSettingsPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
-msgstr "Generale"
+msgstr "Pamata"
 
 #: src/qml/GeneralSettingsPage.qml:18
 #, kde-format
 msgid "General settings"
-msgstr "Impostazioni generali"
+msgstr "Pamata iestatījumi"
 
 #: src/qml/GeneralSettingsPage.qml:24
 #, kde-format
 msgid "Show in System Tray"
-msgstr "Mostra nel vassoio di sistema"
+msgstr "Rādīt sistēmas ikonu joslā"
 
 #: src/qml/GeneralSettingsPage.qml:41
 #, kde-format
 msgid "Minimize to system tray on startup"
-msgstr "Minimizza nel vassoio di sistema all'avvio"
+msgstr "Ieslēdzoties minimizēt sistēmas ikonu joslā"
 
 #: src/qml/GeneralSettingsPage.qml:58
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
-msgstr ""
-"Nascondi/mostra automaticamente le informazioni sulla stanza durante il "
-"ridimensionamento della finestra"
+msgstr "Automātiski slēpt/rādīt istabas informāciju, mainot loga izmēru"
 
 #: src/qml/GeneralSettingsPage.qml:69
 #, kde-format
 msgid "Room list sort order"
-msgstr "Ordinamento dell'elenco delle stanze"
+msgstr "Istabu saraksta kārtošana secība"
 
 #: src/qml/GeneralSettingsPage.qml:73
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
-msgstr "Attività"
+msgstr "Aktivitāte"
 
 #: src/qml/GeneralSettingsPage.qml:82
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
-msgstr "Alfabetico"
+msgstr "Alfabētiski"
 
 #: src/qml/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Timeline Events"
-msgstr "Eventi della linea temporale"
+msgstr "Notikumu laika josla"
 
 #: src/qml/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Show deleted messages"
-msgstr "Mostra i messaggi eliminati"
+msgstr "Rādīt dzēstās ziņas"
 
 #: src/qml/GeneralSettingsPage.qml:113
 #, kde-format
 msgid "Show state events"
-msgstr "Mostra gli eventi di stato"
+msgstr "Rādīt statusa notikumus"
 
 #: src/qml/GeneralSettingsPage.qml:131
 #, kde-format
 msgid "Show leave and join events"
-msgstr "Mostra eventi di uscita ed entrata"
+msgstr "Rādīt pamešanas un pievienošanās notikumus"
 
 #: src/qml/GeneralSettingsPage.qml:149
 #, kde-format
 msgid "Show name change events"
-msgstr "Mostra gli eventi di cambio dei nomi"
+msgstr "Rādīt nosaukuma maiņas notikumus"
 
 #: src/qml/GeneralSettingsPage.qml:167
 #, kde-format
 msgid "Show avatar update events"
-msgstr "Mostra gli eventi di aggiornamento degli avatar"
+msgstr "Rādīt attēla atjaunināšanas notikumus"
 
 #: src/qml/GeneralSettingsPage.qml:177
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
-msgstr "Editor"
+msgstr "Redaktors"
 
 #: src/qml/GeneralSettingsPage.qml:182
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
-msgstr ""
-"usa la sintassi s/testo/sostituzione per modificare il tuo ultimo messaggio"
+msgstr "Izmantot „s/teksts/aizstājējs“ sintaksi, lai rediģētu pēdējo ziņojumu"
 
 #: src/qml/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Send typing notifications"
-msgstr "Invia le notifiche di digitazione"
+msgstr "Sūtīt rakstīšanas paziņojumus"
 
 #: src/qml/GeneralSettingsPage.qml:206
 #, kde-format
 msgid "Developer Settings"
-msgstr "Impostazioni per sviluppatori"
+msgstr "Iestatījumi izstrādātājiem"
 
 #: src/qml/GeneralSettingsPage.qml:210
 #, kde-format
 msgid "Enable developer tools"
-msgstr "Abilita gli strumenti per sviluppatori"
+msgstr "Ieslēgt rīkus izstrādātājiem"
 
 #: src/qml/GlobalMenu.qml:20
 #, kde-format
@@ -2584,55 +2576,55 @@ msgstr "NeoChat"
 #: src/qml/GlobalMenu.qml:27
 #, kde-format
 msgid "Configure NeoChat..."
-msgstr "Configura NeoChat..."
+msgstr "Konfigurēt „NeoChat“..."
 
 #: src/qml/GlobalMenu.qml:28
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
-msgstr "Configura NeoChat..."
+msgstr "Konfigurēt „NeoChat“..."
 
 #: src/qml/GlobalMenu.qml:40
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
-msgstr "Chiudi NeoChat"
+msgstr "Iziet no „NeoChat“"
 
 #: src/qml/GlobalMenu.qml:47
 #, kde-format
 msgctxt "menu"
 msgid "File"
-msgstr "File"
+msgstr "Datne"
 
 #: src/qml/GlobalMenu.qml:50
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
-msgstr "Trova i tuoi amici"
+msgstr "Atrast draugus"
 
 #: src/qml/GlobalMenu.qml:59
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
-msgstr "Nuovo gruppo…"
+msgstr "Jauna grupa..."
 
 #: src/qml/GlobalMenu.qml:68
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
-msgstr "Sfoglia chat…"
+msgstr "Pārlūkot tērzēšanas..."
 
 #: src/qml/GlobalMenu.qml:82
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
-msgstr "Modifica"
+msgstr "Rediģēt"
 
 #: src/qml/GlobalMenu.qml:86
 #, kde-format
 msgctxt "menu"
 msgid "View"
-msgstr "Visualizza"
+msgstr "Skats"
 
 #: src/qml/GlobalMenu.qml:89
 #, kde-format
@@ -2640,159 +2632,159 @@ msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
 msgid "Open Quick Switcher"
-msgstr "Apri il selettore rapido"
+msgstr "Atvērt ātro pārslēgšanos"
 
 #: src/qml/GlobalMenu.qml:95
 #, kde-format
 msgctxt "menu"
 msgid "Window"
-msgstr "Finestra"
+msgstr "Logs"
 
 #: src/qml/GlobalMenu.qml:102
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
-msgstr "Esci da schermo intero"
+msgstr "Iziet no pilnekrāna"
 
 #: src/qml/GlobalMenu.qml:102
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
-msgstr "Schermo intero"
+msgstr "Ieslēgt pilnekrānu"
 
 #: src/qml/GlobalMenu.qml:108
 #, kde-format
 msgctxt "menu"
 msgid "Help"
-msgstr "Aiuto"
+msgstr "Palīdzība"
 
 #: src/qml/GlobalMenu.qml:111
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
-msgstr "FAQ di Matrix"
+msgstr "„Matrix“ BUJ"
 
 #: src/qml/GlobalNotificationsPage.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
-msgstr "Notifiche"
+msgstr "Paziņojumi"
 
 #: src/qml/GlobalNotificationsPage.qml:28
 #, kde-format
 msgid "Enable notifications for this account"
-msgstr "Abilita le notifiche per questo account"
+msgstr "Ieslēgt paziņojumus šim kontam"
 
 #: src/qml/GlobalNotificationsPage.qml:29
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
-msgstr "Se le notifiche push sono generate dal tuo server Matrix"
+msgstr "Ja jūsu „Matrix“ serveris ģenerē pašpiegādes paziņojumus"
 
 #: src/qml/GlobalNotificationsPage.qml:39
 #, kde-format
 msgid "Room Notifications"
-msgstr "Notifiche delle stanza"
+msgstr "Istabas paziņojumi"
 
 #: src/qml/GlobalNotificationsPage.qml:56
 #, kde-format
 msgid "@Mentions"
-msgstr "@Menzioni"
+msgstr "@Pieminējumi"
 
 #: src/qml/GlobalNotificationsPage.qml:73 src/qml/PushNotification.qml:65
 #, kde-format
 msgid "Keywords"
-msgstr "Parole chiave"
+msgstr "Atslēgas vārdi"
 
 #: src/qml/GlobalNotificationsPage.qml:97 src/qml/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
-msgstr "Parola chiave…"
+msgstr "Atslēgas vārds..."
 
 #: src/qml/GlobalNotificationsPage.qml:116 src/qml/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
-msgstr "Aggiungi parola chiave"
+msgstr "Pievienot atslēgas vārdu"
 
 #: src/qml/GlobalNotificationsPage.qml:137
 #, kde-format
 msgid "Invites"
-msgstr "Inviti"
+msgstr "Uzaicinājumi"
 
 #: src/qml/GlobalNotificationsPage.qml:154
 #, kde-format
 msgid "Unknown"
-msgstr "Sconosciuto"
+msgstr "Nezināms"
 
 #: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
-msgstr "Nessun nome"
+msgstr "Bez vārda"
 
 #: src/qml/Homeserver.qml:21
 #, kde-format
 msgid "Server Url:"
-msgstr "Url del server:"
+msgstr "Servera URL:"
 
 #: src/qml/Homeserver.qml:26
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr "La registrazione è disabilitata su questo server."
+msgstr "Šajā serverī reģistrācija ir izslēgta."
 
 #: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
 #, kde-format
 msgid "Loading"
-msgstr "Caricamento"
+msgstr "Ielādē"
 
 #: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr "Questo messaggio è stato inviato da un dispositivo verificato"
+msgstr "Šis ziņojums ir nosūtīts no pārbaudītas ierīces"
 
 #: src/qml/HoverActions.qml:88
 #, kde-format
 msgid "React"
-msgstr "Reagisci"
+msgstr "Reaģēt"
 
 #: src/qml/HoverActions.qml:113
 #, kde-format
 msgid "Reply in Thread"
-msgstr "Rispondi nella conversazione"
+msgstr "Atbildēt pavedienā"
 
 #: src/qml/IgnoredUsersDialog.qml:18
 #, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Utenti ignorati"
+msgstr "Ignorētie lietotāji"
 
 #: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
 #, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Utenti ignorati"
+msgstr "Ignorētie lietotāji"
 
 #: src/qml/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr "Non stai ignorando alcun utente"
+msgstr "Jūs nevienu lietotāju neignorējat"
 
 #: src/qml/IgnoredUsersDialog.qml:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr "Non ignorare questo utente"
+msgstr "Beigt ignorēt šo lietotāju"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
-msgstr "Annulla"
+msgstr "Atsaukt"
 
 #: src/qml/ImageEditorPage.qml:44
 #, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Accept"
-msgstr "Accetta"
+msgstr "Pieņemt"
 
 #: src/qml/ImageEditorPage.qml:52
 #, kde-format
@@ -2800,211 +2792,211 @@ msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
 "cache directory."
 msgstr ""
-"Impossibile salvare il file. Controlla se hai il permesso per modificare la "
-"cartella della cache."
+"Neizdodas saglabāt datni. Pārbaudiet, vai jums ir nepieciešamās atļaujas "
+"kešatmiņas mapes rediģēšanai."
 
 #: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
-msgstr "Ritaglia"
+msgstr "Kadrēt"
 
 #: src/qml/ImageEditorPage.qml:145
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
-msgstr "Ruota a sinistra"
+msgstr "Pagriezt pa kreisi"
 
 #: src/qml/ImageEditorPage.qml:151
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
-msgstr "Ruota a destra"
+msgstr "Pagriezt pa labi"
 
 #: src/qml/ImageEditorPage.qml:157
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
-msgstr "Ribalta"
+msgstr "Apmest"
 
 #: src/qml/ImageEditorPage.qml:163
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
-msgstr "Rispecchia"
+msgstr "Spoguļot"
 
 #: src/qml/InvitationView.qml:17
 #, kde-format
 msgid "Accept this invitation?"
-msgstr "Vuoi accettare questo invito?"
+msgstr "Vai pieņemt šo ielūgumu?"
 
 #: src/qml/InvitationView.qml:21
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr "Rifiuta e ignora l'utente"
+msgstr "Noraidīt un ignorēt lietotāju"
 
 #: src/qml/InvitationView.qml:30
 #, kde-format
 msgid "Reject"
-msgstr "Rifiuta"
+msgstr "Noraidīt"
 
 #: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:81
 #, kde-format
 msgid "Accept"
-msgstr "Accetta"
+msgstr "Pieņemt"
 
 #: src/qml/InviteUserPage.qml:19
 #, kde-format
 msgid "Invite a User"
-msgstr "Invita un utente"
+msgstr "Uzaicināt lietotāju"
 
 #: src/qml/InviteUserPage.qml:37
 #, kde-format
 msgid "Find a user..."
-msgstr "Trova un utente..."
+msgstr "Atrast lietotāju..."
 
 #: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
 #, kde-format
 msgid "Add"
-msgstr "Aggiungi"
+msgstr "Pievienot"
 
 #: src/qml/InviteUserPage.qml:70
 #, kde-format
 msgid "No users available"
-msgstr "Nessun utente disponibile"
+msgstr "Nav lietotāju"
 
 #: src/qml/InviteUserPage.qml:101
 #, kde-format
 msgid "Send invitation"
-msgstr "Invia l'invito"
+msgstr "Nosūtīt uzaicinājumu"
 
 #: src/qml/InviteUserPage.qml:115
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr "L'utente è già membro o è stato invitato"
+msgstr "Lietotājs ir jau dalībnieks vai ir uzaicināts"
 
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
-msgstr "Verifica della sessione"
+msgstr "Sesijas verifikācija"
 
 #: src/qml/KeyVerificationDialog.qml:40
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr "In attesa che il dispositivo accetti la verifica."
+msgstr "Gaida ierīci verifikācijas pieņemšanai."
 
 #: src/qml/KeyVerificationDialog.qml:46
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr "Richiesta di verifica della chiave in entrata dal dispositivo **%1**"
+msgstr "Ienākošs atslēgas verifikācijas pieprasījums no ierīces **%1**"
 
 #: src/qml/KeyVerificationDialog.qml:52
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr "In attesa che l'altra parte verifichi."
+msgstr "Gaida otras puses verifikāciju."
 
 #: src/qml/KeyVerificationDialog.qml:56
 #, kde-format
 msgid "Emoji Verification"
-msgstr "Verifica emoji"
+msgstr "Emocijzīmju verifikācija"
 
 #: src/qml/KeyVerificationDialog.qml:59
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr "Confronta un insieme di emoji su entrambi i dispositivi"
+msgstr "Salīdzināt emocijzīmes abās ierīcēs"
 
 #: src/qml/KeyVerificationDialog.qml:68
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr "Dispositivo **%1** verificato correttamente"
+msgstr "Veiksmīgi verificēt ierīce **%1**"
 
 #: src/qml/KeyVerificationDialog.qml:87
 #, kde-format
 msgid "Decline"
-msgstr "Rifiuta"
+msgstr "Noraidīt"
 
 #: src/qml/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
-msgstr "Attendi. Questo potrebbe richiedere del tempo."
+msgstr "Uzgaidiet kādu brīdi..."
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
-msgstr "Scegli una località"
+msgstr "Izvēlieties atrašanās vietu"
 
 #: src/qml/LocationChooser.qml:27
 #, kde-format
 msgid "Send this location"
-msgstr "Invia questa località"
+msgstr "Nosūtīt šo atrašanās vietu"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:112
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
-msgstr "Posizioni"
+msgstr "Atrašanās vietas"
 
 #: src/qml/LocationsPage.qml:51
 #, kde-format
 msgid "There are no locations shared in this room."
-msgstr "Non ci sono posizioni condivise in questa stanza."
+msgstr "Šajā istabā nav kopīgotas atrašanās vietas."
 
 #: src/qml/Login.qml:25
 #, kde-format
 msgid "Matrix ID:"
-msgstr "ID Matrix:"
+msgstr "„Matrix“ ID:"
 
 #: src/qml/Login.qml:27
 #, kde-format
 msgid "Matrix ID"
-msgstr "ID Matrix"
+msgstr "„Matrix“ ID"
 
 #: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
-msgstr "Continua"
+msgstr "Turpināt"
 
 #: src/qml/Login.qml:38
 #, kde-format
 msgid "Already logged in"
-msgstr "Accesso già eseguito"
+msgstr "Jau ierakstījies"
 
 #: src/qml/LoginMethod.qml:20
 #, kde-format
 msgctxt "@action:button"
 msgid "Login with password"
-msgstr "Accesso con password"
+msgstr "Ierakstīties ar paroli"
 
 #: src/qml/LoginMethod.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
-msgstr "Accedi con single sign-on"
+msgstr "Ierakstīties ar vienoto ierakstīšanos"
 
 #: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
-msgstr "Accesso"
+msgstr "Ierakstīties"
 
 #: src/qml/LoginRegister.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
-msgstr "Registra"
+msgstr "Reģistrēties"
 
 #: src/qml/main.qml:357
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "Verifica della sessione"
+msgstr "Sesijas verifikācija"
 
 #: src/qml/main.qml:374
 #, kde-format
 msgid "User consent"
-msgstr "Consenso dell'utente"
+msgstr "Lietotāja piekrišana"
 
 #: src/qml/main.qml:379
 #, kde-format
@@ -3012,122 +3004,122 @@ msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
-"Il tuo server ti richiede di accettare i suoi termini e le sue condizioni "
-"prima di poterlo utilizzare. Fai clic sul pulsante in basso per leggerli."
+"Jūsu mājas serveris pieprasa piekrist tā noteikumiem pirms tā izmantošanas. "
+"Spiediet uz pogas, lai tos izlasītu."
 
 #: src/qml/main.qml:384
 #, kde-format
 msgid "Open"
-msgstr "Apri"
+msgstr "Atvērt"
 
 #: src/qml/main.qml:411
 #, kde-format
 msgid "Start a chat"
-msgstr "Avvia una chat"
+msgstr "Uzsākt tērzēšanu"
 
 #: src/qml/main.qml:413
 #, kde-format
 msgid "Do you want to start a chat with %1?"
-msgstr "Vuoi iniziare una chat con %1?"
+msgstr "Vai vēlaties uzsākt tērzēšanu ar „%1“?"
 
 #: src/qml/main.qml:439
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
-msgstr "Il collegamento attualmente selezionato"
+msgstr "Pašreiz atlasītā saite"
 
 #: src/qml/main.qml:471 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
-msgstr "Condivisione"
+msgstr "Kopīgot"
 
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
-msgstr "ID stanza o alias"
+msgstr "Istabas ID vai aizstājējvārds"
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:37
 #: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
-msgstr "OK"
+msgstr "Labi"
 
 #: src/qml/ManualRoomDialog.qml:80
 #, kde-format
 msgid "Room ID or Alias:"
-msgstr "ID stanza o alias:"
+msgstr "Istabas ID vai aizstājējvārds:"
 
 #: src/qml/ManualRoomDialog.qml:83 src/qml/ManualRoomDialog.qml:91
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
-msgstr "Deve iniziare con # per un alias o ! per un ID"
+msgstr "Aizstājējvārdam jāsākas ar #, bet ID ar !"
 
 #: src/qml/ManualRoomDialog.qml:89
 #, kde-format
 msgid "The input is not a valid room ID or alias"
-msgstr "Il testo digitato non è un ID stanza o alias valido"
+msgstr "Ievadītais nav derīgas istabas ID vai aizstājējvārds"
 
 #: src/qml/ManualUserDialog.qml:25
 #, kde-format
 msgctxt "@title"
 msgid "User ID"
-msgstr "ID utente"
+msgstr "Lietotāja ID"
 
 #: src/qml/ManualUserDialog.qml:53
 #, kde-format
 msgid "User ID:"
-msgstr "ID utente:"
+msgstr "Lietotāja ID:"
 
 #: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
 #, kde-format
 msgid "User IDs Must start with @"
-msgstr "Gli ID utente devono iniziare con @"
+msgstr "Lietotāja ID ir jāsākas ar @"
 
 #: src/qml/ManualUserDialog.qml:62
 #, kde-format
 msgid "The input is not a valid user ID"
-msgstr "Il testo digitato non è un ID utente valido"
+msgstr "Ievadītais nav derīgs lietotāja ID"
 
 #: src/qml/MessageDelegateContextMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
-msgstr "Avanti"
+msgstr "Pārsūtīt"
 
 #: src/qml/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "Inoltra messaggio"
+msgstr "Pārsūtīt ziņu"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
 msgid "Copy Link"
-msgstr "Copia collegamento"
+msgstr "Kopēt saiti"
 
 #: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
 #: src/qml/RoomData.qml:83
 #, kde-format
 msgid "Event Source"
-msgstr "Sorgente dell'evento"
+msgstr "Notikuma avots"
 
 #: src/qml/NetworkProxyPage.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
-msgstr "Proxy"
+msgstr "Starpniekserveris"
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
 msgid "Network Proxy"
-msgstr "Proxy di rete"
+msgstr "Tīkla starpniekserveris"
 
 #: src/qml/NetworkProxyPage.qml:26
 #, kde-format
 msgid "System Default"
-msgstr "Impostazioni predefinite di sistema"
+msgstr "Sistēmas noklusējums"
 
 #: src/qml/NetworkProxyPage.qml:34
 #, kde-format
@@ -3142,47 +3134,47 @@ msgstr "Socks5"
 #: src/qml/NetworkProxyPage.qml:52
 #, kde-format
 msgid "Proxy Settings"
-msgstr "Impostazioni del proxy"
+msgstr "Starpniekservera iestatījumi"
 
 #: src/qml/NetworkProxyPage.qml:57
 #, kde-format
 msgid "Host"
-msgstr "Host"
+msgstr "Saimniekdators"
 
 #: src/qml/NetworkProxyPage.qml:66
 #, kde-format
 msgid "Port"
-msgstr "Porta"
+msgstr "Ports"
 
 #: src/qml/NetworkProxyPage.qml:79
 #, kde-format
 msgid "User"
-msgstr "Utente"
+msgstr "Lietotājs"
 
 #: src/qml/NetworkProxyPage.qml:106
 #, kde-format
 msgid "Apply"
-msgstr "Applica"
+msgstr "Pielietot"
 
 #: src/qml/NotificationRuleItem.qml:70
 #, kde-format
 msgid "Disable notifications"
-msgstr "Disabilita le notifiche"
+msgstr "Izslēgt paziņojumus"
 
 #: src/qml/NotificationRuleItem.qml:70
 #, kde-format
 msgid "Enable notifications"
-msgstr "Abilita le notifiche"
+msgstr "Ieslēgt paziņojumus"
 
 #: src/qml/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Mute notifications"
-msgstr "Silenzia le notifiche"
+msgstr "Apklusināt paziņojumus"
 
 #: src/qml/NotificationRuleItem.qml:92
 #, kde-format
 msgid "Unmute notifications"
-msgstr "Rimuovi il silenzio alle notifiche"
+msgstr "Atskaņot paziņojumus"
 
 #: src/qml/NotificationRuleItem.qml:113
 #, kde-format
@@ -3190,7 +3182,7 @@ msgctxt ""
 "As in clicking this button will switch off highlights for messages that "
 "match this rule"
 msgid "Disable message highlights"
-msgstr "Disabilita le evidenziazioni dei messaggi"
+msgstr "Izslēgt ziņu izcelšanu"
 
 #: src/qml/NotificationRuleItem.qml:113
 #, kde-format
@@ -3198,275 +3190,273 @@ msgctxt ""
 "As in clicking this button will switch on highlights for messages that match "
 "this rule"
 msgid "Enable message highlights"
-msgstr "Abilita le evidenziazioni dei messaggi"
+msgstr "Ieslēgt ziņu izcelšanu"
 
 #: src/qml/NotificationRuleItem.qml:135
 #, kde-format
 msgid "Delete keyword"
-msgstr "Elimina la parola chiave"
+msgstr "Dzēst atslēgas vārdu"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:80
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
-msgstr "Notifiche"
+msgstr "Paziņojumi"
 
 #: src/qml/NotificationsView.qml:34
 #, kde-format
 msgid "No Notifications"
-msgstr "Nessuna notifica"
+msgstr "Nav paziņojumu"
 
 #: src/qml/OpenFileDialog.qml:12
 #, kde-format
 msgid "Select a File"
-msgstr "Seleziona un file"
+msgstr "Atlasīt datni"
 
 #: src/qml/Password.qml:33
 #, kde-format
 msgid "Invalid username or password"
-msgstr "Nome utente o password non validi"
+msgstr "Nederīgs lietotājvārds vai parole"
 
 #: src/qml/Permissions.qml:33
 #, kde-format
 msgid "Privileged Users"
-msgstr "Utenti privilegiati"
+msgstr "Priviliģētie lietotāji"
 
 #: src/qml/Permissions.qml:72 src/qml/PowerLevelDialog.qml:45
 #, kde-format
 msgid "Member (0)"
-msgstr "Membro (0)"
+msgstr "Dalībnieks (0)"
 
 #: src/qml/Permissions.qml:76 src/qml/PowerLevelDialog.qml:49
 #, kde-format
 msgid "Moderator (50)"
-msgstr "Moderatore (50)"
+msgstr "Moderators (50)"
 
 #: src/qml/Permissions.qml:80 src/qml/PowerLevelDialog.qml:53
 #, kde-format
 msgid "Admin (100)"
-msgstr "Amministratore (100)"
+msgstr "Administrators (100)"
 
 #: src/qml/Permissions.qml:242
 #, kde-format
 msgid "Default permissions"
-msgstr "Permessi predefiniti"
+msgstr "Noklusējuma atļaujas"
 
 #: src/qml/Permissions.qml:247
 #, kde-format
 msgid "Default user power level"
-msgstr "Livello predefinito di potenza dell'utente"
+msgstr "Noklusējuma lietotāja svarīguma līmenis"
 
 #: src/qml/Permissions.qml:248
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
-"Questo è il livello di potenza per tutti i nuovi utenti quando si uniscono "
-"alla stanza"
+"Šis ir svarīguma līmenis visiem jaunajiem lietotājiem, pievienojoties istabai"
 
 #: src/qml/Permissions.qml:258
 #, kde-format
 msgid "Default power level to set the room state"
-msgstr "Livello di potenza predefinito da impostare lo stato della stanza"
+msgstr "Noklusējuma svarīguma līmenis, lai iestatītu istabas statusu"
 
 #: src/qml/Permissions.qml:259
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
-"Viene utilizzato per tutti gli eventi di stato che non hanno una propria "
-"voce qui"
+"Šī vērtība tiek lietota visiem statusa notikumiem, kuriem nav savs ieraksts "
+"te"
 
 #: src/qml/Permissions.qml:269
 #, kde-format
 msgid "Default power level to send messages"
-msgstr "Livello di potenza predefinito per inviare messaggi"
+msgstr "Noklusējuma svarīguma līmenis ziņu sūtīšanai"
 
 #: src/qml/Permissions.qml:270
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
-"Viene utilizzato per tutti gli eventi di segnalazione che non dispongono di "
-"una propria voce qui"
+"Šī vērtība tiek lietota visiem ziņu notikumiem, kuriem te nav sava ieraksta"
 
 #: src/qml/Permissions.qml:283
 #, kde-format
 msgid "Basic permissions"
-msgstr "Permessi di base"
+msgstr "Pamata atļaujas"
 
 #: src/qml/Permissions.qml:288
 #, kde-format
 msgid "Invite users"
-msgstr "Invita utenti"
+msgstr "Uzaicināt lietotājus"
 
 #: src/qml/Permissions.qml:298
 #, kde-format
 msgid "Kick users"
-msgstr "Espelli utenti"
+msgstr "Izmest lietotājus"
 
 #: src/qml/Permissions.qml:308
 #, kde-format
 msgid "Ban users"
-msgstr "Bandisci utenti"
+msgstr "Aizliegt lietotājus"
 
 #: src/qml/Permissions.qml:318
 #, kde-format
 msgid "Remove message sent by other users"
-msgstr "Rimuovi i messaggi inviati da altri utenti"
+msgstr "Noņemt citu sūtītas ziņas"
 
 #: src/qml/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
-msgstr "Permessi degli eventi"
+msgstr "Notikuma atļaujas"
 
 #: src/qml/Permissions.qml:336
 #, kde-format
 msgid "Change user permissions"
-msgstr "Cambia i permessi dell'utente"
+msgstr "Mainīt lietotāja atļaujas"
 
 #: src/qml/Permissions.qml:347
 #, kde-format
 msgid "Change the room name"
-msgstr "Cambia il nome della stanza"
+msgstr "Mainīt istabas nosaukumu"
 
 #: src/qml/Permissions.qml:358
 #, kde-format
 msgid "Change the room avatar"
-msgstr "Cambia l'avatar della stanza"
+msgstr "Mainīt istabas attēlu"
 
 #: src/qml/Permissions.qml:369
 #, kde-format
 msgid "Change the room canonical alias"
-msgstr "Cambia l'alias canonico della stanza"
+msgstr "Mainīt istabas kanonisko aizstājējvārdu"
 
 #: src/qml/Permissions.qml:380
 #, kde-format
 msgid "Change the room topic"
-msgstr "Cambia l'argomento della stanza"
+msgstr "Mainīt istabas tēmu"
 
 #: src/qml/Permissions.qml:391
 #, kde-format
 msgid "Enable encryption for the room"
-msgstr "Abilita la cifratura per la stanza"
+msgstr "Ieslēgt šifrēšanu istabai"
 
 #: src/qml/Permissions.qml:402
 #, kde-format
 msgid "Change the room history visibility"
-msgstr "Cambia la visibilità della cronologia della stanza"
+msgstr "Mainīt istabas vēstures redzamību"
 
 #: src/qml/Permissions.qml:413
 #, kde-format
 msgid "Set pinned events"
-msgstr "Imposta gli eventi appuntati"
+msgstr "Iestatīt piespraustos notikumus"
 
 #: src/qml/Permissions.qml:424
 #, kde-format
 msgid "Upgrade the room"
-msgstr "Aggiorna la stanza"
+msgstr "Atjaunināt istabu"
 
 #: src/qml/Permissions.qml:435
 #, kde-format
 msgid "Set the room server access control list (ACL)"
-msgstr "Impostare l'elenco di controllo di accesso del server di sala (ACL)"
+msgstr "Iestatīt istabas servera piekļuves kontrole sarakstu (ACL)"
 
 #: src/qml/Permissions.qml:447
 #, kde-format
 msgid "Set the children of this space"
-msgstr "Imposta i figli di questo spazio"
+msgstr "Šīs telpas bērobjekti"
 
 #: src/qml/Permissions.qml:458
 #, kde-format
 msgid "Set the parent space of this room"
-msgstr "Imposta lo spazio principale di questa stanza"
+msgstr "Iestatīt istabai vecākobjekta telpu"
 
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
 msgid "Edit User Power Level"
-msgstr "Modifica il livello di potere dell'utente"
+msgstr "Rediģēt lietotāja svarīguma līmeni"
 
 #: src/qml/PowerLevelDialog.qml:35
 #, kde-format
 msgid "New power level"
-msgstr "Imposta il livello di potere"
+msgstr "Jauns svarīguma līmenis"
 
 #: src/qml/PushNotification.qml:26
 #, kde-format
 msgid "Room notifications setting"
-msgstr "Impostazione delle notifiche della stanza"
+msgstr "Telpas paziņojumu iestatījums"
 
 #: src/qml/PushNotification.qml:31
 #, kde-format
 msgid "Follow global setting"
-msgstr "Segui le impostazioni globali"
+msgstr "Ievērot globālos iestatījumus"
 
 #: src/qml/QuickFormatBar.qml:23
 #, kde-format
 msgid "Bold"
-msgstr "Grassetto"
+msgstr "Treknraksts"
 
 #: src/qml/QuickFormatBar.qml:42
 #, kde-format
 msgid "Italic"
-msgstr "Corsivo"
+msgstr "Slīpraksts"
 
 #: src/qml/QuickFormatBar.qml:61
 #, kde-format
 msgid "Strikethrough"
-msgstr "Barrato"
+msgstr "Pārsvītrots"
 
 #: src/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Code block"
-msgstr "Blocco di codice"
+msgstr "Koda bloks"
 
 #: src/qml/QuickFormatBar.qml:99
 #, kde-format
 msgid "Quote"
-msgstr "Citazione"
+msgstr "Citāts"
 
 #: src/qml/QuickFormatBar.qml:118
 #, kde-format
 msgid "Insert link"
-msgstr "Inserisci collegamento"
+msgstr "Ievietot saiti"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
-msgstr "Entra in %1"
+msgstr "Pievienoties „%1“"
 
 #: src/qml/RecommendedSpaceDialog.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
-msgstr "Entra"
+msgstr "Pievienoties"
 
 #: src/qml/RecommendedSpaceDialog.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
-msgstr "Ignora"
+msgstr "Ignorēt"
 
 #: src/qml/RegisterPassword.qml:30
 #, kde-format
 msgid "Confirm Password:"
-msgstr "Conferma password:"
+msgstr "Apstiprināt paroli:"
 
 #: src/qml/RegisterPassword.qml:33
 #, kde-format
 msgid "The passwords do not match."
-msgstr "Le password non corrispondono."
+msgstr "Paroles neatbilst"
 
 #: src/qml/RemoveChildDialog.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "Rimuovi figlio"
+msgstr "Noņemt bērnobjektu"
 
 #: src/qml/RemoveChildDialog.qml:39
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
-msgstr "Il figlio %1 sarà rimosso dallo spazio %2"
+msgstr "Bērnobjekts „%1“ tiks noņemts no telpas „%2“"
 
 #: src/qml/RemoveChildDialog.qml:46
 #, kde-format
@@ -3474,365 +3464,360 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
-"Lo spazio attuale è il genitore ufficiale di questa stanza, dovrebbe essere "
-"cancellato?"
+"Pašreizējā telpa ir šīs istabas oficiālais vecākobjekts. Vai to notīrīt?"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
 msgid "Remove Messages"
-msgstr "Rimuovi i messaggi"
+msgstr "Noņemt ziņas"
 
 #: src/qml/RemoveSheet.qml:20
 #, kde-format
 msgid "Remove Message"
-msgstr "Rimuovi il messaggio"
+msgstr "Noņemt ziņu"
 
 #: src/qml/RemoveSheet.qml:29
 #, kde-format
 msgid "Reason for removing this user's recent messages"
-msgstr "Motivo per la rimozione dei messaggi recenti di questo utente"
+msgstr "Iemesls šī lietotāja pēdējo ziņu noņemšanai"
 
 #: src/qml/RemoveSheet.qml:29
 #, kde-format
 msgid "Reason for removing this message"
-msgstr "Motivo per la rimozione di questo messaggio"
+msgstr "Iemesls šīs ziņas noņemšanai"
 
 #: src/qml/RemoveSheet.qml:44
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
-msgstr "Rimuovi"
+msgstr "Noņemt"
 
 #: src/qml/ReplyPane.qml:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "Annulla la risposta"
+msgstr "Atcelt atbildi"
 
 #: src/qml/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
-msgstr "Messaggio della segnalazione"
+msgstr "Ziņot par ziņu"
 
 #: src/qml/ReportSheet.qml:27
 #, kde-format
 msgid "Reason for reporting this message"
-msgstr "Motivo della segnalazione di questo messaggio"
+msgstr "Iemesls ziņošanai par šo ziņu"
 
 #: src/qml/RoomData.qml:20
 #, kde-format
 msgctxt "@title"
 msgid "Choose Room"
-msgstr "Scegli stanza"
+msgstr "Izvēlēties istabu"
 
 #: src/qml/RoomData.qml:38
 #, kde-format
 msgid "Room Id: %1"
-msgstr "ID stanza: %1"
+msgstr "Istabas ID: %1"
 
 #: src/qml/RoomData.qml:42
 #, kde-format
 msgid "Room Account Data"
-msgstr "Dati account della stanza"
+msgstr "Istabas konta dati"
 
 #: src/qml/RoomData.qml:63
 #, kde-format
 msgid "Room State"
-msgstr "Stato della stanza"
+msgstr "Istabas statuss"
 
 #: src/qml/RoomData.qml:77
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] "%1 evento di questo tipo"
-msgstr[1] "%1 eventi di questo tipo"
+msgstr[0] "%1 šāda veida notikums"
+msgstr[1] "%1 šāda veida notikumi"
+msgstr[2] "%1 šāda veida notikumu"
 
 #: src/qml/RoomData.qml:91
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
-msgstr "Informazioni evento"
+msgstr "Notikuma informācija"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
 msgid "Muted room"
-msgstr "Stanza silenziata"
+msgstr "Apklusināta istaba"
 
 #: src/qml/RoomDelegate.qml:135
 #, kde-format
 msgid "Configure room"
-msgstr "Configura la stanza"
+msgstr "Konfigurēt istabu"
 
 #: src/qml/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
-msgstr "Impostazioni della stanza"
+msgstr "Istabas iestatījumi"
 
 #: src/qml/RoomDrawer.qml:152 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Information"
-msgstr "Informazioni"
+msgstr "Informācija"
 
 #: src/qml/RoomDrawer.qml:157 src/qml/RoomDrawerPage.qml:93
 #, kde-format
 msgid "Media"
-msgstr "Media"
+msgstr "Multivide"
 
 #: src/qml/RoomDrawerPage.qml:45
 #, kde-format
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "Iestatījumi"
 
 #: src/qml/RoomInformation.qml:41
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
-msgstr "Membri dello spazio"
+msgstr "Telpas dalībnieki"
 
 #: src/qml/RoomInformation.qml:41
 #, kde-format
 msgctxt "@action:title"
 msgid "Room information"
-msgstr "Informazioni della stanza"
+msgstr "Istabas informācija"
 
 #: src/qml/RoomInformation.qml:69
 #, kde-format
 msgid "Options"
-msgstr "Opzioni"
+msgstr "Iespējas"
 
 #: src/qml/RoomInformation.qml:79
 #, kde-format
 msgid "Search in this room"
-msgstr "Cerca in questa stanza"
+msgstr "Meklēt šajā istabā"
 
 #: src/qml/RoomInformation.qml:87
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
-msgstr "Cerca"
+msgstr "Meklēt"
 
 #: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Remove room from favorites"
-msgstr "Rimuovi la stanza dai preferiti"
+msgstr "Noņemt istabu no iecienītajām"
 
 #: src/qml/RoomInformation.qml:96
 #, kde-format
 msgid "Make room favorite"
-msgstr "Rendi preferita la stanza"
+msgstr "Pievienot istabu iecienītajām"
 
 #: src/qml/RoomInformation.qml:107
 #, kde-format
 msgid "Show locations for this room"
-msgstr "Mostra le posizioni per questa stanza"
+msgstr "Parādīt šīs istabas atrašanās vietas"
 
 #: src/qml/RoomInformation.qml:119
 #, kde-format
 msgid "Members"
-msgstr "Membri"
+msgstr "Dalībnieki"
 
 #: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:52
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
-msgstr "Invita un utente"
+msgstr "Uzaicināt lietotāju"
 
 #: src/qml/RoomInformation.qml:138
 #, kde-format
 msgid "Invite user to room"
-msgstr "Invita utente alla stanza"
+msgstr "Uzaicināt lietotāju istabā"
 
 #: src/qml/RoomInformation.qml:145
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "%1 membro"
-msgstr[1] "%1 membri"
+msgstr[0] "%1 dalībnieks"
+msgstr[1] "%1 dalībnieki"
+msgstr[2] "%1 dalībnieku"
 
 #: src/qml/RoomInformation.qml:145
 #, kde-format
 msgid "No member count"
-msgstr "Nessun conteggio dei membri"
+msgstr "Nav dalībnieku skaita"
 
 #: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "No friends found"
-msgstr "Nessun amico trovato"
+msgstr "Nav atrasti draugi"
 
 #: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "No rooms found"
-msgstr "Nessuna stanza trovata"
+msgstr "Nav atrastas istabas"
 
 #: src/qml/RoomListPage.qml:233
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
-msgstr ""
-"Non hai ancora aggiunto nessuno dei tuoi amici, fai clic qui sotto per "
-"cercarli."
+msgstr "Jūs vēl nepievienojāt nevienu draugu, spiediet zemāk, lai meklētu."
 
 #: src/qml/RoomListPage.qml:233
 #, kde-format
 msgid "Join some rooms to get started"
-msgstr "Entra in qualche stanza per iniziare"
+msgstr "Pievienojieties kādām istabām, lai sāktu"
 
 #: src/qml/RoomListPage.qml:240
 #, kde-format
 msgid "Search in room directory"
-msgstr "Cerca nella cartella delle stanze"
+msgstr "Meklēt istabu mapē"
 
 #: src/qml/RoomListPage.qml:257
 #, kde-format
 msgid "Search in friend directory"
-msgstr "Cerca nella cartella degli amici"
+msgstr "Meklēt draugu mapē"
 
 #: src/qml/RoomMedia.qml:29
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Media"
-msgstr "Media della stanza"
+msgstr "Istabas multivide"
 
 #: src/qml/RoomPage.qml:100
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat non è in linea. Controlla la tua connessione alla rete."
+msgstr "„NeoChat“ darbojas nesaistē. Pārbaudīt tīkla savienojumu."
 
 #: src/qml/RoomPage.qml:249
 #, kde-format
 msgid "Message Source"
-msgstr "Sorgente del messaggio"
+msgstr "Ziņas avots"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
-msgstr "Cerca messaggi"
+msgstr "Meklēt ziņas"
 
 #: src/qml/RoomSearchPage.qml:37
 #, kde-format
 msgid "Find messages…"
-msgstr "Trova messaggi..."
+msgstr "Atrast ziņas..."
 
 #: src/qml/RoomSearchPage.qml:38
 #, kde-format
 msgid "Enter text to start searching"
-msgstr "Inserisci del testo per iniziare la ricerca"
+msgstr "Ievadiet tekstu, lai meklētu"
 
 #: src/qml/RoomSearchPage.qml:39
 #, kde-format
 msgid "No messages found"
-msgstr "Nessun messaggio trovato"
+msgstr "Ziņas nav atrastas"
 
 #: src/qml/RoomSecurity.qml:18
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
-msgstr ""
-"Devi aggiornare questa stanza a una versione più recente per abilitare "
-"questa impostazione."
+msgstr "Lai ieslēgtu šo iestatījumu, istaba ir jāatjaunina uz jaunāku versiju."
 
 #: src/qml/RoomSecurity.qml:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
-msgstr "Cifratura"
+msgstr "Šifrēšana"
 
 #: src/qml/RoomSecurity.qml:28
 #, kde-format
 msgid "Enable encryption"
-msgstr "Abilita cifratura"
+msgstr "Ieslēgt šifrēšanu"
 
 #: src/qml/RoomSecurity.qml:29
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
-msgstr "Una volta abilitata, la cifratura non può essere disabilitata."
+msgstr "Pēc ieslēgšanas šifrēšanu vairāk nevar izslēgt"
 
 #: src/qml/RoomSecurity.qml:42
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
-msgstr "Accesso"
+msgstr "Piekļuve"
 
 #: src/qml/RoomSecurity.qml:46
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
-msgstr "Privata (solo su invito)"
+msgstr "Privāta (tikai ar uzaicinājumiem)"
 
 #: src/qml/RoomSecurity.qml:47
 #, kde-format
 msgid "Only invited people can join."
-msgstr "Possono partecipare solo le persone invitate."
+msgstr "Pievienoties var tikai uzaicināti cilvēki."
 
 #: src/qml/RoomSecurity.qml:55
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
-msgstr "Membri dello spazio"
+msgstr "Telpas dalībnieki"
 
 #: src/qml/RoomSecurity.qml:56
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
-msgstr "Chiunque nello spazio selezionato può trovare e partecipare."
+msgstr "Atrast un pievienoties var jebkurš atlasītajās telpās."
 
 #: src/qml/RoomSecurity.qml:65
 #, kde-format
 msgid "Select spaces"
-msgstr "Seleziona spazi"
+msgstr "Atlasīt telpas"
 
 #: src/qml/RoomSecurity.qml:83
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr "Bussa"
+msgstr "Klauvēt"
 
 #: src/qml/RoomSecurity.qml:84
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
-"Le persone che non sono nella stanza devono richiedere un invito per "
-"entrarvi."
+"Lai istabai pievienoties cilvēkiem, kuri tajā nav, ir jālūdz uzaicinājums."
 
 #: src/qml/RoomSecurity.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
-msgstr "Pubblica"
+msgstr "Publiska"
 
 #: src/qml/RoomSecurity.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
-msgstr "Chiunque può trovarla e partecipare."
+msgstr "Atrast un pievienoties var ikviens."
 
 #: src/qml/RoomSecurity.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
-msgstr "Visibilità della cronologia dei messaggi"
+msgstr "Ziņu vēstures redzamība"
 
 #: src/qml/RoomSecurity.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
-msgstr "Chiunque"
+msgstr "Visiem"
 
 #: src/qml/RoomSecurity.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
-"Chiunque, indipendentemente dal fatto che si sia iscritto, può visualizzare "
-"la cronologia."
+"Visiem, neskatoties uz to, vai viņi ir pievienojušies, var redzēt vēsturi."
 
 #: src/qml/RoomSecurity.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "Solo i membri"
+msgstr "Tikai dalībnieki"
 
 #: src/qml/RoomSecurity.qml:118
 #, kde-format
@@ -3840,14 +3825,14 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
-"Tutti i membri possono visualizzare l'intera cronologia dei messaggi, anche "
-"prima dell'adesione."
+"Visi dalībnieki var redzēt pilnu ziņu vēsturi. Arī par laiku pirms "
+"pievienošanās."
 
 #: src/qml/RoomSecurity.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr "Solo i membri (dall'invito)"
+msgstr "Tikai dalībnieki (kopš uzaicināšanas)"
 
 #: src/qml/RoomSecurity.qml:127
 #, kde-format
@@ -3856,14 +3841,14 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
-"I nuovi membri possono visualizzare la cronologia dei messaggi dal momento "
-"in cui sono stati invitati nella stanza virtuale."
+"Jaunie dalībnieki var redzēt ziņu vēsturi tikai par laiku kopš viņi ir "
+"uzaicināti istabā."
 
 #: src/qml/RoomSecurity.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr "Solo i membri (dall'adesione)"
+msgstr "Tikai dalībnieki (kopš pievienošanās)"
 
 #: src/qml/RoomSecurity.qml:136
 #, kde-format
@@ -3871,258 +3856,257 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
-"I nuovi membri possono visualizzare la cronologia dei messaggi dal momento "
-"in cui sono entrati nella stanza virtuale."
+"Jaunie dalībnieki var redzēt ziņu vēsturi no brīža, kad pievienojās istabai."
 
 #: src/qml/RoomTreeSection.qml:71
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
-msgstr "Contrai %1"
+msgstr "Sakļaut „%1“"
 
 #: src/qml/RoomTreeSection.qml:71
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
-msgstr "Espandi %1"
+msgstr "Izvērst „%1“"
 
 #: src/qml/Security.qml:17
 #, kde-format
 msgctxt "@title"
 msgid "Security"
-msgstr "Sicurezza"
+msgstr "Drošība"
 
 #: src/qml/Security.qml:20
 #, kde-format
 msgctxt "@title"
 msgid "Keys"
-msgstr "Chiavi"
+msgstr "Atslēgas"
 
 #: src/qml/Security.qml:25
 #, kde-format
 msgid "Device key"
-msgstr "Chiave del dispositivo"
+msgstr "Ierīces atslēga"
 
 #: src/qml/Security.qml:29
 #, kde-format
 msgid "Encryption key"
-msgstr "Chiave di cifratura"
+msgstr "Šifrēšanas atslēga"
 
 #: src/qml/Security.qml:33
 #, kde-format
 msgid "Device id"
-msgstr "ID dispositivo"
+msgstr "Ierīces ID"
 
 #: src/qml/Security.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "Gestisci gli utenti ignorati"
+msgstr "Pārvaldīt ignorētos lietotājus"
 
 #: src/qml/Security.qml:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Utenti ignorati"
+msgstr "Ignorētie lietotāji"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
 msgctxt "@title"
 msgid "Select new official parent"
-msgstr "Seleziona un nuovo genitore ufficiale"
+msgstr "Atlasīt jaunu oficiālo vecākobjektu"
 
 #: src/qml/SelectParentDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
-msgstr "Scegli spazio genitore"
+msgstr "Izvēlēties vecākobjekta telpu"
 
 #: src/qml/SelectParentDialog.qml:157
 #, kde-format
 msgid "Set this room as a child of the space %1"
-msgstr "Imposta questa stanza come figlia dello spazio %1"
+msgstr "Iestatīt šo istabu kā bērnobjektu telpai „%1“"
 
 #: src/qml/SelectParentDialog.qml:164
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
-"Non disponi di un livello di privilegio sufficientemente elevato "
-"nell'elemento genitore per impostare questo stato"
+"Jums nav nepieciešamo vecākobjekta privilēģiju līmeņa, lai iestatītu šādu "
+"statusu"
 
 #: src/qml/SelectParentDialog.qml:164
 #, kde-format
 msgid "The selected room is not a space"
-msgstr "La stanza selezionata non è uno spazio"
+msgstr "Atlasītā istaba nav telpa"
 
 #: src/qml/SelectParentDialog.qml:164
 #, kde-format
 msgid "You do not have the privileges to complete this action"
-msgstr "Non disponi dei privilegi per completare questa azione"
+msgstr "Jums nav nepieciešamo privilēģiju šīs darbības veikšanai"
 
 #: src/qml/SelectParentDialog.qml:169
 #, kde-format
 msgid "Make this space the canonical parent"
-msgstr "Rendi questo spazio il genitore canonico"
+msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
 
 #: src/qml/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
-msgstr "Seleziona spazi"
+msgstr "Atlasīt telpas"
 
 #: src/qml/ServerComboBox.qml:45
 #, kde-format
 msgid "Add New Server"
-msgstr "Aggiungi nuovo server"
+msgstr "Pievienot jaunu serveri"
 
 #: src/qml/ServerComboBox.qml:60
 #, kde-format
 msgid "Home Server"
-msgstr "Server principale"
+msgstr "Mājas serveris"
 
 #: src/qml/ServerComboBox.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
-msgstr "Aggiungi nuovo server"
+msgstr "Pievienot jaunu serveri"
 
 #: src/qml/ServerComboBox.qml:99
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
-msgstr "Aggiungi server"
+msgstr "Pievienot serveri"
 
 #: src/qml/ServerComboBox.qml:116
 #, kde-format
 msgid "Valid server entered"
-msgstr "Server valido inserito"
+msgstr "Ievadīts derīgs severis"
 
 #: src/qml/ServerComboBox.qml:116
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
-msgstr "Questo server non può essere risolto o è già stato aggiunto"
+msgstr "Vai nu serveri nevar atrisināt, vai arī tas ir jau pievienots"
 
 #: src/qml/ServerComboBox.qml:116
 #, kde-format
 msgid "The entered text is not a valid url"
-msgstr "Il testo digitato non è un URL valido"
+msgstr "Ievadītais teksts nav derīga URL adrese"
 
 #: src/qml/ServerComboBox.qml:116
 #, kde-format
 msgid "Enter server url e.g. kde.org"
-msgstr "Digita l'URL del server, ad es. kde.org"
+msgstr "Ievadiet servera URL adresi, piemēram, „kde.org“"
 
 #: src/qml/ServerComboBox.qml:124
 #, kde-format
 msgid "Server URL"
-msgstr "URL del server"
+msgstr "Servara URL"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr "Caratteristiche del server"
+msgstr "Servera spējas"
 
 #: src/qml/ServerData.qml:24
 #, kde-format
 msgid "Can change password"
-msgstr "Può cambiare la password"
+msgstr "Var mainīt paroli"
 
 #: src/qml/ServerData.qml:29
 #, kde-format
 msgid "Default Room Version"
-msgstr "Versione della stanza predefinita"
+msgstr "Noklusējuma istabas versija"
 
 #: src/qml/ServerData.qml:37
 #, kde-format
 msgid "Available Room Versions"
-msgstr "Versioni disponibili delle stanze"
+msgstr "Pieejamās istabas versijas"
 
 #: src/qml/SettingsPage.qml:26
 #, kde-format
 msgid "Appearance"
-msgstr "Aspetto"
+msgstr "Izskats"
 
 #: src/qml/SettingsPage.qml:60
 #, kde-format
 msgid "Stickers & Emojis"
-msgstr "Adesivi ed emoji"
+msgstr "Uzlīmes un emocijzīmes"
 
 #: src/qml/SettingsPage.qml:71
 #, kde-format
 msgid "Spell Checking"
-msgstr "Controllo ortografico"
+msgstr "Pareizrakstības pārbaude"
 
 #: src/qml/SettingsPage.qml:95
 #, kde-format
 msgid "About NeoChat"
-msgstr "Informazioni su Neochat"
+msgstr "Par „NeoChat“"
 
 #: src/qml/SettingsPage.qml:101
 #, kde-format
 msgid "About KDE"
-msgstr "Informazioni su KDE"
+msgstr "Par KDE"
 
 #: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
-msgstr "Condividi"
+msgstr "Kopīgot"
 
 #: src/qml/ShareAction.qml:24
 #, kde-format
 msgid "Share the selected media"
-msgstr "Condividi i supporti selezionati"
+msgstr "Kopīgot atlasīto multividi"
 
 #: src/qml/ShareDialog.qml:37
 #, kde-format
 msgid "Sharing failed"
-msgstr "Condivisione non riuscita"
+msgstr "Kopīgošana neizdevās"
 
 #: src/qml/ShareDialog.qml:58
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr "URL condiviso per l'immagine è <a href='%1'>%1</a>"
+msgstr "Kopīgotā URL attēlam ir <a href='%1'>%1</a>"
 
 #: src/qml/SonnetConfigPage.qml:17
 #, kde-format
 msgctxt "@title"
 msgid "Spellchecking"
-msgstr "Controllo ortografico"
+msgstr "Pareizrakstības pārbaude"
 
 #: src/qml/SonnetConfigPage.qml:27
 #, kde-format
 msgid "Enable automatic spell checking"
-msgstr "Abilita il controllo ortografico automatico"
+msgstr "Ieslēgt automātisko pareizrakstības pārbaudi"
 
 #: src/qml/SonnetConfigPage.qml:42
 #, kde-format
 msgid "Ignore uppercase words"
-msgstr "Salta le parole tutte maiuscole"
+msgstr "Ignorēt vārdus ar lielajiem burtiem"
 
 #: src/qml/SonnetConfigPage.qml:57
 #, kde-format
 msgid "Ignore hyphenated words"
-msgstr "Ignora le parole con trattino"
+msgstr "Ignorēt vārdus ar defisi"
 
 #: src/qml/SonnetConfigPage.qml:72
 #, kde-format
 msgid "Detect language automatically"
-msgstr "Rileva automaticamente la lingua"
+msgstr "Valodu noteikt automātiski"
 
 #: src/qml/SonnetConfigPage.qml:86
 #, kde-format
 msgid "Selected default language:"
-msgstr "Seleziona la lingua predefinita:"
+msgstr "Atlasītā noklusētā valoda:"
 
 #: src/qml/SonnetConfigPage.qml:89
 #, kde-format
 msgid "None"
-msgstr "Nessuno"
+msgstr "Nav"
 
 #: src/qml/SonnetConfigPage.qml:113
 #, kde-format
 msgid "Additional spell checking languages"
-msgstr "Lingue del controllo ortografico aggiuntive"
+msgstr "Papildu pareizrakstības pārbaudes valodas"
 
 #: src/qml/SonnetConfigPage.qml:114
 #, kde-format
@@ -4130,172 +4114,172 @@ msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
 "when autodetection is enabled."
 msgstr ""
-"%1 fornirà il controllo ortografico e i suggerimenti per le lingue elencate "
-"qui quando il rilevamento automatico è abilitato."
+"„%1“ nodrošinās pareizrakstības pārbaudi un ieteikumus te uzskaitītajām "
+"valodām, ja būs ieslēgta valodas automātiskā noteikšana."
 
 #: src/qml/SonnetConfigPage.qml:129
 #, kde-format
 msgid "Open Personal Dictionary"
-msgstr "Apri il dizionario personale"
+msgstr "Atvērt personīgo vārdnīcu"
 
 #: src/qml/SonnetConfigPage.qml:140
 #, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
-msgstr "Lingue del controllo ortografico"
+msgstr "Pareizrakstības pārbaudes valodas"
 
 #: src/qml/SonnetConfigPage.qml:146 src/qml/SonnetConfigPage.qml:164
 #, kde-format
 msgid "Default Language"
-msgstr "Lingua predefinita"
+msgstr "Noklusētā valoda"
 
 #: src/qml/SonnetConfigPage.qml:177
 #, kde-format
 msgid "Spell checking dictionary"
-msgstr "Dizionario del controllo ortografico"
+msgstr "Pareizrakstības pārbaudes vārdnīca"
 
 #: src/qml/SonnetConfigPage.qml:184
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
-msgstr "Aggiungi una nuova parola al tuo dizionario personale…"
+msgstr "Pievienot jaunu vārdu personīgajai vārdnīcai..."
 
 #: src/qml/SonnetConfigPage.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
-msgstr "Aggiungi la parola"
+msgstr "Pievienot vārdu"
 
 #: src/qml/SonnetConfigPage.qml:222
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete word"
-msgstr "Elimina la parola"
+msgstr "Dzēst vārdu"
 
 #: src/qml/SpaceDrawer.qml:72
 #, kde-format
 msgid "View notifications"
-msgstr "Visualizza le notifiche"
+msgstr "Skatīt paziņojumus"
 
 #: src/qml/SpaceDrawer.qml:98
 #, kde-format
 msgid "Home"
-msgstr "Home"
+msgstr "Mājas"
 
 #: src/qml/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
-msgstr "Amici"
+msgstr "Draugi"
 
 #: src/qml/SpaceDrawer.qml:269
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
-msgstr "Entra in %1"
+msgstr "Pievienoties „%1“"
 
 #: src/qml/SpaceDrawer.qml:311
 #, kde-format
 msgid "Create a space"
-msgstr "Crea uno spazio"
+msgstr "Izveidot telpu"
 
 #: src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Suggested"
-msgstr "Suggerito"
+msgstr "Ieteiktās"
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
 #, kde-format
 msgctxt "number of room members"
 msgid " members - "
-msgstr " membri - "
+msgstr " dalībnieki — "
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
 #, kde-format
 msgctxt "number of room members"
 msgid " members"
-msgstr " membri"
+msgstr " dalībnieki"
 
 #: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:57
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
-msgstr "Aggiungi nuovo figlio"
+msgstr "Pievienot jaunu bērnobjektu"
 
 #: src/qml/SpaceHierarchyDelegate.qml:120
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
-msgstr "Rimuovi"
+msgstr "Noņemt"
 
 #: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
-msgstr "Non rendere suggerito"
+msgstr "Nepadarīt par ieteikto"
 
 #: src/qml/SpaceHierarchyDelegate.qml:140
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
-msgstr "Rendi suggerito"
+msgstr "Padarīt par ieteikto"
 
 #: src/qml/SpaceHomePage.qml:47
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "Invita utente allo spazio"
+msgstr "Uzaicināt lietotājus uz telpu"
 
 #: src/qml/SpaceHomePage.qml:62
 #, kde-format
 msgctxt "@button"
 msgid "Leave the space"
-msgstr "Abbandona lo spazio"
+msgstr "Pamest telpu"
 
 #: src/qml/SpaceHomePage.qml:70
 #, kde-format
 msgctxt "@button"
 msgid "Space settings"
-msgstr "Impostazioni degli spazi"
+msgstr "Telpas iestatījumi"
 
 #: src/qml/SpaceHomePage.qml:162 src/qml/SpaceHomePage.qml:168
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "Crea un figlio"
+msgstr "Izveidot bērnobjektu"
 
 #: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:115
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr "Visualizza spazio"
+msgstr "Skatīt telpu"
 
 #: src/qml/SpaceListContextMenu.qml:46 src/qml/SpaceListContextMenu.qml:131
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
-msgstr "Impostazioni degli spazi"
+msgstr "Telpas iestatījumi"
 
 #: src/qml/SpaceListContextMenu.qml:52 src/qml/SpaceListContextMenu.qml:137
 #, kde-format
 msgid "Space Settings"
-msgstr "Impostazioni degli spazi"
+msgstr "Telpas iestatījumi"
 
 #: src/qml/SpaceListContextMenu.qml:59 src/qml/SpaceListContextMenu.qml:142
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
-msgstr "Abbandona spazio"
+msgstr "Pamest telpu"
 
 #: src/qml/Sso.qml:30
 #, kde-format
 msgid "Continue the login process in your browser."
-msgstr "Continua la procedura di accesso nel tuo browser."
+msgstr "Turpināt ierakstīšanās procesu pārlūkā."
 
 #: src/qml/Sso.qml:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
-msgstr "Apri nuovamente URL SSO"
+msgstr "Vēlreiz atvērt SSO URL"
 
 #: src/qml/StateKeys.qml:22
 #, kde-format
@@ -4308,45 +4292,45 @@ msgstr "State Keys"
 #: src/qml/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
-msgstr "Termini e condizioni"
+msgstr "Noteikumi"
 
 #: src/qml/Terms.qml:19
 #, kde-format
 msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
-msgstr ""
-"Proseguendo con la registrazione accetti i seguenti termini e condizioni:"
+msgstr "Turpinot reģistrēties, jūs piekrītat šiem noteikumiem:"
 
 #: src/qml/TimelineView.qml:205
 #, kde-format
 msgid "Jump to first unread message"
-msgstr "Passa al primo messaggio non letto"
+msgstr "Iet uz pirmo nelasīto ziņu"
 
 #: src/qml/TimelineView.qml:228
 #, kde-format
 msgid "Jump to latest message"
-msgstr "Salta all'ultimo messaggio"
+msgstr "Iet uz pēdējo ziņu"
 
 #: src/qml/TimelineView.qml:253
 #, kde-format
 msgid "Drag items here to share them"
-msgstr "Trascina qui gli elementi per condividerli"
+msgstr "Velciet vienumus te, lai tos kopīgotu"
 
 #: src/qml/TimelineView.qml:260
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
-msgstr[0] "%2 sta scrivendo"
-msgstr[1] "%2 stanno scrivendo"
+msgstr[0] "%2 raksta"
+msgstr[1] "%2 raksta"
+msgstr[2] "%2 raksta"
 
 #: src/qml/UnlockSSSSDialog.qml:19
 #, fuzzy, kde-format
 #| msgid "Send an encrypted message…"
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Invia un messaggio cifrato…"
+msgstr "Sūtīt šifrētu ziņu..."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -4371,7 +4355,7 @@ msgstr ""
 #| msgid "Password:"
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Password:"
+msgstr "Parole:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
@@ -4398,7 +4382,7 @@ msgstr ""
 #| msgid "Security"
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "Sicurezza"
+msgstr "Drošība"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
@@ -4430,167 +4414,165 @@ msgstr ""
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
-msgstr "Dettagli dell'account"
+msgstr "Konta informācija"
 
 #: src/qml/UserDetailDialog.qml:107
 #, kde-format
 msgid "Unignore this user"
-msgstr "Non ignorare questo utente"
+msgstr "Beigt ignorēt šo lietotāju"
 
 #: src/qml/UserDetailDialog.qml:107
 #, kde-format
 msgid "Ignore this user"
-msgstr "Ignora questo utente"
+msgstr "Ignorēt šo lietotāju"
 
 #: src/qml/UserDetailDialog.qml:120
 #, kde-format
 msgid "Kick this user"
-msgstr "Espelli questo utente"
+msgstr "Izmest šo lietotāju"
 
 #: src/qml/UserDetailDialog.qml:134
 #, kde-format
 msgid "Invite this user"
-msgstr "Invita questo utente"
+msgstr "Uzaicināt šo lietotāju"
 
 #: src/qml/UserDetailDialog.qml:147
 #, kde-format
 msgid "Ban this user"
-msgstr "Bandisci questo utente"
+msgstr "Aizliegt šo lietotāju"
 
 #: src/qml/UserDetailDialog.qml:155
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Bandisci utente"
+msgstr "Aizliegt lietotāju"
 
 #: src/qml/UserDetailDialog.qml:167
 #, kde-format
 msgid "Unban this user"
-msgstr "Rimuovi il bando questo utente"
+msgstr "Beigt aizliegt lietotāju"
 
 #: src/qml/UserDetailDialog.qml:180
 #, kde-format
 msgid "Set user power level"
-msgstr "Imposta il livello di potere dell'utente"
+msgstr "Iestatīt svarīguma līmeni"
 
 #: src/qml/UserDetailDialog.qml:205
 #, kde-format
 msgid "Remove recent messages by this user"
-msgstr "Rimuovi i messaggi recenti di questo utente"
+msgstr "Noņemt šī lietotāja nesenās ziņas"
 
 #: src/qml/UserDetailDialog.qml:213
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr "Rimuovi i messaggi"
+msgstr "Noņemt ziņas"
 
 #: src/qml/UserDetailDialog.qml:224
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
-msgstr "Chat con %1"
+msgstr "Tērzēt ar %1"
 
 #: src/qml/UserDetailDialog.qml:224
 #, kde-format
 msgid "Invite to private chat"
-msgstr "Invita in chat privata"
+msgstr "Uzaicināt uz privātu tērzēšanu"
 
 #: src/qml/UserDetailDialog.qml:235
 #, kde-format
 msgid "Copy link"
-msgstr "Copia collegamento"
+msgstr "Kopēt saiti"
 
 #: src/qml/UserInfo.qml:96
 #, kde-format
 msgid "Switch User"
-msgstr "Cambia utente"
+msgstr "Pārslēgt lietotāju"
 
 #: src/qml/UserInfo.qml:146
 #, kde-format
 msgid "Open Settings"
-msgstr "Apri le impostazioni"
+msgstr "Atvērt iestatījumus"
 
 #: src/qml/UserInfo.qml:200
 #, kde-format
 msgid "Log in to an existing account"
-msgstr "Accesso con un account esistente"
+msgstr "Ierakstīties jau esošā kontā"
 
 #: src/qml/UserInfo.qml:207
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
-msgstr "Accesso"
+msgstr "Ierakstīšanās"
 
 #: src/qml/Username.qml:20
 #, kde-format
 msgid "Username:"
-msgstr "Nome utente:"
+msgstr "Lietotājvārds:"
 
 #: src/qml/Username.qml:23
 #, kde-format
 msgid "Username unavailable"
-msgstr "None utente non disponibile"
+msgstr "Lietotājvārds nav pieejams"
 
 #: src/qml/UserSearchPage.qml:32
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
-msgstr "Trova i tuoi amici"
+msgstr "Atrast draugus"
 
 #: src/qml/UserSearchPage.qml:44
 #, kde-format
 msgid "Enter a user ID"
-msgstr "Digita un ID utente"
+msgstr "Ievadiet lietotāja ID"
 
 #: src/qml/UserSearchPage.qml:89
 #, kde-format
 msgid "Find your friends…"
-msgstr "Trova i tuoi amici…"
+msgstr "Atrast draugus..."
 
 #: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Enter text to start searching for your friends"
-msgstr "Digita del testo per iniziare a cercare i tuoi amici"
+msgstr "Ievadiet tekstu, lai sāktu meklēt draugus"
 
 #: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
-msgstr "Nessuna corrispondenza trovata"
+msgstr "Atbilsmes nav atrastas"
 
 #: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
-msgstr "La verifica della sessione è stata annullata per motivi sconosciuti."
+msgstr "Sesijas verifikācija ir atcelta nezināma iemesla dēļ."
 
 #: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
-msgstr "La verifica della sessione è scaduta."
+msgstr "Sesijas verifikācijas laiks ir iztecējis."
 
 #: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
-msgstr "La verifica della sessione è scaduta per la parte remota."
+msgstr "Attālinātajai pusei ir iztecējis sesijas verifikācijas laiks."
 
 #: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
-msgstr "Hai annullato la verifica della sessione."
+msgstr "Jūs atcēlāt sesijas verifikāciju."
 
 #: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr "La parte remota ha annullato la verifica della sessione."
+msgstr "Attālinātā puse atcēla sesijas verifikāciju."
 
 #: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
-msgstr ""
-"La verifica della sessione è stata annullata perché abbiamo ricevuto un "
-"messaggio imprevisto."
+msgstr "Sesijas verifikācija tika atcelta, jo saņēmām negaidītu ziņojumu."
 
 #: src/qml/VerificationCanceled.qml:33
 #, kde-format
@@ -4598,8 +4580,7 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr ""
-"La parte remota ha annullato la verifica della sessione perché ha ricevuto "
-"un messaggio imprevisto."
+"Attālinātā puse atcēla sesijas verifikāciju, jo saņēma negaidītu ziņojumu."
 
 #: src/qml/VerificationCanceled.qml:35
 #, kde-format
@@ -4607,8 +4588,7 @@ msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr ""
-"La verifica della sessione è stata annullata perché ha ricevuto un messaggio "
-"per una sessione sconosciuta."
+"Sesijas verifikācija ir atcelta, jo tā saņēma ziņojumu no nezināmas sesijas"
 
 #: src/qml/VerificationCanceled.qml:37
 #, kde-format
@@ -4616,8 +4596,8 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
-"La parte remota ha annullato la verifica della sessione perché ha ricevuto "
-"un messaggio per una sessione sconosciuta."
+"Attālinātā puse atcēla sesijas verifikāciju, jo tā saņēma ziņojumu no "
+"nezināmas sesijas"
 
 #: src/qml/VerificationCanceled.qml:39
 #, kde-format
@@ -4625,8 +4605,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
-"La verifica della sessione è stata annullata perché NeoChat non è in grado "
-"di gestire questo metodo di verifica."
+"Sesijas verifikācija ir atcelta, jo „NeoChat“ nespēj apstrādāt šo "
+"verifikācijas metodi."
 
 #: src/qml/VerificationCanceled.qml:41
 #, kde-format
@@ -4634,15 +4614,13 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
-"La parte remota ha annullato la verifica della sessione perché non è in "
-"grado di gestire questo metodo di verifica."
+"Attālinātā puse atcēla šo sesijas verifikāciju, jo tā nespēj apstrādāt šo "
+"verifikācijas metodi."
 
 #: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
-msgstr ""
-"La verifica della sessione è stata annullata perché le chiavi non sono "
-"corrette."
+msgstr "Sesijas verifikācija ir atcelta, jo atslēgas ir nepareizas."
 
 #: src/qml/VerificationCanceled.qml:45
 #, kde-format
@@ -4652,18 +4630,16 @@ msgid ""
 "\n"
 "**Please log out and log back in, your session is broken/corrupt.**"
 msgstr ""
-"La parte remota ha annullato la verifica della sessione perché le chiavi non "
-"sono corrette.\n"
+"Attālinātā puse atcēla sesijas verifikāciju, ko atslēgas ir nepareizas.\n"
 "\n"
-"**Esci e accedi di nuovo, la tua sessione è interrotta/danneggiata.**"
+"**Izrakstieties un ierakstieties no jauna — sesijā ir kļūda vai tā ir bojāta."
+"**"
 
 #: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
-msgstr ""
-"La verifica della sessione è stata annullata perché verifica un utente "
-"imprevisto."
+msgstr "Sesijas verifikācija ir atcelta, jo tā verificē negaidītu lietotāju."
 
 #: src/qml/VerificationCanceled.qml:49
 #, kde-format
@@ -4671,16 +4647,14 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
-"La parte remota ha annullato la verifica della sessione perché verifica un "
-"utente imprevisto."
+"Attālinātā puse ir atcēlusi sesijas verifikāciju, jo tā verificē negaidītu "
+"lietotāju."
 
 #: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
-msgstr ""
-"La verifica della sessione è stata annullata perché abbiamo ricevuto un "
-"messaggio non valido."
+msgstr "Sesijas verifikācija ir atcelta, jo saņēmām nederīgu ziņojumu."
 
 #: src/qml/VerificationCanceled.qml:53
 #, kde-format
@@ -4688,225 +4662,209 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr ""
-"La parte remota ha annullato la verifica della sessione perché ha ricevuto "
-"un messaggio non valido."
+"Attālinātā puse atcēla sesijas verifikāciju, jo saņēma nederīgu ziņojumu."
 
 #: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr "La sessione è stata accettata su un dispositivo diverso"
+msgstr "Sesija tika pieņemta citā ierīcē"
 
 #: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
-msgstr ""
-"La verifica della sessione è stata annullata a causa di una chiave non "
-"corrispondente."
+msgstr "Sesijas verifikācija ir atcelta atslēgu neatbilstības dēļ."
 
 #: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
-msgstr ""
-"La parte remota ha annullato la verifica della sessione a causa di una "
-"chiave non corrispondente."
+msgstr "Attālinātā puse atcēla sesijas verifikāciju atslēgu neatbilstības dēļ."
 
 #: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
-msgstr ""
-"La verifica della sessione è stata annullata perché le chiavi non "
-"corrispondono."
+msgstr "Sesijas verifikācija ir atcelta, jo neatbilst atslēgas."
 
 #: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
-msgstr ""
-"La parte remota ha annullato la verifica della sessione perché le chiavi non "
-"corrispondono."
+msgstr "Attālinātā puse atcēla sesijas verifikāciju, jo neatbilst atslēgas"
 
 #: src/qml/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr ""
-"La verifica della sessione è stata annullata a causa di un errore "
-"sconosciuto."
+msgstr "Sesijas verifikācija ir atcelta nezināmas kļūdas dēļ."
 
 #: src/qml/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
-msgstr "Benvenuto"
+msgstr "Laipni lūgti!"
 
 #: src/qml/WelcomePage.qml:46
 #, kde-format
 msgid "Welcome to NeoChat"
-msgstr "Benvenuto in NeoChat"
+msgstr "Laipni lūgti „NeoChat“ programmā!"
 
 #: src/qml/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
-msgstr "Continua con un account esistente"
+msgstr "Turpināt ar esošu kontu"
 
 #: src/qml/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "%1 (caricamento)"
+msgstr "%1 (ielādējas)"
 
 #: src/qml/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
-msgstr "Rimuovi questo account"
+msgstr "Noņemt šo kontu"
 
 #: src/qml/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
-msgstr "Accedi o crea con un nuovo account"
+msgstr "Ierakstīties vai izveidot jaunu kontu"
 
 #: src/qml/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
-msgstr "Indietro"
+msgstr "Atgriezties"
 
 #: src/qml/WelcomePage.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Open proxy settings"
-msgstr "Apri le impostazioni del proxy"
+msgstr "Atvērt starpniekservera iestatījumus"
 
 #: src/qml/WelcomePage.qml:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
-msgstr "Impostazioni del proxy"
+msgstr "Starpniekservera iestatījumi"
 
 #: src/registration.cpp:300
 #, kde-format
 msgid "No server."
-msgstr "Nessun server."
+msgstr "Nav servera."
 
 #: src/registration.cpp:302
 #, kde-format
 msgid "Checking Server availability."
-msgstr "Verifica della disponibilità del server."
+msgstr "Pārbauda servera pieejamību."
 
 #: src/registration.cpp:304
 #, kde-format
 msgid "This is not a valid server."
-msgstr "Questo non è un server valido."
+msgstr "Šis nav derīgs serveris."
 
 #: src/registration.cpp:306
 #, kde-format
 msgid "Registration for this server is disabled."
-msgstr "La registrazione per questo server è disabilitata."
+msgstr "Reģistrācija šajā serverī ir izslēgta."
 
 #: src/registration.cpp:308
 #, kde-format
 msgid "No username."
-msgstr "Nessun nome utente."
+msgstr "Nav lietotājvārda"
 
 #: src/registration.cpp:310
 #, kde-format
 msgid "Checking username availability."
-msgstr "Verifica della disponibilità del nome utente."
+msgstr "Pārbauda lietotājvārda pieejamību."
 
 #: src/registration.cpp:312
 #, kde-format
 msgid "This username is not available."
-msgstr "Il nome utente non è disponibile."
+msgstr "Šis lietotājvārds nav pieejams."
 
 #: src/registration.cpp:314
 #, kde-format
 msgid "Continue"
-msgstr "Continua"
+msgstr "Turpināt"
 
 #: src/registration.cpp:316
 #, kde-format
 msgid "Working"
-msgstr "Attivo"
+msgstr "Darbojas"
 
 #: src/roommanager.cpp:86
 #, kde-format
 msgid "Malformed or empty Matrix id"
-msgstr "ID Matrix non valido o vuoto"
+msgstr "Nepareizi formatēts vai tukšs „Matrix“ ID"
 
 #: src/roommanager.cpp:86
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
-msgstr "%1 non è un identificatore Matrix corretto"
+msgstr "„%1“ nav pareizs „Matrix“ identifikators"
 
 #: src/roommanager.cpp:102
 #, kde-format
 msgid "Room not found"
-msgstr "Stanza trovata"
+msgstr "Istaba nav atrasta"
 
 #: src/roommanager.cpp:102
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
-"Non c'è alcuna stanza %1 nell'elenco delle stanze. Controlla l'ortografia e "
-"l'account."
+"Istabu sarakstā nav tādas istabas „%1“. Pārbaudiet pareizrakstību un kontu."
 
 #: src/roommanager.cpp:333
 #, kde-format
 msgid "Failed to join room"
-msgstr "Accesso alla stanza non riuscito"
+msgstr "Neizdevās pievienoties istabai"
 
 #: src/roommanager.cpp:348
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr "Hai chiesto di unirti a «%1»"
+msgstr "Jūsu lūdzāt pievienoties „%1“"
 
 #: src/roommanager.cpp:351
 #, kde-format
 msgid "Failed to request joining room"
-msgstr "Impossibile richiedere l'accesso alla stanza"
+msgstr "Neizdevās lūgt pievienoties istabai"
 
 #: src/roommanager.cpp:360
 #, kde-format
 msgid "No application for the link"
-msgstr "Nessuna applicazione per il collegamento"
+msgstr "Saitei nav piesaistītas programmas"
 
 #: src/roommanager.cpp:360
 #, kde-format
 msgid "Your operating system could not find an application for the link."
-msgstr ""
-"Il tuo sistema operativo non è riuscito a trovare un'applicazione per il "
-"collegamento."
+msgstr "Jūsu operētājsistēma nevarēja atrast programmu šai saitei."
 
 #: src/roommanager.cpp:366
 #, kde-format
 msgid "Could not open URL"
-msgstr "Impossibile aprire l'URL"
+msgstr "Nevarēja atvērt URL"
 
 #: src/timeline/CodeComponent.qml:141
 #, kde-format
 msgid "Copy to clipboard"
-msgstr "Copia negli appunti"
+msgstr "Kopēt starpliktuvē"
 
 #: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:193
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
 "device."
-msgstr ""
-"Questo messaggio è cifrato e il mittente non ha condiviso la chiave con "
-"questo dispositivo."
+msgstr "Šī ziņa ir šifrēta, bet sūtītājs nav kopīgojis atslēgu ar šo ierīci."
 
 #: src/timeline/FileComponent.qml:108 src/timeline/FileComponent.qml:191
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
-msgstr "Scarica"
+msgstr "Lejupielādēt"
 
 #: src/timeline/FileComponent.qml:124 src/timeline/FileComponent.qml:181
 #, kde-format
@@ -4914,7 +4872,7 @@ msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
 "file with an appropriate application"
 msgid "Open File"
-msgstr "Apri file"
+msgstr "Atvērt datni"
 
 #: src/timeline/FileComponent.qml:139
 #, kde-format
@@ -4927,7 +4885,7 @@ msgstr "%1 / %2"
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
-msgstr "Ferma lo scaricamento"
+msgstr "Apturēt lejupielādi"
 
 #: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
@@ -4955,67 +4913,66 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr "Invia a KDE Itinerary"
+msgstr "Sūtīt uz KDE „Itinerary“"
 
 #: src/timeline/LinkPreviewComponent.qml:119
 #, kde-format
 msgid "Shrink preview"
-msgstr "Riduci l'anteprima"
+msgstr "Samazināt priekšskatījumu"
 
 #: src/timeline/LinkPreviewComponent.qml:119
 #, kde-format
 msgid "Expand preview"
-msgstr "Espandi l'anteprima"
+msgstr "Palielināt priekšskatījumu"
 
 #: src/timeline/LoadComponent.qml:53
 #, kde-format
 msgid "Loading reply"
-msgstr "Caricamento risposta"
+msgstr "Ielādē atbildi"
 
 #: src/timeline/LoadComponent.qml:55
 #, kde-format
 msgid "Loading URL preview"
-msgstr "Caricamento dell'anteprima dell'URL"
+msgstr "Ielādē URL priekšskatījumu"
 
 #: src/timeline/MessageEditComponent.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "Conferma la modifica"
+msgstr "Apstiprināt izmaiņas"
 
 #: src/timeline/MessageEditComponent.qml:114
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
-msgstr "Annulla la modifica"
+msgstr "Atcelt izmaiņas"
 
 #: src/timeline/PollComponent.qml:73
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] "Basato sui voti di %1 utente"
-msgstr[1] "Basato sui voti di %1 utenti"
+msgstr[0] "Balstoties uz %1 lietotāja balsīm"
+msgstr[1] "Balstoties uz %1 lietotāju balsīm"
+msgstr[2] "Balstoties uz %1 lietotāju balsīm"
 
 #: src/timeline/PollComponent.qml:73
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr "(Terminato)"
+msgstr "(Beidzās)"
 
 #: src/timeline/ReadMarkerDelegate.qml:32
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
-msgstr "Ultima lettura: %1"
+msgstr "Pēdējo reizi lasīta: %1"
 
 #: src/timeline/TimelineEndDelegate.qml:84
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
-msgstr ""
-"Questo è l'inizio della chat. Non ci sono messaggi più datati oltre questo "
-"punto."
+msgstr "Šis ir tērzēšanas sākums. Agrāk par šo vietu vēsturē ziņu nav."
 
 #: src/timeline/TrainReservationComponent.qml:124
 #: src/timeline/TrainReservationComponent.qml:191
@@ -5032,471 +4989,26 @@ msgstr "Video"
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
-msgstr "Volume"
+msgstr "Skaļums"
 
 #: src/timeline/VideoComponent.qml:319
 #, kde-format
 msgid "Maximize"
-msgstr "Massimizza"
+msgstr "Maksimizēt"
 
 #: src/trayicon.cpp:19
 #, kde-format
 msgid "Show"
-msgstr "Mostra"
+msgstr "Rādīt"
 
 #: src/trayicon.cpp:34
 #, kde-format
 msgid "Quit"
-msgstr "Esci"
+msgstr "Iziet"
 
 #~ msgid "Coach: %1, Seat: %2"
-#~ msgstr "Carrozza: %1, posto: %2"
+#~ msgstr "Autobuss: %1, sēdvieta: %2"
 
 #~ msgctxt "<start time> - <end time>"
 #~ msgid "%1 - %2"
-#~ msgstr "%1 - %2"
-
-#~ msgctxt "<username> is not a known user"
-#~ msgid "%1 is not a known user."
-#~ msgstr "%1 non è un utente conosciuto."
-
-#~ msgid "Show m.room.member events"
-#~ msgstr "Mostra eventi m.room.member"
-
-#~ msgid "Show room account data"
-#~ msgstr "Mostra i dati dell'account della stanza"
-
-#~ msgid "All Rooms"
-#~ msgstr "Tutte le stanze"
-
-#~ msgid "Start a Chat"
-#~ msgstr "Avvia una chat"
-
-#~ msgctxt "@title"
-#~ msgid "Start a Chat"
-#~ msgstr "Avvia una chat"
-
-#~ msgctxt "menu"
-#~ msgid "New Private Chat…"
-#~ msgstr "Nuova chat privata…"
-
-#~ msgid "Chat"
-#~ msgstr "Chat"
-
-#~ msgid "Join existing chat"
-#~ msgstr "Partecipa a una chat esistente"
-
-#~ msgid "Create new chat"
-#~ msgstr "Crea una nuova chat"
-
-#~ msgid "Rooms and private chats"
-#~ msgstr "Stanze e chat private"
-
-#~ msgid "Separated"
-#~ msgstr "Separate"
-
-#~ msgid "Intermixed"
-#~ msgstr "Mescolate"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Messaggi diretti"
-
-#~ msgid "Login Failed: Access Token invalid or revoked"
-#~ msgstr "Accesso non riuscito: token di accesso non valido o revocato"
-
-#~ msgid "[REDACTED]"
-#~ msgstr "[REDATTO]"
-
-#~ msgid "[REDACTED: %1]"
-#~ msgstr "[REDATTO: %1]"
-
-#~ msgid "The room id you are trying to join is not valid"
-#~ msgstr "L'ID della stanza che stai tentando di entrare non è valida"
-
-#~ msgctxt "n times"
-#~ msgid " %1 time "
-#~ msgid_plural " %1 times "
-#~ msgstr[0] " %1 volta "
-#~ msgstr[1] " %1 volte "
-
-#~ msgid "Please choose a file"
-#~ msgstr "Scegli un file"
-
-#~ msgid "Replying to:"
-#~ msgstr "Risposta a:"
-
-#~ msgid "Log in to a different account or create a new account."
-#~ msgstr "Accedi a un account diverso o crea un nuovo account."
-
-#~ msgid ""
-#~ "Welcome to NeoChat! Continue by logging in or creating a new account."
-#~ msgstr ""
-#~ "Benvenuto su NeoChat! Continua effettuando l'accesso o creando un nuovo "
-#~ "account."
-
-#~ msgid "View"
-#~ msgstr "Visualizza"
-
-#~ msgid "No Topic"
-#~ msgstr "Nessun argomento"
-
-#, fuzzy
-#~| msgid "Add new alias"
-#~ msgid "The child "
-#~ msgstr "Aggiungi nuovo alias"
-
-#~ msgctxt "@title"
-#~ msgid "Room Information"
-#~ msgstr "Informazioni sulla stanza"
-
-#~ msgid "Space name"
-#~ msgstr "Nome dello spazio"
-
-#~ msgid "Space topic (optional)"
-#~ msgstr "Argomento dello spazio (facoltativo)"
-
-#~ msgid "Accept Invitation"
-#~ msgstr "Accetta invito"
-
-#~ msgid "Reject Invitation"
-#~ msgstr "Rifiuta invito"
-
-#~ msgid "Today"
-#~ msgstr "Oggi"
-
-#~ msgid "Yesterday"
-#~ msgstr "Ieri"
-
-#~ msgid "The day before yesterday"
-#~ msgstr "L'altro ieri"
-
-#~ msgid "Room information"
-#~ msgstr "Informazioni della stanza"
-
-#~ msgid "Search user in room"
-#~ msgstr "Cerca l'utente nella stanza"
-
-#~ msgctxt "@title"
-#~ msgid "Select a Homeserver"
-#~ msgstr "Seleziona un server principale"
-
-#~ msgid "Homeserver:"
-#~ msgstr "Server principale:"
-
-#~ msgid "Other..."
-#~ msgstr "Altro..."
-
-#~ msgid "Url:"
-#~ msgstr "Url:"
-
-#~ msgctxt "@title"
-#~ msgid "Login"
-#~ msgstr "Accesso"
-
-#~ msgid "Login Methods"
-#~ msgstr "Metodi di accesso"
-
-#~ msgid "Login"
-#~ msgstr "Accesso"
-
-#~ msgctxt "@title"
-#~ msgid "Password"
-#~ msgstr "Password"
-
-#~ msgctxt "@action:button"
-#~ msgid "Back"
-#~ msgstr "Indietro"
-
-#~ msgid "No Canonical Alias"
-#~ msgstr "Nessun alias canonico"
-
-#~ msgid ""
-#~ "This room is encrypted. Build libQuotient with encryption enabled to send "
-#~ "encrypted messages."
-#~ msgstr ""
-#~ "Questa stanza è cifrata. Compila libQuotient con la cifratura abilitata "
-#~ "per inviare messaggi cifrati."
-
-#~ msgid "Messages containing my keywords"
-#~ msgstr "Messaggi contenenti le mie parole chiave"
-
-#~ msgctxt "@title:window"
-#~ msgid "Custom Emojis"
-#~ msgstr "Emoji personalizzati"
-
-#~ msgid "No custom inline stickers found"
-#~ msgstr "Nessun adesivo in linea personalizzato trovato"
-
-#~ msgid "new_emoji_name_here"
-#~ msgstr "nuovo_nome_emoji_qui"
-
-#~ msgid "Images (*.png *.gif *.webp)"
-#~ msgstr "Immagini (*.png *.gif *.webp)"
-
-#~ msgid "Custom Emojis"
-#~ msgstr "Emoji personalizzati"
-
-#~ msgid "No Name"
-#~ msgstr "Senza nome"
-
-#~ msgid "Add an Emoji"
-#~ msgstr "Aggiungi un Emoji"
-
-#~ msgid "Options:"
-#~ msgstr "Opzioni:"
-
-#~ msgid "Zoom in"
-#~ msgstr "Ingrandisci"
-
-#~ msgid "Zoom out"
-#~ msgstr "Rimpicciolisci"
-
-#~ msgid "Rotate left"
-#~ msgstr "Ruota a sinistra"
-
-#~ msgid "Rotate right"
-#~ msgstr "Ruota a destra"
-
-#~ msgid "Save as"
-#~ msgstr "Salva come"
-
-#~ msgid " (edited)"
-#~ msgstr " (modificato)"
-
-#~ msgid "Room Name"
-#~ msgstr "Nome stanza"
-
-#~ msgid "Room Topic"
-#~ msgstr "Argomento della stanza"
-
-#~ msgid "Edit Message"
-#~ msgstr "Modifica messaggio"
-
-#~ msgid "Editing message:"
-#~ msgstr "Modifica del messaggio:"
-
-#~ msgid "Owner"
-#~ msgstr "Proprietario"
-
-#~ msgid "Mod"
-#~ msgstr "Mod"
-
-#~ msgid "Muted"
-#~ msgstr "Silenziato"
-
-#~ msgid ""
-#~ "This room is encrypted. Sending encrypted messages is not yet supported."
-#~ msgstr ""
-#~ "Questa stanza è cifrata. L'invio di messaggi cifrati non è ancora "
-#~ "supportato."
-
-#~ msgid "Custom"
-#~ msgstr "Personalizzato"
-
-#, fuzzy
-#~| msgid "Decline"
-#~ msgid "Timeline"
-#~ msgstr "Rifiuta"
-
-#~ msgid "In Chat"
-#~ msgstr "Nella chat"
-
-#, fuzzy
-#~| msgid "Theme:"
-#~ msgid "Themes"
-#~ msgstr "Tema:"
-
-#~ msgid "Displays action"
-#~ msgstr "Visualizza l'azione"
-
-#~ msgid "Sends a message as plain text, without interpreting it as markdown"
-#~ msgstr ""
-#~ "Invia un messaggio come testo normale, senza interpretarlo come markdown"
-
-#~ msgid "Sends a message as html, without interpreting it as markdown"
-#~ msgstr "Invia un messaggio come html, senza interpretarlo come markdown"
-
-#~ msgid "Sends the given message coloured as a rainbow"
-#~ msgstr "Invia il messaggio dato colorato come un arcobaleno"
-
-#~ msgid "Sends the given emote coloured as a rainbow"
-#~ msgstr "Invia l'emote specificata colorata come un arcobaleno"
-
-#~ msgid "Joins room with given address"
-#~ msgstr "Entra nella stanza con l'indirizzo specificato"
-
-#~ msgid "Leave room"
-#~ msgstr "Lascia la stanza"
-
-#~ msgid "Invites user with given id to current room"
-#~ msgstr "Invita l'utente con l'ID specificato nella stanza attuale"
-
-#~ msgid "React to this message with a text"
-#~ msgstr "Reagisci a questo messaggio con del testo"
-
-#~ msgid "Edit device"
-#~ msgstr "Modifica il dispositivo"
-
-#~ msgid "Avatar:"
-#~ msgstr "Avatar:"
-
-#~ msgid "Add an account"
-#~ msgstr "Aggiungi un account"
-
-#~ msgid "Notifications and events:"
-#~ msgstr "Notifiche ed eventi:"
-
-#~ msgid "Proxy Host"
-#~ msgstr "Host del proxy"
-
-#~ msgid "Online"
-#~ msgstr "In linea"
-
-#~ msgid "Local"
-#~ msgstr "Locale"
-
-#~ msgid "Global"
-#~ msgstr "Globale"
-
-#~ msgid "Invalid command"
-#~ msgstr "Comando non valido"
-
-#~ msgid "Couldn't find a message to react to"
-#~ msgstr "Impossibile trovare un messaggio a cui reagire"
-
-#~ msgid "Image View - %1"
-#~ msgstr "Vista immagini - %1"
-
-#, fuzzy
-#~| msgid "Send message"
-#~ msgid "All messages"
-#~ msgstr "Invia messaggio"
-
-#~ msgid "Write your message..."
-#~ msgstr "Scrivi il tuo messaggio..."
-
-#~ msgctxt "menu"
-#~ msgid "Preferences…"
-#~ msgstr "Preferenze…"
-
-#~ msgid "Please make sure that the keychain is opened."
-#~ msgstr "Accertati che il portachiavi sia aperto."
-
-#, fuzzy
-#~| msgid "Accept"
-#~ msgid "Accept Invite"
-#~ msgstr "Accetta"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "No suggestions for %1"
-#~ msgstr "Nessun suggerimento per %1"
-
-#~ msgid "Add to dictionary"
-#~ msgstr "Aggiungi al dizionario"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Undo"
-#~ msgstr "Annulla"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Redo"
-#~ msgstr "Rifai"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Cut"
-#~ msgstr "Taglia"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Copy"
-#~ msgstr "Copia"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Paste"
-#~ msgstr "Incolla"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Select All"
-#~ msgstr "Seleziona tutto"
-
-#~ msgid "Server-side Logout Failed: %1"
-#~ msgstr "Disconnessione lato server non riuscita: %1"
-
-#~ msgid "updated the database"
-#~ msgstr "ha aggiornato il database"
-
-#~ msgid "Account"
-#~ msgstr "Account"
-
-#~ msgid "Server error when joining the room \"%1\": %2"
-#~ msgstr "Errore del server durante l'accesso alla stanza virtuale «%1»: %2"
-
-#~ msgid "@title"
-#~ msgstr "@titolo"
-
-#~ msgctxt "@title:menu Message detail dialog"
-#~ msgid "Message detail"
-#~ msgstr "Dettagli del messaggio"
-
-#~ msgid "Confirm opening a link"
-#~ msgstr "Conferma l'apertura di un collegamento"
-
-#~ msgid "Do you want to open the link to %1?"
-#~ msgstr "Vuoi aprire il collegamento a %1?"
-
-#~ msgid "Don't ask again"
-#~ msgstr "Non chiedere più"
-
-#~ msgctxt "@label Parameter of a command"
-#~ msgid "[<room-address>]"
-#~ msgstr "[<indirizzo-stanza>]"
-
-#~ msgid "Please choose a folder"
-#~ msgstr "Scegli una cartella"
-
-#~ msgid "Neochat"
-#~ msgstr "Neochat"
-
-#~ msgid "Unknown duration"
-#~ msgstr "Durata sconosciuta"
-
-#~ msgid "%1 byte"
-#~ msgid_plural "%1 bytes"
-#~ msgstr[0] "%1 byte"
-#~ msgstr[1] "%1 byte"
-
-#~ msgctxt "KB as in kilobytes"
-#~ msgid "%1 KB"
-#~ msgstr "%1 KB"
-
-#~ msgctxt "MB as in megabytes"
-#~ msgid "%1 MB"
-#~ msgstr "%1 MB"
-
-#~ msgctxt "GB as in gigabytes"
-#~ msgid "%1 GB"
-#~ msgstr "%1 GB"
-
-#~ msgid "Redact"
-#~ msgstr "Redigi"
-
-#~ msgid "Server Address"
-#~ msgstr "Indirizzo del server"
-
-#~ msgid "Device Name (Optional)"
-#~ msgstr "Nome del dispositivo (opzionale)"
-
-#~ msgid "Loading, this might take up to 10 seconds."
-#~ msgstr "Caricamento, potrebbe richiedere fino a 10 secondi."
-
-#~ msgid "Invitation Received - %1"
-#~ msgstr "Invito ricevuto - %1"
-
-#~ msgctxt "Seperate the usernames of users"
-#~ msgid " and "
-#~ msgstr " e "
-
-#~ msgid "Deadbeef"
-#~ msgstr "Deadbeef"
-
-#~ msgid "You didn't join any room yet."
-#~ msgstr "Non sei ancora entrato in una stanza."
+#~ msgstr "%1 — %2"

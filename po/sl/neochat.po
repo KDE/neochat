@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-13 16:41+0100\n"
-"Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
+"POT-Creation-Date: 2024-03-24 00:38+0000\n"
+"PO-Revision-Date: 2024-03-23 06:36+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -1414,13 +1414,13 @@ msgstr "Razvojna orodja"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "Odpri skrivno varovalno kopijo"
 
 #: src/qml/AccountMenu.qml:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "Odpri ključ varovalne kopije"
 
 #: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
@@ -2280,7 +2280,7 @@ msgstr "Niti"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Skrivna varovalna kopija"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -4332,48 +4332,47 @@ msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Pošlji šifrirano sporočilo …"
+msgstr "Naloži vaša šifrirana sporočila"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "Varnostna fraza ni pravilna."
 
 #: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "Odkleni z uporabo varnostne fraze"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr ""
+"Če imate varnostno kopijo skrivne fraze za ta račun, jo vnesite spodaj."
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Geslo:"
+msgstr "Varnostna kopija gesla:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "Odkleni"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "Odkleni z uporabo varnostnega ključa"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -4382,25 +4381,26 @@ msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 msgstr ""
+"Če imate varnostni ključ za ta račun, ga vnesite spodaj ali ga prenesite kot "
+"datoteko."
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "Varnost"
+msgstr "Varnostni ključ:"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "Prenesi iz datoteke"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "Odkleni iz navskrižnega podpisovanja"
 
 #: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
@@ -4409,12 +4409,14 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"Če ste že preverili to napravo, lahko poskusite naložiti varnostni ključ iz "
+"drugih naprav, tako da kliknete spodnji gumb."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "Zahtevek iz drugih naprav"
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format
@@ -4902,18 +4904,29 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Ustavi prenos"
 
-#: src/timeline/ItineraryComponent.qml:48
+#: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
-msgid "Coach: %1, Seat: %2"
-msgstr "Vozilo: %1, Sedež: %2"
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:90
+#: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
-msgctxt "<start time> - <end time>"
-msgid "%1 - %2"
-msgstr "%1 – %2"
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr ""
 
-#: src/timeline/ItineraryComponent.qml:101
+#: src/timeline/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr ""
+
+#: src/timeline/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr ""
+
+#: src/timeline/ItineraryComponent.qml:57
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
@@ -4980,18 +4993,24 @@ msgid ""
 msgstr ""
 "To je začetek klepeta. Onkraj te točke ni nobenih sporočil v zgodovini."
 
-#: src/timeline/VideoComponent.qml:166
+#: src/timeline/TrainReservationComponent.qml:124
+#: src/timeline/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr ""
+
+#: src/timeline/VideoComponent.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/timeline/VideoComponent.qml:230
+#: src/timeline/VideoComponent.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Glasnost"
 
-#: src/timeline/VideoComponent.qml:314
+#: src/timeline/VideoComponent.qml:319
 #, kde-format
 msgid "Maximize"
 msgstr "Razpni"
@@ -5005,3 +5024,10 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "Coach: %1, Seat: %2"
+#~ msgstr "Vozilo: %1, Sedež: %2"
+
+#~ msgctxt "<start time> - <end time>"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 – %2"
