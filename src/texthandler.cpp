@@ -307,13 +307,14 @@ int TextHandler::nextBlockPos(const QString &string)
         return string.size();
     }
 
-    int closeTagPos = string.indexOf(QStringLiteral("</%1>").arg(tagType));
+    const auto closeTag = QStringLiteral("</%1>").arg(tagType);
+    int closeTagPos = string.indexOf(closeTag);
     // If the close tag can't be found assume malformed html and process as single block.
     if (closeTagPos == -1) {
         return string.size();
     }
 
-    return closeTagPos + tag.size() + 1;
+    return closeTagPos + closeTag.size();
 }
 
 MessageComponent TextHandler::nextBlock(const QString &string,

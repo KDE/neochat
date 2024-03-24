@@ -529,6 +529,19 @@ void TextHandlerTest::componentOutput_data()
     QTest::newRow("inline code single block") << QStringLiteral("<code>https://kde.org</code>")
                                               << QList<MessageComponent>{
                                                      MessageComponent{MessageComponentType::Text, QStringLiteral("<code>https://kde.org</code>"), {}}};
+    QTest::newRow("long start tag")
+        << QStringLiteral(
+               "Ah, you mean something like<br/><pre data-md=\"```\"><code class=\"language-qml\"># main.qml\nimport CustomQml\n...\nControls.TextField { id: "
+               "someField }\nCustomQml {\n    someTextProperty: someField.text\n}\n</code></pre>Sure you can, it's still local to the same file where you "
+               "defined the id")
+        << QList<MessageComponent>{
+               MessageComponent{MessageComponentType::Text, QStringLiteral("Ah, you mean something like"), {}},
+               MessageComponent{
+                   MessageComponentType::Code,
+                   QStringLiteral(
+                       "# main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}"),
+                   QVariantMap{{QStringLiteral("class"), QStringLiteral("qml")}}},
+               MessageComponent{MessageComponentType::Text, QStringLiteral("Sure you can, it's still local to the same file where you defined the id"), {}}};
 }
 
 void TextHandlerTest::componentOutput()
