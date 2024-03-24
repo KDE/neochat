@@ -656,6 +656,7 @@ QVariantMap EventHandler::getMediaInfoForEvent(const Quotient::RoomEvent *event)
 
     // Get the file info for the event.
     const EventContent::FileInfo *fileInfo;
+    bool isSticker = false;
     if (event->is<RoomMessageEvent>()) {
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(event);
         if (!roomMessageEvent->hasFileContent()) {
@@ -665,14 +666,15 @@ QVariantMap EventHandler::getMediaInfoForEvent(const Quotient::RoomEvent *event)
     } else if (event->is<StickerEvent>()) {
         auto stickerEvent = eventCast<const StickerEvent>(event);
         fileInfo = &stickerEvent->image();
+        isSticker = true;
     } else {
         return {};
     }
 
-    return getMediaInfoFromFileInfo(fileInfo, eventId);
+    return getMediaInfoFromFileInfo(fileInfo, eventId, false, isSticker);
 }
 
-QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail) const
+QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail, bool isSticker) const
 {
     QVariantMap mediaInfo;
 
@@ -698,6 +700,8 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
 
     // Add media size if available.
     mediaInfo["size"_ls] = fileInfo->payloadSize;
+
+    mediaInfo["isSticker"_ls] = isSticker;
 
     // Add parameter depending on media type.
     if (mimeType.name().contains(QStringLiteral("image"))) {

@@ -47,6 +47,7 @@ Item {
      *  - width - The width in pixels of the audio media.
      *  - height - The height in pixels of the audio media.
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
+     *  - isSticker - Whether the image is a sticker or not
      */
     required property var mediaInfo
 
@@ -139,11 +140,13 @@ Item {
                 _private.imageItem.paused = true;
             }
             root.timeline.interactive = false;
-            // We need to make sure the index is that of the MediaMessageFilterModel.
-            if (root.timeline.model instanceof MessageFilterModel) {
-                RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index));
-            } else {
-                RoomManager.maximizeMedia(root.index);
+            if (!root.mediaInfo.isSticker) {
+                // We need to make sure the index is that of the MediaMessageFilterModel.
+                if (root.timeline.model instanceof MessageFilterModel) {
+                    RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index));
+                } else {
+                    RoomManager.maximizeMedia(root.index);
+                }
             }
         }
     }

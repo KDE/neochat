@@ -229,6 +229,7 @@ public:
      *  - width - The width in pixels of the audio media.
      *  - height - The height in pixels of the audio media.
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
+     *  - isSticker - Whether the image is a sticker or not
      */
     QVariantMap getMediaInfo() const;
 
@@ -320,6 +321,7 @@ public:
      *  - width - The width in pixels of the audio media.
      *  - height - The height in pixels of the audio media.
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
+     *  - isSticker - Whether the image is a sticker or not
      */
     QVariantMap getReplyMediaInfo() const;
 
@@ -405,5 +407,6 @@ private:
     QString getMessageBody(const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines) const;
 
     QVariantMap getMediaInfoForEvent(const Quotient::RoomEvent *event) const;
-    QVariantMap getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false) const;
+    QVariantMap
+    getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false, bool isSticker = false) const;
 };
