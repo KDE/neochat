@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:38+0000\n"
-"PO-Revision-Date: 2024-03-12 11:49+0100\n"
+"POT-Creation-Date: 2024-03-25 00:37+0000\n"
+"PO-Revision-Date: 2024-03-24 09:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -452,14 +452,14 @@ msgstr "ha actualitzat l'estat"
 msgid "started a poll"
 msgstr "ha començat una enquesta"
 
-#: src/eventhandler.cpp:1034
+#: src/eventhandler.cpp:1038
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 usuari: "
 msgstr[1] "%1 usuaris: "
 
-#: src/eventhandler.cpp:1037
+#: src/eventhandler.cpp:1041
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1405,13 +1405,13 @@ msgstr "Eines de desenvolupament"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "Obri una còpia de seguretat del secret"
 
 #: src/qml/AccountMenu.qml:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "Obri una còpia de seguretat de la clau"
 
 #: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
@@ -2277,7 +2277,7 @@ msgstr "Fils"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Còpia de seguretat del secret"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -4339,48 +4339,48 @@ msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Envia un missatge encriptat…"
+msgstr "Càrrega dels missatges encriptats"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "La frase de seguretat no és correcta."
 
 #: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "Desbloqueja utilitzant la frase de pas"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr ""
+"Si teniu una còpia de seguretat de la frase de pas per a este compte, "
+"introduïu-la a continuació."
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Contrasenya:"
+msgstr "Còpia de seguretat de la contrasenya:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloqueja"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "Desbloqueja utilitzant la clau de seguretat"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -4389,25 +4389,26 @@ msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 msgstr ""
+"Si teniu una clau de seguretat per a este compte, introduïu-la a continuació "
+"o carregueu-la com a fitxer."
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "Seguretat"
+msgstr "Clau de seguretat:"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "Carrega des del fitxer"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "Desbloqueja a partir d'una signatura creuada"
 
 #: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
@@ -4416,12 +4417,15 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"Si heu verificat prèviament este dispositiu, podeu intentar de carregar la "
+"clau de còpia de seguretat des d'altres dispositius fent clic en el botó de "
+"davall."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "Sol·licita des d'altres dispositius"
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format
@@ -4925,23 +4929,23 @@ msgstr "Para la baixada"
 #, kde-format
 msgctxt "flight departure, %1 is airport, %2 is time"
 msgid "Departure from %1"
-msgstr ""
+msgstr "Eixida des de %1"
 
 #: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
 msgctxt "flight arrival, %1 is airport, %2 is time"
 msgid "Arrival at %1"
-msgstr ""
+msgstr "Arribada a les %1"
 
 #: src/timeline/HotelReservationComponent.qml:65
 #, kde-format
 msgid "Check-in time: %1"
-msgstr ""
+msgstr "Hora d'entrada: %1"
 
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
-msgstr ""
+msgstr "Hora d'eixida: %1"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -5009,11 +5013,12 @@ msgstr ""
 "Este és el començament del xat. No hi ha missatges històrics més enllà "
 "d'este punt."
 
+# Pl.=Platform -> Andana
 #: src/timeline/TrainReservationComponent.qml:124
 #: src/timeline/TrainReservationComponent.qml:191
 #, kde-format
 msgid "Pl. %1"
-msgstr ""
+msgstr "An. %1"
 
 #: src/timeline/VideoComponent.qml:171
 #, kde-format
@@ -5040,10 +5045,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgid "Coach: %1, Seat: %2"
-#~ msgstr "Cotxe: %1, Seient: %2"
-
-#~ msgctxt "<start time> - <end time>"
-#~ msgid "%1 - %2"
-#~ msgstr "%1 - %2"
