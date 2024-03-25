@@ -33,7 +33,6 @@ public:
                            bool worldReadable = {},
                            bool isSpace = {},
                            Quotient::StateEvents childStates = {});
-    ~SpaceTreeItem();
 
     bool operator==(const SpaceTreeItem &other) const;
 
@@ -42,7 +41,7 @@ public:
      *
      * Nullptr is returned if there is no child at the given row number.
      */
-    SpaceTreeItem *child(int number);
+    SpaceTreeItem *child(int row);
 
     /**
      * @brief The number of children this item has.
@@ -52,7 +51,7 @@ public:
     /**
      * @brief Insert the given child.
      */
-    bool insertChild(SpaceTreeItem *newChild);
+    bool insertChild(std::unique_ptr<SpaceTreeItem> newChild);
 
     /**
      * @brief Remove the child at the given row number.
@@ -151,7 +150,7 @@ public:
 
 private:
     NeoChatConnection *m_connection;
-    QList<SpaceTreeItem *> m_children;
+    std::vector<std::unique_ptr<SpaceTreeItem>> m_children;
     SpaceTreeItem *m_parentItem;
 
     QString m_id;

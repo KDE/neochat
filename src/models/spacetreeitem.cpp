@@ -32,30 +32,22 @@ SpaceTreeItem::SpaceTreeItem(NeoChatConnection *connection,
 {
 }
 
-SpaceTreeItem::~SpaceTreeItem()
-{
-    qDeleteAll(m_children);
-}
-
 bool SpaceTreeItem::operator==(const SpaceTreeItem &other) const
 {
     return m_id == other.id();
 }
 
-SpaceTreeItem *SpaceTreeItem::child(int number)
+SpaceTreeItem *SpaceTreeItem::child(int row)
 {
-    if (number < 0 || number >= m_children.size()) {
-        return nullptr;
-    }
-    return m_children[number];
+    return row >= 0 && row < childCount() ? m_children.at(row).get() : nullptr;
 }
 
 int SpaceTreeItem::childCount() const
 {
-    return m_children.count();
+    return int(m_children.size());
 }
 
-bool SpaceTreeItem::insertChild(SpaceTreeItem *newChild)
+bool SpaceTreeItem::insertChild(std::unique_ptr<SpaceTreeItem> newChild)
 {
     if (newChild == nullptr) {
         return false;
@@ -63,30 +55,39 @@ bool SpaceTreeItem::insertChild(SpaceTreeItem *newChild)
 
     for (auto it = m_children.begin(), end = m_children.end(); it != end; ++it) {
         if (*it == newChild) {
-            *it = newChild;
+            *it = std::move(newChild);
             return true;
         }
     }
 
-    m_children.append(newChild);
+    m_children.push_back(std::move(newChild));
     return true;
 }
 
 bool SpaceTreeItem::removeChild(int row)
 {
-    if (row < 0 || row >= m_children.size()) {
+    if (row < 0 || row >= childCount()) {
         return false;
     }
-    delete m_children.takeAt(row);
+    m_children.erase(m_children.begin() + row);
     return true;
 }
 
 int SpaceTreeItem::row() const
 {
-    if (m_parentItem) {
-        return m_parentItem->m_children.indexOf(const_cast<SpaceTreeItem *>(this));
+    if (m_parentItem == nullptr) {
+        return 0;
     }
-    return 0;
+
+    const auto it = std::find_if(m_parentItem->m_children.cbegin(), m_parentItem->m_children.cend(), [this](const std::unique_ptr<SpaceTreeItem> &treeItem) {
+        return treeItem.get() == this;
+    });
+
+    if (it != m_parentItem->m_children.cend()) {
+        return std::distance(m_parentItem->m_children.cbegin(), it);
+    }
+    Q_ASSERT(false); // should not happen
+    return -1;
 }
 
 SpaceTreeItem *SpaceTreeItem::parentItem() const

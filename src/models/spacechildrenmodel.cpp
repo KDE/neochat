@@ -131,18 +131,18 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
                     insertChildren(job->rooms(), index(insertRow, 0, parent));
                 });
             }
-            parentItem->insertChild(new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()),
-                                                      parentItem,
-                                                      children[i].roomId,
-                                                      children[i].name,
-                                                      children[i].canonicalAlias,
-                                                      children[i].topic,
-                                                      children[i].numJoinedMembers,
-                                                      children[i].avatarUrl,
-                                                      children[i].guestCanJoin,
-                                                      children[i].worldReadable,
-                                                      children[i].roomType == QLatin1String("m.space"),
-                                                      std::move(children[i].childrenState)));
+            parentItem->insertChild(std::make_unique<SpaceTreeItem>(dynamic_cast<NeoChatConnection *>(m_space->connection()),
+                                                                    parentItem,
+                                                                    children[i].roomId,
+                                                                    children[i].name,
+                                                                    children[i].canonicalAlias,
+                                                                    children[i].topic,
+                                                                    children[i].numJoinedMembers,
+                                                                    children[i].avatarUrl,
+                                                                    children[i].guestCanJoin,
+                                                                    children[i].worldReadable,
+                                                                    children[i].roomType == QLatin1String("m.space"),
+                                                                    std::move(children[i].childrenState)));
         }
     }
     endInsertRows();
