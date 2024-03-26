@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-25 00:37+0000\n"
-"PO-Revision-Date: 2024-03-13 14:05+0100\n"
-"Last-Translator: xavier <xavier.besnard@kde.org>\n"
+"PO-Revision-Date: 2024-03-24 10:11+0100\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1409,13 +1409,13 @@ msgstr "Outils de développement"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "Ouvrir l'archive secrète"
 
 #: src/qml/AccountMenu.qml:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "Ouvrir l'archive des clés"
 
 #: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
@@ -2284,7 +2284,7 @@ msgstr "Processus"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Archive secrète"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -4352,48 +4352,48 @@ msgstr[0] "%2 est entrain d'écrire"
 msgstr[1] "%2 sont entrain d'écrire"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Envoyer un message chiffré..."
+msgstr "Charger vos messages chiffrés"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "La phrase de sécurité était incorrecte."
 
 #: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "Déverrouiller à l'aide de la phrase secrète"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr ""
+"Si vous avez une phrase secrète archivée pour ce compte, veuillez la saisir "
+"ci-dessous."
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Mot de passe :"
+msgstr "Mot de passe de l'archive :"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "Déverrouiller"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "Déverrouiller à l'aide de la clé de sécurité"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -4402,25 +4402,26 @@ msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 msgstr ""
+"Si vous avez une clé de sécurité pour ce compte, veuillez la saisir ci-"
+"dessous ou l'envoyer sous forme de fichier."
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "Sécurité"
+msgstr "Clé de sécurité :"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "Envoyer à partir du fichier"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "Déverrouiller à partir de la signature croisée"
 
 #: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
@@ -4429,12 +4430,15 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"Si vous avez déjà vérifié ce périphérique, vous pouvez essayer de charger la "
+"clé d'archive à partir d'autres périphériques en cliquant sur le bouton ci-"
+"dessous."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "Demande provenant d'autres périphériques"
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format

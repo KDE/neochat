@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-25 00:37+0000\n"
-"PO-Revision-Date: 2024-03-06 22:13+0100\n"
+"PO-Revision-Date: 2024-03-25 14:08+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -606,7 +606,7 @@ msgstr "Barneko erabilera bakarrik."
 #: src/main.cpp:201
 #, kde-format
 msgid "Share a URL to Matrix"
-msgstr ""
+msgstr "Partekatu URL bat «Matrix»ekin"
 
 #: src/matriximageprovider.cpp:40
 #, kde-format
@@ -1408,13 +1408,13 @@ msgstr "Garatzailearen tresnak"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "Ireki babeskopia-sekretua"
 
 #: src/qml/AccountMenu.qml:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "Ireki gakoaren babeskopia"
 
 #: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
@@ -2274,7 +2274,7 @@ msgstr "Hariak"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Sekretuaren babeskopia"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -3104,11 +3104,10 @@ msgid "Event Source"
 msgstr "Ekitaldi sorburua"
 
 #: src/qml/NetworkProxyPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Proxy Port"
+#, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
-msgstr "Ordezkariaren ataka"
+msgstr "Ordezkaria"
 
 #: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
 #, kde-format
@@ -4322,48 +4321,46 @@ msgstr[0] "%2 tekleatzen ari da"
 msgstr[1] "%2 tekleatzen ari dira"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Bidali zifratutako mezu bat..."
+msgstr "Zamatu zifratutako zure mezuak"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "Segurtasun-esaldia ez zen zuzena."
 
 #: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "Giltzapetik askatu pasaesaldi bat erabiliz"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
+msgstr "Kontu honetarako babeskopia-pasaesaldi bat baduzu, sartu behean."
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Pasahitza:"
+msgstr "Babeskopia pasahitza:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "Giltzapetik askatu"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "Giltzapetik askatu gako sekretua erabiliz"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -4372,25 +4369,26 @@ msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 msgstr ""
+"Kontu honetarako segurtasun gako bat baduzu, sar ezazu behean edo zama-igo "
+"fitxategi gisa."
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "Segurtasuna"
+msgstr "Segurtasun gakoa:"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "Zama-igo fitxategitik"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "Giltzapetik askatu sinadura-gurutzatu bidez"
 
 #: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
@@ -4399,12 +4397,14 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"Gailu hau aurrez egiaztatu baduzu, beheko botoiari klik eginez beste "
+"gailuetako babeskopia-gakoa zamatzen saia zaitezke."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "Eskatu beste gailuetatik"
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format
@@ -4747,15 +4747,13 @@ msgid "Go back"
 msgstr "Itzuli"
 
 #: src/qml/WelcomePage.qml:217
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open proxy settings"
-msgstr "Ireki ezarpenak"
+msgstr "Ireki ordezkariaren ezarpenak"
 
 #: src/qml/WelcomePage.qml:220
-#, fuzzy, kde-format
-#| msgid "Proxy Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "Ordezkariaren ezarpenak"
@@ -4902,23 +4900,23 @@ msgstr "Gelditu zama-jaistea"
 #, kde-format
 msgctxt "flight departure, %1 is airport, %2 is time"
 msgid "Departure from %1"
-msgstr ""
+msgstr "Irteera %1(e)tik"
 
 #: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
 msgctxt "flight arrival, %1 is airport, %2 is time"
 msgid "Arrival at %1"
-msgstr ""
+msgstr "Helduera %1(e)ra"
 
 #: src/timeline/HotelReservationComponent.qml:65
 #, kde-format
 msgid "Check-in time: %1"
-msgstr ""
+msgstr "Izen-emate ordua: %1"
 
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
-msgstr ""
+msgstr "Ordaindu eta irtete ordua: %1"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -4990,7 +4988,7 @@ msgstr ""
 #: src/timeline/TrainReservationComponent.qml:191
 #, kde-format
 msgid "Pl. %1"
-msgstr ""
+msgstr "%1 Na."
 
 #: src/timeline/VideoComponent.qml:171
 #, kde-format

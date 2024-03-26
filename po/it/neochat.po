@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-25 00:37+0000\n"
-"PO-Revision-Date: 2024-03-13 11:48+0100\n"
+"PO-Revision-Date: 2024-03-25 09:36+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -1404,13 +1404,13 @@ msgstr "Strumenti per sviluppatori"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "Apri backup segreto"
 
 #: src/qml/AccountMenu.qml:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "Apri backup chiave"
 
 #: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
 #, kde-format
@@ -2278,7 +2278,7 @@ msgstr "Conversazioni"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Backup segreto"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -3718,7 +3718,7 @@ msgstr "Trova messaggi..."
 #: src/qml/RoomSearchPage.qml:38
 #, kde-format
 msgid "Enter text to start searching"
-msgstr "Inserisci del testo per iniziare la ricerca"
+msgstr "Digita del testo per iniziare la ricerca"
 
 #: src/qml/RoomSearchPage.qml:39
 #, kde-format
@@ -4342,48 +4342,48 @@ msgstr[0] "%2 sta scrivendo"
 msgstr[1] "%2 stanno scrivendo"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Invia un messaggio cifrato…"
+msgstr "Carica i tuoi messaggi cifrati"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "La frase di sicurezza non era corretta."
 
 #: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "Sblocca utilizzando la frase segreta"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr ""
+"Se disponi di una frase segreta di backup per questo account, digitala di "
+"seguito."
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Password:"
+msgstr "Password di backup:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "Sblocca"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "Sblocca utilizzando la chiave di sicurezza"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -4392,25 +4392,26 @@ msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 msgstr ""
+"Se disponi di una chiave di sicurezza per questo account, digitala di "
+"seguito o caricala come file."
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "Sicurezza"
+msgstr "Chiave di sicurezza:"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "Carica da file"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "Sblocca dalla firma incrociata"
 
 #: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
@@ -4419,12 +4420,14 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"Se hai già verificato questo dispositivo, puoi provare a caricare la chiave "
+"di backup da altri dispositivi facendo clic sul pulsante in basso."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "Richiesta da altri dispositivi"
 
 #: src/qml/UserDetailDialog.qml:32
 #, kde-format
@@ -4933,23 +4936,23 @@ msgstr "Ferma lo scaricamento"
 #, kde-format
 msgctxt "flight departure, %1 is airport, %2 is time"
 msgid "Departure from %1"
-msgstr ""
+msgstr "Partenza da %1"
 
 #: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
 msgctxt "flight arrival, %1 is airport, %2 is time"
 msgid "Arrival at %1"
-msgstr ""
+msgstr "Arrivo a %1"
 
 #: src/timeline/HotelReservationComponent.qml:65
 #, kde-format
 msgid "Check-in time: %1"
-msgstr ""
+msgstr "Ora di check-in: %1"
 
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
-msgstr ""
+msgstr "Ora di check-out: %1"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -5021,7 +5024,7 @@ msgstr ""
 #: src/timeline/TrainReservationComponent.qml:191
 #, kde-format
 msgid "Pl. %1"
-msgstr ""
+msgstr "Bin. %1"
 
 #: src/timeline/VideoComponent.qml:171
 #, kde-format
