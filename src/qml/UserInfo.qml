@@ -18,6 +18,8 @@ RowLayout {
 
     required property NeoChatConnection connection
 
+    property bool collapsed: false
+
     property bool bottomEdge: true
 
     property var addAccount
@@ -72,14 +74,13 @@ RowLayout {
     }
 
     ColumnLayout {
-        Layout.fillWidth: true
+        visible: !root.collapsed
         spacing: 0
         QQC2.Label {
             id: displayNameLabel
             text: root.connection.localUser.displayName
             textFormat: Text.PlainText
             elide: Text.ElideRight
-            Layout.fillWidth: true
         }
         QQC2.Label {
             text: (root.connection.label.length > 0 ? (root.connection.label + " ") : "") + root.connection.localUser.id
@@ -87,55 +88,56 @@ RowLayout {
             opacity: 0.7
             textFormat: Text.PlainText
             elide: Text.ElideRight
-            Layout.fillWidth: true
         }
     }
-    QQC2.ToolButton {
-        id: switchUserButton
-        icon.name: "system-switch-user"
-        checkable: true
-        text: i18n("Switch User")
-        display: QQC2.AbstractButton.IconOnly
-        Accessible.name: text
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        Layout.minimumWidth: Layout.preferredWidth
-        Layout.alignment: Qt.AlignRight
+    Kirigami.ActionToolBar {
+        alignment: Qt.AlignRight
+        rightPadding: root.collapsed ? Kirigami.Units.largeSpacing : 0
+        display: QQC2.Button.IconOnly
+
+        actions: [
+            Kirigami.Action {
+                id: switchUserButton
+                text: i18n("Switch User")
+                icon.name: "system-switch-user"
+                checkable: !root.collapsed
+                onTriggered: if (root.collapsed) {
+                    accountSwitchDialog.createObject(QQC2.ApplicationWindow.overlay, {
+                        connection: root.connection
+                    }).open();
+                }
+            },
+            Kirigami.Action {
+                visible: Config.developerTools
+                text: i18n("Open developer tools")
+                icon.name: "tools"
+                onTriggered: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'DevtoolsPage.qml'), {
+                    connection: root.connection
+                }, {
+                    title: i18n("Developer Tools")
+                });
+            },
+            Kirigami.Action {
+                visible: root.collapsed
+                text: i18n("Open Settings")
+                icon.name: "settings-configure"
+                onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
+                    connection: root.connection
+                }, {
+                    title: i18n("Configure"),
+                    width: Kirigami.Units.gridUnit * 50,
+                    height: Kirigami.Units.gridUnit * 42
+                })
+            }
+        ]
+
         Shortcut {
             sequence: "Ctrl+U"
             onActivated: switchUserButton.toggle()
         }
     }
     QQC2.ToolButton {
-        icon.name: "list-add"
-        onClicked: ; //TODO
-        text: i18n("Add") //TODO find better message
-        display: QQC2.AbstractButton.IconOnly
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        Layout.minimumWidth: Layout.preferredWidth
-        Layout.alignment: Qt.AlignRight
-        visible: false
-    }
-    QQC2.ToolButton {
-        visible: Config.developerTools
-        icon.name: "tools"
-        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'DevtoolsPage.qml'), {
-            connection: root.connection
-        }, {
-            title: i18n("Developer Tools")
-        });
-        text: i18n("Open developer tools")
-        display: QQC2.AbstractButton.IconOnly
-        Layout.minimumWidth: Layout.preferredWidth
-        Layout.alignment: Qt.AlignRight
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    }
-    QQC2.ToolButton {
+        visible: !root.collapsed
         icon.name: "settings-configure"
         onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
             connection: root.connection
@@ -153,6 +155,7 @@ RowLayout {
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
     Item {
+        visible: !root.collapsed
         width: 1
     }
 
@@ -166,8 +169,9 @@ RowLayout {
         parent: root
 
         visible: switchUserButton.checked
-        onVisibleChanged: if (visible)
+        onVisibleChanged: if (visible) {
             accounts.forceActiveFocus()
+        }
 
         x: -Kirigami.Units.smallSpacing
         y: root.bottomEdge ? -height - Kirigami.Units.smallSpacing - 1 : root.height + Kirigami.Units.smallSpacing - 1
@@ -179,119 +183,9 @@ RowLayout {
 
         closePolicy: QQC2.Popup.CloseOnEscape
 
-        contentItem: ListView {
+        contentItem: AccountView {
             id: accounts
-            implicitHeight: contentHeight
-
-            header: Kirigami.Separator {}
-
-            footer: Delegates.RoundedItemDelegate {
-                id: addButton
-                width: parent.width
-                highlighted: focus || (addAccount.highlighted || addAccount.ListView.isCurrentItem) && !addAccount.pressed
-                Component.onCompleted: root.addAccount = this
-                icon {
-                    name: "list-add"
-                    width: Kirigami.Units.iconSizes.smallMedium
-                    height: Kirigami.Units.iconSizes.smallMedium
-                }
-                text: i18n("Add Account")
-                contentItem: Delegates.SubtitleContentItem {
-                    itemDelegate: parent
-                    subtitle: i18n("Log in to an existing account")
-                    labelItem.textFormat: Text.PlainText
-                    subtitleItem.textFormat: Text.PlainText
-                }
-
-                onClicked: {
-                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'WelcomePage.qml'), {}, {
-                        title: i18nc("@title:window", "Login")
-                    });
-                    if (switchUserButton.checked) {
-                        switchUserButton.checked = false;
-                    }
-                    accounts.currentIndex = Controller.activeConnectionIndex;
-                }
-                Keys.onUpPressed: {
-                    accounts.currentIndex = accounts.count - 1;
-                    accounts.forceActiveFocus();
-                }
-                Keys.onDownPressed: {
-                    accounts.currentIndex = 0;
-                    accounts.forceActiveFocus();
-                }
-            }
-            clip: true
-            model: AccountRegistry
-
-            keyNavigationEnabled: false
-            Keys.onDownPressed: {
-                if (accounts.currentIndex === accounts.count - 1) {
-                    addAccount.forceActiveFocus();
-                    accounts.currentIndex = -1;
-                } else {
-                    accounts.incrementCurrentIndex();
-                }
-            }
-            Keys.onUpPressed: {
-                if (accounts.currentIndex === 0) {
-                    addAccount.forceActiveFocus();
-                    accounts.currentIndex = -1;
-                } else {
-                    accounts.decrementCurrentIndex();
-                }
-            }
-
-            Keys.onReleased: if (event.key == Qt.Key_Escape) {
-                if (switchUserButton.checked) {
-                    switchUserButton.checked = false;
-                }
-            }
-
-            onVisibleChanged: {
-                for (let i = 0; i < accounts.count; i++) {
-                    if (model.data(model.index(i, 0), Qt.DisplayRole) === root.connection.localUser.id) {
-                        accounts.currentIndex = i;
-                        break;
-                    }
-                }
-            }
-
-            delegate: Delegates.RoundedItemDelegate {
-                id: userDelegate
-
-                required property NeoChatConnection connection
-
-                width: parent.width
-                text: connection.localUser.displayName
-
-                contentItem: RowLayout {
-                    KirigamiComponents.Avatar {
-                        implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                        implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                        sourceSize {
-                            width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                            height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                        }
-                        source: userDelegate.connection.localUser.avatarMediaId ? ("image://mxc/" + userDelegate.connection.localUser.avatarMediaId) : ""
-                        name: userDelegate.connection.localUser.displayName ?? userDelegate.connection.localUser.id
-                    }
-
-                    Delegates.SubtitleContentItem {
-                        itemDelegate: userDelegate
-                        subtitle: userDelegate.connection.localUser.id
-                        labelItem.textFormat: Text.PlainText
-                        subtitleItem.textFormat: Text.PlainText
-                    }
-                }
-
-                onClicked: {
-                    Controller.activeConnection = userDelegate.connection;
-                    if (switchUserButton.checked) {
-                        switchUserButton.checked = false;
-                    }
-                }
-            }
+            connection: root.connection
         }
 
         background: ColumnLayout {
@@ -310,5 +204,10 @@ RowLayout {
                 visible: !root.bottomEdge
             }
         }
+    }
+
+    Component {
+        id: accountSwitchDialog
+        AccountSwitchDialog {}
     }
 }

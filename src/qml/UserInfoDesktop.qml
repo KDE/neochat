@@ -17,6 +17,8 @@ QQC2.ToolBar {
      */
     required property NeoChatConnection connection
 
+    property bool collapsed: false
+
     padding: 0
 
     background: Rectangle {
@@ -31,6 +33,7 @@ QQC2.ToolBar {
             Layout.fillWidth: true
         }
         UserInfo {
+            collapsed: root.collapsed
             bottomEdge: true
             connection: root.connection
         }
