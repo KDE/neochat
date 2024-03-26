@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.neochat.settings
 import org.kde.neochat.accounts
 
 FormCard.FormCardPage {
@@ -216,7 +217,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Open proxy settings")
             icon.name: "settings-configure"
-            onClicked: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "NetworkProxyPage.qml"), {}, {
+            onClicked: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "NetworkProxyPage.qml"), {}, {
                 title: i18nc("@title:window", "Proxy Settings")
             });
         }

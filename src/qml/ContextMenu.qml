@@ -11,6 +11,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.neochat.settings
 
 /**
  * Context menu when clicking on a room in the room list
@@ -121,7 +122,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18n("Room Settings")
                 icon.name: "configure"
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings.qml'), {
                     room: room,
                     connection: connection
                 }, {
@@ -195,7 +196,7 @@ Loader {
                     QQC2.ToolButton {
                         icon.name: 'settings-configure'
                         onClicked: {
-                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
+                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings.qml'), {
                                 room: room,
                                 connection: root.connection
                             }, {

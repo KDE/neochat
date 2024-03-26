@@ -20,7 +20,7 @@ KirigamiSettings.CategorizedSettings {
             actionName: "general"
             text: i18n("General")
             icon.name: "settings-configure"
-            page: Qt.resolvedUrl("General.qml")
+            page: Qt.resolvedUrl("RoomGeneralPage.qml")
             initialProperties: {
                 return {
                     room: root.room,
@@ -32,7 +32,7 @@ KirigamiSettings.CategorizedSettings {
             actionName: "security"
             text: i18n("Security")
             icon.name: "security-low"
-            page: Qt.resolvedUrl("RoomSecurity.qml")
+            page: Qt.resolvedUrl("RoomSecurityPage.qml")
             initialProperties: {
                 return {
                     room: root.room

@@ -11,6 +11,7 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.neochat.settings
 
 /**
  * Context menu when clicking on a room in the room list
@@ -45,7 +46,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Space Settings")
                 icon.name: 'settings-configure'
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings.qml'), {
                     room: room,
                     connection: connection
                 }, {
@@ -130,7 +131,7 @@ Loader {
                 FormCard.FormButtonDelegate {
                     text: i18nc("'Space' is a matrix space", "Space Settings")
                     icon.name: 'settings-configure'
-                    onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
+                    onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings.qml'), {
                         room: room,
                         connection: connection
                     }, {

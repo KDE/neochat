@@ -19,7 +19,7 @@ KirigamiSettings.CategorizedSettings {
             actionName: "general"
             text: i18n("General")
             icon.name: "org.kde.neochat"
-            page: Qt.resolvedUrl("GeneralSettingsPage.qml")
+            page: Qt.resolvedUrl("NeoChatGeneralPage.qml")
         },
         KirigamiSettings.SettingAction {
             actionName: "appearance"
@@ -42,7 +42,7 @@ KirigamiSettings.CategorizedSettings {
             actionName: "security"
             text: i18n("Security")
             icon.name: "preferences-security"
-            page: Qt.resolvedUrl("Security.qml")
+            page: Qt.resolvedUrl("NeoChatSecurityPage.qml")
             initialProperties: {
                 return {
                     connection: root.connection

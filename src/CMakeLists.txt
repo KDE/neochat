@@ -194,11 +194,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/InviteUserPage.qml
         qml/ImageEditorPage.qml
         qml/WelcomePage.qml
-        qml/General.qml
-        qml/RoomSecurity.qml
-        qml/PushNotification.qml
-        qml/Categories.qml
-        qml/Permissions.qml
         qml/NeochatMaximizeComponent.qml
         qml/FancyEffectsContainer.qml
         qml/TypingPane.qml
@@ -245,25 +240,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/FileDelegateContextMenu.qml
         qml/MessageSourceSheet.qml
         qml/ReportSheet.qml
-        qml/SettingsPage.qml
-        qml/ThemeRadioButton.qml
-        qml/ColorScheme.qml
-        qml/GeneralSettingsPage.qml
-        qml/EmoticonsPage.qml
-        qml/EmoticonEditorPage.qml
-        qml/EmoticonFormCard.qml
-        qml/GlobalNotificationsPage.qml
-        qml/NotificationRuleItem.qml
-        qml/AppearanceSettingsPage.qml
-        qml/AccountsPage.qml
-        qml/AccountEditorPage.qml
-        qml/DevicesPage.qml
-        qml/DeviceDelegate.qml
-        qml/DevicesCard.qml
-        qml/About.qml
-        qml/AboutKDE.qml
-        qml/SonnetConfigPage.qml
-        qml/NetworkProxyPage.qml
         qml/DevtoolsPage.qml
         qml/ConfirmEncryptionDialog.qml
         qml/RemoveSheet.qml
@@ -292,7 +268,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/SpaceHierarchyDelegate.qml
         qml/RemoveChildDialog.qml
         qml/SelectParentDialog.qml
-        qml/Security.qml
         qml/QrCodeMaximizeComponent.qml
         qml/SelectSpacesDialog.qml
         qml/AttachDialog.qml
@@ -306,7 +281,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/DelegateContextMenu.qml
         qml/ShareDialog.qml
         qml/FeatureFlagPage.qml
-        qml/IgnoredUsersDialog.qml
         qml/AccountData.qml
         qml/StateKeys.qml
         qml/UnlockSSSSDialog.qml
@@ -315,6 +289,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/glowdot.png
 )
 
+add_subdirectory(settings)
 add_subdirectory(timeline)
 
 if(UNIX)
@@ -407,7 +382,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PRIVATE timelineplugin)
+target_link_libraries(neochat PRIVATE settingsplugin timelineplugin)
 target_link_libraries(neochat PUBLIC
     Qt::Core
     Qt::Quick

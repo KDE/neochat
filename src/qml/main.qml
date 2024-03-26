@@ -8,6 +8,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.neochat.settings
 import org.kde.neochat.config
 import org.kde.neochat.accounts
 
@@ -447,7 +448,7 @@ Kirigami.ApplicationWindow {
     Shortcut {
         sequence: "Ctrl+Shift+,"
         onActivated: {
-            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'SettingsPage.qml'), {
+            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
                 connection: root.connection
             }, {
                 title: i18n("Configure"),

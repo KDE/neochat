@@ -9,6 +9,7 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
+import org.kde.neochat.settings
 import org.kde.neochat.config
 import org.kde.neochat.accounts
 
@@ -51,7 +52,7 @@ RowLayout {
                 if (button == Qt.RightButton) {
                     accountMenu.open();
                 } else {
-                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'AccountEditorPage.qml'), {
+                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage.qml'), {
                         connection: root.connection
                     }, {
                         title: i18n("Account editor")
@@ -136,7 +137,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         icon.name: "settings-configure"
-        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'SettingsPage.qml'), {
+        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
             connection: root.connection
         }, {
             title: i18n("Configure"),

@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.neochat.settings
 
 Kirigami.Page {
     id: root
@@ -70,7 +71,7 @@ Kirigami.Page {
                         text: i18nc("@button", "Space settings")
                         icon.name: "settings-configure"
                         display: QQC2.AbstractButton.IconOnly
-                        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
+                        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings.qml'), {
                             room: root.currentRoom,
                             connection: root.currentRoom.connection
                         }, {

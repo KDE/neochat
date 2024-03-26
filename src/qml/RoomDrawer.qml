@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels
 
 import org.kde.neochat
+import org.kde.neochat.settings
 import org.kde.neochat.config
 
 Kirigami.OverlayDrawer {
@@ -102,7 +103,7 @@ Kirigami.OverlayDrawer {
                         text: i18n("Room settings")
                         display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories.qml'), {
+                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings.qml'), {
                             room: room,
                             connection: root.connection
                         }, {

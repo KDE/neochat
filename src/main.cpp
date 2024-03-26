@@ -228,6 +228,7 @@ int main(int argc, char *argv[])
     KDBusService service(KDBusService::Unique);
 #endif
 
+    Q_IMPORT_QML_PLUGIN(org_kde_neochat_settingsPlugin)
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_timelinePlugin)
 
     qml_register_types_org_kde_neochat();

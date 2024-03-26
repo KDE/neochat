@@ -29,7 +29,7 @@ FormCard.FormCardPage {
                 id: accountDelegate
                 required property NeoChatConnection connection
                 Layout.fillWidth: true
-                onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'AccountEditorPage.qml'), {
+                onClicked: applicationWindow().pageStack.layers.push('AccountEditorPage.qml', {
                     connection: accountDelegate.connection
                 }, {
                     title: i18n("Account editor")
