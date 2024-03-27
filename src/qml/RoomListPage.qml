@@ -25,8 +25,7 @@ Kirigami.Page {
      * @note Other objects can access the value but the private function makes sure
      *       that only the internal members can modify it.
      */
-    readonly property int currentWidth: _private.currentWidth + spaceListWidth + 1
-    readonly property alias spaceListWidth: spaceDrawer.width
+    readonly property int currentWidth: _private.currentWidth + spaceDrawer.width + 1
 
     required property NeoChatConnection connection
 
@@ -94,7 +93,7 @@ Kirigami.Page {
 
         SpaceDrawer {
             id: spaceDrawer
-            Layout.preferredWidth: spaceDrawer.enabled ? Kirigami.Units.gridUnit * 3 : 0
+            Layout.preferredWidth: Kirigami.Units.gridUnit * 3
             Layout.fillHeight: true
 
             connection: root.connection
