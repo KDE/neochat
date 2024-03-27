@@ -18,8 +18,6 @@ Kirigami.Dialog {
     property string room
     property NeoChatConnection connection
 
-    parent: applicationWindow().overlay
-
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
@@ -49,41 +47,15 @@ Kirigami.Dialog {
                 initialsMode: KirigamiComponents.Avatar.UseInitials
             }
 
-            ColumnLayout {
+            Kirigami.Heading {
+                level: 1
                 Layout.fillWidth: true
+                font.bold: true
 
-                Kirigami.Heading {
-                    level: 1
-                    Layout.fillWidth: true
-                    font.bold: true
-
-                    elide: Text.ElideRight
-                    wrapMode: Text.NoWrap
-                    text: root.room
-                    textFormat: Text.PlainText
-                }
-            }
-            QQC2.AbstractButton {
-                Layout.minimumHeight: avatar.height * 0.75
-                Layout.maximumHeight: avatar.height * 1.5
-                contentItem: Barcode {
-                    id: barcode
-                    barcodeType: Barcode.QRCode
-                    content: "https://matrix.to/#/" + root.room
-                }
-
-                onClicked: {
-                    let qr = qrMaximizeComponent.createObject(parent, {
-                        text: barcode.content,
-                        title: root.room
-                    });
-                    root.close();
-                    qr.open();
-                }
-
-                QQC2.ToolTip.visible: hovered
-                QQC2.ToolTip.text: barcode.content
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                elide: Text.ElideRight
+                wrapMode: Text.NoWrap
+                text: root.room
+                textFormat: Text.PlainText
             }
         }
 
@@ -92,18 +64,12 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            action: Kirigami.Action {
-                text: i18n("Join room")
-                icon.name: "irc-join-channel"
-                onTriggered: {
-                    RoomManager.resolveResource(root.room, "join");
-                    root.close();
-                }
+            text: i18nc("@action:button", "Join room")
+            icon.name: "irc-join-channel"
+            onClicked: {
+                RoomManager.resolveResource(root.room, "join");
+                root.close();
             }
         }
-    }
-    Component {
-        id: qrMaximizeComponent
-        QrCodeMaximizeComponent {}
     }
 }

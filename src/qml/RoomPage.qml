@@ -238,10 +238,13 @@ Kirigami.Page {
 
     Connections {
         target: RoomManager
-        function onShowUserDetail(user) {
-            if (applicationWindow().activeFocusItem) {
-                root.showUserDetail(user);
-            }
+
+        function onAskJoinRoom(room) {
+            joinRoomDialog.createObject(applicationWindow(), {
+                room: room,
+                connection: root.connection
+            }).open();
+            root.closeDialog();
         }
 
         function onShowEventSource(eventId) {
@@ -286,19 +289,6 @@ Kirigami.Page {
             });
             popup.open();
         }
-    }
-
-    function showUserDetail(user) {
-        userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-            room: root.currentRoom,
-            user: root.currentRoom.getUser(user.id),
-            connection: root.connection
-        }).open();
-    }
-
-    Component {
-        id: userDetailDialog
-        UserDetailDialog {}
     }
 
     Component {

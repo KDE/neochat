@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
@@ -18,12 +18,12 @@ Kirigami.Page {
     required property NeoChatConnection connection
     padding: 0
 
+    Component.onCompleted: camera.start()
+
     Connections {
         target: root.QQC2.ApplicationWindow.window
         function onClosing() {
-            camera.stop();
-            camera.destroy();
-            connections.enabled = false;
+            root.destroy();
         }
     }
 
@@ -41,11 +41,10 @@ Kirigami.Page {
                 RoomManager.resolveResource(result.text, "");
                 scanner.previousText = result.text;
             }
+            root.closeDialog();
         }
         videoSink: viewFinder.videoSink
     }
-
-    Component.onCompleted: camera.start()
 
     CaptureSession {
         camera: Camera {
@@ -55,41 +54,5 @@ Kirigami.Page {
             id: imageCapture
         }
         videoOutput: viewFinder
-    }
-
-    Connections {
-        id: connections
-        target: RoomManager
-        function onShowUserDetail(user) {
-            userDetailDialog.createObject(root.QQC2.ApplicationWindow.window, {
-                user: QmlUtils.getUser(user),
-                connection: root.connection
-            }).open();
-            root.closeDialog();
-        }
-        function onAskJoinRoom(room) {
-            joinRoomDialog.createObject(applicationWindow(), {
-                room: room,
-                connection: root.connection
-            }).open();
-            root.closeDialog();
-        }
-        function onCurrentRoomChanged() {
-            root.closeDialog();
-        }
-        function onExternalUrl(url) {
-            let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog.qml").createObject(applicationWindow());
-            dialog.link = url;
-            dialog.open();
-            root.closeDialog();
-        }
-    }
-    Component {
-        id: userDetailDialog
-        UserDetailDialog {}
-    }
-    Component {
-        id: joinRoomDialog
-        JoinRoomDialog {}
     }
 }
