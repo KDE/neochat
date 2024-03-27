@@ -57,7 +57,7 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
     if (job == nullptr) {
         return;
     }
-    if (connection == nullptr) {
+    if (connection == nullptr || !connection->isLoggedIn()) {
         qWarning() << QStringLiteral("No connection for GetNotificationsJob %1").arg(job->objectName());
         return;
     }
@@ -150,7 +150,7 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
 
 bool NotificationsManager::shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification)
 {
-    if (connection == nullptr) {
+    if (connection == nullptr || !connection->isLoggedIn()) {
         return false;
     }
 

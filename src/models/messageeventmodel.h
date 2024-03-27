@@ -113,7 +113,7 @@ private Q_SLOTS:
     void refreshRow(int row);
 
 private:
-    NeoChatRoom *m_currentRoom = nullptr;
+    QPointer<NeoChatRoom> m_currentRoom = nullptr;
     QString lastReadEventId;
     QPersistentModelIndex m_lastReadEventIndex;
     int rowBelowInserted = -1;

@@ -61,7 +61,7 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
 private:
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room = nullptr;
 };
 
 /**

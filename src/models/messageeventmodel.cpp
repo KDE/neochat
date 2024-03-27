@@ -629,6 +629,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
 int MessageEventModel::eventIdToRow(const QString &eventID) const
 {
+    if (m_currentRoom == nullptr) {
+        return -1;
+    }
+
     const auto it = m_currentRoom->findInTimeline(eventID);
     if (it == m_currentRoom->historyEdge()) {
         // qWarning() << "Trying to find inexistent event:" << eventID;

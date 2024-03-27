@@ -153,14 +153,6 @@ void NeoChatConnection::logout(bool serverSideLogout)
     job.start();
     loop.exec();
 
-    if (Controller::instance().accounts().count() > 1) {
-        // Only set the connection if the the account being logged out is currently active
-        if (this == Controller::instance().activeConnection()) {
-            Controller::instance().setActiveConnection(dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().accounts()[0]));
-        }
-    } else {
-        Controller::instance().setActiveConnection(nullptr);
-    }
     if (!serverSideLogout) {
         return;
     }

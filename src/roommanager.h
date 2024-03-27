@@ -340,7 +340,7 @@ Q_SIGNALS:
 private:
     void openRoomForActiveConnection();
 
-    NeoChatRoom *m_currentRoom;
+    QPointer<NeoChatRoom> m_currentRoom;
     NeoChatRoom *m_lastCurrentRoom;
     QString m_arg;
     KSharedConfig::Ptr m_config;
