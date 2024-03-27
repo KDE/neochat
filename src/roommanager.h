@@ -149,13 +149,6 @@ public:
     Q_INVOKABLE void loadInitialRoom();
 
     /**
-     * @brief Open a new window with the given room.
-     *
-     * The open window will have its own message list for the given room.
-     */
-    Q_INVOKABLE void openWindow(NeoChatRoom *room);
-
-    /**
      * @brief Leave the room and close it if it is open.
      */
     Q_INVOKABLE void leaveRoom(NeoChatRoom *room);

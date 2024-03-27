@@ -28,18 +28,6 @@ Loader {
         id: regularMenu
         QQC2.Menu {
             QQC2.MenuItem {
-                id: newWindow
-                text: i18n("Open in New Window")
-                icon.name: "window-new"
-                onTriggered: RoomManager.openWindow(room)
-                visible: !Kirigami.Settings.isMobile
-            }
-
-            QQC2.MenuSeparator {
-                visible: newWindow.visible
-            }
-
-            QQC2.MenuItem {
                 text: room.isFavourite ? i18n("Remove from Favorites") : i18n("Add to Favorites")
                 icon.name: room.isFavourite ? "bookmark-remove" : "bookmark-new"
                 onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)

@@ -175,15 +175,6 @@ Kirigami.ApplicationWindow {
             roomItem.forceActiveFocus();
         }
 
-        function onOpenRoomInNewWindow(room) {
-            const secondaryWindow = roomWindow.createObject(undefined, {
-                currentRoom: room,
-                connection: root.connection
-            });
-            secondaryWindow.width = root.width - pageStack.get(0).width;
-            secondaryWindow.show();
-        }
-
         function onAskDirectChatConfirmation(user) {
             askDirectChatConfirmationComponent.createObject(QQC2.ApplicationWindow.overlay, {
                 user: user
@@ -394,11 +385,6 @@ Kirigami.ApplicationWindow {
         CreateRoomDialog {
             connection: root.connection
         }
-    }
-
-    Component {
-        id: roomWindow
-        RoomWindow {}
     }
 
     Component {
