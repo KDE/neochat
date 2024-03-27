@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-25 00:37+0000\n"
+"POT-Creation-Date: 2024-03-27 00:37+0000\n"
 "PO-Revision-Date: 2024-03-25 12:17+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1163,7 +1163,7 @@ msgstr "Lat: %1, Lon: %2"
 msgid "Encrypted Message"
 msgstr "Message Cryptate"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:323
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:324
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1222,18 +1222,6 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Aperi Neochat"
 
-#: src/qml/About.qml:11
-#, kde-format
-msgctxt "@title:window"
-msgid "About NeoChat"
-msgstr "A proposito de NeoChat"
-
-#: src/qml/AboutKDE.qml:7
-#, kde-format
-msgctxt "@title:window"
-msgid "About KDE"
-msgstr "A proposito de KDE"
-
 #: src/qml/AccountData.qml:19
 #, kde-format
 msgctxt "@title:group"
@@ -1246,260 +1234,61 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Fonte de evento"
 
-#: src/qml/AccountEditorPage.qml:19
-#, kde-format
-msgid "Edit Account"
-msgstr "Modifica conto"
-
-#: src/qml/AccountEditorPage.qml:60
-#, kde-format
-msgid "Upload new avatar"
-msgstr "Incarga nove avatar"
-
-#: src/qml/AccountEditorPage.qml:77
-#, kde-format
-msgid "Remove current avatar"
-msgstr "Remove avatar currente"
-
-#: src/qml/AccountEditorPage.qml:100
-#, kde-format
-msgid "User information"
-msgstr "Information de Usator"
-
-#: src/qml/AccountEditorPage.qml:105 src/qml/CreateRoomDialog.qml:72
-#, kde-format
-msgid "Name:"
-msgstr "Nomine:"
-
-#: src/qml/AccountEditorPage.qml:111
-#, kde-format
-msgid "Label:"
-msgstr "Etiquetta:"
-
-#: src/qml/AccountEditorPage.qml:116 src/qml/AccountEditorPage.qml:171
-#: src/qml/EmoticonEditorPage.qml:108 src/qml/General.qml:105
-#, kde-format
-msgid "Save"
-msgstr "Salveguarda"
-
-#: src/qml/AccountEditorPage.qml:132
-#: src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/qml/NetworkProxyPage.qml:88 src/qml/Password.qml:32
-#, kde-format
-msgid "Password"
-msgstr "Contrasigno"
-
-#: src/qml/AccountEditorPage.qml:137
-#, kde-format
-msgid "Your server doesn't support changing your password"
-msgstr "Tu servitor nonsupporta que tu pote cambiar tu contrasigno"
-
-#: src/qml/AccountEditorPage.qml:144
-#, kde-format
-msgid "Current Password:"
-msgstr "Contrasigno currente:"
-
-#: src/qml/AccountEditorPage.qml:151
-#, kde-format
-msgid "New Password:"
-msgstr "Nove contrasigno:"
-
-#: src/qml/AccountEditorPage.qml:158
-#, kde-format
-msgid "Confirm new Password:"
-msgstr "Confirma nove contrasigno:"
-
-#: src/qml/AccountEditorPage.qml:163
-#, kde-format
-msgid "Passwords don't match"
-msgstr "Le contrasigno non coincide"
-
-#: src/qml/AccountEditorPage.qml:177
-#, kde-format
-msgid "Passwords do not match"
-msgstr "Le contrasigno non es equal"
-
-#: src/qml/AccountEditorPage.qml:185
-#, kde-format
-msgid "Server Information"
-msgstr "Information de servitor"
-
-#: src/qml/AccountEditorPage.qml:189
-#, kde-format
-msgid "Homeserver url"
-msgstr "Url de Servitor de casa (Homeserver):"
-
-#: src/qml/AccountEditorPage.qml:210
-#, kde-format
-msgctxt "@title"
-msgid "Account Management"
-msgstr "Gestion de conto"
-
-#: src/qml/AccountEditorPage.qml:215
-#, kde-format
-msgid "Deactivate Account"
-msgstr "Deactiva conto"
-
-#: src/qml/AccountEditorPage.qml:219
-#, kde-format
-msgctxt "@title"
-msgid "Confirm Deactivating Account"
-msgstr "Confirma Deactivar le Conto"
-
-#: src/qml/AccountEditorPage.qml:228
-#, kde-format
-msgid "Password changed successfully"
-msgstr "Contrassigno cambiava con successo"
-
-#: src/qml/AccountEditorPage.qml:230
-#, kde-format
-msgid "Wrong password entered"
-msgstr "Insertate contrasigno errate"
-
-#: src/qml/AccountEditorPage.qml:232
-#, kde-format
-msgid "Unknown problem while trying to change password"
-msgstr "Problema incognite quando il essayava a cambiar contrasigno"
-
-#: src/qml/AccountMenu.qml:21 src/qml/UserInfo.qml:63
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:64
 #, kde-format
 msgid "Edit this account"
 msgstr "Edita iste conto"
 
-#: src/qml/AccountMenu.qml:26 src/qml/AccountsPage.qml:35
-#: src/qml/UserInfo.qml:57
+#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:58
+#: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
 msgstr "Editor de conto"
 
-#: src/qml/AccountMenu.qml:30
+#: src/qml/AccountMenu.qml:31
 #, kde-format
 msgid "Notification settings"
 msgstr "Preferentias de notificationes"
 
-#: src/qml/AccountMenu.qml:36 src/qml/AccountMenu.qml:48
-#: src/qml/GlobalMenu.qml:34 src/qml/main.qml:453 src/qml/UserInfo.qml:142
+#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:454 src/qml/UserInfo.qml:143
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
 
-#: src/qml/AccountMenu.qml:42 src/qml/DevicesPage.qml:17
-#: src/qml/SettingsPage.qml:84
+#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
+#: src/settings/NeoChatSettings.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/qml/AccountMenu.qml:54 src/qml/UserInfo.qml:129
+#: src/qml/AccountMenu.qml:55 src/qml/UserInfo.qml:130
 #, kde-format
 msgid "Open developer tools"
 msgstr "Aperi instrumentos de disveloppator"
 
-#: src/qml/AccountMenu.qml:60
+#: src/qml/AccountMenu.qml:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Instrumentos de disveloppator"
 
-#: src/qml/AccountMenu.qml:66
+#: src/qml/AccountMenu.qml:67
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Aperi copia de securitate (retrocopia) secrete"
 
-#: src/qml/AccountMenu.qml:70
+#: src/qml/AccountMenu.qml:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Aperi copia secrete de clave"
 
-#: src/qml/AccountMenu.qml:75 src/qml/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Clausura de session"
-
-#: src/qml/AccountsPage.qml:20 src/qml/AccountsPage.qml:23
-#: src/qml/SettingsPage.qml:54
-#, kde-format
-msgid "Accounts"
-msgstr "Contos"
-
-#: src/qml/AccountsPage.qml:102 src/qml/UserInfo.qml:197
-#, kde-format
-msgid "Add Account"
-msgstr "Adde conto"
-
-#: src/qml/AppearanceSettingsPage.qml:19
-#, kde-format
-msgctxt "@title:window"
-msgid "Appearance"
-msgstr "Apparentia"
-
-#: src/qml/AppearanceSettingsPage.qml:22
-#, kde-format
-msgid "General theme"
-msgstr "Thema General"
-
-#: src/qml/AppearanceSettingsPage.qml:116
-#, kde-format
-msgid "Bubbles"
-msgstr "Bullas"
-
-#: src/qml/AppearanceSettingsPage.qml:185
-#, kde-format
-msgid "Compact"
-msgstr "Compacte"
-
-#: src/qml/AppearanceSettingsPage.qml:207
-#, kde-format
-msgid "Use compact room list"
-msgstr "Usa lista de sala compacte"
-
-#: src/qml/AppearanceSettingsPage.qml:233
-#, kde-format
-msgid "Show fancy effects in chat"
-msgstr "Monstra effectos de Phantasia in chat"
-
-#: src/qml/AppearanceSettingsPage.qml:250
-#, kde-format
-msgid "Use transparent chat page"
-msgstr "Usa pagina che chat transparente"
-
-#: src/qml/AppearanceSettingsPage.qml:271
-#, kde-format
-msgid "Transparency"
-msgstr "Transparentia"
-
-#: src/qml/AppearanceSettingsPage.qml:290
-#, kde-format
-msgid "Only enabled if the transparent chat page is enabled."
-msgstr "Solmente habilitate si le pagina de chat transparente es habilitate."
-
-#: src/qml/AppearanceSettingsPage.qml:307
-#, kde-format
-msgid "Show your messages on the right"
-msgstr "Monstra tu message a dextera"
-
-#: src/qml/AppearanceSettingsPage.qml:323
-#, kde-format
-msgid "Show links preview in the chat messages"
-msgstr ""
-"Monstra vista preliminar de ligamines in le message de conversation in "
-"directo"
-
-#: src/qml/AppearanceSettingsPage.qml:333
-#, kde-format
-msgid "Show Avatar"
-msgstr "Monstra Avatar"
-
-#: src/qml/AppearanceSettingsPage.qml:337
-#, kde-format
-msgid "In chat"
-msgstr "In Conversation in directo"
-
-#: src/qml/AppearanceSettingsPage.qml:347
-#, kde-format
-msgid "In sidebar"
-msgstr "In Barra leteral"
 
 #: src/qml/AttachDialog.qml:27
 #, kde-format
@@ -1550,27 +1339,6 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancella"
 
-#: src/qml/Categories.qml:21 src/qml/General.qml:22 src/qml/SettingsPage.qml:20
-#, kde-format
-msgid "General"
-msgstr "General"
-
-#: src/qml/Categories.qml:33 src/qml/RoomSecurity.qml:20
-#: src/qml/SettingsPage.qml:43
-#, kde-format
-msgid "Security"
-msgstr "Securitate"
-
-#: src/qml/Categories.qml:44
-#, kde-format
-msgid "Permissions"
-msgstr "Permissiones"
-
-#: src/qml/Categories.qml:55 src/qml/SettingsPage.qml:32
-#, kde-format
-msgid "Notifications"
-msgstr "Notificationes"
-
 #: src/qml/ChatBar.qml:80
 #, kde-format
 msgid "Attach an image or file"
@@ -1612,11 +1380,6 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Selige un Sala"
 
-#: src/qml/ColorScheme.qml:15
-#, kde-format
-msgid "Color theme"
-msgstr "Thema de color"
-
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, kde-format
@@ -1642,6 +1405,12 @@ msgstr ""
 "Isto non pote esser annullate\n"
 "Tu ID de Matrix non essere disponibile per nove contos.\n"
 "Tu messages remanera disponibile."
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
+#: src/settings/AccountEditorPage.qml:132 src/settings/NetworkProxyPage.qml:87
+#, kde-format
+msgid "Password"
+msgstr "Contrasigno"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -1677,66 +1446,66 @@ msgstr "Exir"
 msgid "Are you sure you want to sign out?"
 msgstr "Tu es secur que tu vole exir?"
 
-#: src/qml/ContextMenu.qml:31
+#: src/qml/ContextMenu.qml:32
 #, kde-format
 msgid "Open in New Window"
 msgstr "Aperi in nove fenestra"
 
-#: src/qml/ContextMenu.qml:42
+#: src/qml/ContextMenu.qml:43
 #, kde-format
 msgid "Remove from Favorites"
 msgstr "Remove ex favoritos"
 
-#: src/qml/ContextMenu.qml:42
+#: src/qml/ContextMenu.qml:43
 #, kde-format
 msgid "Add to Favorites"
 msgstr "Adde a favoritos"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
+#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Reprioritize"
 msgstr "Repone prioritate"
 
-#: src/qml/ContextMenu.qml:48 src/qml/ContextMenu.qml:210
+#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Deprioritize"
 msgstr "Leva prioritate"
 
-#: src/qml/ContextMenu.qml:54 src/qml/ContextMenu.qml:217
+#: src/qml/ContextMenu.qml:55 src/qml/ContextMenu.qml:218
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marca como legite"
 
-#: src/qml/ContextMenu.qml:60
+#: src/qml/ContextMenu.qml:61
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Copia ID de Matrix de usator a Area de Transferentia"
 
-#: src/qml/ContextMenu.qml:60 src/qml/SpaceListContextMenu.qml:36
-#: src/qml/SpaceListContextMenu.qml:121
+#: src/qml/ContextMenu.qml:61 src/qml/SpaceListContextMenu.qml:37
+#: src/qml/SpaceListContextMenu.qml:122
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "Copia adresse a area de transferentia"
 
-#: src/qml/ContextMenu.qml:72
+#: src/qml/ContextMenu.qml:73
 #, kde-format
 msgid "Notification State"
 msgstr "Stato de  notification"
 
-#: src/qml/ContextMenu.qml:76
+#: src/qml/ContextMenu.qml:77
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "Seque Preferentias Global"
 
-#: src/qml/ContextMenu.qml:87 src/qml/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:88 src/settings/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Omne"
 
-#: src/qml/ContextMenu.qml:98 src/qml/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:99 src/settings/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1744,30 +1513,30 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Mentiones e Parolas Claves"
 
-#: src/qml/ContextMenu.qml:109 src/qml/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:110 src/settings/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "De-Activate (Off)"
 
-#: src/qml/ContextMenu.qml:122 src/qml/ContextMenu.qml:128
-#: src/qml/ContextMenu.qml:202 src/qml/RoomDrawer.qml:109
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:77
+#: src/qml/ContextMenu.qml:123 src/qml/ContextMenu.qml:129
+#: src/qml/ContextMenu.qml:203 src/qml/RoomDrawer.qml:110
+#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:78
 #, kde-format
 msgid "Room Settings"
 msgstr "Preferentias de sala"
 
-#: src/qml/ContextMenu.qml:135 src/qml/ContextMenu.qml:224
+#: src/qml/ContextMenu.qml:136 src/qml/ContextMenu.qml:225
 #, kde-format
 msgid "Leave Room"
 msgstr "Lassa sala"
 
-#: src/qml/ContextMenu.qml:191
+#: src/qml/ContextMenu.qml:192
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Remove ex favoritos"
 
-#: src/qml/ContextMenu.qml:191
+#: src/qml/ContextMenu.qml:192
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Adde a favoritos"
@@ -1813,6 +1582,11 @@ msgstr "Sala"
 msgid "Space"
 msgstr "Spatio"
 
+#: src/qml/CreateRoomDialog.qml:72 src/settings/AccountEditorPage.qml:105
+#, kde-format
+msgid "Name:"
+msgstr "Nomine:"
+
 #: src/qml/CreateRoomDialog.qml:80
 #, kde-format
 msgid "Topic:"
@@ -1846,7 +1620,7 @@ msgstr "Selige data"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:73 src/qml/RoomListPage.qml:246
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:246
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1920,92 +1694,7 @@ msgstr "Cerca '%1'"
 msgid "Configure Web Shortcuts..."
 msgstr "Configura vias breve de Web..."
 
-#: src/qml/DeviceDelegate.qml:50
-#, kde-format
-msgctxt "@label"
-msgid "%1, Last activity: %2"
-msgstr "%1, Ultime activitate: %2"
-
-#: src/qml/DeviceDelegate.qml:59
-#, kde-format
-msgid "New device name"
-msgstr "Nove nomine de dispositivo"
-
-#: src/qml/DeviceDelegate.qml:68
-#, kde-format
-msgid "Cancel editing display name"
-msgstr "Cancella modification de nomine de monstrar"
-
-#: src/qml/DeviceDelegate.qml:75
-#, kde-format
-msgid "Confirm new display name"
-msgstr "Confirma nove nomine de monstrar"
-
-#: src/qml/DeviceDelegate.qml:90
-#, kde-format
-msgid "Edit device name"
-msgstr "Edita nmine de dispositivo"
-
-#: src/qml/DeviceDelegate.qml:104
-#, kde-format
-msgid "Verify device"
-msgstr "Verifica dispositivo"
-
-#: src/qml/DeviceDelegate.qml:119
-#, kde-format
-msgid "Logout device"
-msgstr "Dispositivo de clausura de session"
-
-#: src/qml/DevicesPage.qml:20 src/qml/Login.qml:38
-#: src/qml/NotificationsView.qml:34 src/qml/NotificationsView.qml:39
-#: src/timeline/LoadingDelegate.qml:11
-#, kde-format
-msgid "Loading…"
-msgstr "Cargante..."
-
-#: src/qml/DevicesPage.qml:33
-#, kde-format
-msgid "This Device"
-msgstr "Iste Dispositivos"
-
-#: src/qml/DevicesPage.qml:38
-#, kde-format
-msgid "Verified Devices"
-msgstr "Dispositivos verificate"
-
-#: src/qml/DevicesPage.qml:43
-#, kde-format
-msgid "Unverified Devices"
-msgstr "Dispositivos non verificate"
-
-#: src/qml/DevicesPage.qml:48
-#, kde-format
-msgid "Devices without Encryption Support"
-msgstr "Dispositivos sin Supporte de Cryptation"
-
-#: src/qml/DevicesPage.qml:63
-#, kde-format
-msgid "Please login to view the signed-in devices for your account."
-msgstr "Pro favor tu accede per vider le dispositivos accedite per tu conto."
-
-#: src/qml/DevicesPage.qml:75
-#, kde-format
-msgid "Remove device"
-msgstr "Remove dispositivo"
-
-#: src/qml/DevicesPage.qml:81 src/qml/Password.qml:28
-#: src/qml/RegisterPassword.qml:20
-#, kde-format
-msgid "Password:"
-msgstr "Contrasigno:"
-
-#: src/qml/DevicesPage.qml:87
-#, kde-format
-msgctxt "As in 'Remove this device'"
-msgid "Remove"
-msgstr "Remove"
-
-#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:127
+#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:128
 #, kde-format
 msgid "Developer Tools"
 msgstr "Instrumentos de disveloppator"
@@ -2100,12 +1789,12 @@ msgstr "Nulle Etiquettas Gummate (Stickers)"
 msgid "No emojis"
 msgstr "Nulle Emojis"
 
-#: src/qml/EmojiPicker.qml:52 src/qml/EmoticonsPage.qml:19
+#: src/qml/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
 #, kde-format
 msgid "Emojis"
 msgstr "Emojis"
 
-#: src/qml/EmojiPicker.qml:59 src/qml/EmoticonsPage.qml:27
+#: src/qml/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
 #, kde-format
 msgid "Stickers"
 msgstr "Etiquettas Gummate (Stickers)"
@@ -2128,82 +1817,6 @@ msgstr "Illos corresponde"
 msgid "They don't match"
 msgstr "Illos non corresponde"
 
-#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Modifica Emoji"
-
-#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "Edita Sticker( Etiquetta gummate)"
-
-#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Adde Emoji"
-
-#: src/qml/EmoticonEditorPage.qml:27 src/qml/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Sticker"
-msgstr "Adde Sticker (Etiquetta Gummate)"
-
-#: src/qml/EmoticonEditorPage.qml:30
-#, kde-format
-msgid "Sticker"
-msgstr "Etiquetta gummate (Sticker)"
-
-#: src/qml/EmoticonEditorPage.qml:30
-#, kde-format
-msgid "Emoji"
-msgstr "Emoji"
-
-#: src/qml/EmoticonEditorPage.qml:59
-#, kde-format
-msgid "Change Image"
-msgstr "Cambia  imagine"
-
-#: src/qml/EmoticonEditorPage.qml:59
-#, kde-format
-msgid "Set Image"
-msgstr "Fixa imagine"
-
-#: src/qml/EmoticonEditorPage.qml:98
-#, kde-format
-msgid "Shortcode:"
-msgstr "Codice breve:"
-
-#: src/qml/EmoticonEditorPage.qml:103
-#, kde-format
-msgid "Description:"
-msgstr "Description:"
-
-#: src/qml/EmoticonFormCard.qml:71
-#, kde-format
-msgctxt "As in 'This sticker/emoji has no description'"
-msgid "No Description"
-msgstr "Nulle description"
-
-#: src/qml/EmoticonFormCard.qml:112
-#, kde-format
-msgid "Add Emoji"
-msgstr "Adde Emoji"
-
-#: src/qml/EmoticonFormCard.qml:112
-#, kde-format
-msgid "Add Sticker"
-msgstr "Adde Sticker (Etiquetta Gummate)"
-
-#: src/qml/EmoticonsPage.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Stickers & Emojis"
-msgstr "Etiquettas Gummate (Stickers) & Emoji"
-
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
 #: src/qml/RoomListPage.qml:240
 #, kde-format
@@ -2211,14 +1824,14 @@ msgid "Explore rooms"
 msgstr "Explora salas"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
-#: src/qml/GlobalMenu.qml:51 src/qml/GlobalMenu.qml:60
+#: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
 #: src/qml/RoomListPage.qml:208 src/qml/RoomListPage.qml:257
 #, kde-format
 msgid "Find your friends"
 msgstr "Trova tu amicos"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:55 src/qml/RoomListPage.qml:216
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:216
 #: src/qml/RoomListPage.qml:261
 #, kde-format
 msgctxt "@title"
@@ -2305,328 +1918,66 @@ msgstr "Vide location"
 msgid "Close"
 msgstr "Claude"
 
-#: src/qml/General.qml:25
-#, kde-format
-msgid "Room Information"
-msgstr "Information de sala"
-
-#: src/qml/General.qml:47
-#, kde-format
-msgid "Update avatar"
-msgstr "Actualisa avatar"
-
-#: src/qml/General.qml:70
-#, kde-format
-msgid "Room name:"
-msgstr "Nomine de Sala:"
-
-#: src/qml/General.qml:80
-#, kde-format
-msgid "Room topic:"
-msgstr "Topico de Sala:"
-
-#: src/qml/General.qml:119
-#, kde-format
-msgid "Room ID"
-msgstr "ID de Sala"
-
-#: src/qml/General.qml:124
-#, kde-format
-msgid "Copy room ID to clipboard"
-msgstr "Copia ID de sala a area de transferentia"
-
-#: src/qml/General.qml:138
-#, kde-format
-msgid "Room version"
-msgstr "Version de sala"
-
-#: src/qml/General.qml:144
-#, kde-format
-msgid "Upgrade Room"
-msgstr "Actualisa sala"
-
-#: src/qml/General.qml:163
-#, kde-format
-msgid "Aliases"
-msgstr "Aliases"
-
-#: src/qml/General.qml:168
-#, kde-format
-msgid "No canonical alias set"
-msgstr "Necun Alias canonic fixate"
-
-#: src/qml/General.qml:181
-#, kde-format
-msgid "Make this alias the room's canonical alias"
-msgstr "Face iste alias le alias canonic de sala"
-
-#: src/qml/General.qml:196
-#, kde-format
-msgid "Delete alias"
-msgstr "Dele alias"
-
-#: src/qml/General.qml:220
-#, kde-format
-msgid "#new_alias:server.org"
-msgstr "#new_alias:server.org"
-
-#: src/qml/General.qml:237
-#, kde-format
-msgid "Add new alias"
-msgstr "Adde nove alias"
-
-#: src/qml/General.qml:257
-#, kde-format
-msgid "URL Previews"
-msgstr "Vistas preliminar de URL"
-
-#: src/qml/General.qml:261
-#, kde-format
-msgid "Enable URL previews by default for room members"
-msgstr "Habilita vistas preliminar de URL predefinite per membros de sala"
-
-#: src/qml/General.qml:269
-#, kde-format
-msgid "Enable URL previews"
-msgstr "Habilita vista preliminar de URL"
-
-#: src/qml/General.qml:271
-#, kde-format
-msgid "URL previews are enabled by default in this room"
-msgstr "Viste preliminar de URL es habilitate per definition in iste sala"
-
-#: src/qml/General.qml:271
-#, kde-format
-msgid "URL previews are disabled by default in this room"
-msgstr "Viste preliminar de URL es dishabilitate per definition in iste sala"
-
-#: src/qml/General.qml:279
-#, kde-format
-msgid "Official Parent Spaces"
-msgstr "Spatio Official de Genitor"
-
-#: src/qml/General.qml:312
-#, kde-format
-msgid "Canonical"
-msgstr "Canonic"
-
-#: src/qml/General.qml:319
-#, kde-format
-msgid "Make canonical parent"
-msgstr "Face genitor canonic"
-
-#: src/qml/General.qml:331
-#, kde-format
-msgid "Remove parent"
-msgstr "Remove  genitor"
-
-#: src/qml/General.qml:344
-#, kde-format
-msgid "This room has no official parent spaces."
-msgstr "Iste sala ha nulle spatios official de parente."
-
-#: src/qml/General.qml:348
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new official parent"
-msgstr "Adde nove genitor official"
-
-#: src/qml/General.qml:363
-#, kde-format
-msgid "This room continues another conversation."
-msgstr "Iste sala continua un altere conversation."
-
-#: src/qml/General.qml:367
-#, kde-format
-msgid "See older messages…"
-msgstr "Vide messages plus vetere..."
-
-#: src/qml/General.qml:377
-#, kde-format
-msgid "This room has been replaced."
-msgstr "Iste sala ha essite reimplaciate."
-
-#: src/qml/General.qml:381
-#, kde-format
-msgid "See new room…"
-msgstr "Vide nove sala..."
-
-#: src/qml/General.qml:404
-#, kde-format
-msgid "Upgrade the Room"
-msgstr "Actualisa le sala"
-
-#: src/qml/General.qml:408
-#, kde-format
-msgid "Select new version"
-msgstr "Selige nove version"
-
-#: src/qml/General.qml:416 src/qml/PowerLevelDialog.qml:61
-#, kde-format
-msgid "Confirm"
-msgstr "Confirma"
-
-#: src/qml/GeneralSettingsPage.qml:15
-#, kde-format
-msgctxt "@title:window"
-msgid "General"
-msgstr "General"
-
-#: src/qml/GeneralSettingsPage.qml:18
-#, kde-format
-msgid "General settings"
-msgstr "Preferentias General"
-
-#: src/qml/GeneralSettingsPage.qml:24
-#, kde-format
-msgid "Show in System Tray"
-msgstr "Monstra in tabuliero de systema"
-
-#: src/qml/GeneralSettingsPage.qml:41
-#, kde-format
-msgid "Minimize to system tray on startup"
-msgstr "Minimisa a tabuliero de systema quando il starta"
-
-#: src/qml/GeneralSettingsPage.qml:58
-#, kde-format
-msgid "Automatically hide/unhide the room information when resizing the window"
-msgstr ""
-"Automaticamente Cela/Monstra information de sala quando redimensiona le "
-"fenestra"
-
-#: src/qml/GeneralSettingsPage.qml:69
-#, kde-format
-msgid "Room list sort order"
-msgstr "Ordine de ordinar de lista de sala"
-
-#: src/qml/GeneralSettingsPage.qml:73
-#, kde-format
-msgctxt "As in 'sort something based on last activity'"
-msgid "Activity"
-msgstr "Activitate"
-
-#: src/qml/GeneralSettingsPage.qml:82
-#, kde-format
-msgctxt "As in 'sort something alphabetically'"
-msgid "Alphabetical"
-msgstr "Alphabetic"
-
-#: src/qml/GeneralSettingsPage.qml:92
-#, kde-format
-msgid "Timeline Events"
-msgstr "Eventos de chronologia"
-
-#: src/qml/GeneralSettingsPage.qml:97
-#, kde-format
-msgid "Show deleted messages"
-msgstr "Monstra  messages delite"
-
-#: src/qml/GeneralSettingsPage.qml:113
-#, kde-format
-msgid "Show state events"
-msgstr "Monstra eventos de stato"
-
-#: src/qml/GeneralSettingsPage.qml:131
-#, kde-format
-msgid "Show leave and join events"
-msgstr "Monstra eventos de lassar e unir"
-
-#: src/qml/GeneralSettingsPage.qml:149
-#, kde-format
-msgid "Show name change events"
-msgstr "Monstra eventos de cambio de nomine"
-
-#: src/qml/GeneralSettingsPage.qml:167
-#, kde-format
-msgid "Show avatar update events"
-msgstr "Monstra eventos de actualisar de avatar"
-
-#: src/qml/GeneralSettingsPage.qml:177
-#, kde-format
-msgctxt "Chat Editor"
-msgid "Editor"
-msgstr "Editor"
-
-#: src/qml/GeneralSettingsPage.qml:182
-#, kde-format
-msgid "Use s/text/replacement syntax to edit your last message"
-msgstr "Usa syntaxe de s/texto/reimplaciamento per modificar tu ultime message"
-
-#: src/qml/GeneralSettingsPage.qml:196
-#, kde-format
-msgid "Send typing notifications"
-msgstr "Invia notificationes de typar"
-
-#: src/qml/GeneralSettingsPage.qml:206
-#, kde-format
-msgid "Developer Settings"
-msgstr " de disviluppatorPreferentias"
-
-#: src/qml/GeneralSettingsPage.qml:210
-#, kde-format
-msgid "Enable developer tools"
-msgstr "Habilita instrumentos de disveloppator"
-
-#: src/qml/GlobalMenu.qml:20
+#: src/qml/GlobalMenu.qml:21
 #, kde-format
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "Neochat"
 
-#: src/qml/GlobalMenu.qml:27
+#: src/qml/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Configura NeoChat..."
 
-#: src/qml/GlobalMenu.qml:28
+#: src/qml/GlobalMenu.qml:29
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Configura NeoChat..."
 
-#: src/qml/GlobalMenu.qml:40
+#: src/qml/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Abandona NeoChat"
 
-#: src/qml/GlobalMenu.qml:47
+#: src/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "File"
 
-#: src/qml/GlobalMenu.qml:50
+#: src/qml/GlobalMenu.qml:51
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
 msgstr "Trova tu amicos"
 
-#: src/qml/GlobalMenu.qml:59
+#: src/qml/GlobalMenu.qml:60
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Nove gruppo…"
 
-#: src/qml/GlobalMenu.qml:68
+#: src/qml/GlobalMenu.qml:69
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Naviga per Chats (Conversationes in directo)"
 
-#: src/qml/GlobalMenu.qml:82
+#: src/qml/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Modifica"
 
-#: src/qml/GlobalMenu.qml:86
+#: src/qml/GlobalMenu.qml:87
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Vista"
 
-#: src/qml/GlobalMenu.qml:89
+#: src/qml/GlobalMenu.qml:90
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2634,86 +1985,35 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Aperi Commutator rapide (Open Quick Switch)"
 
-#: src/qml/GlobalMenu.qml:95
+#: src/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Fenestra"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:103
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Exi del schermo integre"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:103
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Inserta schermo plen"
 
-#: src/qml/GlobalMenu.qml:108
+#: src/qml/GlobalMenu.qml:109
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Adjuta"
 
-#: src/qml/GlobalMenu.qml:111
+#: src/qml/GlobalMenu.qml:112
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "FAQ de Matrix:"
-
-#: src/qml/GlobalNotificationsPage.qml:19
-#, kde-format
-msgctxt "@title:window"
-msgid "Notifications"
-msgstr "Notificationes"
-
-#: src/qml/GlobalNotificationsPage.qml:28
-#, kde-format
-msgid "Enable notifications for this account"
-msgstr "Habilita notificatione per iste conto"
-
-#: src/qml/GlobalNotificationsPage.qml:29
-#, kde-format
-msgid "Whether push notifications are generated by your Matrix server"
-msgstr "Si pulsar notificationes es generate per tu servitor de Matrix"
-
-#: src/qml/GlobalNotificationsPage.qml:39
-#, kde-format
-msgid "Room Notifications"
-msgstr "Notificationes de sala"
-
-#: src/qml/GlobalNotificationsPage.qml:56
-#, kde-format
-msgid "@Mentions"
-msgstr "@Mentiones"
-
-#: src/qml/GlobalNotificationsPage.qml:73 src/qml/PushNotification.qml:65
-#, kde-format
-msgid "Keywords"
-msgstr "Parolas clave"
-
-#: src/qml/GlobalNotificationsPage.qml:97 src/qml/PushNotification.qml:100
-#, kde-format
-msgid "Keyword…"
-msgstr "Parola clave…"
-
-#: src/qml/GlobalNotificationsPage.qml:116 src/qml/PushNotification.qml:119
-#, kde-format
-msgid "Add keyword"
-msgstr "Adde parola clave"
-
-#: src/qml/GlobalNotificationsPage.qml:137
-#, kde-format
-msgid "Invites"
-msgstr "Invitationes"
-
-#: src/qml/GlobalNotificationsPage.qml:154
-#, kde-format
-msgid "Unknown"
-msgstr "Incognite"
 
 #: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
@@ -2749,30 +2049,6 @@ msgstr "Reage"
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Responde in Topico"
-
-#: src/qml/IgnoredUsersDialog.qml:18
-#, kde-format
-msgctxt "@title"
-msgid "Ignored Users"
-msgstr "Ignora usatores"
-
-#: src/qml/IgnoredUsersDialog.qml:24 src/qml/Security.qml:37
-#, kde-format
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "Usatores ignorate"
-
-#: src/qml/IgnoredUsersDialog.qml:29
-#, kde-format
-msgctxt "Placeholder message when no user is ignored"
-msgid "You are not ignoring any users"
-msgstr "Tu non es ignorante ulle usatores"
-
-#: src/qml/IgnoredUsersDialog.qml:51
-#, kde-format
-msgctxt "@action:button"
-msgid "Unignore this user"
-msgstr "Cessa a ignorar iste usator"
 
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
@@ -2856,7 +2132,7 @@ msgstr "Invita un usator"
 msgid "Find a user..."
 msgstr "Trova un usator..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:112
+#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:113
 #, kde-format
 msgid "Add"
 msgstr "Adde"
@@ -2952,7 +2228,14 @@ msgstr "ID de Matrix:"
 msgid "Matrix ID"
 msgstr "ID de Matrix:"
 
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:198
+#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:11
+#, kde-format
+msgid "Loading…"
+msgstr "Cargante..."
+
+#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:199
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -2987,18 +2270,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registra"
 
-#: src/qml/main.qml:357
+#: src/qml/main.qml:358
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Veification de Session"
 
-#: src/qml/main.qml:374
+#: src/qml/main.qml:375
 #, kde-format
 msgid "User consent"
 msgstr "Consenso de usator"
 
-#: src/qml/main.qml:379
+#: src/qml/main.qml:380
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -3008,28 +2291,28 @@ msgstr ""
 "conditiones ante poter usar lo. Pro favor tu clicca le button a basso per "
 "leger los."
 
-#: src/qml/main.qml:384
+#: src/qml/main.qml:385
 #, kde-format
 msgid "Open"
 msgstr "Aperi"
 
-#: src/qml/main.qml:411
+#: src/qml/main.qml:412
 #, kde-format
 msgid "Start a chat"
 msgstr "Initia un conversation"
 
-#: src/qml/main.qml:413
+#: src/qml/main.qml:414
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Tu vole initiar un conversation con %1"
 
-#: src/qml/main.qml:439
+#: src/qml/main.qml:440
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Le ligamine currentemte seligite"
 
-#: src/qml/main.qml:471 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:472 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3106,98 +2389,6 @@ msgstr "Copia Ligamine"
 msgid "Event Source"
 msgstr "Fonte de evento"
 
-#: src/qml/NetworkProxyPage.qml:16
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy"
-msgstr "Proxy"
-
-#: src/qml/NetworkProxyPage.qml:22 src/qml/SettingsPage.qml:78
-#, kde-format
-msgid "Network Proxy"
-msgstr "Proxy de rete"
-
-#: src/qml/NetworkProxyPage.qml:26
-#, kde-format
-msgid "System Default"
-msgstr "Predefinite de systema"
-
-#: src/qml/NetworkProxyPage.qml:34
-#, kde-format
-msgid "HTTP"
-msgstr "HTTP"
-
-#: src/qml/NetworkProxyPage.qml:42
-#, kde-format
-msgid "Socks5"
-msgstr "Socks5"
-
-#: src/qml/NetworkProxyPage.qml:52
-#, kde-format
-msgid "Proxy Settings"
-msgstr "Preferentias de proxy"
-
-#: src/qml/NetworkProxyPage.qml:57
-#, kde-format
-msgid "Host"
-msgstr "Hospite"
-
-#: src/qml/NetworkProxyPage.qml:66
-#, kde-format
-msgid "Port"
-msgstr "Porto"
-
-#: src/qml/NetworkProxyPage.qml:79
-#, kde-format
-msgid "User"
-msgstr "Usator"
-
-#: src/qml/NetworkProxyPage.qml:106
-#, kde-format
-msgid "Apply"
-msgstr "Applica"
-
-#: src/qml/NotificationRuleItem.qml:70
-#, kde-format
-msgid "Disable notifications"
-msgstr "Dishabilita notificationes"
-
-#: src/qml/NotificationRuleItem.qml:70
-#, kde-format
-msgid "Enable notifications"
-msgstr "Habilita notificationes"
-
-#: src/qml/NotificationRuleItem.qml:92
-#, kde-format
-msgid "Mute notifications"
-msgstr "Silentia notificationes"
-
-#: src/qml/NotificationRuleItem.qml:92
-#, kde-format
-msgid "Unmute notifications"
-msgstr "De silentia notificationes"
-
-#: src/qml/NotificationRuleItem.qml:113
-#, kde-format
-msgctxt ""
-"As in clicking this button will switch off highlights for messages that "
-"match this rule"
-msgid "Disable message highlights"
-msgstr "Dishabilita evidentias de message"
-
-#: src/qml/NotificationRuleItem.qml:113
-#, kde-format
-msgctxt ""
-"As in clicking this button will switch on highlights for messages that match "
-"this rule"
-msgid "Enable message highlights"
-msgstr "Habilita evidentias de message"
-
-#: src/qml/NotificationRuleItem.qml:135
-#, kde-format
-msgid "Delete keyword"
-msgstr "Dele parola clave"
-
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:80
 #, kde-format
 msgctxt "@title"
@@ -3214,158 +2405,16 @@ msgstr "Nulle Notificationes"
 msgid "Select a File"
 msgstr "Selige un file"
 
+#: src/qml/Password.qml:28 src/qml/RegisterPassword.qml:20
+#: src/settings/DevicesPage.qml:81
+#, kde-format
+msgid "Password:"
+msgstr "Contrasigno:"
+
 #: src/qml/Password.qml:33
 #, kde-format
 msgid "Invalid username or password"
 msgstr "Invalide nomine de usator o contrasigno"
-
-#: src/qml/Permissions.qml:33
-#, kde-format
-msgid "Privileged Users"
-msgstr "Usatores privilegiate"
-
-#: src/qml/Permissions.qml:72 src/qml/PowerLevelDialog.qml:45
-#, kde-format
-msgid "Member (0)"
-msgstr " Member (0)"
-
-#: src/qml/Permissions.qml:76 src/qml/PowerLevelDialog.qml:49
-#, kde-format
-msgid "Moderator (50)"
-msgstr "Moderator (50)"
-
-#: src/qml/Permissions.qml:80 src/qml/PowerLevelDialog.qml:53
-#, kde-format
-msgid "Admin (100)"
-msgstr "Admin (100)"
-
-#: src/qml/Permissions.qml:242
-#, kde-format
-msgid "Default permissions"
-msgstr "Permissiones predefinite"
-
-#: src/qml/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr "Nivellko de fortia de usator predefinite"
-
-#: src/qml/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr "Iste es le nivello de fortia per omnes usatores quando uni al sala"
-
-#: src/qml/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr "Nivello de potentia predefinite a fixar le stato de sala"
-
-#: src/qml/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Isto es usate per omne eventos de stato que non ha su proprie entrata hic"
-
-#: src/qml/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr "Nivello de fortia predefinite per inviar message"
-
-#: src/qml/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Isto es usate per omne eventos de message que non ha su proprie entrata hic"
-
-#: src/qml/Permissions.qml:283
-#, kde-format
-msgid "Basic permissions"
-msgstr "Permissiones basic"
-
-#: src/qml/Permissions.qml:288
-#, kde-format
-msgid "Invite users"
-msgstr "Invita Usatores"
-
-#: src/qml/Permissions.qml:298
-#, kde-format
-msgid "Kick users"
-msgstr "Calca usatores"
-
-#: src/qml/Permissions.qml:308
-#, kde-format
-msgid "Ban users"
-msgstr "Prohibi usatores"
-
-#: src/qml/Permissions.qml:318
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr "Remove messages inviate per altere usatores"
-
-#: src/qml/Permissions.qml:331
-#, kde-format
-msgid "Event permissions"
-msgstr "Permissiones de evento"
-
-#: src/qml/Permissions.qml:336
-#, kde-format
-msgid "Change user permissions"
-msgstr "Cambia permissiones de usator"
-
-#: src/qml/Permissions.qml:347
-#, kde-format
-msgid "Change the room name"
-msgstr "Cambiale nomine de sala"
-
-#: src/qml/Permissions.qml:358
-#, kde-format
-msgid "Change the room avatar"
-msgstr "Cambia le avatar de sala"
-
-#: src/qml/Permissions.qml:369
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr "Cambia le alias canonic de sala"
-
-#: src/qml/Permissions.qml:380
-#, kde-format
-msgid "Change the room topic"
-msgstr "Cambia le argumento de sala"
-
-#: src/qml/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr "Habilita cryptation per le sala"
-
-#: src/qml/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr "Cambia la visibilitate de chronolgia de sala"
-
-#: src/qml/Permissions.qml:413
-#, kde-format
-msgid "Set pinned events"
-msgstr "Fixa eventos appunctate"
-
-#: src/qml/Permissions.qml:424
-#, kde-format
-msgid "Upgrade the room"
-msgstr "Actualisa le sala"
-
-#: src/qml/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr "Fixa le listas de controlo de accesso de servitor (ACL)  per iste sala"
-
-#: src/qml/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr "Assigna le filios de iste spatio"
-
-#: src/qml/Permissions.qml:458
-#, kde-format
-msgid "Set the parent space of this room"
-msgstr "Fixa lespatio genitor de iste sala"
 
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
@@ -3378,15 +2427,25 @@ msgstr "Modifica le nivello de fortia de usator"
 msgid "New power level"
 msgstr "Assigna le nivello de fortia "
 
-#: src/qml/PushNotification.qml:26
+#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
 #, kde-format
-msgid "Room notifications setting"
-msgstr "Monstra preferentias de  notificationes"
+msgid "Member (0)"
+msgstr " Member (0)"
 
-#: src/qml/PushNotification.qml:31
+#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
 #, kde-format
-msgid "Follow global setting"
-msgstr "Seque Preferentias Global"
+msgid "Moderator (50)"
+msgstr "Moderator (50)"
+
+#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
+#, kde-format
+msgid "Admin (100)"
+msgstr "Admin (100)"
+
+#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#, kde-format
+msgid "Confirm"
+msgstr "Confirma"
 
 #: src/qml/QuickFormatBar.qml:23
 #, kde-format
@@ -3553,17 +2612,17 @@ msgstr "Sala Silentiate"
 msgid "Configure room"
 msgstr "Configura sala"
 
-#: src/qml/RoomDrawer.qml:102
+#: src/qml/RoomDrawer.qml:103
 #, kde-format
 msgid "Room settings"
 msgstr "Preferentias de sala"
 
-#: src/qml/RoomDrawer.qml:152 src/qml/RoomDrawerPage.qml:88
+#: src/qml/RoomDrawer.qml:153 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Information"
 msgstr "Information"
 
-#: src/qml/RoomDrawer.qml:157 src/qml/RoomDrawerPage.qml:93
+#: src/qml/RoomDrawer.qml:158 src/qml/RoomDrawerPage.qml:93
 #, kde-format
 msgid "Media"
 msgstr "Medios"
@@ -3621,7 +2680,7 @@ msgstr "Monstra locationes per iste sala"
 msgid "Members"
 msgstr "Membros"
 
-#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:52
+#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3713,153 +2772,6 @@ msgstr "Inserta un texto per initiar a cercar"
 msgid "No messages found"
 msgstr "Necun messages trovate"
 
-#: src/qml/RoomSecurity.qml:18
-#, kde-format
-msgid ""
-"You need to upgrade this room to a newer version to enable this setting."
-msgstr ""
-"Tu necessita actualisar iste sala a un version plus nove pro habilitar iste "
-"preferentia."
-
-#: src/qml/RoomSecurity.qml:23
-#, kde-format
-msgctxt "@option:check"
-msgid "Encryption"
-msgstr "Encryption"
-
-#: src/qml/RoomSecurity.qml:28
-#, kde-format
-msgid "Enable encryption"
-msgstr "Habilita cryptation"
-
-#: src/qml/RoomSecurity.qml:29
-#, kde-format
-msgctxt "option:check"
-msgid "Once enabled, encryption cannot be disabled."
-msgstr "Un vice habilitate, le cryptation non pote esser  dishabilitate."
-
-#: src/qml/RoomSecurity.qml:42
-#, kde-format
-msgctxt "@option:check"
-msgid "Access"
-msgstr "Accesso"
-
-#: src/qml/RoomSecurity.qml:46
-#, kde-format
-msgctxt "@option:check"
-msgid "Private (invite only)"
-msgstr "Private (solmente invita)"
-
-#: src/qml/RoomSecurity.qml:47
-#, kde-format
-msgid "Only invited people can join."
-msgstr "Solmente personas invitate pote unir se"
-
-#: src/qml/RoomSecurity.qml:55
-#, kde-format
-msgctxt "@option:check"
-msgid "Space members"
-msgstr "Membros de spatio"
-
-#: src/qml/RoomSecurity.qml:56
-#, kde-format
-msgid "Anyone in the selected spaces can find and join."
-msgstr "Alcun in un spatio seligite  pote trovar e unir."
-
-#: src/qml/RoomSecurity.qml:65
-#, kde-format
-msgid "Select spaces"
-msgstr "Selige  spatios"
-
-#: src/qml/RoomSecurity.qml:83
-#, kde-format
-msgctxt "@option:check"
-msgid "Knock"
-msgstr "Colpa (knock)"
-
-#: src/qml/RoomSecurity.qml:84
-#, kde-format
-msgid "People not in the room need to request an invite to join the room."
-msgstr ""
-"Personas non in le sala necessita requirer un invitation pro uner al sala."
-
-#: src/qml/RoomSecurity.qml:93
-#, kde-format
-msgctxt "@option:check"
-msgid "Public"
-msgstr "Public"
-
-#: src/qml/RoomSecurity.qml:94
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone can find and join."
-msgstr "Alcun pote trvar e unir."
-
-#: src/qml/RoomSecurity.qml:104
-#, kde-format
-msgctxt "@option:check"
-msgid "Message history visibility"
-msgstr "Visibilitate de chronologia de message"
-
-#: src/qml/RoomSecurity.qml:108
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone"
-msgstr "Quicunque"
-
-#: src/qml/RoomSecurity.qml:109
-#, kde-format
-msgctxt "@option:check"
-msgid "Anyone, regardless of whether they have joined, can view history."
-msgstr ""
-"Quicunque, indifferentemente si illo se ha unite , pote vider le chronologia."
-
-#: src/qml/RoomSecurity.qml:117
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only"
-msgstr "Solmente Membros"
-
-#: src/qml/RoomSecurity.qml:118
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"All members can view the entire message history, even before they joined."
-msgstr ""
-"Omne membros pote vider lechronologia de message complete, anque ante que "
-"lor se ha unite."
-
-#: src/qml/RoomSecurity.qml:126
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only (since invite)"
-msgstr "Solmente per membros (usque invitation)"
-
-#: src/qml/RoomSecurity.qml:127
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"New members can view the message history from the point they were invited to "
-"the room."
-msgstr ""
-"Nove membros pote vider le chronologia de messages ab le puncto de lor "
-"invitation al sala."
-
-#: src/qml/RoomSecurity.qml:135
-#, kde-format
-msgctxt "@option:check"
-msgid "Members only (since joining)"
-msgstr "Solmente per membros (usque unir se)"
-
-#: src/qml/RoomSecurity.qml:136
-#, kde-format
-msgctxt "@option:check"
-msgid ""
-"New members can view the message history from the point they joined the room."
-msgstr ""
-"Nove membros pote vider le chronologia de messages ab le puncto de lor union "
-"al sala."
-
 #: src/qml/RoomTreeSection.qml:71
 #, kde-format
 msgctxt "Collapse <section name>"
@@ -3871,45 +2783,6 @@ msgstr "Plica %1"
 msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "Expande %1"
-
-#: src/qml/Security.qml:17
-#, kde-format
-msgctxt "@title"
-msgid "Security"
-msgstr "Securitate"
-
-#: src/qml/Security.qml:20
-#, kde-format
-msgctxt "@title"
-msgid "Keys"
-msgstr "Claves"
-
-#: src/qml/Security.qml:25
-#, kde-format
-msgid "Device key"
-msgstr "Clave de Dispositivo"
-
-#: src/qml/Security.qml:29
-#, kde-format
-msgid "Encryption key"
-msgstr "Clave de Encryption"
-
-#: src/qml/Security.qml:33
-#, kde-format
-msgid "Device id"
-msgstr "Id de Dispositivo"
-
-#: src/qml/Security.qml:41
-#, kde-format
-msgctxt "@action:button"
-msgid "Manage ignored users"
-msgstr "Gere usatores ignorate"
-
-#: src/qml/Security.qml:43
-#, kde-format
-msgctxt "@title:window"
-msgid "Ignored Users"
-msgstr "Usatores ignorate"
 
 #: src/qml/SelectParentDialog.qml:25
 #, kde-format
@@ -4024,31 +2897,6 @@ msgstr "Version de sala predefinite"
 msgid "Available Room Versions"
 msgstr "Version de sala disponibile"
 
-#: src/qml/SettingsPage.qml:26
-#, kde-format
-msgid "Appearance"
-msgstr "Apparentia"
-
-#: src/qml/SettingsPage.qml:60
-#, kde-format
-msgid "Stickers & Emojis"
-msgstr "Etiquettas Gummate (Stickers) & Emoji"
-
-#: src/qml/SettingsPage.qml:71
-#, kde-format
-msgid "Spell Checking"
-msgstr "Controlo Orthographic"
-
-#: src/qml/SettingsPage.qml:95
-#, kde-format
-msgid "About NeoChat"
-msgstr "A proposito de NeoChat"
-
-#: src/qml/SettingsPage.qml:101
-#, kde-format
-msgid "About KDE"
-msgstr "A proposito de KDE"
-
 #: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
@@ -4068,94 +2916,6 @@ msgstr "Falleva compartir"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Url compartite per imagine es <a href='%1'>%1</a>"
-
-#: src/qml/SonnetConfigPage.qml:17
-#, kde-format
-msgctxt "@title"
-msgid "Spellchecking"
-msgstr "Facer Controlo Orthographic"
-
-#: src/qml/SonnetConfigPage.qml:27
-#, kde-format
-msgid "Enable automatic spell checking"
-msgstr "Habilita corrector orthographic automatic"
-
-#: src/qml/SonnetConfigPage.qml:42
-#, kde-format
-msgid "Ignore uppercase words"
-msgstr "Ignora parolas majuscule"
-
-#: src/qml/SonnetConfigPage.qml:57
-#, kde-format
-msgid "Ignore hyphenated words"
-msgstr "Ignora parolas con tracto de union"
-
-#: src/qml/SonnetConfigPage.qml:72
-#, kde-format
-msgid "Detect language automatically"
-msgstr "Releva linguage automaticamente"
-
-#: src/qml/SonnetConfigPage.qml:86
-#, kde-format
-msgid "Selected default language:"
-msgstr "Linguage predefinite seligite:"
-
-#: src/qml/SonnetConfigPage.qml:89
-#, kde-format
-msgid "None"
-msgstr "Necun"
-
-#: src/qml/SonnetConfigPage.qml:113
-#, kde-format
-msgid "Additional spell checking languages"
-msgstr "Linguages additional de controlo orthographic"
-
-#: src/qml/SonnetConfigPage.qml:114
-#, kde-format
-msgid ""
-"%1 will provide spell checking and suggestions for the languages listed here "
-"when autodetection is enabled."
-msgstr ""
-"%1 fornira controlo orthographic e consilios per le linguages listate hic "
-"quando autodiscoperta es habilitate."
-
-#: src/qml/SonnetConfigPage.qml:129
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr "Aperi Dictionario Personal"
-
-#: src/qml/SonnetConfigPage.qml:140
-#, kde-format
-msgctxt "@title:window"
-msgid "Spell checking languages"
-msgstr "Linguages de controlo orthographic"
-
-#: src/qml/SonnetConfigPage.qml:146 src/qml/SonnetConfigPage.qml:164
-#, kde-format
-msgid "Default Language"
-msgstr "Linguage predefinite"
-
-#: src/qml/SonnetConfigPage.qml:177
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr "Dictionario de controlo orthographic"
-
-#: src/qml/SonnetConfigPage.qml:184
-#, kde-format
-msgid "Add a new word to your personal dictionary…"
-msgstr "adde un nove parola a tu dictionario personal..."
-
-#: src/qml/SonnetConfigPage.qml:187
-#, kde-format
-msgctxt "@action:button"
-msgid "Add word"
-msgstr "Adde parola"
-
-#: src/qml/SonnetConfigPage.qml:222
-#, kde-format
-msgctxt "@action:button"
-msgid "Delete word"
-msgstr "Dele parola"
 
 #: src/qml/SpaceDrawer.qml:72
 #, kde-format
@@ -4201,7 +2961,7 @@ msgctxt "number of room members"
 msgid " members"
 msgstr " membros"
 
-#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:57
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:58
 #, kde-format
 msgctxt "@button"
 msgid "Add new child"
@@ -4225,48 +2985,48 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Facer suggerite"
 
-#: src/qml/SpaceHomePage.qml:47
+#: src/qml/SpaceHomePage.qml:48
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Invita  usator a spatio"
 
-#: src/qml/SpaceHomePage.qml:62
+#: src/qml/SpaceHomePage.qml:63
 #, kde-format
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "Lassa le spatio"
 
-#: src/qml/SpaceHomePage.qml:70
+#: src/qml/SpaceHomePage.qml:71
 #, kde-format
 msgctxt "@button"
 msgid "Space settings"
 msgstr "Preferentias de Spatio"
 
-#: src/qml/SpaceHomePage.qml:162 src/qml/SpaceHomePage.qml:168
+#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"
 msgstr "Crea un Filio"
 
-#: src/qml/SpaceListContextMenu.qml:30 src/qml/SpaceListContextMenu.qml:115
+#: src/qml/SpaceListContextMenu.qml:31 src/qml/SpaceListContextMenu.qml:116
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Vider Spatio"
 
-#: src/qml/SpaceListContextMenu.qml:46 src/qml/SpaceListContextMenu.qml:131
+#: src/qml/SpaceListContextMenu.qml:47 src/qml/SpaceListContextMenu.qml:132
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Preferentias de Spatio"
 
-#: src/qml/SpaceListContextMenu.qml:52 src/qml/SpaceListContextMenu.qml:137
+#: src/qml/SpaceListContextMenu.qml:53 src/qml/SpaceListContextMenu.qml:138
 #, kde-format
 msgid "Space Settings"
 msgstr "Preferentias de Spatio"
 
-#: src/qml/SpaceListContextMenu.qml:59 src/qml/SpaceListContextMenu.qml:142
+#: src/qml/SpaceListContextMenu.qml:60 src/qml/SpaceListContextMenu.qml:143
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -4490,22 +3250,27 @@ msgstr "Invita in conversation private"
 msgid "Copy link"
 msgstr "Copia Ligamine"
 
-#: src/qml/UserInfo.qml:96
+#: src/qml/UserInfo.qml:97
 #, kde-format
 msgid "Switch User"
 msgstr "Commuta Usator"
 
-#: src/qml/UserInfo.qml:146
+#: src/qml/UserInfo.qml:147
 #, kde-format
 msgid "Open Settings"
 msgstr "Aperi Preferentias"
 
-#: src/qml/UserInfo.qml:200
+#: src/qml/UserInfo.qml:198 src/settings/AccountsPage.qml:102
+#, kde-format
+msgid "Add Account"
+msgstr "Adde conto"
+
+#: src/qml/UserInfo.qml:201
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Accede a un conto existente"
 
-#: src/qml/UserInfo.qml:207
+#: src/qml/UserInfo.qml:208
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -4723,53 +3488,53 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "Le verification de session esseva cancellate debite a un error incognite."
 
-#: src/qml/WelcomePage.qml:25
+#: src/qml/WelcomePage.qml:26
 #, kde-format
 msgid "Welcome"
 msgstr "Benvenite"
 
-#: src/qml/WelcomePage.qml:46
+#: src/qml/WelcomePage.qml:47
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Benvenite a NeoChat"
 
-#: src/qml/WelcomePage.qml:54
+#: src/qml/WelcomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Continua con un conto existente"
 
-#: src/qml/WelcomePage.qml:86
+#: src/qml/WelcomePage.qml:87
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (cargante)"
 
-#: src/qml/WelcomePage.qml:95
+#: src/qml/WelcomePage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Edita iste conto"
 
-#: src/qml/WelcomePage.qml:124
+#: src/qml/WelcomePage.qml:125
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Accede  o crea un conto nove"
 
-#: src/qml/WelcomePage.qml:206
+#: src/qml/WelcomePage.qml:207
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Vade retro"
 
-#: src/qml/WelcomePage.qml:217
+#: src/qml/WelcomePage.qml:218
 #, kde-format
 msgctxt "@action:button"
 msgid "Open proxy settings"
 msgstr "Aperi Preferentias de Proxy"
 
-#: src/qml/WelcomePage.qml:220
+#: src/qml/WelcomePage.qml:221
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
@@ -4872,6 +3637,1246 @@ msgstr "Tu systema operative non poteva trovar un application per le ligamine."
 #, kde-format
 msgid "Could not open URL"
 msgstr "Non pote aperir URL"
+
+#: src/settings/About.qml:11
+#, kde-format
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "A proposito de NeoChat"
+
+#: src/settings/AboutKDE.qml:7
+#, kde-format
+msgctxt "@title:window"
+msgid "About KDE"
+msgstr "A proposito de KDE"
+
+#: src/settings/AccountEditorPage.qml:19
+#, kde-format
+msgid "Edit Account"
+msgstr "Modifica conto"
+
+#: src/settings/AccountEditorPage.qml:60
+#, kde-format
+msgid "Upload new avatar"
+msgstr "Incarga nove avatar"
+
+#: src/settings/AccountEditorPage.qml:77
+#, kde-format
+msgid "Remove current avatar"
+msgstr "Remove avatar currente"
+
+#: src/settings/AccountEditorPage.qml:100
+#, kde-format
+msgid "User information"
+msgstr "Information de Usator"
+
+#: src/settings/AccountEditorPage.qml:111
+#, kde-format
+msgid "Label:"
+msgstr "Etiquetta:"
+
+#: src/settings/AccountEditorPage.qml:116
+#: src/settings/AccountEditorPage.qml:171
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
+#, kde-format
+msgid "Save"
+msgstr "Salveguarda"
+
+#: src/settings/AccountEditorPage.qml:137
+#, kde-format
+msgid "Your server doesn't support changing your password"
+msgstr "Tu servitor nonsupporta que tu pote cambiar tu contrasigno"
+
+#: src/settings/AccountEditorPage.qml:144
+#, kde-format
+msgid "Current Password:"
+msgstr "Contrasigno currente:"
+
+#: src/settings/AccountEditorPage.qml:151
+#, kde-format
+msgid "New Password:"
+msgstr "Nove contrasigno:"
+
+#: src/settings/AccountEditorPage.qml:158
+#, kde-format
+msgid "Confirm new Password:"
+msgstr "Confirma nove contrasigno:"
+
+#: src/settings/AccountEditorPage.qml:163
+#, kde-format
+msgid "Passwords don't match"
+msgstr "Le contrasigno non coincide"
+
+#: src/settings/AccountEditorPage.qml:177
+#, kde-format
+msgid "Passwords do not match"
+msgstr "Le contrasigno non es equal"
+
+#: src/settings/AccountEditorPage.qml:185
+#, kde-format
+msgid "Server Information"
+msgstr "Information de servitor"
+
+#: src/settings/AccountEditorPage.qml:189
+#, kde-format
+msgid "Homeserver url"
+msgstr "Url de Servitor de casa (Homeserver):"
+
+#: src/settings/AccountEditorPage.qml:210
+#, kde-format
+msgctxt "@title"
+msgid "Account Management"
+msgstr "Gestion de conto"
+
+#: src/settings/AccountEditorPage.qml:215
+#, kde-format
+msgid "Deactivate Account"
+msgstr "Deactiva conto"
+
+#: src/settings/AccountEditorPage.qml:219
+#, kde-format
+msgctxt "@title"
+msgid "Confirm Deactivating Account"
+msgstr "Confirma Deactivar le Conto"
+
+#: src/settings/AccountEditorPage.qml:228
+#, kde-format
+msgid "Password changed successfully"
+msgstr "Contrassigno cambiava con successo"
+
+#: src/settings/AccountEditorPage.qml:230
+#, kde-format
+msgid "Wrong password entered"
+msgstr "Insertate contrasigno errate"
+
+#: src/settings/AccountEditorPage.qml:232
+#, kde-format
+msgid "Unknown problem while trying to change password"
+msgstr "Problema incognite quando il essayava a cambiar contrasigno"
+
+#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:23
+#: src/settings/NeoChatSettings.qml:54
+#, kde-format
+msgid "Accounts"
+msgstr "Contos"
+
+#: src/settings/AppearanceSettingsPage.qml:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "Apparentia"
+
+#: src/settings/AppearanceSettingsPage.qml:22
+#, kde-format
+msgid "General theme"
+msgstr "Thema General"
+
+#: src/settings/AppearanceSettingsPage.qml:116
+#, kde-format
+msgid "Bubbles"
+msgstr "Bullas"
+
+#: src/settings/AppearanceSettingsPage.qml:185
+#, kde-format
+msgid "Compact"
+msgstr "Compacte"
+
+#: src/settings/AppearanceSettingsPage.qml:207
+#, kde-format
+msgid "Use compact room list"
+msgstr "Usa lista de sala compacte"
+
+#: src/settings/AppearanceSettingsPage.qml:233
+#, kde-format
+msgid "Show fancy effects in chat"
+msgstr "Monstra effectos de Phantasia in chat"
+
+#: src/settings/AppearanceSettingsPage.qml:250
+#, kde-format
+msgid "Use transparent chat page"
+msgstr "Usa pagina che chat transparente"
+
+#: src/settings/AppearanceSettingsPage.qml:271
+#, kde-format
+msgid "Transparency"
+msgstr "Transparentia"
+
+#: src/settings/AppearanceSettingsPage.qml:290
+#, kde-format
+msgid "Only enabled if the transparent chat page is enabled."
+msgstr "Solmente habilitate si le pagina de chat transparente es habilitate."
+
+#: src/settings/AppearanceSettingsPage.qml:307
+#, kde-format
+msgid "Show your messages on the right"
+msgstr "Monstra tu message a dextera"
+
+#: src/settings/AppearanceSettingsPage.qml:323
+#, kde-format
+msgid "Show links preview in the chat messages"
+msgstr ""
+"Monstra vista preliminar de ligamines in le message de conversation in "
+"directo"
+
+#: src/settings/AppearanceSettingsPage.qml:333
+#, kde-format
+msgid "Show Avatar"
+msgstr "Monstra Avatar"
+
+#: src/settings/AppearanceSettingsPage.qml:337
+#, kde-format
+msgid "In chat"
+msgstr "In Conversation in directo"
+
+#: src/settings/AppearanceSettingsPage.qml:347
+#, kde-format
+msgid "In sidebar"
+msgstr "In Barra leteral"
+
+#: src/settings/ColorScheme.qml:15
+#, kde-format
+msgid "Color theme"
+msgstr "Thema de color"
+
+#: src/settings/DeviceDelegate.qml:50
+#, kde-format
+msgctxt "@label"
+msgid "%1, Last activity: %2"
+msgstr "%1, Ultime activitate: %2"
+
+#: src/settings/DeviceDelegate.qml:59
+#, kde-format
+msgid "New device name"
+msgstr "Nove nomine de dispositivo"
+
+#: src/settings/DeviceDelegate.qml:68
+#, kde-format
+msgid "Cancel editing display name"
+msgstr "Cancella modification de nomine de monstrar"
+
+#: src/settings/DeviceDelegate.qml:75
+#, kde-format
+msgid "Confirm new display name"
+msgstr "Confirma nove nomine de monstrar"
+
+#: src/settings/DeviceDelegate.qml:90
+#, kde-format
+msgid "Edit device name"
+msgstr "Edita nmine de dispositivo"
+
+#: src/settings/DeviceDelegate.qml:104
+#, kde-format
+msgid "Verify device"
+msgstr "Verifica dispositivo"
+
+#: src/settings/DeviceDelegate.qml:119
+#, kde-format
+msgid "Logout device"
+msgstr "Dispositivo de clausura de session"
+
+#: src/settings/DevicesPage.qml:33
+#, kde-format
+msgid "This Device"
+msgstr "Iste Dispositivos"
+
+#: src/settings/DevicesPage.qml:38
+#, kde-format
+msgid "Verified Devices"
+msgstr "Dispositivos verificate"
+
+#: src/settings/DevicesPage.qml:43
+#, kde-format
+msgid "Unverified Devices"
+msgstr "Dispositivos non verificate"
+
+#: src/settings/DevicesPage.qml:48
+#, kde-format
+msgid "Devices without Encryption Support"
+msgstr "Dispositivos sin Supporte de Cryptation"
+
+#: src/settings/DevicesPage.qml:63
+#, kde-format
+msgid "Please login to view the signed-in devices for your account."
+msgstr "Pro favor tu accede per vider le dispositivos accedite per tu conto."
+
+#: src/settings/DevicesPage.qml:75
+#, kde-format
+msgid "Remove device"
+msgstr "Remove dispositivo"
+
+#: src/settings/DevicesPage.qml:87
+#, kde-format
+msgctxt "As in 'Remove this device'"
+msgid "Remove"
+msgstr "Remove"
+
+#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Modifica Emoji"
+
+#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Edita Sticker( Etiquetta gummate)"
+
+#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Adde Emoji"
+
+#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Adde Sticker (Etiquetta Gummate)"
+
+#: src/settings/EmoticonEditorPage.qml:30
+#, kde-format
+msgid "Sticker"
+msgstr "Etiquetta gummate (Sticker)"
+
+#: src/settings/EmoticonEditorPage.qml:30
+#, kde-format
+msgid "Emoji"
+msgstr "Emoji"
+
+#: src/settings/EmoticonEditorPage.qml:59
+#, kde-format
+msgid "Change Image"
+msgstr "Cambia  imagine"
+
+#: src/settings/EmoticonEditorPage.qml:59
+#, kde-format
+msgid "Set Image"
+msgstr "Fixa imagine"
+
+#: src/settings/EmoticonEditorPage.qml:98
+#, kde-format
+msgid "Shortcode:"
+msgstr "Codice breve:"
+
+#: src/settings/EmoticonEditorPage.qml:103
+#, kde-format
+msgid "Description:"
+msgstr "Description:"
+
+#: src/settings/EmoticonFormCard.qml:71
+#, kde-format
+msgctxt "As in 'This sticker/emoji has no description'"
+msgid "No Description"
+msgstr "Nulle description"
+
+#: src/settings/EmoticonFormCard.qml:112
+#, kde-format
+msgid "Add Emoji"
+msgstr "Adde Emoji"
+
+#: src/settings/EmoticonFormCard.qml:112
+#, kde-format
+msgid "Add Sticker"
+msgstr "Adde Sticker (Etiquetta Gummate)"
+
+#: src/settings/EmoticonsPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Stickers & Emojis"
+msgstr "Etiquettas Gummate (Stickers) & Emoji"
+
+#: src/settings/GlobalNotificationsPage.qml:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Notifications"
+msgstr "Notificationes"
+
+#: src/settings/GlobalNotificationsPage.qml:28
+#, kde-format
+msgid "Enable notifications for this account"
+msgstr "Habilita notificatione per iste conto"
+
+#: src/settings/GlobalNotificationsPage.qml:29
+#, kde-format
+msgid "Whether push notifications are generated by your Matrix server"
+msgstr "Si pulsar notificationes es generate per tu servitor de Matrix"
+
+#: src/settings/GlobalNotificationsPage.qml:39
+#, kde-format
+msgid "Room Notifications"
+msgstr "Notificationes de sala"
+
+#: src/settings/GlobalNotificationsPage.qml:56
+#, kde-format
+msgid "@Mentions"
+msgstr "@Mentiones"
+
+#: src/settings/GlobalNotificationsPage.qml:73
+#: src/settings/PushNotification.qml:65
+#, kde-format
+msgid "Keywords"
+msgstr "Parolas clave"
+
+#: src/settings/GlobalNotificationsPage.qml:97
+#: src/settings/PushNotification.qml:100
+#, kde-format
+msgid "Keyword…"
+msgstr "Parola clave…"
+
+#: src/settings/GlobalNotificationsPage.qml:116
+#: src/settings/PushNotification.qml:119
+#, kde-format
+msgid "Add keyword"
+msgstr "Adde parola clave"
+
+#: src/settings/GlobalNotificationsPage.qml:137
+#, kde-format
+msgid "Invites"
+msgstr "Invitationes"
+
+#: src/settings/GlobalNotificationsPage.qml:154
+#, kde-format
+msgid "Unknown"
+msgstr "Incognite"
+
+#: src/settings/IgnoredUsersDialog.qml:18
+#, kde-format
+msgctxt "@title"
+msgid "Ignored Users"
+msgstr "Ignora usatores"
+
+#: src/settings/IgnoredUsersDialog.qml:24
+#: src/settings/NeoChatSecurityPage.qml:37
+#, kde-format
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Usatores ignorate"
+
+#: src/settings/IgnoredUsersDialog.qml:29
+#, kde-format
+msgctxt "Placeholder message when no user is ignored"
+msgid "You are not ignoring any users"
+msgstr "Tu non es ignorante ulle usatores"
+
+#: src/settings/IgnoredUsersDialog.qml:51
+#, kde-format
+msgctxt "@action:button"
+msgid "Unignore this user"
+msgstr "Cessa a ignorar iste usator"
+
+#: src/settings/NeoChatGeneralPage.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "General"
+msgstr "General"
+
+#: src/settings/NeoChatGeneralPage.qml:18
+#, kde-format
+msgid "General settings"
+msgstr "Preferentias General"
+
+#: src/settings/NeoChatGeneralPage.qml:24
+#, kde-format
+msgid "Show in System Tray"
+msgstr "Monstra in tabuliero de systema"
+
+#: src/settings/NeoChatGeneralPage.qml:41
+#, kde-format
+msgid "Minimize to system tray on startup"
+msgstr "Minimisa a tabuliero de systema quando il starta"
+
+#: src/settings/NeoChatGeneralPage.qml:58
+#, kde-format
+msgid "Automatically hide/unhide the room information when resizing the window"
+msgstr ""
+"Automaticamente Cela/Monstra information de sala quando redimensiona le "
+"fenestra"
+
+#: src/settings/NeoChatGeneralPage.qml:69
+#, kde-format
+msgid "Room list sort order"
+msgstr "Ordine de ordinar de lista de sala"
+
+#: src/settings/NeoChatGeneralPage.qml:73
+#, kde-format
+msgctxt "As in 'sort something based on last activity'"
+msgid "Activity"
+msgstr "Activitate"
+
+#: src/settings/NeoChatGeneralPage.qml:82
+#, kde-format
+msgctxt "As in 'sort something alphabetically'"
+msgid "Alphabetical"
+msgstr "Alphabetic"
+
+#: src/settings/NeoChatGeneralPage.qml:92
+#, kde-format
+msgid "Timeline Events"
+msgstr "Eventos de chronologia"
+
+#: src/settings/NeoChatGeneralPage.qml:97
+#, kde-format
+msgid "Show deleted messages"
+msgstr "Monstra  messages delite"
+
+#: src/settings/NeoChatGeneralPage.qml:113
+#, kde-format
+msgid "Show state events"
+msgstr "Monstra eventos de stato"
+
+#: src/settings/NeoChatGeneralPage.qml:131
+#, kde-format
+msgid "Show leave and join events"
+msgstr "Monstra eventos de lassar e unir"
+
+#: src/settings/NeoChatGeneralPage.qml:149
+#, kde-format
+msgid "Show name change events"
+msgstr "Monstra eventos de cambio de nomine"
+
+#: src/settings/NeoChatGeneralPage.qml:167
+#, kde-format
+msgid "Show avatar update events"
+msgstr "Monstra eventos de actualisar de avatar"
+
+#: src/settings/NeoChatGeneralPage.qml:177
+#, kde-format
+msgctxt "Chat Editor"
+msgid "Editor"
+msgstr "Editor"
+
+#: src/settings/NeoChatGeneralPage.qml:182
+#, kde-format
+msgid "Use s/text/replacement syntax to edit your last message"
+msgstr "Usa syntaxe de s/texto/reimplaciamento per modificar tu ultime message"
+
+#: src/settings/NeoChatGeneralPage.qml:196
+#, kde-format
+msgid "Send typing notifications"
+msgstr "Invia notificationes de typar"
+
+#: src/settings/NeoChatGeneralPage.qml:206
+#, kde-format
+msgid "Developer Settings"
+msgstr " de disviluppatorPreferentias"
+
+#: src/settings/NeoChatGeneralPage.qml:210
+#, kde-format
+msgid "Enable developer tools"
+msgstr "Habilita instrumentos de disveloppator"
+
+#: src/settings/NeoChatSecurityPage.qml:17
+#, kde-format
+msgctxt "@title"
+msgid "Security"
+msgstr "Securitate"
+
+#: src/settings/NeoChatSecurityPage.qml:20
+#, kde-format
+msgctxt "@title"
+msgid "Keys"
+msgstr "Claves"
+
+#: src/settings/NeoChatSecurityPage.qml:25
+#, kde-format
+msgid "Device key"
+msgstr "Clave de Dispositivo"
+
+#: src/settings/NeoChatSecurityPage.qml:29
+#, kde-format
+msgid "Encryption key"
+msgstr "Clave de Encryption"
+
+#: src/settings/NeoChatSecurityPage.qml:33
+#, kde-format
+msgid "Device id"
+msgstr "Id de Dispositivo"
+
+#: src/settings/NeoChatSecurityPage.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Manage ignored users"
+msgstr "Gere usatores ignorate"
+
+#: src/settings/NeoChatSecurityPage.qml:43
+#, kde-format
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "Usatores ignorate"
+
+#: src/settings/NeoChatSettings.qml:20 src/settings/RoomGeneralPage.qml:22
+#: src/settings/RoomSettings.qml:21
+#, kde-format
+msgid "General"
+msgstr "General"
+
+#: src/settings/NeoChatSettings.qml:26
+#, kde-format
+msgid "Appearance"
+msgstr "Apparentia"
+
+#: src/settings/NeoChatSettings.qml:32 src/settings/RoomSettings.qml:55
+#, kde-format
+msgid "Notifications"
+msgstr "Notificationes"
+
+#: src/settings/NeoChatSettings.qml:43 src/settings/RoomSecurityPage.qml:20
+#: src/settings/RoomSettings.qml:33
+#, kde-format
+msgid "Security"
+msgstr "Securitate"
+
+#: src/settings/NeoChatSettings.qml:60
+#, kde-format
+msgid "Stickers & Emojis"
+msgstr "Etiquettas Gummate (Stickers) & Emoji"
+
+#: src/settings/NeoChatSettings.qml:71
+#, kde-format
+msgid "Spell Checking"
+msgstr "Controlo Orthographic"
+
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
+#, kde-format
+msgid "Network Proxy"
+msgstr "Proxy de rete"
+
+#: src/settings/NeoChatSettings.qml:95
+#, kde-format
+msgid "About NeoChat"
+msgstr "A proposito de NeoChat"
+
+#: src/settings/NeoChatSettings.qml:101
+#, kde-format
+msgid "About KDE"
+msgstr "A proposito de KDE"
+
+#: src/settings/NetworkProxyPage.qml:15
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy"
+msgstr "Proxy"
+
+#: src/settings/NetworkProxyPage.qml:25
+#, kde-format
+msgid "System Default"
+msgstr "Predefinite de systema"
+
+#: src/settings/NetworkProxyPage.qml:33
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: src/settings/NetworkProxyPage.qml:41
+#, kde-format
+msgid "Socks5"
+msgstr "Socks5"
+
+#: src/settings/NetworkProxyPage.qml:51
+#, kde-format
+msgid "Proxy Settings"
+msgstr "Preferentias de proxy"
+
+#: src/settings/NetworkProxyPage.qml:56
+#, kde-format
+msgid "Host"
+msgstr "Hospite"
+
+#: src/settings/NetworkProxyPage.qml:65
+#, kde-format
+msgid "Port"
+msgstr "Porto"
+
+#: src/settings/NetworkProxyPage.qml:78
+#, kde-format
+msgid "User"
+msgstr "Usator"
+
+#: src/settings/NetworkProxyPage.qml:105
+#, kde-format
+msgid "Apply"
+msgstr "Applica"
+
+#: src/settings/NotificationRuleItem.qml:70
+#, kde-format
+msgid "Disable notifications"
+msgstr "Dishabilita notificationes"
+
+#: src/settings/NotificationRuleItem.qml:70
+#, kde-format
+msgid "Enable notifications"
+msgstr "Habilita notificationes"
+
+#: src/settings/NotificationRuleItem.qml:92
+#, kde-format
+msgid "Mute notifications"
+msgstr "Silentia notificationes"
+
+#: src/settings/NotificationRuleItem.qml:92
+#, kde-format
+msgid "Unmute notifications"
+msgstr "De silentia notificationes"
+
+#: src/settings/NotificationRuleItem.qml:113
+#, kde-format
+msgctxt ""
+"As in clicking this button will switch off highlights for messages that "
+"match this rule"
+msgid "Disable message highlights"
+msgstr "Dishabilita evidentias de message"
+
+#: src/settings/NotificationRuleItem.qml:113
+#, kde-format
+msgctxt ""
+"As in clicking this button will switch on highlights for messages that match "
+"this rule"
+msgid "Enable message highlights"
+msgstr "Habilita evidentias de message"
+
+#: src/settings/NotificationRuleItem.qml:135
+#, kde-format
+msgid "Delete keyword"
+msgstr "Dele parola clave"
+
+#: src/settings/Permissions.qml:33
+#, kde-format
+msgid "Privileged Users"
+msgstr "Usatores privilegiate"
+
+#: src/settings/Permissions.qml:242
+#, kde-format
+msgid "Default permissions"
+msgstr "Permissiones predefinite"
+
+#: src/settings/Permissions.qml:247
+#, kde-format
+msgid "Default user power level"
+msgstr "Nivellko de fortia de usator predefinite"
+
+#: src/settings/Permissions.qml:248
+#, kde-format
+msgid "This is power level for all new users when joining the room"
+msgstr "Iste es le nivello de fortia per omnes usatores quando uni al sala"
+
+#: src/settings/Permissions.qml:258
+#, kde-format
+msgid "Default power level to set the room state"
+msgstr "Nivello de potentia predefinite a fixar le stato de sala"
+
+#: src/settings/Permissions.qml:259
+#, kde-format
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Isto es usate per omne eventos de stato que non ha su proprie entrata hic"
+
+#: src/settings/Permissions.qml:269
+#, kde-format
+msgid "Default power level to send messages"
+msgstr "Nivello de fortia predefinite per inviar message"
+
+#: src/settings/Permissions.qml:270
+#, kde-format
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Isto es usate per omne eventos de message que non ha su proprie entrata hic"
+
+#: src/settings/Permissions.qml:283
+#, kde-format
+msgid "Basic permissions"
+msgstr "Permissiones basic"
+
+#: src/settings/Permissions.qml:288
+#, kde-format
+msgid "Invite users"
+msgstr "Invita Usatores"
+
+#: src/settings/Permissions.qml:298
+#, kde-format
+msgid "Kick users"
+msgstr "Calca usatores"
+
+#: src/settings/Permissions.qml:308
+#, kde-format
+msgid "Ban users"
+msgstr "Prohibi usatores"
+
+#: src/settings/Permissions.qml:318
+#, kde-format
+msgid "Remove message sent by other users"
+msgstr "Remove messages inviate per altere usatores"
+
+#: src/settings/Permissions.qml:331
+#, kde-format
+msgid "Event permissions"
+msgstr "Permissiones de evento"
+
+#: src/settings/Permissions.qml:336
+#, kde-format
+msgid "Change user permissions"
+msgstr "Cambia permissiones de usator"
+
+#: src/settings/Permissions.qml:347
+#, kde-format
+msgid "Change the room name"
+msgstr "Cambiale nomine de sala"
+
+#: src/settings/Permissions.qml:358
+#, kde-format
+msgid "Change the room avatar"
+msgstr "Cambia le avatar de sala"
+
+#: src/settings/Permissions.qml:369
+#, kde-format
+msgid "Change the room canonical alias"
+msgstr "Cambia le alias canonic de sala"
+
+#: src/settings/Permissions.qml:380
+#, kde-format
+msgid "Change the room topic"
+msgstr "Cambia le argumento de sala"
+
+#: src/settings/Permissions.qml:391
+#, kde-format
+msgid "Enable encryption for the room"
+msgstr "Habilita cryptation per le sala"
+
+#: src/settings/Permissions.qml:402
+#, kde-format
+msgid "Change the room history visibility"
+msgstr "Cambia la visibilitate de chronolgia de sala"
+
+#: src/settings/Permissions.qml:413
+#, kde-format
+msgid "Set pinned events"
+msgstr "Fixa eventos appunctate"
+
+#: src/settings/Permissions.qml:424
+#, kde-format
+msgid "Upgrade the room"
+msgstr "Actualisa le sala"
+
+#: src/settings/Permissions.qml:435
+#, kde-format
+msgid "Set the room server access control list (ACL)"
+msgstr "Fixa le listas de controlo de accesso de servitor (ACL)  per iste sala"
+
+#: src/settings/Permissions.qml:447
+#, kde-format
+msgid "Set the children of this space"
+msgstr "Assigna le filios de iste spatio"
+
+#: src/settings/Permissions.qml:458
+#, kde-format
+msgid "Set the parent space of this room"
+msgstr "Fixa lespatio genitor de iste sala"
+
+#: src/settings/PushNotification.qml:26
+#, kde-format
+msgid "Room notifications setting"
+msgstr "Monstra preferentias de  notificationes"
+
+#: src/settings/PushNotification.qml:31
+#, kde-format
+msgid "Follow global setting"
+msgstr "Seque Preferentias Global"
+
+#: src/settings/RoomGeneralPage.qml:25
+#, kde-format
+msgid "Room Information"
+msgstr "Information de sala"
+
+#: src/settings/RoomGeneralPage.qml:47
+#, kde-format
+msgid "Update avatar"
+msgstr "Actualisa avatar"
+
+#: src/settings/RoomGeneralPage.qml:70
+#, kde-format
+msgid "Room name:"
+msgstr "Nomine de Sala:"
+
+#: src/settings/RoomGeneralPage.qml:80
+#, kde-format
+msgid "Room topic:"
+msgstr "Topico de Sala:"
+
+#: src/settings/RoomGeneralPage.qml:119
+#, kde-format
+msgid "Room ID"
+msgstr "ID de Sala"
+
+#: src/settings/RoomGeneralPage.qml:124
+#, kde-format
+msgid "Copy room ID to clipboard"
+msgstr "Copia ID de sala a area de transferentia"
+
+#: src/settings/RoomGeneralPage.qml:138
+#, kde-format
+msgid "Room version"
+msgstr "Version de sala"
+
+#: src/settings/RoomGeneralPage.qml:144
+#, kde-format
+msgid "Upgrade Room"
+msgstr "Actualisa sala"
+
+#: src/settings/RoomGeneralPage.qml:163
+#, kde-format
+msgid "Aliases"
+msgstr "Aliases"
+
+#: src/settings/RoomGeneralPage.qml:168
+#, kde-format
+msgid "No canonical alias set"
+msgstr "Necun Alias canonic fixate"
+
+#: src/settings/RoomGeneralPage.qml:181
+#, kde-format
+msgid "Make this alias the room's canonical alias"
+msgstr "Face iste alias le alias canonic de sala"
+
+#: src/settings/RoomGeneralPage.qml:196
+#, kde-format
+msgid "Delete alias"
+msgstr "Dele alias"
+
+#: src/settings/RoomGeneralPage.qml:220
+#, kde-format
+msgid "#new_alias:server.org"
+msgstr "#new_alias:server.org"
+
+#: src/settings/RoomGeneralPage.qml:237
+#, kde-format
+msgid "Add new alias"
+msgstr "Adde nove alias"
+
+#: src/settings/RoomGeneralPage.qml:257
+#, kde-format
+msgid "URL Previews"
+msgstr "Vistas preliminar de URL"
+
+#: src/settings/RoomGeneralPage.qml:261
+#, kde-format
+msgid "Enable URL previews by default for room members"
+msgstr "Habilita vistas preliminar de URL predefinite per membros de sala"
+
+#: src/settings/RoomGeneralPage.qml:269
+#, kde-format
+msgid "Enable URL previews"
+msgstr "Habilita vista preliminar de URL"
+
+#: src/settings/RoomGeneralPage.qml:271
+#, kde-format
+msgid "URL previews are enabled by default in this room"
+msgstr "Viste preliminar de URL es habilitate per definition in iste sala"
+
+#: src/settings/RoomGeneralPage.qml:271
+#, kde-format
+msgid "URL previews are disabled by default in this room"
+msgstr "Viste preliminar de URL es dishabilitate per definition in iste sala"
+
+#: src/settings/RoomGeneralPage.qml:279
+#, kde-format
+msgid "Official Parent Spaces"
+msgstr "Spatio Official de Genitor"
+
+#: src/settings/RoomGeneralPage.qml:312
+#, kde-format
+msgid "Canonical"
+msgstr "Canonic"
+
+#: src/settings/RoomGeneralPage.qml:319
+#, kde-format
+msgid "Make canonical parent"
+msgstr "Face genitor canonic"
+
+#: src/settings/RoomGeneralPage.qml:331
+#, kde-format
+msgid "Remove parent"
+msgstr "Remove  genitor"
+
+#: src/settings/RoomGeneralPage.qml:344
+#, kde-format
+msgid "This room has no official parent spaces."
+msgstr "Iste sala ha nulle spatios official de parente."
+
+#: src/settings/RoomGeneralPage.qml:348
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new official parent"
+msgstr "Adde nove genitor official"
+
+#: src/settings/RoomGeneralPage.qml:363
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "Iste sala continua un altere conversation."
+
+#: src/settings/RoomGeneralPage.qml:367
+#, kde-format
+msgid "See older messages…"
+msgstr "Vide messages plus vetere..."
+
+#: src/settings/RoomGeneralPage.qml:377
+#, kde-format
+msgid "This room has been replaced."
+msgstr "Iste sala ha essite reimplaciate."
+
+#: src/settings/RoomGeneralPage.qml:381
+#, kde-format
+msgid "See new room…"
+msgstr "Vide nove sala..."
+
+#: src/settings/RoomGeneralPage.qml:404
+#, kde-format
+msgid "Upgrade the Room"
+msgstr "Actualisa le sala"
+
+#: src/settings/RoomGeneralPage.qml:408
+#, kde-format
+msgid "Select new version"
+msgstr "Selige nove version"
+
+#: src/settings/RoomSecurityPage.qml:18
+#, kde-format
+msgid ""
+"You need to upgrade this room to a newer version to enable this setting."
+msgstr ""
+"Tu necessita actualisar iste sala a un version plus nove pro habilitar iste "
+"preferentia."
+
+#: src/settings/RoomSecurityPage.qml:23
+#, kde-format
+msgctxt "@option:check"
+msgid "Encryption"
+msgstr "Encryption"
+
+#: src/settings/RoomSecurityPage.qml:28
+#, kde-format
+msgid "Enable encryption"
+msgstr "Habilita cryptation"
+
+#: src/settings/RoomSecurityPage.qml:29
+#, kde-format
+msgctxt "option:check"
+msgid "Once enabled, encryption cannot be disabled."
+msgstr "Un vice habilitate, le cryptation non pote esser  dishabilitate."
+
+#: src/settings/RoomSecurityPage.qml:42
+#, kde-format
+msgctxt "@option:check"
+msgid "Access"
+msgstr "Accesso"
+
+#: src/settings/RoomSecurityPage.qml:46
+#, kde-format
+msgctxt "@option:check"
+msgid "Private (invite only)"
+msgstr "Private (solmente invita)"
+
+#: src/settings/RoomSecurityPage.qml:47
+#, kde-format
+msgid "Only invited people can join."
+msgstr "Solmente personas invitate pote unir se"
+
+#: src/settings/RoomSecurityPage.qml:55
+#, kde-format
+msgctxt "@option:check"
+msgid "Space members"
+msgstr "Membros de spatio"
+
+#: src/settings/RoomSecurityPage.qml:56
+#, kde-format
+msgid "Anyone in the selected spaces can find and join."
+msgstr "Alcun in un spatio seligite  pote trovar e unir."
+
+#: src/settings/RoomSecurityPage.qml:65
+#, kde-format
+msgid "Select spaces"
+msgstr "Selige  spatios"
+
+#: src/settings/RoomSecurityPage.qml:83
+#, kde-format
+msgctxt "@option:check"
+msgid "Knock"
+msgstr "Colpa (knock)"
+
+#: src/settings/RoomSecurityPage.qml:84
+#, kde-format
+msgid "People not in the room need to request an invite to join the room."
+msgstr ""
+"Personas non in le sala necessita requirer un invitation pro uner al sala."
+
+#: src/settings/RoomSecurityPage.qml:93
+#, kde-format
+msgctxt "@option:check"
+msgid "Public"
+msgstr "Public"
+
+#: src/settings/RoomSecurityPage.qml:94
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone can find and join."
+msgstr "Alcun pote trvar e unir."
+
+#: src/settings/RoomSecurityPage.qml:104
+#, kde-format
+msgctxt "@option:check"
+msgid "Message history visibility"
+msgstr "Visibilitate de chronologia de message"
+
+#: src/settings/RoomSecurityPage.qml:108
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone"
+msgstr "Quicunque"
+
+#: src/settings/RoomSecurityPage.qml:109
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone, regardless of whether they have joined, can view history."
+msgstr ""
+"Quicunque, indifferentemente si illo se ha unite , pote vider le chronologia."
+
+#: src/settings/RoomSecurityPage.qml:117
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only"
+msgstr "Solmente Membros"
+
+#: src/settings/RoomSecurityPage.qml:118
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"All members can view the entire message history, even before they joined."
+msgstr ""
+"Omne membros pote vider lechronologia de message complete, anque ante que "
+"lor se ha unite."
+
+#: src/settings/RoomSecurityPage.qml:126
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since invite)"
+msgstr "Solmente per membros (usque invitation)"
+
+#: src/settings/RoomSecurityPage.qml:127
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they were invited to "
+"the room."
+msgstr ""
+"Nove membros pote vider le chronologia de messages ab le puncto de lor "
+"invitation al sala."
+
+#: src/settings/RoomSecurityPage.qml:135
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since joining)"
+msgstr "Solmente per membros (usque unir se)"
+
+#: src/settings/RoomSecurityPage.qml:136
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they joined the room."
+msgstr ""
+"Nove membros pote vider le chronologia de messages ab le puncto de lor union "
+"al sala."
+
+#: src/settings/RoomSettings.qml:44
+#, kde-format
+msgid "Permissions"
+msgstr "Permissiones"
+
+#: src/settings/SonnetConfigPage.qml:17
+#, kde-format
+msgctxt "@title"
+msgid "Spellchecking"
+msgstr "Facer Controlo Orthographic"
+
+#: src/settings/SonnetConfigPage.qml:27
+#, kde-format
+msgid "Enable automatic spell checking"
+msgstr "Habilita corrector orthographic automatic"
+
+#: src/settings/SonnetConfigPage.qml:42
+#, kde-format
+msgid "Ignore uppercase words"
+msgstr "Ignora parolas majuscule"
+
+#: src/settings/SonnetConfigPage.qml:57
+#, kde-format
+msgid "Ignore hyphenated words"
+msgstr "Ignora parolas con tracto de union"
+
+#: src/settings/SonnetConfigPage.qml:72
+#, kde-format
+msgid "Detect language automatically"
+msgstr "Releva linguage automaticamente"
+
+#: src/settings/SonnetConfigPage.qml:86
+#, kde-format
+msgid "Selected default language:"
+msgstr "Linguage predefinite seligite:"
+
+#: src/settings/SonnetConfigPage.qml:89
+#, kde-format
+msgid "None"
+msgstr "Necun"
+
+#: src/settings/SonnetConfigPage.qml:113
+#, kde-format
+msgid "Additional spell checking languages"
+msgstr "Linguages additional de controlo orthographic"
+
+#: src/settings/SonnetConfigPage.qml:114
+#, kde-format
+msgid ""
+"%1 will provide spell checking and suggestions for the languages listed here "
+"when autodetection is enabled."
+msgstr ""
+"%1 fornira controlo orthographic e consilios per le linguages listate hic "
+"quando autodiscoperta es habilitate."
+
+#: src/settings/SonnetConfigPage.qml:129
+#, kde-format
+msgid "Open Personal Dictionary"
+msgstr "Aperi Dictionario Personal"
+
+#: src/settings/SonnetConfigPage.qml:140
+#, kde-format
+msgctxt "@title:window"
+msgid "Spell checking languages"
+msgstr "Linguages de controlo orthographic"
+
+#: src/settings/SonnetConfigPage.qml:146 src/settings/SonnetConfigPage.qml:164
+#, kde-format
+msgid "Default Language"
+msgstr "Linguage predefinite"
+
+#: src/settings/SonnetConfigPage.qml:177
+#, kde-format
+msgid "Spell checking dictionary"
+msgstr "Dictionario de controlo orthographic"
+
+#: src/settings/SonnetConfigPage.qml:184
+#, kde-format
+msgid "Add a new word to your personal dictionary…"
+msgstr "adde un nove parola a tu dictionario personal..."
+
+#: src/settings/SonnetConfigPage.qml:187
+#, kde-format
+msgctxt "@action:button"
+msgid "Add word"
+msgstr "Adde parola"
+
+#: src/settings/SonnetConfigPage.qml:222
+#, kde-format
+msgctxt "@action:button"
+msgid "Delete word"
+msgstr "Dele parola"
 
 #: src/timeline/CodeComponent.qml:141
 #, kde-format
