@@ -188,7 +188,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/UserInfo.qml
         qml/UserInfoDesktop.qml
         qml/RoomPage.qml
-        qml/RoomWindow.qml
         qml/ExploreRoomsPage.qml
         qml/ManualRoomDialog.qml
         qml/ExplorerDelegate.qml

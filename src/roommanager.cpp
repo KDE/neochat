@@ -250,12 +250,6 @@ void RoomManager::openRoomForActiveConnection()
     }
 }
 
-void RoomManager::openWindow(NeoChatRoom *room)
-{
-    // forward the call to QML
-    Q_EMIT openRoomInNewWindow(room);
-}
-
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 {
     if (action == "mention"_ls || action.isEmpty()) {
