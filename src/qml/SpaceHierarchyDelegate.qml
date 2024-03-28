@@ -97,7 +97,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
 
-                    text: root.memberCount + (root.topic !== "" ? i18nc("number of room members", " members - ") + root.topic : i18nc("number of room members", " members"))
+                    text: root.topic.length > 0 ? i18ncp("number of room members", "%1 member - ", "%1 members - ", root.memberCount) + root.topic : i18ncp("number of room members", "%1 member", "%1 members", root.memberCount)
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
                     textFormat: Text.PlainText
