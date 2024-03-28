@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 00:37+0000\n"
+"POT-Creation-Date: 2024-03-28 00:39+0000\n"
 "PO-Revision-Date: 2023-09-04 20:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -26,48 +26,48 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Skicka skrivunderrättelser"
 
-#: src/controller.cpp:204
+#: src/controller.cpp:213
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Nätverksfel: %1"
 
-#: src/controller.cpp:226
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Åtkomstsymbol hittades inte"
 
-#: src/controller.cpp:226
+#: src/controller.cpp:235
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Kanske har den tagits bort?"
 
-#: src/controller.cpp:230
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Åtkomst till nyckelkedja nekades."
 
-#: src/controller.cpp:230
+#: src/controller.cpp:239
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Ge NeoChat tillåtelse att läsa åtkomstsymbolen"
 
-#: src/controller.cpp:233
+#: src/controller.cpp:242
 #, kde-format
 msgid "No keychain available."
 msgstr "Ingen nyckelkedja tillgänglig."
 
-#: src/controller.cpp:233
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installera en nyckelkedja, t.ex. plånboken eller GNOME-nyckelring på Linux"
 
-#: src/controller.cpp:236
+#: src/controller.cpp:245
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Kan inte läsa åtkomstsymbol"
 
-#: src/controller.cpp:332
+#: src/controller.cpp:341
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -1158,12 +1158,12 @@ msgstr "Filen är för stor att ladda ner"
 msgid "Contact your matrix server administrator for support."
 msgstr "Kontakta matrix-serveradministratören för support."
 
-#: src/neochatconnection.cpp:282
+#: src/neochatconnection.cpp:274
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1"
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:306
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
@@ -1655,7 +1655,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:246
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:245
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1849,21 +1849,21 @@ msgid "They don't match"
 msgstr "De stämmer inte"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgid "Explore rooms"
 msgstr "Utforska rum"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:208 src/qml/RoomListPage.qml:257
+#: src/qml/RoomListPage.qml:207 src/qml/RoomListPage.qml:256
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:216
-#: src/qml/RoomListPage.qml:261
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:260
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2423,7 +2423,14 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "Vidarebefordra meddelande"
 
-#: src/qml/MessageDelegateContextMenu.qml:72
+#: src/qml/MessageDelegateContextMenu.qml:71
+#, fuzzy, kde-format
+#| msgid "Switch User"
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Byt användare"
+
+#: src/qml/MessageDelegateContextMenu.qml:79
 #, kde-format
 msgid "Copy Link"
 msgstr "Kopiera länk"
@@ -2759,34 +2766,34 @@ msgstr[1] "%1 medlemmar"
 msgid "No member count"
 msgstr "Ingen medlemsräkning"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:230
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "No friends found"
 msgstr "Inga rum hittades"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "No rooms found"
 msgstr "Inga rum hittades"
 
-#: src/qml/RoomListPage.qml:233
+#: src/qml/RoomListPage.qml:232
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/qml/RoomListPage.qml:233
+#: src/qml/RoomListPage.qml:232
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Gå med i några rum för att komma igång"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgid "Search in room directory"
 msgstr "Sök i rumkatalog"
 
-#: src/qml/RoomListPage.qml:257
+#: src/qml/RoomListPage.qml:256
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgid "Search in friend directory"

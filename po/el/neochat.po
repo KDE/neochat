@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 00:37+0000\n"
+"POT-Creation-Date: 2024-03-28 00:39+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -26,49 +26,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Αποστολή πληκτρολογημένων ειδοποιήσεων"
 
-#: src/controller.cpp:204
+#: src/controller.cpp:213
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Σφάλμα δικτύου: %1"
 
-#: src/controller.cpp:226
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Το ενδεικτικό πρόσβασης δεν βρέθηκε"
 
-#: src/controller.cpp:226
+#: src/controller.cpp:235
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ίσως να έχει διαγραφεί;"
 
-#: src/controller.cpp:230
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Άρνηση πρόσβασης στα κλειδιά."
 
-#: src/controller.cpp:230
+#: src/controller.cpp:239
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Επίτρεψε στο NeoChat να διαβάσει το ενδεικτικό πρόσβασης"
 
-#: src/controller.cpp:233
+#: src/controller.cpp:242
 #, kde-format
 msgid "No keychain available."
 msgstr "Καμία διαθέσιμη αλυσίδα κλειδιών."
 
-#: src/controller.cpp:233
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Εγκατέστησε μια αλυσίδα κλειδιών. π.χ. το KWallet ή το GNOME keyring στο "
 "Linux"
 
-#: src/controller.cpp:236
+#: src/controller.cpp:245
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Αδυναμία ανάγνωσης του ενδεικτικού πρόσβασης"
 
-#: src/controller.cpp:332
+#: src/controller.cpp:341
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -1202,13 +1202,13 @@ msgstr ""
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:282
+#: src/neochatconnection.cpp:274
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:306
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1711,7 +1711,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:246
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:245
 #: src/qml/SelectParentDialog.qml:140
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -1909,21 +1909,21 @@ msgid "They don't match"
 msgstr "Δεν ταιριάζουν"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgid "Explore rooms"
 msgstr "Εξερεύνηση αιθουσών"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:208 src/qml/RoomListPage.qml:257
+#: src/qml/RoomListPage.qml:207 src/qml/RoomListPage.qml:256
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:216
-#: src/qml/RoomListPage.qml:261
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:260
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2498,7 +2498,14 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "Αναφορά μηνύματος"
 
-#: src/qml/MessageDelegateContextMenu.qml:72
+#: src/qml/MessageDelegateContextMenu.qml:71
+#, fuzzy, kde-format
+#| msgid "Switch User"
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Εναλλαγή χρήστη"
+
+#: src/qml/MessageDelegateContextMenu.qml:79
 #, kde-format
 msgid "Copy Link"
 msgstr "Αντιγραφή συνδέσμου"
@@ -2850,34 +2857,34 @@ msgstr[1] "%1 μέλη"
 msgid "No member count"
 msgstr "Δεν καταμετρήθηκαν μέλη"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:230
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "No friends found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "No rooms found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/RoomListPage.qml:233
+#: src/qml/RoomListPage.qml:232
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/qml/RoomListPage.qml:233
+#: src/qml/RoomListPage.qml:232
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Μπορείς να εισέλθεις σε κάποιες αίθουσες για να ξεκινήσεις"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgid "Search in room directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
-#: src/qml/RoomListPage.qml:257
+#: src/qml/RoomListPage.qml:256
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgid "Search in friend directory"

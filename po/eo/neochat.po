@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-27 00:37+0000\n"
+"POT-Creation-Date: 2024-03-28 00:39+0000\n"
 "PO-Revision-Date: 2024-03-24 06:06+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -26,48 +26,48 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Ricevante sciigojn por novaj mesaĝoj"
 
-#: src/controller.cpp:204
+#: src/controller.cpp:213
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Reta Eraro: %1"
 
-#: src/controller.cpp:226
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Alirĵetono ne estis trovita"
 
-#: src/controller.cpp:226
+#: src/controller.cpp:235
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Eble ĝi estis forigita?"
 
-#: src/controller.cpp:230
+#: src/controller.cpp:239
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Aliro al ŝlosilĉeno estis rifuzita."
 
-#: src/controller.cpp:230
+#: src/controller.cpp:239
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Bonvolu permesi al NeoChat legi la alirĵetonon"
 
-#: src/controller.cpp:233
+#: src/controller.cpp:242
 #, kde-format
 msgid "No keychain available."
 msgstr "Neniu ŝlosilĉeno havebla."
 
-#: src/controller.cpp:233
+#: src/controller.cpp:242
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Bonvolu instali ŝlosilĉenon, ekz. KWallet aŭ GNOME-ŝlosilringo en Linukso"
 
-#: src/controller.cpp:236
+#: src/controller.cpp:245
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Ne eblas legi alirĵetonon"
 
-#: src/controller.cpp:332
+#: src/controller.cpp:341
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricevante puŝ-sciigojn"
@@ -1135,12 +1135,12 @@ msgstr "Dosiero tro granda por elŝuti."
 msgid "Contact your matrix server administrator for support."
 msgstr "Kontaktu vian administranton de matrica servilo por subteno."
 
-#: src/neochatconnection.cpp:282
+#: src/neochatconnection.cpp:274
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Kreado de ĉambro malsukcesis: %1"
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:306
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
@@ -1617,7 +1617,7 @@ msgstr "Elekti ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:246
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:245
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1812,21 +1812,21 @@ msgid "They don't match"
 msgstr "Ili ne kongruas"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esplori ĉambrojn"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:208 src/qml/RoomListPage.qml:257
+#: src/qml/RoomListPage.qml:207 src/qml/RoomListPage.qml:256
 #, kde-format
 msgid "Find your friends"
 msgstr "Trovu viajn amikojn"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:216
-#: src/qml/RoomListPage.qml:261
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:215
+#: src/qml/RoomListPage.qml:260
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2371,7 +2371,14 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "Antaŭen Mesaĝon"
 
-#: src/qml/MessageDelegateContextMenu.qml:72
+#: src/qml/MessageDelegateContextMenu.qml:71
+#, fuzzy, kde-format
+#| msgid "Switch User"
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Ŝanĝi Uzanton"
+
+#: src/qml/MessageDelegateContextMenu.qml:79
 #, kde-format
 msgid "Copy Link"
 msgstr "Kopii Ligo"
@@ -2696,34 +2703,34 @@ msgstr[1] "%1 membroj"
 msgid "No member count"
 msgstr "Neniu membrokalkulo"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "No friends found"
 msgstr "Neniuj amikoj trovitaj"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "No rooms found"
 msgstr "Neniuj ĉambroj trovitaj"
 
-#: src/qml/RoomListPage.qml:233
+#: src/qml/RoomListPage.qml:232
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 "Vi ankoraŭ ne aldonis iujn el viaj amikoj, klaku malsupre por serĉi ilin."
 
-#: src/qml/RoomListPage.qml:233
+#: src/qml/RoomListPage.qml:232
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Aliĝi al iuj ĉambroj por komenci"
 
-#: src/qml/RoomListPage.qml:240
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgid "Search in room directory"
 msgstr "Serĉi en ĉambra dosierujo"
 
-#: src/qml/RoomListPage.qml:257
+#: src/qml/RoomListPage.qml:256
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Serĉi en amika dosierujo"
