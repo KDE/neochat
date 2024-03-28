@@ -175,6 +175,9 @@ DelegateChooser {
             onReplyClicked: eventId => {
                 root.replyClicked(eventId);
             }
+            onSelectedTextChanged: selectedText => {
+                root.selectedTextChanged(selectedText);
+            }
         }
     }
 

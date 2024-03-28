@@ -84,6 +84,11 @@ RowLayout {
      */
     signal replyClicked(string eventID)
 
+    /**
+     * @brief The user selected text has changed.
+     */
+    signal selectedTextChanged(string selectedText)
+
     implicitHeight: contentColumn.implicitHeight
     spacing: Kirigami.Units.largeSpacing
 
@@ -135,6 +140,8 @@ RowLayout {
                     delegate: TextComponent {
                         display: root.replyDisplay
                         maxContentWidth: _private.availableContentWidth
+
+                        onSelectedTextChanged: root.selectedTextChanged(selectedText)
 
                         HoverHandler {
                             enabled: !hoveredLink
