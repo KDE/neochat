@@ -32,7 +32,7 @@ Kirigami.Page {
     readonly property RoomTreeModel roomTreeModel: RoomTreeModel {
         connection: root.connection
     }
-    property bool spaceChanging: true
+    property bool spaceChanging: false
 
     readonly property bool collapsed: Config.collapsed
 
@@ -128,12 +128,11 @@ Kirigami.Page {
                 reuseItems: false
 
                 onLayoutChanged: {
+                    treeView.expandRecursively();
                     if (sortFilterRoomTreeModel.filterTextJustChanged) {
-                        treeView.expandRecursively();
                         sortFilterRoomTreeModel.filterTextJustChanged = false;
                     }
                     if (root.spaceChanging) {
-                        treeView.expandRecursively();
                         if (spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) {
                             const item = treeView.itemAtIndex(treeView.index(1, 0))
                             if (!item) {
