@@ -115,6 +115,20 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
             }
 
+            Delegates.RoundedItemDelegate {
+                id: leaveButton
+                icon.name: "arrow-left"
+                text: i18nc("@action:button", "Leave this room")
+
+                Layout.fillWidth: true
+
+                onClicked: {
+                    Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog.qml').createObject(root.QQC2.ApplicationWindow.window, {
+                        room: root.room
+                    }).open();
+                }
+            }
+
             Kirigami.ListSectionHeader {
                 label: i18n("Members")
                 activeFocusOnTab: false
