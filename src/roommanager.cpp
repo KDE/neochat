@@ -375,6 +375,11 @@ void RoomManager::leaveRoom(NeoChatRoom *room)
         m_currentRoom = m_lastCurrentRoom;
         m_lastCurrentRoom = nullptr;
         Q_EMIT currentRoomChanged();
+        if (m_currentRoom->isSpace()) {
+            Q_EMIT replaceSpaceHome(m_currentRoom);
+        } else {
+            Q_EMIT replaceRoom(m_currentRoom, {});
+        }
     }
 
     room->forget();
