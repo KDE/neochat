@@ -44,7 +44,7 @@ public:
         HasLocalUser, /**< Whether the local user is in the list of authors. */
     };
 
-    explicit ReactionModel(const Quotient::RoomMessageEvent *event, const NeoChatRoom *room);
+    explicit ReactionModel(const Quotient::RoomMessageEvent *event, NeoChatRoom *room);
 
     /**
      * @brief Get the given role value at the given index.
@@ -68,7 +68,7 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
 private:
-    const NeoChatRoom *m_room;
+    QPointer<NeoChatRoom> m_room;
     const Quotient::RoomMessageEvent *m_event;
     QList<Reaction> m_reactions;
     QMap<QString, QString> m_shortcodes;

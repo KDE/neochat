@@ -121,7 +121,7 @@ private:
     void setSearching(bool searching);
 
     QString m_searchText;
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room;
     Quotient::Omittable<Quotient::SearchJob::ResultRoomEvents> m_result = Quotient::none;
     Quotient::SearchJob *m_job = nullptr;
     bool m_searching = false;

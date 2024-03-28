@@ -55,11 +55,14 @@ void StateKeysModel::setRoom(NeoChatRoom *room)
 
     m_room = room;
     Q_EMIT roomChanged();
-    loadState();
 
-    connect(room, &NeoChatRoom::changed, this, [this] {
+    if (room) {
         loadState();
-    });
+
+        connect(room, &NeoChatRoom::changed, this, [this] {
+            loadState();
+        });
+    }
 }
 
 QString StateKeysModel::eventType() const

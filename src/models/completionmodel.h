@@ -118,7 +118,7 @@ private:
     QString m_text;
     QString m_fullText;
     CompletionProxyModel *m_filterModel;
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room;
     AutoCompletionType m_autoCompletionType = None;
 
     void updateCompletion();

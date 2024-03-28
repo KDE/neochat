@@ -16,7 +16,7 @@
 
 #include <Quotient/user.h>
 
-ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, const NeoChatRoom *room)
+ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, NeoChatRoom *room)
     : QAbstractListModel(nullptr)
     , m_room(room)
     , m_event(event)

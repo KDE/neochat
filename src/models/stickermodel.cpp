@@ -22,7 +22,9 @@ QVariant StickerModel::data(const QModelIndex &index, int role) const
     const auto &row = index.row();
     const auto &image = m_images[row];
     if (role == UrlRole) {
-        return m_room->connection()->makeMediaUrl(image.url);
+        if (m_room) {
+            return m_room->connection()->makeMediaUrl(image.url);
+        }
     }
     if (role == BodyRole) {
         if (image.body) {
@@ -108,6 +110,10 @@ void StickerModel::setRoom(NeoChatRoom *room)
 
 void StickerModel::postSticker(int index)
 {
+    if (!m_room) {
+        qWarning() << "No room";
+    }
+
     const auto &image = m_images[index];
     const auto &body = image.body ? *image.body : image.shortcode;
     QJsonObject infoJson;

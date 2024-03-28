@@ -101,6 +101,6 @@ private:
     ImagePacksModel *m_model = nullptr;
     int m_index = 0;
     QList<Quotient::ImagePackEventContent::ImagePackImage> m_images;
-    NeoChatRoom *m_room;
+    QPointer<NeoChatRoom> m_room;
     void reloadImages();
 };

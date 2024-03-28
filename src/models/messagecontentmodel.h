@@ -87,7 +87,7 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
 private:
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room;
     const Quotient::RoomEvent *m_event = nullptr;
 
     QList<MessageComponent> m_components;

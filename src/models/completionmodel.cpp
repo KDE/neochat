@@ -91,7 +91,9 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
             if (mediaId.isEmpty()) {
                 return QVariant();
             }
-            return m_room->connection()->makeMediaUrl(QUrl(QStringLiteral("mxc://%1").arg(mediaId)));
+            if (m_room) {
+                return m_room->connection()->makeMediaUrl(QUrl(QStringLiteral("mxc://%1").arg(mediaId)));
+            }
         }
     }
     if (m_autoCompletionType == Emoji) {

@@ -80,6 +80,7 @@ QString ActionsHandler::handleMentions(QString handledText, QList<Mention> *ment
 
 void ActionsHandler::handleMessage(const QString &text, QString handledText, ChatBarCache *chatBarCache)
 {
+    Q_ASSERT(m_room);
     if (NeoChatConfig::allowQuickEdit()) {
         QRegularExpression sed(QStringLiteral("^s/([^/]*)/([^/]*)(/g)?$"));
         auto match = sed.match(text);

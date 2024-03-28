@@ -58,7 +58,7 @@ public Q_SLOTS:
     void handleMessageEvent(ChatBarCache *chatBarCache);
 
 private:
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room;
     void checkEffects(const QString &text);
 
     QString handleMentions(QString handledText, QList<Mention> *mentions);

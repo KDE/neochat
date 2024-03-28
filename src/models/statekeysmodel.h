@@ -76,7 +76,7 @@ Q_SIGNALS:
     void eventTypeChanged();
 
 private:
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room;
     QString m_eventType;
     QVector<const Quotient::StateEvent *> m_stateKeys;
     void loadState();
