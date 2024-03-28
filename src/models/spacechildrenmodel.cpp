@@ -12,8 +12,8 @@
 
 SpaceChildrenModel::SpaceChildrenModel(QObject *parent)
     : QAbstractItemModel(parent)
+    , m_rootItem(new SpaceTreeItem(nullptr))
 {
-    m_rootItem = new SpaceTreeItem(nullptr);
 }
 
 SpaceChildrenModel::~SpaceChildrenModel()
@@ -40,6 +40,12 @@ void SpaceChildrenModel::setSpace(NeoChatRoom *space)
     m_space = space;
     Q_EMIT spaceChanged();
 
+    refreshModel();
+
+    if (!m_space) {
+        return;
+    }
+
     auto connection = m_space->connection();
     connect(connection, &Quotient::Connection::loadedRoomState, this, [this](Quotient::Room *room) {
         if (m_pendingChildren.contains(room->name())) {
@@ -50,8 +56,6 @@ void SpaceChildrenModel::setSpace(NeoChatRoom *space)
     connect(m_space, &Quotient::Room::changed, this, [this]() {
         refreshModel();
     });
-
-    refreshModel();
 }
 
 bool SpaceChildrenModel::loading() const
@@ -69,6 +73,10 @@ void SpaceChildrenModel::refreshModel()
     m_currentJobs.clear();
 
     if (m_space == nullptr) {
+        beginResetModel();
+        delete m_rootItem;
+        m_rootItem = nullptr;
+        endResetModel();
         return;
     }
 

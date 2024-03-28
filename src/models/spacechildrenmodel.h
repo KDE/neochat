@@ -131,7 +131,7 @@ Q_SIGNALS:
     void loadingChanged();
 
 private:
-    NeoChatRoom *m_space = nullptr;
+    QPointer<NeoChatRoom> m_space;
     SpaceTreeItem *m_rootItem;
 
     bool m_loading = false;
