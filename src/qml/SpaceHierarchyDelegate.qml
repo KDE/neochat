@@ -106,7 +106,7 @@ Item {
             }
             QQC2.ToolButton {
                 visible: root.isSpace && root.canAddChildren
-                text: i18nc("@button", "Add new child")
+                text: i18nc("@button", "Add new room")
                 icon.name: "list-add"
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: root.createRoom()

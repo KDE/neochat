@@ -55,7 +55,7 @@ Kirigami.Page {
                     }
                     QQC2.Button {
                         visible: root.currentRoom.canSendState("m.space.child")
-                        text: i18nc("@button", "Add new child")
+                        text: i18nc("@button", "Add new room")
                         icon.name: "list-add"
                         onClicked: _private.createRoom(root.currentRoom.id)
                     }
