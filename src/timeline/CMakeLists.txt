@@ -4,6 +4,7 @@
 qt_add_library(timeline STATIC)
 qt_add_qml_module(timeline
     URI org.kde.neochat.timeline
+    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/timeline
     QML_FILES
         EventDelegate.qml
         TimelineDelegate.qml

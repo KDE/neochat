@@ -4,6 +4,7 @@
 qt_add_library(settings STATIC)
 qt_add_qml_module(settings
     URI org.kde.neochat.settings
+    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/settings
     QML_FILES
         NeoChatSettings.qml
         RoomSettings.qml
