@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 00:39+0000\n"
+"POT-Creation-Date: 2024-03-29 00:37+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1295,7 +1295,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:324
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:334
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1391,7 +1391,7 @@ msgid "Notification settings"
 msgstr "Bildirişlərdə göstərmək"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:454 src/qml/UserInfo.qml:143
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:464 src/qml/UserInfo.qml:143
 #, kde-format
 msgid "Configure"
 msgstr "Tənzimləyin"
@@ -1594,40 +1594,51 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:32
+#: src/qml/ConfirmUrlDialog.qml:17
 #, fuzzy, kde-format
-#| msgid "Open in new window"
-msgid "Open in New Window"
-msgstr "Yeni pəncərədə açın"
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@title"
+msgid "Open Url"
+msgstr "Faylı Açın"
 
-#: src/qml/ContextMenu.qml:43
+#: src/qml/ConfirmUrlDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "Do you want to open the link to %1?"
+msgctxt "Do you want to open <link>"
+msgid "Do you want to open <b>%1</b>?"
+msgstr "%1 üçün keçidi açmaq istəyirsiniz?"
+
+#: src/qml/ContextMenu.qml:31
 #, fuzzy, kde-format
 #| msgid "Remove from Favourites"
 msgid "Remove from Favorites"
 msgstr "Seçilmişlərdən silmək"
 
-#: src/qml/ContextMenu.qml:43
+#: src/qml/ContextMenu.qml:31
 #, fuzzy, kde-format
 #| msgid "Add to Favourites"
 msgid "Add to Favorites"
 msgstr "Seçilmişlərə əlavə etmək"
 
-#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Reprioritize"
 msgstr "Üstünlüyünü dəyişmək"
 
-#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Deprioritize"
 msgstr "Üstünlüyünü ləğv etmək"
 
-#: src/qml/ContextMenu.qml:55 src/qml/ContextMenu.qml:218
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
 #, kde-format
 msgid "Mark as Read"
 msgstr "Oxunmuş kimi işarələmək"
 
-#: src/qml/ContextMenu.qml:61
+#: src/qml/ContextMenu.qml:49
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy address to clipboard"
@@ -1635,7 +1646,7 @@ msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
-#: src/qml/ContextMenu.qml:61 src/qml/SpaceListContextMenu.qml:37
+#: src/qml/ContextMenu.qml:49 src/qml/SpaceListContextMenu.qml:37
 #: src/qml/SpaceListContextMenu.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
@@ -1644,24 +1655,24 @@ msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
-#: src/qml/ContextMenu.qml:73
+#: src/qml/ContextMenu.qml:61
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Notification State"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/qml/ContextMenu.qml:77
+#: src/qml/ContextMenu.qml:65
 #, kde-format
 msgid "Follow Global Setting"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:88 src/settings/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:76 src/settings/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:99 src/settings/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:87 src/settings/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1669,31 +1680,31 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:110 src/settings/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:98 src/settings/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:123 src/qml/ContextMenu.qml:129
-#: src/qml/ContextMenu.qml:203 src/qml/RoomDrawer.qml:110
+#: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
+#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:78
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Room Settings"
 msgstr "Otaq ayarları"
 
-#: src/qml/ContextMenu.qml:136 src/qml/ContextMenu.qml:225
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
 #, kde-format
 msgid "Leave Room"
 msgstr "Otağı tərk etmək"
 
-#: src/qml/ContextMenu.qml:192
+#: src/qml/ContextMenu.qml:180
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Seçilmişlərdən silmək"
 
-#: src/qml/ContextMenu.qml:192
+#: src/qml/ContextMenu.qml:180
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Seçilmişlərə əlavə etmək"
@@ -2018,7 +2029,18 @@ msgstr "Otaq yaratmaq"
 msgid "Create a Space"
 msgstr "Otaq yaratmaq"
 
-#: src/qml/ExploreComponent.qml:93 src/qml/ExploreComponent.qml:154
+#: src/qml/ExploreComponent.qml:72
+#, kde-format
+msgid "Scan a QR Code"
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create rooms and chats"
@@ -2333,6 +2355,20 @@ msgstr "Dəvət göndərmək"
 msgid "User is either already a member or has been invited"
 msgstr ""
 
+#: src/qml/JoinRoomDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Configure room"
+msgctxt "@title"
+msgid "Join Room"
+msgstr "Otağı tənzimləmək"
+
+#: src/qml/JoinRoomDialog.qml:67
+#, fuzzy, kde-format
+#| msgid "Configure room"
+msgctxt "@action:button"
+msgid "Join room"
+msgstr "Otağı tənzimləmək"
+
 #: src/qml/KeyVerificationDialog.qml:18
 #, fuzzy, kde-format
 #| msgid "Show notifications"
@@ -2462,19 +2498,19 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Qeydiyyat"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:368
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/qml/main.qml:375
+#: src/qml/main.qml:385
 #, kde-format
 msgid "User consent"
 msgstr "İstifadəçi razılığı"
 
-#: src/qml/main.qml:380
+#: src/qml/main.qml:390
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2483,28 +2519,28 @@ msgstr ""
 "Əsas server, onu istifadə etmədən öncə onun şərtlərini və razılaşmalarını "
 "qəbul etmənizi tələb edir. Onları oxumaq üçün aşağıdakı düyməni vurun."
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:395
 #, kde-format
 msgid "Open"
 msgstr "Açmaq"
 
-#: src/qml/main.qml:412
+#: src/qml/main.qml:422
 #, kde-format
 msgid "Start a chat"
 msgstr "Söhbətə başlayın"
 
-#: src/qml/main.qml:414
+#: src/qml/main.qml:424
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ilə söhbətə başlamaq istəyirsiniz?"
 
-#: src/qml/main.qml:440
+#: src/qml/main.qml:450
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:472 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:482 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2990,7 +3026,7 @@ msgstr "Otaq haqqında"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat qoşulmayıb. Lütfən, şəbəkə bağlantısını yoxlayın."
 
-#: src/qml/RoomPage.qml:249
+#: src/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr "İsmarıc mənbəyi"
@@ -3441,7 +3477,7 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:32
+#: src/qml/UserDetailDialog.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -3449,75 +3485,75 @@ msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "İstifadəçi hesabı təfərrüatları"
 
-#: src/qml/UserDetailDialog.qml:107
+#: src/qml/UserDetailDialog.qml:111
 #, kde-format
 msgid "Unignore this user"
 msgstr "Bi istifadəçini gözardı etməyi ləğv edin"
 
-#: src/qml/UserDetailDialog.qml:107
+#: src/qml/UserDetailDialog.qml:111
 #, kde-format
 msgid "Ignore this user"
 msgstr "Bu istifadəçini gözardı etmək"
 
-#: src/qml/UserDetailDialog.qml:120
+#: src/qml/UserDetailDialog.qml:124
 #, kde-format
 msgid "Kick this user"
 msgstr "Bu istifadəçini vurmaq"
 
-#: src/qml/UserDetailDialog.qml:134
+#: src/qml/UserDetailDialog.qml:138
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgid "Invite this user"
 msgstr "Bu istifadəçini gözardı etmək"
 
-#: src/qml/UserDetailDialog.qml:147
+#: src/qml/UserDetailDialog.qml:151
 #, kde-format
 msgid "Ban this user"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/qml/UserDetailDialog.qml:155
+#: src/qml/UserDetailDialog.qml:159
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/qml/UserDetailDialog.qml:167
+#: src/qml/UserDetailDialog.qml:171
 #, kde-format
 msgid "Unban this user"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/qml/UserDetailDialog.qml:180
+#: src/qml/UserDetailDialog.qml:184
 #, kde-format
 msgid "Set user power level"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:205
+#: src/qml/UserDetailDialog.qml:209
 #, fuzzy, kde-format
 #| msgid "Delete recent messages by this user"
 msgid "Remove recent messages by this user"
 msgstr "Bu istifadəçinin az əvvəlki məktublarını silin"
 
-#: src/qml/UserDetailDialog.qml:213
+#: src/qml/UserDetailDialog.qml:217
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/qml/UserDetailDialog.qml:224
+#: src/qml/UserDetailDialog.qml:228
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:224
+#: src/qml/UserDetailDialog.qml:228
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgid "Invite to private chat"
 msgstr "Məxfi çatı açmaq"
 
-#: src/qml/UserDetailDialog.qml:235
+#: src/qml/UserDetailDialog.qml:239
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy link"
@@ -3851,48 +3887,22 @@ msgstr "Matrix İD qüsurludur və ya boşdur"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1, düzgün Matrix identifikatoru deyil"
 
-#: src/roommanager.cpp:102
-#, kde-format
-msgid "Room not found"
-msgstr "Otaq tapılmadı"
-
-#: src/roommanager.cpp:102
-#, kde-format
-msgid ""
-"There's no room %1 in the room list. Check the spelling and the account."
-msgstr "Otaq siyahısında %1 otağı yoxdur. Orfoqrafiya və hesabı yoxlayın."
-
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:329
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to join room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/roommanager.cpp:348
+#: src/roommanager.cpp:344
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:351
+#: src/roommanager.cpp:347
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to request joining room"
 msgstr "%1,sizi otağa dəvət etdi"
-
-#: src/roommanager.cpp:360
-#, kde-format
-msgid "No application for the link"
-msgstr "Keçid üçün tətbiq yoxdur"
-
-#: src/roommanager.cpp:360
-#, kde-format
-msgid "Your operating system could not find an application for the link."
-msgstr "Əməliyyat sisteminiz keçid üçün tətbiq tapa bilmədi."
-
-#: src/roommanager.cpp:366
-#, kde-format
-msgid "Could not open URL"
-msgstr "URL açıla bilmir"
 
 #: src/settings/About.qml:11
 #, fuzzy, kde-format
@@ -5252,7 +5262,7 @@ msgstr "Sözü silin"
 msgid "Copy to clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:193
+#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -5336,6 +5346,12 @@ msgstr "Yüklənir..."
 msgid "Loading URL preview"
 msgstr ""
 
+#: src/timeline/MessageComponentChooser.qml:220
+#, fuzzy, kde-format
+#| msgid "withdrew %1's invitation"
+msgid "%1 started a user verification"
+msgstr "%1 dəvəti geri çəkildi"
+
 #: src/timeline/MessageEditComponent.qml:102
 #, fuzzy, kde-format
 #| msgid "Confirm"
@@ -5407,6 +5423,27 @@ msgstr "Göstərmək"
 #, kde-format
 msgid "Quit"
 msgstr "Çıxış"
+
+#, fuzzy
+#~| msgid "Open in new window"
+#~ msgid "Open in New Window"
+#~ msgstr "Yeni pəncərədə açın"
+
+#~ msgid "Room not found"
+#~ msgstr "Otaq tapılmadı"
+
+#~ msgid ""
+#~ "There's no room %1 in the room list. Check the spelling and the account."
+#~ msgstr "Otaq siyahısında %1 otağı yoxdur. Orfoqrafiya və hesabı yoxlayın."
+
+#~ msgid "No application for the link"
+#~ msgstr "Keçid üçün tətbiq yoxdur"
+
+#~ msgid "Your operating system could not find an application for the link."
+#~ msgstr "Əməliyyat sisteminiz keçid üçün tətbiq tapa bilmədi."
+
+#~ msgid "Could not open URL"
+#~ msgstr "URL açıla bilmir"
 
 #, fuzzy
 #~| msgid "Show name change events"
@@ -5780,9 +5817,6 @@ msgstr "Çıxış"
 
 #~ msgid "Confirm opening a link"
 #~ msgstr "Keçidin açəlmasını təsdiq edin"
-
-#~ msgid "Do you want to open the link to %1?"
-#~ msgstr "%1 üçün keçidi açmaq istəyirsiniz?"
 
 #~ msgid "Don't ask again"
 #~ msgstr "Yenidən soruşulmasın"

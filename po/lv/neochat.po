@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 00:39+0000\n"
-"PO-Revision-Date: 2024-03-23 20:33+0200\n"
+"POT-Creation-Date: 2024-03-29 00:37+0000\n"
+"PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
 "Language: lv\n"
@@ -311,7 +311,7 @@ msgstr "nomainīja šīs istabas svarīguma līmeni"
 #: src/eventhandler.cpp:441 src/eventhandler.cpp:610
 #, kde-format
 msgid "changed the server access control lists for this room"
-msgstr "nomainīja istabas servera piekļuves kontroles saraksu"
+msgstr "nomainīja istabas servera piekļuves kontroles sarakstu"
 
 #: src/eventhandler.cpp:445
 #, kde-format
@@ -1168,7 +1168,7 @@ msgstr "Plat.: %1, gar.: %2"
 msgid "Encrypted Message"
 msgstr "Šifrēta ziņa"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:324
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:334
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1256,7 +1256,7 @@ msgid "Notification settings"
 msgstr "Paziņojumu iestatījumi"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:454 src/qml/UserInfo.qml:143
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:464 src/qml/UserInfo.qml:143
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurēt"
@@ -1282,13 +1282,13 @@ msgstr "Rīki izstrādātājiem"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "Atvērt slepeno rezervi"
 
 #: src/qml/AccountMenu.qml:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "Atvērt atslēgas rezervi"
 
 #: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:72
 #, kde-format
@@ -1450,66 +1450,77 @@ msgstr "Izrakstīties"
 msgid "Are you sure you want to sign out?"
 msgstr "Vai tiešām vēlaties izrakstīties?"
 
-#: src/qml/ContextMenu.qml:32
-#, kde-format
-msgid "Open in New Window"
-msgstr "Atvērt jaunā logā"
+#: src/qml/ConfirmUrlDialog.qml:17
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@title"
+msgid "Open Url"
+msgstr "Atvērt datni"
 
-#: src/qml/ContextMenu.qml:43
+#: src/qml/ConfirmUrlDialog.qml:21
+#, kde-format
+msgctxt "Do you want to open <link>"
+msgid "Do you want to open <b>%1</b>?"
+msgstr ""
+
+#: src/qml/ContextMenu.qml:31
 #, kde-format
 msgid "Remove from Favorites"
 msgstr "Noņemt no iecienītajām"
 
-#: src/qml/ContextMenu.qml:43
+#: src/qml/ContextMenu.qml:31
 #, kde-format
 msgid "Add to Favorites"
 msgstr "Pievienot iecienītajām"
 
-#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Reprioritize"
 msgstr "Palielināt prioritāti"
 
-#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Deprioritize"
 msgstr "Samazināt prioritāti"
 
-#: src/qml/ContextMenu.qml:55 src/qml/ContextMenu.qml:218
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
 #, kde-format
 msgid "Mark as Read"
 msgstr "Atzīmēt kā lasītu"
 
-#: src/qml/ContextMenu.qml:61
+#: src/qml/ContextMenu.qml:49
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Kopēt starpliktuvē lietotāja „Matrix“ ID"
 
-#: src/qml/ContextMenu.qml:61 src/qml/SpaceListContextMenu.qml:37
+#: src/qml/ContextMenu.qml:49 src/qml/SpaceListContextMenu.qml:37
 #: src/qml/SpaceListContextMenu.qml:122
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "Kopēt adresi starpliktuvē"
 
-#: src/qml/ContextMenu.qml:73
+#: src/qml/ContextMenu.qml:61
 #, kde-format
 msgid "Notification State"
 msgstr "Paziņojumu statuss"
 
-#: src/qml/ContextMenu.qml:77
+#: src/qml/ContextMenu.qml:65
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "Ievērot globālos iestatījumus"
 
-#: src/qml/ContextMenu.qml:88 src/settings/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:76 src/settings/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Visi"
 
-#: src/qml/ContextMenu.qml:99 src/settings/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:87 src/settings/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1517,30 +1528,30 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Pieminējumi un atslēgvārdi"
 
-#: src/qml/ContextMenu.qml:110 src/settings/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:98 src/settings/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Izslēgti"
 
-#: src/qml/ContextMenu.qml:123 src/qml/ContextMenu.qml:129
-#: src/qml/ContextMenu.qml:203 src/qml/RoomDrawer.qml:110
+#: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
+#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:78
 #, kde-format
 msgid "Room Settings"
 msgstr "Istabas iestatījumi"
 
-#: src/qml/ContextMenu.qml:136 src/qml/ContextMenu.qml:225
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
 #, kde-format
 msgid "Leave Room"
 msgstr "Pamest istabu"
 
-#: src/qml/ContextMenu.qml:192
+#: src/qml/ContextMenu.qml:180
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Izņemt no iecienītajām"
 
-#: src/qml/ContextMenu.qml:192
+#: src/qml/ContextMenu.qml:180
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Pievienot iecienītajām"
@@ -1852,7 +1863,18 @@ msgstr "Izveidot istabu"
 msgid "Create a Space"
 msgstr "Izveidot telpu"
 
-#: src/qml/ExploreComponent.qml:93 src/qml/ExploreComponent.qml:154
+#: src/qml/ExploreComponent.qml:72
+#, kde-format
+msgid "Scan a QR Code"
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Izveidot telpas un tērzētavas"
@@ -1894,7 +1916,7 @@ msgstr "Pavedieni"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Slepenā dublējumkopija"
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2156,6 +2178,22 @@ msgstr "Nosūtīt uzaicinājumu"
 msgid "User is either already a member or has been invited"
 msgstr "Lietotājs ir jau dalībnieks vai ir uzaicināts"
 
+#: src/qml/JoinRoomDialog.qml:29
+#, fuzzy, kde-format
+#| msgctxt "Joining room <roomname>."
+#| msgid "Joining room %1."
+msgctxt "@title"
+msgid "Join Room"
+msgstr "Pievienojas istabai „%1“."
+
+#: src/qml/JoinRoomDialog.qml:67
+#, fuzzy, kde-format
+#| msgctxt "Joining room <roomname>."
+#| msgid "Joining room %1."
+msgctxt "@action:button"
+msgid "Join room"
+msgstr "Pievienojas istabai „%1“."
+
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2274,18 +2312,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Reģistrēties"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sesijas verifikācija"
 
-#: src/qml/main.qml:375
+#: src/qml/main.qml:385
 #, kde-format
 msgid "User consent"
 msgstr "Lietotāja piekrišana"
 
-#: src/qml/main.qml:380
+#: src/qml/main.qml:390
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2294,28 +2332,28 @@ msgstr ""
 "Jūsu mājas serveris pieprasa piekrist tā noteikumiem pirms tā izmantošanas. "
 "Spiediet uz pogas, lai tos izlasītu."
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:395
 #, kde-format
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/qml/main.qml:412
+#: src/qml/main.qml:422
 #, kde-format
 msgid "Start a chat"
 msgstr "Uzsākt tērzēšanu"
 
-#: src/qml/main.qml:414
+#: src/qml/main.qml:424
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vai vēlaties uzsākt tērzēšanu ar „%1“?"
 
-#: src/qml/main.qml:440
+#: src/qml/main.qml:450
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Pašreiz atlasītā saite"
 
-#: src/qml/main.qml:472 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:482 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2756,7 +2794,7 @@ msgstr "Istabas multivide"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "„NeoChat“ darbojas nesaistē. Pārbaudīt tīkla savienojumu."
 
-#: src/qml/RoomPage.qml:249
+#: src/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr "Ziņas avots"
@@ -2865,7 +2903,7 @@ msgstr "Pievienot serveri"
 #: src/qml/ServerComboBox.qml:116
 #, kde-format
 msgid "Valid server entered"
-msgstr "Ievadīts derīgs severis"
+msgstr "Ievadīts derīgs serveris"
 
 #: src/qml/ServerComboBox.qml:116
 #, kde-format
@@ -2885,7 +2923,7 @@ msgstr "Ievadiet servera URL adresi, piemēram, „kde.org“"
 #: src/qml/ServerComboBox.qml:124
 #, kde-format
 msgid "Server URL"
-msgstr "Servara URL"
+msgstr "Servera URL"
 
 #: src/qml/ServerData.qml:20
 #, kde-format
@@ -3098,48 +3136,46 @@ msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Sūtīt šifrētu ziņu..."
+msgstr "Ielādēt šifrētās ziņas"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "Drošības frāze ir nepareiza."
 
 #: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "Atbloķēt, izmantojot paroli"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
+msgstr "Ja jums ir rezerves parole šim kontam, ievadiet to te."
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Parole:"
+msgstr "Rezerves parole:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "Atbloķēt"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "Atbloķēt izmantojot drošības atslēgtu"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -3148,25 +3184,26 @@ msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 msgstr ""
+"Ja šim kontam jums ir drošības atslēgta, ievadiet to te vai augšupielādējiet "
+"kā datni."
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "Drošība"
+msgstr "Drošības atslēga:"
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "Augšupielāde no datnes"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "Atbloķēt ar krusta parakstīšanu"
 
 #: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
@@ -3175,83 +3212,85 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"Ja iepriekš verificējāt šo ierīci, varat mēģināt ielādēt rezerves atslēgu no "
+"otras ierīces, spiežot uz pogas zemāk."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "Pieprasījums no citas ierīces"
 
-#: src/qml/UserDetailDialog.qml:32
+#: src/qml/UserDetailDialog.qml:36
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Konta informācija"
 
-#: src/qml/UserDetailDialog.qml:107
+#: src/qml/UserDetailDialog.qml:111
 #, kde-format
 msgid "Unignore this user"
 msgstr "Beigt ignorēt šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:107
+#: src/qml/UserDetailDialog.qml:111
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ignorēt šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:120
+#: src/qml/UserDetailDialog.qml:124
 #, kde-format
 msgid "Kick this user"
 msgstr "Izmest šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:134
+#: src/qml/UserDetailDialog.qml:138
 #, kde-format
 msgid "Invite this user"
 msgstr "Uzaicināt šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:147
+#: src/qml/UserDetailDialog.qml:151
 #, kde-format
 msgid "Ban this user"
 msgstr "Aizliegt šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:155
+#: src/qml/UserDetailDialog.qml:159
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Aizliegt lietotāju"
 
-#: src/qml/UserDetailDialog.qml:167
+#: src/qml/UserDetailDialog.qml:171
 #, kde-format
 msgid "Unban this user"
 msgstr "Beigt aizliegt lietotāju"
 
-#: src/qml/UserDetailDialog.qml:180
+#: src/qml/UserDetailDialog.qml:184
 #, kde-format
 msgid "Set user power level"
 msgstr "Iestatīt svarīguma līmeni"
 
-#: src/qml/UserDetailDialog.qml:205
+#: src/qml/UserDetailDialog.qml:209
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Noņemt šī lietotāja nesenās ziņas"
 
-#: src/qml/UserDetailDialog.qml:213
+#: src/qml/UserDetailDialog.qml:217
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Noņemt ziņas"
 
-#: src/qml/UserDetailDialog.qml:224
+#: src/qml/UserDetailDialog.qml:228
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Tērzēt ar %1"
 
-#: src/qml/UserDetailDialog.qml:224
+#: src/qml/UserDetailDialog.qml:228
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Uzaicināt uz privātu tērzēšanu"
 
-#: src/qml/UserDetailDialog.qml:235
+#: src/qml/UserDetailDialog.qml:239
 #, kde-format
 msgid "Copy link"
 msgstr "Kopēt saiti"
@@ -3582,47 +3621,20 @@ msgstr "Nepareizi formatēts vai tukšs „Matrix“ ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "„%1“ nav pareizs „Matrix“ identifikators"
 
-#: src/roommanager.cpp:102
-#, kde-format
-msgid "Room not found"
-msgstr "Istaba nav atrasta"
-
-#: src/roommanager.cpp:102
-#, kde-format
-msgid ""
-"There's no room %1 in the room list. Check the spelling and the account."
-msgstr ""
-"Istabu sarakstā nav tādas istabas „%1“. Pārbaudiet pareizrakstību un kontu."
-
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:329
 #, kde-format
 msgid "Failed to join room"
 msgstr "Neizdevās pievienoties istabai"
 
-#: src/roommanager.cpp:348
+#: src/roommanager.cpp:344
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Jūsu lūdzāt pievienoties „%1“"
 
-#: src/roommanager.cpp:351
+#: src/roommanager.cpp:347
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Neizdevās lūgt pievienoties istabai"
-
-#: src/roommanager.cpp:360
-#, kde-format
-msgid "No application for the link"
-msgstr "Saitei nav piesaistītas programmas"
-
-#: src/roommanager.cpp:360
-#, kde-format
-msgid "Your operating system could not find an application for the link."
-msgstr "Jūsu operētājsistēma nevarēja atrast programmu šai saitei."
-
-#: src/roommanager.cpp:366
-#, kde-format
-msgid "Could not open URL"
-msgstr "Nevarēja atvērt URL"
 
 #: src/settings/About.qml:11
 #, kde-format
@@ -4864,7 +4876,7 @@ msgstr "Dzēst vārdu"
 msgid "Copy to clipboard"
 msgstr "Kopēt starpliktuvē"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:193
+#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -4903,23 +4915,23 @@ msgstr "Apturēt lejupielādi"
 #, kde-format
 msgctxt "flight departure, %1 is airport, %2 is time"
 msgid "Departure from %1"
-msgstr ""
+msgstr "Izlidoja no %1"
 
 #: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
 msgctxt "flight arrival, %1 is airport, %2 is time"
 msgid "Arrival at %1"
-msgstr ""
+msgstr "Ielidoja %1"
 
 #: src/timeline/HotelReservationComponent.qml:65
 #, kde-format
 msgid "Check-in time: %1"
-msgstr ""
+msgstr "Reģistrācijas laiks: %1"
 
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
-msgstr ""
+msgstr "Izrakstīšanās laiks: %1"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -4946,6 +4958,12 @@ msgstr "Ielādē atbildi"
 #, kde-format
 msgid "Loading URL preview"
 msgstr "Ielādē URL priekšskatījumu"
+
+#: src/timeline/MessageComponentChooser.qml:220
+#, fuzzy, kde-format
+#| msgid "withdrew a user's invitation"
+msgid "%1 started a user verification"
+msgstr "atsauca lietotāja uzaicināšanu"
 
 #: src/timeline/MessageEditComponent.qml:102
 #, kde-format
@@ -4990,7 +5008,7 @@ msgstr "Šis ir tērzēšanas sākums. Agrāk par šo vietu vēsturē ziņu nav.
 #: src/timeline/TrainReservationComponent.qml:191
 #, kde-format
 msgid "Pl. %1"
-msgstr ""
+msgstr "Pl. %1"
 
 #: src/timeline/VideoComponent.qml:171
 #, kde-format
@@ -5017,6 +5035,27 @@ msgstr "Rādīt"
 #, kde-format
 msgid "Quit"
 msgstr "Iziet"
+
+#~ msgid "Open in New Window"
+#~ msgstr "Atvērt jaunā logā"
+
+#~ msgid "Room not found"
+#~ msgstr "Istaba nav atrasta"
+
+#~ msgid ""
+#~ "There's no room %1 in the room list. Check the spelling and the account."
+#~ msgstr ""
+#~ "Istabu sarakstā nav tādas istabas „%1“. Pārbaudiet pareizrakstību un "
+#~ "kontu."
+
+#~ msgid "No application for the link"
+#~ msgstr "Saitei nav piesaistītas programmas"
+
+#~ msgid "Your operating system could not find an application for the link."
+#~ msgstr "Jūsu operētājsistēma nevarēja atrast programmu šai saitei."
+
+#~ msgid "Could not open URL"
+#~ msgstr "Nevarēja atvērt URL"
 
 #~ msgid "Coach: %1, Seat: %2"
 #~ msgstr "Autobuss: %1, sēdvieta: %2"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 00:39+0000\n"
+"POT-Creation-Date: 2024-03-29 00:37+0000\n"
 "PO-Revision-Date: 2023-11-23 10:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1164,7 +1164,7 @@ msgstr "Šíř.: %1, Dél.: %2"
 msgid "Encrypted Message"
 msgstr "Zašifrovaná zpráva"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:324
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:334
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1252,7 +1252,7 @@ msgid "Notification settings"
 msgstr "Nastavení oznamování"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:454 src/qml/UserInfo.qml:143
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:464 src/qml/UserInfo.qml:143
 #, kde-format
 msgid "Configure"
 msgstr "Nastavit"
@@ -1442,66 +1442,77 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:32
-#, kde-format
-msgid "Open in New Window"
-msgstr "Otevřít v novém okně"
+#: src/qml/ConfirmUrlDialog.qml:17
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@title"
+msgid "Open Url"
+msgstr "Otevřít soubor"
 
-#: src/qml/ContextMenu.qml:43
+#: src/qml/ConfirmUrlDialog.qml:21
+#, kde-format
+msgctxt "Do you want to open <link>"
+msgid "Do you want to open <b>%1</b>?"
+msgstr ""
+
+#: src/qml/ContextMenu.qml:31
 #, kde-format
 msgid "Remove from Favorites"
 msgstr "Odstranit z oblíbených"
 
-#: src/qml/ContextMenu.qml:43
+#: src/qml/ContextMenu.qml:31
 #, kde-format
 msgid "Add to Favorites"
 msgstr "Přidat do oblíbených"
 
-#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Reprioritize"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Deprioritize"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:55 src/qml/ContextMenu.qml:218
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
 #, kde-format
 msgid "Mark as Read"
 msgstr "Označit jako přečtený"
 
-#: src/qml/ContextMenu.qml:61
+#: src/qml/ContextMenu.qml:49
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Kopírovat Matrix ID uživatele do schránky"
 
-#: src/qml/ContextMenu.qml:61 src/qml/SpaceListContextMenu.qml:37
+#: src/qml/ContextMenu.qml:49 src/qml/SpaceListContextMenu.qml:37
 #: src/qml/SpaceListContextMenu.qml:122
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "Kopírovat adresu do schránky"
 
-#: src/qml/ContextMenu.qml:73
+#: src/qml/ContextMenu.qml:61
 #, kde-format
 msgid "Notification State"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:77
+#: src/qml/ContextMenu.qml:65
 #, kde-format
 msgid "Follow Global Setting"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:88 src/settings/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:76 src/settings/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Vše"
 
-#: src/qml/ContextMenu.qml:99 src/settings/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:87 src/settings/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1509,30 +1520,30 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:110 src/settings/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:98 src/settings/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Vypnuto"
 
-#: src/qml/ContextMenu.qml:123 src/qml/ContextMenu.qml:129
-#: src/qml/ContextMenu.qml:203 src/qml/RoomDrawer.qml:110
+#: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
+#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:78
 #, kde-format
 msgid "Room Settings"
 msgstr ""
 
-#: src/qml/ContextMenu.qml:136 src/qml/ContextMenu.qml:225
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
 #, kde-format
 msgid "Leave Room"
 msgstr "Opustit místnost"
 
-#: src/qml/ContextMenu.qml:192
+#: src/qml/ContextMenu.qml:180
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Odstranit z oblíbených"
 
-#: src/qml/ContextMenu.qml:192
+#: src/qml/ContextMenu.qml:180
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Přidat k oblíbeným"
@@ -1836,7 +1847,18 @@ msgstr ""
 msgid "Create a Space"
 msgstr "Vytvořit místnost"
 
-#: src/qml/ExploreComponent.qml:93 src/qml/ExploreComponent.qml:154
+#: src/qml/ExploreComponent.qml:72
+#, kde-format
+msgid "Scan a QR Code"
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Vytvářejte místnosti a rozhovory"
@@ -2138,6 +2160,21 @@ msgstr ""
 msgid "User is either already a member or has been invited"
 msgstr ""
 
+#: src/qml/JoinRoomDialog.qml:29
+#, fuzzy, kde-format
+#| msgid "Room"
+msgctxt "@title"
+msgid "Join Room"
+msgstr "Pokoj"
+
+#: src/qml/JoinRoomDialog.qml:67
+#, fuzzy, kde-format
+#| msgctxt "Knocking room <roomname>."
+#| msgid "Knocking room %1."
+msgctxt "@action:button"
+msgid "Join room"
+msgstr "Klepete na místnost %1."
+
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2256,46 +2293,46 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registrovat"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/qml/main.qml:375
+#: src/qml/main.qml:385
 #, kde-format
 msgid "User consent"
 msgstr ""
 
-#: src/qml/main.qml:380
+#: src/qml/main.qml:390
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:395
 #, kde-format
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/qml/main.qml:412
+#: src/qml/main.qml:422
 #, kde-format
 msgid "Start a chat"
 msgstr "Zahájit rozhovor"
 
-#: src/qml/main.qml:414
+#: src/qml/main.qml:424
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Přejete si začít rozhovor s %1?"
 
-#: src/qml/main.qml:440
+#: src/qml/main.qml:450
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:472 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:482 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2735,7 +2772,7 @@ msgstr ""
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je offline. Prosím, zkontrolujte internetové připojení."
 
-#: src/qml/RoomPage.qml:249
+#: src/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr ""
@@ -3159,76 +3196,76 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:32
+#: src/qml/UserDetailDialog.qml:36
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Podrobnosti o účtu"
 
-#: src/qml/UserDetailDialog.qml:107
+#: src/qml/UserDetailDialog.qml:111
 #, kde-format
 msgid "Unignore this user"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:107
+#: src/qml/UserDetailDialog.qml:111
 #, kde-format
 msgid "Ignore this user"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:120
+#: src/qml/UserDetailDialog.qml:124
 #, kde-format
 msgid "Kick this user"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:134
+#: src/qml/UserDetailDialog.qml:138
 #, kde-format
 msgid "Invite this user"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:147
+#: src/qml/UserDetailDialog.qml:151
 #, kde-format
 msgid "Ban this user"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:155
+#: src/qml/UserDetailDialog.qml:159
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:167
+#: src/qml/UserDetailDialog.qml:171
 #, kde-format
 msgid "Unban this user"
 msgstr "Od blokovat tohoto uživatele"
 
-#: src/qml/UserDetailDialog.qml:180
+#: src/qml/UserDetailDialog.qml:184
 #, kde-format
 msgid "Set user power level"
 msgstr "Nastavit úroveň pravomocí uživatele"
 
-#: src/qml/UserDetailDialog.qml:205
+#: src/qml/UserDetailDialog.qml:209
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:213
+#: src/qml/UserDetailDialog.qml:217
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:224
+#: src/qml/UserDetailDialog.qml:228
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:224
+#: src/qml/UserDetailDialog.qml:228
 #, kde-format
 msgid "Invite to private chat"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:235
+#: src/qml/UserDetailDialog.qml:239
 #, kde-format
 msgid "Copy link"
 msgstr "Kopírovat odkaz"
@@ -3544,46 +3581,20 @@ msgstr "Poškozené nebo prázdné id pro Matrix"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 není platný identifikátor pro Matrix"
 
-#: src/roommanager.cpp:102
-#, kde-format
-msgid "Room not found"
-msgstr "Místnost nenalezena"
-
-#: src/roommanager.cpp:102
-#, kde-format
-msgid ""
-"There's no room %1 in the room list. Check the spelling and the account."
-msgstr ""
-
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:329
 #, kde-format
 msgid "Failed to join room"
 msgstr ""
 
-#: src/roommanager.cpp:348
+#: src/roommanager.cpp:344
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vyžádali jste vstup do '%1'."
 
-#: src/roommanager.cpp:351
+#: src/roommanager.cpp:347
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Vyžádání požadavku o vstup do místnosti selhalo"
-
-#: src/roommanager.cpp:360
-#, kde-format
-msgid "No application for the link"
-msgstr "Pro odkaz není žádná aplikace"
-
-#: src/roommanager.cpp:360
-#, kde-format
-msgid "Your operating system could not find an application for the link."
-msgstr ""
-
-#: src/roommanager.cpp:366
-#, kde-format
-msgid "Could not open URL"
-msgstr "Nelze otevřít adresu URL"
 
 #: src/settings/About.qml:11
 #, kde-format
@@ -4816,7 +4827,7 @@ msgstr "Odstranit slovo"
 msgid "Copy to clipboard"
 msgstr "Zkopírovat do schránky"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:193
+#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -4899,6 +4910,11 @@ msgstr ""
 msgid "Loading URL preview"
 msgstr "Načítá se náhled URL"
 
+#: src/timeline/MessageComponentChooser.qml:220
+#, kde-format
+msgid "%1 started a user verification"
+msgstr ""
+
 #: src/timeline/MessageEditComponent.qml:102
 #, kde-format
 msgctxt "@action:button"
@@ -4969,3 +4985,15 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgid "Open in New Window"
+#~ msgstr "Otevřít v novém okně"
+
+#~ msgid "Room not found"
+#~ msgstr "Místnost nenalezena"
+
+#~ msgid "No application for the link"
+#~ msgstr "Pro odkaz není žádná aplikace"
+
+#~ msgid "Could not open URL"
+#~ msgstr "Nelze otevřít adresu URL"

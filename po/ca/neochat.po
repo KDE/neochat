@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 00:39+0000\n"
-"PO-Revision-Date: 2024-03-24 09:34+0100\n"
+"POT-Creation-Date: 2024-03-29 00:37+0000\n"
+"PO-Revision-Date: 2024-03-28 08:51+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -1165,7 +1165,7 @@ msgstr "Lat.: %1, lon.: %2"
 msgid "Encrypted Message"
 msgstr "Missatge encriptat"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:324
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:334
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1253,7 +1253,7 @@ msgid "Notification settings"
 msgstr "Configuració de les notificacions"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:454 src/qml/UserInfo.qml:143
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:464 src/qml/UserInfo.qml:143
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
@@ -1447,66 +1447,77 @@ msgstr "Tanca la sessió"
 msgid "Are you sure you want to sign out?"
 msgstr "Segur que voleu tancar la sessió?"
 
-#: src/qml/ContextMenu.qml:32
-#, kde-format
-msgid "Open in New Window"
-msgstr "Obre en una finestra nova"
+#: src/qml/ConfirmUrlDialog.qml:17
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@title"
+msgid "Open Url"
+msgstr "Obre el fitxer"
 
-#: src/qml/ContextMenu.qml:43
+#: src/qml/ConfirmUrlDialog.qml:21
+#, kde-format
+msgctxt "Do you want to open <link>"
+msgid "Do you want to open <b>%1</b>?"
+msgstr ""
+
+#: src/qml/ContextMenu.qml:31
 #, kde-format
 msgid "Remove from Favorites"
 msgstr "Elimina de les preferides"
 
-#: src/qml/ContextMenu.qml:43
+#: src/qml/ContextMenu.qml:31
 #, kde-format
 msgid "Add to Favorites"
 msgstr "Afegeix a les preferides"
 
-#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Reprioritize"
 msgstr "Torna a prioritzar"
 
-#: src/qml/ContextMenu.qml:49 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
 #, kde-format
 msgid "Deprioritize"
 msgstr "Desprioritza"
 
-#: src/qml/ContextMenu.qml:55 src/qml/ContextMenu.qml:218
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marca com a llegit"
 
-#: src/qml/ContextMenu.qml:61
+#: src/qml/ContextMenu.qml:49
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Copia l'ID de Matrix de l'usuari al porta-retalls"
 
-#: src/qml/ContextMenu.qml:61 src/qml/SpaceListContextMenu.qml:37
+#: src/qml/ContextMenu.qml:49 src/qml/SpaceListContextMenu.qml:37
 #: src/qml/SpaceListContextMenu.qml:122
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "Copia l'adreça al porta-retalls"
 
-#: src/qml/ContextMenu.qml:73
+#: src/qml/ContextMenu.qml:61
 #, kde-format
 msgid "Notification State"
 msgstr "Estat de les notificacions"
 
-#: src/qml/ContextMenu.qml:77
+#: src/qml/ContextMenu.qml:65
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "Segueix l'opció global"
 
-#: src/qml/ContextMenu.qml:88 src/settings/PushNotification.qml:39
+#: src/qml/ContextMenu.qml:76 src/settings/PushNotification.qml:39
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Totes"
 
-#: src/qml/ContextMenu.qml:99 src/settings/PushNotification.qml:47
+#: src/qml/ContextMenu.qml:87 src/settings/PushNotification.qml:47
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1514,30 +1525,30 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@mencions i paraules clau"
 
-#: src/qml/ContextMenu.qml:110 src/settings/PushNotification.qml:55
+#: src/qml/ContextMenu.qml:98 src/settings/PushNotification.qml:55
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Desactivades"
 
-#: src/qml/ContextMenu.qml:123 src/qml/ContextMenu.qml:129
-#: src/qml/ContextMenu.qml:203 src/qml/RoomDrawer.qml:110
+#: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
+#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:78
 #, kde-format
 msgid "Room Settings"
 msgstr "Configuració de la sala"
 
-#: src/qml/ContextMenu.qml:136 src/qml/ContextMenu.qml:225
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
 #, kde-format
 msgid "Leave Room"
 msgstr "Surt de la sala"
 
-#: src/qml/ContextMenu.qml:192
+#: src/qml/ContextMenu.qml:180
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Elimina de les preferides"
 
-#: src/qml/ContextMenu.qml:192
+#: src/qml/ContextMenu.qml:180
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Afegeix a les preferides"
@@ -1849,7 +1860,18 @@ msgstr "Crea una sala"
 msgid "Create a Space"
 msgstr "Crea un espai"
 
-#: src/qml/ExploreComponent.qml:93 src/qml/ExploreComponent.qml:154
+#: src/qml/ExploreComponent.qml:72
+#, kde-format
+msgid "Scan a QR Code"
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr ""
+
+#: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Crea sales i xats"
@@ -2153,6 +2175,22 @@ msgstr "Envia una invitació"
 msgid "User is either already a member or has been invited"
 msgstr "L'usuari ja és membre o ha estat convidat"
 
+#: src/qml/JoinRoomDialog.qml:29
+#, fuzzy, kde-format
+#| msgctxt "Joining room <roomname>."
+#| msgid "Joining room %1."
+msgctxt "@title"
+msgid "Join Room"
+msgstr "S'uneix a la sala %1."
+
+#: src/qml/JoinRoomDialog.qml:67
+#, fuzzy, kde-format
+#| msgctxt "Joining room <roomname>."
+#| msgid "Joining room %1."
+msgctxt "@action:button"
+msgid "Join room"
+msgstr "S'uneix a la sala %1."
+
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
 msgid "Session Verification"
@@ -2271,18 +2309,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registre"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificació de la sessió"
 
-#: src/qml/main.qml:375
+#: src/qml/main.qml:385
 #, kde-format
 msgid "User consent"
 msgstr "Consentiment de l'usuari"
 
-#: src/qml/main.qml:380
+#: src/qml/main.qml:390
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2291,28 +2329,28 @@ msgstr ""
 "El servidor domèstic requereix que accepteu els seus termes i condicions "
 "abans de poder-lo usar. Feu clic al botó de sota per a llegir-los."
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:395
 #, kde-format
 msgid "Open"
 msgstr "Obre"
 
-#: src/qml/main.qml:412
+#: src/qml/main.qml:422
 #, kde-format
 msgid "Start a chat"
 msgstr "Inicia un xat"
 
-#: src/qml/main.qml:414
+#: src/qml/main.qml:424
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Voleu iniciar un xat amb %1?"
 
-#: src/qml/main.qml:440
+#: src/qml/main.qml:450
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "L'enllaç seleccionat actualment"
 
-#: src/qml/main.qml:472 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:482 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2380,11 +2418,10 @@ msgid "Forward Message"
 msgstr "Reenviament de missatge"
 
 #: src/qml/MessageDelegateContextMenu.qml:71
-#, fuzzy, kde-format
-#| msgid "Switch User"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
-msgstr "Commuta d'usuari"
+msgstr "Mostra l'usuari"
 
 #: src/qml/MessageDelegateContextMenu.qml:79
 #, kde-format
@@ -2755,7 +2792,7 @@ msgstr ""
 "El NeoChat està en fora de línia. Comproveu l'estat de la vostra connexió de "
 "xarxa."
 
-#: src/qml/RoomPage.qml:249
+#: src/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr "Codi font del missatge"
@@ -3185,76 +3222,76 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Sol·licita des d'altres dispositius"
 
-#: src/qml/UserDetailDialog.qml:32
+#: src/qml/UserDetailDialog.qml:36
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Detalls del compte"
 
-#: src/qml/UserDetailDialog.qml:107
+#: src/qml/UserDetailDialog.qml:111
 #, kde-format
 msgid "Unignore this user"
 msgstr "No ignoris aquest usuari"
 
-#: src/qml/UserDetailDialog.qml:107
+#: src/qml/UserDetailDialog.qml:111
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ignora aquest usuari"
 
-#: src/qml/UserDetailDialog.qml:120
+#: src/qml/UserDetailDialog.qml:124
 #, kde-format
 msgid "Kick this user"
 msgstr "Expulsa aquest usuari"
 
-#: src/qml/UserDetailDialog.qml:134
+#: src/qml/UserDetailDialog.qml:138
 #, kde-format
 msgid "Invite this user"
 msgstr "Convida aquest usuari"
 
-#: src/qml/UserDetailDialog.qml:147
+#: src/qml/UserDetailDialog.qml:151
 #, kde-format
 msgid "Ban this user"
 msgstr "Bandeja aquest usuari"
 
-#: src/qml/UserDetailDialog.qml:155
+#: src/qml/UserDetailDialog.qml:159
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Bandeja l'usuari"
 
-#: src/qml/UserDetailDialog.qml:167
+#: src/qml/UserDetailDialog.qml:171
 #, kde-format
 msgid "Unban this user"
 msgstr "Desbandeja aquest usuari"
 
-#: src/qml/UserDetailDialog.qml:180
+#: src/qml/UserDetailDialog.qml:184
 #, kde-format
 msgid "Set user power level"
 msgstr "Estableix el nivell de permisos d'usuari"
 
-#: src/qml/UserDetailDialog.qml:205
+#: src/qml/UserDetailDialog.qml:209
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Elimina els missatges recents d'aquest usuari"
 
-#: src/qml/UserDetailDialog.qml:213
+#: src/qml/UserDetailDialog.qml:217
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Eliminació de missatges"
 
-#: src/qml/UserDetailDialog.qml:224
+#: src/qml/UserDetailDialog.qml:228
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Xat amb %1"
 
-#: src/qml/UserDetailDialog.qml:224
+#: src/qml/UserDetailDialog.qml:228
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Convida a un xat privat"
 
-#: src/qml/UserDetailDialog.qml:235
+#: src/qml/UserDetailDialog.qml:239
 #, kde-format
 msgid "Copy link"
 msgstr "Copia l'enllaç"
@@ -3603,48 +3640,20 @@ msgstr "ID de Matrix amb format incorrecte o buida"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 no és cap identificador correcte de Matrix"
 
-#: src/roommanager.cpp:102
-#, kde-format
-msgid "Room not found"
-msgstr "No s'ha trobat la sala"
-
-#: src/roommanager.cpp:102
-#, kde-format
-msgid ""
-"There's no room %1 in the room list. Check the spelling and the account."
-msgstr ""
-"No hi ha cap sala %1 a la llista de sales. Comproveu l'ortografia i el "
-"compte."
-
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:329
 #, kde-format
 msgid "Failed to join room"
 msgstr "Ha fallat en unir-se a la sala"
 
-#: src/roommanager.cpp:348
+#: src/roommanager.cpp:344
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Heu sol·licitat unir-vos a «%1»"
 
-#: src/roommanager.cpp:351
+#: src/roommanager.cpp:347
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Ha fallat en sol·licitar unir-vos a la sala"
-
-#: src/roommanager.cpp:360
-#, kde-format
-msgid "No application for the link"
-msgstr "No hi ha cap aplicació per a l'enllaç"
-
-#: src/roommanager.cpp:360
-#, kde-format
-msgid "Your operating system could not find an application for the link."
-msgstr "El sistema operatiu no ha pogut trobar cap aplicació per a l'enllaç."
-
-#: src/roommanager.cpp:366
-#, kde-format
-msgid "Could not open URL"
-msgstr "No s'ha pogut obrir l'URL"
 
 #: src/settings/About.qml:11
 #, kde-format
@@ -4901,7 +4910,7 @@ msgstr "Suprimeix la paraula"
 msgid "Copy to clipboard"
 msgstr "Copia al porta-retalls"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:193
+#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -4986,6 +4995,12 @@ msgstr "S'està carregant la resposta"
 msgid "Loading URL preview"
 msgstr "S'està carregant la vista prèvia de l'URL"
 
+#: src/timeline/MessageComponentChooser.qml:220
+#, fuzzy, kde-format
+#| msgid "withdrew a user's invitation"
+msgid "%1 started a user verification"
+msgstr "retira una invitació d'usuari"
+
 #: src/timeline/MessageEditComponent.qml:102
 #, kde-format
 msgctxt "@action:button"
@@ -5058,6 +5073,28 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgid "Open in New Window"
+#~ msgstr "Obre en una finestra nova"
+
+#~ msgid "Room not found"
+#~ msgstr "No s'ha trobat la sala"
+
+#~ msgid ""
+#~ "There's no room %1 in the room list. Check the spelling and the account."
+#~ msgstr ""
+#~ "No hi ha cap sala %1 a la llista de sales. Comproveu l'ortografia i el "
+#~ "compte."
+
+#~ msgid "No application for the link"
+#~ msgstr "No hi ha cap aplicació per a l'enllaç"
+
+#~ msgid "Your operating system could not find an application for the link."
+#~ msgstr ""
+#~ "El sistema operatiu no ha pogut trobar cap aplicació per a l'enllaç."
+
+#~ msgid "Could not open URL"
+#~ msgstr "No s'ha pogut obrir l'URL"
 
 #~ msgid "Coach: %1, Seat: %2"
 #~ msgstr "Cotxe: %1, Seient: %2"
