@@ -18,7 +18,6 @@ Kirigami.ApplicationWindow {
     property int columnWidth: Kirigami.Units.gridUnit * 13
 
     property RoomListPage roomListPage
-    property bool roomListLoaded: false
 
     property RoomPage roomPage
     property SpaceHomePage spaceHomePage
@@ -36,7 +35,6 @@ Kirigami.ApplicationWindow {
             showExisting: true
             onConnectionChosen: {
                 pageStack.replace(roomListComponent);
-                roomListLoaded = true;
                 roomListPage = pageStack.currentItem;
                 RoomManager.loadInitialRoom();
             }
@@ -63,7 +61,6 @@ Kirigami.ApplicationWindow {
         target: LoginHelper
         function onLoaded() {
             pageStack.replace(roomListComponent);
-            roomListLoaded = true;
             roomListPage = pageStack.currentItem;
             RoomManager.loadInitialRoom();
         }
@@ -321,7 +318,6 @@ Kirigami.ApplicationWindow {
             if (AccountRegistry.rowCount() === 0) {
                 RoomManager.reset();
                 pageStack.clear();
-                roomListLoaded = false;
                 pageStack.push(Qt.createComponent('org.kde.neochat', '.qml'));
             }
         }
