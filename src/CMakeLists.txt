@@ -287,6 +287,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/QrScannerPage.qml
         qml/JoinRoomDialog.qml
         qml/ConfirmUrlDialog.qml
+        qml/AccountSwitchDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png

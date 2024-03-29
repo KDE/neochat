@@ -264,7 +264,6 @@ Kirigami.Page {
 
     footer: Loader {
         width: parent.width
-        active: !root.collapsed
         sourceComponent: Kirigami.Settings.isMobile ? exploreComponentMobile : userInfoDesktop
     }
 
@@ -314,7 +313,6 @@ Kirigami.Page {
     Component {
         id: userInfo
         UserInfo {
-            visible: !root.collapsed
             bottomEdge: false
             connection: root.connection
         }
@@ -323,8 +321,8 @@ Kirigami.Page {
     Component {
         id: userInfoDesktop
         UserInfoDesktop {
-            visible: !root.collapsed
             connection: root.connection
+            collapsed: root.collapsed
         }
     }
 
