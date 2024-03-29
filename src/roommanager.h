@@ -260,13 +260,6 @@ Q_SIGNALS:
     void goToEvent(const QString &event);
 
     /**
-     * @brief Open room in a new window.
-     *
-     * Signal triggered when a room needs to be opened in a new window.
-     */
-    void openRoomInNewWindow(NeoChatRoom *room);
-
-    /**
      * @brief Show details for the given user.
      *
      * Ask current room to open the user's details for the give user.
