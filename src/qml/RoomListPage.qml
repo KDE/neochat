@@ -32,9 +32,12 @@ Kirigami.Page {
     readonly property RoomTreeModel roomTreeModel: RoomTreeModel {
         connection: root.connection
     }
-    property bool spaceChanging: false
 
     readonly property bool collapsed: Config.collapsed
+
+    onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
+    Component.onCompleted: pageStack.defaultColumnWidth = root.currentWidth
+
 
     onCollapsedChanged: {
         if (collapsed) {
@@ -87,6 +90,13 @@ Kirigami.Page {
 
     padding: 0
 
+    Connections {
+        target: RoomManager
+        function onCurrentSpaceChanged() {
+            treeView.expandRecursively();
+        }
+    }
+
     RowLayout {
         anchors.fill: parent
         spacing: 0
@@ -98,7 +108,6 @@ Kirigami.Page {
 
             connection: root.connection
 
-            onSelectionChanged: root.spaceChanging = true
             onSpacesUpdated: sortFilterRoomTreeModel.invalidate()
         }
 
@@ -127,31 +136,14 @@ Kirigami.Page {
                 clip: true
                 reuseItems: false
 
-                onLayoutChanged: {
-                    treeView.expandRecursively();
-                    if (sortFilterRoomTreeModel.filterTextJustChanged) {
-                        sortFilterRoomTreeModel.filterTextJustChanged = false;
-                    }
-                    if (root.spaceChanging) {
-                        if (spaceDrawer.showDirectChats || spaceDrawer.selectedSpaceId.length < 1) {
-                            const item = treeView.itemAtIndex(treeView.index(1, 0))
-                            if (!item) {
-                                return;
-                            }
-                            RoomManager.resolveResource(item.currentRoom.id);
-                        }
-                        root.spaceChanging = false;
-                    }
-                }
-
                 model: SortFilterRoomTreeModel {
                     id: sortFilterRoomTreeModel
 
-                    property bool filterTextJustChanged: false
-
                     sourceModel: root.roomTreeModel
-                    activeSpaceId: spaceDrawer.selectedSpaceId
-                    mode: spaceDrawer.showDirectChats ? SortFilterRoomTreeModel.DirectChats : SortFilterRoomTreeModel.Rooms
+                    activeSpaceId: RoomManager.currentSpace
+                    mode: RoomManager.currentSpace === "DM" ? SortFilterRoomTreeModel.DirectChats : SortFilterRoomTreeModel.Rooms
+                    onRowsInserted: (index, first, last) => treeView.expandTo(index)
+                    onDataChanged: treeView.expandRecursively()
                 }
 
                 selectionModel: ItemSelectionModel {}
@@ -334,7 +326,7 @@ Kirigami.Page {
 
             onTextChanged: newText => {
                 sortFilterRoomTreeModel.filterText = newText;
-                sortFilterRoomTreeModel.filterTextJustChanged = true;
+                treeView.expandRecursively();
             }
         }
     }

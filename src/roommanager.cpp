@@ -7,11 +7,10 @@
 #include "chatbarcache.h"
 #include "controller.h"
 #include "eventhandler.h"
-#include "messagecomponenttype.h"
 #include "models/timelinemodel.h"
-#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
+#include "spacehierarchycache.h"
 
 #include <KLocalizedString>
 #include <QDesktopServices>
@@ -29,8 +28,6 @@
 
 RoomManager::RoomManager(QObject *parent)
     : QObject(parent)
-    , m_currentRoom(nullptr)
-    , m_lastCurrentRoom(nullptr)
     , m_config(KSharedConfig::openStateConfig())
     , m_timelineModel(new TimelineModel(this))
     , m_messageFilterModel(new MessageFilterModel(this, m_timelineModel))
@@ -104,7 +101,7 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
 
     const auto result = visitResource(m_connection, uri);
     if (result == Quotient::CouldNotResolve) {
-        if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
+        if ((uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) && action != "no_join"_ls) {
             Q_EMIT askJoinRoom(uri.primaryId());
         }
     } else { // Invalid cases should have been eliminated earlier
@@ -187,72 +184,17 @@ void RoomManager::loadInitialRoom()
     connect(this, &RoomManager::connectionChanged, this, &RoomManager::openRoomForActiveConnection);
 }
 
-QString RoomManager::lastSpaceId() const
-{
-    if (!m_connection) {
-        return {};
-    }
-    return m_lastSpaceConfig.readEntry(m_connection->userId(), QString());
-}
-
-void RoomManager::setLastSpaceId(const QString &lastSpaceId)
-{
-    if (!m_connection) {
-        return;
-    }
-
-    const auto currentLastSpaceId = m_lastSpaceConfig.readEntry(m_connection->userId(), QString());
-    if (lastSpaceId == currentLastSpaceId) {
-        return;
-    }
-    m_lastSpaceConfig.writeEntry(m_connection->userId(), lastSpaceId);
-    Q_EMIT lastSpaceIdChanged();
-}
-
-bool RoomManager::directChatsActive() const
-{
-    if (!m_connection) {
-        return {};
-    }
-    return m_directChatsConfig.readEntry(m_connection->userId(), bool());
-}
-
-void RoomManager::setDirectChatsActive(bool directChatsActive)
-{
-    if (!m_connection) {
-        return;
-    }
-
-    const auto currentDirectChatsActive = m_directChatsConfig.readEntry(m_connection->userId(), bool());
-    if (directChatsActive == currentDirectChatsActive) {
-        return;
-    }
-    m_directChatsConfig.writeEntry(m_connection->userId(), directChatsActive);
-    Q_EMIT directChatsActiveChanged();
-}
-
 void RoomManager::openRoomForActiveConnection()
 {
     if (!m_connection) {
-        return;
+        m_currentRoom = nullptr;
     }
-    // Read from last open room
-    QString roomId = m_lastRoomConfig.readEntry(m_connection->userId(), QString());
-
-    // TODO remove legacy check at some point.
-    if (roomId.isEmpty()) {
-        roomId = NeoChatConfig::self()->openRoom();
+    if (m_lastRoomConfig.readEntry(m_connection->userId(), QString()).isEmpty()) {
+        setCurrentRoom({});
+    } else {
+        resolveResource(m_lastRoomConfig.readEntry(m_connection->userId(), QString()));
     }
-
-    if (!roomId.isEmpty()) {
-        // Here we can cast because the controller has been configured to
-        // return NeoChatRoom instead of simple Quotient::Room
-        const auto room = qobject_cast<NeoChatRoom *>(m_connection->room(roomId));
-
-        if (room) {
-            resolveResource(room->id());
-        }
-    }
+    setCurrentSpace(m_lastSpaceConfig.readEntry(m_connection->userId(), QString()), false);
 }
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
@@ -273,10 +215,9 @@ UriResolveResult RoomManager::visitUser(User *user, const QString &action)
     return Quotient::UriResolved;
 }
 
-void RoomManager::visitRoom(Room *room, const QString &eventId)
+void RoomManager::visitRoom(Room *r, const QString &eventId)
 {
-    auto neoChatRoom = qobject_cast<NeoChatRoom *>(room);
-    Q_ASSERT(neoChatRoom != nullptr);
+    auto room = qobject_cast<NeoChatRoom *>(r);
 
     if (m_currentRoom && !m_currentRoom->editCache()->editId().isEmpty()) {
         m_currentRoom->editCache()->setEditId({});
@@ -285,41 +226,26 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
         // We're doing these things here because it is critical that they are switched at the same time
         if (m_chatDocumentHandler->document()) {
             m_currentRoom->mainCache()->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
-            m_chatDocumentHandler->setRoom(neoChatRoom);
-            m_chatDocumentHandler->document()->textDocument()->setPlainText(neoChatRoom->mainCache()->savedText());
-            neoChatRoom->mainCache()->setText(neoChatRoom->mainCache()->savedText());
-        } else {
-            m_chatDocumentHandler->setRoom(neoChatRoom);
-        }
-    }
-
-    if (m_currentRoom) {
-        if (m_currentRoom->id() == room->id()) {
-            Q_EMIT goToEvent(eventId);
-        } else {
-            m_lastCurrentRoom = std::exchange(m_currentRoom, neoChatRoom);
-            Q_EMIT currentRoomChanged();
-
-            if (neoChatRoom->isSpace()) {
-                m_lastSpaceConfig.writeEntry(m_connection->userId(), room->id());
-                Q_EMIT replaceSpaceHome(neoChatRoom);
-            } else {
-                Q_EMIT replaceRoom(neoChatRoom, eventId);
+            m_chatDocumentHandler->setRoom(room);
+            if (room) {
+                m_chatDocumentHandler->document()->textDocument()->setPlainText(room->mainCache()->savedText());
+                room->mainCache()->setText(room->mainCache()->savedText());
             }
-        }
-    } else {
-        m_lastCurrentRoom = std::exchange(m_currentRoom, neoChatRoom);
-        Q_EMIT currentRoomChanged();
-        if (neoChatRoom->isSpace()) {
-            m_lastSpaceConfig.writeEntry(m_connection->userId(), room->id());
-            Q_EMIT pushSpaceHome(neoChatRoom);
         } else {
-            Q_EMIT pushRoom(neoChatRoom, eventId);
+            m_chatDocumentHandler->setRoom(room);
         }
     }
 
-    // Save last open room
-    m_lastRoomConfig.writeEntry(m_connection->userId(), room->id());
+    if (!room) {
+        setCurrentRoom({});
+        return;
+    }
+
+    if (m_currentRoom && m_currentRoom->id() == room->id()) {
+        Q_EMIT goToEvent(eventId);
+    } else {
+        setCurrentRoom(room->id());
+    }
 }
 
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
@@ -360,31 +286,18 @@ bool RoomManager::visitNonMatrix(const QUrl &url)
     return true;
 }
 
-void RoomManager::reset()
-{
-    m_arg = QString();
-    m_currentRoom = nullptr;
-    m_lastCurrentRoom = nullptr;
-    Q_EMIT currentRoomChanged();
-}
-
 void RoomManager::leaveRoom(NeoChatRoom *room)
 {
     if (!room) {
         return;
     }
-    if (m_lastCurrentRoom && room->id() == m_lastCurrentRoom->id()) {
-        m_lastCurrentRoom = nullptr;
-    }
+
     if (m_currentRoom && m_currentRoom->id() == room->id()) {
-        m_currentRoom = m_lastCurrentRoom;
-        m_lastCurrentRoom = nullptr;
-        Q_EMIT currentRoomChanged();
-        if (m_currentRoom->isSpace()) {
-            Q_EMIT replaceSpaceHome(m_currentRoom);
-        } else {
-            Q_EMIT replaceRoom(m_currentRoom, {});
-        }
+        setCurrentRoom({});
+    }
+
+    if (m_currentSpaceId == room->id()) {
+        setCurrentSpace({});
     }
 
     room->forget();
@@ -409,6 +322,71 @@ void RoomManager::setConnection(NeoChatConnection *connection)
     }
     m_connection = connection;
     Q_EMIT connectionChanged();
+}
+
+void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
+{
+    m_currentSpaceId = spaceId;
+    Q_EMIT currentSpaceChanged();
+    m_lastSpaceConfig.writeEntry(m_connection->userId(), spaceId);
+
+    if (!setRoom) {
+        return;
+    }
+    if (spaceId.length() > 3) {
+        resolveResource(spaceId, "no_join"_ls);
+    } else {
+        visitRoom({}, {});
+    }
+}
+
+void RoomManager::setCurrentRoom(const QString &roomId)
+{
+    if (roomId.isEmpty()) {
+        m_currentRoom = nullptr;
+    } else {
+        m_currentRoom = dynamic_cast<NeoChatRoom *>(m_connection->room(roomId));
+    }
+    Q_EMIT currentRoomChanged();
+    if (m_connection) {
+        m_lastRoomConfig.writeEntry(m_connection->userId(), roomId);
+    }
+    if (roomId.isEmpty()) {
+        return;
+    }
+    if (m_currentRoom->isSpace()) {
+        return;
+    }
+    if (m_currentRoom->isDirectChat() && m_currentSpaceId != "DM"_ls) {
+        setCurrentSpace("DM"_ls, false);
+        return;
+    }
+    const auto &parentSpaces = SpaceHierarchyCache::instance().parentSpaces(roomId);
+    if (parentSpaces.contains(m_currentSpaceId)) {
+        return;
+    }
+    if (const auto &parent = m_connection->room(m_currentRoom->canonicalParent())) {
+        for (const auto &parentParent : SpaceHierarchyCache::instance().parentSpaces(parent->id())) {
+            if (SpaceHierarchyCache::instance().parentSpaces(parentParent).isEmpty()) {
+                setCurrentSpace(parentParent, false);
+                return;
+            }
+        }
+        setCurrentSpace(parent->id(), false);
+        return;
+    }
+    for (const auto &space : parentSpaces) {
+        if (SpaceHierarchyCache::instance().parentSpaces(space).isEmpty()) {
+            setCurrentSpace(space, false);
+            return;
+        }
+    }
+    setCurrentSpace({}, false);
+}
+
+QString RoomManager::currentSpace() const
+{
+    return m_currentSpaceId;
 }
 
 #include "moc_roommanager.cpp"

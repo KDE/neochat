@@ -21,18 +21,6 @@ QQC2.Control {
     topPadding: 0
     bottomPadding: 0
 
-    property string selectedSpaceId: RoomManager.lastSpaceId
-    Connections {
-        target: RoomManager
-        function onConnectionChanged() {
-            // We need to rebind as any previous change will have been overwritten.
-            selectedSpaceId = RoomManager.lastSpaceId;
-        }
-    }
-
-    property bool showDirectChats: RoomManager.directChatsActive
-
-    signal selectionChanged
     signal spacesUpdated
 
     contentItem: Loader {
@@ -100,12 +88,9 @@ QQC2.Control {
                             source: "user-home-symbolic"
                         }
 
-                        checked: root.selectedSpaceId === "" && root.showDirectChats === false
+                        checked: RoomManager.currentSpace.length === 0
                         onClicked: {
-                            root.showDirectChats = false;
-                            RoomManager.directChatsActive = false;
-                            root.selectedSpaceId = "";
-                            RoomManager.lastSpaceId = "";
+                            RoomManager.currentSpace = "";
                             root.selectionChanged();
                         }
 
@@ -119,7 +104,7 @@ QQC2.Control {
                             height: Kirigami.Units.iconSizes.smallMedium
 
                             text: root.connection.homeNotifications > 0 ? root.connection.homeNotifications : ""
-                            visible: root.connection.homeNotifications > 0 && (root.selectedSpaceId !== "" || root.showDirectChats === true)
+                            visible: root.connection.homeNotifications > 0 && (RoomManager.currentSpace.length > 0 || root.showDirectChats === true)
                             color: Kirigami.Theme.textColor
                             horizontalAlignment: Text.AlignHCenter
                             background: Rectangle {
@@ -149,12 +134,9 @@ QQC2.Control {
                             source: "system-users"
                         }
 
-                        checked: root.showDirectChats === true
+                        checked: RoomManager.currentSpace === "DM"
                         onClicked: {
-                            root.showDirectChats = true;
-                            RoomManager.directChatsActive = true;
-                            root.selectedSpaceId = "";
-                            RoomManager.lastSpaceId = "";
+                            RoomManager.currentSpace = "DM";
                             root.selectionChanged();
                         }
 
@@ -193,11 +175,6 @@ QQC2.Control {
                             }
                             onLayoutChanged: root.spacesUpdated()
                         }
-                        onCountChanged: {
-                            if (!root.connection.room(root.selectedSpaceId)) {
-                                root.selectedSpaceId = "";
-                            }
-                        }
 
                         delegate: AvatarTabButton {
                             id: spaceDelegate
@@ -215,17 +192,11 @@ QQC2.Control {
                             source: avatar ? ("image://mxc/" + avatar) : ""
 
                             onSelected: {
-                                root.showDirectChats = false;
-                                RoomManager.directChatsActive = false;
-                                if (!SpaceHierarchyCache.isSpaceChild(roomId, RoomManager.currentRoom.id) || root.selectedSpaceId == roomId) {
-                                    RoomManager.resolveResource(currentRoom.id);
-                                } else {
-                                    RoomManager.lastSpaceId = currentRoom.id;
-                                }
-                                root.selectedSpaceId = roomId;
+                                RoomManager.resolveResource(spaceDelegate.roomId);
+                                RoomManager.currentSpace = spaceDelegate.roomId;
                                 root.selectionChanged();
                             }
-                            checked: root.selectedSpaceId === roomId
+                            checked: RoomManager.currentSpace === roomId
                             onContextMenuRequested: root.createContextMenu(currentRoom)
 
                             QQC2.Label {
@@ -238,7 +209,7 @@ QQC2.Control {
                                 height: Kirigami.Units.iconSizes.smallMedium
 
                                 text: spaceDelegate.currentRoom.childrenNotificationCount > 0 ? spaceDelegate.currentRoom.childrenNotificationCount : ""
-                                visible: spaceDelegate.currentRoom.childrenNotificationCount > 0 && root.selectedSpaceId != spaceDelegate.roomId
+                                visible: spaceDelegate.currentRoom.childrenNotificationCount > 0 && RoomManager.currentSpace != spaceDelegate.roomId
                                 color: Kirigami.Theme.textColor
                                 horizontalAlignment: Text.AlignHCenter
                                 verticalAlignment: Text.AlignVCenter

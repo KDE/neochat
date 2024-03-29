@@ -422,4 +422,8 @@ QQC2.ScrollView {
     function positionViewAtBeginning() {
         messageListView.positionViewAtBeginning();
     }
+
+    function goToEvent(eventId) {
+        messageListView.goToEvent(eventId);
+    }
 }

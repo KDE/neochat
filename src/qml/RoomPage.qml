@@ -72,7 +72,7 @@ Kirigami.Page {
     /// Disable cancel shortcut. Used by the separate window since it provides its own cancel implementation.
     property bool disableCancelShortcut: false
 
-    title: root.currentRoom.displayName
+    title: root.currentRoom ? root.currentRoom.displayName : ""
     focus: true
     padding: 0
 
@@ -116,7 +116,7 @@ Kirigami.Page {
     Loader {
         id: timelineViewLoader
         anchors.fill: parent
-        active: root.currentRoom && !root.currentRoom.isInvite && !root.loading
+        active: root.currentRoom && !root.currentRoom.isInvite && !root.loading && !root.currentRoom.isSpace
         sourceComponent: TimelineView {
             id: timelineView
             currentRoom: root.currentRoom
@@ -143,7 +143,23 @@ Kirigami.Page {
     }
 
     Loader {
-        active: root.loading && !invitationLoader.active
+        id: spaceLoader
+        active: root.currentRoom && root.currentRoom.isSpace
+        anchors.fill: parent
+        sourceComponent: SpaceHomePage {}
+    }
+
+    Loader {
+        active: !RoomManager.currentRoom
+        anchors.centerIn: parent
+        sourceComponent: Kirigami.PlaceholderMessage {
+            icon.name: "org.kde.neochat"
+            text: i18n("Welcome to NeoChat")
+        }
+    }
+
+    Loader {
+        active: root.loading && !invitationLoader.active && RoomManager.currentRoom && !spaceLoader.active
         anchors.centerIn: parent
         sourceComponent: Kirigami.LoadingPlaceholder {
             anchors.centerIn: parent
@@ -176,17 +192,17 @@ Kirigami.Page {
     Connections {
         target: RoomManager
         function onCurrentRoomChanged() {
-            if (!RoomManager.currentRoom) {
-                if (pageStack.lastItem === root) {
-                    pageStack.pop();
-                }
-            } else if (root.currentRoom.isInvite) {
+            if (root.currentRoom && root.currentRoom.isInvite) {
                 root.currentRoom.clearInvitationNotification();
             }
         }
 
         function onWarning(title, message) {
             root.warning(title, message);
+        }
+
+        function onGoToEvent(eventId) {
+            (timelineViewLoader.item as TimelineView).goToEvent(eventId);
         }
     }
 

@@ -15,32 +15,20 @@ import org.kde.neochat.accounts
 Kirigami.ApplicationWindow {
     id: root
 
-    property int columnWidth: Kirigami.Units.gridUnit * 13
-
-    property RoomListPage roomListPage
-
-    property RoomPage roomPage
-    property SpaceHomePage spaceHomePage
-
     property NeoChatConnection connection: Controller.activeConnection
 
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 15
 
     visible: false // Will be overridden in Component.onCompleted
-    wideScreen: width > columnWidth * 5
+    wideScreen: width > Kirigami.Units.gridUnit * 65
 
     pageStack {
         initialPage: WelcomePage {
             showExisting: true
-            onConnectionChosen: {
-                pageStack.replace(roomListComponent);
-                roomListPage = pageStack.currentItem;
-                RoomManager.loadInitialRoom();
-            }
+            onConnectionChosen: root.load()
         }
         globalToolBar.canContainHandles: true
-        defaultColumnWidth: roomListPage ? roomListPage.currentWidth : 0
         globalToolBar {
             style: Kirigami.ApplicationHeaderStyle.ToolBar
             showNavigationButtons: pageStack.currentIndex > 0 || pageStack.layers.depth > 1 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
@@ -59,9 +47,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: LoginHelper
         function onLoaded() {
-            pageStack.replace(roomListComponent);
-            roomListPage = pageStack.currentItem;
-            RoomManager.loadInitialRoom();
+            root.load();
         }
     }
 
@@ -122,16 +108,6 @@ Kirigami.ApplicationWindow {
     Connections {
         target: RoomManager
 
-        function onPushRoom(room, event) {
-            root.roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage.qml'), {
-                connection: root.connection
-            });
-            root.roomPage.forceActiveFocus();
-            if (event.length > 0) {
-                roomPage.goToEvent(event);
-            }
-        }
-
         function onAskJoinRoom(room) {
             joinRoomDialog.createObject(applicationWindow(), {
                 room: room,
@@ -141,27 +117,6 @@ Kirigami.ApplicationWindow {
 
         function onShowUserDetail(user) {
             root.showUserDetail(user);
-        }
-
-        function onPushSpaceHome(room) {
-            root.spaceHomePage = pageStack.push(Qt.createComponent('org.kde.neochat', 'SpaceHomePage.qml'));
-            root.spaceHomePage.forceActiveFocus();
-        }
-
-        function onReplaceRoom(room, event) {
-            if (root.roomPage) {
-                pageStack.currentIndex = pageStack.depth - 1;
-            } else {
-                pageStack.pop();
-                root.roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage.qml'), {
-                    connection: root.connection
-                });
-                root.spaceHomePage = null;
-            }
-            root.roomPage.forceActiveFocus();
-            if (event.length > 0) {
-                root.roomPage.goToEvent(event);
-            }
         }
 
         function onReplaceSpaceHome(room) {
@@ -314,7 +269,6 @@ Kirigami.ApplicationWindow {
         target: AccountRegistry
         function onRowsRemoved() {
             if (AccountRegistry.rowCount() === 0) {
-                RoomManager.reset();
                 pageStack.clear();
                 pageStack.push(Qt.createComponent('org.kde.neochat', '.qml'));
             }
@@ -488,6 +442,15 @@ Kirigami.ApplicationWindow {
             user: RoomManager.currentRoom ? RoomManager.currentRoom.getUser(user.id) : QmlUtils.getUser(user),
             connection: root.connection
         }).open();
+    }
+
+    function load() {
+        pageStack.replace(roomListComponent);
+        RoomManager.loadInitialRoom();
+        let roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage.qml'), {
+            connection: root.connection
+        });
+        roomPage.forceActiveFocus();
     }
 
     Component {

@@ -9,7 +9,6 @@
 #include <QQmlEngine>
 #include <Quotient/room.h>
 #include <Quotient/uriresolver.h>
-#include <KConfigGroup>
 
 #include "chatdocumenthandler.h"
 #include "enums/messagecomponenttype.h"
@@ -20,12 +19,6 @@
 
 class NeoChatRoom;
 class NeoChatConnection;
-
-namespace Quotient
-{
-class Room;
-class User;
-}
 
 using namespace Quotient;
 
@@ -51,6 +44,14 @@ class RoomManager : public QObject, public UriResolverBase
      * @sa hasOpenRoom
      */
     Q_PROPERTY(NeoChatRoom *currentRoom READ currentRoom NOTIFY currentRoomChanged)
+
+    /**
+     * @brief The id of the space currently opened in the space drawer.
+     *
+     * If this is an empty string, the uncategorized rooms are shown.
+     * If it is the string "DM", the DMs are shown.
+     */
+    Q_PROPERTY(QString currentSpace READ currentSpace WRITE setCurrentSpace NOTIFY currentSpaceChanged)
 
     /**
      * @brief The TimelineModel that should be used for room message visualisation.
@@ -86,16 +87,6 @@ class RoomManager : public QObject, public UriResolverBase
      * @sa room
      */
     Q_PROPERTY(bool hasOpenRoom READ hasOpenRoom NOTIFY currentRoomChanged)
-
-    /**
-     * @brief The room ID of the last space entered.
-     */
-    Q_PROPERTY(QString lastSpaceId READ lastSpaceId WRITE setLastSpaceId NOTIFY directChatsActiveChanged)
-
-    /**
-     * @brief Whether the last SpaceDrawer category selected was direct chats.
-     */
-    Q_PROPERTY(bool directChatsActive READ directChatsActive WRITE setDirectChatsActive NOTIFY directChatsActiveChanged)
 
     /**
      * @brief The ChatDocumentHandler for the open room.
@@ -183,11 +174,6 @@ public:
      */
     Q_INVOKABLE void viewEventMenu(const QString &eventId, NeoChatRoom *room, const QString &selectedText = {});
 
-    /**
-     * @brief Call this when the current used connection is dropped.
-     */
-    Q_INVOKABLE void reset();
-
     ChatDocumentHandler *chatDocumentHandler() const;
     void setChatDocumentHandler(ChatDocumentHandler *handler);
 
@@ -196,8 +182,7 @@ public:
      */
     void setUrlArgument(const QString &arg);
 
-    QString lastSpaceId() const;
-    void setLastSpaceId(const QString &lastSpaceId);
+    QString currentSpace() const;
 
     bool directChatsActive() const;
     void setDirectChatsActive(bool directChatsActive);
@@ -212,47 +197,6 @@ Q_SIGNALS:
     void askJoinRoom(const QString &nameOrId);
 
     void currentRoomChanged();
-
-    /**
-     * @brief Push a new room page.
-     *
-     * Signal triggered when the main window pageStack should push a new page with
-     * the message list for the given room.
-     *
-     * @param room the room to be shown on the new page.
-     * @param event the event to got to if available.
-     */
-    void pushRoom(NeoChatRoom *room, const QString &event);
-
-    /**
-     * @brief Replace the existing room.
-     *
-     * Signal triggered when the room displayed by the message list should be changed.
-     *
-     * @param room the room to be shown on the new page.
-     * @param event the event to got to if available.
-     */
-    void replaceRoom(NeoChatRoom *room, const QString &event);
-
-    /**
-     * @brief Push a new space home page.
-     *
-     * Signal triggered when the main window pageStack should push a new page with
-     * the space home for the given space room.
-     *
-     * @param spaceRoom the space room to be shown on the new page.
-     */
-    void pushSpaceHome(NeoChatRoom *spaceRoom);
-
-    /**
-     * @brief Replace the existing space home.
-     *
-     * Signal triggered when the currently displayed room page should be changed
-     * to the space home for the given space room.
-     *
-     * @param spaceRoom the space room to be shown on the new page.
-     */
-    void replaceSpaceHome(NeoChatRoom *spaceRoom);
 
     /**
      * @brief Go to the specified event in the current room.
@@ -324,15 +268,24 @@ Q_SIGNALS:
     void connectionChanged();
 
     void directChatsActiveChanged();
-    void lastSpaceIdChanged();
 
     void externalUrl(const QUrl &url);
+
+    void currentSpaceChanged();
 
 private:
     void openRoomForActiveConnection();
 
+    /** The room currently being shown in the main view (RoomPage.qml). This can be null, if there is no room.
+     * If this is a space, the space home page is shown.
+     */
     QPointer<NeoChatRoom> m_currentRoom;
-    NeoChatRoom *m_lastCurrentRoom;
+
+    /** The id of the space currently opened in the space drawer. If this is empty, the uncategorized rooms are shown.
+     * If it is "DM", the direct messages are shown. Otherwise it's the id of a toplevel space.
+     */
+    QString m_currentSpaceId;
+
     QString m_arg;
     KSharedConfig::Ptr m_config;
     KConfigGroup m_lastRoomConfig;
@@ -344,6 +297,11 @@ private:
     MessageFilterModel *m_messageFilterModel;
     MediaMessageFilterModel *m_mediaMessageFilterModel;
     NeoChatConnection *m_connection;
+
+    void setCurrentRoom(const QString &roomId);
+
+    // Space ID, "DM", or empty string
+    void setCurrentSpace(const QString &spaceId, bool setRoom = true);
 
     /**
      * @brief Resolve a user URI.
