@@ -10,6 +10,8 @@
 #include <QQmlEngine>
 #include <QString>
 
+#include <Quotient/csapi/space_hierarchy.h>
+
 #include "neochatconnection.h"
 
 namespace Quotient
@@ -110,6 +112,9 @@ private:
     QList<QString> m_activeSpaceRooms;
     QHash<QString, QList<QString>> m_spaceHierarchy;
     void cacheSpaceHierarchy();
+
+    QHash<QString, Quotient::Omittable<QString>> m_nextBatchTokens;
     void populateSpaceHierarchy(const QString &spaceId);
+    void addBatch(const QString &spaceId, Quotient::GetSpaceHierarchyJob *job);
     NeoChatConnection *m_connection;
 };

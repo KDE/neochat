@@ -3,7 +3,6 @@
 
 #include "spacehierarchycache.h"
 
-#include <Quotient/csapi/space_hierarchy.h>
 #include <Quotient/qt_connection_util.h>
 
 #include <KConfigGroup>
@@ -55,24 +54,44 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
     if (!m_connection) {
         return;
     }
-    auto job = m_connection->callApi<GetSpaceHierarchyJob>(spaceId);
+
+    m_nextBatchTokens[spaceId] = QString();
+    auto job = m_connection->callApi<GetSpaceHierarchyJob>(spaceId, none, none, none, *m_nextBatchTokens[spaceId]);
     auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_ls), "Cache"_ls);
     m_spaceHierarchy.insert(spaceId, group.readEntry(spaceId, QStringList()));
 
     connect(job, &BaseJob::success, this, [this, job, spaceId]() {
-        const auto rooms = job->rooms();
-        QList<QString> roomList;
-        for (unsigned long i = 0; i < rooms.size(); ++i) {
-            for (const auto &state : rooms[i].childrenState) {
+        addBatch(spaceId, job);
+    });
+}
+
+void SpaceHierarchyCache::addBatch(const QString &spaceId, Quotient::GetSpaceHierarchyJob *job)
+{
+    const auto rooms = job->rooms();
+    QStringList roomList = m_spaceHierarchy[spaceId];
+    for (unsigned long i = 0; i < rooms.size(); ++i) {
+        for (const auto &state : rooms[i].childrenState) {
+            if (!roomList.contains(state->stateKey())) {
                 roomList.push_back(state->stateKey());
             }
         }
-        m_spaceHierarchy.insert(spaceId, roomList);
-        Q_EMIT spaceHierarchyChanged();
-        auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_ls), "Cache"_ls);
-        group.writeEntry(spaceId, roomList);
-        group.sync();
-    });
+    }
+    m_spaceHierarchy.insert(spaceId, roomList);
+    Q_EMIT spaceHierarchyChanged();
+    auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_ls), "Cache"_ls);
+    group.writeEntry(spaceId, roomList);
+    group.sync();
+
+    const auto nextBatchToken = job->nextBatch();
+    if (!nextBatchToken.isEmpty() && nextBatchToken != *m_nextBatchTokens[spaceId]) {
+        *m_nextBatchTokens[spaceId] = nextBatchToken;
+        auto nextJob = m_connection->callApi<GetSpaceHierarchyJob>(spaceId, none, none, none, *m_nextBatchTokens[spaceId]);
+        connect(nextJob, &BaseJob::success, this, [this, nextJob, spaceId]() {
+            addBatch(spaceId, nextJob);
+        });
+    } else {
+        m_nextBatchTokens[spaceId].reset();
+    }
 }
 
 void SpaceHierarchyCache::addSpaceToHierarchy(Quotient::Room *room)
