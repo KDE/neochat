@@ -35,52 +35,25 @@ Components.AbstractMaximizeComponent {
 
     content: MapView {
         id: mapView
-        map.plugin: Plugin {
-            name: "osm"
-            PluginParameter {
-                name: "osm.useragent"
-                value: Application.name + "/" + Application.version + " (kde-devel@kde.org)"
-            }
-            PluginParameter {
-                name: "osm.mapping.providersrepository.address"
-                value: "https://autoconfig.kde.org/qtlocation/"
-            }
-        }
+        map.plugin: OsmLocationPlugin.plugin
 
         MouseArea {
             anchors.fill: parent
             onClicked: {
                 root.location = mapView.map.toCoordinate(Qt.point(mouseX, mouseY), false);
+                mapView.map.addMapItem(mapView.locationMapItem);
             }
         }
 
-        MapQuickItem {
-            id: point
-
-            visible: root.location
-            anchorPoint.x: sourceItem.width / 2
-            anchorPoint.y: sourceItem.height * 0.85
-            coordinate: root.location
-            autoFadeIn: false
-
-            sourceItem: Kirigami.Icon {
-                width: height
-                height: Kirigami.Units.iconSizes.huge
-                source: "gps"
-                isMask: true
-                color: Kirigami.Theme.highlightColor
-
-                Kirigami.Icon {
-                    anchors.centerIn: parent
-                    anchors.verticalCenterOffset: -parent.height / 8
-                    width: height
-                    height: parent.height / 3 + 1
-                    source: "pin"
-                    isMask: true
-                    color: Kirigami.Theme.highlightColor
-                }
-            }
+        readonly property LocationMapItem locationMapItem: LocationMapItem {
+            latitude: root.location.latitude
+            longitude: root.location.longitude
+            isLive: false
+            heading: NaN
+            asset: null
+            author: null
         }
+
         Connections {
             target: mapView.map
             function onCopyrightLinkActivated() {

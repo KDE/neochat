@@ -29,17 +29,22 @@ Kirigami.Page {
         map.zoomLevel: LocationHelper.zoomToFit(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox), mapView.width, mapView.height)
 
         MapItemView {
+            Component.onCompleted: mapView.map.addMapItemView(this)
+            anchors.fill: parent
+
             model: LocationsModel {
                 id: locationsModel
                 room: root.room
             }
             delegate: LocationMapItem {
-                isLive: true
+                isLive: false
                 heading: NaN
             }
         }
 
         MapItemView {
+            Component.onCompleted: mapView.map.addMapItemView(this)
+            anchors.fill: parent
             model: LiveLocationsModel {
                 id: liveLocationsModel
                 room: root.room
@@ -49,7 +54,7 @@ Kirigami.Page {
 
         Kirigami.PlaceholderMessage {
             text: i18n("There are no locations shared in this room.")
-            visible: mapView.mapItems.length === 0
+            visible: mapView.map.mapItems.length === 0
             anchors.centerIn: parent
         }
         Connections {

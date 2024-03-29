@@ -174,6 +174,10 @@ add_library(neochat STATIC
     sharehandler.h
 )
 
+set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
+    QT_QML_SINGLETON_TYPE TRUE
+)
+
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat
     QML_FILES

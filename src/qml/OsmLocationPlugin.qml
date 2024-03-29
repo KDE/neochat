@@ -7,11 +7,14 @@ import QtQuick
 import QtLocation
 
 QtObject {
+    id: root
+
+    property string userAgent: Application.name + "/" + Application.version + " (kde-devel@kde.org)"
     property var plugin: Plugin {
         name: "osm"
         PluginParameter {
             name: "osm.useragent"
-            value: Application.name + "/" + Application.version + " (kde-devel@kde.org)"
+            value: root.userAgent
         }
         PluginParameter {
             name: "osm.mapping.providersrepository.address"

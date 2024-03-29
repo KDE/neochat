@@ -76,7 +76,7 @@ ColumnLayout {
 
         map.plugin: OsmLocationPlugin.plugin
 
-        LocationMapItem {
+        readonly property LocationMapItem locationMapItem: LocationMapItem {
             latitude: root.latitude
             longitude: root.longitude
             asset: root.asset
@@ -84,6 +84,8 @@ ColumnLayout {
             isLive: true
             heading: NaN
         }
+
+        Component.onCompleted: map.addMapItem(locationMapItem)
 
         TapHandler {
             acceptedButtons: Qt.LeftButton

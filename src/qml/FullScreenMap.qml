@@ -47,10 +47,12 @@ ApplicationWindow {
             isLive: true
             heading: NaN
             visible: !isNaN(root.latitude) && !isNaN(root.longitude)
+            Component.onCompleted: mapView.map.addMapItem(this)
         }
         MapItemView {
             model: root.liveLocationModel
             delegate: LocationMapItem {}
+            Component.onCompleted: mapView.map.addMapItemView(this)
         }
 
         Connections {
