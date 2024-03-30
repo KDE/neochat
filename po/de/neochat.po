@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:37+0000\n"
+"POT-Creation-Date: 2024-03-30 00:37+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1207,7 +1207,7 @@ msgstr "Breite: %1, Länge: %2"
 msgid "Encrypted Message"
 msgstr "Verschlüsselte Nachricht"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:334
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:330
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1283,12 +1283,12 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Ereignis-Quelltext"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:64
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "Dieses Konto bearbeiten"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:58
+#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
@@ -1300,7 +1300,7 @@ msgid "Notification settings"
 msgstr "Benachrichtigungseinstellungen"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:464 src/qml/UserInfo.qml:143
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:460 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Einrichten"
@@ -1311,7 +1311,7 @@ msgstr "Einrichten"
 msgid "Devices"
 msgstr "Geräte"
 
-#: src/qml/AccountMenu.qml:55 src/qml/UserInfo.qml:130
+#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Open developer tools"
 msgstr "Entwicklungswerkzeuge öffnen"
@@ -1339,6 +1339,32 @@ msgstr ""
 #, kde-format
 msgid "Logout"
 msgstr "Abmelden"
+
+#: src/qml/AccountSwitchDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title: dialog to switch between logged in accounts"
+msgid "Switch Account"
+msgstr "Konto bearbeiten"
+
+#: src/qml/AccountSwitchDialog.qml:55
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgctxt "@button: login to or register a new account."
+msgid "Add Account"
+msgstr "Konto hinzufügen"
+
+#: src/qml/AccountSwitchDialog.qml:58
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgid "Log in or create a new account"
+msgstr "Mit bestehendem Konto anmelden"
+
+#: src/qml/AccountSwitchDialog.qml:65
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr "Anmeldung"
 
 #: src/qml/AttachDialog.qml:27
 #, kde-format
@@ -1486,6 +1512,26 @@ msgstr ""
 #, kde-format
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: src/qml/ConfirmLeaveDialog.qml:19
+#, fuzzy, kde-format
+#| msgid "Configure room"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Room"
+msgstr "Raum konfigurieren"
+
+#: src/qml/ConfirmLeaveDialog.qml:22
+#, kde-format
+msgctxt "Do you really want to leave <room name>?"
+msgid "Do you really want to leave %1?"
+msgstr ""
+
+#: src/qml/ConfirmLeaveDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@action:button"
+msgid "Leave Room"
+msgstr "Raum verlassen"
 
 #: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
 #, kde-format
@@ -1696,7 +1742,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:245
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:244
 #: src/qml/SelectParentDialog.qml:140
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -1769,7 +1815,7 @@ msgstr "Suchen nach „%1“"
 msgid "Configure Web Shortcuts..."
 msgstr "Web-Kurzbefehle festlegen ..."
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:128
+#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Entwicklungswerkzeuge"
@@ -1893,21 +1939,21 @@ msgid "They don't match"
 msgstr "Sie stimmen nicht überein"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgid "Explore rooms"
 msgstr "Räume erkunden"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:207 src/qml/RoomListPage.qml:256
+#: src/qml/RoomListPage.qml:206 src/qml/RoomListPage.qml:255
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:215
-#: src/qml/RoomListPage.qml:260
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:259
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2229,7 +2275,7 @@ msgstr "Einen Benutzer einladen"
 msgid "Find a user..."
 msgstr "Einen Benutzer suchen ..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:113
+#: src/qml/InviteUserPage.qml:44
 #, kde-format
 msgid "Add"
 msgstr "Hinzufügen"
@@ -2391,18 +2437,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registrieren"
 
-#: src/qml/main.qml:368
+#: src/qml/main.qml:364
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sitzungsverifizierung"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:381
 #, kde-format
 msgid "User consent"
 msgstr "Benutzereinwilligung"
 
-#: src/qml/main.qml:390
+#: src/qml/main.qml:386
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2411,28 +2457,28 @@ msgstr ""
 "Ihr Heimserver verlangt, dass Sie seinen Bedingungen zustimmen, bevor Sie "
 "ihn nutzen können. Bitte klicken Sie auf den Knopf unten, um sie zu lesen."
 
-#: src/qml/main.qml:395
+#: src/qml/main.qml:391
 #, kde-format
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/qml/main.qml:422
+#: src/qml/main.qml:418
 #, kde-format
 msgid "Start a chat"
 msgstr "Einen Chat starten"
 
-#: src/qml/main.qml:424
+#: src/qml/main.qml:420
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Möchten Sie einen Chat mit %1 beginnen?"
 
-#: src/qml/main.qml:450
+#: src/qml/main.qml:446
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:482 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:478 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2830,63 +2876,70 @@ msgstr "Raum zu Favoriten hinzufügen"
 msgid "Show locations for this room"
 msgstr "In diesem Raum suchen"
 
-#: src/qml/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:121
+#, fuzzy, kde-format
+#| msgid "Leaving this room."
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "Der Raum wird verlassen."
+
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "Mitglieder"
 
-#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:53
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:53
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Einen Benutzer einladen"
 
-#: src/qml/RoomInformation.qml:138
+#: src/qml/RoomInformation.qml:152
 #, kde-format
 msgid "Invite user to room"
 msgstr "Einen Benutzer in den Raum einladen"
 
-#: src/qml/RoomInformation.qml:145
+#: src/qml/RoomInformation.qml:159
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 Mitglied"
 msgstr[1] "%1 Mitglieder"
 
-#: src/qml/RoomInformation.qml:145
+#: src/qml/RoomInformation.qml:159
 #, kde-format
 msgid "No member count"
 msgstr "Keine Mitgliederanzahl"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "No friends found"
 msgstr "Keine Räume gefunden"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "No rooms found"
 msgstr "Keine Räume gefunden"
 
-#: src/qml/RoomListPage.qml:232
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/qml/RoomListPage.qml:232
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Einen Raum betreten, um zu beginnen"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgid "Search in room directory"
 msgstr "Raumverzeichnis durchsuchen"
 
-#: src/qml/RoomListPage.qml:256
+#: src/qml/RoomListPage.qml:255
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgid "Search in friend directory"
@@ -3126,23 +3179,27 @@ msgstr ""
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
 msgctxt "number of room members"
-msgid " members - "
-msgstr "%1 Mitglied"
+msgid "%1 member - "
+msgid_plural "%1 members - "
+msgstr[0] "%1 Mitglied"
+msgstr[1] "%1 Mitglied"
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
 msgctxt "number of room members"
-msgid " members"
-msgstr "%1 Mitglied"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 Mitglied"
+msgstr[1] "%1 Mitglieder"
 
 #: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:58
 #, fuzzy, kde-format
-#| msgid "Add new alias"
+#| msgid "Add new server"
 msgctxt "@button"
-msgid "Add new child"
-msgstr "Neuen Alias hinzufügen"
+msgid "Add new room"
+msgstr "Neuen Server hinzufügen"
 
 #: src/qml/SpaceHierarchyDelegate.qml:120
 #, fuzzy, kde-format
@@ -3432,31 +3489,15 @@ msgstr "Privaten Chat öffnen"
 msgid "Copy link"
 msgstr "Verknüpfung kopieren"
 
-#: src/qml/UserInfo.qml:97
+#: src/qml/UserInfo.qml:106
 #, kde-format
 msgid "Switch User"
 msgstr "Benutzer wechseln"
 
-#: src/qml/UserInfo.qml:147
+#: src/qml/UserInfo.qml:113
 #, kde-format
 msgid "Open Settings"
 msgstr "Einstellungen öffnen"
-
-#: src/qml/UserInfo.qml:198 src/settings/AccountsPage.qml:102
-#, kde-format
-msgid "Add Account"
-msgstr "Konto hinzufügen"
-
-#: src/qml/UserInfo.qml:201
-#, kde-format
-msgid "Log in to an existing account"
-msgstr "Mit bestehendem Konto anmelden"
-
-#: src/qml/UserInfo.qml:208
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "Anmeldung"
 
 #: src/qml/Username.qml:20
 #, fuzzy, kde-format
@@ -3940,6 +3981,11 @@ msgstr "Unbekanntes Problem beim Ändern des Passworts aufgetreten"
 #, kde-format
 msgid "Accounts"
 msgstr "Konten"
+
+#: src/settings/AccountsPage.qml:102
+#, kde-format
+msgid "Add Account"
+msgstr "Konto hinzufügen"
 
 #: src/settings/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -5273,6 +5319,22 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#, fuzzy
+#~| msgid "%1 member"
+#~| msgid_plural "%1 members"
+#~ msgctxt "number of room members"
+#~ msgid " members"
+#~ msgstr "%1 Mitglied"
+
+#, fuzzy
+#~| msgid "Add new alias"
+#~ msgctxt "@button"
+#~ msgid "Add new child"
+#~ msgstr "Neuen Alias hinzufügen"
+
+#~ msgid "Log in to an existing account"
+#~ msgstr "Mit bestehendem Konto anmelden"
 
 #~ msgid "Open in New Window"
 #~ msgstr "In neuem Fenster öffnen"

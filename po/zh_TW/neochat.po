@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:37+0000\n"
-"PO-Revision-Date: 2024-03-20 18:12+0900\n"
+"POT-Creation-Date: 2024-03-30 00:37+0000\n"
+"PO-Revision-Date: 2024-03-29 21:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -1157,7 +1157,7 @@ msgstr "緯度：%2，經度：%1"
 msgid "Encrypted Message"
 msgstr "已加密訊息"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:334
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:330
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1228,12 +1228,12 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "事件原始碼"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:64
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "編輯這個帳號"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:58
+#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
@@ -1245,7 +1245,7 @@ msgid "Notification settings"
 msgstr "通知設定"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:464 src/qml/UserInfo.qml:143
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:460 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "設定"
@@ -1256,7 +1256,7 @@ msgstr "設定"
 msgid "Devices"
 msgstr "裝置"
 
-#: src/qml/AccountMenu.qml:55 src/qml/UserInfo.qml:130
+#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Open developer tools"
 msgstr "開啟開發者工具"
@@ -1283,6 +1283,33 @@ msgstr ""
 #, kde-format
 msgid "Logout"
 msgstr "登出"
+
+#: src/qml/AccountSwitchDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title: dialog to switch between logged in accounts"
+msgid "Switch Account"
+msgstr "編輯帳號"
+
+#: src/qml/AccountSwitchDialog.qml:55
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgctxt "@button: login to or register a new account."
+msgid "Add Account"
+msgstr "新增帳號"
+
+#: src/qml/AccountSwitchDialog.qml:58
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Log in or Create a New Account"
+msgid "Log in or create a new account"
+msgstr "登入或建立新帳號"
+
+#: src/qml/AccountSwitchDialog.qml:65
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr "登入"
 
 #: src/qml/AttachDialog.qml:27
 #, kde-format
@@ -1429,6 +1456,29 @@ msgstr "啟用加密後將無法再停用它。"
 msgid "Cancel"
 msgstr "取消"
 
+#: src/qml/ConfirmLeaveDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Confirm Deactivating Account"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Room"
+msgstr "確認停用帳號"
+
+#: src/qml/ConfirmLeaveDialog.qml:22
+#, fuzzy, kde-format
+#| msgctxt "Do you want to open <link>"
+#| msgid "Do you want to open <b>%1</b>?"
+msgctxt "Do you really want to leave <room name>?"
+msgid "Do you really want to leave %1?"
+msgstr "您要開啟 <b>%1</b> 嗎？"
+
+#: src/qml/ConfirmLeaveDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@action:button"
+msgid "Leave Room"
+msgstr "離開聊天室"
+
 #: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
 #, kde-format
 msgid "Sign out"
@@ -1440,20 +1490,16 @@ msgid "Are you sure you want to sign out?"
 msgstr "您確定要登出嗎？"
 
 #: src/qml/ConfirmUrlDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@title"
 msgid "Open Url"
-msgstr "開啟檔案"
+msgstr "開啟網址"
 
 #: src/qml/ConfirmUrlDialog.qml:21
 #, kde-format
 msgctxt "Do you want to open <link>"
 msgid "Do you want to open <b>%1</b>?"
-msgstr ""
+msgstr "您要開啟 <b>%1</b> 嗎？"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -1624,7 +1670,7 @@ msgstr "選取聊天室"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:245
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:244
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1695,7 +1741,7 @@ msgstr "搜尋 '%1'"
 msgid "Configure Web Shortcuts..."
 msgstr "設定網頁捷徑..."
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:128
+#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "開發者工具"
@@ -1815,21 +1861,21 @@ msgid "They don't match"
 msgstr "它們不相符"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgid "Explore rooms"
 msgstr "瀏覽聊天室"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:207 src/qml/RoomListPage.qml:256
+#: src/qml/RoomListPage.qml:206 src/qml/RoomListPage.qml:255
 #, kde-format
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:215
-#: src/qml/RoomListPage.qml:260
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:259
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -1848,13 +1894,13 @@ msgstr "建立一個聊天空間"
 #: src/qml/ExploreComponent.qml:72
 #, kde-format
 msgid "Scan a QR Code"
-msgstr ""
+msgstr "掃描 QR 碼"
 
 #: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
-msgstr ""
+msgstr "掃描 QR 碼"
 
 #: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
 #, kde-format
@@ -2138,7 +2184,7 @@ msgstr "邀請一個使用者"
 msgid "Find a user..."
 msgstr "尋找使用者..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:113
+#: src/qml/InviteUserPage.qml:44
 #, kde-format
 msgid "Add"
 msgstr "新增"
@@ -2159,20 +2205,16 @@ msgid "User is either already a member or has been invited"
 msgstr "使用者已經是成員或是已被邀請"
 
 #: src/qml/JoinRoomDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "@title"
 msgid "Join Room"
-msgstr "正在加入聊天室 %1。"
+msgstr "加入聊天室"
 
 #: src/qml/JoinRoomDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "@action:button"
 msgid "Join room"
-msgstr "正在加入聊天室 %1。"
+msgstr "加入聊天室"
 
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
@@ -2292,18 +2334,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "註冊"
 
-#: src/qml/main.qml:368
+#: src/qml/main.qml:364
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:381
 #, kde-format
 msgid "User consent"
 msgstr "使用者許可"
 
-#: src/qml/main.qml:390
+#: src/qml/main.qml:386
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2312,28 +2354,28 @@ msgstr ""
 "您的家伺服器要求您必須同意它的條款與細則才能使用它。請點擊以下按鈕來閱讀它"
 "們。"
 
-#: src/qml/main.qml:395
+#: src/qml/main.qml:391
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/qml/main.qml:422
+#: src/qml/main.qml:418
 #, kde-format
 msgid "Start a chat"
 msgstr "開始私人聊天"
 
-#: src/qml/main.qml:424
+#: src/qml/main.qml:420
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "您要與 %1 開始私人聊天嗎？"
 
-#: src/qml/main.qml:450
+#: src/qml/main.qml:446
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "目前選取的連結"
 
-#: src/qml/main.qml:482 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:478 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2400,11 +2442,10 @@ msgid "Forward Message"
 msgstr "轉寄訊息"
 
 #: src/qml/MessageDelegateContextMenu.qml:71
-#, fuzzy, kde-format
-#| msgid "Switch User"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
-msgstr "切換使用者"
+msgstr "顯示使用者"
 
 #: src/qml/MessageDelegateContextMenu.qml:79
 #, kde-format
@@ -2700,60 +2741,67 @@ msgstr "標記聊天室為最愛"
 msgid "Show locations for this room"
 msgstr "顯示這個聊天室的位置"
 
-#: src/qml/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:121
+#, fuzzy, kde-format
+#| msgid "Leaving this room."
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "正在離開這個聊天室。"
+
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "成員"
 
-#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:53
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "邀請一個使用者"
 
-#: src/qml/RoomInformation.qml:138
+#: src/qml/RoomInformation.qml:152
 #, kde-format
 msgid "Invite user to room"
 msgstr "邀請使用者到聊天室"
 
-#: src/qml/RoomInformation.qml:145
+#: src/qml/RoomInformation.qml:159
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 名成員"
 
-#: src/qml/RoomInformation.qml:145
+#: src/qml/RoomInformation.qml:159
 #, kde-format
 msgid "No member count"
 msgstr "無成員計數"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "No friends found"
 msgstr "找不到朋友"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "No rooms found"
 msgstr "找不到聊天室"
 
-#: src/qml/RoomListPage.qml:232
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "您尚未加入任何朋友，點擊下方以搜尋您的朋友。"
 
-#: src/qml/RoomListPage.qml:232
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "先加入一些聊天室吧"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgid "Search in room directory"
 msgstr "在聊天室目錄裡搜尋"
 
-#: src/qml/RoomListPage.qml:256
+#: src/qml/RoomListPage.qml:255
 #, kde-format
 msgid "Search in friend directory"
 msgstr "在朋友目錄裡搜尋"
@@ -2971,22 +3019,30 @@ msgid "Suggested"
 msgstr "建議"
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "number of room members"
+#| msgid " members - "
 msgctxt "number of room members"
-msgid " members - "
-msgstr " 成員 - "
+msgid "%1 member - "
+msgid_plural "%1 members - "
+msgstr[0] " 成員 - "
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
 msgctxt "number of room members"
-msgid " members"
-msgstr " 成員"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 名成員"
 
 #: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add new server"
 msgctxt "@button"
-msgid "Add new child"
-msgstr "新增新的子聊天室"
+msgid "Add new room"
+msgstr "新增伺服器"
 
 #: src/qml/SpaceHierarchyDelegate.qml:120
 #, kde-format
@@ -3107,11 +3163,10 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 人正在輸入訊息"
 
 #: src/qml/UnlockSSSSDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "傳送已加密訊息…"
+msgstr "載入您已加密的訊息"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -3123,32 +3178,31 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "使用密碼解鎖"
 
 #: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
+msgstr "如果您有這個帳號的備份密碼，請在下方輸入它。"
 
 #: src/qml/UnlockSSSSDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "密碼："
+msgstr "備份密碼："
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "解除鎖定"
 
 #: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "使用安全金鑰解除鎖定"
 
 #: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
@@ -3156,20 +3210,19 @@ msgctxt "@info"
 msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
-msgstr ""
+msgstr "如果您有這個帳號的安全金鑰，請在下方輸入或是將它作為檔案上傳。"
 
 #: src/qml/UnlockSSSSDialog.qml:89
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "安全性"
+msgstr "安全金鑰："
 
 #: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "從檔案上傳"
 
 #: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
@@ -3184,12 +3237,14 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"如果您先前有驗證過此裝置，您可以試著點擊以下按鈕來載入從其他裝置來的備份金"
+"鑰。"
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "從其他裝置請求"
 
 #: src/qml/UserDetailDialog.qml:36
 #, kde-format
@@ -3265,31 +3320,15 @@ msgstr "邀請到私人聊天室"
 msgid "Copy link"
 msgstr "複製連結"
 
-#: src/qml/UserInfo.qml:97
+#: src/qml/UserInfo.qml:106
 #, kde-format
 msgid "Switch User"
 msgstr "切換使用者"
 
-#: src/qml/UserInfo.qml:147
+#: src/qml/UserInfo.qml:113
 #, kde-format
 msgid "Open Settings"
 msgstr "開啟設定"
-
-#: src/qml/UserInfo.qml:198 src/settings/AccountsPage.qml:102
-#, kde-format
-msgid "Add Account"
-msgstr "新增帳號"
-
-#: src/qml/UserInfo.qml:201
-#, kde-format
-msgid "Log in to an existing account"
-msgstr "登入到現存帳號"
-
-#: src/qml/UserInfo.qml:208
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "登入"
 
 #: src/qml/Username.qml:20
 #, kde-format
@@ -3715,6 +3754,11 @@ msgstr "變更密碼時發生未知問題"
 #, kde-format
 msgid "Accounts"
 msgstr "帳號"
+
+#: src/settings/AccountsPage.qml:102
+#, kde-format
+msgid "Add Account"
+msgstr "新增帳號"
 
 #: src/settings/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -4860,23 +4904,23 @@ msgstr "停止下載"
 #, kde-format
 msgctxt "flight departure, %1 is airport, %2 is time"
 msgid "Departure from %1"
-msgstr ""
+msgstr "從 %1 出發"
 
 #: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
 msgctxt "flight arrival, %1 is airport, %2 is time"
 msgid "Arrival at %1"
-msgstr ""
+msgstr "抵達於 %1"
 
 #: src/timeline/HotelReservationComponent.qml:65
 #, kde-format
 msgid "Check-in time: %1"
-msgstr ""
+msgstr "Check-in 時間：%1"
 
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
-msgstr ""
+msgstr "Check-out 時間：%1"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -4905,10 +4949,9 @@ msgid "Loading URL preview"
 msgstr "正在載入網址預覽"
 
 #: src/timeline/MessageComponentChooser.qml:220
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
+#, kde-format
 msgid "%1 started a user verification"
-msgstr "撤回了一個使用者的邀請"
+msgstr "%1 開始了使用者驗證"
 
 #: src/timeline/MessageEditComponent.qml:102
 #, kde-format
@@ -4951,7 +4994,7 @@ msgstr "這是此聊天的開頭。沒有比這更早的歷史訊息。"
 #: src/timeline/TrainReservationComponent.qml:191
 #, kde-format
 msgid "Pl. %1"
-msgstr ""
+msgstr "第 %1 月台"
 
 #: src/timeline/VideoComponent.qml:171
 #, kde-format
@@ -4978,6 +5021,17 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
+
+#~ msgctxt "number of room members"
+#~ msgid " members"
+#~ msgstr " 成員"
+
+#~ msgctxt "@button"
+#~ msgid "Add new child"
+#~ msgstr "新增新的子聊天室"
+
+#~ msgid "Log in to an existing account"
+#~ msgstr "登入到現存帳號"
 
 #~ msgid "Open in New Window"
 #~ msgstr "在新視窗開啟"

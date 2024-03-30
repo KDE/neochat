@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:37+0000\n"
-"PO-Revision-Date: 2024-03-28 10:29+0100\n"
+"POT-Creation-Date: 2024-03-30 00:37+0000\n"
+"PO-Revision-Date: 2024-03-29 13:43+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1161,7 +1161,7 @@ msgstr "Bte: %1, Lte: %2"
 msgid "Encrypted Message"
 msgstr "Versleuteld bericht"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:334
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:330
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1232,12 +1232,12 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Gebeurtenisbron"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:64
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "Dit account bewerken"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:58
+#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
@@ -1249,7 +1249,7 @@ msgid "Notification settings"
 msgstr "Instellingen van meldingen"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:464 src/qml/UserInfo.qml:143
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:460 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Configureren"
@@ -1260,7 +1260,7 @@ msgstr "Configureren"
 msgid "Devices"
 msgstr "Apparaten"
 
-#: src/qml/AccountMenu.qml:55 src/qml/UserInfo.qml:130
+#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Open developer tools"
 msgstr "Hulpmiddelen voor ontwikkelaars openen"
@@ -1287,6 +1287,33 @@ msgstr "Reservekopie van sleutel openen"
 #, kde-format
 msgid "Logout"
 msgstr "Afmelden"
+
+#: src/qml/AccountSwitchDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title: dialog to switch between logged in accounts"
+msgid "Switch Account"
+msgstr "Account bewerken"
+
+#: src/qml/AccountSwitchDialog.qml:55
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgctxt "@button: login to or register a new account."
+msgid "Add Account"
+msgstr "Account toevoegen"
+
+#: src/qml/AccountSwitchDialog.qml:58
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Log in or Create a New Account"
+msgid "Log in or create a new account"
+msgstr "Aanmelden of een nieuw account aanmaken"
+
+#: src/qml/AccountSwitchDialog.qml:65
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr "Aanmelden"
 
 #: src/qml/AttachDialog.qml:27
 #, kde-format
@@ -1435,6 +1462,29 @@ msgstr ""
 msgid "Cancel"
 msgstr "Annuleren"
 
+#: src/qml/ConfirmLeaveDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Confirm Deactivating Account"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Room"
+msgstr "Deactiveren van account bevestigen"
+
+#: src/qml/ConfirmLeaveDialog.qml:22
+#, fuzzy, kde-format
+#| msgctxt "Do you want to open <link>"
+#| msgid "Do you want to open <b>%1</b>?"
+msgctxt "Do you really want to leave <room name>?"
+msgid "Do you really want to leave %1?"
+msgstr "Wilt u <b>%1</b> openen?"
+
+#: src/qml/ConfirmLeaveDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@action:button"
+msgid "Leave Room"
+msgstr "Room verlaten"
+
 #: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
 #, kde-format
 msgid "Sign out"
@@ -1446,21 +1496,16 @@ msgid "Are you sure you want to sign out?"
 msgstr "Wilt u zich afmelden?"
 
 #: src/qml/ConfirmUrlDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@title"
 msgid "Open Url"
-msgstr "Bestand openen"
+msgstr "URL openen"
 
 #: src/qml/ConfirmUrlDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Do you want to open the link to %1?"
+#, kde-format
 msgctxt "Do you want to open <link>"
 msgid "Do you want to open <b>%1</b>?"
-msgstr "Wilt u de koppeling naar %1 openen?"
+msgstr "Wilt u <b>%1</b> openen?"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -1631,7 +1676,7 @@ msgstr "Room kiezen"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:245
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:244
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1705,7 +1750,7 @@ msgstr "Zoeken naar '%1'"
 msgid "Configure Web Shortcuts..."
 msgstr "Websnelkoppelingen configureren..."
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:128
+#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Hulpmiddelen voor ontwikkelaars"
@@ -1828,21 +1873,21 @@ msgid "They don't match"
 msgstr "Ze komen niet overeen"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgid "Explore rooms"
 msgstr "Rooms verkennen"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:207 src/qml/RoomListPage.qml:256
+#: src/qml/RoomListPage.qml:206 src/qml/RoomListPage.qml:255
 #, kde-format
 msgid "Find your friends"
 msgstr "Zoek uw vrienden"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:215
-#: src/qml/RoomListPage.qml:260
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:259
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -1861,13 +1906,13 @@ msgstr "Een ruimte aanmaken"
 #: src/qml/ExploreComponent.qml:72
 #, kde-format
 msgid "Scan a QR Code"
-msgstr ""
+msgstr "Scan een QR-code"
 
 #: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
-msgstr ""
+msgstr "Scan een QR-code"
 
 #: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
 #, kde-format
@@ -2153,7 +2198,7 @@ msgstr "Een gebruiker uitnodigen"
 msgid "Find a user..."
 msgstr "Een gebruiker zoeken..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:113
+#: src/qml/InviteUserPage.qml:44
 #, kde-format
 msgid "Add"
 msgstr "Toevoegen"
@@ -2174,20 +2219,16 @@ msgid "User is either already a member or has been invited"
 msgstr "Gebruiker is of al een lid of is uitgenodigd"
 
 #: src/qml/JoinRoomDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "@title"
 msgid "Join Room"
-msgstr "Meedoen in room \"%1."
+msgstr "Deelnemen aan chatroom"
 
 #: src/qml/JoinRoomDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "@action:button"
 msgid "Join room"
-msgstr "Meedoen in room \"%1."
+msgstr "Neem deel aan een chatroom"
 
 #: src/qml/KeyVerificationDialog.qml:18
 #, kde-format
@@ -2307,18 +2348,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registreren"
 
-#: src/qml/main.qml:368
+#: src/qml/main.qml:364
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificatie van sessie"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:381
 #, kde-format
 msgid "User consent"
 msgstr "Toestemming van gebruiker"
 
-#: src/qml/main.qml:390
+#: src/qml/main.qml:386
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2327,28 +2368,28 @@ msgstr ""
 "Uw homeserver vereist dat u met deze termen en voorwaarden instemt alvorens "
 "u deze kunt gebruiken. Klik op de ondersteunde knop om ze te lezen."
 
-#: src/qml/main.qml:395
+#: src/qml/main.qml:391
 #, kde-format
 msgid "Open"
 msgstr "Openen"
 
-#: src/qml/main.qml:422
+#: src/qml/main.qml:418
 #, kde-format
 msgid "Start a chat"
 msgstr "Een chat starten"
 
-#: src/qml/main.qml:424
+#: src/qml/main.qml:420
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Wilt u een chat beginnen met %1?"
 
-#: src/qml/main.qml:450
+#: src/qml/main.qml:446
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "De nu geselecteerde koppeling"
 
-#: src/qml/main.qml:482 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:478 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2717,45 +2758,52 @@ msgstr "Room als favoriet instellen"
 msgid "Show locations for this room"
 msgstr "Locaties in deze room tonen"
 
-#: src/qml/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:121
+#, fuzzy, kde-format
+#| msgid "Leaving this room."
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "Deze room verlaten."
+
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "Leden"
 
-#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:53
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Een gebruiker uitnodigen"
 
-#: src/qml/RoomInformation.qml:138
+#: src/qml/RoomInformation.qml:152
 #, kde-format
 msgid "Invite user to room"
 msgstr "Gebruiker uitnodigen in room"
 
-#: src/qml/RoomInformation.qml:145
+#: src/qml/RoomInformation.qml:159
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 lid"
 msgstr[1] "%1 leden"
 
-#: src/qml/RoomInformation.qml:145
+#: src/qml/RoomInformation.qml:159
 #, kde-format
 msgid "No member count"
 msgstr "Geen aantal leden"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "No friends found"
 msgstr "Geen vrienden gevonden"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "No rooms found"
 msgstr "Geen rooms gevonden"
 
-#: src/qml/RoomListPage.qml:232
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -2763,17 +2811,17 @@ msgstr ""
 "U hebt nog geen van uw vrienden toegevoegd, klik hieronder om naar ze te "
 "zoeken."
 
-#: src/qml/RoomListPage.qml:232
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Doe mee met sommige rooms om te beginnen"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgid "Search in room directory"
 msgstr "In map van room zoeken"
 
-#: src/qml/RoomListPage.qml:256
+#: src/qml/RoomListPage.qml:255
 #, kde-format
 msgid "Search in friend directory"
 msgstr "In map vrienden zoeken"
@@ -2993,22 +3041,32 @@ msgid "Suggested"
 msgstr "Voorgesteld"
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "number of room members"
+#| msgid " members - "
 msgctxt "number of room members"
-msgid " members - "
-msgstr " leden - "
+msgid "%1 member - "
+msgid_plural "%1 members - "
+msgstr[0] " leden - "
+msgstr[1] " leden - "
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
 msgctxt "number of room members"
-msgid " members"
-msgstr " leden"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 lid"
+msgstr[1] "%1 leden"
 
 #: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add new server"
 msgctxt "@button"
-msgid "Add new child"
-msgstr "Nieuw kind toevoegen"
+msgid "Add new room"
+msgstr "Nieuwe server toevoegen"
 
 #: src/qml/SpaceHierarchyDelegate.qml:120
 #, kde-format
@@ -3294,31 +3352,15 @@ msgstr "In een privé chat uitnodigen"
 msgid "Copy link"
 msgstr "Koppeling kopiëren"
 
-#: src/qml/UserInfo.qml:97
+#: src/qml/UserInfo.qml:106
 #, kde-format
 msgid "Switch User"
 msgstr "Gebruiker wisselen"
 
-#: src/qml/UserInfo.qml:147
+#: src/qml/UserInfo.qml:113
 #, kde-format
 msgid "Open Settings"
 msgstr "Instellingen openen"
-
-#: src/qml/UserInfo.qml:198 src/settings/AccountsPage.qml:102
-#, kde-format
-msgid "Add Account"
-msgstr "Account toevoegen"
-
-#: src/qml/UserInfo.qml:201
-#, kde-format
-msgid "Log in to an existing account"
-msgstr "Aanmelden met een bestaand account"
-
-#: src/qml/UserInfo.qml:208
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "Aanmelden"
 
 #: src/qml/Username.qml:20
 #, kde-format
@@ -3774,6 +3816,11 @@ msgstr "Onbekend probleem bij poging het wachtwoord te wijzigen"
 #, kde-format
 msgid "Accounts"
 msgstr "Accounts"
+
+#: src/settings/AccountsPage.qml:102
+#, kde-format
+msgid "Add Account"
+msgstr "Account toevoegen"
 
 #: src/settings/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -4987,10 +5034,9 @@ msgid "Loading URL preview"
 msgstr "URL voorbeeld laden"
 
 #: src/timeline/MessageComponentChooser.qml:220
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
+#, kde-format
 msgid "%1 started a user verification"
-msgstr "heeft uitnodiging van een gebruiker ingetrokken"
+msgstr "%1 is verificatie van een gebruiker gestart"
 
 #: src/timeline/MessageEditComponent.qml:102
 #, kde-format
@@ -5062,6 +5108,17 @@ msgstr "Tonen"
 #, kde-format
 msgid "Quit"
 msgstr "Afsluiten"
+
+#~ msgctxt "number of room members"
+#~ msgid " members"
+#~ msgstr " leden"
+
+#~ msgctxt "@button"
+#~ msgid "Add new child"
+#~ msgstr "Nieuw kind toevoegen"
+
+#~ msgid "Log in to an existing account"
+#~ msgstr "Aanmelden met een bestaand account"
 
 #~ msgid "Open in New Window"
 #~ msgstr "In nieuw venster openen"

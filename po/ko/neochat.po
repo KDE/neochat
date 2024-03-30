@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:37+0000\n"
+"POT-Creation-Date: 2024-03-30 00:37+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1156,7 +1156,7 @@ msgstr "위도: %1, 경도: %2"
 msgid "Encrypted Message"
 msgstr "암호화된 메시지"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:334
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:330
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1229,12 +1229,12 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "이벤트 소스"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:64
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "이 계정 편집"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:58
+#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
@@ -1246,7 +1246,7 @@ msgid "Notification settings"
 msgstr "알림 설정"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:464 src/qml/UserInfo.qml:143
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:460 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "설정"
@@ -1257,7 +1257,7 @@ msgstr "설정"
 msgid "Devices"
 msgstr "장치"
 
-#: src/qml/AccountMenu.qml:55 src/qml/UserInfo.qml:130
+#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Open developer tools"
 msgstr "개발자 도구 열기"
@@ -1285,6 +1285,33 @@ msgstr ""
 #, kde-format
 msgid "Logout"
 msgstr "로그아웃"
+
+#: src/qml/AccountSwitchDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title: dialog to switch between logged in accounts"
+msgid "Switch Account"
+msgstr "계정 편집"
+
+#: src/qml/AccountSwitchDialog.qml:55
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgctxt "@button: login to or register a new account."
+msgid "Add Account"
+msgstr "계정 추가"
+
+#: src/qml/AccountSwitchDialog.qml:58
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Log in or Create a New Account"
+msgid "Log in or create a new account"
+msgstr "기존 계정에 로그인하거나 새 계정 만들기"
+
+#: src/qml/AccountSwitchDialog.qml:65
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr "로그인"
 
 #: src/qml/AttachDialog.qml:27
 #, kde-format
@@ -1430,6 +1457,27 @@ msgstr "암호화를 활성화한 후에는 비활성화할 수 없습니다."
 #, kde-format
 msgid "Cancel"
 msgstr "취소"
+
+#: src/qml/ConfirmLeaveDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Confirm Deactivating Account"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Room"
+msgstr "계정 비활성화 확인"
+
+#: src/qml/ConfirmLeaveDialog.qml:22
+#, kde-format
+msgctxt "Do you really want to leave <room name>?"
+msgid "Do you really want to leave %1?"
+msgstr ""
+
+#: src/qml/ConfirmLeaveDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@action:button"
+msgid "Leave Room"
+msgstr "대화방 떠나기"
 
 #: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
 #, kde-format
@@ -1628,7 +1676,7 @@ msgstr "대화방 선택"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:245
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:244
 #: src/qml/SelectParentDialog.qml:140
 #, kde-format
 msgctxt "@title"
@@ -1699,7 +1747,7 @@ msgstr "'%1' 검색"
 msgid "Configure Web Shortcuts..."
 msgstr "웹 바로 가기 설정..."
 
-#: src/qml/DevtoolsPage.qml:18 src/qml/UserInfo.qml:128
+#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "개발자 도구"
@@ -1821,21 +1869,21 @@ msgid "They don't match"
 msgstr "일치하지 않습니다"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgid "Explore rooms"
 msgstr "대화방 탐색"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:207 src/qml/RoomListPage.qml:256
+#: src/qml/RoomListPage.qml:206 src/qml/RoomListPage.qml:255
 #, kde-format
 msgid "Find your friends"
 msgstr "친구 찾기"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:215
-#: src/qml/RoomListPage.qml:260
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:259
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2146,7 +2194,7 @@ msgstr "사용자 초대"
 msgid "Find a user..."
 msgstr "사용자 찾기..."
 
-#: src/qml/InviteUserPage.qml:44 src/qml/UserInfo.qml:113
+#: src/qml/InviteUserPage.qml:44
 #, kde-format
 msgid "Add"
 msgstr "추가"
@@ -2300,18 +2348,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "등록"
 
-#: src/qml/main.qml:368
+#: src/qml/main.qml:364
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/qml/main.qml:385
+#: src/qml/main.qml:381
 #, kde-format
 msgid "User consent"
 msgstr "사용자 동의"
 
-#: src/qml/main.qml:390
+#: src/qml/main.qml:386
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2320,28 +2368,28 @@ msgstr ""
 "홈 서버를 사용하기 전에 사용 조건에 동의해야 합니다. 아래 단추를 클릭하여 읽"
 "으십시오."
 
-#: src/qml/main.qml:395
+#: src/qml/main.qml:391
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/qml/main.qml:422
+#: src/qml/main.qml:418
 #, kde-format
 msgid "Start a chat"
 msgstr "대화 시작"
 
-#: src/qml/main.qml:424
+#: src/qml/main.qml:420
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
 
-#: src/qml/main.qml:450
+#: src/qml/main.qml:446
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:482 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:478 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2711,60 +2759,67 @@ msgstr "책갈피에 대화방 추가"
 msgid "Show locations for this room"
 msgstr "이 대화방에서 위치 표시"
 
-#: src/qml/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:121
+#, fuzzy, kde-format
+#| msgid "Leaving this room."
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "이 대화방을 떠납니다."
+
+#: src/qml/RoomInformation.qml:133
 #, kde-format
 msgid "Members"
 msgstr "구성원"
 
-#: src/qml/RoomInformation.qml:134 src/qml/SpaceHomePage.qml:53
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "사용자 초대"
 
-#: src/qml/RoomInformation.qml:138
+#: src/qml/RoomInformation.qml:152
 #, kde-format
 msgid "Invite user to room"
 msgstr "대화방에 사용자 초대"
 
-#: src/qml/RoomInformation.qml:145
+#: src/qml/RoomInformation.qml:159
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "구성원 %1명"
 
-#: src/qml/RoomInformation.qml:145
+#: src/qml/RoomInformation.qml:159
 #, kde-format
 msgid "No member count"
 msgstr "구성원 집계 없음"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "No friends found"
 msgstr "친구를 찾을 수 없음"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:229
 #, kde-format
 msgid "No rooms found"
 msgstr "대화방을 찾을 수 없음"
 
-#: src/qml/RoomListPage.qml:232
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "친구를 추가하지 않았습니다. 아래를 클릭하여 검색할 수 있습니다."
 
-#: src/qml/RoomListPage.qml:232
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "시작하려면 대화방에 입장하십시오"
 
-#: src/qml/RoomListPage.qml:239
+#: src/qml/RoomListPage.qml:238
 #, kde-format
 msgid "Search in room directory"
 msgstr "대화방 디렉터리에서 검색"
 
-#: src/qml/RoomListPage.qml:256
+#: src/qml/RoomListPage.qml:255
 #, kde-format
 msgid "Search in friend directory"
 msgstr "친구 디렉터리에서 검색"
@@ -2982,22 +3037,30 @@ msgid "Suggested"
 msgstr "제안됨"
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "number of room members"
+#| msgid " members - "
 msgctxt "number of room members"
-msgid " members - "
-msgstr "명 - "
+msgid "%1 member - "
+msgid_plural "%1 members - "
+msgstr[0] "명 - "
 
 #: src/qml/SpaceHierarchyDelegate.qml:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
 msgctxt "number of room members"
-msgid " members"
-msgstr "명"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "구성원 %1명"
 
 #: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add new server"
 msgctxt "@button"
-msgid "Add new child"
-msgstr "새 자식 추가"
+msgid "Add new room"
+msgstr "새 서버 추가"
 
 #: src/qml/SpaceHierarchyDelegate.qml:120
 #, kde-format
@@ -3276,31 +3339,15 @@ msgstr "개인 대화로 초대"
 msgid "Copy link"
 msgstr "링크 복사"
 
-#: src/qml/UserInfo.qml:97
+#: src/qml/UserInfo.qml:106
 #, kde-format
 msgid "Switch User"
 msgstr "사용자 전환"
 
-#: src/qml/UserInfo.qml:147
+#: src/qml/UserInfo.qml:113
 #, kde-format
 msgid "Open Settings"
 msgstr "설정 열기"
-
-#: src/qml/UserInfo.qml:198 src/settings/AccountsPage.qml:102
-#, kde-format
-msgid "Add Account"
-msgstr "계정 추가"
-
-#: src/qml/UserInfo.qml:201
-#, kde-format
-msgid "Log in to an existing account"
-msgstr "기존 계정에 로그인"
-
-#: src/qml/UserInfo.qml:208
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "로그인"
 
 #: src/qml/Username.qml:20
 #, kde-format
@@ -3729,6 +3776,11 @@ msgstr "암호를 변경하는 중 알 수 없는 오류 발생"
 #, kde-format
 msgid "Accounts"
 msgstr "계정"
+
+#: src/settings/AccountsPage.qml:102
+#, kde-format
+msgid "Add Account"
+msgstr "계정 추가"
 
 #: src/settings/AppearanceSettingsPage.qml:19
 #, kde-format
@@ -5008,6 +5060,17 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgctxt "number of room members"
+#~ msgid " members"
+#~ msgstr "명"
+
+#~ msgctxt "@button"
+#~ msgid "Add new child"
+#~ msgstr "새 자식 추가"
+
+#~ msgid "Log in to an existing account"
+#~ msgstr "기존 계정에 로그인"
 
 #~ msgid "Open in New Window"
 #~ msgstr "새 창으로 열기"
