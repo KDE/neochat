@@ -27,6 +27,8 @@ QQC2.ScrollView {
     }
     property bool roomChanging: false
 
+    required property Item page
+
     /**
      * @brief The TimelineModel to use.
      *
@@ -299,14 +301,14 @@ QQC2.ScrollView {
 
         Timer {
             id: markReadIfVisibleTimer
-            running: messageListView.allUnreadVisible() && applicationWindow().active && (root.currentRoom.timelineSize > 0 || root.currentRoom.allHistoryLoaded)
+            running: messageListView.allUnreadVisible() && applicationWindow().active && (root.currentRoom.timelineSize > 0 || root.currentRoom.allHistoryLoaded) && applicationWindow().pageStack.visibleItems.includes(root.page)
             interval: 10000
             onTriggered: root.currentRoom.markAllMessagesAsRead()
 
             function reset() {
                 restart();
                 running = Qt.binding(function () {
-                    return messageListView.allUnreadVisible() && applicationWindow().active && (root.currentRoom.timelineSize > 0 || root.currentRoom.allHistoryLoaded);
+                    return messageListView.allUnreadVisible() && applicationWindow().active && (root.currentRoom.timelineSize > 0 || root.currentRoom.allHistoryLoaded) && applicationWindow().pageStack.visibleItems.includes(root.page);
                 });
             }
         }

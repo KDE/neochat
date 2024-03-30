@@ -120,6 +120,7 @@ Kirigami.Page {
         sourceComponent: TimelineView {
             id: timelineView
             currentRoom: root.currentRoom
+            page: root
             timelineModel: root.timelineModel
             messageFilterModel: root.messageFilterModel
             actionsHandler: root.actionsHandler
