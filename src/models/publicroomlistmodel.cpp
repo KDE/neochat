@@ -124,6 +124,15 @@ void PublicRoomListModel::setShowOnlySpaces(bool showOnlySpaces)
     }
     m_showOnlySpaces = showOnlySpaces;
     Q_EMIT showOnlySpacesChanged();
+
+    nextBatch = QString();
+    attempted = false;
+
+    if (job) {
+        job->abandon();
+        job = nullptr;
+        Q_EMIT searchingChanged();
+    }
 }
 
 void PublicRoomListModel::search(int limit)
@@ -243,6 +252,9 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
 
         return m_connection->room(room.roomId, JoinState::Join) != nullptr;
     }
+    if (role == IsSpaceRole) {
+        return room.roomType == QLatin1String("m.space");
+    }
 
     return {};
 }
@@ -259,6 +271,7 @@ QHash<int, QByteArray> PublicRoomListModel::roleNames() const
     roles[AllowGuestsRole] = "allowGuests";
     roles[WorldReadableRole] = "worldReadable";
     roles[IsJoinedRole] = "isJoined";
+    roles[IsSpaceRole] = "isSpace";
     roles[AliasRole] = "alias";
 
     return roles;

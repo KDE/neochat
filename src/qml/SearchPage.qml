@@ -82,6 +82,13 @@ Kirigami.ScrollablePage {
         searchField.forceActiveFocus();
     }
 
+    /**
+     * @brief Force the search to be updated if the model has a valid search function.
+     */
+    function updateSearch() {
+        searchTimer.restart();
+    }
+
     header: QQC2.Control {
         padding: Kirigami.Units.largeSpacing
 
@@ -119,11 +126,18 @@ Kirigami.ScrollablePage {
             QQC2.Button {
                 id: searchButton
                 icon.name: "search"
+                display: QQC2.Button.IconOnly
+                text: i18nc("@action:button", "Search")
+
                 onClicked: {
                     if (typeof model.search === 'function') {
                         model.search();
                     }
                 }
+
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
             Timer {
                 id: searchTimer

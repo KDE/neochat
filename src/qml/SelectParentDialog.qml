@@ -51,7 +51,8 @@ Kirigami.Dialog {
             onClicked: {
                 let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage.qml'), {
                     connection: root.room.connection,
-                    showOnlySpaces: true
+                    showOnlySpaces: true,
+                    showOnlySpacesButton: false
                 }, {
                     title: i18nc("@title", "Choose Parent Space")
                 });
@@ -135,7 +136,8 @@ Kirigami.Dialog {
             onClicked: {
                 let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage.qml'), {
                     connection: root.room.connection,
-                    showOnlySpaces: true
+                    showOnlySpaces: true,
+                    showOnlySpacesButton: false
                 }, {
                     title: i18nc("@title", "Explore Rooms")
                 });

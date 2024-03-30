@@ -32,7 +32,13 @@ SearchPage {
     /**
      * @brief Whether results should only includes spaces.
      */
-    property bool showOnlySpaces: false
+    property bool showOnlySpaces: spacesOnlyButton.checked
+    onShowOnlySpacesChanged: updateSearch()
+
+    /**
+     * @brief Whetherthe button to toggle the showOnlySpaces state should be shown.
+     */
+    property bool showOnlySpacesButton: true
 
     /**
      * @brief Signal emitted when a room is selected.
@@ -47,9 +53,22 @@ SearchPage {
 
     Component.onCompleted: focusSearch()
 
-    headerTrailing: ServerComboBox {
-        id: serverComboBox
-        connection: root.connection
+    headerTrailing: RowLayout {
+        QQC2.Button {
+            id: spacesOnlyButton
+            icon.name: "globe"
+            display: QQC2.Button.IconOnly
+            checkable: true
+            text: i18nc("@action:button", "Only show spaces")
+
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        ServerComboBox {
+            id: serverComboBox
+            connection: root.connection
+        }
     }
 
     model: PublicRoomListModel {

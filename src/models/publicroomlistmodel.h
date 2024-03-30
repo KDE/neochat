@@ -69,6 +69,7 @@ public:
         AllowGuestsRole, /**< Whether the room allows guest users. */
         WorldReadableRole, /**< Whether the room events can be seen by non-members. */
         IsJoinedRole, /**< Whether the local user has joined the room. */
+        IsSpaceRole, /**< Whether the room is a space. */
     };
 
     explicit PublicRoomListModel(QObject *parent = nullptr);

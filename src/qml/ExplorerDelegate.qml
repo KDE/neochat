@@ -21,6 +21,7 @@ Delegates.RoundedItemDelegate {
     required property string topic
     required property int memberCount
     required property bool isJoined
+    required property bool isSpace
     property bool justJoined: false
 
     /**
@@ -56,13 +57,20 @@ Delegates.RoundedItemDelegate {
             RowLayout {
                 Layout.fillWidth: true
                 Kirigami.Heading {
-                    Layout.fillWidth: true
+                    Layout.fillWidth: !spaceLabel.visible
                     level: 4
                     text: root.displayName
                     font.bold: true
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
+                }
+                QQC2.Label {
+                    id: spaceLabel
+                    Layout.fillWidth: true
+                    visible: root.isSpace
+                    text: i18nc("@info:label A matrix space", "Space")
+                    color: Kirigami.Theme.linkColor
                 }
                 QQC2.Label {
                     visible: root.isJoined || root.justJoined
