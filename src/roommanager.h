@@ -45,8 +45,6 @@ class RoomManager : public QObject, public UriResolverBase
     QML_ELEMENT
     QML_SINGLETON
 
-    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
-
     /**
      * @brief The current open room in NeoChat, if any.
      *
@@ -204,7 +202,9 @@ public:
     bool directChatsActive() const;
     void setDirectChatsActive(bool directChatsActive);
 
-    NeoChatConnection *connection() const;
+    /**
+     * @brief Set the current connection
+     */
     void setConnection(NeoChatConnection *connection);
 
 Q_SIGNALS:

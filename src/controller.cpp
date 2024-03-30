@@ -318,7 +318,7 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
         updateBadgeNotificationCount(m_connection, m_connection->badgeNotificationCount());
     }
 
-    Q_EMIT activeConnectionChanged();
+    Q_EMIT activeConnectionChanged(m_connection);
 }
 
 void Controller::listenForNotifications()

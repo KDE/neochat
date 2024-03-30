@@ -5,6 +5,7 @@
 #include "roommanager.h"
 
 #include "chatbarcache.h"
+#include "controller.h"
 #include "eventhandler.h"
 #include "messagecomponenttype.h"
 #include "models/timelinemodel.h"
@@ -41,6 +42,10 @@ RoomManager::RoomManager(QObject *parent)
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_timelineModel->setRoom(m_currentRoom);
+    });
+
+    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this](NeoChatConnection *connection) {
+        setConnection(connection);
     });
 }
 
@@ -395,11 +400,6 @@ void RoomManager::setChatDocumentHandler(ChatDocumentHandler *handler)
     m_chatDocumentHandler = handler;
     m_chatDocumentHandler->setRoom(m_currentRoom);
     Q_EMIT chatDocumentHandlerChanged();
-}
-
-NeoChatConnection *RoomManager::connection() const
-{
-    return m_connection;
 }
 
 void RoomManager::setConnection(NeoChatConnection *connection)
