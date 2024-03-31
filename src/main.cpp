@@ -230,6 +230,7 @@ int main(int argc, char *argv[])
 
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_settingsPlugin)
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_timelinePlugin)
+    Q_IMPORT_QML_PLUGIN(org_kde_neochat_devtoolsPlugin)
 
     qml_register_types_org_kde_neochat();
     qmlRegisterSingletonInstance("org.kde.neochat.config", 1, 0, "Config", NeoChatConfig::self());

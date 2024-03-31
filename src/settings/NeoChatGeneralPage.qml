@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
+import org.kde.neochat.devtools
 import org.kde.neochat.config
 
 FormCard.FormCardPage {
@@ -218,7 +219,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             visible: Config.developerTools
             text: i18n("Open developer tools")
-            onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'DevtoolsPage.qml'), {
+            onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage.qml'), {
                 connection: root.connection
             }, {
                 title: i18n("Developer Tools")

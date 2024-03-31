@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 import org.kde.neochat.settings
+import org.kde.neochat.devtools
 import org.kde.neochat.config
 
 QQC2.Menu {
@@ -55,7 +56,7 @@ QQC2.Menu {
         text: i18n("Open developer tools")
         icon.name: "tools"
         visible: Config.developerTools
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'DevtoolsPage.qml'), {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage.qml'), {
             connection: root.connection
         }, {
             title: i18nc("@title:window", "Developer Tools"),
