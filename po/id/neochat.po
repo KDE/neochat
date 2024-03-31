@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-30 00:37+0000\n"
+"POT-Creation-Date: 2024-03-31 00:37+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1194,7 +1194,7 @@ msgstr "Lintang: %1, Bujur: %2"
 msgid "Encrypted Message"
 msgstr "Pesan Terenkripsi"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:330
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:282
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1287,7 +1287,7 @@ msgid "Notification settings"
 msgstr "Pengaturan notifikasi"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:460 src/qml/UserInfo.qml:118
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:412 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurasikan"
@@ -1617,7 +1617,7 @@ msgstr "Mati"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
 #: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:78
+#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:81
 #, kde-format
 msgid "Room Settings"
 msgstr "Pengaturan Rsuangan"
@@ -1639,8 +1639,8 @@ msgstr "Tambahkan ke Favorit"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:318
-#: src/qml/SpaceDrawer.qml:320
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:289
+#: src/qml/SpaceDrawer.qml:291
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1724,16 +1724,16 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:244
-#: src/qml/SelectParentDialog.qml:140
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:236
+#: src/qml/SelectParentDialog.qml:142
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Jelajahi Ruangan"
 
-#: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:69
-#: src/qml/SelectParentDialog.qml:105 src/qml/SpaceHierarchyDelegate.qml:91
+#: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:77
+#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:91
 #, kde-format
 msgid "Joined"
 msgstr "Tergabung"
@@ -1920,21 +1920,21 @@ msgid "They don't match"
 msgstr "Mereka tidak cocok"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "Explore rooms"
 msgstr "Jelajahi ruangan"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:206 src/qml/RoomListPage.qml:255
+#: src/qml/RoomListPage.qml:198 src/qml/RoomListPage.qml:247
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:214
-#: src/qml/RoomListPage.qml:259
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:206
+#: src/qml/RoomListPage.qml:251
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -1972,25 +1972,38 @@ msgstr "Buat ruangan dan percakapan"
 msgid "Create New"
 msgstr "Buat space"
 
-#: src/qml/ExploreRoomsPage.qml:46
+#: src/qml/ExplorerDelegate.qml:72
+#, fuzzy, kde-format
+#| msgid "Spaces"
+msgctxt "@info:label A matrix space"
+msgid "Space"
+msgstr "Space"
+
+#: src/qml/ExploreRoomsPage.qml:52
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt "@action:title"
 msgid "Explore Rooms"
 msgstr "Jelajahi Ruangan"
 
-#: src/qml/ExploreRoomsPage.qml:73
+#: src/qml/ExploreRoomsPage.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:92
 #, kde-format
 msgid "Enter a room address"
 msgstr ""
 
-#: src/qml/ExploreRoomsPage.qml:87
+#: src/qml/ExploreRoomsPage.qml:106
 #, fuzzy, kde-format
 #| msgid "Find a room..."
 msgid "Find a room…"
 msgstr "Temukan sebuah ruangan..."
 
-#: src/qml/ExploreRoomsPage.qml:88
+#: src/qml/ExploreRoomsPage.qml:107
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -2414,18 +2427,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Daftar"
 
-#: src/qml/main.qml:364
+#: src/qml/main.qml:316
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikasi Sesi"
 
-#: src/qml/main.qml:381
+#: src/qml/main.qml:333
 #, kde-format
 msgid "User consent"
 msgstr "Persetujuan pengguna"
 
-#: src/qml/main.qml:386
+#: src/qml/main.qml:338
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2434,28 +2447,28 @@ msgstr ""
 "Homeserver Anda membutuhkan Anda untuk menerima syarat dan kondisi sebelum "
 "Anda dapat menggunakannya. Mohon klik tombol di bawah untuk membacanya."
 
-#: src/qml/main.qml:391
+#: src/qml/main.qml:343
 #, kde-format
 msgid "Open"
 msgstr "Buka"
 
-#: src/qml/main.qml:418
+#: src/qml/main.qml:370
 #, kde-format
 msgid "Start a chat"
 msgstr "Mulai sebuah obrolan"
 
-#: src/qml/main.qml:420
+#: src/qml/main.qml:372
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Apakah Anda ingin memulai sebuah obrolan dengan %1?"
 
-#: src/qml/main.qml:446
+#: src/qml/main.qml:398
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:478 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:430 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2547,7 +2560,7 @@ msgstr "Salin Tautan"
 msgid "Event Source"
 msgstr "Sumber Peristiwa"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:80
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -2866,7 +2879,7 @@ msgstr "Meninggalkan ruangan ini."
 msgid "Members"
 msgstr "Anggota"
 
-#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:53
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:56
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
@@ -2890,34 +2903,34 @@ msgstr[1] "%1 Anggota"
 msgid "No member count"
 msgstr "Tidak ada hitungan anggota"
 
-#: src/qml/RoomListPage.qml:229
+#: src/qml/RoomListPage.qml:221
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "No friends found"
 msgstr "Tidak ada ruangan yang ditemukan"
 
-#: src/qml/RoomListPage.qml:229
+#: src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "No rooms found"
 msgstr "Tidak ada ruangan yang ditemukan"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:223
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Bergabung ke beberapa ruangan untuk memulai"
 
-#: src/qml/RoomListPage.qml:238
+#: src/qml/RoomListPage.qml:230
 #, kde-format
 msgid "Search in room directory"
 msgstr "Cari di direktori ruangan"
 
-#: src/qml/RoomListPage.qml:255
+#: src/qml/RoomListPage.qml:247
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgid "Search in friend directory"
@@ -2935,7 +2948,13 @@ msgstr "Versi ruangan"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat sedang luring. Mohon periksa koneksi jaringan Anda."
 
-#: src/qml/RoomPage.qml:246
+#: src/qml/RoomPage.qml:157 src/qml/WelcomePage.qml:47
+#, fuzzy, kde-format
+#| msgid "Welcome to Matrix"
+msgid "Welcome to NeoChat"
+msgstr "Selamat datang di Matrix"
+
+#: src/qml/RoomPage.qml:263
 #, kde-format
 msgid "Message Source"
 msgstr "Sumber Pesan"
@@ -2977,6 +2996,14 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "Luaskan pratinjau"
 
+#: src/qml/SearchPage.qml:130
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search"
+msgctxt "@action:button"
+msgid "Search"
+msgstr "Cari"
+
 #: src/qml/SelectParentDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
@@ -2984,7 +3011,7 @@ msgctxt "@title"
 msgid "Select new official parent"
 msgstr "TIdak ada alias kanonik yang ditetapkan"
 
-#: src/qml/SelectParentDialog.qml:56
+#: src/qml/SelectParentDialog.qml:57
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Create a Space"
@@ -2992,29 +3019,29 @@ msgctxt "@title"
 msgid "Choose Parent Space"
 msgstr "Buat Space"
 
-#: src/qml/SelectParentDialog.qml:157
+#: src/qml/SelectParentDialog.qml:159
 #, fuzzy, kde-format
 #| msgid "Set the children of this space"
 msgid "Set this room as a child of the space %1"
 msgstr "Tetapkan anak dari space ini"
 
-#: src/qml/SelectParentDialog.qml:164
+#: src/qml/SelectParentDialog.qml:166
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
 
-#: src/qml/SelectParentDialog.qml:164
+#: src/qml/SelectParentDialog.qml:166
 #, kde-format
 msgid "The selected room is not a space"
 msgstr ""
 
-#: src/qml/SelectParentDialog.qml:164
+#: src/qml/SelectParentDialog.qml:166
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr ""
 
-#: src/qml/SelectParentDialog.qml:169
+#: src/qml/SelectParentDialog.qml:171
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
 msgid "Make this space the canonical parent"
@@ -3116,31 +3143,31 @@ msgstr "Pembagian gagal"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "URL yang dibagi untuk gambar ini adalah <a href='%1'>%1</a>"
 
-#: src/qml/SpaceDrawer.qml:72
+#: src/qml/SpaceDrawer.qml:60
 #, fuzzy, kde-format
 #| msgid "Mute notifications"
 msgid "View notifications"
 msgstr "Bisukan notifikasi"
 
-#: src/qml/SpaceDrawer.qml:98
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "Home"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:147
+#: src/qml/SpaceDrawer.qml:132
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:269
+#: src/qml/SpaceDrawer.qml:240
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Bergabung"
 
-#: src/qml/SpaceDrawer.qml:311
+#: src/qml/SpaceDrawer.qml:282
 #, fuzzy, kde-format
 #| msgid "Create a Space"
 msgid "Create a space"
@@ -3171,7 +3198,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 anggota"
 msgstr[1] "%1 Anggota"
 
-#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:58
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:61
 #, fuzzy, kde-format
 #| msgid "Add new server"
 msgctxt "@button"
@@ -3197,14 +3224,14 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHomePage.qml:48
+#: src/qml/SpaceHomePage.qml:51
 #, fuzzy, kde-format
 #| msgid "Invite user to room"
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Undang pengguna ke ruangan"
 
-#: src/qml/SpaceHomePage.qml:63
+#: src/qml/SpaceHomePage.qml:66
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -3212,14 +3239,14 @@ msgctxt "@button"
 msgid "Leave the space"
 msgstr "Tinggalkan Space"
 
-#: src/qml/SpaceHomePage.qml:71
+#: src/qml/SpaceHomePage.qml:74
 #, fuzzy, kde-format
 #| msgid "Space Settings"
 msgctxt "@button"
 msgid "Space settings"
 msgstr "Pengaturan Space"
 
-#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
+#: src/qml/SpaceHomePage.qml:164 src/qml/SpaceHomePage.qml:170
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -3281,22 +3308,22 @@ msgid ""
 "conditions:"
 msgstr ""
 
-#: src/qml/TimelineView.qml:205
+#: src/qml/TimelineView.qml:207
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Pergi ke pesan pertama yang belum dibaca"
 
-#: src/qml/TimelineView.qml:228
+#: src/qml/TimelineView.qml:230
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Pergi ke pesan terkini"
 
-#: src/qml/TimelineView.qml:253
+#: src/qml/TimelineView.qml:255
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Seret item ke sini untuk membagikannya"
 
-#: src/qml/TimelineView.qml:260
+#: src/qml/TimelineView.qml:262
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -3686,12 +3713,6 @@ msgstr "Verifikasi sesi dibatalkan karena kesalahan yang tidak diketahui."
 msgid "Welcome"
 msgstr "Selamat datang"
 
-#: src/qml/WelcomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
-msgid "Welcome to NeoChat"
-msgstr "Selamat datang di Matrix"
-
 #: src/qml/WelcomePage.qml:55
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
@@ -3793,27 +3814,27 @@ msgstr "Lanjut"
 msgid "Working"
 msgstr ""
 
-#: src/roommanager.cpp:86
+#: src/roommanager.cpp:88
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Bentuk ID Matrix salah atau ID Matrix kosong"
 
-#: src/roommanager.cpp:86
+#: src/roommanager.cpp:88
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 bukan pengenal Matrix yang benar"
 
-#: src/roommanager.cpp:329
+#: src/roommanager.cpp:260
 #, kde-format
 msgid "Failed to join room"
 msgstr "Gagal bergabung dengan ruangan"
 
-#: src/roommanager.cpp:344
+#: src/roommanager.cpp:275
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Anda meminta untuk bergabung ke '%1'"
 
-#: src/roommanager.cpp:347
+#: src/roommanager.cpp:278
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Gagal meminta bergabung ke ruangan"
