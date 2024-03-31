@@ -9,6 +9,7 @@
 #include "neochatroom.h"
 #include "roomlistmodel.h"
 #include "roommanager.h"
+#include "sortfilterroomlistmodel.h"
 #include "windowcontroller.h"
 
 RemoteImage Runner::serializeImage(const QImage &image)
@@ -28,9 +29,9 @@ RemoteImage Runner::serializeImage(const QImage &image)
 
 Runner::Runner()
     : QObject()
+    , m_sourceModel(new RoomListModel(this))
+    , m_model(new SortFilterRoomListModel(m_sourceModel, this))
 {
-    m_sourceModel = new RoomListModel(this);
-    m_model.setSourceModel(m_sourceModel);
     connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
         m_sourceModel->setConnection(Controller::instance().activeConnection());
     });
@@ -44,13 +45,13 @@ Runner::Runner()
 
 void Runner::setRoomListModel(RoomListModel *roomListModel)
 {
-    m_model.setSourceModel(roomListModel);
+    m_model->setSourceModel(roomListModel);
     Q_EMIT roomListModelChanged();
 }
 
 RoomListModel *Runner::roomListModel() const
 {
-    return dynamic_cast<RoomListModel *>(m_model.sourceModel());
+    return dynamic_cast<RoomListModel *>(m_model->sourceModel());
 }
 
 RemoteActions Runner::Actions()
@@ -60,22 +61,22 @@ RemoteActions Runner::Actions()
 
 RemoteMatches Runner::Match(const QString &searchTerm)
 {
-    m_model.setFilterText(searchTerm);
+    m_model->setFilterText(searchTerm);
 
     RemoteMatches matches;
 
-    for (int i = 0; i < m_model.rowCount(); ++i) {
+    for (int i = 0; i < m_model->rowCount(); ++i) {
         RemoteMatch match;
 
-        const QString name = m_model.data(m_model.index(i, 0), RoomListModel::DisplayNameRole).toString();
+        const QString name = m_model->data(m_model->index(i, 0), RoomListModel::DisplayNameRole).toString();
 
         match.iconName = QStringLiteral("org.kde.neochat");
-        match.id = m_model.data(m_model.index(i, 0), RoomListModel::RoomIdRole).toString();
+        match.id = m_model->data(m_model->index(i, 0), RoomListModel::RoomIdRole).toString();
         match.text = name;
         match.relevance = 1;
-        const RemoteImage remoteImage = serializeImage(m_model.data(m_model.index(i, 0), RoomListModel::AvatarImageRole).value<QImage>());
+        const RemoteImage remoteImage = serializeImage(m_model->data(m_model->index(i, 0), RoomListModel::AvatarImageRole).value<QImage>());
         match.properties.insert(QStringLiteral("icon-data"), QVariant::fromValue(remoteImage));
-        match.properties.insert(QStringLiteral("subtext"), m_model.data(m_model.index(i, 0), RoomListModel::TopicRole).toString());
+        match.properties.insert(QStringLiteral("subtext"), m_model->data(m_model->index(i, 0), RoomListModel::TopicRole).toString());
 
         if (name.compare(searchTerm, Qt::CaseInsensitive) == 0) {
             match.type = ExactMatch;

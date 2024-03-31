@@ -25,14 +25,11 @@ ColumnLayout {
             text: i18n("Room")
             textRole: "escapedDisplayName"
             valueRole: "roomId"
-            displayText: roomListModel.data(roomListModel.index(currentIndex, 0), RoomListModel.DisplayNameRole)
-            model: RoomListModel {
-                id: roomListModel
-                connection: root.connection
-            }
+            displayText: RoomManager.roomListModel.data(RoomManager.roomListModel.index(currentIndex, 0), RoomListModel.DisplayNameRole)
+            model: RoomManager.roomListModel
             currentIndex: 0
-            Component.onCompleted: currentIndex = roomListModel.rowForRoom(root.room)
-            onCurrentValueChanged: root.room = roomListModel.roomByAliasOrId(roomComboBox.currentValue)
+            Component.onCompleted: currentIndex = RoomManager.roomListModel.rowForRoom(root.room)
+            onCurrentValueChanged: root.room = RoomManager.roomListModel.roomByAliasOrId(roomComboBox.currentValue)
         }
         FormCard.FormTextDelegate {
             text: i18n("Room Id: %1", root.room.id)

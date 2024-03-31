@@ -6,6 +6,8 @@
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
+#include "models/roomlistmodel.h"
+
 /**
  * @class SortFilterSpaceListModel
  *
@@ -25,7 +27,7 @@ class SortFilterSpaceListModel : public QSortFilterProxyModel
     Q_PROPERTY(int count READ rowCount NOTIFY countChanged)
 
 public:
-    explicit SortFilterSpaceListModel(QObject *parent = nullptr);
+    explicit SortFilterSpaceListModel(RoomListModel *sourceModel, QObject *parent = nullptr);
 
 Q_SIGNALS:
     void countChanged();

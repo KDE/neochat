@@ -82,7 +82,7 @@ Q_SIGNALS:
     void connectionChanged();
 
 private:
-    QPointer<NeoChatConnection> m_connection = nullptr;
+    QPointer<NeoChatConnection> m_connection;
     QMap<NeoChatRoomType::Types, QList<QPointer<NeoChatRoom>>> m_rooms;
 
     void initializeCategories();

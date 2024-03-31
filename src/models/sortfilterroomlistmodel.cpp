@@ -5,17 +5,20 @@
 
 #include "roomlistmodel.h"
 
-SortFilterRoomListModel::SortFilterRoomListModel(QObject *parent)
+SortFilterRoomListModel::SortFilterRoomListModel(RoomListModel *sourceModel, QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    Q_ASSERT(sourceModel);
+    setSourceModel(sourceModel);
+
     sort(0);
     invalidateFilter();
     connect(this, &SortFilterRoomListModel::filterTextChanged, this, [this]() {
         invalidateFilter();
     });
     connect(this, &SortFilterRoomListModel::sourceModelChanged, this, [this]() {
-        connect(sourceModel(), &QAbstractListModel::rowsInserted, this, &SortFilterRoomListModel::invalidateRowsFilter);
-        connect(sourceModel(), &QAbstractListModel::rowsRemoved, this, &SortFilterRoomListModel::invalidateRowsFilter);
+        connect(this->sourceModel(), &QAbstractListModel::rowsInserted, this, &SortFilterRoomListModel::invalidateRowsFilter);
+        connect(this->sourceModel(), &QAbstractListModel::rowsRemoved, this, &SortFilterRoomListModel::invalidateRowsFilter);
     });
 }
 

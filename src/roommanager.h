@@ -15,6 +15,11 @@
 #include "eventhandler.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messagefiltermodel.h"
+#include "models/roomlistmodel.h"
+#include "models/roomtreemodel.h"
+#include "models/sortfilterroomlistmodel.h"
+#include "models/sortfilterroomtreemodel.h"
+#include "models/sortfilterspacelistmodel.h"
 #include "models/timelinemodel.h"
 
 class NeoChatRoom;
@@ -52,6 +57,39 @@ class RoomManager : public QObject, public UriResolverBase
      * If it is the string "DM", the DMs are shown.
      */
     Q_PROPERTY(QString currentSpace READ currentSpace WRITE setCurrentSpace NOTIFY currentSpaceChanged)
+
+    /**
+     * @brief The RoomListModel that should be used for linear room visualisation.
+     *
+     * The connection the model uses to get the data will be updated by this class
+     * so there is no need to do this manually or replace the model when the connection
+     * changes.
+     */
+    Q_PROPERTY(RoomListModel *roomListModel READ roomListModel CONSTANT)
+
+    /**
+     * @brief The SortFilterRoomListModel that should be used for room visualisation.
+     */
+    Q_PROPERTY(SortFilterRoomListModel *sortFilterRoomListModel READ sortFilterRoomListModel CONSTANT)
+
+    /**
+     * @brief The SortFilterSpaceListModel that should be used for space visualisation.
+     */
+    Q_PROPERTY(SortFilterSpaceListModel *sortFilterSpaceListModel READ sortFilterSpaceListModel CONSTANT)
+
+    /**
+     * @brief The RoomTreeModel that should be used for room visualisation.
+     *
+     * The connection the model uses to get the data will be updated by this class
+     * so there is no need to do this manually or replace the model when the connection
+     * changes.
+     */
+    Q_PROPERTY(RoomTreeModel *roomTreeModel READ roomTreeModel CONSTANT)
+
+    /**
+     * @brief The SortFilterRoomTreeModel that should be used for room visualisation.
+     */
+    Q_PROPERTY(SortFilterRoomTreeModel *sortFilterRoomTreeModel READ sortFilterRoomTreeModel CONSTANT)
 
     /**
      * @brief The TimelineModel that should be used for room message visualisation.
@@ -105,6 +143,12 @@ public:
     }
 
     NeoChatRoom *currentRoom() const;
+
+    RoomListModel *roomListModel() const;
+    SortFilterRoomListModel *sortFilterRoomListModel() const;
+    SortFilterSpaceListModel *sortFilterSpaceListModel() const;
+    RoomTreeModel *roomTreeModel() const;
+    SortFilterRoomTreeModel *sortFilterRoomTreeModel() const;
 
     TimelineModel *timelineModel() const;
     MessageFilterModel *messageFilterModel() const;
@@ -292,6 +336,12 @@ private:
     KConfigGroup m_lastSpaceConfig;
     KConfigGroup m_directChatsConfig;
     QPointer<ChatDocumentHandler> m_chatDocumentHandler;
+
+    RoomListModel *m_roomListModel;
+    SortFilterRoomListModel *m_sortFilterRoomListModel;
+    SortFilterSpaceListModel *m_sortFilterSpaceListModel;
+    RoomTreeModel *m_roomTreeModel;
+    SortFilterRoomTreeModel *m_sortFilterRoomTreeModel;
 
     TimelineModel *m_timelineModel;
     MessageFilterModel *m_messageFilterModel;

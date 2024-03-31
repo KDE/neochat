@@ -203,7 +203,7 @@ Q_SIGNALS:
 private:
     RemoteImage serializeImage(const QImage &image);
 
-    SortFilterRoomListModel m_model;
-    RoomListModel *m_sourceModel;
+    QPointer<RoomListModel> m_sourceModel;
+    QPointer<SortFilterRoomListModel> m_model;
     Runner();
 };

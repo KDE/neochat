@@ -6,6 +6,8 @@
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
+#include "models/roomlistmodel.h"
+
 /**
  * @class SortFilterRoomListModel
  *
@@ -36,7 +38,7 @@ class SortFilterRoomListModel : public QSortFilterProxyModel
     Q_PROPERTY(QString filterText READ filterText READ filterText WRITE setFilterText NOTIFY filterTextChanged)
 
 public:
-    explicit SortFilterRoomListModel(QObject *parent = nullptr);
+    explicit SortFilterRoomListModel(RoomListModel *sourceModel, QObject *parent = nullptr);
 
     void setFilterText(const QString &text);
     [[nodiscard]] QString filterText() const;

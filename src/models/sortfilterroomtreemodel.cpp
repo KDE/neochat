@@ -10,9 +10,12 @@
 #include "roomtreemodel.h"
 #include "spacehierarchycache.h"
 
-SortFilterRoomTreeModel::SortFilterRoomTreeModel(QObject *parent)
+SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    Q_ASSERT(sourceModel);
+    setSourceModel(sourceModel);
+
     setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
     connect(NeoChatConfig::self(), &NeoChatConfig::SortOrderChanged, this, [this]() {
         setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
@@ -24,9 +27,9 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(QObject *parent)
     invalidateFilter();
     connect(this, &SortFilterRoomTreeModel::filterTextChanged, this, &SortFilterRoomTreeModel::invalidateFilter);
     connect(this, &SortFilterRoomTreeModel::sourceModelChanged, this, [this]() {
-        sourceModel()->disconnect(this);
-        connect(sourceModel(), &QAbstractItemModel::rowsInserted, this, &SortFilterRoomTreeModel::invalidateFilter);
-        connect(sourceModel(), &QAbstractItemModel::rowsRemoved, this, &SortFilterRoomTreeModel::invalidateFilter);
+        this->sourceModel()->disconnect(this);
+        connect(this->sourceModel(), &QAbstractItemModel::rowsInserted, this, &SortFilterRoomTreeModel::invalidateFilter);
+        connect(this->sourceModel(), &QAbstractItemModel::rowsRemoved, this, &SortFilterRoomTreeModel::invalidateFilter);
     });
 
     connect(NeoChatConfig::self(), &NeoChatConfig::CollapsedChanged, this, &SortFilterRoomTreeModel::invalidateFilter);

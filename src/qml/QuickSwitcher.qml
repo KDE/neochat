@@ -66,6 +66,7 @@ QQC2.Dialog {
             root.close();
         }
         focusSequence: ""
+        onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
     }
 
     QQC2.ScrollView {
@@ -81,13 +82,7 @@ QQC2.Dialog {
             highlightMoveDuration: 200
             Keys.forwardTo: searchField
             keyNavigationEnabled: true
-            model: SortFilterRoomListModel {
-                filterText: searchField.text
-                sourceModel: RoomListModel {
-                    id: roomListModel
-                    connection: root.connection
-                }
-            }
+            model: RoomManager.sortFilterRoomListModel
 
             delegate: RoomDelegate {
                 connection: root.connection

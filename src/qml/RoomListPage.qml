@@ -29,10 +29,6 @@ Kirigami.Page {
 
     required property NeoChatConnection connection
 
-    readonly property RoomTreeModel roomTreeModel: RoomTreeModel {
-        connection: root.connection
-    }
-
     readonly property bool collapsed: Config.collapsed
 
     onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
@@ -41,7 +37,7 @@ Kirigami.Page {
 
     onCollapsedChanged: {
         if (collapsed) {
-            sortFilterRoomTreeModel.filterText = "";
+            RoomManager.sortFilterRoomTreeModel.filterText = "";
         }
     }
 
@@ -107,8 +103,6 @@ Kirigami.Page {
             Layout.fillHeight: true
 
             connection: root.connection
-
-            onSpacesUpdated: sortFilterRoomTreeModel.invalidate()
         }
 
         Kirigami.Separator {
@@ -136,15 +130,7 @@ Kirigami.Page {
                 clip: true
                 reuseItems: false
 
-                model: SortFilterRoomTreeModel {
-                    id: sortFilterRoomTreeModel
-
-                    sourceModel: root.roomTreeModel
-                    activeSpaceId: RoomManager.currentSpace
-                    mode: RoomManager.currentSpace === "DM" ? SortFilterRoomTreeModel.DirectChats : SortFilterRoomTreeModel.Rooms
-                    onRowsInserted: (index, first, last) => treeView.expandTo(index)
-                    onDataChanged: treeView.expandRecursively()
-                }
+                model: RoomManager.sortFilterRoomTreeModel
 
                 selectionModel: ItemSelectionModel {}
 
@@ -217,7 +203,7 @@ Kirigami.Page {
         anchors.horizontalCenterOffset: (spaceDrawer.width + 1) / 2
         width: scrollView.width - Kirigami.Units.largeSpacing * 4
         visible: treeView.rows == 0
-        text: if (sortFilterRoomTreeModel.filterText.length > 0) {
+        text: if (RoomManager.sortFilterRoomTreeModel.filterText.length > 0) {
             return spaceDrawer.showDirectChats ? i18n("No friends found") : i18n("No rooms found");
         } else {
             return spaceDrawer.showDirectChats ? i18n("You haven't added any of your friends yet, click below to search for them.") : i18n("Join some rooms to get started");
@@ -226,12 +212,12 @@ Kirigami.Page {
 
         Kirigami.Action {
             id: exploreRoomAction
-            icon.name: sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
-            text: sortFilterRoomTreeModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
+            icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
+            text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
             onTriggered: {
                 let dialog = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage.qml'), {
                     connection: root.connection,
-                    keyword: sortFilterRoomTreeModel.filterText
+                    keyword: RoomManager.sortFilterRoomTreeModel.filterText
                 }, {
                     title: i18nc("@title", "Explore Rooms")
                 });
@@ -243,8 +229,8 @@ Kirigami.Page {
 
         Kirigami.Action {
             id: userSearchAction
-            icon.name: sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
-            text: sortFilterRoomTreeModel.filterText.length > 0 ? i18n("Search in friend directory") : i18n("Find your friends")
+            icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
+            text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18n("Search in friend directory") : i18n("Find your friends")
             onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage.qml'), {
                 connection: root.connection
             }, {
@@ -325,7 +311,7 @@ Kirigami.Page {
             connection: root.connection
 
             onTextChanged: newText => {
-                sortFilterRoomTreeModel.filterText = newText;
+                RoomManager.sortFilterRoomTreeModel.filterText = newText;
                 treeView.expandRecursively();
             }
         }
@@ -337,7 +323,7 @@ Kirigami.Page {
             connection: root.connection
 
             onTextChanged: newText => {
-                sortFilterRoomTreeModel.filterText = newText;
+                RoomManager.sortFilterRoomTreeModel.filterText = newText;
             }
         }
     }

@@ -5,22 +5,21 @@
 
 #include "roomlistmodel.h"
 
-SortFilterSpaceListModel::SortFilterSpaceListModel(QObject *parent)
+SortFilterSpaceListModel::SortFilterSpaceListModel(RoomListModel *sourceModel, QObject *parent)
     : QSortFilterProxyModel{parent}
 {
-    setSortRole(RoomListModel::RoomIdRole);
-    sort(0);
-    invalidateFilter();
-    connect(this, &QAbstractProxyModel::sourceModelChanged, this, [this]() {
-        connect(sourceModel(), &QAbstractListModel::dataChanged, this, [this](const QModelIndex &, const QModelIndex &, QList<int> roles) {
-            if (roles.contains(RoomListModel::IsChildSpaceRole)) {
-                invalidate();
-            }
-            countChanged();
-        });
-        invalidate();
+    Q_ASSERT(sourceModel);
+    setSourceModel(sourceModel);
+
+    connect(this->sourceModel(), &QAbstractListModel::dataChanged, this, [this](const QModelIndex &, const QModelIndex &, QList<int> roles) {
+        if (roles.contains(RoomListModel::IsChildSpaceRole)) {
+            invalidate();
+        }
         Q_EMIT countChanged();
     });
+
+    setSortRole(RoomListModel::RoomIdRole);
+    sort(0);
 }
 
 bool SortFilterSpaceListModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const

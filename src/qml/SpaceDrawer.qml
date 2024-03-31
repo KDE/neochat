@@ -21,8 +21,6 @@ QQC2.Control {
     topPadding: 0
     bottomPadding: 0
 
-    signal spacesUpdated
-
     contentItem: Loader {
         id: sidebarColumn
         z: 0
@@ -169,12 +167,7 @@ QQC2.Control {
                     }
 
                     Repeater {
-                        model: SortFilterSpaceListModel {
-                            sourceModel: RoomListModel {
-                                connection: root.connection
-                            }
-                            onLayoutChanged: root.spacesUpdated()
-                        }
+                        model: RoomManager.sortFilterSpaceListModel
 
                         delegate: AvatarTabButton {
                             id: spaceDelegate
@@ -194,7 +187,6 @@ QQC2.Control {
                             onSelected: {
                                 RoomManager.resolveResource(spaceDelegate.roomId);
                                 RoomManager.currentSpace = spaceDelegate.roomId;
-                                root.selectionChanged();
                             }
                             checked: RoomManager.currentSpace === roomId
                             onContextMenuRequested: root.createContextMenu(currentRoom)

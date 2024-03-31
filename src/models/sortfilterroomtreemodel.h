@@ -62,7 +62,7 @@ public:
     };
     Q_ENUM(Mode)
 
-    explicit SortFilterRoomTreeModel(QObject *parent = nullptr);
+    explicit SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QObject *parent = nullptr);
 
     void setRoomSortOrder(RoomSortOrder sortOrder);
 

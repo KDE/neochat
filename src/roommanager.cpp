@@ -29,6 +29,11 @@
 RoomManager::RoomManager(QObject *parent)
     : QObject(parent)
     , m_config(KSharedConfig::openStateConfig())
+    , m_roomListModel(new RoomListModel(this))
+    , m_sortFilterRoomListModel(new SortFilterRoomListModel(m_roomListModel, this))
+    , m_sortFilterSpaceListModel(new SortFilterSpaceListModel(m_roomListModel, this))
+    , m_roomTreeModel(new RoomTreeModel(this))
+    , m_sortFilterRoomTreeModel(new SortFilterRoomTreeModel(m_roomTreeModel, this))
     , m_timelineModel(new TimelineModel(this))
     , m_messageFilterModel(new MessageFilterModel(this, m_timelineModel))
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
@@ -44,6 +49,11 @@ RoomManager::RoomManager(QObject *parent)
     connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this](NeoChatConnection *connection) {
         setConnection(connection);
     });
+    connect(this, &RoomManager::connectionChanged, this, [this]() {
+        m_roomListModel->setConnection(m_connection);
+        m_roomTreeModel->setConnection(m_connection);
+    });
+    connect(m_sortFilterSpaceListModel, &SortFilterSpaceListModel::layoutChanged, m_sortFilterRoomTreeModel, &SortFilterRoomTreeModel::invalidate);
 }
 
 RoomManager::~RoomManager()
@@ -59,6 +69,31 @@ RoomManager &RoomManager::instance()
 NeoChatRoom *RoomManager::currentRoom() const
 {
     return m_currentRoom;
+}
+
+RoomListModel *RoomManager::roomListModel() const
+{
+    return m_roomListModel;
+}
+
+SortFilterRoomListModel *RoomManager::sortFilterRoomListModel() const
+{
+    return m_sortFilterRoomListModel;
+}
+
+SortFilterSpaceListModel *RoomManager::sortFilterSpaceListModel() const
+{
+    return m_sortFilterSpaceListModel;
+}
+
+RoomTreeModel *RoomManager::roomTreeModel() const
+{
+    return m_roomTreeModel;
+}
+
+SortFilterRoomTreeModel *RoomManager::sortFilterRoomTreeModel() const
+{
+    return m_sortFilterRoomTreeModel;
 }
 
 TimelineModel *RoomManager::timelineModel() const
@@ -327,6 +362,11 @@ void RoomManager::setConnection(NeoChatConnection *connection)
 void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
 {
     m_currentSpaceId = spaceId;
+
+    // This need to happen before the signal so TreeView.expandRecursively() can work nicely.
+    m_sortFilterRoomTreeModel->setActiveSpaceId(m_currentSpaceId);
+    m_sortFilterRoomTreeModel->setMode(m_currentSpaceId == QLatin1String("DM") ? SortFilterRoomTreeModel::DirectChats : SortFilterRoomTreeModel::Rooms);
+
     Q_EMIT currentSpaceChanged();
     m_lastSpaceConfig.writeEntry(m_connection->userId(), spaceId);
 

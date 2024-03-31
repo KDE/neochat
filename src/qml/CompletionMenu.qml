@@ -25,13 +25,8 @@ QQC2.Popup {
         root.open();
     }
 
-    RoomListModel {
-        id: roomListModel
-        connection: root.connection
-    }
-
     Component.onCompleted: {
-        chatDocumentHandler.completionModel.roomListModel = roomListModel;
+        chatDocumentHandler.completionModel.roomListModel = RoomManager.roomListModel;
     }
 
     function incrementIndex() {
