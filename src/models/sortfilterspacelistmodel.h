@@ -20,6 +20,7 @@ class SortFilterSpaceListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     QML_ELEMENT
+    QML_UNCREATABLE("")
 
     /**
      * @brief The number of spaces in the model.

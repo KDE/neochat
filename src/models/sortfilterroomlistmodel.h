@@ -31,6 +31,7 @@ class SortFilterRoomListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     QML_ELEMENT
+    QML_UNCREATABLE("")
 
     /**
      * @brief The text to use to filter room names.
