@@ -11,6 +11,7 @@
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
+#include "urlhelper.h"
 
 #include <KLocalizedString>
 #include <QDesktopServices>
@@ -121,6 +122,11 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
     Uri uri{idOrUri};
     if (!uri.isValid()) {
         Q_EMIT warning(i18n("Malformed or empty Matrix id"), i18n("%1 is not a correct Matrix identifier", idOrUri));
+        return;
+    }
+
+    if (uri.type() == Uri::NonMatrix && action == "qr"_ls) {
+        Q_EMIT externalUrl(uri.toUrl());
         return;
     }
 
@@ -325,7 +331,7 @@ void RoomManager::knockRoom(Quotient::Connection *account, const QString &roomAl
 
 bool RoomManager::visitNonMatrix(const QUrl &url)
 {
-    Q_EMIT externalUrl(url);
+    UrlHelper().openUrl(url);
     return true;
 }
 
