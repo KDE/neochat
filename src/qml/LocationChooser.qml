@@ -50,7 +50,7 @@ Components.AbstractMaximizeComponent {
             longitude: root.location.longitude
             isLive: false
             heading: NaN
-            asset: null
+            asset: ""
             author: null
         }
 
