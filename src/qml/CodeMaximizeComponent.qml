@@ -1,16 +1,17 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
-// SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+// SPDX-License-Identifier: LGPL-2.0-or-later
 
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
+import org.kde.kirigamiaddons.labs.components as Components
 import org.kde.kirigami as Kirigami
 import org.kde.syntaxhighlighting
 
 import org.kde.neochat
 
-QQC2.Control {
+Components.AbstractMaximizeComponent {
     id: root
 
     /**
@@ -29,51 +30,63 @@ QQC2.Control {
      *
      * @sa Quotient::User
      */
-    required property var author
+    property var author
 
     /**
      * @brief The timestamp of the message.
      */
-    required property var time
+    property var time
 
     /**
-     * @brief The display text of the message.
+     * @brief The code text to show.
      */
-    required property string display
+    property string codeText
 
     /**
-     * @brief The attributes of the component.
+     * @brief The code language, if any.
      */
-    required property var componentAttributes
+    property string language
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
+    actions: [
+        Kirigami.Action {
+            text: i18nc("@action", "Copy to clipboard")
+            icon.name: "edit-copy"
+            onTriggered: Clipboard.saveText(root.codeText)
+        }
+    ]
 
-    /**
-     * @brief The user selected text has changed.
-     */
-    signal selectedTextChanged(string selectedText)
+    leading: RowLayout {
+        Components.Avatar {
+            id: userAvatar
+            implicitWidth: Kirigami.Units.iconSizes.medium
+            implicitHeight: Kirigami.Units.iconSizes.medium
 
-    /**
-     * @brief Request a context menu be show for the message.
-     */
-    signal showMessageMenu
+            name: root.author.name ?? root.author.displayName
+            source: root.author.avatarSource
+            color: root.author.color
+        }
+        ColumnLayout {
+            spacing: 0
+            QQC2.Label {
+                id: userLabel
 
-    Layout.fillWidth: true
-    Layout.fillHeight: true
-    Layout.maximumWidth: root.maxContentWidth
-    Layout.maximumHeight: Kirigami.Units.gridUnit * 20
+                text: root.author.name ?? root.author.displayName
+                color: root.author.color
+                font.weight: Font.Bold
+                elide: Text.ElideRight
+            }
+            QQC2.Label {
+                id: dateTimeLabel
+                text: root.time.toLocaleString(Qt.locale(), Locale.ShortFormat)
+                color: Kirigami.Theme.disabledTextColor
+                elide: Text.ElideRight
+            }
+        }
+    }
 
-    topPadding: 0
-    bottomPadding: 0
-    leftPadding: 0
-    rightPadding: 0
-
-    contentItem: QQC2.ScrollView {
+    content: QQC2.ScrollView {
         id: codeScrollView
-        contentWidth: root.maxContentWidth
+        contentWidth: root.width
 
         // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
         QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
@@ -84,7 +97,7 @@ QQC2.Control {
             bottomPadding: Kirigami.Units.smallSpacing
             leftPadding: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing * 2
 
-            text: root.display
+            text: root.codeText
             readOnly: true
             textFormat: TextEdit.PlainText
             wrapMode: TextEdit.Wrap
@@ -97,10 +110,8 @@ QQC2.Control {
             onWidthChanged: lineModel.resetModel()
             onHeightChanged: lineModel.resetModel()
 
-            onSelectedTextChanged: root.selectedTextChanged(selectedText)
-
             SyntaxHighlighter {
-                property string definitionName: Repository.definitionForName(root.componentAttributes.class).name
+                property string definitionName: Repository.definitionForName(root.language).name
                 textEdit: definitionName == "None" ? null : codeText
                 definition: definitionName
             }
@@ -108,7 +119,7 @@ QQC2.Control {
                 id: lineNumberColumn
                 anchors {
                     top: codeText.top
-                    topMargin: codeText.topPadding
+                    topMargin: codeText.topPadding + 1
                     left: codeText.left
                     leftMargin: Kirigami.Units.smallSpacing
                 }
@@ -133,52 +144,26 @@ QQC2.Control {
                     }
                 }
             }
-
+            Kirigami.Separator {
+                anchors {
+                    top: parent.top
+                    bottom: parent.bottom
+                    left: parent.left
+                    leftMargin: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing
+                }
+            }
             TapHandler {
                 acceptedButtons: Qt.LeftButton
-                onTapped: RoomManager.maximizeCode(root.author, root.time, root.display, root.componentAttributes.class)
-                onLongPressed: root.showMessageMenu()
+                onTapped: root.close()
             }
 
             background: null
         }
-    }
 
-    Kirigami.Separator {
-        anchors {
-            top: root.top
-            bottom: root.bottom
-            left: root.left
-            leftMargin: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing
+        background: Rectangle {
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            Kirigami.Theme.inherit: false
+            color: Kirigami.Theme.backgroundColor
         }
-    }
-
-    QQC2.Button {
-        anchors {
-            top: parent.top
-            topMargin: Kirigami.Units.smallSpacing
-            right: parent.right
-            rightMargin: (codeScrollView.QQC2.ScrollBar.vertical.visible ? codeScrollView.QQC2.ScrollBar.vertical.width : 0) + Kirigami.Units.smallSpacing
-        }
-        visible: root.hovered
-        icon.name: "edit-copy"
-        text: i18n("Copy to clipboard")
-        display: QQC2.AbstractButton.IconOnly
-
-        onClicked: Clipboard.saveText(root.display);
-
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    }
-
-    background: Rectangle {
-        color: Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.smallSpacing
-        border {
-            width: root.hovered ? 1 : 0
-            color: Kirigami.Theme.highlightColor
-        }
-
     }
 }

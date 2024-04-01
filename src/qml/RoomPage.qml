@@ -298,6 +298,15 @@ Kirigami.Page {
             });
             popup.open();
         }
+
+        function onShowMaximizedCode(author, time, codeText, language) {
+            let popup = Qt.createComponent('org.kde.neochat', 'CodeMaximizeComponent.qml').createObject(QQC2.Overlay.overlay, {
+                author: author,
+                time: time,
+                codeText: codeText,
+                language: language
+            }).open();
+        }
     }
 
     Component {

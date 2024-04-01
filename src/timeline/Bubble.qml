@@ -154,6 +154,7 @@ QQC2.Control {
             delegate: MessageComponentChooser {
                 room: root.room
                 index: root.index
+                time: root.time
                 actionsHandler: root.actionsHandler
                 timeline: root.timeline
                 maxContentWidth: root.maxContentWidth

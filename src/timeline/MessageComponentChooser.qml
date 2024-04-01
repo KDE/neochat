@@ -23,6 +23,11 @@ DelegateChooser {
     required property var index
 
     /**
+     * @brief The timestamp of the message.
+     */
+    required property var time
+
+    /**
      * @brief The ActionsHandler object to use.
      *
      * This is expected to have the correct room set otherwise messages will be sent
@@ -89,6 +94,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageComponentType.Code
         delegate: CodeComponent {
+            time: root.time
             maxContentWidth: root.maxContentWidth
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);

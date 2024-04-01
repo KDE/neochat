@@ -158,6 +158,14 @@ void RoomManager::maximizeMedia(int index)
     Q_EMIT showMaximizedMedia(index);
 }
 
+void RoomManager::maximizeCode(const QVariantMap &author, const QDateTime &time, const QString &codeText, const QString &language)
+{
+    if (codeText.isEmpty()) {
+        return;
+    }
+    Q_EMIT showMaximizedCode(author, time, codeText, language);
+}
+
 void RoomManager::requestFullScreenClose()
 {
     Q_EMIT closeFullScreen();

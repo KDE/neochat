@@ -203,6 +203,8 @@ public:
      */
     Q_INVOKABLE void maximizeMedia(int index);
 
+    Q_INVOKABLE void maximizeCode(const QVariantMap &author, const QDateTime &time, const QString &codeText, const QString &language);
+
     /**
      * @brief Request that any full screen overlay currently open closes.
      */
@@ -263,6 +265,11 @@ Q_SIGNALS:
      *        of -1 opens a the default item.
      */
     void showMaximizedMedia(int index);
+
+    /**
+     * @brief Request a block of code is shown maximized.
+     */
+    void showMaximizedCode(const QVariantMap &author, const QDateTime &time, const QString &codeText, const QString &language);
 
     /**
      * @brief Request that any full screen overlay closes.
