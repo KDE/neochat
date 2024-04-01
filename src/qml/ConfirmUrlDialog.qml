@@ -14,11 +14,11 @@ Kirigami.Dialog {
     width: Kirigami.Units.gridUnit * 24
     height: Kirigami.Units.gridUnit * 8
 
-    title: i18nc("@title", "Open Url")
-    standardButtons: Kirigami.Dialog.Yes | Kirigami.Dialog.No
+    title: i18nc("@title", "Open URL")
+    standardButtons: QQC2.DialogButtonBox.Open | QQC2.DialogButtonBox.Cancel
 
     contentItem: QQC2.Label {
-        text: i18nc("Do you want to open <link>", "Do you want to open <b>%1</b>?", root.link)
+        text: xi18nc("@info", "Do you want to open <link>%1</link>?", root.link)
         wrapMode: QQC2.Label.Wrap
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignVCenter
