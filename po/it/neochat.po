@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-31 00:37+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2024-03-25 09:36+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1604,8 +1604,8 @@ msgstr "Aggiungi ai preferiti"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:289
-#: src/qml/SpaceDrawer.qml:291
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:281
+#: src/qml/SpaceDrawer.qml:283
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1681,7 +1681,7 @@ msgstr "Scegli la stanza"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:236
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:222
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -1880,21 +1880,21 @@ msgid "They don't match"
 msgstr "Non corrispondono"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:216
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esplora le stanze"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:198 src/qml/RoomListPage.qml:247
+#: src/qml/RoomListPage.qml:184 src/qml/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr "Trova i tuoi amici"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:206
-#: src/qml/RoomListPage.qml:251
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:192
+#: src/qml/RoomListPage.qml:237
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -1999,7 +1999,7 @@ msgstr "Copia"
 msgid "View Location"
 msgstr "Visualizza posizione"
 
-#: src/qml/FullScreenMap.qml:68
+#: src/qml/FullScreenMap.qml:70
 #, kde-format
 msgid "Close"
 msgstr "Chiudi"
@@ -2315,7 +2315,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Posizioni"
 
-#: src/qml/LocationsPage.qml:51
+#: src/qml/LocationsPage.qml:56
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "Non ci sono posizioni condivise in questa stanza."
@@ -2491,13 +2491,13 @@ msgstr "Cambia utente"
 msgid "Copy Link"
 msgstr "Copia collegamento"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
-#: src/qml/RoomData.qml:83
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:52
+#: src/qml/RoomData.qml:80
 #, kde-format
 msgid "Event Source"
 msgstr "Sorgente dell'evento"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2681,22 +2681,22 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Scegli stanza"
 
-#: src/qml/RoomData.qml:38
+#: src/qml/RoomData.qml:35
 #, kde-format
 msgid "Room Id: %1"
 msgstr "ID stanza: %1"
 
-#: src/qml/RoomData.qml:42
+#: src/qml/RoomData.qml:39
 #, kde-format
 msgid "Room Account Data"
 msgstr "Dati account della stanza"
 
-#: src/qml/RoomData.qml:63
+#: src/qml/RoomData.qml:60
 #, kde-format
 msgid "Room State"
 msgstr "Stato della stanza"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:74
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -2704,7 +2704,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 evento di questo tipo"
 msgstr[1] "%1 eventi di questo tipo"
 
-#: src/qml/RoomData.qml:91
+#: src/qml/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -2818,17 +2818,17 @@ msgstr[1] "%1 membri"
 msgid "No member count"
 msgstr "Nessun conteggio dei membri"
 
-#: src/qml/RoomListPage.qml:221
+#: src/qml/RoomListPage.qml:207
 #, kde-format
 msgid "No friends found"
 msgstr "Nessun amico trovato"
 
-#: src/qml/RoomListPage.qml:221
+#: src/qml/RoomListPage.qml:207
 #, kde-format
 msgid "No rooms found"
 msgstr "Nessuna stanza trovata"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -2836,17 +2836,17 @@ msgstr ""
 "Non hai ancora aggiunto nessuno dei tuoi amici, fai clic qui sotto per "
 "cercarli."
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Entra in qualche stanza per iniziare"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:216
 #, kde-format
 msgid "Search in room directory"
 msgstr "Cerca nella cartella delle stanze"
 
-#: src/qml/RoomListPage.qml:247
+#: src/qml/RoomListPage.qml:233
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Cerca nella cartella degli amici"
@@ -3045,29 +3045,29 @@ msgstr "Condivisione non riuscita"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "URL condiviso per l'immagine è <a href='%1'>%1</a>"
 
-#: src/qml/SpaceDrawer.qml:60
+#: src/qml/SpaceDrawer.qml:58
 #, kde-format
 msgid "View notifications"
 msgstr "Visualizza le notifiche"
 
-#: src/qml/SpaceDrawer.qml:86
+#: src/qml/SpaceDrawer.qml:84
 #, kde-format
 msgid "Home"
 msgstr "Home"
 
-#: src/qml/SpaceDrawer.qml:132
+#: src/qml/SpaceDrawer.qml:130
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Amici"
 
-#: src/qml/SpaceDrawer.qml:240
+#: src/qml/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Entra in %1"
 
-#: src/qml/SpaceDrawer.qml:282
+#: src/qml/SpaceDrawer.qml:274
 #, kde-format
 msgid "Create a space"
 msgstr "Crea uno spazio"
@@ -3703,27 +3703,27 @@ msgstr "Continua"
 msgid "Working"
 msgstr "Attivo"
 
-#: src/roommanager.cpp:88
+#: src/roommanager.cpp:123
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "ID Matrix non valido o vuoto"
 
-#: src/roommanager.cpp:88
+#: src/roommanager.cpp:123
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 non è un identificatore Matrix corretto"
 
-#: src/roommanager.cpp:260
+#: src/roommanager.cpp:295
 #, kde-format
 msgid "Failed to join room"
 msgstr "Accesso alla stanza non riuscito"
 
-#: src/roommanager.cpp:275
+#: src/roommanager.cpp:310
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Hai chiesto di unirti a «%1»"
 
-#: src/roommanager.cpp:278
+#: src/roommanager.cpp:313
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Impossibile richiedere l'accesso alla stanza"

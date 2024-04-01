@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-31 00:37+0000\n"
-"PO-Revision-Date: 2024-03-30 14:03+0300\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"PO-Revision-Date: 2024-03-31 06:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1590,8 +1590,8 @@ msgstr "Sık Kullanılanlara Ekle"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:289
-#: src/qml/SpaceDrawer.qml:291
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:281
+#: src/qml/SpaceDrawer.qml:283
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1667,7 +1667,7 @@ msgstr "Oda seç"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:236
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:222
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -1862,21 +1862,21 @@ msgid "They don't match"
 msgstr "Eşleşmiyorlar"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:216
 #, kde-format
 msgid "Explore rooms"
 msgstr "Odaları Keşfet"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:198 src/qml/RoomListPage.qml:247
+#: src/qml/RoomListPage.qml:184 src/qml/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr "Arkadaşlarını bul"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:206
-#: src/qml/RoomListPage.qml:251
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:192
+#: src/qml/RoomListPage.qml:237
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -1914,8 +1914,7 @@ msgid "Create New"
 msgstr "Yeni Oluştur"
 
 #: src/qml/ExplorerDelegate.qml:72
-#, fuzzy, kde-format
-#| msgid "Space"
+#, kde-format
 msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr "Alan"
@@ -1930,7 +1929,7 @@ msgstr "Odaları Keşfet"
 #, kde-format
 msgctxt "@action:button"
 msgid "Only show spaces"
-msgstr ""
+msgstr "Yalnızca Alanları Göster"
 
 #: src/qml/ExploreRoomsPage.qml:92
 #, kde-format
@@ -1981,7 +1980,7 @@ msgstr "Kopyala"
 msgid "View Location"
 msgstr "Konumu Görüntüle"
 
-#: src/qml/FullScreenMap.qml:68
+#: src/qml/FullScreenMap.qml:70
 #, kde-format
 msgid "Close"
 msgstr "Kapat"
@@ -2293,7 +2292,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Konumlar"
 
-#: src/qml/LocationsPage.qml:51
+#: src/qml/LocationsPage.qml:56
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "Bu odada paylaşılmış bir konum yok."
@@ -2468,13 +2467,13 @@ msgstr "Kullanıcıyı Göster"
 msgid "Copy Link"
 msgstr "Bağlantıyı Kopyala"
 
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:55
-#: src/qml/RoomData.qml:83
+#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:52
+#: src/qml/RoomData.qml:80
 #, kde-format
 msgid "Event Source"
 msgstr "Olay Kaynağı"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2656,22 +2655,22 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Oda Seç"
 
-#: src/qml/RoomData.qml:38
+#: src/qml/RoomData.qml:35
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Oda kimliği: %1"
 
-#: src/qml/RoomData.qml:42
+#: src/qml/RoomData.qml:39
 #, kde-format
 msgid "Room Account Data"
 msgstr "Oda Hesabı Bilgisi"
 
-#: src/qml/RoomData.qml:63
+#: src/qml/RoomData.qml:60
 #, kde-format
 msgid "Room State"
 msgstr "Oda Durumu"
 
-#: src/qml/RoomData.qml:77
+#: src/qml/RoomData.qml:74
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -2679,7 +2678,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "bu türden %1 olay"
 msgstr[1] "bu türden %1 olay"
 
-#: src/qml/RoomData.qml:91
+#: src/qml/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -2792,17 +2791,17 @@ msgstr[1] "%1 üye"
 msgid "No member count"
 msgstr "Üye sayısı yok"
 
-#: src/qml/RoomListPage.qml:221
+#: src/qml/RoomListPage.qml:207
 #, kde-format
 msgid "No friends found"
 msgstr "Arkadaş bulunamadı"
 
-#: src/qml/RoomListPage.qml:221
+#: src/qml/RoomListPage.qml:207
 #, kde-format
 msgid "No rooms found"
 msgstr "Oda bulunamadı"
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -2810,17 +2809,17 @@ msgstr ""
 "Henüz hiçbir arkadaşınızı eklemediniz; onları aramak için aşağıdaki düğmeye "
 "tıklayın."
 
-#: src/qml/RoomListPage.qml:223
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Başlamak için odalara katılın"
 
-#: src/qml/RoomListPage.qml:230
+#: src/qml/RoomListPage.qml:216
 #, kde-format
 msgid "Search in room directory"
 msgstr "Oda Dizininde Ara"
 
-#: src/qml/RoomListPage.qml:247
+#: src/qml/RoomListPage.qml:233
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Arkadaş Dizininde Ara"
@@ -2880,8 +2879,7 @@ msgid "Expand %1"
 msgstr "Genişlet: %1"
 
 #: src/qml/SearchPage.qml:130
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search"
 msgstr "Ara"
@@ -3018,29 +3016,29 @@ msgstr "Paylaşma başarısız"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Paylaşılan görselin URL’si <a href='%1'>%1</a>"
 
-#: src/qml/SpaceDrawer.qml:60
+#: src/qml/SpaceDrawer.qml:58
 #, kde-format
 msgid "View notifications"
 msgstr "Bildirimleri görüntüle"
 
-#: src/qml/SpaceDrawer.qml:86
+#: src/qml/SpaceDrawer.qml:84
 #, kde-format
 msgid "Home"
 msgstr "Ana Sayfa"
 
-#: src/qml/SpaceDrawer.qml:132
+#: src/qml/SpaceDrawer.qml:130
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Arkadaşlar"
 
-#: src/qml/SpaceDrawer.qml:240
+#: src/qml/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Katıl: %1"
 
-#: src/qml/SpaceDrawer.qml:282
+#: src/qml/SpaceDrawer.qml:274
 #, kde-format
 msgid "Create a space"
 msgstr "Bir alan oluştur"
@@ -3656,27 +3654,27 @@ msgstr "Sürdür"
 msgid "Working"
 msgstr "Çalışıyor"
 
-#: src/roommanager.cpp:88
+#: src/roommanager.cpp:123
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Hatalı oluşturulmuş veya boş Matrix kimliği"
 
-#: src/roommanager.cpp:88
+#: src/roommanager.cpp:123
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1, doğru bir Matrix tanımlayıcısı değil"
 
-#: src/roommanager.cpp:260
+#: src/roommanager.cpp:295
 #, kde-format
 msgid "Failed to join room"
 msgstr "Odaya katılamadı"
 
-#: src/roommanager.cpp:275
+#: src/roommanager.cpp:310
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "‘%1’ odasına katılmak istediniz"
 
-#: src/roommanager.cpp:278
+#: src/roommanager.cpp:313
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Odaya katılma istenemedi"
