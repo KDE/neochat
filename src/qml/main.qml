@@ -119,17 +119,6 @@ Kirigami.ApplicationWindow {
             root.showUserDetail(user);
         }
 
-        function onReplaceSpaceHome(room) {
-            if (root.spaceHomePage) {
-                pageStack.currentIndex = pageStack.depth - 1;
-            } else {
-                pageStack.pop();
-                root.spaceHomePage = pageStack.push(Qt.createComponent('org.kde.neochat', 'SpaceHomePage.qml'));
-                root.roomPage = null;
-            }
-            root.spaceHomePage.forceActiveFocus();
-        }
-
         function goToEvent(event) {
             if (event.length > 0) {
                 roomItem.goToEvent(event);
