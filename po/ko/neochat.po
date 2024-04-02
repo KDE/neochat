@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-02 00:37+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -69,6 +69,124 @@ msgstr "접근 토큰을 읽을 수 없음"
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "푸시 알림 수신 중"
+
+#: src/devtools/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "대화방 계정 데이터"
+
+#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:37
+#, fuzzy, kde-format
+#| msgid "Event Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "이벤트 소스"
+
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:225
+#, kde-format
+msgid "Developer Tools"
+msgstr "개발자 도구"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "대화방 계정 데이터"
+
+#: src/devtools/DevtoolsPage.qml:44
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr "기능 플래그"
+
+#: src/devtools/FeatureFlagPage.qml:20
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr "스레드"
+
+#: src/devtools/FeatureFlagPage.qml:26
+#, kde-format
+msgctxt "@option:check Enable the matrix 'secret backup' feature"
+msgid "Secret Backup"
+msgstr ""
+
+#: src/devtools/RoomData.qml:20
+#, kde-format
+msgctxt "@title"
+msgid "Choose Room"
+msgstr "대화방 선택"
+
+#: src/devtools/RoomData.qml:25 src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "대화방"
+
+#: src/devtools/RoomData.qml:35
+#, kde-format
+msgid "Room Id: %1"
+msgstr "대화방 ID: %1"
+
+#: src/devtools/RoomData.qml:39
+#, kde-format
+msgid "Room Account Data"
+msgstr "대화방 계정 데이터"
+
+#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:80
+#: src/qml/MessageSourceSheet.qml:23
+#, kde-format
+msgid "Event Source"
+msgstr "이벤트 소스"
+
+#: src/devtools/RoomData.qml:60
+#, kde-format
+msgid "Room State"
+msgstr "대화방 상태"
+
+#: src/devtools/RoomData.qml:74
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+
+#: src/devtools/RoomData.qml:88
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "서버 정보"
+
+#: src/devtools/ServerData.qml:20
+#, kde-format
+msgid "Server Capabilities"
+msgstr "서버 기능"
+
+#: src/devtools/ServerData.qml:24
+#, kde-format
+msgid "Can change password"
+msgstr "암호 변경 가능"
+
+#: src/devtools/ServerData.qml:29
+#, kde-format
+msgid "Default Room Version"
+msgstr "기본 대화방 버전"
+
+#: src/devtools/ServerData.qml:37
+#, kde-format
+msgid "Available Room Versions"
+msgstr "사용 가능한 대화방 버전"
+
+#: src/devtools/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -1156,7 +1274,7 @@ msgstr "위도: %1, 경도: %2"
 msgid "Encrypted Message"
 msgstr "암호화된 메시지"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:282
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1215,73 +1333,59 @@ msgstr "%1(%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat 열기"
 
-#: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
-msgctxt "@title:group"
-msgid "Account Data"
-msgstr "대화방 계정 데이터"
-
-#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
-#, fuzzy, kde-format
-#| msgid "Event Source"
-msgctxt "@title:window"
-msgid "Event Source"
-msgstr "이벤트 소스"
-
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
+#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "이 계정 편집"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
+#: src/qml/AccountMenu.qml:28 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
 msgstr "계정 편집기"
 
-#: src/qml/AccountMenu.qml:31
+#: src/qml/AccountMenu.qml:32
 #, kde-format
 msgid "Notification settings"
 msgstr "알림 설정"
 
-#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:412 src/qml/UserInfo.qml:118
+#: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "설정"
 
-#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:44 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettings.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "장치"
 
-#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatGeneralPage.qml:221
 #, kde-format
 msgid "Open developer tools"
 msgstr "개발자 도구 열기"
 
-#: src/qml/AccountMenu.qml:61
+#: src/qml/AccountMenu.qml:62
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "개발자 도구"
 
-#: src/qml/AccountMenu.qml:67
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:71
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:77 src/settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "로그아웃"
@@ -1403,6 +1507,13 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "대화방 선택"
 
+#: src/qml/CodeMaximizeComponent.qml:52
+#, fuzzy, kde-format
+#| msgid "Copy room ID to clipboard"
+msgctxt "@action"
+msgid "Copy to clipboard"
+msgstr "클립보드에 대화방 ID 복사"
+
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, kde-format
@@ -1496,13 +1607,13 @@ msgstr "로그아웃하시겠습니까?"
 #| "file with an appropriate application"
 #| msgid "Open File"
 msgctxt "@title"
-msgid "Open Url"
+msgid "Open URL"
 msgstr "파일 열기"
 
 #: src/qml/ConfirmUrlDialog.qml:21
-#, kde-format
-msgctxt "Do you want to open <link>"
-msgid "Do you want to open <b>%1</b>?"
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to open <link>%1</link>?"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:31
@@ -1628,11 +1739,6 @@ msgstr "새 대화방 정보"
 msgid "Select type"
 msgstr "종류 선택"
 
-#: src/qml/CreateRoomDialog.qml:54 src/qml/RoomData.qml:25
-#, kde-format
-msgid "Room"
-msgstr "대화방"
-
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -1746,24 +1852,6 @@ msgstr "'%1' 검색"
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "웹 바로 가기 설정..."
-
-#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
-#, kde-format
-msgid "Developer Tools"
-msgstr "개발자 도구"
-
-#: src/qml/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
-msgctxt "@title:tab"
-msgid "Account Data"
-msgstr "대화방 계정 데이터"
-
-#: src/qml/DevtoolsPage.qml:44
-#, kde-format
-msgctxt "@title:tab"
-msgid "Feature Flags"
-msgstr "기능 플래그"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -1954,18 +2042,6 @@ msgstr "대화방 찾기…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "공개 대화방을 찾을 수 없음"
-
-#: src/qml/FeatureFlagPage.qml:21
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
-msgid "Threads"
-msgstr "스레드"
-
-#: src/qml/FeatureFlagPage.qml:27
-#, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2361,18 +2437,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "등록"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/qml/main.qml:333
+#: src/qml/main.qml:322
 #, kde-format
 msgid "User consent"
 msgstr "사용자 동의"
 
-#: src/qml/main.qml:338
+#: src/qml/main.qml:327
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2381,28 +2457,28 @@ msgstr ""
 "홈 서버를 사용하기 전에 사용 조건에 동의해야 합니다. 아래 단추를 클릭하여 읽"
 "으십시오."
 
-#: src/qml/main.qml:343
+#: src/qml/main.qml:332
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/qml/main.qml:370
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Start a chat"
 msgstr "대화 시작"
 
-#: src/qml/main.qml:372
+#: src/qml/main.qml:361
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
 
-#: src/qml/main.qml:398
+#: src/qml/main.qml:387
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:430 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2480,12 +2556,6 @@ msgstr "사용자 전환"
 #, kde-format
 msgid "Copy Link"
 msgstr "링크 복사"
-
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:52
-#: src/qml/RoomData.qml:80
-#, kde-format
-msgid "Event Source"
-msgstr "이벤트 소스"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -2663,41 +2733,6 @@ msgstr "메시지 신고"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "이 메시지를 신고하는 이유"
-
-#: src/qml/RoomData.qml:20
-#, kde-format
-msgctxt "@title"
-msgid "Choose Room"
-msgstr "대화방 선택"
-
-#: src/qml/RoomData.qml:35
-#, kde-format
-msgid "Room Id: %1"
-msgstr "대화방 ID: %1"
-
-#: src/qml/RoomData.qml:39
-#, kde-format
-msgid "Room Account Data"
-msgstr "대화방 계정 데이터"
-
-#: src/qml/RoomData.qml:60
-#, kde-format
-msgid "Room State"
-msgstr "대화방 상태"
-
-#: src/qml/RoomData.qml:74
-#, kde-format
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "%1 event of this type"
-msgid_plural "%1 events of this type"
-msgstr[0] ""
-
-#: src/qml/RoomData.qml:88
-#, fuzzy, kde-format
-#| msgid "Server Information"
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "Event Information"
-msgstr "서버 정보"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -2989,26 +3024,6 @@ msgstr "서버 URL 입력(예: kde.org)"
 msgid "Server URL"
 msgstr "서버 URL"
 
-#: src/qml/ServerData.qml:20
-#, kde-format
-msgid "Server Capabilities"
-msgstr "서버 기능"
-
-#: src/qml/ServerData.qml:24
-#, kde-format
-msgid "Can change password"
-msgstr "암호 변경 가능"
-
-#: src/qml/ServerData.qml:29
-#, kde-format
-msgid "Default Room Version"
-msgstr "기본 대화방 버전"
-
-#: src/qml/ServerData.qml:37
-#, kde-format
-msgid "Available Room Versions"
-msgstr "사용 가능한 대화방 버전"
-
 #: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
@@ -3162,14 +3177,6 @@ msgstr "웹 브라우저에서 로그인 절차를 완료하십시오."
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "SSO URL 다시 열기"
-
-#: src/qml/StateKeys.qml:22
-#, kde-format
-msgctxt ""
-"The name of one instance of a state of configuration. Unless you really know "
-"what you're doing, best leave this untranslated."
-msgid "State Keys"
-msgstr ""
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -3660,17 +3667,17 @@ msgstr "잘못되었거나 빈 Matrix ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1이(가) 올바른 Matrix 식별자가 아님"
 
-#: src/roommanager.cpp:295
+#: src/roommanager.cpp:303
 #, kde-format
 msgid "Failed to join room"
 msgstr "대화방에 입장할 수 없음"
 
-#: src/roommanager.cpp:310
+#: src/roommanager.cpp:318
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1'에 입장을 요청함"
 
-#: src/roommanager.cpp:313
+#: src/roommanager.cpp:321
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "대화방 입장 요청을 할 수 없음"
@@ -4108,39 +4115,39 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "이 사용자 무시 해제"
 
-#: src/settings/NeoChatGeneralPage.qml:15
+#: src/settings/NeoChatGeneralPage.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "일반"
 
-#: src/settings/NeoChatGeneralPage.qml:18
+#: src/settings/NeoChatGeneralPage.qml:19
 #, kde-format
 msgid "General settings"
 msgstr "일반 설정"
 
-#: src/settings/NeoChatGeneralPage.qml:24
+#: src/settings/NeoChatGeneralPage.qml:25
 #, kde-format
 msgid "Show in System Tray"
 msgstr "시스템 트레이에 표시"
 
-#: src/settings/NeoChatGeneralPage.qml:41
+#: src/settings/NeoChatGeneralPage.qml:42
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "시작할 때 시스템 트레이로 최소화"
 
-#: src/settings/NeoChatGeneralPage.qml:58
+#: src/settings/NeoChatGeneralPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "창 크기를 조정할 때 자동으로 방 정보 표시/숨기기"
 
-#: src/settings/NeoChatGeneralPage.qml:69
+#: src/settings/NeoChatGeneralPage.qml:70
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
 msgid "Room list sort order"
 msgstr "<방 별명이나 id>"
 
-#: src/settings/NeoChatGeneralPage.qml:73
+#: src/settings/NeoChatGeneralPage.qml:74
 #, fuzzy, kde-format
 #| msgctxt "'Activities' is a category of emoji"
 #| msgid "Activities"
@@ -4148,64 +4155,64 @@ msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "활동"
 
-#: src/settings/NeoChatGeneralPage.qml:82
+#: src/settings/NeoChatGeneralPage.qml:83
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:92
+#: src/settings/NeoChatGeneralPage.qml:93
 #, kde-format
 msgid "Timeline Events"
 msgstr "타임라인 이벤트"
 
-#: src/settings/NeoChatGeneralPage.qml:97
+#: src/settings/NeoChatGeneralPage.qml:98
 #, kde-format
 msgid "Show deleted messages"
 msgstr "삭제된 메시지 표시"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:114
 #, kde-format
 msgid "Show state events"
 msgstr "상태 이벤트 표시"
 
-#: src/settings/NeoChatGeneralPage.qml:131
+#: src/settings/NeoChatGeneralPage.qml:132
 #, kde-format
 msgid "Show leave and join events"
 msgstr "입장과 퇴장 이벤트 표시"
 
-#: src/settings/NeoChatGeneralPage.qml:149
+#: src/settings/NeoChatGeneralPage.qml:150
 #, kde-format
 msgid "Show name change events"
 msgstr "이름 변경 이벤트 표시"
 
-#: src/settings/NeoChatGeneralPage.qml:167
+#: src/settings/NeoChatGeneralPage.qml:168
 #, kde-format
 msgid "Show avatar update events"
 msgstr "아바타 업데이트 이벤트 표시"
 
-#: src/settings/NeoChatGeneralPage.qml:177
+#: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "편집기"
 
-#: src/settings/NeoChatGeneralPage.qml:182
+#: src/settings/NeoChatGeneralPage.qml:183
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "s/text/replacement 문법으로 마지막 텍스트 메시지 편집"
 
-#: src/settings/NeoChatGeneralPage.qml:196
+#: src/settings/NeoChatGeneralPage.qml:197
 #, kde-format
 msgid "Send typing notifications"
 msgstr "입력 알림 보내기"
 
-#: src/settings/NeoChatGeneralPage.qml:206
+#: src/settings/NeoChatGeneralPage.qml:207
 #, kde-format
 msgid "Developer Settings"
 msgstr "개발자 설정"
 
-#: src/settings/NeoChatGeneralPage.qml:210
+#: src/settings/NeoChatGeneralPage.qml:211
 #, kde-format
 msgid "Enable developer tools"
 msgstr "개발자 도구 활성화"
@@ -4915,7 +4922,7 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "단어 삭제"
 
-#: src/timeline/CodeComponent.qml:141
+#: src/timeline/CodeComponent.qml:165
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
 msgid "Copy to clipboard"
@@ -5006,7 +5013,7 @@ msgstr "답장 불러오는 중"
 msgid "Loading URL preview"
 msgstr "URL 미리 보기 불러오는 중"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:226
 #, fuzzy, kde-format
 #| msgid "withdrew a user's invitation"
 msgid "%1 started a user verification"

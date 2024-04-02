@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-02 00:37+0000\n"
 "PO-Revision-Date: 2024-02-14 19:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -70,6 +70,125 @@ msgstr "Saantimerkkiä ei voida lukea"
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Vastaanotetaan push-ilmoituksia"
+
+#: src/devtools/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "Huoneen tilitiedot"
+
+#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:37
+#, fuzzy, kde-format
+#| msgid "Event Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "Tapahtumalähde"
+
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:225
+#, kde-format
+msgid "Developer Tools"
+msgstr "Kehitystyökalut"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Room Account Data"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "Huoneen tilitiedot"
+
+#: src/devtools/DevtoolsPage.qml:44
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:20
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:26
+#, kde-format
+msgctxt "@option:check Enable the matrix 'secret backup' feature"
+msgid "Secret Backup"
+msgstr ""
+
+#: src/devtools/RoomData.qml:20
+#, kde-format
+msgctxt "@title"
+msgid "Choose Room"
+msgstr "Valitse huone"
+
+#: src/devtools/RoomData.qml:25 src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Huone"
+
+#: src/devtools/RoomData.qml:35
+#, kde-format
+msgid "Room Id: %1"
+msgstr "Huoneen tunniste: %1"
+
+#: src/devtools/RoomData.qml:39
+#, kde-format
+msgid "Room Account Data"
+msgstr "Huoneen tilitiedot"
+
+#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:80
+#: src/qml/MessageSourceSheet.qml:23
+#, kde-format
+msgid "Event Source"
+msgstr "Tapahtumalähde"
+
+#: src/devtools/RoomData.qml:60
+#, kde-format
+msgid "Room State"
+msgstr "Huoneen tila"
+
+#: src/devtools/RoomData.qml:74
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/devtools/RoomData.qml:88
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Palvelintiedot"
+
+#: src/devtools/ServerData.qml:20
+#, kde-format
+msgid "Server Capabilities"
+msgstr "Palvelimen ominaisuudet"
+
+#: src/devtools/ServerData.qml:24
+#, kde-format
+msgid "Can change password"
+msgstr "Voi vaihtaa salasanansa"
+
+#: src/devtools/ServerData.qml:29
+#, kde-format
+msgid "Default Room Version"
+msgstr "Huoneen oletusversio"
+
+#: src/devtools/ServerData.qml:37
+#, kde-format
+msgid "Available Room Versions"
+msgstr "Huoneen saatavilla olevat versiot"
+
+#: src/devtools/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -1162,7 +1281,7 @@ msgstr "Lev: %1, pit: %2"
 msgid "Encrypted Message"
 msgstr "Salattu viesti"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:282
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1221,73 +1340,59 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Avaa NeoChat"
 
-#: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
-msgctxt "@title:group"
-msgid "Account Data"
-msgstr "Huoneen tilitiedot"
-
-#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
-#, fuzzy, kde-format
-#| msgid "Event Source"
-msgctxt "@title:window"
-msgid "Event Source"
-msgstr "Tapahtumalähde"
-
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
+#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "Muokkaa tätä tiliä"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
+#: src/qml/AccountMenu.qml:28 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
 msgstr "Tilimuokkain"
 
-#: src/qml/AccountMenu.qml:31
+#: src/qml/AccountMenu.qml:32
 #, kde-format
 msgid "Notification settings"
 msgstr "Ilmoitusasetukset"
 
-#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:412 src/qml/UserInfo.qml:118
+#: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Asetukset"
 
-#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:44 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettings.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "Laitteet"
 
-#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatGeneralPage.qml:221
 #, kde-format
 msgid "Open developer tools"
 msgstr "Avaa kehitystyökalut"
 
-#: src/qml/AccountMenu.qml:61
+#: src/qml/AccountMenu.qml:62
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Kehitystyökalut"
 
-#: src/qml/AccountMenu.qml:67
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:71
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:77 src/settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Kirjaudu ulos"
@@ -1409,6 +1514,13 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Valitse huone"
 
+#: src/qml/CodeMaximizeComponent.qml:52
+#, fuzzy, kde-format
+#| msgid "Copy room ID to clipboard"
+msgctxt "@action"
+msgid "Copy to clipboard"
+msgstr "Kopioi huoneen tunniste leikepöydälle"
+
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, kde-format
@@ -1502,13 +1614,13 @@ msgstr "Haluatko varmasti kirjautua ulos?"
 #| "file with an appropriate application"
 #| msgid "Open File"
 msgctxt "@title"
-msgid "Open Url"
+msgid "Open URL"
 msgstr "Avaa tiedosto"
 
 #: src/qml/ConfirmUrlDialog.qml:21
-#, kde-format
-msgctxt "Do you want to open <link>"
-msgid "Do you want to open <b>%1</b>?"
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to open <link>%1</link>?"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:31
@@ -1634,11 +1746,6 @@ msgstr "Uuden huoneen tiedot"
 msgid "Select type"
 msgstr "Valitse tyyppi"
 
-#: src/qml/CreateRoomDialog.qml:54 src/qml/RoomData.qml:25
-#, kde-format
-msgid "Room"
-msgstr "Huone"
-
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -1754,24 +1861,6 @@ msgstr "Etsi: ”%1”"
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "WWW-pikavalintojen asetukset…"
-
-#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
-#, kde-format
-msgid "Developer Tools"
-msgstr "Kehitystyökalut"
-
-#: src/qml/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
-msgctxt "@title:tab"
-msgid "Account Data"
-msgstr "Huoneen tilitiedot"
-
-#: src/qml/DevtoolsPage.qml:44
-#, kde-format
-msgctxt "@title:tab"
-msgid "Feature Flags"
-msgstr ""
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -1964,18 +2053,6 @@ msgstr "Etsi huonetta…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Julkisia huoneita ei löytynyt"
-
-#: src/qml/FeatureFlagPage.qml:21
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
-msgid "Threads"
-msgstr ""
-
-#: src/qml/FeatureFlagPage.qml:27
-#, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2371,18 +2448,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Rekisteröidy"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Istunnon todennus"
 
-#: src/qml/main.qml:333
+#: src/qml/main.qml:322
 #, kde-format
 msgid "User consent"
 msgstr "Käyttäjän suostumus"
 
-#: src/qml/main.qml:338
+#: src/qml/main.qml:327
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2391,28 +2468,28 @@ msgstr ""
 "Kotipalvelimesi vaatii sinua hyväksymään käyttöehdot ennen kuin voit käyttää "
 "sitä. Lue ehdot napsauttamalla alla olevaa painiketta."
 
-#: src/qml/main.qml:343
+#: src/qml/main.qml:332
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: src/qml/main.qml:370
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Start a chat"
 msgstr "Aloita keskustelu"
 
-#: src/qml/main.qml:372
+#: src/qml/main.qml:361
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Haluatko käynnistää keskustelun henkilön %1 kanssa?"
 
-#: src/qml/main.qml:398
+#: src/qml/main.qml:387
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:430 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2490,12 +2567,6 @@ msgstr "Vaihda käyttäjää"
 #, kde-format
 msgid "Copy Link"
 msgstr "Kopioi linkki"
-
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:52
-#: src/qml/RoomData.qml:80
-#, kde-format
-msgid "Event Source"
-msgstr "Tapahtumalähde"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -2676,42 +2747,6 @@ msgstr "Ilmoita viestistä"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Syy viestistä ilmoittamiseen"
-
-#: src/qml/RoomData.qml:20
-#, kde-format
-msgctxt "@title"
-msgid "Choose Room"
-msgstr "Valitse huone"
-
-#: src/qml/RoomData.qml:35
-#, kde-format
-msgid "Room Id: %1"
-msgstr "Huoneen tunniste: %1"
-
-#: src/qml/RoomData.qml:39
-#, kde-format
-msgid "Room Account Data"
-msgstr "Huoneen tilitiedot"
-
-#: src/qml/RoomData.qml:60
-#, kde-format
-msgid "Room State"
-msgstr "Huoneen tila"
-
-#: src/qml/RoomData.qml:74
-#, kde-format
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "%1 event of this type"
-msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/qml/RoomData.qml:88
-#, fuzzy, kde-format
-#| msgid "Server Information"
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "Event Information"
-msgstr "Palvelintiedot"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3009,26 +3044,6 @@ msgstr "Anna palvelimen verkko-osoite, esim. kde.org"
 msgid "Server URL"
 msgstr "Palvelimen verkko-osoite"
 
-#: src/qml/ServerData.qml:20
-#, kde-format
-msgid "Server Capabilities"
-msgstr "Palvelimen ominaisuudet"
-
-#: src/qml/ServerData.qml:24
-#, kde-format
-msgid "Can change password"
-msgstr "Voi vaihtaa salasanansa"
-
-#: src/qml/ServerData.qml:29
-#, kde-format
-msgid "Default Room Version"
-msgstr "Huoneen oletusversio"
-
-#: src/qml/ServerData.qml:37
-#, kde-format
-msgid "Available Room Versions"
-msgstr "Huoneen saatavilla olevat versiot"
-
 #: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
@@ -3185,14 +3200,6 @@ msgstr "Jatka kirjautumista selaimessa."
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "Avaa SSO-verkko-osoite uudelleen"
-
-#: src/qml/StateKeys.qml:22
-#, kde-format
-msgctxt ""
-"The name of one instance of a state of configuration. Unless you really know "
-"what you're doing, best leave this untranslated."
-msgid "State Keys"
-msgstr ""
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -3700,17 +3707,17 @@ msgstr "Virheellinen tai tyhjä Matrix-tunniste"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ei ole kelvollinen Matrix-tunniste"
 
-#: src/roommanager.cpp:295
+#: src/roommanager.cpp:303
 #, kde-format
 msgid "Failed to join room"
 msgstr "Huoneeseen liittyminen epäonnistui"
 
-#: src/roommanager.cpp:310
+#: src/roommanager.cpp:318
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Pyysit liittyä huoneeseen ”%1”"
 
-#: src/roommanager.cpp:313
+#: src/roommanager.cpp:321
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Pyyntö liittyä huoneeseen epäonnistui"
@@ -4149,40 +4156,40 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Peru tämän käyttäjän sivuuttaminen"
 
-#: src/settings/NeoChatGeneralPage.qml:15
+#: src/settings/NeoChatGeneralPage.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Perusasetukset"
 
-#: src/settings/NeoChatGeneralPage.qml:18
+#: src/settings/NeoChatGeneralPage.qml:19
 #, kde-format
 msgid "General settings"
 msgstr "Yleisasetukset"
 
-#: src/settings/NeoChatGeneralPage.qml:24
+#: src/settings/NeoChatGeneralPage.qml:25
 #, kde-format
 msgid "Show in System Tray"
 msgstr "Näytä ilmoitusalueella"
 
-#: src/settings/NeoChatGeneralPage.qml:41
+#: src/settings/NeoChatGeneralPage.qml:42
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Pienennä käynnistettäessä ilmoitusalueelle"
 
-#: src/settings/NeoChatGeneralPage.qml:58
+#: src/settings/NeoChatGeneralPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Piilota tai näytä huonetiedot automaattisesti ikkunan kokoa muutettaessa"
 
-#: src/settings/NeoChatGeneralPage.qml:69
+#: src/settings/NeoChatGeneralPage.qml:70
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
 msgid "Room list sort order"
 msgstr "<huoneen alias tai tunniste>"
 
-#: src/settings/NeoChatGeneralPage.qml:73
+#: src/settings/NeoChatGeneralPage.qml:74
 #, fuzzy, kde-format
 #| msgctxt "'Activities' is a category of emoji"
 #| msgid "Activities"
@@ -4190,64 +4197,64 @@ msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Aktiviteetit"
 
-#: src/settings/NeoChatGeneralPage.qml:82
+#: src/settings/NeoChatGeneralPage.qml:83
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:92
+#: src/settings/NeoChatGeneralPage.qml:93
 #, kde-format
 msgid "Timeline Events"
 msgstr "Aikajanatapahtumat"
 
-#: src/settings/NeoChatGeneralPage.qml:97
+#: src/settings/NeoChatGeneralPage.qml:98
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Näytä poistetut viestit"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:114
 #, kde-format
 msgid "Show state events"
 msgstr "Näytä tilatapahtumat"
 
-#: src/settings/NeoChatGeneralPage.qml:131
+#: src/settings/NeoChatGeneralPage.qml:132
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Näytä poistumis- ja liittymistapahtumat"
 
-#: src/settings/NeoChatGeneralPage.qml:149
+#: src/settings/NeoChatGeneralPage.qml:150
 #, kde-format
 msgid "Show name change events"
 msgstr "Näytä nimenvaihtotapahtumat"
 
-#: src/settings/NeoChatGeneralPage.qml:167
+#: src/settings/NeoChatGeneralPage.qml:168
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Näytä avatarinpäivitystapahtumat"
 
-#: src/settings/NeoChatGeneralPage.qml:177
+#: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Muokkain"
 
-#: src/settings/NeoChatGeneralPage.qml:182
+#: src/settings/NeoChatGeneralPage.qml:183
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Muokkaa viimeisintä viestiäsi s/teksti/korvaus-syntaksilla"
 
-#: src/settings/NeoChatGeneralPage.qml:196
+#: src/settings/NeoChatGeneralPage.qml:197
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Näytä ilmoitus kirjoittamisesta"
 
-#: src/settings/NeoChatGeneralPage.qml:206
+#: src/settings/NeoChatGeneralPage.qml:207
 #, kde-format
 msgid "Developer Settings"
 msgstr "Kehittäjäasetukset"
 
-#: src/settings/NeoChatGeneralPage.qml:210
+#: src/settings/NeoChatGeneralPage.qml:211
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Käytä kehitystyökaluja"
@@ -4962,7 +4969,7 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Poista sana"
 
-#: src/timeline/CodeComponent.qml:141
+#: src/timeline/CodeComponent.qml:165
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
 msgid "Copy to clipboard"
@@ -5053,7 +5060,7 @@ msgstr "Ladataan"
 msgid "Loading URL preview"
 msgstr "Ladataan verkko-osoitteen esikatselua"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:226
 #, fuzzy, kde-format
 #| msgid "withdrew a user's invitation"
 msgid "%1 started a user verification"

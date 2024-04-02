@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-02 00:37+0000\n"
 "PO-Revision-Date: 2024-03-29 21:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -72,6 +72,120 @@ msgstr "無法讀取存取權杖"
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
+
+#: src/devtools/AccountData.qml:19
+#, kde-format
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "帳號資料"
+
+#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:37
+#, kde-format
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "事件原始碼"
+
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:225
+#, kde-format
+msgid "Developer Tools"
+msgstr "開發者工具"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, kde-format
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "帳號資料"
+
+#: src/devtools/DevtoolsPage.qml:44
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr "功能旗標"
+
+#: src/devtools/FeatureFlagPage.qml:20
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr "對話串"
+
+#: src/devtools/FeatureFlagPage.qml:26
+#, kde-format
+msgctxt "@option:check Enable the matrix 'secret backup' feature"
+msgid "Secret Backup"
+msgstr ""
+
+#: src/devtools/RoomData.qml:20
+#, kde-format
+msgctxt "@title"
+msgid "Choose Room"
+msgstr "選擇聊天室"
+
+#: src/devtools/RoomData.qml:25 src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "聊天室"
+
+#: src/devtools/RoomData.qml:35
+#, kde-format
+msgid "Room Id: %1"
+msgstr "聊天室 ID：%1"
+
+#: src/devtools/RoomData.qml:39
+#, kde-format
+msgid "Room Account Data"
+msgstr "聊天室帳號資料"
+
+#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:80
+#: src/qml/MessageSourceSheet.qml:23
+#, kde-format
+msgid "Event Source"
+msgstr "事件原始碼"
+
+#: src/devtools/RoomData.qml:60
+#, kde-format
+msgid "Room State"
+msgstr "聊天室狀態"
+
+#: src/devtools/RoomData.qml:74
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] "%1 個此類型的事件"
+
+#: src/devtools/RoomData.qml:88
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "事件資訊"
+
+#: src/devtools/ServerData.qml:20
+#, kde-format
+msgid "Server Capabilities"
+msgstr "伺服器功能"
+
+#: src/devtools/ServerData.qml:24
+#, kde-format
+msgid "Can change password"
+msgstr "可以變更密碼"
+
+#: src/devtools/ServerData.qml:29
+#, kde-format
+msgid "Default Room Version"
+msgstr "預設聊天室版本"
+
+#: src/devtools/ServerData.qml:37
+#, kde-format
+msgid "Available Room Versions"
+msgstr "可用的聊天室版本"
+
+#: src/devtools/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr "State Keys"
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -1157,7 +1271,7 @@ msgstr "緯度：%2，經度：%1"
 msgid "Encrypted Message"
 msgstr "已加密訊息"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:282
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1216,70 +1330,58 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "開啟 NeoChat"
 
-#: src/qml/AccountData.qml:19
-#, kde-format
-msgctxt "@title:group"
-msgid "Account Data"
-msgstr "帳號資料"
-
-#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
-#, kde-format
-msgctxt "@title:window"
-msgid "Event Source"
-msgstr "事件原始碼"
-
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
+#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "編輯這個帳號"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
+#: src/qml/AccountMenu.qml:28 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
 msgstr "帳號編輯器"
 
-#: src/qml/AccountMenu.qml:31
+#: src/qml/AccountMenu.qml:32
 #, kde-format
 msgid "Notification settings"
 msgstr "通知設定"
 
-#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:412 src/qml/UserInfo.qml:118
+#: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "設定"
 
-#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:44 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettings.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
 
-#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatGeneralPage.qml:221
 #, kde-format
 msgid "Open developer tools"
 msgstr "開啟開發者工具"
 
-#: src/qml/AccountMenu.qml:61
+#: src/qml/AccountMenu.qml:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "開發者工具"
 
-#: src/qml/AccountMenu.qml:67
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:71
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:77 src/settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "登出"
@@ -1401,6 +1503,13 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "選擇聊天室"
 
+#: src/qml/CodeMaximizeComponent.qml:52
+#, fuzzy, kde-format
+#| msgid "Copy to clipboard"
+msgctxt "@action"
+msgid "Copy to clipboard"
+msgstr "複製到剪貼簿"
+
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, kde-format
@@ -1490,15 +1599,19 @@ msgid "Are you sure you want to sign out?"
 msgstr "您確定要登出嗎？"
 
 #: src/qml/ConfirmUrlDialog.qml:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Open Url"
 msgctxt "@title"
-msgid "Open Url"
+msgid "Open URL"
 msgstr "開啟網址"
 
 #: src/qml/ConfirmUrlDialog.qml:21
-#, kde-format
-msgctxt "Do you want to open <link>"
-msgid "Do you want to open <b>%1</b>?"
+#, fuzzy, kde-kuit-format
+#| msgctxt "Do you want to open <link>"
+#| msgid "Do you want to open <b>%1</b>?"
+msgctxt "@info"
+msgid "Do you want to open <link>%1</link>?"
 msgstr "您要開啟 <b>%1</b> 嗎？"
 
 #: src/qml/ContextMenu.qml:31
@@ -1622,11 +1735,6 @@ msgstr "新聊天室資訊"
 msgid "Select type"
 msgstr "選取類型"
 
-#: src/qml/CreateRoomDialog.qml:54 src/qml/RoomData.qml:25
-#, kde-format
-msgid "Room"
-msgstr "聊天室"
-
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -1740,23 +1848,6 @@ msgstr "搜尋 '%1'"
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "設定網頁捷徑..."
-
-#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
-#, kde-format
-msgid "Developer Tools"
-msgstr "開發者工具"
-
-#: src/qml/DevtoolsPage.qml:39
-#, kde-format
-msgctxt "@title:tab"
-msgid "Account Data"
-msgstr "帳號資料"
-
-#: src/qml/DevtoolsPage.qml:44
-#, kde-format
-msgctxt "@title:tab"
-msgid "Feature Flags"
-msgstr "功能旗標"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -1946,18 +2037,6 @@ msgstr "尋找聊天室…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "沒有找到公開聊天室"
-
-#: src/qml/FeatureFlagPage.qml:21
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
-msgid "Threads"
-msgstr "對話串"
-
-#: src/qml/FeatureFlagPage.qml:27
-#, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2347,18 +2426,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "註冊"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/qml/main.qml:333
+#: src/qml/main.qml:322
 #, kde-format
 msgid "User consent"
 msgstr "使用者許可"
 
-#: src/qml/main.qml:338
+#: src/qml/main.qml:327
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2367,28 +2446,28 @@ msgstr ""
 "您的家伺服器要求您必須同意它的條款與細則才能使用它。請點擊以下按鈕來閱讀它"
 "們。"
 
-#: src/qml/main.qml:343
+#: src/qml/main.qml:332
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/qml/main.qml:370
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Start a chat"
 msgstr "開始私人聊天"
 
-#: src/qml/main.qml:372
+#: src/qml/main.qml:361
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "您要與 %1 開始私人聊天嗎？"
 
-#: src/qml/main.qml:398
+#: src/qml/main.qml:387
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "目前選取的連結"
 
-#: src/qml/main.qml:430 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2464,12 +2543,6 @@ msgstr "顯示使用者"
 #, kde-format
 msgid "Copy Link"
 msgstr "複製連結"
-
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:52
-#: src/qml/RoomData.qml:80
-#, kde-format
-msgid "Event Source"
-msgstr "事件原始碼"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -2646,40 +2719,6 @@ msgstr "檢舉訊息"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "檢舉此訊息的原因"
-
-#: src/qml/RoomData.qml:20
-#, kde-format
-msgctxt "@title"
-msgid "Choose Room"
-msgstr "選擇聊天室"
-
-#: src/qml/RoomData.qml:35
-#, kde-format
-msgid "Room Id: %1"
-msgstr "聊天室 ID：%1"
-
-#: src/qml/RoomData.qml:39
-#, kde-format
-msgid "Room Account Data"
-msgstr "聊天室帳號資料"
-
-#: src/qml/RoomData.qml:60
-#, kde-format
-msgid "Room State"
-msgstr "聊天室狀態"
-
-#: src/qml/RoomData.qml:74
-#, kde-format
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "%1 event of this type"
-msgid_plural "%1 events of this type"
-msgstr[0] "%1 個此類型的事件"
-
-#: src/qml/RoomData.qml:88
-#, kde-format
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "Event Information"
-msgstr "事件資訊"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -2971,26 +3010,6 @@ msgstr "輸入伺服器網址，如 kde.org"
 msgid "Server URL"
 msgstr "伺服器網址"
 
-#: src/qml/ServerData.qml:20
-#, kde-format
-msgid "Server Capabilities"
-msgstr "伺服器功能"
-
-#: src/qml/ServerData.qml:24
-#, kde-format
-msgid "Can change password"
-msgstr "可以變更密碼"
-
-#: src/qml/ServerData.qml:29
-#, kde-format
-msgid "Default Room Version"
-msgstr "預設聊天室版本"
-
-#: src/qml/ServerData.qml:37
-#, kde-format
-msgid "Available Room Versions"
-msgstr "可用的聊天室版本"
-
 #: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
@@ -3144,14 +3163,6 @@ msgstr "在您的瀏覽器繼續進行登入流程。"
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
 msgstr "重新開啟一次性登入 (SSO) 網址"
-
-#: src/qml/StateKeys.qml:22
-#, kde-format
-msgctxt ""
-"The name of one instance of a state of configuration. Unless you really know "
-"what you're doing, best leave this untranslated."
-msgid "State Keys"
-msgstr "State Keys"
 
 #: src/qml/Terms.qml:18
 #, kde-format
@@ -3638,17 +3649,17 @@ msgstr "不正確或空白的 Matrix ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 不是一個正確的 Matrix ID"
 
-#: src/roommanager.cpp:295
+#: src/roommanager.cpp:303
 #, kde-format
 msgid "Failed to join room"
 msgstr "加入聊天室失敗"
 
-#: src/roommanager.cpp:310
+#: src/roommanager.cpp:318
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
-#: src/roommanager.cpp:313
+#: src/roommanager.cpp:321
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "請求加入聊天室失敗"
@@ -4083,101 +4094,101 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "取消忽略這個使用者"
 
-#: src/settings/NeoChatGeneralPage.qml:15
+#: src/settings/NeoChatGeneralPage.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "一般"
 
-#: src/settings/NeoChatGeneralPage.qml:18
+#: src/settings/NeoChatGeneralPage.qml:19
 #, kde-format
 msgid "General settings"
 msgstr "一般設定"
 
-#: src/settings/NeoChatGeneralPage.qml:24
+#: src/settings/NeoChatGeneralPage.qml:25
 #, kde-format
 msgid "Show in System Tray"
 msgstr "在系統匣中顯示"
 
-#: src/settings/NeoChatGeneralPage.qml:41
+#: src/settings/NeoChatGeneralPage.qml:42
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "啟動時最小化到系統匣"
 
-#: src/settings/NeoChatGeneralPage.qml:58
+#: src/settings/NeoChatGeneralPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "調整視窗大小時自動隱藏/顯示聊天室資訊"
 
-#: src/settings/NeoChatGeneralPage.qml:69
+#: src/settings/NeoChatGeneralPage.qml:70
 #, kde-format
 msgid "Room list sort order"
 msgstr "聊天室列表排序方式"
 
-#: src/settings/NeoChatGeneralPage.qml:73
+#: src/settings/NeoChatGeneralPage.qml:74
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "活動"
 
-#: src/settings/NeoChatGeneralPage.qml:82
+#: src/settings/NeoChatGeneralPage.qml:83
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "按字母順序"
 
-#: src/settings/NeoChatGeneralPage.qml:92
+#: src/settings/NeoChatGeneralPage.qml:93
 #, kde-format
 msgid "Timeline Events"
 msgstr "時間軸事件"
 
-#: src/settings/NeoChatGeneralPage.qml:97
+#: src/settings/NeoChatGeneralPage.qml:98
 #, kde-format
 msgid "Show deleted messages"
 msgstr "顯示已刪除的訊息"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:114
 #, kde-format
 msgid "Show state events"
 msgstr "顯示狀態事件"
 
-#: src/settings/NeoChatGeneralPage.qml:131
+#: src/settings/NeoChatGeneralPage.qml:132
 #, kde-format
 msgid "Show leave and join events"
 msgstr "顯示離開與加入事件"
 
-#: src/settings/NeoChatGeneralPage.qml:149
+#: src/settings/NeoChatGeneralPage.qml:150
 #, kde-format
 msgid "Show name change events"
 msgstr "顯示名稱變更事件"
 
-#: src/settings/NeoChatGeneralPage.qml:167
+#: src/settings/NeoChatGeneralPage.qml:168
 #, kde-format
 msgid "Show avatar update events"
 msgstr "顯示頭貼變更事件"
 
-#: src/settings/NeoChatGeneralPage.qml:177
+#: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "編輯器"
 
-#: src/settings/NeoChatGeneralPage.qml:182
+#: src/settings/NeoChatGeneralPage.qml:183
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "用 s/文字/替代 語法來編輯您上一個訊息"
 
-#: src/settings/NeoChatGeneralPage.qml:196
+#: src/settings/NeoChatGeneralPage.qml:197
 #, kde-format
 msgid "Send typing notifications"
 msgstr "傳送輸入中通知"
 
-#: src/settings/NeoChatGeneralPage.qml:206
+#: src/settings/NeoChatGeneralPage.qml:207
 #, kde-format
 msgid "Developer Settings"
 msgstr "開發者設定"
 
-#: src/settings/NeoChatGeneralPage.qml:210
+#: src/settings/NeoChatGeneralPage.qml:211
 #, kde-format
 msgid "Enable developer tools"
 msgstr "啟用開發者工具"
@@ -4880,7 +4891,7 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "刪除單詞"
 
-#: src/timeline/CodeComponent.qml:141
+#: src/timeline/CodeComponent.qml:165
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "複製到剪貼簿"
@@ -4968,7 +4979,7 @@ msgstr "載入回覆中"
 msgid "Loading URL preview"
 msgstr "正在載入網址預覽"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:226
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 開始了使用者驗證"

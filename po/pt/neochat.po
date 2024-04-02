@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-02 00:37+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -75,6 +75,129 @@ msgstr "Não é possível ler o código de acesso"
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "Enviar as notificações de escrita"
+
+#: src/devtools/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "Room Account Data for %1 - %2"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "Dados da Conta da Sala para o %1 - %2"
+
+#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:37
+#, fuzzy, kde-format
+#| msgid "Event Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "Origem do Evento"
+
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:225
+#, kde-format
+msgid "Developer Tools"
+msgstr "Ferramentas de Desenvolvimento"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Room Account Data for %1 - %2"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "Dados da Conta da Sala para o %1 - %2"
+
+#: src/devtools/DevtoolsPage.qml:44
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:20
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:26
+#, kde-format
+msgctxt "@option:check Enable the matrix 'secret backup' feature"
+msgid "Secret Backup"
+msgstr ""
+
+#: src/devtools/RoomData.qml:20
+#, fuzzy, kde-format
+#| msgid "Choose a Location"
+msgctxt "@title"
+msgid "Choose Room"
+msgstr "Escolher uma Localização"
+
+#: src/devtools/RoomData.qml:25 src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Sala"
+
+#: src/devtools/RoomData.qml:35
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgid "Room Id: %1"
+msgstr "ID da Sala"
+
+#: src/devtools/RoomData.qml:39
+#, fuzzy, kde-format
+#| msgid "Room Account Data for %1 - %2"
+msgid "Room Account Data"
+msgstr "Dados da Conta da Sala para o %1 - %2"
+
+#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:80
+#: src/qml/MessageSourceSheet.qml:23
+#, kde-format
+msgid "Event Source"
+msgstr "Origem do Evento"
+
+#: src/devtools/RoomData.qml:60
+#, fuzzy, kde-format
+#| msgid "Room State for %1"
+msgid "Room State"
+msgstr "Estado da Sala de %1"
+
+#: src/devtools/RoomData.qml:74
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/devtools/RoomData.qml:88
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Informações do Servidor"
+
+#: src/devtools/ServerData.qml:20
+#, kde-format
+msgid "Server Capabilities"
+msgstr "Capacidades do Servidor"
+
+#: src/devtools/ServerData.qml:24
+#, kde-format
+msgid "Can change password"
+msgstr "Pode mudar a senha"
+
+#: src/devtools/ServerData.qml:29
+#, kde-format
+msgid "Default Room Version"
+msgstr "Versão Predefinida da Sala"
+
+#: src/devtools/ServerData.qml:37
+#, kde-format
+msgid "Available Room Versions"
+msgstr "Versões Disponíveis da Sala"
+
+#: src/devtools/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -1197,7 +1320,7 @@ msgstr "Lat: %1, Lon: %2"
 msgid "Encrypted Message"
 msgstr "Mensagem Encriptada"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:282
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1259,73 +1382,59 @@ msgstr ""
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data for %1 - %2"
-msgctxt "@title:group"
-msgid "Account Data"
-msgstr "Dados da Conta da Sala para o %1 - %2"
-
-#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
-#, fuzzy, kde-format
-#| msgid "Event Source"
-msgctxt "@title:window"
-msgid "Event Source"
-msgstr "Origem do Evento"
-
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
+#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "Editar esta conta"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
+#: src/qml/AccountMenu.qml:28 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, kde-format
 msgid "Account editor"
 msgstr "Editor da conta"
 
-#: src/qml/AccountMenu.qml:31
+#: src/qml/AccountMenu.qml:32
 #, kde-format
 msgid "Notification settings"
 msgstr "Configuração das notificações"
 
-#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:412 src/qml/UserInfo.qml:118
+#: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
 
-#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:44 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettings.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatGeneralPage.qml:221
 #, kde-format
 msgid "Open developer tools"
 msgstr "Abrir as ferramentas de desenvolvimento"
 
-#: src/qml/AccountMenu.qml:61
+#: src/qml/AccountMenu.qml:62
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Ferramentas de Desenvolvimento"
 
-#: src/qml/AccountMenu.qml:67
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:71
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:77 src/settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Encerrar"
@@ -1448,6 +1557,13 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Escolher uma Localização"
 
+#: src/qml/CodeMaximizeComponent.qml:52
+#, fuzzy, kde-format
+#| msgid "Copy room ID to clipboard"
+msgctxt "@action"
+msgid "Copy to clipboard"
+msgstr "Copiar o ID da sala para a área de transferência"
+
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, fuzzy, kde-format
@@ -1538,13 +1654,13 @@ msgstr "Tem a certeza que deseja sair?"
 #| "file with an appropriate application"
 #| msgid "Open File"
 msgctxt "@title"
-msgid "Open Url"
+msgid "Open URL"
 msgstr "Abrir o Ficheiro"
 
 #: src/qml/ConfirmUrlDialog.qml:21
-#, kde-format
-msgctxt "Do you want to open <link>"
-msgid "Do you want to open <b>%1</b>?"
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to open <link>%1</link>?"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:31
@@ -1675,11 +1791,6 @@ msgstr "Informação da Sala"
 msgid "Select type"
 msgstr "Seleccionar Tudo"
 
-#: src/qml/CreateRoomDialog.qml:54 src/qml/RoomData.qml:25
-#, kde-format
-msgid "Room"
-msgstr "Sala"
-
 #: src/qml/CreateRoomDialog.qml:58
 #, fuzzy, kde-format
 #| msgid "Spaces"
@@ -1798,24 +1909,6 @@ msgstr "Procurar por '%1'"
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configurar os Atalhos Web..."
-
-#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
-#, kde-format
-msgid "Developer Tools"
-msgstr "Ferramentas de Desenvolvimento"
-
-#: src/qml/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Account Data for %1 - %2"
-msgctxt "@title:tab"
-msgid "Account Data"
-msgstr "Dados da Conta da Sala para o %1 - %2"
-
-#: src/qml/DevtoolsPage.qml:44
-#, kde-format
-msgctxt "@title:tab"
-msgid "Feature Flags"
-msgstr ""
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2011,18 +2104,6 @@ msgstr "Procurar uma sala..."
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Não foram encontradas salas"
-
-#: src/qml/FeatureFlagPage.qml:21
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
-msgid "Threads"
-msgstr ""
-
-#: src/qml/FeatureFlagPage.qml:27
-#, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2426,18 +2507,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registo"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificação da Sessão"
 
-#: src/qml/main.qml:333
+#: src/qml/main.qml:322
 #, kde-format
 msgid "User consent"
 msgstr "Consentimento do utilizador"
 
-#: src/qml/main.qml:338
+#: src/qml/main.qml:327
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2446,28 +2527,28 @@ msgstr ""
 "O seu servidor caseiro obriga a que concorde com os seus termos e condições "
 "antes de o poder usar. Por favor carregue no botão abaixo para os ler."
 
-#: src/qml/main.qml:343
+#: src/qml/main.qml:332
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/qml/main.qml:370
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Start a chat"
 msgstr "Iniciar uma conversa"
 
-#: src/qml/main.qml:372
+#: src/qml/main.qml:361
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Deseja iniciar uma conversa com %1?"
 
-#: src/qml/main.qml:398
+#: src/qml/main.qml:387
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:430 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2552,12 +2633,6 @@ msgstr "Mudar de Utilizador"
 #, kde-format
 msgid "Copy Link"
 msgstr "Copiar a Ligação"
-
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:52
-#: src/qml/RoomData.qml:80
-#, kde-format
-msgid "Event Source"
-msgstr "Origem do Evento"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, fuzzy, kde-format
@@ -2746,46 +2821,6 @@ msgstr "Mensagem de Relatório"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Razão para comunicar esta mensagem"
-
-#: src/qml/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Choose a Location"
-msgctxt "@title"
-msgid "Choose Room"
-msgstr "Escolher uma Localização"
-
-#: src/qml/RoomData.qml:35
-#, fuzzy, kde-format
-#| msgid "Room ID"
-msgid "Room Id: %1"
-msgstr "ID da Sala"
-
-#: src/qml/RoomData.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Account Data for %1 - %2"
-msgid "Room Account Data"
-msgstr "Dados da Conta da Sala para o %1 - %2"
-
-#: src/qml/RoomData.qml:60
-#, fuzzy, kde-format
-#| msgid "Room State for %1"
-msgid "Room State"
-msgstr "Estado da Sala de %1"
-
-#: src/qml/RoomData.qml:74
-#, kde-format
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "%1 event of this type"
-msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/qml/RoomData.qml:88
-#, fuzzy, kde-format
-#| msgid "Server Information"
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "Event Information"
-msgstr "Informações do Servidor"
 
 #: src/qml/RoomDelegate.qml:102
 #, kde-format
@@ -3101,26 +3136,6 @@ msgstr "Indique o URL do servidor, p.ex. kde.org"
 msgid "Server URL"
 msgstr "URL do Servidor"
 
-#: src/qml/ServerData.qml:20
-#, kde-format
-msgid "Server Capabilities"
-msgstr "Capacidades do Servidor"
-
-#: src/qml/ServerData.qml:24
-#, kde-format
-msgid "Can change password"
-msgstr "Pode mudar a senha"
-
-#: src/qml/ServerData.qml:29
-#, kde-format
-msgid "Default Room Version"
-msgstr "Versão Predefinida da Sala"
-
-#: src/qml/ServerData.qml:37
-#, kde-format
-msgid "Available Room Versions"
-msgstr "Versões Disponíveis da Sala"
-
 #: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
@@ -3284,14 +3299,6 @@ msgstr "Terminar os passos de autenticação no seu navegador"
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
-msgstr ""
-
-#: src/qml/StateKeys.qml:22
-#, kde-format
-msgctxt ""
-"The name of one instance of a state of configuration. Unless you really know "
-"what you're doing, best leave this untranslated."
-msgid "State Keys"
 msgstr ""
 
 #: src/qml/Terms.qml:18
@@ -3832,17 +3839,17 @@ msgstr "O ID do Matrix está vazio ou é inválido"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "O %1 não é um identificador correcto do Matrix"
 
-#: src/roommanager.cpp:295
+#: src/roommanager.cpp:303
 #, kde-format
 msgid "Failed to join room"
 msgstr "Não foi possível juntar-se à sala"
 
-#: src/roommanager.cpp:310
+#: src/roommanager.cpp:318
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Pediu para se ligar ao '%1'"
 
-#: src/roommanager.cpp:313
+#: src/roommanager.cpp:321
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Não foi possível pedir para se ligar à sala"
@@ -4291,41 +4298,41 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Reactivar este utilizador"
 
-#: src/settings/NeoChatGeneralPage.qml:15
+#: src/settings/NeoChatGeneralPage.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Geral"
 
-#: src/settings/NeoChatGeneralPage.qml:18
+#: src/settings/NeoChatGeneralPage.qml:19
 #, kde-format
 msgid "General settings"
 msgstr "Configuração geral"
 
-#: src/settings/NeoChatGeneralPage.qml:24
+#: src/settings/NeoChatGeneralPage.qml:25
 #, fuzzy, kde-format
 #| msgid "Close to system tray"
 msgid "Show in System Tray"
 msgstr "Fechar para a bandeja"
 
-#: src/settings/NeoChatGeneralPage.qml:41
+#: src/settings/NeoChatGeneralPage.qml:42
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Minimizar para a bandeja no arranque"
 
-#: src/settings/NeoChatGeneralPage.qml:58
+#: src/settings/NeoChatGeneralPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Esconder/mostrar automaticamente a informação da sala ao dimensionar a janela"
 
-#: src/settings/NeoChatGeneralPage.qml:69
+#: src/settings/NeoChatGeneralPage.qml:70
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
 msgid "Room list sort order"
 msgstr "<ID ou alcunha da sala>"
 
-#: src/settings/NeoChatGeneralPage.qml:73
+#: src/settings/NeoChatGeneralPage.qml:74
 #, fuzzy, kde-format
 #| msgctxt "'Activities' is a category of emoji"
 #| msgid "Activities"
@@ -4333,64 +4340,64 @@ msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Actividades"
 
-#: src/settings/NeoChatGeneralPage.qml:82
+#: src/settings/NeoChatGeneralPage.qml:83
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:92
+#: src/settings/NeoChatGeneralPage.qml:93
 #, kde-format
 msgid "Timeline Events"
 msgstr "Eventos da Linha Temporal"
 
-#: src/settings/NeoChatGeneralPage.qml:97
+#: src/settings/NeoChatGeneralPage.qml:98
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Mostrar as mensagens apagadas"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:114
 #, kde-format
 msgid "Show state events"
 msgstr "Mostrar os eventos de estado"
 
-#: src/settings/NeoChatGeneralPage.qml:131
+#: src/settings/NeoChatGeneralPage.qml:132
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Mostrar os eventos de entrada e saída"
 
-#: src/settings/NeoChatGeneralPage.qml:149
+#: src/settings/NeoChatGeneralPage.qml:150
 #, kde-format
 msgid "Show name change events"
 msgstr "Mostrar os eventos de mudança de nome"
 
-#: src/settings/NeoChatGeneralPage.qml:167
+#: src/settings/NeoChatGeneralPage.qml:168
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Mostrar os eventos de actualização do avatar"
 
-#: src/settings/NeoChatGeneralPage.qml:177
+#: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/settings/NeoChatGeneralPage.qml:182
+#: src/settings/NeoChatGeneralPage.qml:183
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Usar a sintaxe s/texto/substituição para editar a sua última mensagem"
 
-#: src/settings/NeoChatGeneralPage.qml:196
+#: src/settings/NeoChatGeneralPage.qml:197
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Enviar as notificações de escrita"
 
-#: src/settings/NeoChatGeneralPage.qml:206
+#: src/settings/NeoChatGeneralPage.qml:207
 #, kde-format
 msgid "Developer Settings"
 msgstr "Configuração do Desenvolvimento"
 
-#: src/settings/NeoChatGeneralPage.qml:210
+#: src/settings/NeoChatGeneralPage.qml:211
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Activar as ferramentas de desenvolvimento"
@@ -5124,7 +5131,7 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Apaga a palavra"
 
-#: src/timeline/CodeComponent.qml:141
+#: src/timeline/CodeComponent.qml:165
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
 msgid "Copy to clipboard"
@@ -5216,7 +5223,7 @@ msgstr "A carregar…"
 msgid "Loading URL preview"
 msgstr "A carregar a antevisão do URL"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:226
 #, fuzzy, kde-format
 #| msgid "withdrew a user's invitation"
 msgid "%1 started a user verification"

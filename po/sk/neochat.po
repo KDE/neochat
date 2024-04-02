@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-02 00:37+0000\n"
 "PO-Revision-Date: 2024-01-23 09:01+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -72,6 +72,136 @@ msgstr "Nepodarilo sa prečítať prístupový token"
 #| msgid "Show notifications"
 msgid "Receiving push notifications"
 msgstr "Zobraziť upozornenia"
+
+#: src/devtools/AccountData.qml:19
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@title:group"
+msgid "Account Data"
+msgstr "Žiadne miestnosti neboli nájdené"
+
+#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:37
+#, fuzzy, kde-format
+#| msgid "View Source"
+msgctxt "@title:window"
+msgid "Event Source"
+msgstr "Zobraziť zdroj"
+
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:225
+#, kde-format
+msgid "Developer Tools"
+msgstr ""
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@title:tab"
+msgid "Account Data"
+msgstr "Žiadne miestnosti neboli nájdené"
+
+#: src/devtools/DevtoolsPage.qml:44
+#, kde-format
+msgctxt "@title:tab"
+msgid "Feature Flags"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:20
+#, kde-format
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Threads"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:26
+#, kde-format
+msgctxt "@option:check Enable the matrix 'secret backup' feature"
+msgid "Secret Backup"
+msgstr ""
+
+#: src/devtools/RoomData.qml:20
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@title"
+msgid "Choose Room"
+msgstr "Vybrať miestny súbor"
+
+#: src/devtools/RoomData.qml:25 src/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room"
+msgstr "Miestnosti"
+
+#: src/devtools/RoomData.qml:35
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room Id: %1"
+msgstr "Miestnosti"
+
+#: src/devtools/RoomData.qml:39
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "Room Account Data"
+msgstr "Žiadne miestnosti neboli nájdené"
+
+#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:80
+#: src/qml/MessageSourceSheet.qml:23
+#, fuzzy, kde-format
+#| msgid "View Source"
+msgid "Event Source"
+msgstr "Zobraziť zdroj"
+
+#: src/devtools/RoomData.qml:60
+#, fuzzy, kde-format
+#| msgctxt "%1 is the room name"
+#| msgid "Room Settings - %1"
+msgid "Room State"
+msgstr "Nastavenia miestnosti - %1"
+
+#: src/devtools/RoomData.qml:74
+#, kde-format
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "%1 event of this type"
+msgid_plural "%1 events of this type"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/devtools/RoomData.qml:88
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "'Event' being some JSON data, not something physically happening."
+msgid "Event Information"
+msgstr "Informácie o miestnosti"
+
+#: src/devtools/ServerData.qml:20
+#, kde-format
+msgid "Server Capabilities"
+msgstr ""
+
+#: src/devtools/ServerData.qml:24
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgid "Can change password"
+msgstr "Potvrdiť nové heslo:"
+
+#: src/devtools/ServerData.qml:29
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Default Room Version"
+msgstr "Informácie o miestnosti"
+
+#: src/devtools/ServerData.qml:37
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Available Room Versions"
+msgstr "Informácie o miestnosti"
+
+#: src/devtools/StateKeys.qml:22
+#, kde-format
+msgctxt ""
+"The name of one instance of a state of configuration. Unless you really know "
+"what you're doing, best leave this untranslated."
+msgid "State Keys"
+msgstr ""
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -1281,7 +1411,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Upraviť správu"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:282
+#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1345,26 +1475,12 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgctxt "@title:group"
-msgid "Account Data"
-msgstr "Žiadne miestnosti neboli nájdené"
-
-#: src/qml/AccountData.qml:29 src/qml/StateKeys.qml:37
-#, fuzzy, kde-format
-#| msgid "View Source"
-msgctxt "@title:window"
-msgid "Event Source"
-msgstr "Zobraziť zdroj"
-
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:67
+#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:67
 #, kde-format
 msgid "Edit this account"
 msgstr "Upraviť tento účet"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:61
+#: src/qml/AccountMenu.qml:28 src/qml/UserInfo.qml:61
 #: src/settings/AccountsPage.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
@@ -1372,49 +1488,49 @@ msgstr "Upraviť tento účet"
 msgid "Account editor"
 msgstr "Podrobnosti konta"
 
-#: src/qml/AccountMenu.qml:31
+#: src/qml/AccountMenu.qml:32
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Notification settings"
 msgstr "Zobraziť upozornenia"
 
-#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:412 src/qml/UserInfo.qml:118
+#: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
+#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Nastaviť"
 
-#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:44 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettings.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "Zariadenia"
 
-#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatGeneralPage.qml:221
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:61
+#: src/qml/AccountMenu.qml:62
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Nastavenia"
 
-#: src/qml/AccountMenu.qml:67
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:71
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:77 src/settings/AccountsPage.qml:72
 #, kde-format
 msgid "Logout"
 msgstr "Odhlásenie"
@@ -1543,6 +1659,12 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Vybrať miestny súbor"
 
+#: src/qml/CodeMaximizeComponent.qml:52
+#, kde-format
+msgctxt "@action"
+msgid "Copy to clipboard"
+msgstr ""
+
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, fuzzy, kde-format
@@ -1637,13 +1759,13 @@ msgstr ""
 #| "file with an appropriate application"
 #| msgid "Open File"
 msgctxt "@title"
-msgid "Open Url"
+msgid "Open URL"
 msgstr "Otvoriť súbor"
 
 #: src/qml/ConfirmUrlDialog.qml:21
-#, kde-format
-msgctxt "Do you want to open <link>"
-msgid "Do you want to open <b>%1</b>?"
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to open <link>%1</link>?"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:31
@@ -1777,12 +1899,6 @@ msgstr "Informácie o miestnosti"
 msgid "Select type"
 msgstr "Vybrať všetko"
 
-#: src/qml/CreateRoomDialog.qml:54 src/qml/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room"
-msgstr "Miestnosti"
-
 #: src/qml/CreateRoomDialog.qml:58
 #, fuzzy, kde-format
 #| msgid "Spaces"
@@ -1902,24 +2018,6 @@ msgstr "Hľadať '%1'"
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Nastaviť webové skratky..."
-
-#: src/qml/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
-#, kde-format
-msgid "Developer Tools"
-msgstr ""
-
-#: src/qml/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgctxt "@title:tab"
-msgid "Account Data"
-msgstr "Žiadne miestnosti neboli nájdené"
-
-#: src/qml/DevtoolsPage.qml:44
-#, kde-format
-msgctxt "@title:tab"
-msgid "Feature Flags"
-msgstr ""
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2121,18 +2219,6 @@ msgstr "Nájsť miestnosť..."
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Žiadne miestnosti neboli nájdené"
-
-#: src/qml/FeatureFlagPage.qml:21
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
-msgid "Threads"
-msgstr ""
-
-#: src/qml/FeatureFlagPage.qml:27
-#, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
@@ -2542,19 +2628,19 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registrovať sa"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:305
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Zobraziť upozornenia"
 
-#: src/qml/main.qml:333
+#: src/qml/main.qml:322
 #, kde-format
 msgid "User consent"
 msgstr "Používateľský súhlas"
 
-#: src/qml/main.qml:338
+#: src/qml/main.qml:327
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2564,28 +2650,28 @@ msgstr ""
 "zmluvnými podmienkami. Ak si ich chcete prečítať, kliknite na tlačidlo "
 "nižšie."
 
-#: src/qml/main.qml:343
+#: src/qml/main.qml:332
 #, kde-format
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/qml/main.qml:370
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Start a chat"
 msgstr "Začať rozhovor"
 
-#: src/qml/main.qml:372
+#: src/qml/main.qml:361
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Chcete začať rozhovor s %1?"
 
-#: src/qml/main.qml:398
+#: src/qml/main.qml:387
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:430 src/qml/ShareAction.qml:68
+#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2668,13 +2754,6 @@ msgstr "Zakázať tomuto používateľovi prístup"
 #| msgid "Copy"
 msgid "Copy Link"
 msgstr "Kopírovať"
-
-#: src/qml/MessageSourceSheet.qml:23 src/qml/RoomData.qml:52
-#: src/qml/RoomData.qml:80
-#, fuzzy, kde-format
-#| msgid "View Source"
-msgid "Event Source"
-msgstr "Zobraziť zdroj"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, fuzzy, kde-format
@@ -2869,48 +2948,6 @@ msgstr "Upraviť správu"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr ""
-
-#: src/qml/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Choose local file"
-msgctxt "@title"
-msgid "Choose Room"
-msgstr "Vybrať miestny súbor"
-
-#: src/qml/RoomData.qml:35
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room Id: %1"
-msgstr "Miestnosti"
-
-#: src/qml/RoomData.qml:39
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "Room Account Data"
-msgstr "Žiadne miestnosti neboli nájdené"
-
-#: src/qml/RoomData.qml:60
-#, fuzzy, kde-format
-#| msgctxt "%1 is the room name"
-#| msgid "Room Settings - %1"
-msgid "Room State"
-msgstr "Nastavenia miestnosti - %1"
-
-#: src/qml/RoomData.qml:74
-#, kde-format
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "%1 event of this type"
-msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: src/qml/RoomData.qml:88
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgctxt "'Event' being some JSON data, not something physically happening."
-msgid "Event Information"
-msgstr "Informácie o miestnosti"
 
 #: src/qml/RoomDelegate.qml:102
 #, fuzzy, kde-format
@@ -3228,29 +3265,6 @@ msgstr ""
 msgid "Server URL"
 msgstr ""
 
-#: src/qml/ServerData.qml:20
-#, kde-format
-msgid "Server Capabilities"
-msgstr ""
-
-#: src/qml/ServerData.qml:24
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
-msgid "Can change password"
-msgstr "Potvrdiť nové heslo:"
-
-#: src/qml/ServerData.qml:29
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgid "Default Room Version"
-msgstr "Informácie o miestnosti"
-
-#: src/qml/ServerData.qml:37
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgid "Available Room Versions"
-msgstr "Informácie o miestnosti"
-
 #: src/qml/ShareAction.qml:23
 #, kde-format
 msgid "Share"
@@ -3418,14 +3432,6 @@ msgstr "Dokončite kroky overenia totožnosti v prehliadači"
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
-msgstr ""
-
-#: src/qml/StateKeys.qml:22
-#, kde-format
-msgctxt ""
-"The name of one instance of a state of configuration. Unless you really know "
-"what you're doing, best leave this untranslated."
-msgid "State Keys"
 msgstr ""
 
 #: src/qml/Terms.qml:18
@@ -3934,18 +3940,18 @@ msgstr "Poškodené alebo prázdne Matrix ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 nie je správny Matrix identifikátor"
 
-#: src/roommanager.cpp:295
+#: src/roommanager.cpp:303
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Failed to join room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/roommanager.cpp:310
+#: src/roommanager.cpp:318
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:313
+#: src/roommanager.cpp:321
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Failed to request joining room"
@@ -4423,112 +4429,112 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Prestať ignorovať tohto požívateľa"
 
-#: src/settings/NeoChatGeneralPage.qml:15
+#: src/settings/NeoChatGeneralPage.qml:16
 #, fuzzy, kde-format
 #| msgid "General"
 msgctxt "@title:window"
 msgid "General"
 msgstr "Všeobecné"
 
-#: src/settings/NeoChatGeneralPage.qml:18
+#: src/settings/NeoChatGeneralPage.qml:19
 #, fuzzy, kde-format
 #| msgid "General settings:"
 msgid "General settings"
 msgstr "Všeobecné nastavenia:"
 
-#: src/settings/NeoChatGeneralPage.qml:24
+#: src/settings/NeoChatGeneralPage.qml:25
 #, fuzzy, kde-format
 #| msgid "Close to system tray"
 msgid "Show in System Tray"
 msgstr "Zatvoriť do systémovej lišty"
 
-#: src/settings/NeoChatGeneralPage.qml:41
+#: src/settings/NeoChatGeneralPage.qml:42
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:58
+#: src/settings/NeoChatGeneralPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:69
+#: src/settings/NeoChatGeneralPage.qml:70
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
 msgid "Room list sort order"
 msgstr "<alias miestnosti alebo jej id>"
 
-#: src/settings/NeoChatGeneralPage.qml:73
+#: src/settings/NeoChatGeneralPage.qml:74
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:82
+#: src/settings/NeoChatGeneralPage.qml:83
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:92
+#: src/settings/NeoChatGeneralPage.qml:93
 #, kde-format
 msgid "Timeline Events"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:97
+#: src/settings/NeoChatGeneralPage.qml:98
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Show deleted messages"
 msgstr "Odoslať správu"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:114
 #, fuzzy, kde-format
 #| msgid "Show leave and join events"
 msgid "Show state events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:131
+#: src/settings/NeoChatGeneralPage.qml:132
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:149
+#: src/settings/NeoChatGeneralPage.qml:150
 #, fuzzy, kde-format
 #| msgid "Show leave and join events"
 msgid "Show name change events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:167
+#: src/settings/NeoChatGeneralPage.qml:168
 #, fuzzy, kde-format
 #| msgid "Show leave and join events"
 msgid "Show avatar update events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:177
+#: src/settings/NeoChatGeneralPage.qml:178
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Upraviť"
 
-#: src/settings/NeoChatGeneralPage.qml:182
+#: src/settings/NeoChatGeneralPage.qml:183
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Na úpravu svojej poslednej správy použite syntax s/text/náhrada"
 
-#: src/settings/NeoChatGeneralPage.qml:196
+#: src/settings/NeoChatGeneralPage.qml:197
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Send typing notifications"
 msgstr "Zobraziť upozornenia"
 
-#: src/settings/NeoChatGeneralPage.qml:206
+#: src/settings/NeoChatGeneralPage.qml:207
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Developer Settings"
 msgstr "Nastavenia"
 
-#: src/settings/NeoChatGeneralPage.qml:210
+#: src/settings/NeoChatGeneralPage.qml:211
 #, kde-format
 msgid "Enable developer tools"
 msgstr ""
@@ -5291,7 +5297,7 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Vymazať"
 
-#: src/timeline/CodeComponent.qml:141
+#: src/timeline/CodeComponent.qml:165
 #, kde-format
 msgid "Copy to clipboard"
 msgstr ""
@@ -5380,7 +5386,7 @@ msgstr "Načítava sa…"
 msgid "Loading URL preview"
 msgstr ""
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:226
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 started a user verification"
