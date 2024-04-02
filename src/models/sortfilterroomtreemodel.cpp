@@ -24,7 +24,6 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QOb
 
     setRecursiveFilteringEnabled(true);
     sort(0);
-    invalidateFilter();
     connect(this, &SortFilterRoomTreeModel::filterTextChanged, this, &SortFilterRoomTreeModel::invalidateFilter);
     connect(this, &SortFilterRoomTreeModel::sourceModelChanged, this, [this]() {
         this->sourceModel()->disconnect(this);

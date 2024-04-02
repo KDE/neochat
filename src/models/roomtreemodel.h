@@ -7,6 +7,7 @@
 #include <QPointer>
 
 #include "enums/neochatroomtype.h"
+#include "roomtreeitem.h"
 
 namespace Quotient
 {
@@ -83,9 +84,11 @@ Q_SIGNALS:
 
 private:
     QPointer<NeoChatConnection> m_connection;
-    QMap<NeoChatRoomType::Types, QList<QPointer<NeoChatRoom>>> m_rooms;
+    std::unique_ptr<RoomTreeItem> m_rootItem;
 
-    void initializeCategories();
+    RoomTreeItem *getItem(const QModelIndex &index) const;
+
+    void resetModel();
     void connectRoomSignals(NeoChatRoom *room);
 
     void newRoom(Quotient::Room *room);

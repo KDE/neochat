@@ -172,6 +172,8 @@ add_library(neochat STATIC
     models/statekeysmodel.h
     sharehandler.cpp
     sharehandler.h
+    models/roomtreeitem.cpp
+    models/roomtreeitem.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

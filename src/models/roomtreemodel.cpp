@@ -15,21 +15,47 @@ using namespace Quotient;
 
 RoomTreeModel::RoomTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
+    , m_rootItem(new RoomTreeItem(nullptr))
 {
-    initializeCategories();
 }
 
-void RoomTreeModel::initializeCategories()
+RoomTreeItem *RoomTreeModel::getItem(const QModelIndex &index) const
 {
-    for (const auto &key : m_rooms.keys()) {
-        for (const auto &room : m_rooms[key]) {
-            room->disconnect(this);
+    if (index.isValid()) {
+        RoomTreeItem *item = static_cast<RoomTreeItem *>(index.internalPointer());
+        if (item) {
+            return item;
         }
     }
-    m_rooms.clear();
-    for (int i = 0; i < 8; i++) {
-        m_rooms[NeoChatRoomType::Types(i)] = {};
+    return m_rootItem.get();
+}
+
+void RoomTreeModel::resetModel()
+{
+    if (m_connection == nullptr) {
+        beginResetModel();
+        m_rootItem.reset();
+        endResetModel();
+        return;
     }
+
+    beginResetModel();
+    m_rootItem.reset(new RoomTreeItem(nullptr));
+
+    for (int i = 0; i < NeoChatRoomType::TypesCount; i++) {
+        m_rootItem->insertChild(std::make_unique<RoomTreeItem>(NeoChatRoomType::Types(i), m_rootItem.get()));
+    }
+
+    for (const auto &r : m_connection->allRooms()) {
+        const auto room = dynamic_cast<NeoChatRoom *>(r);
+        const auto type = NeoChatRoomType::typeForRoom(room);
+        const auto categoryItem = m_rootItem->child(type);
+        if (categoryItem->insertChild(std::make_unique<RoomTreeItem>(room, categoryItem))) {
+            connectRoomSignals(room);
+        }
+    }
+
+    endResetModel();
 }
 
 void RoomTreeModel::setConnection(NeoChatConnection *connection)
@@ -41,16 +67,13 @@ void RoomTreeModel::setConnection(NeoChatConnection *connection)
         disconnect(m_connection.get(), nullptr, this, nullptr);
     }
     m_connection = connection;
-    beginResetModel();
-    initializeCategories();
-    endResetModel();
+
+    resetModel();
+
     connect(connection, &Connection::newRoom, this, &RoomTreeModel::newRoom);
     connect(connection, &Connection::leftRoom, this, &RoomTreeModel::leftRoom);
     connect(connection, &Connection::aboutToDeleteRoom, this, &RoomTreeModel::leftRoom);
 
-    for (const auto &room : m_connection->allRooms()) {
-        newRoom(dynamic_cast<NeoChatRoom *>(room));
-    }
     Q_EMIT connectionChanged();
 }
 
@@ -68,23 +91,28 @@ void RoomTreeModel::newRoom(Room *r)
         return;
     }
 
-    beginInsertRows(index(type, 0), m_rooms[type].size(), m_rooms[type].size());
-    m_rooms[type].append(room);
+    const auto parentItem = m_rootItem->child(type);
+    beginInsertRows(index(parentItem->row(), 0), parentItem->childCount(), parentItem->childCount());
+    parentItem->insertChild(std::make_unique<RoomTreeItem>(room, parentItem));
     connectRoomSignals(room);
     endInsertRows();
+    qWarning() << "adding room" << type << "new count" << parentItem->childCount();
 }
 
 void RoomTreeModel::leftRoom(Room *r)
 {
     const auto room = dynamic_cast<NeoChatRoom *>(r);
-    const auto type = NeoChatRoomType::typeForRoom(room);
-    auto row = m_rooms[type].indexOf(room);
-    if (row == -1) {
+    auto index = indexForRoom(room);
+    if (!index.isValid()) {
         return;
     }
-    beginRemoveRows(index(type, 0), row, row);
-    m_rooms[type][row]->disconnect(this);
-    m_rooms[type].removeAt(row);
+
+    const auto parentItem = getItem(index.parent());
+    Q_ASSERT(parentItem);
+
+    beginRemoveRows(index.parent(), index.row(), index.row());
+    parentItem->removeChild(index.row());
+    room->disconnect(this);
     endRemoveRows();
 }
 
@@ -94,30 +122,41 @@ void RoomTreeModel::moveRoom(Quotient::Room *room)
     // NeoChatRoomType::typeForRoom doesn't match it's current location. So find the room.
     NeoChatRoomType::Types oldType;
     int oldRow = -1;
-    for (const auto &key : m_rooms.keys()) {
-        if (m_rooms[key].contains(room)) {
-            oldType = key;
-            oldRow = m_rooms[key].indexOf(room);
+    for (int i = 0; i < NeoChatRoomType::TypesCount; i++) {
+        const auto categoryItem = m_rootItem->child(i);
+        const auto row = categoryItem->rowForRoom(room);
+        if (row) {
+            oldType = static_cast<NeoChatRoomType::Types>(i);
+            oldRow = *row;
         }
     }
 
     if (oldRow == -1) {
         return;
     }
-    const auto newType = NeoChatRoomType::typeForRoom(dynamic_cast<NeoChatRoom *>(room));
+    auto neochatRoom = dynamic_cast<NeoChatRoom *>(room);
+    const auto newType = NeoChatRoomType::typeForRoom(neochatRoom);
     if (newType == oldType) {
         return;
     }
 
     const auto oldParent = index(oldType, 0, {});
+    auto oldParentItem = getItem(oldParent);
+    Q_ASSERT(oldParentItem);
+
     const auto newParent = index(newType, 0, {});
+    auto newParentItem = getItem(newParent);
+    Q_ASSERT(newParentItem);
+
     // HACK: We're doing this as a remove then insert because  moving doesn't work
     // properly with DelegateChooser for whatever reason.
+    Q_ASSERT(checkIndex(index(oldRow, 0, oldParent), QAbstractItemModel::CheckIndexOption::IndexIsValid));
     beginRemoveRows(oldParent, oldRow, oldRow);
-    m_rooms[oldType].removeAt(oldRow);
+    const bool success = oldParentItem->removeChild(oldRow);
+    Q_ASSERT(success);
     endRemoveRows();
-    beginInsertRows(newParent, m_rooms[newType].size(), m_rooms[newType].size());
-    m_rooms[newType].append(dynamic_cast<NeoChatRoom *>(room));
+    beginInsertRows(newParent, newParentItem->childCount(), newParentItem->childCount());
+    newParentItem->insertChild(std::make_unique<RoomTreeItem>(neochatRoom, newParentItem));
     endInsertRows();
 }
 
@@ -151,15 +190,12 @@ void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
 
 void RoomTreeModel::refreshRoomRoles(NeoChatRoom *room, const QList<int> &roles)
 {
-    const auto roomType = NeoChatRoomType::typeForRoom(room);
-    const auto it = std::find(m_rooms[roomType].begin(), m_rooms[roomType].end(), room);
-    if (it == m_rooms[roomType].end()) {
+    const auto index = indexForRoom(room);
+    if (!index.isValid()) {
         qCritical() << "Room" << room->id() << "not found in the room list";
         return;
     }
-    const auto parentIndex = index(roomType, 0, {});
-    const auto idx = index(it - m_rooms[roomType].begin(), 0, parentIndex);
-    Q_EMIT dataChanged(idx, idx, roles);
+    Q_EMIT dataChanged(index, index, roles);
 }
 
 NeoChatConnection *RoomTreeModel::connection() const
@@ -175,32 +211,55 @@ int RoomTreeModel::columnCount(const QModelIndex &parent) const
 
 int RoomTreeModel::rowCount(const QModelIndex &parent) const
 {
+    RoomTreeItem *parentItem;
+    if (parent.column() > 0) {
+        return 0;
+    }
+
     if (!parent.isValid()) {
-        return m_rooms.keys().size();
+        parentItem = m_rootItem.get();
+    } else {
+        parentItem = static_cast<RoomTreeItem *>(parent.internalPointer());
     }
-    if (!parent.parent().isValid()) {
-        return m_rooms.values()[parent.row()].size();
-    }
-    return 0;
+
+    return parentItem->childCount();
 }
 
 QModelIndex RoomTreeModel::parent(const QModelIndex &index) const
 {
-    if (!index.internalPointer()) {
-        return {};
+    if (!index.isValid()) {
+        return QModelIndex();
     }
-    return this->index(NeoChatRoomType::typeForRoom(static_cast<NeoChatRoom *>(index.internalPointer())), 0, QModelIndex());
+
+    RoomTreeItem *childItem = static_cast<RoomTreeItem *>(index.internalPointer());
+    if (!childItem) {
+        return QModelIndex();
+    }
+    RoomTreeItem *parentItem = childItem->parentItem();
+
+    if (parentItem == m_rootItem.get()) {
+        return QModelIndex();
+    }
+
+    return createIndex(parentItem->row(), 0, parentItem);
 }
 
 QModelIndex RoomTreeModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (!parent.isValid()) {
-        return createIndex(row, column, nullptr);
+    if (!hasIndex(row, column, parent)) {
+        return QModelIndex();
     }
-    if (row >= rowCount(parent)) {
-        return {};
+
+    RoomTreeItem *parentItem = getItem(parent);
+    if (!parentItem) {
+        return QModelIndex();
     }
-    return createIndex(row, column, m_rooms[NeoChatRoomType::Types(parent.row())][row]);
+
+    RoomTreeItem *childItem = parentItem->child(row);
+    if (childItem) {
+        return createIndex(row, column, childItem);
+    }
+    return QModelIndex();
 }
 
 QHash<int, QByteArray> RoomTreeModel::roleNames() const
@@ -235,7 +294,8 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    if (!index.parent().isValid()) {
+    RoomTreeItem *child = getItem(index);
+    if (std::holds_alternative<NeoChatRoomType::Types>(child->data())) {
         if (role == DisplayNameRole) {
             return NeoChatRoomType::typeName(index.row());
         }
@@ -256,7 +316,8 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         }
         return {};
     }
-    const auto room = m_rooms.values()[index.parent().row()][index.row()].get();
+
+    const auto room = std::get<NeoChatRoom *>(child->data());
     Q_ASSERT(room);
 
     if (role == DisplayNameRole) {
@@ -338,16 +399,20 @@ QModelIndex RoomTreeModel::indexForRoom(NeoChatRoom *room) const
 
     // Try and find by checking type.
     const auto type = NeoChatRoomType::typeForRoom(room);
-    auto row = m_rooms[type].indexOf(room);
-    if (row >= 0) {
-        return index(row, 0, index(type, 0));
+    const auto parentItem = m_rootItem->child(type);
+    const auto row = parentItem->rowForRoom(room);
+    if (row) {
+        return index(*row, 0, index(type, 0));
     }
     // Double check that the room isn't in the wrong category.
-    for (const auto &key : m_rooms.keys()) {
-        if (m_rooms[key].contains(room)) {
-            return index(m_rooms[key].indexOf(room), 0, index(key, 0));
+    for (int i = 0; i < NeoChatRoomType::TypesCount; i++) {
+        const auto parentItem = m_rootItem->child(i);
+        const auto row = parentItem->rowForRoom(room);
+        if (row) {
+            return index(*row, 0, index(i, 0));
         }
     }
+
     return {};
 }
 

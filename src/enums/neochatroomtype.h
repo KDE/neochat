@@ -29,6 +29,7 @@ public:
         Deprioritized, /**< The room is set as low priority. */
         Space, /**< The room is a space. */
         AddDirect, /**< So we can show the add friend delegate. */
+        TypesCount, /**< Number of different types (this should always be last). */
     };
     Q_ENUM(Types);
 
