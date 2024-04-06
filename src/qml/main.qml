@@ -413,7 +413,7 @@ Kirigami.ApplicationWindow {
         }
     }
     function handleShare(): void {
-        const dialog = applicationWindow().pageStack.pushDialogLayer("qrc:/org/kde/neochat/qml/ChooseRoomDialog.qml", {
+        const dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog.qml'), {
             connection: root.connection
         }, {
             title: i18nc("@title", "Share"),
