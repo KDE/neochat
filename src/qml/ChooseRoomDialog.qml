@@ -31,4 +31,6 @@ Kirigami.ScrollablePage {
             connection: root.connection
         }
     }
+
+    Component.onCompleted: Qt.callLater(() => header.forceActiveFocus())
 }
