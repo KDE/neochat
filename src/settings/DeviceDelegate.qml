@@ -17,6 +17,7 @@ FormCard.AbstractFormDelegate {
     required property string id
     required property string timestamp
     required property string displayName
+    required property int type
 
     property bool editDeviceName: false
     property bool showVerifyButton
@@ -98,7 +99,7 @@ FormCard.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            visible: root.showVerifyButton
+            visible: root.showVerifyButton && root.type !== DevicesModel.Verified
             action: Kirigami.Action {
                 id: verifyDeviceAction
                 text: i18n("Verify device")
@@ -110,6 +111,21 @@ FormCard.AbstractFormDelegate {
             QQC2.ToolTip {
                 text: verifyDeviceAction.text
                 delay: Kirigami.Units.toolTipDelay
+            }
+        }
+        Kirigami.Icon {
+            visible: root.showVerifyButton && root.type === DevicesModel.Verified
+            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+            source: "security-high"
+
+            HoverHandler {
+                id: verifyHover
+            }
+            QQC2.ToolTip {
+                text: i18nc("This device is verified", "Verified")
+                delay: Kirigami.Units.toolTipDelay
+                visible: verifyHover.hovered
             }
         }
         QQC2.ToolButton {

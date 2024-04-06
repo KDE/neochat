@@ -19,6 +19,15 @@ using namespace Quotient;
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    connect(m_connection, &Connection::sessionVerified, this, [this](const QString &, const QString &deviceId) {
+        const auto it = std::find_if(m_devices.begin(), m_devices.end(), [deviceId](const Quotient::Device &device) {
+            return device.deviceId == deviceId;
+        });
+        if (it != m_devices.end()) {
+            const auto index = this->index(it - m_devices.begin());
+            Q_EMIT dataChanged(index, index, {Type});
+        }
+    });
 }
 
 void DevicesModel::fetchDevices()
