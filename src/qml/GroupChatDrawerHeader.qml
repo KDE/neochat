@@ -3,9 +3,12 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.prison
 
 import org.kde.neochat
 
@@ -73,6 +76,30 @@ ColumnLayout {
                 visible: root.room && root.room.canonicalAlias
                 text: root.room && root.room.canonicalAlias ? root.room.canonicalAlias : ""
             }
+        }
+        QQC2.AbstractButton {
+            Layout.preferredWidth: Kirigami.Units.iconSizes.large
+            Layout.preferredHeight: Kirigami.Units.iconSizes.large
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            contentItem: Barcode {
+                id: barcode
+                barcodeType: Barcode.QRCode
+                content: "https://matrix.to/#/" + root.room.id
+            }
+
+            onClicked: {
+                let map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent.qml').createObject(parent, {
+                    text: barcode.content,
+                    title: root.room ? root.room.displayName : "",
+                    subtitle: root.room ? root.room.id : "",
+                    avatarSource: root.room && root.room.avatarMediaId ? ("image://mxc/" + root.room.avatarMediaId) : ""
+                });
+                map.open();
+            }
+
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.text: barcode.content
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
     }
 
