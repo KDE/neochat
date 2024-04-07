@@ -84,6 +84,7 @@ Loader {
      * Some common actions shared between menus
      */
     component ViewSourceAction: Kirigami.Action {
+        visible: Config.developerTools
         text: i18n("View Source")
         icon.name: "code-context"
         onTriggered: RoomManager.viewEventSource(root.eventId)
