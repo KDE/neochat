@@ -22,7 +22,6 @@ ColumnLayout {
     QQC2.Control {
         id: headerItem
         Layout.fillWidth: true
-        Layout.topMargin: Kirigami.Units.smallSpacing
         implicitHeight: headerColumn.implicitHeight
 
         background: Rectangle {
