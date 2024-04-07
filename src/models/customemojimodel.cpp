@@ -161,7 +161,7 @@ QVariant CustomEmojiModel::data(const QModelIndex &idx, int role) const
     case Roles::ImageURL:
         return QUrl(QStringLiteral("image://mxc/") + data.url.mid(6));
     case Roles::MxcUrl:
-        return data.url.mid(6);
+        return m_connection->makeMediaUrl(QUrl(data.url));
     default:
         return {};
     }
