@@ -8,34 +8,22 @@
 #include <Quotient/events/roommessageevent.h>
 
 #include "neochatconfig.h"
-#include "neochatroom.h"
+#include "neochatconnection.h"
 #include "utils.h"
 
 using namespace Quotient;
 
-LinkPreviewer::LinkPreviewer(const NeoChatRoom *room, const Quotient::RoomMessageEvent *event, QObject *parent)
+LinkPreviewer::LinkPreviewer(const QUrl &url, QObject *parent)
     : QObject(parent)
-    , m_currentRoom(room)
-    , m_event(event)
     , m_loaded(false)
-    , m_url(linkPreview(event))
+    , m_url(url)
 {
-    connect(this, &LinkPreviewer::urlChanged, this, &LinkPreviewer::emptyChanged);
+    Q_ASSERT(dynamic_cast<Connection *>(this->parent()));
 
-    if (m_event != nullptr && m_currentRoom != nullptr) {
-        loadUrlPreview();
-        connect(m_currentRoom, &NeoChatRoom::urlPreviewEnabledChanged, this, &LinkPreviewer::loadUrlPreview);
-        // Make sure that we react to edits
-        connect(m_currentRoom, &NeoChatRoom::replacedEvent, this, [this](const Quotient::RoomEvent *newEvent) {
-            if (m_event->id() == newEvent->id()) {
-                m_event = eventCast<const Quotient::RoomMessageEvent>(newEvent);
-                m_url = linkPreview(m_event);
-                Q_EMIT urlChanged();
-                loadUrlPreview();
-            }
-        });
-    }
+    connect(this, &LinkPreviewer::urlChanged, this, &LinkPreviewer::emptyChanged);
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, &LinkPreviewer::loadUrlPreview);
+
+    loadUrlPreview();
 }
 
 bool LinkPreviewer::loaded() const
@@ -65,14 +53,14 @@ QUrl LinkPreviewer::url() const
 
 void LinkPreviewer::loadUrlPreview()
 {
-    if (!m_currentRoom || !NeoChatConfig::showLinkPreview() || !m_currentRoom->urlPreviewEnabled()) {
-        return;
-    }
     if (m_url.scheme() == QStringLiteral("https")) {
         m_loaded = false;
         Q_EMIT loadedChanged();
 
-        auto conn = m_currentRoom->connection();
+        auto conn = dynamic_cast<Connection *>(this->parent());
+        if (conn == nullptr) {
+            return;
+        }
         GetUrlPreviewJob *job = conn->callApi<GetUrlPreviewJob>(m_url);
 
         connect(job, &BaseJob::success, this, [this, job, conn]() {

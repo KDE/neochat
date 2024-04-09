@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "messagecontentmodel.h"
+#include "neochatconfig.h"
 
 #include <QImageReader>
 
@@ -23,6 +24,7 @@
 #include "filetype.h"
 #include "itinerarymodel.h"
 #include "linkpreviewer.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 #include "texthandler.h"
 
@@ -92,23 +94,11 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
                 endResetModel();
             }
         });
+        connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, &MessageContentModel::updateLinkPreviewer);
+        connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, &MessageContentModel::updateLinkPreviewer);
     }
 
-    if (const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-        if (LinkPreviewer::hasPreviewableLinks(event)) {
-            m_linkPreviewer = new LinkPreviewer(m_room, event, this);
-
-            connect(m_linkPreviewer, &LinkPreviewer::loadedChanged, [this]() {
-                if (m_linkPreviewer->loaded()) {
-                    // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
-                    beginResetModel();
-                    m_components[m_components.size() - 1].type = MessageComponentType::LinkPreview;
-                    endResetModel();
-                }
-            });
-        }
-    }
-
+    updateLinkPreviewer();
     updateComponents();
 }
 
@@ -317,6 +307,44 @@ void MessageContentModel::updateComponents(bool isEditing)
     }
 
     endResetModel();
+}
+
+void MessageContentModel::updateLinkPreviewer()
+{
+    if (m_room == nullptr || m_event == nullptr) {
+        if (m_linkPreviewer != nullptr) {
+            m_linkPreviewer->disconnect(this);
+            m_linkPreviewer = nullptr;
+            updateComponents();
+        }
+        return;
+    }
+    if (!m_room->urlPreviewEnabled()) {
+        if (m_linkPreviewer != nullptr) {
+            m_linkPreviewer->disconnect(this);
+            m_linkPreviewer = nullptr;
+            updateComponents();
+        }
+        return;
+    }
+
+    if (const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+        if (LinkPreviewer::hasPreviewableLinks(event)) {
+            m_linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(LinkPreviewer::linkPreview(event));
+            updateComponents();
+
+            if (m_linkPreviewer != nullptr) {
+                connect(m_linkPreviewer, &LinkPreviewer::loadedChanged, [this]() {
+                    if (m_linkPreviewer != nullptr && m_linkPreviewer->loaded()) {
+                        // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
+                        beginResetModel();
+                        m_components[m_components.size() - 1].type = MessageComponentType::LinkPreview;
+                        endResetModel();
+                    }
+                });
+            }
+        }
+    }
 }
 
 void MessageContentModel::updateItineraryModel()

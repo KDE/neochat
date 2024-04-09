@@ -9,6 +9,8 @@
 #include "controller.h"
 #include "jobs/neochatchangepasswordjob.h"
 #include "jobs/neochatdeactivateaccountjob.h"
+#include "linkpreviewer.h"
+#include "neochatconfig.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
@@ -475,6 +477,22 @@ void NeoChatConnection::setIsOnline(bool isOnline)
 QString NeoChatConnection::accountDataJsonString(const QString &type) const
 {
     return QString::fromUtf8(QJsonDocument(accountDataJson(type)).toJson());
+}
+
+LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
+{
+    if (!NeoChatConfig::showLinkPreview()) {
+        return nullptr;
+    }
+
+    auto previewer = m_linkPreviewers.value(link, nullptr);
+    if (previewer != nullptr) {
+        return previewer;
+    }
+
+    previewer = new LinkPreviewer(link, this);
+    m_linkPreviewers[link] = previewer;
+    return previewer;
 }
 
 #include "moc_neochatconnection.cpp"

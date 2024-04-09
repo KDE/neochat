@@ -60,7 +60,8 @@ class LinkPreviewer : public QObject
     Q_PROPERTY(bool empty READ empty NOTIFY emptyChanged)
 
 public:
-    explicit LinkPreviewer(const NeoChatRoom *room = nullptr, const Quotient::RoomMessageEvent *event = nullptr, QObject *parent = nullptr);
+    LinkPreviewer() = default;
+    explicit LinkPreviewer(const QUrl &url, QObject *parent = nullptr);
 
     [[nodiscard]] QUrl url() const;
     [[nodiscard]] bool loaded() const;
@@ -76,18 +77,6 @@ public:
      */
     static bool hasPreviewableLinks(const Quotient::RoomMessageEvent *event);
 
-private:
-    const NeoChatRoom *m_currentRoom;
-    const Quotient::RoomMessageEvent *m_event;
-
-    bool m_loaded;
-    QString m_title = QString();
-    QString m_description = QString();
-    QUrl m_imageSource = QUrl();
-    QUrl m_url;
-
-    void loadUrlPreview();
-
     /**
      * @brief Return the link to be previewed from the given event.
      *
@@ -95,6 +84,15 @@ private:
      * http, https or something starting with www. The first valid link is returned.
      */
     static QUrl linkPreview(const Quotient::RoomMessageEvent *event);
+
+private:
+    bool m_loaded;
+    QString m_title = QString();
+    QString m_description = QString();
+    QUrl m_imageSource = QUrl();
+    QUrl m_url;
+
+    void loadUrlPreview();
 
 Q_SIGNALS:
     void loadedChanged();

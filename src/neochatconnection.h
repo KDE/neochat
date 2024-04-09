@@ -9,6 +9,8 @@
 #include <QCoroTask>
 #include <Quotient/connection.h>
 
+class LinkPreviewer;
+
 class NeoChatConnection : public Quotient::Connection
 {
     Q_OBJECT
@@ -147,6 +149,8 @@ public:
 
     bool isOnline() const;
 
+    LinkPreviewer *previewerForLink(const QUrl &link);
+
 Q_SIGNALS:
     void labelChanged();
     void directChatNotificationsChanged();
@@ -166,4 +170,6 @@ private:
     void connectSignals();
 
     int m_badgeNotificationCount = 0;
+
+    QHash<QUrl, LinkPreviewer *> m_linkPreviewers;
 };

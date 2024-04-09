@@ -93,9 +93,10 @@ private:
     QList<MessageComponent> m_components;
     void updateComponents(bool isEditing = false);
 
-    LinkPreviewer *m_linkPreviewer = nullptr;
+    QPointer<LinkPreviewer> m_linkPreviewer;
     ItineraryModel *m_itineraryModel = nullptr;
 
+    void updateLinkPreviewer();
     void updateItineraryModel();
     bool m_emptyItinerary = false;
 };

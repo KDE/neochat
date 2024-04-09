@@ -32,8 +32,6 @@ private Q_SLOTS:
 
     void linkPreviewsReject_data();
     void linkPreviewsReject();
-
-    void editedLink();
 };
 
 void LinkPreviewerTest::initTestCase()
@@ -59,7 +57,7 @@ void LinkPreviewerTest::linkPreviewsMatch()
     QFETCH(QUrl, testOutputLink);
 
     auto event = TestUtils::loadEventFromFile<RoomMessageEvent>(eventSource);
-    auto linkPreviewer = LinkPreviewer(room, event.get());
+    auto linkPreviewer = LinkPreviewer(LinkPreviewer::linkPreview(event.get()), connection);
 
     QCOMPARE(linkPreviewer.empty(), false);
     QCOMPARE(linkPreviewer.url(), testOutputLink);
@@ -79,22 +77,7 @@ void LinkPreviewerTest::linkPreviewsReject()
     QFETCH(QString, eventSource);
 
     auto event = TestUtils::loadEventFromFile<RoomMessageEvent>(eventSource);
-    auto linkPreviewer = LinkPreviewer(room, event.get());
-
-    QCOMPARE(linkPreviewer.empty(), true);
-    QCOMPARE(linkPreviewer.url(), QUrl());
-}
-
-void LinkPreviewerTest::editedLink()
-{
-    room->syncNewEvents(QStringLiteral("test-linkpreviewerintial-sync.json"));
-    auto event = eventCast<const RoomMessageEvent>(room->messageEvents().at(0).get());
-    auto linkPreviewer = LinkPreviewer(room, event);
-
-    QCOMPARE(linkPreviewer.empty(), false);
-    QCOMPARE(linkPreviewer.url(), QUrl("https://kde.org"_ls));
-
-    room->syncNewEvents(QStringLiteral("test-linkpreviewerreplace-sync.json"));
+    auto linkPreviewer = LinkPreviewer(LinkPreviewer::linkPreview(event.get()), connection);
 
     QCOMPARE(linkPreviewer.empty(), true);
     QCOMPARE(linkPreviewer.url(), QUrl());
