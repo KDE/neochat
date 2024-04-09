@@ -3,7 +3,11 @@
 
 #include "accountemoticonmodel.h"
 
+#include <QImage>
+#include <QMimeDatabase>
+
 #include <Quotient/csapi/content-repo.h>
+#include <Quotient/events/eventcontent.h>
 #include <qcoro/qcorosignal.h>
 
 using namespace Quotient;
@@ -162,7 +166,15 @@ QCoro::Task<void> AccountEmoticonModel::doSetEmoticonImage(int index, QUrl sourc
         co_return;
     }
     m_images->images[index].url = job->contentUri();
-    m_images->images[index].info = none;
+    auto mime = QMimeDatabase().mimeTypeForUrl(source);
+    source.setScheme("file"_ls);
+    QFileInfo fileInfo(source.isLocalFile() ? source.toLocalFile() : source.toString());
+    EventContent::ImageInfo info;
+    if (mime.name().startsWith("image/"_ls)) {
+        QImage image(source.toLocalFile());
+        info = EventContent::ImageInfo(source, fileInfo.size(), mime, image.size(), fileInfo.fileName());
+    }
+    m_images->images[index].info = info;
     QJsonObject data;
     m_images->fillJson(&data);
     m_connection->setAccountData("im.ponies.user_emotes"_ls, data);
@@ -175,11 +187,21 @@ QCoro::Task<void> AccountEmoticonModel::doAddEmoticon(QUrl source, QString short
     if (job->error() != BaseJob::NoError) {
         co_return;
     }
+
+    auto mime = QMimeDatabase().mimeTypeForUrl(source);
+    source.setScheme("file"_ls);
+    QFileInfo fileInfo(source.isLocalFile() ? source.toLocalFile() : source.toString());
+    EventContent::ImageInfo info;
+    if (mime.name().startsWith("image/"_ls)) {
+        QImage image(source.toLocalFile());
+        info = EventContent::ImageInfo(source, fileInfo.size(), mime, image.size(), fileInfo.fileName());
+    }
+
     m_images->images.append(ImagePackEventContent::ImagePackImage{
         shortcode,
         job->contentUri(),
         description,
-        none,
+        info,
         QStringList{type},
     });
     QJsonObject data;

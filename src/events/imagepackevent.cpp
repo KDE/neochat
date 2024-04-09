@@ -74,6 +74,9 @@ void ImagePackEventContent::fillJson(QJsonObject *o) const
             }
             imageJson["usage"_ls] = usageJson;
         }
+        if (image.info.has_value()) {
+            imageJson["info"_ls] = Quotient::EventContent::toInfoJson(*image.info);
+        }
         imagesJson[image.shortcode] = imageJson;
     }
     (*o)["images"_ls] = imagesJson;
