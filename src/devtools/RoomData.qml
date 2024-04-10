@@ -46,7 +46,7 @@ ColumnLayout {
             model: root.room.accountDataEventTypes
             delegate: FormCard.FormButtonDelegate {
                 text: modelData
-                onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
+                onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                     sourceText: root.room.roomAcountDataJson(text)
                 }, {
                     title: i18n("Event Source"),
@@ -74,7 +74,7 @@ ColumnLayout {
                 description: i18ncp("'Event' being some JSON data, not something physically happening.", "%1 event of this type", "%1 events of this type", model.eventCount)
                 onClicked: {
                     if (model.eventCount === 1) {
-                        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
+                        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                             sourceText: stateModel.stateEventJson(stateModel.index(model.index, 0))
                         }, {
                             title: i18n("Event Source"),

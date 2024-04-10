@@ -55,6 +55,6 @@ LoginStep {
         }
     }
     previousAction: Kirigami.Action {
-        onTriggered: root.processed("Username.qml")
+        onTriggered: root.processed("Username")
     }
 }

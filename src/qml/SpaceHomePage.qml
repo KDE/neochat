@@ -49,7 +49,7 @@ ColumnLayout {
                     visible: root.currentRoom.canSendState("invite")
                     text: i18nc("@button", "Invite user to space")
                     icon.name: "list-add-user"
-                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage.qml'), {
+                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage'), {
                         room: root.currentRoom
                     }, {
                         title: i18nc("@title", "Invite a User")
@@ -73,7 +73,7 @@ ColumnLayout {
                     text: i18nc("@button", "Space settings")
                     icon.name: "settings-configure"
                     display: QQC2.AbstractButton.IconOnly
-                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings.qml'), {
+                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings'), {
                         room: root.currentRoom,
                         connection: root.currentRoom.connection
                     }, {
@@ -159,7 +159,7 @@ ColumnLayout {
     QtObject {
         id: _private
         function createRoom(parentId) {
-            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog.qml'), {
+            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
                 title: i18nc("@title", "Create a Child"),
                 connection: root.currentRoom.connection,
                 parentId: parentId,

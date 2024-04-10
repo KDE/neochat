@@ -152,7 +152,7 @@ Kirigami.Dialog {
                 icon.name: "im-ban-user"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'BanSheet.qml'), {
+                    applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'BanSheet'), {
                         room: root.room,
                         userId: root.user.id
                     }, {
@@ -210,7 +210,7 @@ Kirigami.Dialog {
                 icon.name: "delete"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RemoveSheet.qml'), {
+                    applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RemoveSheet'), {
                         room: root.room,
                         userId: root.user.id
                     }, {

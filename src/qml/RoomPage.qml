@@ -258,7 +258,7 @@ Kirigami.Page {
         target: RoomManager
 
         function onShowEventSource(eventId) {
-            applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet.qml'), {
+            applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                 sourceText: root.currentRoom.getEventJsonSource(eventId)
             }, {
                 title: i18n("Message Source"),
@@ -301,7 +301,7 @@ Kirigami.Page {
         }
 
         function onShowMaximizedCode(author, time, codeText, language) {
-            let popup = Qt.createComponent('org.kde.neochat', 'CodeMaximizeComponent.qml').createObject(QQC2.Overlay.overlay, {
+            let popup = Qt.createComponent('org.kde.neochat', 'CodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                 author: author,
                 time: time,
                 codeText: codeText,

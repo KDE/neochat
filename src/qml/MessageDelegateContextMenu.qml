@@ -48,7 +48,7 @@ DelegateContextMenu {
             text: i18nc("@action:inmenu As in 'Forward this message'", "Forward")
             icon.name: "mail-forward-symbolic"
             onTriggered: {
-                let page = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog.qml'), {
+                let page = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Forward Message"),

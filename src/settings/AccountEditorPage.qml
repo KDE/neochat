@@ -229,7 +229,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             id: deactivateAccountButton
             text: i18n("Deactivate Account")
-            onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ConfirmDeactivateAccountDialog.qml'), {
+            onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ConfirmDeactivateAccountDialog'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Confirm Deactivating Account")

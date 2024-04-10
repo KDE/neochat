@@ -22,13 +22,13 @@ LoginStep {
     FormCard.FormButtonDelegate {
         id: loginButton
         text: i18nc("@action:button", "Login")
-        onClicked: root.processed("Login.qml")
+        onClicked: root.processed("Login")
     }
 
     FormCard.FormDelegateSeparator {}
 
     FormCard.FormButtonDelegate {
         text: i18nc("@action:button", "Register")
-        onClicked: root.processed("Homeserver.qml")
+        onClicked: root.processed("Homeserver")
     }
 }

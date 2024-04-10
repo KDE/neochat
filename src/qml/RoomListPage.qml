@@ -186,7 +186,7 @@ Kirigami.Page {
                             icon.width: Kirigami.Units.gridUnit * 2
                             icon.height: Kirigami.Units.gridUnit * 2
 
-                            onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage.qml'), {
+                            onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                                 connection: root.connection
                             }, {
                                 title: i18nc("@title", "Find your friends")
@@ -215,7 +215,7 @@ Kirigami.Page {
             icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
             text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
             onTriggered: {
-                let dialog = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage.qml'), {
+                let dialog = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                     connection: root.connection,
                     keyword: RoomManager.sortFilterRoomTreeModel.filterText
                 }, {
@@ -231,7 +231,7 @@ Kirigami.Page {
             id: userSearchAction
             icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
             text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18n("Search in friend directory") : i18n("Find your friends")
-            onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage.qml'), {
+            onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Find your friends")

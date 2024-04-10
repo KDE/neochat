@@ -19,7 +19,7 @@ FormCard.FormCardPage {
     property bool _showExisting: showExisting && root.currentStepString === root.initialStep
     property alias currentStep: module.item
     property string currentStepString: initialStep
-    property string initialStep: "LoginRegister.qml"
+    property string initialStep: "LoginRegister"
 
     signal connectionChosen
 
@@ -136,7 +136,7 @@ FormCard.FormCardPage {
                 target: currentStep
 
                 function onProcessed(nextStep: string): void {
-                    module.source = nextStep;
+                    module.source = nextStep + ".qml";
                     root.currentStepString = nextStep;
                     headerMessage.text = "";
                     headerMessage.visible = false;
@@ -167,16 +167,16 @@ FormCard.FormCardPage {
                 target: Registration
                 function onNextStepChanged() {
                     if (Registration.nextStep === "m.login.recaptcha") {
-                        stepConnections.onProcessed("Captcha.qml");
+                        stepConnections.onProcessed("Captcha");
                     }
                     if (Registration.nextStep === "m.login.terms") {
-                        stepConnections.onProcessed("Terms.qml");
+                        stepConnections.onProcessed("Terms");
                     }
                     if (Registration.nextStep === "m.login.email.identity") {
-                        stepConnections.onProcessed("Email.qml");
+                        stepConnections.onProcessed("Email");
                     }
                     if (Registration.nextStep === "loading") {
-                        stepConnections.onProcessed("Loading.qml");
+                        stepConnections.onProcessed("Loading");
                     }
                 }
             }
@@ -217,7 +217,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Open proxy settings")
             icon.name: "settings-configure"
-            onClicked: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "NetworkProxyPage.qml"), {}, {
+            onClicked: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "NetworkProxyPage"), {}, {
                 title: i18nc("@title:window", "Proxy Settings")
             });
         }

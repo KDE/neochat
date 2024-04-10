@@ -60,7 +60,7 @@ QQC2.Control {
                             source: "notifications"
                         }
 
-                        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView.qml'), {
+                        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
                             connection: root.connection
                         }, {
                             title: i18nc("@title", "Notifications")
@@ -275,7 +275,7 @@ QQC2.Control {
                         contentItem: Kirigami.Icon {
                             source: "list-add"
                         }
-                        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog.qml'), {
+                        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
                             connection: root.connection,
                             isSpace: true,
                             title: i18nc("@title", "Create a Space")

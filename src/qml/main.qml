@@ -132,7 +132,7 @@ Kirigami.ApplicationWindow {
             }).open();
         }
         function onExternalUrl(url) {
-            let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog.qml").createObject(applicationWindow());
+            let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog").createObject(applicationWindow());
             dialog.link = url;
             dialog.open();
         }
@@ -147,7 +147,7 @@ Kirigami.ApplicationWindow {
     }
 
     function openRoomDrawer() {
-        pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomDrawerPage.qml'), {
+        pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomDrawerPage'), {
             connection: root.connection
         });
     }
@@ -259,7 +259,7 @@ Kirigami.ApplicationWindow {
         function onRowsRemoved() {
             if (AccountRegistry.rowCount() === 0) {
                 pageStack.clear();
-                pageStack.push(Qt.createComponent('org.kde.neochat', '.qml'));
+                pageStack.push(Qt.createComponent('org.kde.neochat', 'WelcomePage'));
             }
         }
     }
@@ -395,7 +395,7 @@ Kirigami.ApplicationWindow {
     Shortcut {
         sequence: "Ctrl+Shift+,"
         onActivated: {
-            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
+            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
                 connection: root.connection
             }, {
                 title: i18n("Configure"),
@@ -413,7 +413,7 @@ Kirigami.ApplicationWindow {
         }
     }
     function handleShare(): void {
-        const dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog.qml'), {
+        const dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
             connection: root.connection
         }, {
             title: i18nc("@title", "Share"),
@@ -436,7 +436,7 @@ Kirigami.ApplicationWindow {
     function load() {
         pageStack.replace(roomListComponent);
         RoomManager.loadInitialRoom();
-        let roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage.qml'), {
+        let roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
             connection: root.connection
         });
         roomPage.forceActiveFocus();

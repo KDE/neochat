@@ -15,7 +15,7 @@ LoginStep {
     Connections {
         target: LoginHelper
         function onConnected() {
-            processed("Loading.qml");
+            processed("Loading");
         }
     }
 
@@ -46,6 +46,6 @@ LoginStep {
         }
     }
     previousAction: Kirigami.Action {
-        onTriggered: processed("Login.qml")
+        onTriggered: processed("Login")
     }
 }

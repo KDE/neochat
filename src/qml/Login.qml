@@ -38,18 +38,18 @@ LoginStep {
         text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ? i18n("Loading…") : i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
-                processed("LoginMethod.qml");
+                processed("LoginMethod");
             } else if (LoginHelper.supportsSso) {
-                processed("Sso.qml");
+                processed("Sso");
             } else {
-                processed("Password.qml");
+                processed("Password");
             }
         }
         enabled: LoginHelper.homeserverReachable
     }
     previousAction: Kirigami.Action {
         onTriggered: {
-            root.processed("LoginRegister.qml");
+            root.processed("LoginRegister");
         }
     }
 }

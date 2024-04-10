@@ -29,7 +29,7 @@ FormCard.FormCardPage {
                 id: accountDelegate
                 required property NeoChatConnection connection
                 Layout.fillWidth: true
-                onClicked: applicationWindow().pageStack.layers.push('AccountEditorPage.qml', {
+                onClicked: applicationWindow().pageStack.layers.push('AccountEditorPage', {
                     connection: accountDelegate.connection
                 }, {
                     title: i18n("Account editor")
@@ -101,7 +101,7 @@ FormCard.FormCardPage {
             id: addAccountDelegate
             text: i18n("Add Account")
             icon.name: "list-add"
-            onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'WelcomePage.qml'))
+            onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'WelcomePage'))
         }
     }
 

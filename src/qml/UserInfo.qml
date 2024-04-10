@@ -55,7 +55,7 @@ RowLayout {
                 if (button == Qt.RightButton) {
                     accountMenu.open();
                 } else {
-                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage.qml'), {
+                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
                         connection: root.connection
                     }, {
                         title: i18n("Account editor")
@@ -112,7 +112,7 @@ RowLayout {
             Kirigami.Action {
                 text: i18n("Open Settings")
                 icon.name: "settings-configure"
-                onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
+                onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
                     connection: root.connection
                 }, {
                     title: i18n("Configure"),

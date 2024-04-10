@@ -219,7 +219,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             visible: Config.developerTools
             text: i18n("Open developer tools")
-            onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage.qml'), {
+            onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
                 connection: root.connection
             }, {
                 title: i18n("Developer Tools")

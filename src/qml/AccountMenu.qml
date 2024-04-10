@@ -22,7 +22,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Edit this account")
         icon.name: "document-edit"
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage.qml'), {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
             connection: root.connection
         }, {
             title: i18n("Account editor")
@@ -31,7 +31,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Notification settings")
         icon.name: "notifications"
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
             defaultPage: "notifications",
             connection: root.connection
         }, {
@@ -43,7 +43,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Devices")
         icon.name: "computer-symbolic"
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
             defaultPage: "devices",
             connection: root.connection
         }, {
@@ -56,7 +56,7 @@ QQC2.Menu {
         text: i18n("Open developer tools")
         icon.name: "tools"
         visible: Config.developerTools
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage.qml'), {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
             connection: root.connection
         }, {
             title: i18nc("@title:window", "Developer Tools"),
@@ -68,7 +68,7 @@ QQC2.Menu {
         text: i18nc("@action:inmenu", "Open Secret Backup")
         icon.name: "unlock"
         visible: Config.secretBackup
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog.qml'), {}, {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
             title: i18nc("@title:window", "Open Key Backup")
         })
         enabled: Controller.ssssSupported

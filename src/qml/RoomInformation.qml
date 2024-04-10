@@ -81,7 +81,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage.qml'), {
+                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
                         room: root.room
                     }, {
                         title: i18nc("@action:title", "Search")
@@ -106,7 +106,7 @@ QQC2.ScrollView {
                 icon.name: "map-flat"
                 text: i18n("Show locations for this room")
 
-                onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'LocationsPage.qml'), {
+                onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'LocationsPage'), {
                     room: root.room
                 }, {
                     title: i18nc("Locations on a map", "Locations")
@@ -123,7 +123,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog.qml').createObject(root.QQC2.ApplicationWindow.window, {
+                    Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
                         room: root.room
                     }).open();
                 }
@@ -142,7 +142,7 @@ QQC2.ScrollView {
                     icon.name: "list-add-user"
 
                     onClicked: {
-                        applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage.qml'), {
+                        applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage'), {
                             room: root.room
                         }, {
                             title: i18nc("@title", "Invite a User")

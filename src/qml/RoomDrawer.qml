@@ -103,7 +103,7 @@ Kirigami.OverlayDrawer {
                         text: i18n("Room settings")
                         display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings.qml'), {
+                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings'), {
                             room: room,
                             connection: root.connection
                         }, {
