@@ -183,7 +183,7 @@ set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat
     QML_FILES
-        qml/main.qml
+        qml/Main.qml
         qml/AccountMenu.qml
         qml/ExploreComponent.qml
         qml/ExploreComponentMobile.qml

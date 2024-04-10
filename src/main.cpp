@@ -291,7 +291,7 @@ int main(int argc, char *argv[])
     engine.addImageProvider(QLatin1String("mxc"), MatrixImageProvider::create(&engine, &engine));
     engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
 
-    engine.load(QUrl(QStringLiteral("qrc:/qt/qml/org/kde/neochat/qml/main.qml")));
+    engine.loadFromModule("org.kde.neochat", "Main");
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }
