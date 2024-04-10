@@ -13,7 +13,7 @@ Components.AbstractMaximizeComponent {
     id: root
 
     required property string text
-    required property color avatarColor
+    property color avatarColor
     required property string avatarSource
 
     Shortcut {

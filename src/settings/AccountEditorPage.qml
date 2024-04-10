@@ -113,6 +113,22 @@ FormCard.FormCardPage {
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "QR code for account")
+            onClicked: {
+                let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent.qml').createObject(QQC2.ApplicationWindow.overlay, {
+                    text: "https://matrix.to/#/" + root.connection.localUser.id,
+                    title: root.connection.localUser.displayName,
+                    subtitle: root.connection.localUser.id,
+                    avatarSource: root.connection.makeMediaUrl(root.connection.localUser.avatarUrl)
+                });
+                if (typeof root.closeDialog === "function") {
+                    root.closeDialog();
+                }
+                qrMax.open();
+            }
+        }
+        FormCard.FormDelegateSeparator {}
+        FormCard.FormButtonDelegate {
             text: i18n("Save")
             onClicked: {
                 if (!root.connection.setAvatar(avatar.source)) {
