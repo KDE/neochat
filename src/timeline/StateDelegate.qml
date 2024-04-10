@@ -8,7 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
-import org.kde.neochat.config
+import org.kde.neochat
 
 /**
  * @brief A timeline delegate for visualising an aggregated list of consecutive state events.

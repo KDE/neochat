@@ -11,7 +11,6 @@ import org.kde.kitemmodels
 
 import org.kde.neochat
 import org.kde.neochat.settings
-import org.kde.neochat.config
 
 Kirigami.OverlayDrawer {
     id: root

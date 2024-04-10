@@ -9,7 +9,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
-import org.kde.neochat.config
 
 /**
  * @brief A component for typing and sending chat messages.

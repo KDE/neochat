@@ -10,8 +10,6 @@ import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 import org.kde.neochat.settings
-import org.kde.neochat.config
-import org.kde.neochat.accounts
 
 RowLayout {
     id: root

@@ -13,8 +13,6 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
-import org.kde.neochat.config
-import org.kde.neochat.accounts
 
 Kirigami.Page {
     id: root

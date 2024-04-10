@@ -12,7 +12,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 Kirigami.Page {
     id: root

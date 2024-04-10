@@ -12,7 +12,6 @@ import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 /**
  * @brief A component to show a file from a message.

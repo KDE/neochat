@@ -12,7 +12,6 @@ import org.kde.kirigamiaddons.labs.components as Components
 import org.kde.kitemmodels
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 Delegates.RoundedItemDelegate {
     id: root

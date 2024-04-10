@@ -11,7 +11,6 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kitemmodels
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 QQC2.ItemDelegate {
     id: root

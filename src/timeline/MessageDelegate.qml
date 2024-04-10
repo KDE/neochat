@@ -10,7 +10,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 /**
  * @brief The base delegate for all messages in the timeline.

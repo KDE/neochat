@@ -8,7 +8,6 @@ import Qt.labs.platform
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 /**
  * @brief The menu for media messages.

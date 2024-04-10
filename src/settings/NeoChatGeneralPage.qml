@@ -10,7 +10,6 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 import org.kde.neochat.devtools
-import org.kde.neochat.config
 
 FormCard.FormCardPage {
     title: i18nc("@title:window", "General")

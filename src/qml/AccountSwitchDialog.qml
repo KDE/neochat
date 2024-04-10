@@ -10,7 +10,6 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
-import org.kde.neochat.accounts
 
 Kirigami.Dialog {
     id: root

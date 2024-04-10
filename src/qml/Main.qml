@@ -10,8 +10,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat
 import org.kde.neochat.login
 import org.kde.neochat.settings
-import org.kde.neochat.config
-import org.kde.neochat.accounts
 
 Kirigami.ApplicationWindow {
     id: root

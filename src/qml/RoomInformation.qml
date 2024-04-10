@@ -11,7 +11,6 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kitemmodels
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 /**
  * @brief Component for visualising the room information.

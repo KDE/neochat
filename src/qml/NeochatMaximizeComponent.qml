@@ -10,7 +10,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as Components
 
 import org.kde.neochat
-import org.kde.neochat.config
 
 Components.AlbumMaximizeComponent {
     id: root

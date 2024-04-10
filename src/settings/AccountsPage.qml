@@ -12,7 +12,6 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
-import org.kde.neochat.accounts
 
 FormCard.FormCardPage {
     id: root

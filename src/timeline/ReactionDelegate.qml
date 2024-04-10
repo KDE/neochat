@@ -6,7 +6,8 @@ import QtQuick
 import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
-import org.kde.neochat.config
+
+import org.kde.neochat
 
 Flow {
     id: root

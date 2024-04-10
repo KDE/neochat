@@ -9,8 +9,6 @@ import QtQuick.Layouts
 
 import org.kde.neochat
 import org.kde.neochat.settings
-import org.kde.neochat.config
-import org.kde.neochat.accounts
 
 Labs.MenuBar {
     id: root

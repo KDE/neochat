@@ -10,7 +10,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat
 import org.kde.neochat.settings
 import org.kde.neochat.devtools
-import org.kde.neochat.config
 
 QQC2.Menu {
     id: root
