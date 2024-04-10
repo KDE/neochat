@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:37+0000\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -224,12 +224,12 @@ msgid "Search"
 msgstr "검색"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:134 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:124 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[이 메시지가 삭제됨]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:135
+#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:125
 #: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1238,22 +1238,22 @@ msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 님이 %3(으)로 반응함"
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "File too large to download."
 msgstr "파일이 다운로드하기에 너무 큽니다."
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/neochatconnection.cpp:274
+#: src/neochatconnection.cpp:276
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: %1"
 
-#: src/neochatconnection.cpp:306
+#: src/neochatconnection.cpp:308
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
@@ -1688,7 +1688,7 @@ msgstr "끔"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
 #: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:81
+#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, kde-format
 msgid "Room Settings"
 msgstr "대화방 설정"
@@ -2819,7 +2819,7 @@ msgstr "이 대화방을 떠납니다."
 msgid "Members"
 msgstr "구성원"
 
-#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -2888,7 +2888,7 @@ msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인�
 msgid "Welcome to NeoChat"
 msgstr "NeoChat에 오신 것을 환영합니다"
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "메시지 소스"
@@ -3094,7 +3094,7 @@ msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "구성원 %1명"
 
-#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:61
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:60
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add new server"
@@ -3120,25 +3120,25 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr "추천한 것으로 표시"
 
-#: src/qml/SpaceHomePage.qml:51
+#: src/qml/SpaceHomePage.qml:50
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "스페이스에 사용자 초대"
 
-#: src/qml/SpaceHomePage.qml:66
+#: src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "스페이스 떠나기"
 
-#: src/qml/SpaceHomePage.qml:74
+#: src/qml/SpaceHomePage.qml:73
 #, kde-format
 msgctxt "@button"
 msgid "Space settings"
 msgstr "스페이스 설정"
 
-#: src/qml/SpaceHomePage.qml:164 src/qml/SpaceHomePage.qml:170
+#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"

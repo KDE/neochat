@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:37+0000\n"
-"PO-Revision-Date: 2024-04-03 07:21+0200\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"PO-Revision-Date: 2024-04-08 09:32+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -221,12 +221,12 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:134 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:124 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ce message a été supprimé]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:135
+#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:125
 #: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1245,23 +1245,23 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 a réagi à %3"
 msgstr[1] "%2 a réagi à %3"
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "File too large to download."
 msgstr "Fichier trop volumineux pour être téléchargé"
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Veuillez contact votre administrateur du serveur « Matrix » pour de l'aide."
 
-#: src/neochatconnection.cpp:274
+#: src/neochatconnection.cpp:276
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Impossible de créer le salon : %1"
 
-#: src/neochatconnection.cpp:306
+#: src/neochatconnection.cpp:308
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer un espace : %1"
@@ -1683,7 +1683,7 @@ msgstr "Désactivé"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
 #: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:81
+#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, kde-format
 msgid "Room Settings"
 msgstr "Configuration du salon"
@@ -2816,7 +2816,7 @@ msgstr "Quitter ce salon"
 msgid "Members"
 msgstr "Membres"
 
-#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -2888,7 +2888,7 @@ msgstr "NeoChat est non connecté. Veuillez vérifier votre connexion au réseau
 msgid "Welcome to NeoChat"
 msgstr "Bienvenue dans NeoChat"
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "Source du message"
@@ -3093,7 +3093,7 @@ msgid_plural "%1 members"
 msgstr[0] "Membre %1"
 msgstr[1] "%1 membres"
 
-#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:61
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:60
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
@@ -3117,25 +3117,25 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Faire une suggestion"
 
-#: src/qml/SpaceHomePage.qml:51
+#: src/qml/SpaceHomePage.qml:50
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Inviter un utilisateur dans un espace"
 
-#: src/qml/SpaceHomePage.qml:66
+#: src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "Quitter l'espace"
 
-#: src/qml/SpaceHomePage.qml:74
+#: src/qml/SpaceHomePage.qml:73
 #, kde-format
 msgctxt "@button"
 msgid "Space settings"
 msgstr "Configuration des espaces"
 
-#: src/qml/SpaceHomePage.qml:164 src/qml/SpaceHomePage.qml:170
+#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
 #, kde-format
 msgctxt "@title"
 msgid "Create a Child"
@@ -3949,11 +3949,10 @@ msgid "Verify device"
 msgstr "Vérifier un périphérique"
 
 #: src/settings/DeviceDelegate.qml:126
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "This device is verified"
 msgid "Verified"
-msgstr "Périphériques vérifiés"
+msgstr "Vérifié"
 
 #: src/settings/DeviceDelegate.qml:135
 #, kde-format

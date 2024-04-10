@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:37+0000\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
 "PO-Revision-Date: 2024-01-23 09:01+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -239,12 +239,12 @@ msgid "Search"
 msgstr ""
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:134 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:124 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Táto správa bola odstránená]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:135
+#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:125
 #: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1371,23 +1371,23 @@ msgstr[0] "%2 reagovali s %3"
 msgstr[1] "%2 reagovali s %3"
 msgstr[2] "%2 reagovalo s %3"
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:274
+#: src/neochatconnection.cpp:276
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/neochatconnection.cpp:306
+#: src/neochatconnection.cpp:308
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1841,7 +1841,7 @@ msgstr ""
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
 #: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:81
+#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Room Settings"
@@ -3039,7 +3039,7 @@ msgstr "Otvoriť NeoChat v tejto miestnosti"
 msgid "Members"
 msgstr "Členovia"
 
-#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:55
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
@@ -3119,7 +3119,7 @@ msgstr "NeoChat je offline. Skontrolujte svoje sieťové pripojenie."
 msgid "Welcome to NeoChat"
 msgstr "Vitajte v Matrixe"
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "Zdroj správy"
@@ -3342,7 +3342,7 @@ msgstr[0] "%1 Člen"
 msgstr[1] "%1 Členovia"
 msgstr[2] "%1 Členov"
 
-#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:61
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:60
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgctxt "@button"
@@ -3368,28 +3368,28 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHomePage.qml:51
+#: src/qml/SpaceHomePage.qml:50
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "pozval %1 do miestnosti"
 
-#: src/qml/SpaceHomePage.qml:66
+#: src/qml/SpaceHomePage.qml:65
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "Vytvoriť miestnosť"
 
-#: src/qml/SpaceHomePage.qml:74
+#: src/qml/SpaceHomePage.qml:73
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@button"
 msgid "Space settings"
 msgstr "Nastavenia"
 
-#: src/qml/SpaceHomePage.qml:164 src/qml/SpaceHomePage.qml:170
+#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"

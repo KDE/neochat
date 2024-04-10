@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:37+0000\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -239,12 +239,12 @@ msgid "Search"
 msgstr ""
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:134 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:124 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ਇਹ ਸੁਨੇਹਾ ਹਟਾਇਆ ਗਿਆ ਸੀ]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:135
+#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:125
 #: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1359,23 +1359,23 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:274
+#: src/neochatconnection.cpp:276
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 
-#: src/neochatconnection.cpp:306
+#: src/neochatconnection.cpp:308
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -1836,7 +1836,7 @@ msgstr ""
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
 #: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:81
+#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Room Settings"
@@ -3034,7 +3034,7 @@ msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 msgid "Members"
 msgstr "ਮੈਂਬਰ"
 
-#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:55
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
@@ -3113,7 +3113,7 @@ msgstr "ਨਿਓਚੈਟ ਆਫ਼ਲਾਈਨ ਹੈ। ਆਪਣੇ ਨੈ�
 msgid "Welcome to NeoChat"
 msgstr "ਮੈਟਰਿਕਸ ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ"
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "ਸੁਨੇਹੇ ਦਾ ਸਰੋਤ"
@@ -3333,7 +3333,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 ਮੈਂਬਰ"
 msgstr[1] "%1 ਮੈਂਬਰ"
 
-#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:61
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:60
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgctxt "@button"
@@ -3359,28 +3359,28 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHomePage.qml:51
+#: src/qml/SpaceHomePage.qml:50
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/qml/SpaceHomePage.qml:66
+#: src/qml/SpaceHomePage.qml:65
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/qml/SpaceHomePage.qml:74
+#: src/qml/SpaceHomePage.qml:73
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@button"
 msgid "Space settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/qml/SpaceHomePage.qml:164 src/qml/SpaceHomePage.qml:170
+#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"

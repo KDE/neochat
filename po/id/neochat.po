@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-08 00:37+0000\n"
+"POT-Creation-Date: 2024-04-10 00:38+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -235,12 +235,12 @@ msgid "Search"
 msgstr "Cari"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:134 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:124 src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Pesan ini telah dihapus]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:135
+#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:125
 #: src/models/messageeventmodel.cpp:466
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1281,22 +1281,22 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 bereaksi dengan %3"
 msgstr[1] "%2 bereaksi dengan %3"
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "File too large to download."
 msgstr "Berkas terlalu besar untuk diunduh."
 
-#: src/neochatconnection.cpp:72
+#: src/neochatconnection.cpp:74
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Hubungi administrator server Matrix Anda untuk dukungan."
 
-#: src/neochatconnection.cpp:274
+#: src/neochatconnection.cpp:276
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Pembuatan ruangan gagal: %1"
 
-#: src/neochatconnection.cpp:306
+#: src/neochatconnection.cpp:308
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
@@ -1733,7 +1733,7 @@ msgstr "Mati"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
 #: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:81
+#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, kde-format
 msgid "Room Settings"
 msgstr "Pengaturan Rsuangan"
@@ -2914,7 +2914,7 @@ msgstr "Meninggalkan ruangan ini."
 msgid "Members"
 msgstr "Anggota"
 
-#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:55
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
@@ -2989,7 +2989,7 @@ msgstr "NeoChat sedang luring. Mohon periksa koneksi jaringan Anda."
 msgid "Welcome to NeoChat"
 msgstr "Selamat datang di Matrix"
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "Sumber Pesan"
@@ -3213,7 +3213,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 anggota"
 msgstr[1] "%1 Anggota"
 
-#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:61
+#: src/qml/SpaceHierarchyDelegate.qml:109 src/qml/SpaceHomePage.qml:60
 #, fuzzy, kde-format
 #| msgid "Add new server"
 msgctxt "@button"
@@ -3239,14 +3239,14 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHomePage.qml:51
+#: src/qml/SpaceHomePage.qml:50
 #, fuzzy, kde-format
 #| msgid "Invite user to room"
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Undang pengguna ke ruangan"
 
-#: src/qml/SpaceHomePage.qml:66
+#: src/qml/SpaceHomePage.qml:65
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -3254,14 +3254,14 @@ msgctxt "@button"
 msgid "Leave the space"
 msgstr "Tinggalkan Space"
 
-#: src/qml/SpaceHomePage.qml:74
+#: src/qml/SpaceHomePage.qml:73
 #, fuzzy, kde-format
 #| msgid "Space Settings"
 msgctxt "@button"
 msgid "Space settings"
 msgstr "Pengaturan Space"
 
-#: src/qml/SpaceHomePage.qml:164 src/qml/SpaceHomePage.qml:170
+#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
