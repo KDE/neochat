@@ -129,7 +129,7 @@ FormCard.FormCardPage {
         Loader {
             id: module
             Layout.fillWidth: true
-            sourceComponent: Qt.createComponent('org.kde.neochat', root.initialStep)
+            sourceComponent: Qt.createComponent('org.kde.neochat.login', root.initialStep)
 
             Connections {
                 id: stepConnections

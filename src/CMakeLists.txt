@@ -200,7 +200,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ExplorerDelegate.qml
         qml/InviteUserPage.qml
         qml/ImageEditorPage.qml
-        qml/WelcomePage.qml
         qml/NeochatMaximizeComponent.qml
         qml/FancyEffectsContainer.qml
         qml/TypingPane.qml
@@ -213,19 +212,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/PieProgressBar.qml
         qml/QuickFormatBar.qml
         qml/EmojiPicker.qml
-        qml/LoginStep.qml
-        qml/Login.qml
-        qml/Homeserver.qml
-        qml/Username.qml
-        qml/RegisterPassword.qml
-        qml/Captcha.qml
-        qml/Terms.qml
-        qml/Email.qml
-        qml/Password.qml
-        qml/LoginRegister.qml
-        qml/Loading.qml
-        qml/LoginMethod.qml
-        qml/Sso.qml
         qml/UserDetailDialog.qml
         qml/CreateRoomDialog.qml
         qml/EmojiDialog.qml
@@ -299,6 +285,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
 add_subdirectory(settings)
 add_subdirectory(timeline)
 add_subdirectory(devtools)
+add_subdirectory(login)
 
 if(UNIX)
     qt_target_qml_sources(neochat QML_FILES qml/ShareAction.qml)
@@ -390,7 +377,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin)
+target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin loginplugin)
 target_link_libraries(neochat PUBLIC
     Qt::Core
     Qt::Quick
