@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
 "PO-Revision-Date: 2024-04-07 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1535,7 +1535,7 @@ msgstr ""
 "您的消息仍将保持可见。"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:132 src/settings/NetworkProxyPage.qml:87
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
 #, kde-format
 msgid "Password"
 msgstr "密码"
@@ -2149,7 +2149,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Matrix 常见问题解答"
 
-#: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
 msgstr "无名称"
@@ -3678,80 +3678,86 @@ msgid "Label:"
 msgstr "标签："
 
 #: src/settings/AccountEditorPage.qml:116
-#: src/settings/AccountEditorPage.qml:171
+#, kde-format
+msgctxt "@action:button"
+msgid "QR code for account"
+msgstr ""
+
+#: src/settings/AccountEditorPage.qml:132
+#: src/settings/AccountEditorPage.qml:187
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "保存"
 
-#: src/settings/AccountEditorPage.qml:137
+#: src/settings/AccountEditorPage.qml:153
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "您的服务器不支持更改您的密码"
 
-#: src/settings/AccountEditorPage.qml:144
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgid "Current Password:"
 msgstr "当前密码："
 
-#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgid "New Password:"
 msgstr "新密码："
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:174
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "确认新密码："
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:179
 #, kde-format
 msgid "Passwords don't match"
 msgstr "密码不匹配"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:193
 #, kde-format
 msgid "Passwords do not match"
 msgstr "密码不匹配"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Server Information"
 msgstr "服务器信息"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Homeserver url"
 msgstr "主服务器 URL"
 
-#: src/settings/AccountEditorPage.qml:210
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "账户管理"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:231
 #, kde-format
 msgid "Deactivate Account"
 msgstr "停用账户"
 
-#: src/settings/AccountEditorPage.qml:219
+#: src/settings/AccountEditorPage.qml:235
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "确认停用账户"
 
-#: src/settings/AccountEditorPage.qml:228
+#: src/settings/AccountEditorPage.qml:244
 #, kde-format
 msgid "Password changed successfully"
 msgstr "密码修改成功"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgid "Wrong password entered"
 msgstr "输入的密码错误"
 
-#: src/settings/AccountEditorPage.qml:232
+#: src/settings/AccountEditorPage.qml:248
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "尝试更改密码时出现未知问题"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
 "PO-Revision-Date: 2024-04-07 22:44+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1542,7 +1542,7 @@ msgstr ""
 "Sus mensajes seguirán estando disponibles."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:132 src/settings/NetworkProxyPage.qml:87
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
 #, kde-format
 msgid "Password"
 msgstr "Contraseña"
@@ -2163,7 +2163,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Preguntas frecuentes de Matrix"
 
-#: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
 msgstr "Sin nombre"
@@ -3741,80 +3741,88 @@ msgid "Label:"
 msgstr "Etiqueta:"
 
 #: src/settings/AccountEditorPage.qml:116
-#: src/settings/AccountEditorPage.qml:171
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Remove this account"
+msgctxt "@action:button"
+msgid "QR code for account"
+msgstr "Eliminar esta cuenta"
+
+#: src/settings/AccountEditorPage.qml:132
+#: src/settings/AccountEditorPage.qml:187
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Guardar"
 
-#: src/settings/AccountEditorPage.qml:137
+#: src/settings/AccountEditorPage.qml:153
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Su servidor no permite el cambio de contraseña"
 
-#: src/settings/AccountEditorPage.qml:144
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgid "Current Password:"
 msgstr "Contraseña actual:"
 
-#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgid "New Password:"
 msgstr "Nueva contraseña:"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:174
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Confirmar la nueva contraseña:"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:179
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Las contraseñas no coinciden"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:193
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Las contraseñas no coinciden"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Server Information"
 msgstr "Información del servidor"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL del servidor doméstico"
 
-#: src/settings/AccountEditorPage.qml:210
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Gestión de la cuenta"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:231
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Desactivar la cuenta"
 
-#: src/settings/AccountEditorPage.qml:219
+#: src/settings/AccountEditorPage.qml:235
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "Confirme la desactivación de la cuenta"
 
-#: src/settings/AccountEditorPage.qml:228
+#: src/settings/AccountEditorPage.qml:244
 #, kde-format
 msgid "Password changed successfully"
 msgstr "La contraseña se ha cambiado correctamente"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Se ha introducido una contraseña incorrecta"
 
-#: src/settings/AccountEditorPage.qml:232
+#: src/settings/AccountEditorPage.qml:248
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Ha ocurrido un problema desconocido al intentar cambiar la contraseña"

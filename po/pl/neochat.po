@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
 "PO-Revision-Date: 2024-04-01 08:15+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1544,7 +1544,7 @@ msgstr ""
 "Twoje wiadomości pozostaną dostępne."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:132 src/settings/NetworkProxyPage.qml:87
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
 #, kde-format
 msgid "Password"
 msgstr "Hasło"
@@ -2169,7 +2169,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "FAQ Matriksa"
 
-#: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
 msgstr "Brak nazwy"
@@ -3742,80 +3742,88 @@ msgid "Label:"
 msgstr "Etykieta:"
 
 #: src/settings/AccountEditorPage.qml:116
-#: src/settings/AccountEditorPage.qml:171
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Remove this account"
+msgctxt "@action:button"
+msgid "QR code for account"
+msgstr "Usuń to konto"
+
+#: src/settings/AccountEditorPage.qml:132
+#: src/settings/AccountEditorPage.qml:187
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/settings/AccountEditorPage.qml:137
+#: src/settings/AccountEditorPage.qml:153
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Twój serwer nie obsługuje zmieniania twojego hasła"
 
-#: src/settings/AccountEditorPage.qml:144
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgid "Current Password:"
 msgstr "Obecne hasło:"
 
-#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgid "New Password:"
 msgstr "Nowe hasło:"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:174
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Nowe hasło jeszcze raz:"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:179
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Hasła nie są sobie równe"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:193
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Hasła nie są sobie równe"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Server Information"
 msgstr "Szczegóły serwera"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Homeserver url"
 msgstr "Adres URL serwera domowego"
 
-#: src/settings/AccountEditorPage.qml:210
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Zarządzanie kontem"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:231
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Wyłącz konto"
 
-#: src/settings/AccountEditorPage.qml:219
+#: src/settings/AccountEditorPage.qml:235
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "Potwierdź wyłączenie konta"
 
-#: src/settings/AccountEditorPage.qml:228
+#: src/settings/AccountEditorPage.qml:244
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Hasło zmieniono pomyślnie"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Wpisano złe hasło"
 
-#: src/settings/AccountEditorPage.qml:232
+#: src/settings/AccountEditorPage.qml:248
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Wystąpił nieznany problem podczas próby zmiany hasła"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
 "PO-Revision-Date: 2024-04-08 09:32+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -1543,7 +1543,7 @@ msgstr ""
 "Vos messages resteront disponibles."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:132 src/settings/NetworkProxyPage.qml:87
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
 #, kde-format
 msgid "Password"
 msgstr "Mot de passe"
@@ -2166,7 +2166,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Question les plus fréquentes sur Matrix"
 
-#: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
 msgstr "Aucun nom"
@@ -3750,81 +3750,89 @@ msgid "Label:"
 msgstr "Libellé :"
 
 #: src/settings/AccountEditorPage.qml:116
-#: src/settings/AccountEditorPage.qml:171
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Remove this account"
+msgctxt "@action:button"
+msgid "QR code for account"
+msgstr "Supprimer ce compte"
+
+#: src/settings/AccountEditorPage.qml:132
+#: src/settings/AccountEditorPage.qml:187
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/settings/AccountEditorPage.qml:137
+#: src/settings/AccountEditorPage.qml:153
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr ""
 "Votre serveur ne prend pas en charge la modification de votre mot de passe."
 
-#: src/settings/AccountEditorPage.qml:144
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgid "Current Password:"
 msgstr "Mot de passe actuel :"
 
-#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgid "New Password:"
 msgstr "Nouveau mot de passe :"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:174
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Confirmer le nouveau mot de passe :"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:179
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Les mots de passe ne correspondent pas"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:193
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Les mots de passe ne correspondent pas"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Server Information"
 msgstr "Informations sur le serveur"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL du serveur d'accueil"
 
-#: src/settings/AccountEditorPage.qml:210
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Gestion des comptes"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:231
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Désactiver un compte"
 
-#: src/settings/AccountEditorPage.qml:219
+#: src/settings/AccountEditorPage.qml:235
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr "Confirmer la désactivation du compte"
 
-#: src/settings/AccountEditorPage.qml:228
+#: src/settings/AccountEditorPage.qml:244
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Mot de passe changé avec succès"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Mot de passe erroné"
 
-#: src/settings/AccountEditorPage.qml:232
+#: src/settings/AccountEditorPage.qml:248
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Problème inconnu durant la tentative de chargement de mot de passe."

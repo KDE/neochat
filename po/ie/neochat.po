@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:38+0000\n"
+"POT-Creation-Date: 2024-04-11 00:38+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1625,7 +1625,7 @@ msgid ""
 msgstr ""
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:132 src/settings/NetworkProxyPage.qml:87
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -2267,7 +2267,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "FAQ de Matrix"
 
-#: src/qml/GroupChatDrawerHeader.qml:64 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
 #, kde-format
 msgid "No name"
 msgstr "Sin nómine"
@@ -3877,82 +3877,88 @@ msgid "Label:"
 msgstr "Etiquette:"
 
 #: src/settings/AccountEditorPage.qml:116
-#: src/settings/AccountEditorPage.qml:171
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "QR code for account"
+msgstr "_Conto:"
+
+#: src/settings/AccountEditorPage.qml:132
+#: src/settings/AccountEditorPage.qml:187
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Gardar"
 
-#: src/settings/AccountEditorPage.qml:137
+#: src/settings/AccountEditorPage.qml:153
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:144
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgid "Current Password:"
 msgstr "Actual contrasigne:"
 
-#: src/settings/AccountEditorPage.qml:151
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgid "New Password:"
 msgstr "Nov contrasigne:"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:174
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Confirmar li contrasigne:"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:179
 #, fuzzy, kde-format
 msgid "Passwords don't match"
 msgstr "Contrasignes"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:193
 #, fuzzy, kde-format
 msgid "Passwords do not match"
 msgstr "Contrasignes"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:201
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "Server Information"
 msgstr "Information pri li chambre"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:205
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "Homeserver url"
 msgstr "Hem-servitor:"
 
-#: src/settings/AccountEditorPage.qml:210
+#: src/settings/AccountEditorPage.qml:226
 #, fuzzy, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Conto:"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:231
 #, fuzzy, kde-format
 msgid "Deactivate Account"
 msgstr "_Conto:"
 
-#: src/settings/AccountEditorPage.qml:219
+#: src/settings/AccountEditorPage.qml:235
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:228
+#: src/settings/AccountEditorPage.qml:244
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Li contrasigne sta cambiat successosimen"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:246
 #, fuzzy, kde-format
 msgid "Wrong password entered"
 msgstr "Contrasigne es ínvalid."
 
-#: src/settings/AccountEditorPage.qml:232
+#: src/settings/AccountEditorPage.qml:248
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr ""
