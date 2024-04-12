@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
 "PO-Revision-Date: 2024-03-29 21:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -610,6 +610,214 @@ msgstr "網路錯誤"
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "登入失敗：%1"
+
+#: src/login/Email.qml:21
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr "新增電子郵件地址："
+
+#: src/login/Email.qml:33
+#, kde-format
+msgid "Confirm e-mail address"
+msgstr "確認電子郵件地址"
+
+#: src/login/Email.qml:35
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+"一封確認信已經傳送到您的地址。請在點擊該信件中的確認連結<b>後</b>回到此處繼續"
+
+#: src/login/Email.qml:40
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr "重新傳送確認信"
+
+#: src/login/Homeserver.qml:21
+#, kde-format
+msgid "Server Url:"
+msgstr "伺服器網址："
+
+#: src/login/Homeserver.qml:26
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr "此伺服器已停用註冊。"
+
+#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#, kde-format
+msgid "Loading"
+msgstr "載入中"
+
+#: src/login/Loading.qml:16
+#, kde-format
+msgid "Please wait. This might take a little while."
+msgstr "請稍候。這可能會花上一段時間。"
+
+#: src/login/Login.qml:25
+#, kde-format
+msgid "Matrix ID:"
+msgstr "Matrix ID："
+
+#: src/login/Login.qml:27
+#, kde-format
+msgid "Matrix ID"
+msgstr "Matrix ID"
+
+#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:11
+#, kde-format
+msgid "Loading…"
+msgstr "載入中…"
+
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "繼續"
+
+#: src/login/Login.qml:38
+#, kde-format
+msgid "Already logged in"
+msgstr "已經登入"
+
+#: src/login/LoginMethod.qml:20
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "用密碼登入"
+
+#: src/login/LoginMethod.qml:26
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr "用 single sign-on 登入"
+
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Login"
+msgstr "登入"
+
+#: src/login/LoginRegister.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Register"
+msgstr "註冊"
+
+#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/settings/DevicesPage.qml:81
+#, kde-format
+msgid "Password:"
+msgstr "密碼："
+
+#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#, kde-format
+msgid "Password"
+msgstr "密碼"
+
+#: src/login/Password.qml:33
+#, kde-format
+msgid "Invalid username or password"
+msgstr "無效的使用者名稱或密碼"
+
+#: src/login/RegisterPassword.qml:30
+#, kde-format
+msgid "Confirm Password:"
+msgstr "確認密碼："
+
+#: src/login/RegisterPassword.qml:33
+#, kde-format
+msgid "The passwords do not match."
+msgstr "密碼不符。"
+
+#: src/login/Sso.qml:30
+#, kde-format
+msgid "Continue the login process in your browser."
+msgstr "在您的瀏覽器繼續進行登入流程。"
+
+#: src/login/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr "重新開啟一次性登入 (SSO) 網址"
+
+#: src/login/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr "條款與細則"
+
+#: src/login/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr "繼續註冊代表您同意以下條款與細則："
+
+#: src/login/Username.qml:20
+#, kde-format
+msgid "Username:"
+msgstr "使用者名稱："
+
+#: src/login/Username.qml:23
+#, kde-format
+msgid "Username unavailable"
+msgstr "使用者名稱無法使用"
+
+#: src/login/WelcomePage.qml:26
+#, kde-format
+msgid "Welcome"
+msgstr "歡迎"
+
+#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "歡迎來到 NeoChat"
+
+#: src/login/WelcomePage.qml:55
+#, kde-format
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr "用現存帳號繼續"
+
+#: src/login/WelcomePage.qml:87
+#, kde-format
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "%1 (載入中)"
+
+#: src/login/WelcomePage.qml:96
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "移除這個帳號"
+
+#: src/login/WelcomePage.qml:125
+#, kde-format
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "登入或建立新帳號"
+
+#: src/login/WelcomePage.qml:207
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr "返回"
+
+#: src/login/WelcomePage.qml:218
+#, kde-format
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "開啟代理伺服器設定"
+
+#: src/login/WelcomePage.qml:221
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "代理伺服器設定"
 
 #: src/main.cpp:141
 #, kde-format
@@ -1271,7 +1479,7 @@ msgstr "緯度：%2，經度：%1"
 msgid "Encrypted Message"
 msgstr "已加密訊息"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1347,7 +1555,7 @@ msgid "Notification settings"
 msgstr "通知設定"
 
 #: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "設定"
@@ -1535,12 +1743,6 @@ msgstr ""
 "這無法復原。\n"
 "您的 Matrix ID 不會釋放給新帳號。\n"
 "您的訊息將會繼續可用。"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
-#, kde-format
-msgid "Password"
-msgstr "密碼"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -1891,30 +2093,6 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "全部選取"
 
-#: src/qml/Email.qml:21
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr "新增電子郵件地址："
-
-#: src/qml/Email.qml:33
-#, kde-format
-msgid "Confirm e-mail address"
-msgstr "確認電子郵件地址"
-
-#: src/qml/Email.qml:35
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-"一封確認信已經傳送到您的地址。請在點擊該信件中的確認連結<b>後</b>回到此處繼續"
-
-#: src/qml/Email.qml:40
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr "重新傳送確認信"
-
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
@@ -2166,21 +2344,6 @@ msgstr "Matrix 常見問題"
 msgid "No name"
 msgstr "未命名"
 
-#: src/qml/Homeserver.qml:21
-#, kde-format
-msgid "Server Url:"
-msgstr "伺服器網址："
-
-#: src/qml/Homeserver.qml:26
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr "此伺服器已停用註冊。"
-
-#: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
-#, kde-format
-msgid "Loading"
-msgstr "載入中"
-
 #: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -2348,11 +2511,6 @@ msgstr "已成功驗證裝置 **%1**"
 msgid "Decline"
 msgstr "婉拒"
 
-#: src/qml/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr "請稍候。這可能會花上一段時間。"
-
 #: src/qml/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -2374,70 +2532,18 @@ msgstr "位置"
 msgid "There are no locations shared in this room."
 msgstr "沒有在這個聊天室裡分享的位置。"
 
-#: src/qml/Login.qml:25
-#, kde-format
-msgid "Matrix ID:"
-msgstr "Matrix ID："
-
-#: src/qml/Login.qml:27
-#, kde-format
-msgid "Matrix ID"
-msgstr "Matrix ID"
-
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
-#, kde-format
-msgid "Loading…"
-msgstr "載入中…"
-
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:199
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "繼續"
-
-#: src/qml/Login.qml:38
-#, kde-format
-msgid "Already logged in"
-msgstr "已經登入"
-
-#: src/qml/LoginMethod.qml:20
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "用密碼登入"
-
-#: src/qml/LoginMethod.qml:26
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr "用 single sign-on 登入"
-
-#: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
-#, kde-format
-msgctxt "@action:button"
-msgid "Login"
-msgstr "登入"
-
-#: src/qml/LoginRegister.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Register"
-msgstr "註冊"
-
-#: src/qml/main.qml:305
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/qml/main.qml:322
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "使用者許可"
 
-#: src/qml/main.qml:327
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2446,28 +2552,28 @@ msgstr ""
 "您的家伺服器要求您必須同意它的條款與細則才能使用它。請點擊以下按鈕來閱讀它"
 "們。"
 
-#: src/qml/main.qml:332
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/qml/main.qml:359
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "開始私人聊天"
 
-#: src/qml/main.qml:361
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "您要與 %1 開始私人聊天嗎？"
 
-#: src/qml/main.qml:387
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "目前選取的連結"
 
-#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2560,17 +2666,6 @@ msgstr "沒有通知"
 msgid "Select a File"
 msgstr "選擇檔案"
 
-#: src/qml/Password.qml:28 src/qml/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
-#, kde-format
-msgid "Password:"
-msgstr "密碼："
-
-#: src/qml/Password.qml:33
-#, kde-format
-msgid "Invalid username or password"
-msgstr "無效的使用者名稱或密碼"
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -2649,16 +2744,6 @@ msgstr "加入"
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "忽略"
-
-#: src/qml/RegisterPassword.qml:30
-#, kde-format
-msgid "Confirm Password:"
-msgstr "確認密碼："
-
-#: src/qml/RegisterPassword.qml:33
-#, kde-format
-msgid "The passwords do not match."
-msgstr "密碼不符。"
 
 #: src/qml/RemoveChildDialog.qml:27
 #, kde-format
@@ -2868,11 +2953,6 @@ msgstr "聊天室媒體"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 目前為離線狀態。請檢查您的網路連線。"
-
-#: src/qml/RoomPage.qml:157 src/qml/WelcomePage.qml:47
-#, kde-format
-msgid "Welcome to NeoChat"
-msgstr "歡迎來到 NeoChat"
 
 #: src/qml/RoomPage.qml:264
 #, kde-format
@@ -3153,29 +3233,6 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "離開聊天空間"
 
-#: src/qml/Sso.qml:30
-#, kde-format
-msgid "Continue the login process in your browser."
-msgstr "在您的瀏覽器繼續進行登入流程。"
-
-#: src/qml/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr "重新開啟一次性登入 (SSO) 網址"
-
-#: src/qml/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr "條款與細則"
-
-#: src/qml/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr "繼續註冊代表您同意以下條款與細則："
-
 #: src/qml/TimelineView.qml:207
 #, kde-format
 msgid "Jump to first unread message"
@@ -3366,16 +3423,6 @@ msgstr "切換使用者"
 msgid "Open Settings"
 msgstr "開啟設定"
 
-#: src/qml/Username.qml:20
-#, kde-format
-msgid "Username:"
-msgstr "使用者名稱："
-
-#: src/qml/Username.qml:23
-#, kde-format
-msgid "Username unavailable"
-msgstr "使用者名稱無法使用"
-
 #: src/qml/UserSearchPage.qml:32
 #, kde-format
 msgctxt "@action:title"
@@ -3546,53 +3593,6 @@ msgstr "遠端由於雙方金鑰不相符而取消了工作階段驗證。"
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "工作階段驗證由於不明錯誤而取消。"
-
-#: src/qml/WelcomePage.qml:26
-#, kde-format
-msgid "Welcome"
-msgstr "歡迎"
-
-#: src/qml/WelcomePage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Continue with an existing account"
-msgstr "用現存帳號繼續"
-
-#: src/qml/WelcomePage.qml:87
-#, kde-format
-msgctxt "As in 'this account is still loading'"
-msgid "%1 (loading)"
-msgstr "%1 (載入中)"
-
-#: src/qml/WelcomePage.qml:96
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove this account"
-msgstr "移除這個帳號"
-
-#: src/qml/WelcomePage.qml:125
-#, kde-format
-msgctxt "@title"
-msgid "Log in or Create a New Account"
-msgstr "登入或建立新帳號"
-
-#: src/qml/WelcomePage.qml:207
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "返回"
-
-#: src/qml/WelcomePage.qml:218
-#, kde-format
-msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "開啟代理伺服器設定"
-
-#: src/qml/WelcomePage.qml:221
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "代理伺服器設定"
 
 #: src/registration.cpp:300
 #, kde-format

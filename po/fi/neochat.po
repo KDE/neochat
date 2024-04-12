@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
 "PO-Revision-Date: 2024-02-14 19:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -615,6 +615,218 @@ msgstr "Verkkovirhe"
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Kirjautuminen epäonnistui: %1"
+
+#: src/login/Email.qml:21
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr "Lisää sähköpostiosoite:"
+
+#: src/login/Email.qml:33
+#, kde-format
+msgid "Confirm e-mail address"
+msgstr "Vahvista sähköpostiosoite"
+
+#: src/login/Email.qml:35
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+"Osoitteeseen on lähetetty vahvistusviesti. Jatka täällä <b>sen jälkeen</b>, "
+"kun olet napsauttanut viestin vahvistuslinkkiä"
+
+#: src/login/Email.qml:40
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr "Lähetä vahvistusviesti uudelleen"
+
+#: src/login/Homeserver.qml:21
+#, kde-format
+msgid "Server Url:"
+msgstr "Palvelimen verkko-osoite:"
+
+#: src/login/Homeserver.qml:26
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr "Palvelin on poistanut rekisteröitymisen käytöstä."
+
+#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#, kde-format
+msgid "Loading"
+msgstr "Ladataan"
+
+#: src/login/Loading.qml:16
+#, kde-format
+msgid "Please wait. This might take a little while."
+msgstr "Odota. Tämä voi kestää hetken."
+
+#: src/login/Login.qml:25
+#, kde-format
+msgid "Matrix ID:"
+msgstr "Matrix-tunniste:"
+
+#: src/login/Login.qml:27
+#, kde-format
+msgid "Matrix ID"
+msgstr "Matrix-tunniste"
+
+#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:11
+#, kde-format
+msgid "Loading…"
+msgstr "Ladataan…"
+
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "Jatka"
+
+#: src/login/Login.qml:38
+#, kde-format
+msgid "Already logged in"
+msgstr "Jo kirjautuneena"
+
+#: src/login/LoginMethod.qml:20
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "Kirjaudu salasanalla"
+
+#: src/login/LoginMethod.qml:26
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr "Kirjaudu yksittäiskirjautumisena"
+
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Login"
+msgstr "Kirjaudu"
+
+#: src/login/LoginRegister.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/settings/DevicesPage.qml:81
+#, kde-format
+msgid "Password:"
+msgstr "Salasana:"
+
+#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#, kde-format
+msgid "Password"
+msgstr "Salasana"
+
+#: src/login/Password.qml:33
+#, kde-format
+msgid "Invalid username or password"
+msgstr "Virheellinen tunnus tai salasana"
+
+#: src/login/RegisterPassword.qml:30
+#, kde-format
+msgid "Confirm Password:"
+msgstr "Vahvista salasana:"
+
+#: src/login/RegisterPassword.qml:33
+#, kde-format
+msgid "The passwords do not match."
+msgstr "Salasanat eivät täsmää."
+
+#: src/login/Sso.qml:30
+#, kde-format
+msgid "Continue the login process in your browser."
+msgstr "Jatka kirjautumista selaimessa."
+
+#: src/login/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr "Avaa SSO-verkko-osoite uudelleen"
+
+#: src/login/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr "Käyttöehdot"
+
+#: src/login/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr "Jatkamalla rekisteröitymistä hyväksyt seuraavat käyttöehdot:"
+
+#: src/login/Username.qml:20
+#, kde-format
+msgid "Username:"
+msgstr "Käyttäjätunnus:"
+
+#: src/login/Username.qml:23
+#, kde-format
+msgid "Username unavailable"
+msgstr "Käyttäjätunnus ei ole käytettävissä"
+
+#: src/login/WelcomePage.qml:26
+#, kde-format
+msgid "Welcome"
+msgstr "Tervetuloa"
+
+#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "Tervetuloa NeoChatiin"
+
+#: src/login/WelcomePage.qml:55
+#, kde-format
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr "Jatka olemassa olevalla tilillä"
+
+#: src/login/WelcomePage.qml:87
+#, kde-format
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "%1 (ladataan)"
+
+#: src/login/WelcomePage.qml:96
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "Muokkaa tätä tiliä"
+
+#: src/login/WelcomePage.qml:125
+#, kde-format
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "Kirjaudu tai luo uusi tili"
+
+#: src/login/WelcomePage.qml:207
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr "Palaa takaisin"
+
+#: src/login/WelcomePage.qml:218
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Avaa asetukset"
+
+#: src/login/WelcomePage.qml:221
+#, fuzzy, kde-format
+#| msgid "Proxy Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Välitysasetukset"
 
 #: src/main.cpp:141
 #, kde-format
@@ -1281,7 +1493,7 @@ msgstr "Lev: %1, pit: %2"
 msgid "Encrypted Message"
 msgstr "Salattu viesti"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1357,7 +1569,7 @@ msgid "Notification settings"
 msgstr "Ilmoitusasetukset"
 
 #: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Asetukset"
@@ -1546,12 +1758,6 @@ msgstr ""
 "Tätä ei voi kumota.\n"
 "Matrix-tunnisteesi ei ole käytettävissä uusille tileille.\n"
 "Viestit pysyvät saatavilla."
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
-#, kde-format
-msgid "Password"
-msgstr "Salasana"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -1904,31 +2110,6 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: src/qml/Email.qml:21
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr "Lisää sähköpostiosoite:"
-
-#: src/qml/Email.qml:33
-#, kde-format
-msgid "Confirm e-mail address"
-msgstr "Vahvista sähköpostiosoite"
-
-#: src/qml/Email.qml:35
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-"Osoitteeseen on lähetetty vahvistusviesti. Jatka täällä <b>sen jälkeen</b>, "
-"kun olet napsauttanut viestin vahvistuslinkkiä"
-
-#: src/qml/Email.qml:40
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr "Lähetä vahvistusviesti uudelleen"
-
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
@@ -2182,21 +2363,6 @@ msgstr "Matrixin UKK"
 msgid "No name"
 msgstr "Ei nimeä"
 
-#: src/qml/Homeserver.qml:21
-#, kde-format
-msgid "Server Url:"
-msgstr "Palvelimen verkko-osoite:"
-
-#: src/qml/Homeserver.qml:26
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr "Palvelin on poistanut rekisteröitymisen käytöstä."
-
-#: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
-#, kde-format
-msgid "Loading"
-msgstr "Ladataan"
-
 #: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -2370,11 +2536,6 @@ msgstr "Laitteen **%1** todennus onnistui"
 msgid "Decline"
 msgstr "Hylkää"
 
-#: src/qml/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr "Odota. Tämä voi kestää hetken."
-
 #: src/qml/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -2396,70 +2557,18 @@ msgstr "Sijainnit"
 msgid "There are no locations shared in this room."
 msgstr "Tässä huoneessa ei ole jaettuja sijainteja."
 
-#: src/qml/Login.qml:25
-#, kde-format
-msgid "Matrix ID:"
-msgstr "Matrix-tunniste:"
-
-#: src/qml/Login.qml:27
-#, kde-format
-msgid "Matrix ID"
-msgstr "Matrix-tunniste"
-
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
-#, kde-format
-msgid "Loading…"
-msgstr "Ladataan…"
-
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:199
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "Jatka"
-
-#: src/qml/Login.qml:38
-#, kde-format
-msgid "Already logged in"
-msgstr "Jo kirjautuneena"
-
-#: src/qml/LoginMethod.qml:20
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "Kirjaudu salasanalla"
-
-#: src/qml/LoginMethod.qml:26
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr "Kirjaudu yksittäiskirjautumisena"
-
-#: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
-#, kde-format
-msgctxt "@action:button"
-msgid "Login"
-msgstr "Kirjaudu"
-
-#: src/qml/LoginRegister.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Register"
-msgstr "Rekisteröidy"
-
-#: src/qml/main.qml:305
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Istunnon todennus"
 
-#: src/qml/main.qml:322
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "Käyttäjän suostumus"
 
-#: src/qml/main.qml:327
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2468,28 +2577,28 @@ msgstr ""
 "Kotipalvelimesi vaatii sinua hyväksymään käyttöehdot ennen kuin voit käyttää "
 "sitä. Lue ehdot napsauttamalla alla olevaa painiketta."
 
-#: src/qml/main.qml:332
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: src/qml/main.qml:359
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "Aloita keskustelu"
 
-#: src/qml/main.qml:361
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Haluatko käynnistää keskustelun henkilön %1 kanssa?"
 
-#: src/qml/main.qml:387
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2584,17 +2693,6 @@ msgstr "Ei ilmoituksia"
 msgid "Select a File"
 msgstr "Valitse tiedosto"
 
-#: src/qml/Password.qml:28 src/qml/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
-#, kde-format
-msgid "Password:"
-msgstr "Salasana:"
-
-#: src/qml/Password.qml:33
-#, kde-format
-msgid "Invalid username or password"
-msgstr "Virheellinen tunnus tai salasana"
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -2676,16 +2774,6 @@ msgstr "Liity"
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ohita"
-
-#: src/qml/RegisterPassword.qml:30
-#, kde-format
-msgid "Confirm Password:"
-msgstr "Vahvista salasana:"
-
-#: src/qml/RegisterPassword.qml:33
-#, kde-format
-msgid "The passwords do not match."
-msgstr "Salasanat eivät täsmää."
 
 #: src/qml/RemoveChildDialog.qml:27
 #, kde-format
@@ -2897,11 +2985,6 @@ msgstr "Huoneen media"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChatillä ei ole yhteyttä. Tarkista verkkoyhteytesi."
-
-#: src/qml/RoomPage.qml:157 src/qml/WelcomePage.qml:47
-#, kde-format
-msgid "Welcome to NeoChat"
-msgstr "Tervetuloa NeoChatiin"
 
 #: src/qml/RoomPage.qml:264
 #, kde-format
@@ -3190,29 +3273,6 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Poistu tilasta"
 
-#: src/qml/Sso.qml:30
-#, kde-format
-msgid "Continue the login process in your browser."
-msgstr "Jatka kirjautumista selaimessa."
-
-#: src/qml/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr "Avaa SSO-verkko-osoite uudelleen"
-
-#: src/qml/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr "Käyttöehdot"
-
-#: src/qml/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr "Jatkamalla rekisteröitymistä hyväksyt seuraavat käyttöehdot:"
-
 #: src/qml/TimelineView.qml:207
 #, kde-format
 msgid "Jump to first unread message"
@@ -3405,16 +3465,6 @@ msgstr "Vaihda käyttäjää"
 msgid "Open Settings"
 msgstr "Avaa asetukset"
 
-#: src/qml/Username.qml:20
-#, kde-format
-msgid "Username:"
-msgstr "Käyttäjätunnus:"
-
-#: src/qml/Username.qml:23
-#, kde-format
-msgid "Username unavailable"
-msgstr "Käyttäjätunnus ei ole käytettävissä"
-
 #: src/qml/UserSearchPage.qml:32
 #, kde-format
 msgctxt "@action:title"
@@ -3601,56 +3651,6 @@ msgstr "Etäosapuoli perui istunnon todennuksen, koska avaimet eivät täsmää.
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Istunnon todennus peruttiin tuntemattomasta syystä."
-
-#: src/qml/WelcomePage.qml:26
-#, kde-format
-msgid "Welcome"
-msgstr "Tervetuloa"
-
-#: src/qml/WelcomePage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Continue with an existing account"
-msgstr "Jatka olemassa olevalla tilillä"
-
-#: src/qml/WelcomePage.qml:87
-#, kde-format
-msgctxt "As in 'this account is still loading'"
-msgid "%1 (loading)"
-msgstr "%1 (ladataan)"
-
-#: src/qml/WelcomePage.qml:96
-#, fuzzy, kde-format
-#| msgid "Edit this account"
-msgctxt "@action:button"
-msgid "Remove this account"
-msgstr "Muokkaa tätä tiliä"
-
-#: src/qml/WelcomePage.qml:125
-#, kde-format
-msgctxt "@title"
-msgid "Log in or Create a New Account"
-msgstr "Kirjaudu tai luo uusi tili"
-
-#: src/qml/WelcomePage.qml:207
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "Palaa takaisin"
-
-#: src/qml/WelcomePage.qml:218
-#, fuzzy, kde-format
-#| msgid "Open Settings"
-msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Avaa asetukset"
-
-#: src/qml/WelcomePage.qml:221
-#, fuzzy, kde-format
-#| msgid "Proxy Settings"
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Välitysasetukset"
 
 #: src/registration.cpp:300
 #, kde-format

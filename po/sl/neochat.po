@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 07:14+0200\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
+"PO-Revision-Date: 2024-04-11 07:29+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -617,6 +617,215 @@ msgstr "Napaka omrežja"
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prijava je spodletela: %1"
+
+#: src/login/Email.qml:21
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr "Dodaj naslov e-pošte:"
+
+#: src/login/Email.qml:33
+#, kde-format
+msgid "Confirm e-mail address"
+msgstr "Potrdi naslov e-pošte"
+
+#: src/login/Email.qml:35
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+"Na vaš naslov je bilo poslano potrditveno e-sporočilo. Nadaljujte tukaj "
+"<b>po</b> kliku na potrditveno povezavo v e-pošti"
+
+#: src/login/Email.qml:40
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr "Ponovno pošlji potrditveno e-pošto"
+
+#: src/login/Homeserver.qml:21
+#, kde-format
+msgid "Server Url:"
+msgstr "Strežnikov naslov Url:"
+
+#: src/login/Homeserver.qml:26
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr "Registracija je onemogočena na tem strežniku."
+
+#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#, kde-format
+msgid "Loading"
+msgstr "Nalaganje"
+
+#: src/login/Loading.qml:16
+#, kde-format
+msgid "Please wait. This might take a little while."
+msgstr "Prosim počakajte. To utegne trajati nekaj časa."
+
+#: src/login/Login.qml:25
+#, kde-format
+msgid "Matrix ID:"
+msgstr "Matrixov ID:"
+
+#: src/login/Login.qml:27
+#, kde-format
+msgid "Matrix ID"
+msgstr "Matrixov ID"
+
+#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:11
+#, kde-format
+msgid "Loading…"
+msgstr "Nalaganje …"
+
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "Nadaljuj"
+
+#: src/login/Login.qml:38
+#, kde-format
+msgid "Already logged in"
+msgstr "Ste že prijavljeni"
+
+#: src/login/LoginMethod.qml:20
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "Prijava z geslom"
+
+#: src/login/LoginMethod.qml:26
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr "Prijava z enovito prijavo"
+
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Login"
+msgstr "Prijava"
+
+#: src/login/LoginRegister.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Registracija"
+
+#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/settings/DevicesPage.qml:81
+#, kde-format
+msgid "Password:"
+msgstr "Geslo:"
+
+#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#, kde-format
+msgid "Password"
+msgstr "Geslo"
+
+#: src/login/Password.qml:33
+#, kde-format
+msgid "Invalid username or password"
+msgstr "Neveljavno uporabniško ime ali geslo"
+
+#: src/login/RegisterPassword.qml:30
+#, kde-format
+msgid "Confirm Password:"
+msgstr "Potrdi geslo:"
+
+#: src/login/RegisterPassword.qml:33
+#, kde-format
+msgid "The passwords do not match."
+msgstr "Gesli se ne ujemata."
+
+#: src/login/Sso.qml:30
+#, kde-format
+msgid "Continue the login process in your browser."
+msgstr "Nadaljuje s prijavo v vašem brskalniku."
+
+#: src/login/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr "Ponovno odpri URL za enovito prijavo"
+
+#: src/login/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr "Pogoji uporabe"
+
+#: src/login/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr "Z nadaljevanjem registracije se strinjate z naslednjimi pogoji:"
+
+#: src/login/Username.qml:20
+#, kde-format
+msgid "Username:"
+msgstr "Uporabniško ime:"
+
+#: src/login/Username.qml:23
+#, kde-format
+msgid "Username unavailable"
+msgstr "Uporabniško ime ni na voljo"
+
+#: src/login/WelcomePage.qml:26
+#, kde-format
+msgid "Welcome"
+msgstr "Dobrodošli"
+
+#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "Dobrodošli v NeoChat"
+
+#: src/login/WelcomePage.qml:55
+#, kde-format
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr "Nadaljuj na obstoječem računu"
+
+#: src/login/WelcomePage.qml:87
+#, kde-format
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "%1 (nalaganje)"
+
+#: src/login/WelcomePage.qml:96
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "Odstrani ta račun"
+
+#: src/login/WelcomePage.qml:125
+#, kde-format
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "Prijavite se ali ustvarite nov račun"
+
+#: src/login/WelcomePage.qml:207
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr "Pojdi nazaj"
+
+#: src/login/WelcomePage.qml:218
+#, kde-format
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Odpri nastavitve posrednika"
+
+#: src/login/WelcomePage.qml:221
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Nastavitve posrednika"
 
 #: src/main.cpp:141
 #, kde-format
@@ -1290,7 +1499,7 @@ msgstr "Širina: %1, Dolžina: %2"
 msgid "Encrypted Message"
 msgstr "Šifrirano sporočilo"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1366,7 +1575,7 @@ msgid "Notification settings"
 msgstr "Nastavitve obvestil"
 
 #: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Nastavi"
@@ -1549,12 +1758,6 @@ msgstr ""
 "Tega ni mogoče razveljaviti.\n"
 "Vaš Matrix ID ne bo na voljo za nove račune.\n"
 "Vaša sporočila bodo ostala na voljo."
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
-#, kde-format
-msgid "Password"
-msgstr "Geslo"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -1896,31 +2099,6 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Izberi vse"
 
-#: src/qml/Email.qml:21
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr "Dodaj naslov e-pošte:"
-
-#: src/qml/Email.qml:33
-#, kde-format
-msgid "Confirm e-mail address"
-msgstr "Potrdi naslov e-pošte"
-
-#: src/qml/Email.qml:35
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-"Na vaš naslov je bilo poslano potrditveno e-sporočilo. Nadaljujte tukaj "
-"<b>po</b> kliku na potrditveno povezavo v e-pošti"
-
-#: src/qml/Email.qml:40
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr "Ponovno pošlji potrditveno e-pošto"
-
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
@@ -2173,21 +2351,6 @@ msgstr "Pogosta vprašanja o Matrixu"
 msgid "No name"
 msgstr "Brez imena"
 
-#: src/qml/Homeserver.qml:21
-#, kde-format
-msgid "Server Url:"
-msgstr "Strežnikov naslov Url:"
-
-#: src/qml/Homeserver.qml:26
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr "Registracija je onemogočena na tem strežniku."
-
-#: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
-#, kde-format
-msgid "Loading"
-msgstr "Nalaganje"
-
 #: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -2357,11 +2520,6 @@ msgstr "Uspešno verificirana naprava **%1**"
 msgid "Decline"
 msgstr "Odkloni"
 
-#: src/qml/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr "Prosim počakajte. To utegne trajati nekaj časa."
-
 #: src/qml/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -2383,70 +2541,18 @@ msgstr "Lokacije"
 msgid "There are no locations shared in this room."
 msgstr "Ni deljenih lokacij v tej sobi."
 
-#: src/qml/Login.qml:25
-#, kde-format
-msgid "Matrix ID:"
-msgstr "Matrixov ID:"
-
-#: src/qml/Login.qml:27
-#, kde-format
-msgid "Matrix ID"
-msgstr "Matrixov ID"
-
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
-#, kde-format
-msgid "Loading…"
-msgstr "Nalaganje …"
-
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:199
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "Nadaljuj"
-
-#: src/qml/Login.qml:38
-#, kde-format
-msgid "Already logged in"
-msgstr "Ste že prijavljeni"
-
-#: src/qml/LoginMethod.qml:20
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "Prijava z geslom"
-
-#: src/qml/LoginMethod.qml:26
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr "Prijava z enovito prijavo"
-
-#: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
-#, kde-format
-msgctxt "@action:button"
-msgid "Login"
-msgstr "Prijava"
-
-#: src/qml/LoginRegister.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Register"
-msgstr "Registracija"
-
-#: src/qml/main.qml:305
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikacija seje"
 
-#: src/qml/main.qml:322
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "Privoljenje uporabnika"
 
-#: src/qml/main.qml:327
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2455,28 +2561,28 @@ msgstr ""
 "Vaš domači strežnik zahteva, da se strinjate s pogoji njegove rabe pred "
 "dovoljenjem za uporabo. Prosimo, kliknite spodnji gumb, da jih preberete."
 
-#: src/qml/main.qml:332
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/qml/main.qml:359
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "Začni klepet"
 
-#: src/qml/main.qml:361
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Ali želite začeti klepet z %1?"
 
-#: src/qml/main.qml:387
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Trenutno izbrana povezava"
 
-#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2569,17 +2675,6 @@ msgstr "Ni obvestil"
 msgid "Select a File"
 msgstr "Izberi datoteko"
 
-#: src/qml/Password.qml:28 src/qml/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
-#, kde-format
-msgid "Password:"
-msgstr "Geslo:"
-
-#: src/qml/Password.qml:33
-#, kde-format
-msgid "Invalid username or password"
-msgstr "Neveljavno uporabniško ime ali geslo"
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -2658,16 +2753,6 @@ msgstr "Pridruži se"
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Prezri"
-
-#: src/qml/RegisterPassword.qml:30
-#, kde-format
-msgid "Confirm Password:"
-msgstr "Potrdi geslo:"
-
-#: src/qml/RegisterPassword.qml:33
-#, kde-format
-msgid "The passwords do not match."
-msgstr "Gesli se ne ujemata."
 
 #: src/qml/RemoveChildDialog.qml:27
 #, kde-format
@@ -2881,11 +2966,6 @@ msgstr "Mediji sobe"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je brez povezave. Preverite omrežno povezavo."
-
-#: src/qml/RoomPage.qml:157 src/qml/WelcomePage.qml:47
-#, kde-format
-msgid "Welcome to NeoChat"
-msgstr "Dobrodošli v NeoChat"
 
 #: src/qml/RoomPage.qml:264
 #, kde-format
@@ -3167,29 +3247,6 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Zapusti prostor"
 
-#: src/qml/Sso.qml:30
-#, kde-format
-msgid "Continue the login process in your browser."
-msgstr "Nadaljuje s prijavo v vašem brskalniku."
-
-#: src/qml/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr "Ponovno odpri URL za enovito prijavo"
-
-#: src/qml/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr "Pogoji uporabe"
-
-#: src/qml/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr "Z nadaljevanjem registracije se strinjate z naslednjimi pogoji:"
-
 #: src/qml/TimelineView.qml:207
 #, kde-format
 msgid "Jump to first unread message"
@@ -3386,16 +3443,6 @@ msgstr "Preklopi uporabnika"
 msgid "Open Settings"
 msgstr "Odpri nastavitve"
 
-#: src/qml/Username.qml:20
-#, kde-format
-msgid "Username:"
-msgstr "Uporabniško ime:"
-
-#: src/qml/Username.qml:23
-#, kde-format
-msgid "Username unavailable"
-msgstr "Uporabniško ime ni na voljo"
-
 #: src/qml/UserSearchPage.qml:32
 #, kde-format
 msgctxt "@action:title"
@@ -3588,53 +3635,6 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verifikacija seje je bila preklicana zaradi neznane napake."
 
-#: src/qml/WelcomePage.qml:26
-#, kde-format
-msgid "Welcome"
-msgstr "Dobrodošli"
-
-#: src/qml/WelcomePage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Continue with an existing account"
-msgstr "Nadaljuj na obstoječem računu"
-
-#: src/qml/WelcomePage.qml:87
-#, kde-format
-msgctxt "As in 'this account is still loading'"
-msgid "%1 (loading)"
-msgstr "%1 (nalaganje)"
-
-#: src/qml/WelcomePage.qml:96
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove this account"
-msgstr "Odstrani ta račun"
-
-#: src/qml/WelcomePage.qml:125
-#, kde-format
-msgctxt "@title"
-msgid "Log in or Create a New Account"
-msgstr "Prijavite se ali ustvarite nov račun"
-
-#: src/qml/WelcomePage.qml:207
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "Pojdi nazaj"
-
-#: src/qml/WelcomePage.qml:218
-#, kde-format
-msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Odpri nastavitve posrednika"
-
-#: src/qml/WelcomePage.qml:221
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Nastavitve posrednika"
-
 #: src/registration.cpp:300
 #, kde-format
 msgid "No server."
@@ -3743,12 +3743,10 @@ msgid "Label:"
 msgstr "Oznaka:"
 
 #: src/settings/AccountEditorPage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "QR code for account"
-msgstr "Odstrani ta račun"
+msgstr "Koda QR za račun"
 
 #: src/settings/AccountEditorPage.qml:132
 #: src/settings/AccountEditorPage.qml:187

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
-"PO-Revision-Date: 2024-04-08 11:56+0200\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
+"PO-Revision-Date: 2024-04-11 12:06+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -611,6 +611,218 @@ msgstr "Error de rete"
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Accesso falleva: %1"
+
+#: src/login/Email.qml:21
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr "Adde un adresse de e-posta:"
+
+#: src/login/Email.qml:33
+#, kde-format
+msgid "Confirm e-mail address"
+msgstr "Confirma adresse de e-posta"
+
+#: src/login/Email.qml:35
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+"Un message de e-posta de confirmation ha essite inviate a tu adresse. Pro  "
+"favot tu continua hic <b>post</b> cliccar sur leligamine de confirmation in "
+"le e-posta"
+
+#: src/login/Email.qml:40
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr "Re-invia e-posta de confirmation"
+
+#: src/login/Homeserver.qml:21
+#, kde-format
+msgid "Server Url:"
+msgstr "URL de servitor:"
+
+#: src/login/Homeserver.qml:26
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr "Registration es dishabilitate sur iste servitor."
+
+#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#, kde-format
+msgid "Loading"
+msgstr "Cargante"
+
+#: src/login/Loading.qml:16
+#, kde-format
+msgid "Please wait. This might take a little while."
+msgstr "Pro favor, tu expecta. Isto poterea prender un pauc de tempore."
+
+#: src/login/Login.qml:25
+#, kde-format
+msgid "Matrix ID:"
+msgstr "ID de Matrix:"
+
+#: src/login/Login.qml:27
+#, kde-format
+msgid "Matrix ID"
+msgstr "ID de Matrix:"
+
+#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:11
+#, kde-format
+msgid "Loading…"
+msgstr "Cargante..."
+
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "Continua"
+
+#: src/login/Login.qml:38
+#, kde-format
+msgid "Already logged in"
+msgstr "Ja accedite"
+
+#: src/login/LoginMethod.qml:20
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "Accesso con contrasigno"
+
+#: src/login/LoginMethod.qml:26
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr "Accede con Singule Sign On"
+
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Login"
+msgstr "Accesso de identification"
+
+#: src/login/LoginRegister.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Registra"
+
+#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/settings/DevicesPage.qml:81
+#, kde-format
+msgid "Password:"
+msgstr "Contrasigno:"
+
+#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#, kde-format
+msgid "Password"
+msgstr "Contrasigno"
+
+#: src/login/Password.qml:33
+#, kde-format
+msgid "Invalid username or password"
+msgstr "Invalide nomine de usator o contrasigno"
+
+#: src/login/RegisterPassword.qml:30
+#, kde-format
+msgid "Confirm Password:"
+msgstr "Confirma contrasigno:"
+
+#: src/login/RegisterPassword.qml:33
+#, kde-format
+msgid "The passwords do not match."
+msgstr "Le contrasigno non es correspondente."
+
+#: src/login/Sso.qml:30
+#, kde-format
+msgid "Continue the login process in your browser."
+msgstr "Continua le processo de authentication in tu navigator."
+
+#: src/login/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr "Re-aperi SSO URL"
+
+#: src/login/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr "Terminos & Conditiones"
+
+#: src/login/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr ""
+"Per continuar con le registration, tu concorda con le sequente terminos e "
+"conditiones:"
+
+#: src/login/Username.qml:20
+#, kde-format
+msgid "Username:"
+msgstr "Nomine de usator:"
+
+#: src/login/Username.qml:23
+#, kde-format
+msgid "Username unavailable"
+msgstr "Nomine de usator non disponibile"
+
+#: src/login/WelcomePage.qml:26
+#, kde-format
+msgid "Welcome"
+msgstr "Benvenite"
+
+#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "Benvenite a NeoChat"
+
+#: src/login/WelcomePage.qml:55
+#, kde-format
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr "Continua con un conto existente"
+
+#: src/login/WelcomePage.qml:87
+#, kde-format
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "%1 (cargante)"
+
+#: src/login/WelcomePage.qml:96
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "Edita iste conto"
+
+#: src/login/WelcomePage.qml:125
+#, kde-format
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "Accede  o crea un conto nove"
+
+#: src/login/WelcomePage.qml:207
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr "Vade retro"
+
+#: src/login/WelcomePage.qml:218
+#, kde-format
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Aperi Preferentias de Proxy"
+
+#: src/login/WelcomePage.qml:221
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Preferentias de proxy"
 
 #: src/main.cpp:141
 #, kde-format
@@ -1278,7 +1490,7 @@ msgstr "Lat: %1, Lon: %2"
 msgid "Encrypted Message"
 msgstr "Message Cryptate"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1354,7 +1566,7 @@ msgid "Notification settings"
 msgstr "Preferentias de notificationes"
 
 #: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
@@ -1537,12 +1749,6 @@ msgstr ""
 "Isto non pote esser annullate\n"
 "Tu ID de Matrix non essere disponibile per nove contos.\n"
 "Tu messages remanera disponibile."
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
-#, kde-format
-msgid "Password"
-msgstr "Contrasigno"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -1888,32 +2094,6 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Selige toto"
 
-#: src/qml/Email.qml:21
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr "Adde un adresse de e-posta:"
-
-#: src/qml/Email.qml:33
-#, kde-format
-msgid "Confirm e-mail address"
-msgstr "Confirma adresse de e-posta"
-
-#: src/qml/Email.qml:35
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-"Un message de e-posta de confirmation ha essite inviate a tu adresse. Pro  "
-"favot tu continua hic <b>post</b> cliccar sur leligamine de confirmation in "
-"le e-posta"
-
-#: src/qml/Email.qml:40
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr "Re-invia e-posta de confirmation"
-
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
@@ -2166,21 +2346,6 @@ msgstr "FAQ de Matrix:"
 msgid "No name"
 msgstr "Necun nomine"
 
-#: src/qml/Homeserver.qml:21
-#, kde-format
-msgid "Server Url:"
-msgstr "URL de servitor:"
-
-#: src/qml/Homeserver.qml:26
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr "Registration es dishabilitate sur iste servitor."
-
-#: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
-#, kde-format
-msgid "Loading"
-msgstr "Cargante"
-
 #: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -2350,11 +2515,6 @@ msgstr "Dispositivo **%1** verificato con successo"
 msgid "Decline"
 msgstr "Declina"
 
-#: src/qml/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr "Pro favor, tu expecta. Isto poterea prender un pauc de tempore."
-
 #: src/qml/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -2376,70 +2536,18 @@ msgstr "Locationes"
 msgid "There are no locations shared in this room."
 msgstr "Il non ha locationes compartite in iste sala."
 
-#: src/qml/Login.qml:25
-#, kde-format
-msgid "Matrix ID:"
-msgstr "ID de Matrix:"
-
-#: src/qml/Login.qml:27
-#, kde-format
-msgid "Matrix ID"
-msgstr "ID de Matrix:"
-
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
-#, kde-format
-msgid "Loading…"
-msgstr "Cargante..."
-
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:199
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "Continua"
-
-#: src/qml/Login.qml:38
-#, kde-format
-msgid "Already logged in"
-msgstr "Ja accedite"
-
-#: src/qml/LoginMethod.qml:20
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "Accesso con contrasigno"
-
-#: src/qml/LoginMethod.qml:26
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr "Accede con Singule Sign On"
-
-#: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
-#, kde-format
-msgctxt "@action:button"
-msgid "Login"
-msgstr "Accesso de identification"
-
-#: src/qml/LoginRegister.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Register"
-msgstr "Registra"
-
-#: src/qml/main.qml:305
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Veification de Session"
 
-#: src/qml/main.qml:322
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "Consenso de usator"
 
-#: src/qml/main.qml:327
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2449,28 +2557,28 @@ msgstr ""
 "conditiones ante poter usar lo. Pro favor tu clicca le button a basso per "
 "leger los."
 
-#: src/qml/main.qml:332
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "Aperi"
 
-#: src/qml/main.qml:359
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "Initia un conversation"
 
-#: src/qml/main.qml:361
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Tu vole initiar un conversation con %1"
 
-#: src/qml/main.qml:387
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Le ligamine currentemte seligite"
 
-#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2563,17 +2671,6 @@ msgstr "Nulle Notificationes"
 msgid "Select a File"
 msgstr "Selige un file"
 
-#: src/qml/Password.qml:28 src/qml/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
-#, kde-format
-msgid "Password:"
-msgstr "Contrasigno:"
-
-#: src/qml/Password.qml:33
-#, kde-format
-msgid "Invalid username or password"
-msgstr "Invalide nomine de usator o contrasigno"
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -2652,16 +2749,6 @@ msgstr "Uni te"
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignora"
-
-#: src/qml/RegisterPassword.qml:30
-#, kde-format
-msgid "Confirm Password:"
-msgstr "Confirma contrasigno:"
-
-#: src/qml/RegisterPassword.qml:33
-#, kde-format
-msgid "The passwords do not match."
-msgstr "Le contrasigno non es correspondente."
 
 #: src/qml/RemoveChildDialog.qml:27
 #, kde-format
@@ -2874,11 +2961,6 @@ msgstr "Media de sala"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat es foras de linea. Per vafor tu verifica tu connexion de rete."
-
-#: src/qml/RoomPage.qml:157 src/qml/WelcomePage.qml:47
-#, kde-format
-msgid "Welcome to NeoChat"
-msgstr "Benvenite a NeoChat"
 
 #: src/qml/RoomPage.qml:264
 #, kde-format
@@ -3156,31 +3238,6 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Lassa spatio"
 
-#: src/qml/Sso.qml:30
-#, kde-format
-msgid "Continue the login process in your browser."
-msgstr "Continua le processo de authentication in tu navigator."
-
-#: src/qml/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr "Re-aperi SSO URL"
-
-#: src/qml/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr "Terminos & Conditiones"
-
-#: src/qml/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr ""
-"Per continuar con le registration, tu concorda con le sequente terminos e "
-"conditiones:"
-
 #: src/qml/TimelineView.qml:207
 #, kde-format
 msgid "Jump to first unread message"
@@ -3375,16 +3432,6 @@ msgstr "Commuta Usator"
 #, kde-format
 msgid "Open Settings"
 msgstr "Aperi Preferentias"
-
-#: src/qml/Username.qml:20
-#, kde-format
-msgid "Username:"
-msgstr "Nomine de usator:"
-
-#: src/qml/Username.qml:23
-#, kde-format
-msgid "Username unavailable"
-msgstr "Nomine de usator non disponibile"
 
 #: src/qml/UserSearchPage.qml:32
 #, kde-format
@@ -3588,53 +3635,6 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "Le verification de session esseva cancellate debite a un error incognite."
 
-#: src/qml/WelcomePage.qml:26
-#, kde-format
-msgid "Welcome"
-msgstr "Benvenite"
-
-#: src/qml/WelcomePage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Continue with an existing account"
-msgstr "Continua con un conto existente"
-
-#: src/qml/WelcomePage.qml:87
-#, kde-format
-msgctxt "As in 'this account is still loading'"
-msgid "%1 (loading)"
-msgstr "%1 (cargante)"
-
-#: src/qml/WelcomePage.qml:96
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove this account"
-msgstr "Edita iste conto"
-
-#: src/qml/WelcomePage.qml:125
-#, kde-format
-msgctxt "@title"
-msgid "Log in or Create a New Account"
-msgstr "Accede  o crea un conto nove"
-
-#: src/qml/WelcomePage.qml:207
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "Vade retro"
-
-#: src/qml/WelcomePage.qml:218
-#, kde-format
-msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Aperi Preferentias de Proxy"
-
-#: src/qml/WelcomePage.qml:221
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Preferentias de proxy"
-
 #: src/registration.cpp:300
 #, kde-format
 msgid "No server."
@@ -3743,12 +3743,10 @@ msgid "Label:"
 msgstr "Etiquetta:"
 
 #: src/settings/AccountEditorPage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "QR code for account"
-msgstr "Edita iste conto"
+msgstr "Codice QR per conto"
 
 #: src/settings/AccountEditorPage.qml:132
 #: src/settings/AccountEditorPage.qml:187

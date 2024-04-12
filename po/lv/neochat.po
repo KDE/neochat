@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
 "PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -615,6 +615,215 @@ msgstr "Tikla kļūda"
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ierakstīšanās neizdevās: %1"
+
+#: src/login/Email.qml:21
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr "Pievienot e-pasta adresi:"
+
+#: src/login/Email.qml:33
+#, kde-format
+msgid "Confirm e-mail address"
+msgstr "Apstiprināt e-pasta adresi"
+
+#: src/login/Email.qml:35
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+"Uz jūsu e-pasta adresi ir nosūtīta apstiprinājum vēstule. Turpiniet <b>pēc</"
+"b> noklikšķināšanas uz apstiprinājuma saites šajā e-pastā"
+
+#: src/login/Email.qml:40
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr "Atkātoti nosūtīt apstiprinājuma e-pastu"
+
+#: src/login/Homeserver.qml:21
+#, kde-format
+msgid "Server Url:"
+msgstr "Servera URL:"
+
+#: src/login/Homeserver.qml:26
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr "Šajā serverī reģistrācija ir izslēgta."
+
+#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#, kde-format
+msgid "Loading"
+msgstr "Ielādē"
+
+#: src/login/Loading.qml:16
+#, kde-format
+msgid "Please wait. This might take a little while."
+msgstr "Uzgaidiet kādu brīdi..."
+
+#: src/login/Login.qml:25
+#, kde-format
+msgid "Matrix ID:"
+msgstr "„Matrix“ ID:"
+
+#: src/login/Login.qml:27
+#, kde-format
+msgid "Matrix ID"
+msgstr "„Matrix“ ID"
+
+#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:11
+#, kde-format
+msgid "Loading…"
+msgstr "Ielādē..."
+
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "Turpināt"
+
+#: src/login/Login.qml:38
+#, kde-format
+msgid "Already logged in"
+msgstr "Jau ierakstījies"
+
+#: src/login/LoginMethod.qml:20
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "Ierakstīties ar paroli"
+
+#: src/login/LoginMethod.qml:26
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr "Ierakstīties ar vienoto ierakstīšanos"
+
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Login"
+msgstr "Ierakstīties"
+
+#: src/login/LoginRegister.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Reģistrēties"
+
+#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/settings/DevicesPage.qml:81
+#, kde-format
+msgid "Password:"
+msgstr "Parole:"
+
+#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#, kde-format
+msgid "Password"
+msgstr "Parole"
+
+#: src/login/Password.qml:33
+#, kde-format
+msgid "Invalid username or password"
+msgstr "Nederīgs lietotājvārds vai parole"
+
+#: src/login/RegisterPassword.qml:30
+#, kde-format
+msgid "Confirm Password:"
+msgstr "Apstiprināt paroli:"
+
+#: src/login/RegisterPassword.qml:33
+#, kde-format
+msgid "The passwords do not match."
+msgstr "Paroles neatbilst"
+
+#: src/login/Sso.qml:30
+#, kde-format
+msgid "Continue the login process in your browser."
+msgstr "Turpināt ierakstīšanās procesu pārlūkā."
+
+#: src/login/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr "Vēlreiz atvērt SSO URL"
+
+#: src/login/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr "Noteikumi"
+
+#: src/login/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr "Turpinot reģistrēties, jūs piekrītat šiem noteikumiem:"
+
+#: src/login/Username.qml:20
+#, kde-format
+msgid "Username:"
+msgstr "Lietotājvārds:"
+
+#: src/login/Username.qml:23
+#, kde-format
+msgid "Username unavailable"
+msgstr "Lietotājvārds nav pieejams"
+
+#: src/login/WelcomePage.qml:26
+#, kde-format
+msgid "Welcome"
+msgstr "Laipni lūgti!"
+
+#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "Laipni lūgti „NeoChat“ programmā!"
+
+#: src/login/WelcomePage.qml:55
+#, kde-format
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr "Turpināt ar esošu kontu"
+
+#: src/login/WelcomePage.qml:87
+#, kde-format
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "%1 (ielādējas)"
+
+#: src/login/WelcomePage.qml:96
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "Noņemt šo kontu"
+
+#: src/login/WelcomePage.qml:125
+#, kde-format
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr "Ierakstīties vai izveidot jaunu kontu"
+
+#: src/login/WelcomePage.qml:207
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr "Atgriezties"
+
+#: src/login/WelcomePage.qml:218
+#, kde-format
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Atvērt starpniekservera iestatījumus"
+
+#: src/login/WelcomePage.qml:221
+#, kde-format
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Starpniekservera iestatījumi"
 
 #: src/main.cpp:141
 #, kde-format
@@ -1284,7 +1493,7 @@ msgstr "Plat.: %1, gar.: %2"
 msgid "Encrypted Message"
 msgstr "Šifrēta ziņa"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1360,7 +1569,7 @@ msgid "Notification settings"
 msgstr "Paziņojumu iestatījumi"
 
 #: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurēt"
@@ -1548,12 +1757,6 @@ msgstr ""
 "Šo darbību nevar atcelt.\n"
 "Jūsu „Matrix“ ID nebūs pieejams jauniem kontiem.\n"
 "Jūsu ziņas paliks pieejamas."
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
-#, kde-format
-msgid "Password"
-msgstr "Parole"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -1906,31 +2109,6 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Atlasīt visu"
 
-#: src/qml/Email.qml:21
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr "Pievienot e-pasta adresi:"
-
-#: src/qml/Email.qml:33
-#, kde-format
-msgid "Confirm e-mail address"
-msgstr "Apstiprināt e-pasta adresi"
-
-#: src/qml/Email.qml:35
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-"Uz jūsu e-pasta adresi ir nosūtīta apstiprinājum vēstule. Turpiniet <b>pēc</"
-"b> noklikšķināšanas uz apstiprinājuma saites šajā e-pastā"
-
-#: src/qml/Email.qml:40
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr "Atkātoti nosūtīt apstiprinājuma e-pastu"
-
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
@@ -2184,21 +2362,6 @@ msgstr "„Matrix“ BUJ"
 msgid "No name"
 msgstr "Bez vārda"
 
-#: src/qml/Homeserver.qml:21
-#, kde-format
-msgid "Server Url:"
-msgstr "Servera URL:"
-
-#: src/qml/Homeserver.qml:26
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr "Šajā serverī reģistrācija ir izslēgta."
-
-#: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
-#, kde-format
-msgid "Loading"
-msgstr "Ielādē"
-
 #: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -2372,11 +2535,6 @@ msgstr "Veiksmīgi verificēt ierīce **%1**"
 msgid "Decline"
 msgstr "Noraidīt"
 
-#: src/qml/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr "Uzgaidiet kādu brīdi..."
-
 #: src/qml/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -2398,70 +2556,18 @@ msgstr "Atrašanās vietas"
 msgid "There are no locations shared in this room."
 msgstr "Šajā istabā nav kopīgotas atrašanās vietas."
 
-#: src/qml/Login.qml:25
-#, kde-format
-msgid "Matrix ID:"
-msgstr "„Matrix“ ID:"
-
-#: src/qml/Login.qml:27
-#, kde-format
-msgid "Matrix ID"
-msgstr "„Matrix“ ID"
-
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
-#, kde-format
-msgid "Loading…"
-msgstr "Ielādē..."
-
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:199
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "Turpināt"
-
-#: src/qml/Login.qml:38
-#, kde-format
-msgid "Already logged in"
-msgstr "Jau ierakstījies"
-
-#: src/qml/LoginMethod.qml:20
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "Ierakstīties ar paroli"
-
-#: src/qml/LoginMethod.qml:26
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr "Ierakstīties ar vienoto ierakstīšanos"
-
-#: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
-#, kde-format
-msgctxt "@action:button"
-msgid "Login"
-msgstr "Ierakstīties"
-
-#: src/qml/LoginRegister.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Register"
-msgstr "Reģistrēties"
-
-#: src/qml/main.qml:305
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sesijas verifikācija"
 
-#: src/qml/main.qml:322
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "Lietotāja piekrišana"
 
-#: src/qml/main.qml:327
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2470,28 +2576,28 @@ msgstr ""
 "Jūsu mājas serveris pieprasa piekrist tā noteikumiem pirms tā izmantošanas. "
 "Spiediet uz pogas, lai tos izlasītu."
 
-#: src/qml/main.qml:332
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/qml/main.qml:359
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "Uzsākt tērzēšanu"
 
-#: src/qml/main.qml:361
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vai vēlaties uzsākt tērzēšanu ar „%1“?"
 
-#: src/qml/main.qml:387
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Pašreiz atlasītā saite"
 
-#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2585,17 +2691,6 @@ msgstr "Nav paziņojumu"
 msgid "Select a File"
 msgstr "Atlasīt datni"
 
-#: src/qml/Password.qml:28 src/qml/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
-#, kde-format
-msgid "Password:"
-msgstr "Parole:"
-
-#: src/qml/Password.qml:33
-#, kde-format
-msgid "Invalid username or password"
-msgstr "Nederīgs lietotājvārds vai parole"
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -2674,16 +2769,6 @@ msgstr "Pievienoties"
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorēt"
-
-#: src/qml/RegisterPassword.qml:30
-#, kde-format
-msgid "Confirm Password:"
-msgstr "Apstiprināt paroli:"
-
-#: src/qml/RegisterPassword.qml:33
-#, kde-format
-msgid "The passwords do not match."
-msgstr "Paroles neatbilst"
 
 #: src/qml/RemoveChildDialog.qml:27
 #, kde-format
@@ -2896,11 +2981,6 @@ msgstr "Istabas multivide"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "„NeoChat“ darbojas nesaistē. Pārbaudīt tīkla savienojumu."
-
-#: src/qml/RoomPage.qml:157 src/qml/WelcomePage.qml:47
-#, kde-format
-msgid "Welcome to NeoChat"
-msgstr "Laipni lūgti „NeoChat“ programmā!"
 
 #: src/qml/RoomPage.qml:264
 #, kde-format
@@ -3187,29 +3267,6 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Pamest telpu"
 
-#: src/qml/Sso.qml:30
-#, kde-format
-msgid "Continue the login process in your browser."
-msgstr "Turpināt ierakstīšanās procesu pārlūkā."
-
-#: src/qml/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr "Vēlreiz atvērt SSO URL"
-
-#: src/qml/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr "Noteikumi"
-
-#: src/qml/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr "Turpinot reģistrēties, jūs piekrītat šiem noteikumiem:"
-
 #: src/qml/TimelineView.qml:207
 #, kde-format
 msgid "Jump to first unread message"
@@ -3404,16 +3461,6 @@ msgstr "Pārslēgt lietotāju"
 msgid "Open Settings"
 msgstr "Atvērt iestatījumus"
 
-#: src/qml/Username.qml:20
-#, kde-format
-msgid "Username:"
-msgstr "Lietotājvārds:"
-
-#: src/qml/Username.qml:23
-#, kde-format
-msgid "Username unavailable"
-msgstr "Lietotājvārds nav pieejams"
-
 #: src/qml/UserSearchPage.qml:32
 #, kde-format
 msgctxt "@action:title"
@@ -3596,53 +3643,6 @@ msgstr "Attālinātā puse atcēla sesijas verifikāciju, jo neatbilst atslēgas
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Sesijas verifikācija ir atcelta nezināmas kļūdas dēļ."
-
-#: src/qml/WelcomePage.qml:26
-#, kde-format
-msgid "Welcome"
-msgstr "Laipni lūgti!"
-
-#: src/qml/WelcomePage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Continue with an existing account"
-msgstr "Turpināt ar esošu kontu"
-
-#: src/qml/WelcomePage.qml:87
-#, kde-format
-msgctxt "As in 'this account is still loading'"
-msgid "%1 (loading)"
-msgstr "%1 (ielādējas)"
-
-#: src/qml/WelcomePage.qml:96
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove this account"
-msgstr "Noņemt šo kontu"
-
-#: src/qml/WelcomePage.qml:125
-#, kde-format
-msgctxt "@title"
-msgid "Log in or Create a New Account"
-msgstr "Ierakstīties vai izveidot jaunu kontu"
-
-#: src/qml/WelcomePage.qml:207
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "Atgriezties"
-
-#: src/qml/WelcomePage.qml:218
-#, kde-format
-msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Atvērt starpniekservera iestatījumus"
-
-#: src/qml/WelcomePage.qml:221
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Starpniekservera iestatījumi"
 
 #: src/registration.cpp:300
 #, kde-format

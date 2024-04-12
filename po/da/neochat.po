@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -629,6 +629,228 @@ msgstr "Netværksfejl"
 #| msgid "Login Failed"
 msgid "Login Failed: %1"
 msgstr "Login mislykkedes"
+
+#: src/login/Email.qml:21
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr ""
+
+#: src/login/Email.qml:33
+#, kde-format
+msgid "Confirm e-mail address"
+msgstr ""
+
+#: src/login/Email.qml:35
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+
+#: src/login/Email.qml:40
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr ""
+
+#: src/login/Homeserver.qml:21
+#, fuzzy, kde-format
+#| msgid "Server Address"
+msgid "Server Url:"
+msgstr "Serveradresse"
+
+#: src/login/Homeserver.qml:26
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr ""
+
+#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgid "Loading"
+msgstr "Indlæser"
+
+#: src/login/Loading.qml:16
+#, kde-format
+msgid "Please wait. This might take a little while."
+msgstr ""
+
+#: src/login/Login.qml:25
+#, kde-format
+msgid "Matrix ID:"
+msgstr ""
+
+#: src/login/Login.qml:27
+#, kde-format
+msgid "Matrix ID"
+msgstr ""
+
+#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:11
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgid "Loading…"
+msgstr "Indlæser"
+
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr ""
+
+#: src/login/Login.qml:38
+#, kde-format
+msgid "Already logged in"
+msgstr ""
+
+#: src/login/LoginMethod.qml:20
+#, fuzzy, kde-format
+#| msgid "Login Failed"
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "Login mislykkedes"
+
+#: src/login/LoginMethod.qml:26
+#, kde-format
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr ""
+
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#, fuzzy, kde-format
+#| msgid "Login"
+msgctxt "@action:button"
+msgid "Login"
+msgstr "Login"
+
+#: src/login/LoginRegister.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Register"
+msgstr ""
+
+#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/settings/DevicesPage.qml:81
+#, fuzzy, kde-format
+#| msgid "Password"
+msgid "Password:"
+msgstr "Adgangskode"
+
+#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#, fuzzy, kde-format
+#| msgid "Password"
+msgid "Password"
+msgstr "Adgangskode"
+
+#: src/login/Password.qml:33
+#, kde-format
+msgid "Invalid username or password"
+msgstr ""
+
+#: src/login/RegisterPassword.qml:30
+#, fuzzy, kde-format
+#| msgid "Current Password:"
+msgid "Confirm Password:"
+msgstr "Nuværende adgangskode:"
+
+#: src/login/RegisterPassword.qml:33
+#, fuzzy, kde-format
+#| msgid "Passwords do not match"
+msgid "The passwords do not match."
+msgstr "Adgangskoderne matcher ikke"
+
+#: src/login/Sso.qml:30
+#, kde-format
+msgid "Continue the login process in your browser."
+msgstr ""
+
+#: src/login/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr ""
+
+#: src/login/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr ""
+
+#: src/login/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr ""
+
+#: src/login/Username.qml:20
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Username:"
+msgstr "Brugernavn"
+
+#: src/login/Username.qml:23
+#, kde-format
+msgid "Username unavailable"
+msgstr ""
+
+#: src/login/WelcomePage.qml:26
+#, kde-format
+msgid "Welcome"
+msgstr ""
+
+#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#, fuzzy, kde-format
+#| msgid "Chat"
+msgid "Welcome to NeoChat"
+msgstr "Chat"
+
+#: src/login/WelcomePage.qml:55
+#, kde-format
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr ""
+
+#: src/login/WelcomePage.qml:87
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "Indlæser"
+
+#: src/login/WelcomePage.qml:96
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "Send besked"
+
+#: src/login/WelcomePage.qml:125
+#, kde-format
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr ""
+
+#: src/login/WelcomePage.qml:207
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
+
+#: src/login/WelcomePage.qml:218
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Indstillinger"
+
+#: src/login/WelcomePage.qml:221
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Indstillinger"
 
 #: src/main.cpp:141
 #, fuzzy, kde-format
@@ -1311,7 +1533,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Send besked"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr ""
@@ -1393,7 +1615,7 @@ msgid "Notification settings"
 msgstr "Indstillinger"
 
 #: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr ""
@@ -1580,13 +1802,6 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Password"
-msgid "Password"
-msgstr "Adgangskode"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, fuzzy, kde-format
@@ -1946,29 +2161,6 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr ""
 
-#: src/qml/Email.qml:21
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr ""
-
-#: src/qml/Email.qml:33
-#, kde-format
-msgid "Confirm e-mail address"
-msgstr ""
-
-#: src/qml/Email.qml:35
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-
-#: src/qml/Email.qml:40
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr ""
-
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
@@ -2228,23 +2420,6 @@ msgstr ""
 msgid "No name"
 msgstr "Intet navn"
 
-#: src/qml/Homeserver.qml:21
-#, fuzzy, kde-format
-#| msgid "Server Address"
-msgid "Server Url:"
-msgstr "Serveradresse"
-
-#: src/qml/Homeserver.qml:26
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr ""
-
-#: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
-#, fuzzy, kde-format
-#| msgid "Loading"
-msgid "Loading"
-msgstr "Indlæser"
-
 #: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -2416,11 +2591,6 @@ msgstr ""
 msgid "Decline"
 msgstr "Tidslinje:"
 
-#: src/qml/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr ""
-
 #: src/qml/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -2444,103 +2614,48 @@ msgstr "Indstillinger"
 msgid "There are no locations shared in this room."
 msgstr ""
 
-#: src/qml/Login.qml:25
-#, kde-format
-msgid "Matrix ID:"
-msgstr ""
-
-#: src/qml/Login.qml:27
-#, kde-format
-msgid "Matrix ID"
-msgstr ""
-
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
-#, fuzzy, kde-format
-#| msgid "Loading"
-msgid "Loading…"
-msgstr "Indlæser"
-
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:199
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr ""
-
-#: src/qml/Login.qml:38
-#, kde-format
-msgid "Already logged in"
-msgstr ""
-
-#: src/qml/LoginMethod.qml:20
-#, fuzzy, kde-format
-#| msgid "Login Failed"
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "Login mislykkedes"
-
-#: src/qml/LoginMethod.qml:26
-#, kde-format
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr ""
-
-#: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
-#, fuzzy, kde-format
-#| msgid "Login"
-msgctxt "@action:button"
-msgid "Login"
-msgstr "Login"
-
-#: src/qml/LoginRegister.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Register"
-msgstr ""
-
-#: src/qml/main.qml:305
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/qml/main.qml:322
+#: src/qml/Main.qml:323
 #, fuzzy, kde-format
 #| msgid "Username"
 msgid "User consent"
 msgstr "Brugernavn"
 
-#: src/qml/main.qml:327
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
 
-#: src/qml/main.qml:332
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr ""
 
-#: src/qml/main.qml:359
+#: src/qml/Main.qml:360
 #, fuzzy, kde-format
 #| msgid "Start a Chat"
 msgid "Start a chat"
 msgstr "Start en chat"
 
-#: src/qml/main.qml:361
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr ""
 
-#: src/qml/main.qml:387
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2642,18 +2757,6 @@ msgstr "Indstillinger"
 msgid "Select a File"
 msgstr "Se kildetekst"
 
-#: src/qml/Password.qml:28 src/qml/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Password"
-msgid "Password:"
-msgstr "Adgangskode"
-
-#: src/qml/Password.qml:33
-#, kde-format
-msgid "Invalid username or password"
-msgstr ""
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -2736,18 +2839,6 @@ msgstr "Gå med"
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr ""
-
-#: src/qml/RegisterPassword.qml:30
-#, fuzzy, kde-format
-#| msgid "Current Password:"
-msgid "Confirm Password:"
-msgstr "Nuværende adgangskode:"
-
-#: src/qml/RegisterPassword.qml:33
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
-msgid "The passwords do not match."
-msgstr "Adgangskoderne matcher ikke"
 
 #: src/qml/RemoveChildDialog.qml:27
 #, fuzzy, kde-format
@@ -2972,12 +3063,6 @@ msgstr "Indstillinger"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
-
-#: src/qml/RoomPage.qml:157 src/qml/WelcomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Chat"
-msgid "Welcome to NeoChat"
-msgstr "Chat"
 
 #: src/qml/RoomPage.qml:264
 #, kde-format
@@ -3268,29 +3353,6 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr ""
 
-#: src/qml/Sso.qml:30
-#, kde-format
-msgid "Continue the login process in your browser."
-msgstr ""
-
-#: src/qml/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr ""
-
-#: src/qml/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr ""
-
-#: src/qml/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr ""
-
 #: src/qml/TimelineView.qml:207
 #, kde-format
 msgid "Jump to first unread message"
@@ -3488,17 +3550,6 @@ msgstr ""
 msgid "Open Settings"
 msgstr "Indstillinger"
 
-#: src/qml/Username.qml:20
-#, fuzzy, kde-format
-#| msgid "Username"
-msgid "Username:"
-msgstr "Brugernavn"
-
-#: src/qml/Username.qml:23
-#, kde-format
-msgid "Username unavailable"
-msgstr ""
-
 #: src/qml/UserSearchPage.qml:32
 #, kde-format
 msgctxt "@action:title"
@@ -3667,57 +3718,6 @@ msgstr ""
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr ""
-
-#: src/qml/WelcomePage.qml:26
-#, kde-format
-msgid "Welcome"
-msgstr ""
-
-#: src/qml/WelcomePage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Continue with an existing account"
-msgstr ""
-
-#: src/qml/WelcomePage.qml:87
-#, fuzzy, kde-format
-#| msgid "Loading"
-msgctxt "As in 'this account is still loading'"
-msgid "%1 (loading)"
-msgstr "Indlæser"
-
-#: src/qml/WelcomePage.qml:96
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgctxt "@action:button"
-msgid "Remove this account"
-msgstr "Send besked"
-
-#: src/qml/WelcomePage.qml:125
-#, kde-format
-msgctxt "@title"
-msgid "Log in or Create a New Account"
-msgstr ""
-
-#: src/qml/WelcomePage.qml:207
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr ""
-
-#: src/qml/WelcomePage.qml:218
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Indstillinger"
-
-#: src/qml/WelcomePage.qml:221
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Indstillinger"
 
 #: src/registration.cpp:300
 #, kde-format

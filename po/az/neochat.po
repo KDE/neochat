@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:38+0000\n"
+"POT-Creation-Date: 2024-04-12 00:37+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -657,6 +657,234 @@ msgstr "Şəbəkə xətası"
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Giriş alınmadı: %1"
+
+#: src/login/Email.qml:21
+#, kde-format
+msgid "Add an e-mail address:"
+msgstr ""
+
+#: src/login/Email.qml:33
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm e-mail address"
+msgstr "onların görünən adı silindi"
+
+#: src/login/Email.qml:35
+#, kde-format
+msgid ""
+"A confirmation e-mail has been sent to your address. Please continue here "
+"<b>after</b> clicking on the confirmation link in the e-mail"
+msgstr ""
+
+#: src/login/Email.qml:40
+#, kde-format
+msgctxt "@button"
+msgid "Re-send confirmation e-mail"
+msgstr ""
+
+#: src/login/Homeserver.qml:21
+#, fuzzy, kde-format
+#| msgid "Homeserver:"
+msgid "Server Url:"
+msgstr "Əsas server:"
+
+#: src/login/Homeserver.qml:26
+#, kde-format
+msgid "Registration is disabled on this server."
+msgstr ""
+
+#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading"
+msgstr "Yüklənir..."
+
+#: src/login/Loading.qml:16
+#, kde-format
+msgid "Please wait. This might take a little while."
+msgstr "Lütfən gözləyin. Bu bir az vaxt apara bilər."
+
+#: src/login/Login.qml:25
+#, kde-format
+msgid "Matrix ID:"
+msgstr "Matrix ID:"
+
+#: src/login/Login.qml:27
+#, fuzzy, kde-format
+#| msgid "Matrix ID:"
+msgid "Matrix ID"
+msgstr "Matrix ID:"
+
+#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
+#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:11
+#, kde-format
+msgid "Loading…"
+msgstr "Yüklənir..."
+
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue"
+msgstr "Davam etmək"
+
+#: src/login/Login.qml:38
+#, kde-format
+msgid "Already logged in"
+msgstr ""
+
+#: src/login/LoginMethod.qml:20
+#, fuzzy, kde-format
+#| msgid "Login with password"
+msgctxt "@action:button"
+msgid "Login with password"
+msgstr "Şifrə ilə giriş"
+
+#: src/login/LoginMethod.qml:26
+#, fuzzy, kde-format
+#| msgid "Login with single sign-on"
+msgctxt "@action:button"
+msgid "Login with single sign-on"
+msgstr "Tək giriş ilə daxil olun"
+
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Login"
+msgstr "Giriş"
+
+#: src/login/LoginRegister.qml:31
+#, fuzzy, kde-format
+#| msgid "Register"
+msgctxt "@action:button"
+msgid "Register"
+msgstr "Qeydiyyat"
+
+#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/settings/DevicesPage.qml:81
+#, kde-format
+msgid "Password:"
+msgstr "Şifrə:"
+
+#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Password"
+msgid "Password"
+msgstr "Şifrə"
+
+#: src/login/Password.qml:33
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Invalid username or password"
+msgstr "Şifrənizi daxil edin"
+
+#: src/login/RegisterPassword.qml:30
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgid "Confirm Password:"
+msgstr "Yeni şifrənin təsdiqi:"
+
+#: src/login/RegisterPassword.qml:33
+#, fuzzy, kde-format
+#| msgid "Passwords do not match"
+msgid "The passwords do not match."
+msgstr "Şifrələr oxşar deyil"
+
+#: src/login/Sso.qml:30
+#, fuzzy, kde-format
+#| msgid "Complete the authentication steps in your browser"
+msgid "Continue the login process in your browser."
+msgstr "Kimlik doğrulamasını veb-bələdçinizdə tamamlayın"
+
+#: src/login/Sso.qml:38
+#, kde-format
+msgctxt "@action:button"
+msgid "Re-open SSO URL"
+msgstr ""
+
+#: src/login/Terms.qml:18
+#, kde-format
+msgid "Terms & Conditions"
+msgstr ""
+
+#: src/login/Terms.qml:19
+#, kde-format
+msgid ""
+"By continuing with the registration, you agree to the following terms and "
+"conditions:"
+msgstr ""
+
+#: src/login/Username.qml:20
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgid "Username:"
+msgstr "Bu istifadəçini əngəlləmək"
+
+#: src/login/Username.qml:23
+#, fuzzy, kde-format
+#| msgid "No users available"
+msgid "Username unavailable"
+msgstr "İstifadəçilər yoxdur"
+
+#: src/login/WelcomePage.qml:26
+#, kde-format
+msgid "Welcome"
+msgstr "Xoş Gəldiniz"
+
+#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#, fuzzy, kde-format
+#| msgid "Welcome to Matrix"
+msgid "Welcome to NeoChat"
+msgstr "Matrix'ə xoş gəldiniz"
+
+#: src/login/WelcomePage.qml:55
+#, kde-format
+msgctxt "@title"
+msgid "Continue with an existing account"
+msgstr ""
+
+#: src/login/WelcomePage.qml:87
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "As in 'this account is still loading'"
+msgid "%1 (loading)"
+msgstr "Yüklənir..."
+
+#: src/login/WelcomePage.qml:96
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgctxt "@action:button"
+msgid "Remove this account"
+msgstr "Bu hesaba düzəliş edin"
+
+#: src/login/WelcomePage.qml:125
+#, kde-format
+msgctxt "@title"
+msgid "Log in or Create a New Account"
+msgstr ""
+
+#: src/login/WelcomePage.qml:207
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
+
+#: src/login/WelcomePage.qml:218
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@action:button"
+msgid "Open proxy settings"
+msgstr "Ayarlar"
+
+#: src/login/WelcomePage.qml:221
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgctxt "@title:window"
+msgid "Proxy Settings"
+msgstr "Otaq ayarları"
 
 #: src/main.cpp:141
 #, kde-format
@@ -1424,7 +1652,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/notificationsmanager.cpp:204 src/qml/main.qml:271
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1506,7 +1734,7 @@ msgid "Notification settings"
 msgstr "Bildirişlərdə göstərmək"
 
 #: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/main.qml:401 src/qml/UserInfo.qml:118
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
 #, kde-format
 msgid "Configure"
 msgstr "Tənzimləyin"
@@ -1699,14 +1927,6 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:29 src/qml/Password.qml:32
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
-msgid "Password"
-msgstr "Şifrə"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, fuzzy, kde-format
@@ -2078,31 +2298,6 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Hamısını seçin"
 
-#: src/qml/Email.qml:21
-#, kde-format
-msgid "Add an e-mail address:"
-msgstr ""
-
-#: src/qml/Email.qml:33
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
-msgid "Confirm e-mail address"
-msgstr "onların görünən adı silindi"
-
-#: src/qml/Email.qml:35
-#, kde-format
-msgid ""
-"A confirmation e-mail has been sent to your address. Please continue here "
-"<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-
-#: src/qml/Email.qml:40
-#, kde-format
-msgctxt "@button"
-msgid "Re-send confirmation e-mail"
-msgstr ""
-
 #: src/qml/EmojiGrid.qml:87
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
@@ -2367,23 +2562,6 @@ msgstr "Matrix FAQ"
 msgid "No name"
 msgstr "Ad yoxdur"
 
-#: src/qml/Homeserver.qml:21
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
-msgid "Server Url:"
-msgstr "Əsas server:"
-
-#: src/qml/Homeserver.qml:26
-#, kde-format
-msgid "Registration is disabled on this server."
-msgstr ""
-
-#: src/qml/Homeserver.qml:41 src/qml/Username.qml:38
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgid "Loading"
-msgstr "Yüklənir..."
-
 #: src/qml/HoverActions.qml:75
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -2559,11 +2737,6 @@ msgstr ""
 msgid "Decline"
 msgstr "Vaxt qrafiki:"
 
-#: src/qml/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
-msgstr "Lütfən gözləyin. Bu bir az vaxt apara bilər."
-
 #: src/qml/LocationChooser.qml:22
 #, fuzzy, kde-format
 #| msgid "Choose local file"
@@ -2589,75 +2762,19 @@ msgstr "Bildirişlərdə göstərmək"
 msgid "There are no locations shared in this room."
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/Login.qml:25
-#, kde-format
-msgid "Matrix ID:"
-msgstr "Matrix ID:"
-
-#: src/qml/Login.qml:27
-#, fuzzy, kde-format
-#| msgid "Matrix ID:"
-msgid "Matrix ID"
-msgstr "Matrix ID:"
-
-#: src/qml/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
-#, kde-format
-msgid "Loading…"
-msgstr "Yüklənir..."
-
-#: src/qml/Login.qml:38 src/qml/WelcomePage.qml:199
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue"
-msgstr "Davam etmək"
-
-#: src/qml/Login.qml:38
-#, kde-format
-msgid "Already logged in"
-msgstr ""
-
-#: src/qml/LoginMethod.qml:20
-#, fuzzy, kde-format
-#| msgid "Login with password"
-msgctxt "@action:button"
-msgid "Login with password"
-msgstr "Şifrə ilə giriş"
-
-#: src/qml/LoginMethod.qml:26
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
-msgctxt "@action:button"
-msgid "Login with single sign-on"
-msgstr "Tək giriş ilə daxil olun"
-
-#: src/qml/LoginRegister.qml:24 src/qml/Password.qml:41
-#, kde-format
-msgctxt "@action:button"
-msgid "Login"
-msgstr "Giriş"
-
-#: src/qml/LoginRegister.qml:31
-#, fuzzy, kde-format
-#| msgid "Register"
-msgctxt "@action:button"
-msgid "Register"
-msgstr "Qeydiyyat"
-
-#: src/qml/main.qml:305
+#: src/qml/Main.qml:306
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/qml/main.qml:322
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "İstifadəçi razılığı"
 
-#: src/qml/main.qml:327
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2666,28 +2783,28 @@ msgstr ""
 "Əsas server, onu istifadə etmədən öncə onun şərtlərini və razılaşmalarını "
 "qəbul etmənizi tələb edir. Onları oxumaq üçün aşağıdakı düyməni vurun."
 
-#: src/qml/main.qml:332
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "Açmaq"
 
-#: src/qml/main.qml:359
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "Söhbətə başlayın"
 
-#: src/qml/main.qml:361
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ilə söhbətə başlamaq istəyirsiniz?"
 
-#: src/qml/main.qml:387
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/main.qml:419 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2791,18 +2908,6 @@ msgstr "Bildirişlərdə göstərmək"
 msgid "Select a File"
 msgstr "Hamısını seçin"
 
-#: src/qml/Password.qml:28 src/qml/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
-#, kde-format
-msgid "Password:"
-msgstr "Şifrə:"
-
-#: src/qml/Password.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter your password"
-msgid "Invalid username or password"
-msgstr "Şifrənizi daxil edin"
-
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
 msgctxt "@title"
@@ -2886,18 +2991,6 @@ msgstr "Qoşulun"
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "İmtina"
-
-#: src/qml/RegisterPassword.qml:30
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
-msgid "Confirm Password:"
-msgstr "Yeni şifrənin təsdiqi:"
-
-#: src/qml/RegisterPassword.qml:33
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
-msgid "The passwords do not match."
-msgstr "Şifrələr oxşar deyil"
 
 #: src/qml/RemoveChildDialog.qml:27
 #, fuzzy, kde-format
@@ -3131,12 +3224,6 @@ msgstr "Otaq haqqında"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat qoşulmayıb. Lütfən, şəbəkə bağlantısını yoxlayın."
-
-#: src/qml/RoomPage.qml:157 src/qml/WelcomePage.qml:47
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
-msgid "Welcome to NeoChat"
-msgstr "Matrix'ə xoş gəldiniz"
 
 #: src/qml/RoomPage.qml:264
 #, kde-format
@@ -3437,30 +3524,6 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr ""
 
-#: src/qml/Sso.qml:30
-#, fuzzy, kde-format
-#| msgid "Complete the authentication steps in your browser"
-msgid "Continue the login process in your browser."
-msgstr "Kimlik doğrulamasını veb-bələdçinizdə tamamlayın"
-
-#: src/qml/Sso.qml:38
-#, kde-format
-msgctxt "@action:button"
-msgid "Re-open SSO URL"
-msgstr ""
-
-#: src/qml/Terms.qml:18
-#, kde-format
-msgid "Terms & Conditions"
-msgstr ""
-
-#: src/qml/Terms.qml:19
-#, kde-format
-msgid ""
-"By continuing with the registration, you agree to the following terms and "
-"conditions:"
-msgstr ""
-
 #: src/qml/TimelineView.qml:207
 #, kde-format
 msgid "Jump to first unread message"
@@ -3662,18 +3725,6 @@ msgstr ""
 msgid "Open Settings"
 msgstr "Ayarlar"
 
-#: src/qml/Username.qml:20
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgid "Username:"
-msgstr "Bu istifadəçini əngəlləmək"
-
-#: src/qml/Username.qml:23
-#, fuzzy, kde-format
-#| msgid "No users available"
-msgid "Username unavailable"
-msgstr "İstifadəçilər yoxdur"
-
 #: src/qml/UserSearchPage.qml:32
 #, kde-format
 msgctxt "@action:title"
@@ -3843,57 +3894,6 @@ msgstr ""
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr ""
-
-#: src/qml/WelcomePage.qml:26
-#, kde-format
-msgid "Welcome"
-msgstr "Xoş Gəldiniz"
-
-#: src/qml/WelcomePage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Continue with an existing account"
-msgstr ""
-
-#: src/qml/WelcomePage.qml:87
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgctxt "As in 'this account is still loading'"
-msgid "%1 (loading)"
-msgstr "Yüklənir..."
-
-#: src/qml/WelcomePage.qml:96
-#, fuzzy, kde-format
-#| msgid "Edit this account"
-msgctxt "@action:button"
-msgid "Remove this account"
-msgstr "Bu hesaba düzəliş edin"
-
-#: src/qml/WelcomePage.qml:125
-#, kde-format
-msgctxt "@title"
-msgid "Log in or Create a New Account"
-msgstr ""
-
-#: src/qml/WelcomePage.qml:207
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr ""
-
-#: src/qml/WelcomePage.qml:218
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Ayarlar"
-
-#: src/qml/WelcomePage.qml:221
-#, fuzzy, kde-format
-#| msgid "Room settings"
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Otaq ayarları"
 
 #: src/registration.cpp:300
 #, fuzzy, kde-format
