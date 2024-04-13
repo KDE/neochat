@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-12 00:37+0000\n"
+"POT-Creation-Date: 2024-04-13 00:38+0000\n"
 "PO-Revision-Date: 2024-03-29 21:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -79,13 +79,13 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "帳號資料"
 
-#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:37
+#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "事件原始碼"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:225
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "開發者工具"
@@ -102,13 +102,13 @@ msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "功能旗標"
 
-#: src/devtools/FeatureFlagPage.qml:20
+#: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "對話串"
 
-#: src/devtools/FeatureFlagPage.qml:26
+#: src/devtools/FeatureFlagPage.qml:24
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -135,8 +135,8 @@ msgstr "聊天室 ID：%1"
 msgid "Room Account Data"
 msgstr "聊天室帳號資料"
 
-#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:80
-#: src/qml/MessageSourceSheet.qml:23
+#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:98
+#: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "事件原始碼"
@@ -153,7 +153,7 @@ msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
 msgstr[0] "%1 個此類型的事件"
 
-#: src/devtools/RoomData.qml:88
+#: src/devtools/RoomData.qml:83
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -672,7 +672,7 @@ msgstr "Matrix ID"
 msgid "Loading…"
 msgstr "載入中…"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -714,7 +714,7 @@ msgid "Password:"
 msgstr "密碼："
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:85
 #, kde-format
 msgid "Password"
 msgstr "密碼"
@@ -767,162 +767,162 @@ msgstr "使用者名稱："
 msgid "Username unavailable"
 msgstr "使用者名稱無法使用"
 
-#: src/login/WelcomePage.qml:26
+#: src/login/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "歡迎"
 
-#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:156
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "歡迎來到 NeoChat"
 
-#: src/login/WelcomePage.qml:55
+#: src/login/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "用現存帳號繼續"
 
-#: src/login/WelcomePage.qml:87
+#: src/login/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (載入中)"
 
-#: src/login/WelcomePage.qml:96
+#: src/login/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "移除這個帳號"
 
-#: src/login/WelcomePage.qml:125
+#: src/login/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "登入或建立新帳號"
 
-#: src/login/WelcomePage.qml:207
+#: src/login/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "返回"
 
-#: src/login/WelcomePage.qml:218
+#: src/login/WelcomePage.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Open proxy settings"
 msgstr "開啟代理伺服器設定"
 
-#: src/login/WelcomePage.qml:221
+#: src/login/WelcomePage.qml:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "代理伺服器設定"
 
-#: src/main.cpp:141
+#: src/main.cpp:136
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:143
+#: src/main.cpp:138
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix 用戶端"
 
-#: src/main.cpp:145
+#: src/main.cpp:140
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE 社群"
 
-#: src/main.cpp:146
+#: src/main.cpp:141
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
+#: src/main.cpp:142 src/main.cpp:146 src/main.cpp:147
 #, kde-format
 msgid "Maintainer"
 msgstr "維護者"
 
-#: src/main.cpp:151
+#: src/main.cpp:146
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:152
+#: src/main.cpp:147
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:153
+#: src/main.cpp:148
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:153
+#: src/main.cpp:148
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral 的原始作者"
 
-#: src/main.cpp:154
+#: src/main.cpp:149
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:154
+#: src/main.cpp:149
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "libQuotient 的維護者"
 
-#: src/main.cpp:155
+#: src/main.cpp:150
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kisaragi Hiu"
 
-#: src/main.cpp:155
+#: src/main.cpp:150
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: src/main.cpp:159
+#: src/main.cpp:154
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "撰寫跨平台 Matrix 用戶端用的 Qt 函式庫"
 
-#: src/main.cpp:161
+#: src/main.cpp:156
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (建置於 %2 上)"
 
-#: src/main.cpp:187
+#: src/main.cpp:182
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 通訊協定的用戶端"
 
-#: src/main.cpp:188
+#: src/main.cpp:183
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "支援 matrix: 網址機制"
 
-#: src/main.cpp:189
+#: src/main.cpp:184
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "忽略所有 SSL 錯誤，例如未簽署的憑證。"
 
-#: src/main.cpp:191
+#: src/main.cpp:186
 #, kde-format
 msgid "Only used for autotests"
 msgstr "僅 autotest 用。"
 
-#: src/main.cpp:196
+#: src/main.cpp:191
 #, kde-format
 msgid "Internal usage only."
 msgstr "僅內部用。"
 
-#: src/main.cpp:201
+#: src/main.cpp:196
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "將網址分享到 Matrix"
@@ -1479,7 +1479,7 @@ msgstr "緯度：%2，經度：%1"
 msgid "Encrypted Message"
 msgstr "已加密訊息"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:270
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1489,8 +1489,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "在這個聊天室開啟 NeoChat"
 
-#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:108
-#: src/qml/HoverActions.qml:103
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
+#: src/qml/HoverActions.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "回覆"
@@ -1538,84 +1538,84 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "開啟 NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:67
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:65
 #, kde-format
 msgid "Edit this account"
 msgstr "編輯這個帳號"
 
-#: src/qml/AccountMenu.qml:28 src/qml/UserInfo.qml:61
-#: src/settings/AccountsPage.qml:35
+#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:59
+#: src/settings/AccountsPage.qml:34
 #, kde-format
 msgid "Account editor"
 msgstr "帳號編輯器"
 
-#: src/qml/AccountMenu.qml:32
+#: src/qml/AccountMenu.qml:31
 #, kde-format
 msgid "Notification settings"
 msgstr "通知設定"
 
-#: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
+#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
+#: src/qml/GlobalMenu.qml:33 src/qml/Main.qml:400 src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Configure"
 msgstr "設定"
 
-#: src/qml/AccountMenu.qml:44 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettings.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
 
-#: src/qml/AccountMenu.qml:56 src/settings/NeoChatGeneralPage.qml:221
+#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Open developer tools"
 msgstr "開啟開發者工具"
 
-#: src/qml/AccountMenu.qml:62
+#: src/qml/AccountMenu.qml:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "開發者工具"
 
-#: src/qml/AccountMenu.qml:68
+#: src/qml/AccountMenu.qml:67
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:72
+#: src/qml/AccountMenu.qml:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:77 src/settings/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:71
 #, kde-format
 msgid "Logout"
 msgstr "登出"
 
-#: src/qml/AccountSwitchDialog.qml:30
+#: src/qml/AccountSwitchDialog.qml:29
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@title: dialog to switch between logged in accounts"
 msgid "Switch Account"
 msgstr "編輯帳號"
 
-#: src/qml/AccountSwitchDialog.qml:55
+#: src/qml/AccountSwitchDialog.qml:54
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@button: login to or register a new account."
 msgid "Add Account"
 msgstr "新增帳號"
 
-#: src/qml/AccountSwitchDialog.qml:58
+#: src/qml/AccountSwitchDialog.qml:57
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Log in or Create a New Account"
 msgid "Log in or create a new account"
 msgstr "登入或建立新帳號"
 
-#: src/qml/AccountSwitchDialog.qml:65
+#: src/qml/AccountSwitchDialog.qml:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -1636,8 +1636,8 @@ msgstr "剪貼簿影像"
 msgid "Attachment:"
 msgstr "附件："
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:94
-#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
@@ -1670,37 +1670,37 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/qml/ChatBar.qml:80
+#: src/qml/ChatBar.qml:79
 #, kde-format
 msgid "Attach an image or file"
 msgstr "附加影像或檔案"
 
-#: src/qml/ChatBar.qml:98
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "表情符號與貼圖"
 
-#: src/qml/ChatBar.qml:115
+#: src/qml/ChatBar.qml:114
 #, kde-format
 msgid "Send a Location"
 msgstr "傳送位置"
 
-#: src/qml/ChatBar.qml:131
+#: src/qml/ChatBar.qml:130
 #, kde-format
 msgid "Send message"
 msgstr "傳送訊息"
 
-#: src/qml/ChatBar.qml:209
+#: src/qml/ChatBar.qml:208
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "傳送已加密訊息…"
 
-#: src/qml/ChatBar.qml:209
+#: src/qml/ChatBar.qml:208
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "設定附件說明…"
 
-#: src/qml/ChatBar.qml:209
+#: src/qml/ChatBar.qml:208
 #, kde-format
 msgid "Send a message…"
 msgstr "傳送訊息…"
@@ -1885,7 +1885,7 @@ msgid "Off"
 msgstr "關閉"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
+#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:109
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, kde-format
 msgid "Room Settings"
@@ -1980,7 +1980,7 @@ msgstr "選取聊天室"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:222
+#: src/qml/GlobalMenu.qml:72 src/qml/RoomListPage.qml:220
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -2012,41 +2012,41 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "將此聊天空間設為主要上層聊天空間"
 
-#: src/qml/DelegateContextMenu.qml:88
+#: src/qml/DelegateContextMenu.qml:87
 #, kde-format
 msgid "View Source"
 msgstr "檢視原始碼"
 
-#: src/qml/DelegateContextMenu.qml:95 src/qml/FileDelegateContextMenu.qml:68
+#: src/qml/DelegateContextMenu.qml:94 src/qml/FileDelegateContextMenu.qml:67
 #, kde-format
 msgid "Remove"
 msgstr "移除"
 
-#: src/qml/DelegateContextMenu.qml:102 src/qml/FileDelegateContextMenu.qml:75
+#: src/qml/DelegateContextMenu.qml:101 src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "移除訊息"
 
-#: src/qml/DelegateContextMenu.qml:118 src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:117 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "檢舉"
 
-#: src/qml/DelegateContextMenu.qml:125
+#: src/qml/DelegateContextMenu.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: src/qml/DelegateContextMenu.qml:170
+#: src/qml/DelegateContextMenu.qml:169
 #, kde-format
 msgid "Search for '%1'"
 msgstr "搜尋 '%1'"
 
-#: src/qml/DelegateContextMenu.qml:191
+#: src/qml/DelegateContextMenu.qml:190
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "設定網頁捷徑..."
@@ -2093,6 +2093,27 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "全部選取"
 
+#: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Sticker"
+msgctxt "@title As in 'edit the state of this rooms'"
+msgid "Edit State"
+msgstr "編輯貼圖"
+
+#: src/qml/EditStateDialog.qml:32
+#, kde-format
+msgctxt "@action"
+msgid "Revert changes"
+msgstr ""
+
+#: src/qml/EditStateDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Apply"
+msgctxt "@action As in 'Apply the changes'"
+msgid "Apply"
+msgstr "套用"
+
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
@@ -2113,38 +2134,38 @@ msgstr "表情符號"
 msgid "Stickers"
 msgstr "貼圖"
 
-#: src/qml/EmojiSas.qml:25
+#: src/qml/EmojiSas.qml:23
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr "請確定以下顯示的表情符號在兩台裝置上包含順序是一樣的。"
 
-#: src/qml/EmojiSas.qml:41
+#: src/qml/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
 msgstr "它們相符"
 
-#: src/qml/EmojiSas.qml:47
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
 msgstr "它們不相符"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:216
+#: src/qml/RoomListPage.qml:214
 #, kde-format
 msgid "Explore rooms"
 msgstr "瀏覽聊天室"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
-#: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:184 src/qml/RoomListPage.qml:233
+#: src/qml/GlobalMenu.qml:50 src/qml/GlobalMenu.qml:59
+#: src/qml/RoomListPage.qml:182 src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:192
-#: src/qml/RoomListPage.qml:237
+#: src/qml/GlobalMenu.qml:54 src/qml/RoomListPage.qml:190
+#: src/qml/RoomListPage.qml:235
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2216,18 +2237,18 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "沒有找到公開聊天室"
 
-#: src/qml/FileDelegateContextMenu.qml:43
+#: src/qml/FileDelegateContextMenu.qml:42
 #, kde-format
 msgid "Open Externally"
 msgstr "在外部開啟"
 
-#: src/qml/FileDelegateContextMenu.qml:50
+#: src/qml/FileDelegateContextMenu.qml:49
 #, kde-format
 msgid "Save As"
 msgstr "另存新檔"
 
-#: src/qml/FileDelegateContextMenu.qml:60
-#: src/qml/MessageDelegateContextMenu.qml:65
+#: src/qml/FileDelegateContextMenu.qml:59
+#: src/qml/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgid "Copy"
 msgstr "複製"
@@ -2242,66 +2263,66 @@ msgstr "檢視位置"
 msgid "Close"
 msgstr "關閉"
 
-#: src/qml/GlobalMenu.qml:21
+#: src/qml/GlobalMenu.qml:19
 #, kde-format
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/GlobalMenu.qml:28
+#: src/qml/GlobalMenu.qml:26
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "設定 NeoChat..."
 
-#: src/qml/GlobalMenu.qml:29
+#: src/qml/GlobalMenu.qml:27
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "設定 NeoChat..."
 
-#: src/qml/GlobalMenu.qml:41
+#: src/qml/GlobalMenu.qml:39
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "離開 NeoChat"
 
-#: src/qml/GlobalMenu.qml:48
+#: src/qml/GlobalMenu.qml:46
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "檔案"
 
-#: src/qml/GlobalMenu.qml:51
+#: src/qml/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
-#: src/qml/GlobalMenu.qml:60
+#: src/qml/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "建立新群組…"
 
-#: src/qml/GlobalMenu.qml:69
+#: src/qml/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "瀏覽私人聊天…"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:81
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "編輯"
 
-#: src/qml/GlobalMenu.qml:87
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "檢視"
 
-#: src/qml/GlobalMenu.qml:90
+#: src/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2309,31 +2330,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "開啟快速切換器"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:94
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "視窗"
 
-#: src/qml/GlobalMenu.qml:103
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "離開全螢幕"
 
-#: src/qml/GlobalMenu.qml:103
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "進入全螢幕"
 
-#: src/qml/GlobalMenu.qml:109
+#: src/qml/GlobalMenu.qml:107
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "說明"
 
-#: src/qml/GlobalMenu.qml:112
+#: src/qml/GlobalMenu.qml:110
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2344,17 +2365,17 @@ msgstr "Matrix 常見問題"
 msgid "No name"
 msgstr "未命名"
 
-#: src/qml/HoverActions.qml:75
+#: src/qml/HoverActions.qml:74
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "這個訊息是從已驗證的裝置傳送的"
 
-#: src/qml/HoverActions.qml:88
+#: src/qml/HoverActions.qml:87
 #, kde-format
 msgid "React"
 msgstr "反應"
 
-#: src/qml/HoverActions.qml:113
+#: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
@@ -2424,7 +2445,7 @@ msgstr "拒絕並忽略使用者"
 msgid "Reject"
 msgstr "拒絕"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:81
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "接受"
@@ -2471,42 +2492,42 @@ msgctxt "@action:button"
 msgid "Join room"
 msgstr "加入聊天室"
 
-#: src/qml/KeyVerificationDialog.qml:18
+#: src/qml/KeyVerificationDialog.qml:16
 #, kde-format
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/qml/KeyVerificationDialog.qml:40
+#: src/qml/KeyVerificationDialog.qml:38
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "正在等待裝置接收驗證。"
 
-#: src/qml/KeyVerificationDialog.qml:46
+#: src/qml/KeyVerificationDialog.qml:44
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "來自裝置 **%1** 的金鑰驗證請求"
 
-#: src/qml/KeyVerificationDialog.qml:52
+#: src/qml/KeyVerificationDialog.qml:50
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "正在等待對方驗證。"
 
-#: src/qml/KeyVerificationDialog.qml:56
+#: src/qml/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Emoji Verification"
 msgstr "表情符號驗證"
 
-#: src/qml/KeyVerificationDialog.qml:59
+#: src/qml/KeyVerificationDialog.qml:57
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "在雙方裝置上比對一串表情符號"
 
-#: src/qml/KeyVerificationDialog.qml:68
+#: src/qml/KeyVerificationDialog.qml:66
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "已成功驗證裝置 **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:87
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "婉拒"
@@ -2521,7 +2542,7 @@ msgstr "選擇位置"
 msgid "Send this location"
 msgstr "傳送這個位置"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:112
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:111
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -2532,18 +2553,18 @@ msgstr "位置"
 msgid "There are no locations shared in this room."
 msgstr "沒有在這個聊天室裡分享的位置。"
 
-#: src/qml/Main.qml:306
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/qml/Main.qml:323
+#: src/qml/Main.qml:321
 #, kde-format
 msgid "User consent"
 msgstr "使用者許可"
 
-#: src/qml/Main.qml:328
+#: src/qml/Main.qml:326
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2552,28 +2573,28 @@ msgstr ""
 "您的家伺服器要求您必須同意它的條款與細則才能使用它。請點擊以下按鈕來閱讀它"
 "們。"
 
-#: src/qml/Main.qml:333
+#: src/qml/Main.qml:331
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:358
 #, kde-format
 msgid "Start a chat"
 msgstr "開始私人聊天"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "您要與 %1 開始私人聊天嗎？"
 
-#: src/qml/Main.qml:388
+#: src/qml/Main.qml:386
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "目前選取的連結"
 
-#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:418 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2627,28 +2648,36 @@ msgstr "使用者 ID 必須以 @ 開頭"
 msgid "The input is not a valid user ID"
 msgstr "輸入值不是有效的使用者 ID"
 
-#: src/qml/MessageDelegateContextMenu.qml:48
+#: src/qml/MessageDelegateContextMenu.qml:47
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr "轉寄"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
+#: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "轉寄訊息"
 
-#: src/qml/MessageDelegateContextMenu.qml:71
+#: src/qml/MessageDelegateContextMenu.qml:70
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "顯示使用者"
 
-#: src/qml/MessageDelegateContextMenu.qml:79
+#: src/qml/MessageDelegateContextMenu.qml:78
 #, kde-format
 msgid "Copy Link"
 msgstr "複製連結"
+
+#: src/qml/MessageSourceSheet.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Sticker"
+msgctxt "@action As in 'edit the state of this rooms'"
+msgid "Edit state"
+msgstr "編輯貼圖"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -2677,17 +2706,17 @@ msgstr "編輯使用者能力等級"
 msgid "New power level"
 msgstr "新能力等級"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
+#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:71
 #, kde-format
 msgid "Member (0)"
 msgstr "成員 (0)"
 
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
+#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Mod (50)"
 
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
+#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:79
 #, kde-format
 msgid "Admin (100)"
 msgstr "管理員 (100)"
@@ -2805,27 +2834,27 @@ msgstr "檢舉訊息"
 msgid "Reason for reporting this message"
 msgstr "檢舉此訊息的原因"
 
-#: src/qml/RoomDelegate.qml:102
+#: src/qml/RoomDelegate.qml:101
 #, kde-format
 msgid "Muted room"
 msgstr "已靜音的聊天室"
 
-#: src/qml/RoomDelegate.qml:135
+#: src/qml/RoomDelegate.qml:134
 #, kde-format
 msgid "Configure room"
 msgstr "設定聊天室"
 
-#: src/qml/RoomDrawer.qml:103
+#: src/qml/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
 msgstr "聊天室設定"
 
-#: src/qml/RoomDrawer.qml:153 src/qml/RoomDrawerPage.qml:88
+#: src/qml/RoomDrawer.qml:152 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Information"
 msgstr "資訊"
 
-#: src/qml/RoomDrawer.qml:158 src/qml/RoomDrawerPage.qml:93
+#: src/qml/RoomDrawer.qml:157 src/qml/RoomDrawerPage.qml:93
 #, kde-format
 msgid "Media"
 msgstr "媒體"
@@ -2835,110 +2864,110 @@ msgstr "媒體"
 msgid "Settings"
 msgstr "設定"
 
-#: src/qml/RoomInformation.qml:41
+#: src/qml/RoomInformation.qml:40
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "聊天空間成員"
 
-#: src/qml/RoomInformation.qml:41
+#: src/qml/RoomInformation.qml:40
 #, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "聊天室資訊"
 
-#: src/qml/RoomInformation.qml:69
+#: src/qml/RoomInformation.qml:68
 #, kde-format
 msgid "Options"
 msgstr "選項"
 
-#: src/qml/RoomInformation.qml:79
+#: src/qml/RoomInformation.qml:78
 #, kde-format
 msgid "Search in this room"
 msgstr "在這個聊天室裡搜尋"
 
-#: src/qml/RoomInformation.qml:87
+#: src/qml/RoomInformation.qml:86
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "從最愛中移除聊天室"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
 #, kde-format
 msgid "Make room favorite"
 msgstr "標記聊天室為最愛"
 
-#: src/qml/RoomInformation.qml:107
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Show locations for this room"
 msgstr "顯示這個聊天室的位置"
 
-#: src/qml/RoomInformation.qml:121
+#: src/qml/RoomInformation.qml:120
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "正在離開這個聊天室。"
 
-#: src/qml/RoomInformation.qml:133
+#: src/qml/RoomInformation.qml:132
 #, kde-format
 msgid "Members"
 msgstr "成員"
 
-#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:147 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "邀請一個使用者"
 
-#: src/qml/RoomInformation.qml:152
+#: src/qml/RoomInformation.qml:151
 #, kde-format
 msgid "Invite user to room"
 msgstr "邀請使用者到聊天室"
 
-#: src/qml/RoomInformation.qml:159
+#: src/qml/RoomInformation.qml:158
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 名成員"
 
-#: src/qml/RoomInformation.qml:159
+#: src/qml/RoomInformation.qml:158
 #, kde-format
 msgid "No member count"
 msgstr "無成員計數"
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:205
 #, kde-format
 msgid "No friends found"
 msgstr "找不到朋友"
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:205
 #, kde-format
 msgid "No rooms found"
 msgstr "找不到聊天室"
 
-#: src/qml/RoomListPage.qml:209
+#: src/qml/RoomListPage.qml:207
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "您尚未加入任何朋友，點擊下方以搜尋您的朋友。"
 
-#: src/qml/RoomListPage.qml:209
+#: src/qml/RoomListPage.qml:207
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "先加入一些聊天室吧"
 
-#: src/qml/RoomListPage.qml:216
+#: src/qml/RoomListPage.qml:214
 #, kde-format
 msgid "Search in room directory"
 msgstr "在聊天室目錄裡搜尋"
 
-#: src/qml/RoomListPage.qml:233
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "Search in friend directory"
 msgstr "在朋友目錄裡搜尋"
@@ -2949,12 +2978,12 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "聊天室媒體"
 
-#: src/qml/RoomPage.qml:100
+#: src/qml/RoomPage.qml:99
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 目前為離線狀態。請檢查您的網路連線。"
 
-#: src/qml/RoomPage.qml:264
+#: src/qml/RoomPage.qml:263
 #, kde-format
 msgid "Message Source"
 msgstr "訊息原始碼"
@@ -3233,71 +3262,71 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "離開聊天空間"
 
-#: src/qml/TimelineView.qml:207
+#: src/qml/TimelineView.qml:206
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "跳到第一個未讀訊息"
 
-#: src/qml/TimelineView.qml:230
+#: src/qml/TimelineView.qml:229
 #, kde-format
 msgid "Jump to latest message"
 msgstr "跳到最新訊息"
 
-#: src/qml/TimelineView.qml:255
+#: src/qml/TimelineView.qml:254
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "拖曳項目至此來分享它"
 
-#: src/qml/TimelineView.qml:262
+#: src/qml/TimelineView.qml:261
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 人正在輸入訊息"
 
-#: src/qml/UnlockSSSSDialog.qml:19
+#: src/qml/UnlockSSSSDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "載入您已加密的訊息"
 
-#: src/qml/UnlockSSSSDialog.qml:50
+#: src/qml/UnlockSSSSDialog.qml:48
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr ""
 
-#: src/qml/UnlockSSSSDialog.qml:56
+#: src/qml/UnlockSSSSDialog.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "使用密碼解鎖"
 
-#: src/qml/UnlockSSSSDialog.qml:60
+#: src/qml/UnlockSSSSDialog.qml:58
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr "如果您有這個帳號的備份密碼，請在下方輸入它。"
 
-#: src/qml/UnlockSSSSDialog.qml:64
+#: src/qml/UnlockSSSSDialog.qml:62
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "備份密碼："
 
-#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
+#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "解除鎖定"
 
-#: src/qml/UnlockSSSSDialog.qml:81
+#: src/qml/UnlockSSSSDialog.qml:79
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "使用安全金鑰解除鎖定"
 
-#: src/qml/UnlockSSSSDialog.qml:85
+#: src/qml/UnlockSSSSDialog.qml:83
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3305,25 +3334,25 @@ msgid ""
 "a file."
 msgstr "如果您有這個帳號的安全金鑰，請在下方輸入或是將它作為檔案上傳。"
 
-#: src/qml/UnlockSSSSDialog.qml:89
+#: src/qml/UnlockSSSSDialog.qml:87
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "安全金鑰："
 
-#: src/qml/UnlockSSSSDialog.qml:94
+#: src/qml/UnlockSSSSDialog.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "從檔案上傳"
 
-#: src/qml/UnlockSSSSDialog.qml:115
+#: src/qml/UnlockSSSSDialog.qml:113
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr ""
 
-#: src/qml/UnlockSSSSDialog.qml:119
+#: src/qml/UnlockSSSSDialog.qml:117
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3333,7 +3362,7 @@ msgstr ""
 "如果您先前有驗證過此裝置，您可以試著點擊以下按鈕來載入從其他裝置來的備份金"
 "鑰。"
 
-#: src/qml/UnlockSSSSDialog.qml:124
+#: src/qml/UnlockSSSSDialog.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -3413,12 +3442,12 @@ msgstr "邀請到私人聊天室"
 msgid "Copy link"
 msgstr "複製連結"
 
-#: src/qml/UserInfo.qml:106
+#: src/qml/UserInfo.qml:104
 #, kde-format
 msgid "Switch User"
 msgstr "切換使用者"
 
-#: src/qml/UserInfo.qml:113
+#: src/qml/UserInfo.qml:111
 #, kde-format
 msgid "Open Settings"
 msgstr "開啟設定"
@@ -3450,79 +3479,79 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "沒有相符項目"
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:19
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "工作階段驗證由於不明原因被取消。"
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification timed out."
 msgstr "工作階段驗證逾時。"
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "工作階段驗證在遠端逾時。"
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "您取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "遠端取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "工作階段驗證由於我方收到未預期的訊息而取消。"
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr "遠端由於收到未預期的訊息而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr "工作階段驗證由於收到未知的工作階段的訊息而取消。"
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr "遠端由於收到未知的工作階段的訊息而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr "工作階段驗證由於 NeoChat 無法處理這個驗證方式而取消。"
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr "遠端由於無法處理這個驗證方式而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "工作階段驗證由於金鑰不正確而取消。"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3534,62 +3563,62 @@ msgstr ""
 "\n"
 "**您的工作階段有問題/已損毀，請登出後再重新登入。**"
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:45
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr "工作階段驗證由於驗證的使用者是非預期的而取消。"
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr "遠端由於驗證的使用者是非預期的而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "工作階段驗證由於我方收到無效訊息而取消。"
 
-#: src/qml/VerificationCanceled.qml:53
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr "遠端由於收到無效訊息而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "工作階段已於不同裝置上接受"
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "工作階段驗證由於金鑰不相符而取消。"
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr "遠端由於金鑰不相符而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "工作階段驗證由於雙方金鑰不相符而取消。"
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr "遠端由於雙方金鑰不相符而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:67
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "工作階段驗證由於不明錯誤而取消。"
@@ -3664,7 +3693,7 @@ msgstr "您已請求加入 '%1'"
 msgid "Failed to request joining room"
 msgstr "請求加入聊天室失敗"
 
-#: src/settings/About.qml:11
+#: src/settings/About.qml:8
 #, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
@@ -3788,89 +3817,89 @@ msgstr "輸入了錯誤的密碼"
 msgid "Unknown problem while trying to change password"
 msgstr "變更密碼時發生未知問題"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:23
+#: src/settings/AccountsPage.qml:19 src/settings/AccountsPage.qml:22
 #: src/settings/NeoChatSettings.qml:54
 #, kde-format
 msgid "Accounts"
 msgstr "帳號"
 
-#: src/settings/AccountsPage.qml:102
+#: src/settings/AccountsPage.qml:101
 #, kde-format
 msgid "Add Account"
 msgstr "新增帳號"
 
-#: src/settings/AppearanceSettingsPage.qml:19
+#: src/settings/AppearanceSettingsPage.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
 msgstr "外觀"
 
-#: src/settings/AppearanceSettingsPage.qml:22
+#: src/settings/AppearanceSettingsPage.qml:21
 #, kde-format
 msgid "General theme"
 msgstr "一般主題"
 
-#: src/settings/AppearanceSettingsPage.qml:116
+#: src/settings/AppearanceSettingsPage.qml:115
 #, kde-format
 msgid "Bubbles"
 msgstr "泡泡"
 
-#: src/settings/AppearanceSettingsPage.qml:185
+#: src/settings/AppearanceSettingsPage.qml:184
 #, kde-format
 msgid "Compact"
 msgstr "簡潔"
 
-#: src/settings/AppearanceSettingsPage.qml:207
+#: src/settings/AppearanceSettingsPage.qml:206
 #, kde-format
 msgid "Use compact room list"
 msgstr "使用簡潔聊天室列表"
 
-#: src/settings/AppearanceSettingsPage.qml:233
+#: src/settings/AppearanceSettingsPage.qml:232
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "在聊天時顯示豪華效果"
 
-#: src/settings/AppearanceSettingsPage.qml:250
+#: src/settings/AppearanceSettingsPage.qml:249
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "使用透明聊天頁面"
 
-#: src/settings/AppearanceSettingsPage.qml:271
+#: src/settings/AppearanceSettingsPage.qml:270
 #, kde-format
 msgid "Transparency"
 msgstr "透明度"
 
-#: src/settings/AppearanceSettingsPage.qml:290
+#: src/settings/AppearanceSettingsPage.qml:289
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "只在啟用透明聊天頁面時才啟用。"
 
-#: src/settings/AppearanceSettingsPage.qml:307
+#: src/settings/AppearanceSettingsPage.qml:306
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "將您的訊息顯示於右邊"
 
-#: src/settings/AppearanceSettingsPage.qml:323
+#: src/settings/AppearanceSettingsPage.qml:322
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "在聊天訊息中顯示連結預覽"
 
-#: src/settings/AppearanceSettingsPage.qml:333
+#: src/settings/AppearanceSettingsPage.qml:332
 #, kde-format
 msgid "Show Avatar"
 msgstr "顯示大頭貼"
 
-#: src/settings/AppearanceSettingsPage.qml:337
+#: src/settings/AppearanceSettingsPage.qml:336
 #, kde-format
 msgid "In chat"
 msgstr "在聊天畫面中"
 
-#: src/settings/AppearanceSettingsPage.qml:347
+#: src/settings/AppearanceSettingsPage.qml:346
 #, kde-format
 msgid "In sidebar"
 msgstr "在側邊欄中"
 
-#: src/settings/ColorScheme.qml:15
+#: src/settings/ColorScheme.qml:14
 #, kde-format
 msgid "Color theme"
 msgstr "顏色主題"
@@ -4109,101 +4138,101 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "取消忽略這個使用者"
 
-#: src/settings/NeoChatGeneralPage.qml:16
+#: src/settings/NeoChatGeneralPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "一般"
 
-#: src/settings/NeoChatGeneralPage.qml:19
+#: src/settings/NeoChatGeneralPage.qml:18
 #, kde-format
 msgid "General settings"
 msgstr "一般設定"
 
-#: src/settings/NeoChatGeneralPage.qml:25
+#: src/settings/NeoChatGeneralPage.qml:24
 #, kde-format
 msgid "Show in System Tray"
 msgstr "在系統匣中顯示"
 
-#: src/settings/NeoChatGeneralPage.qml:42
+#: src/settings/NeoChatGeneralPage.qml:41
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "啟動時最小化到系統匣"
 
-#: src/settings/NeoChatGeneralPage.qml:59
+#: src/settings/NeoChatGeneralPage.qml:58
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "調整視窗大小時自動隱藏/顯示聊天室資訊"
 
-#: src/settings/NeoChatGeneralPage.qml:70
+#: src/settings/NeoChatGeneralPage.qml:69
 #, kde-format
 msgid "Room list sort order"
 msgstr "聊天室列表排序方式"
 
-#: src/settings/NeoChatGeneralPage.qml:74
+#: src/settings/NeoChatGeneralPage.qml:73
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "活動"
 
-#: src/settings/NeoChatGeneralPage.qml:83
+#: src/settings/NeoChatGeneralPage.qml:82
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "按字母順序"
 
-#: src/settings/NeoChatGeneralPage.qml:93
+#: src/settings/NeoChatGeneralPage.qml:92
 #, kde-format
 msgid "Timeline Events"
 msgstr "時間軸事件"
 
-#: src/settings/NeoChatGeneralPage.qml:98
+#: src/settings/NeoChatGeneralPage.qml:97
 #, kde-format
 msgid "Show deleted messages"
 msgstr "顯示已刪除的訊息"
 
-#: src/settings/NeoChatGeneralPage.qml:114
+#: src/settings/NeoChatGeneralPage.qml:113
 #, kde-format
 msgid "Show state events"
 msgstr "顯示狀態事件"
 
-#: src/settings/NeoChatGeneralPage.qml:132
+#: src/settings/NeoChatGeneralPage.qml:131
 #, kde-format
 msgid "Show leave and join events"
 msgstr "顯示離開與加入事件"
 
-#: src/settings/NeoChatGeneralPage.qml:150
+#: src/settings/NeoChatGeneralPage.qml:149
 #, kde-format
 msgid "Show name change events"
 msgstr "顯示名稱變更事件"
 
-#: src/settings/NeoChatGeneralPage.qml:168
+#: src/settings/NeoChatGeneralPage.qml:167
 #, kde-format
 msgid "Show avatar update events"
 msgstr "顯示頭貼變更事件"
 
-#: src/settings/NeoChatGeneralPage.qml:178
+#: src/settings/NeoChatGeneralPage.qml:177
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "編輯器"
 
-#: src/settings/NeoChatGeneralPage.qml:183
+#: src/settings/NeoChatGeneralPage.qml:182
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "用 s/文字/替代 語法來編輯您上一個訊息"
 
-#: src/settings/NeoChatGeneralPage.qml:197
+#: src/settings/NeoChatGeneralPage.qml:196
 #, kde-format
 msgid "Send typing notifications"
 msgstr "傳送輸入中通知"
 
-#: src/settings/NeoChatGeneralPage.qml:207
+#: src/settings/NeoChatGeneralPage.qml:206
 #, kde-format
 msgid "Developer Settings"
 msgstr "開發者設定"
 
-#: src/settings/NeoChatGeneralPage.qml:211
+#: src/settings/NeoChatGeneralPage.qml:210
 #, kde-format
 msgid "Enable developer tools"
 msgstr "啟用開發者工具"
@@ -4279,7 +4308,7 @@ msgstr "貼圖與表情符號"
 msgid "Spell Checking"
 msgstr "拼字檢查"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:19
 #, kde-format
 msgid "Network Proxy"
 msgstr "網路代理伺服器"
@@ -4294,48 +4323,48 @@ msgstr "關於 NeoChat"
 msgid "About KDE"
 msgstr "關於 KDE"
 
-#: src/settings/NetworkProxyPage.qml:15
+#: src/settings/NetworkProxyPage.qml:13
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr "代理伺服器"
 
-#: src/settings/NetworkProxyPage.qml:25
+#: src/settings/NetworkProxyPage.qml:23
 #, kde-format
 msgid "System Default"
 msgstr "系統預設值"
 
-#: src/settings/NetworkProxyPage.qml:33
+#: src/settings/NetworkProxyPage.qml:31
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:41
+#: src/settings/NetworkProxyPage.qml:39
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:51
+#: src/settings/NetworkProxyPage.qml:49
 #, kde-format
 msgid "Proxy Settings"
 msgstr "代理伺服器設定"
 
-#: src/settings/NetworkProxyPage.qml:56
+#: src/settings/NetworkProxyPage.qml:54
 #, kde-format
 msgid "Host"
 msgstr "主機"
 
-#: src/settings/NetworkProxyPage.qml:65
+#: src/settings/NetworkProxyPage.qml:63
 #, kde-format
 msgid "Port"
 msgstr "連接埠"
 
-#: src/settings/NetworkProxyPage.qml:78
+#: src/settings/NetworkProxyPage.qml:76
 #, kde-format
 msgid "User"
 msgstr "使用者"
 
-#: src/settings/NetworkProxyPage.qml:105
+#: src/settings/NetworkProxyPage.qml:103
 #, kde-format
 msgid "Apply"
 msgstr "套用"
@@ -4381,133 +4410,133 @@ msgstr "啟用訊息突顯"
 msgid "Delete keyword"
 msgstr "刪除關鍵字"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:32
 #, kde-format
 msgid "Privileged Users"
 msgstr "有權力的使用者"
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:241
 #, kde-format
 msgid "Default permissions"
 msgstr "預設權限"
 
-#: src/settings/Permissions.qml:247
+#: src/settings/Permissions.qml:246
 #, kde-format
 msgid "Default user power level"
 msgstr "預設使用者能力等級"
 
-#: src/settings/Permissions.qml:248
+#: src/settings/Permissions.qml:247
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "這是所有新使用者加入聊天室時的能力等級"
 
-#: src/settings/Permissions.qml:258
+#: src/settings/Permissions.qml:257
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "設定聊天室狀態的預設能力等級"
 
-#: src/settings/Permissions.qml:259
+#: src/settings/Permissions.qml:258
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr "這會用於在此沒有自己的項目的狀態事件"
 
-#: src/settings/Permissions.qml:269
+#: src/settings/Permissions.qml:268
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "傳送訊息的預設能力等級"
 
-#: src/settings/Permissions.qml:270
+#: src/settings/Permissions.qml:269
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr "這會用於在此沒有自己的項目的訊息事件"
 
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:282
 #, kde-format
 msgid "Basic permissions"
 msgstr "基本權限"
 
-#: src/settings/Permissions.qml:288
+#: src/settings/Permissions.qml:287
 #, kde-format
 msgid "Invite users"
 msgstr "邀請使用者"
 
-#: src/settings/Permissions.qml:298
+#: src/settings/Permissions.qml:297
 #, kde-format
 msgid "Kick users"
 msgstr "踢出使用者"
 
-#: src/settings/Permissions.qml:308
+#: src/settings/Permissions.qml:307
 #, kde-format
 msgid "Ban users"
 msgstr "封鎖使用者"
 
-#: src/settings/Permissions.qml:318
+#: src/settings/Permissions.qml:317
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "移除其他使用者傳送的訊息"
 
-#: src/settings/Permissions.qml:331
+#: src/settings/Permissions.qml:330
 #, kde-format
 msgid "Event permissions"
 msgstr "事件fm0vu0"
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:335
 #, kde-format
 msgid "Change user permissions"
 msgstr "變更使用者權限"
 
-#: src/settings/Permissions.qml:347
+#: src/settings/Permissions.qml:346
 #, kde-format
 msgid "Change the room name"
 msgstr "變更聊天室名稱"
 
-#: src/settings/Permissions.qml:358
+#: src/settings/Permissions.qml:357
 #, kde-format
 msgid "Change the room avatar"
 msgstr "變更聊天室頭貼"
 
-#: src/settings/Permissions.qml:369
+#: src/settings/Permissions.qml:368
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "變更聊天室主要別名"
 
-#: src/settings/Permissions.qml:380
+#: src/settings/Permissions.qml:379
 #, kde-format
 msgid "Change the room topic"
 msgstr "變更聊天室主題"
 
-#: src/settings/Permissions.qml:391
+#: src/settings/Permissions.qml:390
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "開啟聊天室加密"
 
-#: src/settings/Permissions.qml:402
+#: src/settings/Permissions.qml:401
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "變更聊天室歷史可見度"
 
-#: src/settings/Permissions.qml:413
+#: src/settings/Permissions.qml:412
 #, kde-format
 msgid "Set pinned events"
 msgstr "設定置頂事件"
 
-#: src/settings/Permissions.qml:424
+#: src/settings/Permissions.qml:423
 #, kde-format
 msgid "Upgrade the room"
 msgstr "更新聊天室"
 
-#: src/settings/Permissions.qml:435
+#: src/settings/Permissions.qml:434
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "設定聊天室存取控制清單 (ACL)"
 
-#: src/settings/Permissions.qml:447
+#: src/settings/Permissions.qml:446
 #, kde-format
 msgid "Set the children of this space"
 msgstr "設為此聊天空間之子"
 
-#: src/settings/Permissions.qml:458
+#: src/settings/Permissions.qml:457
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "設定這個聊天室的親聊天空間"
@@ -4918,14 +4947,14 @@ msgid ""
 "device."
 msgstr "這個訊息已加密而傳送者並未與本裝置分享金鑰。"
 
-#: src/timeline/FileComponent.qml:108 src/timeline/FileComponent.qml:191
+#: src/timeline/FileComponent.qml:107 src/timeline/FileComponent.qml:190
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "下載"
 
-#: src/timeline/FileComponent.qml:124 src/timeline/FileComponent.qml:181
+#: src/timeline/FileComponent.qml:123 src/timeline/FileComponent.qml:180
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4933,13 +4962,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "開啟檔案"
 
-#: src/timeline/FileComponent.qml:139
+#: src/timeline/FileComponent.qml:138
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/timeline/FileComponent.qml:144
+#: src/timeline/FileComponent.qml:143
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"

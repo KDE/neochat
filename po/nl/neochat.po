@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-12 00:37+0000\n"
+"POT-Creation-Date: 2024-04-13 00:38+0000\n"
 "PO-Revision-Date: 2024-04-11 10:40+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -78,13 +78,13 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Accountgegevens"
 
-#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:37
+#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Gebeurtenisbron"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:225
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Hulpmiddelen voor ontwikkelaars"
@@ -101,13 +101,13 @@ msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Vlaggen voor mogelijkheden"
 
-#: src/devtools/FeatureFlagPage.qml:20
+#: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Threads"
 
-#: src/devtools/FeatureFlagPage.qml:26
+#: src/devtools/FeatureFlagPage.qml:24
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -134,8 +134,8 @@ msgstr "Room-id: %1"
 msgid "Room Account Data"
 msgstr "Roomaccountgegevens"
 
-#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:80
-#: src/qml/MessageSourceSheet.qml:23
+#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:98
+#: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Gebeurtenisbron"
@@ -153,7 +153,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 gebeurtenis van dit type"
 msgstr[1] "%1 gebeurtenissen van dit type"
 
-#: src/devtools/RoomData.qml:88
+#: src/devtools/RoomData.qml:83
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -674,7 +674,7 @@ msgstr "Matrix-ID"
 msgid "Loading…"
 msgstr "Laden…"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:199
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:198
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -716,7 +716,7 @@ msgid "Password:"
 msgstr "Wachtwoord:"
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:87
+#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:85
 #, kde-format
 msgid "Password"
 msgstr "Wachtwoord"
@@ -771,162 +771,162 @@ msgstr "Gebruikersnaam:"
 msgid "Username unavailable"
 msgstr "Gebruikersnaam niet beschikbaar"
 
-#: src/login/WelcomePage.qml:26
+#: src/login/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
 msgstr "Welkom"
 
-#: src/login/WelcomePage.qml:47 src/qml/RoomPage.qml:157
+#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:156
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Welkom bij NeoChat"
 
-#: src/login/WelcomePage.qml:55
+#: src/login/WelcomePage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Doorgaan met een bestaand account"
 
-#: src/login/WelcomePage.qml:87
+#: src/login/WelcomePage.qml:86
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (bezig met laden)"
 
-#: src/login/WelcomePage.qml:96
+#: src/login/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
 msgstr "Dit account verwijderen"
 
-#: src/login/WelcomePage.qml:125
+#: src/login/WelcomePage.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Aanmelden of een nieuw account aanmaken"
 
-#: src/login/WelcomePage.qml:207
+#: src/login/WelcomePage.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Ga terug"
 
-#: src/login/WelcomePage.qml:218
+#: src/login/WelcomePage.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Open proxy settings"
 msgstr "Proxyinstellingen openen"
 
-#: src/login/WelcomePage.qml:221
+#: src/login/WelcomePage.qml:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "Proxyinstellingen"
 
-#: src/main.cpp:141
+#: src/main.cpp:136
 #, kde-format
 msgid "NeoChat"
 msgstr "Neochat"
 
-#: src/main.cpp:143
+#: src/main.cpp:138
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-client"
 
-#: src/main.cpp:145
+#: src/main.cpp:140
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE-gemeenschap"
 
-#: src/main.cpp:146
+#: src/main.cpp:141
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
+#: src/main.cpp:142 src/main.cpp:146 src/main.cpp:147
 #, kde-format
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: src/main.cpp:151
+#: src/main.cpp:146
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:152
+#: src/main.cpp:147
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:153
+#: src/main.cpp:148
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:153
+#: src/main.cpp:148
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Oorspronkelijke auteur van Spectral"
 
-#: src/main.cpp:154
+#: src/main.cpp:149
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:154
+#: src/main.cpp:149
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Onderhouder van libQuotient"
 
-#: src/main.cpp:155
+#: src/main.cpp:150
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Freek de Kruijf - 2020 t/m 2022"
 
-#: src/main.cpp:155
+#: src/main.cpp:150
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: src/main.cpp:159
+#: src/main.cpp:154
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Een Qt bibliotheek om cross-platform clients voor Matrix te schrijven"
 
-#: src/main.cpp:161
+#: src/main.cpp:156
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (gebouwd tegen %2)"
 
-#: src/main.cpp:187
+#: src/main.cpp:182
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client voor het matrix communicatieprotocol"
 
-#: src/main.cpp:188
+#: src/main.cpp:183
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Ondersteunt matrix: url schema"
 
-#: src/main.cpp:189
+#: src/main.cpp:184
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Negeer alle SSL fouten, bijv. niet ondertekende certificaten."
 
-#: src/main.cpp:191
+#: src/main.cpp:186
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Alleen gebruikt voor autotests"
 
-#: src/main.cpp:196
+#: src/main.cpp:191
 #, kde-format
 msgid "Internal usage only."
 msgstr "Alleen voor intern gebruik."
 
-#: src/main.cpp:201
+#: src/main.cpp:196
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Een URL delen op Matrix"
@@ -1487,7 +1487,7 @@ msgstr "Bte: %1, Lte: %2"
 msgid "Encrypted Message"
 msgstr "Versleuteld bericht"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:270
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1497,8 +1497,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "NeoChat in deze room openen"
 
-#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:108
-#: src/qml/HoverActions.qml:103
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
+#: src/qml/HoverActions.qml:102
 #, kde-format
 msgid "Reply"
 msgstr "Beantwoorden"
@@ -1546,80 +1546,80 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Neochat openen"
 
-#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:67
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:65
 #, kde-format
 msgid "Edit this account"
 msgstr "Dit account bewerken"
 
-#: src/qml/AccountMenu.qml:28 src/qml/UserInfo.qml:61
-#: src/settings/AccountsPage.qml:35
+#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:59
+#: src/settings/AccountsPage.qml:34
 #, kde-format
 msgid "Account editor"
 msgstr "Accountbewerker"
 
-#: src/qml/AccountMenu.qml:32
+#: src/qml/AccountMenu.qml:31
 #, kde-format
 msgid "Notification settings"
 msgstr "Instellingen van meldingen"
 
-#: src/qml/AccountMenu.qml:38 src/qml/AccountMenu.qml:50
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:118
+#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
+#: src/qml/GlobalMenu.qml:33 src/qml/Main.qml:400 src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Configure"
 msgstr "Configureren"
 
-#: src/qml/AccountMenu.qml:44 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettings.qml:84
 #, kde-format
 msgid "Devices"
 msgstr "Apparaten"
 
-#: src/qml/AccountMenu.qml:56 src/settings/NeoChatGeneralPage.qml:221
+#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Open developer tools"
 msgstr "Hulpmiddelen voor ontwikkelaars openen"
 
-#: src/qml/AccountMenu.qml:62
+#: src/qml/AccountMenu.qml:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Hulpmiddelen voor ontwikkelaars"
 
-#: src/qml/AccountMenu.qml:68
+#: src/qml/AccountMenu.qml:67
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Reservekopie van geheim openen"
 
-#: src/qml/AccountMenu.qml:72
+#: src/qml/AccountMenu.qml:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Reservekopie van sleutel openen"
 
-#: src/qml/AccountMenu.qml:77 src/settings/AccountsPage.qml:72
+#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:71
 #, kde-format
 msgid "Logout"
 msgstr "Afmelden"
 
-#: src/qml/AccountSwitchDialog.qml:30
+#: src/qml/AccountSwitchDialog.qml:29
 #, kde-format
 msgctxt "@title: dialog to switch between logged in accounts"
 msgid "Switch Account"
 msgstr "Account omschakelen"
 
-#: src/qml/AccountSwitchDialog.qml:55
+#: src/qml/AccountSwitchDialog.qml:54
 #, kde-format
 msgctxt "@button: login to or register a new account."
 msgid "Add Account"
 msgstr "Account toevoegen"
 
-#: src/qml/AccountSwitchDialog.qml:58
+#: src/qml/AccountSwitchDialog.qml:57
 #, kde-format
 msgid "Log in or create a new account"
 msgstr "Aanmelden of een nieuw account aanmaken"
 
-#: src/qml/AccountSwitchDialog.qml:65
+#: src/qml/AccountSwitchDialog.qml:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -1640,8 +1640,8 @@ msgstr "Afbeelding in klembord"
 msgid "Attachment:"
 msgstr "Bijlage:"
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:94
-#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:38
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
 msgstr "Bewerken"
@@ -1674,37 +1674,37 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/qml/ChatBar.qml:80
+#: src/qml/ChatBar.qml:79
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Een afbeelding of bestand bijvoegen"
 
-#: src/qml/ChatBar.qml:98
+#: src/qml/ChatBar.qml:97
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji's & stickers"
 
-#: src/qml/ChatBar.qml:115
+#: src/qml/ChatBar.qml:114
 #, kde-format
 msgid "Send a Location"
 msgstr "Een locatie verzenden"
 
-#: src/qml/ChatBar.qml:131
+#: src/qml/ChatBar.qml:130
 #, kde-format
 msgid "Send message"
 msgstr "Bericht verzenden"
 
-#: src/qml/ChatBar.qml:209
+#: src/qml/ChatBar.qml:208
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Een versleuteld bericht verzenden…"
 
-#: src/qml/ChatBar.qml:209
+#: src/qml/ChatBar.qml:208
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Stel een opschrift voor de bijlage in…"
 
-#: src/qml/ChatBar.qml:209
+#: src/qml/ChatBar.qml:208
 #, kde-format
 msgid "Send a message…"
 msgstr "Een bericht verzenden…"
@@ -1881,7 +1881,7 @@ msgid "Off"
 msgstr "Uit"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:110
+#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:109
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, kde-format
 msgid "Room Settings"
@@ -1976,7 +1976,7 @@ msgstr "Room kiezen"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:222
+#: src/qml/GlobalMenu.qml:72 src/qml/RoomListPage.qml:220
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -2011,41 +2011,41 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Deze ruimte de canonieke ouder maken"
 
-#: src/qml/DelegateContextMenu.qml:88
+#: src/qml/DelegateContextMenu.qml:87
 #, kde-format
 msgid "View Source"
 msgstr "Bron bekijken"
 
-#: src/qml/DelegateContextMenu.qml:95 src/qml/FileDelegateContextMenu.qml:68
+#: src/qml/DelegateContextMenu.qml:94 src/qml/FileDelegateContextMenu.qml:67
 #, kde-format
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: src/qml/DelegateContextMenu.qml:102 src/qml/FileDelegateContextMenu.qml:75
+#: src/qml/DelegateContextMenu.qml:101 src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Bericht verwijderen"
 
-#: src/qml/DelegateContextMenu.qml:118 src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:117 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Rapporteer"
 
-#: src/qml/DelegateContextMenu.qml:125
+#: src/qml/DelegateContextMenu.qml:124
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Bericht rapporteren"
 
-#: src/qml/DelegateContextMenu.qml:170
+#: src/qml/DelegateContextMenu.qml:169
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Zoeken naar '%1'"
 
-#: src/qml/DelegateContextMenu.qml:191
+#: src/qml/DelegateContextMenu.qml:190
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Websnelkoppelingen configureren..."
@@ -2092,6 +2092,27 @@ msgctxt "text editing menu action"
 msgid "Select All"
 msgstr "Alles selecteren"
 
+#: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Sticker"
+msgctxt "@title As in 'edit the state of this rooms'"
+msgid "Edit State"
+msgstr "Sticker bewerken"
+
+#: src/qml/EditStateDialog.qml:32
+#, kde-format
+msgctxt "@action"
+msgid "Revert changes"
+msgstr ""
+
+#: src/qml/EditStateDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Apply"
+msgctxt "@action As in 'Apply the changes'"
+msgid "Apply"
+msgstr "Toepassen"
+
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
@@ -2112,7 +2133,7 @@ msgstr "Emoji's"
 msgid "Stickers"
 msgstr "Stickers"
 
-#: src/qml/EmojiSas.qml:25
+#: src/qml/EmojiSas.qml:23
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -2120,32 +2141,32 @@ msgstr ""
 "Bevestig dat de onderstaande emoji getoond worden op beide apparaten, in "
 "dezelfde volgorde."
 
-#: src/qml/EmojiSas.qml:41
+#: src/qml/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
 msgstr "Ze komen overeen"
 
-#: src/qml/EmojiSas.qml:47
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
 msgstr "Ze komen niet overeen"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:216
+#: src/qml/RoomListPage.qml:214
 #, kde-format
 msgid "Explore rooms"
 msgstr "Rooms verkennen"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
-#: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:184 src/qml/RoomListPage.qml:233
+#: src/qml/GlobalMenu.qml:50 src/qml/GlobalMenu.qml:59
+#: src/qml/RoomListPage.qml:182 src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "Find your friends"
 msgstr "Zoek uw vrienden"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:192
-#: src/qml/RoomListPage.qml:237
+#: src/qml/GlobalMenu.qml:54 src/qml/RoomListPage.qml:190
+#: src/qml/RoomListPage.qml:235
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2216,18 +2237,18 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Geen publieke rooms gevonden"
 
-#: src/qml/FileDelegateContextMenu.qml:43
+#: src/qml/FileDelegateContextMenu.qml:42
 #, kde-format
 msgid "Open Externally"
 msgstr "Extern openen"
 
-#: src/qml/FileDelegateContextMenu.qml:50
+#: src/qml/FileDelegateContextMenu.qml:49
 #, kde-format
 msgid "Save As"
 msgstr "Opslaan als"
 
-#: src/qml/FileDelegateContextMenu.qml:60
-#: src/qml/MessageDelegateContextMenu.qml:65
+#: src/qml/FileDelegateContextMenu.qml:59
+#: src/qml/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgid "Copy"
 msgstr "Kopiëren"
@@ -2242,66 +2263,66 @@ msgstr "Locatie bekijken"
 msgid "Close"
 msgstr "Sluiten"
 
-#: src/qml/GlobalMenu.qml:21
+#: src/qml/GlobalMenu.qml:19
 #, kde-format
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/GlobalMenu.qml:28
+#: src/qml/GlobalMenu.qml:26
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "NeoChat configureren..."
 
-#: src/qml/GlobalMenu.qml:29
+#: src/qml/GlobalMenu.qml:27
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "NeoChat configureren..."
 
-#: src/qml/GlobalMenu.qml:41
+#: src/qml/GlobalMenu.qml:39
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "NeoChat afsluiten"
 
-#: src/qml/GlobalMenu.qml:48
+#: src/qml/GlobalMenu.qml:46
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Bestand"
 
-#: src/qml/GlobalMenu.qml:51
+#: src/qml/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
 msgstr "Zoek uw vrienden"
 
-#: src/qml/GlobalMenu.qml:60
+#: src/qml/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Nieuwe groep…"
 
-#: src/qml/GlobalMenu.qml:69
+#: src/qml/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "In chats balderen…"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:81
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: src/qml/GlobalMenu.qml:87
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Beeld"
 
-#: src/qml/GlobalMenu.qml:90
+#: src/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2309,31 +2330,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Snelle wisselaar openen"
 
-#: src/qml/GlobalMenu.qml:96
+#: src/qml/GlobalMenu.qml:94
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Venster"
 
-#: src/qml/GlobalMenu.qml:103
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Volledig scherm verlaten"
 
-#: src/qml/GlobalMenu.qml:103
+#: src/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Volledig scherm ingaan"
 
-#: src/qml/GlobalMenu.qml:109
+#: src/qml/GlobalMenu.qml:107
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Help"
 
-#: src/qml/GlobalMenu.qml:112
+#: src/qml/GlobalMenu.qml:110
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2344,17 +2365,17 @@ msgstr "Matrix-FAQ"
 msgid "No name"
 msgstr "Geen naam"
 
-#: src/qml/HoverActions.qml:75
+#: src/qml/HoverActions.qml:74
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Dit bericht is verzonden van een geverifieerd apparaat"
 
-#: src/qml/HoverActions.qml:88
+#: src/qml/HoverActions.qml:87
 #, kde-format
 msgid "React"
 msgstr "Reageer"
 
-#: src/qml/HoverActions.qml:113
+#: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply in Thread"
 msgstr "In discussie antwoorden"
@@ -2426,7 +2447,7 @@ msgstr "Gebruiker afwijzen en negeren"
 msgid "Reject"
 msgstr "Afwijzen"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:81
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
 #, kde-format
 msgid "Accept"
 msgstr "Accepteren"
@@ -2473,42 +2494,42 @@ msgctxt "@action:button"
 msgid "Join room"
 msgstr "Neem deel aan een chatroom"
 
-#: src/qml/KeyVerificationDialog.qml:18
+#: src/qml/KeyVerificationDialog.qml:16
 #, kde-format
 msgid "Session Verification"
 msgstr "Verificatie van sessie"
 
-#: src/qml/KeyVerificationDialog.qml:40
+#: src/qml/KeyVerificationDialog.qml:38
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Wacht op apparaat om verificatie te accepteren."
 
-#: src/qml/KeyVerificationDialog.qml:46
+#: src/qml/KeyVerificationDialog.qml:44
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Inkomend verzoek voor verificatie van sleutel van apparaat **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:52
+#: src/qml/KeyVerificationDialog.qml:50
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Wacht op andere partij om te verifiëren."
 
-#: src/qml/KeyVerificationDialog.qml:56
+#: src/qml/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Emoji Verification"
 msgstr "Verificatie van emoji"
 
-#: src/qml/KeyVerificationDialog.qml:59
+#: src/qml/KeyVerificationDialog.qml:57
 #, kde-format
 msgid "Compare a set of emoji on both devices"
 msgstr "Een set emoji vergelijken op beide apparaten"
 
-#: src/qml/KeyVerificationDialog.qml:68
+#: src/qml/KeyVerificationDialog.qml:66
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Apparaat **%1** is met succes geverifieerd"
 
-#: src/qml/KeyVerificationDialog.qml:87
+#: src/qml/KeyVerificationDialog.qml:85
 #, kde-format
 msgid "Decline"
 msgstr "Afwijzen"
@@ -2523,7 +2544,7 @@ msgstr "Een locatie kiezen"
 msgid "Send this location"
 msgstr "Deze locatie verzenden"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:112
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:111
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -2534,18 +2555,18 @@ msgstr "Locaties"
 msgid "There are no locations shared in this room."
 msgstr "Er worden geen locaties in deze room gedeeld."
 
-#: src/qml/Main.qml:306
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificatie van sessie"
 
-#: src/qml/Main.qml:323
+#: src/qml/Main.qml:321
 #, kde-format
 msgid "User consent"
 msgstr "Toestemming van gebruiker"
 
-#: src/qml/Main.qml:328
+#: src/qml/Main.qml:326
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2554,28 +2575,28 @@ msgstr ""
 "Uw homeserver vereist dat u met deze termen en voorwaarden instemt alvorens "
 "u deze kunt gebruiken. Klik op de ondersteunde knop om ze te lezen."
 
-#: src/qml/Main.qml:333
+#: src/qml/Main.qml:331
 #, kde-format
 msgid "Open"
 msgstr "Openen"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:358
 #, kde-format
 msgid "Start a chat"
 msgstr "Een chat starten"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Wilt u een chat beginnen met %1?"
 
-#: src/qml/Main.qml:388
+#: src/qml/Main.qml:386
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "De nu geselecteerde koppeling"
 
-#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:418 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2629,28 +2650,35 @@ msgstr "Gebruikers-ID's moeten beginnen met een @"
 msgid "The input is not a valid user ID"
 msgstr "De invoer is geen geldig gebruikers-ID"
 
-#: src/qml/MessageDelegateContextMenu.qml:48
+#: src/qml/MessageDelegateContextMenu.qml:47
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
 msgstr "Doorsturen"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
+#: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Bericht doorsturen"
 
-#: src/qml/MessageDelegateContextMenu.qml:71
+#: src/qml/MessageDelegateContextMenu.qml:70
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Gebruiker tonen"
 
-#: src/qml/MessageDelegateContextMenu.qml:79
+#: src/qml/MessageDelegateContextMenu.qml:78
 #, kde-format
 msgid "Copy Link"
 msgstr "Koppeling kopiëren"
+
+#: src/qml/MessageSourceSheet.qml:46
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@action As in 'edit the state of this rooms'"
+msgid "Edit state"
+msgstr "Bericht bewerken"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -2679,17 +2707,17 @@ msgstr "Niveau van macht van gebruiker bewerken"
 msgid "New power level"
 msgstr "Niveau van macht"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
+#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:71
 #, kde-format
 msgid "Member (0)"
 msgstr "Lid (0)"
 
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
+#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Moderator (50)"
 
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
+#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:79
 #, kde-format
 msgid "Admin (100)"
 msgstr "Admin (100)"
@@ -2809,27 +2837,27 @@ msgstr "Bericht rapporteren"
 msgid "Reason for reporting this message"
 msgstr "Reden om dit bericht te rapporteren"
 
-#: src/qml/RoomDelegate.qml:102
+#: src/qml/RoomDelegate.qml:101
 #, kde-format
 msgid "Muted room"
 msgstr "Gedempte room"
 
-#: src/qml/RoomDelegate.qml:135
+#: src/qml/RoomDelegate.qml:134
 #, kde-format
 msgid "Configure room"
 msgstr "Room configureren"
 
-#: src/qml/RoomDrawer.qml:103
+#: src/qml/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
 msgstr "Roominstellingen"
 
-#: src/qml/RoomDrawer.qml:153 src/qml/RoomDrawerPage.qml:88
+#: src/qml/RoomDrawer.qml:152 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Information"
 msgstr "Informatie"
 
-#: src/qml/RoomDrawer.qml:158 src/qml/RoomDrawerPage.qml:93
+#: src/qml/RoomDrawer.qml:157 src/qml/RoomDrawerPage.qml:93
 #, kde-format
 msgid "Media"
 msgstr "Media"
@@ -2839,94 +2867,94 @@ msgstr "Media"
 msgid "Settings"
 msgstr "Instellingen"
 
-#: src/qml/RoomInformation.qml:41
+#: src/qml/RoomInformation.qml:40
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "Leden in ruimtes"
 
-#: src/qml/RoomInformation.qml:41
+#: src/qml/RoomInformation.qml:40
 #, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "Informatie over room"
 
-#: src/qml/RoomInformation.qml:69
+#: src/qml/RoomInformation.qml:68
 #, kde-format
 msgid "Options"
 msgstr "Opties"
 
-#: src/qml/RoomInformation.qml:79
+#: src/qml/RoomInformation.qml:78
 #, kde-format
 msgid "Search in this room"
 msgstr "In deze room zoeken"
 
-#: src/qml/RoomInformation.qml:87
+#: src/qml/RoomInformation.qml:86
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Room uit favorieten verwijderen"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
 #, kde-format
 msgid "Make room favorite"
 msgstr "Room als favoriet instellen"
 
-#: src/qml/RoomInformation.qml:107
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Locaties in deze room tonen"
 
-#: src/qml/RoomInformation.qml:121
+#: src/qml/RoomInformation.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Deze chatroom verlaten."
 
-#: src/qml/RoomInformation.qml:133
+#: src/qml/RoomInformation.qml:132
 #, kde-format
 msgid "Members"
 msgstr "Leden"
 
-#: src/qml/RoomInformation.qml:148 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:147 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Een gebruiker uitnodigen"
 
-#: src/qml/RoomInformation.qml:152
+#: src/qml/RoomInformation.qml:151
 #, kde-format
 msgid "Invite user to room"
 msgstr "Gebruiker uitnodigen in room"
 
-#: src/qml/RoomInformation.qml:159
+#: src/qml/RoomInformation.qml:158
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 lid"
 msgstr[1] "%1 leden"
 
-#: src/qml/RoomInformation.qml:159
+#: src/qml/RoomInformation.qml:158
 #, kde-format
 msgid "No member count"
 msgstr "Geen aantal leden"
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:205
 #, kde-format
 msgid "No friends found"
 msgstr "Geen vrienden gevonden"
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:205
 #, kde-format
 msgid "No rooms found"
 msgstr "Geen rooms gevonden"
 
-#: src/qml/RoomListPage.qml:209
+#: src/qml/RoomListPage.qml:207
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -2934,17 +2962,17 @@ msgstr ""
 "U hebt nog geen van uw vrienden toegevoegd, klik hieronder om naar ze te "
 "zoeken."
 
-#: src/qml/RoomListPage.qml:209
+#: src/qml/RoomListPage.qml:207
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Doe mee met sommige rooms om te beginnen"
 
-#: src/qml/RoomListPage.qml:216
+#: src/qml/RoomListPage.qml:214
 #, kde-format
 msgid "Search in room directory"
 msgstr "In map van room zoeken"
 
-#: src/qml/RoomListPage.qml:233
+#: src/qml/RoomListPage.qml:231
 #, kde-format
 msgid "Search in friend directory"
 msgstr "In map vrienden zoeken"
@@ -2955,12 +2983,12 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Media van room"
 
-#: src/qml/RoomPage.qml:100
+#: src/qml/RoomPage.qml:99
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat is offline. Controleer uw netwerkverbinding."
 
-#: src/qml/RoomPage.qml:264
+#: src/qml/RoomPage.qml:263
 #, kde-format
 msgid "Message Source"
 msgstr "Berichtinhoud"
@@ -3236,22 +3264,22 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Ruimte verlaten"
 
-#: src/qml/TimelineView.qml:207
+#: src/qml/TimelineView.qml:206
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Naar het eerste ongelezen bericht gaan"
 
-#: src/qml/TimelineView.qml:230
+#: src/qml/TimelineView.qml:229
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Naar het laatste bericht gaan"
 
-#: src/qml/TimelineView.qml:255
+#: src/qml/TimelineView.qml:254
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Items hierheen verslepen om ze te delen"
 
-#: src/qml/TimelineView.qml:262
+#: src/qml/TimelineView.qml:261
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -3259,25 +3287,25 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
 
-#: src/qml/UnlockSSSSDialog.qml:19
+#: src/qml/UnlockSSSSDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Uw versleuteld berichten laden"
 
-#: src/qml/UnlockSSSSDialog.qml:50
+#: src/qml/UnlockSSSSDialog.qml:48
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "De beveiligingsphrase was niet juist."
 
-#: src/qml/UnlockSSSSDialog.qml:56
+#: src/qml/UnlockSSSSDialog.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "Ontgrendelen met wachtwoordzin"
 
-#: src/qml/UnlockSSSSDialog.qml:60
+#: src/qml/UnlockSSSSDialog.qml:58
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
@@ -3285,25 +3313,25 @@ msgstr ""
 "Als u een reservekopie van de wachtwoordzin voor dit account hebt, voer het "
 "onderstaand in."
 
-#: src/qml/UnlockSSSSDialog.qml:64
+#: src/qml/UnlockSSSSDialog.qml:62
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "Reservekopie van wachtwoord:"
 
-#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
+#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Ontgrendelen"
 
-#: src/qml/UnlockSSSSDialog.qml:81
+#: src/qml/UnlockSSSSDialog.qml:79
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "Ontgrendelen met beveiligingssleutel"
 
-#: src/qml/UnlockSSSSDialog.qml:85
+#: src/qml/UnlockSSSSDialog.qml:83
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3313,25 +3341,25 @@ msgstr ""
 "Als u een beveiligingssleutel voor dit account hebt, voer het onderstaand in "
 "of doe een upload als een bestand."
 
-#: src/qml/UnlockSSSSDialog.qml:89
+#: src/qml/UnlockSSSSDialog.qml:87
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "Beveiligingssleutel:"
 
-#: src/qml/UnlockSSSSDialog.qml:94
+#: src/qml/UnlockSSSSDialog.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "Uploaden uit bestand"
 
-#: src/qml/UnlockSSSSDialog.qml:115
+#: src/qml/UnlockSSSSDialog.qml:113
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Ontgrendelen uit de kruiselings ondertekenen"
 
-#: src/qml/UnlockSSSSDialog.qml:119
+#: src/qml/UnlockSSSSDialog.qml:117
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3342,7 +3370,7 @@ msgstr ""
 "de sleutel uit andere apparaten proberen te laden door op de onderstaande "
 "knop te klikken."
 
-#: src/qml/UnlockSSSSDialog.qml:124
+#: src/qml/UnlockSSSSDialog.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -3422,12 +3450,12 @@ msgstr "In een privé chat uitnodigen"
 msgid "Copy link"
 msgstr "Koppeling kopiëren"
 
-#: src/qml/UserInfo.qml:106
+#: src/qml/UserInfo.qml:104
 #, kde-format
 msgid "Switch User"
 msgstr "Gebruiker wisselen"
 
-#: src/qml/UserInfo.qml:113
+#: src/qml/UserInfo.qml:111
 #, kde-format
 msgid "Open Settings"
 msgstr "Instellingen openen"
@@ -3459,32 +3487,32 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Geen overeenkomsten gevonden"
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:19
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Verificatie van de sessie is geannuleerd om onbekende reden."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Verificatie van sessie overschreed tijdslimiet."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Verificatie van sessie overschreed tijdslimiet voor partij op afstand."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:25
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Verificatie van sessie is door u geannuleerd."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:27
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Verificatie van sessie is de partij op afstand geannuleerd."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:29
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -3493,7 +3521,7 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd omdat we een onverwacht bericht "
 "ontvingen."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:31
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3502,7 +3530,7 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
 "een onverwacht bericht ontving."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:33
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -3511,7 +3539,7 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd omdat het een bericht ontving voor "
 "een onbekende sessie."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -3520,7 +3548,7 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
 "een bericht ontving voor een onbekende sessie."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:37
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -3529,7 +3557,7 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd omdat NeoChat niet in staat is deze "
 "verificatiemethode te behandelen."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:39
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -3538,13 +3566,13 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
 "niet in staat is deze verificatiemethode te behandelen."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:41
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr ""
 "Verificatie van de sessie is geannuleerd omdat de sleutels onjuist zijn."
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:43
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3557,7 +3585,7 @@ msgstr ""
 "\n"
 "**Meld u af en weer aan, uw sessie is gebroken/corrupt.**"
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:45
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -3565,7 +3593,7 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd omdat het een onverwachte gebruiker "
 "verifieert."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -3574,7 +3602,7 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
 "een onverwachte gebruiker verifieert."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:49
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
@@ -3582,7 +3610,7 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd omdat we een ongeldig bericht "
 "ontvingen."
 
-#: src/qml/VerificationCanceled.qml:53
+#: src/qml/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3591,19 +3619,19 @@ msgstr ""
 "Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
 "een ongeldig bericht ontving."
 
-#: src/qml/VerificationCanceled.qml:55 src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "De sessie is geaccepteerd op een ander apparaat"
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr ""
 "Verificatie van de sessie is geannuleerd omdat een sleutels niet overeen "
 "kwam."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:59
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -3612,14 +3640,14 @@ msgstr ""
 "Verificatie van de sessie door de partij op afstand is geannuleerd omdat een "
 "sleutel niet overeen kwam."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:61
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr ""
 "Verificatie van de sessie is geannuleerd omdat de sleutels niet overeen "
 "kwamen."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:63
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -3628,7 +3656,7 @@ msgstr ""
 "Verificatie van sessie door de partij op afstand is geannuleerd omdat de "
 "sleutels niet overeen kwamen."
 
-#: src/qml/VerificationCanceled.qml:67
+#: src/qml/VerificationCanceled.qml:65
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verificatie van de sessie is geannuleerd vanwege een onbekende fout."
@@ -3703,7 +3731,7 @@ msgstr "U verzocht om mee te doen met '%1'"
 msgid "Failed to request joining room"
 msgstr "Verzoek om mee te doen met room is mislukt"
 
-#: src/settings/About.qml:11
+#: src/settings/About.qml:8
 #, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
@@ -3825,89 +3853,89 @@ msgstr "Verkeerde wachtwoord ingevoerd"
 msgid "Unknown problem while trying to change password"
 msgstr "Onbekend probleem bij poging het wachtwoord te wijzigen"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:23
+#: src/settings/AccountsPage.qml:19 src/settings/AccountsPage.qml:22
 #: src/settings/NeoChatSettings.qml:54
 #, kde-format
 msgid "Accounts"
 msgstr "Accounts"
 
-#: src/settings/AccountsPage.qml:102
+#: src/settings/AccountsPage.qml:101
 #, kde-format
 msgid "Add Account"
 msgstr "Account toevoegen"
 
-#: src/settings/AppearanceSettingsPage.qml:19
+#: src/settings/AppearanceSettingsPage.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
 msgstr "Uiterlijk"
 
-#: src/settings/AppearanceSettingsPage.qml:22
+#: src/settings/AppearanceSettingsPage.qml:21
 #, kde-format
 msgid "General theme"
 msgstr "Algemeen thema"
 
-#: src/settings/AppearanceSettingsPage.qml:116
+#: src/settings/AppearanceSettingsPage.qml:115
 #, kde-format
 msgid "Bubbles"
 msgstr "Bellen"
 
-#: src/settings/AppearanceSettingsPage.qml:185
+#: src/settings/AppearanceSettingsPage.qml:184
 #, kde-format
 msgid "Compact"
 msgstr "Compact"
 
-#: src/settings/AppearanceSettingsPage.qml:207
+#: src/settings/AppearanceSettingsPage.qml:206
 #, kde-format
 msgid "Use compact room list"
 msgstr "Compacte lijst met rooms gebruiken"
 
-#: src/settings/AppearanceSettingsPage.qml:233
+#: src/settings/AppearanceSettingsPage.qml:232
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "Elegante effecten in chat tonen"
 
-#: src/settings/AppearanceSettingsPage.qml:250
+#: src/settings/AppearanceSettingsPage.qml:249
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Transparante chat-pagina gebruiken"
 
-#: src/settings/AppearanceSettingsPage.qml:271
+#: src/settings/AppearanceSettingsPage.qml:270
 #, kde-format
 msgid "Transparency"
 msgstr "Transparantie"
 
-#: src/settings/AppearanceSettingsPage.qml:290
+#: src/settings/AppearanceSettingsPage.qml:289
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Alleen ingeschakeld als de transparente chat-pagina is ingeschakeld."
 
-#: src/settings/AppearanceSettingsPage.qml:307
+#: src/settings/AppearanceSettingsPage.qml:306
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Uw berichten rechts tonen"
 
-#: src/settings/AppearanceSettingsPage.qml:323
+#: src/settings/AppearanceSettingsPage.qml:322
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Voorbeeld van koppelingen in de chatberichten tonen"
 
-#: src/settings/AppearanceSettingsPage.qml:333
+#: src/settings/AppearanceSettingsPage.qml:332
 #, kde-format
 msgid "Show Avatar"
 msgstr "Avatar tonen"
 
-#: src/settings/AppearanceSettingsPage.qml:337
+#: src/settings/AppearanceSettingsPage.qml:336
 #, kde-format
 msgid "In chat"
 msgstr "In chat"
 
-#: src/settings/AppearanceSettingsPage.qml:347
+#: src/settings/AppearanceSettingsPage.qml:346
 #, kde-format
 msgid "In sidebar"
 msgstr "In zijbalk"
 
-#: src/settings/ColorScheme.qml:15
+#: src/settings/ColorScheme.qml:14
 #, kde-format
 msgid "Color theme"
 msgstr "Kleurenthema"
@@ -4145,104 +4173,104 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Negeren van deze gebruiker ongedaan maken"
 
-#: src/settings/NeoChatGeneralPage.qml:16
+#: src/settings/NeoChatGeneralPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Algemeen"
 
-#: src/settings/NeoChatGeneralPage.qml:19
+#: src/settings/NeoChatGeneralPage.qml:18
 #, kde-format
 msgid "General settings"
 msgstr "Algemene instellingen"
 
-#: src/settings/NeoChatGeneralPage.qml:25
+#: src/settings/NeoChatGeneralPage.qml:24
 #, kde-format
 msgid "Show in System Tray"
 msgstr "In systeemvak tonen"
 
-#: src/settings/NeoChatGeneralPage.qml:42
+#: src/settings/NeoChatGeneralPage.qml:41
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Naar systeemvak minimaliseren bij opstarten"
 
-#: src/settings/NeoChatGeneralPage.qml:59
+#: src/settings/NeoChatGeneralPage.qml:58
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Automatisch de informatie over de room verbergen/tonen bij wijziging van de "
 "grootte van het venster"
 
-#: src/settings/NeoChatGeneralPage.qml:70
+#: src/settings/NeoChatGeneralPage.qml:69
 #, kde-format
 msgid "Room list sort order"
 msgstr "Sorteervolgorde van lijst met rooms"
 
-#: src/settings/NeoChatGeneralPage.qml:74
+#: src/settings/NeoChatGeneralPage.qml:73
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Activiteit"
 
-#: src/settings/NeoChatGeneralPage.qml:83
+#: src/settings/NeoChatGeneralPage.qml:82
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alfabetisch"
 
-#: src/settings/NeoChatGeneralPage.qml:93
+#: src/settings/NeoChatGeneralPage.qml:92
 #, kde-format
 msgid "Timeline Events"
 msgstr "Tijdlijn van gebeurtenissen"
 
-#: src/settings/NeoChatGeneralPage.qml:98
+#: src/settings/NeoChatGeneralPage.qml:97
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Verwijderde berichten tonen"
 
-#: src/settings/NeoChatGeneralPage.qml:114
+#: src/settings/NeoChatGeneralPage.qml:113
 #, kde-format
 msgid "Show state events"
 msgstr "Status van gebeurtenissen tonen"
 
-#: src/settings/NeoChatGeneralPage.qml:132
+#: src/settings/NeoChatGeneralPage.qml:131
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Gebeurtenissen verlaten en meedoen tonen"
 
-#: src/settings/NeoChatGeneralPage.qml:150
+#: src/settings/NeoChatGeneralPage.qml:149
 #, kde-format
 msgid "Show name change events"
 msgstr "Gebeurtenissen met wijziging van naam tonen"
 
-#: src/settings/NeoChatGeneralPage.qml:168
+#: src/settings/NeoChatGeneralPage.qml:167
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Gebeurtenissen met bijwerken van avatar tonen"
 
-#: src/settings/NeoChatGeneralPage.qml:178
+#: src/settings/NeoChatGeneralPage.qml:177
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/settings/NeoChatGeneralPage.qml:183
+#: src/settings/NeoChatGeneralPage.qml:182
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "syntaxis s/tekst/vervanging gebruiken om uw laatste bericht te bewerken"
 
-#: src/settings/NeoChatGeneralPage.qml:197
+#: src/settings/NeoChatGeneralPage.qml:196
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Meldingen over typen verzenden"
 
-#: src/settings/NeoChatGeneralPage.qml:207
+#: src/settings/NeoChatGeneralPage.qml:206
 #, kde-format
 msgid "Developer Settings"
 msgstr "Instellingen voor ontwikkelaar"
 
-#: src/settings/NeoChatGeneralPage.qml:211
+#: src/settings/NeoChatGeneralPage.qml:210
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Hulpmiddelen voor ontwikkelaars inschakelen"
@@ -4318,7 +4346,7 @@ msgstr "Stickers & Emoji's"
 msgid "Spell Checking"
 msgstr "Spellingcontrole"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:19
 #, kde-format
 msgid "Network Proxy"
 msgstr "Netwerkproxy"
@@ -4333,48 +4361,48 @@ msgstr "Info over NeoChat"
 msgid "About KDE"
 msgstr "Over KDE"
 
-#: src/settings/NetworkProxyPage.qml:15
+#: src/settings/NetworkProxyPage.qml:13
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr "Proxy"
 
-#: src/settings/NetworkProxyPage.qml:25
+#: src/settings/NetworkProxyPage.qml:23
 #, kde-format
 msgid "System Default"
 msgstr "Systeemstandaard"
 
-#: src/settings/NetworkProxyPage.qml:33
+#: src/settings/NetworkProxyPage.qml:31
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:41
+#: src/settings/NetworkProxyPage.qml:39
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:51
+#: src/settings/NetworkProxyPage.qml:49
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Proxyinstellingen"
 
-#: src/settings/NetworkProxyPage.qml:56
+#: src/settings/NetworkProxyPage.qml:54
 #, kde-format
 msgid "Host"
 msgstr "Host"
 
-#: src/settings/NetworkProxyPage.qml:65
+#: src/settings/NetworkProxyPage.qml:63
 #, kde-format
 msgid "Port"
 msgstr "Poort"
 
-#: src/settings/NetworkProxyPage.qml:78
+#: src/settings/NetworkProxyPage.qml:76
 #, kde-format
 msgid "User"
 msgstr "Gebruiker"
 
-#: src/settings/NetworkProxyPage.qml:105
+#: src/settings/NetworkProxyPage.qml:103
 #, kde-format
 msgid "Apply"
 msgstr "Toepassen"
@@ -4420,45 +4448,45 @@ msgstr "Accentueringen van berichten inschakelen"
 msgid "Delete keyword"
 msgstr "Trefwoord verwijderen"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:32
 #, kde-format
 msgid "Privileged Users"
 msgstr "Gebruikers met privileges"
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:241
 #, kde-format
 msgid "Default permissions"
 msgstr "Standaard rechten"
 
-#: src/settings/Permissions.qml:247
+#: src/settings/Permissions.qml:246
 #, kde-format
 msgid "Default user power level"
 msgstr "Standaard niveau van macht van gebruiker"
 
-#: src/settings/Permissions.qml:248
+#: src/settings/Permissions.qml:247
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 "Dit is niveau van macht voor alle nieuwe gebruikers bij meedoen in de room"
 
-#: src/settings/Permissions.qml:258
+#: src/settings/Permissions.qml:257
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Standaard niveau van macht om de status van de room in te stellen"
 
-#: src/settings/Permissions.qml:259
+#: src/settings/Permissions.qml:258
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Dit wordt gebruikt voor alle statusgebeurtenissen die niet hun eigen ingang "
 "hier hebben"
 
-#: src/settings/Permissions.qml:269
+#: src/settings/Permissions.qml:268
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Standaard niveau van macht om berichten te verzenden"
 
-#: src/settings/Permissions.qml:270
+#: src/settings/Permissions.qml:269
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -4466,92 +4494,92 @@ msgstr ""
 "Dit wordt gebruikt voor alle berichtgebeurtenissen die niet hun eigen ingang "
 "hier hebben"
 
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:282
 #, kde-format
 msgid "Basic permissions"
 msgstr "Basis rechten"
 
-#: src/settings/Permissions.qml:288
+#: src/settings/Permissions.qml:287
 #, kde-format
 msgid "Invite users"
 msgstr "Gebruikers inviteren"
 
-#: src/settings/Permissions.qml:298
+#: src/settings/Permissions.qml:297
 #, kde-format
 msgid "Kick users"
 msgstr "Gebruikers er uit sturen"
 
-#: src/settings/Permissions.qml:308
+#: src/settings/Permissions.qml:307
 #, kde-format
 msgid "Ban users"
 msgstr "Gebruikers verbannen"
 
-#: src/settings/Permissions.qml:318
+#: src/settings/Permissions.qml:317
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Berichten gezonden door andere gebruiker verwijderen"
 
-#: src/settings/Permissions.qml:331
+#: src/settings/Permissions.qml:330
 #, kde-format
 msgid "Event permissions"
 msgstr "Rechten voor gebeurtenissen"
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:335
 #, kde-format
 msgid "Change user permissions"
 msgstr "Gebruikersrechten wijzigen"
 
-#: src/settings/Permissions.qml:347
+#: src/settings/Permissions.qml:346
 #, kde-format
 msgid "Change the room name"
 msgstr "Naam van de room wijzigen"
 
-#: src/settings/Permissions.qml:358
+#: src/settings/Permissions.qml:357
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Avatar van de room wijzigen"
 
-#: src/settings/Permissions.qml:369
+#: src/settings/Permissions.qml:368
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Canonieke alias van de room wijzigen"
 
-#: src/settings/Permissions.qml:380
+#: src/settings/Permissions.qml:379
 #, kde-format
 msgid "Change the room topic"
 msgstr "Onderwerp van de room wijzigen"
 
-#: src/settings/Permissions.qml:391
+#: src/settings/Permissions.qml:390
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Versleuteling inschakelen voor de room"
 
-#: src/settings/Permissions.qml:402
+#: src/settings/Permissions.qml:401
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Zichtbaarheid van geschiedenis van de room wijzigen"
 
-#: src/settings/Permissions.qml:413
+#: src/settings/Permissions.qml:412
 #, kde-format
 msgid "Set pinned events"
 msgstr "Vastgezette gebeurtenissen instellen"
 
-#: src/settings/Permissions.qml:424
+#: src/settings/Permissions.qml:423
 #, kde-format
 msgid "Upgrade the room"
 msgstr "De room opwaarderen"
 
-#: src/settings/Permissions.qml:435
+#: src/settings/Permissions.qml:434
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "De toegangscontrolelijst (ACL) voor de roomserver instellen"
 
-#: src/settings/Permissions.qml:447
+#: src/settings/Permissions.qml:446
 #, kde-format
 msgid "Set the children of this space"
 msgstr "De kinderen van deze ruimte instellen"
 
-#: src/settings/Permissions.qml:458
+#: src/settings/Permissions.qml:457
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "De ouderruimte van deze room instellen"
@@ -4977,14 +5005,14 @@ msgstr ""
 "Dit bericht is versleuteld en de verzender heeft de sleutel niet gedeeld met "
 "dit apparaat."
 
-#: src/timeline/FileComponent.qml:108 src/timeline/FileComponent.qml:191
+#: src/timeline/FileComponent.qml:107 src/timeline/FileComponent.qml:190
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Downloaden"
 
-#: src/timeline/FileComponent.qml:124 src/timeline/FileComponent.qml:181
+#: src/timeline/FileComponent.qml:123 src/timeline/FileComponent.qml:180
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4992,13 +5020,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Bestand openen"
 
-#: src/timeline/FileComponent.qml:139
+#: src/timeline/FileComponent.qml:138
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/timeline/FileComponent.qml:144
+#: src/timeline/FileComponent.qml:143
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -5380,9 +5408,6 @@ msgstr "Afsluiten"
 
 #~ msgid "Room Topic"
 #~ msgstr "Onderwerp van room"
-
-#~ msgid "Edit Message"
-#~ msgstr "Bericht bewerken"
 
 #~ msgid "Editing message:"
 #~ msgstr "Bericht wordt bewerkt:"
