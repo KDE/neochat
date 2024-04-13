@@ -99,7 +99,7 @@ FormCard.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            visible: root.showVerifyButton && root.type !== DevicesModel.Verified
+            visible: root.showVerifyButton && (root.type !== DevicesModel.Verified || Config.alwaysVerifyDevice)
             action: Kirigami.Action {
                 id: verifyDeviceAction
                 text: i18n("Verify device")

@@ -8,6 +8,7 @@ qt_add_qml_module(devtools
     QML_FILES
         DevtoolsPage.qml
         AccountData.qml
+        DebugOptions.qml
         FeatureFlagPage.qml
         RoomData.qml
         ServerData.qml

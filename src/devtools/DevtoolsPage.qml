@@ -26,6 +26,11 @@ FormCard.FormCardPage {
         readonly property real tabWidth: tabBar.width / tabBar.count
 
         QQC2.TabButton {
+            text: i18nc("@title:tab", "Debug Options")
+
+            implicitWidth: tabBar.tabWidth
+        }
+        QQC2.TabButton {
             text: qsTr("Room Data")
 
             implicitWidth: tabBar.tabWidth
@@ -52,6 +57,7 @@ FormCard.FormCardPage {
 
         currentIndex: tabBar.currentIndex
 
+        DebugOptions {}
         RoomData {
             room: root.room
             connection: root.connection
