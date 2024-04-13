@@ -157,7 +157,7 @@ void Controller::addConnection(NeoChatConnection *c)
     });
     connect(c, &NeoChatConnection::loggedOut, this, [this, c] {
         if (accounts().count() > 1) {
-            // Only set the connection if the the account being logged out is currently active
+            // Only set the connection if the account being logged out is currently active
             if (c == activeConnection()) {
                 setActiveConnection(dynamic_cast<NeoChatConnection *>(accounts().accounts()[0]));
             }

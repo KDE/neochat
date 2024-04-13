@@ -53,7 +53,7 @@ class LinkPreviewer : public QObject
     Q_PROPERTY(QUrl imageSource READ imageSource NOTIFY imageSourceChanged)
 
     /**
-     * @brief Whether the there is a link to preview.
+     * @brief Whether there is a link to preview.
      *
      * A linkPreviwer is empty if the URL is empty.
      */

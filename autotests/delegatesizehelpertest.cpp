@@ -130,7 +130,7 @@ void DelegateSizeHelperTest::equalBreakpoint_data()
 }
 
 /**
- * We expect a default return except in the case where the the two percentages are
+ * We expect a default return except in the case where the two percentages are
  * equal as that case can be calculated without dividing by zero.
  */
 void DelegateSizeHelperTest::equalBreakpoint()

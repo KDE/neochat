@@ -91,7 +91,7 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(CompletionModel *completionModel READ completionModel CONSTANT)
 
     /**
-     * @brief The current room that the the text document is being handled for.
+     * @brief The current room that the text document is being handled for.
      */
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 

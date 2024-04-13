@@ -43,7 +43,7 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
-            text: i18nc("@action As in 'edit the state of this rooms'", "Edit state")
+            text: i18nc("@action As in 'edit the state of this room'", "Edit state")
             icon.name: "document-edit"
             visible: root.allowEdit
             enabled: room.canSendState(root.type) && (!root.stateKey.startsWith("@") || root.stateKey === root.room.connection.localUserId) && root.type !== "m.room.create"
@@ -53,7 +53,7 @@ Kirigami.Page {
                 stateKey: root.stateKey,
                 sourceText: root.contentJson,
             }, {
-                title: i18nc("@title As in 'edit the state of this rooms'", "Edit State")
+                title: i18nc("@title As in 'edit the state of this room'", "Edit State")
             })
         }
     ]

@@ -25,7 +25,7 @@ Kirigami.Page {
     rightPadding: 0
     bottomPadding: 0
 
-    title: i18nc("@title As in 'edit the state of this rooms'", "Edit State")
+    title: i18nc("@title As in 'edit the state of this room'", "Edit State")
 
     actions: [
         Kirigami.Action {
