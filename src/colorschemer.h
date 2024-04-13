@@ -44,21 +44,11 @@ public:
     Q_INVOKABLE void apply(int idx);
 
     /**
-     * @brief Activates the KColorScheme with the given name.
+     * @brief Get the row for the current color scheme.
      *
      * @sa KColorScheme
      */
-    Q_INVOKABLE void apply(const QString &name);
-
-    /**
-     * @brief Returns the index for the scheme with the given name.
-     */
-    Q_INVOKABLE int indexForScheme(const QString &name) const;
-
-    /**
-     * @brief Returns the name for the scheme with the given index.
-     */
-    Q_INVOKABLE QString nameForIndex(int index) const;
+    Q_INVOKABLE int indexForCurrentScheme();
 
 private:
     KColorSchemeManager *c;
