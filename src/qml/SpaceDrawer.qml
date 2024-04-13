@@ -148,7 +148,7 @@ QQC2.Control {
                             height: Kirigami.Units.iconSizes.smallMedium
 
                             text: root.connection.directChatNotifications > 0 ? root.connection.directChatNotifications : ""
-                            visible: (root.connection.directChatNotifications > 0 || root.connection.directChatInvites) && root.showDirectChats === false
+                            visible: (root.connection.directChatNotifications > 0 || root.connection.directChatInvites) && RoomManager.currentSpace !== "DM"
                             color: Kirigami.Theme.textColor
                             horizontalAlignment: Text.AlignHCenter
                             background: Rectangle {
