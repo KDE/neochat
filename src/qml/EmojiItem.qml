@@ -3,36 +3,30 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQml
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
 
-Column {
+ColumnLayout {
     id: root
 
-    property string emoji
-    property string description
+    property alias emoji: emojiLabel.text
+    property alias description: descriptionLabel.text
 
     QQC2.Label {
         id: emojiLabel
-        x: 0
-        y: 0
-        width: parent.width
-        height: parent.height * 0.75
+        Layout.fillWidth: true
+        Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+        Layout.preferredHeight: Kirigami.Units.iconSizes.huge
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-
-        text: root.emoji
         font.family: "emoji"
         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 4
     }
     QQC2.Label {
-        x: 0
-        y: parent.height * 0.75
-        width: parent.width
-        height: parent.height * 0.25
-        text: root.description
+        id: descriptionLabel
+        Layout.fillWidth: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }

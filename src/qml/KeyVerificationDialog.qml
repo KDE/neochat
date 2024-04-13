@@ -17,55 +17,68 @@ Kirigami.Page {
 
     required property var session
 
-    Item {
-        anchors.fill: parent
-        VerificationCanceled {
-            visible: root.session.state === KeyVerificationSession.CANCELED
-            anchors.centerIn: parent
-            reason: root.session.error
-        }
-        EmojiSas {
-            anchors.centerIn: parent
-            visible: root.session.state === KeyVerificationSession.WAITINGFORVERIFICATION
-            model: root.session.sasEmojis
-            onReject: root.session.cancelVerification(KeyVerificationSession.MISMATCHED_SAS)
-            onAccept: root.session.sendMac()
-        }
-        Message {
-            visible: root.session.state === KeyVerificationSession.WAITINGFORREADY
-            anchors.centerIn: parent
-            icon: "security-medium-symbolic"
-            text: i18n("Waiting for device to accept verification.")
-        }
-        Message {
-            visible: root.session.state === KeyVerificationSession.INCOMING
-            anchors.centerIn: parent
-            icon: "security-medium-symbolic"
-            text: i18n("Incoming key verification request from device **%1**", root.session.remoteDeviceId)
-        }
-        Message {
-            visible: root.session.state === KeyVerificationSession.WAITINGFORMAC
-            anchors.centerIn: parent
-            icon: "security-medium-symbolic"
-            text: i18n("Waiting for other party to verify.")
-        }
-        Delegates.RoundedItemDelegate {
-            id: emojiVerification
-            text: i18n("Emoji Verification")
-            visible: root.session.state === KeyVerificationSession.READY
-            contentItem: Delegates.SubtitleContentItem {
-                subtitle: i18n("Compare a set of emoji on both devices")
-                itemDelegate: emojiVerification
+    states: [
+        State {
+            name: "cancelled"
+            when: root.session.state === KeyVerificationSession.CANCELED
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: verificationCanceled
             }
-            onClicked: root.session.sendStartSas()
-            anchors.centerIn: parent
+        },
+        State {
+            name: "waitingForVerification"
+            when: root.session.state === KeyVerificationSession.WAITINGFORVERIFICATION
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: emojiSas
+            }
+        },
+        State {
+            name: "waitingForReady"
+            when: root.session.state === KeyVerificationSession.WAITINGFORREADY
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: message
+            }
+        },
+        State {
+            name: "incoming"
+            when: root.session.state === KeyVerificationSession.INCOMING
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: message
+            }
+        },
+        State {
+            name: "waitingForMac"
+            when: root.session.state === KeyVerificationSession.WAITINGFORMAC
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: message
+            }
+        },
+        State {
+            name: "ready"
+            when: root.session.state === KeyVerificationSession.READY
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: emojiVerificationComponent
+            }
+        },
+        State {
+            name: "done"
+            when: root.session.state === KeyVerificationSession.DONE
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: message
+            }
         }
-        Message {
-            visible: root.session.state === KeyVerificationSession.DONE
-            anchors.centerIn: parent
-            text: i18n("Successfully verified device **%1**", root.session.remoteDeviceId)
-            icon: "security-high"
-        }
+    ]
+
+    Loader {
+        id: stateLoader
+        anchors.fill: parent
     }
 
     footer: QQC2.ToolBar {
@@ -87,6 +100,67 @@ Kirigami.Page {
                 onClicked: root.session.cancelVerification("m.user", "Declined")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
             }
+        }
+    }
+
+    Component {
+        id: verificationCanceled
+        VerificationCanceled {
+            reason: root.session.error
+        }
+    }
+
+    Component {
+        id: emojiSas
+        EmojiSas {
+            model: root.session.sasEmojis
+            onReject: root.session.cancelVerification(KeyVerificationSession.MISMATCHED_SAS)
+            onAccept: root.session.sendMac()
+        }
+    }
+
+    Component {
+        id: message
+        Message {
+            icon: {
+                switch (root.session.state) {
+                case KeyVerificationSession.WAITINGFORREADY:
+                case KeyVerificationSession.INCOMING:
+                case KeyVerificationSession.WAITINGFORMAC:
+                    return "security-medium-symbolic";
+                case KeyVerificationSession.DONE:
+                    return "security-high";
+                default:
+                    return "";
+                }
+            }
+            text: {
+                switch (root.session.state) {
+                case KeyVerificationSession.WAITINGFORREADY:
+                    return i18n("Waiting for device to accept verification.");
+                case KeyVerificationSession.INCOMING:
+                    return i18n("Incoming key verification request from device **%1**", root.session.remoteDeviceId);
+                case KeyVerificationSession.WAITINGFORMAC:
+                    return i18n("Waiting for other party to verify.");
+                case KeyVerificationSession.DONE:
+                    return i18n("Successfully verified device **%1**", root.session.remoteDeviceId)
+                default:
+                    return "";
+                }
+            }
+        }
+    }
+
+    Component {
+        id: emojiVerificationComponent
+        Delegates.RoundedItemDelegate {
+            id: emojiVerification
+            text: i18n("Emoji Verification")
+            contentItem: Delegates.SubtitleContentItem {
+                subtitle: i18n("Compare a set of emoji on both devices")
+                itemDelegate: emojiVerification
+            }
+            onClicked: root.session.sendStartSas()
         }
     }
 }

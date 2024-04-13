@@ -3,12 +3,12 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQml
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
 
-Column {
+ColumnLayout {
     id: root
 
     required property var model
@@ -16,24 +16,30 @@ Column {
     signal accept
     signal reject
 
-    visible: dialog.session.state === KeyVerificationSession.WAITINGFORVERIFICATION
-    anchors.centerIn: parent
     spacing: Kirigami.Units.largeSpacing
+
+    Item {
+        Layout.fillHeight: true
+    }
     QQC2.Label {
+        Layout.fillWidth: true
         text: i18n("Confirm the emoji below are displayed on both devices, in the same order.")
+        horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.Wrap
     }
     EmojiRow {
-        anchors.horizontalCenter: parent.horizontalCenter
-        height: Kirigami.Units.gridUnit * 4
+        Layout.maximumWidth: implicitWidth
+        Layout.alignment: Qt.AlignHCenter
         model: root.model.slice(0, 4)
     }
     EmojiRow {
-        anchors.horizontalCenter: parent.horizontalCenter
-        height: Kirigami.Units.gridUnit * 4
+        Layout.maximumWidth: implicitWidth
+        Layout.alignment: Qt.AlignHCenter
         model: root.model.slice(4, 7)
     }
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
+    RowLayout {
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignHCenter
         QQC2.Button {
             anchors.bottom: parent.bottom
             text: i18n("They match")
@@ -46,5 +52,8 @@ Column {
             icon.name: "dialog-cancel"
             onClicked: root.reject()
         }
+    }
+    Item {
+        Layout.fillHeight: true
     }
 }

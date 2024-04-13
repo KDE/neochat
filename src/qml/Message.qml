@@ -3,27 +3,36 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQml
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
 
-Column {
+ColumnLayout {
     id: root
 
     required property string icon
     required property string text
 
-    anchors.centerIn: parent
+    anchors.fill: parent
+
+    Item {
+        Layout.fillHeight: true
+    }
     Kirigami.Icon {
-        width: Kirigami.Units.iconSizes.enormous
-        height: width
-        anchors.horizontalCenter: parent.horizontalCenter
+        Layout.fillWidth: true
+        Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
+        Layout.preferredHeight: Kirigami.Units.iconSizes.enormous
         source: root.icon
     }
     QQC2.Label {
+        Layout.fillWidth: true
         text: root.text
         textFormat: Text.MarkdownText
         horizontalAlignment: Text.AlignHCenter
+        wrapMode: Text.Wrap
+    }
+    Item {
+        Layout.fillHeight: true
     }
 }

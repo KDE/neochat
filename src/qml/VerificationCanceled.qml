@@ -11,7 +11,6 @@ Message {
 
     required property int reason
 
-    anchors.centerIn: parent
     icon: "security-low"
     text: {
         switch (root.reason) {

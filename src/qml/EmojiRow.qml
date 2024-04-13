@@ -2,22 +2,24 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
-import QtQml
+import QtQuick.Layouts
+
+import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 
-Row {
+RowLayout {
     id: root
 
     property alias model: repeater.model
-    anchors.horizontalCenter: parent.horizontalCenter
+
+    spacing: Kirigami.Units.largeSpacing
+
     Repeater {
         id: repeater
         delegate: EmojiItem {
             emoji: modelData.emoji
             description: modelData.description
-            width: root.height
-            height: width
         }
     }
 }
