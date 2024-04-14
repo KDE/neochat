@@ -153,7 +153,7 @@ QQC2.Control {
         }
     }
 
-    QQC2.Button {
+    RowLayout {
         anchors {
             top: parent.top
             topMargin: Kirigami.Units.smallSpacing
@@ -161,15 +161,29 @@ QQC2.Control {
             rightMargin: (codeScrollView.QQC2.ScrollBar.vertical.visible ? codeScrollView.QQC2.ScrollBar.vertical.width : 0) + Kirigami.Units.smallSpacing
         }
         visible: root.hovered
-        icon.name: "edit-copy"
-        text: i18n("Copy to clipboard")
-        display: QQC2.AbstractButton.IconOnly
 
-        onClicked: Clipboard.saveText(root.display);
+        QQC2.Button {
+            icon.name: "edit-copy"
+            text: i18n("Copy to clipboard")
+            display: QQC2.AbstractButton.IconOnly
 
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            onClicked: Clipboard.saveText(root.display);
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        QQC2.Button {
+            icon.name: "view-fullscreen"
+            text: i18nc("@action:button", "Maximize")
+            display: QQC2.AbstractButton.IconOnly
+
+            onClicked: RoomManager.maximizeCode(root.author, root.time, root.display, root.componentAttributes.class);
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
     }
 
     background: Rectangle {
