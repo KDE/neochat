@@ -6,6 +6,8 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include <Quotient/room.h>
+
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
 #include "itinerarymodel.h"
@@ -99,4 +101,6 @@ private:
     void updateLinkPreviewer();
     void updateItineraryModel();
     bool m_emptyItinerary = false;
+
+    Quotient::FileTransferInfo fileInfo() const;
 };

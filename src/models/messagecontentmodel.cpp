@@ -9,7 +9,6 @@
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
-#include <Quotient/room.h>
 
 #include <KLocalizedString>
 
@@ -27,6 +26,8 @@
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "texthandler.h"
+
+using namespace Quotient;
 
 MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoChatRoom *room)
     : QAbstractListModel(nullptr)
@@ -78,6 +79,21 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
             if (m_event != nullptr && eventId == m_event->id()) {
                 updateComponents();
                 Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+
+                QString mxcUrl;
+                if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+                    if (event->hasFileContent()) {
+                        mxcUrl = event->content()->fileInfo()->url().toString();
+                    }
+                } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
+                    mxcUrl = event->image().fileInfo()->url().toString();
+                }
+                if (mxcUrl.isEmpty()) {
+                    return;
+                }
+                auto localPath = m_room->fileTransferInfo(m_event->id()).localPath.toLocalFile();
+                auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
+                config.writePathEntry(mxcUrl.mid(6), localPath);
             }
         });
         connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
@@ -145,14 +161,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return eventHandler.getMediaInfo();
     }
     if (role == FileTransferInfoRole) {
-        if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-            if (event->hasFileContent()) {
-                return QVariant::fromValue(m_room->fileTransferInfo(event->id()));
-            }
-        }
-        if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
-            return QVariant::fromValue(m_room->fileTransferInfo(event->id()));
-        }
+        return QVariant::fromValue(fileInfo());
     }
     if (role == ItineraryModelRole) {
         return QVariant::fromValue<ItineraryModel *>(m_itineraryModel);
@@ -260,15 +269,7 @@ void MessageContentModel::updateComponents(bool isEditing)
             } else if (eventHandler.messageComponentType() == MessageComponentType::File) {
                 m_components += MessageComponent{MessageComponentType::File, QString(), {}};
                 if (m_emptyItinerary) {
-                    Quotient::FileTransferInfo fileTransferInfo;
-                    if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-                        if (event->hasFileContent()) {
-                            fileTransferInfo = m_room->fileTransferInfo(event->id());
-                        }
-                    }
-                    if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
-                        fileTransferInfo = m_room->fileTransferInfo(event->id());
-                    }
+                    auto fileTransferInfo = fileInfo();
 
 #ifndef Q_OS_ANDROID
                     KSyntaxHighlighting::Repository repository;
@@ -355,7 +356,7 @@ void MessageContentModel::updateItineraryModel()
 
     if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
         if (event->hasFileContent()) {
-            auto filePath = m_room->fileTransferInfo(event->id()).localPath;
+            auto filePath = fileInfo().localPath;
             if (filePath.isEmpty() && m_itineraryModel != nullptr) {
                 delete m_itineraryModel;
                 m_itineraryModel = nullptr;
@@ -381,6 +382,44 @@ void MessageContentModel::updateItineraryModel()
             }
         }
     }
+}
+
+FileTransferInfo MessageContentModel::fileInfo() const
+{
+    if (m_room == nullptr || m_event == nullptr) {
+        return {};
+    }
+
+    QString mxcUrl;
+    int total;
+    if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+        if (event->hasFileContent()) {
+            mxcUrl = event->content()->fileInfo()->url().toString();
+            total = event->content()->fileInfo()->payloadSize;
+        }
+    } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
+        mxcUrl = event->image().fileInfo()->url().toString();
+        total = event->image().fileInfo()->payloadSize;
+    }
+    auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
+    if (!config.hasKey(mxcUrl.mid(6))) {
+        return m_room->fileTransferInfo(m_event->id());
+    }
+    const auto path = config.readPathEntry(mxcUrl.mid(6), QString());
+    QFileInfo info(path);
+    if (!info.isFile()) {
+        config.deleteEntry(mxcUrl);
+        return m_room->fileTransferInfo(m_event->id());
+    }
+    // TODO: we could check the hash here
+    return FileTransferInfo{
+        .status = FileTransferInfo::Completed,
+        .isUpload = false,
+        .progress = total,
+        .total = total,
+        .localDir = QUrl(info.dir().path()),
+        .localPath = QUrl::fromLocalFile(path),
+    };
 }
 
 #include "moc_messagecontentmodel.cpp"
