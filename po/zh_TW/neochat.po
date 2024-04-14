@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
 "PO-Revision-Date: 2024-03-29 21:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -85,30 +85,51 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "事件原始碼"
 
+#: src/devtools/DebugOptions.qml:20
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Always allow device verification"
+msgstr "正在等待裝置接收驗證。"
+
+#: src/devtools/DebugOptions.qml:21
+#, kde-format
+msgid ""
+"Allow the user to start a verification session with devices that were "
+"already verified"
+msgstr ""
+
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "開發者工具"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:tab"
+msgid "Debug Options"
+msgstr "選項"
+
+#: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "帳號資料"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "功能旗標"
 
-#: src/devtools/FeatureFlagPage.qml:18
+#: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "對話串"
 
-#: src/devtools/FeatureFlagPage.qml:24
+#: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -2097,7 +2118,7 @@ msgstr "全部選取"
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Edit Sticker"
-msgctxt "@title As in 'edit the state of this rooms'"
+msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
 msgstr "編輯貼圖"
 
@@ -2134,18 +2155,18 @@ msgstr "表情符號"
 msgid "Stickers"
 msgstr "貼圖"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr "請確定以下顯示的表情符號在兩台裝置上包含順序是一樣的。"
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
 msgstr "它們相符"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
 msgstr "它們不相符"
@@ -2445,7 +2466,7 @@ msgstr "拒絕並忽略使用者"
 msgid "Reject"
 msgstr "拒絕"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "接受"
@@ -2497,40 +2518,40 @@ msgstr "加入聊天室"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "婉拒"
+
+#: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "正在等待裝置接收驗證。"
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "來自裝置 **%1** 的金鑰驗證請求"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "正在等待對方驗證。"
 
-#: src/qml/KeyVerificationDialog.qml:54
-#, kde-format
-msgid "Emoji Verification"
-msgstr "表情符號驗證"
-
-#: src/qml/KeyVerificationDialog.qml:57
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "在雙方裝置上比對一串表情符號"
-
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "已成功驗證裝置 **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
-msgid "Decline"
-msgstr "婉拒"
+msgid "Emoji Verification"
+msgstr "表情符號驗證"
+
+#: src/qml/KeyVerificationDialog.qml:160
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr "在雙方裝置上比對一串表情符號"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -2675,7 +2696,7 @@ msgstr "複製連結"
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Edit Sticker"
-msgctxt "@action As in 'edit the state of this rooms'"
+msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "編輯貼圖"
 
@@ -3479,79 +3500,79 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "沒有相符項目"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "工作階段驗證由於不明原因被取消。"
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
 msgstr "工作階段驗證逾時。"
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "工作階段驗證在遠端逾時。"
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "您取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "遠端取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "工作階段驗證由於我方收到未預期的訊息而取消。"
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr "遠端由於收到未預期的訊息而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr "工作階段驗證由於收到未知的工作階段的訊息而取消。"
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr "遠端由於收到未知的工作階段的訊息而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr "工作階段驗證由於 NeoChat 無法處理這個驗證方式而取消。"
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr "遠端由於無法處理這個驗證方式而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "工作階段驗證由於金鑰不正確而取消。"
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3563,62 +3584,62 @@ msgstr ""
 "\n"
 "**您的工作階段有問題/已損毀，請登出後再重新登入。**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr "工作階段驗證由於驗證的使用者是非預期的而取消。"
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr "遠端由於驗證的使用者是非預期的而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "工作階段驗證由於我方收到無效訊息而取消。"
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr "遠端由於收到無效訊息而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "工作階段已於不同裝置上接受"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "工作階段驗證由於金鑰不相符而取消。"
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr "遠端由於金鑰不相符而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "工作階段驗證由於雙方金鑰不相符而取消。"
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr "遠端由於雙方金鑰不相符而取消了工作階段驗證。"
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "工作階段驗證由於不明錯誤而取消。"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
-"PO-Revision-Date: 2024-04-11 08:37+0300\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
+"PO-Revision-Date: 2024-04-13 08:44+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -87,30 +87,51 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Джерело подій"
 
+#: src/devtools/DebugOptions.qml:20
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Always allow device verification"
+msgstr "Очікуємо на прийняття пристроєм підтвердження."
+
+#: src/devtools/DebugOptions.qml:21
+#, kde-format
+msgid ""
+"Allow the user to start a verification session with devices that were "
+"already verified"
+msgstr ""
+
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:tab"
+msgid "Debug Options"
+msgstr "Параметри"
+
+#: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Дані облікового запису"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Прапорці можливостей"
 
-#: src/devtools/FeatureFlagPage.qml:18
+#: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Потоки"
 
-#: src/devtools/FeatureFlagPage.qml:24
+#: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -2113,21 +2134,20 @@ msgstr "Позначити все"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
-msgctxt "@title As in 'edit the state of this rooms'"
+#| msgctxt "@title As in 'edit the state of this rooms'"
+#| msgid "Edit State"
+msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "Редагування наліпки"
+msgstr "Редагування стану"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "Скасувати зміни"
 
 #: src/qml/EditStateDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "Застосувати"
@@ -2152,7 +2172,7 @@ msgstr "Емоційки"
 msgid "Stickers"
 msgstr "Наліпки"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -2160,12 +2180,12 @@ msgstr ""
 "Підтвердьте, що наведені нижче емоційки показано на обох пристроях у тому "
 "самому порядку."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
 msgstr "Збігаються"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
 msgstr "Не збігаються"
@@ -2466,7 +2486,7 @@ msgstr "Відмовити та ігнорувати користувача"
 msgid "Reject"
 msgstr "Відкинути"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
@@ -2518,40 +2538,40 @@ msgstr "Увійти в кімнату"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "Відхилити"
+
+#: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Очікуємо на прийняття пристроєм підтвердження."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Вхідний запит щодо перевірки ключа від пристрою **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Очікування на перевірку з іншого боку"
 
-#: src/qml/KeyVerificationDialog.qml:54
-#, kde-format
-msgid "Emoji Verification"
-msgstr "Перевірка емоційки"
-
-#: src/qml/KeyVerificationDialog.qml:57
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Порівняйте набір емоційок на обох пристроях"
-
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Успішно перевірено пристрій **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
-msgid "Decline"
-msgstr "Відхилити"
+msgid "Emoji Verification"
+msgstr "Перевірка емоційки"
+
+#: src/qml/KeyVerificationDialog.qml:160
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr "Порівняйте набір емоційок на обох пристроях"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -2695,10 +2715,11 @@ msgstr "Копіювати посилання"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
-#| msgid "Edit Message"
-msgctxt "@action As in 'edit the state of this rooms'"
+#| msgctxt "@action As in 'edit the state of this rooms'"
+#| msgid "Edit state"
+msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "Редагування повідомлення"
+msgstr "Редагування стану"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -3515,32 +3536,32 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Відповідників не знайдено"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Перевірку сеансу скасовано через невідому причину."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Перевищено час очікування на підтвердження сеансу."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Перевищено час очікування на підтвердження з боку іншого пристрою."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Вами скасовано перевірку сеансу."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Перевірку сеансу скасовано на боці іншого пристрою."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -3548,7 +3569,7 @@ msgid ""
 msgstr ""
 "Перевірку сеансу скасовано, оскільки отримано неочікуване повідомлення."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3557,7 +3578,7 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "неочікуване повідомлення."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -3566,7 +3587,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки отримано повідомлення з невідомого "
 "сеансу."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -3575,7 +3596,7 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "повідомлення з невідомого сеансу."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -3584,7 +3605,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки NeoChat не може обробити цей спосіб "
 "перевірки."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -3593,12 +3614,12 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки обробка ним "
 "цього способу перевірки неможлива."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Перевірку сеансу скасовано, оскільки ключі є помилковими."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3612,7 +3633,7 @@ msgstr ""
 "**Будь ласка, вийдіть з облікового запису і увійдіть знову. Дані вашого "
 "сеансу пошкоджено.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -3620,7 +3641,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки у ній виконується перевірка "
 "неочікуваного користувача."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -3629,13 +3650,13 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки у ній "
 "виконується перевірка неочікуваного користувача."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "Перевірку сеансу скасовано, оскільки отримано некоректне повідомлення."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3644,17 +3665,17 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "некоректне повідомлення."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Сеанс було прийнято на іншому пристрої"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Перевірку сеансу скасовано, оскільки ключі не збігаються."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -3663,12 +3684,12 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою через невідповідність "
 "ключів."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Перевірку сеансу скасовано, оскільки ключі не збігаються."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -3677,7 +3698,7 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ключі не "
 "збігаються."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Перевірку сеансу скасовано через невідому помилку."

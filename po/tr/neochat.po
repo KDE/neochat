@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
-"PO-Revision-Date: 2024-04-11 11:39+0300\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
+"PO-Revision-Date: 2024-04-13 13:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -84,30 +84,51 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Olay Kaynağı"
 
+#: src/devtools/DebugOptions.qml:20
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Always allow device verification"
+msgstr "Aygıtın doğrulamayı kabul etmesi bekleniyor."
+
+#: src/devtools/DebugOptions.qml:21
+#, kde-format
+msgid ""
+"Allow the user to start a verification session with devices that were "
+"already verified"
+msgstr ""
+
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Geliştirici Araçları"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:tab"
+msgid "Debug Options"
+msgstr "Seçenekler"
+
+#: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Hesap Verisi"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Özellik Bayrakları"
 
-#: src/devtools/FeatureFlagPage.qml:18
+#: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "İleti Dizileri"
 
-#: src/devtools/FeatureFlagPage.qml:24
+#: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -2091,21 +2112,20 @@ msgstr "Tümünü Seç"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
-msgctxt "@title As in 'edit the state of this rooms'"
+#| msgctxt "@title As in 'edit the state of this rooms'"
+#| msgid "Edit State"
+msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "Yapışkanı Düzenle"
+msgstr "Durumu Düzenle"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "Değişiklikleri Geri Al"
 
 #: src/qml/EditStateDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "Uygula"
@@ -2130,7 +2150,7 @@ msgstr "Emojiler"
 msgid "Stickers"
 msgstr "Yapışkanlar"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -2138,12 +2158,12 @@ msgstr ""
 "Aşağıdaki emojinin her iki aygıtta da aynı sırada görüntülendiğini "
 "doğrulayın."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
 msgstr "Eşleşiyorlar"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
 msgstr "Eşleşmiyorlar"
@@ -2444,7 +2464,7 @@ msgstr "Kullanıcıyı Reddet ve Yok Say"
 msgid "Reject"
 msgstr "Reddet"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "Kabul Et"
@@ -2496,40 +2516,40 @@ msgstr "Odaya Katıl"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "Reddet"
+
+#: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Aygıtın doğrulamayı kabul etmesi bekleniyor."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "**%1** aygıtından gelen anahtar doğrulama isteği"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Diğer tarafın doğrulaması bekleniyor."
 
-#: src/qml/KeyVerificationDialog.qml:54
-#, kde-format
-msgid "Emoji Verification"
-msgstr "Emoji Doğrulama"
-
-#: src/qml/KeyVerificationDialog.qml:57
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Her iki aygıttaki bir emoji kümesini karşılaştırın"
-
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** aygıtı başarıyla doğrulandı"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
-msgid "Decline"
-msgstr "Reddet"
+msgid "Emoji Verification"
+msgstr "Emoji Doğrulama"
+
+#: src/qml/KeyVerificationDialog.qml:160
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr "Her iki aygıttaki bir emoji kümesini karşılaştırın"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -2672,11 +2692,11 @@ msgstr "Bağlantıyı Kopyala"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
-msgctxt "@action As in 'edit the state of this rooms'"
+#| msgctxt "@action As in 'edit the state of this rooms'"
+#| msgid "Edit state"
+msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "Yapışkanı Düzenle"
+msgstr "Durumu Düzenle"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -3479,39 +3499,39 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Eşleşme bulunamadı"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Oturum doğrulama, bilinmeyen bir nedenle iptal edildi."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Oturum doğrulama, zaman aşımına uğradı."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Oturum doğrulama, diğer taraf için zaman aşımına uğradı."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Oturum doğrulamasını iptal ettiniz."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Oturum doğrulaması, diğer taraf tarafından iptal edildi."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "Oturum doğrulaması iptal edildi; çünkü beklenmeyen bir ileti aldık."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3520,7 +3540,7 @@ msgstr ""
 "Oturum doğrulaması iptal edildi; çünkü diğer taraf beklenmedik bir ileti "
 "aldı."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -3529,7 +3549,7 @@ msgstr ""
 "Oturum doğrulaması iptal edildi; çünkü bilinmeyen bir oturum için bir ileti "
 "alındı."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -3538,7 +3558,7 @@ msgstr ""
 "Oturum doğrulama diğer taraf tarafından iptal edildi; çünkü bilinmeyen bir "
 "oturum için bir ileti aldı."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -3547,7 +3567,7 @@ msgstr ""
 "Oturum doğrulaması iptal edildi; çünkü NeoChat bu doğrulama yöntemini "
 "işleyemiyor."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -3556,12 +3576,12 @@ msgstr ""
 "Oturum doğrulaması diğer taraf tarafından iptal edlidi; çünkü bu doğrulama "
 "yöntemini işleyemiyor."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Oturum doğrulaması iptal edlidi; çünkü anahtarlar yanlış."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3574,7 +3594,7 @@ msgstr ""
 "**Lütfen oturumunuzu kapatıp yeniden açın, oturumunuz şu haliyle hatalı/"
 "bozuk.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -3582,7 +3602,7 @@ msgstr ""
 "Oturum doğrulaması iptal edildi; çünkü beklenmedik bir kullanıcıyı "
 "doğruluyor."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -3591,13 +3611,13 @@ msgstr ""
 "Oturum doğrulaması diğer taraf tarafından iptal edildi; çünkü beklenmedik "
 "bir kullanıcıyı doğruluyor."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "Oturum doğrulaması iptal edildi; çünkü geçersiz bir ileti aldık."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3606,17 +3626,17 @@ msgstr ""
 "Oturum doğrulaması diğer taraf tarafından iptal edildi; çünkü beklenmedik "
 "bir ileti aldı."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Oturum, başka bir aygıtta kabul edildi"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Oturum doğrulaması, eşleşmeyen bir anahtar yüzünden iptal edildi."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -3625,12 +3645,12 @@ msgstr ""
 "Oturum doğrulaması, eşleşmeyen bir anahtar yüzünden diğer taraf tarafından "
 "iptal edildi."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Oturum doğrulaması iptal edildi; çünkü anahtarlar eşleşmiyor."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -3639,7 +3659,7 @@ msgstr ""
 "Oturum doğrulaması diğer taraf tarafından iptal edildi; çünkü anahtarlar "
 "eşleşmiyor."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Oturum doğrulaması, bilinmeyen bir hata yüzünden iptal edildi."

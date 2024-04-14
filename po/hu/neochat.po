@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
 "PO-Revision-Date: 2024-03-12 11:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -86,30 +86,51 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Esemény forrása"
 
+#: src/devtools/DebugOptions.qml:20
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Always allow device verification"
+msgstr "Várakozás az eszközre az ellenőrzés elfogadásához."
+
+#: src/devtools/DebugOptions.qml:21
+#, kde-format
+msgid ""
+"Allow the user to start a verification session with devices that were "
+"already verified"
+msgstr ""
+
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Fejlesztői eszközök"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:tab"
+msgid "Debug Options"
+msgstr "Beállítások"
+
+#: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Fókadatok"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Funkciójelzők"
 
-#: src/devtools/FeatureFlagPage.qml:18
+#: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Szálak"
 
-#: src/devtools/FeatureFlagPage.qml:24
+#: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -2111,7 +2132,7 @@ msgstr "Összes kijelölése"
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Edit Sticker"
-msgctxt "@title As in 'edit the state of this rooms'"
+msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
 msgstr "Matrica szerkesztése"
 
@@ -2148,7 +2169,7 @@ msgstr "Emodzsik"
 msgid "Stickers"
 msgstr "Matricák"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -2156,12 +2177,12 @@ msgstr ""
 "Erősítse meg, hogy az alábbi emodzsik mindkét eszközön ugyanabban a "
 "sorrendben jelennek meg."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
 msgstr "Egyeznek"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
 msgstr "Nem egyeznek"
@@ -2463,7 +2484,7 @@ msgstr "Elutasítás és felhasználó mellőzése"
 msgid "Reject"
 msgstr "Elutasítás"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "Elfogadás"
@@ -2519,40 +2540,40 @@ msgstr "Csatalkozás a(z) %1 szobához."
 msgid "Session Verification"
 msgstr "Munkamenet-ellenőrzés"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "Elutasítás"
+
+#: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Várakozás az eszközre az ellenőrzés elfogadásához."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Bejövő kulcs-ellenőrzési kérés erről az eszközről: **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Várakozás a másik fél megerősítésére."
 
-#: src/qml/KeyVerificationDialog.qml:54
-#, kde-format
-msgid "Emoji Verification"
-msgstr "Emodzsi-ellenőrzés"
-
-#: src/qml/KeyVerificationDialog.qml:57
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Emodzsik összehasonlítása mindkét eszközön"
-
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Sikeresen ellenőrizte a(z) **%1** eszközt"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
-msgid "Decline"
-msgstr "Elutasítás"
+msgid "Emoji Verification"
+msgstr "Emodzsi-ellenőrzés"
+
+#: src/qml/KeyVerificationDialog.qml:160
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr "Emodzsik összehasonlítása mindkét eszközön"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -2699,7 +2720,7 @@ msgstr "Hivatkozás másolása"
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
 #| msgid "Edit Message"
-msgctxt "@action As in 'edit the state of this rooms'"
+msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "Üzenet szerkesztése"
 
@@ -3513,39 +3534,39 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Nincs találat"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "A munkamenet-ellenőrzést ismeretlen okokból megszakították."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
 msgstr "A munkamenet-ellenőrzés túllépte az időkorlátot."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "A munkamenet-ellenőrzés túllépte az időkorlátot a távoli félnél."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Megszakította a munkamenet-ellenőrzést."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "A távoli fél megszakította a munkamenet-ellenőrzést."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "A munkamenet-ellenőrzés megszakadt, mert váratlan üzenet érkezett."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3554,7 +3575,7 @@ msgstr ""
 "A távoli fél megszakította a munkamenet-ellenőrzést, mert váratlan üzenetet "
 "kapott."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -3563,7 +3584,7 @@ msgstr ""
 "A munkamenet-ellenőrzés megszakadt, mert üzenetet kapott egy ismeretlen "
 "munkamenethez."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -3572,7 +3593,7 @@ msgstr ""
 "A távoli fél megszakította a munkamenet-ellenőrzést, mert üzenetet kapott "
 "egy ismeretlen munkamenethez."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -3581,7 +3602,7 @@ msgstr ""
 "A munkamenet-ellenőrzés megszakadt, mert a NeoChat nem tudja kezelni ezt az "
 "ellenőrzési módszert."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -3590,12 +3611,12 @@ msgstr ""
 "A távoli fél megszakította a munkamenet-ellenőrzést, mert nem tudja kezelni "
 "ezt az ellenőrzési módszert."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "A munkamenet-ellenőrzés megszakadt, mert a kulcsok helytelenek."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3608,7 +3629,7 @@ msgstr ""
 "\n"
 "**Kérjük, jelentkezzen ki és be, a munkamenete törött/sérült.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -3616,7 +3637,7 @@ msgstr ""
 "A munkamenet-ellenőrzés megszakadt, mert egy váratlan felhasználót "
 "ellenőrizne."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -3625,13 +3646,13 @@ msgstr ""
 "A távoli fél megszakította a munkamenet-ellenőrzést, mert egy váratlan "
 "felhasználót ellenőrizne."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "A munkamenet-ellenőrzés megszakadt, mert egy váratlan üzenet érkezett."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3640,17 +3661,17 @@ msgstr ""
 "A távoli fél megszakította a munkamenet-ellenőrzést, mert egy váratlan "
 "üzenetet kapott."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "A munkamenetet egy másik eszközön fogadták el"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "A munkamenet-egyezés megszakadt egy eltérő kulcs miatt."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -3658,12 +3679,12 @@ msgid ""
 msgstr ""
 "A távoli fél megszakította a munkamenet-ellenőrzést egy eltérő kulcs miatt."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "A munkamenet-ellenőrzés megszakadt, mert a kulcsok nem egyeznek."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -3672,7 +3693,7 @@ msgstr ""
 "A távoli fél megszakította a munkamenet-ellenőrzést, mert a kulcsok nem "
 "egyeznek."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "A munkamenet-ellenőrzés ismeretlen okokból megszakadt."

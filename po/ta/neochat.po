@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
 "PO-Revision-Date: 2024-04-07 17:04+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -83,30 +83,51 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "நிகழ்வுக்கான மூலம்"
 
+#: src/devtools/DebugOptions.qml:20
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Always allow device verification"
+msgstr "உறுதிப்பாட்டை சாதனம் ஏற்றுக்கொள்ள காத்திருக்கிறோம்."
+
+#: src/devtools/DebugOptions.qml:21
+#, kde-format
+msgid ""
+"Allow the user to start a verification session with devices that were "
+"already verified"
+msgstr ""
+
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:tab"
+msgid "Debug Options"
+msgstr "விருப்பங்கள்"
+
+#: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "கணக்கு விவரங்கள்"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr ""
 
-#: src/devtools/FeatureFlagPage.qml:18
+#: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "தொடர்கள்"
 
-#: src/devtools/FeatureFlagPage.qml:24
+#: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -2090,7 +2111,7 @@ msgstr "அனைத்தையும் தேர்ந்தெடு"
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Edit Sticker"
-msgctxt "@title As in 'edit the state of this rooms'"
+msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
 msgstr "ஒட்டியை திருத்துவது"
 
@@ -2127,7 +2148,7 @@ msgstr "முகவடிகள்"
 msgid "Stickers"
 msgstr "ஒட்டிகள்"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -2135,12 +2156,12 @@ msgstr ""
 "கீழுள்ள முகவடிகள், இரண்டு சாதனங்களிலும் ஒரே வரிசைமுறையில் காட்டப்படுகின்றனவா என்பதை "
 "உறுதி செய்யுங்கள்."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
 msgstr "பொருந்துகின்றன"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
 msgstr "பொருந்தவில்லை"
@@ -2441,7 +2462,7 @@ msgstr "மறுத்து பயனரைத் தடு"
 msgid "Reject"
 msgstr "மறு"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
@@ -2493,40 +2514,40 @@ msgstr "அரங்கில் சேர்"
 msgid "Session Verification"
 msgstr "அமர்வு உறுதிப்பாடு"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "நிராகரி"
+
+#: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "உறுதிப்பாட்டை சாதனம் ஏற்றுக்கொள்ள காத்திருக்கிறோம்."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "**%1** சாதனத்திலிருந்து சாவி உறுதிப்பாட்டு கோரிக்கை வருகிறது"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "மறுதரப்பினர் உறுதிசெய்ய காத்திருக்கிறோம்."
 
-#: src/qml/KeyVerificationDialog.qml:54
-#, kde-format
-msgid "Emoji Verification"
-msgstr "முகவடிவழி உறுதிப்பாடு"
-
-#: src/qml/KeyVerificationDialog.qml:57
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "இரு சாதனங்களிலும் முகவடிகளின் ஓர் சரத்தை ஒப்பிடு"
-
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** சாதனம் வெற்றிகரமாக உறுதிப்படுத்தப்பட்டுள்ளது"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
-msgid "Decline"
-msgstr "நிராகரி"
+msgid "Emoji Verification"
+msgstr "முகவடிவழி உறுதிப்பாடு"
+
+#: src/qml/KeyVerificationDialog.qml:160
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr "இரு சாதனங்களிலும் முகவடிகளின் ஓர் சரத்தை ஒப்பிடு"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -2670,7 +2691,7 @@ msgstr "இணைப்பை நகலெடு"
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
 #| msgid "Edit Message"
-msgctxt "@action As in 'edit the state of this rooms'"
+msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "செய்தியைத் திருத்து"
 
@@ -3472,53 +3493,53 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "யாரும் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "தெரியாத காரணத்தால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
 msgstr "அமர்வு உறுதிப்பாட்டு காலாவதியானது."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "அமர்வு உறுதிப்பாட்டு தொலை தரப்பினருக்கு காலாவதியானது."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "அமர்வு உறுதிப்பாட்டை நீங்கள் ரத்து செய்தீர்கள்."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "தொலை தரப்பு, அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "எதிர்பாராத பதிலால் அமர்வு உறுதிப்பாடு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr "தொலை தரப்பு, எதிர்பாராத பதிலைப் பெற்றதால் அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr "தெரியாத அமர்வுக்கான பதில் பெறப்பட்டதால் அமர்வு உறுதிப்பாடு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -3526,7 +3547,7 @@ msgid ""
 msgstr ""
 "தெரியாத அமர்வுக்கான பதிலை தொலை தரப்பு பெற்றதால் அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -3535,7 +3556,7 @@ msgstr ""
 "இந்த உறுதிப்பாடு முறையை நியோச்சாட்டால் கையாள முடியாத‍தால், அமர்வு உறுதிப்பாட்டு ரத்து "
 "செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -3544,12 +3565,12 @@ msgstr ""
 "தொலை தரப்பால் இந்த உறுதிப்பாடு முறையை கையாள முடியாத‍தால், அமர்வு உறுதிப்பாட்டை ரத்து "
 "செய்த‍து."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "சாவிகள் தவறாக உள்ளதால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3561,14 +3582,14 @@ msgstr ""
 "\n"
 "**அமர்வு முறையற்ற நிலையில் உள்ளதால் வெளியேறி மீண்டும் நுழையவும்.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
 "எதிர்பாராத பயனரை உறுதிப்படுத்த முயற்சித்த‍தால் அமர்வு உறுதிப்பாடு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -3577,13 +3598,13 @@ msgstr ""
 "எதிர்பாராத பயனரை உறுதிப்படுத்த முயற்சித்த‍தால் தொலை தரப்பு அமர்வு உறுதிப்பாட்டை ரத்து "
 "செய்த‍து."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "செல்லுபடியாகாத பதிலால் அமர்வு உறுதிப்பாடு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3591,36 +3612,36 @@ msgid ""
 msgstr ""
 "தொலை தரப்பு, செல்லுபடியாகாத பதிலைப் பெற்றதால் அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "அமர்வு, வேறு சாதனத்தில் ஏற்கப்பட்டுள்ளது"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "சாவிகள் பொருந்தாமையால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr "சாவிகள் பொருந்தாமையால் தொலை தரப்பு, அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "சாவிகள் பொருந்தாமையால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr "சாவிகள் பொருந்தாமையால் தொலை தரப்பு அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "தெரியாத சிக்கலால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."

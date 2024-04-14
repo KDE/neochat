@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 17:09+0100\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
+"PO-Revision-Date: 2024-04-13 11:51+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -84,30 +84,51 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Eventa Fonto"
 
+#: src/devtools/DebugOptions.qml:20
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Always allow device verification"
+msgstr "Atendante ke aparato akceptu konfirmon."
+
+#: src/devtools/DebugOptions.qml:21
+#, kde-format
+msgid ""
+"Allow the user to start a verification session with devices that were "
+"already verified"
+msgstr ""
+
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Iloj por programistoj"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:tab"
+msgid "Debug Options"
+msgstr "Opcioj"
+
+#: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Datumoj pri Konto"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Trajtoflagoj"
 
-#: src/devtools/FeatureFlagPage.qml:18
+#: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Fadenoj"
 
-#: src/devtools/FeatureFlagPage.qml:24
+#: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -2089,21 +2110,20 @@ msgstr "Elekti ĉiujn"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
-msgctxt "@title As in 'edit the state of this rooms'"
+#| msgctxt "@title As in 'edit the state of this rooms'"
+#| msgid "Edit State"
+msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "Redakti glumarkon"
+msgstr "Redakti Staton"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "Malfari ŝanĝojn"
 
 #: src/qml/EditStateDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "Apliki"
@@ -2128,7 +2148,7 @@ msgstr "Emojis"
 msgid "Stickers"
 msgstr "Glumarkoj"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -2136,12 +2156,12 @@ msgstr ""
 "Konfirmi, ke la subaj emoji estas montritaj sur ambaŭ aparatoj, en la sama "
 "ordo."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
 msgstr "Ili egalas"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
 msgstr "Ili ne kongruas"
@@ -2442,7 +2462,7 @@ msgstr "Malignori kaj ignori uzanton"
 msgid "Reject"
 msgstr "Malakcepti"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "Akcepti"
@@ -2494,40 +2514,40 @@ msgstr "Aliĝi al ĉambro"
 msgid "Session Verification"
 msgstr "Seanca Kontrolo"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "Malkresko"
+
+#: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Atendante ke aparato akceptu konfirmon."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Envenanta ŝlosila konfirmpeto de aparato **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Atendante la kontrolon de alia partio."
 
-#: src/qml/KeyVerificationDialog.qml:54
-#, kde-format
-msgid "Emoji Verification"
-msgstr "Emoĝi-Kontrolo"
-
-#: src/qml/KeyVerificationDialog.qml:57
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Kompari aron da emoji sur ambaŭ aparatoj"
-
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Sukcese kontrolita aparato **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
-msgid "Decline"
-msgstr "Malkresko"
+msgid "Emoji Verification"
+msgstr "Emoĝi-Kontrolo"
+
+#: src/qml/KeyVerificationDialog.qml:160
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr "Kompari aron da emoji sur ambaŭ aparatoj"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -2670,11 +2690,11 @@ msgstr "Kopii Ligo"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
-msgctxt "@action As in 'edit the state of this rooms'"
+#| msgctxt "@action As in 'edit the state of this rooms'"
+#| msgid "Edit state"
+msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "Redakti glumarkon"
+msgstr "Redakti staton"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -3479,39 +3499,39 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Trovis neniujn kongruojn"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "La seanckontrolo estis nuligita pro nekonata kialo."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
 msgstr "La seancokontrolo elĉerpiĝis."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "La seanckontrolo finiĝis por fora festo."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Vi nuligis la seancan kontrolon."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "La fora partio nuligis la seancan kontrolon."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr "La seancokontrolo estis nuligita ĉar ni ricevis neatenditan mesaĝon."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3519,7 +3539,7 @@ msgid ""
 msgstr ""
 "La fora partio nuligis la seanckontrolon ĉar ĝi ricevis neatenditan mesaĝon."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -3527,7 +3547,7 @@ msgid ""
 msgstr ""
 "La seancokontrolo estis nuligita ĉar ĝi ricevis mesaĝon por nekonata sesio."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -3536,7 +3556,7 @@ msgstr ""
 "La fora partio nuligis la seanckontrolon ĉar ĝi ricevis mesaĝon por nekonata "
 "sesio."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -3545,7 +3565,7 @@ msgstr ""
 "La seancokontrolo estis nuligita ĉar NeoChat ne kapablas trakti ĉi tiun "
 "kontrolmetodon."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -3554,12 +3574,12 @@ msgstr ""
 "La fora partio nuligis la sean konfirmon ĉar ĝi ne povas trakti ĉi tiun "
 "konfirmmetodon."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "La seancokontrolo estis nuligita ĉar la ŝlosiloj estas malĝustaj."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3571,13 +3591,13 @@ msgstr ""
 "\n"
 "**Bonvolu elsaluti kaj reensaluti, via seanco estas rompita/korupta.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr "La seancokontrolo estis nuligita ĉar ĝi kontrolas neatenditan uzanton."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -3586,13 +3606,13 @@ msgstr ""
 "La fora partio nuligis la sean konfirmon ĉar ĝi kontrolas neatenditan "
 "uzanton."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "La seancokontrolo estis nuligita ĉar ni ricevis nevalidan mesaĝon."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3600,36 +3620,36 @@ msgid ""
 msgstr ""
 "La fora partio nuligis la sean konfirmon ĉar ĝi ricevis nevalidan mesaĝon."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "La seanco estis akceptita sur alia aparato"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "La seancokontrolo estis nuligita pro miskongrua ŝlosilo."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr "La fora partio nuligis la sean konfirmon pro miskongrua ŝlosilo."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "La seancokontrolo estis nuligita ĉar la ŝlosiloj ne kongruas."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr "La fora partio nuligis la sean konfirmon ĉar la ŝlosiloj ne kongruas."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "La seancokontrolo estis nuligita pro nekonata eraro."
@@ -3742,12 +3762,10 @@ msgid "Label:"
 msgstr "Etikedo:"
 
 #: src/settings/AccountEditorPage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "QR code for account"
-msgstr "Forigi ĉi tiun konton"
+msgstr "QR-kodo por konto"
 
 #: src/settings/AccountEditorPage.qml:132
 #: src/settings/AccountEditorPage.qml:187

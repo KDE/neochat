@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
 "PO-Revision-Date: 2024-04-01 08:15+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -84,30 +84,51 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Źródło wydarzenia"
 
+#: src/devtools/DebugOptions.qml:20
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Always allow device verification"
+msgstr "Oczekiwanie, aż urządzenie zatwierdzi sprawdzenie."
+
+#: src/devtools/DebugOptions.qml:21
+#, kde-format
+msgid ""
+"Allow the user to start a verification session with devices that were "
+"already verified"
+msgstr ""
+
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Narzędzia programisty"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:tab"
+msgid "Debug Options"
+msgstr "Ustawienia"
+
+#: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Dane konta"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Flagi funkcjonalności"
 
-#: src/devtools/FeatureFlagPage.qml:18
+#: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Wątki"
 
-#: src/devtools/FeatureFlagPage.qml:24
+#: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -2104,7 +2125,7 @@ msgstr "Zaznacz wszystko"
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Edit Sticker"
-msgctxt "@title As in 'edit the state of this rooms'"
+msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
 msgstr "Edytuj naklejkę"
 
@@ -2141,7 +2162,7 @@ msgstr "Emoji"
 msgid "Stickers"
 msgstr "Naklejki"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -2149,12 +2170,12 @@ msgstr ""
 "Potwierdź, że poniższe emoji są wyświetlane na obu urządzeniach, w tej samej "
 "kolejności."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
 msgstr "Są zgodne"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
 msgstr "Są niezgodne"
@@ -2455,7 +2476,7 @@ msgstr "Odrzuć i wycisz użytkownika"
 msgid "Reject"
 msgstr "Odrzuć"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "Zaakceptuj"
@@ -2507,40 +2528,40 @@ msgstr "Dołącz do pokoju"
 msgid "Session Verification"
 msgstr "Sprawdzenie posiedzenia"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "Odmów"
+
+#: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Oczekiwanie, aż urządzenie zatwierdzi sprawdzenie."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Przychodząca prośba o sprawdzenie klucza z urządzenia **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Oczekiwanie na sprawdzenie drugiej strony."
 
-#: src/qml/KeyVerificationDialog.qml:54
-#, kde-format
-msgid "Emoji Verification"
-msgstr "Sprawdzenie emoji"
-
-#: src/qml/KeyVerificationDialog.qml:57
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Sprawdź zestaw emoji na obu urządzeniach"
-
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Pomyślnie sprawdzono urządzenie  **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
-msgid "Decline"
-msgstr "Odmów"
+msgid "Emoji Verification"
+msgstr "Sprawdzenie emoji"
+
+#: src/qml/KeyVerificationDialog.qml:160
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr "Sprawdź zestaw emoji na obu urządzeniach"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -2684,7 +2705,7 @@ msgstr "Skopiuj odnośnik"
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
 #| msgid "Edit Message"
-msgctxt "@action As in 'edit the state of this rooms'"
+msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "Edytuj wiadomość"
 
@@ -3495,32 +3516,32 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Nie znaleziono niczego, co by odpowiadało"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Zaniechano sprawdzenia posiedzenia z nieznanego powodu."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Przekroczono czas na sprawdzenie posiedzenia."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Przekroczono czas na sprawdzenie posiedzenia dla strony zdalnej."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Zaniechałeś sprawdzenia posiedzenia."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Strona zdalna zaniechała sprawdzenia posiedzenia."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -3528,7 +3549,7 @@ msgid ""
 msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymaliśmy nieoczekiwaną wiadomość."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3537,7 +3558,7 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała nieoczekiwaną "
 "wiadomość."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -3546,7 +3567,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymała ona wiadomość z nieznanego "
 "powodu."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -3555,7 +3576,7 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała wiadomość dla "
 "nieznanej posiedzenia."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -3564,7 +3585,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo NeoChat nie jest w stanie obsłużyć "
 "tego sposobu sprawdzenia."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -3573,12 +3594,12 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo nie jest w stanie "
 "obsłużyć tego sposobu sprawdzenia."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Zaniechano sprawdzenia posiedzenia, bo klucze są niepoprawne."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3592,7 +3613,7 @@ msgstr ""
 "**Spróbuj wyjść i wejść ponownie, bo twoje obecne posiedzenie jest "
 "uszkodzone.**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -3600,7 +3621,7 @@ msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo sprawdzała ona nieoczekiwanego "
 "użytkownika."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -3609,14 +3630,14 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo sprawdzała ona "
 "nieoczekiwanego użytkownika."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
 "Zaniechano sprawdzenia posiedzenia, bo otrzymaliśmy nieprawidłową wiadomość."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3625,17 +3646,17 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo otrzymała nieprawidłową "
 "wiadomość."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Posiedzenie zostało zatwierdzone na innym urządzeniu"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Zaniechano sprawdzenia posiedzenia ze względu na niezgodne klucze."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -3644,12 +3665,12 @@ msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia ze względu na niezgodne "
 "klucze."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Zaniechano sprawdzenia posiedzenia, bo klucze nie są zgodne."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -3657,7 +3678,7 @@ msgid ""
 msgstr ""
 "Strona zdalna zaniechała sprawdzenia posiedzenia, bo klucze nie są zgodne."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Zaniechano sprawdzenia posiedzenia ze względu na nieznany błąd."

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:38+0000\n"
-"PO-Revision-Date: 2024-04-11 12:39+0200\n"
+"POT-Creation-Date: 2024-04-14 00:38+0000\n"
+"PO-Revision-Date: 2024-04-13 12:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -86,30 +86,51 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Font d'esdeveniments"
 
+#: src/devtools/DebugOptions.qml:20
+#, fuzzy, kde-format
+#| msgid "Waiting for device to accept verification."
+msgctxt "@option:check Enable the matrix 'threads' feature"
+msgid "Always allow device verification"
+msgstr "S'està esperant que el dispositiu accepti la verificació."
+
+#: src/devtools/DebugOptions.qml:21
+#, kde-format
+msgid ""
+"Allow the user to start a verification session with devices that were "
+"already verified"
+msgstr ""
+
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:224
 #, kde-format
 msgid "Developer Tools"
 msgstr "Eines de desenvolupament"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:29
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:tab"
+msgid "Debug Options"
+msgstr "Opcions"
+
+#: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Dades de comptatge"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Indicadors de característiques"
 
-#: src/devtools/FeatureFlagPage.qml:18
+#: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Fils"
 
-#: src/devtools/FeatureFlagPage.qml:24
+#: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
@@ -2096,21 +2117,20 @@ msgstr "Selecciona-ho tot"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
-msgctxt "@title As in 'edit the state of this rooms'"
+#| msgctxt "@title As in 'edit the state of this rooms'"
+#| msgid "Edit State"
+msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "Edita un adhesiu"
+msgstr "Edita l'estat"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "Desfés els canvis"
 
 #: src/qml/EditStateDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "Aplica"
@@ -2135,7 +2155,7 @@ msgstr "Emojis"
 msgid "Stickers"
 msgstr "Adhesius"
 
-#: src/qml/EmojiSas.qml:23
+#: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
@@ -2143,12 +2163,12 @@ msgstr ""
 "Confirmeu que els emojis de sota es mostrin en els dos dispositius, en el "
 "mateix ordre."
 
-#: src/qml/EmojiSas.qml:39
+#: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
 msgstr "Coincideixen"
 
-#: src/qml/EmojiSas.qml:45
+#: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
 msgstr "No coincideixen"
@@ -2449,7 +2469,7 @@ msgstr "Rebutja i ignora l'usuari"
 msgid "Reject"
 msgstr "Rebutja"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:79
+#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
@@ -2501,40 +2521,40 @@ msgstr "Uneix-te a la sala"
 msgid "Session Verification"
 msgstr "Verificació de la sessió"
 
-#: src/qml/KeyVerificationDialog.qml:38
+#: src/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "Declina"
+
+#: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "S'està esperant que el dispositiu accepti la verificació."
 
-#: src/qml/KeyVerificationDialog.qml:44
+#: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Sol·licitud entrant de verificació de clau des del dispositiu **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:50
+#: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "S'està esperant la verificació de l'altra part."
 
-#: src/qml/KeyVerificationDialog.qml:54
-#, kde-format
-msgid "Emoji Verification"
-msgstr "Verificació dels emojis"
-
-#: src/qml/KeyVerificationDialog.qml:57
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Compara un conjunt d'emojis en els dos dispositius"
-
-#: src/qml/KeyVerificationDialog.qml:66
+#: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Dispositiu **%1** verificat correctament"
 
-#: src/qml/KeyVerificationDialog.qml:85
+#: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
-msgid "Decline"
-msgstr "Declina"
+msgid "Emoji Verification"
+msgstr "Verificació dels emojis"
+
+#: src/qml/KeyVerificationDialog.qml:160
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr "Compara un conjunt d'emojis en els dos dispositius"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -2678,11 +2698,11 @@ msgstr "Copia l'enllaç"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
-msgctxt "@action As in 'edit the state of this rooms'"
+#| msgctxt "@action As in 'edit the state of this rooms'"
+#| msgid "Edit state"
+msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "Edita un adhesiu"
+msgstr "Edita l'estat"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -3491,32 +3511,32 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "No s'ha trobat cap coincidència"
 
-#: src/qml/VerificationCanceled.qml:19
+#: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "La verificació de la sessió s'ha cancel·lat per un motiu desconegut."
 
-#: src/qml/VerificationCanceled.qml:21
+#: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
 msgstr "La verificació de la sessió ha vençut."
 
-#: src/qml/VerificationCanceled.qml:23
+#: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "La verificació de la sessió ha vençut per la part remota."
 
-#: src/qml/VerificationCanceled.qml:25
+#: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Heu cancel·lat la verificació de la sessió."
 
-#: src/qml/VerificationCanceled.qml:27
+#: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "La part remota ha cancel·lat la verificació de la sessió."
 
-#: src/qml/VerificationCanceled.qml:29
+#: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -3525,7 +3545,7 @@ msgstr ""
 "La verificació de la sessió s'ha cancel·lat perquè s'ha rebut un missatge "
 "inesperat."
 
-#: src/qml/VerificationCanceled.qml:31
+#: src/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3534,7 +3554,7 @@ msgstr ""
 "La part remota ha cancel·lat la verificació de la sessió perquè ha rebut un "
 "missatge inesperat."
 
-#: src/qml/VerificationCanceled.qml:33
+#: src/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -3543,7 +3563,7 @@ msgstr ""
 "La verificació de la sessió s'ha cancel·lat perquè s'ha rebut un missatge "
 "per a una sessió desconeguda."
 
-#: src/qml/VerificationCanceled.qml:35
+#: src/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -3552,7 +3572,7 @@ msgstr ""
 "La part remota ha cancel·lat la verificació de la sessió perquè ha rebut un "
 "missatge per a una sessió desconeguda."
 
-#: src/qml/VerificationCanceled.qml:37
+#: src/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -3561,7 +3581,7 @@ msgstr ""
 "La verificació de la sessió s'ha cancel·lat perquè el NeoChat no pot "
 "gestionar aquest mètode de verificació."
 
-#: src/qml/VerificationCanceled.qml:39
+#: src/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -3570,13 +3590,13 @@ msgstr ""
 "La part remota ha cancel·lat la verificació de la sessió perquè no pot "
 "gestionar aquest mètode de verificació."
 
-#: src/qml/VerificationCanceled.qml:41
+#: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr ""
 "La verificació de la sessió s'ha cancel·lat perquè les claus són incorrectes."
 
-#: src/qml/VerificationCanceled.qml:43
+#: src/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -3590,7 +3610,7 @@ msgstr ""
 "**Tanqueu la sessió i torneu-la a iniciar. La sessió està trencada/corrupta."
 "**"
 
-#: src/qml/VerificationCanceled.qml:45
+#: src/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -3598,7 +3618,7 @@ msgstr ""
 "La verificació de la sessió s'ha cancel·lat perquè verifica un usuari "
 "inesperat."
 
-#: src/qml/VerificationCanceled.qml:47
+#: src/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -3607,7 +3627,7 @@ msgstr ""
 "La part remota ha cancel·lat la verificació de la sessió perquè verifica un "
 "usuari inesperat."
 
-#: src/qml/VerificationCanceled.qml:49
+#: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
@@ -3615,7 +3635,7 @@ msgstr ""
 "La verificació de la sessió s'ha cancel·lat perquè s'ha rebut un missatge no "
 "vàlid."
 
-#: src/qml/VerificationCanceled.qml:51
+#: src/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -3624,18 +3644,18 @@ msgstr ""
 "La part remota ha cancel·lat la verificació de la sessió perquè ha rebut un "
 "missatge no vàlid."
 
-#: src/qml/VerificationCanceled.qml:53 src/qml/VerificationCanceled.qml:55
+#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "La sessió s'ha acceptat en un dispositiu diferent"
 
-#: src/qml/VerificationCanceled.qml:57
+#: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr ""
 "La verificació de la sessió s'ha cancel·lat perquè una clau no coincideix."
 
-#: src/qml/VerificationCanceled.qml:59
+#: src/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -3644,13 +3664,13 @@ msgstr ""
 "La part remota ha cancel·lat la verificació de la sessió perquè una clau no "
 "coincideix."
 
-#: src/qml/VerificationCanceled.qml:61
+#: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr ""
 "La verificació de la sessió s'ha cancel·lat perquè les claus no coincideixen."
 
-#: src/qml/VerificationCanceled.qml:63
+#: src/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -3659,7 +3679,7 @@ msgstr ""
 "La part remota ha cancel·lat la verificació de la sessió perquè les claus no "
 "coincideixen."
 
-#: src/qml/VerificationCanceled.qml:65
+#: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr ""
