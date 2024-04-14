@@ -175,6 +175,8 @@ add_library(neochat STATIC
     models/roomtreeitem.cpp
     models/roomtreeitem.h
     foreigntypes.h
+    models/threepidmodel.cpp
+    models/threepidmodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

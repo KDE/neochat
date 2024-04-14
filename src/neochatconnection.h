@@ -9,6 +9,8 @@
 #include <QCoroTask>
 #include <Quotient/connection.h>
 
+#include "models/threepidmodel.h"
+
 class LinkPreviewer;
 
 class NeoChatConnection : public Quotient::Connection
@@ -28,6 +30,11 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(QString label READ label WRITE setLabel NOTIFY labelChanged)
     Q_PROPERTY(QString deviceKey READ deviceKey CONSTANT)
     Q_PROPERTY(QString encryptionKey READ encryptionKey CONSTANT)
+
+    /**
+     * @brief The model with the account's 3PIDs.
+     */
+    Q_PROPERTY(ThreePIdModel *threePIdModel READ threePIdModel CONSTANT)
 
     /**
      * @brief The total number of notifications for all direct chats.
@@ -95,6 +102,8 @@ public:
     void setLabel(const QString &label);
 
     Q_INVOKABLE void deactivateAccount(const QString &password);
+
+    ThreePIdModel *threePIdModel() const;
 
     /**
      * @brief Create new room for a group chat.
@@ -166,6 +175,8 @@ Q_SIGNALS:
 private:
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);
+
+    ThreePIdModel *m_threePIdModel;
 
     void connectSignals();
 

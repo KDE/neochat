@@ -16,6 +16,7 @@
 #include "spacehierarchycache.h"
 
 #include <Quotient/connection.h>
+#include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
 #include <qt6keychain/keychain.h>
 
@@ -41,12 +42,14 @@ using namespace Qt::StringLiterals;
 
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
+    , m_threePIdModel(new ThreePIdModel(this))
 {
     connectSignals();
 }
 
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
     : Connection(server, parent)
+    , m_threePIdModel(new ThreePIdModel(this))
 {
     connectSignals();
 }
@@ -246,6 +249,11 @@ void NeoChatConnection::deactivateAccount(const QString &password)
             });
         }
     });
+}
+
+ThreePIdModel *NeoChatConnection::threePIdModel() const
+{
+    return m_threePIdModel;
 }
 
 void NeoChatConnection::createRoom(const QString &name, const QString &topic, const QString &parent, bool setChildParent)

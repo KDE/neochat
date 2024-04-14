@@ -32,4 +32,5 @@ qt_add_qml_module(settings
         IgnoredUsersDialog.qml
         NotificationRuleItem.qml
         ThemeRadioButton.qml
+        ThreePIdCard.qml
 )
