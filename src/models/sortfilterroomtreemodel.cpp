@@ -7,6 +7,7 @@
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroomtype.h"
+#include "roommanager.h"
 #include "roomtreemodel.h"
 #include "spacehierarchycache.h"
 
@@ -32,6 +33,12 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QOb
     });
 
     connect(NeoChatConfig::self(), &NeoChatConfig::CollapsedChanged, this, &SortFilterRoomTreeModel::invalidateFilter);
+    connect(NeoChatConfig::self(), &NeoChatConfig::AllRoomsInHomeChanged, this, [this]() {
+        invalidateFilter();
+        if (NeoChatConfig::self()->allRoomsInHome()) {
+            RoomManager::instance().resetState();
+        }
+    });
 }
 
 void SortFilterRoomTreeModel::setRoomSortOrder(SortFilterRoomTreeModel::RoomSortOrder sortOrder)
@@ -152,6 +159,11 @@ bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex
     if (sourceModel()->data(index, RoomTreeModel::JoinStateRole).toString() == QStringLiteral("upgraded")
         && dynamic_cast<RoomTreeModel *>(sourceModel())->connection()->room(sourceModel()->data(index, RoomTreeModel::ReplacementIdRole).toString())) {
         return false;
+    }
+
+    static auto config = NeoChatConfig::self();
+    if (config->allRoomsInHome() && RoomManager::instance().currentSpace().isEmpty()) {
+        return acceptRoom;
     }
 
     if (m_activeSpaceId.isEmpty()) {

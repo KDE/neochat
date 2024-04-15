@@ -238,6 +238,11 @@ public:
      */
     void setConnection(NeoChatConnection *connection);
 
+    /**
+     * Closes the current room and space; for situations, where it is unclear which room should be opened.
+     */
+    void resetState();
+
 Q_SIGNALS:
     /** Ask the user whether the room should be joined. */
     void askJoinRoom(const QString &nameOrId);

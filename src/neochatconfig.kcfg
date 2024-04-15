@@ -5,6 +5,10 @@
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="neochatrc" />
   <group name="General">
+    <entry name="AllRoomsInHome" type="bool">
+      <label>Show all rooms in the home tab</label>
+      <default>false</default>
+    </entry>
     <entry name="CollapsedSections" type="IntList">
       <label>Collapsed sections in the room list</label>
     </entry>

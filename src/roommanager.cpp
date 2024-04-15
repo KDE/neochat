@@ -8,6 +8,7 @@
 #include "controller.h"
 #include "eventhandler.h"
 #include "models/timelinemodel.h"
+#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
@@ -421,6 +422,11 @@ void RoomManager::setCurrentRoom(const QString &roomId)
     if (parentSpaces.contains(m_currentSpaceId)) {
         return;
     }
+    static auto config = NeoChatConfig::self();
+    if (config->allRoomsInHome()) {
+        setCurrentSpace({}, false);
+        return;
+    }
     if (const auto &parent = m_connection->room(m_currentRoom->canonicalParent())) {
         for (const auto &parentParent : SpaceHierarchyCache::instance().parentSpaces(parent->id())) {
             if (SpaceHierarchyCache::instance().parentSpaces(parentParent).isEmpty()) {
@@ -443,6 +449,12 @@ void RoomManager::setCurrentRoom(const QString &roomId)
 QString RoomManager::currentSpace() const
 {
     return m_currentSpaceId;
+}
+
+void RoomManager::resetState()
+{
+    setCurrentRoom({});
+    setCurrentSpace({});
 }
 
 #include "moc_roommanager.cpp"

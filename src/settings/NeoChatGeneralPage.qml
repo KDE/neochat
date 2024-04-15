@@ -64,6 +64,22 @@ FormCard.FormCardPage {
                 Config.save();
             }
         }
+
+        FormCard.FormDelegateSeparator {
+            above: automaticallyDelegate
+            below: categorizeDelegate
+        }
+        FormCard.FormCheckDelegate {
+            id: categorizeDelegate
+            text: i18n("Show all rooms in \"Home\" tab")
+            checked: Config.allRoomsInHome
+            enabled: !Config.isAllRoomsInHomeImmutable
+            onToggled: {
+                Config.allRoomsInHome = checked;
+                Config.save();
+            }
+        }
+
     }
     FormCard.FormHeader {
         title: i18n("Room list sort order")
