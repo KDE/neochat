@@ -162,3 +162,5 @@ QString NotificationsModel::nextToken() const
 {
     return m_nextToken;
 }
+
+#include "moc_notificationsmodel.cpp"

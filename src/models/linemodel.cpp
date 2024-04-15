@@ -62,3 +62,5 @@ void LineModel::resetModel()
     beginResetModel();
     endResetModel();
 }
+
+#include "moc_linemodel.cpp"

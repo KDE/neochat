@@ -7,3 +7,5 @@ void MediaManager::startPlayback()
 {
     Q_EMIT playbackStarted();
 }
+
+#include "moc_mediamanager.cpp"

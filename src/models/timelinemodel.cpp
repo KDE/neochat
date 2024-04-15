@@ -93,3 +93,5 @@ QHash<int, QByteArray> TimelineEndModel::roleNames() const
 {
     return {{DelegateTypeRole, "delegateType"}};
 }
+
+#include "moc_timelinemodel.cpp"

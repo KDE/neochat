@@ -35,3 +35,4 @@ void ShareHandler::setRoom(const QString &roomId)
     Q_EMIT roomChanged();
 }
 
+#include "moc_sharehandler.cpp"

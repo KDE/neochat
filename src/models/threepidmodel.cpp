@@ -55,3 +55,5 @@ QHash<int, QByteArray> ThreePIdModel::roleNames() const
         {MediumRole, QByteArrayLiteral("medium")},
     };
 }
+
+#include "moc_threepidmodel.cpp"

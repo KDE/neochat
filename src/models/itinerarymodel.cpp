@@ -208,3 +208,5 @@ void ItineraryModel::sendToItinerary()
     job->start();
 #endif
 }
+
+#include "moc_itinerarymodel.cpp"

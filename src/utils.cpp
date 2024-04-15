@@ -48,3 +48,5 @@ bool QmlUtils::isValidJson(const QByteArray &json)
 {
     return !QJsonDocument::fromJson(json).isNull();
 }
+
+#include "moc_utils.cpp"

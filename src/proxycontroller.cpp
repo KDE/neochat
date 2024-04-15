@@ -33,3 +33,5 @@ ProxyController::ProxyController(QObject *parent)
     : QObject(parent)
 {
 }
+
+#include "moc_proxycontroller.cpp"

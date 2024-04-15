@@ -382,3 +382,5 @@ void MessageContentModel::updateItineraryModel()
         }
     }
 }
+
+#include "moc_messagecontentmodel.cpp"
