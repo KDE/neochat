@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-14 00:38+0000\n"
+"POT-Creation-Date: 2024-04-15 00:38+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -759,7 +759,7 @@ msgid "Password:"
 msgstr "Passwort:"
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:148 src/settings/NetworkProxyPage.qml:85
+#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:85
 #, kde-format
 msgid "Password"
 msgstr "Passwort"
@@ -1543,22 +1543,22 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 reagierte mit %3"
 msgstr[1] "%2 reagierten mit %3"
 
-#: src/neochatconnection.cpp:74
+#: src/neochatconnection.cpp:77
 #, kde-format
 msgid "File too large to download."
 msgstr "Datei zu groß für einen Download."
 
-#: src/neochatconnection.cpp:74
+#: src/neochatconnection.cpp:77
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:276
+#: src/neochatconnection.cpp:284
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/neochatconnection.cpp:308
+#: src/neochatconnection.cpp:316
 #, fuzzy, kde-format
 #| msgid "Room creation failed: %1"
 msgid "Space creation failed: %1"
@@ -2057,7 +2057,7 @@ msgstr "Alle auswählen"
 msgid "Space"
 msgstr "Spaces"
 
-#: src/qml/CreateRoomDialog.qml:72 src/settings/AccountEditorPage.qml:105
+#: src/qml/CreateRoomDialog.qml:72 src/settings/AccountEditorPage.qml:106
 #, kde-format
 msgid "Name:"
 msgstr "Name:"
@@ -3947,116 +3947,127 @@ msgctxt "@title:window"
 msgid "About KDE"
 msgstr "Über KDE"
 
-#: src/settings/AccountEditorPage.qml:19
+#: src/settings/AccountEditorPage.qml:20
 #, kde-format
 msgid "Edit Account"
 msgstr "Konto bearbeiten"
 
-#: src/settings/AccountEditorPage.qml:60
+#: src/settings/AccountEditorPage.qml:61
 #, fuzzy, kde-format
 #| msgid "Update avatar"
 msgid "Upload new avatar"
 msgstr "Avatar aktualisieren"
 
-#: src/settings/AccountEditorPage.qml:77
+#: src/settings/AccountEditorPage.qml:78
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Aktuellen Avatar löschen"
 
-#: src/settings/AccountEditorPage.qml:100
+#: src/settings/AccountEditorPage.qml:101
 #, kde-format
 msgid "User information"
 msgstr "Nutzer-Informationen"
 
-#: src/settings/AccountEditorPage.qml:111
+#: src/settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "Beschriftung:"
 
-#: src/settings/AccountEditorPage.qml:116
+#: src/settings/AccountEditorPage.qml:117
 #, fuzzy, kde-format
 #| msgid "Edit this account"
 msgctxt "@action:button"
 msgid "QR code for account"
 msgstr "Dieses Konto bearbeiten"
 
-#: src/settings/AccountEditorPage.qml:132
-#: src/settings/AccountEditorPage.qml:187
+#: src/settings/AccountEditorPage.qml:133
+#: src/settings/AccountEditorPage.qml:188
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Speichern"
 
-#: src/settings/AccountEditorPage.qml:153
+#: src/settings/AccountEditorPage.qml:154
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Ihr Server unterstützt das Ändern Ihres Passworts nicht."
 
-#: src/settings/AccountEditorPage.qml:160
+#: src/settings/AccountEditorPage.qml:161
 #, kde-format
 msgid "Current Password:"
 msgstr "Aktuelles Passwort:"
 
-#: src/settings/AccountEditorPage.qml:167
+#: src/settings/AccountEditorPage.qml:168
 #, kde-format
 msgid "New Password:"
 msgstr "Neues Passwort:"
 
-#: src/settings/AccountEditorPage.qml:174
+#: src/settings/AccountEditorPage.qml:175
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Passwort bestätigen:"
 
-#: src/settings/AccountEditorPage.qml:179
+#: src/settings/AccountEditorPage.qml:180
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Die Passwörter stimmen nicht überein"
 
-#: src/settings/AccountEditorPage.qml:193
+#: src/settings/AccountEditorPage.qml:194
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Die Passwörter stimmen nicht überein"
 
 #: src/settings/AccountEditorPage.qml:201
 #, kde-format
+msgid "Email Addresses"
+msgstr ""
+
+#: src/settings/AccountEditorPage.qml:206
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Phone Numbers"
+msgstr "Mitglieder"
+
+#: src/settings/AccountEditorPage.qml:211
+#, kde-format
 msgid "Server Information"
 msgstr "Server-Informationen"
 
-#: src/settings/AccountEditorPage.qml:205
+#: src/settings/AccountEditorPage.qml:215
 #, kde-format
 msgid "Homeserver url"
 msgstr "Heimserver-URL:"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:236
 #, fuzzy, kde-format
 #| msgid "Account editor"
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Kontodetails"
 
-#: src/settings/AccountEditorPage.qml:231
+#: src/settings/AccountEditorPage.qml:241
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate Account"
 msgstr "Konto bearbeiten"
 
-#: src/settings/AccountEditorPage.qml:235
+#: src/settings/AccountEditorPage.qml:245
 #, kde-format
 msgctxt "@title"
 msgid "Confirm Deactivating Account"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:244
+#: src/settings/AccountEditorPage.qml:254
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Das Passwort wurde erfolgreich geändert"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Falsches Passwort eingegeben"
 
-#: src/settings/AccountEditorPage.qml:248
+#: src/settings/AccountEditorPage.qml:258
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Unbekanntes Problem beim Ändern des Passworts aufgetreten"
@@ -5244,11 +5255,18 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Wort löschen"
 
-#: src/timeline/CodeComponent.qml:165
+#: src/timeline/CodeComponent.qml:167
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
 msgid "Copy to clipboard"
 msgstr "Raumkennung in die Zwischenablage kopieren"
+
+#: src/timeline/CodeComponent.qml:178
+#, fuzzy, kde-format
+#| msgid "Maximize"
+msgctxt "@action:button"
+msgid "Maximize"
+msgstr "Maximieren"
 
 #: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
 #, kde-format
