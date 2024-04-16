@@ -7,6 +7,8 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Layouts
 
+import org.kde.kirigami as Kirigami
+
 import org.kde.neochat
 import org.kde.neochat.settings
 
