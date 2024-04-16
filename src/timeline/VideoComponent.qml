@@ -277,7 +277,7 @@ Video {
                         }
                         onHoveredChanged: {
                             if (!hovered && (root.state === "paused" || root.state === "playing")) {
-                                rooteoControlTimer.restart();
+                                videoControlTimer.restart();
                                 volumePopupTimer.restart();
                             }
                         }
