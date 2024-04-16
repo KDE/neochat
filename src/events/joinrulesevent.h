@@ -40,5 +40,4 @@ public:
      */
     QJsonArray allow() const;
 };
-REGISTER_EVENT_TYPE(JoinRulesEvent)
 }

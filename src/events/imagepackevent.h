@@ -89,6 +89,4 @@ public:
     QUO_EVENT(ImagePackEvent, "im.ponies.room_emotes")
     using KeyedStateEventBase::KeyedStateEventBase;
 };
-
-REGISTER_EVENT_TYPE(ImagePackEvent)
 }
