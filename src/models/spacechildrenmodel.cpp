@@ -95,7 +95,11 @@ void SpaceChildrenModel::refreshModel()
     });
 }
 
+#if Quotient_VERSION_MINOR >= 9
+void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJob::SpaceHierarchyRoomsChunk> children, const QModelIndex &parent)
+#else
 void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJob::ChildRoomsChunk> children, const QModelIndex &parent)
+#endif
 {
     SpaceTreeItem *parentItem = getItem(parent);
 
