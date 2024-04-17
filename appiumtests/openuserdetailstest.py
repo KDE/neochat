@@ -39,6 +39,9 @@ class OpenUserDetailsTest(unittest.TestCase):
 
     def test_open_sheet(self):
         self.driver.find_element(by=AppiumBy.NAME, value="@user:localhost:1234").click()
+        elements = self.driver.find_elements(by=AppiumBy.NAME, value="Expand Normal")
+        if len(elements) > 0:
+            elements[0].click()
         self.driver.find_element(by=AppiumBy.NAME, value="Empty room (!room_id_1234:localhost:1234)").click()
         self.driver.find_element(by=AppiumBy.NAME, value="A Display Name").click()
         self.driver.find_element(by=AppiumBy.NAME, value="Account Details")
