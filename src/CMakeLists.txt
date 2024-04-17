@@ -405,6 +405,10 @@ target_link_libraries(neochat PUBLIC
     QCoro::Network
 )
 
+if (TARGET KF6::Crash)
+    target_link_libraries(neochat PUBLIC KF6::Crash)
+endif()
+
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)

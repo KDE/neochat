@@ -30,6 +30,11 @@
 #ifdef HAVE_WINDOWSYSTEM
 #include <KWindowSystem>
 #endif
+
+#if __has_include("KCrash")
+#include <KCrash>
+#endif
+
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
@@ -161,6 +166,10 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
+
+#if __has_include("KCrash")
+    KCrash::initialize();
+#endif
 
     initLogging();
 
