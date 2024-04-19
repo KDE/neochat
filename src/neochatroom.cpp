@@ -451,11 +451,11 @@ QVariantMap NeoChatRoom::getUser(User *user) const
     return QVariantMap{
         {QStringLiteral("isLocalUser"), user->id() == localMember().id()},
         {QStringLiteral("id"), user->id()},
-        {QStringLiteral("displayName"), user->displayname()}, // TODO: Missing methods.
-        {QStringLiteral("escapedDisplayName"), user->displayname()}, // htmlSafeMemberName(user->id())},
+        {QStringLiteral("displayName"), user->displayname()},
+        {QStringLiteral("escapedDisplayName"), member(user->id()).htmlSafeDisplayName()},
         {QStringLiteral("avatarSource"), avatarForMember(user)},
         {QStringLiteral("avatarMediaId"), user->avatarMediaId()},
-        {QStringLiteral("color"), QColor()}, // Utils::getUserColor(user->hueF())},
+        {QStringLiteral("color"), member(user->id()).hueF()},
         {QStringLiteral("object"), QVariant::fromValue(user)},
     };
 }
@@ -467,7 +467,7 @@ QString NeoChatRoom::avatarMediaId() const
     }
 
     // Use the first (excluding self) user's avatar for direct chats
-    const auto dcUsers = directChatMebers();
+    const auto dcUsers = directChatMembers();
     for (const auto u : dcUsers) {
         if (u != localMember()) {
             return u->avatarMediaId(this);
@@ -1895,7 +1895,7 @@ int NeoChatRoom::maxRoomVersion() const
 
 Quotient::User *NeoChatRoom::directChatRemoteUser() const
 {
-    auto users = connection()->directChatMebers(this);
+    auto users = connection()->directChatUsers(this);
     if (users.isEmpty()) {
         return nullptr;
     }
