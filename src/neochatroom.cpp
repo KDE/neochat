@@ -1933,16 +1933,16 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
 
 QUrl NeoChatRoom::avatarForMember(Quotient::User *user) const
 {
-    const auto &url = memberAvatarUrl(user->id());
-    if (url.isEmpty() || url.scheme() != "mxc"_ls) {
+    const auto &avatar = memberAvatar(user->id());
+    if (avatar.url().isEmpty() || avatar.url().scheme() != "mxc"_ls) {
         return {};
     }
-    auto avatar = connection()->makeMediaUrl(url);
-    if (avatar.isValid() && avatar.scheme() == QStringLiteral("mxc")) {
-        return avatar;
-    } else {
+
+    auto localFile = connection()->makeMediaUrl(avatar.url());
+    if (!localFile.isValid() || localFile.scheme() != QStringLiteral("mxc")) {
         return QUrl();
     }
+    return localFile;
 }
 
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
