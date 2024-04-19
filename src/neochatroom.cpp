@@ -103,13 +103,15 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         }
         auto roomMemberEvent = currentState().get<RoomMemberEvent>(localMember().id());
         QImage avatar_image;
-        if (roomMemberEvent && !user(roomMemberEvent->senderId())->avatarUrl(this).isEmpty()) {
-            avatar_image = user(roomMemberEvent->senderId())->avatar(128, this);
+        if (roomMemberEvent && !member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
+            // TODO: Fix acessing Avatar Image.
+            // avatar_image = member(roomMemberEvent->senderId()).avatarMediaId();
+            avatar_image = avatar(128);
         } else {
             qWarning() << "using this room's avatar";
             avatar_image = avatar(128);
         }
-        NotificationsManager::instance().postInviteNotification(this, displayName(), htmlSafeMemberName(roomMemberEvent->senderId()), avatar_image);
+        NotificationsManager::instance().postInviteNotification(this, displayName(), member(roomMemberEvent->senderId()).htmlSafeDisplayName(), avatar_image);
     });
     connect(this, &Room::changed, this, [this] {
         Q_EMIT canEncryptRoomChanged();
