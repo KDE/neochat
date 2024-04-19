@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-17 00:38+0000\n"
-"PO-Revision-Date: 2024-04-15 09:35+0200\n"
+"POT-Creation-Date: 2024-04-19 00:38+0000\n"
+"PO-Revision-Date: 2024-04-17 09:28+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -842,112 +842,112 @@ msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "Configuration du serveur mandataire"
 
-#: src/main.cpp:136
+#: src/main.cpp:141
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:138
+#: src/main.cpp:143
 #, kde-format
 msgid "Matrix client"
 msgstr "Client « Matrix »"
 
-#: src/main.cpp:140
+#: src/main.cpp:145
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018 - 2020 Black Hat 2020-2024 Communauté de KDE"
 
-#: src/main.cpp:141
+#: src/main.cpp:146
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:142 src/main.cpp:146 src/main.cpp:147
+#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
 msgstr "Mainteneur"
 
-#: src/main.cpp:146
+#: src/main.cpp:151
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:147
+#: src/main.cpp:152
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:148
+#: src/main.cpp:153
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:148
+#: src/main.cpp:153
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Auteur initial de Spectral"
 
-#: src/main.cpp:149
+#: src/main.cpp:154
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:149
+#: src/main.cpp:154
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Mainteneur de la bibliothèque « libQuotient »"
 
-#: src/main.cpp:150
+#: src/main.cpp:155
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Xavier Besnard"
 
-#: src/main.cpp:150
+#: src/main.cpp:155
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@kde.org"
 
-#: src/main.cpp:154
+#: src/main.cpp:159
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Une bibliothèque Qt pour l'écriture de clients multi-plate-formes pour Matrix"
 
-#: src/main.cpp:156
+#: src/main.cpp:161
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilé en regard de %2)"
 
-#: src/main.cpp:182
+#: src/main.cpp:191
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Un client pour le protocole de communications  Matrix »"
 
-#: src/main.cpp:183
+#: src/main.cpp:192
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Prend en charge le thème d'URL « matrix : »"
 
-#: src/main.cpp:184
+#: src/main.cpp:193
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 "Ignorer toutes les erreurs « SSL », par exemple, les certificats non signés."
 
-#: src/main.cpp:186
+#: src/main.cpp:195
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Uniquement utilisé pour les auto-tests"
 
-#: src/main.cpp:191
+#: src/main.cpp:200
 #, kde-format
 msgid "Internal usage only."
 msgstr "Utilisation interne uniquement."
 
-#: src/main.cpp:196
+#: src/main.cpp:205
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Partager une URL sur « Matrix »"
@@ -2733,17 +2733,17 @@ msgstr "Modifier le niveau de privilèges de l'utilisateur"
 msgid "New power level"
 msgstr "Nouveau niveau de privilèges"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:71
+#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
 #, kde-format
 msgid "Member (0)"
 msgstr "Membre (0)"
 
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:75
+#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Modérateur (50)"
 
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:79
+#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
 #, kde-format
 msgid "Admin (100)"
 msgstr "Administrateur (100)"
@@ -3841,13 +3841,12 @@ msgstr "Les mots de passe ne correspondent pas"
 #: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Email Addresses"
-msgstr ""
+msgstr "Adresses de courriel"
 
 #: src/settings/AccountEditorPage.qml:206
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Phone Numbers"
-msgstr "Membres"
+msgstr "Numéros de téléphone"
 
 #: src/settings/AccountEditorPage.qml:211
 #, kde-format
@@ -4497,46 +4496,46 @@ msgstr "Activer les points importants dans les messages"
 msgid "Delete keyword"
 msgstr "Supprimer un mot clé"
 
-#: src/settings/Permissions.qml:32
+#: src/settings/Permissions.qml:33
 #, kde-format
 msgid "Privileged Users"
 msgstr "Utilisateurs privilégiés"
 
-#: src/settings/Permissions.qml:241
+#: src/settings/Permissions.qml:242
 #, kde-format
 msgid "Default permissions"
 msgstr "Permissions par défaut"
 
-#: src/settings/Permissions.qml:246
+#: src/settings/Permissions.qml:247
 #, kde-format
 msgid "Default user power level"
 msgstr "Niveau par défaut de privilèges utilisateur "
 
-#: src/settings/Permissions.qml:247
+#: src/settings/Permissions.qml:248
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 "Ceci est le niveau de privilèges pour tous les nouveaux utilisateurs "
 "lorsqu'ils rejoignent le salon"
 
-#: src/settings/Permissions.qml:257
+#: src/settings/Permissions.qml:258
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Niveau par défaut de privilèges pour définir un état d'un salon "
 
-#: src/settings/Permissions.qml:258
+#: src/settings/Permissions.qml:259
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Ceci est utilisé pour tous les évènements d'états n'ayant pas leur propre "
 "entrée ici."
 
-#: src/settings/Permissions.qml:268
+#: src/settings/Permissions.qml:269
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Niveau par défaut de privilèges pour l'envoi de messages "
 
-#: src/settings/Permissions.qml:269
+#: src/settings/Permissions.qml:270
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -4544,92 +4543,92 @@ msgstr ""
 "Ceci est utilisé pour tous les évènements de messages n'ayant pas leur "
 "propre entrée ici."
 
-#: src/settings/Permissions.qml:282
+#: src/settings/Permissions.qml:283
 #, kde-format
 msgid "Basic permissions"
 msgstr "Permissions standards"
 
-#: src/settings/Permissions.qml:287
+#: src/settings/Permissions.qml:288
 #, kde-format
 msgid "Invite users"
 msgstr "Inviter des utilisateurs"
 
-#: src/settings/Permissions.qml:297
+#: src/settings/Permissions.qml:298
 #, kde-format
 msgid "Kick users"
 msgstr "Rejeter ces utilisateurs"
 
-#: src/settings/Permissions.qml:307
+#: src/settings/Permissions.qml:308
 #, kde-format
 msgid "Ban users"
 msgstr "Bannir des utilisateurs"
 
-#: src/settings/Permissions.qml:317
+#: src/settings/Permissions.qml:318
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Supprimer les messages envoyés par d'autres utilisateurs"
 
-#: src/settings/Permissions.qml:330
+#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr "Permissions pour évènements"
 
-#: src/settings/Permissions.qml:335
+#: src/settings/Permissions.qml:336
 #, kde-format
 msgid "Change user permissions"
 msgstr "Modifier les permissions de l'utilisateur"
 
-#: src/settings/Permissions.qml:346
+#: src/settings/Permissions.qml:347
 #, kde-format
 msgid "Change the room name"
 msgstr "Modifier le nom du salon"
 
-#: src/settings/Permissions.qml:357
+#: src/settings/Permissions.qml:358
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Modifier l'avatar du salon"
 
-#: src/settings/Permissions.qml:368
+#: src/settings/Permissions.qml:369
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Modifier l'alias classique du salon"
 
-#: src/settings/Permissions.qml:379
+#: src/settings/Permissions.qml:380
 #, kde-format
 msgid "Change the room topic"
 msgstr "Modifier le sujet du salon"
 
-#: src/settings/Permissions.qml:390
+#: src/settings/Permissions.qml:391
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Activer le chiffrement pour ce salon"
 
-#: src/settings/Permissions.qml:401
+#: src/settings/Permissions.qml:402
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Modifier la visibilité de l'historique du salon"
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:413
 #, kde-format
 msgid "Set pinned events"
 msgstr "Définir des évènements bloqués"
 
-#: src/settings/Permissions.qml:423
+#: src/settings/Permissions.qml:424
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Mettre à jour le salon"
 
-#: src/settings/Permissions.qml:434
+#: src/settings/Permissions.qml:435
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Définir la liste de contrôle d'accès (ACL) au serveur pour ce salon."
 
-#: src/settings/Permissions.qml:446
+#: src/settings/Permissions.qml:447
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Définir les enfants de cette espace"
 
-#: src/settings/Permissions.qml:457
+#: src/settings/Permissions.qml:458
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Définir un espace parent de ce salon"
@@ -5052,8 +5051,7 @@ msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
 #: src/timeline/CodeComponent.qml:178
-#, fuzzy, kde-format
-#| msgid "Maximize"
+#, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maximiser"

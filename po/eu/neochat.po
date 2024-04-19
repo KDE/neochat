@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-17 00:38+0000\n"
-"PO-Revision-Date: 2024-04-04 20:36+0200\n"
+"POT-Creation-Date: 2024-04-19 00:38+0000\n"
+"PO-Revision-Date: 2024-04-18 22:17+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -87,11 +87,10 @@ msgid "Event Source"
 msgstr "Ekitaldi sorburua"
 
 #: src/devtools/DebugOptions.qml:20
-#, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
-msgstr "Gailuak egiaztapena onartzeko zain."
+msgstr "Baimendu beti gailua egiaztatzea"
 
 #: src/devtools/DebugOptions.qml:21
 #, kde-format
@@ -99,6 +98,8 @@ msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
+"Utzi erabiltzaileari jada egiaztatu diren gailuekin egiaztatzeko saio bat "
+"abiatzen"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -106,11 +107,10 @@ msgid "Developer Tools"
 msgstr "Garatzailearen tresnak"
 
 #: src/devtools/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
-msgstr "Aukerak"
+msgstr "Arazteko aukerak"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -847,110 +847,110 @@ msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "Ordezkariaren ezarpenak"
 
-#: src/main.cpp:136
+#: src/main.cpp:141
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:138
+#: src/main.cpp:143
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix bezeroa"
 
-#: src/main.cpp:140
+#: src/main.cpp:145
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE komunitatea"
 
-#: src/main.cpp:141
+#: src/main.cpp:146
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:142 src/main.cpp:146 src/main.cpp:147
+#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
 msgstr "Arduraduna"
 
-#: src/main.cpp:146
+#: src/main.cpp:151
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:147
+#: src/main.cpp:152
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:148
+#: src/main.cpp:153
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:148
+#: src/main.cpp:153
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "«Spectral»en Jatorrizko egilea"
 
-#: src/main.cpp:149
+#: src/main.cpp:154
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:149
+#: src/main.cpp:154
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "«libQuotient» mantentzailea"
 
-#: src/main.cpp:150
+#: src/main.cpp:155
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Iñigo Salvador Azurmendi"
 
-#: src/main.cpp:150
+#: src/main.cpp:155
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: src/main.cpp:154
+#: src/main.cpp:159
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "«Matrix»en plataforma anitzeko bezeroak idazteko Qt liburutegia"
 
-#: src/main.cpp:156
+#: src/main.cpp:161
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 erabiliz eraikia)"
 
-#: src/main.cpp:182
+#: src/main.cpp:191
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix, deszentralizatutako komunikazio protokolorako bezeroa"
 
-#: src/main.cpp:183
+#: src/main.cpp:192
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix onartzen du: URL eskema"
 
-#: src/main.cpp:184
+#: src/main.cpp:193
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ez egin kasu SSL erroreei, adib., sinatu gabeko ziurtagiriei."
 
-#: src/main.cpp:186
+#: src/main.cpp:195
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Auto-probetarako bakarrik erabilia"
 
-#: src/main.cpp:191
+#: src/main.cpp:200
 #, kde-format
 msgid "Internal usage only."
 msgstr "Barneko erabilera bakarrik."
 
-#: src/main.cpp:196
+#: src/main.cpp:205
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Partekatu URL bat «Matrix»ekin"
@@ -2116,25 +2116,22 @@ msgid "Select All"
 msgstr "Hautatu denak"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "Editatu eranskailua"
+msgstr "Editatu egoera"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "Lehengoratu aldaketak"
 
 #: src/qml/EditStateDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
-msgstr "Ezarri"
+msgstr "Aplikatu"
 
 #: src/qml/EmojiGrid.qml:87
 #, kde-format
@@ -2697,11 +2694,10 @@ msgid "Copy Link"
 msgstr "Kopiatu esteka"
 
 #: src/qml/MessageSourceSheet.qml:46
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "Editatu mezua"
+msgstr "Editatu egoera"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -2730,17 +2726,17 @@ msgstr "Editatu erabiltzailearen ahalmen maila"
 msgid "New power level"
 msgstr "Ahalmen maila berria"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:71
+#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
 #, kde-format
 msgid "Member (0)"
 msgstr "Bazkidea (0)"
 
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:75
+#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Moderatzailea (50)"
 
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:79
+#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
 #, kde-format
 msgid "Admin (100)"
 msgstr "Administratzailea (100)"
@@ -3781,12 +3777,10 @@ msgid "Label:"
 msgstr "Labela:"
 
 #: src/settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "QR code for account"
-msgstr "Kendu kontu hau"
+msgstr "Kontuaren QR kodea"
 
 #: src/settings/AccountEditorPage.qml:133
 #: src/settings/AccountEditorPage.qml:188
@@ -3828,13 +3822,12 @@ msgstr "Pasahitzak ez datoz bat"
 #: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Email Addresses"
-msgstr ""
+msgstr "E-posta helbideak"
 
 #: src/settings/AccountEditorPage.qml:206
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Phone Numbers"
-msgstr "Bazkideak"
+msgstr "Telefono zenbakiak"
 
 #: src/settings/AccountEditorPage.qml:211
 #, kde-format
@@ -3997,11 +3990,10 @@ msgid "Verify device"
 msgstr "Egiaztatu gailua"
 
 #: src/settings/DeviceDelegate.qml:126
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "This device is verified"
 msgid "Verified"
-msgstr "Egiaztatutako gailuak"
+msgstr "Egiaztatuta"
 
 #: src/settings/DeviceDelegate.qml:135
 #, kde-format
@@ -4230,7 +4222,7 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:74
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
-msgstr ""
+msgstr "Erakutsi \"Etxea\" fitxako gela guztiak"
 
 #: src/settings/NeoChatGeneralPage.qml:85
 #, kde-format
@@ -4478,134 +4470,134 @@ msgstr "Gaitu mezu-nabarmentzea"
 msgid "Delete keyword"
 msgstr "Ezabatu gako-hitza"
 
-#: src/settings/Permissions.qml:32
+#: src/settings/Permissions.qml:33
 #, kde-format
 msgid "Privileged Users"
 msgstr "Pribilegiodun erabiltzaileak"
 
-#: src/settings/Permissions.qml:241
+#: src/settings/Permissions.qml:242
 #, kde-format
 msgid "Default permissions"
 msgstr "Lehenetsitako baimenak"
 
-#: src/settings/Permissions.qml:246
+#: src/settings/Permissions.qml:247
 #, kde-format
 msgid "Default user power level"
 msgstr "Erabiltzaileen ahalmen maila lehenetsia"
 
-#: src/settings/Permissions.qml:247
+#: src/settings/Permissions.qml:248
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "Hori da gelara batzean erabiltzaile berrien ahalmen maila"
 
-#: src/settings/Permissions.qml:257
+#: src/settings/Permissions.qml:258
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Gelaren egoera ezartzeko ahalmen maila lehenetsia"
 
-#: src/settings/Permissions.qml:258
+#: src/settings/Permissions.qml:259
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Hau, hemen sarrerarik ez duten egoera-gertaera guzietarako erabiltzen da"
 
-#: src/settings/Permissions.qml:268
+#: src/settings/Permissions.qml:269
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Mezuak bidaltzeko ahalmen maila lehenetsia"
 
-#: src/settings/Permissions.qml:269
+#: src/settings/Permissions.qml:270
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr "Hau, hemen sarrerarik ez duten mezu-gertaera guzietarako erabiltzen da"
 
-#: src/settings/Permissions.qml:282
+#: src/settings/Permissions.qml:283
 #, kde-format
 msgid "Basic permissions"
 msgstr "Oinarrizko baimenak"
 
-#: src/settings/Permissions.qml:287
+#: src/settings/Permissions.qml:288
 #, kde-format
 msgid "Invite users"
 msgstr "Erabiltzaileak gonbidatzea"
 
-#: src/settings/Permissions.qml:297
+#: src/settings/Permissions.qml:298
 #, kde-format
 msgid "Kick users"
 msgstr "Erabiltzaileak kanporatzea"
 
-#: src/settings/Permissions.qml:307
+#: src/settings/Permissions.qml:308
 #, kde-format
 msgid "Ban users"
 msgstr "Erabiltzaileak debekatzea"
 
-#: src/settings/Permissions.qml:317
+#: src/settings/Permissions.qml:318
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Beste erabiltzaileek bidalitako mezua kentzea"
 
-#: src/settings/Permissions.qml:330
+#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr "Gertaeren baimenak"
 
-#: src/settings/Permissions.qml:335
+#: src/settings/Permissions.qml:336
 #, kde-format
 msgid "Change user permissions"
 msgstr "Erabiltzaileen baimenak aldatzea"
 
-#: src/settings/Permissions.qml:346
+#: src/settings/Permissions.qml:347
 #, kde-format
 msgid "Change the room name"
 msgstr "Gelaren izena aldatzea"
 
-#: src/settings/Permissions.qml:357
+#: src/settings/Permissions.qml:358
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Gelako abatarra aldatzea"
 
-#: src/settings/Permissions.qml:368
+#: src/settings/Permissions.qml:369
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Gelaren ezizen kanonikoa aldatzea"
 
-#: src/settings/Permissions.qml:379
+#: src/settings/Permissions.qml:380
 #, kde-format
 msgid "Change the room topic"
 msgstr "Gelako gaia aldatzea"
 
-#: src/settings/Permissions.qml:390
+#: src/settings/Permissions.qml:391
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Gelarako zifratzea gaitzea"
 
-#: src/settings/Permissions.qml:401
+#: src/settings/Permissions.qml:402
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Gelako historiaren ikusgaitasuna aldatzea"
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:413
 #, kde-format
 msgid "Set pinned events"
 msgstr "Iltzatutako gertaerak ezartzea"
 
-#: src/settings/Permissions.qml:423
+#: src/settings/Permissions.qml:424
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Gela bertsio-berritzea"
 
-#: src/settings/Permissions.qml:434
+#: src/settings/Permissions.qml:435
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Gelako zerbitzariaren sarbide kontrolerako zerrenda (ACL) ezartzea"
 
-#: src/settings/Permissions.qml:446
+#: src/settings/Permissions.qml:447
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Toki honen haurrak ezartzea"
 
-#: src/settings/Permissions.qml:457
+#: src/settings/Permissions.qml:458
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Gela honen guraso tokia ezartzea"
@@ -5019,8 +5011,7 @@ msgid "Copy to clipboard"
 msgstr "Kopiatu arbelera"
 
 #: src/timeline/CodeComponent.qml:178
-#, fuzzy, kde-format
-#| msgid "Maximize"
+#, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maximizatu"
