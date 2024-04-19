@@ -101,7 +101,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         if (this->joinState() != JoinState::Invite) {
             return;
         }
-        auto roomMemberEvent = currentState().get<RoomMemberEvent>(localUser()->id());
+        auto roomMemberEvent = currentState().get<RoomMemberEvent>(localMember().id());
         QImage avatar_image;
         if (roomMemberEvent && !user(roomMemberEvent->senderId())->avatarUrl(this).isEmpty()) {
             avatar_image = user(roomMemberEvent->senderId())->avatar(128, this);
@@ -258,7 +258,7 @@ void NeoChatRoom::forget()
 QVariantList NeoChatRoom::getUsersTyping() const
 {
     auto users = usersTyping();
-    users.removeAll(localUser());
+    users.removeAll(localMember());
     QVariantList userVariants;
     for (const auto &user : users) {
         if (connection()->isIgnored(user->id())) {
@@ -276,7 +276,7 @@ QVariantList NeoChatRoom::getUsersTyping() const
 
 void NeoChatRoom::sendTypingNotification(bool isTyping)
 {
-    connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(), id(), isTyping, 10000);
+    connection()->callApi<SetTypingJob>(BackgroundRequest, localMember().id(), id(), isTyping, 10000);
 }
 
 const RoomEvent *NeoChatRoom::lastEvent() const
@@ -374,13 +374,13 @@ bool NeoChatRoom::isEventHighlighted(const RoomEvent *e) const
 
 void NeoChatRoom::checkForHighlights(const Quotient::TimelineItem &ti)
 {
-    auto localUserId = localUser()->id();
-    if (ti->senderId() == localUserId) {
+    auto localMemberId = localMember().id();
+    if (ti->senderId() == localMemberId) {
         return;
     }
     if (auto *e = ti.viewAs<RoomMessageEvent>()) {
         const auto &text = e->plainBody();
-        if (text.contains(localUserId) || text.contains(safeMemberName(localUserId))) {
+        if (text.contains(localMemberId) || text.contains(safeMemberName(localMemberId))) {
             highlights.insert(e);
         }
     }
@@ -449,7 +449,7 @@ QVariantMap NeoChatRoom::getUser(User *user) const
     }
 
     return QVariantMap{
-        {QStringLiteral("isLocalUser"), user->id() == localUser()->id()},
+        {QStringLiteral("isLocalUser"), user->id() == localMember().id()},
         {QStringLiteral("id"), user->id()},
         {QStringLiteral("displayName"), user->displayname(this)},
         {QStringLiteral("escapedDisplayName"), htmlSafeMemberName(user->id())},
@@ -469,7 +469,7 @@ QString NeoChatRoom::avatarMediaId() const
     // Use the first (excluding self) user's avatar for direct chats
     const auto dcUsers = directChatUsers();
     for (const auto u : dcUsers) {
-        if (u != localUser()) {
+        if (u != localMember()) {
             return u->avatarMediaId(this);
         }
     }
@@ -637,7 +637,7 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
                     continue;
                 }
 
-                if (e->senderId() == localUser()->id()) {
+                if (e->senderId() == localMember().id()) {
                     redactEventIds.push_back(e->id());
                     break;
                 }
@@ -666,7 +666,7 @@ bool NeoChatRoom::canSendEvent(const QString &eventType) const
         return false;
     }
     auto pl = plEvent->powerLevelForEvent(eventType);
-    auto currentPl = plEvent->powerLevelForUser(localUser()->id());
+    auto currentPl = plEvent->powerLevelForUser(localMember().id());
 
     return currentPl >= pl;
 }
@@ -678,7 +678,7 @@ bool NeoChatRoom::canSendState(const QString &eventType) const
         return false;
     }
     auto pl = plEvent->powerLevelForState(eventType);
-    auto currentPl = plEvent->powerLevelForUser(localUser()->id());
+    auto currentPl = plEvent->powerLevelForUser(localMember().id());
 
     return currentPl >= pl;
 }
@@ -856,7 +856,7 @@ void NeoChatRoom::setUrlPreviewEnabled(const bool &urlPreviewEnabled)
      *  "type": "org.matrix.room.preview_urls",
      * }
      */
-    connection()->callApi<SetAccountDataPerRoomJob>(localUser()->id(),
+    connection()->callApi<SetAccountDataPerRoomJob>(localMember().id(),
                                                     id(),
                                                     "org.matrix.room.preview_urls"_ls,
                                                     QJsonObject{{"disable"_ls, !urlPreviewEnabled}});
@@ -1768,7 +1768,7 @@ void NeoChatRoom::editLastMessage()
         }
 
         // check if the current message's sender's id is same as the user's id
-        if ((*it)->senderId() == localUser()->id()) {
+        if ((*it)->senderId() == localMember().id()) {
             auto content = (*it)->contentJson();
 
             if (e->msgtype() != MessageEventType::Unknown) {

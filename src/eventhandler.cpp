@@ -73,7 +73,7 @@ QVariantMap EventHandler::getAuthor(bool isPending) const
         return m_room->getUser(nullptr);
     }
 
-    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
+    const auto author = isPending ? m_room->localMember() : m_room->user(m_event->senderId());
     return m_room->getUser(author);
 }
 
@@ -96,7 +96,7 @@ QString EventHandler::getAuthorDisplayName(bool isPending) const
         }
         return previousDisplayName;
     } else {
-        const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
+        const auto author = isPending ? m_room->localMember() : m_room->user(m_event->senderId());
         return m_room->htmlSafeMemberName(author->id());
     }
 }
@@ -112,7 +112,7 @@ QString EventHandler::singleLineAuthorDisplayname(bool isPending) const
         return {};
     }
 
-    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
+    const auto author = isPending ? m_room->localMember() : m_room->user(m_event->senderId());
     auto displayName = m_room->safeMemberName(author->id());
     displayName.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br>"), QStringLiteral(" "));
@@ -963,7 +963,7 @@ bool EventHandler::hasReadMarkers() const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
     return userIds.size() > 0;
 }
 
@@ -979,7 +979,7 @@ QVariantList EventHandler::getReadMarkers(int maxMarkers) const
     }
 
     auto userIds_temp = m_room->userIdsAtEvent(m_event->id());
-    userIds_temp.remove(m_room->localUser()->id());
+    userIds_temp.remove(m_room->localMember().id());
 
     auto userIds = userIds_temp.values();
     if (userIds.count() > maxMarkers) {
@@ -1008,7 +1008,7 @@ QString EventHandler::getNumberExcessReadMarkers(int maxMarkers) const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
 
     if (userIds.count() > maxMarkers) {
         return QStringLiteral("+ ") + QString::number(userIds.count() - maxMarkers);
@@ -1029,7 +1029,7 @@ QString EventHandler::getReadMarkersString() const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
 
     /**
      * The string ends up in the form

@@ -201,7 +201,7 @@ QList<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is banned from this room.", "%1 is banned from this room.", text));
                 return QString();
             }
-            if (room->localUser()->id() == text) {
+            if (room->localMember().id() == text) {
                 Q_EMIT room->showMessage(NeoChatRoom::Positive, i18n("You are already in this room."));
                 return QString();
             }
@@ -430,11 +430,11 @@ QList<ActionsModel::Action> actions{
             if (!plEvent) {
                 return QString();
             }
-            if (plEvent->ban() > plEvent->powerLevelForUser(room->localUser()->id())) {
+            if (plEvent->ban() > plEvent->powerLevelForUser(room->localMember().id())) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to ban users from this room."));
                 return QString();
             }
-            if (plEvent->powerLevelForUser(room->localUser()->id()) <= plEvent->powerLevelForUser(parts[0])) {
+            if (plEvent->powerLevelForUser(room->localMember().id()) <= plEvent->powerLevelForUser(parts[0])) {
                 Q_EMIT room->showMessage(
                     NeoChatRoom::Error,
                     i18nc("You are not allowed to ban <username> from this room.", "You are not allowed to ban %1 from this room.", parts[0]));
@@ -463,7 +463,7 @@ QList<ActionsModel::Action> actions{
             if (!plEvent) {
                 return QString();
             }
-            if (plEvent->ban() > plEvent->powerLevelForUser(room->localUser()->id())) {
+            if (plEvent->ban() > plEvent->powerLevelForUser(room->localMember().id())) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to unban users from this room."));
                 return QString();
             }
@@ -494,7 +494,7 @@ QList<ActionsModel::Action> actions{
                                          i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", parts[0]));
                 return QString();
             }
-            if (parts[0] == room->localUser()->id()) {
+            if (parts[0] == room->localMember().id()) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You cannot kick yourself from the room."));
                 return QString();
             }
@@ -507,11 +507,11 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             auto kick = plEvent->kick();
-            if (plEvent->powerLevelForUser(room->localUser()->id()) < kick) {
+            if (plEvent->powerLevelForUser(room->localMember().id()) < kick) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to kick users from this room."));
                 return QString();
             }
-            if (plEvent->powerLevelForUser(room->localUser()->id()) <= plEvent->powerLevelForUser(parts[0])) {
+            if (plEvent->powerLevelForUser(room->localMember().id()) <= plEvent->powerLevelForUser(parts[0])) {
                 Q_EMIT room->showMessage(
                     NeoChatRoom::Error,
                     i18nc("You are not allowed to kick <username> from this room", "You are not allowed to kick %1 from this room.", parts[0]));

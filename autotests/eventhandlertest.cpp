@@ -105,7 +105,7 @@ void EventHandlerTest::author()
 
     auto eventHandlerAuthor = eventHandler.getAuthor();
 
-    QCOMPARE(eventHandlerAuthor["isLocalUser"_ls], author->id() == room->localUser()->id());
+    QCOMPARE(eventHandlerAuthor["isLocalUser"_ls], author->id() == room->localMember().id());
     QCOMPARE(eventHandlerAuthor["id"_ls], author->id());
     QCOMPARE(eventHandlerAuthor["displayName"_ls], author->displayname(room));
     QCOMPARE(eventHandlerAuthor["avatarSource"_ls], room->avatarForMember(author));
@@ -390,7 +390,7 @@ void EventHandlerTest::replyAuthor()
 
     auto eventHandlerReplyAuthor = eventHandler.getReplyAuthor();
 
-    QCOMPARE(eventHandlerReplyAuthor["isLocalUser"_ls], replyAuthor->id() == room->localUser()->id());
+    QCOMPARE(eventHandlerReplyAuthor["isLocalUser"_ls], replyAuthor->id() == room->localMember().id());
     QCOMPARE(eventHandlerReplyAuthor["id"_ls], replyAuthor->id());
     QCOMPARE(eventHandlerReplyAuthor["displayName"_ls], replyAuthor->displayname(room));
     QCOMPARE(eventHandlerReplyAuthor["avatarSource"_ls], room->avatarForMember(replyAuthor));

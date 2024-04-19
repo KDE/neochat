@@ -213,7 +213,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         if (!room) {
             return;
         }
-        auto connection = dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localUser()->id()));
+        auto connection = dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localMember().id()));
         Controller::instance().setActiveConnection(connection);
         RoomManager::instance().setConnection(connection);
         RoomManager::instance().resolveResource(room->id());
@@ -230,7 +230,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         notification->setReplyAction(std::move(replyAction));
     }
 
-    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
+    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localMember().id());
     notification->sendEvent();
 }
 
@@ -286,7 +286,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom, const QS
         m_invitations.remove(room->id());
     });
 
-    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
+    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localMember().id());
 
     notification->sendEvent();
     m_invitations.insert(room->id(), notification);
