@@ -259,18 +259,18 @@ void NeoChatRoom::forget()
 
 QVariantList NeoChatRoom::getUsersTyping() const
 {
-    auto users = usersTyping();
+    auto users = membersTyping();
     users.removeAll(localMember());
     QVariantList userVariants;
     for (const auto &user : users) {
-        if (connection()->isIgnored(user->id())) {
+        if (connection()->isIgnored(user.id())) {
             continue;
         }
         userVariants.append(QVariantMap{
-            {"id"_ls, user->id()},
-            {"avatarMediaId"_ls, user->avatarMediaId(this)},
-            {"displayName"_ls, user->displayname()},
-            {"display"_ls, user->name()},
+            {"id"_ls, user.id()},
+            {"avatarMediaId"_ls, user.avatarMediaId()},
+            {"displayName"_ls, user.displayName()},
+            {"display"_ls, user.name()},
         });
     }
     return userVariants;
@@ -316,7 +316,7 @@ const RoomEvent *NeoChatRoom::lastEvent() const
             }
         }
 
-        if (connection()->isIgnored(user(event->senderId()))) {
+        if (connection()->isIgnored(event->senderId())) {
             continue;
         }
 
@@ -382,7 +382,7 @@ void NeoChatRoom::checkForHighlights(const Quotient::TimelineItem &ti)
     }
     if (auto *e = ti.viewAs<RoomMessageEvent>()) {
         const auto &text = e->plainBody();
-        if (text.contains(localMemberId) || text.contains(safeMemberName(localMemberId))) {
+        if (text.contains(localMemberId) || text.contains(member(localMemberId).htmlSafeDisplayName())) {
             highlights.insert(e);
         }
     }
@@ -441,7 +441,8 @@ static const QVariantMap emptyUser = {
 
 QVariantMap NeoChatRoom::getUser(const QString &userID) const
 {
-    return getUser(user(userID));
+    auto u = User(userID, connection());
+    return getUser(&u);
 }
 
 QVariantMap NeoChatRoom::getUser(User *user) const
@@ -472,7 +473,7 @@ QString NeoChatRoom::avatarMediaId() const
     const auto dcUsers = directChatMembers();
     for (const auto u : dcUsers) {
         if (u != localMember()) {
-            return u->avatarMediaId(this);
+            return u.avatarMediaId();
         }
     }
 
