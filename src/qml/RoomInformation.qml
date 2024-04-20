@@ -198,7 +198,7 @@ QQC2.ScrollView {
         model: root.room.isDirectChat() ? 0 : sortedMessageEventModel
 
         clip: true
-        activeFocusOnTab: true
+        focus: true
 
         delegate: Delegates.RoundedItemDelegate {
             id: userDelegate
@@ -214,6 +214,7 @@ QQC2.ScrollView {
 
             text: name
 
+            KeyNavigation.tab: navigationBar.tabGroup.checkedButton
             KeyNavigation.backtab: index === 0 ? userList.headerItem.userListSearchField : null
 
             onClicked: {
