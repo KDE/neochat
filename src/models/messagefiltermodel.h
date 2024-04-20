@@ -60,6 +60,8 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
 private:
+    bool eventIsVisible(int sourceRow, const QModelIndex &sourceParent) const;
+
     /**
      * @brief Aggregation of the text of consecutive state events starting at row.
      *

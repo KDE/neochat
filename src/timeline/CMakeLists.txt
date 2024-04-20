@@ -8,6 +8,7 @@ qt_add_qml_module(timeline
     QML_FILES
         EventDelegate.qml
         TimelineDelegate.qml
+        HiddenDelegate.qml
         MessageDelegate.qml
         LoadingDelegate.qml
         ReadMarkerDelegate.qml
