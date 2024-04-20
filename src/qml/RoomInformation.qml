@@ -182,6 +182,12 @@ QQC2.ScrollView {
             }
         }
 
+        Component.onCompleted: {
+            headerItem.userListSearchField.KeyNavigation.tab = Qt.binding(() => {
+                return userList.count > 0 ? userList.itemAtIndex(userList.currentIndex !== -1 ? userList.currentIndex : 0) : null
+            });
+        }
+
         KSortFilterProxyModel {
             id: sortedMessageEventModel
 
@@ -265,8 +271,8 @@ QQC2.ScrollView {
     }
 
     onRoomChanged: {
-        if (root.headerItem) {
-            root.headerItem.userListSearchField.text = "";
+        if (userList.headerItem) {
+            userList.headerItem.userListSearchField.text = "";
         }
         userList.currentIndex = -1;
     }
