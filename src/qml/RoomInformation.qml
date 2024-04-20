@@ -76,6 +76,7 @@ QQC2.ScrollView {
                 visible: !root.room.isSpace
                 icon.name: "search"
                 text: i18n("Search in this room")
+                activeFocusOnTab: true
 
                 Layout.fillWidth: true
 
@@ -96,6 +97,8 @@ QQC2.ScrollView {
 
                 onClicked: root.room.isFavourite ? root.room.removeTag("m.favourite") : root.room.addTag("m.favourite", 1.0)
 
+                activeFocusOnTab: true
+
                 Layout.fillWidth: true
             }
 
@@ -104,6 +107,7 @@ QQC2.ScrollView {
                 visible: !root.room.isSpace
                 icon.name: "map-flat"
                 text: i18n("Show locations for this room")
+                activeFocusOnTab: true
 
                 onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'LocationsPage'), {
                     room: root.room
@@ -118,6 +122,7 @@ QQC2.ScrollView {
                 id: leaveButton
                 icon.name: "arrow-left"
                 text: i18nc("@action:button", "Leave this room")
+                activeFocusOnTab: true
 
                 Layout.fillWidth: true
 
