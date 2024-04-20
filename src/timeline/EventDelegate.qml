@@ -50,6 +50,17 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.Other
-        delegate: Item {}
+        delegate: Config.showAllEvents ? hiddenDelegate : emptyDelegate
+
+        Component {
+            id: hiddenDelegate
+            HiddenDelegate {
+                room: root.room
+            }
+        }
+        Component {
+            id: emptyDelegate
+            Item {}
+        }
     }
 }

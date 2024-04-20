@@ -16,6 +16,12 @@ FormCard.FormCardPage {
         Layout.topMargin: Kirigami.Units.largeSpacing
 
         FormCard.FormCheckDelegate {
+            text: i18nc("@option:check", "Show hidden events in the timeline")
+            checked: Config.showAllEvents
+
+            onToggled: Config.showAllEvents = checked
+        }
+        FormCard.FormCheckDelegate {
             id: roomAccountDataVisibleCheck
             text: i18nc("@option:check Enable the matrix 'threads' feature", "Always allow device verification")
             description: i18n("Allow the user to start a verification session with devices that were already verified")
