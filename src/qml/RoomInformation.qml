@@ -182,12 +182,6 @@ QQC2.ScrollView {
             }
         }
 
-        Component.onCompleted: {
-            headerItem.userListSearchField.KeyNavigation.tab = Qt.binding(() => {
-                return userList.count > 0 ? userList.itemAtIndex(userList.currentIndex !== -1 ? userList.currentIndex : 0) : null
-            });
-        }
-
         KSortFilterProxyModel {
             id: sortedMessageEventModel
 
@@ -209,6 +203,7 @@ QQC2.ScrollView {
         delegate: Delegates.RoundedItemDelegate {
             id: userDelegate
 
+            required property int index
             required property string name
             required property string userId
             required property string avatar
@@ -218,6 +213,8 @@ QQC2.ScrollView {
             implicitHeight: Kirigami.Units.gridUnit * 2
 
             text: name
+
+            KeyNavigation.backtab: index === 0 ? userList.headerItem.userListSearchField : null
 
             onClicked: {
                 userDelegate.highlighted = true;
