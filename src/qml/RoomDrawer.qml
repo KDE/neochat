@@ -31,6 +31,8 @@ Kirigami.OverlayDrawer {
         }
     }
 
+    onOpened: forceActiveFocus()
+
     MouseArea {
         anchors.left: parent.left
         anchors.top: parent.top
