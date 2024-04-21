@@ -162,8 +162,11 @@ Kirigami.ApplicationWindow {
 
         connection: root.connection
 
-        handleOpenIcon.source: "arrow-right"
-        handleClosedIcon.source: "arrow-left"
+        handleClosedIcon.source: "documentinfo-symbolic"
+        handleClosedToolTip: i18nc("@action:button", "Show Room Information")
+
+        // Default icon is fine, only need to override the tooltip text
+        handleOpenToolTip: i18nc("@action:button", "Close Room Information Drawer")
 
         // Connect to the onClicked function of the RoomDrawer handle button
         Connections {
