@@ -188,9 +188,11 @@ QQC2.Control {
 
     background: Rectangle {
         color: Kirigami.Theme.backgroundColor
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        Kirigami.Theme.inherit: false
         radius: Kirigami.Units.smallSpacing
         border {
-            width: root.hovered ? 1 : 0
+            width: 1
             color: Kirigami.Theme.highlightColor
         }
 
