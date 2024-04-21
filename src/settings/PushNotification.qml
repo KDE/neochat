@@ -84,7 +84,7 @@ FormCard.FormCardPage {
                     onDeleteRule: {
                         root.pushRuleModel.removeKeyword(id);
                     }
-                    onActionChanged: action => root.pushRuleModel.setPushRuleAction(id, action)
+                    onNotificatonActionChanged: action => root.pushRuleModel.setPushRuleAction(id, action)
                 }
             }
         }

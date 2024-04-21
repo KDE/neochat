@@ -23,7 +23,7 @@ FormCard.AbstractFormDelegate {
     readonly property bool notificationsOnModifiable: !deletable
     readonly property bool highlightOn: isNotificationRuleHighlight(ruleAction)
 
-    signal actionChanged(int action)
+    signal notificatonActionChanged(int action)
     signal deleteRule
 
     enabled: ruleAction !== PushRuleAction.Unknown
@@ -78,7 +78,7 @@ FormCard.AbstractFormDelegate {
                 enabled: root.enabled
                 down: checked
                 onToggled: {
-                    root.actionChanged(root.notifcationRuleAction());
+                    root.notificatonActionChanged(root.notifcationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -99,7 +99,7 @@ FormCard.AbstractFormDelegate {
                 enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
-                    root.actionChanged(root.notifcationRuleAction());
+                    root.notificatonActionChanged(root.notifcationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -121,7 +121,7 @@ FormCard.AbstractFormDelegate {
                 enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
-                    root.actionChanged(root.notifcationRuleAction());
+                    root.notificatonActionChanged(root.notifcationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -178,7 +178,7 @@ FormCard.AbstractFormDelegate {
                 finished = true;
             }
         }
-        actionChanged(action);
+        notificatonActionChanged(action);
     }
 
     function isNotificationRuleOn(action) {
