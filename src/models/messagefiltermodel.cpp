@@ -79,7 +79,7 @@ bool MessageFilterModel::eventIsVisible(int sourceRow, const QModelIndex &source
 
 QVariant MessageFilterModel::data(const QModelIndex &index, int role) const
 {
-    if (role == MessageEventModel::DelegateTypeRole) {
+    if (role == MessageEventModel::DelegateTypeRole && NeoChatConfig::self()->showAllEvents()) {
         if (!eventIsVisible(index.row(), index.parent())) {
             return DelegateType::Other;
         }
