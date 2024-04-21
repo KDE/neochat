@@ -54,9 +54,11 @@ TimelineDelegate {
                 color: root.author.color
             }
             QQC2.Label {
+                Layout.fillWidth: true
                 text: root.author.displayName + " : " + root.eventId
                 color: Kirigami.Theme.disabledTextColor
                 verticalAlignment: Text.AlignVCenter
+                elide: Text.ElideRight
             }
             Kirigami.Icon {
                 implicitWidth: Kirigami.Units.iconSizes.small
