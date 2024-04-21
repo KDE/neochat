@@ -79,7 +79,7 @@ TimelineDelegate {
 
         background: Rectangle {
             color: Kirigami.Theme.backgroundColor
-            radius: Kirigami.Units.smallSpacing
+            radius: Kirigami.Units.cornerRadius
             border {
                 width: contentControl.hovered ? 1 : 0
                 color: Kirigami.Theme.highlightColor

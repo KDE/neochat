@@ -65,7 +65,7 @@ FormCard.FormCardPage {
                                 }
                                 background: Kirigami.ShadowedRectangle {
                                     color: Kirigami.Theme.backgroundColor
-                                    radius: Kirigami.Units.smallSpacing
+                                    radius: Kirigami.Units.cornerRadius
                                     shadow.size: Kirigami.Units.smallSpacing
                                     shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
                                     border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
@@ -102,7 +102,7 @@ FormCard.FormCardPage {
                                 }
                                 background: Kirigami.ShadowedRectangle {
                                     color: Kirigami.Theme.backgroundColor
-                                    radius: Kirigami.Units.smallSpacing
+                                    radius: Kirigami.Units.cornerRadius
                                     shadow.size: Kirigami.Units.smallSpacing
                                     shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
                                     border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)

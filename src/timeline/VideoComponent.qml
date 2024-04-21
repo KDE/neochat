@@ -186,7 +186,7 @@ Video {
         visible: false
 
         color: Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.smallSpacing
+        radius: Kirigami.Units.cornerRadius
 
         QQC2.ProgressBar {
             anchors.centerIn: parent
@@ -296,7 +296,7 @@ Video {
                         }
                     }
                     background: Kirigami.ShadowedRectangle {
-                        radius: 4
+                        radius: Kirigami.Units.cornerRadius
                         color: Kirigami.Theme.backgroundColor
                         opacity: 0.8
 
@@ -332,7 +332,7 @@ Video {
             }
         }
         background: Kirigami.ShadowedRectangle {
-            radius: 4
+            radius: Kirigami.Units.cornerRadius
             color: Kirigami.Theme.backgroundColor
             opacity: 0.8
 
