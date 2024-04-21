@@ -100,8 +100,8 @@ RowLayout {
         display: QQC2.AbstractButton.IconOnly
         checkable: true
         action: Kirigami.Action {
-            text: i18n("Create rooms and chats")
-            icon.name: "irc-join-channel"
+            text: i18nc("@action:button", "Show Menu")
+            icon.name: "application-menu-symbolic"
             onTriggered: {
                 if (Kirigami.isMobile) {
                     const menu = mobileMenu.createObject();
