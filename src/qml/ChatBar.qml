@@ -278,6 +278,8 @@ QQC2.Control {
                     Keys.onTabPressed: {
                         if (completionMenu.visible) {
                             completionMenu.complete();
+                        } else {
+                            contextDrawer.handle.children[0].forceActiveFocus()
                         }
                     }
                     Keys.onPressed: event => {
