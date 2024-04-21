@@ -140,5 +140,4 @@ private:
 
 Q_SIGNALS:
     void roomChanged();
-    void fancyEffectsReasonFound(const QString &fancyEffect);
 };
