@@ -204,7 +204,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/InviteUserPage.qml
         qml/ImageEditorPage.qml
         qml/NeochatMaximizeComponent.qml
-        qml/FancyEffectsContainer.qml
         qml/TypingPane.qml
         qml/QuickSwitcher.qml
         qml/HoverActions.qml
@@ -281,9 +280,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ConfirmLeaveDialog.qml
         qml/CodeMaximizeComponent.qml
         qml/EditStateDialog.qml
-    RESOURCES
-        qml/confetti.png
-        qml/glowdot.png
 )
 
 add_subdirectory(settings)

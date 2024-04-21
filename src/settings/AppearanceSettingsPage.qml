@@ -228,22 +228,6 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.topMargin: Kirigami.Units.largeSpacing
         FormCard.FormCheckDelegate {
-            id: showFancyEffectsDelegate
-            text: i18n("Show fancy effects in chat")
-            checked: Config.showFancyEffects
-            enabled: !Config.isShowFancyEffectsImmutable
-            onToggled: {
-                Config.showFancyEffects = checked;
-                Config.save();
-            }
-        }
-
-        FormCard.FormDelegateSeparator {
-            above: showFancyEffectsDelegate
-            below: hasWindowSystemDelegate
-        }
-
-        FormCard.FormCheckDelegate {
             id: hasWindowSystemDelegate
             visible: WindowController.hasWindowSystem
             text: i18n("Use transparent chat page")

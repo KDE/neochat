@@ -117,34 +117,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
 
                 if (message != nullptr) {
                     createEventObjects(message);
-                    if (NeoChatConfig::self()->showFancyEffects()) {
-                        QString planBody = message->plainBody();
-                        // snowflake
-                        const QString snowlakeEmoji = QString::fromUtf8("\xE2\x9D\x84");
-                        if (planBody.contains(snowlakeEmoji)) {
-                            Q_EMIT fancyEffectsReasonFound(QStringLiteral("snowflake"));
-                        }
-                        // fireworks
-                        const QString fireworksEmoji = QString::fromUtf8("\xF0\x9F\x8E\x86");
-                        if (planBody.contains(fireworksEmoji)) {
-                            Q_EMIT fancyEffectsReasonFound(QStringLiteral("fireworks"));
-                        }
-                        // sparkler
-                        const QString sparklerEmoji = QString::fromUtf8("\xF0\x9F\x8E\x87");
-                        if (planBody.contains(sparklerEmoji)) {
-                            Q_EMIT fancyEffectsReasonFound(QStringLiteral("fireworks"));
-                        }
-                        // party pooper
-                        const QString partyEmoji = QString::fromUtf8("\xF0\x9F\x8E\x89");
-                        if (planBody.contains(partyEmoji)) {
-                            Q_EMIT fancyEffectsReasonFound(QStringLiteral("confetti"));
-                        }
-                        // confetti ball
-                        const QString confettiEmoji = QString::fromUtf8("\xF0\x9F\x8E\x8A");
-                        if (planBody.contains(confettiEmoji)) {
-                            Q_EMIT fancyEffectsReasonFound(QStringLiteral("confetti"));
-                        }
-                    }
                 }
                 if (event->is<PollStartEvent>()) {
                     m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event.get()));

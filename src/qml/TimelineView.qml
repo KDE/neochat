@@ -312,46 +312,6 @@ QQC2.ScrollView {
             }
         }
 
-        Rectangle {
-            FancyEffectsContainer {
-                id: fancyEffectsContainer
-                anchors.fill: parent
-                z: 100
-
-                enabled: Config.showFancyEffects
-
-                function processFancyEffectsReason(fancyEffect) {
-                    if (fancyEffect === "snowflake") {
-                        fancyEffectsContainer.showSnowEffect();
-                    }
-                    if (fancyEffect === "fireworks") {
-                        fancyEffectsContainer.showFireworksEffect();
-                    }
-                    if (fancyEffect === "confetti") {
-                        fancyEffectsContainer.showConfettiEffect();
-                    }
-                }
-
-                Connections {
-                    //enabled: Config.showFancyEffects
-                    target: root.timelineModel.messageEventModel
-
-                    function onFancyEffectsReasonFound(fancyEffect) {
-                        fancyEffectsContainer.processFancyEffectsReason(fancyEffect);
-                    }
-                }
-
-                Connections {
-                    enabled: Config.showFancyEffects
-                    target: actionsHandler
-
-                    function onShowEffect(fancyEffect) {
-                        fancyEffectsContainer.processFancyEffectsReason(fancyEffect);
-                    }
-                }
-            }
-        }
-
         function goToLastMessage() {
             root.currentRoom.markAllMessagesAsRead();
             // scroll to the very end, i.e to messageListView.YEnd
