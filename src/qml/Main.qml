@@ -16,6 +16,8 @@ Kirigami.ApplicationWindow {
 
     property NeoChatConnection connection: Controller.activeConnection
 
+    title: Config.windowTitleFocus ? activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "") : "NeoChat"
+
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 15
 

@@ -29,5 +29,14 @@ FormCard.FormCardPage {
 
             onToggled: Config.alwaysVerifyDevice = checked
         }
+        FormCard.FormCheckDelegate {
+            text: i18nc("@option:check", "Show focus in window header")
+            checked: Config.windowTitleFocus
+
+            onToggled: {
+                Config.windowTitleFocus = checked;
+                Config.save();
+            }
+        }
     }
 }
