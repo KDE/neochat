@@ -136,7 +136,7 @@ FormCard.FormCardPage {
                     Kirigami.Theme.colorSet: Kirigami.Theme.View
                     Kirigami.Theme.inherit: false
 
-                    radius: 4
+                    radius: Kirigami.Units.cornerRadius
                     color: Kirigami.Theme.backgroundColor
 
                     border {

@@ -113,7 +113,7 @@ Loader {
         rightInset: mirrored ? 0 : -background.radius
         bottomInset: -background.radius
         background: Rectangle {
-            radius: 3
+            radius: Kirigami.Units.cornerRadius
             color: Kirigami.Theme.backgroundColor
             border.color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
             border.width: 1

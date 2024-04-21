@@ -190,7 +190,7 @@ QQC2.Control {
         color: Kirigami.Theme.backgroundColor
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
-        radius: Kirigami.Units.smallSpacing
+        radius: Kirigami.Units.cornerRadius
         border {
             width: 1
             color: Kirigami.Theme.highlightColor

@@ -40,7 +40,7 @@ QQC2.Popup {
     background: Kirigami.ShadowedRectangle {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         color: Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.mediumSpacing
+        radius: Kirigami.Units.cornerRadius
         shadow {
             size: Kirigami.Units.largeSpacing
             color: Qt.rgba(0.0, 0.0, 0.0, 0.3)

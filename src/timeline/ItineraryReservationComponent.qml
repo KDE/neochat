@@ -26,7 +26,7 @@ FormCard.FormCard {
     Layout.fillWidth: true
     implicitWidth: Math.max(headerDelegate.implicitWidth, content.implicitWidth)
 
-    Component.onCompleted: children[0].radius = Kirigami.Units.smallSpacing
+    Component.onCompleted: children[0].radius = Kirigami.Units.cornerRadius
 
     FormCard.AbstractFormDelegate {
         id: headerDelegate

@@ -182,7 +182,7 @@ QQC2.Control {
         } else {
             return Kirigami.Theme.backgroundColor;
         }
-        radius: Kirigami.Units.smallSpacing
+        radius: Kirigami.Units.cornerRadius
         shadow {
             size: Kirigami.Units.smallSpacing
             color: root.showHighlight ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)

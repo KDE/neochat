@@ -62,6 +62,6 @@ QQC2.Control {
 
     background: Rectangle {
         color: Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.smallSpacing
+        radius: Kirigami.Units.cornerRadius
     }
 }

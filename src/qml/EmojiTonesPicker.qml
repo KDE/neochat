@@ -30,7 +30,7 @@ QQC2.Popup {
     onOpened: x = Math.min(parent.mapFromGlobal(QQC2.Overlay.overlay.width - root.width, 0).x, -(width - parent.width) / 2)
     background: Kirigami.ShadowedRectangle {
         color: Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.mediumSpacing
+        radius: Kirigami.Units.cornerRadius
         shadow {
             size: Kirigami.Units.largeSpacing
             color: Qt.rgba(0.0, 0.0, 0.0, 0.3)

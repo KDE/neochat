@@ -44,7 +44,7 @@ TimelineDelegate {
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             opacity: root.isTemporaryHighlighted ? 1 : 0.6
-            radius: Kirigami.Units.smallSpacing
+            radius: Kirigami.Units.cornerRadius
             shadow.size: Kirigami.Units.smallSpacing
             shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
             border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
