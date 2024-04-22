@@ -40,41 +40,41 @@ Kirigami.Page {
     }
 
     function goToNextRoomFiltered(condition) {
-        let index = treeView.currentIndex;
-        while (index++ !== treeView.count - 1) {
-            if (condition(treeView.itemAtIndex(index))) {
-                treeView.currentIndex = index;
-                treeView.currentItem.clicked();
+        let index = treeView.rowAtIndex(RoomManager.sortFilterRoomTreeModel.currentRoomIndex());
+        while (index++ < treeView.rows) {
+            let item = treeView.itemAtIndex(treeView.index(index, 0))
+            if (condition(item)) {
+                RoomManager.resolveResource(item.currentRoom.id)
                 return;
             }
         }
     }
 
     function goToPreviousRoomFiltered(condition) {
-        let index = treeView.currentIndex;
-        while (index-- !== 0) {
-            if (condition(treeView.itemAtIndex(index))) {
-                treeView.currentIndex = index;
-                treeView.currentItem.clicked();
+        let index = treeView.rowAtIndex(RoomManager.sortFilterRoomTreeModel.currentRoomIndex());
+        while (index-- > 0) {
+            let item = treeView.itemAtIndex(treeView.index(index, 0))
+            if (condition(item)) {
+                RoomManager.resolveResource(item.currentRoom.id)
                 return;
             }
         }
     }
 
     function goToNextRoom() {
-        goToNextRoomFiltered(item => item.visible);
+        goToNextRoomFiltered(item => (item && item instanceof RoomDelegate));
     }
 
     function goToPreviousRoom() {
-        goToPreviousRoomFiltered(item => item.visible);
+        goToPreviousRoomFiltered(item => (item && item instanceof RoomDelegate));
     }
 
     function goToNextUnreadRoom() {
-        goToNextRoomFiltered(item => (item.visible && item.hasUnread));
+        goToNextRoomFiltered(item => (item && item instanceof RoomDelegate && item.hasUnread));
     }
 
     function goToPreviousUnreadRoom() {
-        goToPreviousRoomFiltered(item => (item.visible && item.hasUnread));
+        goToPreviousRoomFiltered(item => (item && item instanceof RoomDelegate && item.hasUnread));
     }
 
     titleDelegate: Loader {
@@ -88,6 +88,10 @@ Kirigami.Page {
         target: RoomManager
         function onCurrentSpaceChanged() {
             treeView.expandRecursively();
+        }
+
+        function onCurrentRoomChanged() {
+            treeView.positionViewAtIndex(RoomManager.sortFilterRoomTreeModel.currentRoomIndex(), TableView.AlignVCenter)
         }
     }
 
