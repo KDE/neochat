@@ -59,6 +59,7 @@ TimelineDelegate {
                 color: Kirigami.Theme.disabledTextColor
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
+                textFormat: Text.PlainText
             }
             Kirigami.Icon {
                 implicitWidth: Kirigami.Units.iconSizes.small
