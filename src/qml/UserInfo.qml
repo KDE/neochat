@@ -49,7 +49,7 @@ RowLayout {
         onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
             connection: root.connection
         }, {
-            title: i18n("Account editor")
+            title: i18nc("@title:window", "Account editor")
         });
 
         TapHandler {
