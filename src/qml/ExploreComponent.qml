@@ -91,7 +91,6 @@ RowLayout {
         Layout.preferredWidth: root.desiredWidth ? root.desiredWidth - menuButton.width - root.spacing : -1
         visible: !root.collapsed
         onTextChanged: root.textChanged(text)
-        KeyNavigation.tab: treeView
     }
 
     QQC2.ToolButton {

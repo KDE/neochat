@@ -46,6 +46,8 @@ RowLayout {
         text: i18n("Edit this account")
         source: mediaId ? ("image://mxc/" + mediaId) : ""
 
+        activeFocusOnTab: true
+
         onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
             connection: root.connection
         }, {
