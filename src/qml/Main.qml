@@ -98,12 +98,9 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Loader {
-        id: quickView
-        active: !Kirigami.Settings.isMobile
-        sourceComponent: QuickSwitcher {
-            connection: root.connection
-        }
+    QuickSwitcher {
+        id: quickSwitcher
+        connection: root.connection
     }
 
     Connections {
@@ -225,6 +222,8 @@ Kirigami.ApplicationWindow {
         id: roomListComponent
         RoomListPage {
             id: roomList
+
+            onSearch: quickSwitcher.open()
 
             connection: root.connection
 

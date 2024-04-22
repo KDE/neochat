@@ -6,6 +6,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components
 import org.kde.kitemmodels
 
 import org.kde.neochat
@@ -19,10 +20,10 @@ QQC2.Dialog {
     width: Math.min(700, parent.width)
     height: 400
 
-    leftPadding: 0
-    rightPadding: 0
-    bottomPadding: 1
-    topPadding: 0
+    leftPadding: Kirigami.Units.smallSpacing
+    rightPadding: Kirigami.Units.smallSpacing
+    bottomPadding: Kirigami.Units.smallSpacing
+    topPadding: Kirigami.Units.smallSpacing
 
     anchors.centerIn: applicationWindow().overlay
 
@@ -40,53 +41,60 @@ QQC2.Dialog {
         roomList.currentIndex = 0;
     }
 
-    header: Kirigami.SearchField {
-        id: searchField
-        Keys.onDownPressed: {
-            roomList.forceActiveFocus();
-            if (roomList.currentIndex < roomList.count - 1) {
-                roomList.currentIndex++;
-            } else {
-                roomList.currentIndex = 0;
+    background: DialogRoundedBackground {}
+
+    contentItem: ColumnLayout {
+        Kirigami.SearchField {
+            id: searchField
+            Layout.fillWidth: true
+            Keys.onDownPressed: {
+                roomList.forceActiveFocus();
+                if (roomList.currentIndex < roomList.count - 1) {
+                    roomList.currentIndex++;
+                } else {
+                    roomList.currentIndex = 0;
+                }
             }
-        }
-        Keys.onUpPressed: {
-            if (roomList.currentIndex === 0) {
-                roomList.currentIndex = roomList.count - 1;
-            } else {
-                roomList.currentIndex--;
+            Keys.onUpPressed: {
+                if (roomList.currentIndex === 0) {
+                    roomList.currentIndex = roomList.count - 1;
+                } else {
+                    roomList.currentIndex--;
+                }
             }
+            Keys.onEnterPressed: {
+                RoomManager.resolveResource(roomList.currentItem.currentRoom.id);
+                root.close();
+            }
+            Keys.onReturnPressed: {
+                RoomManager.resolveResource(roomList.currentItem.currentRoom.id);
+                root.close();
+            }
+            focusSequence: ""
+            onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
         }
-        Keys.onEnterPressed: {
-            RoomManager.resolveResource(roomList.currentItem.currentRoom.id);
-            root.close();
-        }
-        Keys.onReturnPressed: {
-            RoomManager.resolveResource(roomList.currentItem.currentRoom.id);
-            root.close();
-        }
-        focusSequence: ""
-        onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
-    }
 
-    QQC2.ScrollView {
-        anchors.fill: parent
-        clip: true
+        QQC2.ScrollView {
+            clip: true
 
-        Keys.forwardTo: searchField
-
-        ListView {
-            id: roomList
-
-            currentIndex: 0
-            highlightMoveDuration: 200
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             Keys.forwardTo: searchField
-            keyNavigationEnabled: true
-            model: RoomManager.sortFilterRoomListModel
 
-            delegate: RoomDelegate {
-                connection: root.connection
-                onClicked: root.close()
+            ListView {
+                id: roomList
+
+                currentIndex: 0
+                highlightMoveDuration: 200
+                Keys.forwardTo: searchField
+                keyNavigationEnabled: true
+                model: RoomManager.sortFilterRoomListModel
+
+                delegate: RoomDelegate {
+                    connection: root.connection
+                    onClicked: root.close()
+                    showConfigure: false
+                }
             }
         }
     }

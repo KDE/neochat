@@ -300,9 +300,6 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
             return NeoChatRoomType::typeName(index.row());
         }
         if (role == DelegateTypeRole) {
-            if (index.row() == NeoChatRoomType::Search) {
-                return QStringLiteral("search");
-            }
             if (index.row() == NeoChatRoomType::AddDirect) {
                 return QStringLiteral("addDirect");
             }
