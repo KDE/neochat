@@ -76,6 +76,8 @@ public:
     Mode mode() const;
     void setMode(Mode mode);
 
+    Q_INVOKABLE QModelIndex currentRoomIndex() const;
+
 protected:
     /**
      * @brief Returns true if the value of source_left is less than source_right.

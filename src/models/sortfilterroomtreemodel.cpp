@@ -205,4 +205,14 @@ void SortFilterRoomTreeModel::setMode(SortFilterRoomTreeModel::Mode mode)
     invalidate();
 }
 
+QModelIndex SortFilterRoomTreeModel::currentRoomIndex() const
+{
+    const auto roomModel = dynamic_cast<RoomTreeModel *>(sourceModel());
+    if (roomModel == nullptr) {
+        return {};
+    }
+
+    return mapFromSource(roomModel->indexForRoom(RoomManager::instance().currentRoom()));
+}
+
 #include "moc_sortfilterroomtreemodel.cpp"
