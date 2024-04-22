@@ -21,7 +21,6 @@ public:
      * @brief Defines the room list categories a room can be assigned.
      */
     enum Types {
-        Search = 0, /**< So we can show a search delegate if needed, e.g. collapsed mode. */
         Invited, /**< The user has been invited to the room. */
         Favorite, /**< The room is set as a favourite. */
         Direct, /**< The room is a direct chat. */
@@ -68,8 +67,6 @@ public:
             return i18n("Low priority");
         case NeoChatRoomType::Space:
             return i18n("Spaces");
-        case NeoChatRoomType::Search:
-            return i18n("Search");
         default:
             return {};
         }
@@ -89,8 +86,6 @@ public:
             return QStringLiteral("object-order-lower");
         case NeoChatRoomType::Space:
             return QStringLiteral("group");
-        case NeoChatRoomType::Search:
-            return QStringLiteral("search");
         default:
             return QStringLiteral("tools-report-bug");
         }

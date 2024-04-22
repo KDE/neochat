@@ -29,6 +29,8 @@ Kirigami.Page {
 
     readonly property bool collapsed: Config.collapsed
 
+    signal search
+
     onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
     Component.onCompleted: pageStack.defaultColumnWidth = root.currentWidth
 
@@ -165,22 +167,6 @@ Kirigami.Page {
                     }
 
                     DelegateChoice {
-                        roleValue: "search"
-                        delegate: Delegates.RoundedItemDelegate {
-                            required property TreeView treeView
-
-                            implicitWidth: treeView.width
-                            onClicked: quickView.item.open()
-
-                            contentItem: Kirigami.Icon {
-                                width: Kirigami.Units.iconSizes.smallMedium
-                                height: Kirigami.Units.iconSizes.smallMedium
-                                source: "search"
-                            }
-                        }
-                    }
-
-                    DelegateChoice {
                         roleValue: "addDirect"
                         delegate: Delegates.RoundedItemDelegate {
                             text: i18n("Find your friends")
@@ -311,6 +297,8 @@ Kirigami.Page {
             desiredWidth: root.width - Kirigami.Units.largeSpacing
             collapsed: root.collapsed
             connection: root.connection
+
+            onSearch: root.search()
 
             onTextChanged: newText => {
                 RoomManager.sortFilterRoomTreeModel.filterText = newText;

@@ -17,7 +17,7 @@ RowLayout {
     property bool collapsed: false
     required property NeoChatConnection connection
 
-    property alias roomSearchFieldFocussed: roomSearchField.activeFocus
+    signal search
 
     property Kirigami.Action exploreAction: Kirigami.Action {
         text: i18n("Explore rooms")
@@ -83,14 +83,30 @@ RowLayout {
      */
     signal textChanged(string newText)
 
-    Kirigami.SearchField {
-        id: roomSearchField
-        Layout.topMargin: Kirigami.Units.smallSpacing
-        Layout.bottomMargin: Kirigami.Units.smallSpacing
+    Item {
+        Layout.preferredWidth: Kirigami.Units.largeSpacing
+    }
+
+    Kirigami.Heading {
         Layout.fillWidth: true
-        Layout.preferredWidth: root.desiredWidth ? root.desiredWidth - menuButton.width - root.spacing : -1
         visible: !root.collapsed
-        onTextChanged: root.textChanged(text)
+        text: i18nc("@title", "Rooms")
+    }
+    Item {
+        Layout.fillWidth: true
+        visible: root.collapsed
+    }
+
+    QQC2.ToolButton {
+        id: searchButton
+        display: QQC2.AbstractButton.IconOnly
+        onClicked: root.search();
+        icon.name: "search"
+        text: i18nc("@action", "Search Room")
+        Shortcut {
+            sequence: "Ctrl+F"
+            onActivated: searchButton.clicked()
+        }
     }
 
     QQC2.ToolButton {

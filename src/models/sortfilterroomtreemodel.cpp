@@ -129,10 +129,6 @@ QString SortFilterRoomTreeModel::filterText() const
 bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     if (!source_parent.isValid()) {
-        if (sourceModel()->data(sourceModel()->index(source_row, 0), RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::Search
-            && NeoChatConfig::collapsed()) {
-            return true;
-        }
         if (sourceModel()->data(sourceModel()->index(source_row, 0), RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::AddDirect
             && m_mode == DirectChats) {
             return true;

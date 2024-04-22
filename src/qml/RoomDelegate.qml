@@ -25,6 +25,8 @@ Delegates.RoundedItemDelegate {
     required property string subtitleText
     required property string displayName
 
+    property bool showConfigure: true
+
     property bool collapsed: false
 
     readonly property bool hasNotifications: contextNotificationCount > 0
@@ -130,7 +132,7 @@ Delegates.RoundedItemDelegate {
 
         QQC2.Button {
             id: configButton
-            visible: root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList && !root.collapsed
+            visible: root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList && !root.collapsed && root.showConfigure
             text: i18n("Configure room")
             display: QQC2.Button.IconOnly
 
