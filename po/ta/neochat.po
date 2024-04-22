@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 17:04+0530\n"
+"PO-Revision-Date: 2024-04-21 22:04+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -84,11 +84,10 @@ msgid "Event Source"
 msgstr "நிகழ்வுக்கான மூலம்"
 
 #: src/devtools/DebugOptions.qml:20
-#, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
-msgstr "உறுதிப்பாட்டை சாதனம் ஏற்றுக்கொள்ள காத்திருக்கிறோம்."
+msgstr "சாதன உறுதிப்பாட்டை எப்போதும் அனுமதி"
 
 #: src/devtools/DebugOptions.qml:21
 #, kde-format
@@ -96,6 +95,7 @@ msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
+"ஏற்கனவே உறுதிப்படுத்திய சாதனங்களிலிருந்து உறுதிப்படுத்தும் செயல்முறையை பயனர் தூண்ட விடு"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -103,11 +103,10 @@ msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
 
 #: src/devtools/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
-msgstr "விருப்பங்கள்"
+msgstr "பிழைநீக்க விருப்பங்கள்"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -2108,22 +2107,19 @@ msgid "Select All"
 msgstr "அனைத்தையும் தேர்ந்தெடு"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "ஒட்டியை திருத்துவது"
+msgstr "நிலையை திருத்துவது"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "மாற்றங்களை செயல்நீக்கு"
 
 #: src/qml/EditStateDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "செயல்படுத்து"
@@ -2689,11 +2685,10 @@ msgid "Copy Link"
 msgstr "இணைப்பை நகலெடு"
 
 #: src/qml/MessageSourceSheet.qml:46
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "செய்தியைத் திருத்து"
+msgstr "நிலையை திருத்துவது"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -3754,12 +3749,10 @@ msgid "Label:"
 msgstr "காட்சிப்பெயர்"
 
 #: src/settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "QR code for account"
-msgstr "இந்தக் கணக்கை நீக்கு"
+msgstr "கணக்கிற்கான QR குறியீடு"
 
 #: src/settings/AccountEditorPage.qml:133
 #: src/settings/AccountEditorPage.qml:188
@@ -3801,13 +3794,12 @@ msgstr "கடவுச்சொற்கள் பொருந்தவில�
 #: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Email Addresses"
-msgstr ""
+msgstr "மின்னஞ்சல் முகவரிகள்"
 
 #: src/settings/AccountEditorPage.qml:206
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Phone Numbers"
-msgstr "உறுப்பினர்கள்"
+msgstr "தொலைபேசி எண்கள்"
 
 #: src/settings/AccountEditorPage.qml:211
 #, kde-format
@@ -4200,7 +4192,7 @@ msgstr "சாளரத்தின் அளவை மாற்றும்ப�
 #: src/settings/NeoChatGeneralPage.qml:74
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
-msgstr ""
+msgstr "முகப்பு கீற்றில் அனைத்து அரங்குகளையும் காட்டு"
 
 #: src/settings/NeoChatGeneralPage.qml:85
 #, kde-format
@@ -4987,8 +4979,7 @@ msgid "Copy to clipboard"
 msgstr "பிடிப்புப்பலகைக்கு நகலெடு"
 
 #: src/timeline/CodeComponent.qml:178
-#, fuzzy, kde-format
-#| msgid "Maximize"
+#, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
