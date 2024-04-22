@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:38+0000\n"
-"PO-Revision-Date: 2024-04-07 17:04+0530\n"
+"POT-Creation-Date: 2024-04-22 00:38+0000\n"
+"PO-Revision-Date: 2024-04-21 22:04+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -83,18 +83,31 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "நிகழ்வுக்கான மூலம்"
 
-#: src/devtools/DebugOptions.qml:20
+#: src/devtools/DebugOptions.qml:19
 #, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#| msgid "Show links preview in the chat messages"
+msgctxt "@option:check"
+msgid "Show hidden events in the timeline"
+msgstr "உரையாடல்களில் இணைப்புகளின் முன்னோட்டத்தைக் காட்டு"
+
+#: src/devtools/DebugOptions.qml:26
+#, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
-msgstr "உறுதிப்பாட்டை சாதனம் ஏற்றுக்கொள்ள காத்திருக்கிறோம்."
+msgstr "சாதன உறுதிப்பாட்டை எப்போதும் அனுமதி"
 
-#: src/devtools/DebugOptions.qml:21
+#: src/devtools/DebugOptions.qml:27
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
+msgstr ""
+"ஏற்கனவே உறுதிப்படுத்திய சாதனங்களிலிருந்து உறுதிப்படுத்தும் செயல்முறையை பயனர் தூண்ட விடு"
+
+#: src/devtools/DebugOptions.qml:33
+#, kde-format
+msgctxt "@option:check"
+msgid "Show focus in window header"
 msgstr ""
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
@@ -103,11 +116,10 @@ msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
 
 #: src/devtools/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
-msgstr "விருப்பங்கள்"
+msgstr "பிழைநீக்க விருப்பங்கள்"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -243,13 +255,13 @@ msgid "Search"
 msgstr "தேடு"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:140 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:140 src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது]</i>"
 
 #: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:141
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது: %1]</i>"
@@ -1341,7 +1353,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "சொந்த முகவடிகள்"
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:153
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
@@ -1349,7 +1361,7 @@ msgid_plural " %1 %2 times"
 msgstr[0] " %1"
 msgstr[1] " %2 முறை %1"
 
-#: src/models/messagefiltermodel.cpp:146
+#: src/models/messagefiltermodel.cpp:157
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -1357,25 +1369,25 @@ msgid_plural " %1 users "
 msgstr[0] " %1 பயனர் "
 msgstr[1] " %1 பயனர்கள்  "
 
-#: src/models/messagefiltermodel.cpp:155
+#: src/models/messagefiltermodel.cpp:166
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:159
+#: src/models/messagefiltermodel.cpp:170
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " அல்லது "
 
-#: src/models/messagefiltermodel.cpp:159
+#: src/models/messagefiltermodel.cpp:170
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " மற்றும் "
 
-#: src/models/messagefiltermodel.cpp:165
+#: src/models/messagefiltermodel.cpp:176
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -1507,7 +1519,7 @@ msgstr "அட்ச: %1, தீர்க்க: %2"
 msgid "Encrypted Message"
 msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:270
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1583,7 +1595,7 @@ msgid "Notification settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:400 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Configure"
 msgstr "அமை"
@@ -2108,22 +2120,19 @@ msgid "Select All"
 msgstr "அனைத்தையும் தேர்ந்தெடு"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "ஒட்டியை திருத்துவது"
+msgstr "நிலையை திருத்துவது"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "மாற்றங்களை செயல்நீக்கு"
 
 #: src/qml/EditStateDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "செயல்படுத்து"
@@ -2208,7 +2217,15 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "QR குறியீட்டை வருடவும்"
 
-#: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
+#: src/qml/ExploreComponent.qml:103
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Show User"
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "பயனரைக் காட்டு"
+
+#: src/qml/ExploreComponent.qml:167
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"
@@ -2570,18 +2587,18 @@ msgstr "இருப்பிடங்கள்"
 msgid "There are no locations shared in this room."
 msgstr "இவ்வரங்கில் எந்த இருப்பிடமும் பகிரப்படவில்லை."
 
-#: src/qml/Main.qml:304
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "அமர்வு உறுதிப்பாடு"
 
-#: src/qml/Main.qml:321
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "பயனர் ஒப்புதல்"
 
-#: src/qml/Main.qml:326
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2590,28 +2607,28 @@ msgstr ""
 "பயன்படுத்துமுன் அதன் விதிமுறைகளை ஏற்குமாறு உங்கள் தாய் சேவையகம் உங்களை "
 "கட்டாயப்படுத்துகிறது. அவற்றைப் படிக்க கீழுள்ள பட்டனைத் தட்டுங்கள்."
 
-#: src/qml/Main.qml:331
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "திற"
 
-#: src/qml/Main.qml:358
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "உரையாடலைத் துவக்கு"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "உறுதியாக %1 என்பவருடன் உரையாடலைத் துவக்க வேண்டுமா?"
 
-#: src/qml/Main.qml:386
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "தற்போது தேர்ந்தெடுத்துள்ள இணைப்பு"
 
-#: src/qml/Main.qml:418 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2689,11 +2706,10 @@ msgid "Copy Link"
 msgstr "இணைப்பை நகலெடு"
 
 #: src/qml/MessageSourceSheet.qml:46
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "செய்தியைத் திருத்து"
+msgstr "நிலையை திருத்துவது"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
 #, kde-format
@@ -3754,12 +3770,10 @@ msgid "Label:"
 msgstr "காட்சிப்பெயர்"
 
 #: src/settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "QR code for account"
-msgstr "இந்தக் கணக்கை நீக்கு"
+msgstr "கணக்கிற்கான QR குறியீடு"
 
 #: src/settings/AccountEditorPage.qml:133
 #: src/settings/AccountEditorPage.qml:188
@@ -3801,13 +3815,12 @@ msgstr "கடவுச்சொற்கள் பொருந்தவில�
 #: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Email Addresses"
-msgstr ""
+msgstr "மின்னஞ்சல் முகவரிகள்"
 
 #: src/settings/AccountEditorPage.qml:206
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Phone Numbers"
-msgstr "உறுப்பினர்கள்"
+msgstr "தொலைபேசி எண்கள்"
 
 #: src/settings/AccountEditorPage.qml:211
 #, kde-format
@@ -3888,47 +3901,42 @@ msgstr "சுருக்கமானது"
 msgid "Use compact room list"
 msgstr "சுருக்கமான அரங்குப்பட்டியலைப் பயன்படுத்து"
 
-#: src/settings/AppearanceSettingsPage.qml:232
-#, kde-format
-msgid "Show fancy effects in chat"
-msgstr "ஆடம்பரமான அசைவூட்டங்களை உரையாடலில் காட்டு"
-
-#: src/settings/AppearanceSettingsPage.qml:249
+#: src/settings/AppearanceSettingsPage.qml:233
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "ஒளிபுகும் உரையாடல் பக்கத்தைப் பயன்படுத்து"
 
-#: src/settings/AppearanceSettingsPage.qml:270
+#: src/settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "ஒளிபுகுமை"
 
-#: src/settings/AppearanceSettingsPage.qml:289
+#: src/settings/AppearanceSettingsPage.qml:273
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "ஒளிபுகும் உரையாடல் பக்கம் இயக்கப்பட்டிருந்தால் மட்டும் இயங்கும்."
 
-#: src/settings/AppearanceSettingsPage.qml:306
+#: src/settings/AppearanceSettingsPage.qml:290
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "உங்கள் செய்திகளை வலது பக்கத்தில் காட்டு"
 
-#: src/settings/AppearanceSettingsPage.qml:322
+#: src/settings/AppearanceSettingsPage.qml:306
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "உரையாடல்களில் இணைப்புகளின் முன்னோட்டத்தைக் காட்டு"
 
-#: src/settings/AppearanceSettingsPage.qml:332
+#: src/settings/AppearanceSettingsPage.qml:316
 #, kde-format
 msgid "Show Avatar"
 msgstr "சின்னத்தைக் காட்டு"
 
-#: src/settings/AppearanceSettingsPage.qml:336
+#: src/settings/AppearanceSettingsPage.qml:320
 #, kde-format
 msgid "In chat"
 msgstr "உரையாடலில்"
 
-#: src/settings/AppearanceSettingsPage.qml:346
+#: src/settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In sidebar"
 msgstr "ஓரப்பட்டையில்"
@@ -4200,7 +4208,7 @@ msgstr "சாளரத்தின் அளவை மாற்றும்ப�
 #: src/settings/NeoChatGeneralPage.qml:74
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
-msgstr ""
+msgstr "முகப்பு கீற்றில் அனைத்து அரங்குகளையும் காட்டு"
 
 #: src/settings/NeoChatGeneralPage.qml:85
 #, kde-format
@@ -4987,8 +4995,7 @@ msgid "Copy to clipboard"
 msgstr "பிடிப்புப்பலகைக்கு நகலெடு"
 
 #: src/timeline/CodeComponent.qml:178
-#, fuzzy, kde-format
-#| msgid "Maximize"
+#, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
@@ -5151,6 +5158,9 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid "Show fancy effects in chat"
+#~ msgstr "ஆடம்பரமான அசைவூட்டங்களை உரையாடலில் காட்டு"
 
 #~ msgctxt "number of room members"
 #~ msgid " members"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:38+0000\n"
+"POT-Creation-Date: 2024-04-22 00:38+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -88,18 +88,31 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Πηγή γεγονότος"
 
-#: src/devtools/DebugOptions.qml:20
+#: src/devtools/DebugOptions.qml:19
+#, fuzzy, kde-format
+#| msgid "Show links preview in the chat messages"
+msgctxt "@option:check"
+msgid "Show hidden events in the timeline"
+msgstr "Να εμφανίζεται η προεπισκόπηση συνδέσμων στα μηνύματα της συνομιλίας"
+
+#: src/devtools/DebugOptions.qml:26
 #, fuzzy, kde-format
 #| msgid "Waiting for device to accept verification."
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
 msgstr "Αναμονή για την αποδοχή επαλήθευσης από τη συσκευή."
 
-#: src/devtools/DebugOptions.qml:21
+#: src/devtools/DebugOptions.qml:27
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
+msgstr ""
+
+#: src/devtools/DebugOptions.qml:33
+#, kde-format
+msgctxt "@option:check"
+msgid "Show focus in window header"
 msgstr ""
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
@@ -260,13 +273,13 @@ msgid "Search"
 msgstr "Αναζήτηση"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:140 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:140 src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε]</i>"
 
 #: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:141
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε: %1]</i>"
@@ -1413,7 +1426,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Χωρίς εμότζι"
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:153
 #, fuzzy, kde-format
 #| msgid ": %1"
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1422,7 +1435,7 @@ msgid_plural " %1 %2 times"
 msgstr[0] ": %1"
 msgstr[1] ": %1"
 
-#: src/models/messagefiltermodel.cpp:146
+#: src/models/messagefiltermodel.cpp:157
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -1430,7 +1443,7 @@ msgid_plural " %1 users "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messagefiltermodel.cpp:155
+#: src/models/messagefiltermodel.cpp:166
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -1438,19 +1451,19 @@ msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:159
+#: src/models/messagefiltermodel.cpp:170
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:159
+#: src/models/messagefiltermodel.cpp:170
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " και "
 
-#: src/models/messagefiltermodel.cpp:165
+#: src/models/messagefiltermodel.cpp:176
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -1606,7 +1619,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Κρυπτογραφημένο μήνυμα"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:270
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1686,7 +1699,7 @@ msgid "Notification settings"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:400 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Configure"
 msgstr "Διαμόρφωση"
@@ -2345,7 +2358,14 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
+#: src/qml/ExploreComponent.qml:103
+#, fuzzy, kde-format
+#| msgid "Switch User"
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "Εναλλαγή χρήστη"
+
+#: src/qml/ExploreComponent.qml:167
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats"
 msgid "Create rooms and chats"
@@ -2725,18 +2745,18 @@ msgstr "Ειδοποιήσεις"
 msgid "There are no locations shared in this room."
 msgstr "Είσαι ήδη σε αυτήν την αίθουσα."
 
-#: src/qml/Main.qml:304
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Επαλήθευση συνεδρίας"
 
-#: src/qml/Main.qml:321
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "Συναίνεση χρήστη"
 
-#: src/qml/Main.qml:326
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2746,28 +2766,28 @@ msgstr ""
 "πριν τον χρησιμοποιήσεις. Κάνε κλικ στο παρακάτω κουμπί για να τους "
 "διαβάσεις."
 
-#: src/qml/Main.qml:331
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: src/qml/Main.qml:358
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "Έναρξη συνομιλίας"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Θέλεις να ξεκινήσεις συνομιλία με τον %1;"
 
-#: src/qml/Main.qml:386
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/Main.qml:418 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -4137,47 +4157,42 @@ msgstr "Συμπαγής"
 msgid "Use compact room list"
 msgstr "Χρήση συμπαγούς λίστας αιθουσών"
 
-#: src/settings/AppearanceSettingsPage.qml:232
-#, kde-format
-msgid "Show fancy effects in chat"
-msgstr "Να εμφανίζονται χαρούμενα εφέ στη συνομιλία"
-
-#: src/settings/AppearanceSettingsPage.qml:249
+#: src/settings/AppearanceSettingsPage.qml:233
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Χρήση διαφανούς σελίδας συνομιλίας"
 
-#: src/settings/AppearanceSettingsPage.qml:270
+#: src/settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "Διαφάνεια"
 
-#: src/settings/AppearanceSettingsPage.qml:289
+#: src/settings/AppearanceSettingsPage.qml:273
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Να ενεργοποιείται μόνο αν η διάφανη σελίδα συνομιλίας είναι ενεργή."
 
-#: src/settings/AppearanceSettingsPage.qml:306
+#: src/settings/AppearanceSettingsPage.qml:290
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Να εμφανίζονται τα μηνύματά σου στα δεξιά"
 
-#: src/settings/AppearanceSettingsPage.qml:322
+#: src/settings/AppearanceSettingsPage.qml:306
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Να εμφανίζεται η προεπισκόπηση συνδέσμων στα μηνύματα της συνομιλίας"
 
-#: src/settings/AppearanceSettingsPage.qml:332
+#: src/settings/AppearanceSettingsPage.qml:316
 #, kde-format
 msgid "Show Avatar"
 msgstr "Εμφάνιση του avatar"
 
-#: src/settings/AppearanceSettingsPage.qml:336
+#: src/settings/AppearanceSettingsPage.qml:320
 #, kde-format
 msgid "In chat"
 msgstr "Στη συνομιλία"
 
-#: src/settings/AppearanceSettingsPage.qml:346
+#: src/settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In sidebar"
 msgstr "Στην πλευρική μπάρα"
@@ -5473,6 +5488,9 @@ msgstr "Εμφάνιση"
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
+
+#~ msgid "Show fancy effects in chat"
+#~ msgstr "Να εμφανίζονται χαρούμενα εφέ στη συνομιλία"
 
 #, fuzzy
 #~| msgid "%1 Member"

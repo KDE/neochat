@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:38+0000\n"
+"POT-Creation-Date: 2024-04-22 00:38+0000\n"
 "PO-Revision-Date: 2024-02-14 19:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -85,18 +85,31 @@ msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Tapahtumalähde"
 
-#: src/devtools/DebugOptions.qml:20
+#: src/devtools/DebugOptions.qml:19
+#, fuzzy, kde-format
+#| msgid "Show links preview in the chat messages"
+msgctxt "@option:check"
+msgid "Show hidden events in the timeline"
+msgstr "Näytä keskusteluviesteissä linkkiesikatselu"
+
+#: src/devtools/DebugOptions.qml:26
 #, fuzzy, kde-format
 #| msgid "Waiting for device to accept verification."
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
 msgstr "Odotetaan laitteen hyväksyvän todennus."
 
-#: src/devtools/DebugOptions.qml:21
+#: src/devtools/DebugOptions.qml:27
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
+msgstr ""
+
+#: src/devtools/DebugOptions.qml:33
+#, kde-format
+msgctxt "@option:check"
+msgid "Show focus in window header"
 msgstr ""
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
@@ -247,13 +260,13 @@ msgid "Search"
 msgstr "Etsi"
 
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:140 src/models/messageeventmodel.cpp:465
+#: src/models/messagecontentmodel.cpp:140 src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Tämä viesti on poistettu]</i>"
 
 #: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:141
-#: src/models/messageeventmodel.cpp:466
+#: src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Tämä viesti on poistettu: %1]</i>"
@@ -1348,7 +1361,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Omat emojit"
 
-#: src/models/messagefiltermodel.cpp:142
+#: src/models/messagefiltermodel.cpp:153
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
@@ -1356,7 +1369,7 @@ msgid_plural " %1 %2 times"
 msgstr[0] " %1"
 msgstr[1] " %1 %2 kertaa"
 
-#: src/models/messagefiltermodel.cpp:146
+#: src/models/messagefiltermodel.cpp:157
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -1364,25 +1377,25 @@ msgid_plural " %1 users "
 msgstr[0] " 1 käyttäjä "
 msgstr[1] " %1 käyttäjää "
 
-#: src/models/messagefiltermodel.cpp:155
+#: src/models/messagefiltermodel.cpp:166
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:159
+#: src/models/messagefiltermodel.cpp:170
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " tai "
 
-#: src/models/messagefiltermodel.cpp:159
+#: src/models/messagefiltermodel.cpp:170
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " ja "
 
-#: src/models/messagefiltermodel.cpp:165
+#: src/models/messagefiltermodel.cpp:176
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -1514,7 +1527,7 @@ msgstr "Lev: %1, pit: %2"
 msgid "Encrypted Message"
 msgstr "Salattu viesti"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:270
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1590,7 +1603,7 @@ msgid "Notification settings"
 msgstr "Ilmoitusasetukset"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:400 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Configure"
 msgstr "Asetukset"
@@ -2232,7 +2245,14 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:103 src/qml/ExploreComponent.qml:167
+#: src/qml/ExploreComponent.qml:103
+#, fuzzy, kde-format
+#| msgid "Switch User"
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "Vaihda käyttäjää"
+
+#: src/qml/ExploreComponent.qml:167
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Luo huoneita ja keskusteluja"
@@ -2599,18 +2619,18 @@ msgstr "Sijainnit"
 msgid "There are no locations shared in this room."
 msgstr "Tässä huoneessa ei ole jaettuja sijainteja."
 
-#: src/qml/Main.qml:304
+#: src/qml/Main.qml:306
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Istunnon todennus"
 
-#: src/qml/Main.qml:321
+#: src/qml/Main.qml:323
 #, kde-format
 msgid "User consent"
 msgstr "Käyttäjän suostumus"
 
-#: src/qml/Main.qml:326
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2619,28 +2639,28 @@ msgstr ""
 "Kotipalvelimesi vaatii sinua hyväksymään käyttöehdot ennen kuin voit käyttää "
 "sitä. Lue ehdot napsauttamalla alla olevaa painiketta."
 
-#: src/qml/Main.qml:331
+#: src/qml/Main.qml:333
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: src/qml/Main.qml:358
+#: src/qml/Main.qml:360
 #, kde-format
 msgid "Start a chat"
 msgstr "Aloita keskustelu"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Haluatko käynnistää keskustelun henkilön %1 kanssa?"
 
-#: src/qml/Main.qml:386
+#: src/qml/Main.qml:388
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/Main.qml:418 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -3942,47 +3962,42 @@ msgstr "Tiivis"
 msgid "Use compact room list"
 msgstr "Käytä tiivistä huoneluetteloa"
 
-#: src/settings/AppearanceSettingsPage.qml:232
-#, kde-format
-msgid "Show fancy effects in chat"
-msgstr "Näytä keskustelussa erikoistehosteet"
-
-#: src/settings/AppearanceSettingsPage.qml:249
+#: src/settings/AppearanceSettingsPage.qml:233
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Käytä läpikuultavaa keskustelusivua"
 
-#: src/settings/AppearanceSettingsPage.qml:270
+#: src/settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "Läpinäkyvyys"
 
-#: src/settings/AppearanceSettingsPage.qml:289
+#: src/settings/AppearanceSettingsPage.qml:273
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Käytössä vain, jos läpikuultava keskustelusivu on käytössä."
 
-#: src/settings/AppearanceSettingsPage.qml:306
+#: src/settings/AppearanceSettingsPage.qml:290
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Näytä viestisi oikealla"
 
-#: src/settings/AppearanceSettingsPage.qml:322
+#: src/settings/AppearanceSettingsPage.qml:306
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Näytä keskusteluviesteissä linkkiesikatselu"
 
-#: src/settings/AppearanceSettingsPage.qml:332
+#: src/settings/AppearanceSettingsPage.qml:316
 #, kde-format
 msgid "Show Avatar"
 msgstr "Näytä avatar"
 
-#: src/settings/AppearanceSettingsPage.qml:336
+#: src/settings/AppearanceSettingsPage.qml:320
 #, kde-format
 msgid "In chat"
 msgstr "Keskustelussa"
 
-#: src/settings/AppearanceSettingsPage.qml:346
+#: src/settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In sidebar"
 msgstr "Sivupaneelissa"
@@ -5221,6 +5236,9 @@ msgstr "Näytä"
 #, kde-format
 msgid "Quit"
 msgstr "Lopeta"
+
+#~ msgid "Show fancy effects in chat"
+#~ msgstr "Näytä keskustelussa erikoistehosteet"
 
 #~ msgctxt "number of room members"
 #~ msgid " members"
