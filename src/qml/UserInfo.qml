@@ -5,7 +5,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
@@ -35,43 +35,28 @@ RowLayout {
             switchUserButton.checked = false;
         }
     }
-
-    QQC2.AbstractButton {
+    KirigamiComponents.AvatarButton {
         id: accountButton
+        readonly property string mediaId: root.connection.localUser.avatarMediaId
 
-        Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-        Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+        Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+        Layout.preferredHeight: Kirigami.Units.iconSizes.medium
         Layout.leftMargin: Kirigami.Units.largeSpacing
 
-        TapHandler {
-            acceptedButtons: Qt.RightButton | Qt.LeftButton
-            onTapped: (eventPoint, button) => {
-                // TODO Qt6 remove
-                if (!button) {
-                    button = eventPoint.event.button;
-                }
-                if (button == Qt.RightButton) {
-                    accountMenu.open();
-                } else {
-                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
-                        connection: root.connection
-                    }, {
-                        title: i18n("Account editor")
-                    });
-                }
-            }
-        }
-
         text: i18n("Edit this account")
+        source: mediaId ? ("image://mxc/" + mediaId) : ""
 
-        contentItem: KirigamiComponents.Avatar {
-            readonly property string mediaId: root.connection.localUser.avatarMediaId
+        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
+            connection: root.connection
+        }, {
+            title: i18n("Account editor")
+        });
 
-            source: mediaId ? ("image://mxc/" + mediaId) : ""
-            name: root.connection.localUser.displayName ?? root.connection.localUser.id
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped:  accountMenu.open()
         }
     }
-
     ColumnLayout {
         Layout.fillWidth: true
         Layout.maximumWidth: Math.round(root.width * 0.55)
