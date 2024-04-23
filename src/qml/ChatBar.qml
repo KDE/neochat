@@ -62,84 +62,6 @@ QQC2.Control {
     required property ActionsHandler actionsHandler
 
     /**
-     * @brief The list of actions in the ChatBar.
-     *
-     * Each of these will be visualised in the ChatBar so new actions can be added
-     * by appending to this list.
-     */
-    property list<Kirigami.Action> actions: [
-        Kirigami.Action {
-            id: attachmentAction
-
-            property bool isBusy: root.currentRoom && root.currentRoom.hasFileUploading
-
-            // Matrix does not allow sending attachments in replies
-            visible: _private.chatBarCache.replyId.length === 0 && _private.chatBarCache.attachmentPath.length === 0
-            icon.name: "mail-attachment"
-            text: i18n("Attach an image or file")
-            displayHint: Kirigami.DisplayHint.IconOnly
-
-            onTriggered: {
-                let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(applicationWindow().overlay);
-                dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
-                dialog.open();
-            }
-
-            tooltip: text
-        },
-        Kirigami.Action {
-            id: emojiAction
-
-            property bool isBusy: false
-
-            visible: !Kirigami.Settings.isMobile
-            icon.name: "smiley"
-            text: i18n("Emojis & Stickers")
-            displayHint: Kirigami.DisplayHint.IconOnly
-            checkable: true
-
-            onTriggered: {
-                if (emojiDialog.visible) {
-                    emojiDialog.close();
-                } else {
-                    emojiDialog.open();
-                }
-            }
-            tooltip: text
-        },
-        Kirigami.Action {
-            id: mapButton
-            icon.name: "globe"
-            property bool isBusy: false
-            text: i18n("Send a Location")
-            displayHint: QQC2.AbstractButton.IconOnly
-
-            onTriggered: {
-                locationChooser.createObject(QQC2.ApplicationWindow.overlay, {
-                    room: root.currentRoom
-                }).open();
-            }
-            tooltip: text
-        },
-        Kirigami.Action {
-            id: sendAction
-
-            property bool isBusy: false
-
-            icon.name: "document-send"
-            text: i18n("Send message")
-            displayHint: Kirigami.DisplayHint.IconOnly
-            checkable: true
-
-            onTriggered: {
-                _private.postMessage();
-            }
-
-            tooltip: text
-        }
-    ]
-
-    /**
      * @brief A message has been sent from the chat bar.
      */
     signal messageSent
@@ -208,6 +130,7 @@ QQC2.Control {
                     placeholderText: root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.mainCache.attachmentPath.length > 0 ? i18n("Set an attachment caption…") : i18n("Send a message…")
                     verticalAlignment: TextEdit.AlignVCenter
                     wrapMode: TextEdit.Wrap
+                    persistentSelection: true
 
                     Accessible.description: placeholderText
 
@@ -224,7 +147,7 @@ QQC2.Control {
                             root.currentRoom.sendTypingNotification(textExists);
                             textExists ? repeatTimer.start() : repeatTimer.stop();
                         }
-                        _private.chatBarCache.text = text;
+                        _private.chatBarCache.text = documentHandler.htmlText();
                     }
                     onSelectedTextChanged: {
                         if (selectedText.length > 0) {
@@ -346,6 +269,297 @@ QQC2.Control {
                 }
             }
         }
+        QQC2.ToolBar {
+            id: toolbar
+
+            Layout.margins: Kirigami.Units.largeSpacing
+            Layout.alignment:Qt.AlignHCenter
+
+            background: Kirigami.ShadowedRectangle {
+                color: Kirigami.Theme.backgroundColor
+                radius: 5
+
+                shadow {
+                    size: 15
+                    yOffset: 3
+                    color: Qt.rgba(0, 0, 0, 0.2)
+                }
+
+                border {
+                    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
+                    width: 1
+                }
+
+                Kirigami.Theme.inherit: false
+                Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            }
+            RowLayout {
+                QQC2.ToolButton {
+                    id: boldButton
+                    Shortcut {
+                        sequence: "Ctrl+B"
+                        onActivated: boldButton.clicked()
+                    }
+                    icon.name: "format-text-bold"
+                    text: i18nc("@action:button", "Bold")
+                    display: QQC2.AbstractButton.IconOnly
+                    checkable: true
+                    checked: documentHandler.bold
+                    onClicked: {
+                        documentHandler.bold = !documentHandler.bold
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                QQC2.ToolButton {
+                    id: italicButton
+                    Shortcut {
+                        sequence: "Ctrl+I"
+                        onActivated: italicButton.clicked()
+                    }
+                    icon.name: "format-text-italic"
+                    text: i18nc("@action:button", "Italic")
+                    display: QQC2.AbstractButton.IconOnly
+                    checkable: true
+                    checked: documentHandler.italic
+                    onClicked: {
+                        documentHandler.italic = checked;
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                QQC2.ToolButton {
+                    id: underlineButton
+                    Shortcut {
+                        sequence: "Ctrl+U"
+                        onActivated: underlineButton.clicked()
+                    }
+                    icon.name: "format-text-underline"
+                    text: i18nc("@action:button", "Underline")
+                    display: QQC2.AbstractButton.IconOnly
+                    checkable: true
+                    checked: documentHandler.underline
+                    onClicked: {
+                        documentHandler.underline = checked;
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                QQC2.ToolButton {
+                    icon.name: "format-text-strikethrough"
+                    text: i18nc("@action:button", "Strikethrough")
+                    display: QQC2.AbstractButton.IconOnly
+                    checkable: true
+                    checked: documentHandler.strikethrough
+                    onClicked: {
+                        documentHandler.strikethrough = checked;
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                Kirigami.Separator {
+                    Layout.fillHeight: true
+                    Layout.margins: 0
+                }
+                QQC2.ToolButton {
+                    id: indentAction
+                    icon.name: "format-indent-more"
+                    text: i18nc("@action:button", "Increase List Level")
+                    display: QQC2.AbstractButton.IconOnly
+                    onClicked: {
+                        documentHandler.indentListMore();
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+
+                QQC2.ToolButton {
+                    id: dedentAction
+                    icon.name: "format-indent-less"
+                    text: i18nc("@action:button", "Decrease List Level")
+                    display: QQC2.AbstractButton.IconOnly
+                    onClicked: {
+                        documentHandler.indentListLess();
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+
+                QQC2.ComboBox {
+                    id: listStyleComboBox
+                    onActivated: (index) => {
+                        documentHandler.setListStyle(currentValue);
+                    }
+                    enabled: indentAction.enabled || dedentAction.enabled
+                    textRole: "text"
+                    valueRole: "value"
+                    model: [
+                        { text: i18nc("@item:inmenu no list style", "No list"), value: 0 },
+                        { text: i18nc("@item:inmenu unordered style", "Unordered list"), value: 1 },
+                        { text: i18nc("@item:inmenu ordered style", "Ordered list"), value: 4 },
+                    ]
+                }
+
+                Kirigami.Separator {
+                    Layout.fillHeight: true
+                    Layout.margins: 0
+                }
+
+                QQC2.ToolButton {
+                    id: linkAction
+                    icon.name: "insert-link-symbolic"
+                    text: i18nc("@action:button", "Insert link")
+                    display: QQC2.AbstractButton.IconOnly
+                    onClicked: {
+                        linkDialog.linkText = documentHandler.currentLinkText();
+                        linkDialog.linkUrl = documentHandler.currentLinkUrl();
+                        linkDialog.open();
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+
+                QQC2.ToolButton {
+                    id: imageAction
+                    icon.name: "insert-image-symbolic"
+                    text: i18nc("@action:button", "Insert image")
+                    display: QQC2.AbstractButton.IconOnly
+                    onClicked: {
+                        imageDialog.open();
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                QQC2.ToolButton {
+                    id: tableAction
+                    icon.name: "insert-table"
+                    text: i18nc("@action:button", "Insert table")
+                    display: QQC2.AbstractButton.IconOnly
+                    onClicked: {
+                        tableDialog.open()
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                Kirigami.Separator {
+                    Layout.fillHeight: true
+                    Layout.margins: 0
+                }
+
+                QQC2.ComboBox {
+                    id: headingLevelComboBox
+
+                    model: [
+                        i18nc("@item:inmenu no heading", "Basic text"),
+                        i18nc("@item:inmenu heading level 1 (largest)", "Title"),
+                        i18nc("@item:inmenu heading level 2", "Subtitle"),
+                        i18nc("@item:inmenu heading level 3", "Section"),
+                        i18nc("@item:inmenu heading level 4", "Subsection"),
+                        i18nc("@item:inmenu heading level 5", "Paragraph"),
+                        i18nc("@item:inmenu heading level 6 (smallest)", "Subparagraph")
+                    ]
+
+                    onActivated: (index) => {
+                        documentHandler.setHeadingLevel(index);
+                    }
+                }
+
+                QQC2.ToolButton {
+                    id: attachmentAction
+
+                    property bool isBusy: root.currentRoom && root.currentRoom.hasFileUploading
+
+                    // Matrix does not allow sending attachments in replies
+                    visible: _private.chatBarCache.replyId.length === 0 && _private.chatBarCache.attachmentPath.length === 0
+                    icon.name: "mail-attachment"
+                    text: i18n("Attach an image or file")
+                    display: QQC2.AbstractButton.IconOnly
+
+                    onClicked: {
+                        let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(applicationWindow().overlay);
+                        dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
+                        dialog.open();
+                    }
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.text: text
+                }
+                QQC2.ToolButton {
+                    id: emojiAction
+
+                    property bool isBusy: false
+
+                    visible: !Kirigami.Settings.isMobile
+                    icon.name: "smiley"
+                    text: i18n("Emojis & Stickers")
+                    display: QQC2.AbstractButton.IconOnly
+                    checkable: true
+
+                    onClicked: {
+                        if (emojiDialog.visible) {
+                            emojiDialog.close();
+                        } else {
+                            emojiDialog.open();
+                        }
+                    }
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.text: text
+                }
+                QQC2.ToolButton {
+                    id: mapButton
+                    icon.name: "globe"
+                    property bool isBusy: false
+                    text: i18n("Send a Location")
+                    display: QQC2.AbstractButton.IconOnly
+
+                    onClicked: {
+                        locationChooser.createObject(QQC2.ApplicationWindow.overlay, {
+                            room: root.currentRoom
+                        }).open();
+                    }
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.text: text
+                }
+                QQC2.ToolButton {
+                    id: sendAction
+
+                    property bool isBusy: false
+
+                    icon.name: "document-send"
+                    text: i18n("Send message")
+                    display: QQC2.AbstractButton.IconOnly
+                    checkable: true
+
+                    onClicked: {
+                        documentHandler.dumpHtml()
+                        //_private.postMessage();
+                    }
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.text: text
+                }
+            }
+        }
     }
 
     DelegateSizeHelper {
@@ -452,6 +666,8 @@ QQC2.Control {
 
     ChatDocumentHandler {
         id: documentHandler
+
+        textArea: textField
         document: textField.textDocument
         cursorPosition: textField.cursorPosition
         selectionStart: textField.selectionStart
@@ -518,6 +734,25 @@ QQC2.Control {
         onClosed: if (emojiAction.checked) {
             emojiAction.checked = false;
         }
+    }
+
+    TableDialog {
+        id: tableDialog
+        parent: applicationWindow().overlay
+        onAccepted: document.insertTable(rows, cols)
+    }
+
+    LinkDialog {
+        id: linkDialog
+
+        parent: applicationWindow().overlay
+        onAccepted: document.updateLink(linkUrl, linkText)
+    }
+    ImageDialog {
+        id: imageDialog
+
+        parent: applicationWindow().overlay
+        onAccepted: document.insertImage(imagePath)
     }
 
     function insertText(text) {

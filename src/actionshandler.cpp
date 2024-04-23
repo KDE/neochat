@@ -6,8 +6,6 @@
 #include <Quotient/csapi/joining.h>
 #include <Quotient/events/roommemberevent.h>
 
-#include <cmark.h>
-
 #include <KLocalizedString>
 #include <QStringBuilder>
 

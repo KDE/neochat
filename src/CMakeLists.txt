@@ -177,6 +177,8 @@ add_library(neochat STATIC
     foreigntypes.h
     models/threepidmodel.cpp
     models/threepidmodel.h
+    nestedlisthelper.cpp
+    nestedlisthelper_p.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -280,6 +282,9 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ConfirmLeaveDialog.qml
         qml/CodeMaximizeComponent.qml
         qml/EditStateDialog.qml
+        qml/LinkDialog.qml
+        qml/ImageDialog.qml
+        qml/TableDialog.qml
 )
 
 add_subdirectory(settings)

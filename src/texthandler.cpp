@@ -63,7 +63,7 @@ void TextHandler::setData(const QString &string)
 QString TextHandler::handleSendText()
 {
     m_pos = 0;
-    m_dataBuffer = markdownToHTML(m_data);
+    m_dataBuffer = m_data; // markdownToHTML(m_data);
 
     m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
 
@@ -75,11 +75,11 @@ QString TextHandler::handleSendText()
         QString nextTokenBuffer = m_nextToken;
         switch (m_nextTokenType) {
         case Text:
-            nextTokenBuffer = escapeHtml(nextTokenBuffer);
+            // nextTokenBuffer = escapeHtml(nextTokenBuffer);
             nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
             break;
         case TextCode:
-            nextTokenBuffer = escapeHtml(nextTokenBuffer);
+            // nextTokenBuffer = escapeHtml(nextTokenBuffer);
             break;
         case Tag:
             if (!isAllowedTag(getTagType(m_nextToken))) {
