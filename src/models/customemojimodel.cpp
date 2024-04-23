@@ -153,13 +153,13 @@ QVariant CustomEmojiModel::data(const QModelIndex &idx, int role) const
 
     switch (Roles(role)) {
     case Roles::ModelData:
-        return QVariant::fromValue(Emoji(QStringLiteral("image://mxc/") + data.url.mid(6), data.name, true));
+        return QVariant::fromValue(Emoji(m_connection->makeMediaUrl(QUrl(data.url)).toString(), data.name, true));
     case Roles::Name:
     case Roles::DisplayRole:
     case Roles::ReplacedTextRole:
         return data.name;
     case Roles::ImageURL:
-        return QUrl(QStringLiteral("image://mxc/") + data.url.mid(6));
+        return m_connection->makeMediaUrl(QUrl(data.url));
     case Roles::MxcUrl:
         return m_connection->makeMediaUrl(QUrl(data.url));
     default:
@@ -205,7 +205,7 @@ QVariantList CustomEmojiModel::filterModel(const QString &filter)
         if (!emoji.name.contains(filter, Qt::CaseInsensitive))
             continue;
 
-        results << QVariant::fromValue(Emoji(QStringLiteral("image://mxc/") + emoji.url.mid(6), emoji.name, true));
+        results << QVariant::fromValue(Emoji(m_connection->makeMediaUrl(QUrl(emoji.url)).toString(), emoji.name, true));
     }
     return results;
 }

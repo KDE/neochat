@@ -44,7 +44,7 @@ RowLayout {
         Layout.leftMargin: Kirigami.Units.largeSpacing
 
         text: i18n("Edit this account")
-        source: mediaId ? ("image://mxc/" + mediaId) : ""
+        source: mediaId ? root.connection.makeMediaUrl("mxc://" + mediaId) : ""
 
         activeFocusOnTab: true
 

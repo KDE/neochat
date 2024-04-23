@@ -37,7 +37,7 @@ QVariant AccountEmoticonModel::data(const QModelIndex &index, int role) const
     const auto &row = index.row();
     const auto &image = m_images->images[row];
     if (role == UrlRole) {
-        return m_connection->makeMediaUrl(image.url);
+        return m_connection->makeMediaUrl(image.url).toString();
     }
     if (role == BodyRole) {
         if (image.body) {

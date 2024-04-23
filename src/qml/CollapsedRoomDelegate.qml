@@ -32,7 +32,7 @@ QQC2.ItemDelegate {
     visible: root.categoryVisible || filterText.length > 0
 
     contentItem: KirigamiComponents.Avatar {
-        source: root.avatar ? `image://mxc/${root.avatar}` : ""
+        source: root.avatar ? root.currentRoom.connection.makeMediaUrl("mxc://" + root.avatar) : ""
         name: root.displayName
 
         sourceSize {

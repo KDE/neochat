@@ -20,8 +20,6 @@ add_library(neochat STATIC
     models/customemojimodel.h
     clipboard.cpp
     clipboard.h
-    matriximageprovider.cpp
-    matriximageprovider.h
     models/messageeventmodel.cpp
     models/messageeventmodel.h
     models/messagefiltermodel.cpp

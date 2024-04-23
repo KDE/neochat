@@ -188,7 +188,7 @@ QQC2.Control {
                         Layout.maximumHeight: width - Kirigami.Units.smallSpacing
 
                         text: displayName
-                        source: avatar ? ("image://mxc/" + avatar) : ""
+                        source: avatar ? root.connection.makeMediaUrl("mxc://" + avatar) : ""
 
                         activeFocusOnTab: true
 

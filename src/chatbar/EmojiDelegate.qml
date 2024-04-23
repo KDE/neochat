@@ -24,7 +24,7 @@ QQC2.ItemDelegate {
     contentItem: Item {
         Kirigami.Heading {
             anchors.fill: parent
-            visible: !root.emoji.startsWith("image") && !root.isImage
+            visible: !root.emoji.startsWith("mxc") && !root.isImage
             text: root.emoji
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -41,7 +41,7 @@ QQC2.ItemDelegate {
         }
         Image {
             anchors.fill: parent
-            visible: root.emoji.startsWith("image") || root.isImage
+            visible: root.emoji.startsWith("mxc") || root.isImage
             source: visible ? root.emoji : ""
         }
     }

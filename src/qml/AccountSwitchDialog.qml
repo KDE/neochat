@@ -125,7 +125,7 @@ Kirigami.Dialog {
                         width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                         height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                     }
-                    source: userDelegate.connection.localUser.avatarMediaId ? ("image://mxc/" + userDelegate.connection.localUser.avatarMediaId) : ""
+                    source: userDelegate.connection.localUser.avatarMediaId ? userDelegate.connection.makeMediaUrl("mxc://" + userDelegate.connection.localUser.avatarMediaId) : ""
                     name: userDelegate.connection.localUser.displayName ?? userDelegate.connection.localUser.id
                 }
 

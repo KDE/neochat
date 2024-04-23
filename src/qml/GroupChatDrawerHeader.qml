@@ -34,7 +34,7 @@ ColumnLayout {
             Layout.preferredHeight: Kirigami.Units.iconSizes.large
 
             name: root.room ? root.room.displayName : ""
-            source: root.room && root.room.avatarMediaId ? ("image://mxc/" + root.room.avatarMediaId) : ""
+            source: root.room ? root.room.connection.makeMediaUrl("mxc://" + root.room.avatarMediaId) : ""
 
             Rectangle {
                 visible: room.usesEncryption
@@ -92,7 +92,7 @@ ColumnLayout {
                     text: barcode.content,
                     title: root.room ? root.room.displayName : "",
                     subtitle: root.room ? root.room.id : "",
-                    avatarSource: root.room && root.room.avatarMediaId ? ("image://mxc/" + root.room.avatarMediaId) : ""
+                    avatarSource: root.room && root.room.avatarMediaId ? root.room.connection.makeMediaUrl("mxc://" + root.room.avatarMediaId) : ""
                 });
                 map.open();
             }

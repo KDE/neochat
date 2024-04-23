@@ -5,6 +5,7 @@
 #include <QIcon>
 #include <QNetworkDiskCache>
 #include <QNetworkProxyFactory>
+#include <QNetworkReply>
 #include <QObject>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -46,11 +47,10 @@
 #include "colorschemer.h"
 #include "controller.h"
 #include "logger.h"
-#include "matriximageprovider.h"
 #include "neochatconfig.h"
 #include "roommanager.h"
-#include "windowcontroller.h"
 #include "sharehandler.h"
+#include "windowcontroller.h"
 
 #ifdef HAVE_RUNNER
 #include "runner.h"
@@ -286,7 +286,6 @@ int main(int argc, char *argv[])
         ShareHandler::instance().setText(parser.value(shareOption));
     }
 
-    engine.addImageProvider(QLatin1String("mxc"), MatrixImageProvider::create(&engine, &engine));
     engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
 
     engine.loadFromModule("org.kde.neochat", "Main");

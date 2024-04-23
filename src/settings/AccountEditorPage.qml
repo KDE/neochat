@@ -34,7 +34,7 @@ FormCard.FormCardPage {
 
         padding: 0
 
-        source: root.connection && root.connection.localUser.avatarMediaId ? ("image://mxc/" + root.connection.localUser.avatarMediaId) : ""
+        source: root.connection && root.connection.localUser.avatarMediaId ? root.connection.makeMediaUrl("mxc://" + root.connection.localUser.avatarMediaId) : ""
         name: root.connection.localUser.displayName
 
         onClicked: {

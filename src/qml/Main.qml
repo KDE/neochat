@@ -40,7 +40,6 @@ Kirigami.ApplicationWindow {
 
     onConnectionChanged: {
         CustomEmojiModel.connection = root.connection;
-        MatrixImageProvider.connection = root.connection;
         SpaceHierarchyCache.connection = root.connection;
         if (ShareHandler.text && root.connection) {
             root.handleShare();
@@ -190,7 +189,6 @@ Kirigami.ApplicationWindow {
 
     Component.onCompleted: {
         CustomEmojiModel.connection = root.connection;
-        MatrixImageProvider.connection = root.connection;
         SpaceHierarchyCache.connection = root.connection;
         WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
         if (ShareHandler.text && root.connection) {
