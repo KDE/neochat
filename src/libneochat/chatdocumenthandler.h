@@ -12,6 +12,7 @@
 #include "enums/chatbartype.h"
 #include "models/completionmodel.h"
 #include "neochatroom.h"
+#include "nestedlisthelper_p.h"
 
 class QTextDocument;
 
@@ -88,6 +89,28 @@ class ChatDocumentHandler : public QObject
      */
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
+    Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
+    Q_PROPERTY(QString fontFamily READ fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
+    Q_PROPERTY(Qt::Alignment alignment READ alignment WRITE setAlignment NOTIFY alignmentChanged)
+
+    Q_PROPERTY(bool bold READ bold WRITE setBold NOTIFY boldChanged)
+    Q_PROPERTY(bool italic READ italic WRITE setItalic NOTIFY italicChanged)
+    Q_PROPERTY(bool underline READ underline WRITE setUnderline NOTIFY underlineChanged)
+    Q_PROPERTY(bool strikethrough READ strikethrough WRITE setStrikethrough NOTIFY strikethroughChanged)
+
+    Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
+    Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
+    Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY currentListStyleChanged)
+    Q_PROPERTY(int currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
+
+    // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
+
+    Q_PROPERTY(int fontSize READ fontSize WRITE setFontSize NOTIFY fontSizeChanged)
+
+    Q_PROPERTY(QString fileName READ fileName NOTIFY fileUrlChanged)
+    Q_PROPERTY(QString fileType READ fileType NOTIFY fileUrlChanged)
+    Q_PROPERTY(QUrl fileUrl READ fileUrl NOTIFY fileUrlChanged)
+
 public:
     explicit ChatDocumentHandler(QObject *parent = nullptr);
 
@@ -111,13 +134,76 @@ public:
      */
     Q_INVOKABLE void updateMentions(const QString &editId);
 
+    QString fontFamily() const;
+    void setFontFamily(const QString &family);
+
+    QColor textColor() const;
+    void setTextColor(const QColor &color);
+
+    Qt::Alignment alignment() const;
+    void setAlignment(Qt::Alignment alignment);
+
+    bool bold() const;
+    void setBold(bool bold);
+
+    bool italic() const;
+    void setItalic(bool italic);
+
+    bool underline() const;
+    void setUnderline(bool underline);
+
+    bool strikethrough() const;
+    void setStrikethrough(bool strikethrough);
+
+    bool canIndentList() const;
+    bool canDedentList() const;
+    int currentListStyle() const;
+
+    int currentHeadingLevel() const;
+
+    // bool list() const;
+    // void setList(bool list);
+
+    int fontSize() const;
+    void setFontSize(int size);
+
+    QString fileName() const;
+    QString fileType() const;
+    QUrl fileUrl() const;
+
+    Q_INVOKABLE void insertText(const QString &text);
+    Q_INVOKABLE QString currentLinkUrl() const;
+    Q_INVOKABLE QString currentLinkText() const;
+    Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
+    Q_INVOKABLE void insertImage(const QUrl &imagePath);
+    Q_INVOKABLE void insertTable(int rows, int columns);
+
+    Q_INVOKABLE void indentListLess();
+    Q_INVOKABLE void indentListMore();
+
+    Q_INVOKABLE void setListStyle(int styleIndex);
+    Q_INVOKABLE void setHeadingLevel(int level);
+
+    Q_INVOKABLE void dumpHtml();
+    Q_INVOKABLE QString htmlText();
+
 Q_SIGNALS:
     void typeChanged();
     void textItemChanged();
     void roomChanged();
 
-public Q_SLOTS:
-    void updateCompletion() const;
+    void fontFamilyChanged();
+    void textColorChanged();
+    void alignmentChanged();
+
+    void boldChanged();
+    void italicChanged();
+    void underlineChanged();
+    void checkableChanged();
+    void strikethroughChanged();
+    void currentListStyleChanged();
+    void fontSizeChanged();
+    void fileUrlChanged();
 
 private:
     ChatBarType::Type m_type = ChatBarType::None;
@@ -129,11 +215,22 @@ private:
     QPointer<NeoChatRoom> m_room;
 
     int cursorPosition() const;
+    int selectionStart() const;
+    int selectionEnd() const;
 
     QString getText() const;
     void pushMention(const Mention mention) const;
 
     SyntaxHighlighter *m_highlighter = nullptr;
+    QQuickItem *m_textArea;
 
     CompletionModel *m_completionModel = nullptr;
+    QTextCursor textCursor() const;
+    void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
+    void selectLinkText(QTextCursor *cursor) const;
+    NestedListHelper m_nestedListHelper;
+    QColor linkColor();
+    QColor mLinkColor;
+    void regenerateColorScheme();
+    QUrl m_fileUrl;
 };

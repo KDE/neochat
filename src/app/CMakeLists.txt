@@ -70,7 +70,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AttachmentPane.qml
         qml/QuickFormatBar.qml
         qml/UserDetailDialog.qml
-        qml/OpenFileDialog.qml
         qml/KeyVerificationDialog.qml
         qml/ConfirmLogoutDialog.qml
         qml/VerificationMessage.qml
@@ -79,7 +78,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/EmojiSas.qml
         qml/VerificationCanceled.qml
         qml/MessageSourceSheet.qml
-        qml/LocationChooser.qml
         qml/InvitationView.qml
         qml/AvatarTabButton.qml
         qml/OsmLocationPlugin.qml
@@ -105,7 +103,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/HoverLinkIndicator.qml
         qml/AvatarNotification.qml
         qml/ReasonDialog.qml
-        qml/NewPollDialog.qml
         qml/UserMenu.qml
         qml/MeetingDialog.qml
         qml/SeenByDialog.qml

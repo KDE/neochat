@@ -70,117 +70,6 @@ QQC2.Control {
         }
     }
 
-    /**
-     * @brief The list of actions in the ChatBar.
-     *
-     * Each of these will be visualised in the ChatBar so new actions can be added
-     * by appending to this list.
-     */
-    property list<BusyAction> actions: [
-        BusyAction {
-            id: attachmentAction
-
-            isBusy: root.currentRoom && root.currentRoom.hasFileUploading
-
-            // Matrix does not allow sending attachments in replies
-            visible: _private.chatBarCache.replyId.length === 0 && _private.chatBarCache.attachmentPath.length === 0
-            icon.name: "mail-attachment"
-            text: i18nc("@action:button", "Attach an image or file")
-            displayHint: Kirigami.DisplayHint.IconOnly
-
-            onTriggered: {
-                if (Clipboard.hasImage) {
-                    let dialog = attachDialog.createObject(root.QQC2.Overlay.overlay) as AttachDialog;
-                    dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
-                    dialog.open();
-                } else {
-                    let dialog = openFileDialog.createObject(root.QQC2.Overlay.overlay) as OpenFileDialog;
-                    dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
-                    dialog.open();
-                }
-            }
-
-            tooltip: text
-        },
-        BusyAction {
-            id: emojiAction
-
-            isBusy: false
-
-            visible: !Kirigami.Settings.isMobile
-            icon.name: "smiley"
-            text: i18nc("@action:button", "Emojis & Stickers")
-            displayHint: Kirigami.DisplayHint.IconOnly
-            checkable: true
-
-            onTriggered: {
-                if (emojiDialog.visible) {
-                    emojiDialog.close();
-                } else {
-                    emojiDialog.open();
-                }
-            }
-            tooltip: text
-        },
-        BusyAction {
-            id: mapButton
-            icon.name: "mark-location-symbolic"
-            isBusy: false
-            text: i18nc("@action:button", "Send a Location")
-            displayHint: QQC2.AbstractButton.IconOnly
-
-            onTriggered: {
-                (locationChooser.createObject(QQC2.Overlay.overlay, {
-                    room: root.currentRoom
-                }) as LocationChooser).open();
-            }
-            tooltip: text
-        },
-        BusyAction {
-            id: pollButton
-            icon.name: "amarok_playcount"
-            isBusy: false
-            text: i18nc("@action:button", "Create a Poll")
-            displayHint: QQC2.AbstractButton.IconOnly
-
-            onTriggered: {
-                (newPollDialog.createObject(QQC2.Overlay.overlay, {
-                    room: root.currentRoom
-                }) as NewPollDialog).open();
-            }
-            tooltip: text
-        },
-        BusyAction {
-            icon.name: "microphone"
-            isBusy: false
-            text: i18nc("@action:button", "Send a Voice Message")
-            displayHint: QQC2.AbstractButton.IconOnly
-            onTriggered: {
-                let dialog = voiceMessageDialog.createObject(root, {
-                    room: root.currentRoom
-                }) as VoiceMessageDialog;
-                dialog.open();
-            }
-            tooltip: text
-        },
-        BusyAction {
-            id: sendAction
-
-            isBusy: false
-
-            icon.name: "document-send"
-            text: i18nc("@action:button", "Send message")
-            displayHint: Kirigami.DisplayHint.IconOnly
-            checkable: true
-
-            onTriggered: {
-                _private.postMessage();
-            }
-
-            tooltip: text
-        }
-    ]
-
     spacing: 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -274,9 +163,7 @@ QQC2.Control {
                     placeholderText: root.currentRoom.usesEncryption ? i18nc("@placeholder", "Send an encrypted message…") : root.currentRoom.mainCache.attachmentPath.length > 0 ? i18nc("@placeholder", "Set an attachment caption…") : i18nc("@placeholder", "Send a message…")
                     verticalAlignment: TextEdit.AlignVCenter
                     wrapMode: TextEdit.Wrap
-                    // This has to stay PlainText or else formatting starts breaking in strange ways
-                    textFormat: TextEdit.PlainText
-                    font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
+                    persistentSelection: true
 
                     Accessible.description: placeholderText
 
@@ -411,6 +298,18 @@ QQC2.Control {
                 }
             }
         }
+        RichEditBar {
+            id: richEditBar
+            Layout.maximumWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
+            Layout.margins: Kirigami.Units.largeSpacing
+            Layout.alignment:Qt.AlignHCenter
+            maxAvailableWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
+
+            room: root.currentRoom
+            documentHandler: documentHandler
+
+            onRequestPostMessage: _private.postMessage()
+        }
     }
     LibNeoChat.DelegateSizeHelper {
         id: chatBarSizeHelper
@@ -468,11 +367,13 @@ QQC2.Control {
     QtObject {
         id: _private
         property ChatBarCache chatBarCache
+        onChatBarCacheChanged: {
+            richEditBar.chatBarCache = chatBarCache
+        }
 
         function postMessage() {
             _private.chatBarCache.postMessage();
             repeatTimer.stop();
-            root.currentRoom.markAllMessagesAsRead();
             textField.clear();
         }
 
@@ -534,38 +435,6 @@ QQC2.Control {
         room: root.currentRoom
     }
 
-    Component {
-        id: openFileDialog
-
-        OpenFileDialog {
-            parentWindow: Window.window
-            currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
-        }
-    }
-
-    Component {
-        id: attachDialog
-
-        AttachDialog {
-            anchors.centerIn: parent
-        }
-    }
-
-    Component {
-        id: locationChooser
-        LocationChooser {}
-    }
-
-    Component {
-        id: newPollDialog
-        NewPollDialog {}
-    }
-
-    Component {
-        id: voiceMessageDialog
-        VoiceMessageDialog {}
-    }
-
     CompletionMenu {
         id: completionMenu
         chatDocumentHandler: documentHandler
@@ -581,33 +450,5 @@ QQC2.Control {
                 easing.type: Easing.OutCubic
             }
         }
-    }
-
-    EmojiDialog {
-        id: emojiDialog
-
-        x: root.width - width
-        y: -implicitHeight
-
-        modal: false
-        includeCustom: true
-        closeOnChosen: false
-
-        currentRoom: root.currentRoom
-
-        onChosen: emoji => root.insertText(emoji)
-        onClosed: if (emojiAction.checked) {
-            emojiAction.checked = false;
-        }
-    }
-
-    function insertText(text) {
-        let initialCursorPosition = textField.cursorPosition;
-        textField.text = textField.text.substr(0, initialCursorPosition) + text + textField.text.substr(initialCursorPosition);
-        textField.cursorPosition = initialCursorPosition + text.length;
-    }
-
-    component BusyAction : Kirigami.Action {
-        required property bool isBusy
     }
 }
