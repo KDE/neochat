@@ -4,7 +4,6 @@
 #include "login.h"
 
 #include <Quotient/accountregistry.h>
-#include <Quotient/connection.h>
 #include <Quotient/qt_connection_util.h>
 
 #include "controller.h"
@@ -54,7 +53,7 @@ void LoginHelper::init()
             m_connection = new NeoChatConnection();
         }
         m_connection->resolveServer(m_matrixId);
-        connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [this]() {
+        connectSingleShot(m_connection.get(), &Connection::loginFlowsChanged, this, [this]() {
             setHomeserverReachable(true);
             m_testing = false;
             Q_EMIT testingChanged();
@@ -100,7 +99,7 @@ void LoginHelper::init()
         Q_EMIT Controller::instance().errorOccured(i18n("Network Error"), std::move(error));
     });
 
-    connectSingleShot(m_connection, &Connection::syncDone, this, [this]() {
+    connectSingleShot(m_connection.get(), &Connection::syncDone, this, [this]() {
         Q_EMIT loaded();
     });
 }
@@ -182,7 +181,7 @@ QUrl LoginHelper::ssoUrl() const
 void LoginHelper::loginWithSso()
 {
     m_connection->resolveServer(m_matrixId);
-    connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [this]() {
+    connectSingleShot(m_connection.get(), &Connection::loginFlowsChanged, this, [this]() {
         SsoSession *session = m_connection->prepareForSso(m_deviceName);
         m_ssoUrl = session->ssoUrl();
         Q_EMIT ssoUrlChanged();

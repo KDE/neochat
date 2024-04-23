@@ -9,7 +9,6 @@
 #include <QQmlEngine>
 #include <QRegularExpression>
 
-#include <Quotient/connection.h>
 #include <Quotient/user.h>
 
 class QmlUtils : public QObject

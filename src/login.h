@@ -146,7 +146,7 @@ private:
     QString m_deviceName;
     bool m_supportsSso = false;
     bool m_supportsPassword = false;
-    NeoChatConnection *m_connection = nullptr;
+    QPointer<NeoChatConnection> m_connection;
     QUrl m_ssoUrl;
     bool m_testing = false;
     bool m_isLoggingIn = false;

@@ -7,7 +7,6 @@
 
 #include "neochatconfig.h"
 
-#include <Quotient/connection.h>
 #include <Quotient/csapi/rooms.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>

@@ -13,16 +13,15 @@
 
 #include <Quotient/csapi/registration.h>
 
-#include <Quotient/connection.h>
-
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/util.h>
 
 namespace Quotient
 {
-class Connection;
 class CheckUsernameAvailabilityJob;
 }
+
+class NeoChatConnection;
 
 class NeoChatRegisterJob : public Quotient::BaseJob
 {
@@ -159,7 +158,7 @@ private:
     QPointer<Quotient::CheckUsernameAvailabilityJob> m_usernameJob;
     QPointer<NeoChatRegisterJob> m_testServerJob;
     QList<QList<QString>> m_flows;
-    QPointer<Quotient::Connection> m_connection;
+    QPointer<NeoChatConnection> m_connection;
 
     void testHomeserver();
     void testUsername();

@@ -19,7 +19,6 @@
 #include <signal.h>
 
 #include <Quotient/accountregistry.h>
-#include <Quotient/connection.h>
 #include <Quotient/csapi/logout.h>
 #include <Quotient/csapi/notifications.h>
 #include <Quotient/eventstats.h>

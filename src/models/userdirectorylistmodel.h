@@ -9,10 +9,7 @@
 
 #include <Quotient/csapi/users.h>
 
-namespace Quotient
-{
-class Connection;
-}
+class NeoChatConnection;
 
 /**
  * @class UserDirectoryListModel
@@ -32,7 +29,7 @@ class UserDirectoryListModel : public QAbstractListModel
     /**
      * @brief The current connection that the model is getting users from.
      */
-    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
     /**
      * @brief The text to search the public room list for.
@@ -57,8 +54,8 @@ public:
 
     explicit UserDirectoryListModel(QObject *parent = nullptr);
 
-    [[nodiscard]] Quotient::Connection *connection() const;
-    void setConnection(Quotient::Connection *conn);
+    [[nodiscard]] NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
 
     [[nodiscard]] QString searchText() const;
     void setSearchText(const QString &searchText);
@@ -99,7 +96,7 @@ Q_SIGNALS:
     void searchingChanged();
 
 private:
-    Quotient::Connection *m_connection = nullptr;
+    QPointer<NeoChatConnection> m_connection;
     QString m_searchText;
 
     bool attempted = false;

@@ -9,10 +9,7 @@
 
 #include <Quotient/csapi/definitions/client_device.h>
 
-namespace Quotient
-{
-class Connection;
-}
+class NeoChatConnection;
 
 /**
  * @class DevicesModel
@@ -31,7 +28,7 @@ class DevicesModel : public QAbstractListModel
     /**
      * @brief The current connection that the model is getting its devices from.
      */
-    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged REQUIRED)
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged REQUIRED)
 
 public:
     /**
@@ -88,9 +85,8 @@ public:
 
     explicit DevicesModel(QObject *parent = nullptr);
 
-
-    [[nodiscard]] Quotient::Connection *connection() const;
-    void setConnection(Quotient::Connection *connection);
+    [[nodiscard]] NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
 
 Q_SIGNALS:
     void connectionChanged();
@@ -99,5 +95,5 @@ Q_SIGNALS:
 private:
     void fetchDevices();
     QList<Quotient::Device> m_devices;
-    QPointer<Quotient::Connection> m_connection;
+    QPointer<NeoChatConnection> m_connection;
 };

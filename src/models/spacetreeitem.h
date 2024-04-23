@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+#include <QPointer>
+
 #include <Quotient/csapi/space_hierarchy.h>
 #include <Quotient/events/stateevent.h>
 
@@ -149,7 +151,7 @@ public:
     bool isSuggested() const;
 
 private:
-    NeoChatConnection *m_connection;
+    QPointer<NeoChatConnection> m_connection;
     std::vector<std::unique_ptr<SpaceTreeItem>> m_children;
     SpaceTreeItem *m_parentItem;
 

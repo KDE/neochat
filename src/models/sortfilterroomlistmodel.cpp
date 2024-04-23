@@ -5,6 +5,8 @@
 
 #include "roomlistmodel.h"
 
+#include "neochatconnection.h"
+
 SortFilterRoomListModel::SortFilterRoomListModel(RoomListModel *sourceModel, QObject *parent)
     : QSortFilterProxyModel(parent)
 {

@@ -5,7 +5,8 @@
 
 #include "customemojimodel.h"
 #include <QRegularExpression>
-#include <connection.h>
+
+class NeoChatConnection;
 
 struct CustomEmoji {
     QString name; // with :semicolons:
@@ -14,6 +15,6 @@ struct CustomEmoji {
 };
 
 struct CustomEmojiModel::Private {
-    Quotient::Connection *conn = nullptr;
+    QPointer<NeoChatConnection> connection;
     QList<CustomEmoji> emojies;
 };

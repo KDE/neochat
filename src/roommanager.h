@@ -192,7 +192,7 @@ public:
      * See https://spec.matrix.org/latest/client-server-api/#knocking-on-rooms for
      * knocking on rooms.
      */
-    void knockRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers);
+    void knockRoom(NeoChatConnection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers);
 
     /**
      * @brief Show a media item maximized.
@@ -358,7 +358,7 @@ private:
     TimelineModel *m_timelineModel;
     MessageFilterModel *m_messageFilterModel;
     MediaMessageFilterModel *m_mediaMessageFilterModel;
-    NeoChatConnection *m_connection;
+    QPointer<NeoChatConnection> m_connection;
 
     void setCurrentRoom(const QString &roomId);
 

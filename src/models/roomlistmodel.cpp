@@ -25,12 +25,12 @@ RoomListModel::RoomListModel(QObject *parent)
 
 RoomListModel::~RoomListModel() = default;
 
-Quotient::Connection *RoomListModel::connection() const
+NeoChatConnection *RoomListModel::connection() const
 {
     return m_connection;
 }
 
-void RoomListModel::setConnection(Connection *connection)
+void RoomListModel::setConnection(NeoChatConnection *connection)
 {
     if (connection == m_connection) {
         return;

@@ -110,7 +110,7 @@ Q_SIGNALS:
 private:
     explicit CustomEmojiModel(QObject *parent = nullptr);
     QList<CustomEmoji> m_emojis;
-    NeoChatConnection *m_connection = nullptr;
+    QPointer<NeoChatConnection> m_connection;
 
     void fetchEmojis();
 };

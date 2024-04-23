@@ -170,7 +170,7 @@ void Registration::testHomeserver()
         delete m_connection;
     }
 
-    m_connection = new Connection(this);
+    m_connection = new NeoChatConnection(this);
     m_connection->resolveServer("@user:%1"_ls.arg(m_homeserver));
     connectSingleShot(m_connection.data(), &Connection::loginFlowsChanged, this, [this]() {
         if (m_testServerJob) {

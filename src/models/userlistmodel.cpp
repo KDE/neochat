@@ -5,7 +5,6 @@
 
 #include <QGuiApplication>
 
-#include <Quotient/connection.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 
 #include "neochatroom.h"

@@ -14,8 +14,6 @@
 
 #include "neochatconnection.h"
 
-#include <Quotient/connection.h>
-
 using namespace Quotient;
 
 ThumbnailResponse::ThumbnailResponse(QString id, QSize size, NeoChatConnection *connection)

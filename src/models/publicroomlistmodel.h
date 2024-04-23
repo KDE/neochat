@@ -9,10 +9,7 @@
 
 #include <Quotient/csapi/list_public_rooms.h>
 
-namespace Quotient
-{
-class Connection;
-}
+class NeoChatConnection;
 
 /**
  * @class PublicRoomListModel
@@ -33,7 +30,7 @@ class PublicRoomListModel : public QAbstractListModel
     /**
      * @brief The current connection that the model is getting its rooms from.
      */
-    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
     /**
      * @brief The server to get the public room list from.
@@ -95,8 +92,8 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    [[nodiscard]] Quotient::Connection *connection() const;
-    void setConnection(Quotient::Connection *conn);
+    [[nodiscard]] NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
 
     [[nodiscard]] QString server() const;
     void setServer(const QString &value);
@@ -117,7 +114,7 @@ public:
     Q_INVOKABLE void search(int limit = 50);
 
 private:
-    QPointer<Quotient::Connection> m_connection = nullptr;
+    QPointer<NeoChatConnection> m_connection = nullptr;
     QString m_server;
     QString m_searchText;
     bool m_showOnlySpaces = false;

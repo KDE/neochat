@@ -3,7 +3,6 @@
 
 #include "spacechildrenmodel.h"
 
-#include <Quotient/connection.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/room.h>
 
@@ -47,7 +46,7 @@ void SpaceChildrenModel::setSpace(NeoChatRoom *space)
     }
 
     auto connection = m_space->connection();
-    connect(connection, &Quotient::Connection::loadedRoomState, this, [this](Quotient::Room *room) {
+    connect(connection, &NeoChatConnection::loadedRoomState, this, [this](Quotient::Room *room) {
         if (m_pendingChildren.contains(room->name())) {
             m_pendingChildren.removeAll(room->name());
             refreshModel();

@@ -117,7 +117,7 @@ private:
 
     Quotient::AccountRegistry m_accountRegistry;
     QStringList m_accountsLoading;
-    QMap<QString, QPointer<Quotient::Connection>> m_connectionsLoading;
+    QMap<QString, QPointer<NeoChatConnection>> m_connectionsLoading;
     QString m_endpoint;
 
 private Q_SLOTS:

@@ -3,7 +3,6 @@
 
 #include "roomtreemodel.h"
 
-#include <Quotient/connection.h>
 #include <Quotient/room.h>
 
 #include "eventhandler.h"
