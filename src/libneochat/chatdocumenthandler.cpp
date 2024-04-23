@@ -11,15 +11,20 @@
 #include <QSyntaxHighlighter>
 #include <QTextBlock>
 #include <QTextDocument>
+#include <QTextList>
+#include <QTextTable>
 #include <QTimer>
 
 #include <Kirigami/Platform/PlatformTheme>
+#include <KColorScheme>
+
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
 
 #include "chatbartype.h"
 #include "chatdocumenthandler_logging.h"
 #include "eventhandler.h"
+#include "utils.h"
 
 using namespace Qt::StringLiterals;
 
@@ -216,6 +221,22 @@ int ChatDocumentHandler::cursorPosition() const
     return m_textItem->property("cursorPosition").toInt();
 }
 
+int ChatDocumentHandler::selectionStart() const
+{
+    if (!m_textItem) {
+        return -1;
+    }
+    return m_textItem->property("selectionStart").toInt();
+}
+
+int ChatDocumentHandler::selectionEnd() const
+{
+    if (!m_textItem) {
+        return -1;
+    }
+    return m_textItem->property("selectionEnd").toInt();
+}
+
 NeoChatRoom *ChatDocumentHandler::room() const
 {
     return m_room;
@@ -241,6 +262,16 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
         connect(m_room->cacheForType(m_type), &ChatBarCache::textChanged, this, [this]() {
             int start = completionStartIndex();
             m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
+            Q_EMIT fontFamilyChanged();
+            Q_EMIT textColorChanged();
+            Q_EMIT alignmentChanged();
+            Q_EMIT boldChanged();
+            Q_EMIT italicChanged();
+            Q_EMIT underlineChanged();
+            Q_EMIT checkableChanged();
+            Q_EMIT strikethroughChanged();
+            Q_EMIT fontSizeChanged();
+            Q_EMIT fileUrlChanged();
         });
         if (!m_room->isSpace() && document() && m_type == ChatBarType::Room) {
             document()->setPlainText(room->mainCache()->savedText());
@@ -377,6 +408,480 @@ void ChatDocumentHandler::updateMentions(const QString &editId)
             }
         }
     }
+}
+
+void ChatDocumentHandler::setFontSize(int size)
+{
+    if (size <= 0)
+        return;
+
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return;
+
+    if (!cursor.hasSelection())
+        cursor.select(QTextCursor::WordUnderCursor);
+
+    if (cursor.charFormat().property(QTextFormat::FontPointSize).toInt() == size)
+        return;
+
+    QTextCharFormat format;
+    format.setFontPointSize(size);
+    mergeFormatOnWordOrSelection(format);
+    Q_EMIT fontSizeChanged();
+}
+
+void ChatDocumentHandler::setStrikethrough(bool strikethrough)
+{
+    QTextCharFormat format;
+    format.setFontStrikeOut(strikethrough);
+    mergeFormatOnWordOrSelection(format);
+    Q_EMIT underlineChanged();
+}
+
+void ChatDocumentHandler::setTextColor(const QColor &color)
+{
+    QTextCharFormat format;
+    format.setForeground(QBrush(color));
+    mergeFormatOnWordOrSelection(format);
+    Q_EMIT textColorChanged();
+}
+
+Qt::Alignment ChatDocumentHandler::alignment() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return Qt::AlignLeft;
+    return textCursor().blockFormat().alignment();
+}
+
+void ChatDocumentHandler::setAlignment(Qt::Alignment alignment)
+{
+    QTextBlockFormat format;
+    format.setAlignment(alignment);
+    QTextCursor cursor = textCursor();
+    cursor.mergeBlockFormat(format);
+    Q_EMIT alignmentChanged();
+}
+
+bool ChatDocumentHandler::bold() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return textCursor().charFormat().fontWeight() == QFont::Bold;
+}
+
+void ChatDocumentHandler::setBold(bool bold)
+{
+    QTextCharFormat format;
+    format.setFontWeight(bold ? QFont::Bold : QFont::Normal);
+    mergeFormatOnWordOrSelection(format);
+    Q_EMIT boldChanged();
+}
+
+bool ChatDocumentHandler::italic() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return false;
+    return textCursor().charFormat().fontItalic();
+}
+
+void ChatDocumentHandler::setItalic(bool italic)
+{
+    QTextCharFormat format;
+    format.setFontItalic(italic);
+    mergeFormatOnWordOrSelection(format);
+    Q_EMIT italicChanged();
+}
+
+bool ChatDocumentHandler::underline() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return false;
+    return textCursor().charFormat().fontUnderline();
+}
+
+void ChatDocumentHandler::setUnderline(bool underline)
+{
+    QTextCharFormat format;
+    format.setFontUnderline(underline);
+    mergeFormatOnWordOrSelection(format);
+    Q_EMIT underlineChanged();
+}
+
+bool ChatDocumentHandler::strikethrough() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return false;
+    return textCursor().charFormat().fontStrikeOut();
+}
+
+QString ChatDocumentHandler::fontFamily() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return QString();
+    QTextCharFormat format = cursor.charFormat();
+    return format.font().family();
+}
+
+void ChatDocumentHandler::setFontFamily(const QString &family)
+{
+    QTextCharFormat format;
+    format.setFontFamilies({family});
+    mergeFormatOnWordOrSelection(format);
+    Q_EMIT fontFamilyChanged();
+}
+
+QColor ChatDocumentHandler::textColor() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return QColor(Qt::black);
+    QTextCharFormat format = cursor.charFormat();
+    return format.foreground().color();
+}
+
+QTextCursor ChatDocumentHandler::textCursor() const
+{
+    QTextDocument *doc = document();
+    if (!doc)
+        return QTextCursor();
+
+    QTextCursor cursor = QTextCursor(doc);
+    if (selectionStart() != selectionEnd()) {
+        cursor.setPosition(selectionStart());
+        cursor.setPosition(selectionEnd(), QTextCursor::KeepAnchor);
+    } else {
+        cursor.setPosition(cursorPosition());
+    }
+    return cursor;
+}
+
+void ChatDocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
+{
+    QTextCursor cursor = textCursor();
+    if (!cursor.hasSelection())
+        cursor.select(QTextCursor::WordUnderCursor);
+    cursor.mergeCharFormat(format);
+}
+
+QString ChatDocumentHandler::currentLinkText() const
+{
+    QTextCursor cursor = textCursor();
+    selectLinkText(&cursor);
+    return cursor.selectedText();
+}
+
+void ChatDocumentHandler::selectLinkText(QTextCursor *cursor) const
+{
+    // If the cursor is on a link, select the text of the link.
+    if (cursor->charFormat().isAnchor()) {
+        const QString aHref = cursor->charFormat().anchorHref();
+
+        // Move cursor to start of link
+        while (cursor->charFormat().anchorHref() == aHref) {
+            if (cursor->atStart()) {
+                break;
+            }
+            cursor->setPosition(cursor->position() - 1);
+        }
+        if (cursor->charFormat().anchorHref() != aHref) {
+            cursor->setPosition(cursor->position() + 1, QTextCursor::KeepAnchor);
+        }
+
+        // Move selection to the end of the link
+        while (cursor->charFormat().anchorHref() == aHref) {
+            if (cursor->atEnd()) {
+                break;
+            }
+            const int oldPosition = cursor->position();
+            cursor->movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+            // Wordaround Qt Bug. when we have a table.
+            // FIXME selection url
+            if (oldPosition == cursor->position()) {
+                break;
+            }
+        }
+        if (cursor->charFormat().anchorHref() != aHref) {
+            cursor->setPosition(cursor->position() - 1, QTextCursor::KeepAnchor);
+        }
+    } else if (cursor->hasSelection()) {
+        // Nothing to do. Using the currently selected text as the link text.
+    } else {
+        // Select current word
+        cursor->movePosition(QTextCursor::StartOfWord);
+        cursor->movePosition(QTextCursor::EndOfWord, QTextCursor::KeepAnchor);
+    }
+}
+
+void ChatDocumentHandler::insertImage(const QUrl &url)
+{
+    if (!url.isLocalFile()) {
+        return;
+    }
+
+    QImage image;
+    if (!image.load(url.path())) {
+        return;
+    }
+
+    // Ensure we are putting the image in a new line and not in a list has it
+    // breaks the Qt rendering
+    textCursor().insertHtml(QStringLiteral("<br />"));
+
+    while (canDedentList()) {
+        m_nestedListHelper.handleOnIndentLess(textCursor());
+    }
+
+    textCursor().insertHtml(QStringLiteral("<img width=\"500\" src=\"") + url.path() + QStringLiteral("\"\\>"));
+}
+
+void ChatDocumentHandler::insertTable(int rows, int columns)
+{
+    QString htmlText;
+
+    QTextCursor cursor = textCursor();
+    QTextTableFormat tableFormat;
+    tableFormat.setBorder(1);
+    const int numberOfColumns(columns);
+    QList<QTextLength> constrains;
+    constrains.reserve(numberOfColumns);
+    const QTextLength::Type type = QTextLength::PercentageLength;
+    const int length = 100; // 100% of window width
+
+    const QTextLength textlength(type, length / numberOfColumns);
+    for (int i = 0; i < numberOfColumns; ++i) {
+        constrains.append(textlength);
+    }
+    tableFormat.setColumnWidthConstraints(constrains);
+    tableFormat.setAlignment(Qt::AlignLeft);
+    tableFormat.setCellSpacing(0);
+    tableFormat.setCellPadding(4);
+    tableFormat.setBorderCollapse(true);
+    tableFormat.setBorder(0.5);
+    tableFormat.setTopMargin(20);
+
+    Q_ASSERT(cursor.document());
+    QTextTable *table = cursor.insertTable(rows, numberOfColumns, tableFormat);
+
+    // fill table with whitespace
+    for (int i = 0, rows = table->rows(); i < rows; i++) {
+        for (int j = 0, columns = table->columns(); j < columns; j++) {
+            auto cell = table->cellAt(i, j);
+            Q_ASSERT(cell.isValid());
+            cell.firstCursorPosition().insertText(QStringLiteral(" "));
+        }
+    }
+    return;
+}
+
+void ChatDocumentHandler::updateLink(const QString &linkUrl, const QString &linkText)
+{
+    auto cursor = textCursor();
+    selectLinkText(&cursor);
+
+    cursor.beginEditBlock();
+
+    if (!cursor.hasSelection()) {
+        cursor.select(QTextCursor::WordUnderCursor);
+    }
+
+    QTextCharFormat format = cursor.charFormat();
+    // Save original format to create an extra space with the existing char
+    // format for the block
+    if (!linkUrl.isEmpty()) {
+        // Add link details
+        format.setAnchor(true);
+        format.setAnchorHref(linkUrl);
+        // Workaround for QTBUG-1814:
+        // Link formatting does not get applied immediately when setAnchor(true)
+        // is called.  So the formatting needs to be applied manually.
+        format.setUnderlineStyle(QTextCharFormat::SingleUnderline);
+        format.setUnderlineColor(linkColor());
+        format.setForeground(linkColor());
+    } else {
+        // Remove link details
+        format.setAnchor(false);
+        format.setAnchorHref(QString());
+        // Workaround for QTBUG-1814:
+        // Link formatting does not get removed immediately when setAnchor(false)
+        // is called. So the formatting needs to be applied manually.
+        QTextDocument defaultTextDocument;
+        QTextCharFormat defaultCharFormat = defaultTextDocument.begin().charFormat();
+
+        format.setUnderlineStyle(defaultCharFormat.underlineStyle());
+        format.setUnderlineColor(defaultCharFormat.underlineColor());
+        format.setForeground(defaultCharFormat.foreground());
+    }
+
+    // Insert link text specified in dialog, otherwise write out url.
+    QString _linkText;
+    if (!linkText.isEmpty()) {
+        _linkText = linkText;
+    } else {
+        _linkText = linkUrl;
+    }
+    cursor.insertText(_linkText, format);
+
+    cursor.endEditBlock();
+}
+
+QColor ChatDocumentHandler::linkColor()
+{
+    if (mLinkColor.isValid()) {
+        return mLinkColor;
+    }
+    regenerateColorScheme();
+    return mLinkColor;
+}
+
+void ChatDocumentHandler::regenerateColorScheme()
+{
+    mLinkColor = KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::LinkText).color();
+    // TODO update existing link
+}
+
+int ChatDocumentHandler::currentHeadingLevel() const
+{
+    return textCursor().blockFormat().headingLevel();
+}
+
+void ChatDocumentHandler::indentListMore()
+{
+    m_nestedListHelper.handleOnIndentMore(textCursor());
+}
+
+void ChatDocumentHandler::indentListLess()
+{
+    m_nestedListHelper.handleOnIndentLess(textCursor());
+}
+
+void ChatDocumentHandler::setListStyle(int styleIndex)
+{
+    m_nestedListHelper.handleOnBulletType(-styleIndex, textCursor());
+    Q_EMIT currentListStyleChanged();
+}
+
+void ChatDocumentHandler::setHeadingLevel(int level)
+{
+    const int boundedLevel = qBound(0, 6, level);
+    // Apparently, 5 is maximum for FontSizeAdjustment; otherwise level=1 and
+    // level=2 look the same
+    const int sizeAdjustment = boundedLevel > 0 ? 5 - boundedLevel : 0;
+
+    QTextCursor cursor = textCursor();
+    cursor.beginEditBlock();
+
+    QTextBlockFormat blkfmt;
+    blkfmt.setHeadingLevel(boundedLevel);
+    cursor.mergeBlockFormat(blkfmt);
+
+    QTextCharFormat chrfmt;
+    chrfmt.setFontWeight(boundedLevel > 0 ? QFont::Bold : QFont::Normal);
+    chrfmt.setProperty(QTextFormat::FontSizeAdjustment, sizeAdjustment);
+    // Applying style to the current line or selection
+    QTextCursor selectCursor = cursor;
+    if (selectCursor.hasSelection()) {
+        QTextCursor top = selectCursor;
+        top.setPosition(qMin(top.anchor(), top.position()));
+        top.movePosition(QTextCursor::StartOfBlock);
+
+        QTextCursor bottom = selectCursor;
+        bottom.setPosition(qMax(bottom.anchor(), bottom.position()));
+        bottom.movePosition(QTextCursor::EndOfBlock);
+
+        selectCursor.setPosition(top.position(), QTextCursor::MoveAnchor);
+        selectCursor.setPosition(bottom.position(), QTextCursor::KeepAnchor);
+    } else {
+        selectCursor.select(QTextCursor::BlockUnderCursor);
+    }
+    selectCursor.mergeCharFormat(chrfmt);
+
+    cursor.mergeBlockCharFormat(chrfmt);
+    cursor.endEditBlock();
+    // richTextComposer()->setTextCursor(cursor);
+    // richTextComposer()->setFocus();
+    // richTextComposer()->activateRichText();
+}
+
+bool ChatDocumentHandler::canIndentList() const
+{
+    return m_nestedListHelper.canIndent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
+}
+
+bool ChatDocumentHandler::canDedentList() const
+{
+    return m_nestedListHelper.canDedent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
+}
+
+int ChatDocumentHandler::currentListStyle() const
+{
+    if (!textCursor().currentList()) {
+        return 0;
+    }
+
+    return -textCursor().currentList()->format().style();
+}
+
+int ChatDocumentHandler::fontSize() const
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull())
+        return 0;
+    QTextCharFormat format = cursor.charFormat();
+    return format.font().pointSize();
+}
+
+QString ChatDocumentHandler::fileName() const
+{
+    const QString filePath = QQmlFile::urlToLocalFileOrQrc(m_fileUrl);
+    const QString fileName = QFileInfo(filePath).fileName();
+    if (fileName.isEmpty())
+        return QStringLiteral("untitled.txt");
+    return fileName;
+}
+
+QString ChatDocumentHandler::fileType() const
+{
+    return QFileInfo(fileName()).suffix();
+}
+
+QUrl ChatDocumentHandler::fileUrl() const
+{
+    return m_fileUrl;
+}
+
+void ChatDocumentHandler::insertText(const QString &text)
+{
+    textCursor().insertText(text);
+}
+
+QString ChatDocumentHandler::currentLinkUrl() const
+{
+    return textCursor().charFormat().anchorHref();
+}
+
+void ChatDocumentHandler::dumpHtml()
+{
+    qWarning() << htmlText();
+}
+
+QString ChatDocumentHandler::htmlText()
+{
+    auto text = document()->toMarkdown();
+    while (text.startsWith(u"\n"_s)) {
+        text.remove(0, 1);
+    }
+    while (text.endsWith(u"\n"_s)) {
+        text.remove(text.size() - 1, text.size());
+    }
+    return text;
 }
 
 #include "moc_chatdocumenthandler.cpp"
