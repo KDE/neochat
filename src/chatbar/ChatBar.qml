@@ -68,98 +68,6 @@ QQC2.Control {
         }
     }
 
-    /**
-     * @brief The list of actions in the ChatBar.
-     *
-     * Each of these will be visualised in the ChatBar so new actions can be added
-     * by appending to this list.
-     */
-    property list<Kirigami.Action> actions: [
-        Kirigami.Action {
-            id: attachmentAction
-
-            property bool isBusy: root.currentRoom && root.currentRoom.hasFileUploading
-
-            // Matrix does not allow sending attachments in replies
-            visible: _private.chatBarCache.replyId.length === 0 && _private.chatBarCache.attachmentPath.length === 0
-            icon.name: "mail-attachment"
-            text: i18n("Attach an image or file")
-            displayHint: Kirigami.DisplayHint.IconOnly
-
-            onTriggered: {
-                let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(root.QQC2.Overlay.overlay);
-                dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
-                dialog.open();
-            }
-
-            tooltip: text
-        },
-        Kirigami.Action {
-            id: emojiAction
-
-            property bool isBusy: false
-
-            visible: !Kirigami.Settings.isMobile
-            icon.name: "smiley"
-            text: i18n("Emojis & Stickers")
-            displayHint: Kirigami.DisplayHint.IconOnly
-            checkable: true
-
-            onTriggered: {
-                if (emojiDialog.visible) {
-                    emojiDialog.close();
-                } else {
-                    emojiDialog.open();
-                }
-            }
-            tooltip: text
-        },
-        Kirigami.Action {
-            id: mapButton
-            icon.name: "mark-location-symbolic"
-            property bool isBusy: false
-            text: i18n("Send a Location")
-            displayHint: QQC2.AbstractButton.IconOnly
-
-            onTriggered: {
-                locationChooser.createObject(QQC2.Overlay.overlay, {
-                    room: root.currentRoom
-                }).open();
-            }
-            tooltip: text
-        },
-        Kirigami.Action {
-            id: pollButton
-            icon.name: "amarok_playcount"
-            property bool isBusy: false
-            text: i18nc("@action:button", "Create a Poll")
-            displayHint: QQC2.AbstractButton.IconOnly
-
-            onTriggered: {
-                newPollDialog.createObject(QQC2.Overlay.overlay, {
-                    room: root.currentRoom
-                }).open();
-            }
-            tooltip: text
-        },
-        Kirigami.Action {
-            id: sendAction
-
-            property bool isBusy: false
-
-            icon.name: "document-send"
-            text: i18n("Send message")
-            displayHint: Kirigami.DisplayHint.IconOnly
-            checkable: true
-
-            onTriggered: {
-                _private.postMessage();
-            }
-
-            tooltip: text
-        }
-    ]
-
     spacing: 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -253,6 +161,7 @@ QQC2.Control {
                     placeholderText: root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.mainCache.attachmentPath.length > 0 ? i18n("Set an attachment caption…") : i18n("Send a message…")
                     verticalAlignment: TextEdit.AlignVCenter
                     wrapMode: TextEdit.Wrap
+                    persistentSelection: true
 
                     Accessible.description: placeholderText
 
@@ -269,7 +178,7 @@ QQC2.Control {
                             root.currentRoom.sendTypingNotification(textExists);
                             textExists ? repeatTimer.start() : repeatTimer.stop();
                         }
-                        _private.chatBarCache.text = text;
+                        _private.chatBarCache.text = documentHandler.htmlText();
                     }
                     onSelectedTextChanged: {
                         if (selectedText.length > 0) {
@@ -380,6 +289,18 @@ QQC2.Control {
                 }
             }
         }
+        RichEditBar {
+            id: richEditBar
+            Layout.maximumWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
+            Layout.margins: Kirigami.Units.largeSpacing
+            Layout.alignment:Qt.AlignHCenter
+            maxAvailableWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
+
+            room: root.currentRoom
+            documentHandler: documentHandler
+
+            onRequestPostMessage: _private.postMessage()
+        }
     }
     LibNeoChat.DelegateSizeHelper {
         id: chatBarSizeHelper
@@ -438,11 +359,13 @@ QQC2.Control {
     QtObject {
         id: _private
         property ChatBarCache chatBarCache
+        onChatBarCacheChanged: {
+            richEditBar.chatBarCache = chatBarCache
+        }
 
         function postMessage() {
             _private.chatBarCache.postMessage();
             repeatTimer.stop();
-            root.currentRoom.markAllMessagesAsRead();
             textField.clear();
         }
 
@@ -501,39 +424,13 @@ QQC2.Control {
         id: documentHandler
         type: ChatBarType.Room
         room: root.currentRoom
+        textArea: textField
         document: textField.textDocument
         cursorPosition: textField.cursorPosition
         selectionStart: textField.selectionStart
         selectionEnd: textField.selectionEnd
         mentionColor: Kirigami.Theme.linkColor
         errorColor: Kirigami.Theme.negativeTextColor
-    }
-
-    Component {
-        id: openFileDialog
-
-        OpenFileDialog {
-            parentWindow: Window.window
-            currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
-        }
-    }
-
-    Component {
-        id: attachDialog
-
-        AttachDialog {
-            anchors.centerIn: parent
-        }
-    }
-
-    Component {
-        id: locationChooser
-        LocationChooser {}
-    }
-
-    Component {
-        id: newPollDialog
-        NewPollDialog {}
     }
 
     CompletionMenu {
@@ -551,29 +448,5 @@ QQC2.Control {
                 easing.type: Easing.OutCubic
             }
         }
-    }
-
-    EmojiDialog {
-        id: emojiDialog
-
-        x: root.width - width
-        y: -implicitHeight
-
-        modal: false
-        includeCustom: true
-        closeOnChosen: false
-
-        currentRoom: root.currentRoom
-
-        onChosen: emoji => insertText(emoji)
-        onClosed: if (emojiAction.checked) {
-            emojiAction.checked = false;
-        }
-    }
-
-    function insertText(text) {
-        let initialCursorPosition = textField.cursorPosition;
-        textField.text = textField.text.substr(0, initialCursorPosition) + text + textField.text.substr(initialCursorPosition);
-        textField.cursorPosition = initialCursorPosition + text.length;
     }
 }
