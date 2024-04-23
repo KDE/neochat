@@ -86,6 +86,11 @@ QQC2.Menu {
         enabled: Controller.csSupported
     }
     QQC2.MenuItem {
+        text: i18n("Show livekit logs")
+        icon.name: "dialog-xml-editor"
+        onTriggered: livekitLogViewerComponent.createObject(applicationWindow().overlay)
+    }
+    QQC2.MenuItem {
         text: i18n("Logout")
         icon.name: "im-kick-user"
         onTriggered: confirmLogoutDialogComponent.createObject(QQC2.ApplicationWindow.window.overlay).open()
@@ -96,5 +101,10 @@ QQC2.Menu {
         ConfirmLogoutDialog {
             connection: root.connection
         }
+    }
+
+    Component {
+        id: livekitLogViewerComponent
+        LivekitLogViewer {}
     }
 }

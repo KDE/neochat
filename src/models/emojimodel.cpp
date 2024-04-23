@@ -18,7 +18,7 @@ EmojiModel::EmojiModel(QObject *parent)
     , m_configGroup(KConfigGroup(m_config, QStringLiteral("Editor")))
 {
     if (_emojis.isEmpty()) {
-#include "emojis.h"
+//#include "emojis.h"
     }
 }
 

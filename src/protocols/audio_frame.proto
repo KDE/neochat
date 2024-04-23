@@ -1,0 +1,151 @@
+// Copyright 2023 LiveKit, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package livekit.proto;
+option csharp_namespace = "LiveKit.Proto";
+
+import "handle.proto";
+
+// Create a new AudioStream
+// AudioStream is used to receive audio frames from a track
+message NewAudioStreamRequest {
+  uint64 track_handle = 1;
+  AudioStreamType type = 2;
+}
+message NewAudioStreamResponse { OwnedAudioStream stream = 1; }
+
+// Create a new AudioSource
+message NewAudioSourceRequest {
+  AudioSourceType type = 1;
+  optional AudioSourceOptions options = 2;
+  uint32 sample_rate = 3;
+  uint32 num_channels = 4;
+}
+message NewAudioSourceResponse { OwnedAudioSource source = 1; }
+
+// Push a frame to an AudioSource 
+// The data provided must be available as long as the client receive the callback.
+message CaptureAudioFrameRequest { 
+  uint64 source_handle = 1;
+  AudioFrameBufferInfo buffer = 2;
+}
+message CaptureAudioFrameResponse {
+  uint64 async_id = 1;
+}
+message CaptureAudioFrameCallback {
+  uint64 async_id = 1;
+  optional string error = 2;
+}
+
+// Create a new AudioResampler
+message NewAudioResamplerRequest {}
+message NewAudioResamplerResponse {
+  OwnedAudioResampler resampler = 1;
+}
+
+// Remix and resample an audio frame
+message RemixAndResampleRequest {
+  uint64 resampler_handle = 1;
+  AudioFrameBufferInfo buffer = 2;
+  uint32 num_channels = 3;
+  uint32 sample_rate = 4;
+}
+
+message RemixAndResampleResponse {
+  OwnedAudioFrameBuffer buffer = 1;
+}
+
+//
+// AudioFrame buffer
+//
+
+message AudioFrameBufferInfo {
+  uint64 data_ptr = 1; // *const i16
+  uint32 num_channels = 2;
+  uint32 sample_rate = 3;
+  uint32 samples_per_channel = 4;
+}
+
+message OwnedAudioFrameBuffer {
+  FfiOwnedHandle handle = 1;
+  AudioFrameBufferInfo info = 2;
+}
+
+//
+// AudioStream
+//
+
+enum AudioStreamType {
+  AUDIO_STREAM_NATIVE = 0;
+  AUDIO_STREAM_HTML = 1;
+}
+
+message AudioStreamInfo {
+  AudioStreamType type = 1;
+}
+
+message OwnedAudioStream {
+  FfiOwnedHandle handle = 1;
+  AudioStreamInfo info = 2;
+}
+
+message AudioStreamEvent {
+  uint64 stream_handle = 1;
+  oneof message { 
+    AudioFrameReceived frame_received = 2;
+    AudioStreamEOS eos = 3;
+  }
+}
+
+message AudioFrameReceived {
+  OwnedAudioFrameBuffer frame = 1;
+}
+
+message AudioStreamEOS {}
+
+//
+// AudioSource
+//
+
+message AudioSourceOptions {
+  bool echo_cancellation = 1;
+  bool noise_suppression = 2;
+  bool auto_gain_control = 3;
+}
+
+enum AudioSourceType {
+  AUDIO_SOURCE_NATIVE = 0;
+}
+
+message AudioSourceInfo {
+  AudioSourceType type = 2;
+}
+
+message OwnedAudioSource {
+  FfiOwnedHandle handle = 1;
+  AudioSourceInfo info = 2;
+}
+
+//
+// AudioResampler
+//
+
+message AudioResamplerInfo { }
+
+message OwnedAudioResampler {
+  FfiOwnedHandle handle = 1;
+  AudioResamplerInfo info = 2;
+}
