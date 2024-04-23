@@ -53,7 +53,7 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
 )
 
-find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg WebView)
+find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg Protobuf WebView)
 set_package_properties(Qt6 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
@@ -114,6 +114,7 @@ if (NOT TARGET Olm::Olm)
     message(FATAL_ERROR "NeoChat requires Quotient with the E2EE feature enabled")
 endif()
 
+find_package(LiveKit REQUIRED)
 
 find_package(cmark)
 set_package_properties(cmark PROPERTIES

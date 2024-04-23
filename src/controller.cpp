@@ -49,6 +49,8 @@ bool testMode = false;
 
 using namespace Quotient;
 
+
+
 Controller::Controller(QObject *parent)
     : QObject(parent)
 {
@@ -134,6 +136,7 @@ Controller::Controller(QObject *parent)
 
     m_endpoint = connector->endpoint();
 #endif
+
 }
 
 Controller &Controller::instance()

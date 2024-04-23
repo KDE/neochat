@@ -4,6 +4,7 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 
@@ -17,6 +18,18 @@ Kirigami.ApplicationWindow {
     property NeoChatConnection connection: Controller.activeConnection
 
     title: Config.windowTitleFocus ? activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "") : "NeoChat"
+
+    Connections {
+        target: CallController
+        function onCallStarted() {
+            root.pageStack.pushDialogLayer(callPageComponent)
+        }
+    }
+
+    Component {
+        id: callPageComponent
+        CallPage {}
+    }
 
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 15
@@ -200,6 +213,7 @@ Kirigami.ApplicationWindow {
             saveWindowGeometryConnections.enabled = true;
         }
     }
+
     Connections {
         target: Config
         function onBlurChanged() {
@@ -448,5 +462,16 @@ Kirigami.ApplicationWindow {
     Component {
         id: userDetailDialog
         UserDetailDialog {}
+    }
+
+    Connections {
+        target: MediaManager
+        function onShowIncomingCallDialog(): void {
+            incomingCallDialog.createObject(applicationWindow().overlay).open();
+        }
+    }
+    Component {
+        id: incomingCallDialog
+        IncomingCallDialog {}
     }
 }
