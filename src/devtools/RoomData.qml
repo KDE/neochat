@@ -25,7 +25,7 @@ ColumnLayout {
             text: i18n("Room")
             textRole: "escapedDisplayName"
             valueRole: "roomId"
-            displayText: RoomManager.roomListModel.data(RoomManager.roomListModel.index(currentIndex, 0), RoomListModel.DisplayNameRole)
+            displayText: RoomManager.roomListModel.data(RoomManager.roomListModel.index(currentIndex, 0), RoomListModel.EscapedDisplayNameRole)
             model: RoomManager.roomListModel
             currentIndex: 0
             displayMode: FormCard.FormComboBoxDelegate.Page
