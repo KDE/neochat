@@ -17,6 +17,8 @@ target_sources(LibNeoChat PRIVATE
     filetransferpseudojob.cpp
     filetype.cpp
     linkpreviewer.cpp
+    nestedlisthelper_p.h
+    nestedlisthelper.cpp
     roomlastmessageprovider.cpp
     spacehierarchycache.cpp
     texthandler.cpp
@@ -64,6 +66,7 @@ ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
         qml/SearchPage.qml
         qml/CreateRoomDialog.qml
         qml/CreateSpaceDialog.qml
+        qml/OpenFileDialog.qml
     DEPENDENCIES
         io.github.quotient_im.libquotient
 )
@@ -96,6 +99,7 @@ target_link_libraries(LibNeoChat PUBLIC
     Qt::Multimedia
     Qt::Quick
     Qt::QuickControls2
+    KF6::ColorScheme
     KF6::ConfigCore
     KF6::CoreAddons
     KF6::I18n
