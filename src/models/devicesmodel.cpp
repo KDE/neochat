@@ -11,8 +11,9 @@
 #include <KLocalizedString>
 
 #include <Quotient/csapi/device_management.h>
-#include <Quotient/connection.h>
 #include <Quotient/user.h>
+
+#include "neochatconnection.h"
 
 using namespace Quotient;
 
@@ -152,12 +153,12 @@ void DevicesModel::setName(const QString &deviceId, const QString &name)
     });
 }
 
-Connection *DevicesModel::connection() const
+NeoChatConnection *DevicesModel::connection() const
 {
     return m_connection;
 }
 
-void DevicesModel::setConnection(Connection *connection)
+void DevicesModel::setConnection(NeoChatConnection *connection)
 {
     if (m_connection) {
         disconnect(m_connection, nullptr, this, nullptr);

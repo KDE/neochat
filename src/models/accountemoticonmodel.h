@@ -12,7 +12,7 @@
 #include <QPointer>
 #include <QQmlEngine>
 
-#include <Quotient/connection.h>
+class NeoChatConnection;
 
 /**
  * @class AccountEmoticonModel
@@ -29,7 +29,7 @@ class AccountEmoticonModel : public QAbstractListModel
     /**
      * @brief The connection to get emoticons from.
      */
-    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     enum Roles {
@@ -63,8 +63,8 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    [[nodiscard]] Quotient::Connection *connection() const;
-    void setConnection(Quotient::Connection *connection);
+    [[nodiscard]] NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
 
     /**
      * @brief Deletes the emoticon at the given index.
@@ -96,7 +96,7 @@ Q_SIGNALS:
 
 private:
     std::optional<Quotient::ImagePackEventContent> m_images;
-    QPointer<Quotient::Connection> m_connection;
+    QPointer<NeoChatConnection> m_connection;
     QCoro::Task<void> doSetEmoticonImage(int index, QUrl source);
     QCoro::Task<void> doAddEmoticon(QUrl source, QString shortcode, QString description, QString type);
 

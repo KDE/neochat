@@ -116,5 +116,5 @@ private:
     QHash<QString, Quotient::Omittable<QString>> m_nextBatchTokens;
     void populateSpaceHierarchy(const QString &spaceId);
     void addBatch(const QString &spaceId, Quotient::GetSpaceHierarchyJob *job);
-    NeoChatConnection *m_connection;
+    QPointer<NeoChatConnection> m_connection;
 };

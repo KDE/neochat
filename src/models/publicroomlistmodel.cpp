@@ -3,8 +3,7 @@
 
 #include "publicroomlistmodel.h"
 
-#include <Quotient/connection.h>
-
+#include "neochatconnection.h"
 #include "publicroomlist_logging.h"
 
 using namespace Quotient;
@@ -14,14 +13,14 @@ PublicRoomListModel::PublicRoomListModel(QObject *parent)
 {
 }
 
-Quotient::Connection *PublicRoomListModel::connection() const
+NeoChatConnection *PublicRoomListModel::connection() const
 {
     return m_connection;
 }
 
-void PublicRoomListModel::setConnection(Connection *conn)
+void PublicRoomListModel::setConnection(NeoChatConnection *connection)
 {
-    if (m_connection == conn) {
+    if (m_connection == connection) {
         return;
     }
 
@@ -38,7 +37,7 @@ void PublicRoomListModel::setConnection(Connection *conn)
 
     endResetModel();
 
-    m_connection = conn;
+    m_connection = connection;
 
     if (job) {
         job->abandon();

@@ -5,13 +5,13 @@
 
 #include <QDebug>
 
-#include <Quotient/connection.h>
 #include <Quotient/converters.h>
 #include <Quotient/csapi/definitions/push_ruleset.h>
 #include <Quotient/csapi/pushrules.h>
 #include <Quotient/jobs/basejob.h>
 
 #include "neochatconfig.h"
+#include "neochatconnection.h"
 
 #include <KLazyLocalizedString>
 
@@ -454,7 +454,7 @@ void PushRuleModel::setConnection(NeoChatConnection *connection)
     Q_EMIT connectionChanged();
 
     if (m_connection) {
-        connect(m_connection, &Quotient::Connection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
+        connect(m_connection, &NeoChatConnection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
         updateNotificationRules(QStringLiteral("m.push_rules"));
     }
 }

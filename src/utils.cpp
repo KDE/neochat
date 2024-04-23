@@ -3,6 +3,8 @@
 
 #include "utils.h"
 
+#include <Quotient/connection.h>
+
 #include <QJsonDocument>
 
 using namespace Quotient;

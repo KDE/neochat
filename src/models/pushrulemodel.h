@@ -126,7 +126,7 @@ private Q_SLOTS:
 private:
     PushRuleAction::Action m_defaultKeywordAction;
     QList<Rule> m_rules;
-    NeoChatConnection *m_connection;
+    QPointer<NeoChatConnection> m_connection;
 
     void setRules(QList<Quotient::PushRule> rules, PushRuleKind::Kind kind);
 

@@ -150,7 +150,7 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
         Q_ASSERT(result == Quotient::UriResolved);
 
         if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
-            connectSingleShot(m_connection, &Connection::newRoom, this, [this, uri](Room *room) {
+            connectSingleShot(m_connection.get(), &NeoChatConnection::newRoom, this, [this, uri](Room *room) {
                 resolveResource(room->id());
             });
         }
@@ -303,7 +303,7 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
     auto job = account->joinRoom(roomAliasOrId, viaServers);
     connectSingleShot(job, &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
         if (finish->status() == Quotient::BaseJob::Success) {
-            connectSingleShot(account, &Quotient::Connection::newRoom, this, [this](Quotient::Room *room) {
+            connectSingleShot(account, &NeoChatConnection::newRoom, this, [this](Quotient::Room *room) {
                 resolveResource(room->id());
             });
         } else {
@@ -312,7 +312,7 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
     });
 }
 
-void RoomManager::knockRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers)
+void RoomManager::knockRoom(NeoChatConnection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers)
 {
     auto *const job = account->callApi<KnockRoomJob>(roomAliasOrId, viaServers, reason);
     // Upon completion, ensure a room object is created in case it hasn't come
@@ -321,7 +321,7 @@ void RoomManager::knockRoom(Quotient::Connection *account, const QString &roomAl
     // to overtake clients that may add their own slots to finished().
     connectSingleShot(job, &BaseJob::finished, this, [this, job, account] {
         if (job->status() == Quotient::BaseJob::Success) {
-            connectSingleShot(account, &Quotient::Connection::newRoom, this, [this](Quotient::Room *room) {
+            connectSingleShot(account, &NeoChatConnection::newRoom, this, [this](Quotient::Room *room) {
                 Q_EMIT currentRoom()->showMessage(NeoChatRoom::Info, i18n("You requested to join '%1'", room->name()));
             });
         } else {

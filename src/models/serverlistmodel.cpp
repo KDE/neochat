@@ -3,8 +3,6 @@
 
 #include "serverlistmodel.h"
 
-#include <Quotient/connection.h>
-
 #include <QDebug>
 
 #include <KConfig>

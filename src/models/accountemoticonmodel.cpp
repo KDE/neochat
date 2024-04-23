@@ -10,6 +10,8 @@
 #include <Quotient/events/eventcontent.h>
 #include <qcoro/qcorosignal.h>
 
+#include "neochatconnection.h"
+
 using namespace Quotient;
 
 AccountEmoticonModel::AccountEmoticonModel(QObject *parent)
@@ -77,12 +79,12 @@ QHash<int, QByteArray> AccountEmoticonModel::roleNames() const
     };
 }
 
-Connection *AccountEmoticonModel::connection() const
+NeoChatConnection *AccountEmoticonModel::connection() const
 {
     return m_connection;
 }
 
-void AccountEmoticonModel::setConnection(Connection *connection)
+void AccountEmoticonModel::setConnection(NeoChatConnection *connection)
 {
     if (m_connection) {
         disconnect(m_connection, nullptr, this, nullptr);

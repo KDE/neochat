@@ -35,7 +35,7 @@ private:
     QSize requestedSize;
     const QString localFile;
     Quotient::MediaThumbnailJob *job = nullptr;
-    NeoChatConnection *m_connection;
+    QPointer<NeoChatConnection> m_connection;
 
     QImage image;
     QString errorStr;
@@ -75,6 +75,6 @@ public:
     QQuickImageResponse *requestImageResponse(const QString &id, const QSize &requestedSize) override;
 
 private:
-    NeoChatConnection *m_connection = nullptr;
+    QPointer<NeoChatConnection> m_connection;
     MatrixImageProvider() = default;
 };

@@ -3,8 +3,9 @@
 
 #include "userdirectorylistmodel.h"
 
-#include <Quotient/connection.h>
 #include <Quotient/room.h>
+
+#include "neochatconnection.h"
 
 using namespace Quotient;
 
@@ -13,14 +14,14 @@ UserDirectoryListModel::UserDirectoryListModel(QObject *parent)
 {
 }
 
-Quotient::Connection *UserDirectoryListModel::connection() const
+NeoChatConnection *UserDirectoryListModel::connection() const
 {
     return m_connection;
 }
 
-void UserDirectoryListModel::setConnection(Connection *conn)
+void UserDirectoryListModel::setConnection(NeoChatConnection *connection)
 {
-    if (m_connection == conn) {
+    if (m_connection == connection) {
         return;
     }
 
@@ -35,7 +36,7 @@ void UserDirectoryListModel::setConnection(Connection *conn)
 
     endResetModel();
 
-    m_connection = conn;
+    m_connection = connection;
     Q_EMIT connectionChanged();
 
     if (m_job) {

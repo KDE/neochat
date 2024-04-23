@@ -3,7 +3,6 @@
 
 #include "notificationsmodel.h"
 
-#include <Quotient/connection.h>
 #include <Quotient/events/event.h>
 #include <Quotient/uri.h>
 

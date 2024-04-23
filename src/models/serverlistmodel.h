@@ -110,7 +110,7 @@ Q_SIGNALS:
 private:
     QList<Server> m_servers;
     QPointer<Quotient::QueryPublicRoomsJob> m_checkServerJob = nullptr;
-    NeoChatConnection *m_connection = nullptr;
+    QPointer<NeoChatConnection> m_connection;
 
     void initialize();
 };

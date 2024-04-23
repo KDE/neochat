@@ -10,7 +10,6 @@
 
 #include <QGuiApplication>
 
-#include <Quotient/connection.h>
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>

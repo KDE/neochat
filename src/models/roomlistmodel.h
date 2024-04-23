@@ -12,9 +12,10 @@ class NeoChatRoom;
 
 namespace Quotient
 {
-class Connection;
 class Room;
 }
+
+class NeoChatConnection;
 
 /**
  * @class RoomListModel
@@ -29,7 +30,7 @@ class RoomListModel : public QAbstractListModel
     /**
      * @brief The current connection that the model is getting its rooms from.
      */
-    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     /**
@@ -60,8 +61,8 @@ public:
     explicit RoomListModel(QObject *parent = nullptr);
     ~RoomListModel() override;
 
-    [[nodiscard]] Quotient::Connection *connection() const;
-    void setConnection(Quotient::Connection *connection);
+    [[nodiscard]] NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
 
     /**
      * @brief Get the given role value at the given index.
@@ -109,7 +110,7 @@ private Q_SLOTS:
     void refresh(NeoChatRoom *room, const QList<int> &roles = {});
 
 private:
-    Quotient::Connection *m_connection = nullptr;
+    QPointer<NeoChatConnection> m_connection;
     QList<NeoChatRoom *> m_rooms;
 
     QString m_activeSpaceId;

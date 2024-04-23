@@ -4,6 +4,7 @@
 #include "actionsmodel.h"
 
 #include "chatbarcache.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include <Quotient/events/roommemberevent.h>
@@ -260,7 +261,7 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
-            auto connection = room->connection();
+            auto connection = dynamic_cast<NeoChatConnection *>(room->connection());
             const auto knownServer = roomName.mid(roomName.indexOf(":"_ls) + 1);
             if (parts.length() >= 2) {
                 RoomManager::instance().knockRoom(connection, roomName, parts[1], QStringList{knownServer});
