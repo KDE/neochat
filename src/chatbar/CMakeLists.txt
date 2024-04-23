@@ -8,6 +8,7 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
     QML_FILES
         AttachDialog.qml
         ChatBar.qml
+        RichEditBar.qml
         CompletionMenu.qml
         EmojiDelegate.qml
         EmojiGrid.qml
@@ -16,4 +17,9 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         EmojiDialog.qml
         EmojiTonesPicker.qml
         ImageEditorPage.qml
+        ImageDialog.qml
+        LinkDialog.qml
+        LocationChooser.qml
+        NewPollDialog.qml
+        TableDialog.qml
 )
