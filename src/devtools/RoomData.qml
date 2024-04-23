@@ -28,6 +28,7 @@ ColumnLayout {
             displayText: RoomManager.roomListModel.data(RoomManager.roomListModel.index(currentIndex, 0), RoomListModel.DisplayNameRole)
             model: RoomManager.roomListModel
             currentIndex: 0
+            displayMode: FormCard.FormComboBoxDelegate.Page
             Component.onCompleted: currentIndex = RoomManager.roomListModel.rowForRoom(root.room)
             onCurrentValueChanged: root.room = RoomManager.roomListModel.roomByAliasOrId(roomComboBox.currentValue)
         }
