@@ -7,11 +7,6 @@
 #include <QQmlEngine>
 #include <QUrl>
 
-namespace Quotient
-{
-class RoomMessageEvent;
-}
-
 class NeoChatRoom;
 
 /**
@@ -71,19 +66,19 @@ public:
     [[nodiscard]] bool empty() const;
 
     /**
-     * @brief Whether the given event has at least 1 pre-viewable link.
+     * @brief Whether the given string has at least 1 pre-viewable link.
      *
      * A link is only pre-viewable if it is http, https or something starting with www.
      */
-    static bool hasPreviewableLinks(const Quotient::RoomMessageEvent *event);
+    static bool hasPreviewableLinks(const QString &string);
 
     /**
-     * @brief Return the link to be previewed from the given event.
+     * @brief Return previewable links from the given string.
      *
      * This function is designed to give only links that should be previewed so
      * http, https or something starting with www. The first valid link is returned.
      */
-    static QUrl linkPreview(const Quotient::RoomMessageEvent *event);
+    static QList<QUrl> linkPreviews(QString string);
 
 private:
     bool m_loaded;

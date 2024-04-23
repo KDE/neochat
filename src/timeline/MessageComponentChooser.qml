@@ -60,6 +60,8 @@ DelegateChooser {
      */
     signal showMessageMenu
 
+    signal removeLinkPreview(int index)
+
     role: "componentType"
 
     DelegateChoice {
@@ -199,6 +201,7 @@ DelegateChooser {
         roleValue: MessageComponentType.LinkPreview
         delegate: LinkPreviewComponent {
             maxContentWidth: root.maxContentWidth
+            onRemove: index => root.removeLinkPreview(index)
         }
     }
 
@@ -207,6 +210,7 @@ DelegateChooser {
         delegate: LoadComponent {
             type: LoadComponent.LinkPreview
             maxContentWidth: root.maxContentWidth
+            onRemove: index => root.removeLinkPreview(index)
         }
     }
 

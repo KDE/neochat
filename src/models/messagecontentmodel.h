@@ -88,6 +88,13 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    /**
+     * @brief Close the link preview at the given index.
+     *
+     * If the given index is not a link preview component, nothing happens.
+     */
+    Q_INVOKABLE void closeLinkPreview(int row);
+
 private:
     QPointer<NeoChatRoom> m_room;
     const Quotient::RoomEvent *m_event = nullptr;
@@ -95,12 +102,14 @@ private:
     QList<MessageComponent> m_components;
     void updateComponents(bool isEditing = false);
 
-    QPointer<LinkPreviewer> m_linkPreviewer;
     ItineraryModel *m_itineraryModel = nullptr;
 
     QList<MessageComponent> componentsForType(MessageComponentType::Type type);
+    MessageComponent linkPreviewComponent(const QUrl &link);
+    void addLinkPreviews();
 
-    void updateLinkPreviewer();
+    QList<QUrl> m_removedLinkPreviews;
+
     void updateItineraryModel();
     bool m_emptyItinerary = false;
 

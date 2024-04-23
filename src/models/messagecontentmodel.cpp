@@ -11,6 +11,7 @@
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>
+#include <qlist.h>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
@@ -110,11 +111,14 @@ MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoCh
                 endResetModel();
             }
         });
-        connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, &MessageContentModel::updateLinkPreviewer);
-        connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, &MessageContentModel::updateLinkPreviewer);
+        connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
+            updateComponents();
+        });
+        connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
+            updateComponents();
+        });
     }
 
-    updateLinkPreviewer();
     updateComponents();
 }
 
@@ -197,8 +201,9 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return eventHandler.getReplyMediaInfo();
     }
     if (role == LinkPreviewerRole) {
-        if (m_linkPreviewer != nullptr) {
-            return QVariant::fromValue<LinkPreviewer *>(m_linkPreviewer);
+        if (component.type == MessageComponentType::LinkPreview) {
+            return QVariant::fromValue<LinkPreviewer *>(
+                dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(component.attributes["link"_ls].toUrl()));
         } else {
             return QVariant::fromValue<LinkPreviewer *>(emptyLinkPreview);
         }
@@ -272,13 +277,7 @@ void MessageContentModel::updateComponents(bool isEditing)
         m_components.append(componentsForType(eventHandler.messageComponentType()));
     }
 
-    if (m_linkPreviewer != nullptr) {
-        if (m_linkPreviewer->loaded()) {
-            m_components += MessageComponent{MessageComponentType::LinkPreview, QString(), {}};
-        } else {
-            m_components += MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {}};
-        }
-    }
+    addLinkPreviews();
 
     endResetModel();
 }
@@ -326,41 +325,60 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
     }
 }
 
-void MessageContentModel::updateLinkPreviewer()
+MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
 {
-    if (m_room == nullptr || m_event == nullptr) {
-        if (m_linkPreviewer != nullptr) {
-            m_linkPreviewer->disconnect(this);
-            m_linkPreviewer = nullptr;
-            updateComponents();
-        }
-        return;
+    const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
+    if (linkPreviewer == nullptr) {
+        return {};
     }
-    if (!m_room->urlPreviewEnabled()) {
-        if (m_linkPreviewer != nullptr) {
-            m_linkPreviewer->disconnect(this);
-            m_linkPreviewer = nullptr;
-            updateComponents();
-        }
-        return;
-    }
-
-    if (const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-        if (LinkPreviewer::hasPreviewableLinks(event)) {
-            m_linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(LinkPreviewer::linkPreview(event));
-            updateComponents();
-
-            if (m_linkPreviewer != nullptr) {
-                connect(m_linkPreviewer, &LinkPreviewer::loadedChanged, [this]() {
-                    if (m_linkPreviewer != nullptr && m_linkPreviewer->loaded()) {
+    if (linkPreviewer->loaded()) {
+        return MessageComponent{MessageComponentType::LinkPreview, QString(), {{"link"_ls, link}}};
+    } else {
+        connect(linkPreviewer, &LinkPreviewer::loadedChanged, [this, link]() {
+            const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
+            if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
+                for (auto &component : m_components) {
+                    if (component.attributes["link"_ls].toUrl() == link) {
                         // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
                         beginResetModel();
-                        m_components[m_components.size() - 1].type = MessageComponentType::LinkPreview;
+                        component.type = MessageComponentType::LinkPreview;
                         endResetModel();
                     }
-                });
+                }
+            }
+        });
+        return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_ls, link}}};
+    }
+}
+
+void MessageContentModel::addLinkPreviews()
+{
+    int i = 0;
+    while (i < m_components.size()) {
+        const auto component = m_components.at(i);
+        if (component.type == MessageComponentType::Text || component.type == MessageComponentType::Quote) {
+            if (LinkPreviewer::hasPreviewableLinks(component.content)) {
+                const auto links = LinkPreviewer::linkPreviews(component.content);
+                for (qsizetype j = 0; j < links.size(); ++j) {
+                    if (!m_removedLinkPreviews.contains(links[j])) {
+                        m_components.insert(i + j + 1, linkPreviewComponent(links[j]));
+                    }
+                };
             }
         }
+        i++;
+    }
+}
+
+void MessageContentModel::closeLinkPreview(int row)
+{
+    if (m_components[row].type == MessageComponentType::LinkPreview || m_components[row].type == MessageComponentType::LinkPreviewLoad) {
+        beginResetModel();
+        m_removedLinkPreviews += m_components[row].attributes["link"_ls].toUrl();
+        m_components.remove(row);
+        m_components.squeeze();
+        updateComponents();
+        endResetModel();
     }
 }
 

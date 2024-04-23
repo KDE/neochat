@@ -10,8 +10,13 @@ import org.kde.kirigami as Kirigami
 /**
  * @brief A component to show a link preview loading from a message.
  */
-RowLayout {
+QQC2.Control {
     id: root
+
+    /**
+     * @brief The index of the delegate in the model.
+     */
+    required property int index
 
     required property int type
 
@@ -28,6 +33,11 @@ RowLayout {
      */
     property real maxContentWidth: -1
 
+    /**
+     * @brief Request for this delegate to be removed.
+     */
+    signal remove(int index)
+
     enum Type {
         Reply,
         LinkPreview
@@ -36,24 +46,46 @@ RowLayout {
     Layout.fillWidth: true
     Layout.maximumWidth: root.maxContentWidth
 
-    Rectangle {
-        Layout.fillHeight: true
-        width: Kirigami.Units.smallSpacing
-        color: Kirigami.Theme.highlightColor
-    }
-    QQC2.BusyIndicator {}
-    Kirigami.Heading {
-        Layout.fillWidth: true
-        Layout.minimumHeight: root.defaultHeight
-        verticalAlignment: Text.AlignVCenter
-        level: 2
-        text: {
-            switch (root.type) {
-            case LoadComponent.Reply:
-                return i18n("Loading reply");
-            case LoadComponent.LinkPreview:
-                return i18n("Loading URL preview");
+    contentItem : RowLayout {
+        spacing: Kirigami.Units.smallSpacing
+
+        Rectangle {
+            Layout.fillHeight: true
+            width: Kirigami.Units.smallSpacing
+            color: Kirigami.Theme.highlightColor
+        }
+        QQC2.BusyIndicator {}
+        Kirigami.Heading {
+            Layout.fillWidth: true
+            Layout.minimumHeight: root.defaultHeight
+            verticalAlignment: Text.AlignVCenter
+            level: 2
+            text: {
+                switch (root.type) {
+                case LoadComponent.Reply:
+                    return i18n("Loading reply");
+                case LoadComponent.LinkPreview:
+                    return i18n("Loading URL preview");
+                }
             }
+        }
+    }
+
+    QQC2.Button {
+        id: closeButton
+        anchors.right: parent.right
+        anchors.top: parent.top
+        visible: root.hovered && root.type === LoadComponent.LinkPreview
+        text: i18nc("As in remove the link preview so it's no longer shown", "Remove preview")
+        icon.name: "dialog-close"
+        display: QQC2.AbstractButton.IconOnly
+
+        onClicked: root.remove(root.index)
+
+        QQC2.ToolTip {
+            text: closeButton.text
+            visible: closeButton.hovered
+            delay: Kirigami.Units.toolTipDelay
         }
     }
 }

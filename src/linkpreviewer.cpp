@@ -89,38 +89,23 @@ bool LinkPreviewer::empty() const
     return m_url.isEmpty();
 }
 
-QUrl LinkPreviewer::linkPreview(const Quotient::RoomMessageEvent *event)
+QList<QUrl> LinkPreviewer::linkPreviews(QString string)
 {
-    if (event == nullptr) {
-        return {};
-    }
-
-    QString text;
-    if (event->hasTextContent()) {
-        auto textContent = static_cast<const Quotient::EventContent::TextContent *>(event->content());
-        if (textContent) {
-            text = textContent->body;
-        } else {
-            text = event->plainBody();
-        }
-    } else {
-        text = event->plainBody();
-    }
-
-    auto data = text.remove(TextRegex::removeRichReply);
+    auto data = string.remove(TextRegex::removeRichReply);
     auto linksMatch = TextRegex::url.globalMatch(data);
+    QList<QUrl> links;
     while (linksMatch.hasNext()) {
         auto link = linksMatch.next().captured();
-        if (!link.contains(QStringLiteral("matrix.to"))) {
-            return QUrl(link);
+        if (!link.contains(QStringLiteral("matrix.to")) && !links.contains(QUrl(link))) {
+            links += QUrl(link);
         }
     }
-    return {};
+    return links;
 }
 
-bool LinkPreviewer::hasPreviewableLinks(const Quotient::RoomMessageEvent *event)
+bool LinkPreviewer::hasPreviewableLinks(const QString &string)
 {
-    return !linkPreview(event).isEmpty();
+    return !linkPreviews(string).isEmpty();
 }
 
 #include "moc_linkpreviewer.cpp"

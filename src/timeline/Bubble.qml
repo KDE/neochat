@@ -166,6 +166,7 @@ QQC2.Control {
                     root.selectedTextChanged(selectedText);
                 }
                 onShowMessageMenu: root.showMessageMenu()
+                onRemoveLinkPreview: index => root.contentModel.closeLinkPreview(index)
             }
         }
     }

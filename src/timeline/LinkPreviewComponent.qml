@@ -15,6 +15,11 @@ QQC2.Control {
     id: root
 
     /**
+     * @brief The index of the delegate in the model.
+     */
+    required property int index
+
+    /**
      * @brief The link preview properties.
      *
      * This is a list or object containing the following:
@@ -32,7 +37,7 @@ QQC2.Control {
      * When the content of the link preview is larger than this it will be
      * elided/hidden until maximized.
      */
-    property var defaultHeight: Kirigami.Units.gridUnit * 3 + Kirigami.Units.smallSpacing * 2
+    property var defaultHeight: Kirigami.Units.gridUnit * 3 + Kirigami.Units.largeSpacing * 2
 
     property bool truncated: linkPreviewDescription.truncated || !linkPreviewDescription.visible
 
@@ -40,6 +45,11 @@ QQC2.Control {
      * @brief The maximum width that the bubble's content can be.
      */
     property real maxContentWidth: -1
+
+    /**
+     * @brief Request for this delegate to be removed.
+     */
+    signal remove(int index)
 
     Layout.fillWidth: true
     Layout.maximumWidth: root.maxContentWidth
@@ -111,6 +121,23 @@ QQC2.Control {
     }
 
     QQC2.Button {
+        id: closeButton
+        anchors.right: parent.right
+        anchors.top: parent.top
+        visible: root.hovered
+        text: i18nc("As in remove the link preview so it's no longer shown", "Remove preview")
+        icon.name: "dialog-close"
+        display: QQC2.AbstractButton.IconOnly
+
+        onClicked: root.remove(root.index)
+
+        QQC2.ToolTip {
+            text: closeButton.text
+            visible: closeButton.hovered
+            delay: Kirigami.Units.toolTipDelay
+        }
+    }
+    QQC2.Button {
         id: maximizeButton
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -122,7 +149,7 @@ QQC2.Control {
 
         QQC2.ToolTip {
             text: maximizeButton.text
-            visible: hovered
+            visible: maximizeButton.hovered
             delay: Kirigami.Units.toolTipDelay
         }
     }
