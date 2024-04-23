@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 00:38+0000\n"
+"POT-Creation-Date: 2024-04-23 00:38+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -1579,7 +1579,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "o ante e toki"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr ""
@@ -1640,13 +1640,12 @@ msgstr ""
 msgid "Open NeoChat"
 msgstr "ilo toki NeoChat"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:65
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:59
-#: src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
 #, kde-format
 msgid "Account editor"
 msgstr ""
@@ -1657,7 +1656,7 @@ msgid "Notification settings"
 msgstr ""
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:405 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "o ante e lawa"
@@ -2004,8 +2003,8 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:281
-#: src/qml/SpaceDrawer.qml:283
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:294
+#: src/qml/SpaceDrawer.qml:296
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -2079,7 +2078,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:220
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:224
 #: src/qml/SelectParentDialog.qml:142
 #, fuzzy, kde-format
 #| msgid "Create a Room"
@@ -2253,21 +2252,21 @@ msgid "They don't match"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:218
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:182 src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:186 src/qml/RoomListPage.qml:235
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:190
-#: src/qml/RoomListPage.qml:235
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2295,14 +2294,14 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:103
+#: src/qml/ExploreComponent.qml:102
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "o weka wawa e jan ni"
 
-#: src/qml/ExploreComponent.qml:167
+#: src/qml/ExploreComponent.qml:166
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgid "Create rooms and chats"
@@ -2669,46 +2668,58 @@ msgstr ""
 msgid "There are no locations shared in this room."
 msgstr ""
 
-#: src/qml/Main.qml:306
+#: src/qml/Main.qml:166
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Room Information"
+msgstr ""
+
+#: src/qml/Main.qml:169
+#, kde-format
+msgctxt "@action:button"
+msgid "Close Room Information Drawer"
+msgstr ""
+
+#: src/qml/Main.qml:309
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/qml/Main.qml:323
+#: src/qml/Main.qml:326
 #, kde-format
 msgid "User consent"
 msgstr ""
 
-#: src/qml/Main.qml:328
+#: src/qml/Main.qml:331
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
 
-#: src/qml/Main.qml:333
+#: src/qml/Main.qml:336
 #, kde-format
 msgid "Open"
 msgstr "o open"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:363
 #, kde-format
 msgid "Start a chat"
 msgstr ""
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:365
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr ""
 
-#: src/qml/Main.qml:388
+#: src/qml/Main.qml:391
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:423 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2798,7 +2809,7 @@ msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "o ante e toki"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3070,34 +3081,34 @@ msgstr[3] ""
 msgid "No member count"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:205
+#: src/qml/RoomListPage.qml:209
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "No friends found"
 msgstr "o pana e toki"
 
-#: src/qml/RoomListPage.qml:205
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:211
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:211
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:218
 #, kde-format
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:235
 #, kde-format
 msgid "Search in friend directory"
 msgstr ""
@@ -3281,24 +3292,24 @@ msgstr ""
 msgid "View notifications"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:84
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "Home"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:130
+#: src/qml/SpaceDrawer.qml:134
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:232
+#: src/qml/SpaceDrawer.qml:242
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr ""
 
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/SpaceDrawer.qml:284
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Create a space"
@@ -3593,12 +3604,18 @@ msgstr "o open e tomo toki pi sina tu taso"
 msgid "Copy link"
 msgstr "o tu e lipu tawa lipu jo"
 
-#: src/qml/UserInfo.qml:104
+#: src/qml/UserInfo.qml:54
+#, kde-format
+msgctxt "@title:window"
+msgid "Account editor"
+msgstr ""
+
+#: src/qml/UserInfo.qml:91
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/UserInfo.qml:111
+#: src/qml/UserInfo.qml:98
 #, kde-format
 msgid "Open Settings"
 msgstr ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 00:38+0000\n"
+"POT-Creation-Date: 2024-04-23 00:38+0000\n"
 "PO-Revision-Date: 2024-04-19 02:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1511,7 +1511,7 @@ msgstr "緯度：%2，經度：%1"
 msgid "Encrypted Message"
 msgstr "已加密訊息"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1570,13 +1570,12 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "開啟 NeoChat"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:65
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "編輯這個帳號"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:59
-#: src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
 #, kde-format
 msgid "Account editor"
 msgstr "帳號編輯器"
@@ -1587,7 +1586,7 @@ msgid "Notification settings"
 msgstr "通知設定"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:405 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "設定"
@@ -1926,8 +1925,8 @@ msgstr "加入最愛"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:281
-#: src/qml/SpaceDrawer.qml:283
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:294
+#: src/qml/SpaceDrawer.qml:296
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -1998,7 +1997,7 @@ msgstr "選取聊天室"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:220
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:224
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -2166,21 +2165,21 @@ msgid "They don't match"
 msgstr "它們不相符"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:218
 #, kde-format
 msgid "Explore rooms"
 msgstr "瀏覽聊天室"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:182 src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:186 src/qml/RoomListPage.qml:235
 #, kde-format
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:190
-#: src/qml/RoomListPage.qml:235
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2207,7 +2206,7 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "掃描 QR 碼"
 
-#: src/qml/ExploreComponent.qml:103
+#: src/qml/ExploreComponent.qml:102
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Show User"
@@ -2215,7 +2214,7 @@ msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "顯示使用者"
 
-#: src/qml/ExploreComponent.qml:167
+#: src/qml/ExploreComponent.qml:166
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "建立聊天室或私人聊天"
@@ -2575,18 +2574,32 @@ msgstr "位置"
 msgid "There are no locations shared in this room."
 msgstr "沒有在這個聊天室裡分享的位置。"
 
-#: src/qml/Main.qml:306
+#: src/qml/Main.qml:166
+#, fuzzy, kde-format
+#| msgid "New Room Information"
+msgctxt "@action:button"
+msgid "Show Room Information"
+msgstr "新聊天室資訊"
+
+#: src/qml/Main.qml:169
+#, fuzzy, kde-format
+#| msgid "New Room Information"
+msgctxt "@action:button"
+msgid "Close Room Information Drawer"
+msgstr "新聊天室資訊"
+
+#: src/qml/Main.qml:309
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/qml/Main.qml:323
+#: src/qml/Main.qml:326
 #, kde-format
 msgid "User consent"
 msgstr "使用者許可"
 
-#: src/qml/Main.qml:328
+#: src/qml/Main.qml:331
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2595,28 +2608,28 @@ msgstr ""
 "您的家伺服器要求您必須同意它的條款與細則才能使用它。請點擊以下按鈕來閱讀它"
 "們。"
 
-#: src/qml/Main.qml:333
+#: src/qml/Main.qml:336
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:363
 #, kde-format
 msgid "Start a chat"
 msgstr "開始私人聊天"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:365
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "您要與 %1 開始私人聊天嗎？"
 
-#: src/qml/Main.qml:388
+#: src/qml/Main.qml:391
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "目前選取的連結"
 
-#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:423 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2699,7 +2712,7 @@ msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "編輯狀態"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2960,33 +2973,33 @@ msgstr[0] "%1 名成員"
 msgid "No member count"
 msgstr "無成員計數"
 
-#: src/qml/RoomListPage.qml:205
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "No friends found"
 msgstr "找不到朋友"
 
-#: src/qml/RoomListPage.qml:205
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "No rooms found"
 msgstr "找不到聊天室"
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:211
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "您尚未加入任何朋友，點擊下方以搜尋您的朋友。"
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:211
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "先加入一些聊天室吧"
 
-#: src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:218
 #, kde-format
 msgid "Search in room directory"
 msgstr "在聊天室目錄裡搜尋"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:235
 #, kde-format
 msgid "Search in friend directory"
 msgstr "在朋友目錄裡搜尋"
@@ -3162,24 +3175,24 @@ msgstr "影像分享後的網址是 <a href='%1'>%1</a>"
 msgid "View notifications"
 msgstr "檢視通知"
 
-#: src/qml/SpaceDrawer.qml:84
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "Home"
 msgstr "首頁"
 
-#: src/qml/SpaceDrawer.qml:130
+#: src/qml/SpaceDrawer.qml:134
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "好友"
 
-#: src/qml/SpaceDrawer.qml:232
+#: src/qml/SpaceDrawer.qml:242
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "加入 %1"
 
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/SpaceDrawer.qml:284
 #, kde-format
 msgid "Create a space"
 msgstr "建立一個聊天空間"
@@ -3454,12 +3467,19 @@ msgstr "邀請到私人聊天室"
 msgid "Copy link"
 msgstr "複製連結"
 
-#: src/qml/UserInfo.qml:104
+#: src/qml/UserInfo.qml:54
+#, fuzzy, kde-format
+#| msgid "Account editor"
+msgctxt "@title:window"
+msgid "Account editor"
+msgstr "帳號編輯器"
+
+#: src/qml/UserInfo.qml:91
 #, kde-format
 msgid "Switch User"
 msgstr "切換使用者"
 
-#: src/qml/UserInfo.qml:111
+#: src/qml/UserInfo.qml:98
 #, kde-format
 msgid "Open Settings"
 msgstr "開啟設定"

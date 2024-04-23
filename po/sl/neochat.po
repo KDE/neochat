@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 00:38+0000\n"
-"PO-Revision-Date: 2024-04-17 07:20+0200\n"
+"POT-Creation-Date: 2024-04-23 00:38+0000\n"
+"PO-Revision-Date: 2024-04-22 06:33+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -87,11 +87,10 @@ msgid "Event Source"
 msgstr "Vir dogodka"
 
 #: src/devtools/DebugOptions.qml:19
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
-msgstr "Prikaži predoglede povezav v sporočilih klepeta"
+msgstr "Prikaži skrite dogodke v časovnici"
 
 #: src/devtools/DebugOptions.qml:26
 #, kde-format
@@ -112,7 +111,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "Prikaži fokus v glavi okna"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -1533,7 +1532,7 @@ msgstr "Širina: %1, Dolžina: %2"
 msgid "Encrypted Message"
 msgstr "Šifrirano sporočilo"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1592,13 +1591,12 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Odpri NeoChat"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:65
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "Uredi ta račun"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:59
-#: src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
 #, kde-format
 msgid "Account editor"
 msgstr "Urejevalnik računa"
@@ -1609,7 +1607,7 @@ msgid "Notification settings"
 msgstr "Nastavitve obvestil"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:405 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Nastavi"
@@ -1948,8 +1946,8 @@ msgstr "Dodaj med priljubljene"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:281
-#: src/qml/SpaceDrawer.qml:283
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:294
+#: src/qml/SpaceDrawer.qml:296
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2020,7 +2018,7 @@ msgstr "Poberite sobo"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:220
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:224
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -2190,21 +2188,21 @@ msgid "They don't match"
 msgstr "Se ne ujemajo"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:218
 #, kde-format
 msgid "Explore rooms"
 msgstr "Razišči sobe"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:182 src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:186 src/qml/RoomListPage.qml:235
 #, kde-format
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:190
-#: src/qml/RoomListPage.qml:235
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2231,15 +2229,13 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Skeniraj kodo QR"
 
-#: src/qml/ExploreComponent.qml:103
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Show User"
+#: src/qml/ExploreComponent.qml:102
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Prikaži uporabnika"
+msgstr "Prikaži meni"
 
-#: src/qml/ExploreComponent.qml:167
+#: src/qml/ExploreComponent.qml:166
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Ustvari sobe in klepete"
@@ -2601,18 +2597,32 @@ msgstr "Lokacije"
 msgid "There are no locations shared in this room."
 msgstr "Ni deljenih lokacij v tej sobi."
 
-#: src/qml/Main.qml:306
+#: src/qml/Main.qml:166
+#, fuzzy, kde-format
+#| msgid "New Room Information"
+msgctxt "@action:button"
+msgid "Show Room Information"
+msgstr "Nove informacije o sobi"
+
+#: src/qml/Main.qml:169
+#, fuzzy, kde-format
+#| msgid "New Room Information"
+msgctxt "@action:button"
+msgid "Close Room Information Drawer"
+msgstr "Nove informacije o sobi"
+
+#: src/qml/Main.qml:309
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikacija seje"
 
-#: src/qml/Main.qml:323
+#: src/qml/Main.qml:326
 #, kde-format
 msgid "User consent"
 msgstr "Privoljenje uporabnika"
 
-#: src/qml/Main.qml:328
+#: src/qml/Main.qml:331
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2621,28 +2631,28 @@ msgstr ""
 "Vaš domači strežnik zahteva, da se strinjate s pogoji njegove rabe pred "
 "dovoljenjem za uporabo. Prosimo, kliknite spodnji gumb, da jih preberete."
 
-#: src/qml/Main.qml:333
+#: src/qml/Main.qml:336
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:363
 #, kde-format
 msgid "Start a chat"
 msgstr "Začni klepet"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:365
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Ali želite začeti klepet z %1?"
 
-#: src/qml/Main.qml:388
+#: src/qml/Main.qml:391
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Trenutno izbrana povezava"
 
-#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:423 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2725,7 +2735,7 @@ msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "Uredi stanje"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2989,17 +2999,17 @@ msgstr[3] "%1 člani"
 msgid "No member count"
 msgstr "Ni števila članov"
 
-#: src/qml/RoomListPage.qml:205
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "No friends found"
 msgstr "Ni najti nobenega prijatelja"
 
-#: src/qml/RoomListPage.qml:205
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "No rooms found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:211
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -3007,17 +3017,17 @@ msgstr ""
 "Dodali niste še nobenega od svojih prijateljev, kliknite spodaj, da jih "
 "poiščete."
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:211
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pridruži se nekaj sobam za začetek"
 
-#: src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:218
 #, kde-format
 msgid "Search in room directory"
 msgstr "Poišči v imeniku sob"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:235
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Poišči v imeniku prijateljev"
@@ -3195,24 +3205,24 @@ msgstr "Deljena povezava za sliko je <a href='%1'>%1</a>"
 msgid "View notifications"
 msgstr "Prikaži obvestila"
 
-#: src/qml/SpaceDrawer.qml:84
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "Home"
 msgstr "Domov"
 
-#: src/qml/SpaceDrawer.qml:130
+#: src/qml/SpaceDrawer.qml:134
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Prijatelji"
 
-#: src/qml/SpaceDrawer.qml:232
+#: src/qml/SpaceDrawer.qml:242
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Pridruži se %1"
 
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/SpaceDrawer.qml:284
 #, kde-format
 msgid "Create a space"
 msgstr "Ustvari prostor"
@@ -3499,12 +3509,19 @@ msgstr "Povabi na zasebni klepet"
 msgid "Copy link"
 msgstr "Kopiraj povezavo"
 
-#: src/qml/UserInfo.qml:104
+#: src/qml/UserInfo.qml:54
+#, fuzzy, kde-format
+#| msgid "Account editor"
+msgctxt "@title:window"
+msgid "Account editor"
+msgstr "Urejevalnik računa"
+
+#: src/qml/UserInfo.qml:91
 #, kde-format
 msgid "Switch User"
 msgstr "Preklopi uporabnika"
 
-#: src/qml/UserInfo.qml:111
+#: src/qml/UserInfo.qml:98
 #, kde-format
 msgid "Open Settings"
 msgstr "Odpri nastavitve"

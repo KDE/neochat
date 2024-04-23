@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-22 00:38+0000\n"
+"POT-Creation-Date: 2024-04-23 00:38+0000\n"
 "PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -1527,7 +1527,7 @@ msgstr "Plat.: %1, gar.: %2"
 msgid "Encrypted Message"
 msgstr "Šifrēta ziņa"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:272
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1586,13 +1586,12 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Atvērt „NeoChat“"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:65
+#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "Rediģēt kontu"
 
-#: src/qml/AccountMenu.qml:27 src/qml/UserInfo.qml:59
-#: src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
 #, kde-format
 msgid "Account editor"
 msgstr "Konta redaktors"
@@ -1603,7 +1602,7 @@ msgid "Notification settings"
 msgstr "Paziņojumu iestatījumi"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:402 src/qml/UserInfo.qml:116
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:405 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurēt"
@@ -1954,8 +1953,8 @@ msgstr "Pievienot iecienītajām"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:281
-#: src/qml/SpaceDrawer.qml:283
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:294
+#: src/qml/SpaceDrawer.qml:296
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2026,7 +2025,7 @@ msgstr "Izvēlieties istabu"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:220
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:224
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -2203,21 +2202,21 @@ msgid "They don't match"
 msgstr "Tās neatbilst"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:218
 #, kde-format
 msgid "Explore rooms"
 msgstr "Izpētīt istabas"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:182 src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:186 src/qml/RoomListPage.qml:235
 #, kde-format
 msgid "Find your friends"
 msgstr "Atrast draugus"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:190
-#: src/qml/RoomListPage.qml:235
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:194
+#: src/qml/RoomListPage.qml:239
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2244,14 +2243,14 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:103
+#: src/qml/ExploreComponent.qml:102
 #, fuzzy, kde-format
 #| msgid "Switch User"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Pārslēgt lietotāju"
 
-#: src/qml/ExploreComponent.qml:167
+#: src/qml/ExploreComponent.qml:166
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Izveidot telpas un tērzētavas"
@@ -2618,18 +2617,32 @@ msgstr "Atrašanās vietas"
 msgid "There are no locations shared in this room."
 msgstr "Šajā istabā nav kopīgotas atrašanās vietas."
 
-#: src/qml/Main.qml:306
+#: src/qml/Main.qml:166
+#, fuzzy, kde-format
+#| msgid "New Room Information"
+msgctxt "@action:button"
+msgid "Show Room Information"
+msgstr "Jaunās istabas informācija"
+
+#: src/qml/Main.qml:169
+#, fuzzy, kde-format
+#| msgid "New Room Information"
+msgctxt "@action:button"
+msgid "Close Room Information Drawer"
+msgstr "Jaunās istabas informācija"
+
+#: src/qml/Main.qml:309
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sesijas verifikācija"
 
-#: src/qml/Main.qml:323
+#: src/qml/Main.qml:326
 #, kde-format
 msgid "User consent"
 msgstr "Lietotāja piekrišana"
 
-#: src/qml/Main.qml:328
+#: src/qml/Main.qml:331
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2638,28 +2651,28 @@ msgstr ""
 "Jūsu mājas serveris pieprasa piekrist tā noteikumiem pirms tā izmantošanas. "
 "Spiediet uz pogas, lai tos izlasītu."
 
-#: src/qml/Main.qml:333
+#: src/qml/Main.qml:336
 #, kde-format
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/qml/Main.qml:360
+#: src/qml/Main.qml:363
 #, kde-format
 msgid "Start a chat"
 msgstr "Uzsākt tērzēšanu"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:365
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vai vēlaties uzsākt tērzēšanu ar „%1“?"
 
-#: src/qml/Main.qml:388
+#: src/qml/Main.qml:391
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Pašreiz atlasītā saite"
 
-#: src/qml/Main.qml:420 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:423 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2745,7 +2758,7 @@ msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "Rediģēt uzlīmi"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:66
+#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3010,33 +3023,33 @@ msgstr[2] "%1 dalībnieku"
 msgid "No member count"
 msgstr "Nav dalībnieku skaita"
 
-#: src/qml/RoomListPage.qml:205
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "No friends found"
 msgstr "Nav atrasti draugi"
 
-#: src/qml/RoomListPage.qml:205
+#: src/qml/RoomListPage.qml:209
 #, kde-format
 msgid "No rooms found"
 msgstr "Nav atrastas istabas"
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:211
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "Jūs vēl nepievienojāt nevienu draugu, spiediet zemāk, lai meklētu."
 
-#: src/qml/RoomListPage.qml:207
+#: src/qml/RoomListPage.qml:211
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pievienojieties kādām istabām, lai sāktu"
 
-#: src/qml/RoomListPage.qml:214
+#: src/qml/RoomListPage.qml:218
 #, kde-format
 msgid "Search in room directory"
 msgstr "Meklēt istabu mapē"
 
-#: src/qml/RoomListPage.qml:231
+#: src/qml/RoomListPage.qml:235
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Meklēt draugu mapē"
@@ -3215,24 +3228,24 @@ msgstr "Kopīgotā URL attēlam ir <a href='%1'>%1</a>"
 msgid "View notifications"
 msgstr "Skatīt paziņojumus"
 
-#: src/qml/SpaceDrawer.qml:84
+#: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "Home"
 msgstr "Mājas"
 
-#: src/qml/SpaceDrawer.qml:130
+#: src/qml/SpaceDrawer.qml:134
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Draugi"
 
-#: src/qml/SpaceDrawer.qml:232
+#: src/qml/SpaceDrawer.qml:242
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Pievienoties „%1“"
 
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/SpaceDrawer.qml:284
 #, kde-format
 msgid "Create a space"
 msgstr "Izveidot telpu"
@@ -3521,12 +3534,19 @@ msgstr "Uzaicināt uz privātu tērzēšanu"
 msgid "Copy link"
 msgstr "Kopēt saiti"
 
-#: src/qml/UserInfo.qml:104
+#: src/qml/UserInfo.qml:54
+#, fuzzy, kde-format
+#| msgid "Account editor"
+msgctxt "@title:window"
+msgid "Account editor"
+msgstr "Konta redaktors"
+
+#: src/qml/UserInfo.qml:91
 #, kde-format
 msgid "Switch User"
 msgstr "Pārslēgt lietotāju"
 
-#: src/qml/UserInfo.qml:111
+#: src/qml/UserInfo.qml:98
 #, kde-format
 msgid "Open Settings"
 msgstr "Atvērt iestatījumus"
