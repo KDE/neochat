@@ -98,6 +98,8 @@ private:
     QPointer<LinkPreviewer> m_linkPreviewer;
     ItineraryModel *m_itineraryModel = nullptr;
 
+    QList<MessageComponent> componentsForType(MessageComponentType::Type type);
+
     void updateLinkPreviewer();
     void updateItineraryModel();
     bool m_emptyItinerary = false;
