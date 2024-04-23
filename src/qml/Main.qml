@@ -4,6 +4,7 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 import org.kde.config as KConfig
@@ -28,6 +29,18 @@ Kirigami.ApplicationWindow {
         } else {
             return Application.displayName;
         }
+    }
+
+    Connections {
+        target: CallController
+        function onCallStarted() {
+            root.pageStack.pushDialogLayer(callPageComponent)
+        }
+    }
+
+    Component {
+        id: callPageComponent
+        CallPage {}
     }
 
     minimumWidth: Kirigami.Units.gridUnit * 20
@@ -197,6 +210,7 @@ Kirigami.ApplicationWindow {
             visible = true;
         }
     }
+
     Connections {
         target: NeoChatConfig
         function onBlurChanged() {
@@ -346,5 +360,16 @@ Kirigami.ApplicationWindow {
         }
 
         initialized = true;
+    }
+
+    Connections {
+        target: MediaManager
+        function onShowIncomingCallDialog(): void {
+            incomingCallDialog.createObject(applicationWindow().overlay).open();
+        }
+    }
+    Component {
+        id: incomingCallDialog
+        IncomingCallDialog {}
     }
 }

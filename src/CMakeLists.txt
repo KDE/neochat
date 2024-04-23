@@ -196,6 +196,15 @@ add_library(neochat STATIC
     models/pinnedmessagemodel.h
     models/commonroomsmodel.cpp
     models/commonroomsmodel.h
+    events/callencryptionkeysevent.h
+    events/callmemberevent.h
+    events/callnotifyevent.h
+    calls/callcontroller.cpp
+    calls/callcontroller.h
+    livekitlogmodel.cpp
+    livekitlogmodel.h
+    events/callmemberevent.cpp
+    events/callmemberevent.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -296,6 +305,9 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/HoverLinkIndicator.qml
         qml/AvatarNotification.qml
         qml/ReasonDialog.qml
+        qml/LivekitLogViewer.qml
+        qml/CallPage.qml
+        qml/IncomingCallDialog.qml
     SOURCES
         messageattached.cpp
         messageattached.h
@@ -399,6 +411,10 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
     target_compile_definitions(neochat PUBLIC -DHAVE_X11=1)
     target_sources(neochat PRIVATE runner.cpp)
+if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
+    #target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
+    target_compile_definitions(neochat PUBLIC -DHAVE_X11)
+    #target_sources(neochat PRIVATE runner.cpp)
 
     if (TARGET KUnifiedPush)
         target_sources(neochat PRIVATE fakerunner.cpp)
@@ -406,6 +422,20 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
 else()
     target_compile_definitions(neochat PUBLIC -DHAVE_X11=0)
 endif()
+
+qt_add_protobuf(neochat
+        GENERATE_PACKAGE_SUBFOLDERS
+        PROTO_FILES
+        protocols/ffi.proto
+        protocols/room.proto
+        protocols/e2ee.proto
+        protocols/audio_frame.proto
+        protocols/video_frame.proto
+        protocols/handle.proto
+        protocols/participant.proto
+        protocols/stats.proto
+        protocols/track.proto
+)
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
 target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin loginplugin chatbarplugin)
@@ -417,6 +447,7 @@ target_link_libraries(neochat PUBLIC
     Qt::Multimedia
     Qt::Network
     Qt::QuickControls2
+    Qt::Protobuf
     KF6::I18n
     KF6::Kirigami
     KF6::Notifications
@@ -431,6 +462,7 @@ target_link_libraries(neochat PUBLIC
     cmark::cmark
     QCoro::Core
     QCoro::Network
+    LiveKit
 )
 
 if (TARGET KF6::Crash)

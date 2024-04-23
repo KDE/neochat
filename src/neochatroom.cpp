@@ -8,6 +8,7 @@
 #include <QMediaPlayer>
 #include <QMimeDatabase>
 #include <QTemporaryFile>
+#include <QProtobufSerializer>
 
 #include <Quotient/events/eventcontent.h>
 #include <Quotient/events/eventrelation.h>
@@ -42,6 +43,7 @@
 #include "eventhandler.h"
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
+#include "mediamanager.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroommember.h"
@@ -56,6 +58,10 @@
 #endif
 #include <KJobTrackerInterface>
 #include <KLocalizedString>
+
+#include "calls/callcontroller.h"
+#include "events/callencryptionkeysevent.h"
+#include "events/callmemberevent.h"
 
 using namespace Quotient;
 
@@ -160,6 +166,26 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     const auto neochatconnection = static_cast<NeoChatConnection *>(connection);
     Q_ASSERT(neochatconnection);
     connect(neochatconnection, &NeoChatConnection::globalUrlPreviewEnabledChanged, this, &NeoChatRoom::urlPreviewEnabledChanged);
+
+    connect(this, &Room::aboutToAddNewMessages, this, [this](const auto &messages) {
+        for (const auto &message : messages) {
+            if (const auto &memberEvent = eventCast<const CallMemberEvent>(message.get())) {
+                CallController::instance().handleCallMemberEvent(memberEvent, this);
+            }
+            if (const auto &encryptionEvent = eventCast<const CallEncryptionKeysEvent>(message.get())) {
+                qWarning() << encryptionEvent->fullJson();
+                Q_ASSERT(false);
+            }
+        }
+    });
+    // connect(this, &NeoChatRoom::aboutToAddNewMessages, this, [this](const auto &events) {
+    //     for (const auto &event : events) {
+    //         qWarning() << event->fullJson();
+    //         if (event->matrixType() == "org.matrix.msc4075.call.notify"_ls) {
+    //             MediaManager::instance().ring(event->fullJson(), this);
+    //         }
+    //     }
+    // });
 }
 
 bool NeoChatRoom::visible() const

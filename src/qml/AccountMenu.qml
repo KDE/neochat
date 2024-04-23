@@ -101,7 +101,11 @@ KirigamiComponents.ConvergentContextMenu {
         }
         enabled: Controller.csSupported
     }
-
+    // QQC2.MenuItem {
+    //     text: i18n("Show livekit logs")
+    //     icon.name: "dialog-xml-editor"
+    //     onTriggered: livekitLogViewerComponent.createObject(applicationWindow().overlay)
+    // }
     QQC2.Action {
         text: i18n("Logout")
         icon.name: "im-kick-user"
@@ -110,5 +114,10 @@ KirigamiComponents.ConvergentContextMenu {
 
     readonly property Component confirmLogoutDialogComponent: ConfirmLogoutDialog {
         connection: root.connection
+    }
+
+    Component {
+        id: livekitLogViewerComponent
+        LivekitLogViewer {}
     }
 }

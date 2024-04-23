@@ -51,6 +51,10 @@ is primarily aimed at Linux development.
 For Windows and Android [Craft](https://invent.kde.org/packaging/craft) is the primary choice. There are guides for setting up
 development environments for [Windows](https://community.kde.org/Get_Involved/development/Windows) and [Android](https://develop.kde.org/docs/packaging/android/building_applications/).
 
+### Building with support for voice / video calls
+
+[LiveKit](https://livekit.io) is needed for call support. Build the [Rust SDK](https://github.com/livekit/rust-sdks) and copy `liblivekit_ffi.so` to your usual library folder. Copy `livekit_ffi.h` to somewhere under your usual include folder. NeoChat should then automatically pick it up.
+
 ## Running
 
 Just start the executable in your preferred way - either from the build directory or from the installed location.
