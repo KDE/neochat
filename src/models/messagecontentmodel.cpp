@@ -246,68 +246,84 @@ void MessageContentModel::updateComponents(bool isEditing)
     if (eventCast<const Quotient::RoomMessageEvent>(m_event)
         && eventCast<const Quotient::RoomMessageEvent>(m_event)->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
         m_components += MessageComponent{MessageComponentType::Verification, QString(), {}};
-    } else {
-        EventHandler eventHandler(m_room, m_event);
-        if (eventHandler.hasReply()) {
-            if (m_room->findInTimeline(eventHandler.getReplyId()) == m_room->historyEdge()) {
-                m_components += MessageComponent{MessageComponentType::ReplyLoad, QString(), {}};
-                m_room->loadReply(m_event->id(), eventHandler.getReplyId());
-            } else {
-                m_components += MessageComponent{MessageComponentType::Reply, QString(), {}};
-            }
-        }
+        endResetModel();
+        return;
+    }
 
-        if (isEditing) {
-            m_components += MessageComponent{MessageComponentType::Edit, QString(), {}};
-        } else if (m_event->isRedacted()) {
-            m_components += MessageComponent{MessageComponentType::Text, QString(), {}};
+    if (m_event->isRedacted()) {
+        m_components += MessageComponent{MessageComponentType::Text, QString(), {}};
+        endResetModel();
+        return;
+    }
+
+    EventHandler eventHandler(m_room, m_event);
+    if (eventHandler.hasReply()) {
+        if (m_room->findInTimeline(eventHandler.getReplyId()) == m_room->historyEdge()) {
+            m_components += MessageComponent{MessageComponentType::ReplyLoad, QString(), {}};
+            m_room->loadReply(m_event->id(), eventHandler.getReplyId());
         } else {
-            if (eventHandler.messageComponentType() == MessageComponentType::Text) {
-                const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
-                auto body = EventHandler::rawMessageBody(*event);
-                m_components.append(TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced()));
-            } else if (eventHandler.messageComponentType() == MessageComponentType::File) {
-                m_components += MessageComponent{MessageComponentType::File, QString(), {}};
-                if (m_emptyItinerary) {
-                    auto fileTransferInfo = fileInfo();
-
-#ifndef Q_OS_ANDROID
-                    KSyntaxHighlighting::Repository repository;
-                    const auto definitionForFile = repository.definitionForFileName(fileTransferInfo.localPath.toString());
-                    if (definitionForFile.isValid() || QFileInfo(fileTransferInfo.localPath.path()).suffix() == QStringLiteral("txt")) {
-                        QFile file(fileTransferInfo.localPath.path());
-                        file.open(QIODevice::ReadOnly);
-                        m_components += MessageComponent{MessageComponentType::Code,
-                                                         QString::fromStdString(file.readAll().toStdString()),
-                                                         {{QStringLiteral("class"), definitionForFile.name()}}};
-                    }
-#endif
-
-                    if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
-                        QImageReader reader(fileTransferInfo.localPath.path());
-                        m_components += MessageComponent{MessageComponentType::Pdf, QString(), {{QStringLiteral("size"), reader.size()}}};
-                    }
-                } else {
-                    updateItineraryModel();
-                    if (m_itineraryModel != nullptr) {
-                        m_components += MessageComponent{MessageComponentType::Itinerary, QString(), {}};
-                    }
-                }
-            } else {
-                m_components += MessageComponent{eventHandler.messageComponentType(), QString(), {}};
-            }
+            m_components += MessageComponent{MessageComponentType::Reply, QString(), {}};
         }
+    }
 
-        if (m_linkPreviewer != nullptr) {
-            if (m_linkPreviewer->loaded()) {
-                m_components += MessageComponent{MessageComponentType::LinkPreview, QString(), {}};
-            } else {
-                m_components += MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {}};
-            }
+    if (isEditing) {
+        m_components += MessageComponent{MessageComponentType::Edit, QString(), {}};
+    } else {
+        m_components.append(componentsForType(eventHandler.messageComponentType()));
+    }
+
+    if (m_linkPreviewer != nullptr) {
+        if (m_linkPreviewer->loaded()) {
+            m_components += MessageComponent{MessageComponentType::LinkPreview, QString(), {}};
+        } else {
+            m_components += MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {}};
         }
     }
 
     endResetModel();
+}
+
+QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentType::Type type)
+{
+    switch (type) {
+    case MessageComponentType::Text: {
+        const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
+        auto body = EventHandler::rawMessageBody(*event);
+        return TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
+    }
+    case MessageComponentType::File: {
+        QList<MessageComponent> components;
+        components += MessageComponent{MessageComponentType::File, QString(), {}};
+        if (m_emptyItinerary) {
+            auto fileTransferInfo = fileInfo();
+
+#ifndef Q_OS_ANDROID
+            KSyntaxHighlighting::Repository repository;
+            const auto definitionForFile = repository.definitionForFileName(fileTransferInfo.localPath.toString());
+            if (definitionForFile.isValid() || QFileInfo(fileTransferInfo.localPath.path()).suffix() == QStringLiteral("txt")) {
+                QFile file(fileTransferInfo.localPath.path());
+                file.open(QIODevice::ReadOnly);
+                components += MessageComponent{MessageComponentType::Code,
+                                               QString::fromStdString(file.readAll().toStdString()),
+                                               {{QStringLiteral("class"), definitionForFile.name()}}};
+            }
+#endif
+
+            if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
+                QImageReader reader(fileTransferInfo.localPath.path());
+                components += MessageComponent{MessageComponentType::Pdf, QString(), {{QStringLiteral("size"), reader.size()}}};
+            }
+        } else {
+            updateItineraryModel();
+            if (m_itineraryModel != nullptr) {
+                components += MessageComponent{MessageComponentType::Itinerary, QString(), {}};
+            }
+        }
+        return components;
+    }
+    default:
+        return {MessageComponent{type, QString(), {}}};
+    }
 }
 
 void MessageContentModel::updateLinkPreviewer()
