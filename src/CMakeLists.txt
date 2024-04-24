@@ -207,16 +207,10 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/TypingPane.qml
         qml/QuickSwitcher.qml
         qml/HoverActions.qml
-        qml/ChatBar.qml
         qml/AttachmentPane.qml
-        qml/ReplyPane.qml
-        qml/CompletionMenu.qml
-        qml/PieProgressBar.qml
         qml/QuickFormatBar.qml
-        qml/EmojiPicker.qml
         qml/UserDetailDialog.qml
         qml/CreateRoomDialog.qml
-        qml/EmojiDialog.qml
         qml/OpenFileDialog.qml
         qml/KeyVerificationDialog.qml
         qml/ConfirmLogoutDialog.qml
@@ -236,9 +230,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ConfirmEncryptionDialog.qml
         qml/RemoveSheet.qml
         qml/BanSheet.qml
-        qml/EmojiTonesPicker.qml
-        qml/EmojiDelegate.qml
-        qml/EmojiGrid.qml
         qml/RoomSearchPage.qml
         qml/LocationChooser.qml
         qml/TimelineView.qml
@@ -262,7 +253,6 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/SelectParentDialog.qml
         qml/QrCodeMaximizeComponent.qml
         qml/SelectSpacesDialog.qml
-        qml/AttachDialog.qml
         qml/NotificationsView.qml
         qml/SearchPage.qml
         qml/ServerComboBox.qml
@@ -286,6 +276,7 @@ add_subdirectory(settings)
 add_subdirectory(timeline)
 add_subdirectory(devtools)
 add_subdirectory(login)
+add_subdirectory(chatbar)
 
 if(UNIX)
     qt_target_qml_sources(neochat QML_FILES qml/ShareAction.qml)
@@ -377,7 +368,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin loginplugin)
+target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
     Qt::Core
     Qt::Quick

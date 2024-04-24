@@ -6,7 +6,9 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+
 import org.kde.neochat
+import org.kde.neochat.chatbar
 
 /**
  * @brief A component that provides a set of actions when a message is hovered in the timeline.
