@@ -4,6 +4,7 @@
 #include "proxycontroller.h"
 
 #include <QNetworkProxy>
+#include <QNetworkProxyFactory>
 
 #include "neochatconfig.h"
 
@@ -15,18 +16,24 @@ void ProxyController::setApplicationProxy()
     switch (cfg->proxyType()) {
     case 1:
         proxy.setType(QNetworkProxy::HttpProxy);
+        proxy.setHostName(cfg->proxyHost());
+        proxy.setPort(cfg->proxyPort());
+        proxy.setUser(cfg->proxyUser());
+        proxy.setPassword(cfg->proxyPassword());
+        QNetworkProxy::setApplicationProxy(proxy);
         break;
     case 2:
         proxy.setType(QNetworkProxy::Socks5Proxy);
+        proxy.setHostName(cfg->proxyHost());
+        proxy.setPort(cfg->proxyPort());
+        proxy.setUser(cfg->proxyUser());
+        proxy.setPassword(cfg->proxyPassword());
+        QNetworkProxy::setApplicationProxy(proxy);
         break;
     default:
+        QNetworkProxyFactory::setUseSystemConfiguration(true);
         break;
     }
-    proxy.setHostName(cfg->proxyHost());
-    proxy.setPort(cfg->proxyPort());
-    proxy.setUser(cfg->proxyUser());
-    proxy.setPassword(cfg->proxyPassword());
-    QNetworkProxy::setApplicationProxy(proxy);
 }
 
 ProxyController::ProxyController(QObject *parent)

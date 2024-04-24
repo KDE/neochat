@@ -7,6 +7,8 @@ import QtQuick.Layouts
 
 import org.kde.kirigamiaddons.formcard as FormCard
 
+import org.kde.neochat
+
 FormCard.FormCardPage {
     id: root
 
