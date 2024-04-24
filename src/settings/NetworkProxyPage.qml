@@ -30,6 +30,14 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
+            text: i18n("No Proxy")
+            checked: currentType === 3
+            enabled: !Config.isProxyTypeImmutable
+            onToggled: {
+                currentType = 3;
+            }
+        }
+        FormCard.FormRadioDelegate {
             text: i18n("HTTP")
             checked: currentType === 1
             enabled: !Config.isProxyTypeImmutable

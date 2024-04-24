@@ -30,6 +30,10 @@ void ProxyController::setApplicationProxy()
         proxy.setPassword(cfg->proxyPassword());
         QNetworkProxy::setApplicationProxy(proxy);
         break;
+    case 3:
+        proxy.setType(QNetworkProxy::NoProxy);
+        QNetworkProxy::setApplicationProxy(proxy);
+        break;
     default:
         QNetworkProxyFactory::setUseSystemConfiguration(true);
         break;
