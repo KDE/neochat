@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-23 00:38+0000\n"
-"PO-Revision-Date: 2024-04-18 22:17+0200\n"
+"POT-Creation-Date: 2024-04-24 00:38+0000\n"
+"PO-Revision-Date: 2024-04-23 21:45+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: src/controller.cpp:134
+#: src/controller.cpp:133
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -28,48 +28,48 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Mezu berrien jakinarazpenak jasotzeko"
 
-#: src/controller.cpp:213
+#: src/controller.cpp:212
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Sareko errorea: %1"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:234
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Sartzeko tokena ez du aurkitu"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:234
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Agian ezabatu egin da?"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:238
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Gako-katerako sarrera ukatu egin da."
 
-#: src/controller.cpp:239
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Mesedez, utzi NeoChat-i sartzeko tokena irakurtzen"
 
-#: src/controller.cpp:242
+#: src/controller.cpp:241
 #, kde-format
 msgid "No keychain available."
 msgstr "Ez dago gako-kate erabilgarririk."
 
-#: src/controller.cpp:242
+#: src/controller.cpp:241
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Mesedez, instalatu gako-kate bat, adib. KWallet edo «GNOME keyring» Linux-en"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:244
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Ez da sartzeko tokena irakurtzeko gai"
 
-#: src/controller.cpp:341
+#: src/controller.cpp:340
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Bultzada-jakinarazpenak jasotzea"
@@ -87,11 +87,10 @@ msgid "Event Source"
 msgstr "Ekitaldi sorburua"
 
 #: src/devtools/DebugOptions.qml:19
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
-msgstr "Erakutsi estekaren aurreikuspegia berriketa-mezuetan"
+msgstr "Erakutsi ezkutuko gertaerak denbora-lerroan"
 
 #: src/devtools/DebugOptions.qml:26
 #, kde-format
@@ -112,7 +111,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "Erakutsi fokua leihoaren goiburuan"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -160,28 +159,28 @@ msgstr "Hautatu gela"
 msgid "Room"
 msgstr "Gela"
 
-#: src/devtools/RoomData.qml:35
+#: src/devtools/RoomData.qml:36
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Gelaren ID: %1"
 
-#: src/devtools/RoomData.qml:39
+#: src/devtools/RoomData.qml:40
 #, kde-format
 msgid "Room Account Data"
 msgstr "Gela-kontuaren datuak"
 
-#: src/devtools/RoomData.qml:52 src/devtools/RoomData.qml:98
+#: src/devtools/RoomData.qml:53 src/devtools/RoomData.qml:99
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Ekitaldi sorburua"
 
-#: src/devtools/RoomData.qml:60
+#: src/devtools/RoomData.qml:61
 #, kde-format
 msgid "Room State"
 msgstr "Gelaren egoera"
 
-#: src/devtools/RoomData.qml:74
+#: src/devtools/RoomData.qml:75
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -189,7 +188,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "mota horretako gertaera %1"
 msgstr[1] "mota horretako %1 gertaera"
 
-#: src/devtools/RoomData.qml:83
+#: src/devtools/RoomData.qml:84
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -223,49 +222,44 @@ msgctxt ""
 msgid "State Keys"
 msgstr "«State Keys»"
 
-#: src/enums/neochatroomtype.h:60
+#: src/enums/neochatroomtype.h:59
 #, kde-format
 msgid "Invited"
 msgstr "Gonbidatuta"
 
-#: src/enums/neochatroomtype.h:62
+#: src/enums/neochatroomtype.h:61
 #, kde-format
 msgid "Favorite"
 msgstr "Gogokoak"
 
-#: src/enums/neochatroomtype.h:64 src/qml/UserSearchPage.qml:82
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Friends"
 msgstr "Lagunak"
 
-#: src/enums/neochatroomtype.h:66
+#: src/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Normal"
 msgstr "Arrunta"
 
-#: src/enums/neochatroomtype.h:68
+#: src/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Low priority"
 msgstr "Lehentasun txikia"
 
-#: src/enums/neochatroomtype.h:70
+#: src/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Spaces"
 msgstr "Tokiak"
 
-#: src/enums/neochatroomtype.h:72 src/qml/ExploreComponentMobile.qml:36
-#, kde-format
-msgid "Search"
-msgstr "Bilatu"
-
 #: src/eventhandler.cpp:303 src/eventhandler.cpp:507
-#: src/models/messagecontentmodel.cpp:140 src/models/messageeventmodel.cpp:437
+#: src/models/messagecontentmodel.cpp:144 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Mezu hau ezabatu egin da]</i>"
 
-#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:141
-#: src/models/messageeventmodel.cpp:438
+#: src/eventhandler.cpp:303 src/models/messagecontentmodel.cpp:145
+#: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Mezu hau ezabatu egin da: %1]</i>"
@@ -639,12 +633,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Jomuga"
 
-#: src/login.cpp:85 src/login.cpp:100
+#: src/login.cpp:84 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "Sareko errorea"
 
-#: src/login.cpp:93
+#: src/login.cpp:92
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Saio-hastea huts egin du: %1"
@@ -968,316 +962,316 @@ msgstr "Barneko erabilera bakarrik."
 msgid "Share a URL to Matrix"
 msgstr "Partekatu URL bat «Matrix»ekin"
 
-#: src/matriximageprovider.cpp:40
+#: src/matriximageprovider.cpp:38
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
 msgstr "'%1' hedabide IDak ez du jarraitzen zerbitzari/hedabideID eredua"
 
-#: src/matriximageprovider.cpp:98
+#: src/matriximageprovider.cpp:96
 #, kde-format
 msgid "Image request has been cancelled"
 msgstr "Irudi eskaera bertan behera utzi da"
 
-#: src/models/actionsmodel.cpp:24
+#: src/models/actionsmodel.cpp:25
 #, kde-format
 msgid "Leaving this room."
 msgstr "Gela honetatik alde egiten."
 
-#: src/models/actionsmodel.cpp:31 src/models/actionsmodel.cpp:228
-#: src/models/actionsmodel.cpp:254 src/models/actionsmodel.cpp:284
+#: src/models/actionsmodel.cpp:32 src/models/actionsmodel.cpp:229
+#: src/models/actionsmodel.cpp:255 src/models/actionsmodel.cpp:285
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "'%1'(e)k ez du ematen gela id. bat ez eta ezizen bat ere."
 
-#: src/models/actionsmodel.cpp:39
+#: src/models/actionsmodel.cpp:40
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "%1 gelatik alde egiten."
 
-#: src/models/actionsmodel.cpp:42
+#: src/models/actionsmodel.cpp:43
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "%1 gela ez da aurkitu."
 
-#: src/models/actionsmodel.cpp:50 src/models/actionsmodel.cpp:320
+#: src/models/actionsmodel.cpp:51 src/models/actionsmodel.cpp:321
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Ez da goitizen berririk eman, ez da aldaketarik gertatuko."
 
-#: src/models/actionsmodel.cpp:65 src/models/actionsmodel.cpp:75
-#: src/models/actionsmodel.cpp:85 src/models/actionsmodel.cpp:95
-#: src/models/actionsmodel.cpp:115 src/models/actionsmodel.cpp:135
-#: src/models/actionsmodel.cpp:146 src/models/actionsmodel.cpp:162
-#: src/models/actionsmodel.cpp:172 src/models/actionsmodel.cpp:182
+#: src/models/actionsmodel.cpp:66 src/models/actionsmodel.cpp:76
+#: src/models/actionsmodel.cpp:86 src/models/actionsmodel.cpp:96
+#: src/models/actionsmodel.cpp:116 src/models/actionsmodel.cpp:136
+#: src/models/actionsmodel.cpp:147 src/models/actionsmodel.cpp:163
+#: src/models/actionsmodel.cpp:173 src/models/actionsmodel.cpp:183
 msgid "<message>"
 msgstr "<mezua>"
 
-#: src/models/actionsmodel.cpp:66
+#: src/models/actionsmodel.cpp:67
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Aurretik ¯\\_(ツ)_/¯ eransten dio testu arrunteko mezu bati"
 
-#: src/models/actionsmodel.cpp:76
+#: src/models/actionsmodel.cpp:77
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Aurretik ( ͡° ͜ʖ ͡°) eransten dio testu arrunteko mezu bati"
 
-#: src/models/actionsmodel.cpp:86
+#: src/models/actionsmodel.cpp:87
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Aurretik (╯°□°）╯︵ ┻━┻ eransten dio testu arrunteko mezu bati"
 
-#: src/models/actionsmodel.cpp:96
+#: src/models/actionsmodel.cpp:97
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Aurretik ┬──┬ ノ( ゜-゜ノ) eransten dio testu arrunteko mezu bati-"
 
-#: src/models/actionsmodel.cpp:116
+#: src/models/actionsmodel.cpp:117
 msgid "Sends the given message colored as a rainbow"
 msgstr "Emandako mezu ostadar gisa koloreztatuta bidaltzen du"
 
-#: src/models/actionsmodel.cpp:136
+#: src/models/actionsmodel.cpp:137
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Emandako aurpegiera ostadar gisa koloreztatuta bidaltzen du"
 
-#: src/models/actionsmodel.cpp:147
+#: src/models/actionsmodel.cpp:148
 msgid "Sends the given message as plain text"
 msgstr "Emandako mezua testu arrunt gisa bidaltzen du"
 
-#: src/models/actionsmodel.cpp:163
+#: src/models/actionsmodel.cpp:164
 msgid "Sends the given message as a spoiler"
 msgstr "Emandako mezua «spoiler» gisa bidaltzen du"
 
-#: src/models/actionsmodel.cpp:173
+#: src/models/actionsmodel.cpp:174
 msgid "Sends the given emote"
 msgstr "Emandako aurpegiera bidaltzen du"
 
-#: src/models/actionsmodel.cpp:183
+#: src/models/actionsmodel.cpp:184
 msgid "Sends the given message as a notice"
 msgstr "Emandako mezua oharpen gisa bidaltzen du"
 
-#: src/models/actionsmodel.cpp:192 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:377 src/models/actionsmodel.cpp:421
-#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:494
+#: src/models/actionsmodel.cpp:193 src/models/actionsmodel.cpp:355
+#: src/models/actionsmodel.cpp:378 src/models/actionsmodel.cpp:422
+#: src/models/actionsmodel.cpp:460 src/models/actionsmodel.cpp:495
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "'%1'(e)k ez du matrix id. itxurarik."
 
-#: src/models/actionsmodel.cpp:197
+#: src/models/actionsmodel.cpp:198
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr ""
 "%1 dagoeneko gela honetara gonbidatuta dago.%1 gelara berriz gonbidatua"
 
-#: src/models/actionsmodel.cpp:201
+#: src/models/actionsmodel.cpp:202
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1(e)ri gela honetarako debekua ezarri zaio."
 
-#: src/models/actionsmodel.cpp:205
+#: src/models/actionsmodel.cpp:206
 #, kde-format
 msgid "You are already in this room."
 msgstr "Dagoeneko gela honetan zaude."
 
-#: src/models/actionsmodel.cpp:209
+#: src/models/actionsmodel.cpp:210
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 dagoeneko gela honetan dago."
 
-#: src/models/actionsmodel.cpp:213
+#: src/models/actionsmodel.cpp:214
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 gela honetara gonbidatuta dago"
 
-#: src/models/actionsmodel.cpp:218 src/models/actionsmodel.cpp:367
-#: src/models/actionsmodel.cpp:390 src/models/actionsmodel.cpp:482
+#: src/models/actionsmodel.cpp:219 src/models/actionsmodel.cpp:368
+#: src/models/actionsmodel.cpp:391 src/models/actionsmodel.cpp:483
 msgid "<user id>"
 msgstr "<erabiltzaile-id>"
 
-#: src/models/actionsmodel.cpp:219
+#: src/models/actionsmodel.cpp:220
 msgid "Invites the user to this room"
 msgstr "Erabiltzailea gela honetara gonbidatzen du"
 
-#: src/models/actionsmodel.cpp:236 src/models/actionsmodel.cpp:291
+#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:292
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "%1 gelarekin bat egiten."
 
-#: src/models/actionsmodel.cpp:242 src/models/actionsmodel.cpp:297
+#: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:298
 msgid "<room alias or id>"
 msgstr "<gelaren ezizena edo id.>"
 
-#: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:298
+#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:299
 msgid "Joins the given room"
 msgstr "Emandako gelara batzen da"
 
-#: src/models/actionsmodel.cpp:262
+#: src/models/actionsmodel.cpp:263
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "%1 gelako atea jotzen."
 
-#: src/models/actionsmodel.cpp:274
+#: src/models/actionsmodel.cpp:275
 msgid "<room alias or id> [<reason>]"
 msgstr "<gelaren ezizena edo id> [<arrazoia>]"
 
-#: src/models/actionsmodel.cpp:275
+#: src/models/actionsmodel.cpp:276
 msgid "Requests to join the given room"
 msgstr "Adierazitako gelara batzea eskatzen du"
 
-#: src/models/actionsmodel.cpp:288
+#: src/models/actionsmodel.cpp:289
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Dagoeneko %1 gelan zaude."
 
-#: src/models/actionsmodel.cpp:305 src/models/actionsmodel.cpp:313
+#: src/models/actionsmodel.cpp:306 src/models/actionsmodel.cpp:314
 msgid "[<room alias or id>]"
 msgstr "[<gelaren ezizena edo id.>]"
 
-#: src/models/actionsmodel.cpp:306 src/models/actionsmodel.cpp:314
+#: src/models/actionsmodel.cpp:307 src/models/actionsmodel.cpp:315
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Emaniko gelatik irteten da, edo gela honetatik batere eman ez bada"
 
-#: src/models/actionsmodel.cpp:328 src/models/actionsmodel.cpp:336
-#: src/models/actionsmodel.cpp:344
+#: src/models/actionsmodel.cpp:329 src/models/actionsmodel.cpp:337
+#: src/models/actionsmodel.cpp:345
 msgid "<display name>"
 msgstr "<azaldu izena>"
 
-#: src/models/actionsmodel.cpp:329
+#: src/models/actionsmodel.cpp:330
 msgid "Changes your global display name"
 msgstr "Zure azaldutako izen globala aldatzen du"
 
-#: src/models/actionsmodel.cpp:337 src/models/actionsmodel.cpp:345
+#: src/models/actionsmodel.cpp:338 src/models/actionsmodel.cpp:346
 msgid "Changes your display name in this room"
 msgstr "Zure azaldutako izena gela honetan aldatzen du"
 
-#: src/models/actionsmodel.cpp:358
+#: src/models/actionsmodel.cpp:359
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1(e)ri dagoeneko ezikusi egiten zaio."
 
-#: src/models/actionsmodel.cpp:362
+#: src/models/actionsmodel.cpp:363
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1(e)ri orain ezikusi egiten zaio."
 
-#: src/models/actionsmodel.cpp:368
+#: src/models/actionsmodel.cpp:369
 msgid "Ignores the given user"
 msgstr "Emaniko erabiltzaileari ezikusi egiten dio"
 
-#: src/models/actionsmodel.cpp:381
+#: src/models/actionsmodel.cpp:382
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1(e)ri ezikusi egiten zaio."
 
-#: src/models/actionsmodel.cpp:385
+#: src/models/actionsmodel.cpp:386
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1(e)ri ez zaio aurrerantzean ezikusi egiten."
 
-#: src/models/actionsmodel.cpp:391
+#: src/models/actionsmodel.cpp:392
 msgid "Unignores the given user"
 msgstr "Emaniko erabiltzaileari ezikusia egiteari uzten zaio"
 
-#: src/models/actionsmodel.cpp:410
+#: src/models/actionsmodel.cpp:411
 msgid "<reaction text>"
 msgstr "<erreakzio-testua>"
 
-#: src/models/actionsmodel.cpp:411
+#: src/models/actionsmodel.cpp:412
 msgid "React to the message with the given text"
 msgstr "Erreakzionatu mezuari emanik testuarekin"
 
-#: src/models/actionsmodel.cpp:426
+#: src/models/actionsmodel.cpp:427
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1(e)k gela honetarako debekua du dagoeneko."
 
-#: src/models/actionsmodel.cpp:434
+#: src/models/actionsmodel.cpp:435
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Ez zaizu uzten erabiltzaileei gela honetarako debekurik ipintzen."
 
-#: src/models/actionsmodel.cpp:440
+#: src/models/actionsmodel.cpp:441
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Ez zaizu uzten %1(e)ri gela honetarako debekurik ipintzen."
 
-#: src/models/actionsmodel.cpp:444
+#: src/models/actionsmodel.cpp:445
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1(e)ri gela honetarako debekua ipini zaio."
 
-#: src/models/actionsmodel.cpp:449 src/models/actionsmodel.cpp:526
+#: src/models/actionsmodel.cpp:450 src/models/actionsmodel.cpp:527
 msgid "<user id> [<reason>]"
 msgstr "<erabiltzaile-id> [<arrazoia>]"
 
-#: src/models/actionsmodel.cpp:450
+#: src/models/actionsmodel.cpp:451
 msgid "Bans the given user"
 msgstr "Emaniko erabiltzaileari debekua ipintzen dio"
 
-#: src/models/actionsmodel.cpp:467
+#: src/models/actionsmodel.cpp:468
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "Ez zaizu uzten erabiltzaileei gela honetarako debekurik altsatzen."
 
-#: src/models/actionsmodel.cpp:472
+#: src/models/actionsmodel.cpp:473
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1(e)ri ez zaio gela honetarako debekurik ipini."
 
-#: src/models/actionsmodel.cpp:476
+#: src/models/actionsmodel.cpp:477
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1(e)ri gela honetarako debekatua altxatu zaio."
 
-#: src/models/actionsmodel.cpp:483
+#: src/models/actionsmodel.cpp:484
 msgid "Removes the ban of the given user"
 msgstr "Emaniko erabiltzailearen debekua kentzen du"
 
-#: src/models/actionsmodel.cpp:498
+#: src/models/actionsmodel.cpp:499
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Ezin duzu zeure burua gelatik bota."
 
-#: src/models/actionsmodel.cpp:502
+#: src/models/actionsmodel.cpp:503
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 ez dago gela honetan."
 
-#: src/models/actionsmodel.cpp:511
+#: src/models/actionsmodel.cpp:512
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Ez zaizu gelatik erabiltzaileak botatzen uzten."
 
-#: src/models/actionsmodel.cpp:517
+#: src/models/actionsmodel.cpp:518
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Ez zaizu gelatik %1 erabiltzailea botatzen uzten."
 
-#: src/models/actionsmodel.cpp:521
+#: src/models/actionsmodel.cpp:522
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 gela honetatik bota da."
 
-#: src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:528
 msgid "Removes the user from the room"
 msgstr "Erabiltzailea gelatik kentzen du"
 
@@ -1527,7 +1521,7 @@ msgstr "Lat: %1, Lon: %2"
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1602,7 +1596,7 @@ msgid "Notification settings"
 msgstr "Jakinarazpen-ezarpenak"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:405 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:404 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Konfiguratu"
@@ -2013,7 +2007,7 @@ msgstr "Hautatu gela"
 
 #: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:224
+#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:210
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -2183,21 +2177,21 @@ msgid "They don't match"
 msgstr "Ez datoz bat"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
-#: src/qml/RoomListPage.qml:218
+#: src/qml/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esploratu gelak"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
 #: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
-#: src/qml/RoomListPage.qml:186 src/qml/RoomListPage.qml:235
+#: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr "Aurkitu zure lagunak"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:194
-#: src/qml/RoomListPage.qml:239
+#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:180
+#: src/qml/RoomListPage.qml:225
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -2224,18 +2218,35 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Eskaneatu QR kode bat"
 
-#: src/qml/ExploreComponent.qml:102
+#: src/qml/ExploreComponent.qml:93
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Show User"
+#| msgid "Room"
+msgctxt "@title"
+msgid "Rooms"
+msgstr "Gela"
+
+#: src/qml/ExploreComponent.qml:105
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@action"
+msgid "Search Room"
+msgstr "Bilatu"
+
+#: src/qml/ExploreComponent.qml:118
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Erakutsi erabiltzailea"
+msgstr "Erakutsi menua"
 
-#: src/qml/ExploreComponent.qml:166
+#: src/qml/ExploreComponent.qml:182
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Gelak eta berriketak sortzea"
+
+#: src/qml/ExploreComponentMobile.qml:36
+#, kde-format
+msgid "Search"
+msgstr "Bilatu"
 
 #: src/qml/ExploreComponentMobile.qml:79
 #, kde-format
@@ -2594,32 +2605,30 @@ msgstr "Kokalekuak"
 msgid "There are no locations shared in this room."
 msgstr "Gela honetan ez dago partekatutako kokalekurik."
 
-#: src/qml/Main.qml:166
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#: src/qml/Main.qml:163
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
-msgstr "Gela berriaren informazioa"
+msgstr "Erakutsi gelaren informazioa"
 
-#: src/qml/Main.qml:169
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#: src/qml/Main.qml:166
+#, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
-msgstr "Gela berriaren informazioa"
+msgstr "Itxi gelaren informazioaren tiradera"
 
-#: src/qml/Main.qml:309
+#: src/qml/Main.qml:308
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Saioa egiaztatzea"
 
-#: src/qml/Main.qml:326
+#: src/qml/Main.qml:325
 #, kde-format
 msgid "User consent"
 msgstr "Erabiltzailearen onarpena"
 
-#: src/qml/Main.qml:331
+#: src/qml/Main.qml:330
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2629,28 +2638,28 @@ msgstr ""
 "terminoak eta baldintzak onartzea eskatzen dizu. Mesedez, egiozu klik beheko "
 "botoiari haiek irakurtzeko."
 
-#: src/qml/Main.qml:336
+#: src/qml/Main.qml:335
 #, kde-format
 msgid "Open"
 msgstr "Ireki"
 
-#: src/qml/Main.qml:363
+#: src/qml/Main.qml:362
 #, kde-format
 msgid "Start a chat"
 msgstr "Hasi berriketa bat"
 
-#: src/qml/Main.qml:365
+#: src/qml/Main.qml:364
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1(r)ekin berriketa bat abiatu nahi duzu?"
 
-#: src/qml/Main.qml:391
+#: src/qml/Main.qml:390
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Une honetan hautatutako esteka"
 
-#: src/qml/Main.qml:423 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:422 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2889,12 +2898,12 @@ msgstr "Mezuaren berri ematea"
 msgid "Reason for reporting this message"
 msgstr "Mezu honen berri emateko arrazoia"
 
-#: src/qml/RoomDelegate.qml:101
+#: src/qml/RoomDelegate.qml:103
 #, kde-format
 msgid "Muted room"
 msgstr "Isilarazitako gela"
 
-#: src/qml/RoomDelegate.qml:134
+#: src/qml/RoomDelegate.qml:136
 #, kde-format
 msgid "Configure room"
 msgstr "Konfiguratu gela"
@@ -2996,17 +3005,17 @@ msgstr[1] "%1 bazkide"
 msgid "No member count"
 msgstr "Ez dago bazkide zenbaketarik"
 
-#: src/qml/RoomListPage.qml:209
+#: src/qml/RoomListPage.qml:195
 #, kde-format
 msgid "No friends found"
 msgstr "Ez du lagunik aurkitu"
 
-#: src/qml/RoomListPage.qml:209
+#: src/qml/RoomListPage.qml:195
 #, kde-format
 msgid "No rooms found"
 msgstr "Ez da gelarik aurkitu"
 
-#: src/qml/RoomListPage.qml:211
+#: src/qml/RoomListPage.qml:197
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -3014,17 +3023,17 @@ msgstr ""
 "Oraindik ez duzu zure lagunetako inor gehitu, egin klik behean haiek "
 "bilatzeko."
 
-#: src/qml/RoomListPage.qml:211
+#: src/qml/RoomListPage.qml:197
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Hasteko, batu gela batzuetara"
 
-#: src/qml/RoomListPage.qml:218
+#: src/qml/RoomListPage.qml:204
 #, kde-format
 msgid "Search in room directory"
 msgstr "Bilatu gelen direktorioan"
 
-#: src/qml/RoomListPage.qml:235
+#: src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Bilatu lagun direktorioan"
@@ -3499,8 +3508,7 @@ msgid "Copy link"
 msgstr "Kopiatu esteka"
 
 #: src/qml/UserInfo.qml:54
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Account editor"
 msgstr "Kontu-editorea"
@@ -5116,27 +5124,34 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Bidali KDE «Itinerary»ra"
 
-#: src/timeline/LinkPreviewComponent.qml:119
+#: src/timeline/LinkPreviewComponent.qml:128 src/timeline/LoadComponent.qml:79
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "As in remove the link preview so it's no longer shown"
+msgid "Remove preview"
+msgstr "Kendu gailua"
+
+#: src/timeline/LinkPreviewComponent.qml:146
 #, kde-format
 msgid "Shrink preview"
 msgstr "Txikiagotu aurreikuspegia"
 
-#: src/timeline/LinkPreviewComponent.qml:119
+#: src/timeline/LinkPreviewComponent.qml:146
 #, kde-format
 msgid "Expand preview"
 msgstr "Zabaldu aurreikuspegia"
 
-#: src/timeline/LoadComponent.qml:53
+#: src/timeline/LoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Erantzuna zamatzen"
 
-#: src/timeline/LoadComponent.qml:55
+#: src/timeline/LoadComponent.qml:68
 #, kde-format
 msgid "Loading URL preview"
 msgstr "URLaren aurreikuspegia zamatzen"
 
-#: src/timeline/MessageComponentChooser.qml:226
+#: src/timeline/MessageComponentChooser.qml:230
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1(e)k erabiltzaile egiaztapen bat abiatu du"
