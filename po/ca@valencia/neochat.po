@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-24 02:56+0000\n"
-"PO-Revision-Date: 2024-04-17 14:29+0200\n"
+"PO-Revision-Date: 2024-04-24 09:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -87,11 +87,10 @@ msgid "Event Source"
 msgstr "Font d'esdeveniments"
 
 #: src/devtools/DebugOptions.qml:19
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
-msgstr "Mostra la vista prèvia dels enllaços en els missatges de xat"
+msgstr "Mostra els esdeveniments ocults en la línia de temps"
 
 #: src/devtools/DebugOptions.qml:26
 #, kde-format
@@ -112,7 +111,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "Mostra el focus a la capçalera de la finestra"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -2220,26 +2219,22 @@ msgid "Scan a QR Code"
 msgstr "Escaneja un codi QR"
 
 #: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Room"
+#, kde-format
 msgctxt "@title"
 msgid "Rooms"
-msgstr "Sala"
+msgstr "Sales"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search Room"
-msgstr "Busca"
+msgstr "Busca una sala"
 
 #: src/qml/ExploreComponent.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Show User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Mostra l'usuari"
+msgstr "Mostra el menú"
 
 #: src/qml/ExploreComponent.qml:182
 #, kde-format
@@ -2609,18 +2604,16 @@ msgid "There are no locations shared in this room."
 msgstr "No hi ha ubicacions compartides en esta sala."
 
 #: src/qml/Main.qml:163
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
-msgstr "Informació de sala nova"
+msgstr "Mostra informació de la sala"
 
 #: src/qml/Main.qml:166
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
-msgstr "Informació de sala nova"
+msgstr "Tanca el calaix d'informació de la sala"
 
 #: src/qml/Main.qml:308
 #, kde-format
@@ -3518,8 +3511,7 @@ msgid "Copy link"
 msgstr "Copia l'enllaç"
 
 #: src/qml/UserInfo.qml:54
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Account editor"
 msgstr "Editor de comptes"
@@ -5255,6 +5247,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgid "Show fancy effects in chat"
-#~ msgstr "Mostra efectes sofisticats en el xat"
