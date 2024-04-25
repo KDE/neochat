@@ -19,7 +19,7 @@ Kirigami.Dialog {
     title: i18nc("@title:dialog", "Confirm Leaving Room")
 
     contentItem: FormCard.FormTextDelegate {
-        text: root.room ? i18nc("Do you really want to leave <room name>?", "Do you really want to leave %1?", root.room.displayName) : ""
+        text: root.room ? i18nc("Do you really want to leave <room name>?", "Do you really want to leave %1?", root.room.displayNameForHtml) : ""
     }
 
     customFooterActions: [
