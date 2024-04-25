@@ -23,8 +23,6 @@ Kirigami.Dialog {
 
     property NeoChatConnection connection
 
-    parent: applicationWindow().overlay
-
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
