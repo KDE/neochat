@@ -101,7 +101,6 @@ Kirigami.Page {
         target: applicationWindow().pageStack
         onWideModeChanged: {
             if (applicationWindow().pageStack.wideMode) {
-                console.log("widemode pop");
                 applicationWindow().pageStack.pop();
             }
         }
