@@ -386,9 +386,9 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    property Item hoverLinkIndicator: QQC2.Control {
-        parent: overlay.parent
-        property string text
+    property QQC2.Control hoverLinkIndicator: QQC2.Control {
+        parent: root.overlay.parent
+        property alias text: linkText.rawText
         opacity: linkText.text.length > 0 ? 1 : 0
 
         z: 20
@@ -397,7 +397,8 @@ Kirigami.ApplicationWindow {
         y: parent.height - implicitHeight
         contentItem: QQC2.Label {
             id: linkText
-            text: parent.text.startsWith("https://matrix.to/") ? "" : parent.text
+            property string rawText
+            text: rawText.startsWith("https://matrix.to/") ? "" : rawText
             Accessible.description: i18nc("@info screenreader", "The currently selected link")
         }
         Kirigami.Theme.colorSet: Kirigami.Theme.View
