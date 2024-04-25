@@ -150,7 +150,7 @@ Kirigami.Dialog {
                 icon.name: "im-ban-user"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'BanSheet'), {
+                    (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'BanSheet'), {
                         room: root.room,
                         userId: root.user.id
                     }, {
@@ -182,7 +182,7 @@ Kirigami.Dialog {
                 text: i18n("Set user power level")
                 icon.name: "visibility"
                 onTriggered: {
-                    let dialog = powerLevelDialog.createObject(applicationWindow().overlay, {
+                    let dialog = powerLevelDialog.createObject(this, {
                         room: root.room,
                         userId: root.user.id,
                         powerLevel: root.room.getUserPowerLevel(root.user.id)
