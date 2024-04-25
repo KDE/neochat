@@ -30,7 +30,7 @@ Kirigami.Dialog {
 
     standardButtons: Kirigami.Dialog.NoButton
 
-    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title:menu Account details dialog", "Account Details")
 
     contentItem: ColumnLayout {
