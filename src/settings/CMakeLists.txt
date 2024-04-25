@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 qt_add_library(settings STATIC)
-qt_add_qml_module(settings
+ecm_add_qml_module(settings GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.settings
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/settings
     QML_FILES
