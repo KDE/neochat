@@ -354,24 +354,35 @@ Kirigami.ApplicationWindow {
     Component {
         id: askDirectChatConfirmationComponent
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: askDirectChatConfirmation
+
             required property var user
 
-            parent: QQC2.ApplicationWindow.overlay
+            width: Math.min(Kirigami.Units.gridUnit * 24, root.width)
+            height: Kirigami.Units.gridUnit * 8
+
+            standardButtons: QQC2.Dialog.Close
             title: i18n("Start a chat")
+
             contentItem: QQC2.Label {
-                text: i18n("Do you want to start a chat with %1?", user.displayName)
-                wrapMode: Text.WordWrap
+                text: i18n("Do you want to start a chat with %1?", askDirectChatConfirmation.user.displayName)
+                textFormat: Text.PlainText
+                wrapMode: Text.Wrap
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
             }
-            footer: QQC2.DialogButtonBox {
-                standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
-                onAccepted: {
-                    user.requestDirectChat();
-                    askDirectChatConfirmation.close();
+
+            customFooterActions: [
+                Kirigami.Action {
+                    text: i18nc("@action", "Start Chat")
+                    icon.name: "im-user"
+                    onTriggered: {
+                        askDirectChatConfirmation.user.requestDirectChat();
+                        askDirectChatConfirmation.close();
+                    }
                 }
-                onRejected: askDirectChatConfirmation.close()
-            }
+            ]
         }
     }
 
