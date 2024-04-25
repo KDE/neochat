@@ -125,7 +125,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onAskDirectChatConfirmation(user) {
-            askDirectChatConfirmationComponent.createObject(QQC2.ApplicationWindow.overlay, {
+            askDirectChatConfirmationComponent.createObject(this, {
                 user: user
             }).open();
         }
@@ -309,7 +309,7 @@ Kirigami.ApplicationWindow {
             });
         }
         function onUserConsentRequired(url) {
-            let consent = consentSheetComponent.createObject(QQC2.ApplicationWindow.overlay);
+            let consent = consentSheetComponent.createObject(this);
             consent.url = url;
             consent.open();
         }
