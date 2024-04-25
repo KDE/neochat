@@ -63,7 +63,7 @@ Kirigami.Dialog {
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
-                    text: user.displayName
+                    text: root.user.displayName
                     textFormat: Text.PlainText
                 }
 
@@ -122,7 +122,7 @@ Kirigami.Dialog {
                 text: i18n("Kick this user")
                 icon.name: "im-kick-user"
                 onTriggered: {
-                    room.kickMember(root.user.id);
+                    root.room.kickMember(root.user.id);
                     root.close();
                 }
             }
@@ -136,7 +136,7 @@ Kirigami.Dialog {
                 text: i18n("Invite this user")
                 icon.name: "list-add-user"
                 onTriggered: {
-                    room.inviteToRoom(root.user.id);
+                    root.room.inviteToRoom(root.user.id);
                     root.close();
                 }
             }
@@ -170,14 +170,14 @@ Kirigami.Dialog {
                 icon.name: "im-irc"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    room.unban(root.user.id);
+                    root.room.unban(root.user.id);
                     root.close();
                 }
             }
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && room.canSendState("m.room.power_levels")
+            visible: root.room && root.room.canSendState("m.room.power_levels")
             action: Kirigami.Action {
                 text: i18n("Set user power level")
                 icon.name: "visibility"
