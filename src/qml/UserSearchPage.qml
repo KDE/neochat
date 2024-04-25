@@ -1,10 +1,11 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
@@ -98,7 +99,7 @@ SearchPage {
     QtObject {
         id: _private
         function openManualUserDialog() {
-            let dialog = manualUserDialog.createObject(applicationWindow().overlay, {
+            let dialog = manualUserDialog.createObject(this, {
                 connection: root.connection
             });
             dialog.parent = root.Window.window.overlay;
