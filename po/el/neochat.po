@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 00:38+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -16,6 +16,80 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.3\n"
+
+#: src/chatbar/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Επιλογή τοπικού αρχείου"
+
+#: src/chatbar/AttachDialog.qml:46
+#, kde-format
+msgid "Clipboard image"
+msgstr "Εικόνα πρόχειρου"
+
+#: src/chatbar/ChatBar.qml:79
+#, kde-format
+msgid "Attach an image or file"
+msgstr "Επισύναψη εικόνας ή αρχείου"
+
+#: src/chatbar/ChatBar.qml:97
+#, kde-format
+msgid "Emojis & Stickers"
+msgstr ""
+
+#: src/chatbar/ChatBar.qml:114
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgid "Send a Location"
+msgstr "Αποστολή πρόσκλησης"
+
+#: src/chatbar/ChatBar.qml:130
+#, kde-format
+msgid "Send message"
+msgstr "Αποστολή μηνύματος"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send an encrypted message…"
+msgstr "Αποστολή κρυπτογραφημένου μηνύματος…"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Set an attachment caption…"
+msgstr ""
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send a message…"
+msgstr "Αποστολή μηνύματος…"
+
+#: src/chatbar/EmojiGrid.qml:87
+#, fuzzy, kde-format
+#| msgid "Add keyword"
+msgid "No stickers"
+msgstr "Προσθήκη λέξης κλειδιού"
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No emojis"
+msgstr "Χωρίς εμότζι"
+
+#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "No emojis"
+msgid "Emojis"
+msgstr "Χωρίς εμότζι"
+
+#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#, kde-format
+msgid "Stickers"
+msgstr ""
+
+#: src/chatbar/ReplyPane.qml:89
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Ακύρωση απάντησης"
 
 #: src/controller.cpp:133
 #, fuzzy, kde-format
@@ -245,7 +319,7 @@ msgstr "Προσκλήθηκε"
 msgid "Favorite"
 msgstr "Προτιμώμενο"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -852,7 +926,7 @@ msgstr "Δεν υπάρχουν διαθέσιμοι χρήστες"
 msgid "Welcome"
 msgstr "Καλώς ήρθατε"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:156
+#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgid "Welcome to NeoChat"
@@ -1623,7 +1697,7 @@ msgid "Open NeoChat in this room"
 msgstr "Άνοιγμα NeoChat σε αυτήν την αίθουσα"
 
 #: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
-#: src/qml/HoverActions.qml:102
+#: src/qml/HoverActions.qml:104
 #, kde-format
 msgid "Reply"
 msgstr "Απάντηση"
@@ -1691,7 +1765,7 @@ msgid "Notification settings"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:404 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Διαμόρφωση"
@@ -1757,22 +1831,12 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "Σύνδεση"
 
-#: src/qml/AttachDialog.qml:27
-#, kde-format
-msgid "Choose local file"
-msgstr "Επιλογή τοπικού αρχείου"
-
-#: src/qml/AttachDialog.qml:46
-#, kde-format
-msgid "Clipboard image"
-msgstr "Εικόνα πρόχειρου"
-
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "Συνημμένο:"
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:95
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
@@ -1806,42 +1870,6 @@ msgstr "Αποκλεισμός"
 msgctxt "@action"
 msgid "Cancel"
 msgstr "Ακύρωση"
-
-#: src/qml/ChatBar.qml:79
-#, kde-format
-msgid "Attach an image or file"
-msgstr "Επισύναψη εικόνας ή αρχείου"
-
-#: src/qml/ChatBar.qml:97
-#, kde-format
-msgid "Emojis & Stickers"
-msgstr ""
-
-#: src/qml/ChatBar.qml:114
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgid "Send a Location"
-msgstr "Αποστολή πρόσκλησης"
-
-#: src/qml/ChatBar.qml:130
-#, kde-format
-msgid "Send message"
-msgstr "Αποστολή μηνύματος"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send an encrypted message…"
-msgstr "Αποστολή κρυπτογραφημένου μηνύματος…"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Set an attachment caption…"
-msgstr ""
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send a message…"
-msgstr "Αποστολή μηνύματος…"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, fuzzy, kde-format
@@ -2266,28 +2294,6 @@ msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "Εφαρμογή"
 
-#: src/qml/EmojiGrid.qml:87
-#, fuzzy, kde-format
-#| msgid "Add keyword"
-msgid "No stickers"
-msgstr "Προσθήκη λέξης κλειδιού"
-
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No emojis"
-msgstr "Χωρίς εμότζι"
-
-#: src/qml/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "No emojis"
-msgid "Emojis"
-msgstr "Χωρίς εμότζι"
-
-#: src/qml/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
-#, kde-format
-msgid "Stickers"
-msgstr ""
-
 #: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
@@ -2559,17 +2565,17 @@ msgstr "Matrix συχνές ερωτήσεις"
 msgid "No name"
 msgstr "Χωρίς όνομα"
 
-#: src/qml/HoverActions.qml:74
+#: src/qml/HoverActions.qml:76
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Αυτό το μήνυμα εστάλη από επιβεβαιωμένη συσκευή"
 
-#: src/qml/HoverActions.qml:87
+#: src/qml/HoverActions.qml:89
 #, kde-format
 msgid "React"
 msgstr "Αντίδραση"
 
-#: src/qml/HoverActions.qml:112
+#: src/qml/HoverActions.qml:114
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
@@ -2799,23 +2805,30 @@ msgstr ""
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Start a chat"
 msgstr "Έναρξη συνομιλίας"
 
-#: src/qml/Main.qml:364
+#: src/qml/Main.qml:369
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Θέλεις να ξεκινήσεις συνομιλία με τον %1;"
 
-#: src/qml/Main.qml:390
+#: src/qml/Main.qml:378
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@action"
+msgid "Start Chat"
+msgstr "Έναρξη συνομιλίας"
+
+#: src/qml/Main.qml:402
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/Main.qml:422 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2829,7 +2842,7 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "Room ID"
 
-#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
@@ -2851,25 +2864,25 @@ msgstr ""
 msgid "The input is not a valid room ID or alias"
 msgstr "Το δοσμένο κείμενο δεν είναι έγκυρο url"
 
-#: src/qml/ManualUserDialog.qml:25
+#: src/qml/ManualUserDialog.qml:26
 #, fuzzy, kde-format
 #| msgid "User"
 msgctxt "@title"
 msgid "User ID"
 msgstr "Χρήστης"
 
-#: src/qml/ManualUserDialog.qml:53
+#: src/qml/ManualUserDialog.qml:54
 #, fuzzy, kde-format
 #| msgid "User"
 msgid "User ID:"
 msgstr "Χρήστης"
 
-#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
 #, kde-format
 msgid "User IDs Must start with @"
 msgstr ""
 
-#: src/qml/ManualUserDialog.qml:62
+#: src/qml/ManualUserDialog.qml:63
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The input is not a valid user ID"
@@ -3058,12 +3071,6 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: src/qml/ReplyPane.qml:89
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Ακύρωση απάντησης"
-
 #: src/qml/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
@@ -3232,12 +3239,12 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Έκδοση αίθουσας"
 
-#: src/qml/RoomPage.qml:99
+#: src/qml/RoomPage.qml:100
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "Το NeoChat είναι εκτός σύνδεσης. Έλεγξε τη σύνδεση του δικτύου σου."
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "Πηγή μηνύματος"
@@ -3648,7 +3655,7 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:36
+#: src/qml/UserDetailDialog.qml:34
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -3656,72 +3663,72 @@ msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Λεπτομέρειες λογαριασμού"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Unignore this user"
 msgstr "Αναίρεση αγνόησης αυτού του χρήστη"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Ignore this user"
 msgstr "Αγνόηση αυτού του χρήστη"
 
-#: src/qml/UserDetailDialog.qml:124
+#: src/qml/UserDetailDialog.qml:122
 #, kde-format
 msgid "Kick this user"
 msgstr "Διώξε αυτόν το χρήστη"
 
-#: src/qml/UserDetailDialog.qml:138
+#: src/qml/UserDetailDialog.qml:136
 #, kde-format
 msgid "Invite this user"
 msgstr "Προσκάλεσε αυτόν τον χρήστη"
 
-#: src/qml/UserDetailDialog.qml:151
+#: src/qml/UserDetailDialog.qml:149
 #, kde-format
 msgid "Ban this user"
 msgstr "Απόκλεισε αυτόν τον χρήστη"
 
-#: src/qml/UserDetailDialog.qml:159
+#: src/qml/UserDetailDialog.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Αποκλεισμός χρήστη"
 
-#: src/qml/UserDetailDialog.qml:171
+#: src/qml/UserDetailDialog.qml:169
 #, kde-format
 msgid "Unban this user"
 msgstr "Αναίρεση αποκλεισμού αυτού του χρήστη"
 
-#: src/qml/UserDetailDialog.qml:184
+#: src/qml/UserDetailDialog.qml:182
 #, fuzzy, kde-format
 #| msgid "Edit user power level"
 msgid "Set user power level"
 msgstr "Επεξεργασία επιπέδου δικαιωμάτων του χρήστη"
 
-#: src/qml/UserDetailDialog.qml:209
+#: src/qml/UserDetailDialog.qml:207
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Αφαίρεση πρόσφατων μηνυμάτων αυτού του χρήστη"
 
-#: src/qml/UserDetailDialog.qml:217
+#: src/qml/UserDetailDialog.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Αφαίρεση μηνυμάτων"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgid "Invite to private chat"
 msgstr "Άνοιγμα ιδιωτικής συνομιλίας"
 
-#: src/qml/UserDetailDialog.qml:239
+#: src/qml/UserDetailDialog.qml:237
 #, kde-format
 msgid "Copy link"
 msgstr "Αντιγραφή συνδέσμου"
@@ -3743,30 +3750,30 @@ msgstr "Εναλλαγή χρήστη"
 msgid "Open Settings"
 msgstr "Άνοιγμα ρυθμίσεων"
 
-#: src/qml/UserSearchPage.qml:32
+#: src/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:44
+#: src/qml/UserSearchPage.qml:45
 #, fuzzy, kde-format
 #| msgid "Enter your Matrix ID"
 msgid "Enter a user ID"
 msgstr "Δώσε το αναγνωριστικό σου στο Matrix"
 
-#: src/qml/UserSearchPage.qml:89
+#: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Find your friends…"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
 #| msgid "Enter a text to start searching"
 msgid "Enter text to start searching for your friends"
 msgstr "Δώσε ένα κείμενο για να ξεκινήσει η αναζήτηση"
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgctxt "@info:label"
@@ -5459,14 +5466,14 @@ msgstr ""
 msgid "%1 started a user verification"
 msgstr "απόσυρε την πρόσκληση για %1"
 
-#: src/timeline/MessageEditComponent.qml:102
+#: src/timeline/MessageEditComponent.qml:103
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Επιβεβαίωση"
 
-#: src/timeline/MessageEditComponent.qml:114
+#: src/timeline/MessageEditComponent.qml:115
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -5590,9 +5597,6 @@ msgstr "Έξοδος"
 #~| msgid "Show All Rooms"
 #~ msgid "All Rooms"
 #~ msgstr "Εμφάνιση όλων των αιθουσών"
-
-#~ msgid "Start a Chat"
-#~ msgstr "Έναρξη συνομιλίας"
 
 #, fuzzy
 #~| msgid "Start a Chat"

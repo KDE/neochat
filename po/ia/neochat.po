@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 00:38+0000\n"
-"PO-Revision-Date: 2024-04-23 10:11+0200\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
+"PO-Revision-Date: 2024-04-25 18:51+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -17,6 +17,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.3\n"
+
+#: src/chatbar/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Selige file local"
+
+#: src/chatbar/AttachDialog.qml:46
+#, kde-format
+msgid "Clipboard image"
+msgstr "Image de Area de transferentia"
+
+#: src/chatbar/ChatBar.qml:79
+#, kde-format
+msgid "Attach an image or file"
+msgstr "Attacha un image o un file"
+
+#: src/chatbar/ChatBar.qml:97
+#, kde-format
+msgid "Emojis & Stickers"
+msgstr "Emojis & Etiquettas Gummate (Stickers)"
+
+#: src/chatbar/ChatBar.qml:114
+#, kde-format
+msgid "Send a Location"
+msgstr "Invia un location"
+
+#: src/chatbar/ChatBar.qml:130
+#, kde-format
+msgid "Send message"
+msgstr "Invia message"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send an encrypted message…"
+msgstr "Invia un message cryptate ..."
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Set an attachment caption…"
+msgstr "Assigna un caption de attachamento..."
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send a message…"
+msgstr "Invia un message…"
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No stickers"
+msgstr "Nulle Etiquettas Gummate (Stickers)"
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No emojis"
+msgstr "Nulle Emojis"
+
+#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#, kde-format
+msgid "Emojis"
+msgstr "Emojis"
+
+#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#, kde-format
+msgid "Stickers"
+msgstr "Etiquettas Gummate (Stickers)"
+
+#: src/chatbar/ReplyPane.qml:89
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Cancella responsa"
 
 #: src/controller.cpp:133
 #, kde-format
@@ -230,7 +301,7 @@ msgstr "Invitate"
 msgid "Favorite"
 msgstr "Favorito"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
 #, kde-format
 msgid "Friends"
 msgstr "Amicos"
@@ -805,7 +876,7 @@ msgstr "Nomine de usator non disponibile"
 msgid "Welcome"
 msgstr "Benvenite"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:156
+#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Benvenite a NeoChat"
@@ -1529,7 +1600,7 @@ msgid "Open NeoChat in this room"
 msgstr "Aperi NeoChat in iste sala"
 
 #: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
-#: src/qml/HoverActions.qml:102
+#: src/qml/HoverActions.qml:104
 #, kde-format
 msgid "Reply"
 msgstr "Responde"
@@ -1593,7 +1664,7 @@ msgid "Notification settings"
 msgstr "Preferentias de notificationes"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:404 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
@@ -1655,22 +1726,12 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "Accesso de identification"
 
-#: src/qml/AttachDialog.qml:27
-#, kde-format
-msgid "Choose local file"
-msgstr "Selige file local"
-
-#: src/qml/AttachDialog.qml:46
-#, kde-format
-msgid "Clipboard image"
-msgstr "Image de Area de transferentia"
-
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "Attachamento:"
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:95
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
@@ -1703,41 +1764,6 @@ msgstr "Prohibi (Ban)"
 msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancella"
-
-#: src/qml/ChatBar.qml:79
-#, kde-format
-msgid "Attach an image or file"
-msgstr "Attacha un image o un file"
-
-#: src/qml/ChatBar.qml:97
-#, kde-format
-msgid "Emojis & Stickers"
-msgstr "Emojis & Etiquettas Gummate (Stickers)"
-
-#: src/qml/ChatBar.qml:114
-#, kde-format
-msgid "Send a Location"
-msgstr "Invia un location"
-
-#: src/qml/ChatBar.qml:130
-#, kde-format
-msgid "Send message"
-msgstr "Invia message"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send an encrypted message…"
-msgstr "Invia un message cryptate ..."
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Set an attachment caption…"
-msgstr "Assigna un caption de attachamento..."
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send a message…"
-msgstr "Invia un message…"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -2139,26 +2165,6 @@ msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "Applica"
 
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No stickers"
-msgstr "Nulle Etiquettas Gummate (Stickers)"
-
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No emojis"
-msgstr "Nulle Emojis"
-
-#: src/qml/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
-#, kde-format
-msgid "Emojis"
-msgstr "Emojis"
-
-#: src/qml/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
-#, kde-format
-msgid "Stickers"
-msgstr "Etiquettas Gummate (Stickers)"
-
 #: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
@@ -2220,18 +2226,16 @@ msgid "Scan a QR Code"
 msgstr "Scande un codice QR"
 
 #: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Room"
+#, kde-format
 msgctxt "@title"
 msgid "Rooms"
-msgstr "Sala"
+msgstr "Salas"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search Room"
-msgstr "Cerca"
+msgstr "Cerca Sala"
 
 #: src/qml/ExploreComponent.qml:118
 #, kde-format
@@ -2416,17 +2420,17 @@ msgstr "FAQ de Matrix:"
 msgid "No name"
 msgstr "Necun nomine"
 
-#: src/qml/HoverActions.qml:74
+#: src/qml/HoverActions.qml:76
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Iste message esseva inviate ex un dispositivo verificate"
 
-#: src/qml/HoverActions.qml:87
+#: src/qml/HoverActions.qml:89
 #, kde-format
 msgid "React"
 msgstr "Reage"
 
-#: src/qml/HoverActions.qml:112
+#: src/qml/HoverActions.qml:114
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Responde in Topico"
@@ -2644,23 +2648,30 @@ msgstr ""
 msgid "Open"
 msgstr "Aperi"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Start a chat"
 msgstr "Initia un conversation"
 
-#: src/qml/Main.qml:364
+#: src/qml/Main.qml:369
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Tu vole initiar un conversation con %1"
 
-#: src/qml/Main.qml:390
+#: src/qml/Main.qml:378
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@action"
+msgid "Start Chat"
+msgstr "Initia un conversation"
+
+#: src/qml/Main.qml:402
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Le ligamine currentemte seligite"
 
-#: src/qml/Main.qml:422 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2672,7 +2683,7 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "ID de Sala o Alias"
 
-#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
@@ -2693,23 +2704,23 @@ msgstr "Debe initiarcon un # per un alias o ! per un ID"
 msgid "The input is not a valid room ID or alias"
 msgstr "Le texto insertate non es un ID de sala o alias valide"
 
-#: src/qml/ManualUserDialog.qml:25
+#: src/qml/ManualUserDialog.qml:26
 #, kde-format
 msgctxt "@title"
 msgid "User ID"
 msgstr "ID de usator"
 
-#: src/qml/ManualUserDialog.qml:53
+#: src/qml/ManualUserDialog.qml:54
 #, kde-format
 msgid "User ID:"
 msgstr "ID de usator: "
 
-#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
 #, kde-format
 msgid "User IDs Must start with @"
 msgstr "IDs de usator Debe initiar con @"
 
-#: src/qml/ManualUserDialog.qml:62
+#: src/qml/ManualUserDialog.qml:63
 #, kde-format
 msgid "The input is not a valid user ID"
 msgstr "Le texto insertate non es un ID de usator valide"
@@ -2884,12 +2895,6 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Remove"
 
-#: src/qml/ReplyPane.qml:89
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Cancella responsa"
-
 #: src/qml/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
@@ -3045,12 +3050,12 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Media de sala"
 
-#: src/qml/RoomPage.qml:99
+#: src/qml/RoomPage.qml:100
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat es foras de linea. Per vafor tu verifica tu connexion de rete."
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "Fonte de message"
@@ -3437,76 +3442,76 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Requesta ex altere Dispositivos"
 
-#: src/qml/UserDetailDialog.qml:36
+#: src/qml/UserDetailDialog.qml:34
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Detalios de conto"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Unignore this user"
 msgstr "Cessa a ignorar iste usator"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ignora iste usator"
 
-#: src/qml/UserDetailDialog.qml:124
+#: src/qml/UserDetailDialog.qml:122
 #, kde-format
 msgid "Kick this user"
 msgstr "Calca iste usator"
 
-#: src/qml/UserDetailDialog.qml:138
+#: src/qml/UserDetailDialog.qml:136
 #, kde-format
 msgid "Invite this user"
 msgstr "Invita iste usator"
 
-#: src/qml/UserDetailDialog.qml:151
+#: src/qml/UserDetailDialog.qml:149
 #, kde-format
 msgid "Ban this user"
 msgstr "Prohibi iste usator"
 
-#: src/qml/UserDetailDialog.qml:159
+#: src/qml/UserDetailDialog.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Prohibi usator"
 
-#: src/qml/UserDetailDialog.qml:171
+#: src/qml/UserDetailDialog.qml:169
 #, kde-format
 msgid "Unban this user"
 msgstr "Leva prohibition (unban) ab iste usator"
 
-#: src/qml/UserDetailDialog.qml:184
+#: src/qml/UserDetailDialog.qml:182
 #, kde-format
 msgid "Set user power level"
 msgstr "Assigna le nivello de fortia de usator"
 
-#: src/qml/UserDetailDialog.qml:209
+#: src/qml/UserDetailDialog.qml:207
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Remove messages recente per iste usator"
 
-#: src/qml/UserDetailDialog.qml:217
+#: src/qml/UserDetailDialog.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Remove messages"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Conversa con %1"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Invita in conversation private"
 
-#: src/qml/UserDetailDialog.qml:239
+#: src/qml/UserDetailDialog.qml:237
 #, kde-format
 msgid "Copy link"
 msgstr "Copia Ligamine"
@@ -3527,28 +3532,28 @@ msgstr "Commuta Usator"
 msgid "Open Settings"
 msgstr "Aperi Preferentias"
 
-#: src/qml/UserSearchPage.qml:32
+#: src/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Trova tu amicos"
 
-#: src/qml/UserSearchPage.qml:44
+#: src/qml/UserSearchPage.qml:45
 #, kde-format
 msgid "Enter a user ID"
 msgstr "Inserta  un ID de usator"
 
-#: src/qml/UserSearchPage.qml:89
+#: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Find your friends…"
 msgstr "Trova tu amicos…"
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "Inserta un texto per initiar a cercar tu amicos"
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -5143,11 +5148,10 @@ msgid "Send to KDE Itinerary"
 msgstr "Invia a  KDE Itinerary"
 
 #: src/timeline/LinkPreviewComponent.qml:128 src/timeline/LoadComponent.qml:79
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
-msgstr "Remove dispositivo"
+msgstr "Remove vista preliminar"
 
 #: src/timeline/LinkPreviewComponent.qml:146
 #, kde-format
@@ -5174,13 +5178,13 @@ msgstr "Cargante vista preliminar de URL"
 msgid "%1 started a user verification"
 msgstr "%1 initiava un verification de usator"
 
-#: src/timeline/MessageEditComponent.qml:102
+#: src/timeline/MessageEditComponent.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Confirma modificar"
 
-#: src/timeline/MessageEditComponent.qml:114
+#: src/timeline/MessageEditComponent.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -5301,9 +5305,6 @@ msgstr "Quita"
 
 #~ msgid "All Rooms"
 #~ msgstr "Omne Salas"
-
-#~ msgid "Start a Chat"
-#~ msgstr "Initia un conversation"
 
 #~ msgctxt "@title"
 #~ msgid "Start a Chat"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 00:38+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -18,6 +18,77 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 "X-Generator: Lokalize 22.12.3\n"
+
+#: src/chatbar/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "Izvēlēties lokālu datni"
+
+#: src/chatbar/AttachDialog.qml:46
+#, kde-format
+msgid "Clipboard image"
+msgstr "Starpliktuves attēls"
+
+#: src/chatbar/ChatBar.qml:79
+#, kde-format
+msgid "Attach an image or file"
+msgstr "Pievienot attēlu vai datni"
+
+#: src/chatbar/ChatBar.qml:97
+#, kde-format
+msgid "Emojis & Stickers"
+msgstr "Emocijzīmes un uzlīmes"
+
+#: src/chatbar/ChatBar.qml:114
+#, kde-format
+msgid "Send a Location"
+msgstr "Sūtīt vietu"
+
+#: src/chatbar/ChatBar.qml:130
+#, kde-format
+msgid "Send message"
+msgstr "Sūtīt ziņu"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send an encrypted message…"
+msgstr "Sūtīt šifrētu ziņu..."
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Set an attachment caption…"
+msgstr "Sūtīt pielikuma virsrakstu..."
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send a message…"
+msgstr "Sūtīt ziņu..."
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No stickers"
+msgstr "Nav uzlīmju"
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No emojis"
+msgstr "Nav emocijzīmju"
+
+#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#, kde-format
+msgid "Emojis"
+msgstr "Emocijzīmes"
+
+#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#, kde-format
+msgid "Stickers"
+msgstr "Uzlīmes"
+
+#: src/chatbar/ReplyPane.qml:89
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Atcelt atbildi"
 
 #: src/controller.cpp:133
 #, kde-format
@@ -234,7 +305,7 @@ msgstr "Uzaicināts"
 msgid "Favorite"
 msgstr "Iecienīts"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
 #, kde-format
 msgid "Friends"
 msgstr "Draugi"
@@ -807,7 +878,7 @@ msgstr "Lietotājvārds nav pieejams"
 msgid "Welcome"
 msgstr "Laipni lūgti!"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:156
+#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Laipni lūgti „NeoChat“ programmā!"
@@ -1533,7 +1604,7 @@ msgid "Open NeoChat in this room"
 msgstr "Atvērt „NeoChat“ šajā istabā"
 
 #: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
-#: src/qml/HoverActions.qml:102
+#: src/qml/HoverActions.qml:104
 #, kde-format
 msgid "Reply"
 msgstr "Atbildēt"
@@ -1597,7 +1668,7 @@ msgid "Notification settings"
 msgstr "Paziņojumu iestatījumi"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:404 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurēt"
@@ -1663,22 +1734,12 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "Ierakstīšanās"
 
-#: src/qml/AttachDialog.qml:27
-#, kde-format
-msgid "Choose local file"
-msgstr "Izvēlēties lokālu datni"
-
-#: src/qml/AttachDialog.qml:46
-#, kde-format
-msgid "Clipboard image"
-msgstr "Starpliktuves attēls"
-
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "Pielikums:"
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:95
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
@@ -1711,41 +1772,6 @@ msgstr "Aizliegt"
 msgctxt "@action"
 msgid "Cancel"
 msgstr "Atcelt"
-
-#: src/qml/ChatBar.qml:79
-#, kde-format
-msgid "Attach an image or file"
-msgstr "Pievienot attēlu vai datni"
-
-#: src/qml/ChatBar.qml:97
-#, kde-format
-msgid "Emojis & Stickers"
-msgstr "Emocijzīmes un uzlīmes"
-
-#: src/qml/ChatBar.qml:114
-#, kde-format
-msgid "Send a Location"
-msgstr "Sūtīt vietu"
-
-#: src/qml/ChatBar.qml:130
-#, kde-format
-msgid "Send message"
-msgstr "Sūtīt ziņu"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send an encrypted message…"
-msgstr "Sūtīt šifrētu ziņu..."
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Set an attachment caption…"
-msgstr "Sūtīt pielikuma virsrakstu..."
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send a message…"
-msgstr "Sūtīt ziņu..."
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -2158,26 +2184,6 @@ msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "Pielietot"
 
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No stickers"
-msgstr "Nav uzlīmju"
-
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No emojis"
-msgstr "Nav emocijzīmju"
-
-#: src/qml/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
-#, kde-format
-msgid "Emojis"
-msgstr "Emocijzīmes"
-
-#: src/qml/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
-#, kde-format
-msgid "Stickers"
-msgstr "Uzlīmes"
-
 #: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
@@ -2437,17 +2443,17 @@ msgstr "„Matrix“ BUJ"
 msgid "No name"
 msgstr "Bez vārda"
 
-#: src/qml/HoverActions.qml:74
+#: src/qml/HoverActions.qml:76
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Šis ziņojums ir nosūtīts no pārbaudītas ierīces"
 
-#: src/qml/HoverActions.qml:87
+#: src/qml/HoverActions.qml:89
 #, kde-format
 msgid "React"
 msgstr "Reaģēt"
 
-#: src/qml/HoverActions.qml:112
+#: src/qml/HoverActions.qml:114
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Atbildēt pavedienā"
@@ -2670,23 +2676,30 @@ msgstr ""
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Start a chat"
 msgstr "Uzsākt tērzēšanu"
 
-#: src/qml/Main.qml:364
+#: src/qml/Main.qml:369
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vai vēlaties uzsākt tērzēšanu ar „%1“?"
 
-#: src/qml/Main.qml:390
+#: src/qml/Main.qml:378
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@action"
+msgid "Start Chat"
+msgstr "Uzsākt tērzēšanu"
+
+#: src/qml/Main.qml:402
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Pašreiz atlasītā saite"
 
-#: src/qml/Main.qml:422 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2698,7 +2711,7 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "Istabas ID vai aizstājējvārds"
 
-#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
@@ -2719,23 +2732,23 @@ msgstr "Aizstājējvārdam jāsākas ar #, bet ID ar !"
 msgid "The input is not a valid room ID or alias"
 msgstr "Ievadītais nav derīgas istabas ID vai aizstājējvārds"
 
-#: src/qml/ManualUserDialog.qml:25
+#: src/qml/ManualUserDialog.qml:26
 #, kde-format
 msgctxt "@title"
 msgid "User ID"
 msgstr "Lietotāja ID"
 
-#: src/qml/ManualUserDialog.qml:53
+#: src/qml/ManualUserDialog.qml:54
 #, kde-format
 msgid "User ID:"
 msgstr "Lietotāja ID:"
 
-#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
 #, kde-format
 msgid "User IDs Must start with @"
 msgstr "Lietotāja ID ir jāsākas ar @"
 
-#: src/qml/ManualUserDialog.qml:62
+#: src/qml/ManualUserDialog.qml:63
 #, kde-format
 msgid "The input is not a valid user ID"
 msgstr "Ievadītais nav derīgs lietotāja ID"
@@ -2912,12 +2925,6 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Noņemt"
 
-#: src/qml/ReplyPane.qml:89
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Atcelt atbildi"
-
 #: src/qml/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
@@ -3074,12 +3081,12 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Istabas multivide"
 
-#: src/qml/RoomPage.qml:99
+#: src/qml/RoomPage.qml:100
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "„NeoChat“ darbojas nesaistē. Pārbaudīt tīkla savienojumu."
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "Ziņas avots"
@@ -3474,76 +3481,76 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Pieprasījums no citas ierīces"
 
-#: src/qml/UserDetailDialog.qml:36
+#: src/qml/UserDetailDialog.qml:34
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Konta informācija"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Unignore this user"
 msgstr "Beigt ignorēt šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ignorēt šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:124
+#: src/qml/UserDetailDialog.qml:122
 #, kde-format
 msgid "Kick this user"
 msgstr "Izmest šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:138
+#: src/qml/UserDetailDialog.qml:136
 #, kde-format
 msgid "Invite this user"
 msgstr "Uzaicināt šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:151
+#: src/qml/UserDetailDialog.qml:149
 #, kde-format
 msgid "Ban this user"
 msgstr "Aizliegt šo lietotāju"
 
-#: src/qml/UserDetailDialog.qml:159
+#: src/qml/UserDetailDialog.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Aizliegt lietotāju"
 
-#: src/qml/UserDetailDialog.qml:171
+#: src/qml/UserDetailDialog.qml:169
 #, kde-format
 msgid "Unban this user"
 msgstr "Beigt aizliegt lietotāju"
 
-#: src/qml/UserDetailDialog.qml:184
+#: src/qml/UserDetailDialog.qml:182
 #, kde-format
 msgid "Set user power level"
 msgstr "Iestatīt svarīguma līmeni"
 
-#: src/qml/UserDetailDialog.qml:209
+#: src/qml/UserDetailDialog.qml:207
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Noņemt šī lietotāja nesenās ziņas"
 
-#: src/qml/UserDetailDialog.qml:217
+#: src/qml/UserDetailDialog.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Noņemt ziņas"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Tērzēt ar %1"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Uzaicināt uz privātu tērzēšanu"
 
-#: src/qml/UserDetailDialog.qml:239
+#: src/qml/UserDetailDialog.qml:237
 #, kde-format
 msgid "Copy link"
 msgstr "Kopēt saiti"
@@ -3565,28 +3572,28 @@ msgstr "Pārslēgt lietotāju"
 msgid "Open Settings"
 msgstr "Atvērt iestatījumus"
 
-#: src/qml/UserSearchPage.qml:32
+#: src/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Atrast draugus"
 
-#: src/qml/UserSearchPage.qml:44
+#: src/qml/UserSearchPage.qml:45
 #, kde-format
 msgid "Enter a user ID"
 msgstr "Ievadiet lietotāja ID"
 
-#: src/qml/UserSearchPage.qml:89
+#: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Find your friends…"
 msgstr "Atrast draugus..."
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "Ievadiet tekstu, lai sāktu meklēt draugus"
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -5192,13 +5199,13 @@ msgstr "Ielādē URL priekšskatījumu"
 msgid "%1 started a user verification"
 msgstr "atsauca lietotāja uzaicināšanu"
 
-#: src/timeline/MessageEditComponent.qml:102
+#: src/timeline/MessageEditComponent.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Apstiprināt izmaiņas"
 
-#: src/timeline/MessageEditComponent.qml:114
+#: src/timeline/MessageEditComponent.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"

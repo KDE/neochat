@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 00:38+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -16,6 +16,77 @@ msgstr ""
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /kf6-trunk/messages/neochat/neochat.pot\n"
 "X-Crowdin-File-ID: 44721\n"
+
+#: src/chatbar/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "选择本地文件"
+
+#: src/chatbar/AttachDialog.qml:46
+#, kde-format
+msgid "Clipboard image"
+msgstr "剪贴板图像"
+
+#: src/chatbar/ChatBar.qml:79
+#, kde-format
+msgid "Attach an image or file"
+msgstr "附送图像或文件"
+
+#: src/chatbar/ChatBar.qml:97
+#, kde-format
+msgid "Emojis & Stickers"
+msgstr "表情和贴纸"
+
+#: src/chatbar/ChatBar.qml:114
+#, kde-format
+msgid "Send a Location"
+msgstr "发送位置"
+
+#: src/chatbar/ChatBar.qml:130
+#, kde-format
+msgid "Send message"
+msgstr "发送消息"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send an encrypted message…"
+msgstr "发送一条加密消息..."
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Set an attachment caption…"
+msgstr "设置附件说明"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send a message…"
+msgstr "发送一条消息..."
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No stickers"
+msgstr "无贴纸"
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No emojis"
+msgstr "无表情"
+
+#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#, kde-format
+msgid "Emojis"
+msgstr "表情"
+
+#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#, kde-format
+msgid "Stickers"
+msgstr "贴纸"
+
+#: src/chatbar/ReplyPane.qml:89
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "取消回复"
 
 #: src/controller.cpp:133
 #, kde-format
@@ -227,7 +298,7 @@ msgstr "已邀请"
 msgid "Favorite"
 msgstr "收藏夹"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
 #, kde-format
 msgid "Friends"
 msgstr "好友"
@@ -797,7 +868,7 @@ msgstr "用户名不可用"
 msgid "Welcome"
 msgstr "欢迎使用"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:156
+#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "欢迎使用 NeoChat"
@@ -1519,7 +1590,7 @@ msgid "Open NeoChat in this room"
 msgstr "在此聊天室打开 NeoChat"
 
 #: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
-#: src/qml/HoverActions.qml:102
+#: src/qml/HoverActions.qml:104
 #, kde-format
 msgid "Reply"
 msgstr "回复"
@@ -1583,7 +1654,7 @@ msgid "Notification settings"
 msgstr "通知设置"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:404 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "配置"
@@ -1645,22 +1716,12 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "登录"
 
-#: src/qml/AttachDialog.qml:27
-#, kde-format
-msgid "Choose local file"
-msgstr "选择本地文件"
-
-#: src/qml/AttachDialog.qml:46
-#, kde-format
-msgid "Clipboard image"
-msgstr "剪贴板图像"
-
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "附件："
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:95
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
@@ -1693,41 +1754,6 @@ msgstr "封禁"
 msgctxt "@action"
 msgid "Cancel"
 msgstr "取消"
-
-#: src/qml/ChatBar.qml:79
-#, kde-format
-msgid "Attach an image or file"
-msgstr "附送图像或文件"
-
-#: src/qml/ChatBar.qml:97
-#, kde-format
-msgid "Emojis & Stickers"
-msgstr "表情和贴纸"
-
-#: src/qml/ChatBar.qml:114
-#, kde-format
-msgid "Send a Location"
-msgstr "发送位置"
-
-#: src/qml/ChatBar.qml:130
-#, kde-format
-msgid "Send message"
-msgstr "发送消息"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send an encrypted message…"
-msgstr "发送一条加密消息..."
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Set an attachment caption…"
-msgstr "设置附件说明"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send a message…"
-msgstr "发送一条消息..."
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -2125,26 +2151,6 @@ msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "应用"
 
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No stickers"
-msgstr "无贴纸"
-
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No emojis"
-msgstr "无表情"
-
-#: src/qml/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
-#, kde-format
-msgid "Emojis"
-msgstr "表情"
-
-#: src/qml/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
-#, kde-format
-msgid "Stickers"
-msgstr "贴纸"
-
 #: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
@@ -2398,17 +2404,17 @@ msgstr "Matrix 常见问题解答"
 msgid "No name"
 msgstr "无名称"
 
-#: src/qml/HoverActions.qml:74
+#: src/qml/HoverActions.qml:76
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "此消息是从已验证的设备发送而来"
 
-#: src/qml/HoverActions.qml:87
+#: src/qml/HoverActions.qml:89
 #, kde-format
 msgid "React"
 msgstr "回应"
 
-#: src/qml/HoverActions.qml:112
+#: src/qml/HoverActions.qml:114
 #, kde-format
 msgid "Reply in Thread"
 msgstr "主题内回复"
@@ -2621,23 +2627,30 @@ msgstr "主服务器要求您在使用前同意条款和条件。请点击下面
 msgid "Open"
 msgstr "打开"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Start a chat"
 msgstr "开始聊天"
 
-#: src/qml/Main.qml:364
+#: src/qml/Main.qml:369
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "您想要与 %1 开始聊天吗？"
 
-#: src/qml/Main.qml:390
+#: src/qml/Main.qml:378
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@action"
+msgid "Start Chat"
+msgstr "开始聊天"
+
+#: src/qml/Main.qml:402
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "当前选择的链接"
 
-#: src/qml/Main.qml:422 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -2649,7 +2662,7 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "聊天室ID或别名"
 
-#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
@@ -2670,23 +2683,23 @@ msgstr "别名必须以 # 开头，ID 必须以 ! 开头"
 msgid "The input is not a valid room ID or alias"
 msgstr "输入不是有效的聊天室ID或别名"
 
-#: src/qml/ManualUserDialog.qml:25
+#: src/qml/ManualUserDialog.qml:26
 #, kde-format
 msgctxt "@title"
 msgid "User ID"
 msgstr "用户 ID"
 
-#: src/qml/ManualUserDialog.qml:53
+#: src/qml/ManualUserDialog.qml:54
 #, kde-format
 msgid "User ID:"
 msgstr "用户 ID："
 
-#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
 #, kde-format
 msgid "User IDs Must start with @"
 msgstr "用户 ID 必须以 @ 开始"
 
-#: src/qml/ManualUserDialog.qml:62
+#: src/qml/ManualUserDialog.qml:63
 #, kde-format
 msgid "The input is not a valid user ID"
 msgstr "输入内容不是有效的用户 ID"
@@ -2859,12 +2872,6 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "移除"
 
-#: src/qml/ReplyPane.qml:89
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "取消回复"
-
 #: src/qml/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
@@ -3018,12 +3025,12 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "聊天室媒体"
 
-#: src/qml/RoomPage.qml:99
+#: src/qml/RoomPage.qml:100
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 处于离线状态。请检查您的网络连接。"
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "消息来源"
@@ -3401,76 +3408,76 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "来自其他设备的请求"
 
-#: src/qml/UserDetailDialog.qml:36
+#: src/qml/UserDetailDialog.qml:34
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "账户详情"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Unignore this user"
 msgstr "取消忽略此用户"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Ignore this user"
 msgstr "忽略此用户"
 
-#: src/qml/UserDetailDialog.qml:124
+#: src/qml/UserDetailDialog.qml:122
 #, kde-format
 msgid "Kick this user"
 msgstr "踢出此用户"
 
-#: src/qml/UserDetailDialog.qml:138
+#: src/qml/UserDetailDialog.qml:136
 #, kde-format
 msgid "Invite this user"
 msgstr "邀请此用户"
 
-#: src/qml/UserDetailDialog.qml:151
+#: src/qml/UserDetailDialog.qml:149
 #, kde-format
 msgid "Ban this user"
 msgstr "封禁此用户"
 
-#: src/qml/UserDetailDialog.qml:159
+#: src/qml/UserDetailDialog.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "封禁用户"
 
-#: src/qml/UserDetailDialog.qml:171
+#: src/qml/UserDetailDialog.qml:169
 #, kde-format
 msgid "Unban this user"
 msgstr "解封此用户"
 
-#: src/qml/UserDetailDialog.qml:184
+#: src/qml/UserDetailDialog.qml:182
 #, kde-format
 msgid "Set user power level"
 msgstr "设置用户权力等级"
 
-#: src/qml/UserDetailDialog.qml:209
+#: src/qml/UserDetailDialog.qml:207
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "移除此用户最近的消息"
 
-#: src/qml/UserDetailDialog.qml:217
+#: src/qml/UserDetailDialog.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "移除消息"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "与 %1 聊天"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgid "Invite to private chat"
 msgstr "邀请到私人聊天"
 
-#: src/qml/UserDetailDialog.qml:239
+#: src/qml/UserDetailDialog.qml:237
 #, kde-format
 msgid "Copy link"
 msgstr "复制链接"
@@ -3491,28 +3498,28 @@ msgstr "切换用户"
 msgid "Open Settings"
 msgstr "打开设置"
 
-#: src/qml/UserSearchPage.qml:32
+#: src/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "查找好友"
 
-#: src/qml/UserSearchPage.qml:44
+#: src/qml/UserSearchPage.qml:45
 #, kde-format
 msgid "Enter a user ID"
 msgstr "输入用户 ID"
 
-#: src/qml/UserSearchPage.qml:89
+#: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Find your friends…"
 msgstr "查找好友..."
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "输入文本开始搜索您的好友"
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -5086,13 +5093,13 @@ msgstr "正在加载 URL 预览"
 msgid "%1 started a user verification"
 msgstr ""
 
-#: src/timeline/MessageEditComponent.qml:102
+#: src/timeline/MessageEditComponent.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "确认编辑"
 
-#: src/timeline/MessageEditComponent.qml:114
+#: src/timeline/MessageEditComponent.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"

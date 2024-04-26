@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 00:38+0000\n"
+"POT-Creation-Date: 2024-04-26 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -16,6 +16,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
+
+#: src/chatbar/AttachDialog.qml:27
+#, kde-format
+msgid "Choose local file"
+msgstr "로컬 파일 선택"
+
+#: src/chatbar/AttachDialog.qml:46
+#, kde-format
+msgid "Clipboard image"
+msgstr "클립보드의 그림"
+
+#: src/chatbar/ChatBar.qml:79
+#, kde-format
+msgid "Attach an image or file"
+msgstr "그림이나 파일 첨부"
+
+#: src/chatbar/ChatBar.qml:97
+#, kde-format
+msgid "Emojis & Stickers"
+msgstr "이모지와 스티커"
+
+#: src/chatbar/ChatBar.qml:114
+#, kde-format
+msgid "Send a Location"
+msgstr "위치 보내기"
+
+#: src/chatbar/ChatBar.qml:130
+#, kde-format
+msgid "Send message"
+msgstr "메시지 보내기"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send an encrypted message…"
+msgstr "암호화된 메시지 보내기…"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Set an attachment caption…"
+msgstr "첨부 파일 캡션 설정…"
+
+#: src/chatbar/ChatBar.qml:208
+#, kde-format
+msgid "Send a message…"
+msgstr "메시지 보내기…"
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No stickers"
+msgstr "스티커 없음"
+
+#: src/chatbar/EmojiGrid.qml:87
+#, kde-format
+msgid "No emojis"
+msgstr "이모지 없음"
+
+#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#, kde-format
+msgid "Emojis"
+msgstr "이모지"
+
+#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#, kde-format
+msgid "Stickers"
+msgstr "스티커"
+
+#: src/chatbar/ReplyPane.qml:89
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "답장 취소"
 
 #: src/controller.cpp:133
 #, kde-format
@@ -232,7 +303,7 @@ msgstr "초대 받음"
 msgid "Favorite"
 msgstr "책갈피"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:82
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
 #, kde-format
 msgid "Friends"
 msgstr "친구"
@@ -805,7 +876,7 @@ msgstr "사용자 이름을 사용할 수 없음"
 msgid "Welcome"
 msgstr "환영합니다"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:156
+#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "NeoChat에 오신 것을 환영합니다"
@@ -1525,7 +1596,7 @@ msgid "Open NeoChat in this room"
 msgstr "이 대화방에서 NeoChat 열기"
 
 #: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
-#: src/qml/HoverActions.qml:102
+#: src/qml/HoverActions.qml:104
 #, kde-format
 msgid "Reply"
 msgstr "답장"
@@ -1589,7 +1660,7 @@ msgid "Notification settings"
 msgstr "알림 설정"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:404 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "설정"
@@ -1656,22 +1727,12 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "로그인"
 
-#: src/qml/AttachDialog.qml:27
-#, kde-format
-msgid "Choose local file"
-msgstr "로컬 파일 선택"
-
-#: src/qml/AttachDialog.qml:46
-#, kde-format
-msgid "Clipboard image"
-msgstr "클립보드의 그림"
-
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "첨부:"
 
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:93
+#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:95
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
@@ -1704,41 +1765,6 @@ msgstr "차단"
 msgctxt "@action"
 msgid "Cancel"
 msgstr "취소"
-
-#: src/qml/ChatBar.qml:79
-#, kde-format
-msgid "Attach an image or file"
-msgstr "그림이나 파일 첨부"
-
-#: src/qml/ChatBar.qml:97
-#, kde-format
-msgid "Emojis & Stickers"
-msgstr "이모지와 스티커"
-
-#: src/qml/ChatBar.qml:114
-#, kde-format
-msgid "Send a Location"
-msgstr "위치 보내기"
-
-#: src/qml/ChatBar.qml:130
-#, kde-format
-msgid "Send message"
-msgstr "메시지 보내기"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send an encrypted message…"
-msgstr "암호화된 메시지 보내기…"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Set an attachment caption…"
-msgstr "첨부 파일 캡션 설정…"
-
-#: src/qml/ChatBar.qml:208
-#, kde-format
-msgid "Send a message…"
-msgstr "메시지 보내기…"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -2149,26 +2175,6 @@ msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "적용"
 
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No stickers"
-msgstr "스티커 없음"
-
-#: src/qml/EmojiGrid.qml:87
-#, kde-format
-msgid "No emojis"
-msgstr "이모지 없음"
-
-#: src/qml/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
-#, kde-format
-msgid "Emojis"
-msgstr "이모지"
-
-#: src/qml/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
-#, kde-format
-msgid "Stickers"
-msgstr "스티커"
-
 #: src/qml/EmojiSas.qml:26
 #, kde-format
 msgid ""
@@ -2426,17 +2432,17 @@ msgstr "Matrix FAQ"
 msgid "No name"
 msgstr "이름 없음"
 
-#: src/qml/HoverActions.qml:74
+#: src/qml/HoverActions.qml:76
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "이 메시지는 검증된 장치에서 전송됨"
 
-#: src/qml/HoverActions.qml:87
+#: src/qml/HoverActions.qml:89
 #, kde-format
 msgid "React"
 msgstr "반응"
 
-#: src/qml/HoverActions.qml:112
+#: src/qml/HoverActions.qml:114
 #, kde-format
 msgid "Reply in Thread"
 msgstr "스레드에 답장"
@@ -2659,23 +2665,30 @@ msgstr ""
 msgid "Open"
 msgstr "열기"
 
-#: src/qml/Main.qml:362
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Start a chat"
 msgstr "대화 시작"
 
-#: src/qml/Main.qml:364
+#: src/qml/Main.qml:369
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
 
-#: src/qml/Main.qml:390
+#: src/qml/Main.qml:378
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@action"
+msgid "Start Chat"
+msgstr "대화 시작"
+
+#: src/qml/Main.qml:402
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr ""
 
-#: src/qml/Main.qml:422 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -2688,7 +2701,7 @@ msgctxt "@title"
 msgid "Room ID or Alias"
 msgstr "대화방 ID나 별명"
 
-#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:37
+#: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
@@ -2709,23 +2722,23 @@ msgstr "대화방 ID는 !, 별명은 #으로 시작해야 함"
 msgid "The input is not a valid room ID or alias"
 msgstr "입력한 텍스트가 올바른 대화방 ID나 별명이 아님"
 
-#: src/qml/ManualUserDialog.qml:25
+#: src/qml/ManualUserDialog.qml:26
 #, kde-format
 msgctxt "@title"
 msgid "User ID"
 msgstr "사용자 ID"
 
-#: src/qml/ManualUserDialog.qml:53
+#: src/qml/ManualUserDialog.qml:54
 #, kde-format
 msgid "User ID:"
 msgstr "사용자 ID:"
 
-#: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
+#: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
 #, kde-format
 msgid "User IDs Must start with @"
 msgstr "사용자 ID는 @으로 시작해야 함"
 
-#: src/qml/ManualUserDialog.qml:62
+#: src/qml/ManualUserDialog.qml:63
 #, kde-format
 msgid "The input is not a valid user ID"
 msgstr "입력한 텍스트가 올바른 사용자 ID가 아님"
@@ -2901,12 +2914,6 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "삭제"
 
-#: src/qml/ReplyPane.qml:89
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "답장 취소"
-
 #: src/qml/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
@@ -3061,12 +3068,12 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "대화방 미디어"
 
-#: src/qml/RoomPage.qml:99
+#: src/qml/RoomPage.qml:100
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."
 
-#: src/qml/RoomPage.qml:263
+#: src/qml/RoomPage.qml:264
 #, kde-format
 msgid "Message Source"
 msgstr "메시지 소스"
@@ -3452,76 +3459,76 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr ""
 
-#: src/qml/UserDetailDialog.qml:36
+#: src/qml/UserDetailDialog.qml:34
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "계정 정보"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Unignore this user"
 msgstr "이 사용자 무시 해제"
 
-#: src/qml/UserDetailDialog.qml:111
+#: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Ignore this user"
 msgstr "이 사용자 무시"
 
-#: src/qml/UserDetailDialog.qml:124
+#: src/qml/UserDetailDialog.qml:122
 #, kde-format
 msgid "Kick this user"
 msgstr "이 사용자 추방"
 
-#: src/qml/UserDetailDialog.qml:138
+#: src/qml/UserDetailDialog.qml:136
 #, kde-format
 msgid "Invite this user"
 msgstr "이 사용자 초대"
 
-#: src/qml/UserDetailDialog.qml:151
+#: src/qml/UserDetailDialog.qml:149
 #, kde-format
 msgid "Ban this user"
 msgstr "이 사용자 차단"
 
-#: src/qml/UserDetailDialog.qml:159
+#: src/qml/UserDetailDialog.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "사용자 차단"
 
-#: src/qml/UserDetailDialog.qml:171
+#: src/qml/UserDetailDialog.qml:169
 #, kde-format
 msgid "Unban this user"
 msgstr "이 사용자 차단 해제"
 
-#: src/qml/UserDetailDialog.qml:184
+#: src/qml/UserDetailDialog.qml:182
 #, kde-format
 msgid "Set user power level"
 msgstr "사용자 권한 수준 설정"
 
-#: src/qml/UserDetailDialog.qml:209
+#: src/qml/UserDetailDialog.qml:207
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "이 사용자의 최근 메시지 삭제"
 
-#: src/qml/UserDetailDialog.qml:217
+#: src/qml/UserDetailDialog.qml:215
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "메시지 삭제"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "%1 님과 채팅"
 
-#: src/qml/UserDetailDialog.qml:228
+#: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgid "Invite to private chat"
 msgstr "개인 대화로 초대"
 
-#: src/qml/UserDetailDialog.qml:239
+#: src/qml/UserDetailDialog.qml:237
 #, kde-format
 msgid "Copy link"
 msgstr "링크 복사"
@@ -3543,28 +3550,28 @@ msgstr "사용자 전환"
 msgid "Open Settings"
 msgstr "설정 열기"
 
-#: src/qml/UserSearchPage.qml:32
+#: src/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "친구 찾기"
 
-#: src/qml/UserSearchPage.qml:44
+#: src/qml/UserSearchPage.qml:45
 #, kde-format
 msgid "Enter a user ID"
 msgstr "사용자 ID 입력"
 
-#: src/qml/UserSearchPage.qml:89
+#: src/qml/UserSearchPage.qml:90
 #, kde-format
 msgid "Find your friends…"
 msgstr "친구 찾기…"
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "친구 목록 검색을 시작하려면 텍스트를 입력하십시오"
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -5162,13 +5169,13 @@ msgstr "URL 미리 보기 불러오는 중"
 msgid "%1 started a user verification"
 msgstr "님이 사용자의 초대를 거절함"
 
-#: src/timeline/MessageEditComponent.qml:102
+#: src/timeline/MessageEditComponent.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "편집 확인"
 
-#: src/timeline/MessageEditComponent.qml:114
+#: src/timeline/MessageEditComponent.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -5283,9 +5290,6 @@ msgstr "끝내기"
 
 #~ msgid "All Rooms"
 #~ msgstr "모든 대화방"
-
-#~ msgid "Start a Chat"
-#~ msgstr "대화 시작"
 
 #~ msgctxt "@title"
 #~ msgid "Start a Chat"
