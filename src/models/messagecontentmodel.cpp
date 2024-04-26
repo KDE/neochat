@@ -295,6 +295,9 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
     case MessageComponentType::File: {
         QList<MessageComponent> components;
         components += MessageComponent{MessageComponentType::File, QString(), {}};
+        const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
+        auto body = EventHandler::rawMessageBody(*event);
+        components += TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
         if (m_emptyItinerary) {
             auto fileTransferInfo = fileInfo();
 
@@ -321,6 +324,17 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
             }
         }
         return components;
+    }
+    case MessageComponentType::Image:
+    case MessageComponentType::Video: {
+        if (!m_event->is<StickerEvent>()) {
+            const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
+            QList<MessageComponent> components;
+            components += MessageComponent{type, QString(), {}};
+            auto body = EventHandler::rawMessageBody(*event);
+            components += TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
+            return components;
+        }
     }
     default:
         return {MessageComponent{type, QString(), {}}};
