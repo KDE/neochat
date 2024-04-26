@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
@@ -7,6 +8,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
@@ -49,6 +51,7 @@ QQC2.ComboBox {
         bottomInset: index === ListView.view.count - 1 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
 
         onClicked: if (isAddServerDelegate) {
+            addServerSheet.parent = QQC2.Overlay.overlay
             addServerSheet.open();
         }
 
@@ -75,6 +78,7 @@ QQC2.ComboBox {
                         root.popup.close();
                     }
                     if (serverItem.isAddServerDelegate) {
+                        addServerSheet.parent = QQC2.Overlay.overlay
                         addServerSheet.open();
                         serverItem.clicked();
                     } else {
@@ -91,10 +95,10 @@ QQC2.ComboBox {
         }
     }
 
-    Kirigami.OverlaySheet {
+    Kirigami.Dialog {
         id: addServerSheet
 
-        parent: applicationWindow().overlay
+        width: Math.min(Kirigami.Units.gridUnit * 24, QQC2.ApplicationWindow.window.width)
 
         title: i18nc("@title:window", "Add server")
 
@@ -109,19 +113,16 @@ QQC2.ComboBox {
             root.currentIndex = root.indexOfValue(root.server);
         }
 
-        contentItem: Kirigami.FormLayout {
-            QQC2.Label {
-                Layout.minimumWidth: Kirigami.Units.gridUnit * 20
-
+        contentItem: ColumnLayout {
+            FormCard.FormTextDelegate {
                 text: serverUrlField.length > 0 ? (serverUrlField.acceptableInput ? (serverUrlField.isValidServer ? i18n("Valid server entered") : i18n("This server cannot be resolved or has already been added")) : i18n("The entered text is not a valid url")) : i18n("Enter server url e.g. kde.org")
-                color: serverUrlField.length > 0 ? (serverUrlField.acceptableInput ? (serverUrlField.isValidServer ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.negativeTextColor) : Kirigami.Theme.negativeTextColor) : Kirigami.Theme.textColor
             }
-            QQC2.TextField {
+            FormCard.FormTextFieldDelegate {
                 id: serverUrlField
 
                 property bool isValidServer: false
 
-                Kirigami.FormData.label: i18n("Server URL")
+                label: i18n("Server URL")
                 onTextChanged: {
                     if (acceptableInput) {
                         serverListModel.checkServer(text);
@@ -141,19 +142,17 @@ QQC2.ComboBox {
                     }
                 }
             }
+        }
 
-            QQC2.Button {
-                id: okButton
-
-                text: i18nc("@action:button", "Ok")
-                enabled: serverUrlField.acceptableInput && serverUrlField.isValidServer
-                onClicked: {
-                    serverListModel.addServer(serverUrlField.text);
-                    root.currentIndex = root.indexOfValue(serverUrlField.text);
-                    root.server = root.currentValue;
-                    serverUrlField.text = "";
-                    addServerSheet.close();
-                }
+        customFooterActions: Kirigami.Action {
+            text: i18nc("@action:button", "Ok")
+            enabled: serverUrlField.acceptableInput && serverUrlField.isValidServer
+            onTriggered: {
+                serverListModel.addServer(serverUrlField.text);
+                root.currentIndex = root.indexOfValue(serverUrlField.text);
+                root.server = root.currentValue;
+                serverUrlField.text = "";
+                addServerSheet.close();
             }
         }
     }
