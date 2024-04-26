@@ -107,7 +107,7 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onAskJoinRoom(room) {
-            joinRoomDialog.createObject(applicationWindow(), {
+            Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(applicationWindow(), {
                 room: room,
                 connection: root.connection
             }).open();
@@ -290,12 +290,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Component {
-        id: keyVerificationDialogComponent
-        KeyVerificationDialog {}
-    }
-
-
     Connections {
         target: root.connection
 
@@ -303,7 +297,7 @@ Kirigami.ApplicationWindow {
             RoomManager.resolveResource(directChat.id);
         }
         function onNewKeyVerificationSession(session) {
-            applicationWindow().pageStack.pushDialogLayer(keyVerificationDialogComponent, {
+            applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "KeyVerificationDialog"), {
                 session: session
             }, {
                 title: i18nc("@title:window", "Session Verification")
@@ -352,11 +346,6 @@ Kirigami.ApplicationWindow {
         CreateRoomDialog {
             connection: root.connection
         }
-    }
-
-    Component {
-        id: joinRoomDialog
-        JoinRoomDialog {}
     }
 
     Component {
@@ -449,7 +438,7 @@ Kirigami.ApplicationWindow {
         })
     }
     function showUserDetail(user) {
-        userDetailDialog.createObject(root.QQC2.ApplicationWindow.window, {
+        Qt.createComponent("org.kde.neochat", "UserDetailDialog").createObject(root.QQC2.ApplicationWindow.window, {
             room: RoomManager.currentRoom ? RoomManager.currentRoom : null,
             user: RoomManager.currentRoom ? RoomManager.currentRoom.getUser(user.id) : QmlUtils.getUser(user),
             connection: root.connection
@@ -463,10 +452,5 @@ Kirigami.ApplicationWindow {
             connection: root.connection
         });
         roomPage.forceActiveFocus();
-    }
-
-    Component {
-        id: userDetailDialog
-        UserDetailDialog {}
     }
 }
