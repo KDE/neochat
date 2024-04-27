@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 00:38+0000\n"
-"PO-Revision-Date: 2024-04-25 18:51+0200\n"
+"POT-Creation-Date: 2024-04-27 00:38+0000\n"
+"PO-Revision-Date: 2024-04-26 14:54+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1664,7 +1664,7 @@ msgid "Notification settings"
 msgstr "Preferentias de notificationes"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
@@ -2622,18 +2622,20 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Claude Designator de Information de sala"
 
-#: src/qml/Main.qml:308
+#: src/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Veification de Session"
 
 #: src/qml/Main.qml:325
-#, kde-format
-msgid "User consent"
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
 msgstr "Consenso de usator"
 
-#: src/qml/Main.qml:330
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2648,30 +2650,29 @@ msgstr ""
 msgid "Open"
 msgstr "Aperi"
 
-#: src/qml/Main.qml:366
+#: src/qml/Main.qml:363
 #, kde-format
 msgid "Start a chat"
 msgstr "Initia un conversation"
 
-#: src/qml/Main.qml:369
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Tu vole initiar un conversation con %1"
 
-#: src/qml/Main.qml:378
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#: src/qml/Main.qml:375
+#, kde-format
 msgctxt "@action"
 msgid "Start Chat"
-msgstr "Initia un conversation"
+msgstr "Initia conversation in directo"
 
-#: src/qml/Main.qml:402
+#: src/qml/Main.qml:399
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Le ligamine currentemte seligite"
 
-#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3145,49 +3146,49 @@ msgctxt "@title"
 msgid "Select Spaces"
 msgstr "Selige  spatios"
 
-#: src/qml/ServerComboBox.qml:45
+#: src/qml/ServerComboBox.qml:47
 #, kde-format
 msgid "Add New Server"
 msgstr "Adde nove servitor "
 
-#: src/qml/ServerComboBox.qml:60
+#: src/qml/ServerComboBox.qml:63
 #, kde-format
 msgid "Home Server"
 msgstr "Servitor de casa"
 
-#: src/qml/ServerComboBox.qml:67
+#: src/qml/ServerComboBox.qml:70
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Adde nove servitor "
 
-#: src/qml/ServerComboBox.qml:99
+#: src/qml/ServerComboBox.qml:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Adde Servitor"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "Valid server entered"
 msgstr "Servitor valide insertate"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Iste servitor non pote esser resolvite o ha ja essite addite"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Le texto insertate non es un url valide"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Inserta usr de servitor p.ex. kde.org"
 
-#: src/qml/ServerComboBox.qml:124
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Server URL"
 msgstr "URL de servitor"

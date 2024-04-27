@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 00:38+0000\n"
+"POT-Creation-Date: 2024-04-27 00:38+0000\n"
 "PO-Revision-Date: 2024-04-21 22:04+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1660,7 +1660,7 @@ msgid "Notification settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "அமை"
@@ -2620,18 +2620,20 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "புதிய அரங்கின் விவரங்கள்"
 
-#: src/qml/Main.qml:308
+#: src/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "அமர்வு உறுதிப்பாடு"
 
 #: src/qml/Main.qml:325
-#, kde-format
-msgid "User consent"
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
 msgstr "பயனர் ஒப்புதல்"
 
-#: src/qml/Main.qml:330
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2645,30 +2647,30 @@ msgstr ""
 msgid "Open"
 msgstr "திற"
 
-#: src/qml/Main.qml:366
+#: src/qml/Main.qml:363
 #, kde-format
 msgid "Start a chat"
 msgstr "உரையாடலைத் துவக்கு"
 
-#: src/qml/Main.qml:369
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "உறுதியாக %1 என்பவருடன் உரையாடலைத் துவக்க வேண்டுமா?"
 
-#: src/qml/Main.qml:378
+#: src/qml/Main.qml:375
 #, fuzzy, kde-format
 #| msgid "Start a Chat"
 msgctxt "@action"
 msgid "Start Chat"
 msgstr "உரையாடலைத் துவக்கு"
 
-#: src/qml/Main.qml:402
+#: src/qml/Main.qml:399
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "தற்போது தேர்ந்தெடுத்துள்ள இணைப்பு"
 
-#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3138,49 +3140,49 @@ msgctxt "@title"
 msgid "Select Spaces"
 msgstr "இடங்களை தேர்ந்தெடுக்கவும்"
 
-#: src/qml/ServerComboBox.qml:45
+#: src/qml/ServerComboBox.qml:47
 #, kde-format
 msgid "Add New Server"
 msgstr "புதிய சேவையகத்தை சேர்"
 
-#: src/qml/ServerComboBox.qml:60
+#: src/qml/ServerComboBox.qml:63
 #, kde-format
 msgid "Home Server"
 msgstr "தாய் சேவையகம்"
 
-#: src/qml/ServerComboBox.qml:67
+#: src/qml/ServerComboBox.qml:70
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "புதிய சேவையகத்தை சேர்"
 
-#: src/qml/ServerComboBox.qml:99
+#: src/qml/ServerComboBox.qml:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "சேவையகத்தைச் சேர்ப்பது"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "Valid server entered"
 msgstr "செல்லுபடியாகும் சேவையகம் உள்ளிடப்பட்டது"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "உள்ளிட்ட உரை ஓர் முறையான முகவரி அல்ல"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "சேவையகத்தின் முகவரியை உள்ளிடவும், எ.கா. kde.org"
 
-#: src/qml/ServerComboBox.qml:124
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Server URL"
 msgstr "சேவையக முகவரி"

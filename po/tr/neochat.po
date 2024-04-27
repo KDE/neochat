@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 00:38+0000\n"
-"PO-Revision-Date: 2024-04-24 14:39+0300\n"
+"POT-Creation-Date: 2024-04-27 00:38+0000\n"
+"PO-Revision-Date: 2024-04-26 13:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: src/chatbar/AttachDialog.qml:27
 #, kde-format
 msgid "Choose local file"
-msgstr "Yerel dosya seçin"
+msgstr "Yerel dosya seç"
 
 #: src/chatbar/AttachDialog.qml:46
 #, kde-format
@@ -1660,7 +1660,7 @@ msgid "Notification settings"
 msgstr "Bildirim ayarları"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Yapılandır"
@@ -2617,18 +2617,20 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Oda Bilgisi Çekmecesini Kapat"
 
-#: src/qml/Main.qml:308
+#: src/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
 #: src/qml/Main.qml:325
-#, kde-format
-msgid "User consent"
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
 msgstr "Kullanıcı onayı"
 
-#: src/qml/Main.qml:330
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2642,30 +2644,29 @@ msgstr ""
 msgid "Open"
 msgstr "Aç"
 
-#: src/qml/Main.qml:366
+#: src/qml/Main.qml:363
 #, kde-format
 msgid "Start a chat"
 msgstr "Bir sohbet başlat"
 
-#: src/qml/Main.qml:369
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"
 
-#: src/qml/Main.qml:378
-#, fuzzy, kde-format
-#| msgid "Start a chat"
+#: src/qml/Main.qml:375
+#, kde-format
 msgctxt "@action"
 msgid "Start Chat"
-msgstr "Bir sohbet başlat"
+msgstr "Sohbet Başlat"
 
-#: src/qml/Main.qml:402
+#: src/qml/Main.qml:399
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Şu anda seçili bağlantı"
 
-#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3137,49 +3138,49 @@ msgctxt "@title"
 msgid "Select Spaces"
 msgstr "Alanlar Seç"
 
-#: src/qml/ServerComboBox.qml:45
+#: src/qml/ServerComboBox.qml:47
 #, kde-format
 msgid "Add New Server"
 msgstr "Yeni Sunucu Ekle"
 
-#: src/qml/ServerComboBox.qml:60
+#: src/qml/ServerComboBox.qml:63
 #, kde-format
 msgid "Home Server"
 msgstr "Ana Sunucu"
 
-#: src/qml/ServerComboBox.qml:67
+#: src/qml/ServerComboBox.qml:70
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Yeni Sunucu Ekle"
 
-#: src/qml/ServerComboBox.qml:99
+#: src/qml/ServerComboBox.qml:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Sunucu Ekle"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "Valid server entered"
 msgstr "Geçerli sunucu girildi"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Bu sunucuya ulaşılamıyor veya önceden eklenmiş"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Girilen metin, geçerli bir URL değil"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Sunucu URL’si girin; örneğin, kde.org"
 
-#: src/qml/ServerComboBox.qml:124
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Server URL"
 msgstr "Sunucu URL’si"

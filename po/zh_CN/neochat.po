@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 00:38+0000\n"
+"POT-Creation-Date: 2024-04-27 00:38+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1654,7 +1654,7 @@ msgid "Notification settings"
 msgstr "通知设置"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:416 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "配置"
@@ -2604,18 +2604,20 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "关闭房间信息面板"
 
-#: src/qml/Main.qml:308
+#: src/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "会话验证"
 
 #: src/qml/Main.qml:325
-#, kde-format
-msgid "User consent"
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
 msgstr "用户许可"
 
-#: src/qml/Main.qml:330
+#: src/qml/Main.qml:328
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2627,30 +2629,30 @@ msgstr "主服务器要求您在使用前同意条款和条件。请点击下面
 msgid "Open"
 msgstr "打开"
 
-#: src/qml/Main.qml:366
+#: src/qml/Main.qml:363
 #, kde-format
 msgid "Start a chat"
 msgstr "开始聊天"
 
-#: src/qml/Main.qml:369
+#: src/qml/Main.qml:366
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "您想要与 %1 开始聊天吗？"
 
-#: src/qml/Main.qml:378
+#: src/qml/Main.qml:375
 #, fuzzy, kde-format
 #| msgid "Start a chat"
 msgctxt "@action"
 msgid "Start Chat"
 msgstr "开始聊天"
 
-#: src/qml/Main.qml:402
+#: src/qml/Main.qml:399
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "当前选择的链接"
 
-#: src/qml/Main.qml:434 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3118,49 +3120,49 @@ msgctxt "@title"
 msgid "Select Spaces"
 msgstr "选择空间"
 
-#: src/qml/ServerComboBox.qml:45
+#: src/qml/ServerComboBox.qml:47
 #, kde-format
 msgid "Add New Server"
 msgstr "添加新服务器"
 
-#: src/qml/ServerComboBox.qml:60
+#: src/qml/ServerComboBox.qml:63
 #, kde-format
 msgid "Home Server"
 msgstr "主服务器"
 
-#: src/qml/ServerComboBox.qml:67
+#: src/qml/ServerComboBox.qml:70
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new server"
 msgstr "添加新服务器"
 
-#: src/qml/ServerComboBox.qml:99
+#: src/qml/ServerComboBox.qml:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "添加服务器"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "Valid server entered"
 msgstr "输入的服务器可用"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "该服务器无法解析或已添加"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "输入的文本不是有效的 URL"
 
-#: src/qml/ServerComboBox.qml:116
+#: src/qml/ServerComboBox.qml:118
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "输入服务器 URL，例如 kde.org"
 
-#: src/qml/ServerComboBox.qml:124
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Server URL"
 msgstr "服务器 URL"
