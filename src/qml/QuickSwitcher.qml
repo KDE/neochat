@@ -16,16 +16,18 @@ QQC2.Dialog {
 
     required property NeoChatConnection connection
 
-    parent: applicationWindow().overlay
+    parent: QQC2.Overlay.overlay
     width: Math.min(700, parent.width)
     height: 400
 
-    leftPadding: Kirigami.Units.smallSpacing
-    rightPadding: Kirigami.Units.smallSpacing
-    bottomPadding: Kirigami.Units.smallSpacing
-    topPadding: Kirigami.Units.smallSpacing
+    leftPadding: 0
+    rightPadding: 0
+    bottomPadding: 1 // HACK fix graphical glitch in the bottom
+    topPadding: 0
 
-    anchors.centerIn: applicationWindow().overlay
+    anchors.centerIn: parent
+
+    modal: true
 
     Shortcut {
         sequence: "Ctrl+K"
@@ -44,9 +46,17 @@ QQC2.Dialog {
     background: DialogRoundedBackground {}
 
     contentItem: ColumnLayout {
+        spacing: 0
+
         Kirigami.SearchField {
             id: searchField
+
             Layout.fillWidth: true
+
+            background: null
+
+            Layout.margins: Kirigami.Units.smallSpacing
+
             Keys.onDownPressed: {
                 roomList.forceActiveFocus();
                 if (roomList.currentIndex < roomList.count - 1) {
@@ -72,6 +82,10 @@ QQC2.Dialog {
             }
             focusSequence: ""
             onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
         }
 
         QQC2.ScrollView {
