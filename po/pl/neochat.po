@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 02:21+0000\n"
-"PO-Revision-Date: 2024-04-01 08:15+0200\n"
+"PO-Revision-Date: 2024-04-27 10:41+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -85,18 +85,16 @@ msgid "Event Source"
 msgstr "Źródło wydarzenia"
 
 #: src/devtools/DebugOptions.qml:19
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
-msgstr "Pokaż podglądy odnośników w wiadomościach"
+msgstr "Pokaż ukryte wydarzenia na osi czasu"
 
 #: src/devtools/DebugOptions.qml:26
-#, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
-msgstr "Oczekiwanie, aż urządzenie zatwierdzi sprawdzenie."
+msgstr "Zezwalaj na sprawdzenie urządzenia"
 
 #: src/devtools/DebugOptions.qml:27
 #, kde-format
@@ -104,12 +102,14 @@ msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
+"Zezwól użytkownikowi na sprawdzanie posiedzenia przy użyciu urządzeń, które "
+"zostały już sprawdzone"
 
 #: src/devtools/DebugOptions.qml:33
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "Skup uwagę na nagłówku okna"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -117,11 +117,10 @@ msgid "Developer Tools"
 msgstr "Narzędzia programisty"
 
 #: src/devtools/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
-msgstr "Ustawienia"
+msgstr "Ustawienia diagnostyczne"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -1748,8 +1747,7 @@ msgid "Choose a Room"
 msgstr "Wybierz pokój"
 
 #: src/qml/CodeMaximizeComponent.qml:52
-#, fuzzy, kde-format
-#| msgid "Copy to clipboard"
+#, kde-format
 msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "Skopiuj do schowka"
@@ -1832,17 +1830,13 @@ msgid "Are you sure you want to sign out?"
 msgstr "Czy na pewno chcesz się wypisać?"
 
 #: src/qml/ConfirmUrlDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Open Url"
+#, kde-format
 msgctxt "@title"
 msgid "Open URL"
 msgstr "Otwórz adres URL"
 
 #: src/qml/ConfirmUrlDialog.qml:21
-#, fuzzy, kde-kuit-format
-#| msgctxt "Do you want to open <link>"
-#| msgid "Do you want to open <b>%1</b>?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr "Czy na pewno otworzyć <b>%1</b>?"
@@ -2129,22 +2123,19 @@ msgid "Select All"
 msgstr "Zaznacz wszystko"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "Edytuj naklejkę"
+msgstr "Stan edycji"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "Odwróć zmiany"
 
 #: src/qml/EditStateDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgctxt "@action As in 'Apply the changes'"
 msgid "Apply"
 msgstr "Zastosuj"
@@ -2230,26 +2221,22 @@ msgid "Scan a QR Code"
 msgstr "Zeskanuj kod QR"
 
 #: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Room"
+#, kde-format
 msgctxt "@title"
 msgid "Rooms"
-msgstr "Pokój"
+msgstr "Pokoje"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search Room"
-msgstr "Poszukaj"
+msgstr "Poszukaj pokoju"
 
 #: src/qml/ExploreComponent.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Show User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Pokaż użytkownika"
+msgstr "Pokaż menu"
 
 #: src/qml/ExploreComponent.qml:182
 #, kde-format
@@ -2619,18 +2606,16 @@ msgid "There are no locations shared in this room."
 msgstr "Nie udostępniono żadnych miejsc w tym pokoju."
 
 #: src/qml/Main.qml:163
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
-msgstr "Szczegóły o nowym pokoju"
+msgstr "Pokaż szczegóły o pokoju"
 
 #: src/qml/Main.qml:166
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
-msgstr "Szczegóły o nowym pokoju"
+msgstr "Zamknij szufladę ze szczegółami o pokoju"
 
 #: src/qml/Main.qml:308
 #, kde-format
@@ -2751,11 +2736,10 @@ msgid "Copy Link"
 msgstr "Skopiuj odnośnik"
 
 #: src/qml/MessageSourceSheet.qml:46
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "Edytuj wiadomość"
+msgstr "Stan edycji"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -3528,8 +3512,7 @@ msgid "Copy link"
 msgstr "Skopiuj odnośnik"
 
 #: src/qml/UserInfo.qml:54
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Account editor"
 msgstr "Edytor konta"
@@ -3846,12 +3829,10 @@ msgid "Label:"
 msgstr "Etykieta:"
 
 #: src/settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "QR code for account"
-msgstr "Usuń to konto"
+msgstr "Kod QR dla konta"
 
 #: src/settings/AccountEditorPage.qml:133
 #: src/settings/AccountEditorPage.qml:188
@@ -3893,13 +3874,12 @@ msgstr "Hasła nie są sobie równe"
 #: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Email Addresses"
-msgstr ""
+msgstr "Adresy e-mail"
 
 #: src/settings/AccountEditorPage.qml:206
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Phone Numbers"
-msgstr "Członkowie"
+msgstr "Numery telefonów"
 
 #: src/settings/AccountEditorPage.qml:211
 #, kde-format
@@ -4057,11 +4037,10 @@ msgid "Verify device"
 msgstr "Sprawdź urządzenie"
 
 #: src/settings/DeviceDelegate.qml:126
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "This device is verified"
 msgid "Verified"
-msgstr "Sprawdzone urządzenia"
+msgstr "Potwierdzony"
 
 #: src/settings/DeviceDelegate.qml:135
 #, kde-format
@@ -4289,7 +4268,7 @@ msgstr "Sam ukryj/odkryj szczegóły pokoju przy zmienianiu rozmiaru okna"
 #: src/settings/NeoChatGeneralPage.qml:74
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
-msgstr ""
+msgstr "Pokaż wszystkie pokoje na zakładce \"Domowej\""
 
 #: src/settings/NeoChatGeneralPage.qml:85
 #, kde-format
@@ -5085,8 +5064,7 @@ msgid "Copy to clipboard"
 msgstr "Skopiuj do schowka"
 
 #: src/timeline/CodeComponent.qml:178
-#, fuzzy, kde-format
-#| msgid "Maximize"
+#, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Zmaksymalizuj"
