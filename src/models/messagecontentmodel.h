@@ -15,13 +15,18 @@
 #include "neochatroom.h"
 
 struct MessageComponent {
-    MessageComponentType::Type type;
+    MessageComponentType::Type type = MessageComponentType::Other;
     QString content;
     QVariantMap attributes;
 
     int operator==(const MessageComponent &right) const
     {
         return type == right.type && content == right.content && attributes == right.attributes;
+    }
+
+    bool isEmpty() const
+    {
+        return type == MessageComponentType::Other;
     }
 };
 

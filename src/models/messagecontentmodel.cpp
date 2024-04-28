@@ -277,7 +277,9 @@ void MessageContentModel::updateComponents(bool isEditing)
         m_components.append(componentsForType(eventHandler.messageComponentType()));
     }
 
-    addLinkPreviews();
+    if (m_room->urlPreviewEnabled()) {
+        addLinkPreviews();
+    }
 
     endResetModel();
 }
@@ -360,8 +362,9 @@ void MessageContentModel::addLinkPreviews()
             if (LinkPreviewer::hasPreviewableLinks(component.content)) {
                 const auto links = LinkPreviewer::linkPreviews(component.content);
                 for (qsizetype j = 0; j < links.size(); ++j) {
-                    if (!m_removedLinkPreviews.contains(links[j])) {
-                        m_components.insert(i + j + 1, linkPreviewComponent(links[j]));
+                    const auto linkPreview = linkPreviewComponent(links[j]);
+                    if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview.isEmpty()) {
+                        m_components.insert(i + j + 1, linkPreview);
                     }
                 };
             }
