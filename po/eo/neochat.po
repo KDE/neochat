@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 02:21+0000\n"
-"PO-Revision-Date: 2024-04-14 23:12+0100\n"
+"PO-Revision-Date: 2024-04-27 17:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -82,14 +82,13 @@ msgstr "Datumoj pri Konto"
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
-msgstr "Eventa Fonto"
+msgstr "Event Fonto"
 
 #: src/devtools/DebugOptions.qml:19
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
-msgstr "Montri antaŭrigardon de ligiloj en la babilmesaĝoj"
+msgstr "Montri kaŝitajn eventojn en la templinio"
 
 #: src/devtools/DebugOptions.qml:26
 #, kde-format
@@ -110,12 +109,12 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "Montri fokuson en fenestrokapo"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
 msgid "Developer Tools"
-msgstr "Iloj por programistoj"
+msgstr "Evoluistaj Iloj"
 
 #: src/devtools/DevtoolsPage.qml:29
 #, kde-format
@@ -309,7 +308,7 @@ msgstr "ŝanĝis ilian montran nomon al %1"
 #: src/eventhandler.cpp:366 src/eventhandler.cpp:548
 #, kde-format
 msgid " and "
-msgstr "kaj"
+msgstr " kaj "
 
 #: src/eventhandler.cpp:369 src/eventhandler.cpp:551
 #, kde-format
@@ -605,7 +604,7 @@ msgstr[1] "%1 uzantoj:"
 #, kde-format
 msgctxt "list separator"
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
@@ -849,7 +848,7 @@ msgstr "Malfermi prokurilajn agordojn"
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
-msgstr "Prokurilaj Agordoj"
+msgstr "Prokuraj Agordoj"
 
 #: src/main.cpp:141
 #, kde-format
@@ -1639,7 +1638,7 @@ msgstr "Ŝanĝi Konton"
 #, kde-format
 msgctxt "@button: login to or register a new account."
 msgid "Add Account"
-msgstr "Aldoni Konton"
+msgstr "Aldoni konton"
 
 #: src/qml/AccountSwitchDialog.qml:57
 #, kde-format
@@ -2032,7 +2031,7 @@ msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr "Igi ĉi tiun spacon la kanonan gepatron"
+msgstr "Igi ĉi tiun spacon la kanonikan gepatron"
 
 #: src/qml/DelegateContextMenu.qml:87
 #, kde-format
@@ -2214,26 +2213,22 @@ msgid "Scan a QR Code"
 msgstr "Skani QR-Kodon"
 
 #: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Room"
+#, kde-format
 msgctxt "@title"
 msgid "Rooms"
-msgstr "Ĉambro"
+msgstr "Ĉambroj"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search Room"
-msgstr "Serĉi"
+msgstr "Serĉi Ĉambron"
 
 #: src/qml/ExploreComponent.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Show User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Montri Uzanton"
+msgstr "Montri Menuon"
 
 #: src/qml/ExploreComponent.qml:182
 #, kde-format
@@ -2603,18 +2598,16 @@ msgid "There are no locations shared in this room."
 msgstr "Ne estas lokoj kunhavataj en ĉi tiu ĉambro."
 
 #: src/qml/Main.qml:163
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
-msgstr "Informo pri Nova Ĉambro"
+msgstr "Montri Informon pri Ĉambro"
 
 #: src/qml/Main.qml:166
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
-msgstr "Informo pri Nova Ĉambro"
+msgstr "Fermi Informkeston pri Ĉambro"
 
 #: src/qml/Main.qml:308
 #, kde-format
@@ -3507,8 +3500,7 @@ msgid "Copy link"
 msgstr "Kopii ligilon"
 
 #: src/qml/UserInfo.qml:54
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Account editor"
 msgstr "Kontoredaktilo"
@@ -3858,13 +3850,12 @@ msgstr "pasvortoj ne egalas"
 #: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Email Addresses"
-msgstr ""
+msgstr "Retpoŝtaj Adresoj"
 
 #: src/settings/AccountEditorPage.qml:206
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Phone Numbers"
-msgstr "Membroj"
+msgstr "Telefonnumeroj"
 
 #: src/settings/AccountEditorPage.qml:211
 #, kde-format
@@ -4142,7 +4133,7 @@ msgstr "Aldoni glumarkon"
 #, kde-format
 msgctxt "@title"
 msgid "Stickers & Emojis"
-msgstr "Glumarkoj kaj Emojis"
+msgstr "Glumarkoj & Emoĝioj"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4253,7 +4244,7 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:74
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
-msgstr ""
+msgstr "Montri ĉiujn ĉambrojn en \"Home\"-langeto"
 
 #: src/settings/NeoChatGeneralPage.qml:85
 #, kde-format
@@ -4275,7 +4266,7 @@ msgstr "Alfabeta"
 #: src/settings/NeoChatGeneralPage.qml:108
 #, kde-format
 msgid "Timeline Events"
-msgstr "Templinio Eventoj"
+msgstr "Templinio-Eventoj"
 
 #: src/settings/NeoChatGeneralPage.qml:113
 #, kde-format
@@ -5047,8 +5038,7 @@ msgid "Copy to clipboard"
 msgstr "Kopii al tondujo"
 
 #: src/timeline/CodeComponent.qml:178
-#, fuzzy, kde-format
-#| msgid "Maximize"
+#, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maksimumigi"
@@ -5214,6 +5204,3 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
-
-#~ msgid "Show fancy effects in chat"
-#~ msgstr "Montri fantaziajn efikojn en babilejo"
