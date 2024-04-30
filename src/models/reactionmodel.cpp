@@ -68,7 +68,8 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
                     text += i18nc("Separate the usernames of users", " and ");
                 }
             }
-            text += reaction.authors.at(i).toMap()[QStringLiteral("displayName")].toString();
+            auto displayName = reaction.authors.at(i).toMap()[QStringLiteral("displayName")].toString();
+            text += displayName.isEmpty() ? reaction.authors.at(i).toMap()[QStringLiteral("id")].toString() : displayName;
         }
 
         if (reaction.authors.count() > 3) {
