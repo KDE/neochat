@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 02:21+0000\n"
-"PO-Revision-Date: 2024-04-18 22:25+0300\n"
+"PO-Revision-Date: 2024-04-29 20:09+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -88,11 +88,10 @@ msgid "Event Source"
 msgstr "Джерело подій"
 
 #: src/devtools/DebugOptions.qml:19
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
-msgstr "Показувати попередній перегляд посилань у повідомленнях спілкування"
+msgstr "Показувати приховані події у розкладі"
 
 #: src/devtools/DebugOptions.qml:26
 #, kde-format
@@ -113,7 +112,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "Показувати фокусування у заголовку вікна"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -2238,26 +2237,22 @@ msgid "Scan a QR Code"
 msgstr "Сканувати QR-код"
 
 #: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Room"
+#, kde-format
 msgctxt "@title"
 msgid "Rooms"
-msgstr "Кімната"
+msgstr "Кімнати"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search Room"
-msgstr "Пошук"
+msgstr "Шукати кімнату"
 
 #: src/qml/ExploreComponent.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Show User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Показати користувача"
+msgstr "Показати меню"
 
 #: src/qml/ExploreComponent.qml:182
 #, kde-format
@@ -2627,18 +2622,16 @@ msgid "There are no locations shared in this room."
 msgstr "У цій кімнаті не оприлюднюються місця перебування."
 
 #: src/qml/Main.qml:163
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
-msgstr "Відомості щодо нової кімнати"
+msgstr "Показати дані щодо кімнати"
 
 #: src/qml/Main.qml:166
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
-msgstr "Відомості щодо нової кімнати"
+msgstr "Закрити панель відомостей щодо кімнати"
 
 #: src/qml/Main.qml:308
 #, kde-format
@@ -3544,8 +3537,7 @@ msgid "Copy link"
 msgstr "Копіювати посилання"
 
 #: src/qml/UserInfo.qml:54
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Account editor"
 msgstr "Редактор облікових записів"
