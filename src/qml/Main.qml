@@ -131,7 +131,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onExternalUrl(url) {
-            let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog").createObject(applicationWindow());
+            let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog").createObject(this);
             dialog.link = url;
             dialog.open();
         }
