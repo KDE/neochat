@@ -300,7 +300,7 @@ Kirigami.ApplicationWindow {
             RoomManager.resolveResource(directChat.id);
         }
         function onNewKeyVerificationSession(session) {
-            applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "KeyVerificationDialog"), {
+            root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "KeyVerificationDialog"), {
                 session: session
             }, {
                 title: i18nc("@title:window", "Session Verification")
