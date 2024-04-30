@@ -31,12 +31,12 @@ FormCard.FormCardPage {
             implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
-            text: qsTr("Room Data")
+            text: i18nc("@title:tab", "Room Data")
 
             implicitWidth: tabBar.tabWidth
         }
         QQC2.TabButton {
-            text: qsTr("Server Info")
+            text: i18nc("@title:tab", "Server Info")
 
             implicitWidth: tabBar.tabWidth
         }
