@@ -88,7 +88,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormButtonDelegate {
             id: ok
-            text: i18nc("@action:button", "Ok")
+            text: root.isSpace ? i18nc("@action:button", "Create Space") : i18nc("@action:button", "Create Room")
             enabled: roomNameField.text.length > 0
             onClicked: {
                 if (root.isSpace) {

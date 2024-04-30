@@ -6,6 +6,8 @@ from flask import Flask, request, abort
 import os
 app = Flask(__name__)
 
+next_sync_payload = ""
+
 
 @app.route("/_matrix/client/v3/login", methods=["GET"])
 def login_get():
@@ -42,8 +44,13 @@ def load_json(name):
 
 @app.route("/_matrix/client/r0/sync")
 def sync():
-
-    result = load_json("sync_response_no_rooms") if ("login" in request.headers.get("Authorization")) else load_json("sync_response_rooms")
+    global next_sync_payload
+    result = dict()
+    if len(next_sync_payload) > 0:
+        result = load_json(next_sync_payload)
+        next_sync_payload = ""
+    else:
+        result = load_json("sync_response_no_rooms") if ("login" in request.headers.get("Authorization")) else load_json("sync_response_rooms")
     return result
 
 @app.route("/.well-known/matrix/client")
@@ -64,6 +71,18 @@ def profile(id):
 def upload_keys():
     reply = dict()
     return reply
+
+@app.route("/_matrix/client/v3/createRoom", methods=["POST"])
+def create_room():
+    global next_sync_payload
+    data = request.get_json()
+    if data["name"] != "Super awesome room name" or data["topic"] != "There are not enough raccoons here":
+        return dict(), 400
+    response = dict()
+    response["room_id"] = "!newroom123321:localhost:1234"
+    next_sync_payload = "sync_response_new_room"
+    return response
+
 
 
 if __name__ == "__main__":

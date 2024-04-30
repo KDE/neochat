@@ -112,6 +112,7 @@ RowLayout {
     QQC2.ToolButton {
         id: menuButton
         Accessible.role: Accessible.ButtonMenu
+        Accessible.onPressAction: menuButton.action.trigger()
         display: QQC2.AbstractButton.IconOnly
         checkable: true
         action: Kirigami.Action {
@@ -144,18 +145,23 @@ RowLayout {
             dim: false
 
             QQC2.MenuItem {
+                Accessible.onPressAction: action.triggered()
                 action: exploreAction
             }
             QQC2.MenuItem {
+                Accessible.onPressAction: action.triggered()
                 action: chatAction
             }
             QQC2.MenuItem {
+                Accessible.onPressAction: action.triggered()
                 action: roomAction
             }
             QQC2.MenuItem {
+                Accessible.onPressAction: action.triggered()
                 action: spaceAction
             }
             QQC2.MenuItem {
+                Accessible.onPressAction: action.triggered()
                 action: scanAction
             }
         }
