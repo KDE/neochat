@@ -34,7 +34,11 @@ Delegates.RoundedItemDelegate {
     Accessible.name: root.displayName
     Accessible.onPressAction: clicked()
 
-    onClicked: RoomManager.resolveResource(currentRoom.id)
+    onClicked: {
+        RoomManager.resolveResource(currentRoom.id);
+        pageStack.currentIndex = 1;
+    }
+
     onPressAndHold: createRoomListContextMenu()
 
     Keys.onSpacePressed: clicked()
