@@ -304,39 +304,9 @@ Kirigami.ApplicationWindow {
             });
         }
         function onUserConsentRequired(url) {
-            let consent = consentDialogComponent.createObject(this);
-            consent.url = url;
-            consent.open();
-        }
-    }
-
-    Component {
-        id: consentDialogComponent
-        Kirigami.Dialog {
-            id: consentDialog
-
-            property string url: ""
-
-            width: Math.min(Kirigami.Units.gridUnit * 24, root.width)
-            height: Kirigami.Units.gridUnit * 8
-            leftPadding: Kirigami.Units.largeSpacing
-            rightPadding: Kirigami.Units.largeSpacing
-
-            title: i18nc("@title:dialog", "User Consent")
-
-            contentItem: QQC2.Label {
-                text: i18n("Your homeserver requires you to agree to its terms and conditions before being able to use it. Please click the button below to read them.")
-                wrapMode: Text.WordWrap
-                horizontalAlignment: Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
-            }
-            customFooterActions: [
-                Kirigami.Action {
-                    text: i18n("Open")
-                    icon.name: "internet-services"
-                    onTriggered: UrlHelper.openUrl(consentDialog.url)
-                }
-            ]
+            Qt.createComponent("org.kde.neochat", "ConsentDialog").createObject(this, {
+                url: url
+            }).open();
         }
     }
 
