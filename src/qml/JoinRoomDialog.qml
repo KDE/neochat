@@ -15,8 +15,8 @@ import org.kde.neochat
 Kirigami.Dialog {
     id: root
 
-    property string room
-    property NeoChatConnection connection
+    required property string room
+    required property NeoChatConnection connection
 
     leftPadding: 0
     rightPadding: 0
@@ -26,7 +26,7 @@ Kirigami.Dialog {
     standardButtons: Kirigami.Dialog.NoButton
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
-    title: i18nc("@title", "Join Room")
+    title: i18nc("@title:dialog", "Join Room")
 
     contentItem: ColumnLayout {
         spacing: 0

@@ -107,7 +107,7 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onAskJoinRoom(room) {
-            Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(applicationWindow(), {
+            Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(root, {
                 room: room,
                 connection: root.connection
             }).open();
