@@ -1041,7 +1041,11 @@ QString EventHandler::getReadMarkersString() const
     QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
     for (const auto &userId : userIds) {
         auto user = m_room->user(userId);
-        readMarkersString += user->displayname(m_room) + i18nc("list separator", ", ");
+        auto displayName = user->displayname(m_room);
+        if (displayName.isEmpty()) {
+            displayName = userId;
+        }
+        readMarkersString += displayName + i18nc("list separator", ", ");
     }
     readMarkersString.chop(2);
     return readMarkersString;
