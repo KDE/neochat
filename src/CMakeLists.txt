@@ -368,12 +368,14 @@ endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
     target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
-    target_compile_definitions(neochat PUBLIC -DHAVE_X11)
+    target_compile_definitions(neochat PUBLIC -DHAVE_X11=1)
     target_sources(neochat PRIVATE runner.cpp)
 
     if (TARGET KUnifiedPush)
         target_sources(neochat PRIVATE fakerunner.cpp)
     endif()
+else()
+    target_compile_definitions(neochat PUBLIC -DHAVE_X11=0)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
