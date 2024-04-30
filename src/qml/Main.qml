@@ -311,14 +311,6 @@ Kirigami.ApplicationWindow {
     }
 
     Component {
-        id: createRoomDialog
-
-        CreateRoomDialog {
-            connection: root.connection
-        }
-    }
-
-    Component {
         id: askDirectChatConfirmationComponent
 
         Kirigami.Dialog {
