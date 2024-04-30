@@ -15,6 +15,8 @@ Kirigami.ApplicationWindow {
     id: root
 
     property NeoChatConnection connection: Controller.activeConnection
+    readonly property HoverLinkIndicator hoverLinkIndicator: linkIndicator
+
 
     title: Config.windowTitleFocus ? activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "") : "NeoChat"
 
@@ -311,25 +313,11 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    property QQC2.Control hoverLinkIndicator: QQC2.Control {
-        parent: root.overlay.parent
-        property alias text: linkText.rawText
-        opacity: linkText.text.length > 0 ? 1 : 0
+    HoverLinkIndicator {
+        id: linkIndicator
 
-        z: 20
-        x: 0
-        Accessible.ignored: true
-        y: parent.height - implicitHeight
-        contentItem: QQC2.Label {
-            id: linkText
-            property string rawText
-            text: rawText.startsWith("https://matrix.to/") ? "" : rawText
-            Accessible.description: i18nc("@info screenreader", "The currently selected link")
-        }
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        background: Rectangle {
-            color: Kirigami.Theme.backgroundColor
-        }
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
     }
 
     Shortcut {

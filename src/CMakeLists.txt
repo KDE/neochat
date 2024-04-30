@@ -272,6 +272,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/EditStateDialog.qml
         qml/ConsentDialog.qml
         qml/AskDirectChatConfirmation.qml
+        qml/HoverLinkIndicator.qml
 )
 
 add_subdirectory(settings)
