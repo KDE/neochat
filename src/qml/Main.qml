@@ -125,10 +125,11 @@ Kirigami.ApplicationWindow {
         }
 
         function onAskDirectChatConfirmation(user) {
-            askDirectChatConfirmationComponent.createObject(this, {
+            Qt.createComponent("org.kde.neochat", "AskDirectChatConfirmation").createObject(this, {
                 user: user
             }).open();
         }
+
         function onExternalUrl(url) {
             let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog").createObject(applicationWindow());
             dialog.link = url;
@@ -307,41 +308,6 @@ Kirigami.ApplicationWindow {
             Qt.createComponent("org.kde.neochat", "ConsentDialog").createObject(this, {
                 url: url
             }).open();
-        }
-    }
-
-    Component {
-        id: askDirectChatConfirmationComponent
-
-        Kirigami.Dialog {
-            id: askDirectChatConfirmation
-
-            required property var user
-
-            width: Math.min(Kirigami.Units.gridUnit * 24, root.width)
-            height: Kirigami.Units.gridUnit * 8
-
-            standardButtons: QQC2.Dialog.Close
-            title: i18n("Start a chat")
-
-            contentItem: QQC2.Label {
-                text: i18n("Do you want to start a chat with %1?", askDirectChatConfirmation.user.displayName)
-                textFormat: Text.PlainText
-                wrapMode: Text.Wrap
-                horizontalAlignment: Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
-            }
-
-            customFooterActions: [
-                Kirigami.Action {
-                    text: i18nc("@action", "Start Chat")
-                    icon.name: "im-user"
-                    onTriggered: {
-                        askDirectChatConfirmation.user.requestDirectChat();
-                        askDirectChatConfirmation.close();
-                    }
-                }
-            ]
         }
     }
 
