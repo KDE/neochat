@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:38+0000\n"
+"POT-Creation-Date: 2024-05-01 00:38+0000\n"
 "PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -195,6 +195,20 @@ msgstr "Rīki izstrādātājiem"
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "Iespējas"
+
+#: src/devtools/DevtoolsPage.qml:34
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@title:tab"
+msgid "Room Data"
+msgstr "Istabas ID"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:tab"
+msgid "Server Info"
+msgstr "Servera informācija"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -676,7 +690,7 @@ msgstr[0] "%1 lietotājs: "
 msgstr[1] "%1 lietotāji: "
 msgstr[2] "%1 lietotāju: "
 
-#: src/eventhandler.cpp:1044
+#: src/eventhandler.cpp:1048
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -820,7 +834,7 @@ msgid "Password:"
 msgstr "Parole:"
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:85
+#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
 msgstr "Parole"
@@ -1539,7 +1553,7 @@ msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " un "
 
-#: src/models/reactionmodel.cpp:75
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1548,7 +1562,7 @@ msgstr[0] " un vēl %1"
 msgstr[1] " un vēl %1"
 msgstr[2] " un vēl %1"
 
-#: src/models/reactionmodel.cpp:79
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2026,12 +2040,19 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "Padarīt šo vecākobjektu oficiālu"
 
-#: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
-#: src/qml/ServerComboBox.qml:148
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Space"
 msgctxt "@action:button"
-msgid "Ok"
-msgstr "Labi"
+msgid "Create Space"
+msgstr "Izveidot telpu"
+
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "Izveidot istabu"
 
 #: src/qml/CreateRoomDialog.qml:106
 #, kde-format
@@ -2081,6 +2102,12 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
+
+#: src/qml/CreateRoomDialog.qml:241 src/qml/ServerComboBox.qml:148
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "Labi"
 
 #: src/qml/DelegateContextMenu.qml:87
 #, kde-format
@@ -2258,14 +2285,14 @@ msgctxt "@action"
 msgid "Search Room"
 msgstr "Meklēt"
 
-#: src/qml/ExploreComponent.qml:118
+#: src/qml/ExploreComponent.qml:119
 #, fuzzy, kde-format
 #| msgid "Switch User"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Pārslēgt lietotāju"
 
-#: src/qml/ExploreComponent.qml:182
+#: src/qml/ExploreComponent.qml:188
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Izveidot telpas un tērzētavas"
@@ -2937,12 +2964,12 @@ msgstr "Ziņot par ziņu"
 msgid "Reason for reporting this message"
 msgstr "Iemesls ziņošanai par šo ziņu"
 
-#: src/qml/RoomDelegate.qml:103
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr "Apklusināta istaba"
 
-#: src/qml/RoomDelegate.qml:136
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "Konfigurēt istabu"
@@ -4453,7 +4480,7 @@ msgstr "Uzlīmes un emocijzīmes"
 msgid "Spell Checking"
 msgstr "Pareizrakstības pārbaude"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:19
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Tīkla starpniekserveris"
@@ -4468,48 +4495,55 @@ msgstr "Par „NeoChat“"
 msgid "About KDE"
 msgstr "Par KDE"
 
-#: src/settings/NetworkProxyPage.qml:13
+#: src/settings/NetworkProxyPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr "Starpniekserveris"
 
-#: src/settings/NetworkProxyPage.qml:23
+#: src/settings/NetworkProxyPage.qml:25
 #, kde-format
 msgid "System Default"
 msgstr "Sistēmas noklusējums"
 
-#: src/settings/NetworkProxyPage.qml:31
+#: src/settings/NetworkProxyPage.qml:33
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Proxy"
+msgid "No Proxy"
+msgstr "Starpniekserveris"
+
+#: src/settings/NetworkProxyPage.qml:41
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:39
+#: src/settings/NetworkProxyPage.qml:49
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:49
+#: src/settings/NetworkProxyPage.qml:59
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Starpniekservera iestatījumi"
 
-#: src/settings/NetworkProxyPage.qml:54
+#: src/settings/NetworkProxyPage.qml:64
 #, kde-format
 msgid "Host"
 msgstr "Saimniekdators"
 
-#: src/settings/NetworkProxyPage.qml:63
+#: src/settings/NetworkProxyPage.qml:73
 #, kde-format
 msgid "Port"
 msgstr "Ports"
 
-#: src/settings/NetworkProxyPage.qml:76
+#: src/settings/NetworkProxyPage.qml:86
 #, kde-format
 msgid "User"
 msgstr "Lietotājs"
 
-#: src/settings/NetworkProxyPage.qml:103
+#: src/settings/NetworkProxyPage.qml:113
 #, kde-format
 msgid "Apply"
 msgstr "Pielietot"

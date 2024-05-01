@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:38+0000\n"
+"POT-Creation-Date: 2024-05-01 00:38+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -197,6 +197,20 @@ msgstr ""
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr ""
+
+#: src/devtools/DevtoolsPage.qml:34
+#, fuzzy, kde-format
+#| msgid "Room Name"
+msgctxt "@title:tab"
+msgid "Room Data"
+msgstr "Værelsesnavn:"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Server Address"
+msgctxt "@title:tab"
+msgid "Server Info"
+msgstr "Serveradresse"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, fuzzy, kde-format
@@ -688,7 +702,7 @@ msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/eventhandler.cpp:1044
+#: src/eventhandler.cpp:1048
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -839,7 +853,7 @@ msgid "Password:"
 msgstr "Adgangskode"
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:85
+#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Password"
@@ -1579,7 +1593,7 @@ msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " og "
 
-#: src/models/reactionmodel.cpp:75
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1587,7 +1601,7 @@ msgid_plural " and %1 others"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/reactionmodel.cpp:79
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2074,12 +2088,19 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
-#: src/qml/ServerComboBox.qml:148
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Muted"
 msgctxt "@action:button"
-msgid "Ok"
-msgstr "O.k."
+msgid "Create Space"
+msgstr "Lydløs"
+
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "Lydløs"
 
 #: src/qml/CreateRoomDialog.qml:106
 #, kde-format
@@ -2126,6 +2147,12 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:241 src/qml/ServerComboBox.qml:148
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "O.k."
 
 #: src/qml/DelegateContextMenu.qml:87
 #, kde-format
@@ -2304,14 +2331,14 @@ msgctxt "@action"
 msgid "Search Room"
 msgstr "Lydløs"
 
-#: src/qml/ExploreComponent.qml:118
+#: src/qml/ExploreComponent.qml:119
 #, fuzzy, kde-format
 #| msgid "Username"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Brugernavn"
 
-#: src/qml/ExploreComponent.qml:182
+#: src/qml/ExploreComponent.qml:188
 #, kde-format
 msgid "Create rooms and chats"
 msgstr ""
@@ -3005,13 +3032,13 @@ msgstr "Send besked"
 msgid "Reason for reporting this message"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:103
+#: src/qml/RoomDelegate.qml:107
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Lydløs"
 
-#: src/qml/RoomDelegate.qml:136
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr ""
@@ -4547,7 +4574,7 @@ msgstr ""
 msgid "Spell Checking"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:19
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
 #, fuzzy, kde-format
 #| msgid "Network Error"
 msgid "Network Proxy"
@@ -4564,50 +4591,56 @@ msgstr ""
 msgid "About KDE"
 msgstr "Om"
 
-#: src/settings/NetworkProxyPage.qml:13
+#: src/settings/NetworkProxyPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:23
+#: src/settings/NetworkProxyPage.qml:25
 #, kde-format
 msgid "System Default"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:31
+#: src/settings/NetworkProxyPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Network Error"
+msgid "No Proxy"
+msgstr "Netværksfejl"
+
+#: src/settings/NetworkProxyPage.qml:41
 #, kde-format
 msgid "HTTP"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:39
+#: src/settings/NetworkProxyPage.qml:49
 #, kde-format
 msgid "Socks5"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:49
+#: src/settings/NetworkProxyPage.qml:59
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Proxy Settings"
 msgstr "Indstillinger"
 
-#: src/settings/NetworkProxyPage.qml:54
+#: src/settings/NetworkProxyPage.qml:64
 #, kde-format
 msgid "Host"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:63
+#: src/settings/NetworkProxyPage.qml:73
 #, kde-format
 msgid "Port"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:76
+#: src/settings/NetworkProxyPage.qml:86
 #, fuzzy, kde-format
 #| msgid "Username"
 msgid "User"
 msgstr "Brugernavn"
 
-#: src/settings/NetworkProxyPage.qml:103
+#: src/settings/NetworkProxyPage.qml:113
 #, kde-format
 msgid "Apply"
 msgstr ""

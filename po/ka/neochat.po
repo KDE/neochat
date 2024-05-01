@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:38+0000\n"
+"POT-Creation-Date: 2024-05-01 00:38+0000\n"
 "PO-Revision-Date: 2024-04-29 11:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -191,6 +191,20 @@ msgstr "პროგრამირება"
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "გამართვის მორგება"
+
+#: src/devtools/DevtoolsPage.qml:34
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@title:tab"
+msgid "Room Data"
+msgstr "ოთახის ID"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:tab"
+msgid "Server Info"
+msgstr "ინფორმაცია სერვერის შესახებ"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -670,7 +684,7 @@ msgid_plural "%1 users: "
 msgstr[0] "1 მომხმარებელი: "
 msgstr[1] "%1 მომხმარებელი: "
 
-#: src/eventhandler.cpp:1044
+#: src/eventhandler.cpp:1048
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -814,7 +828,7 @@ msgid "Password:"
 msgstr "პაროლი:"
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:85
+#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
 msgstr "პაროლი"
@@ -1533,7 +1547,7 @@ msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " და "
 
-#: src/models/reactionmodel.cpp:75
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1541,7 +1555,7 @@ msgid_plural " and %1 others"
 msgstr[0] " და კიდევ %1"
 msgstr[1] " და კიდევ %1"
 
-#: src/models/reactionmodel.cpp:79
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2006,12 +2020,19 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "ამ მშობლის გაოფიციალურება"
 
-#: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
-#: src/qml/ServerComboBox.qml:148
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Space"
 msgctxt "@action:button"
-msgid "Ok"
-msgstr "Ok"
+msgid "Create Space"
+msgstr "სივრცის შექმნა"
+
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "ახალი ოთახის შექმნა"
 
 #: src/qml/CreateRoomDialog.qml:106
 #, kde-format
@@ -2058,6 +2079,12 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "ამ სივრცის კანონიკურ მშობლად დაყენება"
+
+#: src/qml/CreateRoomDialog.qml:241 src/qml/ServerComboBox.qml:148
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "Ok"
 
 #: src/qml/DelegateContextMenu.qml:87
 #, kde-format
@@ -2229,13 +2256,13 @@ msgctxt "@action"
 msgid "Search Room"
 msgstr "ოთახის ძებნა"
 
-#: src/qml/ExploreComponent.qml:118
+#: src/qml/ExploreComponent.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "მენიუს ჩვენება"
 
-#: src/qml/ExploreComponent.qml:182
+#: src/qml/ExploreComponent.qml:188
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "ჩატებისა და ოთახების შექმნა"
@@ -2894,12 +2921,12 @@ msgstr "შეტყობინების შესახებ ანგა�
 msgid "Reason for reporting this message"
 msgstr "ამ შეტყობინების შესახებ ანგარიშის გაგზავნის მიზეზი"
 
-#: src/qml/RoomDelegate.qml:103
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr "დადუმებული ოთახი"
 
-#: src/qml/RoomDelegate.qml:136
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "ოთახის მორგება"
@@ -4393,7 +4420,7 @@ msgstr "ემოჯიები და სტიკერები"
 msgid "Spell Checking"
 msgstr "მართლწერის შემოწმება"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:19
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "ქსელის პროქსი"
@@ -4408,48 +4435,55 @@ msgstr "NeoChat-ს შესახებ"
 msgid "About KDE"
 msgstr "KDE-ს შესახებ"
 
-#: src/settings/NetworkProxyPage.qml:13
+#: src/settings/NetworkProxyPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr "პროქსი"
 
-#: src/settings/NetworkProxyPage.qml:23
+#: src/settings/NetworkProxyPage.qml:25
 #, kde-format
 msgid "System Default"
 msgstr "სისტემის ნაგულისხმევი"
 
-#: src/settings/NetworkProxyPage.qml:31
+#: src/settings/NetworkProxyPage.qml:33
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Proxy"
+msgid "No Proxy"
+msgstr "პროქსი"
+
+#: src/settings/NetworkProxyPage.qml:41
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:39
+#: src/settings/NetworkProxyPage.qml:49
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:49
+#: src/settings/NetworkProxyPage.qml:59
 #, kde-format
 msgid "Proxy Settings"
 msgstr "პროქსის მორგება"
 
-#: src/settings/NetworkProxyPage.qml:54
+#: src/settings/NetworkProxyPage.qml:64
 #, kde-format
 msgid "Host"
 msgstr "ჰოსტი"
 
-#: src/settings/NetworkProxyPage.qml:63
+#: src/settings/NetworkProxyPage.qml:73
 #, kde-format
 msgid "Port"
 msgstr "პორტი"
 
-#: src/settings/NetworkProxyPage.qml:76
+#: src/settings/NetworkProxyPage.qml:86
 #, kde-format
 msgid "User"
 msgstr "მომხმარებელი"
 
-#: src/settings/NetworkProxyPage.qml:103
+#: src/settings/NetworkProxyPage.qml:113
 #, kde-format
 msgid "Apply"
 msgstr "გამოყენება"

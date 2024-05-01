@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:38+0000\n"
+"POT-Creation-Date: 2024-05-01 00:38+0000\n"
 "PO-Revision-Date: 2024-04-27 08:47+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -195,6 +195,20 @@ msgstr "Інструменти розробника"
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "Параметри налагоджування"
+
+#: src/devtools/DevtoolsPage.qml:34
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@title:tab"
+msgid "Room Data"
+msgstr "Ід. кімнати"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:tab"
+msgid "Server Info"
+msgstr "Інформація про сервер"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -678,7 +692,7 @@ msgstr[1] "%1 користувачі: "
 msgstr[2] "%1 користувачів: "
 msgstr[3] "%1 користувач: "
 
-#: src/eventhandler.cpp:1044
+#: src/eventhandler.cpp:1048
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -823,7 +837,7 @@ msgid "Password:"
 msgstr "Пароль:"
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:85
+#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
 msgstr "Пароль"
@@ -1548,7 +1562,7 @@ msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " і "
 
-#: src/models/reactionmodel.cpp:75
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1558,7 +1572,7 @@ msgstr[1] " і %1 інші"
 msgstr[2] " і %1 інших"
 msgstr[3] " і %1 інший"
 
-#: src/models/reactionmodel.cpp:79
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2027,12 +2041,19 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "Зробити цей батьківський запис офіційним"
 
-#: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
-#: src/qml/ServerComboBox.qml:148
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Space"
 msgctxt "@action:button"
-msgid "Ok"
-msgstr "Гаразд"
+msgid "Create Space"
+msgstr "Створити простір"
+
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "Створити кімнату"
 
 #: src/qml/CreateRoomDialog.qml:106
 #, kde-format
@@ -2082,6 +2103,12 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Зробити цей простір канонічним батьківським"
+
+#: src/qml/CreateRoomDialog.qml:241 src/qml/ServerComboBox.qml:148
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "Гаразд"
 
 #: src/qml/DelegateContextMenu.qml:87
 #, kde-format
@@ -2254,13 +2281,13 @@ msgctxt "@action"
 msgid "Search Room"
 msgstr "Шукати кімнату"
 
-#: src/qml/ExploreComponent.qml:118
+#: src/qml/ExploreComponent.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Показати меню"
 
-#: src/qml/ExploreComponent.qml:182
+#: src/qml/ExploreComponent.qml:188
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Створити кімнати і спілкування"
@@ -2921,12 +2948,12 @@ msgstr "Поскаржитися на повідомлення"
 msgid "Reason for reporting this message"
 msgstr "Причина скарги на це повідомлення"
 
-#: src/qml/RoomDelegate.qml:103
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr "Кімната із вимкненим спілкуванням"
 
-#: src/qml/RoomDelegate.qml:136
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "Налаштувати кімнату"
@@ -4450,7 +4477,7 @@ msgstr "Наліпки та емоційки"
 msgid "Spell Checking"
 msgstr "Перевірка правопису"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:19
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Проксі-сервер мережі"
@@ -4465,48 +4492,55 @@ msgstr "Про NeoChat"
 msgid "About KDE"
 msgstr "Про KDE"
 
-#: src/settings/NetworkProxyPage.qml:13
+#: src/settings/NetworkProxyPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr "Проксі-сервер"
 
-#: src/settings/NetworkProxyPage.qml:23
+#: src/settings/NetworkProxyPage.qml:25
 #, kde-format
 msgid "System Default"
 msgstr "Типовий для системи"
 
-#: src/settings/NetworkProxyPage.qml:31
+#: src/settings/NetworkProxyPage.qml:33
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Proxy"
+msgid "No Proxy"
+msgstr "Проксі-сервер"
+
+#: src/settings/NetworkProxyPage.qml:41
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:39
+#: src/settings/NetworkProxyPage.qml:49
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:49
+#: src/settings/NetworkProxyPage.qml:59
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Налаштування проксі"
 
-#: src/settings/NetworkProxyPage.qml:54
+#: src/settings/NetworkProxyPage.qml:64
 #, kde-format
 msgid "Host"
 msgstr "Вузол"
 
-#: src/settings/NetworkProxyPage.qml:63
+#: src/settings/NetworkProxyPage.qml:73
 #, kde-format
 msgid "Port"
 msgstr "Порт"
 
-#: src/settings/NetworkProxyPage.qml:76
+#: src/settings/NetworkProxyPage.qml:86
 #, kde-format
 msgid "User"
 msgstr "Користувач"
 
-#: src/settings/NetworkProxyPage.qml:103
+#: src/settings/NetworkProxyPage.qml:113
 #, kde-format
 msgid "Apply"
 msgstr "Застосувати"

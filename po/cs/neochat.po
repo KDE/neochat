@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:38+0000\n"
+"POT-Creation-Date: 2024-05-01 00:38+0000\n"
 "PO-Revision-Date: 2023-11-23 10:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -188,6 +188,20 @@ msgstr "Vývojové nástroje"
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr ""
+
+#: src/devtools/DevtoolsPage.qml:34
+#, fuzzy, kde-format
+#| msgid "Room name:"
+msgctxt "@title:tab"
+msgid "Room Data"
+msgstr "Název místnosti:"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:tab"
+msgid "Server Info"
+msgstr "Informace o serveru"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -669,7 +683,7 @@ msgstr[0] "%1 uživatel:"
 msgstr[1] "%1 uživatelé:"
 msgstr[2] "%1 uživatelů:"
 
-#: src/eventhandler.cpp:1044
+#: src/eventhandler.cpp:1048
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -811,7 +825,7 @@ msgid "Password:"
 msgstr "Heslo:"
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:85
+#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
 msgstr "Heslo"
@@ -1530,7 +1544,7 @@ msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " a "
 
-#: src/models/reactionmodel.cpp:75
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1539,7 +1553,7 @@ msgstr[0] " a 1 další"
 msgstr[1] " a %1 další"
 msgstr[2] " a %1 dalších"
 
-#: src/models/reactionmodel.cpp:79
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2001,12 +2015,20 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
-#: src/qml/ServerComboBox.qml:148
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Space"
 msgctxt "@action:button"
-msgid "Ok"
-msgstr "OK"
+msgid "Create Space"
+msgstr "Vytvořit místnost"
+
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "Vytvořit místnost"
 
 #: src/qml/CreateRoomDialog.qml:106
 #, kde-format
@@ -2052,6 +2074,12 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr ""
+
+#: src/qml/CreateRoomDialog.qml:241 src/qml/ServerComboBox.qml:148
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "OK"
 
 #: src/qml/DelegateContextMenu.qml:87
 #, kde-format
@@ -2224,13 +2252,13 @@ msgctxt "@action"
 msgid "Search Room"
 msgstr "Hledat"
 
-#: src/qml/ExploreComponent.qml:118
+#: src/qml/ExploreComponent.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:182
+#: src/qml/ExploreComponent.qml:188
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Vytvářejte místnosti a rozhovory"
@@ -2886,12 +2914,12 @@ msgstr "Nahlásit zprávu"
 msgid "Reason for reporting this message"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:103
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:136
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr ""
@@ -4371,7 +4399,7 @@ msgstr ""
 msgid "Spell Checking"
 msgstr "Kontrola pravopisu"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:19
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Síťová proxy"
@@ -4386,48 +4414,54 @@ msgstr "O aplikaci NeoChat"
 msgid "About KDE"
 msgstr "O prostředí KDE"
 
-#: src/settings/NetworkProxyPage.qml:13
+#: src/settings/NetworkProxyPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:23
+#: src/settings/NetworkProxyPage.qml:25
 #, kde-format
 msgid "System Default"
 msgstr "Výchozí systémový"
 
-#: src/settings/NetworkProxyPage.qml:31
+#: src/settings/NetworkProxyPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Network Proxy"
+msgid "No Proxy"
+msgstr "Síťová proxy"
+
+#: src/settings/NetworkProxyPage.qml:41
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:39
+#: src/settings/NetworkProxyPage.qml:49
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:49
+#: src/settings/NetworkProxyPage.qml:59
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Nastavení proxy"
 
-#: src/settings/NetworkProxyPage.qml:54
+#: src/settings/NetworkProxyPage.qml:64
 #, kde-format
 msgid "Host"
 msgstr "Hostitel"
 
-#: src/settings/NetworkProxyPage.qml:63
+#: src/settings/NetworkProxyPage.qml:73
 #, kde-format
 msgid "Port"
 msgstr "Port"
 
-#: src/settings/NetworkProxyPage.qml:76
+#: src/settings/NetworkProxyPage.qml:86
 #, kde-format
 msgid "User"
 msgstr "Uživatel"
 
-#: src/settings/NetworkProxyPage.qml:103
+#: src/settings/NetworkProxyPage.qml:113
 #, kde-format
 msgid "Apply"
 msgstr "Použít"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:38+0000\n"
-"PO-Revision-Date: 2024-04-22 17:03+0200\n"
+"POT-Creation-Date: 2024-05-01 00:38+0000\n"
+"PO-Revision-Date: 2024-04-28 11:17+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -191,6 +191,20 @@ msgstr "Strumenti per sviluppatori"
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "Opzioni di debug"
+
+#: src/devtools/DevtoolsPage.qml:34
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@title:tab"
+msgid "Room Data"
+msgstr "ID stanza"
+
+#: src/devtools/DevtoolsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:tab"
+msgid "Server Info"
+msgstr "Informazioni server"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -670,7 +684,7 @@ msgid_plural "%1 users: "
 msgstr[0] "1 utente: "
 msgstr[1] "%1 utenti: "
 
-#: src/eventhandler.cpp:1044
+#: src/eventhandler.cpp:1048
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -815,7 +829,7 @@ msgid "Password:"
 msgstr "Password:"
 
 #: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:85
+#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
 msgstr "Password"
@@ -1536,7 +1550,7 @@ msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " e "
 
-#: src/models/reactionmodel.cpp:75
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1544,7 +1558,7 @@ msgid_plural " and %1 others"
 msgstr[0] " e %1 altro"
 msgstr[1] " e %1 altri"
 
-#: src/models/reactionmodel.cpp:79
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2010,12 +2024,19 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "Rendi ufficiale questa genitore"
 
-#: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
-#: src/qml/ServerComboBox.qml:148
-#, kde-format
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Space"
 msgctxt "@action:button"
-msgid "Ok"
-msgstr "Ok"
+msgid "Create Space"
+msgstr "Crea uno spazio"
+
+#: src/qml/CreateRoomDialog.qml:91
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "Crea una stanza"
 
 #: src/qml/CreateRoomDialog.qml:106
 #, kde-format
@@ -2065,6 +2086,12 @@ msgctxt ""
 "parent spaces."
 msgid "Make this space the canonical parent"
 msgstr "Rendi questo spazio il genitore canonico"
+
+#: src/qml/CreateRoomDialog.qml:241 src/qml/ServerComboBox.qml:148
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "Ok"
 
 #: src/qml/DelegateContextMenu.qml:87
 #, kde-format
@@ -2226,26 +2253,24 @@ msgid "Scan a QR Code"
 msgstr "Scansione di un codice QR"
 
 #: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Room"
+#, kde-format
 msgctxt "@title"
 msgid "Rooms"
-msgstr "Stanza"
+msgstr "Stanze"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search Room"
-msgstr "Cerca"
+msgstr "Cerca stanza"
 
-#: src/qml/ExploreComponent.qml:118
+#: src/qml/ExploreComponent.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Mostra il menu"
 
-#: src/qml/ExploreComponent.qml:182
+#: src/qml/ExploreComponent.qml:188
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Crea stanze e chat"
@@ -2613,18 +2638,16 @@ msgid "There are no locations shared in this room."
 msgstr "Non ci sono posizioni condivise in questa stanza."
 
 #: src/qml/Main.qml:163
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
-msgstr "Nuove informazioni sulla stanza"
+msgstr "Mostra le informazioni sulla stanza"
 
 #: src/qml/Main.qml:166
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
-msgstr "Nuove informazioni sulla stanza"
+msgstr "Chiudi il cassetto delle informazioni sulla stanza"
 
 #: src/qml/Main.qml:303
 #, kde-format
@@ -2633,8 +2656,7 @@ msgid "Session Verification"
 msgstr "Verifica della sessione"
 
 #: src/qml/Main.qml:325
-#, fuzzy, kde-format
-#| msgid "User consent"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "User Consent"
 msgstr "Consenso dell'utente"
@@ -2664,11 +2686,10 @@ msgid "Do you want to start a chat with %1?"
 msgstr "Vuoi iniziare una chat con %1?"
 
 #: src/qml/Main.qml:375
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#, kde-format
 msgctxt "@action"
 msgid "Start Chat"
-msgstr "Avvia una chat"
+msgstr "Avvia chat"
 
 #: src/qml/Main.qml:399
 #, kde-format
@@ -2910,12 +2931,12 @@ msgstr "Messaggio della segnalazione"
 msgid "Reason for reporting this message"
 msgstr "Motivo della segnalazione di questo messaggio"
 
-#: src/qml/RoomDelegate.qml:103
+#: src/qml/RoomDelegate.qml:107
 #, kde-format
 msgid "Muted room"
 msgstr "Stanza silenziata"
 
-#: src/qml/RoomDelegate.qml:136
+#: src/qml/RoomDelegate.qml:140
 #, kde-format
 msgid "Configure room"
 msgstr "Configura la stanza"
@@ -3523,8 +3544,7 @@ msgid "Copy link"
 msgstr "Copia collegamento"
 
 #: src/qml/UserInfo.qml:54
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Account editor"
 msgstr "Editor degli account"
@@ -4440,7 +4460,7 @@ msgstr "Adesivi ed emoji"
 msgid "Spell Checking"
 msgstr "Controllo ortografico"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:19
+#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Proxy di rete"
@@ -4455,48 +4475,55 @@ msgstr "Informazioni su Neochat"
 msgid "About KDE"
 msgstr "Informazioni su KDE"
 
-#: src/settings/NetworkProxyPage.qml:13
+#: src/settings/NetworkProxyPage.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr "Proxy"
 
-#: src/settings/NetworkProxyPage.qml:23
+#: src/settings/NetworkProxyPage.qml:25
 #, kde-format
 msgid "System Default"
 msgstr "Impostazioni predefinite di sistema"
 
-#: src/settings/NetworkProxyPage.qml:31
+#: src/settings/NetworkProxyPage.qml:33
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Proxy"
+msgid "No Proxy"
+msgstr "Proxy"
+
+#: src/settings/NetworkProxyPage.qml:41
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:39
+#: src/settings/NetworkProxyPage.qml:49
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:49
+#: src/settings/NetworkProxyPage.qml:59
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Impostazioni del proxy"
 
-#: src/settings/NetworkProxyPage.qml:54
+#: src/settings/NetworkProxyPage.qml:64
 #, kde-format
 msgid "Host"
 msgstr "Host"
 
-#: src/settings/NetworkProxyPage.qml:63
+#: src/settings/NetworkProxyPage.qml:73
 #, kde-format
 msgid "Port"
 msgstr "Porta"
 
-#: src/settings/NetworkProxyPage.qml:76
+#: src/settings/NetworkProxyPage.qml:86
 #, kde-format
 msgid "User"
 msgstr "Utente"
 
-#: src/settings/NetworkProxyPage.qml:103
+#: src/settings/NetworkProxyPage.qml:113
 #, kde-format
 msgid "Apply"
 msgstr "Applica"
@@ -5170,11 +5197,10 @@ msgid "Send to KDE Itinerary"
 msgstr "Invia a KDE Itinerary"
 
 #: src/timeline/LinkPreviewComponent.qml:128 src/timeline/LoadComponent.qml:79
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
-msgstr "Rimuovi il dispositivo"
+msgstr "Rimuovi l'anteprima"
 
 #: src/timeline/LinkPreviewComponent.qml:146
 #, kde-format
