@@ -13,6 +13,8 @@ import org.kde.neochat
 
 Item {
     id: root
+
+    required property int index
     required property TreeView treeView
     required property bool isTreeNode
     required property bool expanded
