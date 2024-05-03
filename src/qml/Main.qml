@@ -262,7 +262,7 @@ Kirigami.ApplicationWindow {
         function onRowsRemoved() {
             if (AccountRegistry.rowCount() === 0) {
                 pageStack.clear();
-                pageStack.push(Qt.createComponent('org.kde.neochat', 'WelcomePage'));
+                pageStack.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'));
             }
         }
     }
