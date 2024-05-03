@@ -43,6 +43,11 @@ TimelineDelegate {
 
     contentItem: QQC2.Control {
         id: contentControl
+
+        topInset: Kirigami.Units.smallSpacing
+        topPadding: Kirigami.Units.smallSpacing * 2
+        bottomPadding: Kirigami.Units.smallSpacing
+
         contentItem: RowLayout {
             KirigamiComponents.Avatar {
                 Layout.leftMargin: Kirigami.Units.largeSpacing * 1.5
