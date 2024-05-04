@@ -8,13 +8,11 @@
 #include <QCache>
 #include <QObject>
 #include <QQmlEngine>
-#include <QTextCursor>
 
 #include <QCoroTask>
 #include <Quotient/user.h>
 
 #include "enums/pushrule.h"
-#include "events/pollevent.h"
 #include "pollhandler.h"
 
 namespace Quotient
