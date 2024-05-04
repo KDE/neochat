@@ -5,7 +5,6 @@
 
 #include <QObject>
 #include <QQmlEngine>
-#include <QQuickItem>
 
 #include "neochatconnection.h"
 #include <Quotient/accountregistry.h>
