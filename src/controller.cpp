@@ -46,6 +46,10 @@
 #endif
 #endif
 
+#ifdef HAVE_KUNIFIEDPUSH
+#include <kunifiedpush/connector.h>
+#endif
+
 bool testMode = false;
 
 using namespace Quotient;

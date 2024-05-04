@@ -9,10 +9,6 @@
 #include "neochatconnection.h"
 #include <Quotient/accountregistry.h>
 
-#ifdef HAVE_KUNIFIEDPUSH
-#include <kunifiedpush/connector.h>
-#endif
-
 class TrayIcon;
 class QQuickTextDocument;
 
