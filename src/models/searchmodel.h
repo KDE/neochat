@@ -122,7 +122,7 @@ private:
 
     QString m_searchText;
     QPointer<NeoChatRoom> m_room;
-    Quotient::Omittable<Quotient::SearchJob::ResultRoomEvents> m_result = Quotient::none;
+    std::optional<Quotient::SearchJob::ResultRoomEvents> m_result = std::nullopt;
     Quotient::SearchJob *m_job = nullptr;
     bool m_searching = false;
 };

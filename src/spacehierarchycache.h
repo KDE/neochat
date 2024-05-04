@@ -113,7 +113,7 @@ private:
     QHash<QString, QList<QString>> m_spaceHierarchy;
     void cacheSpaceHierarchy();
 
-    QHash<QString, Quotient::Omittable<QString>> m_nextBatchTokens;
+    QHash<QString, std::optional<QString>> m_nextBatchTokens;
     void populateSpaceHierarchy(const QString &spaceId);
     void addBatch(const QString &spaceId, Quotient::GetSpaceHierarchyJob *job);
     QPointer<NeoChatConnection> m_connection;
