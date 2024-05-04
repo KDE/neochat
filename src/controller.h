@@ -8,7 +8,6 @@
 
 #include "neochatconnection.h"
 #include <Quotient/accountregistry.h>
-#include <Quotient/settings.h>
 
 #ifdef HAVE_KUNIFIEDPUSH
 #include <kunifiedpush/connector.h>
@@ -81,7 +80,7 @@ public:
     /**
      * @brief Save an access token to the keychain for the given account.
      */
-    bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
+    bool saveAccessTokenToKeyChain(const QString &userId, const QByteArray &accessToken);
 
     [[nodiscard]] bool supportSystemTray() const;
 
@@ -109,7 +108,7 @@ private:
     QPointer<NeoChatConnection> m_connection;
     TrayIcon *m_trayIcon = nullptr;
 
-    QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const Quotient::AccountSettings &account);
+    QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const QString &account);
 
     void loadSettings();
     void saveSettings() const;

@@ -5,6 +5,7 @@
 
 #include <Quotient/accountregistry.h>
 #include <Quotient/qt_connection_util.h>
+#include <Quotient/settings.h>
 
 #include "controller.h"
 
@@ -72,7 +73,7 @@ void LoginHelper::init()
         account.setHomeserver(m_connection->homeserver());
         account.setDeviceId(m_connection->deviceId());
         account.setDeviceName(m_deviceName);
-        if (!Controller::instance().saveAccessTokenToKeyChain(account, m_connection->accessToken())) {
+        if (!Controller::instance().saveAccessTokenToKeyChain(account.userId(), m_connection->accessToken())) {
             qWarning() << "Couldn't save access token";
         }
         account.sync();

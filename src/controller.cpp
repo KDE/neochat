@@ -23,6 +23,7 @@
 #include <Quotient/csapi/notifications.h>
 #include <Quotient/eventstats.h>
 #include <Quotient/qt_connection_util.h>
+#include <Quotient/settings.h>
 
 #include "neochatconfig.h"
 #include "neochatconnection.h"
@@ -189,7 +190,7 @@ void Controller::invokeLogin()
         m_accountsLoading += accountId;
         Q_EMIT accountsLoadingChanged();
         if (!account.homeserver().isEmpty()) {
-            auto accessTokenLoadingJob = loadAccessTokenFromKeyChain(account);
+            auto accessTokenLoadingJob = loadAccessTokenFromKeyChain(account.userId());
             connect(accessTokenLoadingJob, &QKeychain::Job::finished, this, [accountId, this, accessTokenLoadingJob](QKeychain::Job *) {
                 AccountSettings account{accountId};
                 QString accessToken;
@@ -217,11 +218,11 @@ void Controller::invokeLogin()
     }
 }
 
-QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const AccountSettings &account)
+QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const QString &userId)
 {
-    qDebug() << "Reading access token from the keychain for" << account.userId();
+    qDebug() << "Reading access token from the keychain for" << userId;
     auto job = new QKeychain::ReadPasswordJob(qAppName(), this);
-    job->setKey(account.userId());
+    job->setKey(userId);
 
     // Handling of errors
     connect(job, &QKeychain::Job::finished, this, [this, job]() {
@@ -252,12 +253,12 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const Accoun
     return job;
 }
 
-bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const QByteArray &accessToken)
+bool Controller::saveAccessTokenToKeyChain(const QString &userId, const QByteArray &accessToken)
 {
-    qDebug() << "Save the access token to the keychain for " << account.userId();
+    qDebug() << "Save the access token to the keychain for " << userId;
     QKeychain::WritePasswordJob job(qAppName());
     job.setAutoDelete(false);
-    job.setKey(account.userId());
+    job.setKey(userId);
     job.setBinaryData(accessToken);
     QEventLoop loop;
     QKeychain::WritePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
