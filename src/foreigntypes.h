@@ -6,10 +6,8 @@
 #include <QQmlEngine>
 
 #include <Quotient/accountregistry.h>
-#include <Quotient/keyverificationsession.h>
-#if Quotient_VERSION_MINOR > 8 || Quotient_VERSION_PATCH > 1
 #include <Quotient/e2ee/sssshandler.h>
-#endif
+#include <Quotient/keyverificationsession.h>
 
 #include "controller.h"
 #include "neochatconfig.h"
@@ -47,10 +45,8 @@ struct ForeignKeyVerificationSession {
     QML_UNCREATABLE("")
 };
 
-#if Quotient_VERSION_MINOR > 8 || Quotient_VERSION_PATCH > 1
 struct ForeignSSSSHandler {
     Q_GADGET
     QML_FOREIGN(Quotient::SSSSHandler)
     QML_NAMED_ELEMENT(SSSSHandler)
 };
-#endif

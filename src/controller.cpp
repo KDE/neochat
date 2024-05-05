@@ -392,8 +392,6 @@ QString Controller::loadFileContent(const QString &path) const
     return QString::fromLatin1(file.readAll());
 }
 
-#include "moc_controller.cpp"
-
 void Controller::setTestMode(bool test)
 {
     testMode = test;
@@ -409,15 +407,6 @@ void Controller::removeConnection(const QString &userId)
     }
 }
 
-bool Controller::ssssSupported() const
-{
-#if Quotient_VERSION_MINOR > 8 || Quotient_VERSION_PATCH > 1
-    return true;
-#else
-    return false;
-#endif
-}
-
 bool Controller::csSupported() const
 {
 #if Quotient_VERSION_MINOR > 9
@@ -426,3 +415,5 @@ bool Controller::csSupported() const
     return false;
 #endif
 }
+
+#include "moc_controller.cpp"

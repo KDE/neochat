@@ -50,7 +50,6 @@ class Controller : public QObject
 
     Q_PROPERTY(QStringList accountsLoading MEMBER m_accountsLoading NOTIFY accountsLoadingChanged)
 
-    Q_PROPERTY(bool ssssSupported READ ssssSupported CONSTANT)
     Q_PROPERTY(bool csSupported READ csSupported CONSTANT)
 
 public:
@@ -97,7 +96,6 @@ public:
 
     Q_INVOKABLE void removeConnection(const QString &userId);
 
-    bool ssssSupported() const;
     bool csSupported() const;
 
 private:

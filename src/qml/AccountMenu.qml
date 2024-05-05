@@ -70,7 +70,6 @@ QQC2.Menu {
         onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
             title: i18nc("@title:window", "Open Key Backup")
         })
-        enabled: Controller.ssssSupported
     }
     QQC2.MenuItem {
         text: i18nc("@action:inmenu", "Verify this Device")
