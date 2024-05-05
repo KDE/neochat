@@ -35,18 +35,9 @@ QQC2.Control {
     /**
      * @brief The message author.
      *
-     * This should consist of the following:
-     *  - id - The matrix ID of the author.
-     *  - isLocalUser - Whether the author is the local user.
-     *  - avatarSource - The mxc URL for the author's avatar in the current room.
-     *  - avatarMediaId - The media ID of the author's avatar.
-     *  - avatarUrl - The mxc URL for the author's avatar.
-     *  - displayName - The display name of the author.
-     *  - display - The name of the author.
-     *  - color - The color for the author.
-     *  - object - The Quotient::User object for the author.
+     * A Quotient::RoomMember object.
      *
-     * @sa Quotient::User
+     * @sa Quotient::RoomMember
      */
     property var author
 
@@ -125,14 +116,14 @@ QQC2.Control {
                 id: nameButton
                 Layout.fillWidth: true
                 contentItem: QQC2.Label {
-                    text: root.author.displayName
+                    text: root.author.disambiguatedName
                     color: root.author.color
                     textFormat: Text.PlainText
                     font.weight: Font.Bold
                     elide: Text.ElideRight
                 }
                 Accessible.name: contentItem.text
-                onClicked: RoomManager.resolveResource(root.author.id, "mention")
+                onClicked: RoomManager.resolveResource(root.author.uri)
             }
             QQC2.Label {
                 id: timeLabel
@@ -176,7 +167,7 @@ QQC2.Control {
         visible: root.showBackground
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
-        color: if (root.author.isLocalUser) {
+        color: if (root.author.isLocalMember) {
             return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15);
         } else if (root.showHighlight) {
             return Kirigami.Theme.positiveBackgroundColor;

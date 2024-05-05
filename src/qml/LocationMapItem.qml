@@ -55,7 +55,7 @@ MapQuickItem {
             width: height
             height: parent.height / 3 + 1
             name: root.author.displayName
-            source: root.author.avatarSource
+            source: root.author.avatarUrl
             color: root.author.color
         }
 

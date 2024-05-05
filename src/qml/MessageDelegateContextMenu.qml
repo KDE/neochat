@@ -40,7 +40,7 @@ DelegateContextMenu {
                 currentRoom.editCache.editId = eventId;
                 currentRoom.mainCache.replyId = "";
             }
-            visible: author.isLocalUser && (root.messageComponentType === MessageComponentType.Emote || root.messageComponentType === MessageComponentType.Message)
+            visible: author.isLocalMember && (root.messageComponentType === MessageComponentType.Emote || root.messageComponentType === MessageComponentType.Message)
         },
         DelegateContextMenu.ReplyMessageAction {},
         Kirigami.Action {

@@ -35,7 +35,7 @@ Flow {
             required property string textContent
             required property string reaction
             required property string toolTip
-            required property bool hasLocalUser
+            required property bool hasLocalMember
 
             width: Math.max(contentItem.implicitWidth + leftPadding + rightPadding, height)
             height: Math.round(Kirigami.Units.gridUnit * 1.5)
@@ -54,13 +54,13 @@ Flow {
             padding: Kirigami.Units.smallSpacing
 
             background: Kirigami.ShadowedRectangle {
-                color: reactionDelegate.hasLocalUser ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
+                color: reactionDelegate.hasLocalMember ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
                 Kirigami.Theme.inherit: false
                 Kirigami.Theme.colorSet: Config.compactLayout ? Kirigami.Theme.Window : Kirigami.Theme.View
                 radius: height / 2
                 shadow {
                     size: Kirigami.Units.smallSpacing
-                    color: !reactionDelegate.hasLocalUser ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                    color: !reactionDelegate.hasLocalMember ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
                 }
             }
 

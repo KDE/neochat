@@ -11,7 +11,7 @@
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
-#include <Quotient/user.h>
+#include <Quotient/roommember.h>
 
 #include <QDebug>
 #include <QGuiApplication>
@@ -222,7 +222,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginResetModel();
             endResetModel();
         });
-        qCDebug(MessageEvent) << "Connected to room" << room->id() << "as" << room->localUser()->id();
+        qCDebug(MessageEvent) << "Connected to room" << room->id() << "as" << room->localMember().id();
     } else {
         lastReadEventId.clear();
     }
@@ -460,7 +460,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == AuthorRole) {
-        return eventHandler.getAuthor(isPending);
+        return QVariant::fromValue(eventHandler.getAuthor(isPending));
     }
 
     if (role == HighlightRole) {
@@ -539,7 +539,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReadMarkersRole) {
-        return eventHandler.getReadMarkers();
+        return QVariant::fromValue(eventHandler.getReadMarkers());
     }
 
     if (role == ExcessReadMarkersRole) {
@@ -592,7 +592,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsEditableRole) {
-        return eventHandler.messageComponentType() == MessageComponentType::Text && evt.senderId() == m_currentRoom->localUser()->id();
+        return eventHandler.messageComponentType() == MessageComponentType::Text && evt.senderId() == m_currentRoom->localMember().id();
     }
 
     return {};

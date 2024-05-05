@@ -40,18 +40,9 @@ Loader {
     /**
      * @brief The message author.
      *
-     * This should consist of the following:
-     *  - id - The matrix ID of the author.
-     *  - isLocalUser - Whether the author is the local user.
-     *  - avatarSource - The mxc URL for the author's avatar in the current room.
-     *  - avatarMediaId - The media ID of the author's avatar.
-     *  - avatarUrl - The mxc URL for the author's avatar.
-     *  - displayName - The display name of the author.
-     *  - display - The name of the author.
-     *  - color - The color for the author.
-     *  - object - The Quotient::User object for the author.
+     * A Quotient::RoomMember object.
      *
-     * @sa Quotient::User
+     * @sa Quotient::RoomMember
      */
     required property var author
 
@@ -90,7 +81,7 @@ Loader {
     }
 
     component RemoveMessageAction: Kirigami.Action {
-        visible: author.isLocalUser || currentRoom.canSendState("redact")
+        visible: author.isLocalMember || currentRoom.canSendState("redact")
         text: i18n("Remove")
         icon.name: "edit-delete-remove"
         icon.color: "red"
@@ -116,7 +107,7 @@ Loader {
     component ReportMessageAction: Kirigami.Action {
         text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
         icon.name: "dialog-warning-symbolic"
-        visible: !author.isLocalUser
+        visible: !author.isLocalMember
         onTriggered: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReportSheet'), {
             room: currentRoom,
             eventId: eventId

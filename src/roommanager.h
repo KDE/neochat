@@ -8,6 +8,7 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <Quotient/room.h>
+#include <Quotient/roommember.h>
 #include <Quotient/uriresolver.h>
 
 #include "chatdocumenthandler.h"
@@ -290,7 +291,7 @@ Q_SIGNALS:
      * @brief Request to show a menu for the given event.
      */
     void showMessageMenu(const QString &eventId,
-                         const QVariantMap &author,
+                         const Quotient::RoomMember &author,
                          MessageComponentType::Type messageComponentType,
                          const QString &plainText,
                          const QString &htmlText,
@@ -300,7 +301,7 @@ Q_SIGNALS:
      * @brief Request to show a menu for the given media event.
      */
     void showFileMenu(const QString &eventId,
-                      const QVariantMap &author,
+                      const Quotient::RoomMember &author,
                       MessageComponentType::Type messageComponentType,
                       const QString &plainText,
                       const QString &mimeType,

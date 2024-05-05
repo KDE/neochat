@@ -251,7 +251,6 @@ void RoomManager::openRoomForActiveConnection()
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 {
     if (action == "mention"_ls || action.isEmpty()) {
-        // send it has QVariantMap because the properties in the
         user->load();
         Q_EMIT showUserDetail(user);
     } else if (action == "_interactive"_ls) {

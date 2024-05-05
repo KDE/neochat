@@ -354,7 +354,7 @@ Kirigami.ApplicationWindow {
     function showUserDetail(user) {
         Qt.createComponent("org.kde.neochat", "UserDetailDialog").createObject(root.QQC2.ApplicationWindow.window, {
             room: RoomManager.currentRoom ? RoomManager.currentRoom : null,
-            user: RoomManager.currentRoom ? RoomManager.currentRoom.getUser(user.id) : QmlUtils.getUser(user),
+            user: user,
             connection: root.connection
         }).open();
     }

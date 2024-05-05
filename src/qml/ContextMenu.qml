@@ -49,7 +49,7 @@ Loader {
                 text: room.isDirectChat() ? i18nc("@action:inmenu", "Copy user's Matrix ID to Clipboard") : i18nc("@action:inmenu", "Copy Address to Clipboard")
                 icon.name: "edit-copy"
                 onTriggered: if (room.isDirectChat()) {
-                    Clipboard.saveText(room.directChatRemoteUser.id);
+                    Clipboard.saveText(room.directChatRemoteMember.id);
                 } else if (room.canonicalAlias.length === 0) {
                     Clipboard.saveText(room.id);
                 } else {

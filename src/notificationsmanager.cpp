@@ -109,7 +109,7 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
         auto room = connection->room(notification["room_id"_ls].toString());
         if (shouldPostNotification(connection, n)) {
             // The room might have been deleted (for example rejected invitation).
-            auto sender = room->user(notification["event"_ls].toObject()["sender"_ls].toString());
+            auto sender = room->member(notification["event"_ls].toObject()["sender"_ls].toString());
 
             QString body;
 
@@ -133,13 +133,13 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
             }
 
             QImage avatar_image;
-            if (!sender->avatarUrl(room).isEmpty()) {
-                avatar_image = sender->avatar(128, room);
+            if (!sender.avatarUrl().isEmpty()) {
+                avatar_image = room->memberAvatar(sender.id()).get(connection, 128, {});
             } else {
                 avatar_image = room->avatar(128);
             }
             postNotification(dynamic_cast<NeoChatRoom *>(room),
-                             sender->displayname(room),
+                             sender.displayName(),
                              body,
                              avatar_image,
                              notification["event"_ls].toObject()["event_id"_ls].toString(),
@@ -213,7 +213,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         if (!room) {
             return;
         }
-        auto connection = dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localUser()->id()));
+        auto connection = dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localMember().id()));
         Controller::instance().setActiveConnection(connection);
         RoomManager::instance().setConnection(connection);
         RoomManager::instance().resolveResource(room->id());
@@ -230,7 +230,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         notification->setReplyAction(std::move(replyAction));
     }
 
-    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
+    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localMember().id());
     notification->sendEvent();
 }
 
@@ -276,7 +276,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom, const QS
             return;
         }
         RoomManager::instance().leaveRoom(room);
-        room->connection()->addToIgnoredUsers(room->invitingUser());
+        room->connection()->addToIgnoredUsers(room->invitingUserId());
         notification->close();
     });
     connect(notification, &KNotification::closed, this, [this, room]() {
@@ -286,7 +286,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom, const QS
         m_invitations.remove(room->id());
     });
 
-    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
+    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localMember().id());
 
     notification->sendEvent();
     m_invitations.insert(room->id(), notification);

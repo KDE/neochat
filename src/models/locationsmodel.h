@@ -11,7 +11,7 @@
 #include "neochatroom.h"
 
 #include <Quotient/events/roommessageevent.h>
-#include <Quotient/user.h>
+#include <Quotient/roommember.h>
 
 class LocationsModel : public QAbstractListModel
 {
@@ -57,7 +57,7 @@ private:
         float latitude;
         float longitude;
         QJsonObject content;
-        Quotient::User *author;
+        Quotient::RoomMember member;
     };
     QList<LocationData> m_locations;
     void addLocation(const Quotient::RoomMessageEvent *event);

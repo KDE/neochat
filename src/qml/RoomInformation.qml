@@ -219,7 +219,7 @@ QQC2.ScrollView {
 
             onClicked: {
                 userDelegate.highlighted = true;
-                RoomManager.resolveResource(userDelegate.userId, "mention");
+                RoomManager.resolveResource(root.room.member(userDelegate.userId).uri)
             }
 
             contentItem: RowLayout {
