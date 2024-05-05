@@ -63,7 +63,7 @@ QString Registration::recaptchaSiteKey() const
 void Registration::registerAccount()
 {
     setStatus(Working);
-    Omittable<QJsonObject> authData = none;
+    std::optional<QJsonObject> authData = none;
     if (nextStep() == "m.login.recaptcha"_ls) {
         authData = QJsonObject{
             {"type"_ls, "m.login.recaptcha"_ls},
@@ -244,12 +244,12 @@ void Registration::setPassword(const QString &password)
 }
 
 NeoChatRegisterJob::NeoChatRegisterJob(const QString &kind,
-                                       const Omittable<QJsonObject> &auth,
+                                       const std::optional<QJsonObject> &auth,
                                        const QString &username,
                                        const QString &password,
                                        const QString &deviceId,
                                        const QString &initialDeviceDisplayName,
-                                       Omittable<bool> inhibitLogin)
+                                       std::optional<bool> inhibitLogin)
     : BaseJob(HttpVerb::Post, "RegisterJob"_ls, QByteArrayLiteral("/_matrix/client/r0/register"), false)
 {
     QJsonObject _data;

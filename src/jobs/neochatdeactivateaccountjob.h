@@ -4,10 +4,9 @@
 #pragma once
 
 #include <Quotient/jobs/basejob.h>
-#include <Quotient/omittable.h>
 
 class NeoChatDeactivateAccountJob : public Quotient::BaseJob
 {
 public:
-    explicit NeoChatDeactivateAccountJob(const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
+    explicit NeoChatDeactivateAccountJob(const std::optional<QJsonObject> &auth = std::nullopt);
 };
