@@ -9,19 +9,12 @@
 #include <KLocalizedString>
 
 #include <QGuiApplication>
-#include <QNetworkProxy>
-#include <QQuickTextDocument>
-#include <QQuickWindow>
-#include <QStandardPaths>
-#include <QStringBuilder>
 #include <QTimer>
 
 #include <signal.h>
 
 #include <Quotient/accountregistry.h>
-#include <Quotient/csapi/logout.h>
 #include <Quotient/csapi/notifications.h>
-#include <Quotient/eventstats.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
@@ -30,7 +23,6 @@
 #include "neochatroom.h"
 #include "notificationsmanager.h"
 #include "proxycontroller.h"
-#include "roommanager.h"
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include "trayicon.h"
