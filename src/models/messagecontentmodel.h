@@ -11,8 +11,6 @@
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
 #include "itinerarymodel.h"
-#include "linkpreviewer.h"
-#include "neochatroom.h"
 
 struct MessageComponent {
     MessageComponentType::Type type = MessageComponentType::Other;

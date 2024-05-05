@@ -11,7 +11,6 @@
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>
-#include <qlist.h>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>

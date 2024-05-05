@@ -10,14 +10,13 @@
 #include <QQmlEngine>
 #include <QString>
 
-#include <Quotient/csapi/space_hierarchy.h>
-
-#include "neochatconnection.h"
-
 namespace Quotient
 {
 class Room;
+class GetSpaceHierarchyJob;
 }
+
+class NeoChatConnection;
 
 /**
  * @class SpaceHierarchyCache

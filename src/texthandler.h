@@ -3,11 +3,8 @@
 
 #pragma once
 
-#include <QHash>
 #include <QObject>
-#include <QRegularExpression>
 #include <QString>
-#include <QStringList>
 
 #include "models/messagecontentmodel.h"
 #include "neochatroom.h"

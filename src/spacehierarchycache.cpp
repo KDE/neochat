@@ -3,13 +3,14 @@
 
 #include "spacehierarchycache.h"
 
+#include <Quotient/csapi/space_hierarchy.h>
 #include <Quotient/qt_connection_util.h>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
 
+#include "neochatconnection.h"
 #include "neochatroom.h"
-#include "neochatroomtype.h"
 #include "roomlistmodel.h"
 
 using namespace Quotient;

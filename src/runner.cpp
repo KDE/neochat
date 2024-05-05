@@ -6,7 +6,6 @@
 #include <QDBusMetaType>
 
 #include "controller.h"
-#include "neochatroom.h"
 #include "roomlistmodel.h"
 #include "roommanager.h"
 #include "sortfilterroomlistmodel.h"
@@ -41,17 +40,6 @@ Runner::Runner()
     qDBusRegisterMetaType<RemoteAction>();
     qDBusRegisterMetaType<RemoteActions>();
     qDBusRegisterMetaType<RemoteImage>();
-}
-
-void Runner::setRoomListModel(RoomListModel *roomListModel)
-{
-    m_model->setSourceModel(roomListModel);
-    Q_EMIT roomListModelChanged();
-}
-
-RoomListModel *Runner::roomListModel() const
-{
-    return dynamic_cast<RoomListModel *>(m_model->sourceModel());
 }
 
 RemoteActions Runner::Actions()

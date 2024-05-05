@@ -165,10 +165,6 @@ class Runner : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.krunner1")
-    QML_ELEMENT
-    QML_SINGLETON
-
-    Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged)
 public:
     static Runner *create(QQmlEngine *engine, QJSEngine *)
     {
@@ -193,9 +189,6 @@ public:
      * @brief Handle action calls.
      */
     Q_SCRIPTABLE void Run(const QString &id, const QString &actionId);
-
-    void setRoomListModel(RoomListModel *roomListModel);
-    RoomListModel *roomListModel() const;
 
 Q_SIGNALS:
     void roomListModelChanged();

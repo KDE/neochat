@@ -4,7 +4,7 @@
 #include "roomlistmodel.h"
 
 #include "eventhandler.h"
-#include "neochatconfig.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"

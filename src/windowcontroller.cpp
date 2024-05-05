@@ -14,7 +14,13 @@
 #endif
 
 #include <KSharedConfig>
+
+#include <QQuickWindow>
 #include <QStandardPaths>
+
+#ifdef HAVE_WINDOWSYSTEM
+#include <KWindowEffects>
+#endif
 
 WindowController &WindowController::instance()
 {

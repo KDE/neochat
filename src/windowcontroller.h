@@ -6,10 +6,7 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QQuickItem>
-#include <QQuickWindow>
-#ifdef HAVE_WINDOWSYSTEM
-#include <KWindowEffects>
-#endif
+
 /**
  * @class WindowController
  *
