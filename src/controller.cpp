@@ -406,12 +406,3 @@ void Controller::removeConnection(const QString &userId)
         SettingsGroup("Accounts"_ls).remove(userId);
     }
 }
-
-bool Controller::ssssSupported() const
-{
-#if __has_include("Quotient/e2ee/sssshandler.h")
-    return true;
-#else
-    return false;
-#endif
-}

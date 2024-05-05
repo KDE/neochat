@@ -50,8 +50,6 @@ class Controller : public QObject
 
     Q_PROPERTY(QStringList accountsLoading MEMBER m_accountsLoading NOTIFY accountsLoadingChanged)
 
-    Q_PROPERTY(bool ssssSupported READ ssssSupported CONSTANT)
-
 public:
     static Controller &instance();
     static Controller *create(QQmlEngine *engine, QJSEngine *)
@@ -95,8 +93,6 @@ public:
     static void setTestMode(bool testMode);
 
     Q_INVOKABLE void removeConnection(const QString &userId);
-
-    bool ssssSupported() const;
 
 private:
     explicit Controller(QObject *parent = nullptr);
