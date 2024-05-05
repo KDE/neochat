@@ -44,7 +44,7 @@ void SearchModel::search()
     }
 
     RoomEventFilter filter;
-    filter.unreadThreadNotifications = none;
+    filter.unreadThreadNotifications = std::nullopt;
     filter.lazyLoadMembers = true;
     filter.includeRedundantMembers = false;
     filter.notRooms = QStringList();
@@ -58,7 +58,7 @@ void SearchModel::search()
         .orderBy = "recent"_ls,
         .eventContext = SearchJob::IncludeEventContext{3, 3, true},
         .includeState = false,
-        .groupings = none,
+        .groupings = std::nullopt,
 
     };
 
