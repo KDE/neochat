@@ -26,10 +26,10 @@ public:
      * @brief Defines the properties of an image pack.
      */
     struct Pack {
-        Quotient::Omittable<QString> displayName; /**< The display name of the pack. */
-        Quotient::Omittable<QUrl> avatarUrl; /**< The source mxc URL for the pack avatar. */
-        Quotient::Omittable<QStringList> usage; /**< An array of the usages for this pack. Possible usages are "emoticon" and "sticker". */
-        Quotient::Omittable<QString> attribution; /**< The attribution for the pack author(s). */
+        std::optional<QString> displayName; /**< The display name of the pack. */
+        std::optional<QUrl> avatarUrl; /**< The source mxc URL for the pack avatar. */
+        std::optional<QStringList> usage; /**< An array of the usages for this pack. Possible usages are "emoticon" and "sticker". */
+        std::optional<QString> attribution; /**< The attribution for the pack author(s). */
     };
 
     /**
@@ -38,14 +38,14 @@ public:
     struct ImagePackImage {
         QString shortcode; /**< The shortcode for the image. */
         QUrl url; /**< The mxc URL for this image. */
-        Quotient::Omittable<QString> body; /**< An optional text body for this image. */
-        Quotient::Omittable<Quotient::EventContent::ImageInfo> info; /**< The ImageInfo object used for the info block of m.sticker events. */
+        std::optional<QString> body; /**< An optional text body for this image. */
+        std::optional<Quotient::EventContent::ImageInfo> info; /**< The ImageInfo object used for the info block of m.sticker events. */
         /**
          * @brief An array of the usages for this image.
          *
          * The possible values match those of the usage key of a pack object.
          */
-        Quotient::Omittable<QStringList> usage;
+        std::optional<QStringList> usage;
     };
 
     /**
@@ -53,7 +53,7 @@ public:
      *
      * @sa Pack
      */
-    Quotient::Omittable<Pack> pack;
+    std::optional<Pack> pack;
 
     /**
      * @brief Return a vector of images in the pack.
