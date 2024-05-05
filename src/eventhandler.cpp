@@ -255,7 +255,7 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
 
     QString body;
     if (event.hasTextContent() && event.content()) {
-        body = static_cast<const MessageEventContent::TextContent *>(event.content())->body;
+        body = static_cast<const EventContent::TextContent *>(event.content())->body;
     } else {
         body = event.plainBody();
     }
@@ -479,7 +479,7 @@ QString EventHandler::getMessageBody(const RoomMessageEvent &event, Qt::TextForm
 
     QString body;
     if (event.hasTextContent() && event.content()) {
-        body = static_cast<const MessageEventContent::TextContent *>(event.content())->body;
+        body = static_cast<const EventContent::TextContent *>(event.content())->body;
     } else {
         body = event.plainBody();
     }
