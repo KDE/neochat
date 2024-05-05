@@ -3,6 +3,7 @@
 
 #include "imagepackevent.h"
 #include <QJsonObject>
+#include <Quotient/omittable.h>
 
 using namespace Quotient;
 
@@ -16,16 +17,16 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
             fromJson<Omittable<QString>>(json["pack"_ls].toObject()["attribution"_ls]),
         };
     } else {
-        pack = none;
+        pack = std::nullopt;
     }
 
     const auto &keys = json["images"_ls].toObject().keys();
     for (const auto &k : keys) {
-        Omittable<EventContent::ImageInfo> info;
+        std::optional<EventContent::ImageInfo> info;
         if (json["images"_ls][k].toObject().contains(QStringLiteral("info"))) {
             info = EventContent::ImageInfo(QUrl(json["images"_ls][k]["url"_ls].toString()), json["images"_ls][k]["info"_ls].toObject(), k);
         } else {
-            info = none;
+            info = std::nullopt;
         }
         images += ImagePackImage{
             k,
