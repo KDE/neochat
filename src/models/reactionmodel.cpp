@@ -5,6 +5,7 @@
 #include "neochatroom.h"
 
 #include <QDebug>
+#include <QFont>
 #ifdef HAVE_ICU
 #include <QTextBoundaryFinder>
 #include <QTextCharFormat>
