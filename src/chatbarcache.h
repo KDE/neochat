@@ -10,6 +10,12 @@
 
 class ChatDocumentHandler;
 
+namespace Quotient
+{
+class RoomMember;
+}
+
+
 /**
  * @brief Defines a user mention in the current chat or edit text.
  */
@@ -88,26 +94,13 @@ class ChatBarCache : public QObject
     Q_PROPERTY(QString editId READ editId WRITE setEditId NOTIFY relationIdChanged)
 
     /**
-     * @brief Get the user for the message being replied to.
+     * @brief Get the RoomMember object for the message being replied to.
      *
-     * This is different to getting a Quotient::User object
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room.
+     * Returns an empty RoomMember if not replying to a message.
      *
-     * Returns an empty user if not replying to a message.
-     *
-     * The user QVariantMap has the following properties:
-     *  - isLocalUser - Whether the user is the local user.
-     *  - id - The matrix ID of the user.
-     *  - displayName - Display name in the context of this room.
-     *  - avatarSource - The mxc URL for the user's avatar in the current room.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - color - Color for the user.
-     *  - object - The Quotient::User object for the user.
-     *
-     * @sa getUser, Quotient::User
+     * @sa Quotient::RoomMember
      */
-    Q_PROPERTY(QVariantMap relationUser READ relationUser NOTIFY relationIdChanged)
+    Q_PROPERTY(Quotient::RoomMember relationUser READ relationUser NOTIFY relationIdChanged)
 
     /**
      * @brief The content of the related message.
@@ -161,7 +154,7 @@ public:
     QString editId() const;
     void setEditId(const QString &editId);
 
-    QVariantMap relationUser() const;
+    Quotient::RoomMember relationUser() const;
 
     QString relationMessage() const;
 

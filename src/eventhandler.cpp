@@ -19,6 +19,7 @@
 #include <Quotient/events/simplestateevents.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/quotient_common.h>
+#include <Quotient/roommember.h>
 
 #include "eventhandler_logging.h"
 #include "events/locationbeaconevent.h"
@@ -61,20 +62,18 @@ MessageComponentType::Type EventHandler::messageComponentType() const
     return MessageComponentType::typeForEvent(*m_event);
 }
 
-QVariantMap EventHandler::getAuthor(bool isPending) const
+Quotient::RoomMember EventHandler::getAuthor(bool isPending) const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getAuthor called with m_room set to nullptr.";
         return {};
     }
-    // If we have a room we can return an empty user by handing nullptr to m_room->getUser.
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getAuthor called with m_event set to nullptr. Returning empty user.";
-        return m_room->getUser(nullptr);
+        return {};
     }
 
-    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-    return m_room->getUser(author);
+    return isPending ? m_room->localMember() : m_room->member(m_event->senderId());
 }
 
 QString EventHandler::getAuthorDisplayName(bool isPending) const
@@ -96,8 +95,8 @@ QString EventHandler::getAuthorDisplayName(bool isPending) const
         }
         return previousDisplayName;
     } else {
-        const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-        return m_room->htmlSafeMemberName(author->id());
+        const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
+        return author.htmlSafeDisplayName();
     }
 }
 
@@ -112,8 +111,8 @@ QString EventHandler::singleLineAuthorDisplayname(bool isPending) const
         return {};
     }
 
-    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-    auto displayName = m_room->safeMemberName(author->id());
+    const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
+    auto displayName = author.displayName();
     displayName.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br>"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
@@ -220,7 +219,7 @@ bool EventHandler::isHidden()
         }
     }
 
-    if (m_room->connection()->isIgnored(m_room->user(m_event->senderId()))) {
+    if (m_room->connection()->isIgnored(m_event->senderId())) {
         return true;
     }
 
@@ -318,7 +317,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
         },
         [this, prettyPrint](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event
-            auto subjectName = m_room->htmlSafeMemberName(e.userId());
+            auto subjectName = m_room->member(e.userId()).htmlSafeDisplayName();
             if (e.membership() == Membership::Leave) {
                 if (e.prevContent() && e.prevContent()->displayName) {
                     subjectName = sanitized(*e.prevContent()->displayName).toHtmlEscaped();
@@ -326,7 +325,8 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
             }
 
             if (prettyPrint) {
-                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\">%2</a>").arg(e.userId(), subjectName);
+                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
+                                  .arg(e.userId(), m_room->member(e.userId()).color().name(), subjectName);
             }
 
             // The below code assumes senderName output in AuthorRole
@@ -800,25 +800,21 @@ MessageComponentType::Type EventHandler::replyMessageComponentType() const
     return MessageComponentType::typeForEvent(*replyEvent);
 }
 
-QVariantMap EventHandler::getReplyAuthor() const
+Quotient::RoomMember EventHandler::getReplyAuthor() const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getReplyAuthor called with m_room set to nullptr.";
         return {};
     }
-    // If we have a room we can return an empty user by handing nullptr to m_room->getUser.
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getReplyAuthor called with m_event set to nullptr. Returning empty user.";
-        return m_room->getUser(nullptr);
+        return {};
     }
 
-    auto replyPtr = m_room->getReplyForEvent(*m_event);
-
-    if (replyPtr) {
-        auto replyUser = m_room->user(replyPtr->senderId());
-        return m_room->getUser(replyUser);
+    if (auto replyPtr = m_room->getReplyForEvent(*m_event)) {
+        return m_room->member(replyPtr->senderId());
     } else {
-        return m_room->getUser(nullptr);
+        return m_room->member(QString());
     }
 }
 
@@ -966,11 +962,11 @@ bool EventHandler::hasReadMarkers() const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
     return userIds.size() > 0;
 }
 
-QVariantList EventHandler::getReadMarkers(int maxMarkers) const
+QList<Quotient::RoomMember> EventHandler::getReadMarkers(int maxMarkers) const
 {
     if (m_room == nullptr) {
         qCWarning(EventHandling) << "getReadMarkers called with m_room set to nullptr.";
@@ -982,18 +978,17 @@ QVariantList EventHandler::getReadMarkers(int maxMarkers) const
     }
 
     auto userIds_temp = m_room->userIdsAtEvent(m_event->id());
-    userIds_temp.remove(m_room->localUser()->id());
+    userIds_temp.remove(m_room->localMember().id());
 
     auto userIds = userIds_temp.values();
     if (userIds.count() > maxMarkers) {
         userIds = userIds.mid(0, maxMarkers);
     }
 
-    QVariantList users;
+    QList<Quotient::RoomMember> users;
     users.reserve(userIds.size());
     for (const auto &userId : userIds) {
-        auto user = m_room->user(userId);
-        users += m_room->getUser(user);
+        users += m_room->member(userId);
     }
 
     return users;
@@ -1011,7 +1006,7 @@ QString EventHandler::getNumberExcessReadMarkers(int maxMarkers) const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
 
     if (userIds.count() > maxMarkers) {
         return QStringLiteral("+ ") + QString::number(userIds.count() - maxMarkers);
@@ -1032,7 +1027,7 @@ QString EventHandler::getReadMarkersString() const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
 
     /**
      * The string ends up in the form
@@ -1040,10 +1035,12 @@ QString EventHandler::getReadMarkersString() const
      */
     QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
     for (const auto &userId : userIds) {
-        auto user = m_room->user(userId);
-        auto displayName = user->displayname(m_room);
-        if (displayName.isEmpty()) {
-            displayName = userId;
+        auto member = m_room->member(userId);
+        QString displayName;
+        if (member.isEmpty()) {
+            displayName = i18nc("A member who is not in the room has been requested.", "unknown member");
+        } else {
+            displayName = member.displayName();
         }
         readMarkersString += displayName + i18nc("list separator", ", ");
     }

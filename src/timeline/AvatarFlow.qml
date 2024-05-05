@@ -25,7 +25,7 @@ Flow {
             implicitHeight: root.avatarSize
 
             name: modelData.displayName
-            source: modelData.avatarSource
+            source: modelData.avatarUrl
             color: modelData.color
         }
     }

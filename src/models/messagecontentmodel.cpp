@@ -194,7 +194,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return eventHandler.getId();
     }
     if (role == AuthorRole) {
-        return eventHandler.getAuthor(false);
+        return QVariant::fromValue(eventHandler.getAuthor(false));
     }
     if (role == MediaInfoRole) {
         return eventHandler.getMediaInfo();
@@ -224,7 +224,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return eventHandler.getReplyId();
     }
     if (role == ReplyAuthorRole) {
-        return eventHandler.getReplyAuthor();
+        return QVariant::fromValue(eventHandler.getReplyAuthor());
     }
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);

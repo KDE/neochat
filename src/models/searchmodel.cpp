@@ -85,7 +85,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     case ShowAuthorRole:
         return true;
     case AuthorRole:
-        return eventHandler.getAuthor();
+        return QVariant::fromValue(eventHandler.getAuthor());
     case ShowSectionRole:
         if (row == 0) {
             return true;

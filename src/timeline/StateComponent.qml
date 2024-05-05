@@ -24,18 +24,9 @@ RowLayout {
     /**
      * @brief The message author.
      *
-     * This should consist of the following:
-     *  - id - The matrix ID of the author.
-     *  - isLocalUser - Whether the author is the local user.
-     *  - avatarSource - The mxc URL for the author's avatar in the current room.
-     *  - avatarMediaId - The media ID of the author's avatar.
-     *  - avatarUrl - The mxc URL for the author's avatar.
-     *  - displayName - The display name of the author.
-     *  - display - The name of the author.
-     *  - color - The color for the author.
-     *  - object - The Quotient::User object for the author.
+     * A Quotient::RoomMember object.
      *
-     * @sa Quotient::User
+     * @sa Quotient::RoomMember
      */
     property var author: modelData.author
 

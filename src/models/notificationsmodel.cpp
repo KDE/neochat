@@ -116,7 +116,7 @@ void NotificationsModel::loadData()
                 if (!room) {
                     continue;
                 }
-                auto u = room->memberAvatarUrl(authorId);
+                auto u = room->member(authorId).avatarUrl();
                 auto avatar = u.isEmpty() ? QUrl() : connection()->makeMediaUrl(u);
                 const auto &authorAvatar = avatar.isValid() && avatar.scheme() == QStringLiteral("mxc") ? avatar : QUrl();
 
@@ -125,9 +125,9 @@ void NotificationsModel::loadData()
                 beginInsertRows({}, m_notifications.length(), m_notifications.length());
                 m_notifications += Notification{
                     .roomId = notification.roomId,
-                    .text = room->htmlSafeMemberName(authorId) + (roomEvent->is<StateEvent>() ? QStringLiteral(" ") : QStringLiteral(": "))
+                    .text = room->member(authorId).htmlSafeDisplayName() + (roomEvent->is<StateEvent>() ? QStringLiteral(" ") : QStringLiteral(": "))
                         + eventHandler.getPlainBody(true),
-                    .authorName = room->htmlSafeMemberName(authorId),
+                    .authorName = room->member(authorId).htmlSafeDisplayName(),
                     .authorAvatar = authorAvatar,
                     .eventId = roomEvent->id(),
                     .roomDisplayName = room->displayName(),

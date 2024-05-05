@@ -61,8 +61,8 @@ FormCard.FormCardPage {
                     spacing: Kirigami.Units.largeSpacing
                     QQC2.Label {
                         id: powerLevelLabel
-                        visible: !room.canSendState("m.room.power_levels") || (room.getUserPowerLevel(room.localUser.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != room.localUser.id)
                         text: privilegedUserDelegate.powerLevelString
+                        visible: !room.canSendState("m.room.power_levels") || (room.getUserPowerLevel(room.localMember.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != room.localMember.id)
                         color: Kirigami.Theme.disabledTextColor
                     }
                     QQC2.ComboBox {
