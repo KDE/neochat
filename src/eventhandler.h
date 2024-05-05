@@ -13,6 +13,11 @@
 
 #include "enums/messagecomponenttype.h"
 
+namespace Quotient
+{
+class RoomMember;
+}
+
 class LinkPreviewer;
 class NeoChatRoom;
 class ReactionModel;
@@ -51,30 +56,17 @@ public:
     /**
      * @brief Get the author of the event in context of the room.
      *
-     * This is different to getting a Quotient::User object
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room. This function
-     * uses the room context and outputs the result as QVariantMap.
-     *
-     * An empty QVariantMap will be returned if the EventHandler hasn't had the room
-     * intialised. An empty user (i.e. a QVariantMap with all the correct keys
-     * but empty values) will be returned if the room has been set but not an event.
+     * An empty Quotient::RoomMember will be returned if the EventHandler hasn't had
+     * the room or event initialised.
      *
      * @param isPending if the event is pending, i.e. has not been confirmed by
      *                  the server.
      *
-     * @return a QVariantMap for the user with the following properties:
-     *  - isLocalUser - Whether the user is the local user.
-     *  - id - The matrix ID of the user.
-     *  - displayName - Display name in the context of this room.
-     *  - avatarSource - The mxc URL for the user's avatar in the current room.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - color - Color for the user.
-     *  - object - The Quotient::User object for the user.
+     * @return a Quotient::RoomMember object for the user.
      *
-     * @sa Quotient::User
+     * @sa Quotient::RoomMember
      */
-    QVariantMap getAuthor(bool isPending = false) const;
+    Quotient::RoomMember getAuthor(bool isPending = false) const;
 
     /**
      * @brief Get the display name of the event author.
@@ -251,27 +243,17 @@ public:
     /**
      * @brief Get the author of the event replied to in context of the room.
      *
-     * This is different to getting a Quotient::User object
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room. This function
-     * uses the room context and outputs the result as QVariantMap.
+     * An empty Quotient::RoomMember will be returned if the EventHandler hasn't had
+     * the room or event initialised.
      *
-     * An empty QVariantMap will be returned if the EventHandler hasn't had the room
-     * intialised. An empty user (i.e. a QVariantMap with all the correct keys
-     * but empty values) will be returned if the room has been set but not an event.
+     * @param isPending if the event is pending, i.e. has not been confirmed by
+     *                  the server.
      *
-     * @return a QVariantMap for the user with the following properties:
-     *  - isLocalUser - Whether the user is the local user.
-     *  - id - The matrix ID of the user.
-     *  - displayName - Display name in the context of this room.
-     *  - avatarSource - The mxc URL for the user's avatar in the current room.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - color - Color for the user.
-     *  - object - The Quotient::User object for the user.
+     * @return a Quotient::RoomMember object for the user.
      *
-     * @sa Quotient::User
+     * @sa Quotient::RoomMember
      */
-    QVariantMap getReplyAuthor() const;
+    Quotient::RoomMember getReplyAuthor() const;
 
     /**
      * @brief Output a string for the message content of the event replied to ready
@@ -375,7 +357,7 @@ public:
      *                   the number of users shown plus the excess number will be
      *                   the total number of other user read markers at an event.
      */
-    QVariantList getReadMarkers(int maxMarkers = 5) const;
+    QList<Quotient::RoomMember> getReadMarkers(int maxMarkers = 5) const;
 
     /**
      * @brief Returns the number of excess user read markers for the event.

@@ -63,7 +63,7 @@ void LocationsModel::addLocation(const RoomMessageEvent *event)
         .latitude = latitude,
         .longitude = longitude,
         .content = event->contentJson(),
-        .author = m_room->user(event->senderId()),
+        .member = m_room->member(event->senderId()),
     };
     endInsertRows();
 }
@@ -105,7 +105,7 @@ QVariant LocationsModel::data(const QModelIndex &index, int roleName) const
     } else if (roleName == AssetRole) {
         return m_locations[row].content["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
     } else if (roleName == AuthorRole) {
-        return m_room->getUser(m_locations[row].author);
+        return QVariant::fromValue(m_locations[row].member);
     }
     return {};
 }

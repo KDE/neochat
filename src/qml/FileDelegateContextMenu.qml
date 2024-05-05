@@ -63,7 +63,7 @@ DelegateContextMenu {
             }
         },
         Kirigami.Action {
-            visible: author.id === currentRoom.localUser.id || currentRoom.canSendState("redact")
+            visible: author.id === currentRoom.localMember.id || currentRoom.canSendState("redact")
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
             icon.color: "red"

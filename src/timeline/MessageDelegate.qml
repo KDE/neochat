@@ -56,18 +56,9 @@ TimelineDelegate {
     /**
      * @brief The message author.
      *
-     * This should consist of the following:
-     *  - id - The matrix ID of the author.
-     *  - isLocalUser - Whether the author is the local user.
-     *  - avatarSource - The mxc URL for the author's avatar in the current room.
-     *  - avatarMediaId - The media ID of the author's avatar.
-     *  - avatarUrl - The mxc URL for the author's avatar.
-     *  - displayName - The display name of the author.
-     *  - display - The name of the author.
-     *  - color - The color for the author.
-     *  - object - The Quotient::User object for the author.
+     * A Quotient::RoomMember object.
      *
-     * @sa Quotient::User
+     * @sa Quotient::RoomMember
      */
     required property var author
 
@@ -281,11 +272,11 @@ TimelineDelegate {
 
                 visible: (root.showAuthor || root.alwaysShowAuthor) && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
-                source: root.author.avatarSource
+                source: root.author.avatarUrl
                 color: root.author.color
-                QQC2.ToolTip.text: root.author.escapedDisplayName
+                QQC2.ToolTip.text: root.author.htmlSafeDisambiguatedName
 
-                onClicked: RoomManager.resolveResource(root.author.id, "mention")
+                onClicked: RoomManager.resolveResource(root.author.uri)
             }
             Bubble {
                 id: bubble
@@ -411,7 +402,7 @@ TimelineDelegate {
         /**
          * @brief Whether local user messages should be aligned right.
          */
-        property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !root.alwaysFillWidth
+        property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalMember && !Config.compactLayout && !root.alwaysFillWidth
 
         function showMessageMenu() {
             RoomManager.viewEventMenu(root.eventId, root.room, root.selectedText);

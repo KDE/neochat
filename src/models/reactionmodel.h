@@ -5,13 +5,8 @@
 
 #include "neochatroom.h"
 #include <QAbstractListModel>
-#include <QQmlEngine>
 #include <Quotient/events/reactionevent.h>
-
-namespace Quotient
-{
-class User;
-}
+#include <Quotient/roommember.h>
 
 /**
  * @class ReactionModel
@@ -30,7 +25,7 @@ public:
      */
     struct Reaction {
         QString reaction; /**< The reaction emoji. */
-        QVariantList authors; /**< The list of authors who sent the given reaction. */
+        QList<Quotient::RoomMember> authors; /**< The list of authors who sent the given reaction. */
     };
 
     /**
@@ -40,8 +35,7 @@ public:
         TextContentRole = Qt::DisplayRole, /**< The text to show in the reaction. */
         ReactionRole, /**< The reaction emoji. */
         ToolTipRole, /**< The tool tip to show for the reaction. */
-        AuthorsRole, /**< The list of authors who sent the given reaction. */
-        HasLocalUser, /**< Whether the local user is in the list of authors. */
+        HasLocalMember, /**< Whether the local member is in the list of authors. */
     };
 
     explicit ReactionModel(const Quotient::RoomMessageEvent *event, NeoChatRoom *room);

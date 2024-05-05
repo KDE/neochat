@@ -32,18 +32,9 @@ RowLayout {
     /**
      * @brief The reply author.
      *
-     * This should consist of the following:
-     *  - id - The matrix ID of the reply author.
-     *  - isLocalUser - Whether the reply author is the local user.
-     *  - avatarSource - The mxc URL for the reply author's avatar in the current room.
-     *  - avatarMediaId - The media ID of the reply author's avatar.
-     *  - avatarUrl - The mxc URL for the reply author's avatar.
-     *  - displayName - The display name of the reply author.
-     *  - display - The name of the reply author.
-     *  - color - The color for the reply author.
-     *  - object - The Quotient::User object for the reply author.
+     * A Quotient::RoomMember object.
      *
-     * @sa Quotient::User
+     * @sa Quotient::RoomMember
      */
     required property var replyAuthor
 
@@ -87,7 +78,7 @@ RowLayout {
                 implicitWidth: Kirigami.Units.iconSizes.small
                 implicitHeight: Kirigami.Units.iconSizes.small
 
-                source: root.replyAuthor.avatarSource
+                source: root.replyAuthor.avatarUrl
                 name: root.replyAuthor.displayName
                 color: root.replyAuthor.color
             }
