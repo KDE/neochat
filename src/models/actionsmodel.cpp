@@ -9,6 +9,7 @@
 #include "roommanager.h"
 #include <Quotient/events/roommemberevent.h>
 #include <Quotient/events/roompowerlevelsevent.h>
+#include <Quotient/user.h>
 
 #include <KLocalizedString>
 
