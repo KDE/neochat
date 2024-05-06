@@ -59,12 +59,27 @@ ColumnLayout {
         }
     }
 
-    Kirigami.Heading {
+    RowLayout {
         Layout.fillWidth: true
-        type: Kirigami.Heading.Type.Primary
-        wrapMode: QQC2.Label.Wrap
-        text: root.room.displayName
-        textFormat: Text.PlainText
-        horizontalAlignment: Text.AlignHCenter
+        Layout.alignment: Qt.AlignHCenter
+        Kirigami.Icon {
+            id: securityIcon
+            //TODO figure out how to make this update
+            source: room.connection.isUserVerified(root.room.directChatRemoteMember.id) ?
+                        (room.connection.allSessionsSelfVerified(root.room.directChatRemoteMember.id) ? "security-high" : "security-medium")
+                        : "security-low"
+
+        }
+        Kirigami.Heading {
+            type: Kirigami.Heading.Type.Primary
+            wrapMode: QQC2.Label.Wrap
+            text: root.room.displayName
+            textFormat: Text.PlainText
+            horizontalAlignment: Text.AlignHCenter
+        }
+        Item {
+            Layout.preferredWidth: visible ? securityIcon.width : 0
+            visible: securityIcon.visible
+        }
     }
 }

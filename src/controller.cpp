@@ -417,3 +417,12 @@ bool Controller::ssssSupported() const
     return false;
 #endif
 }
+
+bool Controller::csSupported() const
+{
+#if Quotient_VERSION_MINOR > 9
+    return true;
+#else
+    return false;
+#endif
+}
