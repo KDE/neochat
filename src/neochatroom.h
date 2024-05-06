@@ -41,27 +41,6 @@ class NeoChatRoom : public Quotient::Room
     QML_UNCREATABLE("")
 
     /**
-     * @brief A list of users currently typing in the room.
-     *
-     * The list does not include the local user.
-     *
-     * This is different to getting a list of Quotient::User objects
-     * as neither of those can provide details like the displayName or avatarMediaId
-     * without the room context as these can vary from room to room. This function
-     * provides the room context and puts the result as a list of QVariantMap objects.
-     *
-     * @return a QVariantMap for the user with the following
-     * parameters:
-     *  - id - User ID.
-     *  - avatarMediaId - Avatar id in the context of this room.
-     *  - displayName - Display name in the context of this room.
-     *  - display - Name in the context of this room.
-     *
-     * @sa Quotient::User
-     */
-    Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
-
-    /**
      * @brief Convenience function to get the QDateTime of the last event.
      *
      * @sa lastEvent()
@@ -234,8 +213,6 @@ public:
     Q_ENUM(MessageType)
 
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
-
-    [[nodiscard]] QVariantList getUsersTyping() const;
 
     [[nodiscard]] QDateTime lastActiveTime();
 

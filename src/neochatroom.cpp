@@ -255,23 +255,6 @@ void NeoChatRoom::forget()
     connection()->forgetRoom(id());
 }
 
-QVariantList NeoChatRoom::getUsersTyping() const
-{
-    auto members = membersTyping();
-    members.removeAll(localMember());
-    QVariantList userVariants;
-    for (const auto &member : members) {
-        if (connection()->isIgnored(member.id())) {
-            continue;
-        }
-        userVariants.append(QVariantMap{
-            {"id"_ls, member.id()},
-            {"displayName"_ls, member.displayName()},
-        });
-    }
-    return userVariants;
-}
-
 void NeoChatRoom::sendTypingNotification(bool isTyping)
 {
     connection()->callApi<SetTypingJob>(BackgroundRequest, localMember().id(), id(), isTyping, 10000);
