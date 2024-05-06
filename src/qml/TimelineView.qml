@@ -263,8 +263,8 @@ QQC2.ScrollView {
 
         TypingPane {
             id: typingPane
-            visible: root.currentRoom && root.currentRoom.usersTyping.length > 0
-            labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.currentRoom.usersTyping.length, root.currentRoom.usersTyping.map(user => user.displayName).join(", ")) : ""
+            visible: root.currentRoom && root.currentRoom.otherMembersTyping.length > 0
+            labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.currentRoom.otherMembersTyping.length, root.currentRoom.otherMembersTyping.map(member => member.displayName).join(", ")) : ""
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             height: visible ? implicitHeight : 0
