@@ -383,7 +383,7 @@ void NeoChatConnection::openOrCreateDirectChat(User *user)
             return;
         }
     }
-    requestDirectChat(user);
+    requestDirectChat(user->id());
     connectSingleShot(this, &Connection::directChatAvailable, this, [=](auto room) {
         room->activateEncryption();
     });
