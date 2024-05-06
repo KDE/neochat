@@ -90,6 +90,16 @@ QQC2.ScrollView {
             }
 
             Delegates.RoundedItemDelegate {
+                visible: root.room.isDirectChat()
+                icon.name: "security-low-symbolic"
+                text: i18nc("@action:button", "Verify user")
+
+                onClicked: root.room.startVerification()
+
+                Layout.fillWidth: true
+            }
+
+            Delegates.RoundedItemDelegate {
                 id: favouriteButton
                 visible: !root.room.isSpace
                 icon.name: root.room && root.room.isFavourite ? "rating" : "rating-unrated"

@@ -72,6 +72,12 @@ QQC2.Menu {
         })
     }
     QQC2.MenuItem {
+        text: i18nc("@action:inmenu", "Verify this Device")
+        icon.name: "security-low"
+        onTriggered: root.connection.startSelfVerification()
+        enabled: Controller.ssssSupported
+    }
+    QQC2.MenuItem {
         text: i18n("Logout")
         icon.name: "list-remove-user"
         onTriggered: confirmLogoutDialogComponent.createObject(applicationWindow().overlay).open()
