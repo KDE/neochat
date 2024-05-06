@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:38+0000\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
 "PO-Revision-Date: 2024-05-01 13:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -91,7 +91,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Скасувати відповідь"
 
-#: src/controller.cpp:138
+#: src/controller.cpp:130
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -99,49 +99,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Отримання сповіщень щодо нових повідомлень"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:209
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Помилка у мережі: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не знайдено жетона доступу"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Можливо, його вилучено?"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Відмовлено у доступі до засобу керування ключами."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Будь ласка, дозвольте NeoChat читання жетона доступу"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "No keychain available."
 msgstr "Немає доступних засобів керування ключами."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Будь ласка, встановіть засіб керування ключами, наприклад KWallet або GNOME "
 "keyring у Linux"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:241
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не вдалося прочитати жетон доступу"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:337
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Отримання імпульсних сповіщень"
@@ -339,12 +339,12 @@ msgid "Spaces"
 msgstr "Простори"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:144 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Це повідомлення було вилучено]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:145
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1554,13 +1554,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Запрошення до дзвінка"
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:69
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " і "
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:77
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1570,7 +1570,7 @@ msgstr[1] " і %1 інші"
 msgstr[2] " і %1 інших"
 msgstr[3] " і %1 інший"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:81
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"

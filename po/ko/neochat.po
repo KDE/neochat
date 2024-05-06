@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:38+0000\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -88,7 +88,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "답장 취소"
 
-#: src/controller.cpp:138
+#: src/controller.cpp:130
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -96,47 +96,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "새 메시지 알림 수신 중"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:209
 #, kde-format
 msgid "Network Error: %1"
 msgstr "네트워크 오류: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "접근 토큰을 찾을 수 없음"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "삭제되었을 수도 있습니다."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "키체인 접근이 거부되었습니다."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat에서 접근 토큰 사용을 허용하십시오"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "No keychain available."
 msgstr "키체인을 사용할 수 없습니다."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "키체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모음 등이 있습니다"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:241
 #, kde-format
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:337
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "푸시 알림 수신 중"
@@ -338,12 +338,12 @@ msgid "Spaces"
 msgstr "스페이스"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:144 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[이 메시지가 삭제됨]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:145
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1543,20 +1543,20 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "통화 초대"
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:69
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " 그리고 "
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:77
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
 msgid_plural " and %1 others"
 msgstr[0] " 그리고 %1명 더"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:81
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"

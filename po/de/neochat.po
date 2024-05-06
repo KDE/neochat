@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:38+0000\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -92,7 +92,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Antwort abbrechen"
 
-#: src/controller.cpp:138
+#: src/controller.cpp:130
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt ""
@@ -101,49 +101,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Tippbenachrichtigungen senden"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:209
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Netzwerkfehler: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Zugangs-Token kann nicht gefunden werden"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Vielleicht ist es gelöscht worden?"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Der Zugriff auf das Schlüsselbund ist verweigert worden."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Bitte erlauben Sie NeoChat, das Zugangs-Token zu lesen"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "No keychain available."
 msgstr "Kein Schlüsselbund verfügbar."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Bitte installieren Sie ein Schlüsselbund, z. B. KWallet oder GNOME-"
 "Schlüsselbund unter Linux"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:241
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:337
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -352,12 +352,12 @@ msgid "Spaces"
 msgstr "Spaces"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:144 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Diese Nachricht wurde gelöscht]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:145
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1613,13 +1613,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Einladung zu einem Anruf"
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:69
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " und "
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:77
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1627,7 +1627,7 @@ msgid_plural " and %1 others"
 msgstr[0] " und %1 weiterer"
 msgstr[1] " und %1 weitere"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:81
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"

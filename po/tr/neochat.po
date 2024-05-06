@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:38+0000\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
 "PO-Revision-Date: 2024-05-01 14:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -90,7 +90,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Yanıtı İptal Et"
 
-#: src/controller.cpp:138
+#: src/controller.cpp:130
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -98,47 +98,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Yeni iletiler için bildirimler alınıyor"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:209
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ağ hatası: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Erişim jetonu bulunamadı"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Silinmiş olabilir mi?"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Anahtar zincirine erişim reddedildi."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Lütfen NeoChat’in erişim jetonunu okumasına izin verin"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "No keychain available."
 msgstr "Kullanılabilir anahtar zinciri yok."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Lütfen bir anahtar zinciri kurun; örn. K Cüzdan veya GNOME keyring"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:241
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Erişim jetonu okunamıyor"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:337
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Anında bildirimler alınıyor"
@@ -334,12 +334,12 @@ msgid "Spaces"
 msgstr "Alanlar"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:144 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ileti silindi]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:145
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1539,13 +1539,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Çağrı daveti"
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:69
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " ve"
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:77
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1553,7 +1553,7 @@ msgid_plural " and %1 others"
 msgstr[0] " ve %1 başkası"
 msgstr[1] " ve %1 başkası"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:81
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"

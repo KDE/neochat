@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:38+0000\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
 "PO-Revision-Date: 2024-03-12 11:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -90,7 +90,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Válasz megszakítása"
 
-#: src/controller.cpp:138
+#: src/controller.cpp:130
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -98,49 +98,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Új üzenetek értesítéseinek fogadása"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:209
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Hálózati hiba: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "A hozzáférési token nem található"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Lehet, hogy kitörölték?"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "A kulcstartóhoz való hozzáférés megtagadva."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Kérjük, engedélyezze a NeoChatnek a hozzáférési token olvasását"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "No keychain available."
 msgstr "Nem érhető el kulcstartó."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Kérjük, telepítsen egy kulcstartót, Linuxon például a KWalletet vagy a GNOME "
 "kulcstartót"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:241
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Nem lehet olvasni a hozzáférési tokent"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:337
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Leküldéses értesítések fogadása"
@@ -339,12 +339,12 @@ msgid "Spaces"
 msgstr "Terek"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:144 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Az üzenetet törölték]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:145
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1547,13 +1547,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Hívás meghívó"
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:69
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " és "
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:77
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1561,7 +1561,7 @@ msgid_plural " and %1 others"
 msgstr[0] " és %1 további"
 msgstr[1] " és %1 további"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:81
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"

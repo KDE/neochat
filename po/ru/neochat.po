@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-05 00:38+0000\n"
-"PO-Revision-Date: 2024-02-09 23:09+0300\n"
+"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"PO-Revision-Date: 2024-05-05 22:31+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: src/chatbar/AttachDialog.qml:27
 #, kde-format
@@ -37,7 +37,7 @@ msgstr "Вложить изображение или файл"
 #: src/chatbar/ChatBar.qml:97
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr "Эмодзи и наклейки"
+msgstr "Эмодзи и стикеры"
 
 #: src/chatbar/ChatBar.qml:114
 #, kde-format
@@ -55,8 +55,7 @@ msgid "Send an encrypted message…"
 msgstr "Отправить зашифрованное сообщение…"
 
 #: src/chatbar/ChatBar.qml:208
-#, fuzzy, kde-format
-#| msgid "Set an attachment caption..."
+#, kde-format
 msgid "Set an attachment caption…"
 msgstr "Задать подпись для вложения…"
 
@@ -68,7 +67,7 @@ msgstr "Введите текст сообщения…"
 #: src/chatbar/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
-msgstr "Не найдено ни одной наклейки"
+msgstr "Не найдено ни одного стикера"
 
 #: src/chatbar/EmojiGrid.qml:87
 #, kde-format
@@ -83,7 +82,7 @@ msgstr "Эмодзи"
 #: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
 #, kde-format
 msgid "Stickers"
-msgstr "Наклейки"
+msgstr "Стикеры"
 
 #: src/chatbar/ReplyPane.qml:89
 #, kde-format
@@ -91,7 +90,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Отменить ответ"
 
-#: src/controller.cpp:138
+#: src/controller.cpp:130
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt ""
@@ -100,60 +99,59 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Отправлять уведомления о наборе текста"
 
-#: src/controller.cpp:217
+#: src/controller.cpp:209
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ошибка сети: %1"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не найден токен доступа"
 
-#: src/controller.cpp:239
+#: src/controller.cpp:231
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Возможно, он был удалён."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Не удалось получить доступ к связке ключей."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:235
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Разрешите приложению NeoChat прочитать токен доступа"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "No keychain available."
 msgstr "Нет ни одной доступной связки ключей."
 
-#: src/controller.cpp:246
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Установите приложение, предоставляющее службу связки ключей, например "
 "KWallet или Gnome Keyring."
 
-#: src/controller.cpp:249
+#: src/controller.cpp:241
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не удалось прочитать токен доступа"
 
-#: src/controller.cpp:345
+#: src/controller.cpp:337
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
 msgstr "Отправлять уведомления о наборе текста"
 
 #: src/devtools/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Данные учётной записи комнаты"
+msgstr "Данные учётной записи"
 
 #: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:47
 #, fuzzy, kde-format
@@ -195,32 +193,28 @@ msgid "Developer Tools"
 msgstr "Инструменты разработчика"
 
 #: src/devtools/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
-msgstr "Параметры"
+msgstr "Отладка"
 
 #: src/devtools/DevtoolsPage.qml:34
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
-msgstr "Идентификатор комнаты"
+msgstr "Данные комнаты"
 
 #: src/devtools/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
-msgstr "Информация о сервере"
+msgstr "Сведения о сервере"
 
 #: src/devtools/DevtoolsPage.qml:44
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Данные учётной записи комнаты"
+msgstr "Данные учётной записи"
 
 #: src/devtools/DevtoolsPage.qml:49
 #, kde-format
@@ -232,7 +226,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
-msgstr ""
+msgstr "Потоки"
 
 #: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
@@ -252,10 +246,9 @@ msgid "Room"
 msgstr "Внутреннее помещение"
 
 #: src/devtools/RoomData.qml:36
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgid "Room Id: %1"
-msgstr "Идентификатор комнаты"
+msgstr "Идентификатор комнаты: %1"
 
 #: src/devtools/RoomData.qml:40
 #, kde-format
@@ -350,12 +343,12 @@ msgid "Spaces"
 msgstr "Пространства"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:144 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Это сообщение было удалено]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:145
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -599,7 +592,7 @@ msgstr "отправил(а) сообщение"
 #: src/eventhandler.cpp:521
 #, kde-format
 msgid "sent a sticker"
-msgstr "отправил(а) наклейку"
+msgstr "отправил(а) стикер"
 
 #: src/eventhandler.cpp:527
 #, kde-format
@@ -892,16 +885,14 @@ msgid ""
 msgstr ""
 
 #: src/login/Username.qml:20
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgid "Username:"
-msgstr "Пользователь"
+msgstr "Имя пользователя:"
 
 #: src/login/Username.qml:23
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "Username unavailable"
-msgstr "Нет ни одного пользователя"
+msgstr "Имя пользователя недоступно"
 
 #: src/login/WelcomePage.qml:25
 #, kde-format
@@ -929,11 +920,10 @@ msgid "%1 (loading)"
 msgstr "Отправка"
 
 #: src/login/WelcomePage.qml:95
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
-msgstr "Изменить эту учётную запись"
+msgstr "Удалить учётную запись"
 
 #: src/login/WelcomePage.qml:124
 #, fuzzy, kde-format
@@ -956,8 +946,7 @@ msgid "Open proxy settings"
 msgstr "Настроить"
 
 #: src/login/WelcomePage.qml:220
-#, fuzzy, kde-format
-#| msgid "Proxy Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "Параметры прокси"
@@ -1015,10 +1004,9 @@ msgid "Alexey Rusakov"
 msgstr "Алексей Русаков"
 
 #: src/main.cpp:154
-#, fuzzy, kde-format
-#| msgid "Maintainer of Quotient"
+#, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Сопровождающий Quotient"
+msgstr "Сопровождающий libQuotient"
 
 #: src/main.cpp:155
 #, kde-format
@@ -1457,7 +1445,7 @@ msgstr "Пользовательские"
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr "Свои наклейки"
+msgstr "Свои стикеры"
 
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
@@ -1580,13 +1568,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Приглашение на вызов"
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:69
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " и "
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:77
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1596,7 +1584,7 @@ msgstr[1] " и ещё %1"
 msgstr[2] " и ещё %1"
 msgstr[3] " и ещё %1"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:81
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2225,12 +2213,10 @@ msgid "Select All"
 msgstr "Выделить все"
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "Изменение наклейки"
+msgstr "Состояние редактирования"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
@@ -2932,15 +2918,13 @@ msgid "Insert link"
 msgstr "Вставить ссылку"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
-msgstr "Присоединиться"
+msgstr "Присоединение к %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Присоединиться"
@@ -2949,7 +2933,7 @@ msgstr "Присоединиться"
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
-msgstr ""
+msgstr "Игнорировать"
 
 #: src/qml/RemoveChildDialog.qml:27
 #, fuzzy, kde-format
@@ -3080,11 +3064,10 @@ msgid "Show locations for this room"
 msgstr "Показать местоположения для этой комнаты"
 
 #: src/qml/RoomInformation.qml:124
-#, fuzzy, kde-format
-#| msgid "Leaving this room."
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
-msgstr "Покинуть эту комнату."
+msgstr "Покинуть комнату"
 
 #: src/qml/RoomInformation.qml:137
 #, kde-format
@@ -3117,10 +3100,9 @@ msgid "No member count"
 msgstr "Количество участников не подсчитывается"
 
 #: src/qml/RoomListPage.qml:195
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "No friends found"
-msgstr "Не найдено ни одной комнаты"
+msgstr "Не найдено ни одного друга"
 
 #: src/qml/RoomListPage.qml:195
 #, kde-format
@@ -3345,7 +3327,7 @@ msgstr ""
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
-msgstr ""
+msgstr "Друзья"
 
 #: src/qml/SpaceDrawer.qml:242
 #, fuzzy, kde-format
@@ -3959,11 +3941,10 @@ msgid "Label:"
 msgstr "Метка:"
 
 #: src/settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "QR code for account"
-msgstr "Изменить эту учётную запись"
+msgstr "QR-код учётной записи"
 
 #: src/settings/AccountEditorPage.qml:133
 #: src/settings/AccountEditorPage.qml:188
@@ -4005,13 +3986,12 @@ msgstr "Пароли не совпадают"
 #: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgid "Email Addresses"
-msgstr ""
+msgstr "Адреса электронной почты"
 
 #: src/settings/AccountEditorPage.qml:206
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Phone Numbers"
-msgstr "Участники"
+msgstr "Телефонные номера"
 
 #: src/settings/AccountEditorPage.qml:211
 #, kde-format
@@ -4169,11 +4149,10 @@ msgid "Verify device"
 msgstr "Верифицировать устройство"
 
 #: src/settings/DeviceDelegate.qml:126
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "This device is verified"
 msgid "Verified"
-msgstr "Проверенные устройства"
+msgstr "Проверено"
 
 #: src/settings/DeviceDelegate.qml:135
 #, kde-format
@@ -4228,7 +4207,7 @@ msgstr "Изменение эмодзи"
 #, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "Изменение наклейки"
+msgstr "Изменение стикера"
 
 #: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
 #, kde-format
@@ -4240,12 +4219,12 @@ msgstr "Добавить эмодзи"
 #, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "Добавить наклейку"
+msgstr "Добавление стикера"
 
 #: src/settings/EmoticonEditorPage.qml:30
 #, kde-format
 msgid "Sticker"
-msgstr "Наклейка"
+msgstr "Стикер"
 
 #: src/settings/EmoticonEditorPage.qml:30
 #, kde-format
@@ -4286,13 +4265,13 @@ msgstr "Добавить эмодзи"
 #: src/settings/EmoticonFormCard.qml:112
 #, kde-format
 msgid "Add Sticker"
-msgstr "Добавить наклейку"
+msgstr "Добавить стикер"
 
 #: src/settings/EmoticonsPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Stickers & Emojis"
-msgstr "Наклейки и эмодзи"
+msgstr "Стикеры и эмодзи"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4350,25 +4329,23 @@ msgid "Unknown"
 msgstr "Неизвестное событие"
 
 #: src/settings/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Игнорировать этого пользователя"
+msgstr "Игнорируемые пользователи"
 
 #: src/settings/IgnoredUsersDialog.qml:24
 #: src/settings/NeoChatSecurityPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Игнорировать этого пользователя"
+msgstr "Игнорируемые пользователи"
 
 #: src/settings/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "Нет ни одного игнорируемого пользователя"
 
 #: src/settings/IgnoredUsersDialog.qml:51
 #, fuzzy, kde-format
@@ -4428,7 +4405,7 @@ msgstr "Действия"
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
-msgstr ""
+msgstr "По алфавиту"
 
 #: src/settings/NeoChatGeneralPage.qml:108
 #, kde-format
@@ -4516,19 +4493,16 @@ msgid "Device id"
 msgstr "Идентификатор устройства"
 
 #: src/settings/NeoChatSecurityPage.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject and ignore user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "Отклонить и игнорировать пользователя"
+msgstr "Управление игнорируемыми пользователями"
 
 #: src/settings/NeoChatSecurityPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Игнорировать этого пользователя"
+msgstr "Игнорируемые пользователи"
 
 #: src/settings/NeoChatSettings.qml:20 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettings.qml:21
@@ -4555,7 +4529,7 @@ msgstr "Безопасность"
 #: src/settings/NeoChatSettings.qml:60
 #, kde-format
 msgid "Stickers & Emojis"
-msgstr "Наклейки и эмодзи"
+msgstr "Стикеры и эмодзи"
 
 #: src/settings/NeoChatSettings.qml:71
 #, kde-format
@@ -4581,7 +4555,7 @@ msgstr "О KDE"
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
-msgstr ""
+msgstr "Прокси-сервер"
 
 #: src/settings/NetworkProxyPage.qml:25
 #, kde-format
@@ -4589,10 +4563,9 @@ msgid "System Default"
 msgstr "Заданный в системе"
 
 #: src/settings/NetworkProxyPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Network Proxy"
+#, kde-format
 msgid "No Proxy"
-msgstr "Тип прокси"
+msgstr "Без прокси"
 
 #: src/settings/NetworkProxyPage.qml:41
 #, kde-format
@@ -5281,23 +5254,23 @@ msgstr "Остановить загрузку"
 #, kde-format
 msgctxt "flight departure, %1 is airport, %2 is time"
 msgid "Departure from %1"
-msgstr ""
+msgstr "Отправление c %1"
 
 #: src/timeline/FlightReservationComponent.qml:90
 #, kde-format
 msgctxt "flight arrival, %1 is airport, %2 is time"
 msgid "Arrival at %1"
-msgstr ""
+msgstr "Прибытие в %1"
 
 #: src/timeline/HotelReservationComponent.qml:65
 #, kde-format
 msgid "Check-in time: %1"
-msgstr ""
+msgstr "Время регистрации: %1"
 
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
-msgstr ""
+msgstr "Время регистрации отъезда: %1"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
