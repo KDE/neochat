@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1599,7 +1599,7 @@ msgstr "위도: %1, 경도: %2"
 msgid "Encrypted Message"
 msgstr "암호화된 메시지"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1674,7 +1674,7 @@ msgid "Notification settings"
 msgstr "알림 설정"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "설정"
@@ -1740,6 +1740,25 @@ msgstr "기존 계정에 로그인하거나 새 계정 만들기"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "로그인"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "대화 시작"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "%1 님과 대화를 시작하시겠습니까?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "대화 시작"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1888,6 +1907,33 @@ msgstr "파일 열기"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr ""
+
+#: src/qml/ConsentDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "사용자 동의"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"홈 서버를 사용하기 전에 사용 조건에 동의해야 합니다. 아래 단추를 클릭하여 읽"
+"으십시오."
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "열기"
 
 #: src/qml/ContextMenu.qml:31
 #, fuzzy, kde-format
@@ -2474,6 +2520,12 @@ msgstr "반응"
 msgid "Reply in Thread"
 msgstr "스레드에 답장"
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr ""
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2580,7 +2632,7 @@ msgstr "사용자가 이미 대화방에 소속되어 있거나 초대됨"
 #, fuzzy, kde-format
 #| msgctxt "Joining room <roomname>."
 #| msgid "Joining room %1."
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "%1 대화방에 입장합니다."
 
@@ -2653,71 +2705,27 @@ msgstr "위치"
 msgid "There are no locations shared in this room."
 msgstr "이 대화방에 공유된 위치가 없습니다."
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, fuzzy, kde-format
 #| msgid "New Room Information"
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "새 대화방 정보"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, fuzzy, kde-format
 #| msgid "New Room Information"
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "새 대화방 정보"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/qml/Main.qml:325
-#, fuzzy, kde-format
-#| msgid "User consent"
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "사용자 동의"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"홈 서버를 사용하기 전에 사용 조건에 동의해야 합니다. 아래 단추를 클릭하여 읽"
-"으십시오."
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "열기"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "대화 시작"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "%1 님과 대화를 시작하시겠습니까?"
-
-#: src/qml/Main.qml:375
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "대화 시작"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr ""
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"

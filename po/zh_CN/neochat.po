@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1593,7 +1593,7 @@ msgstr "纬度：%1，经度：%2"
 msgid "Encrypted Message"
 msgstr "加密的消息"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1：%2"
@@ -1668,7 +1668,7 @@ msgid "Notification settings"
 msgstr "通知设置"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "配置"
@@ -1729,6 +1729,25 @@ msgstr "登录或创建一个新账户"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "登录"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "开始聊天"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "您想要与 %1 开始聊天吗？"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "开始聊天"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1869,6 +1888,31 @@ msgstr "打开网址"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr "您想打开 <link>%1</link> 吗？"
+
+#: src/qml/ConsentDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "用户许可"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr "主服务器要求您在使用前同意条款和条件。请点击下面的按钮阅读这些条款。"
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "打开"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -2446,6 +2490,12 @@ msgstr "回应"
 msgid "Reply in Thread"
 msgstr "主题内回复"
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "当前选择的链接"
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2547,8 +2597,10 @@ msgid "User is either already a member or has been invited"
 msgstr "用户已经是成员或已被邀请"
 
 #: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Join Room"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "加入房间"
 
@@ -2619,67 +2671,25 @@ msgstr "位置"
 msgid "There are no locations shared in this room."
 msgstr "此聊天室中没有共享位置。"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "显示房间信息"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "关闭房间信息面板"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "会话验证"
 
-#: src/qml/Main.qml:325
-#, fuzzy, kde-format
-#| msgid "User consent"
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "用户许可"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr "主服务器要求您在使用前同意条款和条件。请点击下面的按钮阅读这些条款。"
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "打开"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "开始聊天"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "您想要与 %1 开始聊天吗？"
-
-#: src/qml/Main.qml:375
-#, fuzzy, kde-format
-#| msgid "Start a chat"
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "开始聊天"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "当前选择的链接"
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"

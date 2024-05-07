@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1658,7 +1658,7 @@ msgstr "Lintang: %1, Bujur: %2"
 msgid "Encrypted Message"
 msgstr "Pesan Terenkripsi"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1736,7 +1736,7 @@ msgid "Notification settings"
 msgstr "Pengaturan notifikasi"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurasikan"
@@ -1801,6 +1801,25 @@ msgstr "Masuk ke akun yang sudah ada"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Masuk"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Mulai sebuah obrolan"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "Apakah Anda ingin memulai sebuah obrolan dengan %1?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Mulai sebuah Obrolan"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1948,6 +1967,33 @@ msgstr "Buka Berkas"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr ""
+
+#: src/qml/ConsentDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "Persetujuan pengguna"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"Homeserver Anda membutuhkan Anda untuk menerima syarat dan kondisi sebelum "
+"Anda dapat menggunakannya. Mohon klik tombol di bawah untuk membacanya."
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Buka"
 
 #: src/qml/ContextMenu.qml:31
 #, fuzzy, kde-format
@@ -2554,6 +2600,12 @@ msgstr "Reaksi"
 msgid "Reply in Thread"
 msgstr ""
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr ""
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2661,7 +2713,7 @@ msgstr "Pengguna sudah menjadi anggota atau telah diundang"
 #, fuzzy, kde-format
 #| msgctxt "Joining room <roomname>."
 #| msgid "Joining room %1."
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "Bergabung ke ruangan %1."
 
@@ -2737,71 +2789,27 @@ msgstr "Notifikasi"
 msgid "There are no locations shared in this room."
 msgstr "Anda sudah ada di ruangan ini."
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, fuzzy, kde-format
 #| msgid "Room Information"
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Informasi Ruangan"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, fuzzy, kde-format
 #| msgid "Room Information"
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Informasi Ruangan"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikasi Sesi"
 
-#: src/qml/Main.qml:325
-#, fuzzy, kde-format
-#| msgid "User consent"
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "Persetujuan pengguna"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"Homeserver Anda membutuhkan Anda untuk menerima syarat dan kondisi sebelum "
-"Anda dapat menggunakannya. Mohon klik tombol di bawah untuk membacanya."
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "Buka"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "Mulai sebuah obrolan"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "Apakah Anda ingin memulai sebuah obrolan dengan %1?"
-
-#: src/qml/Main.qml:375
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "Mulai sebuah Obrolan"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr ""
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"

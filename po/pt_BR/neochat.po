@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2023-07-05 18:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1748,7 +1748,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Mensagem criptografada"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1829,7 +1829,7 @@ msgid "Notification settings"
 msgstr "Mostrar notificações"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
@@ -1894,6 +1894,25 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Entrar"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Iniciar um bate-papo"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "Você gostaria de iniciar um bate-papo com %1?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Iniciar um bate-papo"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -2047,6 +2066,33 @@ msgstr "Abrir arquivo"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr ""
+
+#: src/qml/ConsentDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "Consentimento do usuário"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"O seu homeserver requer que você concorde com seus termos e condições antes "
+"de ser usado. Clique no botão abaixo para lê-los."
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Abrir"
 
 #: src/qml/ContextMenu.qml:31
 #, fuzzy, kde-format
@@ -2659,6 +2705,12 @@ msgstr "Reagir"
 msgid "Reply in Thread"
 msgstr ""
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr ""
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2765,7 +2817,7 @@ msgstr ""
 #: src/qml/JoinRoomDialog.qml:29
 #, fuzzy, kde-format
 #| msgid "Configure room"
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "Configurar sala"
 
@@ -2844,72 +2896,28 @@ msgstr "Mostrar notificações"
 msgid "There are no locations shared in this room."
 msgstr "Você já está nesta sala."
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Informação da sala"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Informação da sala"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Mostrar notificações"
 
-#: src/qml/Main.qml:325
-#, fuzzy, kde-format
-#| msgid "User consent"
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "Consentimento do usuário"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"O seu homeserver requer que você concorde com seus termos e condições antes "
-"de ser usado. Clique no botão abaixo para lê-los."
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "Abrir"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "Iniciar um bate-papo"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "Você gostaria de iniciar um bate-papo com %1?"
-
-#: src/qml/Main.qml:375
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "Iniciar um bate-papo"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr ""
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"

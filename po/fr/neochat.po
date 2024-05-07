@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2024-05-02 16:29+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -1607,7 +1607,7 @@ msgstr "Lat : %1, Long : %2"
 msgid "Encrypted Message"
 msgstr "Message chiffré"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1 : %2"
@@ -1682,7 +1682,7 @@ msgid "Notification settings"
 msgstr "Configuration des notifications"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Configurer"
@@ -1743,6 +1743,25 @@ msgstr "Se connecter ou créer un nouveau compte"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Compte de connexion"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Démarrer une conversation"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "Voulez-vous démarrer une discussion avec %1 ?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Démarrer une conversation"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1885,6 +1904,34 @@ msgstr "Ouvrir une URL"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr "Voulez-vous ouvrir <link>%1</link> ?"
+
+#: src/qml/ConsentDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "Consentement de l'utilisateur"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"Votre serveur personnel demande votre accord sur les termes et conditions "
+"avant de pouvoir l'utiliser. Veuillez cliquer sur le bouton ci-dessous pour "
+"les lire."
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Ouvrir"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -2471,6 +2518,12 @@ msgstr "Réaction"
 msgid "Reply in Thread"
 msgstr "Répondre dans le fil de discussions"
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "Le lien actuellement sélectionné"
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2574,8 +2627,10 @@ msgid "User is either already a member or has been invited"
 msgstr "L'utilisateur est déjà membre ou a été invité"
 
 #: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Join Room"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "Rejoindre un salon"
 
@@ -2647,72 +2702,27 @@ msgstr "Emplacements"
 msgid "There are no locations shared in this room."
 msgstr "Il n'y a aucun emplacement partagé dans ce salon."
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, fuzzy, kde-format
 #| msgid "New Room Information"
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Nouvelles informations sur les salons"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, fuzzy, kde-format
 #| msgid "New Room Information"
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Nouvelles informations sur les salons"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Vérification de la session"
 
-#: src/qml/Main.qml:325
-#, fuzzy, kde-format
-#| msgid "User consent"
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "Consentement de l'utilisateur"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"Votre serveur personnel demande votre accord sur les termes et conditions "
-"avant de pouvoir l'utiliser. Veuillez cliquer sur le bouton ci-dessous pour "
-"les lire."
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "Ouvrir"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "Démarrer une conversation"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "Voulez-vous démarrer une discussion avec %1 ?"
-
-#: src/qml/Main.qml:375
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "Démarrer une conversation"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "Le lien actuellement sélectionné"
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"

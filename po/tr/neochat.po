@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2024-05-01 14:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1597,7 +1597,7 @@ msgstr "Enlem: %1, Boylam: %2"
 msgid "Encrypted Message"
 msgstr "Şifreli İleti"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1672,7 +1672,7 @@ msgid "Notification settings"
 msgstr "Bildirim ayarları"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Yapılandır"
@@ -1733,6 +1733,26 @@ msgstr "Oturum Aç veya Hesap Oluştur"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Oturum Aç"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Bir sohbet başlat"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start Chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Sohbet Başlat"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1875,6 +1895,32 @@ msgstr "URL Aç"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr "<b>%1</b> bağlantısı açılsın mı?"
+
+#: src/qml/ConsentDialog.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "Kullanıcı Onayı"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"Ana sunucunuz, kullanım öncesinde kullanım koşullarını kabul etmenizi "
+"gerektiriyor. Okumak için aşağıdaki düğmeye tıklayın."
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Aç"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -2453,6 +2499,12 @@ msgstr "Tepki"
 msgid "Reply in Thread"
 msgstr "İleti dizisinde yanıtla"
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "Şu anda seçili bağlantı"
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2556,8 +2608,10 @@ msgid "User is either already a member or has been invited"
 msgstr "Kullanıcı halihazırda bir üye veya davet edilmiş"
 
 #: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Join Room"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "Odaya Katıl"
 
@@ -2628,67 +2682,25 @@ msgstr "Konumlar"
 msgid "There are no locations shared in this room."
 msgstr "Bu odada paylaşılmış bir konum yok."
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Oda Bilgisini Göster"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Oda Bilgisi Çekmecesini Kapat"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/Main.qml:325
-#, kde-format
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "Kullanıcı Onayı"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"Ana sunucunuz, kullanım öncesinde kullanım koşullarını kabul etmenizi "
-"gerektiriyor. Okumak için aşağıdaki düğmeye tıklayın."
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "Aç"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "Bir sohbet başlat"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"
-
-#: src/qml/Main.qml:375
-#, kde-format
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "Sohbet Başlat"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "Şu anda seçili bağlantı"
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"

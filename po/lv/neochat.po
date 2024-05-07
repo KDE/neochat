@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -1607,7 +1607,7 @@ msgstr "Plat.: %1, gar.: %2"
 msgid "Encrypted Message"
 msgstr "Šifrēta ziņa"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1682,7 +1682,7 @@ msgid "Notification settings"
 msgstr "Paziņojumu iestatījumi"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurēt"
@@ -1747,6 +1747,25 @@ msgstr "Ierakstīties vai izveidot jaunu kontu"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Ierakstīšanās"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Uzsākt tērzēšanu"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "Vai vēlaties uzsākt tērzēšanu ar „%1“?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Uzsākt tērzēšanu"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1895,6 +1914,33 @@ msgstr "Atvērt datni"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr ""
+
+#: src/qml/ConsentDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "User consent"
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "Lietotāja piekrišana"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"Jūsu mājas serveris pieprasa piekrist tā noteikumiem pirms tā izmantošanas. "
+"Spiediet uz pogas, lai tos izlasītu."
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Atvērt"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -2485,6 +2531,12 @@ msgstr "Reaģēt"
 msgid "Reply in Thread"
 msgstr "Atbildēt pavedienā"
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "Pašreiz atlasītā saite"
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2591,7 +2643,7 @@ msgstr "Lietotājs ir jau dalībnieks vai ir uzaicināts"
 #, fuzzy, kde-format
 #| msgctxt "Joining room <roomname>."
 #| msgid "Joining room %1."
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "Pievienojas istabai „%1“."
 
@@ -2664,71 +2716,27 @@ msgstr "Atrašanās vietas"
 msgid "There are no locations shared in this room."
 msgstr "Šajā istabā nav kopīgotas atrašanās vietas."
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, fuzzy, kde-format
 #| msgid "New Room Information"
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Jaunās istabas informācija"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, fuzzy, kde-format
 #| msgid "New Room Information"
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Jaunās istabas informācija"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sesijas verifikācija"
 
-#: src/qml/Main.qml:325
-#, fuzzy, kde-format
-#| msgid "User consent"
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "Lietotāja piekrišana"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"Jūsu mājas serveris pieprasa piekrist tā noteikumiem pirms tā izmantošanas. "
-"Spiediet uz pogas, lai tos izlasītu."
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "Atvērt"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "Uzsākt tērzēšanu"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "Vai vēlaties uzsākt tērzēšanu ar „%1“?"
-
-#: src/qml/Main.qml:375
-#, fuzzy, kde-format
-#| msgid "Start a chat"
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "Uzsākt tērzēšanu"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "Pašreiz atlasītā saite"
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"

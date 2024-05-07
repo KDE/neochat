@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2024-04-27 21:49+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1606,7 +1606,7 @@ msgstr "Lat: %1, Lon: %2"
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1681,7 +1681,7 @@ msgid "Notification settings"
 msgstr "Jakinarazpen-ezarpenak"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Konfiguratu"
@@ -1742,6 +1742,26 @@ msgstr "Saioa hasi edo sortu kontu berri bat"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Saio-hasi"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Hasi berriketa bat"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "%1(r)ekin berriketa bat abiatu nahi duzu?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start Chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Hasi berriketa"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1882,6 +1902,33 @@ msgstr "Ireki URL"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr "<link>%1</link> esteka ireki nahi duzu?"
+
+#: src/qml/ConsentDialog.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "Erabiltzailearen baimena"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"Zure etxeko zerbitzariak, berau erabili ahal izateko, aurrena, bere "
+"terminoak eta baldintzak onartzea eskatzen dizu. Mesedez, egiozu klik beheko "
+"botoiari haiek irakurtzeko."
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Ireki"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -2461,6 +2508,12 @@ msgstr "Erreakzioa"
 msgid "Reply in Thread"
 msgstr "Erantzun harian"
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "Une honetan hautatutako esteka"
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2564,8 +2617,10 @@ msgid "User is either already a member or has been invited"
 msgstr "Erabiltzailea dagoeneko bazkidea da edo gonbidapena jaso du"
 
 #: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Join Room"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "Elkartu gelara"
 
@@ -2636,68 +2691,25 @@ msgstr "Kokalekuak"
 msgid "There are no locations shared in this room."
 msgstr "Gela honetan ez dago partekatutako kokalekurik."
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Erakutsi gelaren informazioa"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Itxi gelaren informazioaren tiradera"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Saioa egiaztatzea"
 
-#: src/qml/Main.qml:325
-#, kde-format
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "Erabiltzailearen baimena"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"Zure etxeko zerbitzariak, berau erabili ahal izateko, aurrena, bere "
-"terminoak eta baldintzak onartzea eskatzen dizu. Mesedez, egiozu klik beheko "
-"botoiari haiek irakurtzeko."
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "Ireki"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "Hasi berriketa bat"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "%1(r)ekin berriketa bat abiatu nahi duzu?"
-
-#: src/qml/Main.qml:375
-#, kde-format
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "Hasi berriketa"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "Une honetan hautatutako esteka"
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"

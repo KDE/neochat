@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2023-11-23 10:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1598,7 +1598,7 @@ msgstr "Šíř.: %1, Dél.: %2"
 msgid "Encrypted Message"
 msgstr "Zašifrovaná zpráva"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1673,7 +1673,7 @@ msgid "Notification settings"
 msgstr "Nastavení oznamování"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "Nastavit"
@@ -1734,6 +1734,25 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Přihlášení"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Zahájit rozhovor"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "Přejete si začít rozhovor s %1?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Zahájit rozhovor"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1870,6 +1889,27 @@ msgstr ""
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr ""
+
+#: src/qml/ConsentDialog.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr ""
+
+#: src/qml/ConsentDialog.qml:24
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Otevřít"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -2450,6 +2490,12 @@ msgstr "Zareagovat"
 msgid "Reply in Thread"
 msgstr "Odpovědět ve vláknu"
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr ""
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2551,10 +2597,11 @@ msgid "User is either already a member or has been invited"
 msgstr ""
 
 #: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "Room"
+msgctxt "@title:dialog"
 msgid "Join Room"
-msgstr ""
+msgstr "Pokoj"
 
 #: src/qml/JoinRoomDialog.qml:67
 #, kde-format
@@ -2623,66 +2670,25 @@ msgstr "Umístění"
 msgid "There are no locations shared in this room."
 msgstr ""
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr ""
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr ""
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/qml/Main.qml:325
-#, kde-format
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr ""
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "Otevřít"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "Zahájit rozhovor"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "Přejete si začít rozhovor s %1?"
-
-#: src/qml/Main.qml:375
-#, fuzzy, kde-format
-#| msgid "Start a chat"
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "Zahájit rozhovor"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr ""
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"

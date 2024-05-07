@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:38+0000\n"
+"POT-Creation-Date: 2024-05-07 00:38+0000\n"
 "PO-Revision-Date: 2024-05-05 14:31+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1596,7 +1596,7 @@ msgstr "அட்ச: %1, தீர்க்க: %2"
 msgid "Encrypted Message"
 msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:274
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1671,7 +1671,7 @@ msgid "Notification settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:413 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
 #, kde-format
 msgid "Configure"
 msgstr "அமை"
@@ -1732,6 +1732,26 @@ msgstr "கணக்கில் நுழையவும் அல்லது 
 msgctxt "@title:window"
 msgid "Login"
 msgstr "நுழைவு"
+
+#: src/qml/AskDirectChatConfirmation.qml:20
+#, fuzzy, kde-format
+#| msgid "Start a chat"
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "உரையாடலைத் துவக்கு"
+
+#: src/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "உறுதியாக %1 என்பவருடன் உரையாடலைத் துவக்க வேண்டுமா?"
+
+#: src/qml/AskDirectChatConfirmation.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start Chat"
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "உரையாடலைத் துவக்கு"
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
@@ -1872,6 +1892,32 @@ msgstr "முகவரியை திற"
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
 msgstr "<link>%1</link> தனைத் திறக்க வேண்டுமா?"
+
+#: src/qml/ConsentDialog.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "பயனர் ஒப்புதல்"
+
+#: src/qml/ConsentDialog.qml:24
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your homeserver requires you to agree to its terms and conditions before "
+#| "being able to use it. Please click the button below to read them."
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"பயன்படுத்துமுன் அதன் விதிமுறைகளை ஏற்குமாறு உங்கள் தாய் சேவையகம் உங்களை "
+"கட்டாயப்படுத்துகிறது. அவற்றைப் படிக்க கீழுள்ள பட்டனைத் தட்டுங்கள்."
+
+#: src/qml/ConsentDialog.qml:31
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "திற"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -2449,6 +2495,12 @@ msgstr "எதிர்வினையிடு"
 msgid "Reply in Thread"
 msgstr "தொடரில் பதிலளி"
 
+#: src/qml/HoverLinkIndicator.qml:24
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "தற்போது தேர்ந்தெடுத்துள்ள இணைப்பு"
+
 #: src/qml/ImageEditorPage.qml:37
 #, kde-format
 msgctxt "@action:button Undo modification"
@@ -2552,8 +2604,10 @@ msgid "User is either already a member or has been invited"
 msgstr "பயனர் ஏற்கனவே இவ்வரங்குக்கு வரவழைக்கப்பட்டுள்ளார், அல்லது இவ்வரங்கில் உள்ளார்"
 
 #: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Join Room"
+msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "அரங்கில் சேர்வது"
 
@@ -2624,67 +2678,25 @@ msgstr "இருப்பிடங்கள்"
 msgid "There are no locations shared in this room."
 msgstr "இவ்வரங்கில் எந்த இருப்பிடமும் பகிரப்படவில்லை."
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "அரங்கின் விவரங்களை காட்டு"
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "அரங்குவிவர ஓரப்பட்டையை மூடு"
 
-#: src/qml/Main.qml:303
+#: src/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "அமர்வு உறுதிப்பாடு"
 
-#: src/qml/Main.qml:325
-#, kde-format
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "பயனர் ஒப்புதல்"
-
-#: src/qml/Main.qml:328
-#, kde-format
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"பயன்படுத்துமுன் அதன் விதிமுறைகளை ஏற்குமாறு உங்கள் தாய் சேவையகம் உங்களை "
-"கட்டாயப்படுத்துகிறது. அவற்றைப் படிக்க கீழுள்ள பட்டனைத் தட்டுங்கள்."
-
-#: src/qml/Main.qml:335
-#, kde-format
-msgid "Open"
-msgstr "திற"
-
-#: src/qml/Main.qml:363
-#, kde-format
-msgid "Start a chat"
-msgstr "உரையாடலைத் துவக்கு"
-
-#: src/qml/Main.qml:366
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "உறுதியாக %1 என்பவருடன் உரையாடலைத் துவக்க வேண்டுமா?"
-
-#: src/qml/Main.qml:375
-#, kde-format
-msgctxt "@action"
-msgid "Start Chat"
-msgstr "உரையாடலைத் துவக்கு"
-
-#: src/qml/Main.qml:399
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "தற்போது தேர்ந்தெடுத்துள்ள இணைப்பு"
-
-#: src/qml/Main.qml:431 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
