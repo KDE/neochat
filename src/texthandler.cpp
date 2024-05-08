@@ -389,7 +389,7 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
 
 QString TextHandler::getTagType(const QString &tagToken) const
 {
-    if (tagToken.isEmpty()) {
+    if (tagToken.isEmpty() || tagToken.length() < 2) {
         return QString();
     }
     const int tagTypeStart = tagToken[1] == u'/' ? 2 : 1;
