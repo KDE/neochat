@@ -23,7 +23,6 @@
 #include "eventhandler_logging.h"
 #include "events/locationbeaconevent.h"
 #include "events/pollevent.h"
-#include "events/serveraclevent.h"
 #include "events/widgetevent.h"
 #include "linkpreviewer.h"
 #include "messagecomponenttype.h"
@@ -440,7 +439,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
         [](const LocationBeaconEvent &e) {
             return e.contentJson()["description"_ls].toString();
         },
-        [](const ServerAclEvent &) {
+        [](const RoomServerAclEvent &) {
             return i18n("changed the server access control lists for this room");
         },
         [](const WidgetEvent &e) {
@@ -609,7 +608,7 @@ QString EventHandler::getGenericBody() const
         [](const LocationBeaconEvent &) {
             return i18n("sent a live location beacon");
         },
-        [](const ServerAclEvent &) {
+        [](const RoomServerAclEvent &) {
             return i18n("changed the server access control lists for this room");
         },
         [](const WidgetEvent &e) {
