@@ -156,7 +156,6 @@ add_library(neochat STATIC
     models/linemodel.cpp
     models/linemodel.h
     events/locationbeaconevent.h
-    events/serveraclevent.h
     events/widgetevent.h
     enums/messagecomponenttype.h
     models/messagecontentmodel.cpp
