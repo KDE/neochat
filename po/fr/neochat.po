@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:38+0000\n"
-"PO-Revision-Date: 2024-05-02 16:29+0200\n"
+"PO-Revision-Date: 2024-05-07 08:42+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -154,11 +154,10 @@ msgid "Event Source"
 msgstr "Source de l'évènement"
 
 #: src/devtools/DebugOptions.qml:19
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
-msgstr "Afficher des aperçus des liens dans les messages du salon"
+msgstr "Afficher des évènements masqués dans la frise chronologique"
 
 #: src/devtools/DebugOptions.qml:26
 #, kde-format
@@ -172,14 +171,14 @@ msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
-"Autoriser l’utilisateur à démarrer une session de vérification avec des "
+"Autoriser l'utilisateur à démarrer une session de vérification avec des "
 "périphériques déjà vérifiés."
 
 #: src/devtools/DebugOptions.qml:33
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "Afficher le focus dans l'en-tête de fenêtre"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -193,15 +192,13 @@ msgid "Debug Options"
 msgstr "Options de débogage"
 
 #: src/devtools/DevtoolsPage.qml:34
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
-msgstr "Identifiant du salon"
+msgstr "Données de salons"
 
 #: src/devtools/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "Informations sur le serveur"
@@ -267,8 +264,8 @@ msgstr "État du salon"
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] "Événement %1 de ce type"
-msgstr[1] "%1 événement de ce type"
+msgstr[0] "Évènement %1 de ce type"
+msgstr[1] "%1 évènement de ce type"
 
 #: src/devtools/RoomData.qml:84
 #, kde-format
@@ -302,7 +299,7 @@ msgctxt ""
 "The name of one instance of a state of configuration. Unless you really know "
 "what you're doing, best leave this untranslated."
 msgid "State Keys"
-msgstr "Clés d’état"
+msgstr "Clés d'état"
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
@@ -1906,8 +1903,7 @@ msgid "Do you want to open <link>%1</link>?"
 msgstr "Voulez-vous ouvrir <link>%1</link> ?"
 
 #: src/qml/ConsentDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "User consent"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "User Consent"
 msgstr "Consentement de l'utilisateur"
@@ -2078,15 +2074,13 @@ msgid "Make this parent official"
 msgstr "Rendre officiel ce parent"
 
 #: src/qml/CreateRoomDialog.qml:91
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Space"
 msgstr "Créer un espace"
 
 #: src/qml/CreateRoomDialog.qml:91
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Room"
 msgstr "Créer un salon"
@@ -2305,26 +2299,22 @@ msgid "Scan a QR Code"
 msgstr "Lire un code « QR »"
 
 #: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Room"
+#, kde-format
 msgctxt "@title"
 msgid "Rooms"
-msgstr "Salon"
+msgstr "Salons"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action"
 msgid "Search Room"
-msgstr "Rechercher"
+msgstr "Rechercher un salon"
 
 #: src/qml/ExploreComponent.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Show User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Afficher l'utilisateur"
+msgstr "Afficher le menu"
 
 #: src/qml/ExploreComponent.qml:188
 #, kde-format
@@ -2703,18 +2693,16 @@ msgid "There are no locations shared in this room."
 msgstr "Il n'y a aucun emplacement partagé dans ce salon."
 
 #: src/qml/Main.qml:165
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
-msgstr "Nouvelles informations sur les salons"
+msgstr "Afficher les informations de salons"
 
 #: src/qml/Main.qml:168
-#, fuzzy, kde-format
-#| msgid "New Room Information"
+#, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
-msgstr "Nouvelles informations sur les salons"
+msgstr "Fermer le casier des informations de salons"
 
 #: src/qml/Main.qml:304
 #, kde-format
@@ -3571,8 +3559,7 @@ msgid "Copy link"
 msgstr "Copier un lien"
 
 #: src/qml/UserInfo.qml:54
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@title:window"
 msgid "Account editor"
 msgstr "Éditeur de comptes"
@@ -4517,11 +4504,9 @@ msgid "System Default"
 msgstr "Paramètres par défaut du système"
 
 #: src/settings/NetworkProxyPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Proxy"
+#, kde-format
 msgid "No Proxy"
-msgstr "Serveur mandataire"
+msgstr "Aucun serveur mandataire"
 
 #: src/settings/NetworkProxyPage.qml:41
 #, kde-format
@@ -5211,7 +5196,7 @@ msgstr "Arrivée à %1"
 #: src/timeline/HotelReservationComponent.qml:65
 #, kde-format
 msgid "Check-in time: %1"
-msgstr "Heure d’arrivée : %1"
+msgstr "Heure d'arrivée : %1"
 
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
@@ -5225,11 +5210,10 @@ msgid "Send to KDE Itinerary"
 msgstr "Envoyer vers KDE Itinerary"
 
 #: src/timeline/LinkPreviewComponent.qml:128 src/timeline/LoadComponent.qml:79
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
-msgstr "Supprimer un périphérique"
+msgstr "Supprimer un aperçu"
 
 #: src/timeline/LinkPreviewComponent.qml:146
 #, kde-format
