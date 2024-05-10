@@ -123,7 +123,12 @@ Loader {
             QQC2.MenuItem {
                 text: i18n("Leave Room")
                 icon.name: "go-previous"
-                onTriggered: RoomManager.leaveRoom(room)
+                onTriggered: {
+                    Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
+                        room: root.room
+                    }).open();
+                }
+
             }
 
             onClosed: {

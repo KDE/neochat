@@ -4,35 +4,25 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 
-QQC2.Dialog {
+Kirigami.PromptDialog {
     id: root
+
+    title: i18nc("@title:dialog", "Activate Encryption")
+    subtitle: i18n("It will not be possible to deactivate the encryption after it is enabled.")
+    dialogType: Kirigami.PromptDialog.Warning
 
     property NeoChatRoom room
 
-    ColumnLayout {
-        Kirigami.Heading {
-            text: i18n("Activate Encryption")
-        }
-        QQC2.Label {
-            text: i18n("It will not be possible to deactivate the encryption after it is enabled.")
-        }
+    onRejected: {
+        root.close();
     }
 
-    x: Math.round((parent.width - width) / 2)
-    y: Math.round((parent.height - height) / 2)
-    modal: true
-
     footer: QQC2.DialogButtonBox {
-        QQC2.Button {
-            text: i18n("Cancel")
-            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
-            onClicked: root.close()
-        }
+        standardButtons: QQC2.Dialog.Cancel
 
         QQC2.Button {
             text: i18n("Activate Encryption")
