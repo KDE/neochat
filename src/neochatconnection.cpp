@@ -398,15 +398,7 @@ void NeoChatConnection::openOrCreateDirectChat(User *user)
             return;
         }
     }
-    requestDirectChat(user);
-    connect(
-        this,
-        &Connection::directChatAvailable,
-        this,
-        [=](auto room) {
-            room->activateEncryption();
-        },
-        Qt::SingleShotConnection);
+    requestDirectChat(user->id());
 }
 
 qsizetype NeoChatConnection::directChatNotifications() const
