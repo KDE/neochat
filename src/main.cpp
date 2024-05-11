@@ -13,6 +13,7 @@
 #include <QQuickStyle>
 #include <QQuickWindow>
 #include <QtQml/QQmlExtensionPlugin>
+#include <Quotient/connection.h>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -174,6 +175,7 @@ int main(int argc, char *argv[])
     initLogging();
 
     Connection::setEncryptionDefault(true);
+    Connection::setDirectChatEncryptionDefault(true);
 
 #ifdef NEOCHAT_FLATPAK
     // Copy over the included FontConfig configuration to the
