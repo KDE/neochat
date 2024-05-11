@@ -53,6 +53,7 @@ QQC2.Control {
 
     Layout.fillWidth: true
     Layout.maximumWidth: root.maxContentWidth
+    Layout.minimumHeight: root.defaultHeight
 
     leftPadding: 0
     rightPadding: 0
@@ -112,7 +113,7 @@ QQC2.Control {
                 id: linkPreviewDescription
                 Layout.fillWidth: true
                 Layout.maximumHeight: maximizeButton.checked ? -1 : root.defaultHeight - linkPreviewTitle.height - column.spacing
-                visible: linkPreviewTitle.height + column.spacing <= root.defaultHeight || maximizeButton.checked
+                visible: linkPreviewTitle.height + column.spacing + font.pointSize <= root.defaultHeight || maximizeButton.checked
                 text: linkPreviewer.description
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
