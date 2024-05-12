@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2024-03-12 11:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -831,8 +831,8 @@ msgstr "Regisztráció"
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
 msgstr "Jelszó"
@@ -1818,19 +1818,14 @@ msgid "Copy to clipboard"
 msgstr "Másolás a vágólapra"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
-#: src/qml/ConfirmDeactivateAccountDialog.qml:19
-#, kde-format
-msgctxt "@title"
-msgid "Deactivate Account"
-msgstr "Fiók deaktiválása"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Confirm Deactivating Account"
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "Fiók deaktiválásának megerősítése"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Warning"
-msgstr "Figyelmeztetés"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:24
+#: src/qml/ConfirmDeactivateAccountDialog.qml:17
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -1843,30 +1838,37 @@ msgstr ""
 "A Matrix azonosítója nem lesz elérhető új fiókok számára.\n"
 "Az üzenetei továbbra is elérhetők maradnak."
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
+#: src/qml/ConfirmDeactivateAccountDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Jelszó"
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:33
 #, kde-format
 msgid "Deactivate account"
 msgstr "Fiók deaktiválása"
 
-#: src/qml/ConfirmEncryptionDialog.qml:19
-#: src/qml/ConfirmEncryptionDialog.qml:38
-#, kde-format
+#: src/qml/ConfirmEncryptionDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Activate Encryption"
+msgctxt "@title:dialog"
 msgid "Activate Encryption"
 msgstr "Titkosítás bekapcsolása"
 
-#: src/qml/ConfirmEncryptionDialog.qml:22
+#: src/qml/ConfirmEncryptionDialog.qml:15
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr "A titkosítást nem lehet majd kikapcsolni, ha egyszer bekapcsolta."
 
-#: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
-#: src/qml/ImageEditorPage.qml:124
+#: src/qml/ConfirmEncryptionDialog.qml:28
 #, kde-format
-msgid "Cancel"
-msgstr "Mégse"
+msgid "Activate Encryption"
+msgstr "Titkosítás bekapcsolása"
 
-#: src/qml/ConfirmLeaveDialog.qml:19
+#: src/qml/ConfirmLeaveDialog.qml:16
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Confirm Deactivating Account"
@@ -1874,40 +1876,49 @@ msgctxt "@title:dialog"
 msgid "Confirm Leaving Room"
 msgstr "Fiók deaktiválásának megerősítése"
 
-#: src/qml/ConfirmLeaveDialog.qml:22
+#: src/qml/ConfirmLeaveDialog.qml:17
 #, kde-format
 msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
 msgstr ""
 
-#: src/qml/ConfirmLeaveDialog.qml:27
+#: src/qml/ConfirmLeaveDialog.qml:28
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room"
 msgstr "Szoba elhagyása"
 
-#: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
-#, kde-format
+#: src/qml/ConfirmLogoutDialog.qml:15
+#, fuzzy, kde-format
+#| msgid "Sign out"
+msgctxt "@title:dialog"
 msgid "Sign out"
 msgstr "Kijelentkezés"
 
-#: src/qml/ConfirmLogoutDialog.qml:21
+#: src/qml/ConfirmLogoutDialog.qml:16
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Biztosan ki szeretne jelentkezni?"
 
-#: src/qml/ConfirmUrlDialog.qml:17
+#: src/qml/ConfirmLogoutDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Sign out"
+msgctxt "@action:button"
+msgid "Sign out"
+msgstr "Kijelentkezés"
+
+#: src/qml/ConfirmUrlDialog.qml:14
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
 #| "file with an appropriate application"
 #| msgid "Open File"
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Open URL"
 msgstr "Fájl megnyitása"
 
-#: src/qml/ConfirmUrlDialog.qml:21
+#: src/qml/ConfirmUrlDialog.qml:15
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
@@ -1950,17 +1961,17 @@ msgstr "Eltávolítás a kedvencek közül"
 msgid "Add to Favorites"
 msgstr "Hozzáadás a kedvencekhez"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Reprioritize"
 msgstr "Újrapriorizálás"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Deprioritize"
 msgstr "Fontosság csökkentése"
 
-#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Mark as Read"
 msgstr "Megjelölés olvasottként"
@@ -2009,23 +2020,23 @@ msgid "Off"
 msgstr "Ki"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:111
+#: src/qml/ContextMenu.qml:196 src/qml/RoomDrawer.qml:111
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, kde-format
 msgid "Room Settings"
 msgstr "Szobabeállítások"
 
-#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:218
 #, kde-format
 msgid "Leave Room"
 msgstr "Szoba elhagyása"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Eltávolítás a kedvencekből"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Hozzáadás a kedvencekhez"
@@ -2555,6 +2566,11 @@ msgid ""
 msgstr ""
 "Nem lehet menteni a fájlt. Ellenőrizze, hogy megfelelőek-e a jogosultságai a "
 "gyorsítótárkönyvtár szerkesztéséhez."
+
+#: src/qml/ImageEditorPage.qml:124
+#, kde-format
+msgid "Cancel"
+msgstr "Mégse"
 
 #: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
 #, kde-format
@@ -3980,23 +3996,17 @@ msgstr "Fiókkezelés"
 msgid "Deactivate Account"
 msgstr "Fiók deaktiválása"
 
-#: src/settings/AccountEditorPage.qml:245
-#, kde-format
-msgctxt "@title"
-msgid "Confirm Deactivating Account"
-msgstr "Fiók deaktiválásának megerősítése"
-
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Sikeres jelszómódosítás"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:258
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Hibás jelszó"
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:260
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Ismeretlen hiba történt a jelszó megváltoztatásakor"
@@ -5327,6 +5337,14 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgctxt "@title"
+#~ msgid "Deactivate Account"
+#~ msgstr "Fiók deaktiválása"
+
+#~ msgctxt "@title"
+#~ msgid "Warning"
+#~ msgstr "Figyelmeztetés"
 
 #~ msgid "Show fancy effects in chat"
 #~ msgstr "Látványos hatások megjelenítése a csevegésben"

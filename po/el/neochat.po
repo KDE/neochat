@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -875,8 +875,8 @@ msgstr "Εγγραφή"
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
@@ -1920,21 +1920,13 @@ msgid "Copy to clipboard"
 msgstr "Αντιγραφή διεύθυνσης στο πρόχειρο"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
-#: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, fuzzy, kde-format
-#| msgid "Edit Account"
-msgctxt "@title"
-msgid "Deactivate Account"
-msgstr "Επεξεργασία λογαριασμού"
+#| msgid "No rooms found"
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
-msgctxt "@title"
-msgid "Warning"
-msgstr "Προειδοποίηση: %1"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:24
+#: src/qml/ConfirmDeactivateAccountDialog.qml:17
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -1943,72 +1935,88 @@ msgid ""
 "Your messages will stay available."
 msgstr ""
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
+#: src/qml/ConfirmDeactivateAccountDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Κωδικός πρόσβασης"
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:33
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate account"
 msgstr "Επεξεργασία λογαριασμού"
 
-#: src/qml/ConfirmEncryptionDialog.qml:19
-#: src/qml/ConfirmEncryptionDialog.qml:38
-#, kde-format
+#: src/qml/ConfirmEncryptionDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Activate Encryption"
+msgctxt "@title:dialog"
 msgid "Activate Encryption"
 msgstr "Ενεργοποίηση κρυπτογράφησης"
 
-#: src/qml/ConfirmEncryptionDialog.qml:22
+#: src/qml/ConfirmEncryptionDialog.qml:15
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr ""
 "Δεν θα είναι δυνατή η απενεργοποίηση της κρυπτογράφησης αφού ενεργοποιηθεί."
 
-#: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
-#: src/qml/ImageEditorPage.qml:124
+#: src/qml/ConfirmEncryptionDialog.qml:28
 #, kde-format
-msgid "Cancel"
-msgstr "Ακύρωση"
+msgid "Activate Encryption"
+msgstr "Ενεργοποίηση κρυπτογράφησης"
 
-#: src/qml/ConfirmLeaveDialog.qml:19
+#: src/qml/ConfirmLeaveDialog.qml:16
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Room"
 msgstr "Διαμόρφωση αίθουσας"
 
-#: src/qml/ConfirmLeaveDialog.qml:22
+#: src/qml/ConfirmLeaveDialog.qml:17
 #, kde-format
 msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
 msgstr ""
 
-#: src/qml/ConfirmLeaveDialog.qml:27
+#: src/qml/ConfirmLeaveDialog.qml:28
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room"
 msgstr "Αποχώρηση από την αίθουσα"
 
-#: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
-#, kde-format
+#: src/qml/ConfirmLogoutDialog.qml:15
+#, fuzzy, kde-format
+#| msgid "Sign out"
+msgctxt "@title:dialog"
 msgid "Sign out"
 msgstr "Αποσύνδεση"
 
-#: src/qml/ConfirmLogoutDialog.qml:21
+#: src/qml/ConfirmLogoutDialog.qml:16
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Θέλεις σίγουρα να αποσυνδεθείς;"
 
-#: src/qml/ConfirmUrlDialog.qml:17
+#: src/qml/ConfirmLogoutDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Sign out"
+msgctxt "@action:button"
+msgid "Sign out"
+msgstr "Αποσύνδεση"
+
+#: src/qml/ConfirmUrlDialog.qml:14
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
 #| "file with an appropriate application"
 #| msgid "Open File"
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Open URL"
 msgstr "Άνοιγμα αρχείου"
 
-#: src/qml/ConfirmUrlDialog.qml:21
+#: src/qml/ConfirmUrlDialog.qml:15
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
@@ -2054,17 +2062,17 @@ msgstr "Αφαίρεση από τα προτιμώμενα"
 msgid "Add to Favorites"
 msgstr "Προσθήκη στα προτιμώμενα"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Reprioritize"
 msgstr "Αλλαγή προτεραιότητας"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Deprioritize"
 msgstr "Υποβάθμιση προτεραιότητας"
 
-#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Mark as Read"
 msgstr "Να σημειωθεί ως αναγνωσμένο"
@@ -2115,23 +2123,23 @@ msgid "Off"
 msgstr "Κανένα"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:111
+#: src/qml/ContextMenu.qml:196 src/qml/RoomDrawer.qml:111
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, kde-format
 msgid "Room Settings"
 msgstr "Ρυθμίσεις αίθουσας"
 
-#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:218
 #, kde-format
 msgid "Leave Room"
 msgstr "Αποχώρηση από την αίθουσα"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Αφαίρεση από τα προτιμώμενα"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Προσθήκη στα προτιμώμενα"
@@ -2681,6 +2689,11 @@ msgid ""
 msgstr ""
 "Αδυναμία αποθήκευσης του αρχείου. Έλεγξε αν έχεις το δικαίωμα επεξεργασίας "
 "στον κατάλογο της προσωρινής μνήμης."
+
+#: src/qml/ImageEditorPage.qml:124
+#, kde-format
+msgid "Cancel"
+msgstr "Ακύρωση"
 
 #: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
 #, kde-format
@@ -4179,23 +4192,17 @@ msgstr "Συντάκτης λογαριασμού"
 msgid "Deactivate Account"
 msgstr "Επεξεργασία λογαριασμού"
 
-#: src/settings/AccountEditorPage.qml:245
-#, kde-format
-msgctxt "@title"
-msgid "Confirm Deactivating Account"
-msgstr ""
-
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Επιτυχημένη αλλαγή κωδικού πρόσβασης"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:258
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Δόθηκε λάθος κωδικός πρόσβασης"
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:260
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Άγνωστο πρόβλημα κατά την αλλαγή κωδικού πρόσβασης"
@@ -5581,6 +5588,18 @@ msgstr "Εμφάνιση"
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
+
+#, fuzzy
+#~| msgid "Edit Account"
+#~ msgctxt "@title"
+#~ msgid "Deactivate Account"
+#~ msgstr "Επεξεργασία λογαριασμού"
+
+#, fuzzy
+#~| msgid "Warning: %1"
+#~ msgctxt "@title"
+#~ msgid "Warning"
+#~ msgstr "Προειδοποίηση: %1"
 
 #~ msgid "Show fancy effects in chat"
 #~ msgstr "Να εμφανίζονται χαρούμενα εφέ στη συνομιλία"

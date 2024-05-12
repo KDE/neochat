@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2023-07-05 18:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -879,8 +879,8 @@ msgstr "Registrar"
 msgid "Password:"
 msgstr "Senha:"
 
-#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/settings/NetworkProxyPage.qml:95
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -1973,21 +1973,13 @@ msgid "Copy to clipboard"
 msgstr "Copiar endereço para a área de transferência"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
-#: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, fuzzy, kde-format
-#| msgid "Edit Account"
-msgctxt "@title"
-msgid "Deactivate Account"
-msgstr "Editar conta"
+#| msgid "No rooms found"
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "Nenhuma sala encontrada"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
-msgctxt "@title"
-msgid "Warning"
-msgstr "Aviso: %1"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:24
+#: src/qml/ConfirmDeactivateAccountDialog.qml:17
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -1996,72 +1988,87 @@ msgid ""
 "Your messages will stay available."
 msgstr ""
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
+#: src/qml/ConfirmDeactivateAccountDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Password"
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Senha"
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:33
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate account"
 msgstr "Editar conta"
 
-#: src/qml/ConfirmEncryptionDialog.qml:19
-#: src/qml/ConfirmEncryptionDialog.qml:38
+#: src/qml/ConfirmEncryptionDialog.qml:14
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
+msgctxt "@title:dialog"
 msgid "Activate Encryption"
 msgstr "ativou criptografia ponta-a-ponta"
 
-#: src/qml/ConfirmEncryptionDialog.qml:22
+#: src/qml/ConfirmEncryptionDialog.qml:15
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr ""
 
-#: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
-#: src/qml/ImageEditorPage.qml:124
-#, kde-format
-msgid "Cancel"
-msgstr "Cancelar"
+#: src/qml/ConfirmEncryptionDialog.qml:28
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgid "Activate Encryption"
+msgstr "ativou criptografia ponta-a-ponta"
 
-#: src/qml/ConfirmLeaveDialog.qml:19
+#: src/qml/ConfirmLeaveDialog.qml:16
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Room"
 msgstr "Configurar sala"
 
-#: src/qml/ConfirmLeaveDialog.qml:22
+#: src/qml/ConfirmLeaveDialog.qml:17
 #, kde-format
 msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
 msgstr ""
 
-#: src/qml/ConfirmLeaveDialog.qml:27
+#: src/qml/ConfirmLeaveDialog.qml:28
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room"
 msgstr "Sair da sala"
 
-#: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
+#: src/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
+msgctxt "@title:dialog"
 msgid "Sign out"
 msgstr ""
 
-#: src/qml/ConfirmLogoutDialog.qml:21
+#: src/qml/ConfirmLogoutDialog.qml:16
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/ConfirmUrlDialog.qml:17
+#: src/qml/ConfirmLogoutDialog.qml:27
+#, kde-format
+msgctxt "@action:button"
+msgid "Sign out"
+msgstr ""
+
+#: src/qml/ConfirmUrlDialog.qml:14
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
 #| "file with an appropriate application"
 #| msgid "Open File"
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Open URL"
 msgstr "Abrir arquivo"
 
-#: src/qml/ConfirmUrlDialog.qml:21
+#: src/qml/ConfirmUrlDialog.qml:15
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
@@ -2106,17 +2113,17 @@ msgstr "Remover dos favoritos"
 msgid "Add to Favorites"
 msgstr "Adicionar aos favoritos"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Reprioritize"
 msgstr "Priorizar novamente"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Deprioritize"
 msgstr "Remover prioridade"
 
-#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marcar como lida"
@@ -2170,24 +2177,24 @@ msgid "Off"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:111
+#: src/qml/ContextMenu.qml:196 src/qml/RoomDrawer.qml:111
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Room Settings"
 msgstr "Configurações da sala"
 
-#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:218
 #, kde-format
 msgid "Leave Room"
 msgstr "Sair da sala"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Remover dos favoritos"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Adicionar aos favoritos"
@@ -2731,6 +2738,11 @@ msgid ""
 msgstr ""
 "Não foi possível salvar o arquivo. Verifique se você tem as permissões "
 "necessárias para editar o diretório de cache."
+
+#: src/qml/ImageEditorPage.qml:124
+#, kde-format
+msgid "Cancel"
+msgstr "Cancelar"
 
 #: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
 #, kde-format
@@ -4216,23 +4228,17 @@ msgstr "Detalhes da conta"
 msgid "Deactivate Account"
 msgstr "Editar conta"
 
-#: src/settings/AccountEditorPage.qml:245
-#, kde-format
-msgctxt "@title"
-msgid "Confirm Deactivating Account"
-msgstr ""
-
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Senha alterada com sucesso"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:258
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Senha digitada errada"
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:260
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Erro desconhecido ao alterar a senha"
@@ -5663,6 +5669,18 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
+
+#, fuzzy
+#~| msgid "Edit Account"
+#~ msgctxt "@title"
+#~ msgid "Deactivate Account"
+#~ msgstr "Editar conta"
+
+#, fuzzy
+#~| msgid "Warning: %1"
+#~ msgctxt "@title"
+#~ msgid "Warning"
+#~ msgstr "Aviso: %1"
 
 #, fuzzy
 #~| msgid "Show Fancy Effects"

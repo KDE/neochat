@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -831,8 +831,8 @@ msgstr "등록"
 msgid "Password:"
 msgstr "암호:"
 
-#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
 msgstr "암호"
@@ -1813,19 +1813,14 @@ msgid "Copy to clipboard"
 msgstr "클립보드에 대화방 ID 복사"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
-#: src/qml/ConfirmDeactivateAccountDialog.qml:19
-#, kde-format
-msgctxt "@title"
-msgid "Deactivate Account"
-msgstr "계정 비활성화"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Confirm Deactivating Account"
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "계정 비활성화 확인"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Warning"
-msgstr "경고"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:24
+#: src/qml/ConfirmDeactivateAccountDialog.qml:17
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -1838,30 +1833,37 @@ msgstr ""
 "Matrix ID를 다른 계정에서 사용할 수 없습니다.\n"
 "기존 메시지는 삭제되지 않습니다."
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
+#: src/qml/ConfirmDeactivateAccountDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "암호"
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:33
 #, kde-format
 msgid "Deactivate account"
 msgstr "계정 비활성화"
 
-#: src/qml/ConfirmEncryptionDialog.qml:19
-#: src/qml/ConfirmEncryptionDialog.qml:38
-#, kde-format
+#: src/qml/ConfirmEncryptionDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Activate Encryption"
+msgctxt "@title:dialog"
 msgid "Activate Encryption"
 msgstr "암호화 활성화"
 
-#: src/qml/ConfirmEncryptionDialog.qml:22
+#: src/qml/ConfirmEncryptionDialog.qml:15
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr "암호화를 활성화한 후에는 비활성화할 수 없습니다."
 
-#: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
-#: src/qml/ImageEditorPage.qml:124
+#: src/qml/ConfirmEncryptionDialog.qml:28
 #, kde-format
-msgid "Cancel"
-msgstr "취소"
+msgid "Activate Encryption"
+msgstr "암호화 활성화"
 
-#: src/qml/ConfirmLeaveDialog.qml:19
+#: src/qml/ConfirmLeaveDialog.qml:16
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Confirm Deactivating Account"
@@ -1869,40 +1871,49 @@ msgctxt "@title:dialog"
 msgid "Confirm Leaving Room"
 msgstr "계정 비활성화 확인"
 
-#: src/qml/ConfirmLeaveDialog.qml:22
+#: src/qml/ConfirmLeaveDialog.qml:17
 #, kde-format
 msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
 msgstr ""
 
-#: src/qml/ConfirmLeaveDialog.qml:27
+#: src/qml/ConfirmLeaveDialog.qml:28
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room"
 msgstr "대화방 떠나기"
 
-#: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
-#, kde-format
+#: src/qml/ConfirmLogoutDialog.qml:15
+#, fuzzy, kde-format
+#| msgid "Sign out"
+msgctxt "@title:dialog"
 msgid "Sign out"
 msgstr "로그아웃"
 
-#: src/qml/ConfirmLogoutDialog.qml:21
+#: src/qml/ConfirmLogoutDialog.qml:16
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "로그아웃하시겠습니까?"
 
-#: src/qml/ConfirmUrlDialog.qml:17
+#: src/qml/ConfirmLogoutDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Sign out"
+msgctxt "@action:button"
+msgid "Sign out"
+msgstr "로그아웃"
+
+#: src/qml/ConfirmUrlDialog.qml:14
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
 #| "file with an appropriate application"
 #| msgid "Open File"
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Open URL"
 msgstr "파일 열기"
 
-#: src/qml/ConfirmUrlDialog.qml:21
+#: src/qml/ConfirmUrlDialog.qml:15
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
@@ -1947,17 +1958,17 @@ msgstr "책갈피에서 삭제"
 msgid "Add to Favorites"
 msgstr "책갈피에 추가"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Reprioritize"
 msgstr "우선 순위 증가"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Deprioritize"
 msgstr "우선 순위 감소"
 
-#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Mark as Read"
 msgstr "읽은 상태로 표시"
@@ -2006,23 +2017,23 @@ msgid "Off"
 msgstr "끔"
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:111
+#: src/qml/ContextMenu.qml:196 src/qml/RoomDrawer.qml:111
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, kde-format
 msgid "Room Settings"
 msgstr "대화방 설정"
 
-#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:218
 #, kde-format
 msgid "Leave Room"
 msgstr "대화방 떠나기"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "책갈피에서 삭제"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Add to Favourites"
 msgstr "책갈피에 추가"
@@ -2546,6 +2557,11 @@ msgid ""
 msgstr ""
 "파일을 저장할 수 없습니다. 캐시 디렉터리를 편집할 수 있는 권한이 있는지 확인"
 "하십시오."
+
+#: src/qml/ImageEditorPage.qml:124
+#, kde-format
+msgid "Cancel"
+msgstr "취소"
 
 #: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
 #, kde-format
@@ -3943,23 +3959,17 @@ msgstr "계정 관리"
 msgid "Deactivate Account"
 msgstr "계정 비활성화"
 
-#: src/settings/AccountEditorPage.qml:245
-#, kde-format
-msgctxt "@title"
-msgid "Confirm Deactivating Account"
-msgstr "계정 비활성화 확인"
-
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgid "Password changed successfully"
 msgstr "암호가 변경됨"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:258
 #, kde-format
 msgid "Wrong password entered"
 msgstr "암호가 잘못됨"
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:260
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "암호를 변경하는 중 알 수 없는 오류 발생"
@@ -5280,6 +5290,14 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgctxt "@title"
+#~ msgid "Deactivate Account"
+#~ msgstr "계정 비활성화"
+
+#~ msgctxt "@title"
+#~ msgid "Warning"
+#~ msgstr "경고"
 
 #~ msgid "Show fancy effects in chat"
 #~ msgstr "대화에 특수 효과 표시"

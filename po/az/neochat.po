@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:38+0000\n"
+"POT-Creation-Date: 2024-05-12 00:38+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -885,8 +885,8 @@ msgstr "Qeydiyyat"
 msgid "Password:"
 msgstr "Şifrə:"
 
-#: src/login/Password.qml:32 src/qml/ConfirmDeactivateAccountDialog.qml:29
-#: src/settings/AccountEditorPage.qml:149 src/settings/NetworkProxyPage.qml:95
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/settings/NetworkProxyPage.qml:95
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -1995,21 +1995,13 @@ msgid "Copy to clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
-#: src/qml/ConfirmDeactivateAccountDialog.qml:19
 #, fuzzy, kde-format
-#| msgid "Edit Account"
-msgctxt "@title"
-msgid "Deactivate Account"
-msgstr "Hesaba düzəliş etmək"
+#| msgid "No rooms found"
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "Otaqlar tapılmadı"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Warning: %1"
-msgctxt "@title"
-msgid "Warning"
-msgstr "Xəbərdarlıq: %1"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:24
+#: src/qml/ConfirmDeactivateAccountDialog.qml:17
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -2018,73 +2010,88 @@ msgid ""
 "Your messages will stay available."
 msgstr ""
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
+#: src/qml/ConfirmDeactivateAccountDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Password"
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Şifrə"
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:33
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate account"
 msgstr "Hesaba düzəliş etmək"
 
-#: src/qml/ConfirmEncryptionDialog.qml:19
-#: src/qml/ConfirmEncryptionDialog.qml:38
+#: src/qml/ConfirmEncryptionDialog.qml:14
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
+msgctxt "@title:dialog"
 msgid "Activate Encryption"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/qml/ConfirmEncryptionDialog.qml:22
+#: src/qml/ConfirmEncryptionDialog.qml:15
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr ""
 
-#: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
-#: src/qml/ImageEditorPage.qml:124
-#, kde-format
-msgid "Cancel"
-msgstr "İmtina"
+#: src/qml/ConfirmEncryptionDialog.qml:28
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgid "Activate Encryption"
+msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/qml/ConfirmLeaveDialog.qml:19
+#: src/qml/ConfirmLeaveDialog.qml:16
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Room"
 msgstr "Otağı tənzimləmək"
 
-#: src/qml/ConfirmLeaveDialog.qml:22
+#: src/qml/ConfirmLeaveDialog.qml:17
 #, fuzzy, kde-format
 #| msgid "Do you want to open the link to %1?"
 msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
 msgstr "%1 üçün keçidi açmaq istəyirsiniz?"
 
-#: src/qml/ConfirmLeaveDialog.qml:27
+#: src/qml/ConfirmLeaveDialog.qml:28
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room"
 msgstr "Otağı tərk etmək"
 
-#: src/qml/ConfirmLogoutDialog.qml:18 src/qml/ConfirmLogoutDialog.qml:37
+#: src/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
+msgctxt "@title:dialog"
 msgid "Sign out"
 msgstr ""
 
-#: src/qml/ConfirmLogoutDialog.qml:21
+#: src/qml/ConfirmLogoutDialog.qml:16
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/ConfirmUrlDialog.qml:17
+#: src/qml/ConfirmLogoutDialog.qml:27
+#, kde-format
+msgctxt "@action:button"
+msgid "Sign out"
+msgstr ""
+
+#: src/qml/ConfirmUrlDialog.qml:14
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
 #| "file with an appropriate application"
 #| msgid "Open File"
-msgctxt "@title"
+msgctxt "@title:dialog"
 msgid "Open URL"
 msgstr "Faylı Açın"
 
-#: src/qml/ConfirmUrlDialog.qml:21
+#: src/qml/ConfirmUrlDialog.qml:15
 #, fuzzy, kde-kuit-format
 #| msgid "Do you want to open the link to %1?"
 msgctxt "@info"
@@ -2130,17 +2137,17 @@ msgstr "Seçilmişlərdən silmək"
 msgid "Add to Favorites"
 msgstr "Seçilmişlərə əlavə etmək"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Reprioritize"
 msgstr "Üstünlüyünü dəyişmək"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:199
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Deprioritize"
 msgstr "Üstünlüyünü ləğv etmək"
 
-#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:206
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Mark as Read"
 msgstr "Oxunmuş kimi işarələmək"
@@ -2194,24 +2201,24 @@ msgid "Off"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:191 src/qml/RoomDrawer.qml:111
+#: src/qml/ContextMenu.qml:196 src/qml/RoomDrawer.qml:111
 #: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Room Settings"
 msgstr "Otaq ayarları"
 
-#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:213
+#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:218
 #, kde-format
 msgid "Leave Room"
 msgstr "Otağı tərk etmək"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Seçilmişlərdən silmək"
 
-#: src/qml/ContextMenu.qml:180
+#: src/qml/ContextMenu.qml:185
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Seçilmişlərə əlavə etmək"
@@ -2755,6 +2762,11 @@ msgid ""
 msgstr ""
 "Fayl saxlanıla bilmədi. Keş qovluğuna düzəliş etməyə lazımi icazənizin olub "
 "olmadığını yoxlayın."
+
+#: src/qml/ImageEditorPage.qml:124
+#, kde-format
+msgid "Cancel"
+msgstr "İmtina"
 
 #: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
 #, kde-format
@@ -4240,23 +4252,17 @@ msgstr "İstifadəçi hesabı təfərrüatları"
 msgid "Deactivate Account"
 msgstr "Hesaba düzəliş etmək"
 
-#: src/settings/AccountEditorPage.qml:245
-#, kde-format
-msgctxt "@title"
-msgid "Confirm Deactivating Account"
-msgstr ""
-
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:258
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Səhv şifrə daxil edildi"
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:260
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Şifrəni dəyişdirərkən naməlum xəta baş verdi"
@@ -5685,6 +5691,18 @@ msgstr "Göstərmək"
 #, kde-format
 msgid "Quit"
 msgstr "Çıxış"
+
+#, fuzzy
+#~| msgid "Edit Account"
+#~ msgctxt "@title"
+#~ msgid "Deactivate Account"
+#~ msgstr "Hesaba düzəliş etmək"
+
+#, fuzzy
+#~| msgid "Warning: %1"
+#~ msgctxt "@title"
+#~ msgid "Warning"
+#~ msgstr "Xəbərdarlıq: %1"
 
 #, fuzzy
 #~| msgid "Show Fancy Effects"
