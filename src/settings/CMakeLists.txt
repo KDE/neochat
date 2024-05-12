@@ -29,6 +29,7 @@ qt_add_qml_module(settings
         DevicesCard.qml
         DeviceDelegate.qml
         EmoticonFormCard.qml
+        IdentityServerDelegate.qml
         IgnoredUsersDialog.qml
         NotificationRuleItem.qml
         PasswordSheet.qml

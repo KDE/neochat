@@ -179,6 +179,8 @@ add_library(neochat STATIC
     threepidaddhelper.h
     jobs/neochatadd3pidjob.cpp
     jobs/neochatadd3pidjob.h
+    identityserverhelper.cpp
+    identityserverhelper.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

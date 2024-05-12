@@ -209,6 +209,15 @@ FormCard.FormCardPage {
     }
     FormCard.FormHeader {
         Layout.fillWidth: true
+        title: i18n("Identity Server")
+    }
+    FormCard.FormCard {
+        IdentityServerDelegate {
+            connection: root.connection
+        }
+    }
+    FormCard.FormHeader {
+        Layout.fillWidth: true
         title: i18n("Server Information")
     }
     FormCard.FormCard {
