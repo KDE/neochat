@@ -16,7 +16,24 @@ import org.kde.neochat
 FormCard.FormCardPage {
     id: root
 
+    property NeoChatConnection initialAccount
+
     title: i18n("Accounts")
+
+    Component.onCompleted: if (initialAccount) {
+        intialAccountTimer.restart()
+    }
+
+    Timer {
+        id: intialAccountTimer
+        interval: 10
+        running: false
+        onTriggered: applicationWindow().pageStack.layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
+            connection: initialAccount
+        }, {
+            title: i18n("Account editor")
+        })
+    }
 
     FormCard.FormHeader {
         title: i18n("Accounts")

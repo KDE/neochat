@@ -48,11 +48,15 @@ RowLayout {
 
         activeFocusOnTab: true
 
-        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
-            connection: root.connection
+        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
+            defaultPage: "accounts",
+            connection: root.connection,
+            initialAccount: root.connection
         }, {
-            title: i18nc("@title:window", "Account editor")
-        });
+            title: i18nc("@action:button", "Configure"),
+            width: Kirigami.Units.gridUnit * 50,
+            height: Kirigami.Units.gridUnit * 42
+        })
 
         TapHandler {
             acceptedButtons: Qt.RightButton

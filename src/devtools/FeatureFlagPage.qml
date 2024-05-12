@@ -28,5 +28,14 @@ FormCard.FormCardPage {
 
             onToggled: Config.secretBackup = checked
         }
+        FormCard.FormCheckDelegate {
+            text: i18nc("@option:check Enable the matrix feature to add a phone number as a third party ID", "Add phone numbers as 3PIDs")
+            checked: Config.phone3PId
+
+            onToggled: {
+                Config.phone3PId = checked
+                Config.save();
+            }
+        }
     }
 }

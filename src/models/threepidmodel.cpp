@@ -10,15 +10,7 @@ ThreePIdModel::ThreePIdModel(NeoChatConnection *connection)
 {
     Q_ASSERT(connection);
     connect(connection, &NeoChatConnection::stateChanged, this, [this]() {
-        const auto connection = dynamic_cast<NeoChatConnection *>(this->parent());
-        if (connection != nullptr && connection->isLoggedIn()) {
-            const auto threePIdJob = connection->callApi<Quotient::GetAccount3PIDsJob>();
-            connect(threePIdJob, &Quotient::BaseJob::success, this, [this, threePIdJob]() {
-                beginResetModel();
-                m_threePIds = threePIdJob->threepids();
-                endResetModel();
-            });
-        }
+        refreshModel();
     });
 }
 
@@ -54,6 +46,19 @@ QHash<int, QByteArray> ThreePIdModel::roleNames() const
         {AddressRole, QByteArrayLiteral("address")},
         {MediumRole, QByteArrayLiteral("medium")},
     };
+}
+
+void ThreePIdModel::refreshModel()
+{
+    const auto connection = dynamic_cast<NeoChatConnection *>(this->parent());
+    if (connection != nullptr && connection->isLoggedIn()) {
+        const auto threePIdJob = connection->callApi<Quotient::GetAccount3PIDsJob>();
+        connect(threePIdJob, &Quotient::BaseJob::success, this, [this, threePIdJob]() {
+            beginResetModel();
+            m_threePIds = threePIdJob->threepids();
+            endResetModel();
+        });
+    }
 }
 
 #include "moc_threepidmodel.cpp"

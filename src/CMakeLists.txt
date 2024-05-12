@@ -175,6 +175,10 @@ add_library(neochat STATIC
     foreigntypes.h
     models/threepidmodel.cpp
     models/threepidmodel.h
+    threepidaddhelper.cpp
+    threepidaddhelper.h
+    jobs/neochatadd3pidjob.cpp
+    jobs/neochatadd3pidjob.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

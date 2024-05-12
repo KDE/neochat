@@ -31,6 +31,7 @@ qt_add_qml_module(settings
         EmoticonFormCard.qml
         IgnoredUsersDialog.qml
         NotificationRuleItem.qml
+        PasswordSheet.qml
         ThemeRadioButton.qml
         ThreePIdCard.qml
 )

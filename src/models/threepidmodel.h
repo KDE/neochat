@@ -53,6 +53,8 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE void refreshModel();
+
 private:
     QVector<Quotient::GetAccount3PIDsJob::ThirdPartyIdentifier> m_threePIds;
 };

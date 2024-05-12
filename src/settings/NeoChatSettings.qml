@@ -13,6 +13,8 @@ KirigamiSettings.CategorizedSettings {
 
     property NeoChatConnection connection
 
+    property NeoChatConnection initialAccount
+
     objectName: "settingsPage"
     actions: [
         KirigamiSettings.SettingAction {
@@ -54,6 +56,11 @@ KirigamiSettings.CategorizedSettings {
             text: i18n("Accounts")
             icon.name: "preferences-system-users"
             page: Qt.resolvedUrl("AccountsPage.qml")
+            initialProperties: {
+                return {
+                    initialAccount: root.initialAccount
+                };
+            }
         },
         KirigamiSettings.SettingAction {
             actionName: "emoticons"
