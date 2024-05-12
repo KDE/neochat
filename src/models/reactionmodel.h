@@ -25,7 +25,7 @@ public:
      */
     struct Reaction {
         QString reaction; /**< The reaction emoji. */
-        QList<Quotient::RoomMember> authors; /**< The list of authors who sent the given reaction. */
+        QStringList authors; /**< The list of authors who sent the given reaction. */
     };
 
     /**
