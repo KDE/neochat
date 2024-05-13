@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:38+0000\n"
-"PO-Revision-Date: 2024-04-28 12:16+0200\n"
+"POT-Creation-Date: 2024-05-13 00:38+0000\n"
+"PO-Revision-Date: 2024-05-12 09:29+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -62,7 +62,7 @@ msgstr "Nadaj podpis załącznikowi…"
 #: src/chatbar/ChatBar.qml:208
 #, kde-format
 msgid "Send a message…"
-msgstr "Wyślij wiadomość…"
+msgstr "Wiadomość do wysłania…"
 
 #: src/chatbar/EmojiGrid.qml:87
 #, kde-format
@@ -194,18 +194,16 @@ msgid "Debug Options"
 msgstr "Ustawienia diagnostyczne"
 
 #: src/devtools/DevtoolsPage.qml:34
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
-msgstr "ID pokoju"
+msgstr "Dane pokoju"
 
 #: src/devtools/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
-msgstr "Szczegóły serwera"
+msgstr "Dane serwera"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
@@ -230,6 +228,14 @@ msgstr "Wątki"
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
 msgstr "Kopia zapasowa danych poufnych"
+
+#: src/devtools/FeatureFlagPage.qml:32
+#, kde-format
+msgctxt ""
+"@option:check Enable the matrix feature to add a phone number as a third "
+"party ID"
+msgid "Add phone numbers as 3PIDs"
+msgstr ""
 
 #: src/devtools/RoomData.qml:20
 #, kde-format
@@ -717,6 +723,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Miejsce docelowe"
 
+#: src/identityserverhelper.cpp:52 src/identityserverhelper.cpp:59
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr ""
+
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
@@ -790,6 +802,7 @@ msgid "Loading…"
 msgstr "Wczytywanie…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/settings/ThreePIdCard.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1669,6 +1682,7 @@ msgid "Edit this account"
 msgstr "Edytuj to konto"
 
 #: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
+#: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "Edytor konta"
@@ -1679,13 +1693,13 @@ msgid "Notification settings"
 msgstr "Ustawienia powiadomień"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:107
 #, kde-format
 msgid "Configure"
 msgstr "Ustawienia"
 
 #: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettings.qml:84
+#: src/settings/NeoChatSettings.qml:91
 #, kde-format
 msgid "Devices"
 msgstr "Urządzenia"
@@ -1713,7 +1727,7 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Otwórz kopię zapasową klucza"
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:71
+#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Wyloguj"
@@ -1742,8 +1756,7 @@ msgid "Login"
 msgstr "Logowanie"
 
 #: src/qml/AskDirectChatConfirmation.qml:20
-#, fuzzy, kde-format
-#| msgid "Start a chat"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Start a chat"
 msgstr "Rozpocznij rozmowę"
@@ -1754,9 +1767,7 @@ msgid "Do you want to start a chat with %1?"
 msgstr "Czy chcesz rozpocząć rozmowę z %1?"
 
 #: src/qml/AskDirectChatConfirmation.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button"
 msgid "Start Chat"
 msgstr "Rozpocznij rozmowę"
@@ -1770,7 +1781,7 @@ msgstr "Załącznik:"
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
-msgstr "Edytuj"
+msgstr "Zmień"
 
 #: src/qml/AttachmentPane.qml:62
 #, kde-format
@@ -1813,9 +1824,7 @@ msgid "Copy to clipboard"
 msgstr "Skopiuj do schowka"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Confirm Deactivating Account"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Account Deactivation"
 msgstr "Potwierdź wyłączenie konta"
@@ -1834,8 +1843,7 @@ msgstr ""
 "Twoje wiadomości pozostaną dostępne."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "Hasło"
@@ -1846,8 +1854,7 @@ msgid "Deactivate account"
 msgstr "Wyłącz konto"
 
 #: src/qml/ConfirmEncryptionDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Activate Encryption"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Activate Encryption"
 msgstr "Włącz szyfrowanie"
@@ -1882,11 +1889,10 @@ msgid "Leave Room"
 msgstr "Opuść pokój"
 
 #: src/qml/ConfirmLogoutDialog.qml:15
-#, fuzzy, kde-format
-#| msgid "Sign out"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Sign out"
-msgstr "Wyjdź"
+msgstr "Wypisz"
 
 #: src/qml/ConfirmLogoutDialog.qml:16
 #, kde-format
@@ -1894,16 +1900,13 @@ msgid "Are you sure you want to sign out?"
 msgstr "Czy na pewno chcesz się wypisać?"
 
 #: src/qml/ConfirmLogoutDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Sign out"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sign out"
-msgstr "Wyjdź"
+msgstr "Wypisz"
 
 #: src/qml/ConfirmUrlDialog.qml:14
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Open URL"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Open URL"
 msgstr "Otwórz adres URL"
@@ -1921,10 +1924,7 @@ msgid "User Consent"
 msgstr "Zgoda użytkownika"
 
 #: src/qml/ConsentDialog.qml:24
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your homeserver requires you to agree to its terms and conditions before "
-#| "being able to use it. Please click the button below to read them."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1934,8 +1934,7 @@ msgstr ""
 "używać. Aby je przeczytać, naciśnij na przycisk poniżej."
 
 #: src/qml/ConsentDialog.qml:31
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Otwórz"
@@ -2085,18 +2084,16 @@ msgid "Make this parent official"
 msgstr "Uczyń tego podrzędnego oficjalnym"
 
 #: src/qml/CreateRoomDialog.qml:91
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Space"
 msgstr "Utwórz przestrzeń"
 
 #: src/qml/CreateRoomDialog.qml:91
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Room"
-msgstr "Stwórz pokój"
+msgstr "Utwórz pokój"
 
 #: src/qml/CreateRoomDialog.qml:106
 #, kde-format
@@ -2636,9 +2633,7 @@ msgid "User is either already a member or has been invited"
 msgstr "Użytkownik jest już członkiem lub został zaproszony"
 
 #: src/qml/JoinRoomDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Join Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Join Room"
 msgstr "Dołącz do pokoju"
@@ -3568,25 +3563,26 @@ msgstr "Porozmawiaj z %1"
 #: src/qml/UserDetailDialog.qml:226
 #, kde-format
 msgid "Invite to private chat"
-msgstr "Zaproś do prywatnej rozmowy"
+msgstr "Zaproś do rozmowy jeden-na-jeden"
 
 #: src/qml/UserDetailDialog.qml:237
 #, kde-format
 msgid "Copy link"
 msgstr "Skopiuj odnośnik"
 
-#: src/qml/UserInfo.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Account editor"
-msgstr "Edytor konta"
+#: src/qml/UserInfo.qml:56
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgctxt "@action:button"
+msgid "Configure"
+msgstr "Ustawienia"
 
-#: src/qml/UserInfo.qml:91
+#: src/qml/UserInfo.qml:95
 #, kde-format
 msgid "Switch User"
 msgstr "Przełącz na innego użytkownika"
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:102
 #, kde-format
 msgid "Open Settings"
 msgstr "Otwórz ustawienia"
@@ -3940,54 +3936,60 @@ msgstr "Hasła nie są sobie równe"
 msgid "Email Addresses"
 msgstr "Adresy e-mail"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:207
 #, kde-format
 msgid "Phone Numbers"
 msgstr "Numery telefonów"
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:212
+#, fuzzy, kde-format
+#| msgid "Add New Server"
+msgid "Identity Server"
+msgstr "Dodaj nowy serwer"
+
+#: src/settings/AccountEditorPage.qml:221
 #, kde-format
 msgid "Server Information"
 msgstr "Szczegóły serwera"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Homeserver url"
 msgstr "Adres URL serwera domowego"
 
-#: src/settings/AccountEditorPage.qml:236
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Zarządzanie kontem"
 
-#: src/settings/AccountEditorPage.qml:241
+#: src/settings/AccountEditorPage.qml:251
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Wyłącz konto"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:266
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Hasło zmieniono pomyślnie"
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:268
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Wpisano złe hasło"
 
-#: src/settings/AccountEditorPage.qml:260
+#: src/settings/AccountEditorPage.qml:270
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Wystąpił nieznany problem podczas próby zmiany hasła"
 
-#: src/settings/AccountsPage.qml:19 src/settings/AccountsPage.qml:22
-#: src/settings/NeoChatSettings.qml:54
+#: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
+#: src/settings/NeoChatSettings.qml:56
 #, kde-format
 msgid "Accounts"
 msgstr "Konta"
 
-#: src/settings/AccountsPage.qml:101
+#: src/settings/AccountsPage.qml:118
 #, kde-format
 msgid "Add Account"
 msgstr "Dodaj konto"
@@ -4272,6 +4274,49 @@ msgstr "Zaproszenia"
 msgid "Unknown"
 msgstr "Nieznany"
 
+#: src/settings/IdentityServerDelegate.qml:39
+#, kde-format
+msgid "New identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:43
+#, fuzzy, kde-format
+#| msgid "Cancel editing display name"
+msgctxt "@action:button"
+msgid "Cancel editing identity server url"
+msgstr "Przerwij zmianę wyświetlanej nazwy"
+
+#: src/settings/IdentityServerDelegate.qml:49
+#, fuzzy, kde-format
+#| msgid "Confirm new display name"
+msgctxt "@action:button"
+msgid "Confirm new identity server url"
+msgstr "Potwierdź nową wyświetlaną nazwę"
+
+#: src/settings/IdentityServerDelegate.qml:73
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered url is not a valid identity server"
+msgstr "Wpisany tekst jest nieprawidłowym adresem url"
+
+#: src/settings/IdentityServerDelegate.qml:75
+#, kde-format
+msgid "The entered url is already configured as your identity server"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:98
+#, kde-format
+msgctxt "@action:button"
+msgid "Edit identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:119
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@action:button"
+msgid "Remove identity server"
+msgstr "Usuń urządzenie"
+
 #: src/settings/IgnoredUsersDialog.qml:18
 #, kde-format
 msgctxt "@title"
@@ -4442,49 +4487,49 @@ msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Pomijani użytkownicy"
 
-#: src/settings/NeoChatSettings.qml:20 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettings.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettings.qml:21
 #, kde-format
 msgid "General"
 msgstr "Ogólne"
 
-#: src/settings/NeoChatSettings.qml:26
+#: src/settings/NeoChatSettings.qml:28
 #, kde-format
 msgid "Appearance"
 msgstr "Wygląd"
 
-#: src/settings/NeoChatSettings.qml:32 src/settings/RoomSettings.qml:55
+#: src/settings/NeoChatSettings.qml:34 src/settings/RoomSettings.qml:55
 #, kde-format
 msgid "Notifications"
 msgstr "Powiadomienia"
 
-#: src/settings/NeoChatSettings.qml:43 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettings.qml:45 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettings.qml:33
 #, kde-format
 msgid "Security"
 msgstr "Zabezpieczenia"
 
-#: src/settings/NeoChatSettings.qml:60
+#: src/settings/NeoChatSettings.qml:67
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Naklejki i emoji"
 
-#: src/settings/NeoChatSettings.qml:71
+#: src/settings/NeoChatSettings.qml:78
 #, kde-format
 msgid "Spell Checking"
 msgstr "Sprawdzanie pisowni"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettings.qml:85 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Pośrednik sieciowy"
 
-#: src/settings/NeoChatSettings.qml:95
+#: src/settings/NeoChatSettings.qml:102
 #, kde-format
 msgid "About NeoChat"
 msgstr "O NeoChat"
 
-#: src/settings/NeoChatSettings.qml:101
+#: src/settings/NeoChatSettings.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr "O KDE"
@@ -4501,11 +4546,9 @@ msgid "System Default"
 msgstr "Domyślny systemowy"
 
 #: src/settings/NetworkProxyPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Proxy"
+#, kde-format
 msgid "No Proxy"
-msgstr "Pośrednik"
+msgstr "Brak pośrednika"
 
 #: src/settings/NetworkProxyPage.qml:41
 #, kde-format
@@ -4582,6 +4625,20 @@ msgstr "Włącz skróty wiadomości"
 #, kde-format
 msgid "Delete keyword"
 msgstr "Usuń słowo kluczowe"
+
+#: src/settings/PasswordSheet.qml:16
+#, fuzzy, kde-format
+#| msgid "Can change password"
+msgctxt "@title:dialog"
+msgid "Enter password"
+msgstr "Może zmienić hasło"
+
+#: src/settings/PasswordSheet.qml:30
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@label:textbox"
+msgid "Password:"
+msgstr "Hasło:"
 
 #: src/settings/Permissions.qml:33
 #, kde-format
@@ -5123,6 +5180,97 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Usuń słowo"
 
+#: src/settings/ThreePIdCard.qml:52
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "Usuń"
+
+#: src/settings/ThreePIdCard.qml:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Country Code for new phone number"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:89
+#, fuzzy, kde-format
+#| msgid "Add an e-mail address:"
+msgctxt "@label:textbox"
+msgid "New email address"
+msgstr "Dadaj adres pocztowy:"
+
+#: src/settings/ThreePIdCard.qml:89
+#, fuzzy, kde-format
+#| msgid "Phone Numbers"
+msgctxt "@label:textbox"
+msgid "New phone number"
+msgstr "Numery telefonów"
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid "We've sent you an email"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:93
+#, fuzzy, kde-format
+#| msgid "sent a message"
+msgid "We've sent you a text message"
+msgstr "wysłał(a) wiadomość"
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:95
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered email is not valid"
+msgstr "Wpisany tekst jest nieprawidłowym adresem url"
+
+#: src/settings/ThreePIdCard.qml:95
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered phone number is not valid"
+msgstr "Wpisany tekst jest nieprawidłowym adresem url"
+
+#: src/settings/ThreePIdCard.qml:97
+#, fuzzy, kde-format
+#| msgid "Wrong password entered"
+msgid "Incorrect password entered"
+msgstr "Wpisano złe hasło"
+
+#: src/settings/ThreePIdCard.qml:99
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:99
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:124
+#, fuzzy, kde-format
+#| msgid "Add"
+msgctxt "@action:button Add new email or phone number"
+msgid "Add"
+msgstr "Dodaj"
+
+#: src/settings/ThreePIdCard.qml:132
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Back"
+msgctxt "@action:button As in 'go back'"
+msgid "Back"
+msgstr "Wstecz"
+
 #: src/timeline/CodeComponent.qml:167
 #, kde-format
 msgid "Copy to clipboard"
@@ -5199,18 +5347,18 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Wyślij do KDE Itinerary"
 
-#: src/timeline/LinkPreviewComponent.qml:128 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Usuń podgląd"
 
-#: src/timeline/LinkPreviewComponent.qml:146
+#: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
 msgid "Shrink preview"
 msgstr "Skurcz podgląd"
 
-#: src/timeline/LinkPreviewComponent.qml:146
+#: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
 msgid "Expand preview"
 msgstr "Rozpręż podgląd"
@@ -5301,6 +5449,10 @@ msgstr "Pokaż"
 #, kde-format
 msgid "Quit"
 msgstr "Zakończ"
+
+#~ msgctxt "@title:window"
+#~ msgid "Account editor"
+#~ msgstr "Dostosowywanie konta"
 
 #~ msgctxt "@title"
 #~ msgid "Deactivate Account"
@@ -5494,10 +5646,6 @@ msgstr "Zakończ"
 #~ msgctxt "@title"
 #~ msgid "Password"
 #~ msgstr "Hasło"
-
-#~ msgctxt "@action:button"
-#~ msgid "Back"
-#~ msgstr "Wstecz"
 
 #~ msgid "No Canonical Alias"
 #~ msgstr "Brak kanonicznego aliasu"

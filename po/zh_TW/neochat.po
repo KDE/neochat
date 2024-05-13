@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:38+0000\n"
+"POT-Creation-Date: 2024-05-13 00:38+0000\n"
 "PO-Revision-Date: 2024-05-07 16:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -227,6 +227,14 @@ msgstr "對話串"
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
 msgstr "秘密備份"
+
+#: src/devtools/FeatureFlagPage.qml:32
+#, kde-format
+msgctxt ""
+"@option:check Enable the matrix feature to add a phone number as a third "
+"party ID"
+msgid "Add phone numbers as 3PIDs"
+msgstr ""
 
 #: src/devtools/RoomData.qml:20
 #, kde-format
@@ -710,6 +718,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "目的地"
 
+#: src/identityserverhelper.cpp:52 src/identityserverhelper.cpp:59
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr ""
+
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
@@ -782,6 +796,7 @@ msgid "Loading…"
 msgstr "載入中…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/settings/ThreePIdCard.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1653,6 +1668,7 @@ msgid "Edit this account"
 msgstr "編輯這個帳號"
 
 #: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
+#: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "帳號編輯器"
@@ -1663,13 +1679,13 @@ msgid "Notification settings"
 msgstr "通知設定"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:107
 #, kde-format
 msgid "Configure"
 msgstr "設定"
 
 #: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettings.qml:84
+#: src/settings/NeoChatSettings.qml:91
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
@@ -1697,7 +1713,7 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "開啟金鑰備份"
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:71
+#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "登出"
@@ -3525,18 +3541,19 @@ msgstr "邀請到私人聊天室"
 msgid "Copy link"
 msgstr "複製連結"
 
-#: src/qml/UserInfo.qml:54
-#, kde-format
-msgctxt "@title:window"
-msgid "Account editor"
-msgstr "帳號編輯器"
+#: src/qml/UserInfo.qml:56
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgctxt "@action:button"
+msgid "Configure"
+msgstr "設定"
 
-#: src/qml/UserInfo.qml:91
+#: src/qml/UserInfo.qml:95
 #, kde-format
 msgid "Switch User"
 msgstr "切換使用者"
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:102
 #, kde-format
 msgid "Open Settings"
 msgstr "開啟設定"
@@ -3867,54 +3884,60 @@ msgstr "密碼不相符"
 msgid "Email Addresses"
 msgstr "電子郵件地址"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:207
 #, kde-format
 msgid "Phone Numbers"
 msgstr "電話號碼"
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:212
+#, fuzzy, kde-format
+#| msgid "Add New Server"
+msgid "Identity Server"
+msgstr "新增伺服器"
+
+#: src/settings/AccountEditorPage.qml:221
 #, kde-format
 msgid "Server Information"
 msgstr "伺服器資訊"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Homeserver url"
 msgstr "家伺服器網址"
 
-#: src/settings/AccountEditorPage.qml:236
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "帳號管理"
 
-#: src/settings/AccountEditorPage.qml:241
+#: src/settings/AccountEditorPage.qml:251
 #, kde-format
 msgid "Deactivate Account"
 msgstr "停用帳號"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:266
 #, kde-format
 msgid "Password changed successfully"
 msgstr "密碼已成功變更"
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:268
 #, kde-format
 msgid "Wrong password entered"
 msgstr "輸入了錯誤的密碼"
 
-#: src/settings/AccountEditorPage.qml:260
+#: src/settings/AccountEditorPage.qml:270
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "變更密碼時發生未知問題"
 
-#: src/settings/AccountsPage.qml:19 src/settings/AccountsPage.qml:22
-#: src/settings/NeoChatSettings.qml:54
+#: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
+#: src/settings/NeoChatSettings.qml:56
 #, kde-format
 msgid "Accounts"
 msgstr "帳號"
 
-#: src/settings/AccountsPage.qml:101
+#: src/settings/AccountsPage.qml:118
 #, kde-format
 msgid "Add Account"
 msgstr "新增帳號"
@@ -4198,6 +4221,49 @@ msgstr "邀請"
 msgid "Unknown"
 msgstr "未知"
 
+#: src/settings/IdentityServerDelegate.qml:39
+#, kde-format
+msgid "New identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:43
+#, fuzzy, kde-format
+#| msgid "Cancel editing display name"
+msgctxt "@action:button"
+msgid "Cancel editing identity server url"
+msgstr "取消編輯顯示名稱"
+
+#: src/settings/IdentityServerDelegate.qml:49
+#, fuzzy, kde-format
+#| msgid "Confirm new display name"
+msgctxt "@action:button"
+msgid "Confirm new identity server url"
+msgstr "確認新的顯示名稱"
+
+#: src/settings/IdentityServerDelegate.qml:73
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered url is not a valid identity server"
+msgstr "輸入的文字不是有效的網址"
+
+#: src/settings/IdentityServerDelegate.qml:75
+#, kde-format
+msgid "The entered url is already configured as your identity server"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:98
+#, kde-format
+msgctxt "@action:button"
+msgid "Edit identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:119
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@action:button"
+msgid "Remove identity server"
+msgstr "移除裝置"
+
 #: src/settings/IgnoredUsersDialog.qml:18
 #, kde-format
 msgctxt "@title"
@@ -4366,49 +4432,49 @@ msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "已忽略的使用者"
 
-#: src/settings/NeoChatSettings.qml:20 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettings.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettings.qml:21
 #, kde-format
 msgid "General"
 msgstr "一般"
 
-#: src/settings/NeoChatSettings.qml:26
+#: src/settings/NeoChatSettings.qml:28
 #, kde-format
 msgid "Appearance"
 msgstr "外觀"
 
-#: src/settings/NeoChatSettings.qml:32 src/settings/RoomSettings.qml:55
+#: src/settings/NeoChatSettings.qml:34 src/settings/RoomSettings.qml:55
 #, kde-format
 msgid "Notifications"
 msgstr "通知"
 
-#: src/settings/NeoChatSettings.qml:43 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettings.qml:45 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettings.qml:33
 #, kde-format
 msgid "Security"
 msgstr "安全性"
 
-#: src/settings/NeoChatSettings.qml:60
+#: src/settings/NeoChatSettings.qml:67
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "貼圖與表情符號"
 
-#: src/settings/NeoChatSettings.qml:71
+#: src/settings/NeoChatSettings.qml:78
 #, kde-format
 msgid "Spell Checking"
 msgstr "拼字檢查"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettings.qml:85 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "網路代理伺服器"
 
-#: src/settings/NeoChatSettings.qml:95
+#: src/settings/NeoChatSettings.qml:102
 #, kde-format
 msgid "About NeoChat"
 msgstr "關於 NeoChat"
 
-#: src/settings/NeoChatSettings.qml:101
+#: src/settings/NeoChatSettings.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr "關於 KDE"
@@ -4504,6 +4570,20 @@ msgstr "啟用訊息突顯"
 #, kde-format
 msgid "Delete keyword"
 msgstr "刪除關鍵字"
+
+#: src/settings/PasswordSheet.qml:16
+#, fuzzy, kde-format
+#| msgid "Can change password"
+msgctxt "@title:dialog"
+msgid "Enter password"
+msgstr "可以變更密碼"
+
+#: src/settings/PasswordSheet.qml:30
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@label:textbox"
+msgid "Password:"
+msgstr "密碼："
 
 #: src/settings/Permissions.qml:33
 #, kde-format
@@ -5030,6 +5110,95 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "刪除單詞"
 
+#: src/settings/ThreePIdCard.qml:52
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "移除"
+
+#: src/settings/ThreePIdCard.qml:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Country Code for new phone number"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:89
+#, fuzzy, kde-format
+#| msgid "Add an e-mail address:"
+msgctxt "@label:textbox"
+msgid "New email address"
+msgstr "新增電子郵件地址："
+
+#: src/settings/ThreePIdCard.qml:89
+#, fuzzy, kde-format
+#| msgid "Phone Numbers"
+msgctxt "@label:textbox"
+msgid "New phone number"
+msgstr "電話號碼"
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid "We've sent you an email"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:93
+#, fuzzy, kde-format
+#| msgid "sent a message"
+msgid "We've sent you a text message"
+msgstr "傳送了訊息"
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:95
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered email is not valid"
+msgstr "輸入的文字不是有效的網址"
+
+#: src/settings/ThreePIdCard.qml:95
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered phone number is not valid"
+msgstr "輸入的文字不是有效的網址"
+
+#: src/settings/ThreePIdCard.qml:97
+#, fuzzy, kde-format
+#| msgid "Wrong password entered"
+msgid "Incorrect password entered"
+msgstr "輸入了錯誤的密碼"
+
+#: src/settings/ThreePIdCard.qml:99
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:99
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:124
+#, fuzzy, kde-format
+#| msgid "Add"
+msgctxt "@action:button Add new email or phone number"
+msgid "Add"
+msgstr "新增"
+
+#: src/settings/ThreePIdCard.qml:132
+#, kde-format
+msgctxt "@action:button As in 'go back'"
+msgid "Back"
+msgstr ""
+
 #: src/timeline/CodeComponent.qml:167
 #, kde-format
 msgid "Copy to clipboard"
@@ -5104,18 +5273,18 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "傳送到 KDE 旅程計劃"
 
-#: src/timeline/LinkPreviewComponent.qml:128 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "移除預覽"
 
-#: src/timeline/LinkPreviewComponent.qml:146
+#: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
 msgid "Shrink preview"
 msgstr "收起預覽"
 
-#: src/timeline/LinkPreviewComponent.qml:146
+#: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
 msgid "Expand preview"
 msgstr "展開預覽"
@@ -5203,6 +5372,10 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
+
+#~ msgctxt "@title:window"
+#~ msgid "Account editor"
+#~ msgstr "帳號編輯器"
 
 #~ msgctxt "@title"
 #~ msgid "Deactivate Account"

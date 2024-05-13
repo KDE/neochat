@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:38+0000\n"
+"POT-Creation-Date: 2024-05-13 00:38+0000\n"
 "PO-Revision-Date: 2023-12-12 01:02+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -223,6 +223,14 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:32
+#, kde-format
+msgctxt ""
+"@option:check Enable the matrix feature to add a phone number as a third "
+"party ID"
+msgid "Add phone numbers as 3PIDs"
 msgstr ""
 
 #: src/devtools/RoomData.qml:20
@@ -709,6 +717,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr ""
 
+#: src/identityserverhelper.cpp:52 src/identityserverhelper.cpp:59
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr ""
+
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
@@ -780,6 +794,7 @@ msgid "Loading…"
 msgstr ""
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/settings/ThreePIdCard.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1655,6 +1670,7 @@ msgid "Edit this account"
 msgstr ""
 
 #: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
+#: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr ""
@@ -1665,13 +1681,13 @@ msgid "Notification settings"
 msgstr ""
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:107
 #, kde-format
 msgid "Configure"
 msgstr ""
 
 #: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettings.qml:84
+#: src/settings/NeoChatSettings.qml:91
 #, kde-format
 msgid "Devices"
 msgstr ""
@@ -1699,7 +1715,7 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:71
+#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr ""
@@ -3515,18 +3531,18 @@ msgstr ""
 msgid "Copy link"
 msgstr ""
 
-#: src/qml/UserInfo.qml:54
+#: src/qml/UserInfo.qml:56
 #, kde-format
-msgctxt "@title:window"
-msgid "Account editor"
+msgctxt "@action:button"
+msgid "Configure"
 msgstr ""
 
-#: src/qml/UserInfo.qml:91
+#: src/qml/UserInfo.qml:95
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:102
 #, kde-format
 msgid "Open Settings"
 msgstr ""
@@ -3854,54 +3870,59 @@ msgstr ""
 msgid "Email Addresses"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:207
 #, kde-format
 msgid "Phone Numbers"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:212
+#, kde-format
+msgid "Identity Server"
+msgstr ""
+
+#: src/settings/AccountEditorPage.qml:221
 #, kde-format
 msgid "Server Information"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Homeserver url"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:236
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:241
+#: src/settings/AccountEditorPage.qml:251
 #, kde-format
 msgid "Deactivate Account"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:266
 #, kde-format
 msgid "Password changed successfully"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:268
 #, kde-format
 msgid "Wrong password entered"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:260
+#: src/settings/AccountEditorPage.qml:270
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr ""
 
-#: src/settings/AccountsPage.qml:19 src/settings/AccountsPage.qml:22
-#: src/settings/NeoChatSettings.qml:54
+#: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
+#: src/settings/NeoChatSettings.qml:56
 #, kde-format
 msgid "Accounts"
 msgstr ""
 
-#: src/settings/AccountsPage.qml:101
+#: src/settings/AccountsPage.qml:118
 #, kde-format
 msgid "Add Account"
 msgstr ""
@@ -4185,6 +4206,45 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
+#: src/settings/IdentityServerDelegate.qml:39
+#, kde-format
+msgid "New identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:43
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel editing identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:49
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm new identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:73
+#, kde-format
+msgid "The entered url is not a valid identity server"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:75
+#, kde-format
+msgid "The entered url is already configured as your identity server"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:98
+#, kde-format
+msgctxt "@action:button"
+msgid "Edit identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:119
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove identity server"
+msgstr ""
+
 #: src/settings/IgnoredUsersDialog.qml:18
 #, kde-format
 msgctxt "@title"
@@ -4353,49 +4413,49 @@ msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:20 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettings.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettings.qml:21
 #, kde-format
 msgid "General"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:26
+#: src/settings/NeoChatSettings.qml:28
 #, kde-format
 msgid "Appearance"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:32 src/settings/RoomSettings.qml:55
+#: src/settings/NeoChatSettings.qml:34 src/settings/RoomSettings.qml:55
 #, kde-format
 msgid "Notifications"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:43 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettings.qml:45 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettings.qml:33
 #, kde-format
 msgid "Security"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:60
+#: src/settings/NeoChatSettings.qml:67
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:71
+#: src/settings/NeoChatSettings.qml:78
 #, kde-format
 msgid "Spell Checking"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettings.qml:85 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:95
+#: src/settings/NeoChatSettings.qml:102
 #, kde-format
 msgid "About NeoChat"
 msgstr ""
 
-#: src/settings/NeoChatSettings.qml:101
+#: src/settings/NeoChatSettings.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr ""
@@ -4490,6 +4550,18 @@ msgstr ""
 #: src/settings/NotificationRuleItem.qml:135
 #, kde-format
 msgid "Delete keyword"
+msgstr ""
+
+#: src/settings/PasswordSheet.qml:16
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Enter password"
+msgstr ""
+
+#: src/settings/PasswordSheet.qml:30
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password:"
 msgstr ""
 
 #: src/settings/Permissions.qml:33
@@ -5017,6 +5089,87 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr ""
 
+#: src/settings/ThreePIdCard.qml:52
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Country Code for new phone number"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:89
+#, kde-format
+msgctxt "@label:textbox"
+msgid "New email address"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:89
+#, kde-format
+msgctxt "@label:textbox"
+msgid "New phone number"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid "We've sent you an email"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid "We've sent you a text message"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:95
+#, kde-format
+msgid "The entered email is not valid"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:95
+#, kde-format
+msgid "The entered phone number is not valid"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:97
+#, kde-format
+msgid "Incorrect password entered"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:99
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:99
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:124
+#, kde-format
+msgctxt "@action:button Add new email or phone number"
+msgid "Add"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:132
+#, kde-format
+msgctxt "@action:button As in 'go back'"
+msgid "Back"
+msgstr ""
+
 #: src/timeline/CodeComponent.qml:167
 #, kde-format
 msgid "Copy to clipboard"
@@ -5091,18 +5244,18 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr ""
 
-#: src/timeline/LinkPreviewComponent.qml:128 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr ""
 
-#: src/timeline/LinkPreviewComponent.qml:146
+#: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
 msgid "Shrink preview"
 msgstr ""
 
-#: src/timeline/LinkPreviewComponent.qml:146
+#: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
 msgid "Expand preview"
 msgstr ""

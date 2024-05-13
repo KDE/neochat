@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:38+0000\n"
+"POT-Creation-Date: 2024-05-13 00:38+0000\n"
 "PO-Revision-Date: 2024-02-14 19:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -232,6 +232,14 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
+msgstr ""
+
+#: src/devtools/FeatureFlagPage.qml:32
+#, kde-format
+msgctxt ""
+"@option:check Enable the matrix feature to add a phone number as a third "
+"party ID"
+msgid "Add phone numbers as 3PIDs"
 msgstr ""
 
 #: src/devtools/RoomData.qml:20
@@ -720,6 +728,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Kohde"
 
+#: src/identityserverhelper.cpp:52 src/identityserverhelper.cpp:59
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr ""
+
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
@@ -793,6 +807,7 @@ msgid "Loading…"
 msgstr "Ladataan…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/settings/ThreePIdCard.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1672,6 +1687,7 @@ msgid "Edit this account"
 msgstr "Muokkaa tätä tiliä"
 
 #: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
+#: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "Tilimuokkain"
@@ -1682,13 +1698,13 @@ msgid "Notification settings"
 msgstr "Ilmoitusasetukset"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:103
+#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:107
 #, kde-format
 msgid "Configure"
 msgstr "Asetukset"
 
 #: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettings.qml:84
+#: src/settings/NeoChatSettings.qml:91
 #, kde-format
 msgid "Devices"
 msgstr "Laitteet"
@@ -1717,7 +1733,7 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:71
+#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Kirjaudu ulos"
@@ -3611,19 +3627,19 @@ msgstr "Kutsu yksityiskeskusteluun"
 msgid "Copy link"
 msgstr "Kopioi linkki"
 
-#: src/qml/UserInfo.qml:54
+#: src/qml/UserInfo.qml:56
 #, fuzzy, kde-format
-#| msgid "Account editor"
-msgctxt "@title:window"
-msgid "Account editor"
-msgstr "Tilimuokkain"
+#| msgid "Configure"
+msgctxt "@action:button"
+msgid "Configure"
+msgstr "Asetukset"
 
-#: src/qml/UserInfo.qml:91
+#: src/qml/UserInfo.qml:95
 #, kde-format
 msgid "Switch User"
 msgstr "Vaihda käyttäjää"
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:102
 #, kde-format
 msgid "Open Settings"
 msgstr "Avaa asetukset"
@@ -3971,55 +3987,61 @@ msgstr "Salasanat eivät täsmää"
 msgid "Email Addresses"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:207
 #, fuzzy, kde-format
 #| msgid "Members"
 msgid "Phone Numbers"
 msgstr "Jäsenet"
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:212
+#, fuzzy, kde-format
+#| msgid "Add New Server"
+msgid "Identity Server"
+msgstr "Lisää uusi palvelin"
+
+#: src/settings/AccountEditorPage.qml:221
 #, kde-format
 msgid "Server Information"
 msgstr "Palvelintiedot"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Homeserver url"
 msgstr "Kotipalvelimen verkko-osoite"
 
-#: src/settings/AccountEditorPage.qml:236
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Tilihallinta"
 
-#: src/settings/AccountEditorPage.qml:241
+#: src/settings/AccountEditorPage.qml:251
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Passivoi tili"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:266
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Salasanan vaihto onnistui"
 
-#: src/settings/AccountEditorPage.qml:258
+#: src/settings/AccountEditorPage.qml:268
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Annettiin väärä salasana"
 
-#: src/settings/AccountEditorPage.qml:260
+#: src/settings/AccountEditorPage.qml:270
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Tuntematon ongelma yritettäessä vaihtaa salasanaa"
 
-#: src/settings/AccountsPage.qml:19 src/settings/AccountsPage.qml:22
-#: src/settings/NeoChatSettings.qml:54
+#: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
+#: src/settings/NeoChatSettings.qml:56
 #, kde-format
 msgid "Accounts"
 msgstr "Tilit"
 
-#: src/settings/AccountsPage.qml:101
+#: src/settings/AccountsPage.qml:118
 #, kde-format
 msgid "Add Account"
 msgstr "Lisää tili"
@@ -4305,6 +4327,49 @@ msgstr "Kutsut"
 msgid "Unknown"
 msgstr "Tuntematon"
 
+#: src/settings/IdentityServerDelegate.qml:39
+#, kde-format
+msgid "New identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:43
+#, fuzzy, kde-format
+#| msgid "Cancel editing display name"
+msgctxt "@action:button"
+msgid "Cancel editing identity server url"
+msgstr "Peru näyttönimen muokkaus"
+
+#: src/settings/IdentityServerDelegate.qml:49
+#, fuzzy, kde-format
+#| msgid "Confirm new display name"
+msgctxt "@action:button"
+msgid "Confirm new identity server url"
+msgstr "Vahvista uusi näyttönimi"
+
+#: src/settings/IdentityServerDelegate.qml:73
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered url is not a valid identity server"
+msgstr "Annettu teksti ei ole kelvollinen verkko-osoite"
+
+#: src/settings/IdentityServerDelegate.qml:75
+#, kde-format
+msgid "The entered url is already configured as your identity server"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:98
+#, kde-format
+msgctxt "@action:button"
+msgid "Edit identity server url"
+msgstr ""
+
+#: src/settings/IdentityServerDelegate.qml:119
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@action:button"
+msgid "Remove identity server"
+msgstr "Poista laite"
+
 #: src/settings/IgnoredUsersDialog.qml:18
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
@@ -4483,49 +4548,49 @@ msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Sivuuta tämä käyttäjä"
 
-#: src/settings/NeoChatSettings.qml:20 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettings.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettings.qml:21
 #, kde-format
 msgid "General"
 msgstr "Perusasetukset"
 
-#: src/settings/NeoChatSettings.qml:26
+#: src/settings/NeoChatSettings.qml:28
 #, kde-format
 msgid "Appearance"
 msgstr "Ulkoasu"
 
-#: src/settings/NeoChatSettings.qml:32 src/settings/RoomSettings.qml:55
+#: src/settings/NeoChatSettings.qml:34 src/settings/RoomSettings.qml:55
 #, kde-format
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
-#: src/settings/NeoChatSettings.qml:43 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettings.qml:45 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettings.qml:33
 #, kde-format
 msgid "Security"
 msgstr "Tietoturva"
 
-#: src/settings/NeoChatSettings.qml:60
+#: src/settings/NeoChatSettings.qml:67
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Tarrat ja emojit"
 
-#: src/settings/NeoChatSettings.qml:71
+#: src/settings/NeoChatSettings.qml:78
 #, kde-format
 msgid "Spell Checking"
 msgstr "Oikeinkirjoituksen tarkistus"
 
-#: src/settings/NeoChatSettings.qml:78 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettings.qml:85 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Välityspalvelin"
 
-#: src/settings/NeoChatSettings.qml:95
+#: src/settings/NeoChatSettings.qml:102
 #, kde-format
 msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
 
-#: src/settings/NeoChatSettings.qml:101
+#: src/settings/NeoChatSettings.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr "Tietoa KDE:stä"
@@ -4622,6 +4687,20 @@ msgstr "Käytä viestien korostusta"
 #, kde-format
 msgid "Delete keyword"
 msgstr "Poista hakusana"
+
+#: src/settings/PasswordSheet.qml:16
+#, fuzzy, kde-format
+#| msgid "Can change password"
+msgctxt "@title:dialog"
+msgid "Enter password"
+msgstr "Voi vaihtaa salasanansa"
+
+#: src/settings/PasswordSheet.qml:30
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@label:textbox"
+msgid "Password:"
+msgstr "Salasana:"
 
 #: src/settings/Permissions.qml:33
 #, kde-format
@@ -5157,6 +5236,97 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Poista sana"
 
+#: src/settings/ThreePIdCard.qml:52
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "Poista"
+
+#: src/settings/ThreePIdCard.qml:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Country Code for new phone number"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:89
+#, fuzzy, kde-format
+#| msgid "Add an e-mail address:"
+msgctxt "@label:textbox"
+msgid "New email address"
+msgstr "Lisää sähköpostiosoite:"
+
+#: src/settings/ThreePIdCard.qml:89
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@label:textbox"
+msgid "New phone number"
+msgstr "Jäsenet"
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid "We've sent you an email"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:93
+#, fuzzy, kde-format
+#| msgid "sent a message"
+msgid "We've sent you a text message"
+msgstr "lähetti viestin"
+
+#: src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:95
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered email is not valid"
+msgstr "Annettu teksti ei ole kelvollinen verkko-osoite"
+
+#: src/settings/ThreePIdCard.qml:95
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered phone number is not valid"
+msgstr "Annettu teksti ei ole kelvollinen verkko-osoite"
+
+#: src/settings/ThreePIdCard.qml:97
+#, fuzzy, kde-format
+#| msgid "Wrong password entered"
+msgid "Incorrect password entered"
+msgstr "Annettiin väärä salasana"
+
+#: src/settings/ThreePIdCard.qml:99
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:99
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button below"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:124
+#, fuzzy, kde-format
+#| msgid "Add"
+msgctxt "@action:button Add new email or phone number"
+msgid "Add"
+msgstr "Lisää"
+
+#: src/settings/ThreePIdCard.qml:132
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Back"
+msgctxt "@action:button As in 'go back'"
+msgid "Back"
+msgstr "Takaisin"
+
 #: src/timeline/CodeComponent.qml:167
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
@@ -5234,19 +5404,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Lähetä KDE Itineraryyn"
 
-#: src/timeline/LinkPreviewComponent.qml:128 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
 #, fuzzy, kde-format
 #| msgid "Remove device"
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Poista laite"
 
-#: src/timeline/LinkPreviewComponent.qml:146
+#: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
 msgid "Shrink preview"
 msgstr "Pienennä esikatselua"
 
-#: src/timeline/LinkPreviewComponent.qml:146
+#: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
 msgid "Expand preview"
 msgstr "Suurenna esikatselua"
@@ -5337,6 +5507,12 @@ msgstr "Näytä"
 #, kde-format
 msgid "Quit"
 msgstr "Lopeta"
+
+#, fuzzy
+#~| msgid "Account editor"
+#~ msgctxt "@title:window"
+#~ msgid "Account editor"
+#~ msgstr "Tilimuokkain"
 
 #~ msgctxt "@title"
 #~ msgid "Deactivate Account"
@@ -5530,10 +5706,6 @@ msgstr "Lopeta"
 #~ msgctxt "@title"
 #~ msgid "Password"
 #~ msgstr "Salasana"
-
-#~ msgctxt "@action:button"
-#~ msgid "Back"
-#~ msgstr "Takaisin"
 
 #~ msgid "No Canonical Alias"
 #~ msgstr "Ei kanonista aliasta"
