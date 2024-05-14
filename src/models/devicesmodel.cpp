@@ -128,8 +128,12 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
             authData["type"_ls] = "m.login.password"_ls;
             QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, m_connection->user()->id()}};
             authData["identifier"_ls] = identifier;
-            auto *innerJob = m_connection->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId, authData);
+            auto innerJob = m_connection->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId, authData);
+#if Quotient_VERSION_MINOR > 8
+            connect(innerJob.get(), &BaseJob::success, this, onSuccess);
+#else
             connect(innerJob, &BaseJob::success, this, onSuccess);
+#endif
         } else {
             onSuccess();
         }

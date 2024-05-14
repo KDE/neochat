@@ -163,7 +163,11 @@ void AccountEmoticonModel::setEmoticonImage(int index, const QUrl &source)
 QCoro::Task<void> AccountEmoticonModel::doSetEmoticonImage(int index, QUrl source)
 {
     auto job = m_connection->uploadFile(source.isLocalFile() ? source.toLocalFile() : source.toString());
+#if Quotient_VERSION_MINOR > 8
+    co_await qCoro(job.get(), &BaseJob::finished);
+#else
     co_await qCoro(job, &BaseJob::finished);
+#endif
     if (job->error() != BaseJob::NoError) {
         co_return;
     }
@@ -185,7 +189,11 @@ QCoro::Task<void> AccountEmoticonModel::doSetEmoticonImage(int index, QUrl sourc
 QCoro::Task<void> AccountEmoticonModel::doAddEmoticon(QUrl source, QString shortcode, QString description, QString type)
 {
     auto job = m_connection->uploadFile(source.isLocalFile() ? source.toLocalFile() : source.toString());
+#if Quotient_VERSION_MINOR > 8
+    co_await qCoro(job.get(), &BaseJob::finished);
+#else
     co_await qCoro(job, &BaseJob::finished);
+#endif
     if (job->error() != BaseJob::NoError) {
         co_return;
     }

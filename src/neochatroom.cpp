@@ -1156,7 +1156,11 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QStri
     }
     for (const auto &e : events) {
         auto job = connection()->callApi<RedactEventJob>(id(), QString::fromLatin1(QUrl::toPercentEncoding(e)), connection()->generateTxnId(), reason);
+#if Quotient_VERSION_MINOR > 8
+        co_await qCoro(job.get(), &BaseJob::finished);
+#else
         co_await qCoro(job, &BaseJob::finished);
+#endif
         if (job->error() != BaseJob::Success) {
             qWarning() << "Error: \"" << job->error() << "\" while deleting messages. Aborting";
             break;

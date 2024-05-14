@@ -301,7 +301,11 @@ void RoomManager::visitRoom(Room *r, const QString &eventId)
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
 {
     auto job = account->joinRoom(roomAliasOrId, viaServers);
+#if Quotient_VERSION_MINOR > 8
+    connectSingleShot(job.get(), &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
+#else
     connectSingleShot(job, &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
+#endif
         if (finish->status() == Quotient::BaseJob::Success) {
             connectSingleShot(account, &NeoChatConnection::newRoom, this, [this](Quotient::Room *room) {
                 resolveResource(room->id());
@@ -314,12 +318,16 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
 
 void RoomManager::knockRoom(NeoChatConnection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers)
 {
-    auto *const job = account->callApi<KnockRoomJob>(roomAliasOrId, viaServers, reason);
+    auto job = account->callApi<KnockRoomJob>(roomAliasOrId, viaServers, reason);
     // Upon completion, ensure a room object is created in case it hasn't come
     // with a sync yet. If the room object is not there, provideRoom() will
     // create it in Join state. finished() is used here instead of success()
     // to overtake clients that may add their own slots to finished().
+#if Quotient_VERSION_MINOR > 8
+    connectSingleShot(job.get(), &BaseJob::finished, this, [this, job, account] {
+#else
     connectSingleShot(job, &BaseJob::finished, this, [this, job, account] {
+#endif
         if (job->status() == Quotient::BaseJob::Success) {
             connectSingleShot(account, &NeoChatConnection::newRoom, this, [this](Quotient::Room *room) {
                 Q_EMIT currentRoom()->showMessage(NeoChatRoom::Info, i18n("You requested to join '%1'", room->name()));
