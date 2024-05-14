@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-13 00:38+0000\n"
-"PO-Revision-Date: 2024-05-12 08:56+0300\n"
+"PO-Revision-Date: 2024-05-13 17:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -238,7 +238,7 @@ msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
 "party ID"
 msgid "Add phone numbers as 3PIDs"
-msgstr ""
+msgstr "Додати номери телефонів як 3PID"
 
 #: src/devtools/RoomData.qml:20
 #, kde-format
@@ -732,7 +732,7 @@ msgstr "Призначення"
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
-msgstr ""
+msgstr "Не налаштовано жодного сервера профілів"
 
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
@@ -3596,8 +3596,7 @@ msgid "Copy link"
 msgstr "Копіювати посилання"
 
 #: src/qml/UserInfo.qml:56
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr "Налаштувати"
@@ -3967,10 +3966,9 @@ msgid "Phone Numbers"
 msgstr "Номери телефонів"
 
 #: src/settings/AccountEditorPage.qml:212
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgid "Identity Server"
-msgstr "Додавання нового сервера"
+msgstr "Сервер профілів"
 
 #: src/settings/AccountEditorPage.qml:221
 #, kde-format
@@ -4303,45 +4301,41 @@ msgstr "Невідомий"
 #: src/settings/IdentityServerDelegate.qml:39
 #, kde-format
 msgid "New identity server url"
-msgstr ""
+msgstr "Нова адреса сервера профілів"
 
 #: src/settings/IdentityServerDelegate.qml:43
-#, fuzzy, kde-format
-#| msgid "Cancel editing display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel editing identity server url"
-msgstr "Скасувати редагування показаного імені"
+msgstr "Скасувати редагування адреси сервера профілів"
 
 #: src/settings/IdentityServerDelegate.qml:49
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm new identity server url"
-msgstr "Підтвердити нове показане ім'я"
+msgstr "Підтвердити нову адресу сервера профілів"
 
 #: src/settings/IdentityServerDelegate.qml:73
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered url is not a valid identity server"
-msgstr "Введений текст не є коректною адресою"
+msgstr "Введена адреса не є коректною адресою сервера профілів"
 
 #: src/settings/IdentityServerDelegate.qml:75
 #, kde-format
 msgid "The entered url is already configured as your identity server"
-msgstr ""
+msgstr "Введену адресу вже налаштовано як адресу вашого сервера профілів"
 
 #: src/settings/IdentityServerDelegate.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit identity server url"
-msgstr ""
+msgstr "Редагувати адресу сервера профілів"
 
 #: src/settings/IdentityServerDelegate.qml:119
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove identity server"
-msgstr "Вилучити пристрій"
+msgstr "Вилучити сервер профілів"
 
 #: src/settings/IgnoredUsersDialog.qml:18
 #, kde-format
@@ -4654,15 +4648,13 @@ msgid "Delete keyword"
 msgstr "Вилучити ключове слово"
 
 #: src/settings/PasswordSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Can change password"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Enter password"
-msgstr "Може змінювати пароль"
+msgstr "Ввід паролю"
 
 #: src/settings/PasswordSheet.qml:30
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Пароль:"
@@ -5211,8 +5203,7 @@ msgid "Delete word"
 msgstr "Вилучити слово"
 
 #: src/settings/ThreePIdCard.qml:52
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Вилучити"
@@ -5221,54 +5212,50 @@ msgstr "Вилучити"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
-msgstr ""
+msgstr "Код країни для нового номера телефону"
 
 #: src/settings/ThreePIdCard.qml:89
-#, fuzzy, kde-format
-#| msgid "Add an e-mail address:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
-msgstr "Додати адресу ел. пошти:"
+msgstr "Нова адреса електронної пошти"
 
 #: src/settings/ThreePIdCard.qml:89
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
-msgstr "Номери телефонів"
+msgstr "Новий номер телефону"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgid "We've sent you an email"
-msgstr ""
+msgstr "Ми надіслали вам повідомлення електронної пошти"
 
 #: src/settings/ThreePIdCard.qml:93
-#, fuzzy, kde-format
-#| msgid "sent a message"
+#, kde-format
 msgid "We've sent you a text message"
-msgstr "надіслав повідомлення"
+msgstr "Ми надіслали вам текстове повідомлення"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr ""
+"%1. Будь ласка, виконайте настанови з нього, а потім натисніть кнопку, яку "
+"розташовано нижче"
 
 #: src/settings/ThreePIdCard.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered email is not valid"
-msgstr "Введений текст не є коректною адресою"
+msgstr "Введена адреса електронної пошти є некоректною"
 
 #: src/settings/ThreePIdCard.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered phone number is not valid"
-msgstr "Введений текст не є коректною адресою"
+msgstr "Введений номер телефону є некоректним"
 
 #: src/settings/ThreePIdCard.qml:97
-#, fuzzy, kde-format
-#| msgid "Wrong password entered"
+#, kde-format
 msgid "Incorrect password entered"
 msgstr "Введено помилковий пароль"
 
@@ -5278,6 +5265,9 @@ msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
+"Адреса електронної пошти не пройшла перевірки. Будь ласка, перейдіть до "
+"повідомлення електронної пошти і виконайте настанови з нього, а потім "
+"натисніть кнопку, яку розташовано нижче"
 
 #: src/settings/ThreePIdCard.qml:99
 #, kde-format
@@ -5285,18 +5275,18 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
+"Номер телефону не пройшов перевірки. Будь ласка, перейдіть до текстового "
+"повідомлення і виконайте настанови з нього, а потім натисніть кнопку, яку "
+"розташовано нижче"
 
 #: src/settings/ThreePIdCard.qml:124
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Додати"
 
 #: src/settings/ThreePIdCard.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Back"
+#, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Назад"
