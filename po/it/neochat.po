@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-13 00:38+0000\n"
-"PO-Revision-Date: 2024-05-07 13:15+0200\n"
+"POT-Creation-Date: 2024-05-15 00:38+0000\n"
+"PO-Revision-Date: 2024-05-13 10:08+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -234,7 +234,7 @@ msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
 "party ID"
 msgid "Add phone numbers as 3PIDs"
-msgstr ""
+msgstr "Aggiungi numeri di telefono come 3PID"
 
 #: src/devtools/RoomData.qml:20
 #, kde-format
@@ -724,7 +724,7 @@ msgstr "Destinazione"
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
-msgstr ""
+msgstr "Nessun server delle identità configurato"
 
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
@@ -1599,12 +1599,12 @@ msgstr "Creazione della stanza non riuscita: %1"
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
 
-#: src/neochatroom.cpp:1641 src/neochatroom.cpp:1642
+#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Segnalazione inviata correttamente."
 
-#: src/neochatroom.cpp:1916 src/neochatroom.cpp:1924
+#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1822,9 +1822,7 @@ msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Confirm Deactivating Account"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Account Deactivation"
 msgstr "Conferma la disattivazione dell'account"
@@ -1843,8 +1841,7 @@ msgstr ""
 "I tuoi messaggi rimarranno disponibili."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "Password"
@@ -1855,8 +1852,7 @@ msgid "Deactivate account"
 msgstr "Disattiva account"
 
 #: src/qml/ConfirmEncryptionDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Activate Encryption"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Activate Encryption"
 msgstr "Attiva la cifratura"
@@ -1892,8 +1888,7 @@ msgid "Leave Room"
 msgstr "Lascia la stanza"
 
 #: src/qml/ConfirmLogoutDialog.qml:15
-#, fuzzy, kde-format
-#| msgid "Sign out"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Sign out"
 msgstr "Esci"
@@ -1904,16 +1899,13 @@ msgid "Are you sure you want to sign out?"
 msgstr "Sei sicuro di voler uscire?"
 
 #: src/qml/ConfirmLogoutDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Sign out"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sign out"
 msgstr "Esci"
 
 #: src/qml/ConfirmUrlDialog.qml:14
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Open URL"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Open URL"
 msgstr "Apri URL"
@@ -3577,8 +3569,7 @@ msgid "Copy link"
 msgstr "Copia collegamento"
 
 #: src/qml/UserInfo.qml:56
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure"
 msgstr "Configura"
@@ -3852,17 +3843,17 @@ msgstr "ID Matrix non valido o vuoto"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 non è un identificatore Matrix corretto"
 
-#: src/roommanager.cpp:310
+#: src/roommanager.cpp:314
 #, kde-format
 msgid "Failed to join room"
 msgstr "Accesso alla stanza non riuscito"
 
-#: src/roommanager.cpp:325
+#: src/roommanager.cpp:333
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Hai chiesto di unirti a «%1»"
 
-#: src/roommanager.cpp:328
+#: src/roommanager.cpp:336
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Impossibile richiedere l'accesso alla stanza"
@@ -3958,10 +3949,9 @@ msgid "Phone Numbers"
 msgstr "Numeri di telefono"
 
 #: src/settings/AccountEditorPage.qml:212
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgid "Identity Server"
-msgstr "Aggiungi nuovo server"
+msgstr "Server delle identità"
 
 #: src/settings/AccountEditorPage.qml:221
 #, kde-format
@@ -4294,45 +4284,41 @@ msgstr "Sconosciuto"
 #: src/settings/IdentityServerDelegate.qml:39
 #, kde-format
 msgid "New identity server url"
-msgstr ""
+msgstr "Nuovo URL del server delle identità"
 
 #: src/settings/IdentityServerDelegate.qml:43
-#, fuzzy, kde-format
-#| msgid "Cancel editing display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel editing identity server url"
-msgstr "Annulla la modifica del nome visualizzato"
+msgstr "Annulla la modifica dell'URL del server delle identità"
 
 #: src/settings/IdentityServerDelegate.qml:49
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm new identity server url"
-msgstr "Conferma il nuovo nome visualizzato"
+msgstr "Conferma l'URL del nuovo server delle identità"
 
 #: src/settings/IdentityServerDelegate.qml:73
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered url is not a valid identity server"
-msgstr "Il testo digitato non è un URL valido"
+msgstr "L'URL digitato non è un URL di server delle identità valido"
 
 #: src/settings/IdentityServerDelegate.qml:75
 #, kde-format
 msgid "The entered url is already configured as your identity server"
-msgstr ""
+msgstr "L'URL digitato è già configurato come server delle identità"
 
 #: src/settings/IdentityServerDelegate.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit identity server url"
-msgstr ""
+msgstr "Modifica URL del server delle identità"
 
 #: src/settings/IdentityServerDelegate.qml:119
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove identity server"
-msgstr "Rimuovi il dispositivo"
+msgstr "Rimuovi server delle identità"
 
 #: src/settings/IgnoredUsersDialog.qml:18
 #, kde-format
@@ -4645,15 +4631,13 @@ msgid "Delete keyword"
 msgstr "Elimina la parola chiave"
 
 #: src/settings/PasswordSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Can change password"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Enter password"
-msgstr "Può cambiare la password"
+msgstr "Inserisci password"
 
 #: src/settings/PasswordSheet.qml:30
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Password:"
@@ -5210,8 +5194,7 @@ msgid "Delete word"
 msgstr "Elimina la parola"
 
 #: src/settings/ThreePIdCard.qml:52
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Rimuovi"
@@ -5220,54 +5203,48 @@ msgstr "Rimuovi"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
-msgstr ""
+msgstr "Prefisso internazionale per il nuovo numero di telefono"
 
 #: src/settings/ThreePIdCard.qml:89
-#, fuzzy, kde-format
-#| msgid "Add an e-mail address:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
-msgstr "Aggiungi un indirizzo di posta elettronica:"
+msgstr "Nuovo indirizzo di posta"
 
 #: src/settings/ThreePIdCard.qml:89
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
-msgstr "Numeri di telefono"
+msgstr "Nuovo numero di telefono"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgid "We've sent you an email"
-msgstr ""
+msgstr "Ti abbiamo inviato un messaggio di posta elettronica"
 
 #: src/settings/ThreePIdCard.qml:93
-#, fuzzy, kde-format
-#| msgid "sent a message"
+#, kde-format
 msgid "We've sent you a text message"
-msgstr "ha inviato un messaggio"
+msgstr "Ti abbiamo inviato un messaggio di testo"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
-msgstr ""
+msgstr "%1. Segui le istruzioni presenti e poi fai clic sul pulsante qui sotto"
 
 #: src/settings/ThreePIdCard.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered email is not valid"
-msgstr "Il testo digitato non è un URL valido"
+msgstr "L'indirizzo di posta digitato non è valido"
 
 #: src/settings/ThreePIdCard.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered phone number is not valid"
-msgstr "Il testo digitato non è un URL valido"
+msgstr "Il numero di telefono digitato non è valido"
 
 #: src/settings/ThreePIdCard.qml:97
-#, fuzzy, kde-format
-#| msgid "Wrong password entered"
+#, kde-format
 msgid "Incorrect password entered"
 msgstr "È stata digitata una password errata"
 
@@ -5277,6 +5254,8 @@ msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
+"L'indirizzo di posta elettronica non è stato verificato. Vai al messaggio di "
+"posta e segui le istruzioni presenti, quindi fai clic sul pulsante in basso"
 
 #: src/settings/ThreePIdCard.qml:99
 #, kde-format
@@ -5284,18 +5263,17 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
+"Il numero di telefono non è stato verificato. Vai al messaggio di testo e "
+"segui le istruzioni presenti, quindi fai clic sul pulsante in basso"
 
 #: src/settings/ThreePIdCard.qml:124
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Aggiungi"
 
 #: src/settings/ThreePIdCard.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Back"
+#, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Indietro"
