@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:38+0000\n"
-"PO-Revision-Date: 2024-05-12 08:46+0200\n"
+"PO-Revision-Date: 2024-05-15 10:08+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -237,7 +237,7 @@ msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
 "party ID"
 msgid "Add phone numbers as 3PIDs"
-msgstr ""
+msgstr "Dodaj telefonske številke kot 3PIDe"
 
 #: src/devtools/RoomData.qml:20
 #, kde-format
@@ -731,7 +731,7 @@ msgstr "Cilj"
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
-msgstr ""
+msgstr "Ni konfigurirana identiteta strežnika"
 
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
@@ -3579,11 +3579,10 @@ msgid "Copy link"
 msgstr "Kopiraj povezavo"
 
 #: src/qml/UserInfo.qml:56
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure"
-msgstr "Nastavi"
+msgstr "Konfiguriraj"
 
 #: src/qml/UserInfo.qml:95
 #, kde-format
@@ -3948,10 +3947,9 @@ msgid "Phone Numbers"
 msgstr "Telefonske številke"
 
 #: src/settings/AccountEditorPage.qml:212
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgid "Identity Server"
-msgstr "Dodaj novi strežnik"
+msgstr "Strežnik identifikacije"
 
 #: src/settings/AccountEditorPage.qml:221
 #, kde-format
@@ -4282,45 +4280,41 @@ msgstr "Neznano"
 #: src/settings/IdentityServerDelegate.qml:39
 #, kde-format
 msgid "New identity server url"
-msgstr ""
+msgstr "Novi naslov url strežnika identifikacije"
 
 #: src/settings/IdentityServerDelegate.qml:43
-#, fuzzy, kde-format
-#| msgid "Cancel editing display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel editing identity server url"
-msgstr "Prekliči urejanje imena prikaza"
+msgstr "Prekliči urejanje URL-ja strežnika identifkacije"
 
 #: src/settings/IdentityServerDelegate.qml:49
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm new identity server url"
-msgstr "Potrdi novo ime prikaza"
+msgstr "Potrdite URL novega strežnika identitete"
 
 #: src/settings/IdentityServerDelegate.qml:73
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered url is not a valid identity server"
-msgstr "Vneseno besedilo ni veljavni naslov url"
+msgstr "Vneseno besedilo url ni veljavni strežnik identifikacije"
 
 #: src/settings/IdentityServerDelegate.qml:75
 #, kde-format
 msgid "The entered url is already configured as your identity server"
-msgstr ""
+msgstr "Vneseni url je že konfiguriran kot vaš strežnik identifikacije"
 
 #: src/settings/IdentityServerDelegate.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit identity server url"
-msgstr ""
+msgstr "Uredi url strežnika identifikacije"
 
 #: src/settings/IdentityServerDelegate.qml:119
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove identity server"
-msgstr "Odstrani napravo"
+msgstr "Odstrani strežnik identifikacije"
 
 #: src/settings/IgnoredUsersDialog.qml:18
 #, kde-format
@@ -4632,15 +4626,13 @@ msgid "Delete keyword"
 msgstr "Izbriši ključno besedo"
 
 #: src/settings/PasswordSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Can change password"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Enter password"
-msgstr "Lahko spremeni geslo"
+msgstr "Vnesite geslo"
 
 #: src/settings/PasswordSheet.qml:30
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Geslo:"
@@ -5183,8 +5175,7 @@ msgid "Delete word"
 msgstr "Izbriši besedo"
 
 #: src/settings/ThreePIdCard.qml:52
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Odstrani"
@@ -5193,54 +5184,48 @@ msgstr "Odstrani"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
-msgstr ""
+msgstr "Koda države za novo telefonsko številko"
 
 #: src/settings/ThreePIdCard.qml:89
-#, fuzzy, kde-format
-#| msgid "Add an e-mail address:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
-msgstr "Dodaj naslov e-pošte:"
+msgstr "Novi naslov e-pošte"
 
 #: src/settings/ThreePIdCard.qml:89
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
-msgstr "Telefonske številke"
+msgstr "Nova telefonska številka"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgid "We've sent you an email"
-msgstr ""
+msgstr "Poslali smo vam elektronsko sporočilo"
 
 #: src/settings/ThreePIdCard.qml:93
-#, fuzzy, kde-format
-#| msgid "sent a message"
+#, kde-format
 msgid "We've sent you a text message"
-msgstr "je poslal sporočilo"
+msgstr "Poslali smo vam besedilno sporočilo"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
-msgstr ""
+msgstr "%1. Sledite navodilom in nato kliknite na gumb spodaj"
 
 #: src/settings/ThreePIdCard.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered email is not valid"
-msgstr "Vneseno besedilo ni veljavni naslov url"
+msgstr "Vneseni naslov e-pošte ni veljaven"
 
 #: src/settings/ThreePIdCard.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered phone number is not valid"
-msgstr "Vneseno besedilo ni veljavni naslov url"
+msgstr "Vnesena telefonska številka ni veljavna"
 
 #: src/settings/ThreePIdCard.qml:97
-#, fuzzy, kde-format
-#| msgid "Wrong password entered"
+#, kde-format
 msgid "Incorrect password entered"
 msgstr "Vneseno napačno geslo"
 
@@ -5250,6 +5235,8 @@ msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
+"E-pošta ni bila preverjena. Pojdite v e-pošto in sledite tamkajšnjim "
+"navodilom ter nato kliknite spodnji gumb"
 
 #: src/settings/ThreePIdCard.qml:99
 #, kde-format
@@ -5257,10 +5244,11 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
+"Telefonska številka ni bila preverjena. Pojdite na besedilno sporočilo in "
+"sledite tamkajšnjim navodilom ter nato kliknite na gumb spodaj"
 
 #: src/settings/ThreePIdCard.qml:124
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Dodaj"
@@ -5269,7 +5257,7 @@ msgstr "Dodaj"
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
-msgstr ""
+msgstr "Nazaj"
 
 #: src/timeline/CodeComponent.qml:167
 #, kde-format
