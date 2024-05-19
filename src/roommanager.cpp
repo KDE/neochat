@@ -300,7 +300,9 @@ void RoomManager::visitRoom(Room *r, const QString &eventId)
 
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
 {
-    auto job = account->joinRoom(roomAliasOrId, viaServers);
+    auto servers = viaServers;
+    servers.append(roomAliasOrId.split(u':')[1]);
+    auto job = account->joinRoom(roomAliasOrId, viaServers + servers);
 #if Quotient_VERSION_MINOR > 8
     connectSingleShot(job.get(), &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
 #else
