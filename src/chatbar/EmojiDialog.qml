@@ -38,18 +38,22 @@ QQC2.Popup {
     }
 
     background: Kirigami.ShadowedRectangle {
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        color: Kirigami.Theme.backgroundColor
         radius: Kirigami.Units.cornerRadius
-        shadow {
-            size: Kirigami.Units.largeSpacing
-            color: Qt.rgba(0.0, 0.0, 0.0, 0.3)
-            yOffset: 2
-        }
+        color: Kirigami.Theme.backgroundColor
+
         border {
-            color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-            width: 2
+            width: 1
+            color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
         }
+
+        shadow {
+            size: Kirigami.Units.gridUnit
+            yOffset: 0
+            color: Qt.rgba(0, 0, 0, 0.2)
+        }
+
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
     }
 
     modal: true
