@@ -10,22 +10,22 @@ import org.kde.kirigami as Kirigami
 
 TimelineDelegate {
     id: root
+
+    property bool isTemporaryHighlighted: false
+    onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
+        temporaryHighlightTimer.start();
+    }
+
     contentItem: QQC2.ItemDelegate {
         padding: Kirigami.Units.largeSpacing
         topInset: Kirigami.Units.largeSpacing
         topPadding: Kirigami.Units.largeSpacing * 2
 
-        property bool isTemporaryHighlighted: false
-
-        onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
-            temporaryHighlightTimer.start();
-        }
-
         Timer {
             id: temporaryHighlightTimer
 
             interval: 1500
-            onTriggered: isTemporaryHighlighted = false
+            onTriggered: root.isTemporaryHighlighted = false
         }
 
         contentItem: QQC2.Label {

@@ -190,12 +190,15 @@ QQC2.ScrollView {
             implicitHeight: Kirigami.Units.gridUnit * 2
 
             z: 2
-            visible: root.currentRoom && root.currentRoom.hasUnreadMessages && root.currentRoom.readMarkerLoaded
+            visible: root.currentRoom && root.currentRoom.hasUnreadMessages
+
+            text: root.currentRoom.readMarkerLoaded ? i18n("Jump to first unread message") : i18n("Jump to oldest loaded message")
             action: Kirigami.Action {
                 onTriggered: {
                     if (!Kirigami.Settings.isMobile) {
                         root.focusChatBar();
                     }
+                    goReadMarkerFab.textChanged()
                     messageListView.goToEvent(root.currentRoom.readMarkerEventId);
                 }
                 icon.name: "go-up"
@@ -203,7 +206,10 @@ QQC2.ScrollView {
             }
 
             QQC2.ToolTip {
-                text: i18n("Jump to first unread message")
+                id: goReadMarkerFabTooltip
+                text: goReadMarkerFab.text
+                delay: Kirigami.Units.toolTipDelay
+                visible: goReadMarkerFab.hovered
             }
         }
         KirigamiComponents.FloatingButton {
@@ -274,6 +280,10 @@ QQC2.ScrollView {
 
         function goToEvent(eventID) {
             const index = eventToIndex(eventID);
+            if (index == -1) {
+                messageListView.positionViewAtEnd();
+                return;
+            }
             messageListView.positionViewAtIndex(index, ListView.Center);
             itemAtIndex(index).isTemporaryHighlighted = true;
         }

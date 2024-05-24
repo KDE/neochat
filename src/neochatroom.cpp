@@ -69,7 +69,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         setHasFileUploading(false);
     });
 
-    connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
+    connect(this, &Room::addedMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
 
     const auto &roomLastMessageProvider = RoomLastMessageProvider::self();
 
