@@ -130,7 +130,7 @@ QQC2.ComboBox {
                 }
 
                 validator: RegularExpressionValidator {
-                    regularExpression: /^[a-zA-Z0-9-]{1,61}\.([a-zA-Z]{2,}|[a-zA-Z0-9-]{2,}\.[a-zA-Z]{2,3})$/
+                    regularExpression: /^([^.]+\.)+[^.]+$/
                 }
 
                 Connections {
