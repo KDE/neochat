@@ -218,7 +218,9 @@ Loader {
                     text: i18n("Leave Room")
                     icon.name: "go-previous"
                     onClicked: {
-                        RoomManager.leaveRoom(room);
+                        Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
+                            room: root.room
+                        }).open();
                         drawer.close();
                     }
                     Layout.fillWidth: true
