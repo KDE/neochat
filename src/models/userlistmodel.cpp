@@ -7,6 +7,7 @@
 
 #include <Quotient/events/roompowerlevelsevent.h>
 
+#include "enums/powerlevel.h"
 #include "neochatroom.h"
 
 using namespace Quotient;
@@ -94,16 +95,10 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
 
         auto userPl = pl->powerLevelForUser(user->id());
 
-        switch (userPl) {
-        case 0:
-            return QStringLiteral("Member");
-        case 50:
-            return QStringLiteral("Moderator");
-        case 100:
-            return QStringLiteral("Admin");
-        default:
-            return QStringLiteral("Custom");
-        }
+        return i18nc("%1 is the name of the power level, e.g. admin and %2 is the value that represents.",
+                     "%1 (%2)",
+                     PowerLevel::nameForLevel(PowerLevel::levelForValue(userPl)),
+                     userPl);
     }
 
     return {};

@@ -213,101 +213,6 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(bool canEncryptRoom READ canEncryptRoom NOTIFY canEncryptRoomChanged)
 
     /**
-     * @brief The default power level in the room for new users.
-     */
-    Q_PROPERTY(int defaultUserPowerLevel READ defaultUserPowerLevel WRITE setDefaultUserPowerLevel NOTIFY defaultUserPowerLevelChanged)
-
-    /**
-     * @brief The power level required to invite users to the room.
-     */
-    Q_PROPERTY(int invitePowerLevel READ invitePowerLevel WRITE setInvitePowerLevel NOTIFY invitePowerLevelChanged)
-
-    /**
-     * @brief The power level required to kick users from the room.
-     */
-    Q_PROPERTY(int kickPowerLevel READ kickPowerLevel WRITE setKickPowerLevel NOTIFY kickPowerLevelChanged)
-
-    /**
-     * @brief The power level required to ban users from the room.
-     */
-    Q_PROPERTY(int banPowerLevel READ banPowerLevel WRITE setBanPowerLevel NOTIFY banPowerLevelChanged)
-
-    /**
-     * @brief The power level required to delete other user messages.
-     */
-    Q_PROPERTY(int redactPowerLevel READ redactPowerLevel WRITE setRedactPowerLevel NOTIFY redactPowerLevelChanged)
-
-    /**
-     * @brief The default power level for state events that are not explicitly specified.
-     */
-    Q_PROPERTY(int statePowerLevel READ statePowerLevel WRITE setStatePowerLevel NOTIFY statePowerLevelChanged)
-
-    /**
-     * @brief The default power level for event that are not explicitly specified.
-     */
-    Q_PROPERTY(int defaultEventPowerLevel READ defaultEventPowerLevel WRITE setDefaultEventPowerLevel NOTIFY defaultEventPowerLevelChanged)
-
-    /**
-     * @brief The power level required to change power levels for the room.
-     */
-    Q_PROPERTY(int powerLevelPowerLevel READ powerLevelPowerLevel WRITE setPowerLevelPowerLevel NOTIFY powerLevelPowerLevelChanged)
-
-    /**
-     * @brief The power level required to change the room name.
-     */
-    Q_PROPERTY(int namePowerLevel READ namePowerLevel WRITE setNamePowerLevel NOTIFY namePowerLevelChanged)
-
-    /**
-     * @brief The power level required to change the room avatar.
-     */
-    Q_PROPERTY(int avatarPowerLevel READ avatarPowerLevel WRITE setAvatarPowerLevel NOTIFY avatarPowerLevelChanged)
-
-    /**
-     * @brief The power level required to change the room aliases.
-     */
-    Q_PROPERTY(int canonicalAliasPowerLevel READ canonicalAliasPowerLevel WRITE setCanonicalAliasPowerLevel NOTIFY canonicalAliasPowerLevelChanged)
-
-    /**
-     * @brief The power level required to change the room topic.
-     */
-    Q_PROPERTY(int topicPowerLevel READ topicPowerLevel WRITE setTopicPowerLevel NOTIFY topicPowerLevelChanged)
-
-    /**
-     * @brief The power level required to encrypt the room.
-     */
-    Q_PROPERTY(int encryptionPowerLevel READ encryptionPowerLevel WRITE setEncryptionPowerLevel NOTIFY encryptionPowerLevelChanged)
-
-    /**
-     * @brief The power level required to change the room history visibility.
-     */
-    Q_PROPERTY(int historyVisibilityPowerLevel READ historyVisibilityPowerLevel WRITE setHistoryVisibilityPowerLevel NOTIFY historyVisibilityPowerLevelChanged)
-
-    /**
-     * @brief The power level required to pin events in the room.
-     */
-    Q_PROPERTY(int pinnedEventsPowerLevel READ pinnedEventsPowerLevel WRITE setPinnedEventsPowerLevel NOTIFY pinnedEventsPowerLevelChanged)
-
-    /**
-     * @brief The power level required to upgrade the room.
-     */
-    Q_PROPERTY(int tombstonePowerLevel READ tombstonePowerLevel WRITE setTombstonePowerLevel NOTIFY tombstonePowerLevelChanged)
-
-    /**
-     * @brief The power level required to set the room server access control list (ACL).
-     */
-    Q_PROPERTY(int serverAclPowerLevel READ serverAclPowerLevel WRITE setServerAclPowerLevel NOTIFY serverAclPowerLevelChanged)
-
-    /**
-     * @brief The power level required to add children to a space.
-     */
-    Q_PROPERTY(int spaceChildPowerLevel READ spaceChildPowerLevel WRITE setSpaceChildPowerLevel NOTIFY spaceChildPowerLevelChanged)
-
-    /**
-     * @brief The power level required to set the room parent space.
-     */
-    Q_PROPERTY(int spaceParentPowerLevel READ spaceParentPowerLevel WRITE setSpaceParentPowerLevel NOTIFY spaceParentPowerLevelChanged)
-
-    /**
      * @brief The cache for the main chat bar in the room.
      */
     Q_PROPERTY(ChatBarCache *mainCache READ mainCache CONSTANT)
@@ -683,66 +588,6 @@ public:
 
     Q_INVOKABLE void setUserPowerLevel(const QString &userID, const int &powerLevel);
 
-    [[nodiscard]] int powerLevel(const QString &eventName, const bool &isStateEvent = false) const;
-    void setPowerLevel(const QString &eventName, const int &newPowerLevel, const bool &isStateEvent = false);
-
-    [[nodiscard]] int defaultUserPowerLevel() const;
-    void setDefaultUserPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int invitePowerLevel() const;
-    void setInvitePowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int kickPowerLevel() const;
-    void setKickPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int banPowerLevel() const;
-    void setBanPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int redactPowerLevel() const;
-    void setRedactPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int statePowerLevel() const;
-    void setStatePowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int defaultEventPowerLevel() const;
-    void setDefaultEventPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int powerLevelPowerLevel() const;
-    void setPowerLevelPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int namePowerLevel() const;
-    void setNamePowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int avatarPowerLevel() const;
-    void setAvatarPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int canonicalAliasPowerLevel() const;
-    void setCanonicalAliasPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int topicPowerLevel() const;
-    void setTopicPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int encryptionPowerLevel() const;
-    void setEncryptionPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int historyVisibilityPowerLevel() const;
-    void setHistoryVisibilityPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int pinnedEventsPowerLevel() const;
-    void setPinnedEventsPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int tombstonePowerLevel() const;
-    void setTombstonePowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int serverAclPowerLevel() const;
-    void setServerAclPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int spaceChildPowerLevel() const;
-    void setSpaceChildPowerLevel(const int &newPowerLevel);
-
-    [[nodiscard]] int spaceParentPowerLevel() const;
-    void setSpaceParentPowerLevel(const int &newPowerLevel);
-
     ChatBarCache *mainCache() const;
 
     ChatBarCache *editCache() const;
@@ -858,25 +703,6 @@ Q_SIGNALS:
     void defaultUrlPreviewStateChanged();
     void urlPreviewEnabledChanged();
     void maxRoomVersionChanged();
-    void defaultUserPowerLevelChanged();
-    void invitePowerLevelChanged();
-    void kickPowerLevelChanged();
-    void banPowerLevelChanged();
-    void redactPowerLevelChanged();
-    void statePowerLevelChanged();
-    void defaultEventPowerLevelChanged();
-    void powerLevelPowerLevelChanged();
-    void namePowerLevelChanged();
-    void avatarPowerLevelChanged();
-    void canonicalAliasPowerLevelChanged();
-    void topicPowerLevelChanged();
-    void encryptionPowerLevelChanged();
-    void historyVisibilityPowerLevelChanged();
-    void pinnedEventsPowerLevelChanged();
-    void tombstonePowerLevelChanged();
-    void serverAclPowerLevelChanged();
-    void spaceChildPowerLevelChanged();
-    void spaceParentPowerLevelChanged();
     void replyLoaded(const QString &eventId, const QString &replyId);
 
 public Q_SLOTS:

@@ -28,32 +28,14 @@ Kirigami.Dialog {
         }
     }
 
-    FormCard.FormCard {
+    ColumnLayout {
         FormCard.FormComboBoxDelegate {
             id: powerLevelComboBox
 
             text: i18n("New power level")
-            model: ListModel {
-                id: powerLevelModel
-            }
-            textRole: "text"
-            valueRole: "powerLevel"
-
-            // Done this way so we can have translated strings.
-            Component.onCompleted: {
-                powerLevelModel.append({
-                    "text": i18n("Member (0)"),
-                    "powerLevel": 0
-                });
-                powerLevelModel.append({
-                    "text": i18n("Moderator (50)"),
-                    "powerLevel": 50
-                });
-                powerLevelModel.append({
-                    "text": i18n("Admin (100)"),
-                    "powerLevel": 100
-                });
-            }
+            model: PowerLevelModel {}
+            textRole: "name"
+            valueRole: "value"
         }
     }
     customFooterActions: [

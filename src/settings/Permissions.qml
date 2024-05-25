@@ -25,8 +25,12 @@ FormCard.FormCardPage {
         room: root.room
     }
 
-    property ListModel powerLevelModel: ListModel {
-        id: powerLevelModel
+    readonly property PowerLevelModel powerLevelModel: PowerLevelModel {
+        showMute: false
+    }
+
+    readonly property PermissionsModel permissionsModel: PermissionsModel {
+        room: root.room
     }
 
     FormCard.FormHeader {
@@ -40,10 +44,16 @@ FormCard.FormCardPage {
                 sortOrder: Qt.DescendingOrder
                 filterRowCallback: function (source_row, source_parent) {
                     let powerLevelRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), UserListModel.PowerLevelRole);
-                    return powerLevelRole > 0;
+                    return powerLevelRole != 0;
                 }
             }
             delegate: FormCard.FormTextDelegate {
+                id: privilegedUserDelegate
+                required property string userId
+                required property string name
+                required property int powerLevel
+                required property string powerLevelString
+
                 text: name
                 textItem.textFormat: Text.PlainText
                 description: userId
@@ -51,37 +61,23 @@ FormCard.FormCardPage {
                     spacing: Kirigami.Units.largeSpacing
                     QQC2.Label {
                         id: powerLevelLabel
-                        visible: !room.canSendState("m.room.power_levels") || (room.getUserPowerLevel(room.localUser.id) <= model.powerLevel && model.userId != room.localUser.id)
-                        text: powerLevelString
+                        visible: !room.canSendState("m.room.power_levels") || (room.getUserPowerLevel(room.localUser.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != room.localUser.id)
+                        text: privilegedUserDelegate.powerLevelString
                         color: Kirigami.Theme.disabledTextColor
                     }
                     QQC2.ComboBox {
                         focusPolicy: Qt.NoFocus // provided by parent
-                        model: powerLevelModel
-                        textRole: "text"
-                        valueRole: "powerLevel"
+                        model: PowerLevelModel {}
+                        textRole: "name"
+                        valueRole: "value"
                         visible: !powerLevelLabel.visible
                         Component.onCompleted: {
-                            /**
-                                * This is very silly but the only way to populate the model with
-                                * translated strings. Done here because the model needs to be filled
-                                * before the first delegate sets it's current index.
-                                */
-                            if (powerLevelModel.count == 0) {
-                                powerLevelModel.append({
-                                    "text": i18n("Member (0)"),
-                                    "powerLevel": 0
-                                });
-                                powerLevelModel.append({
-                                    "text": i18n("Moderator (50)"),
-                                    "powerLevel": 50
-                                });
-                                powerLevelModel.append({
-                                    "text": i18n("Admin (100)"),
-                                    "powerLevel": 100
-                                });
+                            let index = indexOfValue(privilegedUserDelegate.powerLevel)
+                            if (index === -1) {
+                                displayText = privilegedUserDelegate.powerLevelString;
+                            } else {
+                                currentIndex = index;
                             }
-                            currentIndex = indexOfValue(powerLevel);
                         }
                         onActivated: {
                             room.setUserPowerLevel(userId, currentValue);
@@ -243,37 +239,36 @@ FormCard.FormCardPage {
     }
     FormCard.FormCard {
         visible: room.canSendState("m.room.power_levels")
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Default user power level")
-            description: i18n("This is power level for all new users when joining the room")
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.defaultUserPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.defaultUserPowerLevel = currentValue;
+        Repeater {
+            model: KSortFilterProxyModel {
+                sourceModel: root.permissionsModel
+                filterRowCallback: function (source_row, source_parent) {
+                    return sourceModel.data(sourceModel.index(source_row, 0, source_parent), PermissionsModel.IsDefaultValueRole);
+                }
             }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Default power level to set the room state")
-            description: i18n("This is used for all state events that do not have their own entry here")
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.statePowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.statePowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Default power level to send messages")
-            description: i18n("This is used for all message events that do not have their own entry here")
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.defaultEventPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.defaultEventPowerLevel = currentValue;
+            delegate: FormCard.FormComboBoxDelegate {
+                required property string name
+                required property string subtitle
+                required property string type
+                required property int level
+                required property string levelName
+
+                text: name
+                description: subtitle
+                textRole: "name"
+                valueRole: "value"
+                model: root.powerLevelModel
+                Component.onCompleted: {
+                    let index = indexOfValue(level)
+                    if (index === -1) {
+                        displayText = levelName;
+                    } else {
+                        currentIndex = index;
+                    }
+                }
+                onCurrentValueChanged: if (root.room.canSendState("m.room.power_levels")) {
+                    root.permissionsModel.setPowerLevel(type, currentValue);
+                }
             }
         }
     }
@@ -284,44 +279,36 @@ FormCard.FormCardPage {
     }
     FormCard.FormCard {
         visible: room.canSendState("m.room.power_levels")
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Invite users")
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.invitePowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.invitePowerLevel = currentValue;
+        Repeater {
+            model: KSortFilterProxyModel {
+                sourceModel: root.permissionsModel
+                filterRowCallback: function (source_row, source_parent) {
+                    return sourceModel.data(sourceModel.index(source_row, 0, source_parent), PermissionsModel.IsBasicPermissionRole);
+                }
             }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Kick users")
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.kickPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.kickPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Ban users")
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.banPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.banPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Remove message sent by other users")
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.redactPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.redactPowerLevel = currentValue;
+            delegate: FormCard.FormComboBoxDelegate {
+                required property string name
+                required property string subtitle
+                required property string type
+                required property int level
+                required property string levelName
+
+                text: name
+                description: subtitle
+                textRole: "name"
+                valueRole: "value"
+                model: root.powerLevelModel
+                Component.onCompleted: {
+                    let index = indexOfValue(level)
+                    if (index === -1) {
+                        displayText = levelName;
+                    } else {
+                        currentIndex = index;
+                    }
+                }
+                onCurrentValueChanged: if (root.room.canSendState("m.room.power_levels")) {
+                    root.permissionsModel.setPowerLevel(type, currentValue);
+                }
             }
         }
     }
@@ -332,137 +319,91 @@ FormCard.FormCardPage {
     }
     FormCard.FormCard {
         visible: room.canSendState("m.room.power_levels")
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Change user permissions")
-            description: "m.room.power_levels"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.powerLevelPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.powerLevelPowerLevel = currentValue;
+        Repeater {
+            model: KSortFilterProxyModel {
+                sourceModel: root.permissionsModel
+                filterRowCallback: function (source_row, source_parent) {
+                    let isBasicPermissionRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PermissionsModel.IsBasicPermissionRole);
+                    let isDefaultValueRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), PermissionsModel.IsDefaultValueRole);
+                    return !isBasicPermissionRole && !isDefaultValueRole;
+                }
+            }
+            delegate: FormCard.FormComboBoxDelegate {
+                required property string name
+                required property string subtitle
+                required property string type
+                required property int level
+                required property string levelName
+
+                text: name
+                description: subtitle
+                textRole: "name"
+                valueRole: "value"
+                model: root.powerLevelModel
+                Component.onCompleted: {
+                    let index = indexOfValue(level)
+                    if (index === -1) {
+                        displayText = levelName;
+                    } else {
+                        currentIndex = index;
+                    }
+                }
+                onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
+                    root.permissionsModel.setPowerLevel(type, currentValue);
+                }
             }
         }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Change the room name")
-            description: "m.room.name"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.namePowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.namePowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Change the room avatar")
-            description: "m.room.avatar"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.avatarPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.avatarPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Change the room canonical alias")
-            description: "m.room.canonical_alias"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.canonicalAliasPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.canonicalAliasPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Change the room topic")
-            description: "m.room.topic"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.topicPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.topicPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Enable encryption for the room")
-            description: "m.room.encryption"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.encryptionPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.encryptionPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Change the room history visibility")
-            description: "m.room.history_visibility"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.historyVisibilityPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.historyVisibilityPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Set pinned events")
-            description: "m.room.pinned_events"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.pinnedEventsPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.pinnedEventsPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Upgrade the room")
-            description: "m.room.tombstone"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.tombstonePowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.tombstonePowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Set the room server access control list (ACL)")
-            description: "m.room.server_acl"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.serverAclPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.serverAclPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            visible: room.isSpace
-            text: i18n("Set the children of this space")
-            description: "m.space.child"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.spaceChildPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.spaceChildPowerLevel = currentValue;
-            }
-        }
-        FormCard.FormComboBoxDelegate {
-            text: i18n("Set the parent space of this room")
-            description: "m.space.parent"
-            textRole: "text"
-            valueRole: "powerLevel"
-            model: powerLevelModel
-            Component.onCompleted: currentIndex = indexOfValue(room.spaceChildPowerLevel)
-            onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
-                room.spaceParentPowerLevel = currentValue;
+        FormCard.AbstractFormDelegate {
+            Layout.fillWidth: true
+
+            contentItem: RowLayout {
+                Kirigami.ActionTextField {
+                    id: newEventAddField
+
+                    Layout.fillWidth: true
+
+                    placeholderText: i18n("Event Type…")
+                    enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown
+
+                    rightActions: Kirigami.Action {
+                        icon.name: "edit-clear"
+                        visible: newEventAddField.text.length > 0
+                        onTriggered: {
+                            newEventAddField.text = "";
+                        }
+                    }
+
+                    onAccepted: {
+                        root.permissionsModel.setPowerLevel(newEventAddField.text, newEventPowerLevel.currentValue);
+                        newEventAddField.text = "";
+                    }
+                }
+                QQC2.ComboBox {
+                    id: newEventPowerLevel
+                    focusPolicy: Qt.NoFocus // provided by parent
+                    model: root.powerLevelModel
+                    textRole: "name"
+                    valueRole: "value"
+                }
+                QQC2.Button {
+                    id: addButton
+
+                    text: i18n("Add keyword")
+                    Accessible.name: text
+                    icon.name: "list-add"
+                    display: QQC2.AbstractButton.IconOnly
+                    enabled: newEventAddField.text.length > 0
+
+                    onClicked: {
+                        root.permissionsModel.setPowerLevel(newEventAddField.text, newEventPowerLevel.currentValue);
+                        newEventAddField.text = "";
+                    }
+
+                    QQC2.ToolTip {
+                        text: addButton.text
+                        delay: Kirigami.Units.toolTipDelay
+                    }
+                }
             }
         }
     }

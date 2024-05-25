@@ -181,6 +181,10 @@ add_library(neochat STATIC
     jobs/neochatadd3pidjob.h
     identityserverhelper.cpp
     identityserverhelper.h
+    enums/powerlevel.cpp
+    enums/powerlevel.h
+    models/permissionsmodel.cpp
+    models/permissionsmodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
