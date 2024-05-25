@@ -51,7 +51,7 @@ QQC2.ScrollView {
                 roleValue: MediaMessageFilterModel.Image
                 delegate: MessageDelegate {
                     alwaysShowAuthor: true
-                    alwaysMaxWidth: true
+                    alwaysFillWidth: true
                     cardBackground: false
                     room: root.currentRoom
                 }
@@ -61,7 +61,7 @@ QQC2.ScrollView {
                 roleValue: MediaMessageFilterModel.Video
                 delegate: MessageDelegate {
                     alwaysShowAuthor: true
-                    alwaysMaxWidth: true
+                    alwaysFillWidth: true
                     cardBackground: false
                     room: root.currentRoom
                 }

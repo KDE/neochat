@@ -203,11 +203,6 @@ TimelineDelegate {
     property bool cardBackground: true
 
     /**
-     * @brief Whether the delegate should always stretch to the maximum availabel width.
-     */
-    property bool alwaysMaxWidth: false
-
-    /**
      * @brief Whether the message should be highlighted.
      */
     property bool showHighlight: root.isHighlighted || isTemporaryHighlighted
@@ -241,6 +236,11 @@ TimelineDelegate {
      */
     property real contentMaxWidth: bubbleSizeHelper.currentWidth - bubble.leftPadding - bubble.rightPadding
 
+    width: parent?.width
+    rightPadding: Config.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
+
+    alwaysFillWidth: Config.compactLayout
+
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
 
@@ -249,7 +249,7 @@ TimelineDelegate {
             Layout.fillWidth: true
             visible: root.showSection
             labelText: root.section
-            colorSet: Config.compactLayout || root.alwaysMaxWidth ? Kirigami.Theme.View : Kirigami.Theme.Window
+            colorSet: Config.compactLayout || root.alwaysFillWidth ? Kirigami.Theme.View : Kirigami.Theme.Window
         }
         QQC2.ItemDelegate {
             id: mainContainer
@@ -347,7 +347,7 @@ TimelineDelegate {
             }
 
             background: Rectangle {
-                visible: mainContainer.hovered && (Config.compactLayout || root.alwaysMaxWidth)
+                visible: mainContainer.hovered && (Config.compactLayout || root.alwaysFillWidth)
                 color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
                 radius: Kirigami.Units.cornerRadius
             }
@@ -387,8 +387,8 @@ TimelineDelegate {
             id: bubbleSizeHelper
             startBreakpoint: Kirigami.Units.gridUnit * 25
             endBreakpoint: Kirigami.Units.gridUnit * 40
-            startPercentWidth: Config.compactLayout || root.alwaysMaxWidth ? 100 : 90
-            endPercentWidth: Config.compactLayout || root.alwaysMaxWidth ? 100 : 60
+            startPercentWidth: root.alwaysFillWidth ? 100 : 90
+            endPercentWidth: root.alwaysFillWidth ? 100 : 60
 
             parentWidth: mainContainer.availableWidth - (Config.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
         }
@@ -411,7 +411,7 @@ TimelineDelegate {
         /**
          * @brief Whether local user messages should be aligned right.
          */
-        property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !root.alwaysMaxWidth
+        property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !root.alwaysFillWidth
 
         function showMessageMenu() {
             RoomManager.viewEventMenu(root.eventId, root.room, root.selectedText);

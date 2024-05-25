@@ -7,7 +7,6 @@ qt_add_qml_module(timeline
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/timeline
     QML_FILES
         EventDelegate.qml
-        TimelineDelegate.qml
         HiddenDelegate.qml
         MessageDelegate.qml
         LoadingDelegate.qml
@@ -45,6 +44,9 @@ qt_add_qml_module(timeline
         StateComponent.qml
         TextComponent.qml
         VideoComponent.qml
+    SOURCES
+        timelinedelegate.cpp
+        timelinedelegate.h
     RESOURCES
         images/bike.svg
         images/bus.svg
@@ -71,4 +73,9 @@ qt_add_qml_module(timeline
         images/transfer.svg
         images/wait.svg
         images/walk.svg
+)
+
+target_link_libraries(timeline PRIVATE
+    Qt::Quick
+    KF6::Kirigami
 )

@@ -17,6 +17,11 @@ TimelineDelegate {
      */
     required property NeoChatRoom room
 
+    width: parent?.width
+    rightPadding: Config.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
+
+    alwaysFillWidth: Config.compactLayout
+
     contentItem: ColumnLayout {
         RowLayout {
             Layout.topMargin: Kirigami.Units.largeSpacing
