@@ -152,3 +152,5 @@ void IdentityServerHelper::clearIdentityServer()
     m_status = Ready;
     Q_EMIT statusChanged();
 }
+
+#include "moc_identityserverhelper.cpp"

@@ -197,3 +197,5 @@ void ThreePIdAddHelper::back()
         return;
     }
 }
+
+#include "moc_threepidaddhelper.cpp"

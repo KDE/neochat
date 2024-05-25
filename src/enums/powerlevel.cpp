@@ -105,3 +105,5 @@ QHash<int, QByteArray> PowerLevelModel::roleNames() const
 {
     return {{NameRole, "name"}, {ValueRole, "value"}};
 }
+
+#include "moc_powerlevel.cpp"
