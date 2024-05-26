@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -364,6 +364,44 @@ msgstr "ਘੱਟ ਤਰਜੀਹ"
 #, kde-format
 msgid "Spaces"
 msgstr ""
+
+#: src/enums/powerlevel.cpp:10
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member"
+msgstr "ਮੈਂਬਰ"
+
+#: src/enums/powerlevel.cpp:12
+#, kde-format
+msgid "Moderator"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:14
+#, fuzzy, kde-format
+#| msgid "Admin"
+msgid "Admin"
+msgstr "ਐਡਮਿਨ"
+
+#: src/enums/powerlevel.cpp:16
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Mute"
+msgstr "ਮੌਨ ਕੀਤਾ"
+
+#: src/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "ਕਸਟਮ"
+
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/models/userlistmodel.cpp:99
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
 #: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
@@ -845,7 +883,7 @@ msgstr "ਮੈਟਰਿਕਸ ID:"
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
+#: src/timeline/LoadingDelegate.qml:19
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgid "Loading…"
@@ -1619,6 +1657,159 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/permissionsmodel.cpp:37
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:38
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:39
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:40
+#, fuzzy
+#| msgid "Invite a User"
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
+
+#: src/models/permissionsmodel.cpp:41
+#, fuzzy
+#| msgid "Kick this user"
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿੱਕ ਕਰੋ"
+
+#: src/models/permissionsmodel.cpp:42
+#, fuzzy
+#| msgid "Ban this user"
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
+
+#: src/models/permissionsmodel.cpp:43
+#, fuzzy
+#| msgid "Ignore this user"
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
+
+#: src/models/permissionsmodel.cpp:44
+#, fuzzy
+#| msgid "Send invitation"
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "ਸੱਦਾ ਭੇਜੋ"
+
+#: src/models/permissionsmodel.cpp:45
+#, fuzzy
+#| msgid "Edit Message"
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/models/permissionsmodel.cpp:46
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:47
+#, fuzzy
+#| msgid "cleared the room name"
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
+
+#: src/models/permissionsmodel.cpp:48
+#, fuzzy
+#| msgid "changed the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/models/permissionsmodel.cpp:49
+#, fuzzy
+#| msgid "changed the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/models/permissionsmodel.cpp:50
+#, fuzzy
+#| msgid "changed the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/models/permissionsmodel.cpp:51
+#, fuzzy
+#| msgid "Show notifications"
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/models/permissionsmodel.cpp:52
+#, fuzzy
+#| msgid "changed the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
+
+#: src/models/permissionsmodel.cpp:53
+#, fuzzy
+#| msgid "Show leave and join events"
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
+
+#: src/models/permissionsmodel.cpp:54
+#, fuzzy
+#| msgid "left the room"
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "ਰੂਮ ਛੱਡਿਆ"
+
+#: src/models/permissionsmodel.cpp:55
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:56
+#, fuzzy
+#| msgid "%1 invited you to a room"
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
+
+#: src/models/permissionsmodel.cpp:57
+#, fuzzy
+#| msgid "%1 invited you to a room"
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
+
+#: src/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+
 #: src/models/pushrulemodel.cpp:20
 #, fuzzy
 #| msgid "Show notifications"
@@ -1744,13 +1935,13 @@ msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 
-#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
+#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
 
-#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
+#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2706,7 +2897,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "ਮੈਟਰਿਕਸ ਸਵਾਲ-ਜਵਾਬ"
 
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
 msgid "No name"
 msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
@@ -3063,24 +3254,7 @@ msgstr ""
 msgid "New power level"
 msgstr ""
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
-#, fuzzy, kde-format
-#| msgid "Members"
-msgid "Member (0)"
-msgstr "ਮੈਂਬਰ"
-
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
-#, kde-format
-msgid "Moderator (50)"
-msgstr ""
-
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
-#, fuzzy, kde-format
-#| msgid "Admin"
-msgid "Admin (100)"
-msgstr "ਐਡਮਿਨ"
-
-#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr "ਤਸਦੀਕ ਕਰੋ"
@@ -4105,18 +4279,18 @@ msgstr ""
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ਠੀਕ ਮੈਟਰਿਕਸ ਪਛਾਣਕਰਤਾ ਨਹੀਂ ਹੈ"
 
-#: src/roommanager.cpp:314
+#: src/roommanager.cpp:315
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to join room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:336
+#: src/roommanager.cpp:337
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to request joining room"
@@ -4568,7 +4742,7 @@ msgid "Keyword…"
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr ""
@@ -4981,147 +5155,30 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "ਪਾਸਵਰਡ:"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr ""
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:238
 #, kde-format
 msgid "Default permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr ""
-
-#: src/settings/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-
-#: src/settings/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr ""
-
-#: src/settings/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-
-#: src/settings/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr ""
-
-#: src/settings/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:278
 #, kde-format
 msgid "Basic permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:288
-#, fuzzy, kde-format
-#| msgid "Invite a User"
-msgid "Invite users"
-msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
-
-#: src/settings/Permissions.qml:298
-#, fuzzy, kde-format
-#| msgid "Kick this user"
-msgid "Kick users"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿੱਕ ਕਰੋ"
-
-#: src/settings/Permissions.qml:308
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgid "Ban users"
-msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
-
 #: src/settings/Permissions.qml:318
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgid "Remove message sent by other users"
-msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
-
-#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:365
 #, kde-format
-msgid "Change user permissions"
+msgid "Event Type…"
 msgstr ""
-
-#: src/settings/Permissions.qml:347
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
-msgid "Change the room name"
-msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
-
-#: src/settings/Permissions.qml:358
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
-msgid "Change the room avatar"
-msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
-
-#: src/settings/Permissions.qml:369
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
-msgid "Change the room canonical alias"
-msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
-
-#: src/settings/Permissions.qml:380
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
-msgid "Change the room topic"
-msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
-
-#: src/settings/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr ""
-
-#: src/settings/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr ""
-
-#: src/settings/Permissions.qml:413
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
-msgid "Set pinned events"
-msgstr "ਛੱਡਣ ਤੇ ਜੁੜਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਵੇਖਾਓ"
-
-#: src/settings/Permissions.qml:424
-#, fuzzy, kde-format
-#| msgid "left the room"
-msgid "Upgrade the room"
-msgstr "ਰੂਮ ਛੱਡਿਆ"
-
-#: src/settings/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr ""
-
-#: src/settings/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr ""
-
-#: src/settings/Permissions.qml:458
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
-msgid "Set the parent space of this room"
-msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
@@ -5772,13 +5829,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr ""
 
-#: src/timeline/ReadMarkerDelegate.qml:32
+#: src/timeline/ReadMarkerDelegate.qml:39
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "ਆਖਰੀ ਪੜ੍ਹੇ: %1"
 
-#: src/timeline/TimelineEndDelegate.qml:84
+#: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
@@ -5816,6 +5873,11 @@ msgstr "ਵੇਖਾਓ"
 #, kde-format
 msgid "Quit"
 msgstr "ਬਾਹਰ"
+
+#, fuzzy
+#~| msgid "Members"
+#~ msgid "Member (0)"
+#~ msgstr "ਮੈਂਬਰ"
 
 #, fuzzy
 #~| msgctxt "@title:menu Account detail dialog"
@@ -6043,15 +6105,9 @@ msgstr "ਬਾਹਰ"
 #~ msgid "Mod"
 #~ msgstr "ਮੋਡ"
 
-#~ msgid "Muted"
-#~ msgstr "ਮੌਨ ਕੀਤਾ"
-
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."
 #~ msgstr "ਇਹ ਰੂਮ ਇੰਕ੍ਰਿਪਟ ਕੀਤਾ ਹੈ। ਇੰਕ੍ਰਿਪਟ ਕੀਤੇ ਸੁਨੇਹੇ ਭੇਜਣੇ ਹਾਲੇ ਸਹਾਇਕ ਨਹੀਂ ਹਨ।"
-
-#~ msgid "Custom"
-#~ msgstr "ਕਸਟਮ"
 
 #, fuzzy
 #~| msgid "Timeline:"

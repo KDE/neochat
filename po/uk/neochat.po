@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
-"PO-Revision-Date: 2024-05-13 17:38+0300\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
+"PO-Revision-Date: 2024-05-25 08:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -345,6 +345,45 @@ msgstr "Низький пріоритет"
 #, kde-format
 msgid "Spaces"
 msgstr "Простори"
+
+#: src/enums/powerlevel.cpp:10
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member"
+msgstr "Учасники"
+
+#: src/enums/powerlevel.cpp:12
+#, fuzzy, kde-format
+#| msgid "Moderator (50)"
+msgid "Moderator"
+msgstr "Модератор (50)"
+
+#: src/enums/powerlevel.cpp:14
+#, fuzzy, kde-format
+#| msgid "Admin (100)"
+msgid "Admin"
+msgstr "Адміністратор (100)"
+
+#: src/enums/powerlevel.cpp:16
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Mute"
+msgstr "Вимкнено"
+
+#: src/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "Нетипова"
+
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/models/userlistmodel.cpp:99
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
 #: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
@@ -802,7 +841,7 @@ msgstr "Ід. Matrix"
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
+#: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "Завантаження…"
@@ -1503,6 +1542,182 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
+#: src/models/permissionsmodel.cpp:37
+#, fuzzy
+#| msgid "Default user power level"
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Типовий рівень можливостей користувача"
+
+#: src/models/permissionsmodel.cpp:38
+#, fuzzy
+#| msgid "Default power level to set the room state"
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Типовий рівень для стану кімнати"
+
+#: src/models/permissionsmodel.cpp:39
+#, fuzzy
+#| msgid "Default power level to send messages"
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "Типовий рівень для надсилання повідомлень"
+
+#: src/models/permissionsmodel.cpp:40
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Запрошення користувачів"
+
+#: src/models/permissionsmodel.cpp:41
+#, fuzzy
+#| msgid "Kick users"
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Викидання користувачів"
+
+#: src/models/permissionsmodel.cpp:42
+#, fuzzy
+#| msgid "Ban users"
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Блокування користувачів"
+
+#: src/models/permissionsmodel.cpp:43
+#, fuzzy
+#| msgid "Remove message sent by other users"
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Вилучати повідомлення, які надіслано іншими користувачами"
+
+#: src/models/permissionsmodel.cpp:44
+#, fuzzy
+#| msgid "Send a Location"
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Надіслати дані місця"
+
+#: src/models/permissionsmodel.cpp:45
+#, fuzzy
+#| msgid "Remove Messages"
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Вилучити повідомлення"
+
+#: src/models/permissionsmodel.cpp:46
+#, fuzzy
+#| msgid "Change user permissions"
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Зміна прав доступу користувачів"
+
+#: src/models/permissionsmodel.cpp:47
+#, fuzzy
+#| msgid "Change the room name"
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Зміна назви кімнати"
+
+#: src/models/permissionsmodel.cpp:48
+#, fuzzy
+#| msgid "Change the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Зміна аватара кімнати"
+
+#: src/models/permissionsmodel.cpp:49
+#, fuzzy
+#| msgid "Change the room canonical alias"
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Зміна канонічної альтернативної назви кімнати"
+
+#: src/models/permissionsmodel.cpp:50
+#, fuzzy
+#| msgid "Change the room topic"
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Зміна теми кімнати"
+
+#: src/models/permissionsmodel.cpp:51
+#, fuzzy
+#| msgid "Enable encryption for the room"
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Вмикання шифрування для кімнати"
+
+#: src/models/permissionsmodel.cpp:52
+#, fuzzy
+#| msgid "Change the room history visibility"
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Зміна видимості журналу кімнати"
+
+#: src/models/permissionsmodel.cpp:53
+#, fuzzy
+#| msgid "Set pinned events"
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Встановлення пришпилених подій"
+
+#: src/models/permissionsmodel.cpp:54
+#, fuzzy
+#| msgid "Upgrade the room"
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Оновлення кімнати"
+
+#: src/models/permissionsmodel.cpp:55
+#, fuzzy
+#| msgid "Set the room server access control list (ACL)"
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Встановлення списку керування доступом (ACL) сервера кімнати"
+
+#: src/models/permissionsmodel.cpp:56
+#, fuzzy
+#| msgid "Set the children of this space"
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Встановити простір дітей"
+
+#: src/models/permissionsmodel.cpp:57
+#, fuzzy
+#| msgid "Set the parent space of this room"
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Встановити простір батьків цієї кімнати"
+
+#: src/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgid "This is power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+"Це рівень можливостей для усіх нових користувачів при долученні до кімнати"
+
+#: src/models/permissionsmodel.cpp:63
+#, fuzzy
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Цей рівень використовують для усіх подій стану, які не мають власного запису "
+"у цьому списку"
+
+#: src/models/permissionsmodel.cpp:64
+#, fuzzy
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Цей рівень використовують для усіх подій повідомлень, які не мають власного "
+"запису у цьому списку"
+
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
@@ -1616,12 +1831,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
+#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
+#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2516,7 +2731,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Поширені питання щодо Matrix"
 
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
 msgid "No name"
 msgstr "Без назви"
@@ -2850,22 +3065,7 @@ msgstr "Редагування рівня можливостей користу�
 msgid "New power level"
 msgstr "Новий рівень можливостей"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
-#, kde-format
-msgid "Member (0)"
-msgstr "Учасник (0)"
-
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
-#, kde-format
-msgid "Moderator (50)"
-msgstr "Модератор (50)"
-
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
-#, kde-format
-msgid "Admin (100)"
-msgstr "Адміністратор (100)"
-
-#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr "Підтвердити"
@@ -3413,10 +3613,9 @@ msgid "Jump to first unread message"
 msgstr "Перейти до першого непрочитаного повідомлення"
 
 #: src/qml/TimelineView.qml:195
-#, fuzzy, kde-format
-#| msgid "Jump to latest message"
+#, kde-format
 msgid "Jump to oldest loaded message"
-msgstr "Перейти до останнього повідомлення"
+msgstr "Перейти до найдавнішого завантаженого повідомлення"
 
 #: src/qml/TimelineView.qml:235
 #, kde-format
@@ -3866,17 +4065,17 @@ msgstr "Помилково форматований або порожній ід
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 не є правильним ідентифікатором Matrix"
 
-#: src/roommanager.cpp:314
+#: src/roommanager.cpp:315
 #, kde-format
 msgid "Failed to join room"
 msgstr "Не вдалося приєднатися до кімнати"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Ви надіслали запит щодо долучення до «%1»"
 
-#: src/roommanager.cpp:336
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Не вдалося надіслати запит щодо долучення до кімнати"
@@ -4289,7 +4488,7 @@ msgid "Keyword…"
 msgstr "Ключове слово…"
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Додати ключове слово"
@@ -4665,141 +4864,30 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Пароль:"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr "Привілейовані користувачі"
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:238
 #, kde-format
 msgid "Default permissions"
 msgstr "Типові права доступу"
 
-#: src/settings/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr "Типовий рівень можливостей користувача"
-
-#: src/settings/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-"Це рівень можливостей для усіх нових користувачів при долученні до кімнати"
-
-#: src/settings/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr "Типовий рівень для стану кімнати"
-
-#: src/settings/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Цей рівень використовують для усіх подій стану, які не мають власного запису "
-"у цьому списку"
-
-#: src/settings/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr "Типовий рівень для надсилання повідомлень"
-
-#: src/settings/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Цей рівень використовують для усіх подій повідомлень, які не мають власного "
-"запису у цьому списку"
-
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:278
 #, kde-format
 msgid "Basic permissions"
 msgstr "Основні права доступу"
 
-#: src/settings/Permissions.qml:288
-#, kde-format
-msgid "Invite users"
-msgstr "Запрошення користувачів"
-
-#: src/settings/Permissions.qml:298
-#, kde-format
-msgid "Kick users"
-msgstr "Викидання користувачів"
-
-#: src/settings/Permissions.qml:308
-#, kde-format
-msgid "Ban users"
-msgstr "Блокування користувачів"
-
 #: src/settings/Permissions.qml:318
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr "Вилучати повідомлення, які надіслано іншими користувачами"
-
-#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr "Права доступу подій"
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:365
 #, kde-format
-msgid "Change user permissions"
-msgstr "Зміна прав доступу користувачів"
-
-#: src/settings/Permissions.qml:347
-#, kde-format
-msgid "Change the room name"
-msgstr "Зміна назви кімнати"
-
-#: src/settings/Permissions.qml:358
-#, kde-format
-msgid "Change the room avatar"
-msgstr "Зміна аватара кімнати"
-
-#: src/settings/Permissions.qml:369
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr "Зміна канонічної альтернативної назви кімнати"
-
-#: src/settings/Permissions.qml:380
-#, kde-format
-msgid "Change the room topic"
-msgstr "Зміна теми кімнати"
-
-#: src/settings/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr "Вмикання шифрування для кімнати"
-
-#: src/settings/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr "Зміна видимості журналу кімнати"
-
-#: src/settings/Permissions.qml:413
-#, kde-format
-msgid "Set pinned events"
-msgstr "Встановлення пришпилених подій"
-
-#: src/settings/Permissions.qml:424
-#, kde-format
-msgid "Upgrade the room"
-msgstr "Оновлення кімнати"
-
-#: src/settings/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr "Встановлення списку керування доступом (ACL) сервера кімнати"
-
-#: src/settings/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr "Встановити простір дітей"
-
-#: src/settings/Permissions.qml:458
-#, kde-format
-msgid "Set the parent space of this room"
-msgstr "Встановити простір батьків цієї кімнати"
+msgid "Event Type…"
+msgstr ""
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5431,13 +5519,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Завершено)"
 
-#: src/timeline/ReadMarkerDelegate.qml:32
+#: src/timeline/ReadMarkerDelegate.qml:39
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Востаннє прочитано: %1"
 
-#: src/timeline/TimelineEndDelegate.qml:84
+#: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
@@ -5475,6 +5563,9 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Member (0)"
+#~ msgstr "Учасник (0)"
 
 #~ msgctxt "@title:window"
 #~ msgid "Account editor"
@@ -5750,17 +5841,11 @@ msgstr "Вийти"
 #~ msgid "Mod"
 #~ msgstr "Мод"
 
-#~ msgid "Muted"
-#~ msgstr "Вимкнено"
-
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."
 #~ msgstr ""
 #~ "Повідомлення у цій кімнаті зашифровано. Підтримку шифрування повідомлень "
 #~ "у цій програмі поки не реалізовано."
-
-#~ msgid "Custom"
-#~ msgstr "Нетипова"
 
 #~ msgid "Timeline"
 #~ msgstr "Розклад"

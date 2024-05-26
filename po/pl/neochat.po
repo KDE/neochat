@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
 "PO-Revision-Date: 2024-05-12 09:29+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -341,6 +341,45 @@ msgstr "Niski priorytet"
 #, kde-format
 msgid "Spaces"
 msgstr "Odstępy"
+
+#: src/enums/powerlevel.cpp:10
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member"
+msgstr "Członkowie"
+
+#: src/enums/powerlevel.cpp:12
+#, fuzzy, kde-format
+#| msgid "Moderator (50)"
+msgid "Moderator"
+msgstr "Moderator (50)"
+
+#: src/enums/powerlevel.cpp:14
+#, fuzzy, kde-format
+#| msgid "Admin (100)"
+msgid "Admin"
+msgstr "Administrator (100)"
+
+#: src/enums/powerlevel.cpp:16
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Mute"
+msgstr "Wyciszony(-a)"
+
+#: src/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "Własny"
+
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/models/userlistmodel.cpp:99
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
 #: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
@@ -796,7 +835,7 @@ msgstr "ID Matriksa"
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
+#: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "Wczytywanie…"
@@ -1492,6 +1531,183 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
+#: src/models/permissionsmodel.cpp:37
+#, fuzzy
+#| msgid "Default user power level"
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Domyślny poziom uprawnień użytkownika"
+
+#: src/models/permissionsmodel.cpp:38
+#, fuzzy
+#| msgid "Default power level to set the room state"
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Domyślny poziom uprawnień, na który ustawić pokój"
+
+#: src/models/permissionsmodel.cpp:39
+#, fuzzy
+#| msgid "Default power level to send messages"
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "Domyślny poziom uprawnień do wysyłania wiadomości"
+
+#: src/models/permissionsmodel.cpp:40
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Zaproś użytkowników"
+
+#: src/models/permissionsmodel.cpp:41
+#, fuzzy
+#| msgid "Kick users"
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Wykop użytkowników"
+
+#: src/models/permissionsmodel.cpp:42
+#, fuzzy
+#| msgid "Ban users"
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Zbanuj użytkowników"
+
+#: src/models/permissionsmodel.cpp:43
+#, fuzzy
+#| msgid "Remove message sent by other users"
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Usuń wiadomości wysłane przez innych użytkowników"
+
+#: src/models/permissionsmodel.cpp:44
+#, fuzzy
+#| msgid "Send a Location"
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Wyślij położenie"
+
+#: src/models/permissionsmodel.cpp:45
+#, fuzzy
+#| msgid "Remove Messages"
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Usuń wiadomości"
+
+#: src/models/permissionsmodel.cpp:46
+#, fuzzy
+#| msgid "Change user permissions"
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Zmień uprawnienia użytkownika"
+
+#: src/models/permissionsmodel.cpp:47
+#, fuzzy
+#| msgid "Change the room name"
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Zmień nazwę pokoju"
+
+#: src/models/permissionsmodel.cpp:48
+#, fuzzy
+#| msgid "Change the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Zmień awatar pokoju"
+
+#: src/models/permissionsmodel.cpp:49
+#, fuzzy
+#| msgid "Change the room canonical alias"
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Zmień alias kanoniczny pokoju"
+
+#: src/models/permissionsmodel.cpp:50
+#, fuzzy
+#| msgid "Change the room topic"
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Zmień temat pokoju"
+
+#: src/models/permissionsmodel.cpp:51
+#, fuzzy
+#| msgid "Enable encryption for the room"
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Włącz szyfrowanie pokoju"
+
+#: src/models/permissionsmodel.cpp:52
+#, fuzzy
+#| msgid "Change the room history visibility"
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Zmień widoczność historii pokoju"
+
+#: src/models/permissionsmodel.cpp:53
+#, fuzzy
+#| msgid "Set pinned events"
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Ustaw przypięte wydarzenia"
+
+#: src/models/permissionsmodel.cpp:54
+#, fuzzy
+#| msgid "Upgrade the room"
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Uaktualnij pokój"
+
+#: src/models/permissionsmodel.cpp:55
+#, fuzzy
+#| msgid "Set the room server access control list (ACL)"
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Ustaw listę listę sterującą dostępem do tego serwera (ACL)"
+
+#: src/models/permissionsmodel.cpp:56
+#, fuzzy
+#| msgid "Set the children of this space"
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Ustaw przestrzeń podrzędną dla tej przestrzeni"
+
+#: src/models/permissionsmodel.cpp:57
+#, fuzzy
+#| msgid "Set the parent space of this room"
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Ustaw przestrzeń nadrzędną dla tego pokoju"
+
+#: src/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgid "This is power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+"Jest to poziom uprawnień dla wszystkich nowych użytkowników dołączających do "
+"pokoju"
+
+#: src/models/permissionsmodel.cpp:63
+#, fuzzy
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Jest to używane do wszystkich wydarzeń stanu, które nie mają tutaj swojego "
+"wpisu"
+
+#: src/models/permissionsmodel.cpp:64
+#, fuzzy
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Jest to używane do wszystkich wydarzeń-wiadomości, które nie mają tutaj "
+"swojego wpisu"
+
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
@@ -1601,12 +1817,12 @@ msgstr "Nie udało się utworzyć pokoju: %1"
 msgid "Space creation failed: %1"
 msgstr "Nie udało się utworzyć przestrzeni: %1"
 
-#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
+#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
 
-#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
+#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2499,7 +2715,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "FAQ Matriksa"
 
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
 msgid "No name"
 msgstr "Brak nazwy"
@@ -2833,22 +3049,7 @@ msgstr "Zmień poziom uprawnień użytkownika"
 msgid "New power level"
 msgstr "Nowy poziom uprawnień"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
-#, kde-format
-msgid "Member (0)"
-msgstr "Członek (0)"
-
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
-#, kde-format
-msgid "Moderator (50)"
-msgstr "Moderator (50)"
-
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
-#, kde-format
-msgid "Admin (100)"
-msgstr "Administrator (100)"
-
-#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr "Potwierdź"
@@ -3842,17 +4043,17 @@ msgstr "Identyfikator Matriksa jest pusty lub zapisany złą składnią"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 nie jest poprawnym identyfikatorem Matriksa"
 
-#: src/roommanager.cpp:314
+#: src/roommanager.cpp:315
 #, kde-format
 msgid "Failed to join room"
 msgstr "Nie udało się dołączyć do pokoju"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Poprosiłeś od dołączenie do '%1'"
 
-#: src/roommanager.cpp:336
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Nie udało się poprosić o dołączenie do pokoju"
@@ -4265,7 +4466,7 @@ msgid "Keyword…"
 msgstr "Słowo kluczowe…"
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Dodaj słowo kluczowe"
@@ -4646,142 +4847,30 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Hasło:"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr "Uprzywilejowani użytkownicy"
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:238
 #, kde-format
 msgid "Default permissions"
 msgstr "Domyślne uprawnienia"
 
-#: src/settings/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr "Domyślny poziom uprawnień użytkownika"
-
-#: src/settings/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-"Jest to poziom uprawnień dla wszystkich nowych użytkowników dołączających do "
-"pokoju"
-
-#: src/settings/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr "Domyślny poziom uprawnień, na który ustawić pokój"
-
-#: src/settings/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Jest to używane do wszystkich wydarzeń stanu, które nie mają tutaj swojego "
-"wpisu"
-
-#: src/settings/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr "Domyślny poziom uprawnień do wysyłania wiadomości"
-
-#: src/settings/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Jest to używane do wszystkich wydarzeń-wiadomości, które nie mają tutaj "
-"swojego wpisu"
-
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:278
 #, kde-format
 msgid "Basic permissions"
 msgstr "Podstawowe uprawnienia"
 
-#: src/settings/Permissions.qml:288
-#, kde-format
-msgid "Invite users"
-msgstr "Zaproś użytkowników"
-
-#: src/settings/Permissions.qml:298
-#, kde-format
-msgid "Kick users"
-msgstr "Wykop użytkowników"
-
-#: src/settings/Permissions.qml:308
-#, kde-format
-msgid "Ban users"
-msgstr "Zbanuj użytkowników"
-
 #: src/settings/Permissions.qml:318
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr "Usuń wiadomości wysłane przez innych użytkowników"
-
-#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr "Uprawnienia wydarzeń"
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:365
 #, kde-format
-msgid "Change user permissions"
-msgstr "Zmień uprawnienia użytkownika"
-
-#: src/settings/Permissions.qml:347
-#, kde-format
-msgid "Change the room name"
-msgstr "Zmień nazwę pokoju"
-
-#: src/settings/Permissions.qml:358
-#, kde-format
-msgid "Change the room avatar"
-msgstr "Zmień awatar pokoju"
-
-#: src/settings/Permissions.qml:369
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr "Zmień alias kanoniczny pokoju"
-
-#: src/settings/Permissions.qml:380
-#, kde-format
-msgid "Change the room topic"
-msgstr "Zmień temat pokoju"
-
-#: src/settings/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr "Włącz szyfrowanie pokoju"
-
-#: src/settings/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr "Zmień widoczność historii pokoju"
-
-#: src/settings/Permissions.qml:413
-#, kde-format
-msgid "Set pinned events"
-msgstr "Ustaw przypięte wydarzenia"
-
-#: src/settings/Permissions.qml:424
-#, kde-format
-msgid "Upgrade the room"
-msgstr "Uaktualnij pokój"
-
-#: src/settings/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr "Ustaw listę listę sterującą dostępem do tego serwera (ACL)"
-
-#: src/settings/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr "Ustaw przestrzeń podrzędną dla tej przestrzeni"
-
-#: src/settings/Permissions.qml:458
-#, kde-format
-msgid "Set the parent space of this room"
-msgstr "Ustaw przestrzeń nadrzędną dla tego pokoju"
+msgid "Event Type…"
+msgstr ""
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5410,13 +5499,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Zakończone)"
 
-#: src/timeline/ReadMarkerDelegate.qml:32
+#: src/timeline/ReadMarkerDelegate.qml:39
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Ostatnio odczytywany: %1"
 
-#: src/timeline/TimelineEndDelegate.qml:84
+#: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
@@ -5455,6 +5544,9 @@ msgstr "Pokaż"
 #, kde-format
 msgid "Quit"
 msgstr "Zakończ"
+
+#~ msgid "Member (0)"
+#~ msgstr "Członek (0)"
 
 #~ msgctxt "@title:window"
 #~ msgid "Account editor"
@@ -5724,17 +5816,11 @@ msgstr "Zakończ"
 #~ msgid "Mod"
 #~ msgstr "Moderator"
 
-#~ msgid "Muted"
-#~ msgstr "Wyciszony(-a)"
-
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."
 #~ msgstr ""
 #~ "Ten pokój jest zaszyfrowany. Wysyłanie zaszyfrowanych wiadomości nie jest "
 #~ "jeszcze obsługiwane."
-
-#~ msgid "Custom"
-#~ msgstr "Własny"
 
 #, fuzzy
 #~| msgid "Decline"

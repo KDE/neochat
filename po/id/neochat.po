@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -354,6 +354,45 @@ msgstr "Prioritas rendah"
 #, kde-format
 msgid "Spaces"
 msgstr "Space"
+
+#: src/enums/powerlevel.cpp:10
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member"
+msgstr "Anggota"
+
+#: src/enums/powerlevel.cpp:12
+#, fuzzy, kde-format
+#| msgid "Moderator (50)"
+msgid "Moderator"
+msgstr "Moderator (50)"
+
+#: src/enums/powerlevel.cpp:14
+#, fuzzy, kde-format
+#| msgid "Admin (100)"
+msgid "Admin"
+msgstr "Admin (100)"
+
+#: src/enums/powerlevel.cpp:16
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Mute"
+msgstr "Dibisukan"
+
+#: src/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "Kustom"
+
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/models/userlistmodel.cpp:99
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
 #: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
@@ -810,7 +849,7 @@ msgstr "ID Matrix:"
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
+#: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "Memuat..."
@@ -1528,6 +1567,182 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/permissionsmodel.cpp:37
+#, fuzzy
+#| msgid "Default user power level"
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Tingkat daya pengguna bawaan"
+
+#: src/models/permissionsmodel.cpp:38
+#, fuzzy
+#| msgid "Default power level to set the room state"
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Tingkat daya bawaan untuk menetapkan keadaan ruangan"
+
+#: src/models/permissionsmodel.cpp:39
+#, fuzzy
+#| msgid "Default power level to send messages"
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "Tingkat daya bawaan untuk mengirim pesan"
+
+#: src/models/permissionsmodel.cpp:40
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Undang pengguna"
+
+#: src/models/permissionsmodel.cpp:41
+#, fuzzy
+#| msgid "Kick users"
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Keluarkan pengguna"
+
+#: src/models/permissionsmodel.cpp:42
+#, fuzzy
+#| msgid "Ban users"
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Cekal pengguna"
+
+#: src/models/permissionsmodel.cpp:43
+#, fuzzy
+#| msgid "Remove message sent by other users"
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Hapus pesan dari pengguna lain"
+
+#: src/models/permissionsmodel.cpp:44
+#, fuzzy
+#| msgid "Send a Location"
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Kirim Lokasi"
+
+#: src/models/permissionsmodel.cpp:45
+#, fuzzy
+#| msgid "Remove Messages"
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Hapus Pesan"
+
+#: src/models/permissionsmodel.cpp:46
+#, fuzzy
+#| msgid "Change user permissions"
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Ubah perizinan pengguna"
+
+#: src/models/permissionsmodel.cpp:47
+#, fuzzy
+#| msgid "Change the room name"
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Ubah nama ruangan"
+
+#: src/models/permissionsmodel.cpp:48
+#, fuzzy
+#| msgid "Change the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Ubah avatar ruangan"
+
+#: src/models/permissionsmodel.cpp:49
+#, fuzzy
+#| msgid "Change the room canonical alias"
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Ubah alias kanonik ruangan"
+
+#: src/models/permissionsmodel.cpp:50
+#, fuzzy
+#| msgid "Change the room topic"
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Ubah topik ruangan"
+
+#: src/models/permissionsmodel.cpp:51
+#, fuzzy
+#| msgid "Enable encryption for the room"
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Aktifkan enkripsi untuk ruangan"
+
+#: src/models/permissionsmodel.cpp:52
+#, fuzzy
+#| msgid "Change the room history visibility"
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Ubah keterlihatan riwayat ruangan"
+
+#: src/models/permissionsmodel.cpp:53
+#, fuzzy
+#| msgid "Set pinned events"
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Tetapkan peristiwa yang disematkan"
+
+#: src/models/permissionsmodel.cpp:54
+#, fuzzy
+#| msgid "Upgrade the room"
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Tingkatkan ruangan"
+
+#: src/models/permissionsmodel.cpp:55
+#, fuzzy
+#| msgid "Set the room server access control list (ACL)"
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Tetapkan daftar kontrol akses server ruangan (ACL)"
+
+#: src/models/permissionsmodel.cpp:56
+#, fuzzy
+#| msgid "Set the children of this space"
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Tetapkan anak dari space ini"
+
+#: src/models/permissionsmodel.cpp:57
+#, fuzzy
+#| msgid "Set the parent space of this room"
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Tetapkan space induk dari ruangan ini"
+
+#: src/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgid "This is power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+"Ini adalah tingkat daya untuk semua pengguna ketika bergabung dengan ruangan"
+
+#: src/models/permissionsmodel.cpp:63
+#, fuzzy
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Ini digunakan untuk semua peristiwa keadaan yang tidak memiliki entrinya "
+"sendiri di sini"
+
+#: src/models/permissionsmodel.cpp:64
+#, fuzzy
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Ini digunakan untuk semua peristiwa pesan yang tidak memiliki entrinya di "
+"sini"
+
 #: src/models/pushrulemodel.cpp:20
 #, fuzzy
 #| msgid "Enable notifications for this account"
@@ -1657,12 +1872,12 @@ msgstr "Pembuatan ruangan gagal: %1"
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
 
-#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
+#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
+#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2604,7 +2819,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Pertanyaan Matrix"
 
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
 msgid "No name"
 msgstr "Tidak ada nama"
@@ -2964,22 +3179,7 @@ msgstr "Sunting tingkat daya pengguna"
 msgid "New power level"
 msgstr "Tetapkan tingkat daya pengguna"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
-#, kde-format
-msgid "Member (0)"
-msgstr "Anggota (0)"
-
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
-#, kde-format
-msgid "Moderator (50)"
-msgstr "Moderator (50)"
-
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
-#, kde-format
-msgid "Admin (100)"
-msgstr "Admin (100)"
-
-#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr "Konfirmasi"
@@ -4014,17 +4214,17 @@ msgstr "Bentuk ID Matrix salah atau ID Matrix kosong"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 bukan pengenal Matrix yang benar"
 
-#: src/roommanager.cpp:314
+#: src/roommanager.cpp:315
 #, kde-format
 msgid "Failed to join room"
 msgstr "Gagal bergabung dengan ruangan"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Anda meminta untuk bergabung ke '%1'"
 
-#: src/roommanager.cpp:336
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Gagal meminta bergabung ke ruangan"
@@ -4448,7 +4648,7 @@ msgid "Keyword…"
 msgstr "Kata Kunci..."
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Tambahkan kata kunci"
@@ -4845,141 +5045,30 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Kata sandi:"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr "Pengguna Berizin"
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:238
 #, kde-format
 msgid "Default permissions"
 msgstr "Perizinan bawaan"
 
-#: src/settings/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr "Tingkat daya pengguna bawaan"
-
-#: src/settings/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-"Ini adalah tingkat daya untuk semua pengguna ketika bergabung dengan ruangan"
-
-#: src/settings/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr "Tingkat daya bawaan untuk menetapkan keadaan ruangan"
-
-#: src/settings/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Ini digunakan untuk semua peristiwa keadaan yang tidak memiliki entrinya "
-"sendiri di sini"
-
-#: src/settings/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr "Tingkat daya bawaan untuk mengirim pesan"
-
-#: src/settings/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Ini digunakan untuk semua peristiwa pesan yang tidak memiliki entrinya di "
-"sini"
-
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:278
 #, kde-format
 msgid "Basic permissions"
 msgstr "Perizinan dasar"
 
-#: src/settings/Permissions.qml:288
-#, kde-format
-msgid "Invite users"
-msgstr "Undang pengguna"
-
-#: src/settings/Permissions.qml:298
-#, kde-format
-msgid "Kick users"
-msgstr "Keluarkan pengguna"
-
-#: src/settings/Permissions.qml:308
-#, kde-format
-msgid "Ban users"
-msgstr "Cekal pengguna"
-
 #: src/settings/Permissions.qml:318
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr "Hapus pesan dari pengguna lain"
-
-#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr "Perizinan peristiwa"
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:365
 #, kde-format
-msgid "Change user permissions"
-msgstr "Ubah perizinan pengguna"
-
-#: src/settings/Permissions.qml:347
-#, kde-format
-msgid "Change the room name"
-msgstr "Ubah nama ruangan"
-
-#: src/settings/Permissions.qml:358
-#, kde-format
-msgid "Change the room avatar"
-msgstr "Ubah avatar ruangan"
-
-#: src/settings/Permissions.qml:369
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr "Ubah alias kanonik ruangan"
-
-#: src/settings/Permissions.qml:380
-#, kde-format
-msgid "Change the room topic"
-msgstr "Ubah topik ruangan"
-
-#: src/settings/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr "Aktifkan enkripsi untuk ruangan"
-
-#: src/settings/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr "Ubah keterlihatan riwayat ruangan"
-
-#: src/settings/Permissions.qml:413
-#, kde-format
-msgid "Set pinned events"
-msgstr "Tetapkan peristiwa yang disematkan"
-
-#: src/settings/Permissions.qml:424
-#, kde-format
-msgid "Upgrade the room"
-msgstr "Tingkatkan ruangan"
-
-#: src/settings/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr "Tetapkan daftar kontrol akses server ruangan (ACL)"
-
-#: src/settings/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr "Tetapkan anak dari space ini"
-
-#: src/settings/Permissions.qml:458
-#, kde-format
-msgid "Set the parent space of this room"
-msgstr "Tetapkan space induk dari ruangan ini"
+msgid "Event Type…"
+msgstr ""
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5624,13 +5713,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Berakhir)"
 
-#: src/timeline/ReadMarkerDelegate.qml:32
+#: src/timeline/ReadMarkerDelegate.qml:39
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Terakhir dibaca: %1"
 
-#: src/timeline/TimelineEndDelegate.qml:84
+#: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
@@ -5668,6 +5757,9 @@ msgstr "Tampilkan"
 #, kde-format
 msgid "Quit"
 msgstr "Keluar"
+
+#~ msgid "Member (0)"
+#~ msgstr "Anggota (0)"
 
 #, fuzzy
 #~| msgid "Account editor"
@@ -5953,16 +6045,10 @@ msgstr "Keluar"
 #~ msgid "Mod"
 #~ msgstr "Mod"
 
-#~ msgid "Muted"
-#~ msgstr "Dibisukan"
-
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."
 #~ msgstr ""
 #~ "Ruangan ini terenkripsi. Mengirim sebuah pesan terenkripsi belum didukung."
-
-#~ msgid "Custom"
-#~ msgstr "Kustom"
 
 #~ msgid "Timeline"
 #~ msgstr "Linimasa"

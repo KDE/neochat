@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
-"PO-Revision-Date: 2024-05-13 05:53+0200\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
+"PO-Revision-Date: 2024-05-25 09:23+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -339,6 +339,45 @@ msgstr "დაბალი პრიორიტეტი"
 #, kde-format
 msgid "Spaces"
 msgstr "სივრცეები"
+
+#: src/enums/powerlevel.cpp:10
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member"
+msgstr "წევრები"
+
+#: src/enums/powerlevel.cpp:12
+#, fuzzy, kde-format
+#| msgid "Moderator (50)"
+msgid "Moderator"
+msgstr "მოდერატორი (50)"
+
+#: src/enums/powerlevel.cpp:14
+#, fuzzy, kde-format
+#| msgid "Admin (100)"
+msgid "Admin"
+msgstr "ადმინისტრატორი (100)"
+
+#: src/enums/powerlevel.cpp:16
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Mute"
+msgstr "ხმა გამორთული"
+
+#: src/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "ხელით მითითებული"
+
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/models/userlistmodel.cpp:99
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
 #: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
@@ -793,7 +832,7 @@ msgstr "Matrix ID"
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
+#: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
@@ -1489,6 +1528,181 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
+#: src/models/permissionsmodel.cpp:37
+#, fuzzy
+#| msgid "Default user power level"
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "მომხმარებლის წვდომის ნაგულისხმევი დონე"
+
+#: src/models/permissionsmodel.cpp:38
+#, fuzzy
+#| msgid "Default power level to set the room state"
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "ოთახის მდგომარეობის დასაყენებელი უფლებების ნაგულისხმევი დონე"
+
+#: src/models/permissionsmodel.cpp:39
+#, fuzzy
+#| msgid "Default power level to send messages"
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "ნაგულისხმევი წვდომის დონე შეტყობინებების გასაგზავნად"
+
+#: src/models/permissionsmodel.cpp:40
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "მომხმარებლების მოწვევა"
+
+#: src/models/permissionsmodel.cpp:41
+#, fuzzy
+#| msgid "Kick users"
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "მომხმარებლების გაყრა"
+
+#: src/models/permissionsmodel.cpp:42
+#, fuzzy
+#| msgid "Ban users"
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "მომხმარებლების ბანი"
+
+#: src/models/permissionsmodel.cpp:43
+#, fuzzy
+#| msgid "Remove message sent by other users"
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "სხვა მომხმარებლების მიერ გამოგზავნილი შეტყობინებების წაშლა"
+
+#: src/models/permissionsmodel.cpp:44
+#, fuzzy
+#| msgid "Send a Location"
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "მდებარეობის გაგზავნა"
+
+#: src/models/permissionsmodel.cpp:45
+#, fuzzy
+#| msgid "Remove Messages"
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "შეტყობინებების წაშლა"
+
+#: src/models/permissionsmodel.cpp:46
+#, fuzzy
+#| msgid "Change user permissions"
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "მომხმარებლის წვდომების შეცვლა"
+
+#: src/models/permissionsmodel.cpp:47
+#, fuzzy
+#| msgid "Change the room name"
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "ოთახის სახელის შეცვლა"
+
+#: src/models/permissionsmodel.cpp:48
+#, fuzzy
+#| msgid "Change the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "ოთახის ავატარის შეცვლა"
+
+#: src/models/permissionsmodel.cpp:49
+#, fuzzy
+#| msgid "Change the room canonical alias"
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "ოთახის კანონიკურ მეტსახელის შეცვლა"
+
+#: src/models/permissionsmodel.cpp:50
+#, fuzzy
+#| msgid "Change the room topic"
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "ოთხის თემის შეცვლა"
+
+#: src/models/permissionsmodel.cpp:51
+#, fuzzy
+#| msgid "Enable encryption for the room"
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "ოთახისთვის დაშიფვრის ჩართვა"
+
+#: src/models/permissionsmodel.cpp:52
+#, fuzzy
+#| msgid "Change the room history visibility"
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "ოთახის ისტორიის ხილვადობის შეცვლა"
+
+#: src/models/permissionsmodel.cpp:53
+#, fuzzy
+#| msgid "Set pinned events"
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "მიჭიკარტებული მოვლენების დაყენება"
+
+#: src/models/permissionsmodel.cpp:54
+#, fuzzy
+#| msgid "Upgrade the room"
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "ოთახის გაუმჯობესება"
+
+#: src/models/permissionsmodel.cpp:55
+#, fuzzy
+#| msgid "Set the room server access control list (ACL)"
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "ოთახის სერვერის წვდომის კონტროლის სიების დაყენება (ACL)"
+
+#: src/models/permissionsmodel.cpp:56
+#, fuzzy
+#| msgid "Set the children of this space"
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "ამ სივრცის შვილების დაყენება"
+
+#: src/models/permissionsmodel.cpp:57
+#, fuzzy
+#| msgid "Set the parent space of this room"
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "ამ ოთახის მშობელი სივრცის დაყენება"
+
+#: src/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgid "This is power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr "ეს ოთახში შემოსვლისას ახალი მომხმარებლების წვდომის დონეა"
+
+#: src/models/permissionsmodel.cpp:63
+#, fuzzy
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"გამოიყენება ყველა მდგომარეობის მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
+"არ გააჩნია"
+
+#: src/models/permissionsmodel.cpp:64
+#, fuzzy
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"გამოიყენება ყველა შეტყობინების მობლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
+"არ გააჩნია"
+
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
@@ -1596,12 +1810,12 @@ msgstr "ოთახის შექმნის შეცდომა: %1"
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
 
-#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
+#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
 
-#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
+#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2490,7 +2704,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Matrix -ის ხდკ"
 
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
 msgid "No name"
 msgstr "სახელის გარეშე"
@@ -2824,22 +3038,7 @@ msgstr "მომხმარებლის წვდომის დონი�
 msgid "New power level"
 msgstr "ახალი წვდომის დონე"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
-#, kde-format
-msgid "Member (0)"
-msgstr "წევრი (0)"
-
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
-#, kde-format
-msgid "Moderator (50)"
-msgstr "მოდერატორი (50)"
-
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
-#, kde-format
-msgid "Admin (100)"
-msgstr "ადმინისტრატორი (100)"
-
-#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr "დადასტურება"
@@ -3377,10 +3576,9 @@ msgid "Jump to first unread message"
 msgstr "პირველ წაუკითხავ შეტყობინებაზე გადასვლა"
 
 #: src/qml/TimelineView.qml:195
-#, fuzzy, kde-format
-#| msgid "Jump to latest message"
+#, kde-format
 msgid "Jump to oldest loaded message"
-msgstr "უახლეს შეტყობინებებზე გადასვლა"
+msgstr "უძველეს ჩატვირთულ შეტყობინებაზე გადასვლა"
 
 #: src/qml/TimelineView.qml:235
 #, kde-format
@@ -3813,17 +4011,17 @@ msgstr "არასწორი ან ცარიელი Matrix-ის ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1-ი Matrix-ის არასწორი იდენტიფიკატორია"
 
-#: src/roommanager.cpp:314
+#: src/roommanager.cpp:315
 #, kde-format
 msgid "Failed to join room"
 msgstr "ოთახში შესვლის შეცდომა"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "მოითხოვეთ '%1'-ზე შესვლა"
 
-#: src/roommanager.cpp:336
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "ოთახში შესვლის მოთხოვნის შეცდომა"
@@ -4235,7 +4433,7 @@ msgid "Keyword…"
 msgstr "საკვანძო სიტყვა…"
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "საკვანძო სიტყვის დამატება"
@@ -4608,140 +4806,30 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "პაროლი:"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr "პრივილეგირებული მომხმარებლები"
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:238
 #, kde-format
 msgid "Default permissions"
 msgstr "ნაგულისხმევი წვდომები"
 
-#: src/settings/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr "მომხმარებლის წვდომის ნაგულისხმევი დონე"
-
-#: src/settings/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr "ეს ოთახში შემოსვლისას ახალი მომხმარებლების წვდომის დონეა"
-
-#: src/settings/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr "ოთახის მდგომარეობის დასაყენებელი უფლებების ნაგულისხმევი დონე"
-
-#: src/settings/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"გამოიყენება ყველა მდგომარეობის მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
-"არ გააჩნია"
-
-#: src/settings/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr "ნაგულისხმევი წვდომის დონე შეტყობინებების გასაგზავნად"
-
-#: src/settings/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"გამოიყენება ყველა შეტყობინების მობლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
-"არ გააჩნია"
-
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:278
 #, kde-format
 msgid "Basic permissions"
 msgstr "ძირითადი წვდომები"
 
-#: src/settings/Permissions.qml:288
-#, kde-format
-msgid "Invite users"
-msgstr "მომხმარებლების მოწვევა"
-
-#: src/settings/Permissions.qml:298
-#, kde-format
-msgid "Kick users"
-msgstr "მომხმარებლების გაყრა"
-
-#: src/settings/Permissions.qml:308
-#, kde-format
-msgid "Ban users"
-msgstr "მომხმარებლების ბანი"
-
 #: src/settings/Permissions.qml:318
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr "სხვა მომხმარებლების მიერ გამოგზავნილი შეტყობინებების წაშლა"
-
-#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr "მოვლენის წვდომები"
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:365
 #, kde-format
-msgid "Change user permissions"
-msgstr "მომხმარებლის წვდომების შეცვლა"
-
-#: src/settings/Permissions.qml:347
-#, kde-format
-msgid "Change the room name"
-msgstr "ოთახის სახელის შეცვლა"
-
-#: src/settings/Permissions.qml:358
-#, kde-format
-msgid "Change the room avatar"
-msgstr "ოთახის ავატარის შეცვლა"
-
-#: src/settings/Permissions.qml:369
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr "ოთახის კანონიკურ მეტსახელის შეცვლა"
-
-#: src/settings/Permissions.qml:380
-#, kde-format
-msgid "Change the room topic"
-msgstr "ოთხის თემის შეცვლა"
-
-#: src/settings/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr "ოთახისთვის დაშიფვრის ჩართვა"
-
-#: src/settings/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr "ოთახის ისტორიის ხილვადობის შეცვლა"
-
-#: src/settings/Permissions.qml:413
-#, kde-format
-msgid "Set pinned events"
-msgstr "მიჭიკარტებული მოვლენების დაყენება"
-
-#: src/settings/Permissions.qml:424
-#, kde-format
-msgid "Upgrade the room"
-msgstr "ოთახის გაუმჯობესება"
-
-#: src/settings/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr "ოთახის სერვერის წვდომის კონტროლის სიების დაყენება (ACL)"
-
-#: src/settings/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr "ამ სივრცის შვილების დაყენება"
-
-#: src/settings/Permissions.qml:458
-#, kde-format
-msgid "Set the parent space of this room"
-msgstr "ამ ოთახის მშობელი სივრცის დაყენება"
+msgid "Event Type…"
+msgstr ""
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5364,13 +5452,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(დასრულდა)"
 
-#: src/timeline/ReadMarkerDelegate.qml:32
+#: src/timeline/ReadMarkerDelegate.qml:39
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "ბოლოს წაიკითხა: %1"
 
-#: src/timeline/TimelineEndDelegate.qml:84
+#: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
@@ -5409,6 +5497,9 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgid "Member (0)"
+#~ msgstr "წევრი (0)"
 
 #~ msgctxt "@title:window"
 #~ msgid "Account editor"
@@ -5675,16 +5766,10 @@ msgstr "დატოვება"
 #~ msgid "Mod"
 #~ msgstr "მოდი"
 
-#~ msgid "Muted"
-#~ msgstr "ხმა გამორთული"
-
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."
 #~ msgstr ""
 #~ "ეს ოთახი დაშიფრულია. დაშიფრული შეტყობინებების გაგზავნა ჯერ მხარდაუჭერელია."
-
-#~ msgid "Custom"
-#~ msgstr "ხელით მითითებული"
 
 #~ msgid "Timeline"
 #~ msgstr "თაიმლაინი"

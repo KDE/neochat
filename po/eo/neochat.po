@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
-"PO-Revision-Date: 2024-05-15 09:56+0100\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
+"PO-Revision-Date: 2024-05-25 15:43+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -235,7 +235,7 @@ msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
 "party ID"
 msgid "Add phone numbers as 3PIDs"
-msgstr ""
+msgstr "Aldoni telefonnumeron kiel 3PID-oj"
 
 #: src/devtools/RoomData.qml:20
 #, kde-format
@@ -340,6 +340,46 @@ msgstr "Malalta prioritato"
 #, kde-format
 msgid "Spaces"
 msgstr "Spacoj"
+
+#: src/enums/powerlevel.cpp:10
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member"
+msgstr "Membroj"
+
+#: src/enums/powerlevel.cpp:12
+#, fuzzy, kde-format
+#| msgid "Moderator (50)"
+msgid "Moderator"
+msgstr "Moderigaĵo (50)"
+
+#: src/enums/powerlevel.cpp:14
+#, fuzzy, kde-format
+#| msgid "Admin (100)"
+msgid "Admin"
+msgstr "Administranto (100)"
+
+#: src/enums/powerlevel.cpp:16
+#, kde-format
+msgid "Mute"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "'Custom' is a category of emoji"
+#| msgid "Custom"
+msgid "Custom"
+msgstr "Propra"
+
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/models/userlistmodel.cpp:99
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
 #: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
@@ -725,7 +765,7 @@ msgstr "Celo"
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
-msgstr ""
+msgstr "Agordiĝis neniu identeca servilo"
 
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
@@ -794,7 +834,7 @@ msgstr "Matrica ID"
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
+#: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "Ŝargante…"
@@ -1489,6 +1529,183 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
+#: src/models/permissionsmodel.cpp:37
+#, fuzzy
+#| msgid "Default user power level"
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Defaŭlta uzantpotencnivelo"
+
+#: src/models/permissionsmodel.cpp:38
+#, fuzzy
+#| msgid "Default power level to set the room state"
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Defaŭlta potenco-nivelo por agordi la ĉambran staton"
+
+#: src/models/permissionsmodel.cpp:39
+#, fuzzy
+#| msgid "Default power level to send messages"
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "Defaŭlta potenco-nivelo por sendi mesaĝojn"
+
+#: src/models/permissionsmodel.cpp:40
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Inviti uzantojn"
+
+#: src/models/permissionsmodel.cpp:41
+#, fuzzy
+#| msgid "Kick users"
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Piedbati uzantojn"
+
+#: src/models/permissionsmodel.cpp:42
+#, fuzzy
+#| msgid "Ban users"
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Malpermesi uzantojn"
+
+#: src/models/permissionsmodel.cpp:43
+#, fuzzy
+#| msgid "Remove message sent by other users"
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Forigu mesaĝon senditan de aliaj uzantoj"
+
+#: src/models/permissionsmodel.cpp:44
+#, fuzzy
+#| msgid "Send a Location"
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Sendi Lokon"
+
+#: src/models/permissionsmodel.cpp:45
+#, fuzzy
+#| msgid "Remove Messages"
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Forigi Mesaĝojn"
+
+#: src/models/permissionsmodel.cpp:46
+#, fuzzy
+#| msgid "Change user permissions"
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Ŝanĝi uzantpermesojn"
+
+#: src/models/permissionsmodel.cpp:47
+#, fuzzy
+#| msgid "Change the room name"
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Ŝanĝi la nomon de la ĉambro"
+
+#: src/models/permissionsmodel.cpp:48
+#, fuzzy
+#| msgid "Change the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Ŝanĝi la ĉambro-avataron"
+
+#: src/models/permissionsmodel.cpp:49
+#, fuzzy
+#| msgid "Change the room canonical alias"
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Ŝanĝi la kanonikan kaŝnomon de la ĉambro"
+
+#: src/models/permissionsmodel.cpp:50
+#, fuzzy
+#| msgid "Change the room topic"
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Ŝanĝi la ĉambrotemon"
+
+#: src/models/permissionsmodel.cpp:51
+#, fuzzy
+#| msgid "Enable encryption for the room"
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Ebligi ĉifradon por la ĉambro"
+
+#: src/models/permissionsmodel.cpp:52
+#, fuzzy
+#| msgid "Change the room history visibility"
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Ŝanĝi la videblecon de la ĉambra historio"
+
+#: src/models/permissionsmodel.cpp:53
+#, fuzzy
+#| msgid "Set pinned events"
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Agordi fiksitajn eventojn"
+
+#: src/models/permissionsmodel.cpp:54
+#, fuzzy
+#| msgid "Upgrade the room"
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Altgradigi la ĉambron"
+
+#: src/models/permissionsmodel.cpp:55
+#, fuzzy
+#| msgid "Set the room server access control list (ACL)"
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Agordi la liston de alirkontrolo de ĉambra servilo (ACL)"
+
+#: src/models/permissionsmodel.cpp:56
+#, fuzzy
+#| msgid "Set the children of this space"
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Agordi la infanojn de ĉi tiu spaco"
+
+#: src/models/permissionsmodel.cpp:57
+#, fuzzy
+#| msgid "Set the parent space of this room"
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Agordi la gepatran spacon de ĉi tiu ĉambro"
+
+#: src/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgid "This is power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+"Ĉi tio estas potenconivelo por ĉiuj novaj uzantoj kiam ili aliĝas al la "
+"ĉambro"
+
+#: src/models/permissionsmodel.cpp:63
+#, fuzzy
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Ĉi tio estas uzata por ĉiuj stataj eventoj, kiuj ne havas sian propran "
+"eniron ĉi tie"
+
+#: src/models/permissionsmodel.cpp:64
+#, fuzzy
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Ĉi tio estas uzata por ĉiuj mesaĝaj eventoj, kiuj ne havas sian propran "
+"enskribon ĉi tie"
+
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
@@ -1596,12 +1813,12 @@ msgstr "Kreado de ĉambro malsukcesis: %1"
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
 
-#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
+#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raporto sukcese sendita."
 
-#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
+#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2491,7 +2708,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Oftaj Demandoj pri Matrico"
 
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
 msgid "No name"
 msgstr "Neniu nomo"
@@ -2825,22 +3042,7 @@ msgstr "Redakti Potenconivelon de Uzanto"
 msgid "New power level"
 msgstr "Nova potencnivelo"
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
-#, kde-format
-msgid "Member (0)"
-msgstr "Membro (0)"
-
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
-#, kde-format
-msgid "Moderator (50)"
-msgstr "Moderigaĵo (50)"
-
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
-#, kde-format
-msgid "Admin (100)"
-msgstr "Administranto (100)"
-
-#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr "Konfirmi"
@@ -3381,10 +3583,9 @@ msgid "Jump to first unread message"
 msgstr "Salti al la unua nelegita mesaĝo"
 
 #: src/qml/TimelineView.qml:195
-#, fuzzy, kde-format
-#| msgid "Jump to latest message"
+#, kde-format
 msgid "Jump to oldest loaded message"
-msgstr "Salti al la plej nova mesaĝo"
+msgstr "Salti al la plej malnova ŝargita mesaĝo"
 
 #: src/qml/TimelineView.qml:235
 #, kde-format
@@ -3817,17 +4018,17 @@ msgstr "Misforma aŭ malplena Matrico-id"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ne estas ĝusta Matrico-identigilo"
 
-#: src/roommanager.cpp:314
+#: src/roommanager.cpp:315
 #, kde-format
 msgid "Failed to join room"
 msgstr "Malsukcesis aliĝi al ĉambro"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vi petis aliĝi al '%1'"
 
-#: src/roommanager.cpp:336
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Malsukcesis peti aliĝon al ĉambro"
@@ -3923,10 +4124,9 @@ msgid "Phone Numbers"
 msgstr "Telefonnumeroj"
 
 #: src/settings/AccountEditorPage.qml:212
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgid "Identity Server"
-msgstr "Aldoni Novan Servilon"
+msgstr "Identeca Servilo"
 
 #: src/settings/AccountEditorPage.qml:221
 #, kde-format
@@ -4239,7 +4439,7 @@ msgid "Keyword…"
 msgstr "Ŝlosilvorto…"
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Aldoni ŝlosilvorton"
@@ -4257,45 +4457,41 @@ msgstr "Nekonata"
 #: src/settings/IdentityServerDelegate.qml:39
 #, kde-format
 msgid "New identity server url"
-msgstr ""
+msgstr "URL de nova identeca servilo"
 
 #: src/settings/IdentityServerDelegate.qml:43
-#, fuzzy, kde-format
-#| msgid "Cancel editing display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel editing identity server url"
-msgstr "Nuligi redaktan montran nomon"
+msgstr "Nuligi redaktadon de identeca servil-URL"
 
 #: src/settings/IdentityServerDelegate.qml:49
-#, fuzzy, kde-format
-#| msgid "Confirm new display name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm new identity server url"
-msgstr "Konfirmi novan montran nomon"
+msgstr "Konfirmi novan identecoservilan URL"
 
 #: src/settings/IdentityServerDelegate.qml:73
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered url is not a valid identity server"
-msgstr "La enigita teksto ne estas valida URL"
+msgstr "La enigita URL ne estas valida identecoservilo"
 
 #: src/settings/IdentityServerDelegate.qml:75
 #, kde-format
 msgid "The entered url is already configured as your identity server"
-msgstr ""
+msgstr "La enigita URL estas jam agordita kiel via identecoservilo"
 
 #: src/settings/IdentityServerDelegate.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit identity server url"
-msgstr ""
+msgstr "Redakti identecoservilan URL"
 
 #: src/settings/IdentityServerDelegate.qml:119
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove identity server"
-msgstr "Forigi aparaton"
+msgstr "Forigi identecoservilon"
 
 #: src/settings/IgnoredUsersDialog.qml:18
 #, kde-format
@@ -4606,11 +4802,10 @@ msgid "Delete keyword"
 msgstr "Forigi ŝlosilvorton"
 
 #: src/settings/PasswordSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Can change password"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Enter password"
-msgstr "Povas ŝanĝi pasvorton"
+msgstr "Enigi pasvorton"
 
 #: src/settings/PasswordSheet.qml:30
 #, kde-format
@@ -4618,142 +4813,30 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Pasvorto:"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr "Privilegiaj Uzantoj"
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:238
 #, kde-format
 msgid "Default permissions"
 msgstr "Defaŭltaj permesoj"
 
-#: src/settings/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr "Defaŭlta uzantpotencnivelo"
-
-#: src/settings/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-"Ĉi tio estas potenconivelo por ĉiuj novaj uzantoj kiam ili aliĝas al la "
-"ĉambro"
-
-#: src/settings/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr "Defaŭlta potenco-nivelo por agordi la ĉambran staton"
-
-#: src/settings/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Ĉi tio estas uzata por ĉiuj stataj eventoj, kiuj ne havas sian propran "
-"eniron ĉi tie"
-
-#: src/settings/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr "Defaŭlta potenco-nivelo por sendi mesaĝojn"
-
-#: src/settings/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Ĉi tio estas uzata por ĉiuj mesaĝaj eventoj, kiuj ne havas sian propran "
-"enskribon ĉi tie"
-
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:278
 #, kde-format
 msgid "Basic permissions"
 msgstr "Bazaj permesoj"
 
-#: src/settings/Permissions.qml:288
-#, kde-format
-msgid "Invite users"
-msgstr "Inviti uzantojn"
-
-#: src/settings/Permissions.qml:298
-#, kde-format
-msgid "Kick users"
-msgstr "Piedbati uzantojn"
-
-#: src/settings/Permissions.qml:308
-#, kde-format
-msgid "Ban users"
-msgstr "Malpermesi uzantojn"
-
 #: src/settings/Permissions.qml:318
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr "Forigu mesaĝon senditan de aliaj uzantoj"
-
-#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr "Eventaj permesoj"
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:365
 #, kde-format
-msgid "Change user permissions"
-msgstr "Ŝanĝi uzantpermesojn"
-
-#: src/settings/Permissions.qml:347
-#, kde-format
-msgid "Change the room name"
-msgstr "Ŝanĝi la nomon de la ĉambro"
-
-#: src/settings/Permissions.qml:358
-#, kde-format
-msgid "Change the room avatar"
-msgstr "Ŝanĝi la ĉambro-avataron"
-
-#: src/settings/Permissions.qml:369
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr "Ŝanĝi la kanonikan kaŝnomon de la ĉambro"
-
-#: src/settings/Permissions.qml:380
-#, kde-format
-msgid "Change the room topic"
-msgstr "Ŝanĝi la ĉambrotemon"
-
-#: src/settings/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr "Ebligi ĉifradon por la ĉambro"
-
-#: src/settings/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr "Ŝanĝi la videblecon de la ĉambra historio"
-
-#: src/settings/Permissions.qml:413
-#, kde-format
-msgid "Set pinned events"
-msgstr "Agordi fiksitajn eventojn"
-
-#: src/settings/Permissions.qml:424
-#, kde-format
-msgid "Upgrade the room"
-msgstr "Altgradigi la ĉambron"
-
-#: src/settings/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr "Agordi la liston de alirkontrolo de ĉambra servilo (ACL)"
-
-#: src/settings/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr "Agordi la infanojn de ĉi tiu spaco"
-
-#: src/settings/Permissions.qml:458
-#, kde-format
-msgid "Set the parent space of this room"
-msgstr "Agordi la gepatran spacon de ĉi tiu ĉambro"
+msgid "Event Type…"
+msgstr ""
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5168,54 +5251,48 @@ msgstr "Forigi"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
-msgstr ""
+msgstr "Landkodo por nova telefonnumero"
 
 #: src/settings/ThreePIdCard.qml:89
-#, fuzzy, kde-format
-#| msgid "Add an e-mail address:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
-msgstr "Aldonu retadreson:"
+msgstr "Nova retpoŝta adreso"
 
 #: src/settings/ThreePIdCard.qml:89
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
-msgstr "Telefonnumeroj"
+msgstr "Nova telefonnumero"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgid "We've sent you an email"
-msgstr ""
+msgstr "Ni sendis al vi retpoŝton"
 
 #: src/settings/ThreePIdCard.qml:93
-#, fuzzy, kde-format
-#| msgid "sent a message"
+#, kde-format
 msgid "We've sent you a text message"
-msgstr "sendis mesaĝon"
+msgstr "Ni sendis al vi tekstmesaĝon"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
-msgstr ""
+msgstr "%1. Bonvolu sekvi la instruojn tie kaj poste klaki la butonon malsupre"
 
 #: src/settings/ThreePIdCard.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered email is not valid"
-msgstr "La enigita teksto ne estas valida URL"
+msgstr "La enigita retpoŝto ne estas valida"
 
 #: src/settings/ThreePIdCard.qml:95
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgid "The entered phone number is not valid"
-msgstr "La enigita teksto ne estas valida URL"
+msgstr "La enigita telefonnumero ne estas valida"
 
 #: src/settings/ThreePIdCard.qml:97
-#, fuzzy, kde-format
-#| msgid "Wrong password entered"
+#, kde-format
 msgid "Incorrect password entered"
 msgstr "Malĝusta pasvorto enigita"
 
@@ -5225,6 +5302,8 @@ msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
+"La retpoŝto ne estis konfirmita. Bonvolu iri al la retpoŝto kaj sekvi la "
+"instruojn tie kaj poste klaki la butonon malsupre"
 
 #: src/settings/ThreePIdCard.qml:99
 #, kde-format
@@ -5232,6 +5311,8 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
+"La telefonnumero ne estis konfirmita. Bonvolu iri al la retpoŝto kaj sekvi "
+"la instruojn tie kaj poste klaki la butonon malsupre"
 
 #: src/settings/ThreePIdCard.qml:124
 #, kde-format
@@ -5243,7 +5324,7 @@ msgstr "Aldoni"
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
-msgstr ""
+msgstr "Reen"
 
 #: src/timeline/CodeComponent.qml:167
 #, kde-format
@@ -5377,13 +5458,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Finis)"
 
-#: src/timeline/ReadMarkerDelegate.qml:32
+#: src/timeline/ReadMarkerDelegate.qml:39
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Lasta legado: %1"
 
-#: src/timeline/TimelineEndDelegate.qml:84
+#: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
@@ -5423,3 +5504,6 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgid "Member (0)"
+#~ msgstr "Membro (0)"

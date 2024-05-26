@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
 "PO-Revision-Date: 2023-11-23 10:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -337,6 +337,46 @@ msgstr "Nízká priorita"
 #, kde-format
 msgid "Spaces"
 msgstr "Mezery"
+
+#: src/enums/powerlevel.cpp:10
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member"
+msgstr "Členové"
+
+#: src/enums/powerlevel.cpp:12
+#, fuzzy, kde-format
+#| msgid "Moderator (50)"
+msgid "Moderator"
+msgstr "Moderátor (50)"
+
+#: src/enums/powerlevel.cpp:14
+#, fuzzy, kde-format
+#| msgid "Admin (100)"
+msgid "Admin"
+msgstr "Administrátor (100)"
+
+#: src/enums/powerlevel.cpp:16
+#, kde-format
+msgid "Mute"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "'Custom' is a category of emoji"
+#| msgid "Custom"
+msgid "Custom"
+msgstr "Vlastní"
+
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/models/userlistmodel.cpp:99
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
 #: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
@@ -790,7 +830,7 @@ msgstr ""
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
+#: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "Probíhá načítání…"
@@ -1486,6 +1526,143 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/permissionsmodel.cpp:37
+#, fuzzy
+#| msgid "Set user power level"
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Nastavit úroveň pravomocí uživatele"
+
+#: src/models/permissionsmodel.cpp:38
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:39
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:40
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Pozvat uživatele"
+
+#: src/models/permissionsmodel.cpp:41
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Pozvat uživatele"
+
+#: src/models/permissionsmodel.cpp:42
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Pozvat uživatele"
+
+#: src/models/permissionsmodel.cpp:43
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:44
+#, fuzzy
+#| msgid "Send a Location"
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Poslat polohu"
+
+#: src/models/permissionsmodel.cpp:45
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:46
+#, fuzzy
+#| msgid "Basic permissions"
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Základní oprávnění"
+
+#: src/models/permissionsmodel.cpp:47
+#, fuzzy
+#| msgid "Change Image"
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Změnit obrázek"
+
+#: src/models/permissionsmodel.cpp:48
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:49
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:50
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:51
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:52
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:53
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:54
+#, fuzzy
+#| msgid "created the room"
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "vytvořil(a) místnost"
+
+#: src/models/permissionsmodel.cpp:55
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:56
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
@@ -1595,12 +1772,12 @@ msgstr "Vytvoření místnosti selhalo: %1"
 msgid "Space creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
+#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Hlášení bylo úspěšně odesláno."
 
-#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
+#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2481,7 +2658,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Často kladené dotazy pro Matrix"
 
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
 msgid "No name"
 msgstr "Beze jména"
@@ -2813,22 +2990,7 @@ msgstr ""
 msgid "New power level"
 msgstr ""
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
-#, kde-format
-msgid "Member (0)"
-msgstr "Člen (0)"
-
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
-#, kde-format
-msgid "Moderator (50)"
-msgstr "Moderátor (50)"
-
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
-#, kde-format
-msgid "Admin (100)"
-msgstr "Administrátor (100)"
-
-#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr "Potvrdit"
@@ -3786,17 +3948,17 @@ msgstr "Poškozené nebo prázdné id pro Matrix"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 není platný identifikátor pro Matrix"
 
-#: src/roommanager.cpp:314
+#: src/roommanager.cpp:315
 #, kde-format
 msgid "Failed to join room"
 msgstr ""
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vyžádali jste vstup do '%1'."
 
-#: src/roommanager.cpp:336
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Vyžádání požadavku o vstup do místnosti selhalo"
@@ -4210,7 +4372,7 @@ msgid "Keyword…"
 msgstr "Klíčové slovo…"
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Přidat klíčové slovo"
@@ -4583,135 +4745,29 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Heslo:"
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr ""
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:238
 #, kde-format
 msgid "Default permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr ""
-
-#: src/settings/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-
-#: src/settings/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr ""
-
-#: src/settings/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-
-#: src/settings/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr ""
-
-#: src/settings/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:278
 #, kde-format
 msgid "Basic permissions"
 msgstr "Základní oprávnění"
 
-#: src/settings/Permissions.qml:288
-#, kde-format
-msgid "Invite users"
-msgstr "Pozvat uživatele"
-
-#: src/settings/Permissions.qml:298
-#, kde-format
-msgid "Kick users"
-msgstr ""
-
-#: src/settings/Permissions.qml:308
-#, kde-format
-msgid "Ban users"
-msgstr ""
-
 #: src/settings/Permissions.qml:318
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr ""
-
-#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:365
 #, kde-format
-msgid "Change user permissions"
-msgstr ""
-
-#: src/settings/Permissions.qml:347
-#, kde-format
-msgid "Change the room name"
-msgstr ""
-
-#: src/settings/Permissions.qml:358
-#, kde-format
-msgid "Change the room avatar"
-msgstr ""
-
-#: src/settings/Permissions.qml:369
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr ""
-
-#: src/settings/Permissions.qml:380
-#, kde-format
-msgid "Change the room topic"
-msgstr ""
-
-#: src/settings/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr ""
-
-#: src/settings/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr ""
-
-#: src/settings/Permissions.qml:413
-#, kde-format
-msgid "Set pinned events"
-msgstr ""
-
-#: src/settings/Permissions.qml:424
-#, kde-format
-msgid "Upgrade the room"
-msgstr ""
-
-#: src/settings/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr ""
-
-#: src/settings/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr ""
-
-#: src/settings/Permissions.qml:458
-#, kde-format
-msgid "Set the parent space of this room"
+msgid "Event Type…"
 msgstr ""
 
 #: src/settings/PushNotification.qml:26
@@ -5321,13 +5377,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr ""
 
-#: src/timeline/ReadMarkerDelegate.qml:32
+#: src/timeline/ReadMarkerDelegate.qml:39
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Poslední přístup ke čtení: %1"
 
-#: src/timeline/TimelineEndDelegate.qml:84
+#: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
@@ -5365,3 +5421,6 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgid "Member (0)"
+#~ msgstr "Člen (0)"

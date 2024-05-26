@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:38+0000\n"
+"POT-Creation-Date: 2024-05-26 00:38+0000\n"
 "PO-Revision-Date: 2023-12-12 01:02+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -335,6 +335,40 @@ msgstr ""
 #: src/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Spaces"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:10
+#, kde-format
+msgid "Member"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:12
+#, kde-format
+msgid "Moderator"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:14
+#, kde-format
+msgid "Admin"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:16
+#, kde-format
+msgid "Mute"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr ""
+
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/models/userlistmodel.cpp:99
+#, kde-format
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
 msgstr ""
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
@@ -788,7 +822,7 @@ msgstr ""
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:11
+#: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr ""
@@ -1482,6 +1516,127 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr ""
 
+#: src/models/permissionsmodel.cpp:37
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:38
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:39
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:40
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:41
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:42
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:43
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:44
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:45
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:46
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:47
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:48
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:49
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:50
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:51
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:52
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:53
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:54
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:55
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:56
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+
+#: src/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
@@ -1589,12 +1744,12 @@ msgstr ""
 msgid "Space creation failed: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:1645 src/neochatroom.cpp:1646
+#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/neochatroom.cpp:1920 src/neochatroom.cpp:1928
+#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2475,7 +2630,7 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr ""
 
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:63
+#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
 msgid "No name"
 msgstr ""
@@ -2807,22 +2962,7 @@ msgstr ""
 msgid "New power level"
 msgstr ""
 
-#: src/qml/PowerLevelDialog.qml:45 src/settings/Permissions.qml:72
-#, kde-format
-msgid "Member (0)"
-msgstr ""
-
-#: src/qml/PowerLevelDialog.qml:49 src/settings/Permissions.qml:76
-#, kde-format
-msgid "Moderator (50)"
-msgstr ""
-
-#: src/qml/PowerLevelDialog.qml:53 src/settings/Permissions.qml:80
-#, kde-format
-msgid "Admin (100)"
-msgstr ""
-
-#: src/qml/PowerLevelDialog.qml:61 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr ""
@@ -3775,17 +3915,17 @@ msgstr ""
 msgid "%1 is not a correct Matrix identifier"
 msgstr ""
 
-#: src/roommanager.cpp:314
+#: src/roommanager.cpp:315
 #, kde-format
 msgid "Failed to join room"
 msgstr ""
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:336
+#: src/roommanager.cpp:337
 #, kde-format
 msgid "Failed to request joining room"
 msgstr ""
@@ -4196,7 +4336,7 @@ msgid "Keyword…"
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr ""
@@ -4569,135 +4709,29 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr ""
 
-#: src/settings/Permissions.qml:33
+#: src/settings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr ""
 
-#: src/settings/Permissions.qml:242
+#: src/settings/Permissions.qml:238
 #, kde-format
 msgid "Default permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:247
-#, kde-format
-msgid "Default user power level"
-msgstr ""
-
-#: src/settings/Permissions.qml:248
-#, kde-format
-msgid "This is power level for all new users when joining the room"
-msgstr ""
-
-#: src/settings/Permissions.qml:258
-#, kde-format
-msgid "Default power level to set the room state"
-msgstr ""
-
-#: src/settings/Permissions.qml:259
-#, kde-format
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-
-#: src/settings/Permissions.qml:269
-#, kde-format
-msgid "Default power level to send messages"
-msgstr ""
-
-#: src/settings/Permissions.qml:270
-#, kde-format
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-
-#: src/settings/Permissions.qml:283
+#: src/settings/Permissions.qml:278
 #, kde-format
 msgid "Basic permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:288
-#, kde-format
-msgid "Invite users"
-msgstr ""
-
-#: src/settings/Permissions.qml:298
-#, kde-format
-msgid "Kick users"
-msgstr ""
-
-#: src/settings/Permissions.qml:308
-#, kde-format
-msgid "Ban users"
-msgstr ""
-
 #: src/settings/Permissions.qml:318
-#, kde-format
-msgid "Remove message sent by other users"
-msgstr ""
-
-#: src/settings/Permissions.qml:331
 #, kde-format
 msgid "Event permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:336
+#: src/settings/Permissions.qml:365
 #, kde-format
-msgid "Change user permissions"
-msgstr ""
-
-#: src/settings/Permissions.qml:347
-#, kde-format
-msgid "Change the room name"
-msgstr ""
-
-#: src/settings/Permissions.qml:358
-#, kde-format
-msgid "Change the room avatar"
-msgstr ""
-
-#: src/settings/Permissions.qml:369
-#, kde-format
-msgid "Change the room canonical alias"
-msgstr ""
-
-#: src/settings/Permissions.qml:380
-#, kde-format
-msgid "Change the room topic"
-msgstr ""
-
-#: src/settings/Permissions.qml:391
-#, kde-format
-msgid "Enable encryption for the room"
-msgstr ""
-
-#: src/settings/Permissions.qml:402
-#, kde-format
-msgid "Change the room history visibility"
-msgstr ""
-
-#: src/settings/Permissions.qml:413
-#, kde-format
-msgid "Set pinned events"
-msgstr ""
-
-#: src/settings/Permissions.qml:424
-#, kde-format
-msgid "Upgrade the room"
-msgstr ""
-
-#: src/settings/Permissions.qml:435
-#, kde-format
-msgid "Set the room server access control list (ACL)"
-msgstr ""
-
-#: src/settings/Permissions.qml:447
-#, kde-format
-msgid "Set the children of this space"
-msgstr ""
-
-#: src/settings/Permissions.qml:458
-#, kde-format
-msgid "Set the parent space of this room"
+msgid "Event Type…"
 msgstr ""
 
 #: src/settings/PushNotification.qml:26
@@ -5305,13 +5339,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr ""
 
-#: src/timeline/ReadMarkerDelegate.qml:32
+#: src/timeline/ReadMarkerDelegate.qml:39
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr ""
 
-#: src/timeline/TimelineEndDelegate.qml:84
+#: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
 msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
