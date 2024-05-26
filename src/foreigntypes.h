@@ -7,6 +7,7 @@
 
 #include <Quotient/accountregistry.h>
 #include <Quotient/e2ee/sssshandler.h>
+#include <Quotient/keyimport.h>
 #include <Quotient/keyverificationsession.h>
 
 #include "controller.h"
@@ -49,4 +50,11 @@ struct ForeignSSSSHandler {
     Q_GADGET
     QML_FOREIGN(Quotient::SSSSHandler)
     QML_NAMED_ELEMENT(SSSSHandler)
+};
+
+struct ForeignKeyImport {
+    Q_GADGET
+    QML_FOREIGN(Quotient::KeyImport)
+    QML_NAMED_ELEMENT(KeyImport)
+    QML_SINGLETON
 };

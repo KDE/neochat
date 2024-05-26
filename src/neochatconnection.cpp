@@ -17,6 +17,7 @@
 
 #include <Quotient/connection.h>
 #include <Quotient/jobs/basejob.h>
+#include <Quotient/keyimport.h>
 #include <Quotient/quotient_common.h>
 #include <qt6keychain/keychain.h>
 
@@ -498,6 +499,17 @@ LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
     previewer = new LinkPreviewer(link, this);
     m_linkPreviewers[link] = previewer;
     return previewer;
+}
+
+void NeoChatConnection::exportMegolmSessions(const QString &passphrase, const QString &path)
+{
+    KeyImport keyImport;
+    auto result = keyImport.exportKeys(passphrase, this);
+    if (!result.has_value()) {
+        qWarning() << "error TODO";
+        return;
+    }
+    Controller::instance().saveFileContent(path, result.value());
 }
 
 #include "moc_neochatconnection.cpp"

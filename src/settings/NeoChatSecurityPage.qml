@@ -33,6 +33,31 @@ FormCard.FormCardPage {
             description: i18n("Device id")
         }
     }
+
+    FormCard.FormHeader {
+        title: i18nc("@title", "Encryption Keys")
+    }
+    FormCard.FormCard {
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "Import Encryption Keys")
+            icon.name: "document-import"
+            onClicked: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "ImportKeysDialog"), {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Import Keys")
+            })
+        }
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "Export Encryption Keys")
+            icon.name: "document-export"
+            onClicked: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "ExportKeysDialog"), {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Export Keys")
+            })
+        }
+    }
+
     FormCard.FormHeader {
         title: i18nc("@title:group", "Ignored Users")
     }

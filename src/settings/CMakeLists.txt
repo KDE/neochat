@@ -35,4 +35,6 @@ qt_add_qml_module(settings
         PasswordSheet.qml
         ThemeRadioButton.qml
         ThreePIdCard.qml
+        ImportKeysDialog.qml
+        ExportKeysDialog.qml
 )

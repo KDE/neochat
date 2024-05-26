@@ -406,3 +406,12 @@ void Controller::removeConnection(const QString &userId)
         SettingsGroup("Accounts"_ls).remove(userId);
     }
 }
+
+void Controller::saveFileContent(const QString &path, const QByteArray &data) const
+{
+    QUrl url(path);
+    QFile file(url.toLocalFile());
+    file.open(QFile::WriteOnly);
+    file.write(data);
+    file.close();
+}

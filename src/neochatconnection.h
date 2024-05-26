@@ -160,6 +160,8 @@ public:
 
     LinkPreviewer *previewerForLink(const QUrl &link);
 
+    Q_INVOKABLE void exportMegolmSessions(const QString &passphrase, const QString &path);
+
 Q_SIGNALS:
     void labelChanged();
     void directChatNotificationsChanged();

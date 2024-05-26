@@ -87,6 +87,7 @@ public:
     static void listenForNotifications();
 
     Q_INVOKABLE QString loadFileContent(const QString &path) const;
+    Q_INVOKABLE void saveFileContent(const QString &path, const QByteArray &data) const;
 
     Quotient::AccountRegistry &accounts();
 
