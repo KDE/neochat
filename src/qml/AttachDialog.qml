@@ -13,13 +13,15 @@ import org.kde.neochat
 QQC2.Popup {
     id: root
 
-    padding: 16
+    padding: Kirigami.Units.largeSpacing
 
     signal chosen(string path)
 
     contentItem: RowLayout {
+
+        spacing: Kirigami.Units.smallSpacing
+
         QQC2.ToolButton {
-            Layout.preferredWidth: 160
             Layout.fillHeight: true
 
             icon.name: 'mail-attachment'
@@ -37,10 +39,7 @@ QQC2.Popup {
         Kirigami.Separator {}
 
         QQC2.ToolButton {
-            Layout.preferredWidth: 160
             Layout.fillHeight: true
-
-            padding: 16
 
             icon.name: 'insert-image'
             text: i18n("Clipboard image")
