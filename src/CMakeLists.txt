@@ -281,6 +281,9 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/ConsentDialog.qml
         qml/AskDirectChatConfirmation.qml
         qml/HoverLinkIndicator.qml
+    DEPENDENCIES
+        QtCore
+        QtQuick
     IMPORTS
         org.kde.neochat.timeline
         org.kde.neochat.settings

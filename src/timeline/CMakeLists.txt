@@ -73,6 +73,8 @@ qt_add_qml_module(timeline
         images/transfer.svg
         images/wait.svg
         images/walk.svg
+    DEPENDENCIES
+        QtQuick
 )
 
 target_link_libraries(timeline PRIVATE
