@@ -14,12 +14,15 @@ Q_SCRIPTABLE RemoteActions FakeRunner::Actions()
 
 Q_SCRIPTABLE RemoteMatches FakeRunner::Match(const QString &searchTerm)
 {
+    Q_UNUSED(searchTerm);
     QCoreApplication::quit();
     return {};
 }
 
 Q_SCRIPTABLE void FakeRunner::Run(const QString &id, const QString &actionId)
 {
+    Q_UNUSED(id);
+    Q_UNUSED(actionId);
     QCoreApplication::quit();
 }
 
