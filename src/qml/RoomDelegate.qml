@@ -10,10 +10,11 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as Components
 import org.kde.kitemmodels
+import org.kde.desktop.private as Private
 
 import org.kde.neochat
 
-Delegates.RoundedItemDelegate {
+QQC2.ItemDelegate {
     id: root
 
     required property int index
@@ -143,6 +144,11 @@ Delegates.RoundedItemDelegate {
             icon.name: "configure"
             onClicked: createRoomListContextMenu()
         }
+    }
+
+    background: Private.DefaultListItemBackground {
+        control: root
+        styling: Private.DefaultListItemBackground.Styling.List
     }
 
     function createRoomListContextMenu() {

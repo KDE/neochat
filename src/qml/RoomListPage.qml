@@ -131,6 +131,7 @@ Kirigami.Page {
                 id: treeView
                 topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
 
+                alternatingRows: false
                 clip: true
                 reuseItems: false
 
