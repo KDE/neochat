@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-26 00:38+0000\n"
-"PO-Revision-Date: 2024-05-25 15:43+0200\n"
+"PO-Revision-Date: 2024-05-26 22:24+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -262,7 +262,7 @@ msgstr "Datumoj pri Ĉambro-Konto"
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
-msgstr "Event Fonto"
+msgstr "Eventa Fonto"
 
 #: src/devtools/RoomData.qml:61
 #, kde-format
@@ -342,39 +342,33 @@ msgid "Spaces"
 msgstr "Spacoj"
 
 #: src/enums/powerlevel.cpp:10
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member"
-msgstr "Membroj"
+msgstr "Membro"
 
 #: src/enums/powerlevel.cpp:12
-#, fuzzy, kde-format
-#| msgid "Moderator (50)"
+#, kde-format
 msgid "Moderator"
-msgstr "Moderigaĵo (50)"
+msgstr "Kunvenestro"
 
 #: src/enums/powerlevel.cpp:14
-#, fuzzy, kde-format
-#| msgid "Admin (100)"
+#, kde-format
 msgid "Admin"
-msgstr "Administranto (100)"
+msgstr "Admin"
 
 #: src/enums/powerlevel.cpp:16
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "Muta"
 
 #: src/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "'Custom' is a category of emoji"
-#| msgid "Custom"
+#, kde-format
 msgid "Custom"
-msgstr "Propra"
+msgstr "Tajlorita"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
 #: src/models/userlistmodel.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
 "represents."
@@ -1530,155 +1524,111 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/permissionsmodel.cpp:37
-#, fuzzy
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default user power level"
 msgstr "Defaŭlta uzantpotencnivelo"
 
 #: src/models/permissionsmodel.cpp:38
-#, fuzzy
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to set the room state"
 msgstr "Defaŭlta potenco-nivelo por agordi la ĉambran staton"
 
 #: src/models/permissionsmodel.cpp:39
-#, fuzzy
-#| msgid "Default power level to send messages"
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "Defaŭlta potenco-nivelo por sendi mesaĝojn"
 
 #: src/models/permissionsmodel.cpp:40
-#, fuzzy
-#| msgid "Invite users"
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Inviti uzantojn"
 
 #: src/models/permissionsmodel.cpp:41
-#, fuzzy
-#| msgid "Kick users"
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Piedbati uzantojn"
 
 #: src/models/permissionsmodel.cpp:42
-#, fuzzy
-#| msgid "Ban users"
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Malpermesi uzantojn"
 
 #: src/models/permissionsmodel.cpp:43
-#, fuzzy
-#| msgid "Remove message sent by other users"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
-msgstr "Forigu mesaĝon senditan de aliaj uzantoj"
+msgstr "Forigi mesaĝojn senditajn de aliaj uzantoj"
 
 #: src/models/permissionsmodel.cpp:44
-#, fuzzy
-#| msgid "Send a Location"
 msgctxt "Room permission type"
 msgid "Send reactions"
-msgstr "Sendi Lokon"
+msgstr "Sendi reagojn"
 
 #: src/models/permissionsmodel.cpp:45
-#, fuzzy
-#| msgid "Remove Messages"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
-msgstr "Forigi Mesaĝojn"
+msgstr "Forigi iliajn proprajn mesaĝojn"
 
 #: src/models/permissionsmodel.cpp:46
-#, fuzzy
-#| msgid "Change user permissions"
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "Ŝanĝi uzantpermesojn"
 
 #: src/models/permissionsmodel.cpp:47
-#, fuzzy
-#| msgid "Change the room name"
 msgctxt "Room permission type"
 msgid "Change the room name"
-msgstr "Ŝanĝi la nomon de la ĉambro"
+msgstr "Ŝanĝi la ĉambronomon"
 
 #: src/models/permissionsmodel.cpp:48
-#, fuzzy
-#| msgid "Change the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Ŝanĝi la ĉambro-avataron"
 
 #: src/models/permissionsmodel.cpp:49
-#, fuzzy
-#| msgid "Change the room canonical alias"
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "Ŝanĝi la kanonikan kaŝnomon de la ĉambro"
 
 #: src/models/permissionsmodel.cpp:50
-#, fuzzy
-#| msgid "Change the room topic"
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "Ŝanĝi la ĉambrotemon"
 
 #: src/models/permissionsmodel.cpp:51
-#, fuzzy
-#| msgid "Enable encryption for the room"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Ebligi ĉifradon por la ĉambro"
 
 #: src/models/permissionsmodel.cpp:52
-#, fuzzy
-#| msgid "Change the room history visibility"
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
-msgstr "Ŝanĝi la videblecon de la ĉambra historio"
+msgstr "Ŝanĝi videblecon de la ĉambra historio"
 
 #: src/models/permissionsmodel.cpp:53
-#, fuzzy
-#| msgid "Set pinned events"
 msgctxt "Room permission type"
 msgid "Set pinned events"
 msgstr "Agordi fiksitajn eventojn"
 
 #: src/models/permissionsmodel.cpp:54
-#, fuzzy
-#| msgid "Upgrade the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "Altgradigi la ĉambron"
 
 #: src/models/permissionsmodel.cpp:55
-#, fuzzy
-#| msgid "Set the room server access control list (ACL)"
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "Agordi la liston de alirkontrolo de ĉambra servilo (ACL)"
 
 #: src/models/permissionsmodel.cpp:56
-#, fuzzy
-#| msgid "Set the children of this space"
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "Agordi la infanojn de ĉi tiu spaco"
 
 #: src/models/permissionsmodel.cpp:57
-#, fuzzy
-#| msgid "Set the parent space of this room"
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "Agordi la gepatran spacon de ĉi tiu ĉambro"
 
 #: src/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgid "This is power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room"
 msgstr ""
@@ -1686,19 +1636,13 @@ msgstr ""
 "ĉambro"
 
 #: src/models/permissionsmodel.cpp:63
-#, fuzzy
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Ĉi tio estas uzata por ĉiuj stataj eventoj, kiuj ne havas sian propran "
-"eniron ĉi tie"
+"enskribon ĉi tie"
 
 #: src/models/permissionsmodel.cpp:64
-#, fuzzy
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -2716,7 +2660,7 @@ msgstr "Neniu nomo"
 #: src/qml/HoverActions.qml:76
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr "Ĉi tiu mesaĝo estis sendita de kontrolita aparato"
+msgstr "Ĉi tiu mesaĝo estis sendita de konfirmita aparato"
 
 #: src/qml/HoverActions.qml:89
 #, kde-format
@@ -2856,7 +2800,7 @@ msgstr "Aliĝi al ĉambro"
 #: src/qml/KeyVerificationDialog.qml:16
 #, kde-format
 msgid "Session Verification"
-msgstr "Seanca Kontrolo"
+msgstr "Seanca Konfirmo"
 
 #: src/qml/KeyVerificationDialog.qml:98
 #, kde-format
@@ -2876,17 +2820,17 @@ msgstr "Envenanta ŝlosila konfirmpeto de aparato **%1**"
 #: src/qml/KeyVerificationDialog.qml:144
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr "Atendante la kontrolon de alia partio."
+msgstr "Atendante la konfirmon de alia partio."
 
 #: src/qml/KeyVerificationDialog.qml:146
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr "Sukcese kontrolita aparato **%1**"
+msgstr "Sukcese konfirmita aparato **%1**"
 
 #: src/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Emoji Verification"
-msgstr "Emoĝi-Kontrolo"
+msgstr "Emoĝi-Konfirmo"
 
 #: src/qml/KeyVerificationDialog.qml:160
 #, kde-format
@@ -2930,7 +2874,7 @@ msgstr "Fermi Informkeston pri Ĉambro"
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "Seanca Kontrolo"
+msgstr "Seanca Konfirmo"
 
 #: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
 #, kde-format
@@ -3682,7 +3626,7 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
-"Se vi antaŭe kontrolis ĉi tiun aparaton, vi povas provi ŝargi la sekurkopian "
+"Se vi antaŭe konfirmis ĉi tiun aparaton, vi povas provi ŝargi la sekurkopian "
 "ŝlosilon el aliaj aparatoj alklakante la suban butonon."
 
 #: src/qml/UnlockSSSSDialog.qml:122
@@ -3811,34 +3755,34 @@ msgstr "Trovis neniujn kongruojn"
 #: src/qml/VerificationCanceled.qml:18
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
-msgstr "La seanckontrolo estis nuligita pro nekonata kialo."
+msgstr "La seanckonfirmo estis nuligita pro nekonata kialo."
 
 #: src/qml/VerificationCanceled.qml:20
 #, kde-format
 msgid "The session verification timed out."
-msgstr "La seancokontrolo elĉerpiĝis."
+msgstr "La seancokonfirmo elĉerpiĝis."
 
 #: src/qml/VerificationCanceled.qml:22
 #, kde-format
 msgid "The session verification timed out for remote party."
-msgstr "La seanckontrolo finiĝis por fora festo."
+msgstr "La seanckonfirmo finiĝis por fora festo."
 
 #: src/qml/VerificationCanceled.qml:24
 #, kde-format
 msgid "You canceled the session verification."
-msgstr "Vi nuligis la seancan kontrolon."
+msgstr "Vi nuligis la seancan konfirmon."
 
 #: src/qml/VerificationCanceled.qml:26
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr "La fora partio nuligis la seancan kontrolon."
+msgstr "La fora partio nuligis la seancan konfirmon."
 
 #: src/qml/VerificationCanceled.qml:28
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
-msgstr "La seancokontrolo estis nuligita ĉar ni ricevis neatenditan mesaĝon."
+msgstr "La seancokonfirmo estis nuligita ĉar ni ricevis neatenditan mesaĝon."
 
 #: src/qml/VerificationCanceled.qml:30
 #, kde-format
@@ -3846,7 +3790,7 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr ""
-"La fora partio nuligis la seanckontrolon ĉar ĝi ricevis neatenditan mesaĝon."
+"La fora partio nuligis la seanckonfirmon ĉar ĝi ricevis neatenditan mesaĝon."
 
 #: src/qml/VerificationCanceled.qml:32
 #, kde-format
@@ -3854,7 +3798,7 @@ msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr ""
-"La seancokontrolo estis nuligita ĉar ĝi ricevis mesaĝon por nekonata sesio."
+"La seancokonfirmo estis nuligita ĉar ĝi ricevis mesaĝon por nekonata sesio."
 
 #: src/qml/VerificationCanceled.qml:34
 #, kde-format
@@ -3862,7 +3806,7 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
-"La fora partio nuligis la seanckontrolon ĉar ĝi ricevis mesaĝon por nekonata "
+"La fora partio nuligis la seanckonfirmon ĉar ĝi ricevis mesaĝon por nekonata "
 "sesio."
 
 #: src/qml/VerificationCanceled.qml:36
@@ -3871,8 +3815,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
-"La seancokontrolo estis nuligita ĉar NeoChat ne kapablas trakti ĉi tiun "
-"kontrolmetodon."
+"La seancokonfirmo estis nuligita ĉar NeoChat ne kapablas trakti ĉi tiun "
+"konfirmmetodon."
 
 #: src/qml/VerificationCanceled.qml:38
 #, kde-format
@@ -3880,13 +3824,13 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
-"La fora partio nuligis la sean konfirmon ĉar ĝi ne povas trakti ĉi tiun "
+"La fora partio nuligis la seanckonfirmon ĉar ĝi ne povas trakti ĉi tiun "
 "konfirmmetodon."
 
 #: src/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
-msgstr "La seancokontrolo estis nuligita ĉar la ŝlosiloj estas malĝustaj."
+msgstr "La seancokonfirmo estis nuligita ĉar la ŝlosiloj estas malĝustaj."
 
 #: src/qml/VerificationCanceled.qml:42
 #, kde-format
@@ -3904,7 +3848,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
-msgstr "La seancokontrolo estis nuligita ĉar ĝi kontrolas neatenditan uzanton."
+msgstr "La seancokonfirmo estis nuligita ĉar ĝi konfirmas neatenditan uzanton."
 
 #: src/qml/VerificationCanceled.qml:46
 #, kde-format
@@ -3912,14 +3856,14 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
-"La fora partio nuligis la sean konfirmon ĉar ĝi kontrolas neatenditan "
+"La fora partio nuligis la sean konfirmon ĉar ĝi konfirmas neatenditan "
 "uzanton."
 
 #: src/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
-msgstr "La seancokontrolo estis nuligita ĉar ni ricevis nevalidan mesaĝon."
+msgstr "La seancokonfirmo estis nuligita ĉar ni ricevis nevalidan mesaĝon."
 
 #: src/qml/VerificationCanceled.qml:50
 #, kde-format
@@ -3937,7 +3881,7 @@ msgstr "La seanco estis akceptita sur alia aparato"
 #: src/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
-msgstr "La seancokontrolo estis nuligita pro miskongrua ŝlosilo."
+msgstr "La seancokonfirmo estis nuligita pro miskongrua ŝlosilo."
 
 #: src/qml/VerificationCanceled.qml:58
 #, kde-format
@@ -3949,7 +3893,7 @@ msgstr "La fora partio nuligis la sean konfirmon pro miskongrua ŝlosilo."
 #: src/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
-msgstr "La seancokontrolo estis nuligita ĉar la ŝlosiloj ne kongruas."
+msgstr "La seancokonfirmo estis nuligita ĉar la ŝlosiloj ne kongruas."
 
 #: src/qml/VerificationCanceled.qml:62
 #, kde-format
@@ -3961,7 +3905,7 @@ msgstr "La fora partio nuligis la sean konfirmon ĉar la ŝlosiloj ne kongruas."
 #: src/qml/VerificationCanceled.qml:64
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr "La seancokontrolo estis nuligita pro nekonata eraro."
+msgstr "La seancokonfirmo estis nuligita pro nekonata eraro."
 
 #: src/registration.cpp:300
 #, kde-format
@@ -4275,7 +4219,7 @@ msgstr "Redakti la nomon de la aparato"
 #: src/settings/DeviceDelegate.qml:105
 #, kde-format
 msgid "Verify device"
-msgstr "Kontroli aparaton"
+msgstr "Konfirmi aparaton"
 
 #: src/settings/DeviceDelegate.qml:126
 #, kde-format
@@ -4296,12 +4240,12 @@ msgstr "Ĉi tiu Aparato"
 #: src/settings/DevicesPage.qml:38
 #, kde-format
 msgid "Verified Devices"
-msgstr "Kontrolitaj Aparatoj"
+msgstr "Konfirmitaj Aparatoj"
 
 #: src/settings/DevicesPage.qml:43
 #, kde-format
 msgid "Unverified Devices"
-msgstr "Nekontrolitaj Aparatoj"
+msgstr "Nekonfirmitaj Aparatoj"
 
 #: src/settings/DevicesPage.qml:48
 #, kde-format
@@ -4836,7 +4780,7 @@ msgstr "Eventaj permesoj"
 #: src/settings/Permissions.qml:365
 #, kde-format
 msgid "Event Type…"
-msgstr ""
+msgstr "Eventtipo…"
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5222,7 +5166,7 @@ msgstr "Defaŭlta Lingvo"
 #: src/settings/SonnetConfigPage.qml:177
 #, kde-format
 msgid "Spell checking dictionary"
-msgstr "Vortaro pri ortkontrolo"
+msgstr "Vortaro por ortografiokontrolo"
 
 #: src/settings/SonnetConfigPage.qml:184
 #, kde-format
