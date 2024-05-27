@@ -441,11 +441,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == ContentModelRole) {
         if (!evt.isStateEvent()) {
-            return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(&evt, m_currentRoom));
+            return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_currentRoom, &evt));
         }
         if (evt.isStateEvent()) {
             if (evt.matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
-                return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(&evt, m_currentRoom));
+                return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_currentRoom, &evt));
             }
         }
         return {};

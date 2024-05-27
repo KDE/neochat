@@ -34,7 +34,7 @@ QQC2.Control {
     /**
      * @brief The timestamp of the message.
      */
-    required property var time
+    property date time
 
     /**
      * @brief The display text of the message.
@@ -135,6 +135,7 @@ QQC2.Control {
             }
 
             TapHandler {
+                enabled: root.time.toString() !== "Invalid Date"
                 acceptedButtons: Qt.LeftButton
                 onTapped: RoomManager.maximizeCode(root.author, root.time, root.display, root.componentAttributes.class)
                 onLongPressed: root.showMessageMenu()
@@ -174,6 +175,7 @@ QQC2.Control {
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
         QQC2.Button {
+            visible: root.time.toString() !== "Invalid Date"
             icon.name: "view-fullscreen"
             text: i18nc("@action:button", "Maximize")
             display: QQC2.AbstractButton.IconOnly

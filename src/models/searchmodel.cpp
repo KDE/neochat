@@ -113,11 +113,11 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return eventHandler.threadRoot();
     case ContentModelRole: {
         if (!event.isStateEvent()) {
-            return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(&event, m_room));
+            return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_room, &event));
         }
         if (event.isStateEvent()) {
             if (event.matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
-                return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(&event, m_room));
+                return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_room, &event));
             }
         }
         return {};

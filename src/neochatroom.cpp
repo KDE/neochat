@@ -70,6 +70,8 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     });
 
     connect(this, &Room::addedMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
+    connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::cleanupExtraEventRange);
+    connect(this, &Room::aboutToAddNewMessages, this, &NeoChatRoom::cleanupExtraEventRange);
 
     const auto &roomLastMessageProvider = RoomLastMessageProvider::self();
 
@@ -1701,6 +1703,40 @@ QUrl NeoChatRoom::avatarForMember(Quotient::User *user) const
     }
 }
 
+void NeoChatRoom::downloadEventFromServer(const QString &eventId)
+{
+    if (findInTimeline(eventId) != historyEdge()) {
+        return;
+    }
+    auto job = connection()->callApi<GetOneRoomEventJob>(id(), eventId);
+    connect(job, &BaseJob::success, this, [this, job, eventId] {
+        // The event may have arrived in the meantime so check it's not in the timeline.
+        if (findInTimeline(eventId) != historyEdge()) {
+            return;
+        }
+
+        event_ptr_tt<RoomEvent> event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
+        m_extraEvents.push_back(std::move(event));
+        Q_EMIT extraEventLoaded(eventId);
+    });
+}
+
+const RoomEvent *NeoChatRoom::getEvent(const QString &eventId) const
+{
+    if (eventId.isEmpty()) {
+        return nullptr;
+    }
+    const auto timelineIt = findInTimeline(eventId);
+    if (timelineIt != historyEdge()) {
+        return timelineIt->get();
+    }
+
+    auto extraIt = std::find_if(m_extraEvents.begin(), m_extraEvents.end(), [eventId](const Quotient::event_ptr_tt<Quotient::RoomEvent> &event) {
+        return event->id() == eventId;
+    });
+    return extraIt != m_extraEvents.end() ? extraIt->get() : nullptr;
+}
+
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
 {
     const QString &replyEventId = event.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
@@ -1721,13 +1757,22 @@ const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
     return replyPtr;
 }
 
-void NeoChatRoom::loadReply(const QString &eventId, const QString &replyId)
+void NeoChatRoom::cleanupExtraEventRange(Quotient::RoomEventsRange events)
 {
-    auto job = connection()->callApi<GetOneRoomEventJob>(id(), replyId);
-    connect(job, &BaseJob::success, this, [this, job, eventId, replyId] {
-        m_extraEvents.push_back(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData()));
-        Q_EMIT replyLoaded(eventId, replyId);
+    for (auto &&event : events) {
+        cleanupExtraEvent(event->id());
+    }
+}
+
+void NeoChatRoom::cleanupExtraEvent(const QString &eventId)
+{
+    auto it = std::find_if(m_extraEvents.begin(), m_extraEvents.end(), [eventId](Quotient::event_ptr_tt<Quotient::RoomEvent> &event) {
+        return event->id() == eventId;
     });
+
+    if (it != m_extraEvents.end()) {
+        m_extraEvents.erase(it);
+    }
 }
 
 User *NeoChatRoom::invitingUser() const

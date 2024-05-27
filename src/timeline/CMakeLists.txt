@@ -18,6 +18,7 @@ qt_add_qml_module(timeline
         ReactionDelegate.qml
         SectionDelegate.qml
         MessageComponentChooser.qml
+        ReplyMessageComponentChooser.qml
         AudioComponent.qml
         CodeComponent.qml
         EncryptedComponent.qml
@@ -32,6 +33,7 @@ qt_add_qml_module(timeline
         FlightReservationComponent.qml
         HotelReservationComponent.qml
         LinkPreviewComponent.qml
+        LinkPreviewLoadComponent.qml
         LiveLocationComponent.qml
         LoadComponent.qml
         LocationComponent.qml

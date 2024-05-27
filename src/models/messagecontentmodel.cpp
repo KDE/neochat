@@ -11,6 +11,7 @@
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>
+#include <Quotient/qt_connection_util.h>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
@@ -29,95 +30,124 @@
 
 using namespace Quotient;
 
-MessageContentModel::MessageContentModel(const Quotient::RoomEvent *event, NeoChatRoom *room)
+MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply)
     : QAbstractListModel(nullptr)
     , m_room(room)
+    , m_eventId(event != nullptr ? event->id() : QString())
     , m_event(event)
+    , m_isReply(isReply)
 {
-    if (m_room != nullptr) {
-        connect(m_room, &NeoChatRoom::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
-            if (m_room != nullptr && m_event != nullptr) {
-                if (m_event->id() == serverEvent->id()) {
-                    beginResetModel();
-                    m_event = serverEvent;
-                    endResetModel();
-                }
-            }
-        });
-        connect(m_room, &NeoChatRoom::replacedEvent, this, [this](const Quotient::RoomEvent *newEvent) {
-            if (m_room != nullptr && m_event != nullptr) {
-                if (m_event->id() == newEvent->id()) {
-                    beginResetModel();
-                    m_event = newEvent;
-                    endResetModel();
-                }
-            }
-        });
-        connect(m_room, &NeoChatRoom::replyLoaded, this, [this](const QString &eventId, const QString &replyId) {
-            Q_UNUSED(eventId)
-            if (m_event != nullptr && m_room != nullptr) {
-                const auto eventHandler = EventHandler(m_room, m_event);
-                if (replyId == eventHandler.getReplyId()) {
-                    // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
-                    beginResetModel();
-                    m_components[0].type = MessageComponentType::Reply;
-                    endResetModel();
-                }
-            }
-        });
-        connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
-            if (m_event != nullptr && eventId == m_event->id()) {
-                Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
-            }
-        });
-        connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
-            if (m_event != nullptr && eventId == m_event->id()) {
-                Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
-            }
-        });
-        connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
-            if (m_event != nullptr && eventId == m_event->id()) {
-                updateComponents();
-                Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+    initializeModel();
+}
 
-                QString mxcUrl;
-                if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-                    if (event->hasFileContent()) {
-                        mxcUrl = event->content()->fileInfo()->url().toString();
-                    }
-                } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
-                    mxcUrl = event->image().fileInfo()->url().toString();
-                }
-                if (mxcUrl.isEmpty()) {
-                    return;
-                }
-                auto localPath = m_room->fileTransferInfo(m_event->id()).localPath.toLocalFile();
-                auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
-                config.writePathEntry(mxcUrl.mid(6), localPath);
-            }
-        });
-        connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
-            if (m_event != nullptr && eventId == m_event->id()) {
+MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply)
+    : QAbstractListModel(nullptr)
+    , m_room(room)
+    , m_eventId(eventId)
+    , m_isReply(isReply)
+{
+    initializeModel();
+}
+
+void MessageContentModel::initializeModel()
+{
+    Q_ASSERT(m_room != nullptr);
+    // Allow making a model for an event that is being downloaded but will appear later
+    // e.g. a reply, but we need an ID to know when it has arrived.
+    Q_ASSERT(!m_eventId.isEmpty());
+
+    Quotient::connectUntil(m_room.get(), &NeoChatRoom::extraEventLoaded, this, [this](const QString &eventId) {
+        if (m_room != nullptr) {
+            if (eventId == m_eventId) {
+                m_event = m_room->getEvent(eventId);
+                Q_EMIT eventUpdated();
+                updateReplyModel();
                 updateComponents();
-                Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+                return true;
             }
-        });
-        connect(m_room->editCache(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
-            if (m_event != nullptr && (oldEventId == m_event->id() || newEventId == m_event->id())) {
-                // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
-                beginResetModel();
-                updateComponents(newEventId == m_event->id());
-                endResetModel();
-            }
-        });
-        connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
-            updateComponents();
-        });
-        connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
-            updateComponents();
-        });
+        }
+        return false;
+    });
+
+    if (m_event == nullptr) {
+        m_room->downloadEventFromServer(m_eventId);
     }
 
+    connect(m_room, &NeoChatRoom::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
+        if (m_room != nullptr && m_event != nullptr) {
+            if (m_event->id() == serverEvent->id()) {
+                beginResetModel();
+                m_event = serverEvent;
+                Q_EMIT eventUpdated();
+                endResetModel();
+            }
+        }
+    });
+    connect(m_room, &NeoChatRoom::replacedEvent, this, [this](const Quotient::RoomEvent *newEvent) {
+        if (m_room != nullptr && m_event != nullptr) {
+            if (m_event->id() == newEvent->id()) {
+                beginResetModel();
+                m_event = newEvent;
+                Q_EMIT eventUpdated();
+                endResetModel();
+            }
+        }
+    });
+    connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
+        if (m_event != nullptr && eventId == m_event->id()) {
+            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+        }
+    });
+    connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
+        if (m_event != nullptr && eventId == m_event->id()) {
+            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+        }
+    });
+    connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
+        if (m_event != nullptr && eventId == m_event->id()) {
+            updateComponents();
+            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+
+            QString mxcUrl;
+            if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+                if (event->hasFileContent()) {
+                    mxcUrl = event->content()->fileInfo()->url().toString();
+                }
+            } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
+                mxcUrl = event->image().fileInfo()->url().toString();
+            }
+            if (mxcUrl.isEmpty()) {
+                return;
+            }
+            auto localPath = m_room->fileTransferInfo(m_event->id()).localPath.toLocalFile();
+            auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
+            config.writePathEntry(mxcUrl.mid(6), localPath);
+        }
+    });
+    connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
+        if (m_event != nullptr && eventId == m_event->id()) {
+            updateComponents();
+            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+        }
+    });
+    connect(m_room->editCache(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
+        if (m_event != nullptr && (oldEventId == m_event->id() || newEventId == m_event->id())) {
+            // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
+            beginResetModel();
+            updateComponents(newEventId == m_event->id());
+            endResetModel();
+        }
+    });
+    connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
+        updateComponents();
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
+        updateComponents();
+    });
+
+    if (m_event != nullptr) {
+        updateReplyModel();
+    }
     updateComponents();
 }
 
@@ -138,6 +168,12 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     const auto component = m_components[index.row()];
 
     if (role == DisplayRole) {
+        if (component.type == MessageComponentType::Loading && m_isReply) {
+            return i18n("Loading reply");
+        }
+        if (m_event == nullptr) {
+            return QString();
+        }
         if (m_event->isRedacted()) {
             auto reason = m_event->redactedBecause()->reason();
             return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>")
@@ -184,20 +220,14 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == IsReplyRole) {
         return eventHandler.hasReply();
     }
-    if (role == ReplyComponentType) {
-        return eventHandler.replyMessageComponentType();
-    }
     if (role == ReplyEventIdRole) {
         return eventHandler.getReplyId();
     }
     if (role == ReplyAuthorRole) {
         return eventHandler.getReplyAuthor();
     }
-    if (role == ReplyDisplayRole) {
-        return eventHandler.getReplyRichBody();
-    }
-    if (role == ReplyMediaInfoRole) {
-        return eventHandler.getReplyMediaInfo();
+    if (role == ReplyContentModelRole) {
+        return QVariant::fromValue<MessageContentModel *>(m_replyModel);
     }
     if (role == LinkPreviewerRole) {
         if (component.type == MessageComponentType::LinkPreview) {
@@ -233,11 +263,9 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     roles[AssetRole] = "asset";
     roles[PollHandlerRole] = "pollHandler";
     roles[IsReplyRole] = "isReply";
-    roles[ReplyComponentType] = "replyComponentType";
     roles[ReplyEventIdRole] = "replyEventId";
     roles[ReplyAuthorRole] = "replyAuthor";
-    roles[ReplyDisplayRole] = "replyDisplay";
-    roles[ReplyMediaInfoRole] = "replyMediaInfo";
+    roles[ReplyContentModelRole] = "replyContentModel";
     roles[LinkPreviewerRole] = "linkPreviewer";
     return roles;
 }
@@ -246,6 +274,12 @@ void MessageContentModel::updateComponents(bool isEditing)
 {
     beginResetModel();
     m_components.clear();
+
+    if (m_event == nullptr) {
+        m_components += MessageComponent{MessageComponentType::Loading, QString(), {}};
+        endResetModel();
+        return;
+    }
 
     if (eventCast<const Quotient::RoomMessageEvent>(m_event)
         && eventCast<const Quotient::RoomMessageEvent>(m_event)->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
@@ -260,19 +294,14 @@ void MessageContentModel::updateComponents(bool isEditing)
         return;
     }
 
-    EventHandler eventHandler(m_room, m_event);
-    if (eventHandler.hasReply()) {
-        if (m_room->findInTimeline(eventHandler.getReplyId()) == m_room->historyEdge()) {
-            m_components += MessageComponent{MessageComponentType::ReplyLoad, QString(), {}};
-            m_room->loadReply(m_event->id(), eventHandler.getReplyId());
-        } else {
-            m_components += MessageComponent{MessageComponentType::Reply, QString(), {}};
-        }
+    if (m_replyModel != nullptr) {
+        m_components += MessageComponent{MessageComponentType::Reply, QString(), {}};
     }
 
     if (isEditing) {
         m_components += MessageComponent{MessageComponentType::Edit, QString(), {}};
     } else {
+        EventHandler eventHandler(m_room, m_event);
         m_components.append(componentsForType(eventHandler.messageComponentType()));
     }
 
@@ -281,6 +310,29 @@ void MessageContentModel::updateComponents(bool isEditing)
     }
 
     endResetModel();
+}
+
+void MessageContentModel::updateReplyModel()
+{
+    if (m_event == nullptr || m_replyModel != nullptr || m_isReply) {
+        return;
+    }
+
+    EventHandler eventHandler(m_room, m_event);
+    if (!eventHandler.hasReply()) {
+        return;
+    }
+
+    const auto replyEvent = m_room->findInTimeline(eventHandler.getReplyId());
+    if (replyEvent == m_room->historyEdge()) {
+        m_replyModel = new MessageContentModel(m_room, eventHandler.getReplyId(), true);
+    } else {
+        m_replyModel = new MessageContentModel(m_room, replyEvent->get(), true);
+    }
+
+    connect(m_replyModel, &MessageContentModel::eventUpdated, this, [this]() {
+        Q_EMIT dataChanged(index(0), index(0), {ReplyAuthorRole});
+    });
 }
 
 QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentType::Type type)

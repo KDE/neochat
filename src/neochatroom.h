@@ -633,16 +633,29 @@ public:
     Q_INVOKABLE [[nodiscard]] QUrl avatarForMember(Quotient::User *user) const;
 
     /**
+     * @brief Loads the event with the given id from the server and saves it locally.
+     *
+     * Intended to retrieve events that are needed, e.g. replied to events that are
+     * not currently in the timeline.
+     *
+     * If the event is already in the timeline nothing will happen.
+     */
+    void downloadEventFromServer(const QString &eventId);
+
+    /**
+     * @brief Returns the event with the given ID if available.
+     *
+     * This function will check both the timeline and extra events and return a
+     * non-nullptr value if it is found in either.
+     *
+     * The result will be nullptr if not found so needs to be managed.
+     */
+    const Quotient::RoomEvent *getEvent(const QString &eventId) const;
+
+    /**
      * @brief Returns the event that is being replied to. This includes events that were manually loaded using NeoChatRoom::loadReply.
      */
     const Quotient::RoomEvent *getReplyForEvent(const Quotient::RoomEvent &event) const;
-
-    /**
-     * Loads the event replyId with the given id from the server and saves it locally.
-     * For models to update correctly, eventId must be the event that is replying to replyId.
-     * Intended to load the replied-to event when it isn't available locally.
-     */
-    Q_INVOKABLE void loadReply(const QString &eventId, const QString &replyId);
 
     /**
      * If we're invited to this room, the user that invited us. Undefined in other cases.
@@ -674,6 +687,8 @@ private:
 
     QCache<QString, PollHandler> m_polls;
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
+    void cleanupExtraEventRange(Quotient::RoomEventsRange events);
+    void cleanupExtraEvent(const QString &eventId);
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);
@@ -703,7 +718,7 @@ Q_SIGNALS:
     void defaultUrlPreviewStateChanged();
     void urlPreviewEnabledChanged();
     void maxRoomVersionChanged();
-    void replyLoaded(const QString &eventId, const QString &replyId);
+    void extraEventLoaded(const QString &eventId);
 
 public Q_SLOTS:
     /**

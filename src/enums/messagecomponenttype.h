@@ -47,11 +47,11 @@ public:
         LiveLocation, /**< The initial event of a shared live location (i.e., the place where this is supposed to be shown in the timeline). */
         Encrypted, /**< An encrypted message that cannot be decrypted. */
         Reply, /**< A component to show a replied-to message. */
-        ReplyLoad, /**< A loading dialog for a reply. */
         LinkPreview, /**< A preview of a URL in the message. */
         LinkPreviewLoad, /**< A loading dialog for a link preview. */
         Edit, /**< A text edit for editing a message. */
         Verification, /**< A user verification session start message. */
+        Loading, /**< The component is loading. */
         Other, /**< Anything that cannot be classified as another type. */
     };
     Q_ENUM(Type);

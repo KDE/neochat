@@ -183,17 +183,6 @@ DelegateChooser {
             onReplyClicked: eventId => {
                 root.replyClicked(eventId);
             }
-            onSelectedTextChanged: selectedText => {
-                root.selectedTextChanged(selectedText);
-            }
-        }
-    }
-
-    DelegateChoice {
-        roleValue: MessageComponentType.ReplyLoad
-        delegate: LoadComponent {
-            type: LoadComponent.Reply
-            maxContentWidth: root.maxContentWidth
         }
     }
 
@@ -207,8 +196,8 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.LinkPreviewLoad
-        delegate: LoadComponent {
-            type: LoadComponent.LinkPreview
+        delegate: LinkPreviewLoadComponent {
+            type: LinkPreviewLoadComponent.LinkPreview
             maxContentWidth: root.maxContentWidth
             onRemove: index => root.removeLinkPreview(index)
         }
@@ -228,6 +217,13 @@ DelegateChooser {
         delegate: MimeComponent {
             mimeIconSource: "security-high"
             label: i18n("%1 started a user verification", model.author.escapedDisplayName)
+        }
+    }
+
+    DelegateChoice {
+        roleValue: MessageComponentType.Loading
+        delegate: LoadComponent {
+            maxContentWidth: root.maxContentWidth
         }
     }
 

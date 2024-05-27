@@ -27,11 +27,6 @@ RowLayout {
     /**
      * @brief The matrix ID of the reply event.
      */
-    required property var replyComponentType
-
-    /**
-     * @brief The matrix ID of the reply event.
-     */
     required property var replyEventId
 
     /**
@@ -53,26 +48,9 @@ RowLayout {
     required property var replyAuthor
 
     /**
-     * @brief The display text of the message replied to.
+     * @brief The model to visualise the content of the message replied to.
      */
-    required property string replyDisplay
-
-    /**
-     * @brief The media info for the reply event.
-     *
-     * This could be an image, audio, video or file.
-     *
-     * This should consist of the following:
-     *  - source - The mxc URL for the media.
-     *  - mimeType - The MIME type of the media.
-     *  - mimeIcon - The MIME icon name.
-     *  - size - The file size in bytes.
-     *  - duration - The length in seconds of the audio media (audio/video only).
-     *  - width - The width in pixels of the audio media (image/video only).
-     *  - height - The height in pixels of the audio media (image/video only).
-     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads (image/video only).
-     */
-    required property var replyMediaInfo
+    required property var replyContentModel
 
     /**
      * @brief The maximum width that the bubble's content can be.
@@ -84,12 +62,6 @@ RowLayout {
      */
     signal replyClicked(string eventID)
 
-    /**
-     * @brief The user selected text has changed.
-     */
-    signal selectedTextChanged(string selectedText)
-
-    implicitHeight: contentColumn.implicitHeight
     spacing: Kirigami.Units.largeSpacing
 
     Rectangle {
@@ -101,7 +73,6 @@ RowLayout {
     }
     ColumnLayout {
         id: contentColumn
-        implicitHeight: headerRow.implicitHeight + (root.replyComponentType != MessageComponentType.Other ? contentRepeater.itemAt(0).implicitHeight + spacing : 0)
         spacing: Kirigami.Units.smallSpacing
 
         RowLayout {
@@ -131,75 +102,11 @@ RowLayout {
         }
         Repeater {
             id: contentRepeater
-            model: [root.replyComponentType]
-            delegate: DelegateChooser {
-                role: "modelData"
+            model: root.replyContentModel
+            delegate: ReplyMessageComponentChooser {
+                maxContentWidth: _private.availableContentWidth
 
-                DelegateChoice {
-                    roleValue: MessageComponentType.Text
-                    delegate: TextComponent {
-                        display: root.replyDisplay
-                        maxContentWidth: _private.availableContentWidth
-
-                        onSelectedTextChanged: root.selectedTextChanged(selectedText)
-
-                        HoverHandler {
-                            enabled: !hoveredLink
-                            cursorShape: Qt.PointingHandCursor
-                        }
-                        TapHandler {
-                            enabled: !hoveredLink
-                            acceptedButtons: Qt.LeftButton
-                            onTapped: root.replyClicked(root.replyEventId)
-                        }
-                    }
-                }
-                DelegateChoice {
-                    roleValue: MessageComponentType.Image
-                    delegate: Image {
-                        id: image
-                        Layout.maximumWidth: mediaSizeHelper.currentSize.width
-                        Layout.maximumHeight: mediaSizeHelper.currentSize.height
-                        source: root?.replyMediaInfo.source ?? ""
-
-                        MediaSizeHelper {
-                            id: mediaSizeHelper
-                            contentMaxWidth: _private.availableContentWidth
-                            mediaWidth: root?.replyMediaInfo.width ?? -1
-                            mediaHeight: root?.replyMediaInfo.height ?? -1
-                        }
-                    }
-                }
-                DelegateChoice {
-                    roleValue: MessageComponentType.File
-                    delegate: MimeComponent {
-                        mimeIconSource: root.replyMediaInfo.mimeIcon
-                        label: root.replyDisplay
-                        subLabel: root.replyComponentType === DelegateType.File ? Format.formatByteSize(root.replyMediaInfo.size) : Format.formatDuration(root.replyMediaInfo.duration)
-                    }
-                }
-                DelegateChoice {
-                    roleValue: MessageComponentType.Video
-                    delegate: MimeComponent {
-                        mimeIconSource: root.replyMediaInfo.mimeIcon
-                        label: root.replyDisplay
-                        subLabel: root.replyComponentType === DelegateType.File ? Format.formatByteSize(root.replyMediaInfo.size) : Format.formatDuration(root.replyMediaInfo.duration)
-                    }
-                }
-                DelegateChoice {
-                    roleValue: MessageComponentType.Audio
-                    delegate: MimeComponent {
-                        mimeIconSource: root.replyMediaInfo.mimeIcon
-                        label: root.replyDisplay
-                        subLabel: root.replyComponentType === DelegateType.File ? Format.formatByteSize(root.replyMediaInfo.size) : Format.formatDuration(root.replyMediaInfo.duration)
-                    }
-                }
-                DelegateChoice {
-                    roleValue: MessageComponentType.Encrypted
-                    delegate: TextComponent {
-                        display: i18n("This message is encrypted and the sender has not shared the key with this device.")
-                    }
-                }
+                onReplyClicked: root.replyClicked(root.replyEventId)
             }
         }
     }

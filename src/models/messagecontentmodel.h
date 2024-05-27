@@ -58,17 +58,16 @@ public:
         PollHandlerRole, /**< The PollHandler for the event, if any. */
 
         IsReplyRole, /**< Is the message a reply to another event. */
-        ReplyComponentType, /**< The type of component to visualise the reply message. */
         ReplyEventIdRole, /**< The matrix ID of the message that was replied to. */
         ReplyAuthorRole, /**< The author of the event that was replied to. */
-        ReplyDisplayRole, /**< The body of the message that was replied to. */
-        ReplyMediaInfoRole, /**< The media info of the message that was replied to. */
+        ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
 
         LinkPreviewerRole, /**< The link preview details. */
     };
     Q_ENUM(Roles)
 
-    explicit MessageContentModel(const Quotient::RoomEvent *event, NeoChatRoom *room);
+    explicit MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply = false);
+    MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply = false);
 
     /**
      * @brief Get the given role value at the given index.
@@ -98,12 +97,23 @@ public:
      */
     Q_INVOKABLE void closeLinkPreview(int row);
 
+Q_SIGNALS:
+    void eventUpdated();
+
 private:
     QPointer<NeoChatRoom> m_room;
+    QString m_eventId;
     const Quotient::RoomEvent *m_event = nullptr;
+
+    bool m_isReply;
+
+    void initializeModel();
 
     QList<MessageComponent> m_components;
     void updateComponents(bool isEditing = false);
+
+    QPointer<MessageContentModel> m_replyModel;
+    void updateReplyModel();
 
     ItineraryModel *m_itineraryModel = nullptr;
 
