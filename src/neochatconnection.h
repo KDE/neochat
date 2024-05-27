@@ -184,6 +184,8 @@ public:
 
     LinkPreviewer *previewerForLink(const QUrl &link);
 
+    Q_INVOKABLE void setupCrossSigningKeys(const QString &password);
+
 Q_SIGNALS:
     void labelChanged();
     void identityServerChanged();

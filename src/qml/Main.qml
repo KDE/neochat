@@ -309,6 +309,12 @@ Kirigami.ApplicationWindow {
                 url: url
             }).open();
         }
+
+        function onCrossSigningSetupRequired() {
+            Qt.createComponent("org.kde.neochat", "CrossSigningSetupDialog").createObject(this, {
+                connection: root.connection
+            }).open();
+        }
     }
 
     HoverLinkIndicator {

@@ -16,9 +16,13 @@
 #include "spacehierarchycache.h"
 
 #include <Quotient/connection.h>
+#include <Quotient/csapi/cross_signing.h>
+#include <Quotient/e2ee/cryptoutils.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
 #include <qt6keychain/keychain.h>
+
+#include <olm/pk.h>
 
 #include <KLocalizedString>
 
@@ -536,6 +540,97 @@ LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
     previewer = new LinkPreviewer(link, this);
     m_linkPreviewers[link] = previewer;
     return previewer;
+}
+
+void NeoChatConnection::setupCrossSigningKeys(const QString &password)
+{
+    auto masterKeyPrivate = getRandom<32>();
+    auto masterKeyContext = makeCStruct(olm_pk_signing, olm_pk_signing_size, olm_clear_pk_signing);
+    QByteArray masterKeyPublic(olm_pk_signing_public_key_length(), 0);
+    olm_pk_signing_key_from_seed(masterKeyContext.get(),
+                                 masterKeyPublic.data(),
+                                 masterKeyPublic.length(),
+                                 masterKeyPrivate.data(),
+                                 masterKeyPrivate.viewAsByteArray().length());
+
+    auto selfSigningKeyPrivate = getRandom<32>();
+    auto selfSigningKeyContext = makeCStruct(olm_pk_signing, olm_pk_signing_size, olm_clear_pk_signing);
+    QByteArray selfSigningKeyPublic(olm_pk_signing_public_key_length(), 0);
+    olm_pk_signing_key_from_seed(selfSigningKeyContext.get(),
+                                 selfSigningKeyPublic.data(),
+                                 selfSigningKeyPublic.length(),
+                                 selfSigningKeyPrivate.data(),
+                                 selfSigningKeyPrivate.viewAsByteArray().length());
+
+    auto userSigningKeyPrivate = getRandom<32>();
+    auto userSigningKeyContext = makeCStruct(olm_pk_signing, olm_pk_signing_size, olm_clear_pk_signing);
+    QByteArray userSigningKeyPublic(olm_pk_signing_public_key_length(), 0);
+    olm_pk_signing_key_from_seed(userSigningKeyContext.get(),
+                                 userSigningKeyPublic.data(),
+                                 userSigningKeyPublic.length(),
+                                 userSigningKeyPrivate.data(),
+                                 userSigningKeyPrivate.viewAsByteArray().length());
+
+    database()->storeEncrypted("m.cross_signing.master"_ls, masterKeyPrivate.viewAsByteArray());
+    database()->storeEncrypted("m.cross_signing.self_signing"_ls, selfSigningKeyPrivate.viewAsByteArray());
+    database()->storeEncrypted("m.cross_signing.user_signing"_ls, userSigningKeyPrivate.viewAsByteArray());
+
+    auto masterKey = CrossSigningKey{
+        .userId = userId(),
+        .usage = {"master"_ls},
+        .keys = {{"ed25519:"_ls + QString::fromLatin1(masterKeyPublic), QString::fromLatin1(masterKeyPublic)}},
+        .signatures = {},
+    };
+    auto selfSigningKey = CrossSigningKey{
+        .userId = userId(),
+        .usage = {"self_signing"_ls},
+        .keys = {{"ed25519:"_ls + QString::fromLatin1(selfSigningKeyPublic), QString::fromLatin1(selfSigningKeyPublic)}},
+    };
+    auto userSigningKey = CrossSigningKey{
+        .userId = userId(),
+        .usage = {"user_signing"_ls},
+        .keys = {{"ed25519:"_ls + QString::fromLatin1(userSigningKeyPublic), QString::fromLatin1(userSigningKeyPublic)}},
+
+    };
+
+    auto selfSigningKeyJson = toJson(selfSigningKey);
+    selfSigningKeyJson.remove("signatures"_ls);
+    selfSigningKey.signatures = QJsonObject{
+        {userId(),
+         QJsonObject{{"ed25519:"_ls + QString::fromLatin1(masterKeyPublic),
+                      QString::fromLatin1(sign(masterKeyPrivate.viewAsByteArray(), QJsonDocument(selfSigningKeyJson).toJson(QJsonDocument::Compact)))}}}};
+    auto userSigningKeyJson = toJson(userSigningKey);
+    userSigningKeyJson.remove("signatures"_ls);
+    userSigningKey.signatures = QJsonObject{
+        {userId(),
+         QJsonObject{{"ed25519:"_ls + QString::fromLatin1(masterKeyPublic),
+                      QString::fromLatin1(sign(masterKeyPrivate.viewAsByteArray(), QJsonDocument(userSigningKeyJson).toJson(QJsonDocument::Compact)))}}}};
+
+    auto job = callApi<UploadCrossSigningKeysJob>(masterKey, selfSigningKey, userSigningKey, std::nullopt);
+    connect(job, &BaseJob::failure, this, [this, masterKey, selfSigningKey, userSigningKey, password](const auto &job) {
+        callApi<UploadCrossSigningKeysJob>(masterKey,
+                                           selfSigningKey,
+                                           userSigningKey,
+                                           AuthenticationData{
+                                               .type = "m.login.password"_ls,
+                                               .session = job->jsonData()["session"_ls].toString(),
+                                               .authInfo =
+                                                   QVariantHash{
+                                                       {"password"_ls, password},
+                                                       {"identifier"_ls,
+                                                        QJsonObject{
+                                                            {"type"_ls, "m.id.user"_ls},
+                                                            {"user"_ls, userId()},
+                                                        }},
+                                                   },
+
+                                           })
+            .then([](const auto &job) {
+                // TODO mark key as verified
+                // TODO store keys in accountdata
+                qWarning() << "finished uploading cs keys" << job->jsonData() << job->errorString();
+            });
+    });
 }
 
 #include "moc_neochatconnection.cpp"
