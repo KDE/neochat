@@ -440,7 +440,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
-        if (!evt.isStateEvent()) {
+        if (!evt.isStateEvent() && !evt.id().isEmpty()) {
             return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_currentRoom, &evt));
         }
         if (evt.isStateEvent()) {
