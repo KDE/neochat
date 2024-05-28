@@ -10,7 +10,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as Components
 import org.kde.kitemmodels
-import org.kde.desktop.private as Private
 
 import org.kde.neochat
 
@@ -45,6 +44,14 @@ QQC2.ItemDelegate {
     Keys.onSpacePressed: clicked()
     Keys.onEnterPressed: clicked()
     Keys.onReturnPressed: clicked()
+
+    leftInset: horizontalPadding / 2
+    rightInset: horizontalPadding / 2
+    // We want total spacing between consecutive list items to be
+    // verticalPadding. So use half that as top/bottom margin, separately
+    // ceiling/flooring them so that the total spacing is preserved.
+    topInset: Math.ceil(verticalPadding / 2)
+    bottomInset: Math.ceil(verticalPadding / 2)
 
     TapHandler {
         acceptedButtons: Qt.RightButton
@@ -144,11 +151,6 @@ QQC2.ItemDelegate {
             icon.name: "configure"
             onClicked: createRoomListContextMenu()
         }
-    }
-
-    background: Private.DefaultListItemBackground {
-        control: root
-        styling: Private.DefaultListItemBackground.Styling.List
     }
 
     function createRoomListContextMenu() {
