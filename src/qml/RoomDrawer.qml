@@ -24,10 +24,10 @@ Kirigami.OverlayDrawer {
     readonly property int maxWidth: Kirigami.Units.gridUnit * 25
     readonly property int defaultWidth: Kirigami.Units.gridUnit * 20
     property int actualWidth: {
-        if (Config.roomDrawerWidth === -1) {
+        if (NeoChatConfig.roomDrawerWidth === -1) {
             return Kirigami.Units.gridUnit * 20;
         } else {
-            return Config.roomDrawerWidth;
+            return NeoChatConfig.roomDrawerWidth;
         }
     }
 
@@ -45,8 +45,8 @@ Kirigami.OverlayDrawer {
         visible: true
         onPressed: _lastX = mapToGlobal(mouseX, mouseY).x
         onReleased: {
-            Config.roomDrawerWidth = root.actualWidth;
-            Config.save();
+            NeoChatConfig.roomDrawerWidth = root.actualWidth;
+            NeoChatConfig.save();
         }
         property real _lastX: -1
 
@@ -55,9 +55,9 @@ Kirigami.OverlayDrawer {
                 return;
             }
             if (Qt.application.layoutDirection === Qt.RightToLeft) {
-                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, Config.roomDrawerWidth - _lastX + mapToGlobal(mouseX, mouseY).x));
+                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, NeoChatConfig.roomDrawerWidth - _lastX + mapToGlobal(mouseX, mouseY).x));
             } else {
-                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, Config.roomDrawerWidth + _lastX - mapToGlobal(mouseX, mouseY).x));
+                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, NeoChatConfig.roomDrawerWidth + _lastX - mapToGlobal(mouseX, mouseY).x));
             }
         }
     }

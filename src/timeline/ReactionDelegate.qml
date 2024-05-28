@@ -56,7 +56,7 @@ Flow {
             background: Kirigami.ShadowedRectangle {
                 color: reactionDelegate.hasLocalUser ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
                 Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: Config.compactLayout ? Kirigami.Theme.Window : Kirigami.Theme.View
+                Kirigami.Theme.colorSet: NeoChatConfig.compactLayout ? Kirigami.Theme.Window : Kirigami.Theme.View
                 radius: height / 2
                 shadow {
                     size: Kirigami.Units.smallSpacing

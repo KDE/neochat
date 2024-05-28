@@ -12,20 +12,6 @@
 #endif
 
 #include "controller.h"
-#include "neochatconfig.h"
-
-struct ForeignConfig {
-    Q_GADGET
-    QML_FOREIGN(NeoChatConfig)
-    QML_NAMED_ELEMENT(Config)
-    QML_SINGLETON
-public:
-    static NeoChatConfig *create(QQmlEngine *, QJSEngine *)
-    {
-        QQmlEngine::setObjectOwnership(NeoChatConfig::self(), QQmlEngine::CppOwnership);
-        return NeoChatConfig::self();
-    }
-};
 
 struct ForeignAccountRegistry {
     Q_GADGET

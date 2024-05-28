@@ -56,8 +56,8 @@ Delegates.RoundedItemDelegate {
         Components.Avatar {
             source: root.avatar ? root.connection.makeMediaUrl("mxc://" + root.avatar) : ""
             name: root.displayName
-            visible: Config.showAvatarInRoomDrawer
-            implicitHeight: Kirigami.Units.gridUnit + (Config.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
+            visible: NeoChatConfig.showAvatarInRoomDrawer
+            implicitHeight: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
             implicitWidth: visible ? implicitHeight : 0
 
             Layout.fillHeight: true
@@ -90,7 +90,7 @@ Delegates.RoundedItemDelegate {
                 elide: Text.ElideRight
                 font: Kirigami.Theme.smallFont
                 opacity: root.hasNotifications ? 0.9 : 0.7
-                visible: !Config.compactRoomList && text.length > 0
+                visible: !NeoChatConfig.compactRoomList && text.length > 0
                 textFormat: Text.PlainText
 
                 Layout.fillWidth: true
@@ -136,7 +136,7 @@ Delegates.RoundedItemDelegate {
 
         QQC2.Button {
             id: configButton
-            visible: root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList && !root.collapsed && root.showConfigure
+            visible: root.hovered && !Kirigami.Settings.isMobile && !NeoChatConfig.compactRoomList && !root.collapsed && root.showConfigure
             text: i18n("Configure room")
             display: QQC2.Button.IconOnly
 
@@ -154,14 +154,14 @@ Delegates.RoundedItemDelegate {
             room: root.currentRoom,
             connection: root.connection
         });
-        if (!Kirigami.Settings.isMobile && !Config.compactRoomList) {
+        if (!Kirigami.Settings.isMobile && !NeoChatConfig.compactRoomList) {
             configButton.visible = true;
             configButton.down = true;
         }
         menu.closed.connect(function () {
             configButton.down = undefined;
             configButton.visible = Qt.binding(() => {
-                return root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList;
+                return root.hovered && !Kirigami.Settings.isMobile && !NeoChatConfig.compactRoomList;
             });
         });
         menu.open();

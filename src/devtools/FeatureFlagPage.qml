@@ -18,23 +18,23 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: roomAccountDataVisibleCheck
             text: i18nc("@option:check Enable the matrix 'threads' feature", "Threads")
-            checked: Config.threads
+            checked: NeoChatConfig.threads
 
-            onToggled: Config.threads = checked
+            onToggled: NeoChatConfig.threads = checked
         }
         FormCard.FormCheckDelegate {
             text: i18nc("@option:check Enable the matrix 'secret backup' feature", "Secret Backup")
-            checked: Config.secretBackup
+            checked: NeoChatConfig.secretBackup
 
-            onToggled: Config.secretBackup = checked
+            onToggled: NeoChatConfig.secretBackup = checked
         }
         FormCard.FormCheckDelegate {
             text: i18nc("@option:check Enable the matrix feature to add a phone number as a third party ID", "Add phone numbers as 3PIDs")
-            checked: Config.phone3PId
+            checked: NeoChatConfig.phone3PId
 
             onToggled: {
-                Config.phone3PId = checked
-                Config.save();
+                NeoChatConfig.phone3PId = checked
+                NeoChatConfig.save();
             }
         }
     }

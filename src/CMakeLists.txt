@@ -191,6 +191,8 @@ set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
     QT_QML_SINGLETON_TYPE TRUE
 )
 
+kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
+
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat
     QML_FILES
@@ -417,8 +419,6 @@ target_link_libraries(neochat PUBLIC
 if (TARGET KF6::Crash)
     target_link_libraries(neochat PUBLIC KF6::Crash)
 endif()
-
-kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)
     target_compile_definitions(neochat PUBLIC NEOCHAT_FLATPAK)

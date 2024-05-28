@@ -77,7 +77,7 @@ KirigamiSettings.CategorizedSettings {
             actionName: "spellChecking"
             text: i18n("Spell Checking")
             icon.name: "tools-check-spelling"
-            page: Qt.resolvedUrl("SonnetConfigPage.qml")
+            page: Qt.resolvedUrl("SonnetConfigpage.qml")
             visible: Qt.platform.os !== "android"
         },
         KirigamiSettings.SettingAction {

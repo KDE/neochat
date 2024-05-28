@@ -24,7 +24,7 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18n("System Default")
             checked: currentType === 0
-            enabled: !Config.isProxyTypeImmutable
+            enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
                 currentType = 0;
             }
@@ -32,7 +32,7 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18n("No Proxy")
             checked: currentType === 3
-            enabled: !Config.isProxyTypeImmutable
+            enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
                 currentType = 3;
             }
@@ -40,7 +40,7 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18n("HTTP")
             checked: currentType === 1
-            enabled: !Config.isProxyTypeImmutable
+            enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
                 currentType = 1;
             }
@@ -48,7 +48,7 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18n("Socks5")
             checked: currentType === 2
-            enabled: !Config.isProxyTypeImmutable
+            enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
                 currentType = 2;
             }
@@ -62,7 +62,7 @@ FormCard.FormCardPage {
         FormCard.FormTextFieldDelegate {
             id: hostField
             label: i18n("Host")
-            text: Config.proxyHost
+            text: NeoChatConfig.proxyHost
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
                 proxyConfigChanged = true;
@@ -71,7 +71,7 @@ FormCard.FormCardPage {
         FormCard.FormSpinBoxDelegate {
             id: portField
             label: i18n("Port")
-            value: Config.proxyPort
+            value: NeoChatConfig.proxyPort
             from: 0
             to: 65536
             textFromValue: function (value, locale) {
@@ -84,7 +84,7 @@ FormCard.FormCardPage {
         FormCard.FormTextFieldDelegate {
             id: userField
             label: i18n("User")
-            text: Config.proxyUser
+            text: NeoChatConfig.proxyUser
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
                 proxyConfigChanged = true;
@@ -93,7 +93,7 @@ FormCard.FormCardPage {
         FormCard.FormTextFieldDelegate {
             id: passwordField
             label: i18n("Password")
-            text: Config.proxyPassword
+            text: NeoChatConfig.proxyPassword
             echoMode: TextInput.Password
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
@@ -111,14 +111,14 @@ FormCard.FormCardPage {
 
             QQC2.Button {
                 text: i18n("Apply")
-                enabled: currentType !== Config.proxyType || proxyConfigChanged
+                enabled: currentType !== NeoChatConfig.proxyType || proxyConfigChanged
                 onClicked: {
-                    Config.proxyType = currentType;
-                    Config.proxyHost = hostField.text;
-                    Config.proxyPort = portField.value;
-                    Config.proxyUser = userField.text;
-                    Config.proxyPassword = passwordField.text;
-                    Config.save();
+                    NeoChatConfig.proxyType = currentType;
+                    NeoChatConfig.proxyHost = hostField.text;
+                    NeoChatConfig.proxyPort = portField.value;
+                    NeoChatConfig.proxyUser = userField.text;
+                    NeoChatConfig.proxyPassword = passwordField.text;
+                    NeoChatConfig.save();
                     proxyConfigChanged = false;
                     ProxyController.setApplicationProxy();
                 }
@@ -127,6 +127,6 @@ FormCard.FormCardPage {
     }
 
     Component.onCompleted: {
-        currentType = Config.proxyType;
+        currentType = NeoChatConfig.proxyType;
     }
 }

@@ -169,7 +169,7 @@ Kirigami.Page {
     background: Rectangle {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
-        color: Config.compactLayout ? Kirigami.Theme.backgroundColor : "transparent"
+        color: NeoChatConfig.compactLayout ? Kirigami.Theme.backgroundColor : "transparent"
     }
 
     footer: Loader {

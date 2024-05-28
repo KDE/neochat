@@ -27,7 +27,7 @@ Kirigami.Page {
 
     required property NeoChatConnection connection
 
-    readonly property bool collapsed: Config.collapsed
+    readonly property bool collapsed: NeoChatConfig.collapsed
 
     signal search
 
@@ -258,7 +258,7 @@ Kirigami.Page {
                 if (_private.currentWidth < _private.collapseWidth && _private.currentWidth + (mouse.x - _lastX) >= _private.collapseWidth) {
                     // Here we get back directly to a more wide mode.
                     _private.currentWidth = _private.defaultWidth;
-                    Config.collapsed = false;
+                    NeoChatConfig.collapsed = false;
                 } else if (_private.currentWidth >= _private.collapseWidth) {
                     // Increase page width
                     _private.currentWidth = Math.min(_private.defaultWidth, _private.currentWidth + (mouse.x - _lastX));
@@ -267,7 +267,7 @@ Kirigami.Page {
                 const tmpWidth = _private.currentWidth - (_lastX - mouse.x);
                 if (tmpWidth < _private.collapseWidth) {
                     _private.currentWidth = Qt.binding(() => _private.collapsedSize);
-                    Config.collapsed = true;
+                    NeoChatConfig.collapsed = true;
                 } else {
                     _private.currentWidth = tmpWidth;
                 }
@@ -324,9 +324,9 @@ Kirigami.Page {
      */
     QtObject {
         id: _private
-        property int currentWidth: Config.collapsed ? collapsedSize : defaultWidth
+        property int currentWidth: NeoChatConfig.collapsed ? collapsedSize : defaultWidth
         readonly property int defaultWidth: Kirigami.Units.gridUnit * 17
         readonly property int collapseWidth: Kirigami.Units.gridUnit * 10
-        readonly property int collapsedSize: Kirigami.Units.gridUnit + (Config.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2) + Kirigami.Units.largeSpacing * 2 + (scrollView.QQC2.ScrollBar.vertical.visible ? scrollView.QQC2.ScrollBar.vertical.width : 0)
+        readonly property int collapsedSize: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2) + Kirigami.Units.largeSpacing * 2 + (scrollView.QQC2.ScrollBar.vertical.visible ? scrollView.QQC2.ScrollBar.vertical.width : 0)
     }
 }

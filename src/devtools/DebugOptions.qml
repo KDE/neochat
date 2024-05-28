@@ -17,25 +17,25 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             text: i18nc("@option:check", "Show hidden events in the timeline")
-            checked: Config.showAllEvents
+            checked: NeoChatConfig.showAllEvents
 
-            onToggled: Config.showAllEvents = checked
+            onToggled: NeoChatConfig.showAllEvents = checked
         }
         FormCard.FormCheckDelegate {
             id: roomAccountDataVisibleCheck
             text: i18nc("@option:check Enable the matrix 'threads' feature", "Always allow device verification")
             description: i18n("Allow the user to start a verification session with devices that were already verified")
-            checked: Config.alwaysVerifyDevice
+            checked: NeoChatConfig.alwaysVerifyDevice
 
-            onToggled: Config.alwaysVerifyDevice = checked
+            onToggled: NeoChatConfig.alwaysVerifyDevice = checked
         }
         FormCard.FormCheckDelegate {
             text: i18nc("@option:check", "Show focus in window header")
-            checked: Config.windowTitleFocus
+            checked: NeoChatConfig.windowTitleFocus
 
             onToggled: {
-                Config.windowTitleFocus = checked;
-                Config.save();
+                NeoChatConfig.windowTitleFocus = checked;
+                NeoChatConfig.save();
             }
         }
     }

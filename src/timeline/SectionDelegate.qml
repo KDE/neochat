@@ -43,7 +43,7 @@ QQC2.ItemDelegate {
     }
 
     background: Rectangle {
-        color: Config.blur ? "transparent" : Kirigami.Theme.backgroundColor
+        color: NeoChatConfig.blur ? "transparent" : Kirigami.Theme.backgroundColor
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: root.colorSet
     }

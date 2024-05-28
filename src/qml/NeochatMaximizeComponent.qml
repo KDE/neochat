@@ -102,8 +102,8 @@ Components.AlbumMaximizeComponent {
             fileMode: Platform.FileDialog.SaveFile
             folder: root.saveFolder
             onAccepted: {
-                Config.lastSaveDirectory = folder;
-                Config.save();
+                NeoChatConfig.lastSaveDirectory = folder;
+                NeoChatConfig.save();
                 if (!currentFile) {
                     return;
                 }

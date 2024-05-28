@@ -237,9 +237,9 @@ TimelineDelegate {
     property real contentMaxWidth: bubbleSizeHelper.currentWidth - bubble.leftPadding - bubble.rightPadding
 
     width: parent?.width
-    rightPadding: Config.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
+    rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
 
-    alwaysFillWidth: Config.compactLayout
+    alwaysFillWidth: NeoChatConfig.compactLayout
 
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
@@ -249,13 +249,13 @@ TimelineDelegate {
             Layout.fillWidth: true
             visible: root.showSection
             labelText: root.section
-            colorSet: Config.compactLayout || root.alwaysFillWidth ? Kirigami.Theme.View : Kirigami.Theme.Window
+            colorSet: NeoChatConfig.compactLayout || root.alwaysFillWidth ? Kirigami.Theme.View : Kirigami.Theme.Window
         }
         QQC2.ItemDelegate {
             id: mainContainer
 
             Layout.fillWidth: true
-            Layout.topMargin: root.showAuthor || root.alwaysShowAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
+            Layout.topMargin: root.showAuthor || root.alwaysShowAuthor ? Kirigami.Units.largeSpacing : (NeoChatConfig.compactLayout ? 1 : Kirigami.Units.smallSpacing)
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.smallSpacing
 
@@ -270,7 +270,7 @@ TimelineDelegate {
 
             KirigamiComponents.AvatarButton {
                 id: avatar
-                width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2 : 0
+                width: visible || NeoChatConfig.showAvatarInTimeline ? Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2 : 0
                 height: width
                 anchors {
                     left: parent.left
@@ -279,7 +279,7 @@ TimelineDelegate {
                     topMargin: Kirigami.Units.smallSpacing
                 }
 
-                visible: (root.showAuthor || root.alwaysShowAuthor) && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
+                visible: (root.showAuthor || root.alwaysShowAuthor) && NeoChatConfig.showAvatarInTimeline && (NeoChatConfig.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
                 source: root.author.avatarSource
                 color: root.author.color
@@ -294,9 +294,9 @@ TimelineDelegate {
                 anchors.rightMargin: Kirigami.Units.largeSpacing
                 maxContentWidth: root.contentMaxWidth
 
-                topPadding: Config.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
-                bottomPadding: Config.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
-                leftPadding: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+                topPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
+                bottomPadding: NeoChatConfig.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
+                leftPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
                 rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
                 state: _private.showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
@@ -343,11 +343,11 @@ TimelineDelegate {
                 }
                 onShowMessageMenu: _private.showMessageMenu()
 
-                showBackground: root.cardBackground && !Config.compactLayout
+                showBackground: root.cardBackground && !NeoChatConfig.compactLayout
             }
 
             background: Rectangle {
-                visible: mainContainer.hovered && (Config.compactLayout || root.alwaysFillWidth)
+                visible: mainContainer.hovered && (NeoChatConfig.compactLayout || root.alwaysFillWidth)
                 color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
                 radius: Kirigami.Units.cornerRadius
             }
@@ -390,7 +390,7 @@ TimelineDelegate {
             startPercentWidth: root.alwaysFillWidth ? 100 : 90
             endPercentWidth: root.alwaysFillWidth ? 100 : 60
 
-            parentWidth: mainContainer.availableWidth - (Config.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
+            parentWidth: mainContainer.availableWidth - (NeoChatConfig.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
         }
     }
 
@@ -411,7 +411,7 @@ TimelineDelegate {
         /**
          * @brief Whether local user messages should be aligned right.
          */
-        property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalUser && !Config.compactLayout && !root.alwaysFillWidth
+        property bool showUserMessageOnRight: NeoChatConfig.showLocalMessagesOnRight && root.author.isLocalUser && !NeoChatConfig.compactLayout && !root.alwaysFillWidth
 
         function showMessageMenu() {
             RoomManager.viewEventMenu(root.eventId, root.room, root.selectedText);

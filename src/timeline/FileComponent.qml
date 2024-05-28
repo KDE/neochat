@@ -197,10 +197,10 @@ ColumnLayout {
 
             FileDialog {
                 fileMode: FileDialog.SaveFile
-                folder: Config.lastSaveDirectory.length > 0 ? Config.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+                folder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
                 onAccepted: {
-                    Config.lastSaveDirectory = folder;
-                    Config.save();
+                    NeoChatConfig.lastSaveDirectory = folder;
+                    NeoChatConfig.save();
                     if (autoOpenFile) {
                         UrlHelper.copyTo(root.fileTransferInfo.localPath, file);
                     } else {

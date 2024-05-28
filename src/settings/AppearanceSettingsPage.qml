@@ -41,8 +41,8 @@ FormCard.FormCardPage {
                             KirigamiComponents.Avatar {
                                 color: "#4a5bcc"
                                 Layout.alignment: Qt.AlignTop
-                                visible: Config.showAvatarInTimeline
-                                Layout.preferredWidth: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
+                                visible: NeoChatConfig.showAvatarInTimeline
+                                Layout.preferredWidth: NeoChatConfig.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
                                 Layout.preferredHeight: Kirigami.Units.largeSpacing * 2
                             }
                             QQC2.Control {
@@ -78,8 +78,8 @@ FormCard.FormCardPage {
                             KirigamiComponents.Avatar {
                                 color: "#9f244b"
                                 Layout.alignment: Qt.AlignTop
-                                visible: Config.showAvatarInTimeline
-                                Layout.preferredWidth: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
+                                visible: NeoChatConfig.showAvatarInTimeline
+                                Layout.preferredWidth: NeoChatConfig.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
                                 Layout.preferredHeight: Kirigami.Units.largeSpacing * 2
                             }
                             QQC2.Control {
@@ -113,13 +113,13 @@ FormCard.FormCardPage {
                     ]
 
                     text: i18n("Bubbles")
-                    checked: !Config.compactLayout
+                    checked: !NeoChatConfig.compactLayout
                     QQC2.ButtonGroup.group: themeGroup
-                    enabled: !Config.isCompactLayoutImmutable
+                    enabled: !NeoChatConfig.isCompactLayoutImmutable
 
                     onToggled: {
-                        Config.compactLayout = !checked;
-                        Config.save();
+                        NeoChatConfig.compactLayout = !checked;
+                        NeoChatConfig.save();
                     }
                 }
                 ThemeRadioButton {
@@ -131,8 +131,8 @@ FormCard.FormCardPage {
                             KirigamiComponents.Avatar {
                                 color: "#4a5bcc"
                                 Layout.alignment: Qt.AlignTop
-                                visible: Config.showAvatarInTimeline
-                                Layout.preferredWidth: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
+                                visible: NeoChatConfig.showAvatarInTimeline
+                                Layout.preferredWidth: NeoChatConfig.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
                                 Layout.preferredHeight: Kirigami.Units.largeSpacing * 2
                             }
                             ColumnLayout {
@@ -158,8 +158,8 @@ FormCard.FormCardPage {
                             KirigamiComponents.Avatar {
                                 color: "#9f244b"
                                 Layout.alignment: Qt.AlignTop
-                                visible: Config.showAvatarInTimeline
-                                Layout.preferredWidth: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
+                                visible: NeoChatConfig.showAvatarInTimeline
+                                Layout.preferredWidth: NeoChatConfig.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
                                 Layout.preferredHeight: Kirigami.Units.largeSpacing * 2
                             }
                             ColumnLayout {
@@ -182,13 +182,13 @@ FormCard.FormCardPage {
                         }
                     ]
                     text: i18n("Compact")
-                    checked: Config.compactLayout
+                    checked: NeoChatConfig.compactLayout
                     QQC2.ButtonGroup.group: themeGroup
-                    enabled: !Config.isCompactLayoutImmutable
+                    enabled: !NeoChatConfig.isCompactLayoutImmutable
 
                     onToggled: {
-                        Config.compactLayout = checked;
-                        Config.save();
+                        NeoChatConfig.compactLayout = checked;
+                        NeoChatConfig.save();
                     }
                 }
                 Item {
@@ -204,10 +204,10 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: compactRoomListDelegate
             text: i18n("Use compact room list")
-            checked: Config.compactRoomList
+            checked: NeoChatConfig.compactRoomList
             onToggled: {
-                Config.compactRoomList = checked;
-                Config.save();
+                NeoChatConfig.compactRoomList = checked;
+                NeoChatConfig.save();
             }
         }
 
@@ -231,11 +231,11 @@ FormCard.FormCardPage {
             id: hasWindowSystemDelegate
             visible: WindowController.hasWindowSystem
             text: i18n("Use transparent chat page")
-            enabled: !Config.compactLayout && !Config.isBlurImmutable
-            checked: Config.blur
+            enabled: !NeoChatConfig.compactLayout && !NeoChatConfig.isBlurImmutable
+            checked: NeoChatConfig.blur
             onToggled: {
-                Config.blur = checked;
-                Config.save();
+                NeoChatConfig.blur = checked;
+                NeoChatConfig.save();
             }
         }
 
@@ -246,8 +246,8 @@ FormCard.FormCardPage {
 
         FormCard.AbstractFormDelegate {
             id: transparencyDelegate
-            visible: WindowController.hasWindowSystem && Config.blur
-            enabled: !Config.isTransparancyImmutable
+            visible: WindowController.hasWindowSystem && NeoChatConfig.blur
+            enabled: !NeoChatConfig.isTransparancyImmutable
             background: Item {}
             contentItem: ColumnLayout {
                 QQC2.Label {
@@ -255,14 +255,14 @@ FormCard.FormCardPage {
                     Layout.fillWidth: true
                 }
                 QQC2.Slider {
-                    enabled: !Config.compactLayout && Config.blur
+                    enabled: !NeoChatConfig.compactLayout && NeoChatConfig.blur
                     from: 0
                     to: 1
                     stepSize: 0.05
-                    value: Config.transparency
+                    value: NeoChatConfig.transparency
                     onMoved: {
-                        Config.transparency = value;
-                        Config.save();
+                        NeoChatConfig.transparency = value;
+                        NeoChatConfig.save();
                     }
                     Layout.fillWidth: true
 
@@ -273,7 +273,7 @@ FormCard.FormCardPage {
                     QQC2.ToolTip.text: i18n("Only enabled if the transparent chat page is enabled.")
                 }
                 QQC2.Label {
-                    text: Math.round(Config.transparency * 100) + "%"
+                    text: Math.round(NeoChatConfig.transparency * 100) + "%"
                     Layout.fillWidth: true
                 }
             }
@@ -288,11 +288,11 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: showLocalMessagesOnRightDelegate
             text: i18n("Show your messages on the right")
-            checked: Config.showLocalMessagesOnRight
-            enabled: !Config.isShowLocalMessagesOnRightImmutable && !Config.compactLayout
+            checked: NeoChatNeoChatConfig.showLocalMessagesOnRight
+            enabled: !NeoChatConfig.isShowLocalMessagesOnRightImmutable && !NeoChatConfig.compactLayout
             onToggled: {
-                Config.showLocalMessagesOnRight = checked;
-                Config.save();
+                NeoChatConfig.showLocalMessagesOnRight = checked;
+                NeoChatConfig.save();
             }
         }
 
@@ -304,10 +304,10 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: showLinkPreviewDelegate
             text: i18n("Show links preview in the chat messages")
-            checked: Config.showLinkPreview
+            checked: NeoChatConfig.showLinkPreview
             onToggled: {
-                Config.showLinkPreview = checked;
-                Config.save();
+                NeoChatConfig.showLinkPreview = checked;
+                NeoChatConfig.save();
             }
         }
     }
@@ -318,21 +318,21 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
             text: i18n("In chat")
-            checked: Config.showAvatarInTimeline
+            checked: NeoChatConfig.showAvatarInTimeline
             onToggled: {
-                Config.showAvatarInTimeline = checked;
-                Config.save();
+                NeoChatConfig.showAvatarInTimeline = checked;
+                NeoChatConfig.save();
             }
-            enabled: !Config.isShowAvatarInTimelineImmutable
+            enabled: !NeoChatConfig.isShowAvatarInTimelineImmutable
         }
 
         FormCard.FormCheckDelegate {
             text: i18n("In sidebar")
-            checked: Config.showAvatarInRoomDrawer
-            enabled: !Config.isShowAvatarInRoomDrawerImmutable
+            checked: NeoChatConfig.showAvatarInRoomDrawer
+            enabled: !NeoChatConfig.isShowAvatarInRoomDrawerImmutable
             onToggled: {
-                Config.showAvatarInRoomDrawer = checked;
-                Config.save();
+                NeoChatConfig.showAvatarInRoomDrawer = checked;
+                NeoChatConfig.save();
             }
         }
     }
