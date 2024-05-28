@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-26 00:38+0000\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -395,12 +395,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:179 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Pesan ini telah dihapus]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:180
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -826,6 +826,7 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/timeline/LoadComponent.qml:33
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -1523,6 +1524,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emoji Sendiri"
 
+#: src/models/messagecontentmodel.cpp:172
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading reply"
+msgstr "Memuat..."
+
 #: src/models/messagefiltermodel.cpp:153
 #, fuzzy, kde-format
 #| msgid ": %1"
@@ -1872,12 +1880,12 @@ msgstr "Pembuatan ruangan gagal: %1"
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
 
-#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
+#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
+#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -5577,20 +5585,20 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Kembali"
 
-#: src/timeline/CodeComponent.qml:167
+#: src/timeline/CodeComponent.qml:168
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
 msgid "Copy to clipboard"
 msgstr "Salin ID ruangan ke papan klip"
 
-#: src/timeline/CodeComponent.qml:178
+#: src/timeline/CodeComponent.qml:180
 #, fuzzy, kde-format
 #| msgid "Maximize"
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maksimalkan"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
+#: src/timeline/EncryptedComponent.qml:21
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -5654,7 +5662,8 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr ""
 
-#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129
+#: src/timeline/LinkPreviewLoadComponent.qml:79
 #, fuzzy, kde-format
 #| msgid "Remove device"
 msgctxt "As in remove the link preview so it's no longer shown"
@@ -5671,18 +5680,12 @@ msgstr "Kecilkan pratinjau"
 msgid "Expand preview"
 msgstr "Luaskan pratinjau"
 
-#: src/timeline/LoadComponent.qml:66
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgid "Loading reply"
-msgstr "Memuat..."
-
-#: src/timeline/LoadComponent.qml:68
+#: src/timeline/LinkPreviewLoadComponent.qml:68
 #, kde-format
 msgid "Loading URL preview"
 msgstr "Memuat pratinjau URL"
 
-#: src/timeline/MessageComponentChooser.qml:230
+#: src/timeline/MessageComponentChooser.qml:219
 #, fuzzy, kde-format
 #| msgid "withdrew a user's invitation"
 msgid "%1 started a user verification"

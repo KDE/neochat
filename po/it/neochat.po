@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-26 00:38+0000\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
 "PO-Revision-Date: 2024-05-13 10:08+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -380,12 +380,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:179 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Questo messaggio è stato eliminato]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:180
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -812,6 +812,7 @@ msgid "Registration is disabled on this server."
 msgstr "La registrazione è disabilitata su questo server."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Caricamento"
@@ -1488,6 +1489,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "I propri emoji"
 
+#: src/models/messagecontentmodel.cpp:172
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, kde-format
+msgid "Loading reply"
+msgstr "Caricamento risposta"
+
 #: src/models/messagefiltermodel.cpp:153
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1815,12 +1822,12 @@ msgstr "Creazione della stanza non riuscita: %1"
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
 
-#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
+#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Segnalazione inviata correttamente."
 
-#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
+#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -5373,18 +5380,18 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Indietro"
 
-#: src/timeline/CodeComponent.qml:167
+#: src/timeline/CodeComponent.qml:168
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
 
-#: src/timeline/CodeComponent.qml:178
+#: src/timeline/CodeComponent.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Massimizza"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
+#: src/timeline/EncryptedComponent.qml:21
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -5449,7 +5456,8 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Invia a KDE Itinerary"
 
-#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129
+#: src/timeline/LinkPreviewLoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
@@ -5465,17 +5473,12 @@ msgstr "Riduci l'anteprima"
 msgid "Expand preview"
 msgstr "Espandi l'anteprima"
 
-#: src/timeline/LoadComponent.qml:66
-#, kde-format
-msgid "Loading reply"
-msgstr "Caricamento risposta"
-
-#: src/timeline/LoadComponent.qml:68
+#: src/timeline/LinkPreviewLoadComponent.qml:68
 #, kde-format
 msgid "Loading URL preview"
 msgstr "Caricamento dell'anteprima dell'URL"
 
-#: src/timeline/MessageComponentChooser.qml:230
+#: src/timeline/MessageComponentChooser.qml:219
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 ha iniziato una verifica utente"

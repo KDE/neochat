@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-26 00:38+0000\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
 "PO-Revision-Date: 2024-05-19 17:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -379,12 +379,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:179 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:180
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -810,6 +810,7 @@ msgid "Registration is disabled on this server."
 msgstr "இச்சேவையகத்தில் கணக்குருவாக்கம் முடக்கப்பட்டுள்ளது."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "ஏற்றப்படுகிறது…"
@@ -1484,6 +1485,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "சொந்த முகவடிகள்"
 
+#: src/models/messagecontentmodel.cpp:172
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, kde-format
+msgid "Loading reply"
+msgstr "பதில் ஏற்றப்படுகிறது…"
+
 #: src/models/messagefiltermodel.cpp:153
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1807,12 +1814,12 @@ msgstr "அரங்கு உருவாக்கம் தோல்விய�
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
+#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
+#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -5309,18 +5316,18 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "பின்னே"
 
-#: src/timeline/CodeComponent.qml:167
+#: src/timeline/CodeComponent.qml:168
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "பிடிப்புப்பலகைக்கு நகலெடு"
 
-#: src/timeline/CodeComponent.qml:178
+#: src/timeline/CodeComponent.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
+#: src/timeline/EncryptedComponent.qml:21
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -5384,7 +5391,8 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "KDE Itinerary-க்கு அனுப்பு"
 
-#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129
+#: src/timeline/LinkPreviewLoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
@@ -5400,17 +5408,12 @@ msgstr "முன்னோட்டத்தை சிறிதாக்கு"
 msgid "Expand preview"
 msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 
-#: src/timeline/LoadComponent.qml:66
-#, kde-format
-msgid "Loading reply"
-msgstr "பதில் ஏற்றப்படுகிறது…"
-
-#: src/timeline/LoadComponent.qml:68
+#: src/timeline/LinkPreviewLoadComponent.qml:68
 #, kde-format
 msgid "Loading URL preview"
 msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
 
-#: src/timeline/MessageComponentChooser.qml:230
+#: src/timeline/MessageComponentChooser.qml:219
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 பயனர் உறுதிப்பாட்டைத் துவக்கினார்"

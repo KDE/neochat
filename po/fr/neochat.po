@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-26 00:38+0000\n"
-"PO-Revision-Date: 2024-05-14 11:17+0200\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
+"PO-Revision-Date: 2024-05-26 09:18+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -364,8 +364,7 @@ msgid "Mute"
 msgstr "Muet"
 
 #: src/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgid "Custom"
 msgstr "Personnalisé"
 
@@ -380,12 +379,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:179 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ce message a été supprimé]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:180
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -812,6 +811,7 @@ msgid "Registration is disabled on this server."
 msgstr "L'enregistrement est désactivé sur ce serveur."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Chargement..."
@@ -1492,6 +1492,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Émoticônes personnelles"
 
+#: src/models/messagecontentmodel.cpp:172
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, kde-format
+msgid "Loading reply"
+msgstr "Chargement de la réponse..."
+
 #: src/models/messagefiltermodel.cpp:153
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1820,12 +1826,12 @@ msgstr "Impossible de créer le salon : %1"
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer un espace : %1"
 
-#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
+#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport envoyé avec succès."
 
-#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
+#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3598,10 +3604,9 @@ msgid "Jump to first unread message"
 msgstr "Aller au premier message non lu."
 
 #: src/qml/TimelineView.qml:195
-#, fuzzy, kde-format
-#| msgid "Jump to latest message"
+#, kde-format
 msgid "Jump to oldest loaded message"
-msgstr "Aller au message le plus ancien."
+msgstr "Se déplacer sur le message le plus ancien."
 
 #: src/qml/TimelineView.qml:235
 #, kde-format
@@ -5386,18 +5391,18 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Revenir en arrière"
 
-#: src/timeline/CodeComponent.qml:167
+#: src/timeline/CodeComponent.qml:168
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
-#: src/timeline/CodeComponent.qml:178
+#: src/timeline/CodeComponent.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maximiser"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
+#: src/timeline/EncryptedComponent.qml:21
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -5462,7 +5467,8 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Envoyer vers KDE Itinerary"
 
-#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129
+#: src/timeline/LinkPreviewLoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
@@ -5478,17 +5484,12 @@ msgstr "Réduire l'aperçu"
 msgid "Expand preview"
 msgstr "Développer l'aperçu"
 
-#: src/timeline/LoadComponent.qml:66
-#, kde-format
-msgid "Loading reply"
-msgstr "Chargement de la réponse..."
-
-#: src/timeline/LoadComponent.qml:68
+#: src/timeline/LinkPreviewLoadComponent.qml:68
 #, kde-format
 msgid "Loading URL preview"
 msgstr "Chargement d'un aperçu de l'URL"
 
-#: src/timeline/MessageComponentChooser.qml:230
+#: src/timeline/MessageComponentChooser.qml:219
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 a démarré une vérification d'utilisateurs"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-26 00:38+0000\n"
-"PO-Revision-Date: 2024-05-25 09:23+0200\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
+"PO-Revision-Date: 2024-05-27 04:41+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -341,26 +341,22 @@ msgid "Spaces"
 msgstr "სივრცეები"
 
 #: src/enums/powerlevel.cpp:10
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member"
 msgstr "წევრები"
 
 #: src/enums/powerlevel.cpp:12
-#, fuzzy, kde-format
-#| msgid "Moderator (50)"
+#, kde-format
 msgid "Moderator"
-msgstr "მოდერატორი (50)"
+msgstr "მოდერატორი"
 
 #: src/enums/powerlevel.cpp:14
-#, fuzzy, kde-format
-#| msgid "Admin (100)"
+#, kde-format
 msgid "Admin"
-msgstr "ადმინისტრატორი (100)"
+msgstr "ადმინი"
 
 #: src/enums/powerlevel.cpp:16
-#, fuzzy, kde-format
-#| msgid "Muted"
+#, kde-format
 msgid "Mute"
 msgstr "ხმა გამორთული"
 
@@ -371,8 +367,7 @@ msgstr "ხელით მითითებული"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
 #: src/models/userlistmodel.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
 "represents."
@@ -380,12 +375,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:179 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:180
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -811,6 +806,7 @@ msgid "Registration is disabled on this server."
 msgstr "ამ სერვერზე რეგისტრაცია გამორთულია."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "იტვირთება"
@@ -1485,6 +1481,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "საკუთარი ემოჯიები"
 
+#: src/models/messagecontentmodel.cpp:172
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, kde-format
+msgid "Loading reply"
+msgstr "პასუხის ჩატვირთვა"
+
 #: src/models/messagefiltermodel.cpp:153
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1529,163 +1531,116 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/permissionsmodel.cpp:37
-#, fuzzy
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default user power level"
 msgstr "მომხმარებლის წვდომის ნაგულისხმევი დონე"
 
 #: src/models/permissionsmodel.cpp:38
-#, fuzzy
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to set the room state"
 msgstr "ოთახის მდგომარეობის დასაყენებელი უფლებების ნაგულისხმევი დონე"
 
 #: src/models/permissionsmodel.cpp:39
-#, fuzzy
-#| msgid "Default power level to send messages"
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "ნაგულისხმევი წვდომის დონე შეტყობინებების გასაგზავნად"
 
 #: src/models/permissionsmodel.cpp:40
-#, fuzzy
-#| msgid "Invite users"
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "მომხმარებლების მოწვევა"
 
 #: src/models/permissionsmodel.cpp:41
-#, fuzzy
-#| msgid "Kick users"
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "მომხმარებლების გაყრა"
 
 #: src/models/permissionsmodel.cpp:42
-#, fuzzy
-#| msgid "Ban users"
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "მომხმარებლების ბანი"
 
 #: src/models/permissionsmodel.cpp:43
-#, fuzzy
-#| msgid "Remove message sent by other users"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "სხვა მომხმარებლების მიერ გამოგზავნილი შეტყობინებების წაშლა"
 
 #: src/models/permissionsmodel.cpp:44
-#, fuzzy
-#| msgid "Send a Location"
 msgctxt "Room permission type"
 msgid "Send reactions"
-msgstr "მდებარეობის გაგზავნა"
+msgstr "რეაქციების გაგზავნა"
 
 #: src/models/permissionsmodel.cpp:45
-#, fuzzy
-#| msgid "Remove Messages"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "შეტყობინებების წაშლა"
 
 #: src/models/permissionsmodel.cpp:46
-#, fuzzy
-#| msgid "Change user permissions"
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "მომხმარებლის წვდომების შეცვლა"
 
 #: src/models/permissionsmodel.cpp:47
-#, fuzzy
-#| msgid "Change the room name"
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "ოთახის სახელის შეცვლა"
 
 #: src/models/permissionsmodel.cpp:48
-#, fuzzy
-#| msgid "Change the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "ოთახის ავატარის შეცვლა"
 
 #: src/models/permissionsmodel.cpp:49
-#, fuzzy
-#| msgid "Change the room canonical alias"
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
-msgstr "ოთახის კანონიკურ მეტსახელის შეცვლა"
+msgstr "ოთახის კანონიკური მეტსახელის შეცვლა"
 
 #: src/models/permissionsmodel.cpp:50
-#, fuzzy
-#| msgid "Change the room topic"
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "ოთხის თემის შეცვლა"
 
 #: src/models/permissionsmodel.cpp:51
-#, fuzzy
-#| msgid "Enable encryption for the room"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "ოთახისთვის დაშიფვრის ჩართვა"
 
 #: src/models/permissionsmodel.cpp:52
-#, fuzzy
-#| msgid "Change the room history visibility"
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "ოთახის ისტორიის ხილვადობის შეცვლა"
 
 #: src/models/permissionsmodel.cpp:53
-#, fuzzy
-#| msgid "Set pinned events"
 msgctxt "Room permission type"
 msgid "Set pinned events"
 msgstr "მიჭიკარტებული მოვლენების დაყენება"
 
 #: src/models/permissionsmodel.cpp:54
-#, fuzzy
-#| msgid "Upgrade the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "ოთახის გაუმჯობესება"
 
 #: src/models/permissionsmodel.cpp:55
-#, fuzzy
-#| msgid "Set the room server access control list (ACL)"
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "ოთახის სერვერის წვდომის კონტროლის სიების დაყენება (ACL)"
 
 #: src/models/permissionsmodel.cpp:56
-#, fuzzy
-#| msgid "Set the children of this space"
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "ამ სივრცის შვილების დაყენება"
 
 #: src/models/permissionsmodel.cpp:57
-#, fuzzy
-#| msgid "Set the parent space of this room"
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "ამ ოთახის მშობელი სივრცის დაყენება"
 
 #: src/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgid "This is power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room"
 msgstr "ეს ოთახში შემოსვლისას ახალი მომხმარებლების წვდომის დონეა"
 
 #: src/models/permissionsmodel.cpp:63
-#, fuzzy
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
@@ -1693,14 +1648,11 @@ msgstr ""
 "არ გააჩნია"
 
 #: src/models/permissionsmodel.cpp:64
-#, fuzzy
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
-"გამოიყენება ყველა შეტყობინების მობლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
+"გამოიყენება ყველა შეტყობინების მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
 "არ გააჩნია"
 
 #: src/models/pushrulemodel.cpp:20
@@ -1810,12 +1762,12 @@ msgstr "ოთახის შექმნის შეცდომა: %1"
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
 
-#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
+#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
 
-#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
+#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4829,7 +4781,7 @@ msgstr "მოვლენის წვდომები"
 #: src/settings/Permissions.qml:365
 #, kde-format
 msgid "Event Type…"
-msgstr ""
+msgstr "მოვლენის ტიპი…"
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5320,18 +5272,18 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "უკან"
 
-#: src/timeline/CodeComponent.qml:167
+#: src/timeline/CodeComponent.qml:168
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "ბუფერში კოპირება"
 
-#: src/timeline/CodeComponent.qml:178
+#: src/timeline/CodeComponent.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "გადიდება"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
+#: src/timeline/EncryptedComponent.qml:21
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -5396,7 +5348,8 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "გაგზავნა KDE Itinerary-სთვის"
 
-#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129
+#: src/timeline/LinkPreviewLoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
@@ -5412,17 +5365,12 @@ msgstr "მინატურის შემცირება"
 msgid "Expand preview"
 msgstr "მინიატურის გაფართოება"
 
-#: src/timeline/LoadComponent.qml:66
-#, kde-format
-msgid "Loading reply"
-msgstr "პასუხის ჩატვირთვა"
-
-#: src/timeline/LoadComponent.qml:68
+#: src/timeline/LinkPreviewLoadComponent.qml:68
 #, kde-format
 msgid "Loading URL preview"
 msgstr "URL-ის მინიატურის ჩატვირთვა"
 
-#: src/timeline/MessageComponentChooser.qml:230
+#: src/timeline/MessageComponentChooser.qml:219
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1-მა დაიწყო მომხმარებლის გადამოწმება"
