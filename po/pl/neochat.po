@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-26 00:38+0000\n"
+"POT-Creation-Date: 2024-05-28 00:38+0000\n"
 "PO-Revision-Date: 2024-05-26 11:12+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -15,9 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
-" || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #: src/chatbar/AttachDialog.qml:27
 #, kde-format
@@ -344,25 +343,21 @@ msgstr "Odstępy"
 
 #: src/enums/powerlevel.cpp:10
 #, kde-format
-#| msgid "Members"
 msgid "Member"
 msgstr "Członek"
 
 #: src/enums/powerlevel.cpp:12
 #, kde-format
-#| msgid "Moderator (50)"
 msgid "Moderator"
 msgstr "Moderator"
 
 #: src/enums/powerlevel.cpp:14
 #, kde-format
-#| msgid "Admin (100)"
 msgid "Admin"
 msgstr "Administrator"
 
 #: src/enums/powerlevel.cpp:16
 #, kde-format
-#| msgid "Muted"
 msgid "Mute"
 msgstr "Wycisz"
 
@@ -374,7 +369,6 @@ msgstr "Własny"
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
 #: src/models/userlistmodel.cpp:99
 #, kde-format
-#| msgid "%1 (%2)"
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
 "represents."
@@ -382,12 +376,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:510
-#: src/models/messagecontentmodel.cpp:143 src/models/messageeventmodel.cpp:436
+#: src/models/messagecontentmodel.cpp:179 src/models/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ta wiadomość została usunięta]</i>"
 
-#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:144
+#: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:180
 #: src/models/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -814,6 +808,7 @@ msgid "Registration is disabled on this server."
 msgstr "Rejestrowanie się na ten serwer jest wyłączone."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Wczytywanie"
@@ -1486,6 +1481,12 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Własne emoji"
 
+#: src/models/messagecontentmodel.cpp:172
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, kde-format
+msgid "Loading reply"
+msgstr "Wczytywanie odpowiedzi"
+
 #: src/models/messagefiltermodel.cpp:153
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
@@ -1532,133 +1533,111 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/permissionsmodel.cpp:37
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default user power level"
 msgstr "Domyślny poziom uprawnień użytkownika"
 
 #: src/models/permissionsmodel.cpp:38
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to set the room state"
 msgstr "Domyślny poziom uprawnień, na który ustawić pokój"
 
 #: src/models/permissionsmodel.cpp:39
-#| msgid "Default power level to send messages"
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "Domyślny poziom uprawnień do wysyłania wiadomości"
 
 #: src/models/permissionsmodel.cpp:40
-#| msgid "Invite users"
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Zaproś użytkowników"
 
 #: src/models/permissionsmodel.cpp:41
-#| msgid "Kick users"
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Wykop użytkowników"
 
 #: src/models/permissionsmodel.cpp:42
-#| msgid "Ban users"
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Zbanuj użytkowników"
 
 #: src/models/permissionsmodel.cpp:43
-#| msgid "Remove message sent by other users"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Usuń wiadomości wysłane przez innych użytkowników"
 
 #: src/models/permissionsmodel.cpp:44
-#| msgid "Send a Location"
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Wysyłanie reakcji"
 
 #: src/models/permissionsmodel.cpp:45
-#| msgid "Remove Messages"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "Usuń ich własne wiadomości"
 
 #: src/models/permissionsmodel.cpp:46
-#| msgid "Change user permissions"
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "Zmień uprawnienia użytkownika"
 
 #: src/models/permissionsmodel.cpp:47
-#| msgid "Change the room name"
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "Zmień nazwę pokoju"
 
 #: src/models/permissionsmodel.cpp:48
-#| msgid "Change the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Zmień awatar pokoju"
 
 #: src/models/permissionsmodel.cpp:49
-#| msgid "Change the room canonical alias"
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "Zmień alias kanoniczny pokoju"
 
 #: src/models/permissionsmodel.cpp:50
-#| msgid "Change the room topic"
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "Zmień temat pokoju"
 
 #: src/models/permissionsmodel.cpp:51
-#| msgid "Enable encryption for the room"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Włącz szyfrowanie pokoju"
 
 #: src/models/permissionsmodel.cpp:52
-#| msgid "Change the room history visibility"
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "Zmień widoczność historii pokoju"
 
 #: src/models/permissionsmodel.cpp:53
-#| msgid "Set pinned events"
 msgctxt "Room permission type"
 msgid "Set pinned events"
 msgstr "Ustaw przypięte wydarzenia"
 
 #: src/models/permissionsmodel.cpp:54
-#| msgid "Upgrade the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "Uaktualnij pokój"
 
 #: src/models/permissionsmodel.cpp:55
-#| msgid "Set the room server access control list (ACL)"
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "Ustaw listę listę sterującą dostępem do tego serwera (ACL)"
 
 #: src/models/permissionsmodel.cpp:56
-#| msgid "Set the children of this space"
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "Ustaw przestrzeń podrzędną dla tej przestrzeni"
 
 #: src/models/permissionsmodel.cpp:57
-#| msgid "Set the parent space of this room"
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "Ustaw przestrzeń nadrzędną dla tego pokoju"
 
 #: src/models/permissionsmodel.cpp:62
-#| msgid "This is power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room"
 msgstr ""
@@ -1666,8 +1645,6 @@ msgstr ""
 "pokoju"
 
 #: src/models/permissionsmodel.cpp:63
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
@@ -1675,8 +1652,6 @@ msgstr ""
 "wpisu"
 
 #: src/models/permissionsmodel.cpp:64
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -1793,12 +1768,12 @@ msgstr "Nie udało się utworzyć pokoju: %1"
 msgid "Space creation failed: %1"
 msgstr "Nie udało się utworzyć przestrzeni: %1"
 
-#: src/neochatroom.cpp:1397 src/neochatroom.cpp:1398
+#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
 
-#: src/neochatroom.cpp:1672 src/neochatroom.cpp:1680
+#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3570,7 +3545,6 @@ msgstr "Przeskocz do pierwszej nieprzeczytanej wiadomości"
 
 #: src/qml/TimelineView.qml:195
 #, kde-format
-#| msgid "Jump to latest message"
 msgid "Jump to oldest loaded message"
 msgstr "Przeskocz do najstarszej wczytanej wiadomości"
 
@@ -3755,7 +3729,6 @@ msgstr "Skopiuj odnośnik"
 
 #: src/qml/UserInfo.qml:56
 #, kde-format
-#| msgid "Configure"
 msgctxt "@action:button"
 msgid "Configure"
 msgstr "Ustawienia"
@@ -4126,7 +4099,6 @@ msgstr "Numery telefonów"
 
 #: src/settings/AccountEditorPage.qml:212
 #, kde-format
-#| msgid "Add New Server"
 msgid "Identity Server"
 msgstr "Serwer tożsamości"
 
@@ -4464,21 +4436,18 @@ msgstr "Nowy adres URL serwera tożsamości"
 
 #: src/settings/IdentityServerDelegate.qml:43
 #, kde-format
-#| msgid "Cancel editing display name"
 msgctxt "@action:button"
 msgid "Cancel editing identity server url"
 msgstr "Przerwij zmianę adresu URL serwera tożsamości"
 
 #: src/settings/IdentityServerDelegate.qml:49
 #, kde-format
-#| msgid "Confirm new display name"
 msgctxt "@action:button"
 msgid "Confirm new identity server url"
 msgstr "Potwierdź nowy adres URL serwera tożsamości"
 
 #: src/settings/IdentityServerDelegate.qml:73
 #, kde-format
-#| msgid "The entered text is not a valid url"
 msgid "The entered url is not a valid identity server"
 msgstr "Serwer z adresu URL nie jest serwerem tożsamości"
 
@@ -4495,7 +4464,6 @@ msgstr "Zmień adres URL serwera tożsamości"
 
 #: src/settings/IdentityServerDelegate.qml:119
 #, kde-format
-#| msgid "Remove device"
 msgctxt "@action:button"
 msgid "Remove identity server"
 msgstr "Usuń serwer tożsamości"
@@ -4811,14 +4779,12 @@ msgstr "Usuń słowo kluczowe"
 
 #: src/settings/PasswordSheet.qml:16
 #, kde-format
-#| msgid "Can change password"
 msgctxt "@title:dialog"
 msgid "Enter password"
 msgstr "Wpisz hasło"
 
 #: src/settings/PasswordSheet.qml:30
 #, kde-format
-#| msgid "Password:"
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Hasło:"
@@ -5253,7 +5219,6 @@ msgstr "Usuń słowo"
 
 #: src/settings/ThreePIdCard.qml:52
 #, kde-format
-#| msgid "Remove"
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Usuń"
@@ -5266,14 +5231,12 @@ msgstr "Kod kraju dla nowego numeru telefonu"
 
 #: src/settings/ThreePIdCard.qml:89
 #, kde-format
-#| msgid "Add an e-mail address:"
 msgctxt "@label:textbox"
 msgid "New email address"
 msgstr "Nowy adres pocztowy"
 
 #: src/settings/ThreePIdCard.qml:89
 #, kde-format
-#| msgid "Phone Numbers"
 msgctxt "@label:textbox"
 msgid "New phone number"
 msgstr "Nowy numer telefonu"
@@ -5285,7 +5248,6 @@ msgstr "Wysłaliśmy ci wiadomość tekstową"
 
 #: src/settings/ThreePIdCard.qml:93
 #, kde-format
-#| msgid "sent a message"
 msgid "We've sent you a text message"
 msgstr "Wysłaliśmy ci wiadomość tekstową"
 
@@ -5298,19 +5260,16 @@ msgstr ""
 
 #: src/settings/ThreePIdCard.qml:95
 #, kde-format
-#| msgid "The entered text is not a valid url"
 msgid "The entered email is not valid"
 msgstr "Wpisany adres pocztowy jest nieprawidłowy"
 
 #: src/settings/ThreePIdCard.qml:95
 #, kde-format
-#| msgid "The entered text is not a valid url"
 msgid "The entered phone number is not valid"
 msgstr "Wpisany numer telefonu jest nieprawidłowy"
 
 #: src/settings/ThreePIdCard.qml:97
 #, kde-format
-#| msgid "Wrong password entered"
 msgid "Incorrect password entered"
 msgstr "Wpisano złe hasło"
 
@@ -5320,9 +5279,8 @@ msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
-"Adres pocztowy nie został potwierdzony. Wróć do wiadomości "
-"pocztowej i przejdź przez wypisane tam kroki, a na końcu naciśnij poniższy"
-" przycisk."
+"Adres pocztowy nie został potwierdzony. Wróć do wiadomości pocztowej i "
+"przejdź przez wypisane tam kroki, a na końcu naciśnij poniższy przycisk."
 
 #: src/settings/ThreePIdCard.qml:99
 #, kde-format
@@ -5330,37 +5288,33 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
-"Numer telefonu nie został potwierdzony. Wróć do wiadomości "
-"tekstowej i przejdź przez wypisane tam kroki, a na końcu naciśnij poniższy"
-" przycisk."
+"Numer telefonu nie został potwierdzony. Wróć do wiadomości tekstowej i "
+"przejdź przez wypisane tam kroki, a na końcu naciśnij poniższy przycisk."
 
 #: src/settings/ThreePIdCard.qml:124
 #, kde-format
-#| msgid "Add"
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Dodaj"
 
 #: src/settings/ThreePIdCard.qml:132
 #, kde-format
-#| msgctxt "@action:button"
-#| msgid "Back"
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Wstecz"
 
-#: src/timeline/CodeComponent.qml:167
+#: src/timeline/CodeComponent.qml:168
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Skopiuj do schowka"
 
-#: src/timeline/CodeComponent.qml:178
+#: src/timeline/CodeComponent.qml:180
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Zmaksymalizuj"
 
-#: src/timeline/EncryptedComponent.qml:21 src/timeline/ReplyComponent.qml:200
+#: src/timeline/EncryptedComponent.qml:21
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -5425,7 +5379,8 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Wyślij do KDE Itinerary"
 
-#: src/timeline/LinkPreviewComponent.qml:129 src/timeline/LoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:129
+#: src/timeline/LinkPreviewLoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
@@ -5441,17 +5396,12 @@ msgstr "Skurcz podgląd"
 msgid "Expand preview"
 msgstr "Rozpręż podgląd"
 
-#: src/timeline/LoadComponent.qml:66
-#, kde-format
-msgid "Loading reply"
-msgstr "Wczytywanie odpowiedzi"
-
-#: src/timeline/LoadComponent.qml:68
+#: src/timeline/LinkPreviewLoadComponent.qml:68
 #, kde-format
 msgid "Loading URL preview"
 msgstr "Wczytywanie podglądu adresu URL"
 
-#: src/timeline/MessageComponentChooser.qml:230
+#: src/timeline/MessageComponentChooser.qml:219
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 rozpoczął sprawdzanie użytkownika"
@@ -5991,4 +5941,3 @@ msgstr "Zakończ"
 #~ msgctxt "Seperate the usernames of users"
 #~ msgid " and "
 #~ msgstr " i "
-
