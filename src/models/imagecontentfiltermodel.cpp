@@ -8,12 +8,14 @@
 ImageContentFilterModel::ImageContentFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    updateSourceModel();
 }
 
 bool ImageContentFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
+    Q_UNUSED(sourceParent);
     auto index = sourceModel()->index(sourceRow, 0);
-    return index.data(ImageContentRole::IsEmojiRole).toBool() && emojis() || index.data(ImageContentRole::IsStickerRole).toBool() && stickers();
+    return (index.data(ImageContentRole::IsEmojiRole).toBool() && emojis()) || (index.data(ImageContentRole::IsStickerRole).toBool() && stickers());
 }
 
 bool ImageContentFilterModel::stickers() const
@@ -38,4 +40,52 @@ void ImageContentFilterModel::setEmojis(bool emojis)
     m_emojis = emojis;
     Q_EMIT emojisChanged();
     invalidateFilter();
+}
+
+void ImageContentFilterModel::setCategory(const QString &category)
+{
+    if (category == m_category) {
+        return;
+    }
+    m_category = category;
+    Q_EMIT categoryChanged();
+    updateSourceModel();
+}
+
+QString ImageContentFilterModel::category() const
+{
+    return m_category;
+}
+
+void ImageContentFilterModel::setSearchText(const QString &searchText)
+{
+    if (searchText == m_searchText) {
+        return;
+    }
+    m_searchText = searchText;
+    Q_EMIT searchTextChanged();
+    updateSourceModel();
+}
+
+QString ImageContentFilterModel::searchText() const
+{
+    return m_searchText;
+}
+
+void ImageContentFilterModel::updateSourceModel()
+{
+    if (!m_searchText.isEmpty()) {
+        if (sourceModel() != &m_searchModel) {
+            setSourceModel(&m_searchModel);
+        }
+        m_searchModel.setSearchText(m_searchText);
+
+    } else if (m_category == QStringLiteral("history")) {
+        setSourceModel(&m_recentImageContentProxyModel);
+    } else {
+        if (sourceModel() != &m_imageContentModel) {
+            setSourceModel(&m_imageContentModel);
+        }
+        m_imageContentModel.setCategory(m_category);
+    }
 }

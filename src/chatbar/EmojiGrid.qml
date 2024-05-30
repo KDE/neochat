@@ -9,7 +9,6 @@ import org.kde.neochat
 QQC2.ScrollView {
     id: root
 
-    required property var model
     readonly property int emojisPerRow: emojis.width / Kirigami.Units.iconSizes.large
     required property QtObject header
     property bool stickers: false
@@ -40,30 +39,20 @@ QQC2.ScrollView {
         cellHeight: Kirigami.Units.iconSizes.large
 
         model: ImageContentFilterModel {
-            sourceModel: searchField.text.length > 0 ? emojiSearchModel
-                : emoticonPickerCategoryHeader.currentCategory === "history" ? recentImageContentProxyModel
-                : imageContentModel
+            // searchField.text.length > 0 ? emojiSearchModel
+            // : emoticonPickerCategoryHeader.currentCategory === "history" ?   recentImageContentProxyModel
+            // : imageContentModel
+            searchText: searchField.text
+            category: emoticonPickerCategoryHeader.category
             stickers: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Sticker
             emojis: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Emoji
-        }
-
-        ImageContentModel {
-            id: imageContentModel
-            category: emoticonPickerCategoryHeader.currentCategory
-        }
-
-        RecentImageContentProxyModel {
-            id: recentImageContentProxyModel
-        }
-
-        ImageContentSearchModel {
-            id: emojiSearchModel
-            searchText: searchField.text
         }
 
         KeyNavigation.up: root.header
 
         clip: true
+
+
 
         delegate: EmojiDelegate {
             id: emojiDelegate

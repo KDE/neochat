@@ -16,7 +16,7 @@ QQC2.ScrollView {
 
     required property var model
     property int currentIndex: 0
-    readonly property string currentCategory: root.model.data(root.model.index(root.currentIndex, 0), ImageContentPackRole.IdentifierRole)
+    readonly property string category: root.model.data(root.model.index(root.currentIndex, 0), ImageContentPackRole.IdentifierRole)
 
     implicitHeight: Kirigami.Units.iconSizes.large + root.QQC2.ScrollBar.horizontal.height
 
