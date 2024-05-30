@@ -6,6 +6,7 @@
 #include "models/allimagecontentmodel.h"
 
 #include <QDebug>
+#include <QtCore/qnamespace.h>
 
 ImageContentSearchModel::ImageContentSearchModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -16,7 +17,7 @@ ImageContentSearchModel::ImageContentSearchModel(QObject *parent)
 bool ImageContentSearchModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
     Q_UNUSED(sourceParent);
-    return sourceModel()->index(sourceRow, 0).data(ImageContentRole::DisplayNameRole).toString().contains(m_searchText);
+    return sourceModel()->index(sourceRow, 0).data(ImageContentRole::DisplayNameRole).toString().contains(m_searchText, Qt::CaseInsensitive);
 }
 
 QString ImageContentSearchModel::searchText() const
