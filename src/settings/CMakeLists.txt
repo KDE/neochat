@@ -2,14 +2,20 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 qt_add_library(settings STATIC)
+
+set_source_files_properties(
+    RoomSettingsView.qml
+    NeoChatSettingsView.qml
+    PROPERTIES
+        QT_QML_SINGLETON_TYPE TRUE
+)
+
 qt_add_qml_module(settings
     URI org.kde.neochat.settings
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/settings
     QML_FILES
-        NeoChatSettings.qml
-        RoomSettings.qml
-        About.qml
-        AboutKDE.qml
+        NeoChatSettingsView.qml
+        RoomSettingsView.qml
         AccountsPage.qml
         AccountEditorPage.qml
         AppearanceSettingsPage.qml

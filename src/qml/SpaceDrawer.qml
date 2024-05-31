@@ -300,7 +300,7 @@ QQC2.Control {
         }
     }
 
-    function createContextMenu(room) {
+    function createContextMenu(room: NeoChatRoom): void {
         let context = spaceListContextMenu.createObject(root, {
             room: room,
             connection: root.connection
@@ -309,6 +309,8 @@ QQC2.Control {
     }
     Component {
         id: spaceListContextMenu
-        SpaceListContextMenu {}
+        SpaceListContextMenu {
+            window: root.QQC2.ApplicationWindow.window
+        }
     }
 }

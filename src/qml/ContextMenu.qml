@@ -108,14 +108,11 @@ Loader {
             }
 
             QQC2.MenuItem {
-                text: i18n("Room Settings")
-                icon.name: "configure"
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings'), {
-                    room: room,
-                    connection: connection
-                }, {
-                    title: i18n("Room Settings")
-                })
+                text: i18nc("@action:inmenu", "Room Settings")
+                icon.name: 'settings-configure-symbolic'
+                onTriggered: {
+                    RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
+                }
             }
 
             QQC2.MenuSeparator {}
@@ -187,14 +184,10 @@ Loader {
                     }
 
                     QQC2.ToolButton {
-                        icon.name: 'settings-configure'
+                        text: i18nc("@action:button", "Room Settings")
+                        icon.name: 'settings-configure-symbolic'
                         onClicked: {
-                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings'), {
-                                room: room,
-                                connection: root.connection
-                            }, {
-                                title: i18n("Room Settings")
-                            });
+                            RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
                             drawer.close();
                         }
                     }

@@ -48,21 +48,16 @@ RowLayout {
 
         activeFocusOnTab: true
 
-        onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
-            defaultPage: "accounts",
-            connection: root.connection,
-            initialAccount: root.connection
-        }, {
-            title: i18nc("@action:button", "Configure"),
-            width: Kirigami.Units.gridUnit * 50,
-            height: Kirigami.Units.gridUnit * 42
-        })
+        onClicked: {
+            NeoChatSettingsView.open("accounts")
+        }
 
         TapHandler {
             acceptedButtons: Qt.RightButton
             onTapped:  accountMenu.open()
         }
     }
+
     ColumnLayout {
         Layout.fillWidth: true
         Layout.maximumWidth: Math.round(root.width * 0.55)
@@ -99,15 +94,13 @@ RowLayout {
                 }).open();
             },
             Kirigami.Action {
+                id: openSettingsAction
+
                 text: i18n("Open Settings")
-                icon.name: "settings-configure"
-                onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
-                    connection: root.connection
-                }, {
-                    title: i18n("Configure"),
-                    width: Kirigami.Units.gridUnit * 50,
-                    height: Kirigami.Units.gridUnit * 42
-                })
+                icon.name: "settings-configure-symbolic"
+                onTriggered: {
+                    NeoChatSettingsView.open();
+                }
             }
         ]
 

@@ -21,6 +21,7 @@ Loader {
 
     property NeoChatRoom room
     required property NeoChatConnection connection
+    required property Kirigami.ApplicationWindow window
 
     signal closed
 
@@ -45,13 +46,10 @@ Loader {
 
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Space Settings")
-                icon.name: 'settings-configure'
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings'), {
-                    room: room,
-                    connection: connection
-                }, {
-                    title: i18n("Space Settings")
-                })
+                icon.name: 'settings-configure-symbolic'
+                onTriggered: {
+                    RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Space);
+                }
             }
 
             QQC2.MenuSeparator {}
@@ -130,13 +128,11 @@ Loader {
 
                 FormCard.FormButtonDelegate {
                     text: i18nc("'Space' is a matrix space", "Space Settings")
-                    icon.name: 'settings-configure'
-                    onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings'), {
-                        room: room,
-                        connection: connection
-                    }, {
-                        title: i18n("Space Settings")
-                    })
+                    icon.name: 'settings-configure-symbolic'
+                    onClicked: {
+                        RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Space);
+                        drawer.close();
+                    }
                 }
 
                 FormCard.FormButtonDelegate {

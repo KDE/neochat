@@ -70,15 +70,15 @@ ColumnLayout {
                     Layout.fillWidth: true
                 }
                 QQC2.Button {
-                    text: i18nc("@button", "Space settings")
-                    icon.name: "settings-configure"
+                    id: settingsButton
+
                     display: QQC2.AbstractButton.IconOnly
-                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings'), {
-                        room: root.currentRoom,
-                        connection: root.currentRoom.connection
-                    }, {
-                        title: i18n("Room Settings")
-                    })
+                    text: i18nc("'Space' is a matrix space", "Space Settings")
+                    onClicked: {
+                        RoomSettingsView.openRoomSettings(root.currentRoom, RoomSettingsView.Space);
+                        drawer.close();
+                    }
+                    icon.name: 'settings-configure-symbolic'
 
                     QQC2.ToolTip.text: text
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay

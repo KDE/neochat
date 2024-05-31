@@ -100,20 +100,17 @@ Kirigami.OverlayDrawer {
                     QQC2.ToolButton {
                         id: settingsButton
 
-                        icon.name: "settings-configure"
-                        text: i18n("Room settings")
                         display: QQC2.AbstractButton.IconOnly
-
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'RoomSettings'), {
-                            room: room,
-                            connection: root.connection
-                        }, {
-                            title: i18n("Room Settings")
-                        })
+                        text: i18nc("@action:button", "Room settings")
+                        icon.name: 'settings-configure-symbolic'
 
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         QQC2.ToolTip.visible: hovered
+
+                        onClicked: {
+                            RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
+                        }
                     }
                 }
             }

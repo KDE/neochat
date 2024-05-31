@@ -15,13 +15,14 @@ QQC2.Menu {
     id: root
 
     required property NeoChatConnection connection
+    required property Kirigami.ApplicationWindow window
 
     margins: Kirigami.Units.smallSpacing
 
     QQC2.MenuItem {
         text: i18n("Edit this account")
         icon.name: "document-edit"
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
+        onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
             connection: root.connection
         }, {
             title: i18n("Account editor")
@@ -30,32 +31,22 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Notification settings")
         icon.name: "notifications"
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
-            defaultPage: "notifications",
-            connection: root.connection
-        }, {
-            title: i18n("Configure"),
-            width: Kirigami.Units.gridUnit * 50,
-            height: Kirigami.Units.gridUnit * 42
-        })
+        onTriggered: {
+            NeoChatSettingsView.open('notifications');
+        }
     }
     QQC2.MenuItem {
         text: i18n("Devices")
         icon.name: "computer-symbolic"
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
-            defaultPage: "devices",
-            connection: root.connection
-        }, {
-            title: i18n("Configure"),
-            width: Kirigami.Units.gridUnit * 50,
-            height: Kirigami.Units.gridUnit * 42
-        })
+        onTriggered: {
+            NeoChatSettingsView.open('devices');
+        }
     }
     QQC2.MenuItem {
         text: i18n("Open developer tools")
         icon.name: "tools"
         visible: Config.developerTools
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
+        onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
             connection: root.connection
         }, {
             title: i18nc("@title:window", "Developer Tools"),
@@ -67,7 +58,7 @@ QQC2.Menu {
         text: i18nc("@action:inmenu", "Open Secret Backup")
         icon.name: "unlock"
         visible: Config.secretBackup
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
+        onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
             title: i18nc("@title:window", "Open Key Backup")
         })
     }
@@ -80,7 +71,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Logout")
         icon.name: "list-remove-user"
-        onTriggered: confirmLogoutDialogComponent.createObject(applicationWindow().overlay).open()
+        onTriggered: confirmLogoutDialogComponent.createObject(root.window.overlay).open()
     }
 
     Component {

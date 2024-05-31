@@ -41,6 +41,7 @@ Kirigami.ApplicationWindow {
     onConnectionChanged: {
         CustomEmojiModel.connection = root.connection;
         SpaceHierarchyCache.connection = root.connection;
+        NeoChatSettingsView.connection = root.connection;
         if (ShareHandler.text && root.connection) {
             root.handleShare();
         }
@@ -190,6 +191,9 @@ Kirigami.ApplicationWindow {
     Component.onCompleted: {
         CustomEmojiModel.connection = root.connection;
         SpaceHierarchyCache.connection = root.connection;
+        RoomSettingsView.window = root;
+        NeoChatSettingsView.window = root;
+        NeoChatSettingsView.connection = root.connection;
         WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
         if (ShareHandler.text && root.connection) {
             root.handleShare()
@@ -321,15 +325,10 @@ Kirigami.ApplicationWindow {
     Shortcut {
         sequence: "Ctrl+Shift+,"
         onActivated: {
-            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
-                connection: root.connection
-            }, {
-                title: i18n("Configure"),
-                width: Kirigami.Units.gridUnit * 50,
-                height: Kirigami.Units.gridUnit * 42
-            });
+            NeoChatSettingsView.open();
         }
     }
+
     Connections {
         target: ShareHandler
         function onTextChanged(): void {

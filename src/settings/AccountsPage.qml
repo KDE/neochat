@@ -28,7 +28,7 @@ FormCard.FormCardPage {
         id: intialAccountTimer
         interval: 10
         running: false
-        onTriggered: applicationWindow().pageStack.layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
+        onTriggered: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
             connection: initialAccount
         }, {
             title: i18n("Account editor")
@@ -45,7 +45,7 @@ FormCard.FormCardPage {
                 id: accountDelegate
                 required property NeoChatConnection connection
                 Layout.fillWidth: true
-                onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
+                onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
                     connection: accountDelegate.connection
                 }, {
                     title: i18n("Account editor")
@@ -87,7 +87,7 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         text: i18n("Logout")
                         icon.name: "im-kick-user"
-                        onClicked: confirmLogoutDialogComponent.createObject(applicationWindow().overlay).open()
+                        onClicked: confirmLogoutDialogComponent.createObject(root.QQC2.Overlay.overlay).open()
                     }
 
                     Component {
@@ -117,7 +117,7 @@ FormCard.FormCardPage {
             id: addAccountDelegate
             text: i18n("Add Account")
             icon.name: "list-add"
-            onClicked: applicationWindow().pageStack.layers.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'))
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'))
         }
     }
 

@@ -25,13 +25,7 @@ Labs.MenuBar {
             text: i18nc("menu", "Configure NeoChat...")
 
             shortcut: StandardKey.Preferences
-            onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings'), {
-                connection: root.connection
-            }, {
-                title: i18n("Configure"),
-                width: Kirigami.Units.gridUnit * 50,
-                height: Kirigami.Units.gridUnit * 42
-            })
+            onTriggered: NeoChatSettingsView.open()
         }
         Labs.MenuItem {
             text: i18nc("menu", "Quit NeoChat")
