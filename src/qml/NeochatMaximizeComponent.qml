@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import Qt.labs.platform as Platform
+import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as Components
@@ -31,6 +32,22 @@ Components.AlbumMaximizeComponent {
         id: downloadAction
         onTriggered: {
             currentRoom.downloadFile(root.currentEventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.currentEventId));
+        }
+    }
+
+    playAction: Kirigami.Action {
+        onTriggered: {
+            MediaManager.startPlayback();
+            currentItem.play();
+        }
+    }
+
+    Connections {
+        target: MediaManager
+        function onPlaybackStarted() {
+            if (currentItem.playbackState === MediaPlayer.PlayingState) {
+                currentItem.pause();
+            }
         }
     }
 
