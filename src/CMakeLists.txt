@@ -185,6 +185,8 @@ add_library(neochat STATIC
     enums/powerlevel.h
     models/permissionsmodel.cpp
     models/permissionsmodel.h
+    threepidbindhelper.cpp
+    threepidbindhelper.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

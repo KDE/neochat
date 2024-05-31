@@ -27,16 +27,6 @@ class IdentityServerHelper : public QObject
     Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
     /**
-     * @brief The current identity server.
-     */
-    Q_PROPERTY(QString currentServer READ currentServer NOTIFY currentServerChanged)
-
-    /**
-     * @brief Whether an identity server is currently configured.
-     */
-    Q_PROPERTY(bool hasCurrentServer READ hasCurrentServer NOTIFY currentServerChanged)
-
-    /**
      * @brief The URL for the desired server.
      */
     Q_PROPERTY(QString url READ url WRITE setUrl NOTIFY urlChanged)
@@ -64,10 +54,6 @@ public:
     [[nodiscard]] NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
 
-    [[nodiscard]] QString currentServer() const;
-
-    [[nodiscard]] bool hasCurrentServer() const;
-
     [[nodiscard]] QString url() const;
     void setUrl(const QString &url);
 
@@ -87,7 +73,6 @@ public:
 
 Q_SIGNALS:
     void connectionChanged();
-    void currentServerChanged();
     void urlChanged();
     void statusChanged();
 

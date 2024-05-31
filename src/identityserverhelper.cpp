@@ -33,43 +33,6 @@ void IdentityServerHelper::setConnection(NeoChatConnection *connection)
 
     m_connection = connection;
     Q_EMIT connectionChanged();
-    Q_EMIT currentServerChanged();
-
-    connect(m_connection, &NeoChatConnection::accountDataChanged, this, [this](const QString &type) {
-        if (type == QLatin1String("m.identity_server")) {
-            Q_EMIT currentServerChanged();
-        }
-    });
-}
-
-QString IdentityServerHelper::currentServer() const
-{
-    if (m_connection == nullptr) {
-        return {};
-    }
-
-    if (!m_connection->hasAccountData(QLatin1String("m.identity_server"))) {
-        return i18nc("@info", "No identity server configured");
-    }
-
-    const auto url = m_connection->accountData(QLatin1String("m.identity_server"))->contentPart<QUrl>(QLatin1String("base_url"));
-    if (!url.isEmpty()) {
-        return url.toString();
-    }
-    return i18nc("@info", "No identity server configured");
-}
-
-bool IdentityServerHelper::hasCurrentServer() const
-{
-    if (m_connection == nullptr && !m_connection->hasAccountData(QLatin1String("m.identity_server"))) {
-        return false;
-    }
-
-    const auto url = m_connection->accountData(QLatin1String("m.identity_server"))->contentPart<QUrl>(QLatin1String("base_url"));
-    if (!url.isEmpty()) {
-        return true;
-    }
-    return false;
 }
 
 QString IdentityServerHelper::url() const
@@ -100,7 +63,7 @@ void IdentityServerHelper::checkUrl()
         m_idServerCheckRequest.clear();
     }
 
-    if (m_url == currentServer()) {
+    if (m_url == m_connection->identityServer().toString()) {
         m_status = Match;
         Q_EMIT statusChanged();
         return;
@@ -134,7 +97,7 @@ void IdentityServerHelper::checkUrl()
 
 void IdentityServerHelper::setIdentityServer()
 {
-    if (m_url == currentServer()) {
+    if (m_url == m_connection->identityServer().toString()) {
         return;
     }
 
@@ -145,7 +108,7 @@ void IdentityServerHelper::setIdentityServer()
 
 void IdentityServerHelper::clearIdentityServer()
 {
-    if (currentServer().isEmpty()) {
+    if (m_connection->identityServer().isEmpty()) {
         return;
     }
     m_connection->setAccountData(QLatin1String("m.identity_server"), {{QLatin1String("base_url"), QString()}});

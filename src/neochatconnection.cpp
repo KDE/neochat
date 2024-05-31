@@ -60,6 +60,9 @@ void NeoChatConnection::connectSignals()
         if (type == QLatin1String("org.kde.neochat.account_label")) {
             Q_EMIT labelChanged();
         }
+        if (type == QLatin1String("m.identity_server")) {
+            Q_EMIT identityServerChanged();
+        }
     });
     connect(this, &NeoChatConnection::syncDone, this, [this] {
         setIsOnline(true);
@@ -254,6 +257,41 @@ void NeoChatConnection::deactivateAccount(const QString &password)
 ThreePIdModel *NeoChatConnection::threePIdModel() const
 {
     return m_threePIdModel;
+}
+
+bool NeoChatConnection::hasIdentityServer() const
+{
+    if (!hasAccountData(QLatin1String("m.identity_server"))) {
+        return false;
+    }
+
+    const auto url = accountData(QLatin1String("m.identity_server"))->contentPart<QUrl>(QLatin1String("base_url"));
+    if (!url.isEmpty()) {
+        return true;
+    }
+    return false;
+}
+
+QUrl NeoChatConnection::identityServer() const
+{
+    if (!hasAccountData(QLatin1String("m.identity_server"))) {
+        return {};
+    }
+
+    const auto url = accountData(QLatin1String("m.identity_server"))->contentPart<QUrl>(QLatin1String("base_url"));
+    if (!url.isEmpty()) {
+        return url;
+    }
+    return {};
+}
+
+QString NeoChatConnection::identityServerUIString() const
+{
+    if (!hasIdentityServer()) {
+        return i18nc("@info", "No identity server configured");
+    }
+
+    return identityServer().toString();
 }
 
 void NeoChatConnection::createRoom(const QString &name, const QString &topic, const QString &parent, bool setChildParent)

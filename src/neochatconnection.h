@@ -37,6 +37,19 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(ThreePIdModel *threePIdModel READ threePIdModel CONSTANT)
 
     /**
+     * @brief Whether an identity server is configured.
+     */
+    Q_PROPERTY(bool hasIdentityServer READ hasIdentityServer NOTIFY identityServerChanged)
+
+    /**
+     * @brief The identity server URL as a string for showing in a UI.
+     *
+     * Will return the string "No identity server configured" if no identity
+     * server configured. Otherwise it returns the URL as a string.
+     */
+    Q_PROPERTY(QString identityServer READ identityServerUIString NOTIFY identityServerChanged)
+
+    /**
      * @brief The total number of notifications for all direct chats.
      */
     Q_PROPERTY(qsizetype directChatNotifications READ directChatNotifications NOTIFY directChatNotificationsChanged)
@@ -105,6 +118,17 @@ public:
 
     ThreePIdModel *threePIdModel() const;
 
+    bool hasIdentityServer() const;
+
+    /**
+     * @brief The identity server URL.
+     *
+     * Empty if no identity server configured.
+     */
+    QUrl identityServer() const;
+
+    QString identityServerUIString() const;
+
     /**
      * @brief Create new room for a group chat.
      */
@@ -162,6 +186,7 @@ public:
 
 Q_SIGNALS:
     void labelChanged();
+    void identityServerChanged();
     void directChatNotificationsChanged();
     void directChatsHaveHighlightNotificationsChanged();
     void homeNotificationsChanged();

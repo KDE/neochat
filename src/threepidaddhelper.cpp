@@ -183,6 +183,14 @@ void ThreePIdAddHelper::remove3PId(const QString &threePId, const QString &type)
     });
 }
 
+void ThreePIdAddHelper::unbind3PId(const QString &threePId, const QString &type)
+{
+    const auto job = m_connection->callApi<Quotient::Unbind3pidFromAccountJob>(type, threePId);
+    connect(job, &Quotient::BaseJob::success, this, [this]() {
+        m_connection->threePIdModel()->refreshModel();
+    });
+}
+
 void ThreePIdAddHelper::back()
 {
     switch (m_newIdStatus) {

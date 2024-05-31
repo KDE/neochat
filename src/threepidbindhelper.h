@@ -11,37 +11,37 @@
 class NeoChatConnection;
 
 /**
- * @class ThreePIdAddHelper
+ * @class ThreePIdBindHelper
  *
- * This class is designed to help the process of adding a new 3PID to the account.
+ * This class is designed to help the process of bindind a 3PID to an identity server.
  * It will manage the various stages of verification and authentication.
  */
-class ThreePIdAddHelper : public QObject
+class ThreePIdBindHelper : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
 
     /**
-     * @brief The connection to add a 3PID to.
+     * @brief The connection to bind a 3PID for.
      */
     Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
     /**
-     * @brief The type of 3PID being added.
+     * @brief The type of 3PID being bound.
      *
      * email or msisdn.
      */
     Q_PROPERTY(QString medium READ medium WRITE setMedium NOTIFY mediumChanged)
 
     /**
-     * @brief The 3PID to add.
+     * @brief The 3PID to bind.
      *
      * Email or phone number depending on type.
      */
     Q_PROPERTY(QString newId READ newId WRITE setNewId NOTIFY newIdChanged)
 
     /**
-     * @brief The country code if a phone number is being added.
+     * @brief The country code if a phone number is being bound.
      */
     Q_PROPERTY(QString newCountryCode READ newCountryCode WRITE setNewCountryCode NOTIFY newCountryCodeChanged)
 
@@ -50,11 +50,18 @@ class ThreePIdAddHelper : public QObject
      *
      * @sa ThreePIdStatus
      */
-    Q_PROPERTY(ThreePIdStatus newIdStatus READ newIdStatus NOTIFY newIdStatusChanged)
+    Q_PROPERTY(ThreePIdStatus bindStatus READ bindStatus NOTIFY bindStatusChanged)
+
+    /**
+     * @brief The current status as a string.
+     *
+     * @sa ThreePIdStatus
+     */
+    Q_PROPERTY(QString bindStatusString READ bindStatusString NOTIFY bindStatusChanged)
 
 public:
     /**
-     * @brief Defines the current status for adding a 3PID.
+     * @brief Defines the current status for binding a 3PID.
      */
     enum ThreePIdStatus {
         Ready, /**< The process is ready to start. I.e. there is no ongoing attempt to set a new 3PID. */
@@ -68,7 +75,7 @@ public:
     };
     Q_ENUM(ThreePIdStatus)
 
-    explicit ThreePIdAddHelper(QObject *parent = nullptr);
+    explicit ThreePIdBindHelper(QObject *parent = nullptr);
 
     [[nodiscard]] NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
@@ -83,35 +90,34 @@ public:
     void setNewCountryCode(const QString &newCountryCode);
 
     /**
-     * @brief Start the process to add the new 3PID.
+     * @brief Start the process to bind the new 3PID.
      *
      * This will start the process of verifying the 3PID credentials that have been given.
+     * Will fail if no identity server is configured.
      */
-    Q_INVOKABLE void initiateNewIdAdd();
+    Q_INVOKABLE void initiateNewIdBind();
 
-    [[nodiscard]] ThreePIdStatus newIdStatus() const;
+    [[nodiscard]] ThreePIdStatus bindStatus() const;
+
+    [[nodiscard]] QString bindStatusString() const;
 
     /**
-     * @brief Finalize the process of adding the new 3PID.
+     * @brief Finalize the process of binding the new 3PID.
      *
-     * @param password the user's password to authenticate the addition.
+     * Will fail if the user hasn't completed the verification with the identity
+     * server.
      */
-    Q_INVOKABLE void finalizeNewIdAdd(const QString &password);
+    Q_INVOKABLE void finalizeNewIdBind();
 
     /**
-     * @brief Remove the given 3PID.
-     */
-    Q_INVOKABLE void remove3PId(const QString &threePId, const QString &type);
-
-    /**
-     * @brief Remove the given 3PID.
+     * @brief Unbind the given 3PID.
      */
     Q_INVOKABLE void unbind3PId(const QString &threePId, const QString &type);
 
     /**
-     * @brief Go back a step in the process.
+     * @brief Cancel the process.
      */
-    Q_INVOKABLE void back();
+    Q_INVOKABLE void cancel();
 
 Q_SIGNALS:
     void connectionChanged();
@@ -119,20 +125,22 @@ Q_SIGNALS:
     void newIdChanged();
     void newCountryCodeChanged();
     void newEmailSessionStartedChanged();
-    void newIdStatusChanged();
+    void bindStatusChanged();
 
 private:
     QPointer<NeoChatConnection> m_connection;
     QString m_medium = QString();
 
-    ThreePIdStatus m_newIdStatus = Ready;
+    ThreePIdStatus m_bindStatus = Ready;
     QString m_newId = QString();
     QString m_newCountryCode = QString();
     QString m_newIdSecret = QString();
     QString m_newIdSid = QString();
+    QString m_identityServerToken = QString();
 
-    void emailTokenJob();
-    void msisdnTokenJob();
+    QByteArray validationRequestData();
 
-    void tokenJobFinished(Quotient::BaseJob *job);
+    void tokenRequestFinished(QNetworkReply *reply);
+
+    static QJsonObject parseJson(const QByteArray &json);
 };

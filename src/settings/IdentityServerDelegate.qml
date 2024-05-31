@@ -17,7 +17,7 @@ FormCard.AbstractFormDelegate {
 
     property bool editServerUrl: false
 
-    text: identityServerHelper.currentServer
+    text: connection.identityServer
 
     onClicked: editIdServerButton.toggle()
 
@@ -114,7 +114,7 @@ FormCard.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             id: removeIdServerButton
-            visible: identityServerHelper.hasCurrentServer
+            visible: root.connection.hasIdentityServer
             display: QQC2.AbstractButton.IconOnly
             text: i18nc("@action:button", "Remove identity server")
             icon.name: "edit-delete-remove"

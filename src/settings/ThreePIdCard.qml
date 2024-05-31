@@ -38,21 +38,71 @@ ColumnLayout {
                 required property string address
                 required property string medium
 
-                contentItem: RowLayout {
-                    QQC2.Label {
+                contentItem: ColumnLayout {
+                    RowLayout {
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            text: threePIdDelegate.address
+                            textFormat: Text.PlainText
+                            elide: Text.ElideRight
+                            wrapMode: Text.Wrap
+                            maximumLineCount: 2
+                            color: Kirigami.Theme.textColor
+                        }
+                        QQC2.ToolButton {
+                            visible: threePIdBindHelper.bindStatus === ThreePIdBindHelper.Ready && root.connection.hasIdentityServer
+                            text: i18nc("@action:button", "Share")
+                            icon.name: "send-to-symbolic"
+                            onClicked: threePIdBindHelper.bindStatus === ThreePIdBindHelper.Verification ? threePIdBindHelper.finalizeNewIdBind() : threePIdBindHelper.initiateNewIdBind()
+                        }
+                        QQC2.ToolButton {
+                            text: i18nc("@action:button", "Remove")
+                            icon.name: "edit-delete-remove"
+                            onClicked: threePIdAddHelper.remove3PId(threePIdDelegate.address, threePIdDelegate.medium)
+                        }
+                    }
+                    Kirigami.InlineMessage {
+                        id: errorHandler
+                        visible: threePIdBindHelper.bindStatusString.length > 0
+                        Layout.topMargin: visible ? Kirigami.Units.smallSpacing : 0
                         Layout.fillWidth: true
-                        text: threePIdDelegate.address
-                        textFormat: Text.PlainText
-                        elide: Text.ElideRight
-                        wrapMode: Text.Wrap
-                        maximumLineCount: 2
-                        color: Kirigami.Theme.textColor
+                        text: threePIdBindHelper.bindStatusString
+                        type: threePIdBindHelper.statusType
                     }
-                    QQC2.ToolButton {
-                        text: i18nc("@action:button", "Remove")
-                        icon.name: "edit-delete-remove"
-                        onClicked: threePIdAddHelper.remove3PId(threePIdDelegate.address, threePIdDelegate.medium)
+                    RowLayout {
+                        visible: threePIdBindHelper.bindStatus !== ThreePIdBindHelper.Ready
+                        Item {
+                            Layout.fillWidth: true
+                        }
+                        QQC2.ToolButton {
+                            text: i18nc("@action:button", "Complete")
+                            icon.name: "answer-correct"
+                            onClicked: threePIdBindHelper.finalizeNewIdBind()
+                        }
+                        QQC2.ToolButton {
+                            text: i18nc("@action:button", "Cancel")
+                            icon.name: "edit-delete-remove"
+                            onClicked: threePIdBindHelper.cancel()
+                        }
                     }
+                }
+
+                ThreePIdBindHelper {
+                    id: threePIdBindHelper
+
+                    readonly property int statusType: switch(bindStatus) {
+                    case ThreePIdBindHelper.Invalid:
+                    case ThreePIdBindHelper.AuthFailure:
+                        return Kirigami.MessageType.Error;
+                    case ThreePIdBindHelper.VerificationFailure:
+                        return Kirigami.MessageType.Warning;
+                    default:
+                        return Kirigami.MessageType.Information;
+                    }
+
+                    connection: root.connection
+                    newId: threePIdDelegate.address
+                    medium: threePIdDelegate.medium
                 }
             }
 
