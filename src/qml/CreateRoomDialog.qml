@@ -67,6 +67,11 @@ FormCard.FormCardPage {
                 }
             }
         }
+
+        FormCard.FormDelegateSeparator {
+            visible: root.showChildType
+        }
+
         FormCard.FormTextFieldDelegate {
             id: roomNameField
             label: i18n("Name:")
@@ -75,17 +80,27 @@ FormCard.FormCardPage {
             }
         }
 
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormTextFieldDelegate {
             id: roomTopicField
             label: i18n("Topic:")
             onAccepted: ok.clicked()
         }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormCheckDelegate {
             id: newOfficialCheck
             visible: root.parentId.length > 0
             text: i18nc("@option:check As in make the space from which this dialog was created an official parent.", "Make this parent official")
             checked: true
         }
+
+        FormCard.FormDelegateSeparator {
+            visible: root.parentId.length > 0
+        }
+
         FormCard.FormButtonDelegate {
             id: ok
             text: i18nc("@action:button", "Ok")
@@ -211,6 +226,9 @@ FormCard.FormCardPage {
                 });
             }
         }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormCheckDelegate {
             id: existingOfficialCheck
             visible: root.parentId.length > 0
@@ -230,6 +248,11 @@ FormCard.FormCardPage {
                 return false;
             }
         }
+
+        FormCard.FormDelegateSeparator {
+            visible: root.parentId.length > 0
+        }
+
         FormCard.FormCheckDelegate {
             id: makeCanonicalCheck
             text: i18nc("@option:check The canonical parent is the default one if a room has multiple parent spaces.", "Make this space the canonical parent")
@@ -237,6 +260,9 @@ FormCard.FormCardPage {
 
             enabled: existingOfficialCheck.enabled
         }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Ok")
             enabled: chosenRoomDelegate.visible
