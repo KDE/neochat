@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 02:35+0000\n"
-"PO-Revision-Date: 2024-05-30 09:05+0400\n"
+"POT-Creation-Date: 2024-06-01 02:25+0000\n"
+"PO-Revision-Date: 2024-05-31 23:26+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -101,12 +101,13 @@ msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
+"اسمح للمستخدم ببدء جلسة التحقق باستخدام الأجهزة التي تم التحقق منها بالفعل"
 
 #: src/devtools/DebugOptions.qml:33
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "أظهر التركيز في رأس النافذة"
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
 #, kde-format
@@ -129,7 +130,7 @@ msgstr "بيانات الحساب"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
-msgstr ""
+msgstr "أعلام المزايا"
 
 #: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
@@ -141,7 +142,7 @@ msgstr "المواضيع"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "النسخ الاحتياطي الآمن"
 
 #: src/devtools/RoomData.qml:20
 #, kde-format
@@ -180,12 +181,12 @@ msgstr "حالة الغرفة"
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد حدث"
+msgstr[1] "حدث واحد من هذا النوع"
+msgstr[2] "حدثان من هذا النوع"
+msgstr[3] "%1 أحداث من هذا النوع"
+msgstr[4] "%1 حدثًا من هذا النوع"
+msgstr[5] "%1 حدث من هذا النوع"
 
 #: src/devtools/RoomData.qml:84
 #, kde-format
@@ -567,7 +568,7 @@ msgstr "أنشئ الغرفة"
 #: src/eventhandler.cpp:607
 #, kde-format
 msgid "sent a live location beacon"
-msgstr ""
+msgstr "أرسل منارة موقع حية"
 
 #: src/eventhandler.cpp:614
 #, kde-format
@@ -648,7 +649,7 @@ msgstr "فشل الولوج: %1"
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "أضف عنوان البريد الإلكترونيّ:"
 
 #: src/login/Email.qml:33
 #, kde-format
@@ -661,12 +662,14 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"أرسلت رسالة تأكيد بالبريد الإلكتروني إلى عنوان بريدك الإلكتروني. يرجى "
+"المتابعة هنا <b>بعد</b> النقر على رابط التأكيد الموجود في البريد الإلكتروني"
 
 #: src/login/Email.qml:40
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "أعد إرسال رسالة البريد الإلكتروني الخاصة بالتأكيد"
 
 #: src/login/Homeserver.qml:21
 #, kde-format
@@ -676,7 +679,7 @@ msgstr "عنوان الخادوم:"
 #: src/login/Homeserver.qml:26
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "التسجيل معطل على هذا الخادم."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
 #, kde-format
@@ -776,19 +779,19 @@ msgstr "أكمل خطوات الولوج في متصفحك"
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
-msgstr ""
+msgstr "أعد فتح رابط SSO"
 
 #: src/login/Terms.qml:18
 #, kde-format
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "الشروط والأحكام"
 
 #: src/login/Terms.qml:19
 #, kde-format
 msgid ""
 "By continuing with the registration, you agree to the following terms and "
 "conditions:"
-msgstr ""
+msgstr "من خلال الاستمرار في التسجيل، فإنك توافق على الشروط والأحكام التالية:"
 
 #: src/login/Username.qml:20
 #, kde-format
@@ -948,17 +951,17 @@ msgstr "تجاهل جميع أخطاء SSL مثل الشهادات غير الم
 #: src/main.cpp:195
 #, kde-format
 msgid "Only used for autotests"
-msgstr ""
+msgstr "يستعمل في للاختبار آلي"
 
 #: src/main.cpp:200
 #, kde-format
 msgid "Internal usage only."
-msgstr ""
+msgstr "استعمال داخلي فقط."
 
 #: src/main.cpp:205
 #, kde-format
 msgid "Share a URL to Matrix"
-msgstr ""
+msgstr "شارِك رابط على مارتكس"
 
 #: src/matriximageprovider.cpp:38
 #, kde-format
@@ -1399,7 +1402,7 @@ msgctxt ""
 "states or n users if they were sent by multiple users.chunksText (%2) is a "
 "list of comma separated actions for each of the state events in the group."
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr ""
+msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
@@ -1439,12 +1442,12 @@ msgstr "الرسائل التي تحوي على اسم العرض الخاص ب�
 #: src/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr ""
+msgstr "الرسائل التي تشير إلى معرفي على ماتركس"
 
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr ""
+msgstr "الرسائل التي تشير إلى غرفة"
 
 #: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
@@ -1579,7 +1582,7 @@ msgstr "ارفض"
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
-msgstr ""
+msgstr "ألغ وتجاهل المستخدم"
 
 #: src/notificationsmanager.cpp:319
 #, kde-format
@@ -1633,13 +1636,13 @@ msgstr "أدوات المطوّر"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "افتح النسخ الاحتياطي الآمن"
 
 #: src/qml/AccountMenu.qml:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "النسخة الاحتياطية لمفتاح الفتح"
 
 #: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:71
 #, kde-format
@@ -1788,6 +1791,10 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"سيعطل حسابك بشكل دائم.\n"
+"لا يمكن التراجع عن هذا.\n"
+"لن يكون معرّف ماتركس الخاص بك متاحاً للحسابات الجديدة.\n"
+"ستبقى رسائلك متاحة."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -1822,7 +1829,7 @@ msgstr "تأكيد ترك الغرفة"
 #, kde-format
 msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
-msgstr ""
+msgstr "أتريد حقًّا ترك %1؟"
 
 #: src/qml/ConfirmLeaveDialog.qml:27
 #, kde-format
@@ -1850,7 +1857,7 @@ msgstr "افتح الرابط"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you want to open <link>%1</link>?"
-msgstr ""
+msgstr "هل تريد فتح <link>%1</link>؟"
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -1978,17 +1985,17 @@ msgstr "اختر النّوع"
 msgid "Space"
 msgstr "الفضاء"
 
-#: src/qml/CreateRoomDialog.qml:72 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
 #, kde-format
 msgid "Name:"
 msgstr "الاسم:"
 
-#: src/qml/CreateRoomDialog.qml:80
+#: src/qml/CreateRoomDialog.qml:87
 #, kde-format
 msgid "Topic:"
 msgstr "الموضوع:"
 
-#: src/qml/CreateRoomDialog.qml:86 src/qml/CreateRoomDialog.qml:217
+#: src/qml/CreateRoomDialog.qml:96 src/qml/CreateRoomDialog.qml:235
 #, kde-format
 msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
@@ -1996,25 +2003,25 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "اجعل هذا فضاء رئيس بشكل رسمي"
 
-#: src/qml/CreateRoomDialog.qml:91 src/qml/CreateRoomDialog.qml:241
+#: src/qml/CreateRoomDialog.qml:106 src/qml/CreateRoomDialog.qml:267
 #: src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "حسنًا"
 
-#: src/qml/CreateRoomDialog.qml:106
+#: src/qml/CreateRoomDialog.qml:121
 #, kde-format
 msgid "Select Existing Room"
-msgstr ""
+msgstr "حدد غرفة موجودة"
 
-#: src/qml/CreateRoomDialog.qml:112 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:127 src/qml/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "اختر غرفة"
 
-#: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
+#: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
 #: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:210
 #: src/qml/SelectParentDialog.qml:142
@@ -2023,24 +2030,24 @@ msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "استكشف الغرف"
 
-#: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:77
+#: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
 #: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Joined"
 msgstr "انضم"
 
-#: src/qml/CreateRoomDialog.qml:218
+#: src/qml/CreateRoomDialog.qml:236
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
 msgstr "ليس لديك مستوى صلاحية عالية في الفرع بما يكفي لتعين هذه الحالة"
 
-#: src/qml/CreateRoomDialog.qml:218
+#: src/qml/CreateRoomDialog.qml:236
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr "ليس لديك مستوى صلاحية عالية في الفرع بما يكفي لتعين هذه الحالة"
 
-#: src/qml/CreateRoomDialog.qml:235
+#: src/qml/CreateRoomDialog.qml:258
 #, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
@@ -2279,7 +2286,7 @@ msgstr ""
 #: src/qml/ExploreRoomsPage.qml:92
 #, kde-format
 msgid "Enter a room address"
-msgstr ""
+msgstr "أدخل عنوان الغرفة"
 
 #: src/qml/ExploreRoomsPage.qml:106
 #, kde-format
@@ -2661,7 +2668,7 @@ msgstr "هل ترغب في بَدء دردشة مع %1؟"
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
-msgstr ""
+msgstr "الرابط المحدد حاليا"
 
 #: src/qml/Main.qml:422 src/qml/ShareAction.qml:68
 #, kde-format
@@ -2710,7 +2717,7 @@ msgstr "هوية مستخدم:"
 #: src/qml/ManualUserDialog.qml:56 src/qml/ManualUserDialog.qml:64
 #, kde-format
 msgid "User IDs Must start with @"
-msgstr ""
+msgstr "يجب أن تبدأ معرفات المستخدم بـ @"
 
 #: src/qml/ManualUserDialog.qml:62
 #, kde-format
@@ -3026,7 +3033,7 @@ msgstr "لم يعثر على غرف"
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
-msgstr ""
+msgstr "لم تضف أي من أصدقائك بعد، انقر أدناه للبحث عنهم."
 
 #: src/qml/RoomListPage.qml:197
 #, kde-format
@@ -3374,19 +3381,19 @@ msgstr "حمل رسائلك المعمَّاة"
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
-msgstr ""
+msgstr "العبارة الأمنية لم تكن صحيحة."
 
 #: src/qml/UnlockSSSSDialog.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr ""
+msgstr "فك القفل باستخدام عبارة المرور"
 
 #: src/qml/UnlockSSSSDialog.qml:58
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
+msgstr "إذا كان لديك عبارة مرور احتياطية لهذا الحساب، فأدخلها أدناه."
 
 #: src/qml/UnlockSSSSDialog.qml:62
 #, kde-format
@@ -3398,13 +3405,13 @@ msgstr "كلمة السر الاحتياطيّة:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr "أزِل القفل"
+msgstr "فك القفل"
 
 #: src/qml/UnlockSSSSDialog.qml:79
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
-msgstr ""
+msgstr "فك القفل باستخدام مفتاح أمان"
 
 #: src/qml/UnlockSSSSDialog.qml:83
 #, kde-format
@@ -3412,13 +3419,13 @@ msgctxt "@info"
 msgid ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
-msgstr ""
+msgstr "إذا كان لديك مفتاح أمان لهذا الحساب، فأدخله أدناه أو قم بتحميله كملف."
 
 #: src/qml/UnlockSSSSDialog.qml:87
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
-msgstr "مفتاح الأمن:"
+msgstr "مفتاح الأمان:"
 
 #: src/qml/UnlockSSSSDialog.qml:92
 #, kde-format
@@ -3430,7 +3437,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
-msgstr ""
+msgstr "فك القفل من خلال التوقيع المتبادل"
 
 #: src/qml/UnlockSSSSDialog.qml:117
 #, kde-format
@@ -3439,12 +3446,14 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
+"إذا كنت قد قمت بالتحقق من هذا الجهاز مسبقًا، فيمكنك محاولة تحميل المفتاح "
+"الاحتياطي من الأجهزة الأخرى عن طريق النقر فوق الزر أدناه."
 
 #: src/qml/UnlockSSSSDialog.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
-msgstr ""
+msgstr "اطلب من أجهزة أخرى"
 
 #: src/qml/UserDetailDialog.qml:36
 #, kde-format
@@ -3718,7 +3727,7 @@ msgstr "لا يوجد خادم."
 #: src/registration.cpp:302
 #, kde-format
 msgid "Checking Server availability."
-msgstr ""
+msgstr "التحقق من توافر الخادم."
 
 #: src/registration.cpp:304
 #, kde-format
@@ -3728,7 +3737,7 @@ msgstr "هذا ليس خادما صالحا"
 #: src/registration.cpp:306
 #, kde-format
 msgid "Registration for this server is disabled."
-msgstr ""
+msgstr "عطل التسجيل لهذا الخادم."
 
 #: src/registration.cpp:308
 #, kde-format
@@ -3738,7 +3747,7 @@ msgstr "لا يوجد اسم المستخدم."
 #: src/registration.cpp:310
 #, kde-format
 msgid "Checking username availability."
-msgstr ""
+msgstr "التحقق من توفر اسم المستخدم."
 
 #: src/registration.cpp:312
 #, kde-format
@@ -4219,7 +4228,7 @@ msgstr "المستخدمين مُتجاهَلين"
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "أنت لم تتجاهل أيا من المستخدمين"
 
 #: src/settings/IgnoredUsersDialog.qml:51
 #, kde-format
@@ -5104,7 +5113,7 @@ msgstr "وقت تسجيل الخروج: %1"
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "أرسل إلى كِيدِي Itinerary"
 
 #: src/timeline/LinkPreviewComponent.qml:119
 #, kde-format
