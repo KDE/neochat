@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-28 00:38+0000\n"
+"POT-Creation-Date: 2024-06-01 00:39+0000\n"
 "PO-Revision-Date: 2024-05-27 00:24+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -756,12 +756,6 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Destino"
 
-#: src/identityserverhelper.cpp:52 src/identityserverhelper.cpp:59
-#, kde-format
-msgctxt "@info"
-msgid "No identity server configured"
-msgstr "No se ha configurado ningún servidor de identidades"
-
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
@@ -836,7 +830,7 @@ msgid "Loading…"
 msgstr "Cargando..."
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:124
+#: src/settings/ThreePIdCard.qml:174
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1747,24 +1741,30 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 ha reaccionado con %3"
 msgstr[1] "%2 han reaccionado con %3"
 
-#: src/neochatconnection.cpp:77
+#: src/neochatconnection.cpp:80
 #, kde-format
 msgid "File too large to download."
 msgstr "Archivo demasiado grande para descargarlo."
 
-#: src/neochatconnection.cpp:77
+#: src/neochatconnection.cpp:80
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Póngase en contacto con el administrador del servidor matrix para obtener "
 "asistencia."
 
-#: src/neochatconnection.cpp:284
+#: src/neochatconnection.cpp:291
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr "No se ha configurado ningún servidor de identidades"
+
+#: src/neochatconnection.cpp:322
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "La creación de la sala ha fallado: %1"
 
-#: src/neochatconnection.cpp:316
+#: src/neochatconnection.cpp:354
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "La creación del espacio ha fallado: %1"
@@ -2233,17 +2233,17 @@ msgstr "Seleccione tipo"
 msgid "Space"
 msgstr "Espacio"
 
-#: src/qml/CreateRoomDialog.qml:72 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
 #, kde-format
 msgid "Name:"
 msgstr "Nombre:"
 
-#: src/qml/CreateRoomDialog.qml:80
+#: src/qml/CreateRoomDialog.qml:87
 #, kde-format
 msgid "Topic:"
 msgstr "Tema:"
 
-#: src/qml/CreateRoomDialog.qml:86 src/qml/CreateRoomDialog.qml:217
+#: src/qml/CreateRoomDialog.qml:96 src/qml/CreateRoomDialog.qml:235
 #, kde-format
 msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
@@ -2251,30 +2251,30 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "Hacer oficial este espacio padre"
 
-#: src/qml/CreateRoomDialog.qml:91
+#: src/qml/CreateRoomDialog.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Space"
 msgstr "Crear espacio"
 
-#: src/qml/CreateRoomDialog.qml:91
+#: src/qml/CreateRoomDialog.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Room"
 msgstr "Crear sala"
 
-#: src/qml/CreateRoomDialog.qml:106
+#: src/qml/CreateRoomDialog.qml:121
 #, kde-format
 msgid "Select Existing Room"
 msgstr "Seleccione sala existente"
 
-#: src/qml/CreateRoomDialog.qml:112 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:127 src/qml/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "Escoger sala"
 
-#: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
+#: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
 #: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:210
 #: src/qml/SelectParentDialog.qml:142
@@ -2283,20 +2283,20 @@ msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Explorar salas"
 
-#: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:77
+#: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
 #: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Joined"
 msgstr "Unido"
 
-#: src/qml/CreateRoomDialog.qml:218
+#: src/qml/CreateRoomDialog.qml:236
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
 "Tiene el nivel de privilegio necesario en el espacio hijo para definir este "
 "estado"
 
-#: src/qml/CreateRoomDialog.qml:218
+#: src/qml/CreateRoomDialog.qml:236
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
@@ -2304,7 +2304,7 @@ msgstr ""
 "No tiene el nivel de privilegio suficientemente alto en el espacio hijo para "
 "definir este estado"
 
-#: src/qml/CreateRoomDialog.qml:235
+#: src/qml/CreateRoomDialog.qml:258
 #, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
@@ -2312,7 +2312,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Hacer que este espacio sea el espacio padre canónico"
 
-#: src/qml/CreateRoomDialog.qml:241 src/qml/ServerComboBox.qml:148
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -5231,62 +5231,83 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Borrar palabra"
 
-#: src/settings/ThreePIdCard.qml:52
+#: src/settings/ThreePIdCard.qml:54
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Compartir"
+
+#: src/settings/ThreePIdCard.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Eliminar"
 
-#: src/settings/ThreePIdCard.qml:73
+#: src/settings/ThreePIdCard.qml:78
+#, fuzzy, kde-format
+#| msgid "Compact"
+msgctxt "@action:button"
+msgid "Complete"
+msgstr "Compacto"
+
+#: src/settings/ThreePIdCard.qml:83
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/settings/ThreePIdCard.qml:123
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr "Código de país para el nuevo número de teléfono"
 
-#: src/settings/ThreePIdCard.qml:89
+#: src/settings/ThreePIdCard.qml:139
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
 msgstr "Nueva dirección de correo electrónico"
 
-#: src/settings/ThreePIdCard.qml:89
+#: src/settings/ThreePIdCard.qml:139
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
 msgstr "Nuevo número de teléfono"
 
-#: src/settings/ThreePIdCard.qml:93
+#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Le hemos enviado un mensaje de correo"
 
-#: src/settings/ThreePIdCard.qml:93
+#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Le hemos enviado un mensaje de texto"
 
-#: src/settings/ThreePIdCard.qml:93
+#: src/settings/ThreePIdCard.qml:143
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Siga las instrucciones del mismo y pulse el botón inferior."
 
-#: src/settings/ThreePIdCard.qml:95
+#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "El correo electrónico introducido no es válido"
 
-#: src/settings/ThreePIdCard.qml:95
+#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "El número de teléfono introducido no es válido"
 
-#: src/settings/ThreePIdCard.qml:97
+#: src/settings/ThreePIdCard.qml:147
 #, kde-format
 msgid "Incorrect password entered"
 msgstr "Se ha introducido una contraseña incorrecta"
 
-#: src/settings/ThreePIdCard.qml:99
+#: src/settings/ThreePIdCard.qml:149
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5295,7 +5316,7 @@ msgstr ""
 "El correo electrónico no ha sido verificado. Vaya al mensaje de correo, siga "
 "las instrucciones que contiene y pulse el botón inferior."
 
-#: src/settings/ThreePIdCard.qml:99
+#: src/settings/ThreePIdCard.qml:149
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -5304,17 +5325,49 @@ msgstr ""
 "El número de teléfono no ha sido verificado. Vaya al mensaje de texto, siga "
 "las instrucciones que contiene y pulse el botón inferior."
 
-#: src/settings/ThreePIdCard.qml:124
+#: src/settings/ThreePIdCard.qml:174
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Añadir"
 
-#: src/settings/ThreePIdCard.qml:132
+#: src/settings/ThreePIdCard.qml:182
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Volver"
+
+#: src/threepidbindhelper.cpp:176
+#, fuzzy, kde-format
+#| msgid ""
+#| "%1. Please follow the instructions there and then click the button below"
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr "%1. Siga las instrucciones del mismo y pulse el botón inferior."
+
+#: src/threepidbindhelper.cpp:182
+#, fuzzy, kde-format
+#| msgid ""
+#| "The email has not been verified. Please go to the email and follow the "
+#| "instructions there and then click the button below"
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+"El correo electrónico no ha sido verificado. Vaya al mensaje de correo, siga "
+"las instrucciones que contiene y pulse el botón inferior."
+
+#: src/threepidbindhelper.cpp:183
+#, fuzzy, kde-format
+#| msgid ""
+#| "The phone number has not been verified. Please go to the text message and "
+#| "follow the instructions there and then click the button below"
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+"El número de teléfono no ha sido verificado. Vaya al mensaje de texto, siga "
+"las instrucciones que contiene y pulse el botón inferior."
 
 #: src/timeline/CodeComponent.qml:168
 #, kde-format

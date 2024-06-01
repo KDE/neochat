@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-28 00:38+0000\n"
+"POT-Creation-Date: 2024-06-01 00:39+0000\n"
 "PO-Revision-Date: 2024-05-26 07:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -761,12 +761,6 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Cilj"
 
-#: src/identityserverhelper.cpp:52 src/identityserverhelper.cpp:59
-#, kde-format
-msgctxt "@info"
-msgid "No identity server configured"
-msgstr "Ni konfigurirana identiteta strežnika"
-
 #: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
@@ -841,7 +835,7 @@ msgid "Loading…"
 msgstr "Nalaganje …"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:124
+#: src/settings/ThreePIdCard.qml:174
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1752,22 +1746,28 @@ msgstr[1] "%2 se je odzval z %3"
 msgstr[2] "%2 sta se odzvala z %3"
 msgstr[3] "%2 so se odzvali z %3"
 
-#: src/neochatconnection.cpp:77
+#: src/neochatconnection.cpp:80
 #, kde-format
 msgid "File too large to download."
 msgstr "Datoteka je prevelika za prenos."
 
-#: src/neochatconnection.cpp:77
+#: src/neochatconnection.cpp:80
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Stopite v stik za podporo z vašim skrbnikom matrixa."
 
-#: src/neochatconnection.cpp:284
+#: src/neochatconnection.cpp:291
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr "Ni konfigurirana identiteta strežnika"
+
+#: src/neochatconnection.cpp:322
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/neochatconnection.cpp:316
+#: src/neochatconnection.cpp:354
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
@@ -2236,17 +2236,17 @@ msgstr "Izberi vrsto"
 msgid "Space"
 msgstr "Prostor"
 
-#: src/qml/CreateRoomDialog.qml:72 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
 #, kde-format
 msgid "Name:"
 msgstr "Ime:"
 
-#: src/qml/CreateRoomDialog.qml:80
+#: src/qml/CreateRoomDialog.qml:87
 #, kde-format
 msgid "Topic:"
 msgstr "Tema:"
 
-#: src/qml/CreateRoomDialog.qml:86 src/qml/CreateRoomDialog.qml:217
+#: src/qml/CreateRoomDialog.qml:96 src/qml/CreateRoomDialog.qml:235
 #, kde-format
 msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
@@ -2254,30 +2254,30 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "Določi tega nadrejenega kot uradnega"
 
-#: src/qml/CreateRoomDialog.qml:91
+#: src/qml/CreateRoomDialog.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Space"
 msgstr "Ustvari prostor"
 
-#: src/qml/CreateRoomDialog.qml:91
+#: src/qml/CreateRoomDialog.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Room"
 msgstr "Ustvari sobo"
 
-#: src/qml/CreateRoomDialog.qml:106
+#: src/qml/CreateRoomDialog.qml:121
 #, kde-format
 msgid "Select Existing Room"
 msgstr "Izberite obstoječo sobo"
 
-#: src/qml/CreateRoomDialog.qml:112 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:127 src/qml/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "Poberite sobo"
 
-#: src/qml/CreateRoomDialog.qml:117 src/qml/CreateRoomDialog.qml:200
+#: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
 #: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:210
 #: src/qml/SelectParentDialog.qml:142
@@ -2286,24 +2286,24 @@ msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Razišči sobe"
 
-#: src/qml/CreateRoomDialog.qml:166 src/qml/ExplorerDelegate.qml:77
+#: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
 #: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Joined"
 msgstr "Pridružen"
 
-#: src/qml/CreateRoomDialog.qml:218
+#: src/qml/CreateRoomDialog.qml:236
 #, kde-format
 msgid "You have the required privilege level in the child to set this state"
 msgstr "Imate zahtevane pravice odvisnega, da nastavite to stanje"
 
-#: src/qml/CreateRoomDialog.qml:218
+#: src/qml/CreateRoomDialog.qml:236
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr "Nimate dovolj pravic odvisnega, da nastavite to stanje"
 
-#: src/qml/CreateRoomDialog.qml:235
+#: src/qml/CreateRoomDialog.qml:258
 #, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
@@ -2311,7 +2311,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Določi ta prostor kot kanonično nadrejenega"
 
-#: src/qml/CreateRoomDialog.qml:241 src/qml/ServerComboBox.qml:148
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -5220,62 +5220,83 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Izbriši besedo"
 
-#: src/settings/ThreePIdCard.qml:52
+#: src/settings/ThreePIdCard.qml:54
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Deli"
+
+#: src/settings/ThreePIdCard.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/settings/ThreePIdCard.qml:73
+#: src/settings/ThreePIdCard.qml:78
+#, fuzzy, kde-format
+#| msgid "Compact"
+msgctxt "@action:button"
+msgid "Complete"
+msgstr "Strnjeno"
+
+#: src/settings/ThreePIdCard.qml:83
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/settings/ThreePIdCard.qml:123
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr "Koda države za novo telefonsko številko"
 
-#: src/settings/ThreePIdCard.qml:89
+#: src/settings/ThreePIdCard.qml:139
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
 msgstr "Novi naslov e-pošte"
 
-#: src/settings/ThreePIdCard.qml:89
+#: src/settings/ThreePIdCard.qml:139
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
 msgstr "Nova telefonska številka"
 
-#: src/settings/ThreePIdCard.qml:93
+#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Poslali smo vam elektronsko sporočilo"
 
-#: src/settings/ThreePIdCard.qml:93
+#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Poslali smo vam besedilno sporočilo"
 
-#: src/settings/ThreePIdCard.qml:93
+#: src/settings/ThreePIdCard.qml:143
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Sledite navodilom in nato kliknite na gumb spodaj"
 
-#: src/settings/ThreePIdCard.qml:95
+#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "Vneseni naslov e-pošte ni veljaven"
 
-#: src/settings/ThreePIdCard.qml:95
+#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "Vnesena telefonska številka ni veljavna"
 
-#: src/settings/ThreePIdCard.qml:97
+#: src/settings/ThreePIdCard.qml:147
 #, kde-format
 msgid "Incorrect password entered"
 msgstr "Vneseno napačno geslo"
 
-#: src/settings/ThreePIdCard.qml:99
+#: src/settings/ThreePIdCard.qml:149
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5284,7 +5305,7 @@ msgstr ""
 "E-pošta ni bila preverjena. Pojdite v e-pošto in sledite tamkajšnjim "
 "navodilom ter nato kliknite spodnji gumb"
 
-#: src/settings/ThreePIdCard.qml:99
+#: src/settings/ThreePIdCard.qml:149
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -5293,17 +5314,49 @@ msgstr ""
 "Telefonska številka ni bila preverjena. Pojdite na besedilno sporočilo in "
 "sledite tamkajšnjim navodilom ter nato kliknite na gumb spodaj"
 
-#: src/settings/ThreePIdCard.qml:124
+#: src/settings/ThreePIdCard.qml:174
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Dodaj"
 
-#: src/settings/ThreePIdCard.qml:132
+#: src/settings/ThreePIdCard.qml:182
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Nazaj"
+
+#: src/threepidbindhelper.cpp:176
+#, fuzzy, kde-format
+#| msgid ""
+#| "%1. Please follow the instructions there and then click the button below"
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr "%1. Sledite navodilom in nato kliknite na gumb spodaj"
+
+#: src/threepidbindhelper.cpp:182
+#, fuzzy, kde-format
+#| msgid ""
+#| "The email has not been verified. Please go to the email and follow the "
+#| "instructions there and then click the button below"
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+"E-pošta ni bila preverjena. Pojdite v e-pošto in sledite tamkajšnjim "
+"navodilom ter nato kliknite spodnji gumb"
+
+#: src/threepidbindhelper.cpp:183
+#, fuzzy, kde-format
+#| msgid ""
+#| "The phone number has not been verified. Please go to the text message and "
+#| "follow the instructions there and then click the button below"
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+"Telefonska številka ni bila preverjena. Pojdite na besedilno sporočilo in "
+"sledite tamkajšnjim navodilom ter nato kliknite na gumb spodaj"
 
 #: src/timeline/CodeComponent.qml:168
 #, kde-format
