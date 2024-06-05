@@ -45,6 +45,9 @@ QVariant ImageContentModel::emojiData(int row, int role) const
     if (role == ImageContentRole::IsStickerRole) {
         return false;
     }
+    if (role == ImageContentRole::HasTonesRole) {
+        return true; // TODO
+    }
     return {};
 }
 
@@ -119,6 +122,7 @@ QHash<int, QByteArray> ImageContentModel::roleNames() const
         {ImageContentRole::IsCustomRole, "isCustom"},
         {ImageContentRole::IsStickerRole, "isSticker"},
         {ImageContentRole::IsEmojiRole, "isEmoji"},
+        {ImageContentRole::HasTonesRole, "hasTones"},
     };
 }
 

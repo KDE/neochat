@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
@@ -39,9 +39,6 @@ QQC2.ScrollView {
         cellHeight: Kirigami.Units.iconSizes.large
 
         model: ImageContentFilterModel {
-            // searchField.text.length > 0 ? emojiSearchModel
-            // : emoticonPickerCategoryHeader.currentCategory === "history" ?   recentImageContentProxyModel
-            // : imageContentModel
             searchText: searchField.text
             category: emoticonPickerCategoryHeader.category
             stickers: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Sticker
@@ -51,8 +48,6 @@ QQC2.ScrollView {
         KeyNavigation.up: root.header
 
         clip: true
-
-
 
         delegate: EmojiDelegate {
             id: emojiDelegate
@@ -75,30 +70,25 @@ QQC2.ScrollView {
             }
             Keys.onSpacePressed: pressAndHold()
             onPressAndHold: {
-                if (EmojiModel.tones(model.displayName).length === 0) {
+                if (!showTones) {
                     return;
                 }
-                let tones = tonesPopupComponent.createObject(emojiDelegate, {
+                let tones = Qt.createComponent("org.kde.neochat", "EmojiTonesPicker").createObject(emojiDelegate, {
                     shortName: modelData.shortName,
                     unicode: modelData.unicode,
-                    categoryIconSize: root.targetIconSize
+                    categoryIconSize: root.targetIconSize,
+                    onChosen: root.chosen(emoji => root.chosen(emoji))
                 });
                 tones.open();
                 tones.forceActiveFocus();
             }
-            showTones: false // TODO EmojiModel.tones(emojiDelegate.displayName).length > 0
+            showTones: model.hasTones
         }
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
-            text: root.stickers ? i18n("No stickers") : i18n("No emojis")
+            text: root.stickers ? i18nc("@info", "No stickers") : i18nc("@info", "No emojis")
             visible: emojis.count === 0
-        }
-    }
-    Component {
-        id: tonesPopupComponent
-        EmojiTonesPicker {
-            onChosen: root.chosen(emoji)
         }
     }
 }
