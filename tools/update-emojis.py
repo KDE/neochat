@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
+# SPDX-FileCopyrightText: 2022-2024 Tobias Fella <tobias.fella@kde.org>
 # SPDX-FileCopyrightText: 2022 Gary Wang <wzc782970009@gmail.com>
 # SPDX-License-Identifier: BSD-2-Clause
 
@@ -8,10 +8,7 @@ import json
 import os
 
 # This is nicer data, but in a useless order
-data = requests.get('https://raw.githubusercontent.com/bonusly/gemojione/master/config/index.json').json()
-
-# This is worse data, but in a better order. So we're using the order from this data, with the data from the other source
-unicode_emoji_data = requests.get('https://unicode.org/Public/emoji/14.0/emoji-test.txt')
+data = requests.get('https://raw.githubusercontent.com/joypixels/emoji-toolkit/master/emoji_strategy.json').json()
 
 file = open(os.path.dirname(os.path.abspath(__file__)) + "/../src/data/emojis.data", "w+")
 # REUSE-IgnoreStart
@@ -27,17 +24,7 @@ tones_file.write("// SPDX-License-Identifier: LGPL-2.0-or-later\n")
 # REUSE-IgnoreEnd
 tones_file.write("// This file is auto-generated. All changes will be lost. See tools/update-emojis.py\n")
 
-def escape_sequence(unicode_str: str, codepoint_spliter: str) -> str:
-    codepoints = unicode_str.split(codepoint_spliter)
-    escape_sequence = ""
-    for codepoint in codepoints:
-        escape_sequence += "\\U" + codepoint.rjust(8, "0")
-    return escape_sequence
-
-
-categories = {}
-
-categoryies = dict()
+categories = dict()
 categories["people"] = ("People & Emotion", "🙋‍♂️")
 categories["food"] = ("Food & Drink", "🍛")
 categories["nature"] = ("Animals & Nature", "🌲")
@@ -52,43 +39,16 @@ for category in categories:
     file.write(f"##{icon};{name};{category}\n")
 
 emojis = dict()
+tones = []
 for e in data:
-    emoji = e
-    unicode = data[emoji]["moji"]
-    name = data[emoji]["name"]
-    name = name.replace("tone 1", "with light skin tone")
-    name = name.replace("tone 2", "with medium-light skin tone")
-    name = name.replace("tone 3", "with medium skin tone")
-    name = name.replace("tone 4", "with medium-dark skin tone")
-    name = name.replace("tone 5", "with medium-dark skin tone")
-    name = name.capitalize()
-    emoji = emoji.replace("_tone1", "_light_skin_tone")
-    emoji = emoji.replace("_tone2", "_medium_light_skin_tone")
-    emoji = emoji.replace("_tone3", "_medium_skin_tone")
-    emoji = emoji.replace("_tone4", "_medium_dark_skin_tone")
-    emoji = emoji.replace("_tone5", "_dark_skin_tone")
+    codepoint = data[e]["unicode_output"].replace("-", "")
+    print(codepoint)
+    codepoint = "\\x" + "\\x".join([codepoint[i:i+2] for i in range(0, len(codepoint), 2)])
+    print(codepoint)
+    codepoint = codepoint.encode().decode('unicode-escape').encode('latin1').decode('utf-8')
+    print(codepoint)
 
-    category = data[e]["category"]
-    if category == "extras":
-        category = "flags"
-    if category == "places":
-        category = "activity"
-    if category == "modifier" or category == "regional":
-        continue
-    emojis[escape_sequence(data[e]['unicode'], "-")] = (unicode, name, emoji, category)
-
-for line in unicode_emoji_data.text.split("\n"):
-    if line.startswith("#") or line == "":
-        continue
-    parts = line.split(";")
-    first = parts[0].strip()
-    escaped_sequence = escape_sequence(first, " ")
-    if escaped_sequence in emojis:
-        icon, name, emoji, category = emojis.pop(escaped_sequence)
-        file.write(f"{icon};{name};{emoji};{category}\n")
-
-for shortcode, (icon, name, emoji, category) in emojis.items():
-    file.write(f"{icon};{name};{emoji};{category}\n")
+    file.write(f"{codepoint};{data[e]["name"]};{data[e]["shortname"]};{data[e]["category"]}\n")
 
 file.close()
 tones_file.close()

@@ -24,6 +24,7 @@ public:
         IsStickerRole,
         IsEmojiRole,
         UsageCountRole,
+        HasTonesRole,
     };
     Q_ENUM(ImageRoles);
 };

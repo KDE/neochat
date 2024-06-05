@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
@@ -6,8 +6,8 @@
 #include <QSortFilterProxyModel>
 #include <QQmlEngine>
 
+#include "allimagecontentmodel.h"
 #include "imagecontentmodel.h"
-#include "imagecontentsearchmodel.h"
 #include "recentimagecontentproxymodel.h"
 
 class ImageContentFilterModel : public QSortFilterProxyModel
@@ -49,7 +49,7 @@ private:
     QString m_category;
     QString m_searchText;
 
-    ImageContentSearchModel m_searchModel;
+    AllImageContentModel m_allImageContentModel;
     RecentImageContentProxyModel m_recentImageContentProxyModel;
     ImageContentModel m_imageContentModel;
 

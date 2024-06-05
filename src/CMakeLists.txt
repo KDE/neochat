@@ -193,15 +193,12 @@ add_library(neochat STATIC
     models/recentimagecontentproxymodel.cpp
     models/allimagecontentmodel.h
     models/allimagecontentmodel.cpp
-    models/imagecontentsearchmodel.h
-    models/imagecontentsearchmodel.cpp
     models/roomimagepacksmodel.h
     models/roomimagepacksmodel.cpp
     models/imagepackroomsmodel.h
     models/imagepackroomsmodel.cpp
     models/imagecontentfiltermodel.h
     models/imagecontentfiltermodel.cpp
->>>>>>> 194f0f07c (Comletely redo emoticon handling)
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

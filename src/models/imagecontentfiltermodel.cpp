@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "imagecontentfiltermodel.h"
@@ -15,7 +15,8 @@ bool ImageContentFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex 
 {
     Q_UNUSED(sourceParent);
     auto index = sourceModel()->index(sourceRow, 0);
-    return (index.data(ImageContentRole::IsEmojiRole).toBool() && emojis()) || (index.data(ImageContentRole::IsStickerRole).toBool() && stickers());
+    return ((index.data(ImageContentRole::IsEmojiRole).toBool() && emojis()) || (index.data(ImageContentRole::IsStickerRole).toBool() && stickers()))
+        && sourceModel()->index(sourceRow, 0).data(ImageContentRole::DisplayNameRole).toString().contains(m_searchText, Qt::CaseInsensitive);
 }
 
 bool ImageContentFilterModel::stickers() const
@@ -64,6 +65,7 @@ void ImageContentFilterModel::setSearchText(const QString &searchText)
     }
     m_searchText = searchText;
     Q_EMIT searchTextChanged();
+    invalidateFilter();
     updateSourceModel();
 }
 
@@ -75,11 +77,9 @@ QString ImageContentFilterModel::searchText() const
 void ImageContentFilterModel::updateSourceModel()
 {
     if (!m_searchText.isEmpty()) {
-        if (sourceModel() != &m_searchModel) {
-            setSourceModel(&m_searchModel);
+        if (sourceModel() != &m_allImageContentModel) {
+            setSourceModel(&m_allImageContentModel);
         }
-        m_searchModel.setSearchText(m_searchText);
-
     } else if (m_category == QStringLiteral("history")) {
         setSourceModel(&m_recentImageContentProxyModel);
     } else {
