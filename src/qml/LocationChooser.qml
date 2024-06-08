@@ -56,7 +56,7 @@ Components.AbstractMaximizeComponent {
 
         Connections {
             target: mapView.map
-            function onCopyrightLinkActivated() {
+            function onCopyrightLinkActivated(link: string) {
                 Qt.openUrlExternally(link);
             }
         }
