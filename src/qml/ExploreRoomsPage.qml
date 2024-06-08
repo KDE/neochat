@@ -89,6 +89,7 @@ SearchPage {
     listHeaderDelegate: Delegates.RoundedItemDelegate {
         onClicked: _private.openManualRoomDialog()
 
+        activeFocusOnTab: false // We handle moving to this item via up/down arrows, otherwise the tab order is wacky
         text: i18n("Enter a room address")
         icon.name: "compass"
         icon.width: Kirigami.Units.gridUnit * 2
