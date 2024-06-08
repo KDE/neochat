@@ -93,7 +93,7 @@ QQC2.ScrollView {
                 id: favouriteButton
                 visible: !root.room.isSpace
                 icon.name: root.room && root.room.isFavourite ? "rating" : "rating-unrated"
-                text: root.room && root.room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
+                text: root.room && root.room.isFavourite ? i18n("Remove room from favorites") : i18n("Favorite this room")
 
                 onClicked: root.room.isFavourite ? root.room.removeTag("m.favourite") : root.room.addTag("m.favourite", 1.0)
 
