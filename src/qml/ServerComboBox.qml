@@ -45,7 +45,7 @@ QQC2.ComboBox {
         required property bool isDeletable
 
         text: isAddServerDelegate ? i18n("Add New Server") : url
-        highlighted: false
+        highlighted: index === root.highlightedIndex
 
         topInset: index === 0 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
         bottomInset: index === ListView.view.count - 1 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
@@ -92,6 +92,13 @@ QQC2.ComboBox {
     onActivated: {
         if (currentIndex !== count - 1) {
             root.server = root.currentValue;
+        } else {
+            // Make sure to reset the combobox as it will display nothing if the "Add Server" item was selected.
+            root.currentIndex = 0;
+            root.server = root.currentValue;
+
+            addServerSheet.parent = QQC2.Overlay.overlay
+            addServerSheet.open();
         }
     }
 
