@@ -192,6 +192,7 @@ void ThreePIdBindHelper::finalizeNewIdBind()
     connect(job, &Quotient::BaseJob::success, this, [this] {
         m_bindStatus = Success;
         Q_EMIT bindStatusChanged();
+        m_connection->threePIdModel()->refreshModel();
     });
     connect(job, &Quotient::BaseJob::failure, this, [this, job]() {
         if (job->jsonData()[QLatin1String("errcode")] == QLatin1String("M_SESSION_NOT_VALIDATED")) {
@@ -208,6 +209,7 @@ void ThreePIdBindHelper::unbind3PId(const QString &threePId, const QString &type
 {
     const auto job = m_connection->callApi<Quotient::Unbind3pidFromAccountJob>(type, threePId);
     connect(job, &Quotient::BaseJob::success, this, [this]() {
+        cancel();
         m_connection->threePIdModel()->refreshModel();
     });
 }

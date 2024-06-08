@@ -37,6 +37,7 @@ ColumnLayout {
                 id: threePIdDelegate
                 required property string address
                 required property string medium
+                required property bool isBound
 
                 contentItem: ColumnLayout {
                     RowLayout {
@@ -50,7 +51,13 @@ ColumnLayout {
                             color: Kirigami.Theme.textColor
                         }
                         QQC2.ToolButton {
-                            visible: threePIdBindHelper.bindStatus === ThreePIdBindHelper.Ready && root.connection.hasIdentityServer
+                            visible: root.connection.hasIdentityServer && threePIdDelegate.isBound
+                            text: i18nc("@action:button", "Hide")
+                            icon.name: "hide_table_row"
+                            onClicked: threePIdBindHelper.unbind3PId(threePIdDelegate.address, threePIdDelegate.medium)
+                        }
+                        QQC2.ToolButton {
+                            visible: threePIdBindHelper.bindStatus === ThreePIdBindHelper.Ready && root.connection.hasIdentityServer && !threePIdDelegate.isBound
                             text: i18nc("@action:button", "Share")
                             icon.name: "send-to-symbolic"
                             onClicked: threePIdBindHelper.bindStatus === ThreePIdBindHelper.Verification ? threePIdBindHelper.finalizeNewIdBind() : threePIdBindHelper.initiateNewIdBind()
@@ -70,7 +77,7 @@ ColumnLayout {
                         type: threePIdBindHelper.statusType
                     }
                     RowLayout {
-                        visible: threePIdBindHelper.bindStatus !== ThreePIdBindHelper.Ready
+                        visible: threePIdBindHelper.bindStatus !== ThreePIdBindHelper.Ready && threePIdBindHelper.bindStatus !== ThreePIdBindHelper.Success
                         Item {
                             Layout.fillWidth: true
                         }

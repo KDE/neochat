@@ -28,6 +28,7 @@ public:
     enum EventRoles {
         AddressRole = Qt::DisplayRole, /**< The third-party identifier address. */
         MediumRole, /**< The medium of the third-party identifier. One of: [email, msisdn]. */
+        IsBoundRole, /**< Whether the 3PID is bound to the current identity server. */
     };
 
     explicit ThreePIdModel(NeoChatConnection *parent);
@@ -57,4 +58,8 @@ public:
 
 private:
     QVector<Quotient::GetAccount3PIDsJob::ThirdPartyIdentifier> m_threePIds;
+
+    QList<QString> m_bindings;
+
+    void refreshBindStatus();
 };
