@@ -62,7 +62,7 @@ QQC2.Control {
 
                     activeFocusOnTab: true
 
-                    onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
+                    onSelected: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
                         connection: root.connection
                     }, {
                         title: i18nc("@title", "Notifications")
@@ -91,7 +91,7 @@ QQC2.Control {
                     activeFocusOnTab: true
 
                     checked: RoomManager.currentSpace.length === 0
-                    onClicked: {
+                    onSelected: {
                         RoomManager.currentSpace = "";
                         root.selectionChanged();
                     }
@@ -139,7 +139,7 @@ QQC2.Control {
                     activeFocusOnTab: true
 
                     checked: RoomManager.currentSpace === "DM"
-                    onClicked: {
+                    onSelected: {
                         RoomManager.currentSpace = "DM";
                         root.selectionChanged();
                     }
@@ -241,7 +241,7 @@ QQC2.Control {
 
                     text: i18nc("Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
                     source: SpaceHierarchyCache.recommendedSpaceAvatar.length > 0 ? root.connection.makeMediaUrl(SpaceHierarchyCache.recommendedSpaceAvatar) : ""
-                    onClicked: {
+                    onSelected: {
                         recommendedSpaceDialogComponent.createObject(QQC2.ApplicationWindow.overlay, {
                             connection: root.connection
                         }).open();
@@ -288,7 +288,7 @@ QQC2.Control {
 
                     activeFocusOnTab: true
 
-                    onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
+                    onSelected: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
                         connection: root.connection,
                         isSpace: true,
                         title: i18nc("@title", "Create a Space")
