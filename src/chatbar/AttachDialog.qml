@@ -30,7 +30,7 @@ QQC2.Popup {
 
             onClicked: {
                 root.close();
-                var fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay);
+                var fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay);
                 fileDialog.chosen.connect(path => root.chosen(path));
                 fileDialog.open();
             }

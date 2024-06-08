@@ -73,7 +73,7 @@ FormCard.FormCardPage {
                             if (fileDialog != null) {
                                 return;
                             }
-                            fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.Overlay);
+                            fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay);
                             fileDialog.chosen.connect(function (receivedSource) {
                                 mouseArea.fileDialog = null;
                                 if (!receivedSource) {

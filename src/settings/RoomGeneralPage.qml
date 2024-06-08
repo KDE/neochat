@@ -48,7 +48,7 @@ FormCard.FormCardPage {
                     display: QQC2.AbstractButton.IconOnly
 
                     onClicked: {
-                        const fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay);
+                        const fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay);
                         fileDialog.chosen.connect(function (path) {
                             if (!path)
                                 return;

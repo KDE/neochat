@@ -115,7 +115,7 @@ QQC2.Control {
             displayHint: QQC2.AbstractButton.IconOnly
 
             onTriggered: {
-                locationChooser.createObject(QQC2.ApplicationWindow.overlay, {
+                locationChooser.createObject(QQC2.Overlay.overlay, {
                     room: root.currentRoom
                 }).open();
             }

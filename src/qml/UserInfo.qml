@@ -94,7 +94,7 @@ RowLayout {
                 id: switchUserButton
                 text: i18n("Switch User")
                 icon.name: "system-switch-user"
-                onTriggered: accountSwitchDialog.createObject(QQC2.ApplicationWindow.overlay, {
+                onTriggered: accountSwitchDialog.createObject(QQC2.Overlay.overlay, {
                     connection: root.connection
                 }).open();
             },
@@ -123,7 +123,7 @@ RowLayout {
     //         id: switchUserButton
     //         text: i18n("Switch User")
     //         icon.name: "system-switch-user"
-    //         onTriggered: accountSwitchDialog.createObject(QQC2.ApplicationWindow.overlay, {
+    //         onTriggered: accountSwitchDialog.createObject(QQC2.Overlay.overlay, {
     //             connection: root.connection
     //         }).open();
     //     }

@@ -123,7 +123,7 @@ Item {
                 icon.name: "list-remove"
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
-                    removeChildDialog.createObject(QQC2.ApplicationWindow.overlay, {
+                    removeChildDialog.createObject(QQC2.Overlay.overlay, {
                         parentRoom: root.parentRoom,
                         roomId: root.roomId,
                         displayName: root.displayName,

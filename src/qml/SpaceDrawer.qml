@@ -242,7 +242,7 @@ QQC2.Control {
                     text: i18nc("Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
                     source: SpaceHierarchyCache.recommendedSpaceAvatar.length > 0 ? root.connection.makeMediaUrl(SpaceHierarchyCache.recommendedSpaceAvatar) : ""
                     onSelected: {
-                        recommendedSpaceDialogComponent.createObject(QQC2.ApplicationWindow.overlay, {
+                        recommendedSpaceDialogComponent.createObject(QQC2.Overlay.overlay, {
                             connection: root.connection
                         }).open();
                     }

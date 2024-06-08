@@ -74,7 +74,7 @@ ColumnLayout {
     property real maxContentWidth: -1
 
     function saveFileAs() {
-        const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay);
+        const dialog = fileDialog.createObject(QQC2.Overlay.overlay);
         dialog.open();
         dialog.currentFile = dialog.folder + "/" + root.room.fileNameToDownload(root.eventId);
     }

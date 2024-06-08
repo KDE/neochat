@@ -101,7 +101,7 @@ Components.AlbumMaximizeComponent {
     onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId, root.currentRoom)
 
     onSaveItem: {
-        var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay);
+        var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
         dialog.open();
         dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.currentEventId);
     }

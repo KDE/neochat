@@ -49,7 +49,7 @@ DelegateContextMenu {
             text: i18n("Save As")
             icon.name: "document-save"
             onTriggered: {
-                var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay);
+                var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
                 dialog.open();
                 dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId);
             }
