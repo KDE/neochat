@@ -65,7 +65,7 @@ QQC2.ScrollView {
 
             Kirigami.ListSectionHeader {
                 visible: !root.room.isSpace
-                label: i18n("Options")
+                label: i18nc("Room actions", "Actions")
                 activeFocusOnTab: false
 
                 Layout.fillWidth: true
