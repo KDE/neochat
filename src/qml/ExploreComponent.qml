@@ -102,7 +102,7 @@ RowLayout {
         display: QQC2.AbstractButton.IconOnly
         onClicked: root.search();
         icon.name: "search"
-        text: i18nc("@action", "Search Room")
+        text: i18nc("@action", "Search Rooms")
         Shortcut {
             sequence: "Ctrl+F"
             onActivated: searchButton.clicked()
