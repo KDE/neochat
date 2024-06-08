@@ -41,6 +41,7 @@ SearchPage {
     listHeaderDelegate: Delegates.RoundedItemDelegate {
         onClicked: _private.openManualUserDialog()
 
+        activeFocusOnTab: false // We handle moving to this item via up/down arrows, otherwise the tab order is wacky
         text: i18n("Enter a user ID")
         icon.name: "list-add-user"
         icon.width: Kirigami.Units.gridUnit * 2

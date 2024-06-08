@@ -174,5 +174,14 @@ Kirigami.ScrollablePage {
             anchors.centerIn: parent
             visible: searchField.text.length > 0 && listView.count === 0 && root.model.searching
         }
+
+        Keys.onUpPressed: {
+            if (listView.currentIndex > 0) {
+                listView.decrementCurrentIndex();
+            } else {
+                listView.currentIndex = -1; // This is so the list view doesn't appear to have two selected items
+                listView.headerItem.forceActiveFocus(Qt.TabFocusReason);
+            }
+        }
     }
 }
