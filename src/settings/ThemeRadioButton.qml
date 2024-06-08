@@ -40,7 +40,7 @@ QQC2.RadioButton {
                     return Kirigami.Theme.highlightColor;
                 } else if (root.hovered) {
                     // Match appearance of hovered list items
-                    return Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b, 0.5);
+                    return Qt.alpha(Kirigami.Theme.highlightColor, 0.5);
                 } else {
                     return Kirigami.Theme.backgroundColor;
                 }
