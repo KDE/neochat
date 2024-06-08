@@ -218,7 +218,6 @@ QQC2.ScrollView {
             KeyNavigation.backtab: index === 0 ? userList.headerItem.userListSearchField : null
 
             onClicked: {
-                userDelegate.highlighted = true;
                 RoomManager.resolveResource(userDelegate.userId, "mention");
             }
 
