@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-01 02:25+0000\n"
-"PO-Revision-Date: 2024-02-14 19:06+0200\n"
+"PO-Revision-Date: 2024-04-08 19:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -18,13 +18,12 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:133
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Vastaanotetaan push-ilmoituksia"
+msgstr "Vastaanotetaan ilmoituksia uusista viesteistä"
 
 #: src/controller.cpp:212
 #, kde-format
@@ -72,15 +71,13 @@ msgid "Receiving push notifications"
 msgstr "Vastaanotetaan push-ilmoituksia"
 
 #: src/devtools/AccountData.qml:19
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr "Huoneen tilitiedot"
+msgstr "Tilitiedot"
 
 #: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:47
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Tapahtumalähde"
@@ -125,23 +122,22 @@ msgid "Debug Options"
 msgstr "Valinnat"
 
 #: src/devtools/DevtoolsPage.qml:44
-#, fuzzy, kde-format
-#| msgid "Room Account Data"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr "Huoneen tilitiedot"
+msgstr "Tilitiedot"
 
 #: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
-msgstr ""
+msgstr "Ominaisuusliput"
 
 #: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
-msgstr ""
+msgstr "Säikeet"
 
 #: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
@@ -186,15 +182,14 @@ msgstr "Huoneen tila"
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 tämäntyyppinen tapahtuma"
+msgstr[1] "%1 tämäntyyppistä tapahtumaa"
 
 #: src/devtools/RoomData.qml:84
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
-msgstr "Palvelintiedot"
+msgstr "Tapahtumatiedot"
 
 #: src/devtools/ServerData.qml:20
 #, kde-format
@@ -825,11 +820,10 @@ msgid "%1 (loading)"
 msgstr "%1 (ladataan)"
 
 #: src/login/WelcomePage.qml:95
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove this account"
-msgstr "Muokkaa tätä tiliä"
+msgstr "Poista tämä tili"
 
 #: src/login/WelcomePage.qml:124
 #, kde-format
@@ -908,10 +902,9 @@ msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
 #: src/main.cpp:154
-#, fuzzy, kde-format
-#| msgid "Maintainer of Quotient"
+#, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Quotientin ylläpitäjä"
+msgstr "libQuotientin ylläpitäjä"
 
 #: src/main.cpp:155
 #, kde-format
@@ -1614,8 +1607,7 @@ msgid "Open developer tools"
 msgstr "Avaa kehitystyökalut"
 
 #: src/qml/AccountMenu.qml:61
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Kehitystyökalut"
@@ -1858,14 +1850,12 @@ msgid "Do you want to open <link>%1</link>?"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "Poista suosikeista"
 
 #: src/qml/ContextMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "Lisää suosikkeihin"
 
@@ -2685,11 +2675,10 @@ msgstr "Haluatko käynnistää keskustelun henkilön %1 kanssa?"
 #, kde-format
 msgctxt "@info screenreader"
 msgid "The currently selected link"
-msgstr ""
+msgstr "Valittu linkki"
 
 #: src/qml/Main.qml:422 src/qml/ShareAction.qml:68
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@title"
 msgid "Share"
 msgstr "Jaa"
@@ -2851,25 +2840,22 @@ msgid "Insert link"
 msgstr "Lisää linkki"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
-msgstr "Liity"
+msgstr "Liity tilaan %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Liity"
 
 #: src/qml/RecommendedSpaceDialog.qml:60
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
-msgstr "Ohita"
+msgstr "Sivuuta"
 
 #: src/qml/RemoveChildDialog.qml:27
 #, kde-format
@@ -3260,11 +3246,10 @@ msgid "Friends"
 msgstr "Kaverit"
 
 #: src/qml/SpaceDrawer.qml:242
-#, fuzzy, kde-format
-#| msgid "Join"
+#, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
-msgstr "Liity"
+msgstr "Liity tilaan %1"
 
 #: src/qml/SpaceDrawer.qml:284
 #, kde-format
@@ -4252,32 +4237,29 @@ msgid "Unknown"
 msgstr "Tuntematon"
 
 #: src/settings/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "Sivuuta tämä käyttäjä"
+msgstr "Sivuutetut käyttäjät"
 
 #: src/settings/IgnoredUsersDialog.qml:24
 #: src/settings/NeoChatSecurityPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "Sivuuta tämä käyttäjä"
+msgstr "Sivuutetut käyttäjät"
 
 #: src/settings/IgnoredUsersDialog.qml:29
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "You are not ignoring any users"
-msgstr ""
+msgstr "Et olet sivuuttanut käyttäjiä"
 
 #: src/settings/IgnoredUsersDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr "Peru tämän käyttäjän sivuuttaminen"
+msgstr "Peru tämän käyttäjän sivuutus"
 
 #: src/settings/NeoChatGeneralPage.qml:15
 #, kde-format
@@ -4312,24 +4294,21 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:85
-#, fuzzy, kde-format
-#| msgid "<room alias or id>"
+#, kde-format
 msgid "Room list sort order"
-msgstr "<huoneen alias tai tunniste>"
+msgstr "Huoneiden lajittelujärjestys"
 
 #: src/settings/NeoChatGeneralPage.qml:89
-#, fuzzy, kde-format
-#| msgctxt "'Activities' is a category of emoji"
-#| msgid "Activities"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
-msgstr "Aktiviteetit"
+msgstr "Toiminta"
 
 #: src/settings/NeoChatGeneralPage.qml:98
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
-msgstr ""
+msgstr "Aakkosjärjestys"
 
 #: src/settings/NeoChatGeneralPage.qml:108
 #, kde-format
@@ -4423,11 +4402,10 @@ msgid "Manage ignored users"
 msgstr "Hylkää ja sivuuta käyttäjä"
 
 #: src/settings/NeoChatSecurityPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Sivuuta tämä käyttäjä"
+msgstr "Sivuutetut käyttäjät"
 
 #: src/settings/NeoChatSettings.qml:20 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettings.qml:21
@@ -5098,10 +5076,9 @@ msgid "Delete word"
 msgstr "Poista sana"
 
 #: src/timeline/CodeComponent.qml:167
-#, fuzzy, kde-format
-#| msgid "Copy room ID to clipboard"
+#, kde-format
 msgid "Copy to clipboard"
-msgstr "Kopioi huoneen tunniste leikepöydälle"
+msgstr "Kopioi leikepöydälle"
 
 #: src/timeline/CodeComponent.qml:178
 #, fuzzy, kde-format
@@ -5185,10 +5162,9 @@ msgid "Expand preview"
 msgstr "Suurenna esikatselua"
 
 #: src/timeline/LoadComponent.qml:53
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgid "Loading reply"
-msgstr "Ladataan"
+msgstr "Ladataan vastausta"
 
 #: src/timeline/LoadComponent.qml:55
 #, kde-format
