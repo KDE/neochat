@@ -107,6 +107,10 @@ RowLayout {
             sequence: "Ctrl+F"
             onActivated: searchButton.clicked()
         }
+
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
 
     QQC2.ToolButton {
@@ -130,9 +134,9 @@ RowLayout {
             }
         }
 
-        QQC2.ToolTip {
-            text: parent.text
-        }
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
 
     Component {
