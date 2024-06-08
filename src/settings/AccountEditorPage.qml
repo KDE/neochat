@@ -116,7 +116,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "QR code for account")
             onClicked: {
-                let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent.qml').createObject(QQC2.ApplicationWindow.overlay, {
+                let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.ApplicationWindow.overlay, {
                     text: "https://matrix.to/#/" + root.connection.localUser.id,
                     title: root.connection.localUser.displayName,
                     subtitle: root.connection.localUser.id,
