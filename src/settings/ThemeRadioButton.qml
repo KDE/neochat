@@ -30,6 +30,11 @@ QQC2.RadioButton {
             shadow.size: 10
             shadow.color: Qt.rgba(0, 0, 0, 0.3)
 
+            border {
+                color: Qt.alpha(Kirigami.Theme.highlightColor, 0.5)
+                width: root.activeFocus ? 3 : 0
+            }
+
             color: {
                 if (root.checked) {
                     return Kirigami.Theme.highlightColor;
