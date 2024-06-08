@@ -96,23 +96,28 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     });
     connect(this, &Room::displaynameChanged, this, &NeoChatRoom::displayNameChanged);
 
-    connectSingleShot(this, &Room::baseStateLoaded, this, [this]() {
-        updatePushNotificationState(QStringLiteral("m.push_rules"));
+    connect(
+        this,
+        &Room::baseStateLoaded,
+        this,
+        [this]() {
+            updatePushNotificationState(QStringLiteral("m.push_rules"));
 
-        Q_EMIT canEncryptRoomChanged();
-        if (this->joinState() != JoinState::Invite) {
-            return;
-        }
-        auto roomMemberEvent = currentState().get<RoomMemberEvent>(localUser()->id());
-        QImage avatar_image;
-        if (roomMemberEvent && !user(roomMemberEvent->senderId())->avatarUrl(this).isEmpty()) {
-            avatar_image = user(roomMemberEvent->senderId())->avatar(128, this);
-        } else {
-            qWarning() << "using this room's avatar";
-            avatar_image = avatar(128);
-        }
-        NotificationsManager::instance().postInviteNotification(this, displayName(), htmlSafeMemberName(roomMemberEvent->senderId()), avatar_image);
-    });
+            Q_EMIT canEncryptRoomChanged();
+            if (this->joinState() != JoinState::Invite) {
+                return;
+            }
+            auto roomMemberEvent = currentState().get<RoomMemberEvent>(localUser()->id());
+            QImage avatar_image;
+            if (roomMemberEvent && !user(roomMemberEvent->senderId())->avatarUrl(this).isEmpty()) {
+                avatar_image = user(roomMemberEvent->senderId())->avatar(128, this);
+            } else {
+                qWarning() << "using this room's avatar";
+                avatar_image = avatar(128);
+            }
+            NotificationsManager::instance().postInviteNotification(this, displayName(), htmlSafeMemberName(roomMemberEvent->senderId()), avatar_image);
+        },
+        Qt::SingleShotConnection);
     connect(this, &Room::changed, this, [this] {
         Q_EMIT canEncryptRoomChanged();
         Q_EMIT parentIdsChanged();

@@ -112,9 +112,14 @@ void Registration::registerAccount()
                 account.sync();
                 Controller::instance().addConnection(connection);
                 Controller::instance().setActiveConnection(connection);
-                connectSingleShot(connection, &Connection::syncDone, this, []() {
-                    Q_EMIT LoginHelper::instance().loaded();
-                });
+                connect(
+                    connection,
+                    &Connection::syncDone,
+                    this,
+                    []() {
+                        Q_EMIT LoginHelper::instance().loaded();
+                    },
+                    Qt::SingleShotConnection);
                 m_connection = nullptr;
             });
 
@@ -172,28 +177,33 @@ void Registration::testHomeserver()
 
     m_connection = new NeoChatConnection(this);
     m_connection->resolveServer("@user:%1"_ls.arg(m_homeserver));
-    connectSingleShot(m_connection.data(), &Connection::loginFlowsChanged, this, [this]() {
-        if (m_testServerJob) {
-            delete m_testServerJob;
-        }
-        m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_ls, none, "user"_ls, QString(), QString(), QString(), false);
-        connect(m_testServerJob.data(), &BaseJob::finished, this, [this]() {
-            if (m_testServerJob->error() == BaseJob::StatusCode::ContentAccessError) {
-                setStatus(ServerNoRegistration);
-                return;
+    connect(
+        m_connection.data(),
+        &Connection::loginFlowsChanged,
+        this,
+        [this]() {
+            if (m_testServerJob) {
+                delete m_testServerJob;
             }
-            if (m_testServerJob->status().code != 106) {
-                setStatus(InvalidServer);
-                return;
-            }
-            if (!m_username.isEmpty()) {
-                setStatus(TestingUsername);
-                testUsername();
-            } else {
-                setStatus(NoUsername);
-            }
-        });
-    });
+            m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_ls, none, "user"_ls, QString(), QString(), QString(), false);
+            connect(m_testServerJob.data(), &BaseJob::finished, this, [this]() {
+                if (m_testServerJob->error() == BaseJob::StatusCode::ContentAccessError) {
+                    setStatus(ServerNoRegistration);
+                    return;
+                }
+                if (m_testServerJob->status().code != 106) {
+                    setStatus(InvalidServer);
+                    return;
+                }
+                if (!m_username.isEmpty()) {
+                    setStatus(TestingUsername);
+                    testUsername();
+                } else {
+                    setStatus(NoUsername);
+                }
+            });
+        },
+        Qt::SingleShotConnection);
 }
 
 void Registration::setUsername(const QString &username)

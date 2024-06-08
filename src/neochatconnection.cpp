@@ -321,9 +321,14 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
     connect(job, &CreateRoomJob::failure, this, [job] {
         Q_EMIT Controller::instance().errorOccured(i18n("Room creation failed: %1", job->errorString()), {});
     });
-    connectSingleShot(this, &Connection::newRoom, this, [](Room *room) {
-        RoomManager::instance().resolveResource(room->id());
-    });
+    connect(
+        this,
+        &Connection::newRoom,
+        this,
+        [](Room *room) {
+            RoomManager::instance().resolveResource(room->id());
+        },
+        Qt::SingleShotConnection);
 }
 
 void NeoChatConnection::createSpace(const QString &name, const QString &topic, const QString &parent, bool setChildParent)
@@ -353,9 +358,14 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
     connect(job, &CreateRoomJob::failure, this, [job] {
         Q_EMIT Controller::instance().errorOccured(i18n("Space creation failed: %1", job->errorString()), {});
     });
-    connectSingleShot(this, &Connection::newRoom, this, [](Room *room) {
-        RoomManager::instance().resolveResource(room->id());
-    });
+    connect(
+        this,
+        &Connection::newRoom,
+        this,
+        [](Room *room) {
+            RoomManager::instance().resolveResource(room->id());
+        },
+        Qt::SingleShotConnection);
 }
 
 bool NeoChatConnection::directChatExists(Quotient::User *user)
@@ -384,9 +394,14 @@ void NeoChatConnection::openOrCreateDirectChat(User *user)
         }
     }
     requestDirectChat(user);
-    connectSingleShot(this, &Connection::directChatAvailable, this, [=](auto room) {
-        room->activateEncryption();
-    });
+    connect(
+        this,
+        &Connection::directChatAvailable,
+        this,
+        [=](auto room) {
+            room->activateEncryption();
+        },
+        Qt::SingleShotConnection);
 }
 
 qsizetype NeoChatConnection::directChatNotifications() const

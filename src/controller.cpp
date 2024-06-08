@@ -106,11 +106,16 @@ Controller::Controller(QObject *parent)
             connect(connection, &NeoChatConnection::syncDone, this, [connection]() {
                 NotificationsManager::instance().handleNotifications(connection);
             });
-            connectSingleShot(connection, &NeoChatConnection::syncDone, this, [this, connection] {
-                if (!m_endpoint.isEmpty()) {
-                    connection->setupPushNotifications(m_endpoint);
-                }
-            });
+            connect(
+                connection,
+                &NeoChatConnection::syncDone,
+                this,
+                [this, connection] {
+                    if (!m_endpoint.isEmpty()) {
+                        connection->setupPushNotifications(m_endpoint);
+                    }
+                },
+                Qt::SingleShotConnection);
         }
         oldAccountCount = m_accountRegistry.size();
     });

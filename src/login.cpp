@@ -54,14 +54,19 @@ void LoginHelper::init()
             m_connection = new NeoChatConnection();
         }
         m_connection->resolveServer(m_matrixId);
-        connectSingleShot(m_connection.get(), &Connection::loginFlowsChanged, this, [this]() {
-            setHomeserverReachable(true);
-            m_testing = false;
-            Q_EMIT testingChanged();
-            m_supportsSso = m_connection->supportsSso();
-            m_supportsPassword = m_connection->supportsPasswordAuth();
-            Q_EMIT loginFlowsChanged();
-        });
+        connect(
+            m_connection.get(),
+            &Connection::loginFlowsChanged,
+            this,
+            [this]() {
+                setHomeserverReachable(true);
+                m_testing = false;
+                Q_EMIT testingChanged();
+                m_supportsSso = m_connection->supportsSso();
+                m_supportsPassword = m_connection->supportsPasswordAuth();
+                Q_EMIT loginFlowsChanged();
+            },
+            Qt::SingleShotConnection);
     });
     connect(m_connection, &Connection::connected, this, [this] {
         Q_EMIT connected();
@@ -100,9 +105,14 @@ void LoginHelper::init()
         Q_EMIT Controller::instance().errorOccured(i18n("Network Error"), std::move(error));
     });
 
-    connectSingleShot(m_connection.get(), &Connection::syncDone, this, [this]() {
-        Q_EMIT loaded();
-    });
+    connect(
+        m_connection.get(),
+        &Connection::syncDone,
+        this,
+        [this]() {
+            Q_EMIT loaded();
+        },
+        Qt::SingleShotConnection);
 }
 
 void LoginHelper::setHomeserverReachable(bool reachable)
@@ -182,11 +192,16 @@ QUrl LoginHelper::ssoUrl() const
 void LoginHelper::loginWithSso()
 {
     m_connection->resolveServer(m_matrixId);
-    connectSingleShot(m_connection.get(), &Connection::loginFlowsChanged, this, [this]() {
-        SsoSession *session = m_connection->prepareForSso(m_deviceName);
-        m_ssoUrl = session->ssoUrl();
-        Q_EMIT ssoUrlChanged();
-    });
+    connect(
+        m_connection.get(),
+        &Connection::loginFlowsChanged,
+        this,
+        [this]() {
+            SsoSession *session = m_connection->prepareForSso(m_deviceName);
+            m_ssoUrl = session->ssoUrl();
+            Q_EMIT ssoUrlChanged();
+        },
+        Qt::SingleShotConnection);
 }
 
 bool LoginHelper::testing() const

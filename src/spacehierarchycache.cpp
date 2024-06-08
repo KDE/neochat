@@ -32,11 +32,16 @@ void SpaceHierarchyCache::cacheSpaceHierarchy()
         if (neoChatRoom->isSpace()) {
             populateSpaceHierarchy(neoChatRoom->id());
         } else {
-            connectSingleShot(neoChatRoom, &Room::baseStateLoaded, neoChatRoom, [this, neoChatRoom]() {
-                if (neoChatRoom->isSpace()) {
-                    populateSpaceHierarchy(neoChatRoom->id());
-                }
-            });
+            connect(
+                neoChatRoom,
+                &Room::baseStateLoaded,
+                neoChatRoom,
+                [this, neoChatRoom]() {
+                    if (neoChatRoom->isSpace()) {
+                        populateSpaceHierarchy(neoChatRoom->id());
+                    }
+                },
+                Qt::SingleShotConnection);
         }
 
         connect(neoChatRoom, &NeoChatRoom::unreadStatsChanged, this, [this, neoChatRoom]() {
@@ -97,12 +102,17 @@ void SpaceHierarchyCache::addBatch(const QString &spaceId, Quotient::GetSpaceHie
 
 void SpaceHierarchyCache::addSpaceToHierarchy(Quotient::Room *room)
 {
-    connectSingleShot(room, &Quotient::Room::baseStateLoaded, this, [this, room]() {
-        const auto neoChatRoom = static_cast<NeoChatRoom *>(room);
-        if (neoChatRoom->isSpace()) {
-            populateSpaceHierarchy(neoChatRoom->id());
-        }
-    });
+    connect(
+        room,
+        &Quotient::Room::baseStateLoaded,
+        this,
+        [this, room]() {
+            const auto neoChatRoom = static_cast<NeoChatRoom *>(room);
+            if (neoChatRoom->isSpace()) {
+                populateSpaceHierarchy(neoChatRoom->id());
+            }
+        },
+        Qt::SingleShotConnection);
 }
 
 void SpaceHierarchyCache::removeSpaceFromHierarchy(Quotient::Room *room)

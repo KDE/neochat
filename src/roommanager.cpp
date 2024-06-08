@@ -150,9 +150,14 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
         Q_ASSERT(result == Quotient::UriResolved);
 
         if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
-            connectSingleShot(m_connection.get(), &NeoChatConnection::newRoom, this, [this, uri](Room *room) {
-                resolveResource(room->id());
-            });
+            connect(
+                m_connection.get(),
+                &NeoChatConnection::newRoom,
+                this,
+                [this, uri](Room *room) {
+                    resolveResource(room->id());
+                },
+                Qt::SingleShotConnection);
         }
     }
 }
@@ -303,18 +308,32 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
 {
     auto job = account->joinRoom(roomAliasOrId, viaServers);
 #if Quotient_VERSION_MINOR > 8
-    connectSingleShot(job.get(), &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
+    connect(
+        job.get(),
+        &Quotient::BaseJob::finished,
+        this,
+        [this, account](Quotient::BaseJob *finish) {
 #else
-    connectSingleShot(job, &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
+    connect(
+        job,
+        &Quotient::BaseJob::finished,
+        this,
+        [this, account](Quotient::BaseJob *finish) {
 #endif
-        if (finish->status() == Quotient::BaseJob::Success) {
-            connectSingleShot(account, &NeoChatConnection::newRoom, this, [this](Quotient::Room *room) {
-                resolveResource(room->id());
-            });
-        } else {
-            Q_EMIT warning(i18n("Failed to join room"), finish->errorString());
-        }
-    });
+            if (finish->status() == Quotient::BaseJob::Success) {
+                connect(
+                    account,
+                    &NeoChatConnection::newRoom,
+                    this,
+                    [this](Quotient::Room *room) {
+                        resolveResource(room->id());
+                    },
+                    Qt::SingleShotConnection);
+            } else {
+                Q_EMIT warning(i18n("Failed to join room"), finish->errorString());
+            }
+        },
+        Qt::SingleShotConnection);
 }
 
 void RoomManager::knockRoom(NeoChatConnection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers)
@@ -325,18 +344,32 @@ void RoomManager::knockRoom(NeoChatConnection *account, const QString &roomAlias
     // create it in Join state. finished() is used here instead of success()
     // to overtake clients that may add their own slots to finished().
 #if Quotient_VERSION_MINOR > 8
-    connectSingleShot(job.get(), &BaseJob::finished, this, [this, job, account] {
+    connect(
+        job.get(),
+        &BaseJob::finished,
+        this,
+        [this, job, account] {
 #else
-    connectSingleShot(job, &BaseJob::finished, this, [this, job, account] {
+    connect(
+        job,
+        &BaseJob::finished,
+        this,
+        [this, job, account] {
 #endif
-        if (job->status() == Quotient::BaseJob::Success) {
-            connectSingleShot(account, &NeoChatConnection::newRoom, this, [this](Quotient::Room *room) {
-                Q_EMIT currentRoom()->showMessage(NeoChatRoom::Info, i18n("You requested to join '%1'", room->name()));
-            });
-        } else {
-            Q_EMIT warning(i18n("Failed to request joining room"), job->errorString());
-        }
-    });
+            if (job->status() == Quotient::BaseJob::Success) {
+                connect(
+                    account,
+                    &NeoChatConnection::newRoom,
+                    this,
+                    [this](Quotient::Room *room) {
+                        Q_EMIT currentRoom() -> showMessage(NeoChatRoom::Info, i18n("You requested to join '%1'", room->name()));
+                    },
+                    Qt::SingleShotConnection);
+            } else {
+                Q_EMIT warning(i18n("Failed to request joining room"), job->errorString());
+            }
+        },
+        Qt::SingleShotConnection);
 }
 
 bool RoomManager::visitNonMatrix(const QUrl &url)
