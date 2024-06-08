@@ -21,6 +21,7 @@ Kirigami.Page {
         id: mapView
         anchors.fill: parent
         map.plugin: OsmLocationPlugin.plugin
+        visible: mapView.map.mapItems.length !== 0
 
         map.center: {
             let c = LocationHelper.center(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox));
@@ -52,16 +53,17 @@ Kirigami.Page {
             delegate: LocationMapItem {}
         }
 
-        Kirigami.PlaceholderMessage {
-            text: i18n("There are no locations shared in this room.")
-            visible: mapView.map.mapItems.length === 0
-            anchors.centerIn: parent
-        }
         Connections {
             target: mapView.map
             function onCopyrightLinkActivated() {
                 Qt.openUrlExternally(link);
             }
         }
+    }
+
+    Kirigami.PlaceholderMessage {
+        text: i18n("There are no locations shared in this room.")
+        visible: mapView.map.mapItems.length === 0
+        anchors.centerIn: parent
     }
 }
