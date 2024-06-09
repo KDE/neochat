@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-01 00:39+0000\n"
+"POT-Creation-Date: 2024-06-09 00:38+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.04.3\n"
 
-#: src/chatbar/AttachDialog.qml:27
+#: src/chatbar/AttachDialog.qml:29
 #, kde-format
 msgid "Choose local file"
 msgstr "Yerli faylı seçin"
 
-#: src/chatbar/AttachDialog.qml:46
+#: src/chatbar/AttachDialog.qml:45
 #, kde-format
 msgid "Clipboard image"
 msgstr "Mübadilə yaddaşındakı şəkil"
@@ -94,7 +94,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "İmtina"
 
-#: src/controller.cpp:130
+#: src/controller.cpp:135
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgctxt ""
@@ -103,48 +103,48 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "\"Yazır\" bildirişi göndərilsin"
 
-#: src/controller.cpp:209
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Şəbəkə xətası: %1"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Giriş tokeni tapılmadı"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ola bilsin ki, o, silinib"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Açarlar bağına girişə icaz. verilmir."
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat'a giriş tokenini oxumağa icazə verin"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "No keychain available."
 msgstr "Açarlar bağı əlçatan deyil."
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Linix'da KWallet və ya GNOME keyring kimi açarlar bağı tətbiqini quraşdırın"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:246
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Giriş nişanını oxumaq mümkün deyil"
 
-#: src/controller.cpp:337
+#: src/controller.cpp:342
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Receiving push notifications"
@@ -343,7 +343,7 @@ msgstr "Dəvət edildi"
 msgid "Favorite"
 msgstr "Seçilmiş"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:84
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -812,12 +812,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Dəvət göndərmək"
 
-#: src/login.cpp:85 src/login.cpp:100
+#: src/login.cpp:90 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "Şəbəkə xətası"
 
-#: src/login.cpp:93
+#: src/login.cpp:98
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Giriş alınmadı: %1"
@@ -889,7 +889,7 @@ msgid "Loading…"
 msgstr "Yüklənir..."
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1968,19 +1968,19 @@ msgstr ""
 msgid "Room creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/neochatconnection.cpp:354
+#: src/neochatconnection.cpp:359
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
+#: src/neochatroom.cpp:1404 src/neochatroom.cpp:1405
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
+#: src/neochatroom.cpp:1679 src/neochatroom.cpp:1687
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2569,7 +2569,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Rəsmi adı yoxdur"
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:148
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2748,17 +2748,17 @@ msgstr "Otaqlar"
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "@action"
-msgid "Search Room"
+msgid "Search Rooms"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/ExploreComponent.qml:119
+#: src/qml/ExploreComponent.qml:123
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/qml/ExploreComponent.qml:188
+#: src/qml/ExploreComponent.qml:192
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create rooms and chats"
@@ -2795,20 +2795,20 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr ""
 
-#: src/qml/ExploreRoomsPage.qml:92
+#: src/qml/ExploreRoomsPage.qml:93
 #, fuzzy, kde-format
 #| msgctxt "@label Parameter of a command"
 #| msgid "<room-address>"
 msgid "Enter a room address"
 msgstr "<otaq-ünvanı>"
 
-#: src/qml/ExploreRoomsPage.qml:106
+#: src/qml/ExploreRoomsPage.qml:107
 #, fuzzy, kde-format
 #| msgid "Find a room..."
 msgid "Find a room…"
 msgstr "Otaq tapmaq"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:108
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -3149,7 +3149,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/qml/LocationsPage.qml:56
+#: src/qml/LocationsPage.qml:65
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "There are no locations shared in this room."
@@ -3463,9 +3463,10 @@ msgstr "Otaq haqqında"
 
 #: src/qml/RoomInformation.qml:68
 #, fuzzy, kde-format
-#| msgid "Options:"
-msgid "Options"
-msgstr "Seçimlər:"
+#| msgid "Show notifications"
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Bildirişlərdə göstərmək"
 
 #: src/qml/RoomInformation.qml:78
 #, fuzzy, kde-format
@@ -3485,9 +3486,10 @@ msgid "Remove room from favorites"
 msgstr "Otağı seçilmişlərdən silin"
 
 #: src/qml/RoomInformation.qml:96
-#, kde-format
-msgid "Make room favorite"
-msgstr "Otağı seçilmiş edin"
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "Favorite this room"
+msgstr "NeoChatı bu otaqla açın"
 
 #: src/qml/RoomInformation.qml:109
 #, fuzzy, kde-format
@@ -3693,33 +3695,33 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr ""
 
-#: src/qml/ServerComboBox.qml:103
+#: src/qml/ServerComboBox.qml:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr ""
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Valid server entered"
 msgstr ""
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr ""
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr ""
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr ""
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:132
 #, kde-format
 msgid "Server URL"
 msgstr ""
@@ -4099,23 +4101,23 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:45
+#: src/qml/UserSearchPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter your Matrix ID"
 msgid "Enter a user ID"
 msgstr "Matrix İD-zi daxil edin"
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Find your friends…"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr ""
 
-#: src/qml/UserSearchPage.qml:92
+#: src/qml/UserSearchPage.qml:93
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -4263,52 +4265,52 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 
-#: src/registration.cpp:300
+#: src/registration.cpp:310
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "No server."
 msgstr "Əsas server:"
 
-#: src/registration.cpp:302
+#: src/registration.cpp:312
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/registration.cpp:304
+#: src/registration.cpp:314
 #, kde-format
 msgid "This is not a valid server."
 msgstr ""
 
-#: src/registration.cpp:306
+#: src/registration.cpp:316
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/registration.cpp:308
+#: src/registration.cpp:318
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Ad yoxdur"
 
-#: src/registration.cpp:310
+#: src/registration.cpp:320
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/registration.cpp:312
+#: src/registration.cpp:322
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "İstifadəçilər yoxdur"
 
-#: src/registration.cpp:314
+#: src/registration.cpp:324
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "Davam etmək"
 
-#: src/registration.cpp:316
+#: src/registration.cpp:326
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -4323,18 +4325,18 @@ msgstr "Matrix İD qüsurludur və ya boşdur"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1, düzgün Matrix identifikatoru deyil"
 
-#: src/roommanager.cpp:315
+#: src/roommanager.cpp:333
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to join room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:365
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:337
+#: src/roommanager.cpp:369
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to request joining room"
@@ -5665,41 +5667,47 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Sözü silin"
 
-#: src/settings/ThreePIdCard.qml:54
+#: src/settings/ThreePIdCard.qml:55
+#, kde-format
+msgctxt "@action:button"
+msgid "Hide"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:61
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Paylaşmaq"
 
-#: src/settings/ThreePIdCard.qml:59
+#: src/settings/ThreePIdCard.qml:66
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Silmək"
 
-#: src/settings/ThreePIdCard.qml:78
+#: src/settings/ThreePIdCard.qml:85
 #, fuzzy, kde-format
 #| msgid "Compact"
 msgctxt "@action:button"
 msgid "Complete"
 msgstr "Yığcam"
 
-#: src/settings/ThreePIdCard.qml:83
+#: src/settings/ThreePIdCard.qml:90
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "İmtina"
 
-#: src/settings/ThreePIdCard.qml:123
+#: src/settings/ThreePIdCard.qml:130
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
@@ -5707,68 +5715,68 @@ msgctxt "@label:textbox"
 msgid "New email address"
 msgstr "onların görünən adı silindi"
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@label:textbox"
 msgid "New phone number"
 msgstr "Üzvlər"
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you an email"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgid "We've sent you a text message"
 msgstr "İsmarıcı göndərin..."
 
-#: src/settings/ThreePIdCard.qml:143
+#: src/settings/ThreePIdCard.qml:150
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered email is not valid"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:147
+#: src/settings/ThreePIdCard.qml:154
 #, fuzzy, kde-format
 #| msgid "Wrong password entered"
 msgid "Incorrect password entered"
 msgstr "Səhv şifrə daxil edildi"
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, fuzzy, kde-format
 #| msgid "Add"
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Əlavə etmək"
 
-#: src/settings/ThreePIdCard.qml:182
+#: src/settings/ThreePIdCard.qml:189
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Back"
@@ -5972,6 +5980,14 @@ msgstr "Göstərmək"
 #, kde-format
 msgid "Quit"
 msgstr "Çıxış"
+
+#, fuzzy
+#~| msgid "Options:"
+#~ msgid "Options"
+#~ msgstr "Seçimlər:"
+
+#~ msgid "Make room favorite"
+#~ msgstr "Otağı seçilmiş edin"
 
 #, fuzzy
 #~| msgid "Members"

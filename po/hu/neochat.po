@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-01 00:39+0000\n"
+"POT-Creation-Date: 2024-06-09 00:38+0000\n"
 "PO-Revision-Date: 2024-05-12 15:08+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -19,12 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: src/chatbar/AttachDialog.qml:27
+#: src/chatbar/AttachDialog.qml:29
 #, kde-format
 msgid "Choose local file"
 msgstr "Helyi fájl kiválasztása"
 
-#: src/chatbar/AttachDialog.qml:46
+#: src/chatbar/AttachDialog.qml:45
 #, kde-format
 msgid "Clipboard image"
 msgstr "Vágólapon lévő kép"
@@ -90,7 +90,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Válasz megszakítása"
 
-#: src/controller.cpp:130
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -98,49 +98,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Új üzenetek értesítéseinek fogadása"
 
-#: src/controller.cpp:209
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Hálózati hiba: %1"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "A hozzáférési token nem található"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Lehet, hogy kitörölték?"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "A kulcstartóhoz való hozzáférés megtagadva."
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Kérjük, engedélyezze a NeoChatnek a hozzáférési token olvasását"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "No keychain available."
 msgstr "Nem érhető el kulcstartó."
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Kérjük, telepítsen egy kulcstartót, Linuxon például a KWalletet vagy a GNOME "
 "kulcstartót"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:246
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Nem lehet olvasni a hozzáférési tokent"
 
-#: src/controller.cpp:337
+#: src/controller.cpp:342
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Leküldéses értesítések fogadása"
@@ -325,7 +325,7 @@ msgstr "Meghívva"
 msgid "Favorite"
 msgstr "Kedvenc"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:84
 #, kde-format
 msgid "Friends"
 msgstr "Barátok"
@@ -764,12 +764,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Cél"
 
-#: src/login.cpp:85 src/login.cpp:100
+#: src/login.cpp:90 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "Hálózati hiba"
 
-#: src/login.cpp:93
+#: src/login.cpp:98
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Sikertelen bejelentkezés: %1"
@@ -838,7 +838,7 @@ msgid "Loading…"
 msgstr "Betöltés…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1819,17 +1819,17 @@ msgstr ""
 msgid "Room creation failed: %1"
 msgstr "Nem sikerült létrehozni a szobát: %1"
 
-#: src/neochatconnection.cpp:354
+#: src/neochatconnection.cpp:359
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Nem sikerült létrehozni a teret: %1"
 
-#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
+#: src/neochatroom.cpp:1404 src/neochatroom.cpp:1405
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Jelentés sikeresen elküldve."
 
-#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
+#: src/neochatroom.cpp:1679 src/neochatroom.cpp:1687
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2382,7 +2382,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Legyen ez a tér a kanonikus szülő"
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:148
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2554,18 +2554,20 @@ msgid "Rooms"
 msgstr "Szobák"
 
 #: src/qml/ExploreComponent.qml:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Search Room"
 msgctxt "@action"
-msgid "Search Room"
+msgid "Search Rooms"
 msgstr "Szoba keresése"
 
-#: src/qml/ExploreComponent.qml:119
+#: src/qml/ExploreComponent.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Menü megjelenítése"
 
-#: src/qml/ExploreComponent.qml:188
+#: src/qml/ExploreComponent.qml:192
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Szobák és csevegések létrehozása"
@@ -2598,17 +2600,17 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "Csak terek megjelenítése"
 
-#: src/qml/ExploreRoomsPage.qml:92
+#: src/qml/ExploreRoomsPage.qml:93
 #, kde-format
 msgid "Enter a room address"
 msgstr "Adjon meg egy szobacímet"
 
-#: src/qml/ExploreRoomsPage.qml:106
+#: src/qml/ExploreRoomsPage.qml:107
 #, kde-format
 msgid "Find a room…"
 msgstr "Szoba keresése…"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:108
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -2938,7 +2940,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Helyek"
 
-#: src/qml/LocationsPage.qml:56
+#: src/qml/LocationsPage.qml:65
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "Nincsenek megosztva helyek ebben a szobában."
@@ -3223,9 +3225,12 @@ msgid "Room information"
 msgstr "Szobainformációk"
 
 #: src/qml/RoomInformation.qml:68
-#, kde-format
-msgid "Options"
-msgstr "Beállítások"
+#, fuzzy, kde-format
+#| msgctxt "Locations on a map"
+#| msgid "Locations"
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Helyek"
 
 #: src/qml/RoomInformation.qml:78
 #, kde-format
@@ -3244,9 +3249,11 @@ msgid "Remove room from favorites"
 msgstr "Eltávolítás a kedvencek közül"
 
 #: src/qml/RoomInformation.qml:96
-#, kde-format
-msgid "Make room favorite"
-msgstr "Kedvenc"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this room"
+msgid "Favorite this room"
+msgstr "Szoba elhagyása"
 
 #: src/qml/RoomInformation.qml:109
 #, kde-format
@@ -3438,33 +3445,33 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Új kiszolgáló hozzáadása"
 
-#: src/qml/ServerComboBox.qml:103
+#: src/qml/ServerComboBox.qml:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Kiszolgáló hozzáadása"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Valid server entered"
 msgstr "Érvényes kiszolgáló megadva"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "A kiszolgálót nem lehet feloldani, vagy már hozzáadták"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "A beírt szöveg nem érvényes URL"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Adja meg a kiszolgáló URL-címét, például kde.org"
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:132
 #, kde-format
 msgid "Server URL"
 msgstr "Kiszolgáló URL-címe"
@@ -3820,22 +3827,22 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Barátok keresése"
 
-#: src/qml/UserSearchPage.qml:45
+#: src/qml/UserSearchPage.qml:46
 #, kde-format
 msgid "Enter a user ID"
 msgstr "Írjon be egy felhasználóazonosítót"
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Find your friends…"
 msgstr "Barátok keresése…"
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "Írjon be szöveget barátok keresésének indításához"
 
-#: src/qml/UserSearchPage.qml:92
+#: src/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -4005,47 +4012,47 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "A munkamenet-ellenőrzés ismeretlen okokból megszakadt."
 
-#: src/registration.cpp:300
+#: src/registration.cpp:310
 #, kde-format
 msgid "No server."
 msgstr "Nincs kiszolgáló."
 
-#: src/registration.cpp:302
+#: src/registration.cpp:312
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Kiszolgáló elérhetőségének ellenőrzése."
 
-#: src/registration.cpp:304
+#: src/registration.cpp:314
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Ez nem egy érvényes kiszolgáló."
 
-#: src/registration.cpp:306
+#: src/registration.cpp:316
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "A regisztráció le van tiltva ezen a kiszolgálón."
 
-#: src/registration.cpp:308
+#: src/registration.cpp:318
 #, kde-format
 msgid "No username."
 msgstr "Nincs felhasználónév."
 
-#: src/registration.cpp:310
+#: src/registration.cpp:320
 #, kde-format
 msgid "Checking username availability."
 msgstr "Felhasználónév elérhetőségének ellenőrzése."
 
-#: src/registration.cpp:312
+#: src/registration.cpp:322
 #, kde-format
 msgid "This username is not available."
 msgstr "A felhasználónév nem érhető el."
 
-#: src/registration.cpp:314
+#: src/registration.cpp:324
 #, kde-format
 msgid "Continue"
 msgstr "Tovább"
 
-#: src/registration.cpp:316
+#: src/registration.cpp:326
 #, kde-format
 msgid "Working"
 msgstr "Dolgozunk"
@@ -4060,17 +4067,17 @@ msgstr "Helytelenül formázott vagy üres Matrix azonosító"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "A(z) %1 nem helyes Matrix azonosító"
 
-#: src/roommanager.cpp:315
+#: src/roommanager.cpp:333
 #, kde-format
 msgid "Failed to join room"
 msgstr "Nem sikerült csatlakozni a szobához"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:365
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Csatlakozni kérést küldött ide: „%1”"
 
-#: src/roommanager.cpp:337
+#: src/roommanager.cpp:369
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Nem sikerült csatlakozási kérést küldeni a szobához"
@@ -5300,111 +5307,117 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Szó törlése"
 
-#: src/settings/ThreePIdCard.qml:54
+#: src/settings/ThreePIdCard.qml:55
+#, kde-format
+msgctxt "@action:button"
+msgid "Hide"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:61
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Megosztás"
 
-#: src/settings/ThreePIdCard.qml:59
+#: src/settings/ThreePIdCard.qml:66
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: src/settings/ThreePIdCard.qml:78
+#: src/settings/ThreePIdCard.qml:85
 #, fuzzy, kde-format
 #| msgid "Compact"
 msgctxt "@action:button"
 msgid "Complete"
 msgstr "Kompakt"
 
-#: src/settings/ThreePIdCard.qml:83
+#: src/settings/ThreePIdCard.qml:90
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/settings/ThreePIdCard.qml:123
+#: src/settings/ThreePIdCard.qml:130
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, fuzzy, kde-format
 #| msgid "Add an e-mail address:"
 msgctxt "@label:textbox"
 msgid "New email address"
 msgstr "E-mail cím hozzáadása:"
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, fuzzy, kde-format
 #| msgid "Phone Numbers"
 msgctxt "@label:textbox"
 msgid "New phone number"
 msgstr "Telefonszámok"
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you an email"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, fuzzy, kde-format
 #| msgid "sent a message"
 msgid "We've sent you a text message"
 msgstr "üzenetet küldött"
 
-#: src/settings/ThreePIdCard.qml:143
+#: src/settings/ThreePIdCard.qml:150
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The entered email is not valid"
 msgstr "A beírt szöveg nem érvényes URL"
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The entered phone number is not valid"
 msgstr "A beírt szöveg nem érvényes URL"
 
-#: src/settings/ThreePIdCard.qml:147
+#: src/settings/ThreePIdCard.qml:154
 #, fuzzy, kde-format
 #| msgid "Wrong password entered"
 msgid "Incorrect password entered"
 msgstr "Hibás jelszó"
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, fuzzy, kde-format
 #| msgid "Add"
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Hozzáadás"
 
-#: src/settings/ThreePIdCard.qml:182
+#: src/settings/ThreePIdCard.qml:189
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Back"
@@ -5605,6 +5618,12 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgid "Options"
+#~ msgstr "Beállítások"
+
+#~ msgid "Make room favorite"
+#~ msgstr "Kedvenc"
 
 #~ msgid "Member (0)"
 #~ msgstr "Tag (0)"

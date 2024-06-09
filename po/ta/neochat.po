@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-01 00:39+0000\n"
+"POT-Creation-Date: 2024-06-09 00:38+0000\n"
 "PO-Revision-Date: 2024-05-19 17:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: src/chatbar/AttachDialog.qml:27
+#: src/chatbar/AttachDialog.qml:29
 #, kde-format
 msgid "Choose local file"
 msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
 
-#: src/chatbar/AttachDialog.qml:46
+#: src/chatbar/AttachDialog.qml:45
 #, kde-format
 msgid "Clipboard image"
 msgstr "பிடிப்புப்பலகைப் படம்"
@@ -88,7 +88,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "பதிலளிப்பதை ரத்து செய்"
 
-#: src/controller.cpp:130
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -96,48 +96,48 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "புதிய செய்திகளுக்கான அறிவிப்புகளைப் பெறுவதற்கு"
 
-#: src/controller.cpp:209
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "பிணைய சிக்கல்: %1"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "அணுகல் டோக்கன் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "நீக்கப்பட்டுள்ளதா?"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "சாவிக்கொத்தை அணுக முடியவில்லை"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "அணுகல் டோக்கனை படிக்க நியோச்சாட்டை அனுமதிக்கவும்"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "No keychain available."
 msgstr "எந்த சாவிக்கொத்தும் கிடைக்கவில்லை"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "ஓர் சாவிக்கொத்து நிரலை நிறுவுங்கள், எ.கா. லினக்ஸில் KWallet அல்லது GNOME keyring."
 
-#: src/controller.cpp:241
+#: src/controller.cpp:246
 #, kde-format
 msgid "Unable to read access token"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
 
-#: src/controller.cpp:337
+#: src/controller.cpp:342
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
@@ -319,7 +319,7 @@ msgstr "வரவழைப்புகள்"
 msgid "Favorite"
 msgstr "பிடித்தவை"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:84
 #, kde-format
 msgid "Friends"
 msgstr "நண்பர்கள்"
@@ -758,12 +758,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "சேருமிடம்"
 
-#: src/login.cpp:85 src/login.cpp:100
+#: src/login.cpp:90 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "பிணைய சிக்கல்"
 
-#: src/login.cpp:93
+#: src/login.cpp:98
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "நுழைவு தோல்வியடைந்தது: %1"
@@ -832,7 +832,7 @@ msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1809,17 +1809,17 @@ msgstr ""
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatconnection.cpp:354
+#: src/neochatconnection.cpp:359
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
+#: src/neochatroom.cpp:1404 src/neochatroom.cpp:1405
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
+#: src/neochatroom.cpp:1679 src/neochatroom.cpp:1687
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2353,7 +2353,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "இதை அரங்கின் செந்தர தாயாக இந்த இடத்தை ஆக்கு"
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:148
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2525,18 +2525,20 @@ msgid "Rooms"
 msgstr "அரங்குகள்"
 
 #: src/qml/ExploreComponent.qml:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Search Room"
 msgctxt "@action"
-msgid "Search Room"
+msgid "Search Rooms"
 msgstr "அரங்கைக் கண்டுபிடி"
 
-#: src/qml/ExploreComponent.qml:119
+#: src/qml/ExploreComponent.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "பட்டியைக் காட்டு"
 
-#: src/qml/ExploreComponent.qml:188
+#: src/qml/ExploreComponent.qml:192
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"
@@ -2569,17 +2571,17 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "இடங்களை மட்டும் காட்டு"
 
-#: src/qml/ExploreRoomsPage.qml:92
+#: src/qml/ExploreRoomsPage.qml:93
 #, kde-format
 msgid "Enter a room address"
 msgstr "அரங்கின் முகவரியை உள்ளிடுக"
 
-#: src/qml/ExploreRoomsPage.qml:106
+#: src/qml/ExploreRoomsPage.qml:107
 #, kde-format
 msgid "Find a room…"
 msgstr "அரங்கைத் தேடு…"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:108
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -2909,7 +2911,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "இருப்பிடங்கள்"
 
-#: src/qml/LocationsPage.qml:56
+#: src/qml/LocationsPage.qml:65
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "இவ்வரங்கில் எந்த இருப்பிடமும் பகிரப்படவில்லை."
@@ -3192,9 +3194,12 @@ msgid "Room information"
 msgstr "அரங்கின் விவரங்கள்"
 
 #: src/qml/RoomInformation.qml:68
-#, kde-format
-msgid "Options"
-msgstr "விருப்பங்கள்"
+#, fuzzy, kde-format
+#| msgctxt "Locations on a map"
+#| msgid "Locations"
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "இருப்பிடங்கள்"
 
 #: src/qml/RoomInformation.qml:78
 #, kde-format
@@ -3213,9 +3218,11 @@ msgid "Remove room from favorites"
 msgstr "பிடித்தவற்றிலிருந்து அரங்கை நீக்கு"
 
 #: src/qml/RoomInformation.qml:96
-#, kde-format
-msgid "Make room favorite"
-msgstr "அரங்கைப் பிடித்ததாகக் குறி"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this room"
+msgid "Favorite this room"
+msgstr "இவ்வரங்கிலிருந்து வெளியேறு"
 
 #: src/qml/RoomInformation.qml:109
 #, kde-format
@@ -3403,33 +3410,33 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "புதிய சேவையகத்தை சேர்"
 
-#: src/qml/ServerComboBox.qml:103
+#: src/qml/ServerComboBox.qml:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "சேவையகத்தைச் சேர்ப்பது"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Valid server entered"
 msgstr "செல்லுபடியாகும் சேவையகம் உள்ளிடப்பட்டது"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "உள்ளிட்ட உரை ஓர் முறையான முகவரி அல்ல"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "சேவையகத்தின் முகவரியை உள்ளிடவும், எ.கா. kde.org"
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:132
 #, kde-format
 msgid "Server URL"
 msgstr "சேவையக முகவரி"
@@ -3783,22 +3790,22 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
 
-#: src/qml/UserSearchPage.qml:45
+#: src/qml/UserSearchPage.qml:46
 #, kde-format
 msgid "Enter a user ID"
 msgstr "பயனர் அடையாளத்தை உள்ளிடவும்"
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Find your friends…"
 msgstr "உங்கள் நண்பர்களைக் கண்டுபிடியுங்கள்…"
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "நண்பர்களைத் தேடுவதற்கு எதையாவது உள்ளிடுங்கள்"
 
-#: src/qml/UserSearchPage.qml:92
+#: src/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -3957,47 +3964,47 @@ msgstr "சாவிகள் பொருந்தாமையால் தொ�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "தெரியாத சிக்கலால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/registration.cpp:300
+#: src/registration.cpp:310
 #, kde-format
 msgid "No server."
 msgstr "சேவையகம் இல்லை."
 
-#: src/registration.cpp:302
+#: src/registration.cpp:312
 #, kde-format
 msgid "Checking Server availability."
 msgstr "சேவையகத்திற்கான இணைப்பு சரிபார்க்கப்படுகிறது"
 
-#: src/registration.cpp:304
+#: src/registration.cpp:314
 #, kde-format
 msgid "This is not a valid server."
 msgstr "இது ஓர் முறையான சேவையகம் அல்ல."
 
-#: src/registration.cpp:306
+#: src/registration.cpp:316
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "இச்சேவையகத்தில் கணக்குருவாக்கம் முடக்கப்பட்டுள்ளது."
 
-#: src/registration.cpp:308
+#: src/registration.cpp:318
 #, kde-format
 msgid "No username."
 msgstr "பயனர் பெயர் இல்லை."
 
-#: src/registration.cpp:310
+#: src/registration.cpp:320
 #, kde-format
 msgid "Checking username availability."
 msgstr "பெயர் கிடைக்கிறதா என சரிபார்க்கப்படுகிறது."
 
-#: src/registration.cpp:312
+#: src/registration.cpp:322
 #, kde-format
 msgid "This username is not available."
 msgstr "இந்த பெயர் கிடைக்கவில்லை"
 
-#: src/registration.cpp:314
+#: src/registration.cpp:324
 #, kde-format
 msgid "Continue"
 msgstr "தொடர்"
 
-#: src/registration.cpp:316
+#: src/registration.cpp:326
 #, kde-format
 msgid "Working"
 msgstr "வேலை செய்கிறது"
@@ -4012,17 +4019,17 @@ msgstr "செல்லுபடியாகாத அல்லது கால�
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ஒரு முறையான Matrix கணக்குப்பெயர் அல்ல"
 
-#: src/roommanager.cpp:315
+#: src/roommanager.cpp:333
 #, kde-format
 msgid "Failed to join room"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:365
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/roommanager.cpp:337
+#: src/roommanager.cpp:369
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது"
@@ -5231,83 +5238,89 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "சொல்லை நீக்கு"
 
-#: src/settings/ThreePIdCard.qml:54
+#: src/settings/ThreePIdCard.qml:55
+#, kde-format
+msgctxt "@action:button"
+msgid "Hide"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:61
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@action:button"
 msgid "Share"
 msgstr "பகிர்"
 
-#: src/settings/ThreePIdCard.qml:59
+#: src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "நீக்கு"
 
-#: src/settings/ThreePIdCard.qml:78
+#: src/settings/ThreePIdCard.qml:85
 #, fuzzy, kde-format
 #| msgid "Compact"
 msgctxt "@action:button"
 msgid "Complete"
 msgstr "சுருக்கமானது"
 
-#: src/settings/ThreePIdCard.qml:83
+#: src/settings/ThreePIdCard.qml:90
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: src/settings/ThreePIdCard.qml:123
+#: src/settings/ThreePIdCard.qml:130
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr "புதிய தொலைபேசி எண்ணுக்கான சர்வதேச குறியெண்"
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
 msgstr "புதிய மின்னஞ்சல் முகவரி"
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
 msgstr "புதிய தொலைபேசி எண்"
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you an email"
 msgstr "உங்களுக்கு அஞ்சலனுப்பியுள்ளோம்"
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "உங்களுக்கு குறுஞ்செய்தி அனுப்பியுள்ளோம்"
 
-#: src/settings/ThreePIdCard.qml:143
+#: src/settings/ThreePIdCard.qml:150
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. அதிலுள்ளவாறு செய்தபின் கீழுள்ள பட்டனை அழுத்தவும்"
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "உள்ளிட்ட மின்னஞ்சல் முகவரி செல்லுபடியாகாதது"
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "உள்ளிட்ட தொலைபேசி எண் செல்லுபடியாகாதது"
 
-#: src/settings/ThreePIdCard.qml:147
+#: src/settings/ThreePIdCard.qml:154
 #, kde-format
 msgid "Incorrect password entered"
 msgstr "தவறான கடவுச்சொல் உள்ளிடப்பட்டது"
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5316,7 +5329,7 @@ msgstr ""
 "இந்த மின்னஞ்சல் முகவரி உறுதிசெய்யப்படாதது. உங்களுக்கு அனுப்பப்பட்ட அஞ்சலிலுள்ளவாறு "
 "செய்தபின் கீழுள்ள பட்டனை அழுத்தவும்"
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -5325,13 +5338,13 @@ msgstr ""
 "இந்த தொலைபேசி எண் உறுதிசெய்யப்படாதது. உங்களுக்கு அனுப்பப்பட்ட குறுஞ்செய்தியிலுள்ளவாறு "
 "செய்தபின் கீழுள்ள பட்டனை அழுத்தவும்"
 
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "சேர்"
 
-#: src/settings/ThreePIdCard.qml:182
+#: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
@@ -5540,6 +5553,12 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid "Options"
+#~ msgstr "விருப்பங்கள்"
+
+#~ msgid "Make room favorite"
+#~ msgstr "அரங்கைப் பிடித்ததாகக் குறி"
 
 #~ msgid "Member (0)"
 #~ msgstr "உறுப்பினர் (0)"

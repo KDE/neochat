@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-01 00:39+0000\n"
+"POT-Creation-Date: 2024-06-09 00:38+0000\n"
 "PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -19,12 +19,12 @@ msgstr ""
 "2);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/chatbar/AttachDialog.qml:27
+#: src/chatbar/AttachDialog.qml:29
 #, kde-format
 msgid "Choose local file"
 msgstr "Izvēlēties lokālu datni"
 
-#: src/chatbar/AttachDialog.qml:46
+#: src/chatbar/AttachDialog.qml:45
 #, kde-format
 msgid "Clipboard image"
 msgstr "Starpliktuves attēls"
@@ -90,7 +90,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Atcelt atbildi"
 
-#: src/controller.cpp:130
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -98,49 +98,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Saņem jaunu ziņu paziņojumus"
 
-#: src/controller.cpp:209
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Tīkla kļūda: %1"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Piekļuves pilnvara nav atrasta"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Varbūt tas ir izdzēsts?"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Piekļuve atslēgu saišķim ir noraidīta."
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Ļaujiet „NeoChat“ nolasīt piekļuves pilnvaru"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "No keychain available."
 msgstr "Atslēgu saišķis nav pieejams."
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Ieinstalējot atslēgu saišķi, piemēram, „KWallet“ vai GNOME atslēgu saišķi "
 "„Linux“ sistēmā"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:246
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Nevar nolasīt piekļuves pilnvaru"
 
-#: src/controller.cpp:337
+#: src/controller.cpp:342
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Saņem pašpiegādes ziņojumus"
@@ -327,7 +327,7 @@ msgstr "Uzaicināts"
 msgid "Favorite"
 msgstr "Iecienīts"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:84
 #, kde-format
 msgid "Friends"
 msgstr "Draugi"
@@ -768,12 +768,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Galamērķis"
 
-#: src/login.cpp:85 src/login.cpp:100
+#: src/login.cpp:90 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "Tikla kļūda"
 
-#: src/login.cpp:93
+#: src/login.cpp:98
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ierakstīšanās neizdevās: %1"
@@ -842,7 +842,7 @@ msgid "Loading…"
 msgstr "Ielādē..."
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1823,17 +1823,17 @@ msgstr ""
 msgid "Room creation failed: %1"
 msgstr "Istabas izveide neizdevās: %1"
 
-#: src/neochatconnection.cpp:354
+#: src/neochatconnection.cpp:359
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
 
-#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
+#: src/neochatroom.cpp:1404 src/neochatroom.cpp:1405
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ziņojums ir veiksmīgi nosūtīts."
 
-#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
+#: src/neochatroom.cpp:1679 src/neochatroom.cpp:1687
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2398,7 +2398,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:148
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2577,17 +2577,17 @@ msgstr "Istaba"
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@action"
-msgid "Search Room"
+msgid "Search Rooms"
 msgstr "Meklēt"
 
-#: src/qml/ExploreComponent.qml:119
+#: src/qml/ExploreComponent.qml:123
 #, fuzzy, kde-format
 #| msgid "Switch User"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Pārslēgt lietotāju"
 
-#: src/qml/ExploreComponent.qml:188
+#: src/qml/ExploreComponent.qml:192
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Izveidot telpas un tērzētavas"
@@ -2621,17 +2621,17 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr ""
 
-#: src/qml/ExploreRoomsPage.qml:92
+#: src/qml/ExploreRoomsPage.qml:93
 #, kde-format
 msgid "Enter a room address"
 msgstr "Ievadiet istabas adresi"
 
-#: src/qml/ExploreRoomsPage.qml:106
+#: src/qml/ExploreRoomsPage.qml:107
 #, kde-format
 msgid "Find a room…"
 msgstr "Atrast istabu..."
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:108
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -2965,7 +2965,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Atrašanās vietas"
 
-#: src/qml/LocationsPage.qml:56
+#: src/qml/LocationsPage.qml:65
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "Šajā istabā nav kopīgotas atrašanās vietas."
@@ -3254,9 +3254,12 @@ msgid "Room information"
 msgstr "Istabas informācija"
 
 #: src/qml/RoomInformation.qml:68
-#, kde-format
-msgid "Options"
-msgstr "Iespējas"
+#, fuzzy, kde-format
+#| msgctxt "Locations on a map"
+#| msgid "Locations"
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Atrašanās vietas"
 
 #: src/qml/RoomInformation.qml:78
 #, kde-format
@@ -3275,9 +3278,10 @@ msgid "Remove room from favorites"
 msgstr "Noņemt istabu no iecienītajām"
 
 #: src/qml/RoomInformation.qml:96
-#, kde-format
-msgid "Make room favorite"
-msgstr "Pievienot istabu iecienītajām"
+#, fuzzy, kde-format
+#| msgid "Leaving this room."
+msgid "Favorite this room"
+msgstr "Pamet šo istabu."
 
 #: src/qml/RoomInformation.qml:109
 #, kde-format
@@ -3469,33 +3473,33 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Pievienot jaunu serveri"
 
-#: src/qml/ServerComboBox.qml:103
+#: src/qml/ServerComboBox.qml:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Pievienot serveri"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Valid server entered"
 msgstr "Ievadīts derīgs serveris"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Vai nu serveri nevar atrisināt, vai arī tas ir jau pievienots"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Ievadītais teksts nav derīga URL adrese"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Ievadiet servera URL adresi, piemēram, „kde.org“"
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:132
 #, kde-format
 msgid "Server URL"
 msgstr "Servera URL"
@@ -3860,22 +3864,22 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Atrast draugus"
 
-#: src/qml/UserSearchPage.qml:45
+#: src/qml/UserSearchPage.qml:46
 #, kde-format
 msgid "Enter a user ID"
 msgstr "Ievadiet lietotāja ID"
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Find your friends…"
 msgstr "Atrast draugus..."
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "Ievadiet tekstu, lai sāktu meklēt draugus"
 
-#: src/qml/UserSearchPage.qml:92
+#: src/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -4037,47 +4041,47 @@ msgstr "Attālinātā puse atcēla sesijas verifikāciju, jo neatbilst atslēgas
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Sesijas verifikācija ir atcelta nezināmas kļūdas dēļ."
 
-#: src/registration.cpp:300
+#: src/registration.cpp:310
 #, kde-format
 msgid "No server."
 msgstr "Nav servera."
 
-#: src/registration.cpp:302
+#: src/registration.cpp:312
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Pārbauda servera pieejamību."
 
-#: src/registration.cpp:304
+#: src/registration.cpp:314
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Šis nav derīgs serveris."
 
-#: src/registration.cpp:306
+#: src/registration.cpp:316
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Reģistrācija šajā serverī ir izslēgta."
 
-#: src/registration.cpp:308
+#: src/registration.cpp:318
 #, kde-format
 msgid "No username."
 msgstr "Nav lietotājvārda"
 
-#: src/registration.cpp:310
+#: src/registration.cpp:320
 #, kde-format
 msgid "Checking username availability."
 msgstr "Pārbauda lietotājvārda pieejamību."
 
-#: src/registration.cpp:312
+#: src/registration.cpp:322
 #, kde-format
 msgid "This username is not available."
 msgstr "Šis lietotājvārds nav pieejams."
 
-#: src/registration.cpp:314
+#: src/registration.cpp:324
 #, kde-format
 msgid "Continue"
 msgstr "Turpināt"
 
-#: src/registration.cpp:316
+#: src/registration.cpp:326
 #, kde-format
 msgid "Working"
 msgstr "Darbojas"
@@ -4092,17 +4096,17 @@ msgstr "Nepareizi formatēts vai tukšs „Matrix“ ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "„%1“ nav pareizs „Matrix“ identifikators"
 
-#: src/roommanager.cpp:315
+#: src/roommanager.cpp:333
 #, kde-format
 msgid "Failed to join room"
 msgstr "Neizdevās pievienoties istabai"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:365
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Jūsu lūdzāt pievienoties „%1“"
 
-#: src/roommanager.cpp:337
+#: src/roommanager.cpp:369
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Neizdevās lūgt pievienoties istabai"
@@ -5327,111 +5331,117 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Dzēst vārdu"
 
-#: src/settings/ThreePIdCard.qml:54
+#: src/settings/ThreePIdCard.qml:55
+#, kde-format
+msgctxt "@action:button"
+msgid "Hide"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:61
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Kopīgot"
 
-#: src/settings/ThreePIdCard.qml:59
+#: src/settings/ThreePIdCard.qml:66
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Noņemt"
 
-#: src/settings/ThreePIdCard.qml:78
+#: src/settings/ThreePIdCard.qml:85
 #, fuzzy, kde-format
 #| msgid "Compact"
 msgctxt "@action:button"
 msgid "Complete"
 msgstr "Kompakts"
 
-#: src/settings/ThreePIdCard.qml:83
+#: src/settings/ThreePIdCard.qml:90
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: src/settings/ThreePIdCard.qml:123
+#: src/settings/ThreePIdCard.qml:130
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, fuzzy, kde-format
 #| msgid "Add an e-mail address:"
 msgctxt "@label:textbox"
 msgid "New email address"
 msgstr "Pievienot e-pasta adresi:"
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@label:textbox"
 msgid "New phone number"
 msgstr "Dalībnieki"
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you an email"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, fuzzy, kde-format
 #| msgid "sent a message"
 msgid "We've sent you a text message"
 msgstr "nosūtīja ziņu"
 
-#: src/settings/ThreePIdCard.qml:143
+#: src/settings/ThreePIdCard.qml:150
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The entered email is not valid"
 msgstr "Ievadītais teksts nav derīga URL adrese"
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "The entered phone number is not valid"
 msgstr "Ievadītais teksts nav derīga URL adrese"
 
-#: src/settings/ThreePIdCard.qml:147
+#: src/settings/ThreePIdCard.qml:154
 #, fuzzy, kde-format
 #| msgid "Wrong password entered"
 msgid "Incorrect password entered"
 msgstr "Ievadīt nepareiza parole"
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, fuzzy, kde-format
 #| msgid "Add"
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Pievienot"
 
-#: src/settings/ThreePIdCard.qml:182
+#: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
@@ -5631,6 +5641,12 @@ msgstr "Rādīt"
 #, kde-format
 msgid "Quit"
 msgstr "Iziet"
+
+#~ msgid "Options"
+#~ msgstr "Iespējas"
+
+#~ msgid "Make room favorite"
+#~ msgstr "Pievienot istabu iecienītajām"
 
 #~ msgid "Member (0)"
 #~ msgstr "Dalībnieks (0)"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-01 00:39+0000\n"
+"POT-Creation-Date: 2024-06-09 00:38+0000\n"
 "PO-Revision-Date: 2024-06-02 21:57+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/chatbar/AttachDialog.qml:27
+#: src/chatbar/AttachDialog.qml:29
 #, kde-format
 msgid "Choose local file"
 msgstr "Elekti lokan dosieron"
 
-#: src/chatbar/AttachDialog.qml:46
+#: src/chatbar/AttachDialog.qml:45
 #, kde-format
 msgid "Clipboard image"
 msgstr "Bildo de tondujo"
@@ -89,7 +89,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Nuligi respondon"
 
-#: src/controller.cpp:130
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -97,48 +97,48 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Ricevante sciigojn por novaj mesaĝoj"
 
-#: src/controller.cpp:209
+#: src/controller.cpp:214
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Reta Eraro: %1"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Alirĵetono ne estis trovita"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:236
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Eble ĝi estis forigita?"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Aliro al ŝlosilĉeno estis rifuzita."
 
-#: src/controller.cpp:235
+#: src/controller.cpp:240
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Bonvolu permesi al NeoChat legi la alirĵetonon"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "No keychain available."
 msgstr "Neniu ŝlosilĉeno havebla."
 
-#: src/controller.cpp:238
+#: src/controller.cpp:243
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Bonvolu instali ŝlosilĉenon, ekz. KWallet aŭ GNOME-ŝlosilringo en Linukso"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:246
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Ne eblas legi alirĵetonon"
 
-#: src/controller.cpp:337
+#: src/controller.cpp:342
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricevante puŝ-sciigojn"
@@ -321,7 +321,7 @@ msgstr "Invititaj"
 msgid "Favorite"
 msgstr "Ŝatata"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:83
+#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:84
 #, kde-format
 msgid "Friends"
 msgstr "Amikoj"
@@ -755,12 +755,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Celo"
 
-#: src/login.cpp:85 src/login.cpp:100
+#: src/login.cpp:90 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "Reta Eraro"
 
-#: src/login.cpp:93
+#: src/login.cpp:98
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ensaluto Malsukcesis: %1"
@@ -829,7 +829,7 @@ msgid "Loading…"
 msgstr "Ŝargante…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1759,17 +1759,17 @@ msgstr "Agordiĝis neniu identeca servilo"
 msgid "Room creation failed: %1"
 msgstr "Kreado de ĉambro malsukcesis: %1"
 
-#: src/neochatconnection.cpp:354
+#: src/neochatconnection.cpp:359
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
 
-#: src/neochatroom.cpp:1399 src/neochatroom.cpp:1400
+#: src/neochatroom.cpp:1404 src/neochatroom.cpp:1405
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raporto sukcese sendita."
 
-#: src/neochatroom.cpp:1674 src/neochatroom.cpp:1682
+#: src/neochatroom.cpp:1679 src/neochatroom.cpp:1687
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2304,7 +2304,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Igi ĉi tiun spacon la kanonan gepatron"
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:148
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2476,18 +2476,20 @@ msgid "Rooms"
 msgstr "Ĉambroj"
 
 #: src/qml/ExploreComponent.qml:105
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Search Room"
 msgctxt "@action"
-msgid "Search Room"
+msgid "Search Rooms"
 msgstr "Serĉi Ĉambron"
 
-#: src/qml/ExploreComponent.qml:119
+#: src/qml/ExploreComponent.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Montri Menuon"
 
-#: src/qml/ExploreComponent.qml:188
+#: src/qml/ExploreComponent.qml:192
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Krei ĉambrojn kaj babilojn"
@@ -2520,17 +2522,17 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "Nur montri spacojn"
 
-#: src/qml/ExploreRoomsPage.qml:92
+#: src/qml/ExploreRoomsPage.qml:93
 #, kde-format
 msgid "Enter a room address"
 msgstr "Enigi ĉambro-adreson"
 
-#: src/qml/ExploreRoomsPage.qml:106
+#: src/qml/ExploreRoomsPage.qml:107
 #, kde-format
 msgid "Find a room…"
 msgstr "Trovi ĉambron…"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:108
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -2860,7 +2862,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Lokoj"
 
-#: src/qml/LocationsPage.qml:56
+#: src/qml/LocationsPage.qml:65
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "Ne estas lokoj kunhavataj en ĉi tiu ĉambro."
@@ -3145,9 +3147,12 @@ msgid "Room information"
 msgstr "Informoj pri ĉambro"
 
 #: src/qml/RoomInformation.qml:68
-#, kde-format
-msgid "Options"
-msgstr "Opcioj"
+#, fuzzy, kde-format
+#| msgctxt "Locations on a map"
+#| msgid "Locations"
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Lokoj"
 
 #: src/qml/RoomInformation.qml:78
 #, kde-format
@@ -3166,9 +3171,11 @@ msgid "Remove room from favorites"
 msgstr "Forigi ĉambron el plej ŝatataj"
 
 #: src/qml/RoomInformation.qml:96
-#, kde-format
-msgid "Make room favorite"
-msgstr "Fari ĉambron ŝatata"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this room"
+msgid "Favorite this room"
+msgstr "Forlasi ĉi tiun ĉambron"
 
 #: src/qml/RoomInformation.qml:109
 #, kde-format
@@ -3358,33 +3365,33 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Aldoni novan servilon"
 
-#: src/qml/ServerComboBox.qml:103
+#: src/qml/ServerComboBox.qml:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Aldoni servilon"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Valid server entered"
 msgstr "Valida servilo eniris"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Ĉi tiu servilo ne povas esti solvita aŭ jam estis aldonita"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "La enigita teksto ne estas valida URL"
 
-#: src/qml/ServerComboBox.qml:118
+#: src/qml/ServerComboBox.qml:125
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Enigu servilan url ekz. kde.org"
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:132
 #, kde-format
 msgid "Server URL"
 msgstr "Servila URL"
@@ -3738,22 +3745,22 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Trovu Viajn Amikojn"
 
-#: src/qml/UserSearchPage.qml:45
+#: src/qml/UserSearchPage.qml:46
 #, kde-format
 msgid "Enter a user ID"
 msgstr "Enigu uzant-ID"
 
-#: src/qml/UserSearchPage.qml:90
+#: src/qml/UserSearchPage.qml:91
 #, kde-format
 msgid "Find your friends…"
 msgstr "Trovi viajn amikojn…"
 
-#: src/qml/UserSearchPage.qml:91
+#: src/qml/UserSearchPage.qml:92
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "Enigi tekston por komenci serĉi viajn amikojn"
 
-#: src/qml/UserSearchPage.qml:92
+#: src/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
@@ -3914,47 +3921,47 @@ msgstr "La fora partio nuligis la sean konfirmon ĉar la ŝlosiloj ne kongruas."
 msgid "The session verification was canceled due to an unknown error."
 msgstr "La seancokonfirmo estis nuligita pro nekonata eraro."
 
-#: src/registration.cpp:300
+#: src/registration.cpp:310
 #, kde-format
 msgid "No server."
 msgstr "Neniu servilo."
 
-#: src/registration.cpp:302
+#: src/registration.cpp:312
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Kontrolante la haveblecon de la Servilo."
 
-#: src/registration.cpp:304
+#: src/registration.cpp:314
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Ĉi tio ne estas valida servilo."
 
-#: src/registration.cpp:306
+#: src/registration.cpp:316
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Registrado por ĉi tiu servilo estas malŝaltita."
 
-#: src/registration.cpp:308
+#: src/registration.cpp:318
 #, kde-format
 msgid "No username."
 msgstr "Neniu uzantnomo."
 
-#: src/registration.cpp:310
+#: src/registration.cpp:320
 #, kde-format
 msgid "Checking username availability."
 msgstr "Kontrolante uzantnoman haveblecon."
 
-#: src/registration.cpp:312
+#: src/registration.cpp:322
 #, kde-format
 msgid "This username is not available."
 msgstr "Ĉi tiu uzantnomo ne disponeblas."
 
-#: src/registration.cpp:314
+#: src/registration.cpp:324
 #, kde-format
 msgid "Continue"
 msgstr "Daŭrigi"
 
-#: src/registration.cpp:316
+#: src/registration.cpp:326
 #, kde-format
 msgid "Working"
 msgstr "Laborante"
@@ -3969,17 +3976,17 @@ msgstr "Misforma aŭ malplena Matrico-id"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ne estas ĝusta Matrico-identigilo"
 
-#: src/roommanager.cpp:315
+#: src/roommanager.cpp:333
 #, kde-format
 msgid "Failed to join room"
 msgstr "Malsukcesis aliĝi al ĉambro"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:365
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vi petis aliĝi al '%1'"
 
-#: src/roommanager.cpp:337
+#: src/roommanager.cpp:369
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Malsukcesis peti aliĝon al ĉambro"
@@ -5192,80 +5199,86 @@ msgctxt "@action:button"
 msgid "Delete word"
 msgstr "Forigi vorton"
 
-#: src/settings/ThreePIdCard.qml:54
+#: src/settings/ThreePIdCard.qml:55
+#, kde-format
+msgctxt "@action:button"
+msgid "Hide"
+msgstr ""
+
+#: src/settings/ThreePIdCard.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Kunhavigi"
 
-#: src/settings/ThreePIdCard.qml:59
+#: src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Forigi"
 
-#: src/settings/ThreePIdCard.qml:78
+#: src/settings/ThreePIdCard.qml:85
 #, kde-format
 msgctxt "@action:button"
 msgid "Complete"
 msgstr "Kompletigi"
 
-#: src/settings/ThreePIdCard.qml:83
+#: src/settings/ThreePIdCard.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Nuligi"
 
-#: src/settings/ThreePIdCard.qml:123
+#: src/settings/ThreePIdCard.qml:130
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr "Landkodo por nova telefonnumero"
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
 msgstr "Nova retpoŝta adreso"
 
-#: src/settings/ThreePIdCard.qml:139
+#: src/settings/ThreePIdCard.qml:146
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
 msgstr "Nova telefonnumero"
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Ni sendis al vi retpoŝton"
 
-#: src/settings/ThreePIdCard.qml:143 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Ni sendis al vi tekstmesaĝon"
 
-#: src/settings/ThreePIdCard.qml:143
+#: src/settings/ThreePIdCard.qml:150
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Bonvolu sekvi la instruojn tie kaj poste klaki la butonon malsupre"
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "La enigita retpoŝto ne estas valida"
 
-#: src/settings/ThreePIdCard.qml:145 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "La enigita telefonnumero ne estas valida"
 
-#: src/settings/ThreePIdCard.qml:147
+#: src/settings/ThreePIdCard.qml:154
 #, kde-format
 msgid "Incorrect password entered"
 msgstr "Malĝusta pasvorto enigita"
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5274,7 +5287,7 @@ msgstr ""
 "La retpoŝto ne estis konfirmita. Bonvolu iri al la retpoŝto kaj sekvi la "
 "instruojn tie kaj poste klaki la butonon malsupre"
 
-#: src/settings/ThreePIdCard.qml:149
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -5283,13 +5296,13 @@ msgstr ""
 "La telefonnumero ne estis konfirmita. Bonvolu iri al la retpoŝto kaj sekvi "
 "la instruojn tie kaj poste klaki la butonon malsupre"
 
-#: src/settings/ThreePIdCard.qml:174
+#: src/settings/ThreePIdCard.qml:181
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Aldoni"
 
-#: src/settings/ThreePIdCard.qml:182
+#: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
@@ -5493,6 +5506,12 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgid "Options"
+#~ msgstr "Opcioj"
+
+#~ msgid "Make room favorite"
+#~ msgstr "Fari ĉambron ŝatata"
 
 #~ msgid "Member (0)"
 #~ msgstr "Membro (0)"
