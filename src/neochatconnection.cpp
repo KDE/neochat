@@ -12,6 +12,7 @@
 #include "linkpreviewer.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
+#include "notificationsmanager.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
 
@@ -66,6 +67,10 @@ void NeoChatConnection::connectSignals()
     });
     connect(this, &NeoChatConnection::syncDone, this, [this] {
         setIsOnline(true);
+
+        connect(this, &NeoChatConnection::syncDone, this, [this]() {
+            NotificationsManager::instance().handleNotifications(this);
+        });
     });
     connect(this, &NeoChatConnection::networkError, this, [this]() {
         setIsOnline(false);

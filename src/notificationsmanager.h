@@ -47,8 +47,13 @@ public:
     /**
      * @brief Display a native notification for an message.
      */
-    Q_INVOKABLE void
-    postNotification(NeoChatRoom *room, const QString &sender, const QString &text, const QImage &icon, const QString &replyEventId, bool canReply);
+    Q_INVOKABLE void postNotification(NeoChatRoom *room,
+                                      const QString &sender,
+                                      const QString &text,
+                                      const QImage &icon,
+                                      const QString &replyEventId,
+                                      bool canReply,
+                                      qint64 timestamp);
 
     /**
      * @brief Display a native notification for an invite.
@@ -82,7 +87,7 @@ private:
 
     bool shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification);
 
-    QHash<QString, KNotification *> m_notifications;
+    QHash<QString, std::pair<qint64, KNotification *>> m_notifications;
     QHash<QString, QPointer<KNotification>> m_invitations;
 
 private Q_SLOTS:

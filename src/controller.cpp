@@ -103,9 +103,6 @@ Controller::Controller(QObject *parent)
     connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, [this]() {
         if (m_accountRegistry.size() > oldAccountCount) {
             auto connection = dynamic_cast<NeoChatConnection *>(m_accountRegistry.accounts()[m_accountRegistry.size() - 1]);
-            connect(connection, &NeoChatConnection::syncDone, this, [connection]() {
-                NotificationsManager::instance().handleNotifications(connection);
-            });
             connect(
                 connection,
                 &NeoChatConnection::syncDone,
