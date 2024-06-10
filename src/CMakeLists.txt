@@ -311,7 +311,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
 qt_add_resources(neochat "emoji"
     PREFIX "/"
     FILES
-        data/emojis.data
+        data/emojis.json
 )
 
 add_subdirectory(settings)

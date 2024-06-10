@@ -37,7 +37,7 @@ ImageContentManager::ImageContentManager(QObject *parent)
 
 void ImageContentManager::loadEmojis()
 {
-    QFile file(":/data/emojis.data"_ls);
+    QFile file(":/data/emojis.json"_ls);
     file.open(QFile::ReadOnly);
     Q_ASSERT(file.isOpen());
     auto data = QString::fromUtf8(file.readAll());
