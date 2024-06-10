@@ -174,6 +174,8 @@ FormCard.FormCardPage {
             delegate: FormCard.FormTextDelegate {
                 text: modelData
                 description: room.canonicalAlias.length > 0 && modelData === room.canonicalAlias ? "Canonical alias" : ""
+                textItem.textFormat: Text.PlainText
+
                 contentItem.children: [
                     QQC2.ToolButton {
                         id: setCanonicalAliasButton
