@@ -142,7 +142,7 @@ QQC2.ScrollView {
         footer: Item {
             z: 3
             width: root.width
-            visible: messageListView.sectionBannerItem && messageListView.sectionBannerItem.ListView.section !== "" && !Config.blur
+            visible: !Config.blur
 
             SectionDelegate {
                 id: sectionDelegate
