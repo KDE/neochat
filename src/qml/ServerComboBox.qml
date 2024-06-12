@@ -127,7 +127,6 @@ QQC2.ComboBox {
             spacing: Kirigami.Units.smallSpacing
 
             Kirigami.InlineMessage {
-
                 Layout.fillWidth: true
 
                 visible: text != ""
