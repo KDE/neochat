@@ -38,8 +38,8 @@ Due to the nature of the Matrix specification development NeoChat also supports 
 
 Details where to find stable releases for NeoChat can be found on its [homepage](https://apps.kde.org/neochat).
 
-Nightly builds for linux and windows can be downloaded from [cdn.kde.org](https://cdn.kde.org/ci-builds/network/neochat/).
-Nightly builds for android are available from [KDE's nightly F-Droid repository](https://community.kde.org/Android/F-Droid).
+Nightly builds for Linux and Windows can be downloaded from [cdn.kde.org](https://cdn.kde.org/ci-builds/network/neochat/).
+Nightly builds for Android are available from [KDE's nightly F-Droid repository](https://community.kde.org/Android/F-Droid).
 Nightly Flatpaks are available from [KDE's nightly Flatpak repository](https://userbase.kde.org/Tutorials/Flatpak).
 
 ## Building NeoChat

@@ -13,7 +13,7 @@ LoginStep {
     id: root
 
     FormCard.FormTextDelegate {
-        text: i18n("Please wait. This might take a little while.")
+        text: i18n("Please wait while your messages are loaded from the server. This might take a little while.")
     }
     FormCard.AbstractFormDelegate {
         contentItem: QQC2.BusyIndicator {}

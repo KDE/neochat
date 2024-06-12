@@ -92,7 +92,7 @@ FormCard.FormCardPage {
                     }
 
                     QQC2.ToolButton {
-                        text: i18nc("@action:button", "Remove this account")
+                        text: i18nc("@action:button", "Log out of this account")
                         icon.name: "edit-delete-remove"
                         onClicked: Controller.removeConnection(modelData)
                         display: QQC2.Button.IconOnly
