@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:39+0000\n"
+"POT-Creation-Date: 2024-06-13 00:38+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -92,7 +92,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Antwort abbrechen"
 
-#: src/controller.cpp:135
+#: src/controller.cpp:132
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt ""
@@ -101,49 +101,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Tippbenachrichtigungen senden"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:211
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Netzwerkfehler: %1"
 
-#: src/controller.cpp:236
+#: src/controller.cpp:233
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Zugangs-Token kann nicht gefunden werden"
 
-#: src/controller.cpp:236
+#: src/controller.cpp:233
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Vielleicht ist es gelöscht worden?"
 
-#: src/controller.cpp:240
+#: src/controller.cpp:237
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Der Zugriff auf das Schlüsselbund ist verweigert worden."
 
-#: src/controller.cpp:240
+#: src/controller.cpp:237
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Bitte erlauben Sie NeoChat, das Zugangs-Token zu lesen"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:240
 #, kde-format
 msgid "No keychain available."
 msgstr "Kein Schlüsselbund verfügbar."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:240
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Bitte installieren Sie ein Schlüsselbund, z. B. KWallet oder GNOME-"
 "Schlüsselbund unter Linux"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:243
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
-#: src/controller.cpp:342
+#: src/controller.cpp:339
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -833,8 +833,11 @@ msgid "Loading"
 msgstr "Wird geladen ..."
 
 #: src/login/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
+#, fuzzy, kde-format
+#| msgid "Please wait. This might take a little while."
+msgid ""
+"Please wait while your messages are loaded from the server. This might take "
+"a little while."
 msgstr "Bitte warten. Dies kann eine Weile dauern."
 
 #: src/login/Login.qml:25
@@ -990,7 +993,7 @@ msgstr "Wird hochgeladen"
 #, fuzzy, kde-format
 #| msgid "Edit this account"
 msgctxt "@action:button"
-msgid "Remove this account"
+msgid "Log out of this account"
 msgstr "Dieses Konto bearbeiten"
 
 #: src/login/WelcomePage.qml:124
@@ -1856,28 +1859,28 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 reagierte mit %3"
 msgstr[1] "%2 reagierten mit %3"
 
-#: src/neochatconnection.cpp:80
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "File too large to download."
 msgstr "Datei zu groß für einen Download."
 
-#: src/neochatconnection.cpp:80
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:291
+#: src/neochatconnection.cpp:296
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:322
+#: src/neochatconnection.cpp:327
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/neochatconnection.cpp:359
+#: src/neochatconnection.cpp:364
 #, fuzzy, kde-format
 #| msgid "Room creation failed: %1"
 msgid "Space creation failed: %1"
@@ -1894,7 +1897,7 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Breite: %1, Länge: %2"
 
-#: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:326
+#: src/notificationsmanager.cpp:120 src/notificationsmanager.cpp:325
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Verschlüsselte Nachricht"
@@ -1950,12 +1953,12 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr ""
 
-#: src/notificationsmanager.cpp:319
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:330
+#: src/notificationsmanager.cpp:329
 #, fuzzy, kde-format
 #| msgid "NeoChat"
 msgid "Open NeoChat"
@@ -5851,6 +5854,12 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#, fuzzy
+#~| msgid "Edit this account"
+#~ msgctxt "@action:button"
+#~ msgid "Remove this account"
+#~ msgstr "Dieses Konto bearbeiten"
 
 #~ msgid "Options"
 #~ msgstr "Einstellungen"

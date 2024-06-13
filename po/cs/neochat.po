@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:39+0000\n"
+"POT-Creation-Date: 2024-06-13 00:38+0000\n"
 "PO-Revision-Date: 2024-06-07 11:34+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -88,7 +88,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr ""
 
-#: src/controller.cpp:135
+#: src/controller.cpp:132
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -96,47 +96,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr ""
 
-#: src/controller.cpp:214
+#: src/controller.cpp:211
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Chyba sítě: %1"
 
-#: src/controller.cpp:236
+#: src/controller.cpp:233
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:236
+#: src/controller.cpp:233
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:240
+#: src/controller.cpp:237
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:240
+#: src/controller.cpp:237
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:243
+#: src/controller.cpp:240
 #, kde-format
 msgid "No keychain available."
 msgstr ""
 
-#: src/controller.cpp:243
+#: src/controller.cpp:240
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:246
+#: src/controller.cpp:243
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:342
+#: src/controller.cpp:339
 #, kde-format
 msgid "Receiving push notifications"
 msgstr ""
@@ -804,7 +804,9 @@ msgstr "Načítání"
 
 #: src/login/Loading.qml:16
 #, kde-format
-msgid "Please wait. This might take a little while."
+msgid ""
+"Please wait while your messages are loaded from the server. This might take "
+"a little while."
 msgstr ""
 
 #: src/login/Login.qml:25
@@ -943,9 +945,11 @@ msgid "%1 (loading)"
 msgstr "%1 (načítání)"
 
 #: src/login/WelcomePage.qml:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Remove this account"
 msgctxt "@action:button"
-msgid "Remove this account"
+msgid "Log out of this account"
 msgstr "Odstranit tento účet"
 
 #: src/login/WelcomePage.qml:124
@@ -1731,28 +1735,28 @@ msgstr[0] "%2 reagoval pomocí %3"
 msgstr[1] "%2 reagovali pomocí %3"
 msgstr[2] "%2 reagovali pomocí %3"
 
-#: src/neochatconnection.cpp:80
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "File too large to download."
 msgstr "Soubor je pro stažení příliš velký."
 
-#: src/neochatconnection.cpp:80
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Pomoc hledejte u správce serveru matrix."
 
-#: src/neochatconnection.cpp:291
+#: src/neochatconnection.cpp:296
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:322
+#: src/neochatconnection.cpp:327
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/neochatconnection.cpp:359
+#: src/neochatconnection.cpp:364
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
@@ -1768,7 +1772,7 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Šíř.: %1, Dél.: %2"
 
-#: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:326
+#: src/notificationsmanager.cpp:120 src/notificationsmanager.cpp:325
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zašifrovaná zpráva"
@@ -1822,12 +1826,12 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Odmítnout a ignorovat uživatele"
 
-#: src/notificationsmanager.cpp:319
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:330
+#: src/notificationsmanager.cpp:329
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Otevřít NeoChat"

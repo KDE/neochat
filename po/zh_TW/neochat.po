@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-11 00:39+0000\n"
+"POT-Creation-Date: 2024-06-13 00:38+0000\n"
 "PO-Revision-Date: 2024-06-09 19:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -91,7 +91,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "取消回覆"
 
-#: src/controller.cpp:135
+#: src/controller.cpp:132
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -99,47 +99,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "正在接收新訊息的通知"
 
-#: src/controller.cpp:214
+#: src/controller.cpp:211
 #, kde-format
 msgid "Network Error: %1"
 msgstr "網路錯誤：%1"
 
-#: src/controller.cpp:236
+#: src/controller.cpp:233
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "找不到存取權杖"
 
-#: src/controller.cpp:236
+#: src/controller.cpp:233
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "或許它已被刪除？"
 
-#: src/controller.cpp:240
+#: src/controller.cpp:237
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "鑰匙圈存取被拒絕。"
 
-#: src/controller.cpp:240
+#: src/controller.cpp:237
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "請允許 NeoChat 讀取存取權杖"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:240
 #, kde-format
 msgid "No keychain available."
 msgstr "沒有可用的鑰匙圈。"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:240
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
 
-#: src/controller.cpp:246
+#: src/controller.cpp:243
 #, kde-format
 msgid "Unable to read access token"
 msgstr "無法讀取存取權杖"
 
-#: src/controller.cpp:342
+#: src/controller.cpp:339
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -803,8 +803,11 @@ msgid "Loading"
 msgstr "載入中"
 
 #: src/login/Loading.qml:16
-#, kde-format
-msgid "Please wait. This might take a little while."
+#, fuzzy, kde-format
+#| msgid "Please wait. This might take a little while."
+msgid ""
+"Please wait while your messages are loaded from the server. This might take "
+"a little while."
 msgstr "請稍候。這可能會花上一段時間。"
 
 #: src/login/Login.qml:25
@@ -943,10 +946,11 @@ msgid "%1 (loading)"
 msgstr "%1 (載入中)"
 
 #: src/login/WelcomePage.qml:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit this account"
 msgctxt "@action:button"
-msgid "Remove this account"
-msgstr "移除這個帳號"
+msgid "Log out of this account"
+msgstr "編輯這個帳號"
 
 #: src/login/WelcomePage.qml:124
 #, kde-format
@@ -1723,28 +1727,28 @@ msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 用 %3 反應"
 
-#: src/neochatconnection.cpp:80
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "File too large to download."
 msgstr "要下載的檔案太大了。"
 
-#: src/neochatconnection.cpp:80
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "請聯絡您的 matrix 伺服器管理員以求支援。"
 
-#: src/neochatconnection.cpp:291
+#: src/neochatconnection.cpp:296
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "未設定身份伺服器"
 
-#: src/neochatconnection.cpp:322
+#: src/neochatconnection.cpp:327
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室建立失敗：%1"
 
-#: src/neochatconnection.cpp:359
+#: src/neochatconnection.cpp:364
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
@@ -1760,7 +1764,7 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "緯度：%2，經度：%1"
 
-#: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:326
+#: src/notificationsmanager.cpp:120 src/notificationsmanager.cpp:325
 #, kde-format
 msgid "Encrypted Message"
 msgstr "已加密訊息"
@@ -1814,12 +1818,12 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "拒絕並忽略使用者"
 
-#: src/notificationsmanager.cpp:319
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:330
+#: src/notificationsmanager.cpp:329
 #, kde-format
 msgid "Open NeoChat"
 msgstr "開啟 NeoChat"
@@ -5435,6 +5439,10 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
+
+#~ msgctxt "@action:button"
+#~ msgid "Remove this account"
+#~ msgstr "移除這個帳號"
 
 #~ msgid "Options"
 #~ msgstr "選項"
