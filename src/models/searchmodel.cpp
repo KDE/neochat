@@ -122,6 +122,9 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         }
         return {};
     }
+    case IsEditableRole: {
+        return false;
+    }
     }
     return DelegateType::Message;
 }
@@ -158,6 +161,7 @@ QHash<int, QByteArray> SearchModel::roleNames() const
         {IsThreadedRole, "isThreaded"},
         {ThreadRootRole, "threadRoot"},
         {ContentModelRole, "contentModel"},
+        {IsEditableRole, "isEditable"},
     };
 }
 

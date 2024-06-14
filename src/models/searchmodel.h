@@ -71,6 +71,7 @@ public:
         IsThreadedRole,
         ThreadRootRole,
         ContentModelRole,
+        IsEditableRole,
     };
     Q_ENUM(Roles)
     explicit SearchModel(QObject *parent = nullptr);
