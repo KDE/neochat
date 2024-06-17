@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-13 00:38+0000\n"
-"PO-Revision-Date: 2024-05-19 17:52+0530\n"
+"PO-Revision-Date: 2024-06-16 19:23+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -340,28 +340,24 @@ msgid "Spaces"
 msgstr "இடங்கள்"
 
 #: src/enums/powerlevel.cpp:10
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member"
-msgstr "உறுப்பினர்கள்"
+msgstr "உறுப்பினர்"
 
 #: src/enums/powerlevel.cpp:12
-#, fuzzy, kde-format
-#| msgid "Moderator (50)"
+#, kde-format
 msgid "Moderator"
-msgstr "நடுவர் (50)"
+msgstr "நடுவர்"
 
 #: src/enums/powerlevel.cpp:14
-#, fuzzy, kde-format
-#| msgid "Admin (100)"
+#, kde-format
 msgid "Admin"
-msgstr "நிர்வாகி (100)"
+msgstr "நிர்வாகி"
 
 #: src/enums/powerlevel.cpp:16
-#, fuzzy, kde-format
-#| msgid "Muted"
+#, kde-format
 msgid "Mute"
-msgstr "அடக்கப்பட்டுள்ளார்"
+msgstr "ஒலியடக்கு"
 
 #: src/enums/powerlevel.cpp:18
 #, kde-format
@@ -370,8 +366,7 @@ msgstr "விருப்பமானது"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
 #: src/models/userlistmodel.cpp:99
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
 "represents."
@@ -810,12 +805,13 @@ msgid "Loading"
 msgstr "ஏற்றப்படுகிறது…"
 
 #: src/login/Loading.qml:16
-#, fuzzy, kde-format
-#| msgid "Please wait. This might take a little while."
+#, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
 "a little while."
-msgstr "காத்திருங்கள். இதற்கு கொஞ்சம் நேரமாகலாம்."
+msgstr ""
+"சேவையகத்திலிருந்து உங்கள் செய்திகள் ஏற்றப்படும்வரை காத்திருக்கவும். இதற்கு கொஞ்சம் "
+"நேரமாகலாம்."
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -953,11 +949,10 @@ msgid "%1 (loading)"
 msgstr "%1 (ஏற்றப்படுகிறது)"
 
 #: src/login/WelcomePage.qml:95
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
-msgstr "இந்தக் கணக்கைத் திருத்து"
+msgstr "இந்தக் கணக்கிலிருந்து வெளியேறு"
 
 #: src/login/WelcomePage.qml:124
 #, kde-format
@@ -1533,172 +1528,122 @@ msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #: src/models/permissionsmodel.cpp:37
-#, fuzzy
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default user power level"
 msgstr "பயனர்களின் இயல்பிருப்பு உரிமையளவு"
 
 #: src/models/permissionsmodel.cpp:38
-#, fuzzy
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to set the room state"
 msgstr "அரங்கின் நிலையை மாற்றுவதற்கான இயல்பிருப்பு உரிமையளவு"
 
 #: src/models/permissionsmodel.cpp:39
-#, fuzzy
-#| msgid "Default power level to send messages"
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "செய்திகளை அனுப்புவதற்கான இயல்பிருப்பு உரிமையளவு"
 
 #: src/models/permissionsmodel.cpp:40
-#, fuzzy
-#| msgid "Invite users"
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "பயனர்களை வரவழைப்பது"
 
 #: src/models/permissionsmodel.cpp:41
-#, fuzzy
-#| msgid "Kick users"
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "பயனர்களை வெளியேற்றுவது"
 
 #: src/models/permissionsmodel.cpp:42
-#, fuzzy
-#| msgid "Ban users"
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "பயனர்களைத் தடை செய்வது"
 
 #: src/models/permissionsmodel.cpp:43
-#, fuzzy
-#| msgid "Remove message sent by other users"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "இன்னொரு பயனர் அனுப்பிய செய்தியை நீக்குவது"
 
 #: src/models/permissionsmodel.cpp:44
-#, fuzzy
-#| msgid "Send a Location"
 msgctxt "Room permission type"
 msgid "Send reactions"
-msgstr "இடத்தை அனுப்பு"
+msgstr "எதிர்வினையிடுவது"
 
 #: src/models/permissionsmodel.cpp:45
-#, fuzzy
-#| msgid "Remove Messages"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
-msgstr "செய்திகளை நீக்குவது"
+msgstr "சொந்த செய்திகளை நீக்குவது"
 
 #: src/models/permissionsmodel.cpp:46
-#, fuzzy
-#| msgid "Change user permissions"
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "பயனர்களின் அனுமதிகளை மாற்றுவது"
 
 #: src/models/permissionsmodel.cpp:47
-#, fuzzy
-#| msgid "Change the room name"
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "அரங்கின் பெயரை மாற்றுவது"
 
 #: src/models/permissionsmodel.cpp:48
-#, fuzzy
-#| msgid "Change the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "அரங்கின் சின்னத்தை மாற்றுவது"
 
 #: src/models/permissionsmodel.cpp:49
-#, fuzzy
-#| msgid "Change the room canonical alias"
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
-msgstr "இதை அரங்கின் செந்தர மாற்றுப்பெயரை மாற்றுவது"
+msgstr "அரங்கின் செந்தர மாற்றுப்பெயரை மாற்றுவது"
 
 #: src/models/permissionsmodel.cpp:50
-#, fuzzy
-#| msgid "Change the room topic"
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "அரங்கின் தலைப்பை மாற்றுவது"
 
 #: src/models/permissionsmodel.cpp:51
-#, fuzzy
-#| msgid "Enable encryption for the room"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
-msgstr "அரங்கில் மறையாக்கத்தை நீக்குவது"
+msgstr "அரங்கிற்கு மறையாக்கத்தை இயக்குவது"
 
 #: src/models/permissionsmodel.cpp:52
-#, fuzzy
-#| msgid "Change the room history visibility"
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "செய்தி வரலாற்றின் புலப்பாட்டை மாற்றுவது"
 
 #: src/models/permissionsmodel.cpp:53
-#, fuzzy
-#| msgid "Set pinned events"
 msgctxt "Room permission type"
 msgid "Set pinned events"
 msgstr "தக்கவைத்தவற்றை அமைப்பது"
 
 #: src/models/permissionsmodel.cpp:54
-#, fuzzy
-#| msgid "Upgrade the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "அரங்கைப் புதுப்பிப்பது"
 
 #: src/models/permissionsmodel.cpp:55
-#, fuzzy
-#| msgid "Set the room server access control list (ACL)"
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "அரங்கிற்கான சேவையக அணுகல் கட்டுப்பாட்டு பட்டியலை (ACL-ஐ) மாற்றிவது"
 
 #: src/models/permissionsmodel.cpp:56
-#, fuzzy
-#| msgid "Set the children of this space"
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "இவ்விடத்தில் சார்ந்த அரங்குகளை அமைப்பது"
 
 #: src/models/permissionsmodel.cpp:57
-#, fuzzy
-#| msgid "Set the parent space of this room"
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "இவ்வரங்கின் தாய் இடத்தை அமைப்பது"
 
 #: src/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgid "This is power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room"
 msgstr "அரங்கில் புதிதாக சேரும் பயனர்களுக்கான உரிமையளவு இது"
 
 #: src/models/permissionsmodel.cpp:63
-#, fuzzy
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "கீழே தனிப்பட்ட பதிவைக் கொண்டிராத அனைத்து நிலைகுறித்த செயல்களுக்கும் இது பயன்படுத்தப்படும்"
 
 #: src/models/permissionsmodel.cpp:64
-#, fuzzy
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -1806,7 +1751,7 @@ msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸ�
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
-msgstr ""
+msgstr "எந்த அடையாளச் சேவையகமும் அமைக்கப்பட்டிருக்கவில்லை"
 
 #: src/neochatconnection.cpp:327
 #, kde-format
@@ -2529,9 +2474,7 @@ msgid "Rooms"
 msgstr "அரங்குகள்"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Search Room"
+#, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "அரங்கைக் கண்டுபிடி"
@@ -3198,12 +3141,10 @@ msgid "Room information"
 msgstr "அரங்கின் விவரங்கள்"
 
 #: src/qml/RoomInformation.qml:68
-#, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
+#, kde-format
 msgctxt "Room actions"
 msgid "Actions"
-msgstr "இருப்பிடங்கள்"
+msgstr "செயல்கள்"
 
 #: src/qml/RoomInformation.qml:78
 #, kde-format
@@ -3222,11 +3163,9 @@ msgid "Remove room from favorites"
 msgstr "பிடித்தவற்றிலிருந்து அரங்கை நீக்கு"
 
 #: src/qml/RoomInformation.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this room"
+#, kde-format
 msgid "Favorite this room"
-msgstr "இவ்வரங்கிலிருந்து வெளியேறு"
+msgstr "இவ்வரங்கை பிடித்ததாக குறி"
 
 #: src/qml/RoomInformation.qml:109
 #, kde-format
@@ -3590,10 +3529,9 @@ msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
 #: src/qml/TimelineView.qml:195
-#, fuzzy, kde-format
-#| msgid "Jump to latest message"
+#, kde-format
 msgid "Jump to oldest loaded message"
-msgstr "கடைசி செய்திக்குத் தாவு"
+msgstr "ஏற்றப்பட்டுள்ளவற்றில் பழைய செய்திக்குத் தாவு"
 
 #: src/qml/TimelineView.qml:235
 #, kde-format
@@ -4835,12 +4773,12 @@ msgstr "அடிப்படை அனுமதிகள்"
 #: src/settings/Permissions.qml:318
 #, kde-format
 msgid "Event permissions"
-msgstr ""
+msgstr "நிகழ்வு அனுமதிகள்"
 
 #: src/settings/Permissions.qml:365
 #, kde-format
 msgid "Event Type…"
-msgstr ""
+msgstr "நிகழ்வு வகை…"
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5246,11 +5184,10 @@ msgstr "சொல்லை நீக்கு"
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide"
-msgstr ""
+msgstr "மறை"
 
 #: src/settings/ThreePIdCard.qml:61
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "பகிர்"
@@ -5262,15 +5199,13 @@ msgid "Remove"
 msgstr "நீக்கு"
 
 #: src/settings/ThreePIdCard.qml:85
-#, fuzzy, kde-format
-#| msgid "Compact"
+#, kde-format
 msgctxt "@action:button"
 msgid "Complete"
-msgstr "சுருக்கமானது"
+msgstr "நிரப்பு"
 
 #: src/settings/ThreePIdCard.qml:90
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ரத்து செய்"
@@ -5355,36 +5290,28 @@ msgid "Back"
 msgstr "பின்னே"
 
 #: src/threepidbindhelper.cpp:176
-#, fuzzy, kde-format
-#| msgid ""
-#| "%1. Please follow the instructions there and then click the button below"
+#, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
-msgstr "%1. அதிலுள்ளவாறு செய்தபின் கீழுள்ள பட்டனை அழுத்தவும்"
+msgstr "%1. அதிலுள்ளவாறு செய்தபின் மேலுள்ள பட்டனை அழுத்தவும்"
 
 #: src/threepidbindhelper.cpp:182
-#, fuzzy, kde-format
-#| msgid ""
-#| "The email has not been verified. Please go to the email and follow the "
-#| "instructions there and then click the button below"
+#, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button above"
 msgstr ""
 "இந்த மின்னஞ்சல் முகவரி உறுதிசெய்யப்படாதது. உங்களுக்கு அனுப்பப்பட்ட அஞ்சலிலுள்ளவாறு "
-"செய்தபின் கீழுள்ள பட்டனை அழுத்தவும்"
+"செய்தபின் மேலுள்ள பட்டனை அழுத்தவும்"
 
 #: src/threepidbindhelper.cpp:183
-#, fuzzy, kde-format
-#| msgid ""
-#| "The phone number has not been verified. Please go to the text message and "
-#| "follow the instructions there and then click the button below"
+#, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button above"
 msgstr ""
 "இந்த தொலைபேசி எண் உறுதிசெய்யப்படாதது. உங்களுக்கு அனுப்பப்பட்ட குறுஞ்செய்தியிலுள்ளவாறு "
-"செய்தபின் கீழுள்ள பட்டனை அழுத்தவும்"
+"செய்தபின் மேலுள்ள பட்டனை அழுத்தவும்"
 
 #: src/timeline/CodeComponent.qml:168
 #, kde-format
