@@ -53,6 +53,16 @@ class Controller : public QObject
     Q_PROPERTY(bool csSupported READ csSupported CONSTANT)
 
 public:
+    /**
+     * @brief Define the types on inline messages that can be shown.
+     */
+    enum MessageType {
+        Positive, /**< Positive message, typically green. */
+        Info, /**< Info message, typically highlight color. */
+        Error, /**< Error message, typically red. */
+    };
+    Q_ENUM(MessageType)
+
     static Controller &instance();
     static Controller *create(QQmlEngine *engine, QJSEngine *)
     {
@@ -125,4 +135,5 @@ Q_SIGNALS:
     void connectionDropped(NeoChatConnection *connection);
     void activeConnectionChanged(NeoChatConnection *connection);
     void accountsLoadingChanged();
+    void showMessage(MessageType messageType, const QString &message);
 };

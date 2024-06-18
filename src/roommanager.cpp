@@ -365,7 +365,7 @@ void RoomManager::knockRoom(NeoChatConnection *account, const QString &roomAlias
                     &NeoChatConnection::newRoom,
                     this,
                     [this](Quotient::Room *room) {
-                        Q_EMIT currentRoom() -> showMessage(NeoChatRoom::Info, i18n("You requested to join '%1'", room->name()));
+                        Q_EMIT Controller::instance().showMessage(Controller::Info, i18n("You requested to join '%1'", room -> name()));
                     },
                     Qt::SingleShotConnection);
             } else {

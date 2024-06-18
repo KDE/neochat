@@ -240,7 +240,7 @@ Kirigami.Page {
     }
 
     Connections {
-        target: root.currentRoom
+        target: Controller
         function onShowMessage(messageType, message) {
             banner.text = message;
             banner.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : messageType === ActionsHandler.Positive ? Kirigami.MessageType.Positive : Kirigami.MessageType.Information;

@@ -4,6 +4,7 @@
 #include "actionsmodel.h"
 
 #include "chatbarcache.h"
+#include "controller.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "roommanager.h"
@@ -23,14 +24,15 @@ QStringList rainbowColors{"#ff2b00"_ls, "#ff5500"_ls, "#ff8000"_ls, "#ffaa00"_ls
 
 auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
     if (text.isEmpty()) {
-        Q_EMIT room->showMessage(NeoChatRoom::Info, i18n("Leaving this room."));
+        Q_EMIT Controller::instance().showMessage(Controller::Info, i18n("Leaving this room."));
         room->connection()->leaveRoom(room);
     } else {
         QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
         auto regexMatch = roomRegex.match(text);
         if (!regexMatch.hasMatch()) {
-            Q_EMIT room->showMessage(NeoChatRoom::Error,
-                                     i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+            Q_EMIT Controller::instance().showMessage(
+                Controller::Error,
+                i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
             return QString();
         }
         auto leaving = room->connection()->room(text);
@@ -38,10 +40,10 @@ auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *
             leaving = room->connection()->roomByAlias(text);
         }
         if (leaving) {
-            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Leaving room <roomname>.", "Leaving room %1.", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("Leaving room <roomname>.", "Leaving room %1.", text));
             room->connection()->leaveRoom(leaving);
         } else {
-            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Room <roomname> not found", "Room %1 not found.", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("Room <roomname> not found", "Room %1 not found.", text));
         }
     }
     return QString();
@@ -49,7 +51,7 @@ auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *
 
 auto roomNickLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
     if (text.isEmpty()) {
-        Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("No new nickname provided, no changes will happen."));
+        Q_EMIT Controller::instance().showMessage(Controller::Error, i18n("No new nickname provided, no changes will happen."));
     } else {
         room->connection()->user()->rename(text, room);
     }
@@ -191,28 +193,31 @@ QList<ActionsModel::Action> actions{
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(text);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Error,
+                                                          i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
             const RoomMemberEvent *roomMemberEvent = room->currentState().get<RoomMemberEvent>(text);
             if (roomMemberEvent && roomMemberEvent->membership() == Membership::Invite) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already invited to this room.", "%1 is already invited to this room.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Info,
+                                                          i18nc("<user> is already invited to this room.", "%1 is already invited to this room.", text));
                 return QString();
             }
             if (roomMemberEvent && roomMemberEvent->membership() == Membership::Ban) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is banned from this room.", "%1 is banned from this room.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("<user> is banned from this room.", "%1 is banned from this room.", text));
                 return QString();
             }
             if (room->localMember().id() == text) {
-                Q_EMIT room->showMessage(NeoChatRoom::Positive, i18n("You are already in this room."));
+                Q_EMIT Controller::instance().showMessage(Controller::Positive, i18n("You are already in this room."));
                 return QString();
             }
             if (room->members().contains(room->member(text))) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already in this room.", "%1 is already in this room.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("<user> is already in this room.", "%1 is already in this room.", text));
                 return QString();
             }
             room->inviteToRoom(text);
-            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was invited into this room", "%1 was invited into this room", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Positive,
+                                                      i18nc("<username> was invited into this room", "%1 was invited into this room", text));
             return QString();
         },
         false,
@@ -226,8 +231,9 @@ QList<ActionsModel::Action> actions{
             QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
             auto regexMatch = roomRegex.match(text);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error,
-                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+                Q_EMIT Controller::instance().showMessage(
+                    Controller::Error,
+                    i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
                 return QString();
             }
             auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
@@ -235,7 +241,7 @@ QList<ActionsModel::Action> actions{
                 RoomManager::instance().resolveResource(targetRoom->id());
                 return QString();
             }
-            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
             RoomManager::instance().resolveResource(text, "join"_ls);
             return QString();
         },
@@ -252,8 +258,9 @@ QList<ActionsModel::Action> actions{
             QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
             auto regexMatch = roomRegex.match(roomName);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error,
-                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+                Q_EMIT Controller::instance().showMessage(
+                    Controller::Error,
+                    i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
                 return QString();
             }
             auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
@@ -261,7 +268,7 @@ QList<ActionsModel::Action> actions{
                 RoomManager::instance().resolveResource(targetRoom->id());
                 return QString();
             }
-            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
             auto connection = dynamic_cast<NeoChatConnection *>(room->connection());
             const auto knownServer = roomName.mid(roomName.indexOf(":"_ls) + 1);
             if (parts.length() >= 2) {
@@ -282,15 +289,16 @@ QList<ActionsModel::Action> actions{
             QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
             auto regexMatch = roomRegex.match(text);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error,
-                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+                Q_EMIT Controller::instance().showMessage(
+                    Controller::Error,
+                    i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
                 return QString();
             }
             if (room->connection()->room(text) || room->connection()->roomByAlias(text)) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("You are already in room <roomname>.", "You are already in room %1.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("You are already in room <roomname>.", "You are already in room %1.", text));
                 return QString();
             }
-            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
             RoomManager::instance().resolveResource(text, "join"_ls);
             return QString();
         },
@@ -319,7 +327,7 @@ QList<ActionsModel::Action> actions{
         QStringLiteral("nick"),
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             if (text.isEmpty()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("No new nickname provided, no changes will happen."));
+                Q_EMIT Controller::instance().showMessage(Controller::Error, i18n("No new nickname provided, no changes will happen."));
             } else {
                 room->connection()->user()->rename(text);
             }
@@ -353,15 +361,17 @@ QList<ActionsModel::Action> actions{
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(text);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Error,
+                                                          i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
             if (room->connection()->ignoredUsers().contains(text)) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<username> is already ignored.", "%1 is already ignored.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("<username> is already ignored.", "%1 is already ignored.", text));
                 return QString();
             }
             room->connection()->addToIgnoredUsers(text);
-            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> is now ignored", "%1 is now ignored.", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Positive, i18nc("<username> is now ignored", "%1 is now ignored.", text));
+
             return QString();
         },
         false,
@@ -376,15 +386,16 @@ QList<ActionsModel::Action> actions{
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(text);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Error,
+                                                          i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
             if (!room->connection()->ignoredUsers().contains(text)) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<username> is not ignored.", "%1 is not ignored.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("<username> is not ignored.", "%1 is not ignored.", text));
                 return QString();
             }
             room->connection()->removeFromIgnoredUsers(text);
-            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> is no longer ignored.", "%1 is no longer ignored.", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Positive, i18nc("<username> is no longer ignored.", "%1 is no longer ignored.", text));
             return QString();
         },
         false,
@@ -420,12 +431,14 @@ QList<ActionsModel::Action> actions{
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(parts[0]);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Error,
+                                                          i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
             auto state = room->currentState().get<RoomMemberEvent>(parts[0]);
             if (state && state->membership() == Membership::Ban) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already banned from this room.", "%1 is already banned from this room.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Info,
+                                                          i18nc("<user> is already banned from this room.", "%1 is already banned from this room.", text));
                 return QString();
             }
             auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
@@ -433,17 +446,18 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             if (plEvent->ban() > plEvent->powerLevelForUser(room->localMember().id())) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to ban users from this room."));
+                Q_EMIT Controller::instance().showMessage(Controller::Error, i18n("You are not allowed to ban users from this room."));
                 return QString();
             }
             if (plEvent->powerLevelForUser(room->localMember().id()) <= plEvent->powerLevelForUser(parts[0])) {
-                Q_EMIT room->showMessage(
-                    NeoChatRoom::Error,
+                Q_EMIT Controller::instance().showMessage(
+                    Controller::Error,
                     i18nc("You are not allowed to ban <username> from this room.", "You are not allowed to ban %1 from this room.", parts[0]));
                 return QString();
             }
             room->ban(parts[0], parts.size() > 1 ? parts.mid(1).join(QLatin1Char(' ')) : QString());
-            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was banned from this room.", "%1 was banned from this room.", parts[0]));
+            Q_EMIT Controller::instance().showMessage(Controller::Positive,
+                                                      i18nc("<username> was banned from this room.", "%1 was banned from this room.", parts[0]));
             return QString();
         },
         false,
@@ -458,7 +472,8 @@ QList<ActionsModel::Action> actions{
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(text);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Error,
+                                                          i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
             auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
@@ -466,16 +481,18 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             if (plEvent->ban() > plEvent->powerLevelForUser(room->localMember().id())) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to unban users from this room."));
+                Q_EMIT Controller::instance().showMessage(Controller::Error, i18n("You are not allowed to unban users from this room."));
                 return QString();
             }
             auto state = room->currentState().get<RoomMemberEvent>(text);
             if (state && state->membership() != Membership::Ban) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is not banned from this room.", "%1 is not banned from this room.", text));
+                Q_EMIT Controller::instance().showMessage(Controller::Info,
+                                                          i18nc("<user> is not banned from this room.", "%1 is not banned from this room.", text));
                 return QString();
             }
             room->unban(text);
-            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was unbanned from this room.", "%1 was unbanned from this room.", text));
+            Q_EMIT Controller::instance().showMessage(Controller::Positive,
+                                                      i18nc("<username> was unbanned from this room.", "%1 was unbanned from this room.", text));
 
             return QString();
         },
@@ -492,16 +509,16 @@ QList<ActionsModel::Action> actions{
                 QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
             auto regexMatch = mxidRegex.match(parts[0]);
             if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error,
-                                         i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", parts[0]));
+                Q_EMIT Controller::instance().showMessage(Controller::Error,
+                                                          i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", parts[0]));
                 return QString();
             }
             if (parts[0] == room->localMember().id()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You cannot kick yourself from the room."));
+                Q_EMIT Controller::instance().showMessage(Controller::Error, i18n("You cannot kick yourself from the room."));
                 return QString();
             }
             if (!room->isMember(parts[0])) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("<username> is not in this room", "%1 is not in this room.", parts[0]));
+                Q_EMIT Controller::instance().showMessage(Controller::Error, i18nc("<username> is not in this room", "%1 is not in this room.", parts[0]));
                 return QString();
             }
             auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
@@ -510,17 +527,18 @@ QList<ActionsModel::Action> actions{
             }
             auto kick = plEvent->kick();
             if (plEvent->powerLevelForUser(room->localMember().id()) < kick) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to kick users from this room."));
+                Q_EMIT Controller::instance().showMessage(Controller::Error, i18n("You are not allowed to kick users from this room."));
                 return QString();
             }
             if (plEvent->powerLevelForUser(room->localMember().id()) <= plEvent->powerLevelForUser(parts[0])) {
-                Q_EMIT room->showMessage(
-                    NeoChatRoom::Error,
+                Q_EMIT Controller::instance().showMessage(
+                    Controller::Error,
                     i18nc("You are not allowed to kick <username> from this room", "You are not allowed to kick %1 from this room.", parts[0]));
                 return QString();
             }
             room->kickMember(parts[0], parts.size() > 1 ? parts.mid(1).join(QLatin1Char(' ')) : QString());
-            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was kicked from this room.", "%1 was kicked from this room.", parts[0]));
+            Q_EMIT Controller::instance().showMessage(Controller::Positive,
+                                                      i18nc("<username> was kicked from this room.", "%1 was kicked from this room.", parts[0]));
             return QString();
         },
         false,
