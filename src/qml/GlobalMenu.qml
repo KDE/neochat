@@ -88,7 +88,6 @@ Labs.MenuBar {
 
         Labs.MenuItem {
             text: i18nc("menu item that opens a UI element called the 'Quick Switcher', which offers a fast keyboard-based interface for switching in between chats.", "Open Quick Switcher")
-            shortcut: "Ctrl+K"
             onTriggered: quickSwitcher.open()
         }
     }
