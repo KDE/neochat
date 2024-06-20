@@ -20,12 +20,8 @@ Labs.MenuBar {
     Labs.Menu {
         title: i18nc("menu", "NeoChat")
 
-        // TODO: make about page its own thing so we can go to it instead of settings where it's currently at
-        // Labs.MenuItem {
-        //     text: i18nc("menu", "About NeoChat")
-        // }
         Labs.MenuItem {
-            enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat...")
+            enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat…")
             text: i18nc("menu", "Configure NeoChat...")
 
             shortcut: StandardKey.Preferences
@@ -94,22 +90,25 @@ Labs.MenuBar {
     Labs.Menu {
         title: i18nc("menu", "Window")
 
-        // Labs.MenuItem {
-        //     text: settings.userWantsSidebars ? i18nc("menu", "Hide Sidebar") : i18nc("menu", "Show Sidebar")
-        //     onTriggered: settings.userWantsSidebars = !settings.userWantsSidebars
-        // }
         Labs.MenuItem {
             text: root.visibility === Window.FullScreen ? i18nc("menu", "Exit Full Screen") : i18nc("menu", "Enter Full Screen")
             onTriggered: root.visibility === Window.FullScreen ? root.showNormal() : root.showFullScreen()
         }
     }
-    // TODO: offline help system (https://invent.kde.org/network/neochat/-/issues/411)
     Labs.Menu {
         title: i18nc("menu", "Help")
 
         Labs.MenuItem {
-            text: i18nc("menu", "Matrix FAQ")
-            onTriggered: UrlHelper.openUrl("https://matrix.org/faq/")
+            text: i18nc("menu", "About Matrix")
+            onTriggered: UrlHelper.openUrl("https://matrix.org/docs/chat_basics/matrix-for-im/")
+        }
+        Labs.MenuItem {
+            text: i18nc("menu", "About NeoChat")
+            onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"))
+        }
+        Labs.MenuItem {
+            text: i18nc("menu", "About KDE")
+            onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDE"))
         }
     }
 }
