@@ -18,6 +18,7 @@
 #include <Quotient/connection.h>
 #include <Quotient/csapi/cross_signing.h>
 #include <Quotient/e2ee/cryptoutils.h>
+#include <Quotient/e2ee/e2ee_common.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
 #include <qt6keychain/keychain.h>
@@ -625,9 +626,60 @@ void NeoChatConnection::setupCrossSigningKeys(const QString &password)
                                                    },
 
                                            })
-            .then([](const auto &job) {
-                // TODO mark key as verified
+            .then([this](const auto &job) {
+                auto key = getRandom(32);
+                QByteArray data = QByteArrayLiteral("\x8B\x01") + viewAsByteArray(key);
+                data.append(std::accumulate(data.cbegin(), data.cend(), uint8_t{0}, std::bit_xor<>()));
+                data = base58Encode(data);
+                QList<QString> groups;
+                for (auto i = 0; i < data.size() / 4; i++) {
+                    groups += QString::fromLatin1(data.mid(i * 4, i * 4 + 4));
+                }
+                auto formatted = groups.join(QStringLiteral(" "));
+
+                auto iv = getRandom(16);
+                data[8] &= ~(1 << 7); // Byte 63 needs to be set to 0
+
+                const auto &testKeys = hkdfSha256(byte_view_t<>(key).subspan<0, DefaultPbkdf2KeyLength>(), zeroes<32>(), {});
+                if (!testKeys.has_value()) {
+                    qWarning() << "SSSS: Failed to calculate HKDF";
+                    // Q_EMIT error(DecryptionError);
+                    return;
+                }
+                const auto &encrypted = aesCtr256Encrypt(zeroedByteArray(), testKeys.value().aes(), asCBytes<AesBlockSize>(iv));
+                if (!encrypted.has_value()) {
+                    qWarning() << "SSSS: Failed to encrypt test keys";
+                    // emit error(DecryptionError);
+                    return;
+                }
+                const auto &result = hmacSha256(testKeys.value().mac(), encrypted.value());
+                if (!result.has_value()) {
+                    qWarning() << "SSSS: Failed to calculate HMAC";
+                    // emit error(DecryptionError);
+                    return;
+                }
+
+                auto mac = result.value();
+
+                auto identifier = QString::fromLatin1(QCryptographicHash::hash(QUuid::createUuid().toString().toLatin1(), QCryptographicHash::Sha256));
+
+                setAccountData(QStringLiteral("m.secret_storage.key.%1").arg(identifier),
+                               {
+                                   {"algorithm"_ls, "m.secret_storage.v1.aes-hmac-sha2"_ls},
+                                   {"iv"_ls, QString::fromLatin1(iv.toBase64())},
+                                   {"mac"_ls, QString::fromLatin1(mac.toBase64())},
+                               });
+                setAccountData(QStringLiteral("m.secret_storage.default_key"),
+                               {
+                                   {"key"_ls, identifier},
+                               });
+
+                // TODO make sure masterKeyForUser already works at this point;
+                database()->setMasterKeyVerified(masterKeyForUser(userId()));
+
                 // TODO store keys in accountdata
+                // TODO start a key backup and store in account data
+
                 qWarning() << "finished uploading cs keys" << job->jsonData() << job->errorString();
             });
     });
