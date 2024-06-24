@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-21 00:38+0000\n"
+"POT-Creation-Date: 2024-06-24 00:38+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1978,7 +1978,7 @@ msgid "Notification settings"
 msgstr "Notificationes:"
 
 #: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:35 src/qml/Main.qml:327 src/qml/UserInfo.qml:107
+#: src/qml/GlobalMenu.qml:31 src/qml/Main.qml:327 src/qml/UserInfo.qml:107
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
@@ -2416,7 +2416,7 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:74 src/qml/RoomListPage.qml:210
+#: src/qml/GlobalMenu.qml:70 src/qml/RoomListPage.qml:210
 #: src/qml/SelectParentDialog.qml:142
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
@@ -2580,14 +2580,14 @@ msgid "Explore rooms"
 msgstr "Explorar chambres"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
-#: src/qml/GlobalMenu.qml:52 src/qml/GlobalMenu.qml:61
+#: src/qml/GlobalMenu.qml:48 src/qml/GlobalMenu.qml:57
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:56 src/qml/RoomListPage.qml:180
+#: src/qml/GlobalMenu.qml:52 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
 msgctxt "@title"
@@ -2723,60 +2723,61 @@ msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/GlobalMenu.qml:28
-#, kde-format
-msgid "Configure NeoChat..."
+#: src/qml/GlobalMenu.qml:24
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "Configurar NeoChat..."
 
-#: src/qml/GlobalMenu.qml:29
+#: src/qml/GlobalMenu.qml:25
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Configurar NeoChat..."
 
-#: src/qml/GlobalMenu.qml:41
+#: src/qml/GlobalMenu.qml:37
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Surtir de NeoChat"
 
-#: src/qml/GlobalMenu.qml:48
+#: src/qml/GlobalMenu.qml:44
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "File"
 
-#: src/qml/GlobalMenu.qml:51
+#: src/qml/GlobalMenu.qml:47
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/GlobalMenu.qml:60
+#: src/qml/GlobalMenu.qml:56
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Nov gruppe..."
 
-#: src/qml/GlobalMenu.qml:69
+#: src/qml/GlobalMenu.qml:65
 #, fuzzy, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "_Trovar"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Redacter"
 
-#: src/qml/GlobalMenu.qml:87
+#: src/qml/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Vise"
 
-#: src/qml/GlobalMenu.qml:90
+#: src/qml/GlobalMenu.qml:86
 #, fuzzy, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2784,35 +2785,49 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Cambiar documentes"
 
-#: src/qml/GlobalMenu.qml:95
+#: src/qml/GlobalMenu.qml:91
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Fenestre"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:94
 #, fuzzy, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "_Plen-ecran"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:94
 #, fuzzy, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "_Plen-ecran"
 
-#: src/qml/GlobalMenu.qml:108
+#: src/qml/GlobalMenu.qml:99
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Auxilie"
 
-#: src/qml/GlobalMenu.qml:111
+#: src/qml/GlobalMenu.qml:102
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "menu"
+msgid "About Matrix"
+msgstr "Pri NeoChat"
+
+#: src/qml/GlobalMenu.qml:106
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "menu"
+msgid "About NeoChat"
+msgstr "Pri NeoChat"
+
+#: src/qml/GlobalMenu.qml:110
 #, kde-format
 msgctxt "menu"
-msgid "Matrix FAQ"
-msgstr "FAQ de Matrix"
+msgid "About KDE"
+msgstr ""
 
 #: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
@@ -5773,6 +5788,10 @@ msgstr "Monstrar"
 #, kde-format
 msgid "Quit"
 msgstr "Surtir"
+
+#~ msgctxt "menu"
+#~ msgid "Matrix FAQ"
+#~ msgstr "FAQ de Matrix"
 
 #, fuzzy
 #~ msgctxt "@action:button"
