@@ -30,7 +30,6 @@ qt_add_qml_module(settings
         PushNotification.qml
         RoomGeneralPage.qml
         RoomSecurityPage.qml
-        SonnetConfigPage.qml
         ColorScheme.qml
         DevicesCard.qml
         DeviceDelegate.qml

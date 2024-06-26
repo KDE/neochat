@@ -68,13 +68,7 @@ KirigamiSettings.ConfigurationView {
                 };
             }
         },
-        KirigamiSettings.ConfigurationModule {
-            moduleId: "spellChecking"
-            text: i18n("Spell Checking")
-            icon.name: "tools-check-spelling"
-            page: () => Qt.createComponent("org.kde.neochat.settings", "SonnetConfigPage")
-            visible: Qt.platform.os !== "android"
-        },
+        KirigamiSettings.SpellcheckingConfigurationModule {},
         KirigamiSettings.ConfigurationModule {
             moduleId: "networkProxy"
             text: i18n("Network Proxy")
