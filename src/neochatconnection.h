@@ -198,6 +198,7 @@ Q_SIGNALS:
     void passwordStatus(NeoChatConnection::PasswordStatus status);
     void userConsentRequired(QUrl url);
     void badgeNotificationCountChanged(NeoChatConnection *connection, int count);
+    void showSecurityKey(const QString &securityKey);
 
 private:
     bool m_isOnline = true;
@@ -206,6 +207,10 @@ private:
     ThreePIdModel *m_threePIdModel;
 
     void connectSignals();
+    void finishCrossSigningSetup(const QByteArray &encodedMasterKeyPrivate,
+                                 const QByteArray &encodedSelfSigningKeyPrivate,
+                                 const QByteArray &encodedUserSigningKeyPrivate,
+                                 const QString &masterKeyPublic);
 
     int m_badgeNotificationCount = 0;
 

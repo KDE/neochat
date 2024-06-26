@@ -607,17 +607,27 @@ void NeoChatConnection::setupCrossSigningKeys(const QString &password)
          QJsonObject{{"ed25519:"_ls + QString::fromLatin1(masterKeyPublic),
                       QString::fromLatin1(sign(masterKeyPrivate.viewAsByteArray(), QJsonDocument(userSigningKeyJson).toJson(QJsonDocument::Compact)))}}}};
 
-    auto job = callApi<UploadCrossSigningKeysJob>(masterKey, selfSigningKey, userSigningKey, std::nullopt);
+    const auto encodedMasterKeyPrivate = viewAsByteArray(masterKeyPrivate).toBase64();
+    const auto encodedSelfSigningKeyPrivate = viewAsByteArray(selfSigningKeyPrivate).toBase64();
+    const auto encodedUserSigningKeyPrivate = viewAsByteArray(userSigningKeyPrivate).toBase64();
 
-    auto encodedMasterKeyPrivate = viewAsByteArray(masterKeyPrivate).toBase64();
-    auto encodedSelfSigningKeyPrivate = viewAsByteArray(selfSigningKeyPrivate).toBase64();
-    auto encodedUserSigningKeyPrivate = viewAsByteArray(userSigningKeyPrivate).toBase64();
-
-    connect(job,
-            &BaseJob::failure,
-            this,
-            [this, masterKey, selfSigningKey, userSigningKey, password, encodedMasterKeyPrivate, encodedSelfSigningKeyPrivate, encodedUserSigningKeyPrivate](
-                const auto &job) {
+    callApi<UploadCrossSigningKeysJob>(masterKey, selfSigningKey, userSigningKey, std::nullopt)
+        .then(
+            [this, encodedMasterKeyPrivate, encodedSelfSigningKeyPrivate, encodedUserSigningKeyPrivate, masterKeyPublic]() {
+                finishCrossSigningSetup(encodedMasterKeyPrivate,
+                                        encodedSelfSigningKeyPrivate,
+                                        encodedUserSigningKeyPrivate,
+                                        QString::fromLatin1(masterKeyPublic));
+            },
+            [this,
+             password,
+             masterKey,
+             selfSigningKey,
+             userSigningKey,
+             encodedMasterKeyPrivate,
+             encodedSelfSigningKeyPrivate,
+             encodedUserSigningKeyPrivate,
+             masterKeyPublic](const auto &job) {
                 callApi<UploadCrossSigningKeysJob>(masterKey,
                                                    selfSigningKey,
                                                    userSigningKey,
@@ -633,109 +643,148 @@ void NeoChatConnection::setupCrossSigningKeys(const QString &password)
                                                                     {"user"_ls, userId()},
                                                                 }},
                                                            },
-
                                                    })
-                    .then([this, encodedMasterKeyPrivate, encodedSelfSigningKeyPrivate, encodedUserSigningKeyPrivate](const auto &job) {
-                        // TODO: check job result?
-                        Q_UNUSED(job);
-                        auto key = getRandom(32);
-                        QByteArray data = QByteArrayLiteral("\x8B\x01") + viewAsByteArray(key);
-                        data[8] &= ~(1 << 7); // Byte 63 needs to be set to 0
-                        data.append(std::accumulate(data.cbegin(), data.cend(), uint8_t{0}, std::bit_xor<>()));
-                        data = base58Encode(data);
-                        QList<QString> groups;
-                        for (auto i = 0; i < data.size() / 4; i++) {
-                            groups += QString::fromLatin1(data.mid(i * 4, i * 4 + 4));
-                        }
-
-                        // The key to be shown to the user
-                        auto formatted = groups.join(QStringLiteral(" "));
-                        auto identifier = QString::fromLatin1(QCryptographicHash::hash(QUuid::createUuid().toString().toLatin1(), QCryptographicHash::Sha256));
-
-                        setAccountData("m.secret_storage.default_key"_ls,
-                                       {
-                                           {"key"_ls, identifier},
-                                       });
-
-                        struct EncryptionData {
-                            QString ciphertext;
-                            QString iv;
-                            QString mac;
-                        };
-
-                        auto encryptAccountData = [this, &key, identifier](QLatin1String info, const QByteArray &data) {
-                            auto iv = getRandom(16);
-                            const auto &kdfKeys = hkdfSha256(byte_view_t<>(key).subspan<0, DefaultPbkdf2KeyLength>(), zeroes<32>(), asCBytes<>(info));
-                            if (!kdfKeys.has_value()) {
-                                qWarning() << "Key Setup: Failed to calculate HKDF" << info;
-                                // Q_EMIT error(DecryptionError);
-                                return EncryptionData{};
-                            }
-                            const auto &encrypted = aesCtr256Encrypt(data, kdfKeys.value().aes(), asCBytes<AesBlockSize>(iv));
-                            if (!encrypted.has_value()) {
-                                qWarning() << "Key Setup: Failed to encrypt test keys" << info;
-                                // emit error(DecryptionError);
-                                return EncryptionData{};
-                            }
-                            const auto &hmacResult = hmacSha256(kdfKeys.value().mac(), encrypted.value());
-                            if (!hmacResult.has_value()) {
-                                qWarning() << "Key Setup: Failed to calculate HMAC" << info;
-                                // emit error(DecryptionError);
-                                return EncryptionData{};
-                            }
-                            return EncryptionData{
-                                .ciphertext = QString::fromLatin1(encrypted.value().toBase64()),
-                                .iv = QString::fromLatin1(iv.viewAsByteArray()),
-                                .mac = QString::fromLatin1(hmacResult.value().toBase64()),
-                            };
-                        };
-
-                        auto testData = encryptAccountData({}, zeroedByteArray());
-                        setAccountData("m.secret_storage.key.%1"_ls.arg(identifier),
-                                       {
-                                           {"algorithm"_ls, "m.secret_storage.v1.aes-hmac-sha2"_ls},
-                                           {"iv"_ls, testData.iv},
-                                           {"mac"_ls, testData.mac},
-                                       });
-
-                        auto masterData = encryptAccountData("m.cross_signing.master"_ls, encodedMasterKeyPrivate);
-                        setAccountData("m.cross_signing.master"_ls,
-                                       {{"encrypted"_ls,
-                                         QJsonObject{{identifier,
-                                                      QJsonObject{
-                                                          {"iv"_ls, masterData.iv},
-                                                          {"ciphertext"_ls, masterData.ciphertext},
-                                                          {"mac"_ls, masterData.mac},
-                                                      }}}}});
-
-                        auto selfSigningData = encryptAccountData("m.cross_signing.self_signing"_ls, encodedSelfSigningKeyPrivate);
-                        setAccountData("m.cross_signing.self_signing"_ls,
-                                       {{"encrypted"_ls,
-                                         QJsonObject{{identifier,
-                                                      QJsonObject{
-                                                          {"iv"_ls, selfSigningData.iv},
-                                                          {"ciphertext"_ls, selfSigningData.ciphertext},
-                                                          {"mac"_ls, selfSigningData.mac},
-                                                      }}}}});
-
-                        auto userSigningData = encryptAccountData("m.cross_signing.user_signing"_ls, encodedUserSigningKeyPrivate);
-                        setAccountData("m.cross_signing.user_signing"_ls,
-                                       {{"encrypted"_ls,
-                                         QJsonObject{{identifier,
-                                                      QJsonObject{
-                                                          {"iv"_ls, userSigningData.iv},
-                                                          {"ciphertext"_ls, userSigningData.ciphertext},
-                                                          {"mac"_ls, userSigningData.mac},
-                                                      }}}}});
-
-                        // TODO make sure masterKeyForUser already works at this point;
-                        database()->setMasterKeyVerified(masterKeyForUser(userId()));
-
-                        // TODO start a key backup and store in account data
-
-                        qWarning() << "Finished creating keys";
-                    });
+                    .then(
+                        [this, encodedMasterKeyPrivate, encodedSelfSigningKeyPrivate, encodedUserSigningKeyPrivate, masterKeyPublic]() {
+                            finishCrossSigningSetup(encodedMasterKeyPrivate,
+                                                    encodedSelfSigningKeyPrivate,
+                                                    encodedUserSigningKeyPrivate,
+                                                    QString::fromLatin1(masterKeyPublic));
+                        },
+                        []() {
+                            qWarning() << "Failed to setup cross-signing keys";
+                        });
             });
+}
+
+void NeoChatConnection::finishCrossSigningSetup(const QByteArray &encodedMasterKeyPrivate,
+                                                const QByteArray &encodedSelfSigningKeyPrivate,
+                                                const QByteArray &encodedUserSigningKeyPrivate,
+                                                const QString &masterKeyPublic)
+{
+    auto key = getRandom(32);
+    QByteArray data = QByteArrayLiteral("\x8B\x01") + viewAsByteArray(key);
+    data[8] &= ~(1 << 7); // Byte 63 needs to be set to 0
+    data.append(std::accumulate(data.cbegin(), data.cend(), uint8_t{0}, std::bit_xor<>()));
+    data = base58Encode(data);
+    QList<QString> groups;
+    for (auto i = 0; i < data.size() / 4; i++) {
+        groups += QString::fromLatin1(data.mid(i * 4, i * 4 + 4));
+    }
+
+    // The key to be shown to the user
+    const auto formatted = groups.join(QStringLiteral(" "));
+    Q_EMIT showSecurityKey(formatted);
+    const auto identifier = QString::fromLatin1(QCryptographicHash::hash(QUuid::createUuid().toString().toLatin1(), QCryptographicHash::Sha256));
+
+    setAccountData("m.secret_storage.default_key"_ls,
+                   {
+                       {"key"_ls, identifier},
+                   });
+
+    struct EncryptionData {
+        QString ciphertext;
+        QString iv;
+        QString mac;
+    };
+
+    auto encryptAccountData = [this, &key, identifier](QLatin1String info, const QByteArray &plainText) {
+        const auto iv = getRandom(16);
+        const auto &kdfKeys = hkdfSha256(byte_view_t<>(key).subspan<0, DefaultPbkdf2KeyLength>(), zeroes<32>(), asCBytes<>(info));
+        if (!kdfKeys.has_value()) {
+            qWarning() << "Key Setup: Failed to calculate HKDF" << info;
+            // Q_EMIT error(DecryptionError);
+            return EncryptionData{};
+        }
+        const auto &encrypted = aesCtr256Encrypt(plainText, kdfKeys.value().aes(), asCBytes<AesBlockSize>(iv));
+        if (!encrypted.has_value()) {
+            qWarning() << "Key Setup: Failed to encrypt test keys" << info;
+            // emit error(DecryptionError);
+            return EncryptionData{};
+        }
+        const auto &hmacResult = hmacSha256(kdfKeys.value().mac(), encrypted.value());
+        if (!hmacResult.has_value()) {
+            qWarning() << "Key Setup: Failed to calculate HMAC" << info;
+            // emit error(DecryptionError);
+            return EncryptionData{};
+        }
+        return EncryptionData{
+            .ciphertext = QString::fromLatin1(encrypted.value().toBase64()),
+            .iv = QString::fromLatin1(iv.viewAsByteArray()),
+            .mac = QString::fromLatin1(hmacResult.value().toBase64()),
+        };
+    };
+
+    auto testData = encryptAccountData({}, zeroedByteArray());
+    setAccountData("m.secret_storage.key.%1"_ls.arg(identifier),
+                   {
+                       {"algorithm"_ls, "m.secret_storage.v1.aes-hmac-sha2"_ls},
+                       {"iv"_ls, testData.iv},
+                       {"mac"_ls, testData.mac},
+                   });
+
+    auto masterData = encryptAccountData("m.cross_signing.master"_ls, encodedMasterKeyPrivate);
+    setAccountData("m.cross_signing.master"_ls,
+                   {{"encrypted"_ls,
+                     QJsonObject{{identifier,
+                                  QJsonObject{
+                                      {"iv"_ls, masterData.iv},
+                                      {"ciphertext"_ls, masterData.ciphertext},
+                                      {"mac"_ls, masterData.mac},
+                                  }}}}});
+
+    auto selfSigningData = encryptAccountData("m.cross_signing.self_signing"_ls, encodedSelfSigningKeyPrivate);
+    setAccountData("m.cross_signing.self_signing"_ls,
+                   {{"encrypted"_ls,
+                     QJsonObject{{identifier,
+                                  QJsonObject{
+                                      {"iv"_ls, selfSigningData.iv},
+                                      {"ciphertext"_ls, selfSigningData.ciphertext},
+                                      {"mac"_ls, selfSigningData.mac},
+                                  }}}}});
+
+    auto userSigningData = encryptAccountData("m.cross_signing.user_signing"_ls, encodedUserSigningKeyPrivate);
+    setAccountData("m.cross_signing.user_signing"_ls,
+                   {{"encrypted"_ls,
+                     QJsonObject{{identifier,
+                                  QJsonObject{
+                                      {"iv"_ls, userSigningData.iv},
+                                      {"ciphertext"_ls, userSigningData.ciphertext},
+                                      {"mac"_ls, userSigningData.mac},
+                                  }}}}});
+
+    // Adding the verified master key manually so that we don't have to wait until we receive it from the server
+    auto query = database()->prepareQuery(QStringLiteral("INSERT INTO master_keys(userId, key, verified) VALUES (:userId, :key, :verified);"));
+    query.bindValue(":userId"_ls, userId());
+    query.bindValue(":key"_ls, masterKeyPublic);
+    query.bindValue(":verified"_ls, true);
+    database()->execute(query);
+
+    const auto selfSigningKey = database()->loadEncrypted("m.cross_signing.self_signing"_ls);
+    QHash<QString, QHash<QString, QJsonObject>> signatures;
+    auto json = QJsonObject{
+        {"keys"_ls,
+         QJsonObject{
+             {"ed25519:"_ls + deviceId(), edKeyForUserDevice(userId(), deviceId())},
+             {"curve25519:"_ls + deviceId(), curveKeyForUserDevice(userId(), deviceId())},
+         }},
+        {"algorithms"_ls, QJsonArray{"m.olm.v1.curve25519-aes-sha2"_ls, "m.megolm.v1.aes-sha2"_ls}},
+        {"device_id"_ls, deviceId()},
+        {"user_id"_ls, userId()},
+    };
+    auto signature = sign(selfSigningKey, QJsonDocument(json).toJson(QJsonDocument::Compact));
+    json["signatures"_ls] = QJsonObject{
+        {userId(),
+         QJsonObject{
+             {"ed25519:"_ls + database()->selfSigningPublicKey(), QString::fromLatin1(signature)},
+         }},
+    };
+    signatures[userId()][deviceId()] = json;
+    callApi<UploadCrossSigningSignaturesJob>(signatures).onFailure([](const auto &job) {
+        qWarning() << "Failed to upload self-signing signature" << job->error() << job->errorString();
+    });
+
+    // TODO start a key backup and store in account data
 }
 
 #include "moc_neochatconnection.cpp"
