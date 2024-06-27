@@ -411,7 +411,7 @@ void Controller::removeConnection(const QString &userId)
 
 bool Controller::ssssSupported() const
 {
-#if __has_include("Quotient/e2ee/sssshandler.h")
+#if Quotient_VERSION_MINOR > 8 || Quotient_VERSION_PATCH > 1
     return true;
 #else
     return false;

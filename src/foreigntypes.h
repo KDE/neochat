@@ -7,7 +7,7 @@
 
 #include <Quotient/accountregistry.h>
 #include <Quotient/keyverificationsession.h>
-#if __has_include("Quotient/e2ee/sssshandler.h")
+#if Quotient_VERSION_MINOR > 8 || Quotient_VERSION_PATCH > 1
 #include <Quotient/e2ee/sssshandler.h>
 #endif
 
@@ -47,7 +47,7 @@ struct ForeignKeyVerificationSession {
     QML_UNCREATABLE("")
 };
 
-#if __has_include("Quotient/e2ee/sssshandler.h")
+#if Quotient_VERSION_MINOR > 8 || Quotient_VERSION_PATCH > 1
 struct ForeignSSSSHandler {
     Q_GADGET
     QML_FOREIGN(Quotient::SSSSHandler)
