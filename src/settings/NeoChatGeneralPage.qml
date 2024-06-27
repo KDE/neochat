@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
@@ -12,6 +13,10 @@ import org.kde.neochat
 import org.kde.neochat.devtools
 
 FormCard.FormCardPage {
+    id: root
+
+    required property NeoChatConnection connection
+
     title: i18nc("@title:window", "General")
 
     FormCard.FormHeader {
@@ -234,7 +239,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             visible: Config.developerTools
             text: i18n("Open developer tools")
-            onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
                 connection: root.connection
             }, {
                 title: i18n("Developer Tools")

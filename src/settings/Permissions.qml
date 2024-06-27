@@ -211,7 +211,7 @@ FormCard.FormCardPage {
                                 id: editPowerLevelAction
                                 onTriggered: {
                                     userListSearchPopup.close();
-                                    let dialog = powerLevelDialog.createObject(applicationWindow().overlay, {
+                                    let dialog = powerLevelDialog.createObject(root.QQC2.Overlay.overlay, {
                                         room: root.room,
                                         userId: userListItem.userId,
                                         powerLevel: userListItem.powerLevel

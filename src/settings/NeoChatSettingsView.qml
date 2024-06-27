@@ -22,6 +22,11 @@ KirigamiSettings.ConfigurationView {
             text: i18n("General")
             icon.name: "org.kde.neochat"
             page: () => Qt.createComponent("org.kde.neochat.settings", "NeoChatGeneralPage")
+            initialProperties: () => {
+                return {
+                    connection: root.connection
+                };
+            }
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "appearance"

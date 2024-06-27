@@ -30,7 +30,7 @@ FormCard.FormCardPage {
             enabled: room.canEncryptRoom
             checked: room.usesEncryption
             onToggled: if (checked) {
-                let dialog = confirmEncryptionDialog.createObject(applicationWindow().overlay, {
+                let dialog = confirmEncryptionDialog.createObject(QQC2.Overlay.overlay, {
                     room: room
                 });
                 dialog.open();
@@ -57,7 +57,7 @@ FormCard.FormCardPage {
             checked: room.joinRule === "restricted"
             enabled: room.canSendState("m.room.join_rules") && ["8", "9", "10"].includes(room.version)
             onCheckedChanged: if (checked && room.joinRule != "restricted") {
-                selectSpacesDialog.createObject(applicationWindow().overlay).open();
+                selectSpacesDialog.createObject(QQC2.Overlay.overlay).open();
             }
 
             contentItem.children: QQC2.Button {
@@ -65,7 +65,7 @@ FormCard.FormCardPage {
                 text: i18n("Select spaces")
                 icon.name: "list-add"
 
-                onClicked: selectSpacesDialog.createObject(applicationWindow().overlay).open()
+                onClicked: selectSpacesDialog.createObject(QQC2.Overlay.overlay).open()
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay

@@ -348,7 +348,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             visible: root.room.canSendState("m.space.parent")
             text: i18nc("@action:button", "Add new official parent")
-            onClicked: selectParentDialog.createObject(applicationWindow().overlay).open()
+            onClicked: selectParentDialog.createObject(QQC2.Overlay.overlay).open()
 
             Component {
                 id: selectParentDialog
