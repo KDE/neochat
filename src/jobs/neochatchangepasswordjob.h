@@ -6,8 +6,10 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/omittable.h>
 
+#include "definitions.h"
+
 class NeochatChangePasswordJob : public Quotient::BaseJob
 {
 public:
-    explicit NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
+    explicit NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth = {});
 };

@@ -6,6 +6,7 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/room.h>
 
+#include "definitions.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
 
@@ -87,7 +88,7 @@ void SpaceChildrenModel::refreshModel()
     m_rootItem =
         new SpaceTreeItem(dynamic_cast<NeoChatConnection *>(m_space->connection()), nullptr, m_space->id(), m_space->displayName(), m_space->canonicalAlias());
     endResetModel();
-    auto job = m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), Quotient::none, Quotient::none, 1);
+    auto job = m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(m_space->id(), none, none, 1);
     m_currentJobs.append(job);
     connect(job, &Quotient::BaseJob::success, this, [this, job]() {
         insertChildren(job->rooms());
@@ -136,7 +137,7 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
                 }
             }
             if (children[i].childrenState.size() > 0) {
-                auto job = m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(children[i].roomId, Quotient::none, Quotient::none, 1);
+                auto job = m_space->connection()->callApi<Quotient::GetSpaceHierarchyJob>(children[i].roomId, none, none, 1);
                 m_currentJobs.append(job);
                 connect(job, &Quotient::BaseJob::success, this, [this, parent, insertRow, job]() {
                     insertChildren(job->rooms(), index(insertRow, 0, parent));

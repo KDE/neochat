@@ -6,8 +6,10 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/omittable.h>
 
+#include "definitions.h"
+
 class NeochatDeleteDeviceJob : public Quotient::BaseJob
 {
 public:
-    explicit NeochatDeleteDeviceJob(const QString &deviceId, const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
+    explicit NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth = {});
 };

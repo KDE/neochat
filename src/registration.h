@@ -16,6 +16,8 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/util.h>
 
+#include "definitions.h"
+
 namespace Quotient
 {
 class CheckUsernameAvailabilityJob;
@@ -27,12 +29,12 @@ class NeoChatRegisterJob : public Quotient::BaseJob
 {
 public:
     explicit NeoChatRegisterJob(const QString &kind = QStringLiteral("user"),
-                                const Quotient::Omittable<QJsonObject> &auth = Quotient::none,
+                                const Omittable<QJsonObject> &auth = {},
                                 const QString &username = {},
                                 const QString &password = {},
                                 const QString &deviceId = {},
                                 const QString &initialDeviceDisplayName = {},
-                                Quotient::Omittable<bool> inhibitLogin = Quotient::none);
+                                Omittable<bool> inhibitLogin = {});
 
     QString userId() const
     {
