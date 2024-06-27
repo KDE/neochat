@@ -48,9 +48,9 @@ Kirigami.Dialog {
                 Layout.preferredWidth: Kirigami.Units.iconSizes.huge
                 Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
-                name: root.user.displayName
-                source: root.user.avatarSource
-                color: root.user.color
+                name: root.room ? root.room.member(root.user.id).displayName : root.user.displayName
+                source: root.room ? root.room.member(root.user.id).avatarUrl : root.user.avatarUrl
+                color: root.room ? root.room.member(root.user.id).color : undefined
             }
 
             ColumnLayout {
@@ -63,7 +63,7 @@ Kirigami.Dialog {
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
-                    text: root.user.displayName
+                    text: root.room ? root.room.member(root.user.id).displayName : root.user.displayName
                     textFormat: Text.PlainText
                 }
 
@@ -84,10 +84,10 @@ Kirigami.Dialog {
                 onClicked: {
                     let map = qrMaximizeComponent.createObject(parent, {
                         text: barcode.content,
-                        title: root.user.displayName,
+                        title: root.room ? root.room.member(root.user.id).displayName : root.user.displayName,
                         subtitle: root.user.id,
-                        avatarColor: root.user.color,
-                        avatarSource: root.user.avatarSource
+                        avatarColor: root.room?.member(root.user.id).color,
+                        avatarSource: root.room? root.room.member(root.user.id).avatarUrl : root.user.avatarUrl
                     });
                     root.close();
                     map.open();
@@ -104,19 +104,19 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser && !!root.user.object
+            visible: root.user.id !== root.connection.localUserId && !!root.user
             action: Kirigami.Action {
-                text: !!root.user.object && root.connection.isIgnored(root.user.object) ? i18n("Unignore this user") : i18n("Ignore this user")
+                text: !!root.user && root.connection.isIgnored(root.user.id) ? i18n("Unignore this user") : i18n("Ignore this user")
                 icon.name: "im-invisible-user"
                 onTriggered: {
                     root.close();
-                    root.connection.isIgnored(root.user.object) ? root.connection.removeFromIgnoredUsers(root.user.object) : root.connection.addToIgnoredUsers(root.user.object);
+                    root.connection.isIgnored(root.user.id) ? root.connection.removeFromIgnoredUsers(root.user.id) : root.connection.addToIgnoredUsers(root.user.id);
                 }
             }
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && !root.user.isLocalUser && room.canSendState("kick") && room.containsUser(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.connection.localUser.id)
+            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("kick") && room.containsUser(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.connection.localUserId)
 
             action: Kirigami.Action {
                 text: i18n("Kick this user")
@@ -129,7 +129,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && !root.user.isLocalUser && room.canSendState("invite") && !room.containsUser(root.user.id)
+            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("invite") && !room.containsUser(root.user.id)
 
             action: Kirigami.Action {
                 enabled: root.room && !root.room.isUserBanned(root.user.id)
@@ -143,7 +143,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && !root.user.isLocalUser && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.room.connection.localUser.id)
+            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.connection.localUserId)
 
             action: Kirigami.Action {
                 text: i18n("Ban this user")
@@ -163,7 +163,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && !root.user.isLocalUser && room.canSendState("ban") && room.isUserBanned(root.user.id)
+            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("ban") && room.isUserBanned(root.user.id)
 
             action: Kirigami.Action {
                 text: i18n("Unban this user")
@@ -201,7 +201,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && (root.user.isLocalUser || room.canSendState("redact"))
+            visible: root.room && (root.user.id === root.connection.localUserId || room.canSendState("redact"))
 
             action: Kirigami.Action {
                 text: i18n("Remove recent messages by this user")
@@ -221,12 +221,12 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: !root.user.isLocalUser
+            visible: root.user.id !== root.connection.localUserId
             action: Kirigami.Action {
-                text: root.connection.directChatExists(root.user.object) ? i18nc("%1 is the name of the user.", "Chat with %1", root.user.escapedDisplayName) : i18n("Invite to private chat")
+                text: root.connection.directChatExists(root.user) ? i18nc("%1 is the name of the user.", "Chat with %1", root.room ? root.room.member(root.user.id).htmlSafeDisplayName : QmlUtils.escapeString(root.user.displayName)) : i18n("Invite to private chat")
                 icon.name: "document-send"
                 onTriggered: {
-                    root.connection.openOrCreateDirectChat(root.user.object);
+                    root.connection.openOrCreateDirectChat(root.user.id);
                     root.close();
                 }
             }

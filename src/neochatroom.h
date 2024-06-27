@@ -95,7 +95,7 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief Get a user object for the other person in a direct chat.
      */
-    Q_PROPERTY(Quotient::User *directChatRemoteUser READ directChatRemoteUser CONSTANT)
+    Q_PROPERTY(Quotient::RoomMember directChatRemoteUser READ directChatRemoteUser CONSTANT)
 
     /**
      * @brief The Matrix IDs of this room's parents.
@@ -285,7 +285,7 @@ public:
      *
      * @sa Quotient::User
      */
-    Q_INVOKABLE [[nodiscard]] QVariantMap getUser(Quotient::User *user) const;
+    Q_INVOKABLE [[nodiscard]] QVariantMap getUser(Quotient::RoomMember member) const;
 
     [[nodiscard]] QVariantList getUsersTyping() const;
 
@@ -400,7 +400,7 @@ public:
 
     [[nodiscard]] QString avatarMediaId() const;
 
-    Quotient::User *directChatRemoteUser() const;
+    Quotient::RoomMember directChatRemoteUser() const;
 
     /**
      * @brief Whether this room has one or more parent spaces set.
@@ -630,7 +630,7 @@ public:
      */
     Q_INVOKABLE QByteArray roomAcountDataJson(const QString &eventType);
 
-    Q_INVOKABLE [[nodiscard]] QUrl avatarForMember(Quotient::User *user) const;
+    Q_INVOKABLE [[nodiscard]] QUrl avatarForMember(Quotient::RoomMember member) const;
 
     /**
      * @brief Loads the event with the given id from the server and saves it locally.
@@ -660,7 +660,7 @@ public:
     /**
      * If we're invited to this room, the user that invited us. Undefined in other cases.
      */
-    Q_INVOKABLE Quotient::User *invitingUser() const;
+    Q_INVOKABLE QString invitingUserId() const;
 
 private:
     QSet<const Quotient::RoomEvent *> highlights;

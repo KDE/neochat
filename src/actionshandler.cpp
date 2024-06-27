@@ -91,7 +91,7 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, Cha
 
             for (auto it = m_room->messageEvents().crbegin(); it != m_room->messageEvents().crend(); it++) {
                 if (const auto event = eventCast<const RoomMessageEvent>(&**it)) {
-                    if (event->senderId() == m_room->localUser()->id() && event->hasTextContent()) {
+                    if (event->senderId() == m_room->localMember().id() && event->hasTextContent()) {
                         QString originalString;
                         if (event->content()) {
                             originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content())->body;

@@ -101,17 +101,17 @@ void EventHandlerTest::nullEventId()
 void EventHandlerTest::author()
 {
     auto event = room->messageEvents().at(0).get();
-    auto author = room->user(event->senderId());
+    auto author = room->member(event->senderId());
     EventHandler eventHandler(room, event);
 
     auto eventHandlerAuthor = eventHandler.getAuthor();
 
-    QCOMPARE(eventHandlerAuthor["isLocalUser"_ls], author->id() == room->localUser()->id());
-    QCOMPARE(eventHandlerAuthor["id"_ls], author->id());
-    QCOMPARE(eventHandlerAuthor["displayName"_ls], author->displayname(room));
+    QCOMPARE(eventHandlerAuthor["isLocalUser"_ls], author.id() == room->localMember().id());
+    QCOMPARE(eventHandlerAuthor["id"_ls], author.id());
+    QCOMPARE(eventHandlerAuthor["displayName"_ls], author.displayName());
     QCOMPARE(eventHandlerAuthor["avatarSource"_ls], room->avatarForMember(author));
-    QCOMPARE(eventHandlerAuthor["avatarMediaId"_ls], author->avatarMediaId(room));
-    QCOMPARE(eventHandlerAuthor["color"_ls], Utils::getUserColor(author->hueF()));
+    QCOMPARE(eventHandlerAuthor["avatarMediaId"_ls], author.avatarMediaId());
+    QCOMPARE(eventHandlerAuthor["color"_ls], Utils::getUserColor(author.hueF()));
     QCOMPARE(eventHandlerAuthor["object"_ls], QVariant::fromValue(author));
 }
 
@@ -122,7 +122,7 @@ void EventHandlerTest::nullAuthor()
 
     EventHandler noEventHandler(room, nullptr);
     QTest::ignoreMessage(QtWarningMsg, "getAuthor called with m_event set to nullptr. Returning empty user.");
-    QCOMPARE(noEventHandler.getAuthor(), room->getUser(nullptr));
+    QCOMPARE(noEventHandler.getAuthor(), room->getUser(QString()));
 }
 
 void EventHandlerTest::authorDisplayName()
@@ -393,21 +393,21 @@ void EventHandlerTest::nullReplyId()
 void EventHandlerTest::replyAuthor()
 {
     auto replyEvent = room->messageEvents().at(0).get();
-    auto replyAuthor = room->user(replyEvent->senderId());
+    auto replyAuthor = room->member(replyEvent->senderId());
     EventHandler eventHandler(room, room->messageEvents().at(5).get());
 
     auto eventHandlerReplyAuthor = eventHandler.getReplyAuthor();
 
-    QCOMPARE(eventHandlerReplyAuthor["isLocalUser"_ls], replyAuthor->id() == room->localUser()->id());
-    QCOMPARE(eventHandlerReplyAuthor["id"_ls], replyAuthor->id());
-    QCOMPARE(eventHandlerReplyAuthor["displayName"_ls], replyAuthor->displayname(room));
+    QCOMPARE(eventHandlerReplyAuthor["isLocalUser"_ls], replyAuthor.id() == room->localMember().id());
+    QCOMPARE(eventHandlerReplyAuthor["id"_ls], replyAuthor.id());
+    QCOMPARE(eventHandlerReplyAuthor["displayName"_ls], replyAuthor.displayName());
     QCOMPARE(eventHandlerReplyAuthor["avatarSource"_ls], room->avatarForMember(replyAuthor));
-    QCOMPARE(eventHandlerReplyAuthor["avatarMediaId"_ls], replyAuthor->avatarMediaId(room));
-    QCOMPARE(eventHandlerReplyAuthor["color"_ls], Utils::getUserColor(replyAuthor->hueF()));
+    QCOMPARE(eventHandlerReplyAuthor["avatarMediaId"_ls], replyAuthor.avatarMediaId());
+    QCOMPARE(eventHandlerReplyAuthor["color"_ls], Utils::getUserColor(replyAuthor.hueF()));
     QCOMPARE(eventHandlerReplyAuthor["object"_ls], QVariant::fromValue(replyAuthor));
 
     EventHandler eventHandlerNoAuthor(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoAuthor.getReplyAuthor(), room->getUser(nullptr));
+    QCOMPARE(eventHandlerNoAuthor.getReplyAuthor(), room->getUser(QString()));
 }
 
 void EventHandlerTest::nullReplyAuthor()
@@ -417,7 +417,7 @@ void EventHandlerTest::nullReplyAuthor()
 
     EventHandler noEventHandler(room, nullptr);
     QTest::ignoreMessage(QtWarningMsg, "getReplyAuthor called with m_event set to nullptr. Returning empty user.");
-    QCOMPARE(noEventHandler.getReplyAuthor(), room->getUser(nullptr));
+    QCOMPARE(noEventHandler.getReplyAuthor(), room->getUser(QString()));
 }
 
 void EventHandlerTest::replyBody()

@@ -63,7 +63,7 @@ QString Registration::recaptchaSiteKey() const
 void Registration::registerAccount()
 {
     setStatus(Working);
-    Omittable<QJsonObject> authData = none;
+    Omittable<QJsonObject> authData;
     if (nextStep() == "m.login.recaptcha"_ls) {
         authData = QJsonObject{
             {"type"_ls, "m.login.recaptcha"_ls},
@@ -185,7 +185,7 @@ void Registration::testHomeserver()
             if (m_testServerJob) {
                 delete m_testServerJob;
             }
-            m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_ls, none, "user"_ls, QString(), QString(), QString(), false);
+            m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_ls, quotientNone, "user"_ls, QString(), QString(), QString(), false);
             connect(m_testServerJob.data(), &BaseJob::finished, this, [this]() {
                 if (m_testServerJob->error() == BaseJob::StatusCode::ContentAccessError) {
                     setStatus(ServerNoRegistration);

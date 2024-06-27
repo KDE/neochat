@@ -70,10 +70,10 @@ QVariantMap EventHandler::getAuthor(bool isPending) const
     // If we have a room we can return an empty user by handing nullptr to m_room->getUser.
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getAuthor called with m_event set to nullptr. Returning empty user.";
-        return m_room->getUser(nullptr);
+        return m_room->getUser(QString());
     }
 
-    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
+    const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
     return m_room->getUser(author);
 }
 
@@ -96,8 +96,8 @@ QString EventHandler::getAuthorDisplayName(bool isPending) const
         }
         return previousDisplayName;
     } else {
-        const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-        return m_room->htmlSafeMemberName(author->id());
+        const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
+        return author.htmlSafeDisplayName();
     }
 }
 
@@ -112,8 +112,8 @@ QString EventHandler::singleLineAuthorDisplayname(bool isPending) const
         return {};
     }
 
-    const auto author = isPending ? m_room->localUser() : m_room->user(m_event->senderId());
-    auto displayName = m_room->safeMemberName(author->id());
+    const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
+    auto displayName = author.displayName();
     displayName.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br>"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
@@ -220,7 +220,7 @@ bool EventHandler::isHidden()
         }
     }
 
-    if (m_room->connection()->isIgnored(m_room->user(m_event->senderId()))) {
+    if (m_room->connection()->isIgnored(m_event->senderId())) {
         return true;
     }
 
@@ -255,7 +255,7 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
 
     QString body;
     if (event.hasTextContent() && event.content()) {
-        body = static_cast<const MessageEventContent::TextContent *>(event.content())->body;
+        body = static_cast<const EventContent::TextContent *>(event.content())->body;
     } else {
         body = event.plainBody();
     }
@@ -318,7 +318,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
         },
         [this, prettyPrint](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event
-            auto subjectName = m_room->htmlSafeMemberName(e.userId());
+            auto subjectName = m_room->member(e.userId()).htmlSafeDisplayName();
             if (e.membership() == Membership::Leave) {
                 if (e.prevContent() && e.prevContent()->displayName) {
                     subjectName = sanitized(*e.prevContent()->displayName).toHtmlEscaped();
@@ -479,7 +479,7 @@ QString EventHandler::getMessageBody(const RoomMessageEvent &event, Qt::TextForm
 
     QString body;
     if (event.hasTextContent() && event.content()) {
-        body = static_cast<const MessageEventContent::TextContent *>(event.content())->body;
+        body = static_cast<const EventContent::TextContent *>(event.content())->body;
     } else {
         body = event.plainBody();
     }
@@ -809,16 +809,15 @@ QVariantMap EventHandler::getReplyAuthor() const
     // If we have a room we can return an empty user by handing nullptr to m_room->getUser.
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "getReplyAuthor called with m_event set to nullptr. Returning empty user.";
-        return m_room->getUser(nullptr);
+        return m_room->getUser(QString());
     }
 
     auto replyPtr = m_room->getReplyForEvent(*m_event);
 
     if (replyPtr) {
-        auto replyUser = m_room->user(replyPtr->senderId());
-        return m_room->getUser(replyUser);
+        return m_room->getUser(replyPtr->senderId());
     } else {
-        return m_room->getUser(nullptr);
+        return m_room->getUser(QString());
     }
 }
 
@@ -966,7 +965,7 @@ bool EventHandler::hasReadMarkers() const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
     return userIds.size() > 0;
 }
 
@@ -982,7 +981,7 @@ QVariantList EventHandler::getReadMarkers(int maxMarkers) const
     }
 
     auto userIds_temp = m_room->userIdsAtEvent(m_event->id());
-    userIds_temp.remove(m_room->localUser()->id());
+    userIds_temp.remove(m_room->localMember().id());
 
     auto userIds = userIds_temp.values();
     if (userIds.count() > maxMarkers) {
@@ -992,7 +991,7 @@ QVariantList EventHandler::getReadMarkers(int maxMarkers) const
     QVariantList users;
     users.reserve(userIds.size());
     for (const auto &userId : userIds) {
-        auto user = m_room->user(userId);
+        auto user = m_room->member(userId);
         users += m_room->getUser(user);
     }
 
@@ -1011,7 +1010,7 @@ QString EventHandler::getNumberExcessReadMarkers(int maxMarkers) const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
 
     if (userIds.count() > maxMarkers) {
         return QStringLiteral("+ ") + QString::number(userIds.count() - maxMarkers);
@@ -1032,7 +1031,7 @@ QString EventHandler::getReadMarkersString() const
     }
 
     auto userIds = m_room->userIdsAtEvent(m_event->id());
-    userIds.remove(m_room->localUser()->id());
+    userIds.remove(m_room->localMember().id());
 
     /**
      * The string ends up in the form
@@ -1040,8 +1039,8 @@ QString EventHandler::getReadMarkersString() const
      */
     QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
     for (const auto &userId : userIds) {
-        auto user = m_room->user(userId);
-        auto displayName = user->displayname(m_room);
+        auto user = m_room->member(userId);
+        auto displayName = user.displayName();
         if (displayName.isEmpty()) {
             displayName = userId;
         }

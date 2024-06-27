@@ -260,7 +260,7 @@ Q_SIGNALS:
      * Ask current room to open the user's details for the give user.
      * This assumes the user is loaded.
      */
-    void showUserDetail(const Quotient::User *user);
+    void showUserDetail(const Quotient::User *user, NeoChatRoom *room);
 
     /**
      * @brief Request a media item is shown maximized.

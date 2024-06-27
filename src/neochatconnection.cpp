@@ -381,32 +381,28 @@ bool NeoChatConnection::directChatExists(Quotient::User *user)
 void NeoChatConnection::openOrCreateDirectChat(const QString &userId)
 {
     if (auto user = this->user(userId)) {
-        openOrCreateDirectChat(user);
+        const auto existing = directChats();
+
+        if (existing.contains(user)) {
+            const auto room = this->room(existing.value(user));
+            if (room) {
+                RoomManager::instance().resolveResource(room->id());
+                return;
+            }
+        }
+        requestDirectChat(userId);
+        connect(
+            this,
+            &Connection::directChatAvailable,
+            this,
+            [=](auto room) {
+                room->activateEncryption();
+            },
+            Qt::SingleShotConnection);
+
     } else {
         qWarning() << "openOrCreateDirectChat: Couldn't get user object for ID " << userId << ", unable to open/request direct chat.";
     }
-}
-
-void NeoChatConnection::openOrCreateDirectChat(User *user)
-{
-    const auto existing = directChats();
-
-    if (existing.contains(user)) {
-        const auto room = this->room(existing.value(user));
-        if (room) {
-            RoomManager::instance().resolveResource(room->id());
-            return;
-        }
-    }
-    requestDirectChat(user);
-    connect(
-        this,
-        &Connection::directChatAvailable,
-        this,
-        [=](auto room) {
-            room->activateEncryption();
-        },
-        Qt::SingleShotConnection);
 }
 
 qsizetype NeoChatConnection::directChatNotifications() const

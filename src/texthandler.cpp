@@ -691,9 +691,9 @@ QString TextHandler::emoteString(const NeoChatRoom *room, const Quotient::RoomEv
     }
 
     auto e = eventCast<const Quotient::RoomMessageEvent>(event);
-    auto author = room->user(e->senderId());
-    return QStringLiteral("* <a href=\"https://matrix.to/#/") + e->senderId() + QStringLiteral("\" style=\"color:") + Utils::getUserColor(author->hueF()).name()
-        + QStringLiteral("\">") + author->displayname(room) + QStringLiteral("</a> ");
+    auto author = room->member(e->senderId());
+    return QStringLiteral("* <a href=\"https://matrix.to/#/") + e->senderId() + QStringLiteral("\" style=\"color:") + Utils::getUserColor(author.hueF()).name()
+        + QStringLiteral("\">") + author.displayName() + QStringLiteral("</a> ");
 }
 
 QString TextHandler::convertCodeLanguageString(const QString &languageString)

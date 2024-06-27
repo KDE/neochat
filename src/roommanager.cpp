@@ -147,7 +147,10 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
             Q_EMIT askJoinRoom(uri.primaryId());
         }
     } else { // Invalid cases should have been eliminated earlier
-        Q_ASSERT(result == Quotient::UriResolved);
+        if (result == Quotient::UriResolved) {
+            // we used to assert here, but we shouldn't assert based on invalid user data
+            return;
+        }
 
         if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
             connect(
@@ -255,10 +258,10 @@ void RoomManager::openRoomForActiveConnection()
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 {
-    if (action == "mention"_ls || action.isEmpty()) {
+    if (action == "mention"_ls || action == "qr"_ls || action.isEmpty()) {
         // send it has QVariantMap because the properties in the
         user->load();
-        Q_EMIT showUserDetail(user);
+        Q_EMIT showUserDetail(user, action == "qr"_ls ? nullptr : currentRoom());
     } else if (action == "_interactive"_ls) {
         user->requestDirectChat();
     } else if (action == "chat"_ls) {

@@ -96,9 +96,9 @@ QVariantMap ChatBarCache::relationUser() const
         return {};
     }
     if (m_relationId.isEmpty()) {
-        return room->getUser(nullptr);
+        return room->getUser(QString());
     }
-    return room->getUser(room->user((*room->findInTimeline(m_relationId))->senderId()));
+    return room->getUser((*room->findInTimeline(m_relationId))->senderId());
 }
 
 QString ChatBarCache::relationMessage() const

@@ -53,7 +53,7 @@ void ReactionModelTest::basicReaction()
     QCOMPARE(model.data(model.index(0), ReactionModel::ReactionRole), QStringLiteral("👍"));
     QCOMPARE(model.data(model.index(0), ReactionModel::ToolTipRole),
              QStringLiteral("@alice:matrix.org reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
-    auto authorList = QVariantList{room->getUser(room->user(QStringLiteral("@alice:matrix.org")))};
+    auto authorList = QVariantList{room->getUser(QStringLiteral("@alice:matrix.org"))};
     QCOMPARE(model.data(model.index(0), ReactionModel::AuthorsRole), authorList);
     QCOMPARE(model.data(model.index(0), ReactionModel::HasLocalUser), false);
 }

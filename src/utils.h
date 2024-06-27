@@ -30,8 +30,8 @@ public:
         return _instance;
     }
 
-    Q_INVOKABLE QVariantMap getUser(Quotient::User *user) const;
     Q_INVOKABLE bool isValidJson(const QByteArray &json);
+    Q_INVOKABLE QString escapeString(const QString &string);
 
 private:
     QmlUtils() = default;

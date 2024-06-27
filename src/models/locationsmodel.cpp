@@ -63,7 +63,7 @@ void LocationsModel::addLocation(const RoomMessageEvent *event)
         .latitude = latitude,
         .longitude = longitude,
         .content = event->contentJson(),
-        .author = m_room->user(event->senderId()),
+        .author = event->senderId(),
     };
     endInsertRows();
 }

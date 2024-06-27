@@ -16,7 +16,7 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
             fromJson<Omittable<QString>>(json["pack"_ls].toObject()["attribution"_ls]),
         };
     } else {
-        pack = none;
+        pack = quotientNone;
     }
 
     const auto &keys = json["images"_ls].toObject().keys();
@@ -25,7 +25,7 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
         if (json["images"_ls][k].toObject().contains(QStringLiteral("info"))) {
             info = EventContent::ImageInfo(QUrl(json["images"_ls][k]["url"_ls].toString()), json["images"_ls][k]["info"_ls].toObject(), k);
         } else {
-            info = none;
+            info = quotientNone;
         }
         images += ImagePackImage{
             k,

@@ -3,8 +3,9 @@
 
 #if Quotient_VERSION_MINOR > 8
 #define Omittable std::optional
-#define none Quotient::none
+#define quotientNone std::nullopt
 #else
+#include <Quotient/omittable.h>
 #define Omittable Quotient::Omittable
-#define none std::nullopt
+#define quotientNone Quotient::none
 #endif

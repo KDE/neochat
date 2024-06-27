@@ -57,7 +57,7 @@ private:
         float latitude;
         float longitude;
         QJsonObject content;
-        Quotient::User *author;
+        QString author;
     };
     QList<LocationData> m_locations;
     void addLocation(const Quotient::RoomMessageEvent *event);

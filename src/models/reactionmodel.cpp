@@ -92,7 +92,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     if (role == HasLocalUser) {
         for (auto author : reaction.authors) {
-            if (author.toMap()[QStringLiteral("id")] == m_room->localUser()->id()) {
+            if (author.toMap()[QStringLiteral("id")] == m_room->localMember().id()) {
                 return true;
             }
         }
@@ -121,13 +121,13 @@ void ReactionModel::updateReactions()
         return;
     };
 
-    QMap<QString, QList<Quotient::User *>> reactions = {};
+    QMap<QString, QList<Quotient::RoomMember>> reactions = {};
     for (const auto &a : annotations) {
         if (a->isRedacted()) { // Just in case?
             continue;
         }
         if (const auto &e = eventCast<const Quotient::ReactionEvent>(a)) {
-            reactions[e->key()].append(m_room->user(e->senderId()));
+            reactions[e->key()].append(m_room->member(e->senderId()));
             if (e->contentJson()[QStringLiteral("shortcode")].toString().length()) {
                 m_shortcodes[e->key()] = e->contentJson()[QStringLiteral("shortcode")].toString().toHtmlEscaped();
             }

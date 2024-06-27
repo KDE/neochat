@@ -100,22 +100,25 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         this,
         &Room::baseStateLoaded,
         this,
-        [this]() {
+        [this, connection]() {
             updatePushNotificationState(QStringLiteral("m.push_rules"));
 
             Q_EMIT canEncryptRoomChanged();
             if (this->joinState() != JoinState::Invite) {
                 return;
             }
-            auto roomMemberEvent = currentState().get<RoomMemberEvent>(localUser()->id());
+            auto roomMemberEvent = currentState().get<RoomMemberEvent>(localMember().id());
             QImage avatar_image;
-            if (roomMemberEvent && !user(roomMemberEvent->senderId())->avatarUrl(this).isEmpty()) {
-                avatar_image = user(roomMemberEvent->senderId())->avatar(128, this);
+            if (roomMemberEvent && !member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
+                avatar_image = memberAvatar(roomMemberEvent->senderId()).get(connection, 128, {});
             } else {
                 qWarning() << "using this room's avatar";
                 avatar_image = avatar(128);
             }
-            NotificationsManager::instance().postInviteNotification(this, displayName(), htmlSafeMemberName(roomMemberEvent->senderId()), avatar_image);
+            NotificationsManager::instance().postInviteNotification(this,
+                                                                    displayName(),
+                                                                    member(roomMemberEvent->senderId()).htmlSafeDisplayName(),
+                                                                    avatar_image);
         },
         Qt::SingleShotConnection);
     connect(this, &Room::changed, this, [this] {
@@ -264,18 +267,18 @@ void NeoChatRoom::forget()
 
 QVariantList NeoChatRoom::getUsersTyping() const
 {
-    auto users = usersTyping();
-    users.removeAll(localUser());
+    auto users = membersTyping();
+    users.removeAll(localMember());
     QVariantList userVariants;
     for (const auto &user : users) {
-        if (connection()->isIgnored(user->id())) {
+        if (connection()->isIgnored(user.id())) {
             continue;
         }
         userVariants.append(QVariantMap{
-            {"id"_ls, user->id()},
-            {"avatarMediaId"_ls, user->avatarMediaId(this)},
-            {"displayName"_ls, user->displayname(this)},
-            {"display"_ls, user->name()},
+            {"id"_ls, user.id()},
+            {"avatarMediaId"_ls, user.avatarMediaId()},
+            {"displayName"_ls, user.displayName()},
+            {"display"_ls, user.name()},
         });
     }
     return userVariants;
@@ -283,7 +286,7 @@ QVariantList NeoChatRoom::getUsersTyping() const
 
 void NeoChatRoom::sendTypingNotification(bool isTyping)
 {
-    connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(), id(), isTyping, 10000);
+    connection()->callApi<SetTypingJob>(BackgroundRequest, localMember().id(), id(), isTyping, 10000);
 }
 
 const RoomEvent *NeoChatRoom::lastEvent() const
@@ -321,7 +324,7 @@ const RoomEvent *NeoChatRoom::lastEvent() const
             }
         }
 
-        if (connection()->isIgnored(user(event->senderId()))) {
+        if (connection()->isIgnored(event->senderId())) {
             continue;
         }
 
@@ -381,13 +384,13 @@ bool NeoChatRoom::isEventHighlighted(const RoomEvent *e) const
 
 void NeoChatRoom::checkForHighlights(const Quotient::TimelineItem &ti)
 {
-    auto localUserId = localUser()->id();
+    auto localUserId = localMember().id();
     if (ti->senderId() == localUserId) {
         return;
     }
     if (auto *e = ti.viewAs<RoomMessageEvent>()) {
         const auto &text = e->plainBody();
-        if (text.contains(localUserId) || text.contains(safeMemberName(localUserId))) {
+        if (text.contains(localUserId) || text.contains(localUserId)) {
             highlights.insert(e);
         }
     }
@@ -446,24 +449,20 @@ static const QVariantMap emptyUser = {
 
 QVariantMap NeoChatRoom::getUser(const QString &userID) const
 {
-    return getUser(user(userID));
+    return getUser(member(userID));
 }
 
-QVariantMap NeoChatRoom::getUser(User *user) const
+QVariantMap NeoChatRoom::getUser(RoomMember member) const
 {
-    if (user == nullptr) {
-        return emptyUser;
-    }
-
     return QVariantMap{
-        {QStringLiteral("isLocalUser"), user->id() == localUser()->id()},
-        {QStringLiteral("id"), user->id()},
-        {QStringLiteral("displayName"), user->displayname(this)},
-        {QStringLiteral("escapedDisplayName"), htmlSafeMemberName(user->id())},
-        {QStringLiteral("avatarSource"), avatarForMember(user)},
-        {QStringLiteral("avatarMediaId"), user->avatarMediaId(this)},
-        {QStringLiteral("color"), Utils::getUserColor(user->hueF())},
-        {QStringLiteral("object"), QVariant::fromValue(user)},
+        {QStringLiteral("isLocalUser"), member.id() == localMember().id()},
+        {QStringLiteral("id"), member.id()},
+        {QStringLiteral("displayName"), member.displayName()},
+        {QStringLiteral("escapedDisplayName"), member.htmlSafeDisplayName()},
+        {QStringLiteral("avatarSource"), member.avatarUrl()},
+        {QStringLiteral("avatarMediaId"), member.avatarMediaId()},
+        {QStringLiteral("color"), Utils::getUserColor(member.hueF())},
+        {QStringLiteral("object"), QVariant::fromValue(member)},
     };
 }
 
@@ -474,10 +473,10 @@ QString NeoChatRoom::avatarMediaId() const
     }
 
     // Use the first (excluding self) user's avatar for direct chats
-    const auto dcUsers = directChatUsers();
+    const auto dcUsers = directChatMembers();
     for (const auto u : dcUsers) {
-        if (u != localUser()) {
-            return u->avatarMediaId(this);
+        if (u != localMember()) {
+            return u.avatarMediaId().mid(6);
         }
     }
 
@@ -644,7 +643,7 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
                     continue;
                 }
 
-                if (e->senderId() == localUser()->id()) {
+                if (e->senderId() == localMember().id()) {
                     redactEventIds.push_back(e->id());
                     break;
                 }
@@ -673,7 +672,7 @@ bool NeoChatRoom::canSendEvent(const QString &eventType) const
         return false;
     }
     auto pl = plEvent->powerLevelForEvent(eventType);
-    auto currentPl = plEvent->powerLevelForUser(localUser()->id());
+    auto currentPl = plEvent->powerLevelForUser(localMember().id());
 
     return currentPl >= pl;
 }
@@ -685,7 +684,7 @@ bool NeoChatRoom::canSendState(const QString &eventType) const
         return false;
     }
     auto pl = plEvent->powerLevelForState(eventType);
-    auto currentPl = plEvent->powerLevelForUser(localUser()->id());
+    auto currentPl = plEvent->powerLevelForUser(localMember().id());
 
     return currentPl >= pl;
 }
@@ -863,7 +862,7 @@ void NeoChatRoom::setUrlPreviewEnabled(const bool &urlPreviewEnabled)
      *  "type": "org.matrix.room.preview_urls",
      * }
      */
-    connection()->callApi<SetAccountDataPerRoomJob>(localUser()->id(),
+    connection()->callApi<SetAccountDataPerRoomJob>(localMember().id(),
                                                     id(),
                                                     "org.matrix.room.preview_urls"_ls,
                                                     QJsonObject{{"disable"_ls, !urlPreviewEnabled}});
@@ -1531,7 +1530,7 @@ void NeoChatRoom::editLastMessage()
         }
 
         // check if the current message's sender's id is same as the user's id
-        if ((*it)->senderId() == localUser()->id()) {
+        if ((*it)->senderId() == localMember().id()) {
             auto content = (*it)->contentJson();
 
             if (e->msgtype() != MessageEventType::Unknown) {
@@ -1656,13 +1655,13 @@ int NeoChatRoom::maxRoomVersion() const
     return maxVersion;
 }
 
-Quotient::User *NeoChatRoom::directChatRemoteUser() const
+RoomMember NeoChatRoom::directChatRemoteUser() const
 {
-    auto users = connection()->directChatUsers(this);
+    auto users = connection()->directChatMemberIds(this);
     if (users.isEmpty()) {
-        return nullptr;
+        return {};
     }
-    return users[0];
+    return member(users[0]);
 }
 
 void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
@@ -1694,9 +1693,9 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
     return QJsonDocument(accountData(eventType)->fullJson()).toJson();
 }
 
-QUrl NeoChatRoom::avatarForMember(Quotient::User *user) const
+QUrl NeoChatRoom::avatarForMember(RoomMember member) const
 {
-    const auto &url = memberAvatarUrl(user->id());
+    const auto &url = member.avatarUrl();
     if (url.isEmpty() || url.scheme() != "mxc"_ls) {
         return {};
     }
@@ -1780,9 +1779,9 @@ void NeoChatRoom::cleanupExtraEvent(const QString &eventId)
     }
 }
 
-User *NeoChatRoom::invitingUser() const
+QString NeoChatRoom::invitingUserId() const
 {
-    return connection()->user(currentState().get<RoomMemberEvent>(connection()->userId())->senderId());
+    return currentState().get<RoomMemberEvent>(connection()->userId())->senderId();
 }
 
 void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, const QByteArray &content)
