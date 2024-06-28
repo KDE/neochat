@@ -144,6 +144,20 @@ void MessageContentModel::initializeModel()
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
         updateComponents();
     });
+    connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
+        if (m_room != nullptr && m_event != nullptr) {
+            if (m_event->senderId() == member.id()) {
+                Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
+            }
+        }
+    });
+    connect(m_room, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
+        if (m_room != nullptr && m_event != nullptr) {
+            if (m_event->senderId() == member.id()) {
+                Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
+            }
+        }
+    });
 
     if (m_event != nullptr) {
         updateReplyModel();

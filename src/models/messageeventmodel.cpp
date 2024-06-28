@@ -222,6 +222,23 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginResetModel();
             endResetModel();
         });
+        connect(m_currentRoom, &Room::memberNameUpdated, this, [this](RoomMember member) {
+            for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
+                auto event = it->event();
+                if (event->senderId() == member.id()) {
+                    refreshEventRoles(event->id(), {AuthorRole});
+                }
+            }
+        });
+        connect(m_currentRoom, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
+            for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
+                auto event = it->event();
+                if (event->senderId() == member.id()) {
+                    refreshEventRoles(event->id(), {AuthorRole});
+                }
+            }
+        });
+
         qCDebug(MessageEvent) << "Connected to room" << room->id() << "as" << room->localMember().id();
     } else {
         lastReadEventId.clear();
