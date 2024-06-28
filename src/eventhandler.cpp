@@ -1036,7 +1036,7 @@ QString EventHandler::getReadMarkersString() const
     for (const auto &userId : userIds) {
         auto member = m_room->member(userId);
         QString displayName;
-        if (member.isEmpty()) {
+        if (!m_room->memberIds().contains(userId)) {
             displayName = i18nc("A member who is not in the room has been requested.", "unknown member");
         } else {
             displayName = member.displayName();
