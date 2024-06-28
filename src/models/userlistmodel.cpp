@@ -144,6 +144,8 @@ void UserListModel::refreshMember(const Quotient::RoomMember &member, const QLis
 {
     auto pos = findUserPos(member);
     if (pos != m_members.size()) {
+        // The update will have changed the state event so we need to insert the updated member object.
+        m_members.insert(pos, member);
         Q_EMIT dataChanged(index(pos), index(pos), roles);
     } else {
         qWarning() << "Trying to access a room member not in the user list";
