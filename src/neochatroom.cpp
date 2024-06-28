@@ -1718,4 +1718,13 @@ void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, con
     setState(type, stateKey, QJsonDocument::fromJson(content).object());
 }
 
+#if Quotient_VERSION_MINOR == 8
+QList<RoomMember> NeoChatRoom::otherMembersTyping() const
+{
+    auto memberTyping = membersTyping();
+    memberTyping.removeAll(localMember());
+    return memberTyping;
+}
+#endif
+
 #include "moc_neochatroom.cpp"
