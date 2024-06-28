@@ -146,8 +146,10 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
         if ((uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) && action != "no_join"_ls) {
             Q_EMIT askJoinRoom(uri.primaryId());
         }
-    } else { // Invalid cases should have been eliminated earlier
-        Q_ASSERT(result == Quotient::UriResolved);
+    } else {
+        if (result != Quotient::UriResolved) {
+            return;
+        }
 
         if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
             connect(
@@ -255,9 +257,9 @@ void RoomManager::openRoomForActiveConnection()
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 {
-    if (action == "mention"_ls || action.isEmpty()) {
+    if (action == "mention"_ls || action == "qr"_ls || action.isEmpty()) {
         user->load();
-        Q_EMIT showUserDetail(user);
+        Q_EMIT showUserDetail(user, action == "qr"_ls ? nullptr : currentRoom());
     } else if (action == "_interactive"_ls) {
         user->requestDirectChat();
     } else if (action == "chat"_ls) {
