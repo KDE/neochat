@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-24 00:38+0000\n"
+"POT-Creation-Date: 2024-06-28 00:38+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2016,7 +2016,14 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:76
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:inmenu"
+msgid "Verify this Device"
+msgstr "Gerät verifizieren"
+
+#: src/qml/AccountMenu.qml:82 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Abmelden"
@@ -3061,7 +3068,7 @@ msgstr "Standort auswählen"
 msgid "Send this location"
 msgstr "Diesen Standort senden"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:115
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "Locations on a map"
@@ -3394,55 +3401,62 @@ msgctxt "@action:title"
 msgid "Search"
 msgstr "Suchen"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Gerät verifizieren"
+
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Raum aus Favoriten entfernen"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:106
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgid "Favorite this room"
 msgstr "Der Raum wird verlassen."
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:119
 #, fuzzy, kde-format
 #| msgid "Search in this room"
 msgid "Show locations for this room"
 msgstr "In diesem Raum suchen"
 
-#: src/qml/RoomInformation.qml:124
+#: src/qml/RoomInformation.qml:134
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Der Raum wird verlassen."
 
-#: src/qml/RoomInformation.qml:137
+#: src/qml/RoomInformation.qml:147
 #, kde-format
 msgid "Members"
 msgstr "Mitglieder"
 
-#: src/qml/RoomInformation.qml:152 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Einen Benutzer einladen"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:166
 #, kde-format
 msgid "Invite user to room"
 msgstr "Einen Benutzer in den Raum einladen"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 Mitglied"
 msgstr[1] "%1 Mitglieder"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, kde-format
 msgid "No member count"
 msgstr "Keine Mitgliederanzahl"

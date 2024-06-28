@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-24 00:38+0000\n"
+"POT-Creation-Date: 2024-06-28 00:38+0000\n"
 "PO-Revision-Date: 2024-06-1510:04+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -1894,7 +1894,14 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Malfermi Ŝlosilan Sekurkopion"
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:76
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:inmenu"
+msgid "Verify this Device"
+msgstr "Konfirmi aparaton"
+
+#: src/qml/AccountMenu.qml:82 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Elsaluti"
@@ -2874,7 +2881,7 @@ msgstr "Elekti Lokon"
 msgid "Send this location"
 msgstr "Sendi ĉi tiun lokon"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:115
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3181,51 +3188,58 @@ msgctxt "@action:title"
 msgid "Search"
 msgstr "Serĉi"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Konfirmi aparaton"
+
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Forigi ĉambron el plej ŝatataj"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Favorite this room"
 msgstr "Plejŝatigi ĉi tiun ĉambron"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:119
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Montri lokojn por ĉi tiu ĉambro"
 
-#: src/qml/RoomInformation.qml:124
+#: src/qml/RoomInformation.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Forlasi ĉi tiun ĉambron"
 
-#: src/qml/RoomInformation.qml:137
+#: src/qml/RoomInformation.qml:147
 #, kde-format
 msgid "Members"
 msgstr "Membroj"
 
-#: src/qml/RoomInformation.qml:152 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Inviti Uzanton"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:166
 #, kde-format
 msgid "Invite user to room"
 msgstr "Inviti uzanton al ĉambro"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membroj"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, kde-format
 msgid "No member count"
 msgstr "Neniu membrokalkulo"

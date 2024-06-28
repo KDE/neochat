@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-24 00:38+0000\n"
+"POT-Creation-Date: 2024-06-28 00:38+0000\n"
 "PO-Revision-Date: 2024-06-25 17:55+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1899,7 +1899,14 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Abrir copia de seguridad de la clave"
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:76
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:inmenu"
+msgid "Verify this Device"
+msgstr "Verificar dispositivo"
+
+#: src/qml/AccountMenu.qml:82 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Salir de la sesión"
@@ -2878,7 +2885,7 @@ msgstr "Escoger una ubicación"
 msgid "Send this location"
 msgstr "Enviar esta ubicación"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:115
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3183,51 +3190,58 @@ msgctxt "@action:title"
 msgid "Search"
 msgstr "Buscar"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Verificar dispositivo"
+
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Eliminar sala de las favoritas"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Favorite this room"
 msgstr "Hacer favorita esta sala"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:119
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Mostrar ubicaciones de esta sala"
 
-#: src/qml/RoomInformation.qml:124
+#: src/qml/RoomInformation.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Salir de esta sala"
 
-#: src/qml/RoomInformation.qml:137
+#: src/qml/RoomInformation.qml:147
 #, kde-format
 msgid "Members"
 msgstr "Miembros"
 
-#: src/qml/RoomInformation.qml:152 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Invitar a un usuario"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:166
 #, kde-format
 msgid "Invite user to room"
 msgstr "Invitar usuario a la sala"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 miembro"
 msgstr[1] "%1 miembros"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, kde-format
 msgid "No member count"
 msgstr "Sin contador de miembros"

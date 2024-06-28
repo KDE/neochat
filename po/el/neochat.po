@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-24 00:38+0000\n"
+"POT-Creation-Date: 2024-06-28 00:38+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2060,7 +2060,14 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:76
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:inmenu"
+msgid "Verify this Device"
+msgstr "Επαλήθευση συσκευής"
+
+#: src/qml/AccountMenu.qml:82 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Αποσύνδεση"
@@ -3107,7 +3114,7 @@ msgstr "Επιλογή τοπικού αρχείου"
 msgid "Send this location"
 msgstr "Αποστολή πληκτρολογημένων ειδοποιήσεων"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:115
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "Locations on a map"
@@ -3441,48 +3448,55 @@ msgctxt "@action:title"
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Επαλήθευση συσκευής"
+
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Αφαίρεση αίθουσας από τις προτιμώμενες"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:106
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgid "Favorite this room"
 msgstr "Εξέρχεται από αυτήν την αίθουσα."
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:119
 #, fuzzy, kde-format
 #| msgid "Search in this room"
 msgid "Show locations for this room"
 msgstr "Αναζήτηση σε αυτήν την αίθουσα"
 
-#: src/qml/RoomInformation.qml:124
+#: src/qml/RoomInformation.qml:134
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Εξέρχεται από αυτήν την αίθουσα."
 
-#: src/qml/RoomInformation.qml:137
+#: src/qml/RoomInformation.qml:147
 #, kde-format
 msgid "Members"
 msgstr "Μέλη"
 
-#: src/qml/RoomInformation.qml:152 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Πρόσκληση σε χρήστη"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:166
 #, kde-format
 msgid "Invite user to room"
 msgstr "Πρόσκληση χρήστη στην αίθουσα"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3491,7 +3505,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 μέλος"
 msgstr[1] "%1 μέλη"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"

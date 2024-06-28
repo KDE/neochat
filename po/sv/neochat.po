@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-24 00:38+0000\n"
+"POT-Creation-Date: 2024-06-28 00:38+0000\n"
 "PO-Revision-Date: 2024-06-25 19:08+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1891,7 +1891,14 @@ msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Öppna nyckelsäkerhetskopia"
 
-#: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:76
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:inmenu"
+msgid "Verify this Device"
+msgstr "Verifiera enhet"
+
+#: src/qml/AccountMenu.qml:82 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Logga ut"
@@ -2868,7 +2875,7 @@ msgstr "Välj en plats"
 msgid "Send this location"
 msgstr "Skicka platsen"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:115
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3175,51 +3182,58 @@ msgctxt "@action:title"
 msgid "Search"
 msgstr "Sök"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:95
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Verifiera enhet"
+
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Ta bort rum från favoriter"
 
-#: src/qml/RoomInformation.qml:96
+#: src/qml/RoomInformation.qml:106
 #, kde-format
 msgid "Favorite this room"
 msgstr "Gör rummet till favorit"
 
-#: src/qml/RoomInformation.qml:109
+#: src/qml/RoomInformation.qml:119
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Visa platser för rummet"
 
-#: src/qml/RoomInformation.qml:124
+#: src/qml/RoomInformation.qml:134
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Lämnar rummet"
 
-#: src/qml/RoomInformation.qml:137
+#: src/qml/RoomInformation.qml:147
 #, kde-format
 msgid "Members"
 msgstr "Medlemmar"
 
-#: src/qml/RoomInformation.qml:152 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Bjud in en användare"
 
-#: src/qml/RoomInformation.qml:156
+#: src/qml/RoomInformation.qml:166
 #, kde-format
 msgid "Invite user to room"
 msgstr "Bjöd in användare till ett rum"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 medlem"
 msgstr[1] "%1 medlemmar"
 
-#: src/qml/RoomInformation.qml:163
+#: src/qml/RoomInformation.qml:173
 #, kde-format
 msgid "No member count"
 msgstr "Ingen medlemsräkning"
