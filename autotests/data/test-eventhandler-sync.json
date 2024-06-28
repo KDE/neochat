@@ -25,7 +25,7 @@
         "content": {
           "user_ids": [
             "@alice:matrix.org",
-            "@bob:example.com"
+            "@bob:kde.org"
           ]
         },
         "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
@@ -47,7 +47,7 @@
         "content": {
           "$1532735824654:example.org": {
             "m.read": {
-              "@bob:example.com": {
+              "@bob:kde.org": {
                 "ts": 1436451550453
               }
             }
@@ -60,6 +60,18 @@
           "$1532735824654:example.org": {
             "m.read": {
               "@tim:example.com": {
+                "ts": 1436451550454
+              }
+            }
+          }
+        },
+        "type": "m.receipt"
+      },
+      {
+        "content": {
+          "$1532735824654:example.org": {
+            "m.read": {
+              "@tim2:example.com": {
                 "ts": 1436451550454
               }
             }
@@ -138,6 +150,22 @@
       },
       {
         "content": {
+          "avatar_url": "mxc://example.org/SEsfnsuifSDFSSEF",
+          "displayname": "Bob",
+          "membership": "join"
+        },
+        "event_id": "$143273582443PhrSn:example.org",
+        "origin_server_ts": 1432735824653,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "bob:kde.org",
+        "state_key": "@bob:kde.org",
+        "type": "m.room.member",
+        "unsigned": {
+          "age": 1234
+        }
+      },
+      {
+        "content": {
           "displayname": "Look\nat\nme\nI\nput\nnewlines\nin\nmy\ndisplay name",
           "membership": "join"
         },
@@ -156,7 +184,7 @@
   "summary": {
     "m.heroes": [
       "@alice:example.com",
-      "@bob:example.com"
+      "@bob:kde.org"
     ],
     "m.invited_member_count": 0,
     "m.joined_member_count": 2

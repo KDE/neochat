@@ -52,7 +52,7 @@ void ReactionModelTest::basicReaction()
     QCOMPARE(model.data(model.index(0), ReactionModel::TextContentRole), QStringLiteral("<span style=\"font-family: 'emoji';\">👍</span>"));
     QCOMPARE(model.data(model.index(0), ReactionModel::ReactionRole), QStringLiteral("👍"));
     QCOMPARE(model.data(model.index(0), ReactionModel::ToolTipRole),
-             QStringLiteral("@alice:matrix.org reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
+             QStringLiteral("Alice Margatroid reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
     QCOMPARE(model.data(model.index(0), ReactionModel::HasLocalMember), false);
 }
 
@@ -63,7 +63,7 @@ void ReactionModelTest::newReaction()
 
     QCOMPARE(model->rowCount(), 1);
     QCOMPARE(model->data(model->index(0), ReactionModel::ToolTipRole),
-             QStringLiteral("@alice:matrix.org reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
+             QStringLiteral("Alice Margatroid reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
 
     QSignalSpy spy(model, SIGNAL(modelReset()));
 
@@ -72,7 +72,7 @@ void ReactionModelTest::newReaction()
     QCOMPARE(spy.count(), 2); // Once for each of the 2 new reactions.
     QCOMPARE(model->data(model->index(1), ReactionModel::ReactionRole), QStringLiteral("😆"));
     QCOMPARE(model->data(model->index(0), ReactionModel::ToolTipRole),
-             QStringLiteral("@alice:matrix.org and @bob:example.org reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
+             QStringLiteral("Alice Margatroid and Bob reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
 
     delete model;
 }
