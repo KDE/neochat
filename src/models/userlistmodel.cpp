@@ -158,7 +158,7 @@ void UserListModel::refreshAllMembers()
     m_members.clear();
 
     if (m_currentRoom != nullptr) {
-        m_members = m_currentRoom->members();
+        m_members = m_currentRoom->joinedMembers();
         std::sort(m_members.begin(), m_members.end(), m_currentRoom->memberSorter());
     }
     endResetModel();
@@ -167,15 +167,18 @@ void UserListModel::refreshAllMembers()
 
 int UserListModel::findUserPos(const RoomMember &member) const
 {
-    return findUserPos(member.displayName());
+    return findUserPos(member.id());
 }
 
-int UserListModel::findUserPos(const QString &username) const
+int UserListModel::findUserPos(const QString &userId) const
 {
     if (!m_currentRoom) {
         return 0;
     }
-    return m_currentRoom->memberSorter().lowerBoundIndex(m_members, username);
+    const auto pos = std::find_if(m_members.cbegin(), m_members.cend(), [&userId](const RoomMember &member) {
+        return userId == member.id();
+    });
+    return pos - m_members.cbegin();
 }
 
 QHash<int, QByteArray> UserListModel::roleNames() const
