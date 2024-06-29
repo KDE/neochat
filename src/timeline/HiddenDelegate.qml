@@ -47,7 +47,7 @@ TimelineDelegate {
                 implicitHeight: Kirigami.Units.iconSizes.small
 
                 name: root.author.displayName
-                source: root.author.avatarSource
+                source: root.author.avatarUrl
                 color: root.author.color
             }
             QQC2.Label {
