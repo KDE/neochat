@@ -39,6 +39,11 @@ class MessageContentModel : public QAbstractListModel
     QML_ELEMENT
     QML_UNCREATABLE("")
 
+    /**
+     * @brief Whether the author component is being shown.
+     */
+    Q_PROPERTY(bool showAuthor READ showAuthor WRITE setShowAuthor NOTIFY showAuthorChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -48,6 +53,8 @@ public:
         ComponentTypeRole, /**< The type of component to visualise the message. */
         ComponentAttributesRole, /**< The attributes of the component. */
         EventIdRole, /**< The matrix event ID of the event. */
+        TimeRole, /**< The timestamp for when the event was sent (as a QDateTime). */
+        TimeStringRole, /**< The timestamp for when the event was sent as a string (in QLocale::ShortFormat). */
         AuthorRole, /**< The author of the event. */
         MediaInfoRole, /**< The media info for the event. */
         FileTransferInfoRole, /**< FileTransferInfo for any downloading files. */
@@ -66,8 +73,11 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply = false);
-    MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply = false);
+    explicit MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply = false, bool isPending = false);
+    MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply = false, bool isPending = false);
+
+    bool showAuthor() const;
+    void setShowAuthor(bool showAuthor);
 
     /**
      * @brief Get the given role value at the given index.
@@ -98,6 +108,7 @@ public:
     Q_INVOKABLE void closeLinkPreview(int row);
 
 Q_SIGNALS:
+    void showAuthorChanged();
     void eventUpdated();
 
 private:
@@ -105,6 +116,8 @@ private:
     QString m_eventId;
     const Quotient::RoomEvent *m_event = nullptr;
 
+    bool m_isPending;
+    bool m_showAuthor = true;
     bool m_isReply;
 
     void initializeModel();

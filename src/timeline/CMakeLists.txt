@@ -19,6 +19,7 @@ qt_add_qml_module(timeline
         SectionDelegate.qml
         MessageComponentChooser.qml
         ReplyMessageComponentChooser.qml
+        AuthorComponent.qml
         AudioComponent.qml
         CodeComponent.qml
         EncryptedComponent.qml
@@ -42,6 +43,7 @@ qt_add_qml_module(timeline
         PdfPreviewComponent.qml
         PollComponent.qml
         QuoteComponent.qml
+        ReplyAuthorComponent.qml
         ReplyComponent.qml
         StateComponent.qml
         TextComponent.qml

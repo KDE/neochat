@@ -36,7 +36,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[DelegateTypeRole] = "delegateType";
     roles[EventIdRole] = "eventId";
     roles[TimeRole] = "time";
-    roles[TimeStringRole] = "timeString";
     roles[SectionRole] = "section";
     roles[AuthorRole] = "author";
     roles[HighlightRole] = "isHighlighted";
@@ -153,7 +152,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             if (biggest < m_currentRoom->maxTimelineIndex()) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() - biggest + timelineBaseIndex() - 1;
-                refreshEventRoles(rowBelowInserted, {MessageFilterModel::ShowAuthorRole});
+                refreshEventRoles(rowBelowInserted, {ContentModelRole});
             }
             for (auto i = m_currentRoom->maxTimelineIndex() - biggest; i <= m_currentRoom->maxTimelineIndex() - lowest; ++i) {
                 refreshLastUserEvents(i);
@@ -183,7 +182,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             refreshRow(timelineBaseIndex()); // Refresh the looks
             refreshLastUserEvents(0);
             if (timelineBaseIndex() > 0) { // Refresh below, see #312
-                refreshEventRoles(timelineBaseIndex() - 1, {MessageFilterModel::ShowAuthorRole});
+                refreshEventRoles(timelineBaseIndex() - 1, {ContentModelRole});
             }
         });
         connect(m_currentRoom, &Room::pendingEventChanged, this, &MessageEventModel::refreshRow);
@@ -523,11 +522,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     if (role == TimeRole) {
         auto lastUpdated = isPending ? pendingIt->lastUpdated() : QDateTime();
         return eventHandler.getTime(isPending, lastUpdated);
-    }
-
-    if (role == TimeStringRole) {
-        auto lastUpdated = isPending ? pendingIt->lastUpdated() : QDateTime();
-        return eventHandler.getTimeString(false, QLocale::ShortFormat, isPending, lastUpdated);
     }
 
     if (role == SectionRole) {

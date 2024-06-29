@@ -6,6 +6,7 @@
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/room.h>
 
+#include "messagecontentmodel.h"
 #include "messageeventmodel.h"
 #include "messagefiltermodel.h"
 
@@ -69,6 +70,14 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
         const auto day = mapToSource(index).data(MessageEventModel::TimeRole).toDateTime().toLocalTime().date();
         const auto previousEventDay = mapToSource(this->index(index.row() + 1, 0)).data(MessageEventModel::TimeRole).toDateTime().toLocalTime().date();
         return day != previousEventDay;
+    }
+    // Catch and force the author to be shown for all rows
+    if (role == MessageEventModel::ContentModelRole) {
+        const auto model = qvariant_cast<MessageContentModel *>(mapToSource(index).data(MessageEventModel::ContentModelRole));
+        if (model != nullptr) {
+            model->setShowAuthor(true);
+        }
+        return QVariant::fromValue<MessageContentModel *>(model);
     }
 
     return sourceModel()->data(mapToSource(index), role);

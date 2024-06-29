@@ -26,6 +26,13 @@ DelegateChooser {
     role: "componentType"
 
     DelegateChoice {
+        roleValue: MessageComponentType.Author
+        delegate: ReplyAuthorComponent {
+            maxContentWidth: root.maxContentWidth
+        }
+    }
+
+    DelegateChoice {
         roleValue: MessageComponentType.Text
         delegate: TextComponent {
             maxContentWidth: root.maxContentWidth

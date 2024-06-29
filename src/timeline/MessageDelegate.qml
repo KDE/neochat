@@ -44,16 +44,6 @@ TimelineDelegate {
     required property string eventId
 
     /**
-     * @brief The timestamp of the message.
-     */
-    required property var time
-
-    /**
-     * @brief The timestamp of the message as a string.
-     */
-    required property string timeString
-
-    /**
      * @brief The message author.
      *
      * A Quotient::RoomMember object.
@@ -61,21 +51,6 @@ TimelineDelegate {
      * @sa Quotient::RoomMember
      */
     required property var author
-
-    /**
-     * @brief Whether the author should be shown.
-     */
-    required property bool showAuthor
-
-    /**
-     * @brief Whether the author should always be shown.
-     *
-     * This is primarily used when these delegates are used in a filtered list of
-     * events rather than a sequential timeline, e.g. the media model view.
-     *
-     * @note This setting still respects the avatar configuration settings.
-     */
-    property bool alwaysShowAuthor: false
 
     /**
      * @brief The model to visualise the content of the message.
@@ -246,11 +221,11 @@ TimelineDelegate {
             id: mainContainer
 
             Layout.fillWidth: true
-            Layout.topMargin: root.showAuthor || root.alwaysShowAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
+            Layout.topMargin: root.contentModel.showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.smallSpacing
 
-            implicitHeight: Math.max(root.showAuthor || root.alwaysShowAuthor ? avatar.implicitHeight : 0, bubble.height)
+            implicitHeight: Math.max(root.contentModel.showAuthor ? avatar.implicitHeight : 0, bubble.height)
 
             // show hover actions
             onHoveredChanged: {
@@ -270,7 +245,7 @@ TimelineDelegate {
                     topMargin: Kirigami.Units.smallSpacing
                 }
 
-                visible: (root.showAuthor || root.alwaysShowAuthor) && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
+                visible: root.contentModel.showAuthor && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
                 source: root.author.avatarUrl
                 color: root.author.color
@@ -316,9 +291,6 @@ TimelineDelegate {
                 index: root.index
 
                 author: root.author
-                showAuthor: root.showAuthor || root.alwaysShowAuthor
-                time: root.time
-                timeString: root.timeString
 
                 contentModel: root.contentModel
                 actionsHandler: root.ListView.view?.actionsHandler ?? null

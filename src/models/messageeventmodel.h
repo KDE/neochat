@@ -42,7 +42,6 @@ public:
         DelegateTypeRole = Qt::UserRole + 1, /**< The delegate type of the message. */
         EventIdRole, /**< The matrix event ID of the event. */
         TimeRole, /**< The timestamp for when the event was sent (as a QDateTime). */
-        TimeStringRole, /**< The timestamp for when the event was sent as a string (in QLocale::ShortFormat). */
         SectionRole, /**< The date of the event as a string. */
         AuthorRole, /**< The author of the event. */
         HighlightRole, /**< Whether the event should be highlighted. */

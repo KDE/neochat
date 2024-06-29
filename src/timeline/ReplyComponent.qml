@@ -66,31 +66,6 @@ RowLayout {
         id: contentColumn
         spacing: Kirigami.Units.smallSpacing
 
-        RowLayout {
-            id: headerRow
-            implicitHeight: Math.max(replyAvatar.implicitHeight, replyName.implicitHeight)
-            Layout.maximumWidth: root.maxContentWidth
-            spacing: Kirigami.Units.largeSpacing
-
-            KirigamiComponents.Avatar {
-                id: replyAvatar
-
-                implicitWidth: Kirigami.Units.iconSizes.small
-                implicitHeight: Kirigami.Units.iconSizes.small
-
-                source: root.replyAuthor.avatarUrl
-                name: root.replyAuthor.displayName
-                color: root.replyAuthor.color
-            }
-            QQC2.Label {
-                id: replyName
-                Layout.fillWidth: true
-
-                color: root.replyAuthor.color
-                text: root.replyAuthor.displayName
-                elide: Text.ElideRight
-            }
-        }
         Repeater {
             id: contentRepeater
             model: root.replyContentModel

@@ -33,6 +33,7 @@ public:
      *       a room message.
      */
     enum Type {
+        Author, /**< The message sender and time. */
         Text, /**< A text message. */
         Image, /**< A message that is an image. */
         Audio, /**< A message that is an audio recording. */

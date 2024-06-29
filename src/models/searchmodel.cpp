@@ -82,8 +82,6 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     EventHandler eventHandler(m_room, &event);
 
     switch (role) {
-    case ShowAuthorRole:
-        return true;
     case AuthorRole:
         return QVariant::fromValue(eventHandler.getAuthor());
     case ShowSectionRole:
@@ -93,10 +91,6 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return event.originTimestamp().date() != m_result->results[row - 1].result->originTimestamp().date();
     case SectionRole:
         return eventHandler.getTimeString(true);
-    case TimeRole:
-        return eventHandler.getTime();
-    case TimeStringRole:
-        return eventHandler.getTimeString(false);
     case ShowReactionsRole:
         return false;
     case ShowReadMarkersRole:
@@ -145,9 +139,6 @@ QHash<int, QByteArray> SearchModel::roleNames() const
         {AuthorRole, "author"},
         {ShowSectionRole, "showSection"},
         {SectionRole, "section"},
-        {TimeRole, "time"},
-        {TimeStringRole, "timeString"},
-        {ShowAuthorRole, "showAuthor"},
         {EventIdRole, "eventId"},
         {ExcessReadMarkersRole, "excessReadMarkers"},
         {HighlightRole, "isHighlighted"},

@@ -25,7 +25,7 @@ QQC2.Control {
     /**
      * @brief The timestamp of the message.
      */
-    property date time
+    required property var time
 
     /**
      * @brief The display text of the message.

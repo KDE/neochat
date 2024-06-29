@@ -6,12 +6,14 @@
 
 #include <QImageReader>
 
+#include <Quotient/eventitem.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>
 #include <Quotient/qt_connection_util.h>
+#include <algorithm>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
@@ -30,20 +32,22 @@
 
 using namespace Quotient;
 
-MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply)
+MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply, bool isPending)
     : QAbstractListModel(nullptr)
     , m_room(room)
     , m_eventId(event != nullptr ? event->id() : QString())
     , m_event(event)
+    , m_isPending(isPending)
     , m_isReply(isReply)
 {
     initializeModel();
 }
 
-MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply)
+MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending)
     : QAbstractListModel(nullptr)
     , m_room(room)
     , m_eventId(eventId)
+    , m_isPending(isPending)
     , m_isReply(isReply)
 {
     initializeModel();
@@ -77,6 +81,7 @@ void MessageContentModel::initializeModel()
         if (m_room != nullptr && m_event != nullptr) {
             if (m_event->id() == serverEvent->id()) {
                 beginResetModel();
+                m_isPending = false;
                 m_event = serverEvent;
                 Q_EMIT eventUpdated();
                 endResetModel();
@@ -165,6 +170,22 @@ void MessageContentModel::initializeModel()
     updateComponents();
 }
 
+bool MessageContentModel::showAuthor() const
+{
+    return m_showAuthor;
+}
+
+void MessageContentModel::setShowAuthor(bool showAuthor)
+{
+    if (showAuthor == m_showAuthor) {
+        return;
+    }
+
+    m_showAuthor = showAuthor;
+    Q_EMIT showAuthorChanged();
+    updateComponents();
+}
+
 static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
 
 QVariant MessageContentModel::data(const QModelIndex &index, int role) const
@@ -207,8 +228,24 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == EventIdRole) {
         return eventHandler.getId();
     }
+    if (role == TimeRole) {
+        const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [this](const PendingEventItem &pendingEvent) {
+            return m_event->transactionId() == pendingEvent->transactionId();
+        });
+
+        auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
+        return eventHandler.getTime(m_isPending, lastUpdated);
+    }
+    if (role == TimeStringRole) {
+        const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [this](const PendingEventItem &pendingEvent) {
+            return m_event->transactionId() == pendingEvent->transactionId();
+        });
+
+        auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
+        return eventHandler.getTimeString(false, QLocale::ShortFormat, m_isPending, lastUpdated);
+    }
     if (role == AuthorRole) {
-        return QVariant::fromValue(eventHandler.getAuthor(false));
+        return QVariant::fromValue(eventHandler.getAuthor(m_isPending));
     }
     if (role == MediaInfoRole) {
         return eventHandler.getMediaInfo();
@@ -268,6 +305,8 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     roles[ComponentTypeRole] = "componentType";
     roles[ComponentAttributesRole] = "componentAttributes";
     roles[EventIdRole] = "eventId";
+    roles[TimeRole] = "time";
+    roles[TimeStringRole] = "timeString";
     roles[AuthorRole] = "author";
     roles[MediaInfoRole] = "mediaInfo";
     roles[FileTransferInfoRole] = "fileTransferInfo";
@@ -293,6 +332,10 @@ void MessageContentModel::updateComponents(bool isEditing)
         m_components += MessageComponent{MessageComponentType::Loading, QString(), {}};
         endResetModel();
         return;
+    }
+
+    if (m_showAuthor) {
+        m_components += MessageComponent{MessageComponentType::Author, QString(), {}};
     }
 
     if (eventCast<const Quotient::RoomMessageEvent>(m_event)

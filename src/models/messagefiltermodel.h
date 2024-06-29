@@ -34,7 +34,6 @@ public:
         StateEventsRole, /**< List of state events in the aggregated state. */
         AuthorListRole, /**< List of the first 5 unique authors of the aggregated state event. */
         ExcessAuthorsRole, /**< The number of unique authors beyond the first 5. */
-        ShowAuthorRole, /**< Whether the author (name and avatar) should be shown at this message. */
         LastRole, // Keep this last
     };
 
@@ -61,6 +60,8 @@ public:
 
 private:
     bool eventIsVisible(int sourceRow, const QModelIndex &sourceParent) const;
+
+    bool showAuthor(QModelIndex index) const;
 
     /**
      * @brief Aggregation of the text of consecutive state events starting at row.

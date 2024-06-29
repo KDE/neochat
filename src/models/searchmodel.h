@@ -52,12 +52,9 @@ public:
      */
     enum Roles {
         DelegateTypeRole = Qt::DisplayRole + 1,
-        ShowAuthorRole,
         AuthorRole,
         ShowSectionRole,
         SectionRole,
-        TimeRole,
-        TimeStringRole,
         EventIdRole,
         ExcessReadMarkersRole,
         HighlightRole,

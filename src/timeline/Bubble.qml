@@ -42,21 +42,6 @@ QQC2.Control {
     property var author
 
     /**
-     * @brief Whether the author should be shown.
-     */
-    required property bool showAuthor
-
-    /**
-     * @brief The timestamp of the message.
-     */
-    property var time
-
-    /**
-     * @brief The timestamp of the message as a string.
-     */
-    property string timeString
-
-    /**
      * @brief Whether the message should be highlighted.
      */
     property bool showHighlight: false
@@ -107,45 +92,12 @@ QQC2.Control {
     contentItem: ColumnLayout {
         id: contentColumn
         spacing: Kirigami.Units.smallSpacing
-        RowLayout {
-            id: headerRow
-            Layout.maximumWidth: root.maxContentWidth
-            implicitHeight: Math.max(nameButton.implicitHeight, timeLabel.implicitHeight)
-            visible: root.showAuthor
-            QQC2.AbstractButton {
-                id: nameButton
-                Layout.fillWidth: true
-                contentItem: QQC2.Label {
-                    text: root.author.disambiguatedName
-                    color: root.author.color
-                    textFormat: Text.PlainText
-                    font.weight: Font.Bold
-                    elide: Text.ElideRight
-                }
-                Accessible.name: contentItem.text
-                onClicked: RoomManager.resolveResource(root.author.uri)
-            }
-            QQC2.Label {
-                id: timeLabel
-                text: root.timeString
-                horizontalAlignment: Text.AlignRight
-                color: Kirigami.Theme.disabledTextColor
-                QQC2.ToolTip.visible: timeHoverHandler.hovered
-                QQC2.ToolTip.text: root.time.toLocaleString(Qt.locale(), Locale.LongFormat)
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-
-                HoverHandler {
-                    id: timeHoverHandler
-                }
-            }
-        }
         Repeater {
             id: contentRepeater
             model: root.contentModel
             delegate: MessageComponentChooser {
                 room: root.room
                 index: root.index
-                time: root.time
                 actionsHandler: root.actionsHandler
                 timeline: root.timeline
                 maxContentWidth: root.maxContentWidth
