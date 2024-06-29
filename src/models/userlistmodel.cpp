@@ -5,7 +5,9 @@
 
 #include <QGuiApplication>
 
+#include <Quotient/avatar.h>
 #include <Quotient/events/roompowerlevelsevent.h>
+#include <Quotient/room.h>
 
 #include "enums/powerlevel.h"
 #include "neochatroom.h"
@@ -62,6 +64,9 @@ NeoChatRoom *UserListModel::room() const
 
 QVariant UserListModel::data(const QModelIndex &index, int role) const
 {
+    if (!m_currentRoom) {
+        return {};
+    }
     if (!index.isValid()) {
         return QVariant();
     }
@@ -71,25 +76,25 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
                     "users.count()";
         return {};
     }
-    auto member = m_members.at(index.row());
+    auto memberId = m_members.at(index.row());
     if (role == DisplayNameRole) {
-        return member.disambiguatedName();
+        return m_currentRoom->member(memberId).disambiguatedName();
     }
     if (role == UserIdRole) {
-        return member.id();
+        return memberId;
     }
     if (role == AvatarRole) {
-        return member.avatarUrl();
+        return m_currentRoom->memberAvatar(memberId).url();
     }
     if (role == ObjectRole) {
-        return QVariant::fromValue(member);
+        return QVariant::fromValue(memberId);
     }
     if (role == PowerLevelRole) {
         auto plEvent = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
         if (!plEvent) {
             return 0;
         }
-        return plEvent->powerLevelForUser(member.id());
+        return plEvent->powerLevelForUser(memberId);
     }
     if (role == PowerLevelStringRole) {
         auto pl = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
@@ -99,7 +104,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
             return QStringLiteral("Not Available");
         }
 
-        auto userPl = pl->powerLevelForUser(member.id());
+        auto userPl = pl->powerLevelForUser(memberId);
 
         return i18nc("%1 is the name of the power level, e.g. admin and %2 is the value that represents.",
                      "%1 (%2)",
@@ -130,7 +135,7 @@ void UserListModel::memberJoined(const Quotient::RoomMember &member)
 {
     auto pos = findUserPos(member);
     beginInsertRows(QModelIndex(), pos, pos);
-    m_members.insert(pos, member);
+    m_members.insert(pos, member.id());
     endInsertRows();
 }
 
@@ -151,7 +156,7 @@ void UserListModel::refreshMember(const Quotient::RoomMember &member, const QLis
     auto pos = findUserPos(member);
     if (pos != m_members.size()) {
         // The update will have changed the state event so we need to insert the updated member object.
-        m_members.insert(pos, member);
+        m_members.insert(pos, member.id());
         Q_EMIT dataChanged(index(pos), index(pos), roles);
     } else {
         qWarning() << "Trying to access a room member not in the user list";
@@ -164,8 +169,15 @@ void UserListModel::refreshAllMembers()
     m_members.clear();
 
     if (m_currentRoom != nullptr) {
-        m_members = m_currentRoom->joinedMembers();
-        std::sort(m_members.begin(), m_members.end(), m_currentRoom->memberSorter());
+        m_members = m_currentRoom->joinedMemberIds();
+#if Quotient_VERSION_MINOR > 8
+        MemberSorter sorter;
+#else
+        MemberSorter sorter(m_currentRoom);
+#endif
+        std::sort(m_members.begin(), m_members.end(), [&sorter, this](const auto &left, const auto &right) {
+            return sorter(m_currentRoom->member(left), m_currentRoom->member(right));
+        });
     }
     endResetModel();
     Q_EMIT usersRefreshed();
@@ -181,8 +193,8 @@ int UserListModel::findUserPos(const QString &userId) const
     if (!m_currentRoom) {
         return 0;
     }
-    const auto pos = std::find_if(m_members.cbegin(), m_members.cend(), [&userId](const RoomMember &member) {
-        return userId == member.id();
+    const auto pos = std::find_if(m_members.cbegin(), m_members.cend(), [&userId](const QString &memberId) {
+        return userId == memberId;
     });
     return pos - m_members.cbegin();
 }

@@ -92,7 +92,7 @@ private Q_SLOTS:
 
 private:
     QPointer<NeoChatRoom> m_currentRoom;
-    QList<Quotient::RoomMember> m_members;
+    QList<QString> m_members;
 
     int findUserPos(const Quotient::RoomMember &member) const;
     [[nodiscard]] int findUserPos(const QString &username) const;
