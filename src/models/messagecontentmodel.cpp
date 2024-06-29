@@ -6,14 +6,12 @@
 
 #include <QImageReader>
 
-#include <Quotient/eventitem.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>
 #include <Quotient/qt_connection_util.h>
-#include <algorithm>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
