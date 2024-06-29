@@ -8,6 +8,7 @@
 #include <Quotient/accountregistry.h>
 #include <Quotient/e2ee/sssshandler.h>
 #include <Quotient/keyverificationsession.h>
+#include <Quotient/roommember.h>
 
 #include "controller.h"
 #include "neochatconfig.h"
@@ -49,4 +50,10 @@ struct ForeignSSSSHandler {
     Q_GADGET
     QML_FOREIGN(Quotient::SSSSHandler)
     QML_NAMED_ELEMENT(SSSSHandler)
+};
+
+struct RoomMemberForeign {
+    Q_GADGET
+    QML_FOREIGN(Quotient::RoomMember)
+    QML_NAMED_ELEMENT(RoomMember)
 };
