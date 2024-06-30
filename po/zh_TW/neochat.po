@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-30 00:39+0000\n"
 "PO-Revision-Date: 2024-06-26 06:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -181,7 +181,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "在視窗標頭中顯示焦點"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:245
 #, kde-format
 msgid "Developer Tools"
 msgstr "開發者工具"
@@ -373,14 +373,14 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:305 src/eventhandler.cpp:509
-#: src/models/messagecontentmodel.cpp:179 src/models/messageeventmodel.cpp:436
+#: src/eventhandler.cpp:304 src/eventhandler.cpp:509
+#: src/models/messagecontentmodel.cpp:193 src/models/messageeventmodel.cpp:453
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[此訊息已被刪除]</i>"
 
-#: src/eventhandler.cpp:305 src/models/messagecontentmodel.cpp:180
-#: src/models/messageeventmodel.cpp:437
+#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:194
+#: src/models/messageeventmodel.cpp:454
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[此訊息已被刪除：%1]</i>"
@@ -716,13 +716,20 @@ msgstr "更新了狀態"
 msgid "started a poll"
 msgstr "開始了投票"
 
-#: src/eventhandler.cpp:1040
+#: src/eventhandler.cpp:1035
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 名使用者："
 
-#: src/eventhandler.cpp:1047
+#: src/eventhandler.cpp:1040
+#, fuzzy, kde-format
+#| msgid "Unknown event"
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "未知事件"
+
+#: src/eventhandler.cpp:1044
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -974,110 +981,110 @@ msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "代理伺服器設定"
 
-#: src/main.cpp:141
+#: src/main.cpp:142
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:143
+#: src/main.cpp:144
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix 用戶端"
 
-#: src/main.cpp:145
+#: src/main.cpp:146
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE 社群"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
+#: src/main.cpp:148 src/main.cpp:152 src/main.cpp:153
 #, kde-format
 msgid "Maintainer"
 msgstr "維護者"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:152
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral 的原始作者"
 
-#: src/main.cpp:154
+#: src/main.cpp:155
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:154
+#: src/main.cpp:155
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "libQuotient 的維護者"
 
-#: src/main.cpp:155
+#: src/main.cpp:156
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kisaragi Hiu"
 
-#: src/main.cpp:155
+#: src/main.cpp:156
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: src/main.cpp:159
+#: src/main.cpp:160
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "撰寫跨平台 Matrix 用戶端用的 Qt 函式庫"
 
-#: src/main.cpp:161
+#: src/main.cpp:162
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (建置於 %2 上)"
 
-#: src/main.cpp:191
+#: src/main.cpp:193
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 通訊協定的用戶端"
 
-#: src/main.cpp:192
+#: src/main.cpp:194
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "支援 matrix: 網址機制"
 
-#: src/main.cpp:193
+#: src/main.cpp:195
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "忽略所有 SSL 錯誤，例如未簽署的憑證。"
 
-#: src/main.cpp:195
+#: src/main.cpp:197
 #, kde-format
 msgid "Only used for autotests"
 msgstr "僅 autotest 用。"
 
-#: src/main.cpp:200
+#: src/main.cpp:202
 #, kde-format
 msgid "Internal usage only."
 msgstr "僅內部用。"
 
-#: src/main.cpp:205
+#: src/main.cpp:207
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "將網址分享到 Matrix"
@@ -1092,305 +1099,305 @@ msgstr "媒體 ID '%1' 不符合伺服器/媒體ID樣式"
 msgid "Image request has been cancelled"
 msgstr "已取消影像請求"
 
-#: src/models/actionsmodel.cpp:25
+#: src/models/actionsmodel.cpp:26
 #, kde-format
 msgid "Leaving this room."
 msgstr "正在離開這個聊天室。"
 
-#: src/models/actionsmodel.cpp:32 src/models/actionsmodel.cpp:229
-#: src/models/actionsmodel.cpp:255 src/models/actionsmodel.cpp:285
+#: src/models/actionsmodel.cpp:33 src/models/actionsmodel.cpp:230
+#: src/models/actionsmodel.cpp:256 src/models/actionsmodel.cpp:286
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "'%1' 看起來不像是聊天室 ID 或別名。"
 
-#: src/models/actionsmodel.cpp:40
+#: src/models/actionsmodel.cpp:41
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "正在離開聊天室 %1。"
 
-#: src/models/actionsmodel.cpp:43
+#: src/models/actionsmodel.cpp:44
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "找不到聊天室 %1。"
 
-#: src/models/actionsmodel.cpp:51 src/models/actionsmodel.cpp:321
+#: src/models/actionsmodel.cpp:52 src/models/actionsmodel.cpp:322
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "未提供新的綽號，不會進行任何變更。"
 
-#: src/models/actionsmodel.cpp:66 src/models/actionsmodel.cpp:76
-#: src/models/actionsmodel.cpp:86 src/models/actionsmodel.cpp:96
-#: src/models/actionsmodel.cpp:116 src/models/actionsmodel.cpp:136
-#: src/models/actionsmodel.cpp:147 src/models/actionsmodel.cpp:163
-#: src/models/actionsmodel.cpp:173 src/models/actionsmodel.cpp:183
+#: src/models/actionsmodel.cpp:67 src/models/actionsmodel.cpp:77
+#: src/models/actionsmodel.cpp:87 src/models/actionsmodel.cpp:97
+#: src/models/actionsmodel.cpp:117 src/models/actionsmodel.cpp:137
+#: src/models/actionsmodel.cpp:148 src/models/actionsmodel.cpp:164
+#: src/models/actionsmodel.cpp:174 src/models/actionsmodel.cpp:184
 msgid "<message>"
 msgstr "<訊息>"
 
-#: src/models/actionsmodel.cpp:67
+#: src/models/actionsmodel.cpp:68
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "在純文字訊息前加上 ¯\\_(ツ)_/¯"
 
-#: src/models/actionsmodel.cpp:77
+#: src/models/actionsmodel.cpp:78
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "在純文字訊息前加上 ( ͡° ͜ʖ ͡°)"
 
-#: src/models/actionsmodel.cpp:87
+#: src/models/actionsmodel.cpp:88
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "在純文字訊息前加上 (╯°□°）╯︵ ┻━┻"
 
-#: src/models/actionsmodel.cpp:97
+#: src/models/actionsmodel.cpp:98
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "在純文字訊息前加上 ┬──┬ ノ( ゜-゜ノ)"
 
-#: src/models/actionsmodel.cpp:117
+#: src/models/actionsmodel.cpp:118
 msgid "Sends the given message colored as a rainbow"
 msgstr "將指定訊息以彩虹著色後傳送"
 
-#: src/models/actionsmodel.cpp:137
+#: src/models/actionsmodel.cpp:138
 msgid "Sends the given emote colored as a rainbow"
 msgstr "將指定繪文字以彩虹著色後傳送"
 
-#: src/models/actionsmodel.cpp:148
+#: src/models/actionsmodel.cpp:149
 msgid "Sends the given message as plain text"
 msgstr "將指定訊息以純文字傳送"
 
-#: src/models/actionsmodel.cpp:164
+#: src/models/actionsmodel.cpp:165
 msgid "Sends the given message as a spoiler"
 msgstr "將指定訊息以暴雷模式傳送"
 
-#: src/models/actionsmodel.cpp:174
+#: src/models/actionsmodel.cpp:175
 msgid "Sends the given emote"
 msgstr "傳送指定繪文字"
 
-#: src/models/actionsmodel.cpp:184
+#: src/models/actionsmodel.cpp:185
 msgid "Sends the given message as a notice"
 msgstr "將指定訊息作為公告傳送"
 
-#: src/models/actionsmodel.cpp:193 src/models/actionsmodel.cpp:355
-#: src/models/actionsmodel.cpp:378 src/models/actionsmodel.cpp:422
-#: src/models/actionsmodel.cpp:460 src/models/actionsmodel.cpp:495
+#: src/models/actionsmodel.cpp:194 src/models/actionsmodel.cpp:356
+#: src/models/actionsmodel.cpp:379 src/models/actionsmodel.cpp:423
+#: src/models/actionsmodel.cpp:461 src/models/actionsmodel.cpp:496
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "'%1' 看起來不像是 Matrix ID。"
 
-#: src/models/actionsmodel.cpp:198
+#: src/models/actionsmodel.cpp:199
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 已經邀請到這個聊天室裡。"
 
-#: src/models/actionsmodel.cpp:202
+#: src/models/actionsmodel.cpp:203
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 已被這個聊天室封鎖。"
 
-#: src/models/actionsmodel.cpp:206
+#: src/models/actionsmodel.cpp:207
 #, kde-format
 msgid "You are already in this room."
 msgstr "您已經在這個聊天室裡了。"
 
-#: src/models/actionsmodel.cpp:210
+#: src/models/actionsmodel.cpp:211
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 已經在這個聊天室裡了。"
 
-#: src/models/actionsmodel.cpp:214
+#: src/models/actionsmodel.cpp:215
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 已邀請到這個聊天室裡"
 
-#: src/models/actionsmodel.cpp:219 src/models/actionsmodel.cpp:368
-#: src/models/actionsmodel.cpp:391 src/models/actionsmodel.cpp:483
+#: src/models/actionsmodel.cpp:220 src/models/actionsmodel.cpp:369
+#: src/models/actionsmodel.cpp:392 src/models/actionsmodel.cpp:484
 msgid "<user id>"
 msgstr "<使用者 id>"
 
-#: src/models/actionsmodel.cpp:220
+#: src/models/actionsmodel.cpp:221
 msgid "Invites the user to this room"
 msgstr "邀請使用者到這個聊天室"
 
-#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:292
+#: src/models/actionsmodel.cpp:238 src/models/actionsmodel.cpp:293
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "正在加入聊天室 %1。"
 
-#: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:298
+#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:299
 msgid "<room alias or id>"
 msgstr "<聊天室別名或 id>"
 
-#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:299
+#: src/models/actionsmodel.cpp:245 src/models/actionsmodel.cpp:300
 msgid "Joins the given room"
 msgstr "加入指定聊天室"
 
-#: src/models/actionsmodel.cpp:263
+#: src/models/actionsmodel.cpp:264
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "正在敲聊天室 %1 的門。"
 
-#: src/models/actionsmodel.cpp:275
+#: src/models/actionsmodel.cpp:276
 msgid "<room alias or id> [<reason>]"
 msgstr "<聊天室別名或 ID> [<原因>]"
 
-#: src/models/actionsmodel.cpp:276
+#: src/models/actionsmodel.cpp:277
 msgid "Requests to join the given room"
 msgstr "請求加入指定聊天室"
 
-#: src/models/actionsmodel.cpp:289
+#: src/models/actionsmodel.cpp:290
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "您已經在聊天室 %1 裡了。"
 
-#: src/models/actionsmodel.cpp:306 src/models/actionsmodel.cpp:314
+#: src/models/actionsmodel.cpp:307 src/models/actionsmodel.cpp:315
 msgid "[<room alias or id>]"
 msgstr "[<聊天室別名或 id>]"
 
-#: src/models/actionsmodel.cpp:307 src/models/actionsmodel.cpp:315
+#: src/models/actionsmodel.cpp:308 src/models/actionsmodel.cpp:316
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "離開指定的聊天室，若未指定聊天室則離開目前聊天室"
 
-#: src/models/actionsmodel.cpp:329 src/models/actionsmodel.cpp:337
-#: src/models/actionsmodel.cpp:345
+#: src/models/actionsmodel.cpp:330 src/models/actionsmodel.cpp:338
+#: src/models/actionsmodel.cpp:346
 msgid "<display name>"
 msgstr "<顯示名稱>"
 
-#: src/models/actionsmodel.cpp:330
+#: src/models/actionsmodel.cpp:331
 msgid "Changes your global display name"
 msgstr "變更您的全域顯示名稱"
 
-#: src/models/actionsmodel.cpp:338 src/models/actionsmodel.cpp:346
+#: src/models/actionsmodel.cpp:339 src/models/actionsmodel.cpp:347
 msgid "Changes your display name in this room"
 msgstr "變更您在這個聊天室裡的顯示名稱"
 
-#: src/models/actionsmodel.cpp:359
+#: src/models/actionsmodel.cpp:360
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 已經被忽略。"
 
-#: src/models/actionsmodel.cpp:363
+#: src/models/actionsmodel.cpp:364
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 已被忽略。"
 
-#: src/models/actionsmodel.cpp:369
+#: src/models/actionsmodel.cpp:370
 msgid "Ignores the given user"
 msgstr "忽略指定的使用者"
 
-#: src/models/actionsmodel.cpp:382
+#: src/models/actionsmodel.cpp:383
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 並未被忽略。"
 
-#: src/models/actionsmodel.cpp:386
+#: src/models/actionsmodel.cpp:387
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 已不再被忽略。"
 
-#: src/models/actionsmodel.cpp:392
+#: src/models/actionsmodel.cpp:393
 msgid "Unignores the given user"
 msgstr "取消忽略指定的使用者"
 
-#: src/models/actionsmodel.cpp:411
+#: src/models/actionsmodel.cpp:412
 msgid "<reaction text>"
 msgstr "<反應文字>"
 
-#: src/models/actionsmodel.cpp:412
+#: src/models/actionsmodel.cpp:413
 msgid "React to the message with the given text"
 msgstr "用指定文字對訊息進行反應"
 
-#: src/models/actionsmodel.cpp:427
+#: src/models/actionsmodel.cpp:428
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 本來就已被這個聊天室封鎖。"
 
-#: src/models/actionsmodel.cpp:435
+#: src/models/actionsmodel.cpp:436
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "您不被允許從這個聊天室封鎖使用者。"
 
-#: src/models/actionsmodel.cpp:441
+#: src/models/actionsmodel.cpp:442
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "您不被允許從這個聊天室封鎖 %1。"
 
-#: src/models/actionsmodel.cpp:445
+#: src/models/actionsmodel.cpp:446
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 已被這個聊天室封鎖。"
 
-#: src/models/actionsmodel.cpp:450 src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:451 src/models/actionsmodel.cpp:528
 msgid "<user id> [<reason>]"
 msgstr "<使用者 id> [<原因>]"
 
-#: src/models/actionsmodel.cpp:451
+#: src/models/actionsmodel.cpp:452
 msgid "Bans the given user"
 msgstr "封鎖指定的使用者"
 
-#: src/models/actionsmodel.cpp:468
+#: src/models/actionsmodel.cpp:469
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "您不被允許從這個聊天室解除封鎖使用者。"
 
-#: src/models/actionsmodel.cpp:473
+#: src/models/actionsmodel.cpp:474
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 未被從這個聊天室封鎖。"
 
-#: src/models/actionsmodel.cpp:477
+#: src/models/actionsmodel.cpp:478
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 已被這個聊天室解除封鎖。"
 
-#: src/models/actionsmodel.cpp:484
+#: src/models/actionsmodel.cpp:485
 msgid "Removes the ban of the given user"
 msgstr "解除指定使用者的封鎖"
 
-#: src/models/actionsmodel.cpp:499
+#: src/models/actionsmodel.cpp:500
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "您無法從聊天室踢出自己。"
 
-#: src/models/actionsmodel.cpp:503
+#: src/models/actionsmodel.cpp:504
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 不在這個聊天室裡。"
 
-#: src/models/actionsmodel.cpp:512
+#: src/models/actionsmodel.cpp:513
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "您不被允許從這個聊天室踢出使用者。"
 
-#: src/models/actionsmodel.cpp:518
+#: src/models/actionsmodel.cpp:519
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "您不被允許從這個聊天室踢出 %1。"
 
-#: src/models/actionsmodel.cpp:522
+#: src/models/actionsmodel.cpp:523
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 已被踢出這個聊天室。"
 
-#: src/models/actionsmodel.cpp:528
+#: src/models/actionsmodel.cpp:529
 msgid "Removes the user from the room"
 msgstr "從聊天室移除使用者"
 
@@ -1472,7 +1479,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "自己的表情符號"
 
-#: src/models/messagecontentmodel.cpp:172
+#: src/models/messagecontentmodel.cpp:186
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -1711,14 +1718,14 @@ msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " 和 "
 
-#: src/models/reactionmodel.cpp:77
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
 msgid_plural " and %1 others"
 msgstr[0] " 和其他 %1 個人"
 
-#: src/models/reactionmodel.cpp:81
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1751,12 +1758,12 @@ msgstr "聊天室建立失敗：%1"
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
 
-#: src/neochatroom.cpp:1404 src/neochatroom.cpp:1405
+#: src/neochatroom.cpp:1351 src/neochatroom.cpp:1352
 #, kde-format
 msgid "Report sent successfully."
 msgstr "已成功傳送檢舉"
 
-#: src/neochatroom.cpp:1679 src/neochatroom.cpp:1687
+#: src/neochatroom.cpp:1622 src/neochatroom.cpp:1630
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1767,7 +1774,7 @@ msgstr "緯度：%2，經度：%1"
 msgid "Encrypted Message"
 msgstr "已加密訊息"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:279
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1777,7 +1784,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "在這個聊天室開啟 NeoChat"
 
-#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:104
 #, kde-format
 msgid "Reply"
@@ -1826,65 +1833,59 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "開啟 NeoChat"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "編輯這個帳號"
 
-#: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:28 src/settings/AccountsPage.qml:34
 #: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "帳號編輯器"
 
-#: src/qml/AccountMenu.qml:31
+#: src/qml/AccountMenu.qml:32
 #, kde-format
 msgid "Notification settings"
 msgstr "通知設定"
 
-#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:31 src/qml/Main.qml:327 src/qml/UserInfo.qml:107
-#, kde-format
-msgid "Configure"
-msgstr "設定"
-
-#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettings.qml:91
+#: src/qml/AccountMenu.qml:39 src/settings/DevicesPage.qml:17
+#: src/settings/NeoChatSettingsView.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
 
-#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:236
+#: src/qml/AccountMenu.qml:46 src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Open developer tools"
 msgstr "開啟開發者工具"
 
-#: src/qml/AccountMenu.qml:61
+#: src/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "開發者工具"
 
-#: src/qml/AccountMenu.qml:67
+#: src/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "開啟秘密備份"
 
-#: src/qml/AccountMenu.qml:71
+#: src/qml/AccountMenu.qml:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "開啟金鑰備份"
 
-#: src/qml/AccountMenu.qml:75
+#: src/qml/AccountMenu.qml:66
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "驗證裝置"
 
-#: src/qml/AccountMenu.qml:81 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "登出"
@@ -2106,17 +2107,17 @@ msgstr "從最愛中移除"
 msgid "Add to Favorites"
 msgstr "加入最愛"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:197
 #, kde-format
 msgid "Reprioritize"
 msgstr "重新給予優先權"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:197
 #, kde-format
 msgid "Deprioritize"
 msgstr "降低優先權"
 
-#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Mark as Read"
 msgstr "標記為已讀"
@@ -2127,8 +2128,8 @@ msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "複製使用者的 Matrix ID 到剪貼簿"
 
-#: src/qml/ContextMenu.qml:49 src/qml/SpaceListContextMenu.qml:37
-#: src/qml/SpaceListContextMenu.qml:122
+#: src/qml/ContextMenu.qml:49 src/qml/SpaceListContextMenu.qml:38
+#: src/qml/SpaceListContextMenu.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -2164,27 +2165,34 @@ msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "關閉"
 
-#: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:196 src/qml/RoomDrawer.qml:111
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
-#, kde-format
+#: src/qml/ContextMenu.qml:111
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "聊天室設定"
 
-#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:218
+#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Leave Room"
 msgstr "離開聊天室"
 
-#: src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:182
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "從最愛中移除"
 
-#: src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:182
 #, kde-format
 msgid "Add to Favourites"
 msgstr "加入最愛"
+
+#: src/qml/ContextMenu.qml:187
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "@action:button"
+msgid "Room Settings"
+msgstr "聊天室設定"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -2265,7 +2273,7 @@ msgstr "選取聊天室"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:70 src/qml/RoomListPage.qml:210
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:210
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -2303,41 +2311,41 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "確定"
 
-#: src/qml/DelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:78
 #, kde-format
 msgid "View Source"
 msgstr "檢視原始碼"
 
-#: src/qml/DelegateContextMenu.qml:94 src/qml/FileDelegateContextMenu.qml:67
+#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:67
 #, kde-format
 msgid "Remove"
 msgstr "移除"
 
-#: src/qml/DelegateContextMenu.qml:101 src/qml/FileDelegateContextMenu.qml:74
+#: src/qml/DelegateContextMenu.qml:92 src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "移除訊息"
 
-#: src/qml/DelegateContextMenu.qml:117 src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:108 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "檢舉"
 
-#: src/qml/DelegateContextMenu.qml:124
+#: src/qml/DelegateContextMenu.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: src/qml/DelegateContextMenu.qml:169
+#: src/qml/DelegateContextMenu.qml:160
 #, kde-format
 msgid "Search for '%1'"
 msgstr "搜尋 '%1'"
 
-#: src/qml/DelegateContextMenu.qml:190
+#: src/qml/DelegateContextMenu.qml:181
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "設定網頁捷徑..."
@@ -2425,14 +2433,14 @@ msgid "Explore rooms"
 msgstr "瀏覽聊天室"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
-#: src/qml/GlobalMenu.qml:48 src/qml/GlobalMenu.qml:57
+#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:52 src/qml/RoomListPage.qml:180
+#: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
 msgctxt "@title"
@@ -2570,49 +2578,49 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "設定 NeoChat..."
 
-#: src/qml/GlobalMenu.qml:37
+#: src/qml/GlobalMenu.qml:31
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "離開 NeoChat"
 
-#: src/qml/GlobalMenu.qml:44
+#: src/qml/GlobalMenu.qml:38
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "檔案"
 
-#: src/qml/GlobalMenu.qml:47
+#: src/qml/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
-#: src/qml/GlobalMenu.qml:56
+#: src/qml/GlobalMenu.qml:50
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "建立新群組…"
 
-#: src/qml/GlobalMenu.qml:65
+#: src/qml/GlobalMenu.qml:59
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "瀏覽私人聊天…"
 
-#: src/qml/GlobalMenu.qml:79
+#: src/qml/GlobalMenu.qml:73
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "編輯"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:77
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "檢視"
 
-#: src/qml/GlobalMenu.qml:86
+#: src/qml/GlobalMenu.qml:80
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2620,43 +2628,43 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "開啟快速切換器"
 
-#: src/qml/GlobalMenu.qml:91
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "視窗"
 
-#: src/qml/GlobalMenu.qml:94
+#: src/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "離開全螢幕"
 
-#: src/qml/GlobalMenu.qml:94
+#: src/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "進入全螢幕"
 
-#: src/qml/GlobalMenu.qml:99
+#: src/qml/GlobalMenu.qml:93
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "說明"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "About Matrix"
 msgstr "關於 Matrix"
 
-#: src/qml/GlobalMenu.qml:106
+#: src/qml/GlobalMenu.qml:100
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "關於 NeoChat"
 
-#: src/qml/GlobalMenu.qml:110
+#: src/qml/GlobalMenu.qml:104
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -2866,25 +2874,25 @@ msgstr "位置"
 msgid "There are no locations shared in this room."
 msgstr "沒有在這個聊天室裡分享的位置。"
 
-#: src/qml/Main.qml:165
+#: src/qml/Main.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "顯示聊天室資訊"
 
-#: src/qml/Main.qml:168
+#: src/qml/Main.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "關閉聊天室資訊側邊欄"
 
-#: src/qml/Main.qml:304
+#: src/qml/Main.qml:308
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:344 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3112,16 +3120,18 @@ msgid "Configure room"
 msgstr "設定聊天室"
 
 #: src/qml/RoomDrawer.qml:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgctxt "@action:button"
 msgid "Room settings"
 msgstr "聊天室設定"
 
-#: src/qml/RoomDrawer.qml:154 src/qml/RoomDrawerPage.qml:88
+#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Information"
 msgstr "資訊"
 
-#: src/qml/RoomDrawer.qml:159 src/qml/RoomDrawerPage.qml:93
+#: src/qml/RoomDrawer.qml:156 src/qml/RoomDrawerPage.qml:93
 #, kde-format
 msgid "Media"
 msgstr "媒體"
@@ -3130,6 +3140,11 @@ msgstr "媒體"
 #, kde-format
 msgid "Settings"
 msgstr "設定"
+
+#: src/qml/RoomDrawerPage.qml:51
+#, kde-format
+msgid "Room Settings"
+msgstr "聊天室設定"
 
 #: src/qml/RoomInformation.qml:40
 #, kde-format
@@ -3494,10 +3509,11 @@ msgctxt "@button"
 msgid "Leave the space"
 msgstr "離開聊天空間"
 
-#: src/qml/SpaceHomePage.qml:73
+#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:48
+#: src/qml/SpaceListContextMenu.qml:130
 #, kde-format
-msgctxt "@button"
-msgid "Space settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
 msgstr "聊天空間設定"
 
 #: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
@@ -3506,24 +3522,13 @@ msgctxt "@title"
 msgid "Create a Child"
 msgstr "建立子聊天室"
 
-#: src/qml/SpaceListContextMenu.qml:31 src/qml/SpaceListContextMenu.qml:116
+#: src/qml/SpaceListContextMenu.qml:32 src/qml/SpaceListContextMenu.qml:114
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "檢視聊天空間"
 
-#: src/qml/SpaceListContextMenu.qml:47 src/qml/SpaceListContextMenu.qml:132
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "聊天空間設定"
-
-#: src/qml/SpaceListContextMenu.qml:53 src/qml/SpaceListContextMenu.qml:138
-#, kde-format
-msgid "Space Settings"
-msgstr "聊天空間設定"
-
-#: src/qml/SpaceListContextMenu.qml:60 src/qml/SpaceListContextMenu.qml:143
+#: src/qml/SpaceListContextMenu.qml:58 src/qml/SpaceListContextMenu.qml:139
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -3714,18 +3719,12 @@ msgstr "邀請到私人聊天室"
 msgid "Copy link"
 msgstr "複製連結"
 
-#: src/qml/UserInfo.qml:56
-#, kde-format
-msgctxt "@action:button"
-msgid "Configure"
-msgstr "設定"
-
-#: src/qml/UserInfo.qml:95
+#: src/qml/UserInfo.qml:90
 #, kde-format
 msgid "Switch User"
 msgstr "切換使用者"
 
-#: src/qml/UserInfo.qml:102
+#: src/qml/UserInfo.qml:99
 #, kde-format
 msgid "Open Settings"
 msgstr "開啟設定"
@@ -3901,47 +3900,47 @@ msgstr "遠端由於雙方金鑰不相符而取消了工作階段驗證。"
 msgid "The session verification was canceled due to an unknown error."
 msgstr "工作階段驗證由於不明錯誤而取消。"
 
-#: src/registration.cpp:310
+#: src/registration.cpp:311
 #, kde-format
 msgid "No server."
 msgstr "無伺服器。"
 
-#: src/registration.cpp:312
+#: src/registration.cpp:313
 #, kde-format
 msgid "Checking Server availability."
 msgstr "正在檢查伺服器可用性。"
 
-#: src/registration.cpp:314
+#: src/registration.cpp:315
 #, kde-format
 msgid "This is not a valid server."
 msgstr "這不是一個有效的伺服器。"
 
-#: src/registration.cpp:316
+#: src/registration.cpp:317
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "此伺服器已停用註冊。"
 
-#: src/registration.cpp:318
+#: src/registration.cpp:319
 #, kde-format
 msgid "No username."
 msgstr "無使用者名稱。"
 
-#: src/registration.cpp:320
+#: src/registration.cpp:321
 #, kde-format
 msgid "Checking username availability."
 msgstr "正在檢查使用者名稱是否可用。"
 
-#: src/registration.cpp:322
+#: src/registration.cpp:323
 #, kde-format
 msgid "This username is not available."
 msgstr "無法使用這個使用者名稱。"
 
-#: src/registration.cpp:324
+#: src/registration.cpp:325
 #, kde-format
 msgid "Continue"
 msgstr "繼續"
 
-#: src/registration.cpp:326
+#: src/registration.cpp:327
 #, kde-format
 msgid "Working"
 msgstr "處理中"
@@ -3956,32 +3955,20 @@ msgstr "不正確或空白的 Matrix ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 不是一個正確的 Matrix ID"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "Failed to join room"
 msgstr "加入聊天室失敗"
 
-#: src/roommanager.cpp:365
+#: src/roommanager.cpp:366
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
-#: src/roommanager.cpp:369
+#: src/roommanager.cpp:370
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "請求加入聊天室失敗"
-
-#: src/settings/About.qml:8
-#, kde-format
-msgctxt "@title:window"
-msgid "About NeoChat"
-msgstr "關於 NeoChat"
-
-#: src/settings/AboutKDE.qml:7
-#, kde-format
-msgctxt "@title:window"
-msgid "About KDE"
-msgstr "關於 KDE"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -4103,7 +4090,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "變更密碼時發生未知問題"
 
 #: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
-#: src/settings/NeoChatSettings.qml:56
+#: src/settings/NeoChatSettingsView.qml:61
 #, kde-format
 msgid "Accounts"
 msgstr "帳號"
@@ -4456,106 +4443,106 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "取消忽略這個使用者"
 
-#: src/settings/NeoChatGeneralPage.qml:15
+#: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "一般"
 
-#: src/settings/NeoChatGeneralPage.qml:18
+#: src/settings/NeoChatGeneralPage.qml:23
 #, kde-format
 msgid "General settings"
 msgstr "一般設定"
 
-#: src/settings/NeoChatGeneralPage.qml:24
+#: src/settings/NeoChatGeneralPage.qml:29
 #, kde-format
 msgid "Show in System Tray"
 msgstr "在系統匣中顯示"
 
-#: src/settings/NeoChatGeneralPage.qml:41
+#: src/settings/NeoChatGeneralPage.qml:46
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "啟動時最小化到系統匣"
 
-#: src/settings/NeoChatGeneralPage.qml:58
+#: src/settings/NeoChatGeneralPage.qml:63
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "調整視窗大小時自動隱藏/顯示聊天室資訊"
 
-#: src/settings/NeoChatGeneralPage.qml:74
+#: src/settings/NeoChatGeneralPage.qml:79
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
 msgstr "在「首頁」分頁顯示所有聊天室"
 
-#: src/settings/NeoChatGeneralPage.qml:85
+#: src/settings/NeoChatGeneralPage.qml:90
 #, kde-format
 msgid "Room list sort order"
 msgstr "聊天室列表排序方式"
 
-#: src/settings/NeoChatGeneralPage.qml:89
+#: src/settings/NeoChatGeneralPage.qml:94
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "活動"
 
-#: src/settings/NeoChatGeneralPage.qml:98
+#: src/settings/NeoChatGeneralPage.qml:103
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "按字母順序"
 
-#: src/settings/NeoChatGeneralPage.qml:108
+#: src/settings/NeoChatGeneralPage.qml:113
 #, kde-format
 msgid "Timeline Events"
 msgstr "時間軸事件"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:118
 #, kde-format
 msgid "Show deleted messages"
 msgstr "顯示已刪除的訊息"
 
-#: src/settings/NeoChatGeneralPage.qml:129
+#: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
 msgid "Show state events"
 msgstr "顯示狀態事件"
 
-#: src/settings/NeoChatGeneralPage.qml:147
+#: src/settings/NeoChatGeneralPage.qml:152
 #, kde-format
 msgid "Show leave and join events"
 msgstr "顯示離開與加入事件"
 
-#: src/settings/NeoChatGeneralPage.qml:165
+#: src/settings/NeoChatGeneralPage.qml:170
 #, kde-format
 msgid "Show name change events"
 msgstr "顯示名稱變更事件"
 
-#: src/settings/NeoChatGeneralPage.qml:183
+#: src/settings/NeoChatGeneralPage.qml:188
 #, kde-format
 msgid "Show avatar update events"
 msgstr "顯示頭貼變更事件"
 
-#: src/settings/NeoChatGeneralPage.qml:193
+#: src/settings/NeoChatGeneralPage.qml:198
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "編輯器"
 
-#: src/settings/NeoChatGeneralPage.qml:198
+#: src/settings/NeoChatGeneralPage.qml:203
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "用 s/文字/替代 語法來編輯您上一個訊息"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:217
 #, kde-format
 msgid "Send typing notifications"
 msgstr "傳送輸入中通知"
 
-#: src/settings/NeoChatGeneralPage.qml:222
+#: src/settings/NeoChatGeneralPage.qml:227
 #, kde-format
 msgid "Developer Settings"
 msgstr "開發者設定"
 
-#: src/settings/NeoChatGeneralPage.qml:226
+#: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
 msgid "Enable developer tools"
 msgstr "啟用開發者工具"
@@ -4599,49 +4586,52 @@ msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "已忽略的使用者"
 
-#: src/settings/NeoChatSettings.qml:22 src/settings/RoomGeneralPage.qml:22
-#: src/settings/RoomSettings.qml:21
+#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/RoomSettingsView.qml:39
 #, kde-format
 msgid "General"
 msgstr "一般"
 
-#: src/settings/NeoChatSettings.qml:28
+#: src/settings/NeoChatSettingsView.qml:33
 #, kde-format
 msgid "Appearance"
 msgstr "外觀"
 
-#: src/settings/NeoChatSettings.qml:34 src/settings/RoomSettings.qml:55
+#: src/settings/NeoChatSettingsView.qml:39 src/settings/RoomSettingsView.qml:73
 #, kde-format
 msgid "Notifications"
 msgstr "通知"
 
-#: src/settings/NeoChatSettings.qml:45 src/settings/RoomSecurityPage.qml:20
-#: src/settings/RoomSettings.qml:33
+#: src/settings/NeoChatSettingsView.qml:50 src/settings/RoomSecurityPage.qml:20
+#: src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "安全性"
 
-#: src/settings/NeoChatSettings.qml:67
+#: src/settings/NeoChatSettingsView.qml:67
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "貼圖與表情符號"
 
-#: src/settings/NeoChatSettings.qml:78
-#, kde-format
-msgid "Spell Checking"
-msgstr "拼字檢查"
-
-#: src/settings/NeoChatSettings.qml:85 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:79 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "網路代理伺服器"
 
-#: src/settings/NeoChatSettings.qml:102
+#: src/settings/NeoChatSettingsView.qml:96
 #, kde-format
 msgid "About NeoChat"
 msgstr "關於 NeoChat"
 
-#: src/settings/NeoChatSettings.qml:108
+#: src/settings/NeoChatSettingsView.qml:99
+#: src/settings/NeoChatSettingsView.qml:106
+#, fuzzy, kde-format
+#| msgid "About KDE"
+msgctxt "@title:group"
+msgid "About"
+msgstr "關於 KDE"
+
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About KDE"
 msgstr "關於 KDE"
@@ -5078,96 +5068,24 @@ msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr "新成員只能看到其加入聊天室後的訊息歷史。"
 
-#: src/settings/RoomSettings.qml:44
+#: src/settings/RoomSettingsView.qml:28
+#, fuzzy, kde-format
+#| msgid "Space Settings"
+msgctxt "@title:window"
+msgid "Space Settings"
+msgstr "聊天空間設定"
+
+#: src/settings/RoomSettingsView.qml:30
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "@title:window"
+msgid "Room Settings"
+msgstr "聊天室設定"
+
+#: src/settings/RoomSettingsView.qml:62
 #, kde-format
 msgid "Permissions"
 msgstr "權限"
-
-#: src/settings/SonnetConfigPage.qml:17
-#, kde-format
-msgctxt "@title"
-msgid "Spellchecking"
-msgstr "拼字檢查"
-
-#: src/settings/SonnetConfigPage.qml:27
-#, kde-format
-msgid "Enable automatic spell checking"
-msgstr "開啟自動拼字檢查"
-
-#: src/settings/SonnetConfigPage.qml:42
-#, kde-format
-msgid "Ignore uppercase words"
-msgstr "忽略大寫單詞"
-
-#: src/settings/SonnetConfigPage.qml:57
-#, kde-format
-msgid "Ignore hyphenated words"
-msgstr "忽略利用連字符的單詞"
-
-#: src/settings/SonnetConfigPage.qml:72
-#, kde-format
-msgid "Detect language automatically"
-msgstr "自動偵測語言"
-
-#: src/settings/SonnetConfigPage.qml:86
-#, kde-format
-msgid "Selected default language:"
-msgstr "所選預設語言："
-
-#: src/settings/SonnetConfigPage.qml:89
-#, kde-format
-msgid "None"
-msgstr "無"
-
-#: src/settings/SonnetConfigPage.qml:113
-#, kde-format
-msgid "Additional spell checking languages"
-msgstr "額外的拼字檢查語言"
-
-#: src/settings/SonnetConfigPage.qml:114
-#, kde-format
-msgid ""
-"%1 will provide spell checking and suggestions for the languages listed here "
-"when autodetection is enabled."
-msgstr "啟用自動偵測時 %1 會提供此處列出的語言的拼字檢查和建議。"
-
-#: src/settings/SonnetConfigPage.qml:129
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr "開啟個人字典"
-
-#: src/settings/SonnetConfigPage.qml:140
-#, kde-format
-msgctxt "@title:window"
-msgid "Spell checking languages"
-msgstr "拼字檢查語言"
-
-#: src/settings/SonnetConfigPage.qml:146 src/settings/SonnetConfigPage.qml:164
-#, kde-format
-msgid "Default Language"
-msgstr "預設語言"
-
-#: src/settings/SonnetConfigPage.qml:177
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr "拼字檢查字典"
-
-#: src/settings/SonnetConfigPage.qml:184
-#, kde-format
-msgid "Add a new word to your personal dictionary…"
-msgstr "新增單詞到您的個人字典…"
-
-#: src/settings/SonnetConfigPage.qml:187
-#, kde-format
-msgctxt "@action:button"
-msgid "Add word"
-msgstr "新增單詞"
-
-#: src/settings/SonnetConfigPage.qml:222
-#, kde-format
-msgctxt "@action:button"
-msgid "Delete word"
-msgstr "刪除單詞"
 
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
@@ -5294,12 +5212,12 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr "電話號碼尚未驗證。請至簡訊並跟隨其的指示，之後點擊上方的按鈕"
 
-#: src/timeline/CodeComponent.qml:168
+#: src/timeline/CodeComponent.qml:159
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "複製到剪貼簿"
 
-#: src/timeline/CodeComponent.qml:180
+#: src/timeline/CodeComponent.qml:171
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -5463,6 +5381,82 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
+
+#~ msgid "Configure"
+#~ msgstr "設定"
+
+#~ msgctxt "@button"
+#~ msgid "Space settings"
+#~ msgstr "聊天空間設定"
+
+#~ msgctxt "@action:button"
+#~ msgid "Configure"
+#~ msgstr "設定"
+
+#~ msgctxt "@title:window"
+#~ msgid "About NeoChat"
+#~ msgstr "關於 NeoChat"
+
+#~ msgctxt "@title:window"
+#~ msgid "About KDE"
+#~ msgstr "關於 KDE"
+
+#~ msgid "Spell Checking"
+#~ msgstr "拼字檢查"
+
+#~ msgctxt "@title"
+#~ msgid "Spellchecking"
+#~ msgstr "拼字檢查"
+
+#~ msgid "Enable automatic spell checking"
+#~ msgstr "開啟自動拼字檢查"
+
+#~ msgid "Ignore uppercase words"
+#~ msgstr "忽略大寫單詞"
+
+#~ msgid "Ignore hyphenated words"
+#~ msgstr "忽略利用連字符的單詞"
+
+#~ msgid "Detect language automatically"
+#~ msgstr "自動偵測語言"
+
+#~ msgid "Selected default language:"
+#~ msgstr "所選預設語言："
+
+#~ msgid "None"
+#~ msgstr "無"
+
+#~ msgid "Additional spell checking languages"
+#~ msgstr "額外的拼字檢查語言"
+
+#~ msgid ""
+#~ "%1 will provide spell checking and suggestions for the languages listed "
+#~ "here when autodetection is enabled."
+#~ msgstr "啟用自動偵測時 %1 會提供此處列出的語言的拼字檢查和建議。"
+
+#~ msgid "Open Personal Dictionary"
+#~ msgstr "開啟個人字典"
+
+#~ msgctxt "@title:window"
+#~ msgid "Spell checking languages"
+#~ msgstr "拼字檢查語言"
+
+#~ msgid "Default Language"
+#~ msgstr "預設語言"
+
+#~ msgid "Spell checking dictionary"
+#~ msgstr "拼字檢查字典"
+
+#~ msgid "Add a new word to your personal dictionary…"
+#~ msgstr "新增單詞到您的個人字典…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Add word"
+#~ msgstr "新增單詞"
+
+#~ msgctxt "@action:button"
+#~ msgid "Delete word"
+#~ msgstr "刪除單詞"
 
 #~ msgctxt "menu"
 #~ msgid "Matrix FAQ"

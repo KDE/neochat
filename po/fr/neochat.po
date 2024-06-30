@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 00:39+0000\n"
+"POT-Creation-Date: 2024-06-30 00:39+0000\n"
 "PO-Revision-Date: 2024-06-26 13:03+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -180,7 +180,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Afficher le focus dans l'en-tête de fenêtre"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:240
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:245
 #, kde-format
 msgid "Developer Tools"
 msgstr "Outils de développement"
@@ -373,14 +373,14 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:305 src/eventhandler.cpp:509
-#: src/models/messagecontentmodel.cpp:179 src/models/messageeventmodel.cpp:436
+#: src/eventhandler.cpp:304 src/eventhandler.cpp:509
+#: src/models/messagecontentmodel.cpp:193 src/models/messageeventmodel.cpp:453
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ce message a été supprimé]</i>"
 
-#: src/eventhandler.cpp:305 src/models/messagecontentmodel.cpp:180
-#: src/models/messageeventmodel.cpp:437
+#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:194
+#: src/models/messageeventmodel.cpp:454
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Ce message a été supprimé : %1]</i>"
@@ -716,14 +716,21 @@ msgstr "État mis à jour"
 msgid "started a poll"
 msgstr "a démarré un vote"
 
-#: src/eventhandler.cpp:1040
+#: src/eventhandler.cpp:1035
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] " utilisateur %1 :"
 msgstr[1] " %1 utilisateurs :"
 
-#: src/eventhandler.cpp:1047
+#: src/eventhandler.cpp:1040
+#, fuzzy, kde-format
+#| msgid "Unknown event"
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "Évènement inconnu"
+
+#: src/eventhandler.cpp:1044
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -980,112 +987,112 @@ msgctxt "@title:window"
 msgid "Proxy Settings"
 msgstr "Configuration du serveur mandataire"
 
-#: src/main.cpp:141
+#: src/main.cpp:142
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:143
+#: src/main.cpp:144
 #, kde-format
 msgid "Matrix client"
 msgstr "Client « Matrix »"
 
-#: src/main.cpp:145
+#: src/main.cpp:146
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018 - 2020 Black Hat 2020-2024 Communauté de KDE"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
+#: src/main.cpp:148 src/main.cpp:152 src/main.cpp:153
 #, kde-format
 msgid "Maintainer"
 msgstr "Mainteneur"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:152
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Auteur initial de Spectral"
 
-#: src/main.cpp:154
+#: src/main.cpp:155
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:154
+#: src/main.cpp:155
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Mainteneur de la bibliothèque « libQuotient »"
 
-#: src/main.cpp:155
+#: src/main.cpp:156
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Xavier Besnard"
 
-#: src/main.cpp:155
+#: src/main.cpp:156
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@kde.org"
 
-#: src/main.cpp:159
+#: src/main.cpp:160
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Une bibliothèque Qt pour l'écriture de clients multi-plate-formes pour Matrix"
 
-#: src/main.cpp:161
+#: src/main.cpp:162
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilé en regard de %2)"
 
-#: src/main.cpp:191
+#: src/main.cpp:193
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Un client pour le protocole de communications  Matrix »"
 
-#: src/main.cpp:192
+#: src/main.cpp:194
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Prend en charge le thème d'URL « matrix : »"
 
-#: src/main.cpp:193
+#: src/main.cpp:195
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 "Ignorer toutes les erreurs « SSL », par exemple, les certificats non signés."
 
-#: src/main.cpp:195
+#: src/main.cpp:197
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Uniquement utilisé pour les auto-tests"
 
-#: src/main.cpp:200
+#: src/main.cpp:202
 #, kde-format
 msgid "Internal usage only."
 msgstr "Utilisation interne uniquement."
 
-#: src/main.cpp:205
+#: src/main.cpp:207
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Partager une URL sur « Matrix »"
@@ -1102,308 +1109,308 @@ msgstr ""
 msgid "Image request has been cancelled"
 msgstr "La demande d'image a été annulée."
 
-#: src/models/actionsmodel.cpp:25
+#: src/models/actionsmodel.cpp:26
 #, kde-format
 msgid "Leaving this room."
 msgstr "Déconnexion de ce salon."
 
-#: src/models/actionsmodel.cpp:32 src/models/actionsmodel.cpp:229
-#: src/models/actionsmodel.cpp:255 src/models/actionsmodel.cpp:285
+#: src/models/actionsmodel.cpp:33 src/models/actionsmodel.cpp:230
+#: src/models/actionsmodel.cpp:256 src/models/actionsmodel.cpp:286
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "« %1 » ne ressemble pas à un identifiant ou un alias de salon."
 
-#: src/models/actionsmodel.cpp:40
+#: src/models/actionsmodel.cpp:41
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Déconnexion du salon %1."
 
-#: src/models/actionsmodel.cpp:43
+#: src/models/actionsmodel.cpp:44
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Impossible de trouver le salon %1."
 
-#: src/models/actionsmodel.cpp:51 src/models/actionsmodel.cpp:321
+#: src/models/actionsmodel.cpp:52 src/models/actionsmodel.cpp:322
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr ""
 "Aucun nouveau pseudonyme fourni. Aucune modification ne sera effectuée."
 
-#: src/models/actionsmodel.cpp:66 src/models/actionsmodel.cpp:76
-#: src/models/actionsmodel.cpp:86 src/models/actionsmodel.cpp:96
-#: src/models/actionsmodel.cpp:116 src/models/actionsmodel.cpp:136
-#: src/models/actionsmodel.cpp:147 src/models/actionsmodel.cpp:163
-#: src/models/actionsmodel.cpp:173 src/models/actionsmodel.cpp:183
+#: src/models/actionsmodel.cpp:67 src/models/actionsmodel.cpp:77
+#: src/models/actionsmodel.cpp:87 src/models/actionsmodel.cpp:97
+#: src/models/actionsmodel.cpp:117 src/models/actionsmodel.cpp:137
+#: src/models/actionsmodel.cpp:148 src/models/actionsmodel.cpp:164
+#: src/models/actionsmodel.cpp:174 src/models/actionsmodel.cpp:184
 msgid "<message>"
 msgstr "<message>"
 
-#: src/models/actionsmodel.cpp:67
+#: src/models/actionsmodel.cpp:68
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Préfixe ¯\\_(ツ)_/¯ en un message de texte brut"
 
-#: src/models/actionsmodel.cpp:77
+#: src/models/actionsmodel.cpp:78
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Préfixe ( ͡° ͜ʖ ͡°) en un message de texte brut"
 
-#: src/models/actionsmodel.cpp:87
+#: src/models/actionsmodel.cpp:88
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Ajoute « ( ͡° ͜ʖ ͡°) » à un message en texte brut"
 
-#: src/models/actionsmodel.cpp:97
+#: src/models/actionsmodel.cpp:98
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Ajoute « ¯\\_(ツ)_/¯ » à un message en texte brut"
 
-#: src/models/actionsmodel.cpp:117
+#: src/models/actionsmodel.cpp:118
 msgid "Sends the given message colored as a rainbow"
 msgstr "Envoie le message fourni coloré comme un arc-en-ciel."
 
-#: src/models/actionsmodel.cpp:137
+#: src/models/actionsmodel.cpp:138
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Envoie l'émoticône fournie, colorée comme un arc-en-ciel."
 
-#: src/models/actionsmodel.cpp:148
+#: src/models/actionsmodel.cpp:149
 msgid "Sends the given message as plain text"
 msgstr "Envoie le message fourni comme un texte simple"
 
-#: src/models/actionsmodel.cpp:164
+#: src/models/actionsmodel.cpp:165
 msgid "Sends the given message as a spoiler"
 msgstr "Envoie le message fourni comme un pourriciel"
 
-#: src/models/actionsmodel.cpp:174
+#: src/models/actionsmodel.cpp:175
 msgid "Sends the given emote"
 msgstr "Envoie l'émoticône fournie"
 
-#: src/models/actionsmodel.cpp:184
+#: src/models/actionsmodel.cpp:185
 msgid "Sends the given message as a notice"
 msgstr "Envoie le message fourni comme un avis"
 
-#: src/models/actionsmodel.cpp:193 src/models/actionsmodel.cpp:355
-#: src/models/actionsmodel.cpp:378 src/models/actionsmodel.cpp:422
-#: src/models/actionsmodel.cpp:460 src/models/actionsmodel.cpp:495
+#: src/models/actionsmodel.cpp:194 src/models/actionsmodel.cpp:356
+#: src/models/actionsmodel.cpp:379 src/models/actionsmodel.cpp:423
+#: src/models/actionsmodel.cpp:461 src/models/actionsmodel.cpp:496
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "« %1 » ne ressemble pas à un identifiant « Matrix »."
 
-#: src/models/actionsmodel.cpp:198
+#: src/models/actionsmodel.cpp:199
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 est déjà invité dans ce salon."
 
-#: src/models/actionsmodel.cpp:202
+#: src/models/actionsmodel.cpp:203
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 est banni de ce salon."
 
-#: src/models/actionsmodel.cpp:206
+#: src/models/actionsmodel.cpp:207
 #, kde-format
 msgid "You are already in this room."
 msgstr "Vous êtes déjà dans ce salon."
 
-#: src/models/actionsmodel.cpp:210
+#: src/models/actionsmodel.cpp:211
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 est déjà présent dans ce salon."
 
-#: src/models/actionsmodel.cpp:214
+#: src/models/actionsmodel.cpp:215
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 a été invité dans ce salon."
 
-#: src/models/actionsmodel.cpp:219 src/models/actionsmodel.cpp:368
-#: src/models/actionsmodel.cpp:391 src/models/actionsmodel.cpp:483
+#: src/models/actionsmodel.cpp:220 src/models/actionsmodel.cpp:369
+#: src/models/actionsmodel.cpp:392 src/models/actionsmodel.cpp:484
 msgid "<user id>"
 msgstr "<user id>"
 
-#: src/models/actionsmodel.cpp:220
+#: src/models/actionsmodel.cpp:221
 msgid "Invites the user to this room"
 msgstr "Invite un utilisateur dans ce salon"
 
-#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:292
+#: src/models/actionsmodel.cpp:238 src/models/actionsmodel.cpp:293
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Connexion au salon %1."
 
-#: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:298
+#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:299
 msgid "<room alias or id>"
 msgstr "<room alias or id>"
 
-#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:299
+#: src/models/actionsmodel.cpp:245 src/models/actionsmodel.cpp:300
 msgid "Joins the given room"
 msgstr "Se connecte au salon fourni"
 
-#: src/models/actionsmodel.cpp:263
+#: src/models/actionsmodel.cpp:264
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Frappe à la porte du salon %1."
 
-#: src/models/actionsmodel.cpp:275
+#: src/models/actionsmodel.cpp:276
 msgid "<room alias or id> [<reason>]"
 msgstr "<room alias or id> [<reason>]"
 
-#: src/models/actionsmodel.cpp:276
+#: src/models/actionsmodel.cpp:277
 msgid "Requests to join the given room"
 msgstr "Demande à rejoindre un salon donné"
 
-#: src/models/actionsmodel.cpp:289
+#: src/models/actionsmodel.cpp:290
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Vous êtes déjà présent dans le salon %1."
 
-#: src/models/actionsmodel.cpp:306 src/models/actionsmodel.cpp:314
+#: src/models/actionsmodel.cpp:307 src/models/actionsmodel.cpp:315
 msgid "[<room alias or id>]"
 msgstr "[<room alias or id>]"
 
-#: src/models/actionsmodel.cpp:307 src/models/actionsmodel.cpp:315
+#: src/models/actionsmodel.cpp:308 src/models/actionsmodel.cpp:316
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Quitte le salon fourni ou ce salon, si aucun paramètre n'est fourni."
 
-#: src/models/actionsmodel.cpp:329 src/models/actionsmodel.cpp:337
-#: src/models/actionsmodel.cpp:345
+#: src/models/actionsmodel.cpp:330 src/models/actionsmodel.cpp:338
+#: src/models/actionsmodel.cpp:346
 msgid "<display name>"
 msgstr "<nom pour affichage>"
 
-#: src/models/actionsmodel.cpp:330
+#: src/models/actionsmodel.cpp:331
 msgid "Changes your global display name"
 msgstr "Modifie votre nom pour affichage global"
 
-#: src/models/actionsmodel.cpp:338 src/models/actionsmodel.cpp:346
+#: src/models/actionsmodel.cpp:339 src/models/actionsmodel.cpp:347
 msgid "Changes your display name in this room"
 msgstr "Modifie votre nom d'affichage pour ce salon"
 
-#: src/models/actionsmodel.cpp:359
+#: src/models/actionsmodel.cpp:360
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 est déjà ignoré."
 
-#: src/models/actionsmodel.cpp:363
+#: src/models/actionsmodel.cpp:364
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 est maintenant ignoré."
 
-#: src/models/actionsmodel.cpp:369
+#: src/models/actionsmodel.cpp:370
 msgid "Ignores the given user"
 msgstr "Ignore un utilisateur donné"
 
-#: src/models/actionsmodel.cpp:382
+#: src/models/actionsmodel.cpp:383
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 est pris en compte."
 
-#: src/models/actionsmodel.cpp:386
+#: src/models/actionsmodel.cpp:387
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 n'est plus ignoré maintenant."
 
-#: src/models/actionsmodel.cpp:392
+#: src/models/actionsmodel.cpp:393
 msgid "Unignores the given user"
 msgstr "Reprendre en compte l'utilisateur donné"
 
-#: src/models/actionsmodel.cpp:411
+#: src/models/actionsmodel.cpp:412
 msgid "<reaction text>"
 msgstr "<reaction text>"
 
-#: src/models/actionsmodel.cpp:412
+#: src/models/actionsmodel.cpp:413
 msgid "React to the message with the given text"
 msgstr "Réagir à ce message avec un texte donné"
 
-#: src/models/actionsmodel.cpp:427
+#: src/models/actionsmodel.cpp:428
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 est déjà banni de ce salon."
 
-#: src/models/actionsmodel.cpp:435
+#: src/models/actionsmodel.cpp:436
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Vous n'êtes pas autorisé à bannir des utilisateurs de ce salon."
 
-#: src/models/actionsmodel.cpp:441
+#: src/models/actionsmodel.cpp:442
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Vous n'êtes pas autorisé à bannir %1 de ce salon."
 
-#: src/models/actionsmodel.cpp:445
+#: src/models/actionsmodel.cpp:446
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 a été banni de ce salon."
 
-#: src/models/actionsmodel.cpp:450 src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:451 src/models/actionsmodel.cpp:528
 msgid "<user id> [<reason>]"
 msgstr "<user id> [<reason>]"
 
-#: src/models/actionsmodel.cpp:451
+#: src/models/actionsmodel.cpp:452
 msgid "Bans the given user"
 msgstr "Bannis l'utilisateur donné"
 
-#: src/models/actionsmodel.cpp:468
+#: src/models/actionsmodel.cpp:469
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr ""
 "Vous n'êtes pas autorisé à supprimer le bannissement d'utilisateurs de ce "
 "salon."
 
-#: src/models/actionsmodel.cpp:473
+#: src/models/actionsmodel.cpp:474
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 n'est pas banni de ce salon."
 
-#: src/models/actionsmodel.cpp:477
+#: src/models/actionsmodel.cpp:478
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 a été banni de ce salon."
 
-#: src/models/actionsmodel.cpp:484
+#: src/models/actionsmodel.cpp:485
 msgid "Removes the ban of the given user"
 msgstr "Supprime le bannissement pour un utilisateur donné"
 
-#: src/models/actionsmodel.cpp:499
+#: src/models/actionsmodel.cpp:500
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Il vous est impossible de vous bannir d'un salon."
 
-#: src/models/actionsmodel.cpp:503
+#: src/models/actionsmodel.cpp:504
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 est absent de ce salon."
 
-#: src/models/actionsmodel.cpp:512
+#: src/models/actionsmodel.cpp:513
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Vous n'êtes pas autorisé à expulser des utilisateurs de ce salon."
 
-#: src/models/actionsmodel.cpp:518
+#: src/models/actionsmodel.cpp:519
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Vous n'êtes pas autorisé à expulser %1 de ce salon."
 
-#: src/models/actionsmodel.cpp:522
+#: src/models/actionsmodel.cpp:523
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 a été expulsé de ce salon."
 
-#: src/models/actionsmodel.cpp:528
+#: src/models/actionsmodel.cpp:529
 msgid "Removes the user from the room"
 msgstr "Enlève un utilisateur d'un salon"
 
@@ -1485,7 +1492,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Émoticônes personnelles"
 
-#: src/models/messagecontentmodel.cpp:172
+#: src/models/messagecontentmodel.cpp:186
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -1732,7 +1739,7 @@ msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " et "
 
-#: src/models/reactionmodel.cpp:77
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1740,7 +1747,7 @@ msgid_plural " and %1 others"
 msgstr[0] " et %1 autre"
 msgstr[1] " et %1 autres"
 
-#: src/models/reactionmodel.cpp:81
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1775,12 +1782,12 @@ msgstr "Impossible de créer le salon : %1"
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer un espace : %1"
 
-#: src/neochatroom.cpp:1404 src/neochatroom.cpp:1405
+#: src/neochatroom.cpp:1351 src/neochatroom.cpp:1352
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport envoyé avec succès."
 
-#: src/neochatroom.cpp:1679 src/neochatroom.cpp:1687
+#: src/neochatroom.cpp:1622 src/neochatroom.cpp:1630
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1791,7 +1798,7 @@ msgstr "Lat : %1, Long : %2"
 msgid "Encrypted Message"
 msgstr "Message chiffré"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:275
+#: src/notificationsmanager.cpp:204 src/qml/Main.qml:279
 #, kde-format
 msgid "%1: %2"
 msgstr "%1 : %2"
@@ -1801,7 +1808,7 @@ msgstr "%1 : %2"
 msgid "Open NeoChat in this room"
 msgstr "Ouvrir NeoChat dans cette salon"
 
-#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:107
+#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:104
 #, kde-format
 msgid "Reply"
@@ -1850,65 +1857,59 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Ouvrir NeoChat"
 
-#: src/qml/AccountMenu.qml:22 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "Modifier ce compte"
 
-#: src/qml/AccountMenu.qml:27 src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:28 src/settings/AccountsPage.qml:34
 #: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "Éditeur de comptes"
 
-#: src/qml/AccountMenu.qml:31
+#: src/qml/AccountMenu.qml:32
 #, kde-format
 msgid "Notification settings"
 msgstr "Configuration des notifications"
 
-#: src/qml/AccountMenu.qml:37 src/qml/AccountMenu.qml:49
-#: src/qml/GlobalMenu.qml:31 src/qml/Main.qml:327 src/qml/UserInfo.qml:107
-#, kde-format
-msgid "Configure"
-msgstr "Configurer"
-
-#: src/qml/AccountMenu.qml:43 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettings.qml:91
+#: src/qml/AccountMenu.qml:39 src/settings/DevicesPage.qml:17
+#: src/settings/NeoChatSettingsView.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Périphériques"
 
-#: src/qml/AccountMenu.qml:55 src/settings/NeoChatGeneralPage.qml:236
+#: src/qml/AccountMenu.qml:46 src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Open developer tools"
 msgstr "Ouvrir les outils de développement"
 
-#: src/qml/AccountMenu.qml:61
+#: src/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Outils de développement"
 
-#: src/qml/AccountMenu.qml:67
+#: src/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Ouvrir l'archive secrète"
 
-#: src/qml/AccountMenu.qml:71
+#: src/qml/AccountMenu.qml:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Ouvrir l'archive des clés"
 
-#: src/qml/AccountMenu.qml:75
+#: src/qml/AccountMenu.qml:66
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "Vérifier un périphérique"
 
-#: src/qml/AccountMenu.qml:81 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Déconnexion"
@@ -2133,17 +2134,17 @@ msgstr "Supprimer de vos signets"
 msgid "Add to Favorites"
 msgstr "Ajouter à vos signets"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:197
 #, kde-format
 msgid "Reprioritize"
 msgstr "Re-prioriser"
 
-#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:204
+#: src/qml/ContextMenu.qml:37 src/qml/ContextMenu.qml:197
 #, kde-format
 msgid "Deprioritize"
 msgstr "Dé-prioriser"
 
-#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:211
+#: src/qml/ContextMenu.qml:43 src/qml/ContextMenu.qml:204
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marquer comme lu"
@@ -2154,8 +2155,8 @@ msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Copier l'identifiant utilisateur « Matrix » dans le presse-papier"
 
-#: src/qml/ContextMenu.qml:49 src/qml/SpaceListContextMenu.qml:37
-#: src/qml/SpaceListContextMenu.qml:122
+#: src/qml/ContextMenu.qml:49 src/qml/SpaceListContextMenu.qml:38
+#: src/qml/SpaceListContextMenu.qml:120
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -2191,27 +2192,34 @@ msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Désactivé"
 
-#: src/qml/ContextMenu.qml:111 src/qml/ContextMenu.qml:117
-#: src/qml/ContextMenu.qml:196 src/qml/RoomDrawer.qml:111
-#: src/qml/RoomDrawerPage.qml:51 src/qml/SpaceHomePage.qml:80
-#, kde-format
+#: src/qml/ContextMenu.qml:111
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "Configuration du salon"
 
-#: src/qml/ContextMenu.qml:124 src/qml/ContextMenu.qml:218
+#: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:211
 #, kde-format
 msgid "Leave Room"
 msgstr "Quitter un salon"
 
-#: src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:182
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Supprimer de vos préférés"
 
-#: src/qml/ContextMenu.qml:185
+#: src/qml/ContextMenu.qml:182
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Ajouter à vos préférés"
+
+#: src/qml/ContextMenu.qml:187
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "@action:button"
+msgid "Room Settings"
+msgstr "Configuration du salon"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -2292,7 +2300,7 @@ msgstr "Sélectionner un salon"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
-#: src/qml/GlobalMenu.qml:70 src/qml/RoomListPage.qml:210
+#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:210
 #: src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -2333,41 +2341,41 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ok"
 
-#: src/qml/DelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:78
 #, kde-format
 msgid "View Source"
 msgstr "Afficher la source"
 
-#: src/qml/DelegateContextMenu.qml:94 src/qml/FileDelegateContextMenu.qml:67
+#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:67
 #, kde-format
 msgid "Remove"
 msgstr "Supprimer"
 
-#: src/qml/DelegateContextMenu.qml:101 src/qml/FileDelegateContextMenu.qml:74
+#: src/qml/DelegateContextMenu.qml:92 src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Supprimer un message"
 
-#: src/qml/DelegateContextMenu.qml:117 src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:108 src/qml/ReportSheet.qml:43
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Rapport"
 
-#: src/qml/DelegateContextMenu.qml:124
+#: src/qml/DelegateContextMenu.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Signaler un message"
 
-#: src/qml/DelegateContextMenu.qml:169
+#: src/qml/DelegateContextMenu.qml:160
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Rechercher « %1 »"
 
-#: src/qml/DelegateContextMenu.qml:190
+#: src/qml/DelegateContextMenu.qml:181
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configurer les raccourcis Internet..."
@@ -2457,14 +2465,14 @@ msgid "Explore rooms"
 msgstr "Explorer les salons"
 
 #: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:67
-#: src/qml/GlobalMenu.qml:48 src/qml/GlobalMenu.qml:57
+#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr "Rechercher vos personnes amies"
 
 #: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:73
-#: src/qml/GlobalMenu.qml:52 src/qml/RoomListPage.qml:180
+#: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
 msgctxt "@title"
@@ -2602,49 +2610,49 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Configurer NeoChat..."
 
-#: src/qml/GlobalMenu.qml:37
+#: src/qml/GlobalMenu.qml:31
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Fermer NeoChat"
 
-#: src/qml/GlobalMenu.qml:44
+#: src/qml/GlobalMenu.qml:38
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Fichier"
 
-#: src/qml/GlobalMenu.qml:47
+#: src/qml/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "Find your friends"
 msgstr "Rechercher vos personnes amies"
 
-#: src/qml/GlobalMenu.qml:56
+#: src/qml/GlobalMenu.qml:50
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Nouveau groupe…"
 
-#: src/qml/GlobalMenu.qml:65
+#: src/qml/GlobalMenu.qml:59
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Naviguer parmi les salons…"
 
-#: src/qml/GlobalMenu.qml:79
+#: src/qml/GlobalMenu.qml:73
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Modifier"
 
-#: src/qml/GlobalMenu.qml:83
+#: src/qml/GlobalMenu.qml:77
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Afficher"
 
-#: src/qml/GlobalMenu.qml:86
+#: src/qml/GlobalMenu.qml:80
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2652,43 +2660,43 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Ouvrir le commutateur rapide"
 
-#: src/qml/GlobalMenu.qml:91
+#: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Fenêtre"
 
-#: src/qml/GlobalMenu.qml:94
+#: src/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Sortir du mode plein écran"
 
-#: src/qml/GlobalMenu.qml:94
+#: src/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Passer en plein écran"
 
-#: src/qml/GlobalMenu.qml:99
+#: src/qml/GlobalMenu.qml:93
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Aide"
 
-#: src/qml/GlobalMenu.qml:102
+#: src/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "About Matrix"
 msgstr "À propos de Matrix"
 
-#: src/qml/GlobalMenu.qml:106
+#: src/qml/GlobalMenu.qml:100
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "À propos de NeoChat"
 
-#: src/qml/GlobalMenu.qml:110
+#: src/qml/GlobalMenu.qml:104
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -2901,25 +2909,25 @@ msgstr "Emplacements"
 msgid "There are no locations shared in this room."
 msgstr "Il n'y a aucun emplacement partagé dans ce salon."
 
-#: src/qml/Main.qml:165
+#: src/qml/Main.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Afficher les informations de salons"
 
-#: src/qml/Main.qml:168
+#: src/qml/Main.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Fermer le casier des informations de salons"
 
-#: src/qml/Main.qml:304
+#: src/qml/Main.qml:308
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Vérification de la session"
 
-#: src/qml/Main.qml:345 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:344 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3150,16 +3158,18 @@ msgid "Configure room"
 msgstr "Configurer un salon"
 
 #: src/qml/RoomDrawer.qml:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Paramètres du salon"
 
-#: src/qml/RoomDrawer.qml:154 src/qml/RoomDrawerPage.qml:88
+#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
 msgid "Information"
 msgstr "Informations"
 
-#: src/qml/RoomDrawer.qml:159 src/qml/RoomDrawerPage.qml:93
+#: src/qml/RoomDrawer.qml:156 src/qml/RoomDrawerPage.qml:93
 #, kde-format
 msgid "Media"
 msgstr "Média"
@@ -3168,6 +3178,11 @@ msgstr "Média"
 #, kde-format
 msgid "Settings"
 msgstr "Configuration"
+
+#: src/qml/RoomDrawerPage.qml:51
+#, kde-format
+msgid "Room Settings"
+msgstr "Configuration du salon"
 
 #: src/qml/RoomInformation.qml:40
 #, kde-format
@@ -3539,11 +3554,12 @@ msgctxt "@button"
 msgid "Leave the space"
 msgstr "Quitter l'espace"
 
-#: src/qml/SpaceHomePage.qml:73
+#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:48
+#: src/qml/SpaceListContextMenu.qml:130
 #, kde-format
-msgctxt "@button"
-msgid "Space settings"
-msgstr "Configuration des espaces"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Configuration des espacements"
 
 #: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
 #, kde-format
@@ -3551,24 +3567,13 @@ msgctxt "@title"
 msgid "Create a Child"
 msgstr "Créer un fils"
 
-#: src/qml/SpaceListContextMenu.qml:31 src/qml/SpaceListContextMenu.qml:116
+#: src/qml/SpaceListContextMenu.qml:32 src/qml/SpaceListContextMenu.qml:114
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Afficher un espace"
 
-#: src/qml/SpaceListContextMenu.qml:47 src/qml/SpaceListContextMenu.qml:132
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "Configuration des espacements"
-
-#: src/qml/SpaceListContextMenu.qml:53 src/qml/SpaceListContextMenu.qml:138
-#, kde-format
-msgid "Space Settings"
-msgstr "Configuration des espacements"
-
-#: src/qml/SpaceListContextMenu.qml:60 src/qml/SpaceListContextMenu.qml:143
+#: src/qml/SpaceListContextMenu.qml:58 src/qml/SpaceListContextMenu.qml:139
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -3765,18 +3770,12 @@ msgstr "Inviter dans un salon privé"
 msgid "Copy link"
 msgstr "Copier un lien"
 
-#: src/qml/UserInfo.qml:56
-#, kde-format
-msgctxt "@action:button"
-msgid "Configure"
-msgstr "Configurer"
-
-#: src/qml/UserInfo.qml:95
+#: src/qml/UserInfo.qml:90
 #, kde-format
 msgid "Switch User"
 msgstr "Changer d'utilisateur"
 
-#: src/qml/UserInfo.qml:102
+#: src/qml/UserInfo.qml:99
 #, kde-format
 msgid "Open Settings"
 msgstr "Ouvrir la configuration"
@@ -3982,47 +3981,47 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "La vérification de session a été annulée à cause d'une erreur inconnue."
 
-#: src/registration.cpp:310
+#: src/registration.cpp:311
 #, kde-format
 msgid "No server."
 msgstr "Aucun serveur."
 
-#: src/registration.cpp:312
+#: src/registration.cpp:313
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Vérification de la disponibilité du serveur."
 
-#: src/registration.cpp:314
+#: src/registration.cpp:315
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Ceci n'est pas un serveur valable."
 
-#: src/registration.cpp:316
+#: src/registration.cpp:317
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "L'enregistrement avec ce serveur est désactivé."
 
-#: src/registration.cpp:318
+#: src/registration.cpp:319
 #, kde-format
 msgid "No username."
 msgstr "Aucun nom d'utilisateur."
 
-#: src/registration.cpp:320
+#: src/registration.cpp:321
 #, kde-format
 msgid "Checking username availability."
 msgstr "Vérification de la disponibilité du nom d'utilisateur."
 
-#: src/registration.cpp:322
+#: src/registration.cpp:323
 #, kde-format
 msgid "This username is not available."
 msgstr "Ce nom d'utilisateur est indisponible."
 
-#: src/registration.cpp:324
+#: src/registration.cpp:325
 #, kde-format
 msgid "Continue"
 msgstr "Continuer"
 
-#: src/registration.cpp:326
+#: src/registration.cpp:327
 #, kde-format
 msgid "Working"
 msgstr "De travail"
@@ -4037,32 +4036,20 @@ msgstr "Identifiant Matrix mal formé ou vide"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 n'est pas un identifiant Matrix correct"
 
-#: src/roommanager.cpp:333
+#: src/roommanager.cpp:334
 #, kde-format
 msgid "Failed to join room"
 msgstr "Impossible de rejoindre un salon"
 
-#: src/roommanager.cpp:365
+#: src/roommanager.cpp:366
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vous avez demandé à rejoindre « %1 »"
 
-#: src/roommanager.cpp:369
+#: src/roommanager.cpp:370
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Échec de la demande pour rejoindre un salon"
-
-#: src/settings/About.qml:8
-#, kde-format
-msgctxt "@title:window"
-msgid "About NeoChat"
-msgstr "À propos de NeoChat"
-
-#: src/settings/AboutKDE.qml:7
-#, kde-format
-msgctxt "@title:window"
-msgid "About KDE"
-msgstr "À propos de KDE"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -4185,7 +4172,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "Problème inconnu durant la tentative de chargement de mot de passe."
 
 #: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
-#: src/settings/NeoChatSettings.qml:56
+#: src/settings/NeoChatSettingsView.qml:61
 #, kde-format
 msgid "Accounts"
 msgstr "Comptes"
@@ -4543,110 +4530,110 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Re-considérer cet utilisateur"
 
-#: src/settings/NeoChatGeneralPage.qml:15
+#: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Général"
 
-#: src/settings/NeoChatGeneralPage.qml:18
+#: src/settings/NeoChatGeneralPage.qml:23
 #, kde-format
 msgid "General settings"
 msgstr "Configuration générale"
 
-#: src/settings/NeoChatGeneralPage.qml:24
+#: src/settings/NeoChatGeneralPage.qml:29
 #, kde-format
 msgid "Show in System Tray"
 msgstr "Afficher dans la boîte à miniatures"
 
-#: src/settings/NeoChatGeneralPage.qml:41
+#: src/settings/NeoChatGeneralPage.qml:46
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Minimiser dans la boîte à miniatures au démarrage."
 
-#: src/settings/NeoChatGeneralPage.qml:58
+#: src/settings/NeoChatGeneralPage.qml:63
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Masquer / démasquer automatiquement les informations sur le salon lors du "
 "redimensionnement de la fenêtre."
 
-#: src/settings/NeoChatGeneralPage.qml:74
+#: src/settings/NeoChatGeneralPage.qml:79
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
 msgstr "Afficher tous les salons dans l'onglet « Accueil »"
 
-#: src/settings/NeoChatGeneralPage.qml:85
+#: src/settings/NeoChatGeneralPage.qml:90
 #, kde-format
 msgid "Room list sort order"
 msgstr "Ordre de tri pour la liste de salons"
 
-#: src/settings/NeoChatGeneralPage.qml:89
+#: src/settings/NeoChatGeneralPage.qml:94
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Activité"
 
-#: src/settings/NeoChatGeneralPage.qml:98
+#: src/settings/NeoChatGeneralPage.qml:103
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alphabétique"
 
-#: src/settings/NeoChatGeneralPage.qml:108
+#: src/settings/NeoChatGeneralPage.qml:113
 #, kde-format
 msgid "Timeline Events"
 msgstr "Évènements de chronologie"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:118
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Afficher les messages supprimés"
 
-#: src/settings/NeoChatGeneralPage.qml:129
+#: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
 msgid "Show state events"
 msgstr "Afficher les évènements de modifications d'état"
 
-#: src/settings/NeoChatGeneralPage.qml:147
+#: src/settings/NeoChatGeneralPage.qml:152
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Afficher les évènements de participation et de déconnexion."
 
-#: src/settings/NeoChatGeneralPage.qml:165
+#: src/settings/NeoChatGeneralPage.qml:170
 #, kde-format
 msgid "Show name change events"
 msgstr "Afficher les évènements avec modification de noms"
 
-#: src/settings/NeoChatGeneralPage.qml:183
+#: src/settings/NeoChatGeneralPage.qml:188
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Afficher les évènements avec modification d'avatars"
 
-#: src/settings/NeoChatGeneralPage.qml:193
+#: src/settings/NeoChatGeneralPage.qml:198
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Éditeur"
 
-#: src/settings/NeoChatGeneralPage.qml:198
+#: src/settings/NeoChatGeneralPage.qml:203
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Utiliser la syntaxe « s/texte/remplacement » pour modifier votre dernier "
 "message"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:217
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Envoyer des notifications de saisie"
 
-#: src/settings/NeoChatGeneralPage.qml:222
+#: src/settings/NeoChatGeneralPage.qml:227
 #, kde-format
 msgid "Developer Settings"
 msgstr "Configuration pour développeurs"
 
-#: src/settings/NeoChatGeneralPage.qml:226
+#: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Activer les outils de développement"
@@ -4690,49 +4677,52 @@ msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Utilisateurs ignorés"
 
-#: src/settings/NeoChatSettings.qml:22 src/settings/RoomGeneralPage.qml:22
-#: src/settings/RoomSettings.qml:21
+#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/RoomSettingsView.qml:39
 #, kde-format
 msgid "General"
 msgstr "Général"
 
-#: src/settings/NeoChatSettings.qml:28
+#: src/settings/NeoChatSettingsView.qml:33
 #, kde-format
 msgid "Appearance"
 msgstr "Apparence"
 
-#: src/settings/NeoChatSettings.qml:34 src/settings/RoomSettings.qml:55
+#: src/settings/NeoChatSettingsView.qml:39 src/settings/RoomSettingsView.qml:73
 #, kde-format
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/settings/NeoChatSettings.qml:45 src/settings/RoomSecurityPage.qml:20
-#: src/settings/RoomSettings.qml:33
+#: src/settings/NeoChatSettingsView.qml:50 src/settings/RoomSecurityPage.qml:20
+#: src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Sécurité"
 
-#: src/settings/NeoChatSettings.qml:67
+#: src/settings/NeoChatSettingsView.qml:67
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Étiquettes auto-collantes et émoticônes"
 
-#: src/settings/NeoChatSettings.qml:78
-#, kde-format
-msgid "Spell Checking"
-msgstr "Vérification de l'orthographe"
-
-#: src/settings/NeoChatSettings.qml:85 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:79 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Serveur mandataire du réseau"
 
-#: src/settings/NeoChatSettings.qml:102
+#: src/settings/NeoChatSettingsView.qml:96
 #, kde-format
 msgid "About NeoChat"
 msgstr "À propos de NeoChat"
 
-#: src/settings/NeoChatSettings.qml:108
+#: src/settings/NeoChatSettingsView.qml:99
+#: src/settings/NeoChatSettingsView.qml:106
+#, fuzzy, kde-format
+#| msgid "About KDE"
+msgctxt "@title:group"
+msgid "About"
+msgstr "À propos de KDE"
+
+#: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
 msgid "About KDE"
 msgstr "À propos de KDE"
@@ -5185,98 +5175,24 @@ msgstr ""
 "Les nouveaux membres peuvent consulter l'historique du message à partir du "
 "moment où ils se sont connectés au salon."
 
-#: src/settings/RoomSettings.qml:44
+#: src/settings/RoomSettingsView.qml:28
+#, fuzzy, kde-format
+#| msgid "Space Settings"
+msgctxt "@title:window"
+msgid "Space Settings"
+msgstr "Configuration des espacements"
+
+#: src/settings/RoomSettingsView.qml:30
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "@title:window"
+msgid "Room Settings"
+msgstr "Configuration du salon"
+
+#: src/settings/RoomSettingsView.qml:62
 #, kde-format
 msgid "Permissions"
 msgstr "Permissions"
-
-#: src/settings/SonnetConfigPage.qml:17
-#, kde-format
-msgctxt "@title"
-msgid "Spellchecking"
-msgstr "Vérification orthographique"
-
-#: src/settings/SonnetConfigPage.qml:27
-#, kde-format
-msgid "Enable automatic spell checking"
-msgstr "Activer la vérification automatique de l'orthographe"
-
-#: src/settings/SonnetConfigPage.qml:42
-#, kde-format
-msgid "Ignore uppercase words"
-msgstr "Ignorer les mots en majuscules"
-
-#: src/settings/SonnetConfigPage.qml:57
-#, kde-format
-msgid "Ignore hyphenated words"
-msgstr "Ignorer les mots avec trait d'union"
-
-#: src/settings/SonnetConfigPage.qml:72
-#, kde-format
-msgid "Detect language automatically"
-msgstr "Détecter automatiquement la langue"
-
-#: src/settings/SonnetConfigPage.qml:86
-#, kde-format
-msgid "Selected default language:"
-msgstr "Langue sélectionnée par défaut :"
-
-#: src/settings/SonnetConfigPage.qml:89
-#, kde-format
-msgid "None"
-msgstr "Aucun"
-
-#: src/settings/SonnetConfigPage.qml:113
-#, kde-format
-msgid "Additional spell checking languages"
-msgstr "Langues supplémentaires avec vérification orthographique"
-
-#: src/settings/SonnetConfigPage.qml:114
-#, kde-format
-msgid ""
-"%1 will provide spell checking and suggestions for the languages listed here "
-"when autodetection is enabled."
-msgstr ""
-"%1 vous fournira une vérification orthographique et des suggestions pour les "
-"langues listées lorsque l'auto-détection est activée."
-
-#: src/settings/SonnetConfigPage.qml:129
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr "Ouvrir le dictionnaire personnel"
-
-#: src/settings/SonnetConfigPage.qml:140
-#, kde-format
-msgctxt "@title:window"
-msgid "Spell checking languages"
-msgstr "Langues avec vérification orthographique"
-
-#: src/settings/SonnetConfigPage.qml:146 src/settings/SonnetConfigPage.qml:164
-#, kde-format
-msgid "Default Language"
-msgstr "Langue par défaut"
-
-#: src/settings/SonnetConfigPage.qml:177
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr "Dictionnaire de vérification orthographique"
-
-#: src/settings/SonnetConfigPage.qml:184
-#, kde-format
-msgid "Add a new word to your personal dictionary…"
-msgstr "Ajouter un nouveau mot à votre dictionnaire personnel…"
-
-#: src/settings/SonnetConfigPage.qml:187
-#, kde-format
-msgctxt "@action:button"
-msgid "Add word"
-msgstr "Ajouter un mot"
-
-#: src/settings/SonnetConfigPage.qml:222
-#, kde-format
-msgctxt "@action:button"
-msgid "Delete word"
-msgstr "Supprimer un mot"
 
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
@@ -5418,12 +5334,12 @@ msgstr ""
 "texte, suivre les instructions proposées ici et ensuite cliquer sur le "
 "bouton ci-dessus."
 
-#: src/timeline/CodeComponent.qml:168
+#: src/timeline/CodeComponent.qml:159
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papier"
 
-#: src/timeline/CodeComponent.qml:180
+#: src/timeline/CodeComponent.qml:171
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -5592,6 +5508,84 @@ msgstr "Afficher"
 #, kde-format
 msgid "Quit"
 msgstr "Quitter"
+
+#~ msgid "Configure"
+#~ msgstr "Configurer"
+
+#~ msgctxt "@button"
+#~ msgid "Space settings"
+#~ msgstr "Configuration des espaces"
+
+#~ msgctxt "@action:button"
+#~ msgid "Configure"
+#~ msgstr "Configurer"
+
+#~ msgctxt "@title:window"
+#~ msgid "About NeoChat"
+#~ msgstr "À propos de NeoChat"
+
+#~ msgctxt "@title:window"
+#~ msgid "About KDE"
+#~ msgstr "À propos de KDE"
+
+#~ msgid "Spell Checking"
+#~ msgstr "Vérification de l'orthographe"
+
+#~ msgctxt "@title"
+#~ msgid "Spellchecking"
+#~ msgstr "Vérification orthographique"
+
+#~ msgid "Enable automatic spell checking"
+#~ msgstr "Activer la vérification automatique de l'orthographe"
+
+#~ msgid "Ignore uppercase words"
+#~ msgstr "Ignorer les mots en majuscules"
+
+#~ msgid "Ignore hyphenated words"
+#~ msgstr "Ignorer les mots avec trait d'union"
+
+#~ msgid "Detect language automatically"
+#~ msgstr "Détecter automatiquement la langue"
+
+#~ msgid "Selected default language:"
+#~ msgstr "Langue sélectionnée par défaut :"
+
+#~ msgid "None"
+#~ msgstr "Aucun"
+
+#~ msgid "Additional spell checking languages"
+#~ msgstr "Langues supplémentaires avec vérification orthographique"
+
+#~ msgid ""
+#~ "%1 will provide spell checking and suggestions for the languages listed "
+#~ "here when autodetection is enabled."
+#~ msgstr ""
+#~ "%1 vous fournira une vérification orthographique et des suggestions pour "
+#~ "les langues listées lorsque l'auto-détection est activée."
+
+#~ msgid "Open Personal Dictionary"
+#~ msgstr "Ouvrir le dictionnaire personnel"
+
+#~ msgctxt "@title:window"
+#~ msgid "Spell checking languages"
+#~ msgstr "Langues avec vérification orthographique"
+
+#~ msgid "Default Language"
+#~ msgstr "Langue par défaut"
+
+#~ msgid "Spell checking dictionary"
+#~ msgstr "Dictionnaire de vérification orthographique"
+
+#~ msgid "Add a new word to your personal dictionary…"
+#~ msgstr "Ajouter un nouveau mot à votre dictionnaire personnel…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Add word"
+#~ msgstr "Ajouter un mot"
+
+#~ msgctxt "@action:button"
+#~ msgid "Delete word"
+#~ msgstr "Supprimer un mot"
 
 #~ msgctxt "menu"
 #~ msgid "Matrix FAQ"
