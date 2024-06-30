@@ -25,9 +25,15 @@ void UserListModel::setRoom(NeoChatRoom *room)
     }
 
     if (m_currentRoom) {
+        // HACK: Reset the model to a null room first to make sure QML dismantles
+        // last room's objects before the room is actually changed
+        beginResetModel();
         m_currentRoom->disconnect(this);
         m_currentRoom->connection()->disconnect(this);
+        m_currentRoom = nullptr;
+        endResetModel();
     }
+
     m_currentRoom = room;
 
     if (m_currentRoom) {
