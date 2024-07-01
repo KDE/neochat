@@ -60,6 +60,7 @@ set_package_properties(Qt6 PROPERTIES
 )
 
 qt_policy(SET QTP0001 NEW)
+qt_policy(SET QTP0004 NEW)
 
 find_package(KF6 ${KF_MIN_VERSION} COMPONENTS Kirigami I18n Notifications Config CoreAddons Sonnet ItemModels ColorScheme)
 set_package_properties(KF6 PROPERTIES
