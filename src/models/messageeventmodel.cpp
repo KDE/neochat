@@ -355,11 +355,11 @@ QDateTime MessageEventModel::makeMessageTimestamp(const Quotient::Room::rev_iter
     using Quotient::TimelineItem;
     auto rit = std::find_if(baseIt, timeline.rend(), hasValidTimestamp);
     if (rit != timeline.rend()) {
-        return {rit->event()->originTimestamp().date(), {0, 0}, Qt::LocalTime};
+        return {rit->event()->originTimestamp().date(), {0, 0}, QTimeZone::LocalTime};
     };
     auto it = std::find_if(baseIt.base(), timeline.end(), hasValidTimestamp);
     if (it != timeline.end()) {
-        return {it->event()->originTimestamp().date(), {0, 0}, Qt::LocalTime};
+        return {it->event()->originTimestamp().date(), {0, 0}, QTimeZone::LocalTime};
     };
 
     // What kind of room is that?..
