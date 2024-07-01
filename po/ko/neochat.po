@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:39+0000\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -375,7 +375,7 @@ msgid "Custom"
 msgstr "사용자 정의"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:99
+#: src/models/userlistmodel.cpp:105
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -385,13 +385,13 @@ msgid "%1 (%2)"
 msgstr "%1(%2)"
 
 #: src/eventhandler.cpp:304 src/eventhandler.cpp:509
-#: src/models/messagecontentmodel.cpp:193 src/models/messageeventmodel.cpp:453
+#: src/models/messagecontentmodel.cpp:212 src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[이 메시지가 삭제됨]</i>"
 
-#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:194
-#: src/models/messageeventmodel.cpp:454
+#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:213
+#: src/models/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[이 메시지가 삭제됨: %1]</i>"
@@ -1497,45 +1497,45 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "내 이모지"
 
-#: src/models/messagecontentmodel.cpp:186
+#: src/models/messagecontentmodel.cpp:205
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "답장 불러오는 중"
 
-#: src/models/messagefiltermodel.cpp:153
+#: src/models/messagefiltermodel.cpp:162
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
 msgstr[0] " %1 %2회"
 
-#: src/models/messagefiltermodel.cpp:157
+#: src/models/messagefiltermodel.cpp:166
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
 msgstr[0] " 사용자 %1명"
 
-#: src/models/messagefiltermodel.cpp:166
+#: src/models/messagefiltermodel.cpp:175
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:170
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " 또는 "
 
-#: src/models/messagefiltermodel.cpp:170
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " 그리고 "
 
-#: src/models/messagefiltermodel.cpp:176
+#: src/models/messagefiltermodel.cpp:185
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -5484,7 +5484,7 @@ msgstr "미리 보기 확장"
 msgid "Loading URL preview"
 msgstr "URL 미리 보기 불러오는 중"
 
-#: src/timeline/MessageComponentChooser.qml:219
+#: src/timeline/MessageComponentChooser.qml:220
 #, fuzzy, kde-format
 #| msgid "withdrew a user's invitation"
 msgid "%1 started a user verification"

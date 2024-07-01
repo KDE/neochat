@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-26 13:03+0200\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
+"PO-Revision-Date: 2024-06-29 17:41+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -365,7 +365,7 @@ msgid "Custom"
 msgstr "Personnalisé"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:99
+#: src/models/userlistmodel.cpp:105
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -374,13 +374,13 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:304 src/eventhandler.cpp:509
-#: src/models/messagecontentmodel.cpp:193 src/models/messageeventmodel.cpp:453
+#: src/models/messagecontentmodel.cpp:212 src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ce message a été supprimé]</i>"
 
-#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:194
-#: src/models/messageeventmodel.cpp:454
+#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:213
+#: src/models/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Ce message a été supprimé : %1]</i>"
@@ -1492,13 +1492,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Émoticônes personnelles"
 
-#: src/models/messagecontentmodel.cpp:186
+#: src/models/messagecontentmodel.cpp:205
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Chargement de la réponse..."
 
-#: src/models/messagefiltermodel.cpp:153
+#: src/models/messagefiltermodel.cpp:162
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
@@ -1506,7 +1506,7 @@ msgid_plural " %1 %2 times"
 msgstr[0] " %1"
 msgstr[1] " %1 %2 fois"
 
-#: src/models/messagefiltermodel.cpp:157
+#: src/models/messagefiltermodel.cpp:166
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -1514,25 +1514,25 @@ msgid_plural " %1 users "
 msgstr[0] " utilisateur %1 "
 msgstr[1] " %1 utilisateurs "
 
-#: src/models/messagefiltermodel.cpp:166
+#: src/models/messagefiltermodel.cpp:175
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:170
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " ou "
 
-#: src/models/messagefiltermodel.cpp:170
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr "et"
 
-#: src/models/messagefiltermodel.cpp:176
+#: src/models/messagefiltermodel.cpp:185
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -1903,11 +1903,10 @@ msgid "Open Key Backup"
 msgstr "Ouvrir l'archive des clés"
 
 #: src/qml/AccountMenu.qml:66
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
-msgstr "Vérifier un périphérique"
+msgstr "Vérifier ce périphérique"
 
 #: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -3214,11 +3213,10 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: src/qml/RoomInformation.qml:95
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
-msgstr "Vérifier un périphérique"
+msgstr "Vérifier un utilisateur"
 
 #: src/qml/RoomInformation.qml:106
 #, kde-format
@@ -5432,7 +5430,7 @@ msgstr "Développer l'aperçu"
 msgid "Loading URL preview"
 msgstr "Chargement d'un aperçu de l'URL"
 
-#: src/timeline/MessageComponentChooser.qml:219
+#: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 a démarré une vérification d'utilisateurs"

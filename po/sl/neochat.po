@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:39+0000\n"
-"PO-Revision-Date: 2024-06-28 06:52+0200\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
+"PO-Revision-Date: 2024-06-30 11:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -371,7 +371,7 @@ msgid "Custom"
 msgstr "Po meri"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:99
+#: src/models/userlistmodel.cpp:105
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -380,13 +380,13 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:304 src/eventhandler.cpp:509
-#: src/models/messagecontentmodel.cpp:193 src/models/messageeventmodel.cpp:453
+#: src/models/messagecontentmodel.cpp:212 src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano]</i>"
 
-#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:194
-#: src/models/messageeventmodel.cpp:454
+#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:213
+#: src/models/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano: %1]</i>"
@@ -732,11 +732,10 @@ msgstr[2] "%1 uporabnika: "
 msgstr[3] "%1 uporabniki: "
 
 #: src/eventhandler.cpp:1040
-#, fuzzy, kde-format
-#| msgid "Unknown event"
+#, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
-msgstr "Neznan dogodek"
+msgstr "neznan član"
 
 #: src/eventhandler.cpp:1044
 #, kde-format
@@ -1491,13 +1490,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Lastni čustvenčki"
 
-#: src/models/messagecontentmodel.cpp:186
+#: src/models/messagecontentmodel.cpp:205
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Nalaganje odgovora"
 
-#: src/models/messagefiltermodel.cpp:153
+#: src/models/messagefiltermodel.cpp:162
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
@@ -1507,7 +1506,7 @@ msgstr[1] " %1 %2 krat"
 msgstr[2] " %1 %2 krat"
 msgstr[3] " %1 %2 krat"
 
-#: src/models/messagefiltermodel.cpp:157
+#: src/models/messagefiltermodel.cpp:166
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -1517,25 +1516,25 @@ msgstr[1] " %1 uporabnik "
 msgstr[2] " %1 uporabnika "
 msgstr[3] " %1 uporabniki "
 
-#: src/models/messagefiltermodel.cpp:166
+#: src/models/messagefiltermodel.cpp:175
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:170
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " ali "
 
-#: src/models/messagefiltermodel.cpp:170
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " in "
 
-#: src/models/messagefiltermodel.cpp:176
+#: src/models/messagefiltermodel.cpp:185
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -2190,8 +2189,7 @@ msgid "Off"
 msgstr "Izklopljeno"
 
 #: src/qml/ContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "Nastavitve sobe"
@@ -2212,8 +2210,7 @@ msgid "Add to Favourites"
 msgstr "Dodaj med priljubljene"
 
 #: src/qml/ContextMenu.qml:187
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Room Settings"
 msgstr "Nastavitve sobe"
@@ -3148,8 +3145,7 @@ msgid "Configure room"
 msgstr "Nastavi sobo"
 
 #: src/qml/RoomDrawer.qml:104
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Nastavitve sobe"
@@ -4694,11 +4690,10 @@ msgstr "O programu NeoChat"
 
 #: src/settings/NeoChatSettingsView.qml:99
 #: src/settings/NeoChatSettingsView.qml:106
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
-msgstr "O KDE"
+msgstr "O programu"
 
 #: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
@@ -5147,15 +5142,13 @@ msgstr ""
 "sobi."
 
 #: src/settings/RoomSettingsView.qml:28
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Space Settings"
 msgstr "Nastavitve prostora"
 
 #: src/settings/RoomSettingsView.qml:30
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Room Settings"
 msgstr "Nastavitve sobe"
@@ -5395,7 +5388,7 @@ msgstr "Razširi predogled"
 msgid "Loading URL preview"
 msgstr "Nalaganje predogleda URL"
 
-#: src/timeline/MessageComponentChooser.qml:219
+#: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 je začel preverjanje uporabnika"

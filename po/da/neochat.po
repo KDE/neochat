@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:39+0000\n"
+"POT-Creation-Date: 2024-07-01 00:38+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -386,7 +386,7 @@ msgid "Custom"
 msgstr ""
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:99
+#: src/models/userlistmodel.cpp:105
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -395,13 +395,13 @@ msgid "%1 (%2)"
 msgstr ""
 
 #: src/eventhandler.cpp:304 src/eventhandler.cpp:509
-#: src/models/messagecontentmodel.cpp:193 src/models/messageeventmodel.cpp:453
+#: src/models/messagecontentmodel.cpp:212 src/models/messageeventmodel.cpp:456
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr ""
 
-#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:194
-#: src/models/messageeventmodel.cpp:454
+#: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:213
+#: src/models/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr ""
@@ -1524,14 +1524,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr ""
 
-#: src/models/messagecontentmodel.cpp:186
+#: src/models/messagecontentmodel.cpp:205
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgid "Loading reply"
 msgstr "Indlæser"
 
-#: src/models/messagefiltermodel.cpp:153
+#: src/models/messagefiltermodel.cpp:162
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
@@ -1539,7 +1539,7 @@ msgid_plural " %1 %2 times"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messagefiltermodel.cpp:157
+#: src/models/messagefiltermodel.cpp:166
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -1547,26 +1547,26 @@ msgid_plural " %1 users "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messagefiltermodel.cpp:166
+#: src/models/messagefiltermodel.cpp:175
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:170
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr ""
 
-#: src/models/messagefiltermodel.cpp:170
+#: src/models/messagefiltermodel.cpp:179
 #, fuzzy, kde-format
 #| msgid " and "
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " og "
 
-#: src/models/messagefiltermodel.cpp:176
+#: src/models/messagefiltermodel.cpp:185
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -5542,7 +5542,7 @@ msgstr ""
 msgid "Loading URL preview"
 msgstr ""
 
-#: src/timeline/MessageComponentChooser.qml:219
+#: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
 msgid "%1 started a user verification"
 msgstr ""
