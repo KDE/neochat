@@ -114,6 +114,7 @@ Q_SIGNALS:
 private:
     QPointer<NeoChatRoom> m_room;
     QString m_eventId;
+    QString m_eventSenderId;
     const Quotient::RoomEvent *m_event = nullptr;
 
     bool m_isPending;

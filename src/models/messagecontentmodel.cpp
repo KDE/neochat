@@ -34,6 +34,7 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::Room
     : QAbstractListModel(nullptr)
     , m_room(room)
     , m_eventId(event != nullptr ? event->id() : QString())
+    , m_eventSenderId(event != nullptr ? event->senderId() : QString())
     , m_event(event)
     , m_isPending(isPending)
     , m_isReply(isReply)
@@ -77,7 +78,7 @@ void MessageContentModel::initializeModel()
 
     connect(m_room, &NeoChatRoom::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
         if (m_room != nullptr && m_event != nullptr) {
-            if (m_event->id() == serverEvent->id()) {
+            if (m_eventId == serverEvent->id()) {
                 beginResetModel();
                 m_isPending = false;
                 m_event = serverEvent;
@@ -88,7 +89,7 @@ void MessageContentModel::initializeModel()
     });
     connect(m_room, &NeoChatRoom::replacedEvent, this, [this](const Quotient::RoomEvent *newEvent) {
         if (m_room != nullptr && m_event != nullptr) {
-            if (m_event->id() == newEvent->id()) {
+            if (m_eventId == newEvent->id()) {
                 beginResetModel();
                 m_event = newEvent;
                 Q_EMIT eventUpdated();
@@ -97,17 +98,17 @@ void MessageContentModel::initializeModel()
         }
     });
     connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
-        if (m_event != nullptr && eventId == m_event->id()) {
+        if (m_event != nullptr && eventId == m_eventId) {
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
         }
     });
     connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
-        if (m_event != nullptr && eventId == m_event->id()) {
+        if (m_event != nullptr && eventId == m_eventId) {
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
         }
     });
     connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
-        if (m_event != nullptr && eventId == m_event->id()) {
+        if (m_event != nullptr && eventId == m_eventId) {
             updateComponents();
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
 
@@ -122,22 +123,22 @@ void MessageContentModel::initializeModel()
             if (mxcUrl.isEmpty()) {
                 return;
             }
-            auto localPath = m_room->fileTransferInfo(m_event->id()).localPath.toLocalFile();
+            auto localPath = m_room->fileTransferInfo(m_eventId).localPath.toLocalFile();
             auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
             config.writePathEntry(mxcUrl.mid(6), localPath);
         }
     });
     connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
-        if (m_event != nullptr && eventId == m_event->id()) {
+        if (m_event != nullptr && eventId == m_eventId) {
             updateComponents();
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
         }
     });
     connect(m_room->editCache(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
-        if (m_event != nullptr && (oldEventId == m_event->id() || newEventId == m_event->id())) {
+        if (m_event != nullptr && (oldEventId == m_eventId || newEventId == m_eventId)) {
             // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
             beginResetModel();
-            updateComponents(newEventId == m_event->id());
+            updateComponents(newEventId == m_eventId);
             endResetModel();
         }
     });
@@ -149,14 +150,14 @@ void MessageContentModel::initializeModel()
     });
     connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
         if (m_room != nullptr && m_event != nullptr) {
-            if (m_event->senderId() == member.id()) {
+            if (m_eventSenderId.isEmpty() || m_eventSenderId == member.id()) {
                 Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
             }
         }
     });
     connect(m_room, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
         if (m_room != nullptr && m_event != nullptr) {
-            if (m_event->senderId() == member.id()) {
+            if (m_eventSenderId.isEmpty() || m_eventSenderId == member.id()) {
                 Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
             }
         }
@@ -264,7 +265,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return eventHandler.getLocationAssetType();
     }
     if (role == PollHandlerRole) {
-        return QVariant::fromValue<PollHandler *>(m_room->poll(m_event->id()));
+        return QVariant::fromValue<PollHandler *>(m_room->poll(m_eventId));
     }
     if (role == IsReplyRole) {
         return eventHandler.hasReply();
@@ -560,13 +561,13 @@ FileTransferInfo MessageContentModel::fileInfo() const
     }
     auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
     if (!config.hasKey(mxcUrl.mid(6))) {
-        return m_room->fileTransferInfo(m_event->id());
+        return m_room->fileTransferInfo(m_eventId);
     }
     const auto path = config.readPathEntry(mxcUrl.mid(6), QString());
     QFileInfo info(path);
     if (!info.isFile()) {
         config.deleteEntry(mxcUrl);
-        return m_room->fileTransferInfo(m_event->id());
+        return m_room->fileTransferInfo(m_eventId);
     }
     // TODO: we could check the hash here
     return FileTransferInfo{
