@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-03 00:38+0000\n"
-"PO-Revision-Date: 2024-06-25 10:57+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2024-07-03 16:20+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -724,12 +724,10 @@ msgstr[1] "%1 uživatelé:"
 msgstr[2] "%1 uživatelů:"
 
 #: src/eventhandler.cpp:1040
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
-msgstr "%1 člen"
+msgstr "neznámý člen"
 
 #: src/eventhandler.cpp:1044
 #, kde-format
@@ -1888,11 +1886,10 @@ msgid "Open Key Backup"
 msgstr ""
 
 #: src/qml/AccountMenu.qml:66
-#, fuzzy, kde-format
-#| msgid "This Device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
-msgstr "Toto zařízení"
+msgstr "Ověřit toto zařízení"
 
 #: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2169,11 +2166,10 @@ msgid "Off"
 msgstr "Vypnuto"
 
 #: src/qml/ContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
-msgstr "Nastavení"
+msgstr "Nastavení místnosti"
 
 #: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:211
 #, kde-format
@@ -2191,11 +2187,10 @@ msgid "Add to Favourites"
 msgstr "Přidat k oblíbeným"
 
 #: src/qml/ContextMenu.qml:187
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Room Settings"
-msgstr "Nastavení"
+msgstr "Nastavení místnosti"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
@@ -3123,11 +3118,10 @@ msgid "Configure room"
 msgstr ""
 
 #: src/qml/RoomDrawer.qml:104
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
-msgstr "Nastavení"
+msgstr "Nastavení místnosti"
 
 #: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
 #, kde-format
@@ -3179,12 +3173,10 @@ msgid "Search"
 msgstr "Hledat"
 
 #: src/qml/RoomInformation.qml:95
-#, fuzzy, kde-format
-#| msgctxt "This device is verified"
-#| msgid "Verified"
+#, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
-msgstr "Ověřeno"
+msgstr "Ověřit uživatele"
 
 #: src/qml/RoomInformation.qml:106
 #, kde-format
@@ -4635,11 +4627,10 @@ msgstr "O aplikaci NeoChat"
 
 #: src/settings/NeoChatSettingsView.qml:99
 #: src/settings/NeoChatSettingsView.qml:106
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
-msgstr "O prostředí KDE"
+msgstr "O aplikaci"
 
 #: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
@@ -5079,18 +5070,16 @@ msgid ""
 msgstr ""
 
 #: src/settings/RoomSettingsView.qml:28
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Space Settings"
-msgstr "Otevřít nastavení"
+msgstr ""
 
 #: src/settings/RoomSettingsView.qml:30
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Room Settings"
-msgstr "Nastavení"
+msgstr "Nastavení místnosti"
 
 #: src/settings/RoomSettingsView.qml:62
 #, kde-format
@@ -5393,72 +5382,3 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
-
-#~ msgid "Configure"
-#~ msgstr "Nastavit"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure"
-#~ msgstr "Nastavit"
-
-#~ msgctxt "@title:window"
-#~ msgid "About NeoChat"
-#~ msgstr "O aplikaci NeoChat"
-
-#~ msgctxt "@title:window"
-#~ msgid "About KDE"
-#~ msgstr "O KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Kontrola pravopisu"
-
-#~ msgctxt "@title"
-#~ msgid "Spellchecking"
-#~ msgstr "Kontrola pravopisu"
-
-#~ msgid "Enable automatic spell checking"
-#~ msgstr "Povolit automatickou kontrolu pravopisu"
-
-#~ msgid "Ignore uppercase words"
-#~ msgstr "Ignorovat slova psaná velkými písmeny"
-
-#~ msgid "Ignore hyphenated words"
-#~ msgstr "Ignorovat slova s pomlčkou"
-
-#~ msgid "Detect language automatically"
-#~ msgstr "Automaticky detekovat jazyk"
-
-#~ msgid "Selected default language:"
-#~ msgstr "Vybraný výchozí jazyk:"
-
-# žádné parametry funkce v inspektoru funkcí
-#~ msgid "None"
-#~ msgstr "Nic"
-
-#~ msgid "Additional spell checking languages"
-#~ msgstr "Další jazyky pro kontrolu pravopisu"
-
-#~ msgid ""
-#~ "%1 will provide spell checking and suggestions for the languages listed "
-#~ "here when autodetection is enabled."
-#~ msgstr ""
-#~ "Pokud je automatická detekce povolena, bude %1 poskytovat kontrolu "
-#~ "pravopisu a návrhy pro jazyky v tomto seznamu."
-
-#~ msgid "Open Personal Dictionary"
-#~ msgstr "Otevřít osobní slovník"
-
-#~ msgctxt "@title:window"
-#~ msgid "Spell checking languages"
-#~ msgstr "Jazyky pro kontrolu pravopisu"
-
-#~ msgid "Default Language"
-#~ msgstr "Výchozí jazyk"
-
-#~ msgctxt "@action:button"
-#~ msgid "Add word"
-#~ msgstr "Přidat slovo"
-
-#~ msgctxt "@action:button"
-#~ msgid "Delete word"
-#~ msgstr "Odstranit slovo"
