@@ -71,7 +71,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Logout")
         icon.name: "list-remove-user"
-        onTriggered: confirmLogoutDialogComponent.createObject(root.window.overlay).open()
+        onTriggered: confirmLogoutDialogComponent.createObject(QQC2.ApplicationWindow.window.overlay).open()
     }
 
     Component {
