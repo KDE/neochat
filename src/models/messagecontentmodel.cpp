@@ -35,7 +35,7 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::Room
     , m_room(room)
     , m_eventId(event != nullptr ? event->id() : QString())
     , m_eventSenderId(event != nullptr ? event->senderId() : QString())
-    , m_event(event)
+    , m_event(loadEvent<RoomEvent>(event->fullJson()))
     , m_isPending(isPending)
     , m_isReply(isReply)
 {
@@ -62,7 +62,7 @@ void MessageContentModel::initializeModel()
     Quotient::connectUntil(m_room.get(), &NeoChatRoom::extraEventLoaded, this, [this](const QString &eventId) {
         if (m_room != nullptr) {
             if (eventId == m_eventId) {
-                m_event = m_room->getEvent(eventId);
+                m_event = loadEvent<RoomEvent>(m_room->getEvent(eventId)->fullJson());
                 Q_EMIT eventUpdated();
                 updateReplyModel();
                 updateComponents();
@@ -81,7 +81,7 @@ void MessageContentModel::initializeModel()
             if (m_eventId == serverEvent->id()) {
                 beginResetModel();
                 m_isPending = false;
-                m_event = serverEvent;
+                m_event = loadEvent<RoomEvent>(serverEvent->fullJson());
                 Q_EMIT eventUpdated();
                 endResetModel();
             }
@@ -91,7 +91,7 @@ void MessageContentModel::initializeModel()
         if (m_room != nullptr && m_event != nullptr) {
             if (m_eventId == newEvent->id()) {
                 beginResetModel();
-                m_event = newEvent;
+                m_event = loadEvent<RoomEvent>(newEvent->fullJson());
                 Q_EMIT eventUpdated();
                 endResetModel();
             }
@@ -198,7 +198,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    EventHandler eventHandler(m_room, m_event);
+    EventHandler eventHandler(m_room, m_event.get());
     const auto component = m_components[index.row()];
 
     if (role == DisplayRole) {
@@ -357,7 +357,7 @@ void MessageContentModel::updateComponents(bool isEditing)
     if (isEditing) {
         m_components += MessageComponent{MessageComponentType::Edit, QString(), {}};
     } else {
-        EventHandler eventHandler(m_room, m_event);
+        EventHandler eventHandler(m_room, m_event.get());
         m_components.append(componentsForType(eventHandler.messageComponentType()));
     }
 
@@ -374,7 +374,7 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    EventHandler eventHandler(m_room, m_event);
+    EventHandler eventHandler(m_room, m_event.get());
     if (!eventHandler.hasReply()) {
         return;
     }

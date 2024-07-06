@@ -115,7 +115,7 @@ private:
     QPointer<NeoChatRoom> m_room;
     QString m_eventId;
     QString m_eventSenderId;
-    const Quotient::RoomEvent *m_event = nullptr;
+    Quotient::RoomEventPtr m_event;
 
     bool m_isPending;
     bool m_showAuthor = true;
