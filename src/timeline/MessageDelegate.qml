@@ -221,11 +221,11 @@ TimelineDelegate {
             id: mainContainer
 
             Layout.fillWidth: true
-            Layout.topMargin: root.contentModel.showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
+            Layout.topMargin: root.contentModel?.showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.smallSpacing
 
-            implicitHeight: Math.max(root.contentModel.showAuthor ? avatar.implicitHeight : 0, bubble.height)
+            implicitHeight: Math.max(root.contentModel?.showAuthor ? avatar.implicitHeight : 0, bubble.height)
 
             // show hover actions
             onHoveredChanged: {
@@ -245,7 +245,7 @@ TimelineDelegate {
                     topMargin: Kirigami.Units.smallSpacing
                 }
 
-                visible: root.contentModel.showAuthor && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
+                visible: root.contentModel?.showAuthor && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
                 source: root.author.avatarUrl
                 color: root.author.color
