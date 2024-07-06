@@ -172,7 +172,7 @@ void RoomManager::maximizeMedia(int index)
     Q_EMIT showMaximizedMedia(index);
 }
 
-void RoomManager::maximizeCode(const QVariantMap &author, const QDateTime &time, const QString &codeText, const QString &language)
+void RoomManager::maximizeCode(const RoomMember &author, const QDateTime &time, const QString &codeText, const QString &language)
 {
     if (codeText.isEmpty()) {
         return;

@@ -20,7 +20,7 @@ QQC2.Control {
      *
      * @sa Quotient::RoomMember
      */
-    required property var author
+    required property RoomMember author
 
     /**
      * @brief The timestamp of the message.

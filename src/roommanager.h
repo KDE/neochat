@@ -204,7 +204,7 @@ public:
      */
     Q_INVOKABLE void maximizeMedia(int index);
 
-    Q_INVOKABLE void maximizeCode(const QVariantMap &author, const QDateTime &time, const QString &codeText, const QString &language);
+    Q_INVOKABLE void maximizeCode(const RoomMember &author, const QDateTime &time, const QString &codeText, const QString &language);
 
     /**
      * @brief Request that any full screen overlay currently open closes.
@@ -275,7 +275,7 @@ Q_SIGNALS:
     /**
      * @brief Request a block of code is shown maximized.
      */
-    void showMaximizedCode(const QVariantMap &author, const QDateTime &time, const QString &codeText, const QString &language);
+    void showMaximizedCode(const RoomMember &author, const QDateTime &time, const QString &codeText, const QString &language);
 
     /**
      * @brief Request that any full screen overlay closes.
