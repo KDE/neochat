@@ -105,9 +105,11 @@ QQC2.ComboBox {
     Kirigami.Dialog {
         id: addServerSheet
 
-        width: Math.min(Kirigami.Units.gridUnit * 24, QQC2.ApplicationWindow.window.width)
+        width: Math.min(Kirigami.Units.gridUnit * 15, QQC2.ApplicationWindow.window.width)
 
         title: i18nc("@title:window", "Add server")
+
+        horizontalPadding: Kirigami.Units.largeSpacing
 
         onOpened: if (!serverUrlField.isValidServer && !addServerSheet.opened) {
             root.currentIndex = 0;
@@ -121,15 +123,44 @@ QQC2.ComboBox {
         }
 
         contentItem: ColumnLayout {
-            FormCard.FormTextDelegate {
-                text: serverUrlField.length > 0 ? (serverUrlField.acceptableInput ? (serverUrlField.isValidServer ? i18n("Valid server entered") : i18n("This server cannot be resolved or has already been added")) : i18n("The entered text is not a valid url")) : i18n("Enter server url e.g. kde.org")
+
+            spacing: Kirigami.Units.smallSpacing
+
+            Kirigami.InlineMessage {
+                Layout.fillWidth: true
+
+                visible: text != ""
+
+                text: {
+                    if (serverUrlField.length > 0) {
+                        if (!serverUrlField.acceptableInput) {
+                            return i18n("The entered text is not a valid url");
+                        }
+
+                        if (!serverUrlField.isValidServer) {
+                            return i18n("This server cannot be resolved or has already been added");
+                        }
+                    }
+
+                    return "";
+                }
             }
-            FormCard.FormTextFieldDelegate {
+
+            QQC2.Label {
+                Layout.fillWidth: true
+
+                text: i18n("Server URL:")
+            }
+
+            QQC2.TextField {
                 id: serverUrlField
+
+                Layout.fillWidth: true
+
+                placeholderText: "kde.org"
 
                 property bool isValidServer: false
 
-                label: i18n("Server URL")
                 onTextChanged: {
                     if (acceptableInput) {
                         serverListModel.checkServer(text);
