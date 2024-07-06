@@ -10,6 +10,10 @@
 #include <Quotient/keyverificationsession.h>
 #include <Quotient/roommember.h>
 
+#if Quotient_VERSION_MINOR > 8
+#include <Quotient/keyimport.h>
+#endif
+
 #include "controller.h"
 #include "neochatconfig.h"
 
@@ -38,3 +42,12 @@ struct ForeignSSSSHandler {
     QML_FOREIGN(Quotient::SSSSHandler)
     QML_NAMED_ELEMENT(SSSSHandler)
 };
+
+#if Quotient_VERSION_MINOR > 8
+struct ForeignKeyImport {
+    Q_GADGET
+    QML_SINGLETON
+    QML_FOREIGN(Quotient::KeyImport)
+    QML_NAMED_ELEMENT(KeyImport)
+};
+#endif

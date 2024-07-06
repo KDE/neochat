@@ -409,7 +409,7 @@ void Controller::removeConnection(const QString &userId)
 
 bool Controller::csSupported() const
 {
-#if Quotient_VERSION_MINOR > 9
+#if Quotient_VERSION_MINOR > 8
     return true;
 #else
     return false;

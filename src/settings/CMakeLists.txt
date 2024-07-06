@@ -40,4 +40,6 @@ ecm_add_qml_module(settings GENERATE_PLUGIN_SOURCE
         PasswordSheet.qml
         ThemeRadioButton.qml
         ThreePIdCard.qml
+        ImportKeysDialog.qml
+        ExportKeysDialog.qml
 )
