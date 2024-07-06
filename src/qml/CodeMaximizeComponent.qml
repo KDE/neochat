@@ -62,7 +62,7 @@ Components.AbstractMaximizeComponent {
             implicitHeight: Kirigami.Units.iconSizes.medium
 
             name: root.author.name ?? root.author.displayName
-            source: root.author.avatarSource
+            source: root.author.avatarUrl
             color: root.author.color
         }
         ColumnLayout {
