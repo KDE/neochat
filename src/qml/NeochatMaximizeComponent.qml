@@ -76,7 +76,7 @@ Components.AlbumMaximizeComponent {
             implicitHeight: Kirigami.Units.iconSizes.medium
 
             name: root.currentAuthor.name ?? root.currentAuthor.displayName
-            source: root.currentAuthor.avatarSource
+            source: root.currentAuthor.avatarUrl
             color: root.currentAuthor.color
         }
         ColumnLayout {
