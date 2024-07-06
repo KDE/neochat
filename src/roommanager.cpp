@@ -244,7 +244,9 @@ void RoomManager::loadInitialRoom()
 void RoomManager::openRoomForActiveConnection()
 {
     if (!m_connection) {
-        m_currentRoom = nullptr;
+        setCurrentRoom({});
+        setCurrentSpace({}, false);
+        return;
     }
     const auto &lastRoom = m_lastRoomConfig.readEntry(m_connection->userId(), QString());
     if (lastRoom.isEmpty() || !m_connection->room(lastRoom)) {
@@ -426,7 +428,9 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
     m_sortFilterRoomTreeModel->setMode(m_currentSpaceId == QLatin1String("DM") ? SortFilterRoomTreeModel::DirectChats : SortFilterRoomTreeModel::Rooms);
 
     Q_EMIT currentSpaceChanged();
-    m_lastSpaceConfig.writeEntry(m_connection->userId(), spaceId);
+    if (m_connection) {
+        m_lastSpaceConfig.writeEntry(m_connection->userId(), spaceId);
+    }
 
     if (!setRoom) {
         return;

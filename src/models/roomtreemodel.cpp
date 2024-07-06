@@ -221,6 +221,10 @@ int RoomTreeModel::rowCount(const QModelIndex &parent) const
         parentItem = static_cast<RoomTreeItem *>(parent.internalPointer());
     }
 
+    if (!parentItem) {
+        return 0;
+    }
+
     return parentItem->childCount();
 }
 
