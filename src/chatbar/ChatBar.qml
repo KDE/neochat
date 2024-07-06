@@ -364,7 +364,7 @@ QQC2.Control {
         ReplyPane {
             userName: _private.chatBarCache.relationUser.displayName
             userColor: _private.chatBarCache.relationUser.color
-            userAvatar: _private.chatBarCache.relationUser.avatarSource
+            userAvatar: _private.chatBarCache.relationUser.avatarUrl
             text: _private.chatBarCache.relationMessage
 
             onCancel: {
