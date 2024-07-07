@@ -179,13 +179,13 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                 endMoveRows();
                 movingEvent = false;
             }
-            refreshRow(timelineBaseIndex()); // Refresh the looks
+            fullEventRefresh(timelineBaseIndex());
             refreshLastUserEvents(0);
             if (timelineBaseIndex() > 0) { // Refresh below, see #312
                 refreshEventRoles(timelineBaseIndex() - 1, {ContentModelRole});
             }
         });
-        connect(m_currentRoom, &Room::pendingEventChanged, this, &MessageEventModel::refreshRow);
+        connect(m_currentRoom, &Room::pendingEventChanged, this, &MessageEventModel::fullEventRefresh);
         connect(m_currentRoom, &Room::pendingEventAboutToDiscard, this, [this](int i) {
             beginRemoveRows({}, i, i);
         });
@@ -255,14 +255,15 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
     }
 }
 
-int MessageEventModel::refreshEvent(const QString &eventId)
+void MessageEventModel::fullEventRefresh(int row)
 {
-    return refreshEventRoles(eventId);
-}
-
-void MessageEventModel::refreshRow(int row)
-{
-    refreshEventRoles(row);
+    auto roles = roleNames().keys();
+    // The author of an event never changes so should only be updated when a member
+    // changed signal is emitted.
+    // This also avoids any race conditions where a member is updating and this refresh
+    // tries to access a member event that has already been deleted.
+    roles.removeAll(AuthorRole);
+    refreshEventRoles(row, roles);
 }
 
 int MessageEventModel::timelineBaseIndex() const
@@ -378,8 +379,7 @@ void MessageEventModel::refreshLastUserEvents(int baseTimelineRow)
     const auto limit = timelineBottom + std::min(baseTimelineRow + 10, m_currentRoom->timelineSize());
     for (auto it = timelineBottom + std::max(baseTimelineRow - 10, 0); it != limit; ++it) {
         if ((*it)->senderId() == lastSender) {
-            auto idx = index(it - timelineBottom);
-            Q_EMIT dataChanged(idx, idx);
+            fullEventRefresh(it - timelineBottom);
         }
     }
 }

@@ -107,10 +107,6 @@ public:
 protected:
     bool event(QEvent *event) override;
 
-private Q_SLOTS:
-    int refreshEvent(const QString &eventId);
-    void refreshRow(int row);
-
 private:
     QPointer<NeoChatRoom> m_currentRoom = nullptr;
     QString lastReadEventId;
@@ -128,6 +124,7 @@ private:
     bool canFetchMore(const QModelIndex &parent) const override;
     void fetchMore(const QModelIndex &parent) override;
 
+    void fullEventRefresh(int row);
     void refreshLastUserEvents(int baseTimelineRow);
     void refreshEventRoles(int row, const QList<int> &roles = {});
     int refreshEventRoles(const QString &eventId, const QList<int> &roles = {});
