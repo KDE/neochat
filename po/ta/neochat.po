@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"POT-Creation-Date: 2024-07-07 00:38+0000\n"
 "PO-Revision-Date: 2024-06-30 13:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1985,7 +1985,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "அரங்கைத் தேர்வு செய்தல்"
 
-#: src/qml/CodeMaximizeComponent.qml:52
+#: src/qml/CodeMaximizeComponent.qml:39
 #, kde-format
 msgctxt "@action"
 msgid "Copy to clipboard"
@@ -2313,7 +2313,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "இதை அரங்கின் செந்தர தாயாக இந்த இடத்தை ஆக்கு"
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -3049,6 +3049,13 @@ msgstr "மேற்கோள்"
 msgid "Insert link"
 msgstr "இணைப்பை நுழை"
 
+#: src/qml/QuickSwitcher.qml:29
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "Placeholder message"
+msgid "No room found"
+msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
+
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
 msgctxt "@title Join <name of a space>"
@@ -3121,12 +3128,12 @@ msgstr "செய்தியைப் பற்றி புகாரளி"
 msgid "Reason for reporting this message"
 msgstr "இச்செய்தியைப்பற்றி புகாரளிப்பதற்கான காரணம்"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:108
 #, kde-format
 msgid "Muted room"
 msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:141
 #, kde-format
 msgid "Configure room"
 msgstr "அரங்கை அமை"
@@ -3394,29 +3401,20 @@ msgctxt "@title:window"
 msgid "Add server"
 msgstr "சேவையகத்தைச் சேர்ப்பது"
 
-#: src/qml/ServerComboBox.qml:125
-#, kde-format
-msgid "Valid server entered"
-msgstr "செல்லுபடியாகும் சேவையகம் உள்ளிடப்பட்டது"
-
-#: src/qml/ServerComboBox.qml:125
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
-
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "உள்ளிட்ட உரை ஓர் முறையான முகவரி அல்ல"
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:141
 #, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "சேவையகத்தின் முகவரியை உள்ளிடவும், எ.கா. kde.org"
+msgid "This server cannot be resolved or has already been added"
+msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
 
-#: src/qml/ServerComboBox.qml:132
-#, kde-format
-msgid "Server URL"
+#: src/qml/ServerComboBox.qml:152
+#, fuzzy, kde-format
+#| msgid "Server URL"
+msgid "Server URL:"
 msgstr "சேவையக முகவரி"
 
 #: src/qml/ShareAction.qml:23
@@ -3980,17 +3978,17 @@ msgstr "செல்லுபடியாகாத அல்லது கால�
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ஒரு முறையான Matrix கணக்குப்பெயர் அல்ல"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:336
 #, kde-format
 msgid "Failed to join room"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:366
+#: src/roommanager.cpp:368
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/roommanager.cpp:370
+#: src/roommanager.cpp:372
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது"
@@ -5417,6 +5415,12 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid "Valid server entered"
+#~ msgstr "செல்லுபடியாகும் சேவையகம் உள்ளிடப்பட்டது"
+
+#~ msgid "Enter server url e.g. kde.org"
+#~ msgstr "சேவையகத்தின் முகவரியை உள்ளிடவும், எ.கா. kde.org"
 
 #~ msgid "Configure"
 #~ msgstr "அமை"

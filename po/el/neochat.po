@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"POT-Creation-Date: 2024-07-07 00:38+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2165,7 +2165,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Επιλογή τοπικού αρχείου"
 
-#: src/qml/CodeMaximizeComponent.qml:52
+#: src/qml/CodeMaximizeComponent.qml:39
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Address to Clipboard"
@@ -2531,7 +2531,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Να γίνει αυτό το συνώνυμο το κανονικό συνώνυμο της αίθουσας"
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -3316,6 +3316,13 @@ msgstr ""
 msgid "Insert link"
 msgstr ""
 
+#: src/qml/QuickSwitcher.qml:29
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "Placeholder message"
+msgid "No room found"
+msgstr "Δεν βρέθηκαν αίθουσες"
+
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, fuzzy, kde-format
 #| msgid "Join"
@@ -3391,12 +3398,12 @@ msgstr "Αναφορά μηνύματος"
 msgid "Reason for reporting this message"
 msgstr "Αιτία αναφοράς αυτού του μηνύματος"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:108
 #, kde-format
 msgid "Muted room"
 msgstr "Αίθουσα σε σίγαση"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:141
 #, kde-format
 msgid "Configure room"
 msgstr "Διαμόρφωση αίθουσας"
@@ -3695,29 +3702,20 @@ msgctxt "@title:window"
 msgid "Add server"
 msgstr "Προσθήκη εξυπηρετητή"
 
-#: src/qml/ServerComboBox.qml:125
-#, kde-format
-msgid "Valid server entered"
-msgstr "Δόθηκε έγκυρος εξυπηρετητής"
-
-#: src/qml/ServerComboBox.qml:125
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "Αυτός ο εξυπηρετητής δεν αναλύεται ή έχει ήδη προστεθεί"
-
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Το δοσμένο κείμενο δεν είναι έγκυρο url"
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:141
 #, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "Δώσε το url του εξυπηρετητή π.χ. kde.org"
+msgid "This server cannot be resolved or has already been added"
+msgstr "Αυτός ο εξυπηρετητής δεν αναλύεται ή έχει ήδη προστεθεί"
 
-#: src/qml/ServerComboBox.qml:132
-#, kde-format
-msgid "Server URL"
+#: src/qml/ServerComboBox.qml:152
+#, fuzzy, kde-format
+#| msgid "Server URL"
+msgid "Server URL:"
 msgstr "URL εξυπηρετητή"
 
 #: src/qml/ShareAction.qml:23
@@ -4323,18 +4321,18 @@ msgstr "Κακοδιατυπωμένο ή κενό αναγνωριστικό Ma
 msgid "%1 is not a correct Matrix identifier"
 msgstr "Το %1 δεν είναι ένα σωστό αναγνωριστικό του Matrix"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:336
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to join room"
 msgstr "Προσκαλεί σε μια αίθουσα"
 
-#: src/roommanager.cpp:366
+#: src/roommanager.cpp:368
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:370
+#: src/roommanager.cpp:372
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to request joining room"
@@ -5844,6 +5842,12 @@ msgstr "Εμφάνιση"
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
+
+#~ msgid "Valid server entered"
+#~ msgstr "Δόθηκε έγκυρος εξυπηρετητής"
+
+#~ msgid "Enter server url e.g. kde.org"
+#~ msgstr "Δώσε το url του εξυπηρετητή π.χ. kde.org"
 
 #~ msgid "Configure"
 #~ msgstr "Διαμόρφωση"

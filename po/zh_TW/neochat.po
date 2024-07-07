@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"POT-Creation-Date: 2024-07-07 00:38+0000\n"
 "PO-Revision-Date: 2024-06-30 12:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1973,7 +1973,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "選擇聊天室"
 
-#: src/qml/CodeMaximizeComponent.qml:52
+#: src/qml/CodeMaximizeComponent.qml:39
 #, kde-format
 msgctxt "@action"
 msgid "Copy to clipboard"
@@ -2301,7 +2301,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "將此聊天空間設為主要上層聊天空間"
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -3033,6 +3033,13 @@ msgstr "引言"
 msgid "Insert link"
 msgstr "插入連結"
 
+#: src/qml/QuickSwitcher.qml:29
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "Placeholder message"
+msgid "No room found"
+msgstr "找不到聊天室"
+
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
 msgctxt "@title Join <name of a space>"
@@ -3105,12 +3112,12 @@ msgstr "檢舉訊息"
 msgid "Reason for reporting this message"
 msgstr "檢舉此訊息的原因"
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:108
 #, kde-format
 msgid "Muted room"
 msgstr "已靜音的聊天室"
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:141
 #, kde-format
 msgid "Configure room"
 msgstr "設定聊天室"
@@ -3376,29 +3383,20 @@ msgctxt "@title:window"
 msgid "Add server"
 msgstr "新增伺服器"
 
-#: src/qml/ServerComboBox.qml:125
-#, kde-format
-msgid "Valid server entered"
-msgstr "已輸入有效伺服器"
-
-#: src/qml/ServerComboBox.qml:125
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "無法解析這個伺服器，或是已經加入"
-
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "輸入的文字不是有效的網址"
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:141
 #, kde-format
-msgid "Enter server url e.g. kde.org"
-msgstr "輸入伺服器網址，如 kde.org"
+msgid "This server cannot be resolved or has already been added"
+msgstr "無法解析這個伺服器，或是已經加入"
 
-#: src/qml/ServerComboBox.qml:132
-#, kde-format
-msgid "Server URL"
+#: src/qml/ServerComboBox.qml:152
+#, fuzzy, kde-format
+#| msgid "Server URL"
+msgid "Server URL:"
 msgstr "伺服器網址"
 
 #: src/qml/ShareAction.qml:23
@@ -3949,17 +3947,17 @@ msgstr "不正確或空白的 Matrix ID"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 不是一個正確的 Matrix ID"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:336
 #, kde-format
 msgid "Failed to join room"
 msgstr "加入聊天室失敗"
 
-#: src/roommanager.cpp:366
+#: src/roommanager.cpp:368
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
-#: src/roommanager.cpp:370
+#: src/roommanager.cpp:372
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "請求加入聊天室失敗"
@@ -5372,6 +5370,12 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
+
+#~ msgid "Valid server entered"
+#~ msgstr "已輸入有效伺服器"
+
+#~ msgid "Enter server url e.g. kde.org"
+#~ msgstr "輸入伺服器網址，如 kde.org"
 
 #~ msgid "Configure"
 #~ msgstr "設定"

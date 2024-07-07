@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:38+0000\n"
+"POT-Creation-Date: 2024-07-07 00:38+0000\n"
 "PO-Revision-Date: 2024-07-03 16:20+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1981,7 +1981,7 @@ msgctxt "@title"
 msgid "Choose a Room"
 msgstr "Vyberte místnost"
 
-#: src/qml/CodeMaximizeComponent.qml:52
+#: src/qml/CodeMaximizeComponent.qml:39
 #, kde-format
 msgctxt "@action"
 msgid "Copy to clipboard"
@@ -2303,7 +2303,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:155
+#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -3035,6 +3035,14 @@ msgstr "Citát"
 msgid "Insert link"
 msgstr "Vložit odkaz"
 
+#: src/qml/QuickSwitcher.qml:29
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No matches found"
+msgctxt "Placeholder message"
+msgid "No room found"
+msgstr "Nenalezena žádná shoda"
+
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
 msgctxt "@title Join <name of a space>"
@@ -3107,12 +3115,12 @@ msgstr "Nahlásit zprávu"
 msgid "Reason for reporting this message"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:107
+#: src/qml/RoomDelegate.qml:108
 #, kde-format
 msgid "Muted room"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:140
+#: src/qml/RoomDelegate.qml:141
 #, kde-format
 msgid "Configure room"
 msgstr ""
@@ -3380,29 +3388,20 @@ msgctxt "@title:window"
 msgid "Add server"
 msgstr "Přidat server"
 
-#: src/qml/ServerComboBox.qml:125
-#, kde-format
-msgid "Valid server entered"
-msgstr ""
-
-#: src/qml/ServerComboBox.qml:125
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr ""
-
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:137
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr ""
 
-#: src/qml/ServerComboBox.qml:125
+#: src/qml/ServerComboBox.qml:141
 #, kde-format
-msgid "Enter server url e.g. kde.org"
+msgid "This server cannot be resolved or has already been added"
 msgstr ""
 
-#: src/qml/ServerComboBox.qml:132
-#, kde-format
-msgid "Server URL"
+#: src/qml/ServerComboBox.qml:152
+#, fuzzy, kde-format
+#| msgid "Server URL"
+msgid "Server URL:"
 msgstr "URL serveru"
 
 #: src/qml/ShareAction.qml:23
@@ -3954,17 +3953,17 @@ msgstr "Poškozené nebo prázdné id pro Matrix"
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 není platný identifikátor pro Matrix"
 
-#: src/roommanager.cpp:334
+#: src/roommanager.cpp:336
 #, kde-format
 msgid "Failed to join room"
 msgstr ""
 
-#: src/roommanager.cpp:366
+#: src/roommanager.cpp:368
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vyžádali jste vstup do '%1'."
 
-#: src/roommanager.cpp:370
+#: src/roommanager.cpp:372
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Vyžádání požadavku o vstup do místnosti selhalo"
