@@ -42,14 +42,11 @@ Kirigami.Page {
     actions: [
         Kirigami.Action {
             displayHint: Kirigami.DisplayHint.IconOnly
-            text: i18n("Settings")
-            icon.name: "settings-configure"
-            onTriggered: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'Categories'), {
-                room: root.room,
-                connection: root.connection
-            }, {
-                title: i18n("Room Settings")
-            })
+            text: i18nc("@action:button", "Room settings")
+            icon.name: 'settings-configure-symbolic'
+            onTriggered: {
+                RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
+            }
         }
     ]
 
