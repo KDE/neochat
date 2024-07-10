@@ -22,7 +22,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Edit this account")
         icon.name: "document-edit"
-        onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
             connection: root.connection
         }, {
             title: i18n("Account editor")
@@ -46,7 +46,7 @@ QQC2.Menu {
         text: i18n("Open developer tools")
         icon.name: "tools"
         visible: Config.developerTools
-        onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
             connection: root.connection
         }, {
             title: i18nc("@title:window", "Developer Tools"),
