@@ -54,7 +54,7 @@ RowLayout {
 
         TapHandler {
             acceptedButtons: Qt.RightButton
-            onTapped:  accountMenu.open()
+            onTapped: accountMenu.open()
         }
     }
 
@@ -151,6 +151,7 @@ RowLayout {
         id: accountMenu
         y: root.bottomEdge ? -height : accountButton.height
         connection: root.connection
+        window: accountButton.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow
     }
     Component {
         id: accountSwitchDialog
