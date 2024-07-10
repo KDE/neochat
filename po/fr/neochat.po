@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:39+0000\n"
-"PO-Revision-Date: 2024-07-01 11:18+0200\n"
+"POT-Creation-Date: 2024-07-10 00:39+0000\n"
+"PO-Revision-Date: 2024-07-08 11:40+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -3070,8 +3070,7 @@ msgid "Insert link"
 msgstr "Insérer un lien"
 
 #: src/qml/QuickSwitcher.qml:29
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Aucun salon n'a été trouvé."
@@ -3160,31 +3159,21 @@ msgstr "Salon en pause"
 msgid "Configure room"
 msgstr "Configurer un salon"
 
-#: src/qml/RoomDrawer.qml:104
+#: src/qml/RoomDrawer.qml:104 src/qml/RoomDrawerPage.qml:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Configuration du salon"
 
-#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
+#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:85
 #, kde-format
 msgid "Information"
 msgstr "Informations"
 
-#: src/qml/RoomDrawer.qml:156 src/qml/RoomDrawerPage.qml:93
+#: src/qml/RoomDrawer.qml:156 src/qml/RoomDrawerPage.qml:90
 #, kde-format
 msgid "Media"
 msgstr "Média"
-
-#: src/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgid "Settings"
-msgstr "Configuration"
-
-#: src/qml/RoomDrawerPage.qml:51
-#, kde-format
-msgid "Room Settings"
-msgstr "Configuration du salon"
 
 #: src/qml/RoomInformation.qml:40
 #, kde-format
@@ -3437,10 +3426,9 @@ msgid "This server cannot be resolved or has already been added"
 msgstr "Ce serveur n'a pu être trouvé ou il a déjà été ajouté"
 
 #: src/qml/ServerComboBox.qml:152
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server URL:"
-msgstr "URL du serveur"
+msgstr "URL du serveur :"
 
 #: src/qml/ShareAction.qml:23
 #, kde-format
@@ -5497,6 +5485,12 @@ msgstr "Afficher"
 #, kde-format
 msgid "Quit"
 msgstr "Quitter"
+
+#~ msgid "Settings"
+#~ msgstr "Configuration"
+
+#~ msgid "Room Settings"
+#~ msgstr "Configuration du salon"
 
 #~ msgid "Valid server entered"
 #~ msgstr "Un serveur valable a été saisi"

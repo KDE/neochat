@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:39+0000\n"
-"PO-Revision-Date: 2024-07-03 16:20+0200\n"
+"POT-Creation-Date: 2024-07-10 00:39+0000\n"
+"PO-Revision-Date: 2024-07-09 16:19+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -3036,12 +3036,10 @@ msgid "Insert link"
 msgstr "Vložit odkaz"
 
 #: src/qml/QuickSwitcher.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No matches found"
+#, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
-msgstr "Nenalezena žádná shoda"
+msgstr "Žádná místnost nebyla nalezena"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
@@ -3125,31 +3123,21 @@ msgstr ""
 msgid "Configure room"
 msgstr ""
 
-#: src/qml/RoomDrawer.qml:104
+#: src/qml/RoomDrawer.qml:104 src/qml/RoomDrawerPage.qml:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Nastavení místnosti"
 
-#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:88
+#: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:85
 #, kde-format
 msgid "Information"
 msgstr "Informace"
 
-#: src/qml/RoomDrawer.qml:156 src/qml/RoomDrawerPage.qml:93
+#: src/qml/RoomDrawer.qml:156 src/qml/RoomDrawerPage.qml:90
 #, kde-format
 msgid "Media"
 msgstr "Média"
-
-#: src/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgid "Settings"
-msgstr "Nastavení"
-
-#: src/qml/RoomDrawerPage.qml:51
-#, kde-format
-msgid "Room Settings"
-msgstr ""
 
 #: src/qml/RoomInformation.qml:40
 #, kde-format
@@ -3399,10 +3387,9 @@ msgid "This server cannot be resolved or has already been added"
 msgstr ""
 
 #: src/qml/ServerComboBox.qml:152
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server URL:"
-msgstr "URL serveru"
+msgstr "URL serveru:"
 
 #: src/qml/ShareAction.qml:23
 #, kde-format
@@ -5381,3 +5368,6 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgid "Settings"
+#~ msgstr "Nastavení"
