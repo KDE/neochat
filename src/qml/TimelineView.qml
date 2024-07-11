@@ -294,11 +294,7 @@ QQC2.ScrollView {
             onFocusChatBar: root.focusChatBar()
         }
 
-        onContentYChanged: {
-            if (hoverActions.delegate) {
-                hoverActions.delegate.setHoverActionsToDelegate();
-            }
-        }
+        onContentYChanged: hoverActions.updatePosition()
 
         Connections {
             target: root.timelineModel
