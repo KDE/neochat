@@ -252,6 +252,7 @@ void RoomManager::openRoomForActiveConnection()
     if (lastRoom.isEmpty() || !m_connection->room(lastRoom)) {
         setCurrentRoom({});
     } else {
+        m_currentRoom = nullptr;
         resolveResource(lastRoom);
     }
     setCurrentSpace(m_lastSpaceConfig.readEntry(m_connection->userId(), QString()), false);
