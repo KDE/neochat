@@ -439,6 +439,7 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
         const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
         auto body = EventHandler::rawMessageBody(*event);
         components += TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
+
         if (m_emptyItinerary) {
             auto fileTransferInfo = fileInfo();
 
@@ -449,8 +450,8 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
                 QFile file(fileTransferInfo.localPath.path());
                 file.open(QIODevice::ReadOnly);
                 components += MessageComponent{MessageComponentType::Code,
-                                               QString::fromStdString(file.readAll().toStdString()),
-                                               {{QStringLiteral("class"), definitionForFile.name()}}};
+                    QString::fromStdString(file.readAll().toStdString()),
+                    {{QStringLiteral("class"), definitionForFile.name()}}};
             }
 #endif
 
@@ -458,11 +459,13 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
                 QImageReader reader(fileTransferInfo.localPath.path());
                 components += MessageComponent{MessageComponentType::Pdf, QString(), {{QStringLiteral("size"), reader.size()}}};
             }
+        } else if (m_itineraryModel != nullptr) {
+            components += MessageComponent{MessageComponentType::Itinerary, QString(), {}};
+            if (m_itineraryModel->rowCount() > 0) {
+                updateItineraryModel();
+            }
         } else {
             updateItineraryModel();
-            if (m_itineraryModel != nullptr) {
-                components += MessageComponent{MessageComponentType::Itinerary, QString(), {}};
-            }
         }
         return components;
     }
@@ -558,16 +561,16 @@ void MessageContentModel::updateItineraryModel()
                     m_itineraryModel = new ItineraryModel(this);
                     connect(m_itineraryModel, &ItineraryModel::loaded, this, [this]() {
                         if (m_itineraryModel->rowCount() == 0) {
+                            m_emptyItinerary = true;
                             m_itineraryModel->deleteLater();
                             m_itineraryModel = nullptr;
-                            m_emptyItinerary = true;
                             resetContent();
                         }
                     });
                     connect(m_itineraryModel, &ItineraryModel::loadErrorOccurred, this, [this]() {
+                        m_emptyItinerary = true;
                         m_itineraryModel->deleteLater();
                         m_itineraryModel = nullptr;
-                        m_emptyItinerary = true;
                         resetContent();
                     });
                 }
