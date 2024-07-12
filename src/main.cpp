@@ -307,7 +307,6 @@ int main(int argc, char *argv[])
     QWindow *window = windowFromEngine(&engine);
 
     WindowController::instance().setWindow(window);
-    WindowController::instance().restoreGeometry();
 
     return app.exec();
 }

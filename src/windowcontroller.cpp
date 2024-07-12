@@ -40,26 +40,6 @@ QWindow *WindowController::window() const
     return m_window;
 }
 
-void WindowController::restoreGeometry()
-{
-    const auto stateConfig = KSharedConfig::openStateConfig();
-    const KConfigGroup windowGroup = stateConfig->group(QStringLiteral("Window"));
-
-    KWindowConfig::restoreWindowSize(m_window, windowGroup);
-    KWindowConfig::restoreWindowPosition(m_window, windowGroup);
-}
-
-void WindowController::saveGeometry()
-{
-    const auto stateConfig = KSharedConfig::openStateConfig();
-    KConfigGroup windowGroup = stateConfig->group(QStringLiteral("Window"));
-
-    KWindowConfig::saveWindowPosition(m_window, windowGroup);
-    KWindowConfig::saveWindowSize(m_window, windowGroup);
-
-    stateConfig->sync();
-}
-
 void WindowController::showAndRaiseWindow(const QString &startupId)
 {
     if (m_window == nullptr) {
@@ -67,7 +47,6 @@ void WindowController::showAndRaiseWindow(const QString &startupId)
     }
     if (!m_window->isVisible()) {
         m_window->show();
-        restoreGeometry();
     }
 
 #ifdef HAVE_WINDOWSYSTEM

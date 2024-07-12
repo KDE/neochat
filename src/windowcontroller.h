@@ -42,16 +42,6 @@ public:
     QWindow *window() const;
 
     /**
-     * @brief Restore any saved window geometry if available.
-     */
-    void restoreGeometry();
-
-    /**
-     * @brief Save the current window geometry.
-     */
-    Q_INVOKABLE void saveGeometry();
-
-    /**
      * @brief Show the window and raise to the top.
      */
     void showAndRaiseWindow(const QString &startupId);
