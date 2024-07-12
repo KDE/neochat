@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
+import org.kde.config as KConfig
 
 import org.kde.neochat
 import org.kde.neochat.login
@@ -68,36 +69,8 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    // This timer allows to batch update the window size change to reduce
-    // the io load and also work around the fact that x/y/width/height are
-    // changed when loading the page and overwrite the saved geometry from
-    // the previous session.
-    Timer {
-        id: saveWindowGeometryTimer
-        interval: 1000
-        onTriggered: WindowController.saveGeometry()
-    }
-
-    Connections {
-        id: saveWindowGeometryConnections
-        enabled: false // Disable on startup to avoid writing wrong values if the window is hidden
-        target: root
-
-        function onClosing() {
-            WindowController.saveGeometry();
-        }
-        function onWidthChanged() {
-            saveWindowGeometryTimer.restart();
-        }
-        function onHeightChanged() {
-            saveWindowGeometryTimer.restart();
-        }
-        function onXChanged() {
-            saveWindowGeometryTimer.restart();
-        }
-        function onYChanged() {
-            saveWindowGeometryTimer.restart();
-        }
+    KConfig.WindowStateSaver {
+        configGroupName: "Window"
     }
 
     QuickSwitcher {
