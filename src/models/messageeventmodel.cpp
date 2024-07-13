@@ -215,10 +215,13 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             refreshEventRoles(eventId, {Qt::DisplayRole});
         });
-        connect(m_currentRoom, &Room::changed, this, [this]() {
-            for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
-                auto event = it->event();
-                refreshEventRoles(event->id(), {ReadMarkersRole, ReadMarkersStringRole, ExcessReadMarkersRole});
+        connect(m_currentRoom, &Room::changed, this, [this](Room::Changes changes) {
+            if (changes & (Room::Change::PartiallyReadStats | Room::Change::UnreadStats | Room::Change::Other | Room::Change::Members)) {
+                // this is slow
+                for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
+                    auto event = it->event();
+                    refreshEventRoles(event->id(), {ReadMarkersRole, ReadMarkersStringRole, ExcessReadMarkersRole});
+                }
             }
         });
         connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged, this, [this] {

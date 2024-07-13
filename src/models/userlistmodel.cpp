@@ -47,7 +47,10 @@ void UserListModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
             refreshMember(member, {AvatarRole});
         });
-        connect(m_currentRoom, &Room::changed, this, &UserListModel::refreshAllMembers);
+        connect(m_currentRoom, &Room::memberListChanged, this, [this]() {
+            // this is slow
+            UserListModel::refreshAllMembers();
+        });
         connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
             setRoom(nullptr);
         });
