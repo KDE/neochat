@@ -360,11 +360,13 @@ FormCard.FormCardPage {
     }
 
     Kirigami.InlineMessage {
+        Layout.fillWidth: true
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+        Layout.topMargin: Kirigami.Units.largeSpacing
         Layout.alignment: Qt.AlignHCenter
         text: i18n("This room continues another conversation.")
         type: Kirigami.MessageType.Information
-        visible: room.predecessorId && room.connection.room(room.predecessorId)
+        visible: room.predecessorId
         actions: Kirigami.Action {
             text: i18n("See older messages…")
             onTriggered: {
@@ -374,11 +376,13 @@ FormCard.FormCardPage {
         }
     }
     Kirigami.InlineMessage {
+        Layout.fillWidth: true
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+        Layout.topMargin: Kirigami.Units.largeSpacing
         Layout.alignment: Qt.AlignHCenter
         text: i18n("This room has been replaced.")
         type: Kirigami.MessageType.Information
-        visible: room.successorId && room.connection.room(room.successorId)
+        visible: room.successorId
         actions: Kirigami.Action {
             text: i18n("See new room…")
             onTriggered: {
