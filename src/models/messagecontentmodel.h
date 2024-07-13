@@ -124,7 +124,9 @@ private:
     void initializeModel();
 
     QList<MessageComponent> m_components;
-    void updateComponents(bool isEditing = false);
+    void resetModel();
+    void resetContent(bool isEditing = false);
+    QList<MessageComponent> messageContentComponents(bool isEditing = false);
 
     QPointer<MessageContentModel> m_replyModel;
     void updateReplyModel();
@@ -133,7 +135,7 @@ private:
 
     QList<MessageComponent> componentsForType(MessageComponentType::Type type);
     MessageComponent linkPreviewComponent(const QUrl &link);
-    void addLinkPreviews();
+    QList<MessageComponent> addLinkPreviews(QList<MessageComponent> inputComponents);
 
     QList<QUrl> m_removedLinkPreviews;
 

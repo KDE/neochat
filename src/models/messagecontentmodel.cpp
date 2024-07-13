@@ -65,7 +65,7 @@ void MessageContentModel::initializeModel()
                 m_event = loadEvent<RoomEvent>(m_room->getEvent(eventId)->fullJson());
                 Q_EMIT eventUpdated();
                 updateReplyModel();
-                updateComponents();
+                resetContent();
                 return true;
             }
         }
@@ -109,7 +109,7 @@ void MessageContentModel::initializeModel()
     });
     connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
         if (m_event != nullptr && eventId == m_eventId) {
-            updateComponents();
+            resetContent();
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
 
             QString mxcUrl;
@@ -130,7 +130,7 @@ void MessageContentModel::initializeModel()
     });
     connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
         if (m_event != nullptr && eventId == m_eventId) {
-            updateComponents();
+            resetContent();
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
         }
     });
@@ -138,15 +138,15 @@ void MessageContentModel::initializeModel()
         if (m_event != nullptr && (oldEventId == m_eventId || newEventId == m_eventId)) {
             // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
             beginResetModel();
-            updateComponents(newEventId == m_eventId);
+            resetContent(newEventId == m_eventId);
             endResetModel();
         }
     });
     connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
-        updateComponents();
+        resetContent();
     });
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
-        updateComponents();
+        resetContent();
     });
     connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
         if (m_room != nullptr && m_event != nullptr) {
@@ -166,7 +166,7 @@ void MessageContentModel::initializeModel()
     if (m_event != nullptr) {
         updateReplyModel();
     }
-    updateComponents();
+    resetModel();
 }
 
 bool MessageContentModel::showAuthor() const
@@ -182,7 +182,7 @@ void MessageContentModel::setShowAuthor(bool showAuthor)
 
     m_showAuthor = showAuthor;
     Q_EMIT showAuthorChanged();
-    updateComponents();
+    resetModel();
 }
 
 static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
@@ -322,7 +322,7 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     return roles;
 }
 
-void MessageContentModel::updateComponents(bool isEditing)
+void MessageContentModel::resetModel()
 {
     beginResetModel();
     m_components.clear();
@@ -337,35 +337,59 @@ void MessageContentModel::updateComponents(bool isEditing)
         m_components += MessageComponent{MessageComponentType::Author, QString(), {}};
     }
 
+    m_components += messageContentComponents();
+    endResetModel();
+}
+
+void MessageContentModel::resetContent(bool isEditing)
+{
+    const auto startRow = m_components[0].type == MessageComponentType::Author ? 1 : 0;
+    beginRemoveRows({}, startRow, rowCount() - 1 - startRow);
+    m_components.remove(startRow, rowCount() - 1 - startRow);
+    endRemoveRows();
+
+    const auto newComponents = messageContentComponents(isEditing);
+    if (newComponents.size() == 0) {
+        return;
+    }
+    beginInsertRows({}, startRow, startRow + newComponents.size() - 1);
+    m_components += newComponents;
+    endInsertRows();
+}
+
+QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEditing)
+{
+    QList<MessageComponent> newComponents;
+
     if (eventCast<const Quotient::RoomMessageEvent>(m_event)
         && eventCast<const Quotient::RoomMessageEvent>(m_event)->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
-        m_components += MessageComponent{MessageComponentType::Verification, QString(), {}};
+        newComponents += MessageComponent{MessageComponentType::Verification, QString(), {}};
         endResetModel();
-        return;
+        return newComponents;
     }
 
     if (m_event->isRedacted()) {
-        m_components += MessageComponent{MessageComponentType::Text, QString(), {}};
+        newComponents += MessageComponent{MessageComponentType::Text, QString(), {}};
         endResetModel();
-        return;
+        return newComponents;
     }
 
     if (m_replyModel != nullptr) {
-        m_components += MessageComponent{MessageComponentType::Reply, QString(), {}};
+        newComponents += MessageComponent{MessageComponentType::Reply, QString(), {}};
     }
 
     if (isEditing) {
-        m_components += MessageComponent{MessageComponentType::Edit, QString(), {}};
+        newComponents += MessageComponent{MessageComponentType::Edit, QString(), {}};
     } else {
         EventHandler eventHandler(m_room, m_event.get());
-        m_components.append(componentsForType(eventHandler.messageComponentType()));
+        newComponents.append(componentsForType(eventHandler.messageComponentType()));
     }
 
     if (m_room->urlPreviewEnabled()) {
-        addLinkPreviews();
+        newComponents = addLinkPreviews(newComponents);
     }
 
-    endResetModel();
+    return newComponents;
 }
 
 void MessageContentModel::updateReplyModel()
@@ -474,24 +498,26 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
     }
 }
 
-void MessageContentModel::addLinkPreviews()
+QList<MessageComponent> MessageContentModel::addLinkPreviews(QList<MessageComponent> inputComponents)
 {
     int i = 0;
-    while (i < m_components.size()) {
-        const auto component = m_components.at(i);
+    while (i < inputComponents.size()) {
+        const auto component = inputComponents.at(i);
         if (component.type == MessageComponentType::Text || component.type == MessageComponentType::Quote) {
             if (LinkPreviewer::hasPreviewableLinks(component.content)) {
                 const auto links = LinkPreviewer::linkPreviews(component.content);
                 for (qsizetype j = 0; j < links.size(); ++j) {
                     const auto linkPreview = linkPreviewComponent(links[j]);
                     if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview.isEmpty()) {
-                        m_components.insert(i + j + 1, linkPreview);
+                        inputComponents.insert(i + j + 1, linkPreview);
                     }
                 };
             }
         }
         i++;
     }
+
+    return inputComponents;
 }
 
 void MessageContentModel::closeLinkPreview(int row)
@@ -501,7 +527,7 @@ void MessageContentModel::closeLinkPreview(int row)
         m_removedLinkPreviews += m_components[row].attributes["link"_ls].toUrl();
         m_components.remove(row);
         m_components.squeeze();
-        updateComponents();
+        resetContent();
         endResetModel();
     }
 }
@@ -526,14 +552,14 @@ void MessageContentModel::updateItineraryModel()
                             m_itineraryModel->deleteLater();
                             m_itineraryModel = nullptr;
                             m_emptyItinerary = true;
-                            updateComponents();
+                            resetContent();
                         }
                     });
                     connect(m_itineraryModel, &ItineraryModel::loadErrorOccurred, this, [this]() {
                         m_itineraryModel->deleteLater();
                         m_itineraryModel = nullptr;
                         m_emptyItinerary = true;
-                        updateComponents();
+                        resetContent();
                     });
                 }
                 m_itineraryModel->setPath(filePath.toString());
