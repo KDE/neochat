@@ -179,10 +179,20 @@ void MessageContentModel::setShowAuthor(bool showAuthor)
     if (showAuthor == m_showAuthor) {
         return;
     }
-
     m_showAuthor = showAuthor;
+
+    if (m_event != nullptr) {
+        if (showAuthor) {
+            beginInsertRows({}, 0, 0);
+            m_components.prepend(MessageComponent{MessageComponentType::Author, QString(), {}});
+            endInsertRows();
+        } else {
+            beginRemoveRows({}, 0, 0);
+            m_components.remove(0, 1);
+            endRemoveRows();
+        }
+    }
     Q_EMIT showAuthorChanged();
-    resetModel();
 }
 
 static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
@@ -343,9 +353,11 @@ void MessageContentModel::resetModel()
 
 void MessageContentModel::resetContent(bool isEditing)
 {
+    Q_ASSERT(m_event != nullptr);
+
     const auto startRow = m_components[0].type == MessageComponentType::Author ? 1 : 0;
-    beginRemoveRows({}, startRow, rowCount() - 1 - startRow);
-    m_components.remove(startRow, rowCount() - 1 - startRow);
+    beginRemoveRows({}, startRow, rowCount() - 1);
+    m_components.remove(startRow, rowCount() - startRow);
     endRemoveRows();
 
     const auto newComponents = messageContentComponents(isEditing);
@@ -364,13 +376,11 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     if (eventCast<const Quotient::RoomMessageEvent>(m_event)
         && eventCast<const Quotient::RoomMessageEvent>(m_event)->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
         newComponents += MessageComponent{MessageComponentType::Verification, QString(), {}};
-        endResetModel();
         return newComponents;
     }
 
     if (m_event->isRedacted()) {
         newComponents += MessageComponent{MessageComponentType::Text, QString(), {}};
-        endResetModel();
         return newComponents;
     }
 
@@ -528,7 +538,6 @@ void MessageContentModel::closeLinkPreview(int row)
         m_components.remove(row);
         m_components.squeeze();
         resetContent();
-        endResetModel();
     }
 }
 
