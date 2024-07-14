@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-05-26 11:12+0200\n"
+"POT-Creation-Date: 2024-07-14 00:38+0000\n"
+"PO-Revision-Date: 2024-07-13 08:57+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -367,7 +368,7 @@ msgid "Custom"
 msgstr "Własny"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:110
+#: src/models/userlistmodel.cpp:113
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -376,13 +377,13 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:304 src/eventhandler.cpp:509
-#: src/models/messagecontentmodel.cpp:213 src/models/messageeventmodel.cpp:456
+#: src/models/messagecontentmodel.cpp:213 src/models/messageeventmodel.cpp:459
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ta wiadomość została usunięta]</i>"
 
 #: src/eventhandler.cpp:304 src/models/messagecontentmodel.cpp:214
-#: src/models/messageeventmodel.cpp:457
+#: src/models/messageeventmodel.cpp:460
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Ta wiadomość została usunięta: %1]</i>"
@@ -727,11 +728,10 @@ msgstr[1] "%1 użytkowników: "
 msgstr[2] "%1 użytkowników: "
 
 #: src/eventhandler.cpp:1040
-#, fuzzy, kde-format
-#| msgid "Unknown event"
+#, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
-msgstr "Nieznane wydarzenie"
+msgstr "nieznany członek"
 
 #: src/eventhandler.cpp:1044
 #, kde-format
@@ -815,12 +815,12 @@ msgid "Loading"
 msgstr "Wczytywanie"
 
 #: src/login/Loading.qml:16
-#, fuzzy, kde-format
-#| msgid "Please wait. This might take a little while."
+#, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
 "a little while."
-msgstr "Zaczekaj. To może zająć dłuższą chwilę."
+msgstr ""
+"Zaczekaj na wczytanie twoich wiadomości z serwera. Może to trochę potrwać."
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -958,11 +958,10 @@ msgid "%1 (loading)"
 msgstr "%1 (wczytywanie)"
 
 #: src/login/WelcomePage.qml:95
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
-msgstr "Edytuj to konto"
+msgstr "Wyjdź z tego konta"
 
 #: src/login/WelcomePage.qml:124
 #, kde-format
@@ -1900,11 +1899,10 @@ msgid "Open Key Backup"
 msgstr "Otwórz kopię zapasową klucza"
 
 #: src/qml/AccountMenu.qml:66
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
-msgstr "Sprawdź urządzenie"
+msgstr "Sprawdź to urządzenie"
 
 #: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2187,8 +2185,7 @@ msgid "Off"
 msgstr "Wył."
 
 #: src/qml/ContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "Ustawienia pokoju"
@@ -2209,8 +2206,7 @@ msgid "Add to Favourites"
 msgstr "Dodaj do ulubionych"
 
 #: src/qml/ContextMenu.qml:187
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Room Settings"
 msgstr "Ustawienia pokoju"
@@ -2502,12 +2498,10 @@ msgid "Rooms"
 msgstr "Pokoje"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Search Room"
+#, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
-msgstr "Poszukaj pokoju"
+msgstr "Szukaj pokojów"
 
 #: src/qml/ExploreComponent.qml:123
 #, kde-format
@@ -2597,10 +2591,9 @@ msgid "NeoChat"
 msgstr "NeoChat"
 
 #: src/qml/GlobalMenu.qml:24
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat..."
+#, kde-format
 msgid "Configure NeoChat…"
-msgstr "Ustawienia NeoChata..."
+msgstr "Ustawienia NeoChata…"
 
 #: src/qml/GlobalMenu.qml:25
 #, kde-format
@@ -2683,22 +2676,19 @@ msgid "Help"
 msgstr "Pomoc"
 
 #: src/qml/GlobalMenu.qml:96
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
+#, kde-format
 msgctxt "menu"
 msgid "About Matrix"
-msgstr "O NeoChat"
+msgstr "O Matriksie"
 
 #: src/qml/GlobalMenu.qml:100
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
+#, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "O NeoChat"
 
 #: src/qml/GlobalMenu.qml:104
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "menu"
 msgid "About KDE"
 msgstr "O KDE"
@@ -3037,7 +3027,7 @@ msgstr "Zmień poziom uprawnień użytkownika"
 msgid "New power level"
 msgstr "Nowy poziom uprawnień"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:418
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:422
 #, kde-format
 msgid "Confirm"
 msgstr "Potwierdź"
@@ -3073,11 +3063,10 @@ msgid "Insert link"
 msgstr "Wstaw odnośnik"
 
 #: src/qml/QuickSwitcher.qml:29
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
-msgstr "Nie znaleziono żadnych pokojów"
+msgstr "Nie znaleziono żadnego pokoju"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
@@ -3163,8 +3152,7 @@ msgid "Configure room"
 msgstr "Ustawienia pokoju"
 
 #: src/qml/RoomDrawer.qml:104 src/qml/RoomDrawerPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Ustawienia pokoju"
@@ -3192,12 +3180,10 @@ msgid "Room information"
 msgstr "Informacje o pokoju"
 
 #: src/qml/RoomInformation.qml:68
-#, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
+#, kde-format
 msgctxt "Room actions"
 msgid "Actions"
-msgstr "Miejsca"
+msgstr "Działania"
 
 #: src/qml/RoomInformation.qml:78
 #, kde-format
@@ -3211,11 +3197,10 @@ msgid "Search"
 msgstr "Poszukaj"
 
 #: src/qml/RoomInformation.qml:95
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
-msgstr "Sprawdź urządzenie"
+msgstr "Sprawdź użytkownika"
 
 #: src/qml/RoomInformation.qml:106
 #, kde-format
@@ -3223,11 +3208,9 @@ msgid "Remove room from favorites"
 msgstr "Usuń pokój z ulubionych"
 
 #: src/qml/RoomInformation.qml:106
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this room"
+#, kde-format
 msgid "Favorite this room"
-msgstr "Opuść ten pokój"
+msgstr "Dodaj ten pokój do ulubionych"
 
 #: src/qml/RoomInformation.qml:119
 #, kde-format
@@ -3436,10 +3419,9 @@ msgid "This server cannot be resolved or has already been added"
 msgstr "Nie można ustalić położenia tego serwera lub już został dodany"
 
 #: src/qml/ServerComboBox.qml:152
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server URL:"
-msgstr "Adres URL serwera"
+msgstr "Adres URL serwera:"
 
 #: src/qml/ShareAction.qml:23
 #, kde-format
@@ -4693,11 +4675,10 @@ msgstr "O NeoChat"
 
 #: src/settings/NeoChatSettingsView.qml:99
 #: src/settings/NeoChatSettingsView.qml:106
-#, fuzzy, kde-format
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
-msgstr "O KDE"
+msgstr "O programie"
 
 #: src/settings/NeoChatSettingsView.qml:103
 #, kde-format
@@ -4969,32 +4950,32 @@ msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Dodaj nową oficjalną nadrzędną"
 
-#: src/settings/RoomGeneralPage.qml:365
+#: src/settings/RoomGeneralPage.qml:367
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "W tym pokoju nadal toczona jest rozmowa."
 
-#: src/settings/RoomGeneralPage.qml:369
+#: src/settings/RoomGeneralPage.qml:371
 #, kde-format
 msgid "See older messages…"
 msgstr "Zobacz starsze wiadomości…"
 
-#: src/settings/RoomGeneralPage.qml:379
+#: src/settings/RoomGeneralPage.qml:383
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ten pokój został zastąpiony."
 
-#: src/settings/RoomGeneralPage.qml:383
+#: src/settings/RoomGeneralPage.qml:387
 #, kde-format
 msgid "See new room…"
 msgstr "Zobacz nowy pokój…"
 
-#: src/settings/RoomGeneralPage.qml:406
+#: src/settings/RoomGeneralPage.qml:410
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Uaktualnij pokój"
 
-#: src/settings/RoomGeneralPage.qml:410
+#: src/settings/RoomGeneralPage.qml:414
 #, kde-format
 msgid "Select new version"
 msgstr "Wybierz nową wersję"
@@ -5144,15 +5125,13 @@ msgstr ""
 "Nowi członkowie mogą przeglądać historię rozmów od czasu ich dołączenia."
 
 #: src/settings/RoomSettingsView.qml:28
-#, fuzzy, kde-format
-#| msgid "Space Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Space Settings"
 msgstr "Ustawienia przestrzeni"
 
 #: src/settings/RoomSettingsView.qml:30
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Room Settings"
 msgstr "Ustawienia pokoju"
@@ -5166,11 +5145,10 @@ msgstr "Uprawnienia"
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide"
-msgstr ""
+msgstr "Ukryj"
 
 #: src/settings/ThreePIdCard.qml:61
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Udostępnij"
@@ -5182,15 +5160,13 @@ msgid "Remove"
 msgstr "Usuń"
 
 #: src/settings/ThreePIdCard.qml:85
-#, fuzzy, kde-format
-#| msgid "Compact"
+#, kde-format
 msgctxt "@action:button"
 msgid "Complete"
-msgstr "Zwarty"
+msgstr "Ukończone"
 
 #: src/settings/ThreePIdCard.qml:90
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Anuluj"
@@ -5276,37 +5252,29 @@ msgid "Back"
 msgstr "Wstecz"
 
 #: src/threepidbindhelper.cpp:176
-#, fuzzy, kde-format
-#| msgid ""
-#| "%1. Please follow the instructions there and then click the button below"
+#, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
 msgstr ""
-"%1. Przejdź przez wypisane tam kroki, a na końcu naciśnij poniższy przycisk."
+"%1. Przejdź przez wypisane tam kroki, a na końcu naciśnij powyższy przycisk."
 
 #: src/threepidbindhelper.cpp:182
-#, fuzzy, kde-format
-#| msgid ""
-#| "The email has not been verified. Please go to the email and follow the "
-#| "instructions there and then click the button below"
+#, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button above"
 msgstr ""
 "Adres pocztowy nie został potwierdzony. Wróć do wiadomości pocztowej i "
-"przejdź przez wypisane tam kroki, a na końcu naciśnij poniższy przycisk."
+"przejdź przez wypisane tam kroki, a na końcu naciśnij powyższy przycisk."
 
 #: src/threepidbindhelper.cpp:183
-#, fuzzy, kde-format
-#| msgid ""
-#| "The phone number has not been verified. Please go to the text message and "
-#| "follow the instructions there and then click the button below"
+#, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button above"
 msgstr ""
 "Numer telefonu nie został potwierdzony. Wróć do wiadomości tekstowej i "
-"przejdź przez wypisane tam kroki, a na końcu naciśnij poniższy przycisk."
+"przejdź przez wypisane tam kroki, a na końcu naciśnij powyższy przycisk."
 
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
