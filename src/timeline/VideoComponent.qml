@@ -97,7 +97,7 @@ Video {
             name: "notDownloaded"
             when: !root.fileTransferInfo.completed && !root.fileTransferInfo.active
             PropertyChanges {
-                target: noDownloadLabel
+                target: videoLabel
                 visible: true
             }
             PropertyChanges {
@@ -115,7 +115,7 @@ Video {
         },
         State {
             name: "paused"
-            when: root.fileTransferInfo.completed && (root.playbackState === MediaPlayer.StoppedState || root.playbackState === MediaPlayer.PausedState)
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState
             PropertyChanges {
                 target: videoControls
                 stateVisible: true
@@ -141,6 +141,30 @@ Video {
                 icon.name: "media-playback-pause"
                 onClicked: root.pause()
             }
+        },
+        State {
+            name: "stopped"
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState
+            PropertyChanges {
+                target: videoControls
+                stateVisible: true
+            }
+            PropertyChanges {
+                target: mediaThumbnail
+                visible: true
+            }
+            PropertyChanges {
+                target: videoLabel
+                visible: true
+            }
+            PropertyChanges {
+                target: playButton
+                icon.name: "media-playback-start"
+                onClicked: {
+                    MediaManager.startPlayback();
+                    root.play();
+                }
+            }
         }
     ]
 
@@ -163,7 +187,7 @@ Video {
     }
 
     QQC2.Label {
-        id: noDownloadLabel
+        id: videoLabel
         anchors.centerIn: parent
 
         visible: false
@@ -246,7 +270,7 @@ Video {
                     }
                 }
                 onHoveredChanged: {
-                    if (!hovered && (root.state === "paused" || root.state === "playing")) {
+                    if (!hovered && (root.state === "paused" || root.state === "stopped" || root.state === "playing")) {
                         videoControlTimer.restart();
                         volumePopupTimer.restart();
                     }
@@ -276,7 +300,7 @@ Video {
                             volumeButton.unmuteVolume = value;
                         }
                         onHoveredChanged: {
-                            if (!hovered && (root.state === "paused" || root.state === "playing")) {
+                            if (!hovered && (root.state === "paused" || root.state === "stopped" || root.state === "playing")) {
                                 videoControlTimer.restart();
                                 volumePopupTimer.restart();
                             }
@@ -289,7 +313,7 @@ Video {
                     HoverHandler {
                         id: volumePopupHoverHandler
                         onHoveredChanged: {
-                            if (!hovered && (root.state === "paused" || root.state === "playing")) {
+                            if (!hovered && (root.state === "paused" || root.state === "stopped" || root.state === "playing")) {
                                 videoControlTimer.restart();
                                 volumePopupTimer.restart();
                             }
@@ -354,7 +378,7 @@ Video {
     HoverHandler {
         id: videoHoverHandler
         onHoveredChanged: {
-            if (!hovered && (root.state === "paused" || root.state === "playing")) {
+            if (!hovered && (root.state === "paused" || root.state === "stopped" || root.state === "playing")) {
                 videoControlTimer.restart();
             }
         }
