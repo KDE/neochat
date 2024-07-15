@@ -319,7 +319,10 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
             auto subjectName = m_room->member(e.userId()).htmlSafeDisplayName();
             if (e.membership() == Membership::Leave) {
                 if (e.prevContent() && e.prevContent()->displayName) {
-                    subjectName = sanitized(*e.prevContent()->displayName).toHtmlEscaped();
+                    subjectName = sanitized(*e.prevContent()->displayName);
+                    if (prettyPrint) {
+                        subjectName = subjectName.toHtmlEscaped();
+                    }
                 }
             }
 
