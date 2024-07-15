@@ -446,14 +446,16 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
                 Q_ASSERT(event->content() != nullptr && event->content()->fileInfo() != nullptr);
                 const QMimeType mimeType = event->content()->fileInfo()->mimeType;
                 if (mimeType.name() == QStringLiteral("text/plain") || mimeType.parentMimeTypes().contains(QStringLiteral("text/plain"))) {
-                    KSyntaxHighlighting::Repository repository;
-                    KSyntaxHighlighting::Definition definitionForFile = repository.definitionForFileName(fileTransferInfo.localPath.path());
-                    if (!definitionForFile.isValid()) {
-                        definitionForFile = repository.definitionForFileName(event->content()->fileInfo()->originalName);
+                    QString originalName = event->content()->fileInfo()->originalName;
+                    if (originalName.isEmpty()) {
+                        originalName = event->plainBody();
                     }
+                    KSyntaxHighlighting::Repository repository;
+                    KSyntaxHighlighting::Definition definitionForFile = repository.definitionForFileName(originalName);
                     if (!definitionForFile.isValid()) {
                         definitionForFile = repository.definitionForMimeType(mimeType.name());
                     }
+
                     QFile file(fileTransferInfo.localPath.path());
                     file.open(QIODevice::ReadOnly);
                     components += MessageComponent{MessageComponentType::Code,
