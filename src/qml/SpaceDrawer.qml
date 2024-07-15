@@ -48,6 +48,22 @@ QQC2.Control {
                 spacing: 0
 
                 AvatarTabButton {
+                    readonly property string mediaId: root.connection.localUser.avatarMediaId
+
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: width - Kirigami.Units.smallSpacing
+                    Layout.maximumHeight: width - Kirigami.Units.smallSpacing
+                    Layout.topMargin: Kirigami.Units.smallSpacing / 2
+                    Layout.bottomMargin: Kirigami.Units.smallSpacing / 2
+
+                    text: root.connection.localUser.displayName
+                    source: mediaId ? root.connection.makeMediaUrl("mxc://" + mediaId) : ""
+                    onClicked: Qt.createComponent("org.kde.neochat", "AccountDialog").createObject(root, {
+                        connection: root.connection
+                    }).open()
+                }
+
+                AvatarTabButton {
                     id: notificationsButton
 
                     Layout.fillWidth: true

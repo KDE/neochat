@@ -227,11 +227,6 @@ Kirigami.Page {
         }
     }
 
-    footer: Loader {
-        width: parent.width
-        sourceComponent: Kirigami.Settings.isMobile ? exploreComponentMobile : userInfoDesktop
-    }
-
     MouseArea {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
