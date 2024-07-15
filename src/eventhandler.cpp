@@ -246,9 +246,9 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
     if (event.hasFileContent()) {
         // if filename is given or body is equal to filename,
         // then body is a caption
-        QString fileName = event.content()->fileInfo()->originalName;
+        QString filename = event.content()->fileInfo()->originalName;
         QString body = event.plainBody();
-        if (fileName.isEmpty() || fileName == body) {
+        if (filename.isEmpty() || filename == body) {
             return QString();
         }
         return body;

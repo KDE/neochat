@@ -30,11 +30,6 @@ ColumnLayout {
     required property string eventId
 
     /**
-     * @brief The display text of the message.
-     */
-    required property string display
-
-    /**
      * @brief The media info for the event.
      *
      * This should consist of the following:
@@ -45,7 +40,7 @@ ColumnLayout {
      *  - width - The width in pixels of the audio media.
      *  - height - The height in pixels of the audio media.
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
-     *  - filename
+     *  - filename - original filename of the media
      */
     required property var mediaInfo
 

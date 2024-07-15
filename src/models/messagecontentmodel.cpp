@@ -482,6 +482,7 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
         return components;
     }
     case MessageComponentType::Image:
+    case MessageComponentType::Audio:
     case MessageComponentType::Video: {
         if (!m_event->is<StickerEvent>()) {
             const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);

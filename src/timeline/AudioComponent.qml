@@ -29,11 +29,6 @@ ColumnLayout {
     required property string eventId
 
     /**
-     * @brief The display text of the message.
-     */
-    required property string display
-
-    /**
      * @brief The media info for the event.
      *
      * This should consist of the following:
@@ -44,6 +39,7 @@ ColumnLayout {
      *  - width - The width in pixels of the audio media.
      *  - height - The height in pixels of the audio media.
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
+     *  - filename - original filename of the media
      */
     required property var mediaInfo
 
@@ -138,7 +134,7 @@ ColumnLayout {
             id: playButton
         }
         QQC2.Label {
-            text: root.display
+            text: root.mediaInfo.filename
             wrapMode: Text.Wrap
             Layout.fillWidth: true
         }
@@ -159,7 +155,7 @@ ColumnLayout {
             from: 0
             to: audio.duration
             value: audio.position
-            onMoved: audio.seek(value)
+            onMoved: audio.setPosition(value)
         }
 
         QQC2.Label {
