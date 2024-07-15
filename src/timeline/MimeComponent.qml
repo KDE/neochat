@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
+import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
 
 /**
@@ -13,13 +14,14 @@ import org.kde.kirigami as Kirigami
 RowLayout {
     property alias mimeIconSource: icon.source
     property alias label: nameLabel.text
-    property alias subLabel: subLabel.text
+    property string subLabel: ""
+    property int size: 0
+    property int duration: 0
 
     spacing: Kirigami.Units.largeSpacing
 
     Kirigami.Icon {
         id: icon
-
         fallback: "unknown"
     }
     ColumnLayout {
@@ -32,14 +34,20 @@ RowLayout {
             id: nameLabel
 
             Layout.fillWidth: true
-            Layout.alignment: subLabel.visible ? Qt.AlignLeft | Qt.AlignBottom : Qt.AlignLeft | Qt.AlignVCenter
+            Layout.alignment: caption.visible ? Qt.AlignLeft | Qt.AlignBottom : Qt.AlignLeft | Qt.AlignVCenter
 
             elide: Text.ElideRight
         }
         QQC2.Label {
-            id: subLabel
+            id: caption
 
             Layout.fillWidth: true
+
+            text: (subLabel || size || duration || '') && [
+                subLabel,
+                size && Format.formatByteSize(size),
+                duration > 0 && Format.formatDuration(duration),
+            ].filter(Boolean).join(" | ")
 
             elide: Text.ElideRight
             visible: text.length > 0

@@ -71,11 +71,11 @@ DelegateChooser {
         delegate: MimeComponent {
             required property string display
             required property var mediaInfo
-            required property int componentType
-
+            
             mimeIconSource: mediaInfo.mimeIcon
+            size: mediaInfo.size
+            duration: mediaInfo.duration
             label: display
-            subLabel: componentType === MessageComponentType.File ? Format.formatByteSize(mediaInfo.size) : Format.formatDuration(mediaInfo.duration)
         }
     }
 
@@ -112,11 +112,11 @@ DelegateChooser {
         delegate: MimeComponent {
             required property string display
             required property var mediaInfo
-            required property int componentType
 
             mimeIconSource: mediaInfo.mimeIcon
+            size: mediaInfo.size
+            duration: mediaInfo.duration
             label: display
-            subLabel: componentType === MessageComponentType.File ? Format.formatByteSize(mediaInfo.size) : Format.formatDuration(mediaInfo.duration)
         }
     }
 
@@ -125,11 +125,10 @@ DelegateChooser {
         delegate: MimeComponent {
             required property string display
             required property var mediaInfo
-            required property int componentType
 
             mimeIconSource: mediaInfo.mimeIcon
+            size: mediaInfo.size
             label: display
-            subLabel: componentType === MessageComponentType.File ? Format.formatByteSize(mediaInfo.size) : Format.formatDuration(mediaInfo.duration)
         }
     }
 
@@ -143,16 +142,17 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Location
-        delegate: LocationComponent {
-            maxContentWidth: root.maxContentWidth
+        delegate: MimeComponent {
+            mimeIconSource: "mark-location"
+            label: display
         }
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.LiveLocation
-        delegate: LiveLocationComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
+        delegate: MimeComponent {
+            mimeIconSource: "mark-location"
+            label: display
         }
     }
 
