@@ -45,6 +45,7 @@ ColumnLayout {
      *  - width - The width in pixels of the audio media.
      *  - height - The height in pixels of the audio media.
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
+     *  - filename
      */
     required property var mediaInfo
 
@@ -155,7 +156,7 @@ ColumnLayout {
             spacing: 0
             QQC2.Label {
                 Layout.fillWidth: true
-                text: root.display
+                text: root.mediaInfo.filename
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
             }

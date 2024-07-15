@@ -241,17 +241,19 @@ Qt::TextFormat EventHandler::messageBodyInputFormat(const Quotient::RoomMessageE
 
 QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
 {
+    QString body;
+
     if (event.hasFileContent()) {
-        auto fileCaption = event.content()->fileInfo()->originalName;
-        if (fileCaption.isEmpty()) {
-            fileCaption = event.plainBody();
-        } else if (event.content()->fileInfo()->originalName != event.plainBody()) {
-            fileCaption = event.plainBody() + " | "_ls + fileCaption;
+        // if filename is given or body is equal to filename,
+        // then body is a caption
+        QString fileName = event.content()->fileInfo()->originalName;
+        QString body = event.plainBody();
+        if (fileName.isEmpty() || fileName == body) {
+            return QString();
         }
-        return fileCaption;
+        return body;
     }
 
-    QString body;
     if (event.hasTextContent() && event.content()) {
         body = static_cast<const EventContent::TextContent *>(event.content())->body;
     } else {
@@ -660,23 +662,30 @@ QVariantMap EventHandler::getMediaInfoForEvent(const Quotient::RoomEvent *event)
     QString eventId = event->id();
 
     // Get the file info for the event.
-    const EventContent::FileInfo *fileInfo;
-    bool isSticker = false;
     if (event->is<RoomMessageEvent>()) {
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(event);
         if (!roomMessageEvent->hasFileContent()) {
             return {};
         }
+
+        const EventContent::FileInfo *fileInfo;
         fileInfo = roomMessageEvent->content()->fileInfo();
+        QVariantMap mediaInfo = getMediaInfoFromFileInfo(fileInfo, eventId, false, false);
+        // if filename isn't specifically given, it is in body
+        // https://spec.matrix.org/latest/client-server-api/#mfile
+        mediaInfo["filename"_ls] = (fileInfo->originalName.isEmpty()) ? roomMessageEvent->plainBody() : fileInfo->originalName;
+
+        return mediaInfo;
     } else if (event->is<StickerEvent>()) {
+        const EventContent::FileInfo *fileInfo;
+
         auto stickerEvent = eventCast<const StickerEvent>(event);
         fileInfo = &stickerEvent->image();
-        isSticker = true;
+
+        return getMediaInfoFromFileInfo(fileInfo, eventId, false, true);
     } else {
         return {};
     }
-
-    return getMediaInfoFromFileInfo(fileInfo, eventId, false, isSticker);
 }
 
 QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail, bool isSticker) const

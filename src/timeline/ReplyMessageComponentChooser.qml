@@ -69,13 +69,12 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageComponentType.Video
         delegate: MimeComponent {
-            required property string display
             required property var mediaInfo
             
             mimeIconSource: mediaInfo.mimeIcon
             size: mediaInfo.size
             duration: mediaInfo.duration
-            label: display
+            label: mediaInfo.filename
         }
     }
 
@@ -116,7 +115,7 @@ DelegateChooser {
             mimeIconSource: mediaInfo.mimeIcon
             size: mediaInfo.size
             duration: mediaInfo.duration
-            label: display
+            label: mediaInfo.filename
         }
     }
 
@@ -128,7 +127,7 @@ DelegateChooser {
 
             mimeIconSource: mediaInfo.mimeIcon
             size: mediaInfo.size
-            label: display
+            label: mediaInfo.filename
         }
     }
 
