@@ -437,27 +437,35 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
         QList<MessageComponent> components;
         components += MessageComponent{MessageComponentType::File, QString(), {}};
         const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
-        auto body = EventHandler::rawMessageBody(*event);
-        components += TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
 
         if (m_emptyItinerary) {
-            auto fileTransferInfo = fileInfo();
+            if (!m_isReply) {
+                auto fileTransferInfo = fileInfo();
 
 #ifndef Q_OS_ANDROID
-            KSyntaxHighlighting::Repository repository;
-            const auto definitionForFile = repository.definitionForFileName(fileTransferInfo.localPath.toString());
-            if (definitionForFile.isValid() || QFileInfo(fileTransferInfo.localPath.path()).suffix() == QStringLiteral("txt")) {
-                QFile file(fileTransferInfo.localPath.path());
-                file.open(QIODevice::ReadOnly);
-                components += MessageComponent{MessageComponentType::Code,
-                    QString::fromStdString(file.readAll().toStdString()),
-                    {{QStringLiteral("class"), definitionForFile.name()}}};
-            }
+                Q_ASSERT(event->content() != nullptr && event->content()->fileInfo() != nullptr);
+                const QMimeType mimeType = event->content()->fileInfo()->mimeType;
+                if (mimeType.name() == QStringLiteral("text/plain") || mimeType.parentMimeTypes().contains(QStringLiteral("text/plain"))) {
+                    KSyntaxHighlighting::Repository repository;
+                    KSyntaxHighlighting::Definition definitionForFile = repository.definitionForFileName(fileTransferInfo.localPath.path());
+                    if (!definitionForFile.isValid()) {
+                        definitionForFile = repository.definitionForFileName(event->content()->fileInfo()->originalName);
+                    }
+                    if (!definitionForFile.isValid()) {
+                        definitionForFile = repository.definitionForMimeType(mimeType.name());
+                    }
+                    QFile file(fileTransferInfo.localPath.path());
+                    file.open(QIODevice::ReadOnly);
+                    components += MessageComponent{MessageComponentType::Code,
+                                                   QString::fromStdString(file.readAll().toStdString()),
+                                                   {{QStringLiteral("class"), definitionForFile.name()}}};
+                }
 #endif
 
-            if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
-                QImageReader reader(fileTransferInfo.localPath.path());
-                components += MessageComponent{MessageComponentType::Pdf, QString(), {{QStringLiteral("size"), reader.size()}}};
+                if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
+                    QImageReader reader(fileTransferInfo.localPath.path());
+                    components += MessageComponent{MessageComponentType::Pdf, QString(), {{QStringLiteral("size"), reader.size()}}};
+                }
             }
         } else if (m_itineraryModel != nullptr) {
             components += MessageComponent{MessageComponentType::Itinerary, QString(), {}};
@@ -467,6 +475,8 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
         } else {
             updateItineraryModel();
         }
+        auto body = EventHandler::rawMessageBody(*event);
+        components += TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
         return components;
     }
     case MessageComponentType::Image:
