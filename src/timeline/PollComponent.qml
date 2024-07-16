@@ -52,7 +52,7 @@ ColumnLayout {
         delegate: RowLayout {
             Layout.fillWidth: true
             CheckBox {
-                checked: root.pollHandler.answers[root.room.localember.id] ? root.pollHandler.answers[root.room.localMember.id].includes(modelData["id"]) : false
+                checked: root.pollHandler.answers[root.room.localMember.id] ? root.pollHandler.answers[root.room.localMember.id].includes(modelData["id"]) : false
                 onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])
                 enabled: !root.pollHandler.hasEnded
             }
