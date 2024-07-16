@@ -141,6 +141,4 @@ private:
 
     void updateItineraryModel();
     bool m_emptyItinerary = false;
-
-    Quotient::FileTransferInfo fileInfo() const;
 };

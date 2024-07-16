@@ -108,24 +108,9 @@ void MessageContentModel::initializeModel()
         }
     });
     connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
-        if (m_event != nullptr && eventId == m_eventId) {
+        if (m_room != nullptr && m_event != nullptr && eventId == m_eventId) {
             resetContent();
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
-
-            QString mxcUrl;
-            if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-                if (event->hasFileContent()) {
-                    mxcUrl = event->content()->fileInfo()->url().toString();
-                }
-            } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
-                mxcUrl = event->image().fileInfo()->url().toString();
-            }
-            if (mxcUrl.isEmpty()) {
-                return;
-            }
-            auto localPath = m_room->fileTransferInfo(m_eventId).localPath.toLocalFile();
-            auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
-            config.writePathEntry(mxcUrl.mid(6), localPath);
         }
     });
     connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
@@ -260,7 +245,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return eventHandler.getMediaInfo();
     }
     if (role == FileTransferInfoRole) {
-        return QVariant::fromValue(fileInfo());
+        return QVariant::fromValue(m_room->cachedFileTransferInfo(m_event.get()));
     }
     if (role == ItineraryModelRole) {
         return QVariant::fromValue<ItineraryModel *>(m_itineraryModel);
@@ -440,7 +425,7 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
 
         if (m_emptyItinerary) {
             if (!m_isReply) {
-                auto fileTransferInfo = fileInfo();
+                auto fileTransferInfo = m_room->cachedFileTransferInfo(m_event.get());
 
 #ifndef Q_OS_ANDROID
                 Q_ASSERT(event->content() != nullptr && event->content()->fileInfo() != nullptr);
@@ -565,7 +550,7 @@ void MessageContentModel::updateItineraryModel()
 
     if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
         if (event->hasFileContent()) {
-            auto filePath = fileInfo().localPath;
+            auto filePath = m_room->cachedFileTransferInfo(m_event.get()).localPath;
             if (filePath.isEmpty() && m_itineraryModel != nullptr) {
                 delete m_itineraryModel;
                 m_itineraryModel = nullptr;
@@ -591,44 +576,6 @@ void MessageContentModel::updateItineraryModel()
             }
         }
     }
-}
-
-FileTransferInfo MessageContentModel::fileInfo() const
-{
-    if (m_room == nullptr || m_event == nullptr) {
-        return {};
-    }
-
-    QString mxcUrl;
-    int total;
-    if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-        if (event->hasFileContent()) {
-            mxcUrl = event->content()->fileInfo()->url().toString();
-            total = event->content()->fileInfo()->payloadSize;
-        }
-    } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
-        mxcUrl = event->image().fileInfo()->url().toString();
-        total = event->image().fileInfo()->payloadSize;
-    }
-    auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
-    if (!config.hasKey(mxcUrl.mid(6))) {
-        return m_room->fileTransferInfo(m_eventId);
-    }
-    const auto path = config.readPathEntry(mxcUrl.mid(6), QString());
-    QFileInfo info(path);
-    if (!info.isFile()) {
-        config.deleteEntry(mxcUrl);
-        return m_room->fileTransferInfo(m_eventId);
-    }
-    // TODO: we could check the hash here
-    return FileTransferInfo{
-        .status = FileTransferInfo::Completed,
-        .isUpload = false,
-        .progress = total,
-        .total = total,
-        .localDir = QUrl(info.dir().path()),
-        .localPath = QUrl::fromLocalFile(path),
-    };
 }
 
 #include "moc_messagecontentmodel.cpp"

@@ -69,6 +69,26 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         setFileUploadingProgress(0);
         setHasFileUploading(false);
     });
+    connect(this, &Room::fileTransferCompleted, this, [this](QString eventId) {
+        const auto evtIt = findInTimeline(eventId);
+        if (evtIt != messageEvents().rend()) {
+            const auto m_event = evtIt->viewAs<RoomEvent>();
+            QString mxcUrl;
+            if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+                if (event->hasFileContent()) {
+                    mxcUrl = event->content()->fileInfo()->url().toString();
+                }
+            } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
+                mxcUrl = event->image().fileInfo()->url().toString();
+            }
+            if (mxcUrl.isEmpty()) {
+                return;
+            }
+            auto localPath = this->fileTransferInfo(eventId).localPath.toLocalFile();
+            auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
+            config.writePathEntry(mxcUrl.mid(6), localPath);
+        }
+    });
 
     connect(this, &Room::addedMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
     connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::cleanupExtraEventRange);
@@ -1370,7 +1390,7 @@ void NeoChatRoom::openEventMediaExternally(const QString &eventId)
     if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
         const auto event = evtIt->viewAs<RoomMessageEvent>();
         if (event->hasFileContent()) {
-            const auto transferInfo = fileTransferInfo(eventId);
+            const auto transferInfo = cachedFileTransferInfo(event);
             if (transferInfo.completed()) {
                 UrlHelper helper;
                 helper.openUrl(transferInfo.localPath);
@@ -1378,15 +1398,20 @@ void NeoChatRoom::openEventMediaExternally(const QString &eventId)
                 downloadFile(eventId,
                              QUrl(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/'
                                   + event->id().replace(u':', u'_').replace(u'/', u'_').replace(u'+', u'_') + fileNameToDownload(eventId)));
-                connect(this, &Room::fileTransferCompleted, this, [this, eventId](QString id, QUrl localFile, FileSourceInfo fileMetadata) {
-                    Q_UNUSED(localFile);
-                    Q_UNUSED(fileMetadata);
-                    if (id == eventId) {
-                        auto transferInfo = fileTransferInfo(eventId);
-                        UrlHelper helper;
-                        helper.openUrl(transferInfo.localPath);
-                    }
-                });
+                connect(
+                    this,
+                    &Room::fileTransferCompleted,
+                    this,
+                    [this, eventId](QString id, QUrl localFile, FileSourceInfo fileMetadata) {
+                        Q_UNUSED(localFile);
+                        Q_UNUSED(fileMetadata);
+                        if (id == eventId) {
+                            auto transferInfo = fileTransferInfo(eventId);
+                            UrlHelper helper;
+                            helper.openUrl(transferInfo.localPath);
+                        }
+                    },
+                    static_cast<Qt::ConnectionType>(Qt::SingleShotConnection));
             }
         }
     }
@@ -1406,18 +1431,64 @@ void NeoChatRoom::copyEventMedia(const QString &eventId)
                 downloadFile(eventId,
                              QUrl(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/'
                                   + event->id().replace(u':', u'_').replace(u'/', u'_').replace(u'+', u'_') + fileNameToDownload(eventId)));
-                connect(this, &Room::fileTransferCompleted, this, [this, eventId](QString id, QUrl localFile, FileSourceInfo fileMetadata) {
-                    Q_UNUSED(localFile);
-                    Q_UNUSED(fileMetadata);
-                    if (id == eventId) {
-                        auto transferInfo = fileTransferInfo(eventId);
-                        Clipboard clipboard;
-                        clipboard.setImage(transferInfo.localPath);
-                    }
-                });
+                connect(
+                    this,
+                    &Room::fileTransferCompleted,
+                    this,
+                    [this, eventId](QString id, QUrl localFile, FileSourceInfo fileMetadata) {
+                        Q_UNUSED(localFile);
+                        Q_UNUSED(fileMetadata);
+                        if (id == eventId) {
+                            auto transferInfo = fileTransferInfo(eventId);
+                            Clipboard clipboard;
+                            clipboard.setImage(transferInfo.localPath);
+                        }
+                    },
+                    static_cast<Qt::ConnectionType>(Qt::SingleShotConnection));
             }
         }
     }
+}
+
+FileTransferInfo NeoChatRoom::cachedFileTransferInfo(const Quotient::RoomEvent *event) const
+{
+    QString mxcUrl;
+    int total = 0;
+    if (auto evt = eventCast<const Quotient::RoomMessageEvent>(event)) {
+        if (evt->hasFileContent()) {
+            mxcUrl = evt->content()->fileInfo()->url().toString();
+            total = evt->content()->fileInfo()->payloadSize;
+        }
+    } else if (auto evt = eventCast<const Quotient::StickerEvent>(event)) {
+        mxcUrl = evt->image().fileInfo()->url().toString();
+        total = evt->image().fileInfo()->payloadSize;
+    }
+
+    FileTransferInfo transferInfo = fileTransferInfo(event->id());
+    if (transferInfo.active()) {
+        return transferInfo;
+    }
+
+    auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
+    if (!config.hasKey(mxcUrl.mid(6))) {
+        return transferInfo;
+    }
+
+    const auto path = config.readPathEntry(mxcUrl.mid(6), QString());
+    QFileInfo info(path);
+    if (!info.isFile()) {
+        config.deleteEntry(mxcUrl);
+        return transferInfo;
+    }
+    // TODO: we could check the hash here
+    return FileTransferInfo{
+        .status = FileTransferInfo::Completed,
+        .isUpload = false,
+        .progress = total,
+        .total = total,
+        .localDir = QUrl(info.dir().path()),
+        .localPath = QUrl::fromLocalFile(path),
+    };
 }
 
 ChatBarCache *NeoChatRoom::mainCache() const

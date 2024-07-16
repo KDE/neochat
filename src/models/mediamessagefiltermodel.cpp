@@ -30,40 +30,6 @@ bool MediaMessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex 
 
 QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
 {
-    if (role == SourceRole) {
-        if (mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("image"))) {
-            return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("source")].toUrl();
-        } else if (mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("video"))) {
-            auto progressInfo = mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>();
-
-            if (progressInfo.completed()) {
-                return mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>().localPath;
-            } else {
-                return QUrl();
-            }
-        } else {
-            return QUrl();
-        }
-    }
-    if (role == TempSourceRole) {
-        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("tempInfo")].toMap()[QStringLiteral("source")].toUrl();
-    }
-    if (role == TypeRole) {
-        if (mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("image"))) {
-            return MediaType::Image;
-        } else {
-            return MediaType::Video;
-        }
-    }
-    if (role == CaptionRole) {
-        return mapToSource(index).data(Qt::DisplayRole);
-    }
-    if (role == SourceWidthRole) {
-        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("width")].toFloat();
-    }
-    if (role == SourceHeightRole) {
-        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("height")].toFloat();
-    }
     // We need to catch this one and return true if the next media object was
     // on a different day.
     if (role == MessageEventModel::ShowSectionRole) {
@@ -78,6 +44,37 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
             model->setShowAuthor(true);
         }
         return QVariant::fromValue<MessageContentModel *>(model);
+    }
+
+    QVariantMap mediaInfo = mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap();
+
+    if (role == TempSourceRole) {
+        return mediaInfo[QStringLiteral("tempInfo")].toMap()[QStringLiteral("source")].toUrl();
+    }
+    if (role == CaptionRole) {
+        return mapToSource(index).data(Qt::DisplayRole);
+    }
+    if (role == SourceWidthRole) {
+        return mediaInfo[QStringLiteral("width")].toFloat();
+    }
+    if (role == SourceHeightRole) {
+        return mediaInfo[QStringLiteral("height")].toFloat();
+    }
+
+    bool isVideo = mediaInfo[QStringLiteral("mimeType")].toString().contains(QStringLiteral("video"));
+
+    if (role == TypeRole) {
+        return (isVideo) ? MediaType::Video : MediaType::Image;
+    }
+    if (role == SourceRole) {
+        if (isVideo) {
+            auto progressInfo = mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>();
+            if (progressInfo.completed()) {
+                return mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>().localPath;
+            }
+        } else {
+            return mediaInfo[QStringLiteral("source")].toUrl();
+        }
     }
 
     return sourceModel()->data(mapToSource(index), role);

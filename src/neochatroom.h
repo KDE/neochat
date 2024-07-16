@@ -579,6 +579,14 @@ public:
      */
     Q_INVOKABLE QString invitingUserId() const;
 
+    /**
+     * @brief Return the cached file transfer information for the event.
+     *
+     * If we downloaded the file previously, return a struct with Completed status
+     * and the local file path stored in KSharedCOnfig
+     */
+    Quotient::FileTransferInfo cachedFileTransferInfo(const Quotient::RoomEvent *event) const;
+
 private:
     QSet<const Quotient::RoomEvent *> highlights;
 
