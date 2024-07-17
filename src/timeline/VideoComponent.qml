@@ -92,6 +92,8 @@ Video {
 
     fillMode: VideoOutput.PreserveAspectFit
 
+    Component.onDestruction: root.stop()
+
     states: [
         State {
             name: "notDownloaded"
