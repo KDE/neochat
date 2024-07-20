@@ -71,8 +71,6 @@ add_library(neochat STATIC
     login.h
     models/webshortcutmodel.cpp
     models/webshortcutmodel.h
-    blurhash.cpp
-    blurhash.h
     blurhashimageprovider.cpp
     blurhashimageprovider.h
     models/mediamessagefiltermodel.cpp

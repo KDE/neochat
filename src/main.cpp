@@ -288,7 +288,7 @@ int main(int argc, char *argv[])
         ShareHandler::instance().setText(parser.value(shareOption));
     }
 
-    engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
+    engine.addImageProvider(QLatin1String("blurhash"), new BlurHashImageProvider);
 
     engine.loadFromModule("org.kde.neochat", "Main");
     if (engine.rootObjects().isEmpty()) {
