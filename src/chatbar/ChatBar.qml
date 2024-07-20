@@ -219,7 +219,7 @@ QQC2.Control {
                     }
 
                     onTextChanged: {
-                        if (!repeatTimer.running && Config.typingNotifications) {
+                        if (!repeatTimer.running && NeoChatConfig.typingNotifications) {
                             var textExists = text.length > 0;
                             root.currentRoom.sendTypingNotification(textExists);
                             textExists ? repeatTimer.start() : repeatTimer.stop();
@@ -353,8 +353,8 @@ QQC2.Control {
         startBreakpoint: Kirigami.Units.gridUnit * 46
         endBreakpoint: Kirigami.Units.gridUnit * 66
         startPercentWidth: 100
-        endPercentWidth: Config.compactLayout ? 100 : 85
-        maxWidth: Config.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
+        endPercentWidth: NeoChatConfig.compactLayout ? 100 : 85
+        maxWidth: NeoChatConfig.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
 
         parentWidth: root.width
     }

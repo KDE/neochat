@@ -143,12 +143,12 @@ QQC2.ScrollView {
         footer: Item {
             z: 3
             width: root.width
-            visible: !Config.blur
+            visible: !NeoChatConfig.blur
 
             SectionDelegate {
                 id: sectionDelegate
                 anchors.leftMargin: state === "alignLeft" ? Kirigami.Units.largeSpacing : 0
-                state: Config.compactLayout ? "alignLeft" : "alignCenter"
+                state: NeoChatConfig.compactLayout ? "alignLeft" : "alignCenter"
                 // Align left when in compact mode and center when using bubbles
                 states: [
                     State {
@@ -171,7 +171,7 @@ QQC2.ScrollView {
 
                 width: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.contentItem.width : 0
                 labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
-                colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
+                colorSet: NeoChatConfig.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
             }
         }
         footerPositioning: ListView.OverlayHeader

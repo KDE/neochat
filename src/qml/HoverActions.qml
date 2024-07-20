@@ -117,7 +117,7 @@ QQC2.Control {
                     }
                 },
                 Kirigami.Action {
-                    visible: Config.threads && !root.currentRoom.readOnly
+                    visible: NeoChatConfig.threads && !root.currentRoom.readOnly
                     text: i18n("Reply in Thread")
                     icon.name: "dialog-messages"
                     onTriggered: {

@@ -27,12 +27,12 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: closeDelegate
             text: i18n("Show in System Tray")
-            checked: Config.systemTray
+            checked: NeoChatConfig.systemTray
             visible: Controller.supportSystemTray
-            enabled: !Config.isSystemTrayImmutable
+            enabled: !NeoChatConfig.isSystemTrayImmutable
             onToggled: {
-                Config.systemTray = checked;
-                Config.save();
+                NeoChatConfig.systemTray = checked;
+                NeoChatConfig.save();
             }
         }
 
@@ -44,12 +44,12 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: minimizeDelegate
             text: i18n("Minimize to system tray on startup")
-            checked: Config.minimizeToSystemTrayOnStartup
+            checked: NeoChatConfig.minimizeToSystemTrayOnStartup
             visible: Controller.supportSystemTray && !Kirigami.Settings.isMobile
-            enabled: Config.systemTray && !Config.isMinimizeToSystemTrayOnStartupImmutable
+            enabled: NeoChatConfig.systemTray && !NeoChatConfig.isMinimizeToSystemTrayOnStartupImmutable
             onToggled: {
-                Config.minimizeToSystemTrayOnStartup = checked;
-                Config.save();
+                NeoChatConfig.minimizeToSystemTrayOnStartup = checked;
+                NeoChatConfig.save();
             }
         }
 
@@ -61,12 +61,12 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: automaticallyDelegate
             text: i18n("Automatically hide/unhide the room information when resizing the window")
-            checked: Config.autoRoomInfoDrawer
-            enabled: !Config.isAutoRoomInfoDrawerImmutable
+            checked: NeoChatConfig.autoRoomInfoDrawer
+            enabled: !NeoChatConfig.isAutoRoomInfoDrawerImmutable
             visible: Qt.platform.os !== "android"
             onToggled: {
-                Config.autoRoomInfoDrawer = checked;
-                Config.save();
+                NeoChatConfig.autoRoomInfoDrawer = checked;
+                NeoChatConfig.save();
             }
         }
 
@@ -77,11 +77,11 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: categorizeDelegate
             text: i18n("Show all rooms in \"Home\" tab")
-            checked: Config.allRoomsInHome
-            enabled: !Config.isAllRoomsInHomeImmutable
+            checked: NeoChatConfig.allRoomsInHome
+            enabled: !NeoChatConfig.isAllRoomsInHomeImmutable
             onToggled: {
-                Config.allRoomsInHome = checked;
-                Config.save();
+                NeoChatConfig.allRoomsInHome = checked;
+                NeoChatConfig.save();
             }
         }
 
@@ -92,20 +92,20 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
             text: i18nc("As in 'sort something based on last activity'", "Activity")
-            checked: Config.sortOrder === 1
-            enabled: !Config.isSortOrderImmutable
+            checked: NeoChatConfig.sortOrder === 1
+            enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
-                Config.sortOrder = 1
-                Config.save()
+                NeoChatConfig.sortOrder = 1
+                NeoChatConfig.save()
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("As in 'sort something alphabetically'", "Alphabetical")
-            checked: Config.sortOrder === 0
-            enabled: !Config.isSortOrderImmutable
+            checked: NeoChatConfig.sortOrder === 0
+            enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
-                Config.sortOrder = 0
-                Config.save()
+                NeoChatConfig.sortOrder = 0
+                NeoChatConfig.save()
             }
         }
     }
@@ -116,11 +116,11 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: showDeletedMessages
             text: i18n("Show deleted messages")
-            checked: Config.showDeletedMessages
-            enabled: !Config.isShowDeletedMessagesImmutable
+            checked: NeoChatConfig.showDeletedMessages
+            enabled: !NeoChatConfig.isShowDeletedMessagesImmutable
             onToggled: {
-                Config.showDeletedMessages = checked;
-                Config.save();
+                NeoChatConfig.showDeletedMessages = checked;
+                NeoChatConfig.save();
             }
         }
 
@@ -132,65 +132,65 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: showStateEvents
             text: i18n("Show state events")
-            checked: Config.showStateEvent
-            enabled: !Config.isShowStateEventImmutable
+            checked: NeoChatConfig.showStateEvent
+            enabled: !NeoChatConfig.isShowStateEventImmutable
             onToggled: {
-                Config.showStateEvent = checked;
-                Config.save();
+                NeoChatConfig.showStateEvent = checked;
+                NeoChatConfig.save();
             }
         }
 
         FormCard.FormDelegateSeparator {
-            visible: Config.showStateEvent
+            visible: NeoChatConfig.showStateEvent
             above: showStateEvents
             below: showLeaveJoinEventDelegate
         }
 
         FormCard.FormCheckDelegate {
             id: showLeaveJoinEventDelegate
-            visible: Config.showStateEvent
+            visible: NeoChatConfig.showStateEvent
             text: i18n("Show leave and join events")
-            checked: Config.showLeaveJoinEvent
-            enabled: !Config.isShowLeaveJoinEventImmutable
+            checked: NeoChatConfig.showLeaveJoinEvent
+            enabled: !NeoChatConfig.isShowLeaveJoinEventImmutable
             onToggled: {
-                Config.showLeaveJoinEvent = checked;
-                Config.save();
+                NeoChatConfig.showLeaveJoinEvent = checked;
+                NeoChatConfig.save();
             }
         }
 
         FormCard.FormDelegateSeparator {
-            visible: Config.showStateEvent
+            visible: NeoChatConfig.showStateEvent
             above: showLeaveJoinEventDelegate
             below: showNameDelegate
         }
 
         FormCard.FormCheckDelegate {
             id: showNameDelegate
-            visible: Config.showStateEvent
+            visible: NeoChatConfig.showStateEvent
             text: i18n("Show name change events")
-            checked: Config.showRename
-            enabled: !Config.isShowRenameImmutable
+            checked: NeoChatConfig.showRename
+            enabled: !NeoChatConfig.isShowRenameImmutable
             onToggled: {
-                Config.showRename = checked;
-                Config.save();
+                NeoChatConfig.showRename = checked;
+                NeoChatConfig.save();
             }
         }
 
         FormCard.FormDelegateSeparator {
-            visible: Config.showStateEvent
+            visible: NeoChatConfig.showStateEvent
             above: showNameDelegate
             below: showAvatarChangeDelegate
         }
 
         FormCard.FormCheckDelegate {
             id: showAvatarChangeDelegate
-            visible: Config.showStateEvent
+            visible: NeoChatConfig.showStateEvent
             text: i18n("Show avatar update events")
-            checked: Config.showAvatarUpdate
-            enabled: !Config.isShowAvatarUpdateImmutable
+            checked: NeoChatConfig.showAvatarUpdate
+            enabled: !NeoChatConfig.isShowAvatarUpdateImmutable
             onToggled: {
-                Config.showAvatarUpdate = checked;
-                Config.save();
+                NeoChatConfig.showAvatarUpdate = checked;
+                NeoChatConfig.save();
             }
         }
     }
@@ -201,11 +201,11 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: quickEditCheckbox
             text: i18n("Use s/text/replacement syntax to edit your last message")
-            checked: Config.allowQuickEdit
-            enabled: !Config.isAllowQuickEditImmutable
+            checked: NeoChatConfig.allowQuickEdit
+            enabled: !NeoChatConfig.isAllowQuickEditImmutable
             onToggled: {
-                Config.allowQuickEdit = checked;
-                Config.save();
+                NeoChatConfig.allowQuickEdit = checked;
+                NeoChatConfig.save();
             }
         }
         FormCard.FormDelegateSeparator {
@@ -215,11 +215,11 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: typingNotificationsDelegate
             text: i18n("Send typing notifications")
-            checked: Config.typingNotifications
-            enabled: !Config.isTypingNotificationsImmutable
+            checked: NeoChatConfig.typingNotifications
+            enabled: !NeoChatConfig.isTypingNotificationsImmutable
             onToggled: {
-                Config.typingNotifications = checked;
-                Config.save();
+                NeoChatConfig.typingNotifications = checked;
+                NeoChatConfig.save();
             }
         }
     }
@@ -229,15 +229,15 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
             text: i18n("Enable developer tools")
-            checked: Config.developerTools
-            enabled: !Config.isDeveloperToolsImmutable
+            checked: NeoChatConfig.developerTools
+            enabled: !NeoChatConfig.isDeveloperToolsImmutable
             onToggled: {
-                Config.developerTools = checked;
-                Config.save();
+                NeoChatConfig.developerTools = checked;
+                NeoChatConfig.save();
             }
         }
         FormCard.FormButtonDelegate {
-            visible: Config.developerTools
+            visible: NeoChatConfig.developerTools
             text: i18n("Open developer tools")
             onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
                 connection: root.connection

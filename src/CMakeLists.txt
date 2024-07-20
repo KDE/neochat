@@ -423,7 +423,7 @@ if (TARGET KF6::Crash)
     target_link_libraries(neochat PUBLIC KF6::Crash)
 endif()
 
-kconfig_target_kcfg_file(neochat FILE neochatconfig.kcfg CLASS_NAME NeoChatConfig MUTATORS GENERATE_PROPERTIES DEFAULT_VALUE_GETTERS PARENT_IN_CONSTRUCTOR SINGLETON GENERATE_MOC )
+kconfig_target_kcfg_file(neochat FILE neochatconfig.kcfg CLASS_NAME NeoChatConfig MUTATORS GENERATE_PROPERTIES DEFAULT_VALUE_GETTERS PARENT_IN_CONSTRUCTOR SINGLETON GENERATE_MOC QML_REGISTRATION)
 
 if(NEOCHAT_FLATPAK)
     target_compile_definitions(neochat PUBLIC NEOCHAT_FLATPAK)

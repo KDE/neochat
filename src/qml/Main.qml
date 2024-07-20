@@ -18,7 +18,7 @@ Kirigami.ApplicationWindow {
     readonly property HoverLinkIndicator hoverLinkIndicator: linkIndicator
 
 
-    title: Config.windowTitleFocus ? activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "") : "NeoChat"
+    title: NeoChatConfig.windowTitleFocus ? activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "") : "NeoChat"
 
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 15
@@ -158,7 +158,7 @@ Kirigami.ApplicationWindow {
 
         // This is a memory for all user initiated actions on the drawer, i.e. clicking the button
         // It is used to ensure that user choice is remembered when changing pages and expanding and contracting the window width
-        property bool drawerUserState: Config.autoRoomInfoDrawer
+        property bool drawerUserState: NeoChatConfig.autoRoomInfoDrawer
 
         connection: root.connection
 
@@ -179,7 +179,7 @@ Kirigami.ApplicationWindow {
         modal: (!root.wideScreen || !enabled)
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: {
-            if (Config.autoRoomInfoDrawer) {
+            if (NeoChatConfig.autoRoomInfoDrawer) {
                 drawerOpen = !modal && drawerUserState;
                 dim = false;
             }
@@ -194,11 +194,11 @@ Kirigami.ApplicationWindow {
         RoomSettingsView.window = root;
         NeoChatSettingsView.window = root;
         NeoChatSettingsView.connection = root.connection;
-        WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
+        WindowController.setBlur(pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
         if (ShareHandler.text && root.connection) {
             root.handleShare()
         }
-        if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && Config.systemTray) {
+        if (NeoChatConfig.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && NeoChatConfig.systemTray) {
             restoreWindowGeometryConnections.enabled = true; // To restore window size and position
         } else {
             visible = true;
@@ -206,21 +206,21 @@ Kirigami.ApplicationWindow {
         }
     }
     Connections {
-        target: Config
+        target: NeoChatConfig
         function onBlurChanged() {
-            WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
+            WindowController.setBlur(pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
         }
         function onCompactLayoutChanged() {
-            WindowController.setBlur(pageStack, Config.blur && !Config.compactLayout);
+            WindowController.setBlur(pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
         }
     }
 
     // blur effect
-    color: Config.blur && !Config.compactLayout ? "transparent" : Kirigami.Theme.backgroundColor
+    color: NeoChatConfig.blur && !NeoChatConfig.compactLayout ? "transparent" : Kirigami.Theme.backgroundColor
 
     // we need to apply the translucency effect separately on top of the color
     background: Rectangle {
-        color: Config.blur && !Config.compactLayout ? Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 1 - Config.transparency) : "transparent"
+        color: NeoChatConfig.blur && !NeoChatConfig.compactLayout ? Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 1 - NeoChatConfig.transparency) : "transparent"
     }
 
     Component {

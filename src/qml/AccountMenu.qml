@@ -45,7 +45,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Open developer tools")
         icon.name: "tools"
-        visible: Config.developerTools
+        visible: NeoChatConfig.developerTools
         onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
             connection: root.connection
         }, {
@@ -57,7 +57,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18nc("@action:inmenu", "Open Secret Backup")
         icon.name: "unlock"
-        visible: Config.secretBackup
+        visible: NeoChatConfig.secretBackup
         onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
             title: i18nc("@title:window", "Open Key Backup")
         })

@@ -202,7 +202,7 @@ FormCard.FormCardPage {
         medium: "email"
     }
     ThreePIdCard {
-        visible: Config.phone3PId
+        visible: NeoChatConfig.phone3PId
         connection: root.connection
         title: i18n("Phone Numbers")
         medium: "msisdn"

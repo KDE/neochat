@@ -50,7 +50,7 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.Other
-        delegate: Config.showAllEvents ? hiddenDelegate : emptyDelegate
+        delegate: NeoChatConfig.showAllEvents ? hiddenDelegate : emptyDelegate
 
         Component {
             id: hiddenDelegate
