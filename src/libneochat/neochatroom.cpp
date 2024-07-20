@@ -51,6 +51,10 @@
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 #include "jobs/neochatreportroomjob.h"
+
+#if Quotient_VERSION_MINOR > 9
+#include <Quotient/blurhash.h>
+#endif
 #if Quotient_VERSION_MINOR < 10
 #include "events/joinrulesevent.h"
 #endif
@@ -260,7 +264,12 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
     const auto mime = QMimeDatabase().mimeTypeForUrl(url);
     EventContent::FileContentBase *content = nullptr;
     if (mime.name().startsWith("image/"_L1)) {
-        content = new EventContent::ImageContent(url, fileInfo.size(), mime, QImage(url.toLocalFile()).size(), fileInfo.fileName());
+        const QImage image(url.toLocalFile());
+#if Quotient_VERSION_MINOR > 9
+        content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName(), BlurHash::encode(image));
+#else
+        content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
+#endif
     } else if (mime.name().startsWith("audio/"_L1)) {
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
     } else if (mime.name().startsWith("video/"_L1)) {
@@ -292,7 +301,11 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
         co_await qCoro(job.get(), &BaseJob::finished);
 
         const auto resolution = player.metaData().value(QMediaMetaData::Resolution).toSize();
+#if Quotient_VERSION_MINOR > 9
+        content = new EventContent::VideoContent(url, fileInfo.size(), mime, resolution, fileInfo.fileName(), BlurHash::encode(thumbnailImage));
+#else
         content = new EventContent::VideoContent(url, fileInfo.size(), mime, resolution, fileInfo.fileName());
+#endif
         content->thumbnail = EventContent::Thumbnail(job->contentUri(),
                                                      thumbnailFileInfo.size(),
                                                      QMimeDatabase().mimeTypeForName(QStringLiteral("image/jpeg")),

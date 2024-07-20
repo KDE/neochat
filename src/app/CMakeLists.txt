@@ -12,8 +12,6 @@ qt_add_library(neochat STATIC
     models/userdirectorylistmodel.h
     notificationsmanager.cpp
     notificationsmanager.h
-    blurhash.cpp
-    blurhash.h
     blurhashimageprovider.cpp
     blurhashimageprovider.h
     windowcontroller.cpp
@@ -40,6 +38,14 @@ qt_add_library(neochat STATIC
     supportcontroller.cpp
     supportcontroller.h
 )
+
+# Use Quotient's blurhash implementation if available
+if (${QuotientQt6_VERSION_MINOR} LESS 10)
+    target_sources(neochat PRIVATE
+            blurhash.cpp
+            blurhash.h
+    )
+endif()
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
     QT_QML_SINGLETON_TYPE TRUE
