@@ -22,6 +22,7 @@
 #include "models/sortfilterroomtreemodel.h"
 #include "models/sortfilterspacelistmodel.h"
 #include "models/timelinemodel.h"
+#include "models/userlistmodel.h"
 
 class NeoChatRoom;
 class NeoChatConnection;
@@ -121,6 +122,14 @@ class RoomManager : public QObject, public UriResolverBase
     Q_PROPERTY(MediaMessageFilterModel *mediaMessageFilterModel READ mediaMessageFilterModel CONSTANT)
 
     /**
+     * @brief The UserListModel that should be used for room member visualisation.
+     *
+     * @note Available here so that the room page and drawer both have access to the
+     *       same model.
+     */
+    Q_PROPERTY(UserListModel *userListModel READ userListModel CONSTANT)
+
+    /**
      * @brief Whether a room is currently open in NeoChat.
      *
      * @sa room
@@ -154,6 +163,9 @@ public:
     TimelineModel *timelineModel() const;
     MessageFilterModel *messageFilterModel() const;
     MediaMessageFilterModel *mediaMessageFilterModel() const;
+
+    UserListModel *userListModel() const;
+    Q_INVOKABLE void activateUserModel();
 
     /**
      * @brief Resolve the given URI resource.
@@ -359,6 +371,9 @@ private:
     TimelineModel *m_timelineModel;
     MessageFilterModel *m_messageFilterModel;
     MediaMessageFilterModel *m_mediaMessageFilterModel;
+
+    UserListModel *m_userListModel;
+
     QPointer<NeoChatConnection> m_connection;
 
     void setCurrentRoom(const QString &roomId);

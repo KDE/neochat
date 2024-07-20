@@ -33,6 +33,7 @@ void UserListModel::setRoom(NeoChatRoom *room)
         m_currentRoom->disconnect(this);
         m_currentRoom->connection()->disconnect(this);
         m_currentRoom = nullptr;
+        m_members.clear();
         endResetModel();
     }
 
@@ -56,7 +57,7 @@ void UserListModel::setRoom(NeoChatRoom *room)
         });
     }
 
-    refreshAllMembers();
+    m_active = false;
     Q_EMIT roomChanged();
 }
 
@@ -169,7 +170,6 @@ void UserListModel::refreshMember(const Quotient::RoomMember &member, const QLis
 void UserListModel::refreshAllMembers()
 {
     beginResetModel();
-    m_members.clear();
 
     if (m_currentRoom != nullptr) {
         m_members = m_currentRoom->joinedMemberIds();
@@ -179,8 +179,17 @@ void UserListModel::refreshAllMembers()
         MemberSorter sorter(m_currentRoom);
 #endif
         std::sort(m_members.begin(), m_members.end(), [&sorter, this](const auto &left, const auto &right) {
+            const auto leftPl = m_currentRoom->getUserPowerLevel(left);
+            const auto rightPl = m_currentRoom->getUserPowerLevel(right);
+            if (leftPl > rightPl) {
+                return true;
+            } else if (rightPl > leftPl) {
+                return false;
+            }
+
             return sorter(m_currentRoom->member(left), m_currentRoom->member(right));
         });
+
     }
     endResetModel();
     Q_EMIT usersRefreshed();
@@ -214,6 +223,16 @@ QHash<int, QByteArray> UserListModel::roleNames() const
     roles[PowerLevelStringRole] = "powerLevelString";
 
     return roles;
+}
+
+void UserListModel::activate()
+{
+    if (m_active) {
+        return;
+    }
+
+    m_active = true;
+    refreshAllMembers();
 }
 
 #include "moc_userlistmodel.cpp"

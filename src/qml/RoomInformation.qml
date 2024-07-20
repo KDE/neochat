@@ -192,20 +192,7 @@ QQC2.ScrollView {
             }
         }
 
-        KSortFilterProxyModel {
-            id: sortedMessageEventModel
-
-            sourceModel: UserListModel {
-                room: root.room
-            }
-
-            sortRoleName: "powerLevel"
-            sortOrder: Qt.DescendingOrder
-            filterRoleName: "name"
-            filterCaseSensitivity: Qt.CaseInsensitive
-        }
-
-        model: root.room.isDirectChat() ? 0 : sortedMessageEventModel
+        model: root.room.isDirectChat() ? 0 : RoomManager.userListModel
 
         clip: true
         focus: true

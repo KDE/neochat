@@ -20,11 +20,6 @@ FormCard.FormCardPage {
 
     title: i18nc('@title:window', 'Permissions')
 
-    property UserListModel userListModel: UserListModel {
-        id: userListModel
-        room: root.room
-    }
-
     readonly property PowerLevelModel powerLevelModel: PowerLevelModel {
         showMute: false
     }
@@ -39,7 +34,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Repeater {
             model: KSortFilterProxyModel {
-                sourceModel: userListModel
+                sourceModel: RoomManager.userListModel
                 sortRoleName: "powerLevel"
                 sortOrder: Qt.DescendingOrder
                 filterRowCallback: function (source_row, source_parent) {
@@ -158,7 +153,7 @@ FormCard.FormCardPage {
 
                         model: UserFilterModel {
                             id: userListFilterModel
-                            sourceModel: userListModel
+                            sourceModel: RoomManager.userListModel
                             filterText: userListSearchField.text
 
                             onFilterTextChanged: {

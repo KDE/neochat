@@ -39,6 +39,7 @@ RoomManager::RoomManager(QObject *parent)
     , m_timelineModel(new TimelineModel(this))
     , m_messageFilterModel(new MessageFilterModel(this, m_timelineModel))
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
+    , m_userListModel(new UserListModel(this))
 {
     m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
     m_lastSpaceConfig = m_config->group(QStringLiteral("LastOpenSpace"));
@@ -46,6 +47,7 @@ RoomManager::RoomManager(QObject *parent)
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_timelineModel->setRoom(m_currentRoom);
+        m_userListModel->setRoom(m_currentRoom);
     });
 
     connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this](NeoChatConnection *connection) {
@@ -111,6 +113,16 @@ MessageFilterModel *RoomManager::messageFilterModel() const
 MediaMessageFilterModel *RoomManager::mediaMessageFilterModel() const
 {
     return m_mediaMessageFilterModel;
+}
+
+UserListModel *RoomManager::userListModel() const
+{
+    return m_userListModel;
+}
+
+void RoomManager::activateUserModel()
+{
+    m_userListModel->activate();
 }
 
 UriResolveResult RoomManager::resolveResource(const Uri &uri)

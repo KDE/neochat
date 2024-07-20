@@ -77,6 +77,8 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    void activate();
+
 Q_SIGNALS:
     void roomChanged();
     void usersRefreshed();
@@ -93,6 +95,8 @@ private Q_SLOTS:
 private:
     QPointer<NeoChatRoom> m_currentRoom;
     QList<QString> m_members;
+
+    bool m_active = false;
 
     int findUserPos(const Quotient::RoomMember &member) const;
     [[nodiscard]] int findUserPos(const QString &username) const;

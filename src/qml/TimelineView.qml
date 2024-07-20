@@ -108,6 +108,7 @@ QQC2.ScrollView {
             onTriggered: {
                 root.roomChanging = false;
                 markReadIfVisibleTimer.reset();
+                RoomManager.activateUserModel();
             }
         }
         onAtYEndChanged: if (!root.roomChanging) {

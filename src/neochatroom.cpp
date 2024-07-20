@@ -866,11 +866,18 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
 
 int NeoChatRoom::getUserPowerLevel(const QString &userId) const
 {
-    auto powerLevelEvent = currentState().get<RoomPowerLevelsEvent>();
-    if (!powerLevelEvent) {
-        return 0;
+    if (!successorId().isEmpty()) {
+        return 0; // No one can upgrade a room that's already upgraded
     }
-    return powerLevelEvent->powerLevelForUser(userId);
+
+    const auto &mId = userId.isEmpty() ? connection()->userId() : userId;
+    if (const auto *plEvent = currentState().get<RoomPowerLevelsEvent>()) {
+        return plEvent->powerLevelForUser(mId);
+    }
+    if (const auto *createEvent = creation()) {
+        return createEvent->senderId() == mId ? 100 : 0;
+    }
+    return 0; // That's rather weird but may happen, according to rvdh
 }
 
 QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QString reason)

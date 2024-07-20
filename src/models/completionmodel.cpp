@@ -9,18 +9,16 @@
 #include "customemojimodel.h"
 #include "emojimodel.h"
 #include "neochatroom.h"
+#include "roommanager.h"
 #include "userlistmodel.h"
 
 CompletionModel::CompletionModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_filterModel(new CompletionProxyModel())
-    , m_userListModel(new UserListModel(this))
+    , m_userListModel(RoomManager::instance().userListModel())
     , m_emojiModel(new QConcatenateTablesProxyModel(this))
 {
     connect(this, &CompletionModel::textChanged, this, &CompletionModel::updateCompletion);
-    connect(this, &CompletionModel::roomChanged, this, [this]() {
-        m_userListModel->setRoom(m_room);
-    });
     m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
     m_emojiModel->addSourceModel(&EmojiModel::instance());
 }
