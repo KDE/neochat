@@ -18,6 +18,7 @@
 #include <qcoro/qcorosignal.h>
 
 #include <Quotient/avatar.h>
+#include <Quotient/blurhash.h>
 #include <Quotient/connection.h>
 #include <Quotient/csapi/account-data.h>
 #include <Quotient/csapi/directory.h>
@@ -241,7 +242,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
     EventContent::FileContentBase *content;
     if (mime.name().startsWith("image/"_L1)) {
         QImage image(url.toLocalFile());
-        content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
+        content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName(), BlurHash::encode(image));
     } else if (mime.name().startsWith("audio/"_L1)) {
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
     } else if (mime.name().startsWith("video/"_L1)) {

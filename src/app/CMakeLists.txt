@@ -12,8 +12,6 @@ add_library(neochat STATIC
     models/userdirectorylistmodel.h
     notificationsmanager.cpp
     notificationsmanager.h
-    blurhash.cpp
-    blurhash.h
     blurhashimageprovider.cpp
     blurhashimageprovider.h
     windowcontroller.cpp

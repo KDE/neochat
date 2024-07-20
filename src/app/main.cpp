@@ -292,7 +292,7 @@ int main(int argc, char *argv[])
         ShareHandler::instance().setText(parser.value(shareOption));
     }
 
-    engine.addImageProvider(u"blurhash"_s, new BlurhashImageProvider);
+    engine.addImageProvider(u"blurhash"_s, new BlurHashImageProvider);
 
     engine.loadFromModule("org.kde.neochat", "Main");
 
