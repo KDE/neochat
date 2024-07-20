@@ -99,7 +99,7 @@ void PushRuleModel::setRules(QList<Quotient::PushRule> rules, PushRuleKind::Kind
     for (const auto &rule : rules) {
         QString roomId;
         if (rule.conditions.size() > 0) {
-            for (const auto &condition : rule.conditions) {
+            for (const auto &condition : std::as_const(rule.conditions)) {
                 if (condition.key == QStringLiteral("room_id")) {
                     roomId = condition.pattern;
                 }
@@ -163,7 +163,7 @@ PushRuleSection::Section PushRuleModel::getSection(Quotient::PushRule rule)
         }
         // If the rule has push conditions and one is a room ID it is a room only keyword.
         if (!rule.conditions.isEmpty()) {
-            for (auto condition : rule.conditions) {
+            for (const auto &condition : std::as_const(rule.conditions)) {
                 if (condition.key == QStringLiteral("room_id")) {
                     return PushRuleSection::RoomKeywords;
                 }

@@ -26,7 +26,7 @@ int EmojiModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     int total = 0;
-    for (const auto &category : _emojis) {
+    for (const auto &category : std::as_const(_emojis)) {
         total += category.count();
     }
     return total;
@@ -35,7 +35,7 @@ int EmojiModel::rowCount(const QModelIndex &parent) const
 QVariant EmojiModel::data(const QModelIndex &index, int role) const
 {
     auto row = index.row();
-    for (const auto &category : _emojis) {
+    for (const auto &category : std::as_const(_emojis)) {
         if (row >= category.count()) {
             row -= category.count();
             continue;
@@ -79,7 +79,8 @@ QVariantList EmojiModel::filterModelNoCustom(const QString &filter, bool limit)
 {
     QVariantList result;
 
-    for (const auto &e : _emojis.values()) {
+    const auto &values = _emojis.values();
+    for (const auto &e : values) {
         for (const auto &variant : e) {
             const auto &emoji = qvariant_cast<Emoji>(variant);
             if (emoji.shortName.contains(filter, Qt::CaseInsensitive)) {
@@ -121,7 +122,8 @@ QVariantList EmojiModel::emojis(Category category) const
     }
     if (category == HistoryNoCustom) {
         QVariantList list;
-        for (const auto &e : emojiHistory()) {
+        const auto &history = emojiHistory();
+        for (const auto &e : history) {
             auto emoji = qvariant_cast<Emoji>(e);
             if (!emoji.isCustom) {
                 list.append(e);
@@ -224,8 +226,9 @@ QVariantList EmojiModel::categoriesWithCustom() const
 QVariantList EmojiModel::emojiHistory() const
 {
     QVariantList list;
-    for (const auto &historicEmoji : lastUsedEmojis()) {
-        for (const auto &emojiCategory : _emojis) {
+    const auto &lastUsed = lastUsedEmojis();
+    for (const auto &historicEmoji : lastUsed) {
+        for (const auto &emojiCategory : std::as_const(_emojis)) {
             for (const auto &emoji : emojiCategory) {
                 if (qvariant_cast<Emoji>(emoji).shortName == historicEmoji) {
                     list.append(emoji);
