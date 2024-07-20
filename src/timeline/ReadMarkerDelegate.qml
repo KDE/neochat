@@ -27,6 +27,9 @@ TimelineDelegate {
         padding: Kirigami.Units.largeSpacing
         topInset: Kirigami.Units.largeSpacing
         topPadding: Kirigami.Units.largeSpacing * 2
+        bottomPadding: Kirigami.Units.largeSpacing * 2
+        leftPadding: Kirigami.Units.largeSpacing * 2
+        bottomInset: Kirigami.Units.largeSpacing
 
         Timer {
             id: temporaryHighlightTimer
