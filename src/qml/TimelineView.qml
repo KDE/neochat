@@ -191,7 +191,7 @@ QQC2.ScrollView {
             implicitHeight: Kirigami.Units.gridUnit * 2
 
             z: 2
-            visible: root.currentRoom?.hasUnreadMessages || false
+            visible: (root.currentRoom?.hasUnreadMessages ?? false)
 
             text: root.currentRoom.readMarkerLoaded ? i18n("Jump to first unread message") : i18n("Jump to oldest loaded message")
             action: Kirigami.Action {

@@ -235,7 +235,7 @@ TimelineDelegate {
                     topMargin: Kirigami.Units.smallSpacing
                 }
 
-                visible: root.contentModel?.showAuthor || false && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
+                visible: (root.contentModel?.showAuthor ?? false) && Config.showAvatarInTimeline && (Config.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
                 source: root.author.avatarUrl
                 color: root.author.color
