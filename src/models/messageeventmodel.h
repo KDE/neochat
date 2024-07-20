@@ -10,6 +10,7 @@
 #include "linkpreviewer.h"
 #include "neochatroom.h"
 #include "pollhandler.h"
+#include "readmarkermodel.h"
 
 class ReactionModel;
 
@@ -58,8 +59,6 @@ public:
         ShowSectionRole, /**< Whether the section header should be shown. */
 
         ReadMarkersRole, /**< The first 5 other users at the event for read marker tracking. */
-        ExcessReadMarkersRole, /**< The number of other users at the event after the first 5. */
-        ReadMarkersStringRole, /**< String with the display name and mxID of the users at the event. */
         ShowReadMarkersRole, /**< Whether there are any other user read markers to be shown. */
         ReactionRole, /**< List model for this event. */
         ShowReactionsRole, /**< Whether there are any reactions to be shown. */
@@ -116,6 +115,7 @@ private:
     bool movingEvent = false;
     KFormat m_format;
 
+    QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     [[nodiscard]] int timelineBaseIndex() const;
@@ -130,7 +130,7 @@ private:
     int refreshEventRoles(const QString &eventId, const QList<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
 
-    void createEventObjects(const Quotient::RoomMessageEvent *event);
+    void createEventObjects(const Quotient::RoomEvent *event);
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
     bool m_initialized = false;
 

@@ -26,6 +26,7 @@
 #include "messagecontentmodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/reactionmodel.h"
+#include "readmarkermodel.h"
 #include "texthandler.h"
 
 using namespace Quotient;
@@ -45,8 +46,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ThreadRootRole] = "threadRoot";
     roles[ShowSectionRole] = "showSection";
     roles[ReadMarkersRole] = "readMarkers";
-    roles[ExcessReadMarkersRole] = "excessReadMarkers";
-    roles[ReadMarkersStringRole] = "readMarkersString";
     roles[ShowReadMarkersRole] = "showReadMarkers";
     roles[ReactionRole] = "reaction";
     roles[ShowReactionsRole] = "showReactions";
@@ -87,6 +86,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         // HACK: Reset the model to a null room first to make sure QML dismantles
         // last room's objects before the room is actually changed
         beginResetModel();
+        m_readMarkerModels.clear();
         m_currentRoom->disconnect(this);
         m_currentRoom = nullptr;
         endResetModel();
@@ -100,9 +100,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         room->setDisplayed();
 
         for (auto event = m_currentRoom->messageEvents().begin(); event != m_currentRoom->messageEvents().end(); ++event) {
-            if (const auto &roomMessageEvent = &*event->viewAs<RoomMessageEvent>()) {
-                createEventObjects(roomMessageEvent);
-            }
+            createEventObjects(&*event->viewAs<RoomEvent>());
             if (event->event()->is<PollStartEvent>()) {
                 m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event->event()));
             }
@@ -115,11 +113,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
 
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
             for (auto &&event : events) {
-                const RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
-
-                if (message != nullptr) {
-                    createEventObjects(message);
-                }
+                createEventObjects(event.get());
                 if (event->is<PollStartEvent>()) {
                     m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event.get()));
                 }
@@ -129,9 +123,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
             for (auto &event : events) {
-                if (const auto &roomMessageEvent = dynamic_cast<RoomMessageEvent *>(event.get())) {
-                    createEventObjects(roomMessageEvent);
-                }
+                createEventObjects(event.get());
                 if (event->is<PollStartEvent>()) {
                     m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event.get()));
                 }
@@ -195,10 +187,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             moveReadMarker(toEventId);
         });
         connect(m_currentRoom, &Room::replacedEvent, this, [this](const RoomEvent *newEvent) {
-            const RoomMessageEvent *message = eventCast<const RoomMessageEvent>(newEvent);
-            if (message != nullptr) {
-                createEventObjects(message);
-            }
+            createEventObjects(newEvent);
         });
         connect(m_currentRoom, &Room::updatedEvent, this, [this](const QString &eventId) {
             if (eventId.isEmpty()) { // How did we get here?
@@ -206,9 +195,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             const auto eventIt = m_currentRoom->findInTimeline(eventId);
             if (eventIt != m_currentRoom->historyEdge()) {
-                if (const auto &event = dynamic_cast<const RoomMessageEvent *>(&**eventIt)) {
-                    createEventObjects(event);
-                }
+                createEventObjects(eventIt->event());
                 if (eventIt->event()->is<PollStartEvent>()) {
                     m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(eventIt->event()));
                 }
@@ -216,11 +203,10 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             refreshEventRoles(eventId, {Qt::DisplayRole});
         });
         connect(m_currentRoom, &Room::changed, this, [this](Room::Changes changes) {
-            if (changes & (Room::Change::PartiallyReadStats | Room::Change::UnreadStats | Room::Change::Other | Room::Change::Members)) {
+            if (changes.testFlag(Quotient::Room::Change::Other)) {
                 // this is slow
                 for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
-                    auto event = it->event();
-                    refreshEventRoles(event->id(), {ReadMarkersRole, ReadMarkersStringRole, ExcessReadMarkersRole});
+                    createEventObjects(it->event());
                 }
             }
         });
@@ -557,19 +543,15 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReadMarkersRole) {
-        return QVariant::fromValue(eventHandler.getReadMarkers());
-    }
-
-    if (role == ExcessReadMarkersRole) {
-        return eventHandler.getNumberExcessReadMarkers();
-    }
-
-    if (role == ReadMarkersStringRole) {
-        return eventHandler.getReadMarkersString();
+        if (m_readMarkerModels.contains(evt.id())) {
+            return QVariant::fromValue<ReadMarkerModel *>(m_readMarkerModels[evt.id()].get());
+        } else {
+            return QVariantList();
+        }
     }
 
     if (role == ShowReadMarkersRole) {
-        return eventHandler.hasReadMarkers();
+        return m_readMarkerModels.contains(evt.id());
     }
 
     if (role == ReactionRole) {
@@ -630,28 +612,59 @@ int MessageEventModel::eventIdToRow(const QString &eventID) const
     return it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
 }
 
-void MessageEventModel::createEventObjects(const Quotient::RoomMessageEvent *event)
+void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
 {
+    if (event == nullptr) {
+        return;
+    }
+
     auto eventId = event->id();
 
-    // ReactionModel handles updates to add and remove reactions, we only need to
+    // ReadMarkerModel handles updates to add and remove markers, we only need to
     // handle adding and removing whole models here.
-    if (m_reactionModels.contains(eventId)) {
+    if (m_readMarkerModels.contains(eventId)) {
         // If a model already exists but now has no reactions remove it
-        if (m_reactionModels[eventId]->rowCount() <= 0) {
-            m_reactionModels.remove(eventId);
+        if (m_readMarkerModels[eventId]->rowCount() <= 0) {
+            m_readMarkerModels.remove(eventId);
             if (!resetting) {
-                refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole});
+                refreshEventRoles(eventId, {ReadMarkersRole, ShowReadMarkersRole});
             }
         }
     } else {
-        if (m_currentRoom->relatedEvents(*event, Quotient::EventRelation::AnnotationType).count() > 0) {
+        auto memberIds = m_currentRoom->userIdsAtEvent(eventId);
+        memberIds.remove(m_currentRoom->localMember().id());
+        if (memberIds.size() > 0) {
             // If a model doesn't exist and there are reactions add it.
-            auto reactionModel = QSharedPointer<ReactionModel>(new ReactionModel(event, m_currentRoom));
-            if (reactionModel->rowCount() > 0) {
-                m_reactionModels[eventId] = reactionModel;
+            auto newModel = QSharedPointer<ReadMarkerModel>(new ReadMarkerModel(eventId, m_currentRoom));
+            if (newModel->rowCount() > 0) {
+                m_readMarkerModels[eventId] = newModel;
+                if (!resetting) {
+                    refreshEventRoles(eventId, {ReadMarkersRole, ShowReadMarkersRole});
+                }
+            }
+        }
+    }
+
+    if (const auto roomEvent = eventCast<const RoomMessageEvent>(event)) {
+        // ReactionModel handles updates to add and remove reactions, we only need to
+        // handle adding and removing whole models here.
+        if (m_reactionModels.contains(eventId)) {
+            // If a model already exists but now has no reactions remove it
+            if (m_reactionModels[eventId]->rowCount() <= 0) {
+                m_reactionModels.remove(eventId);
                 if (!resetting) {
                     refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole});
+                }
+            }
+        } else {
+            if (m_currentRoom->relatedEvents(*event, Quotient::EventRelation::AnnotationType).count() > 0) {
+                // If a model doesn't exist and there are reactions add it.
+                auto reactionModel = QSharedPointer<ReactionModel>(new ReactionModel(roomEvent, m_currentRoom));
+                if (reactionModel->rowCount() > 0) {
+                    m_reactionModels[eventId] = reactionModel;
+                    if (!resetting) {
+                        refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole});
+                    }
                 }
             }
         }

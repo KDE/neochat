@@ -75,8 +75,6 @@ private Q_SLOTS:
     void nullThread();
     void location();
     void nullLocation();
-    void readMarkers();
-    void nullReadMarkers();
 };
 
 void EventHandlerTest::initTestCase()
@@ -519,60 +517,6 @@ void EventHandlerTest::nullLocation()
 
     QTest::ignoreMessage(QtWarningMsg, "getLocationAssetType called with m_event set to nullptr.");
     QCOMPARE(emptyHandler.getLocationAssetType(), QString());
-}
-
-void EventHandlerTest::readMarkers()
-{
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandler.hasReadMarkers(), true);
-
-    auto readMarkers = eventHandler.getReadMarkers();
-
-    QCOMPARE(readMarkers.size(), 1);
-    QCOMPARE(readMarkers[0].id(), QStringLiteral("@alice:example.org"));
-
-    QCOMPARE(eventHandler.getNumberExcessReadMarkers(), QString());
-    QCOMPARE(eventHandler.getReadMarkersString(), QStringLiteral("1 user: Alice Margatroid"));
-
-    EventHandler eventHandler2(room, room->messageEvents().at(2).get());
-    QCOMPARE(eventHandler2.hasReadMarkers(), true);
-
-    readMarkers = eventHandler2.getReadMarkers();
-
-    QCOMPARE(readMarkers.size(), 5);
-
-    QCOMPARE(eventHandler2.getNumberExcessReadMarkers(), QStringLiteral("+ 1"));
-    // There are no guarantees on the order of the users it will be different every time so don't match the whole string.
-    QCOMPARE(eventHandler2.getReadMarkersString().startsWith(QStringLiteral("6 users:")), true);
-}
-
-void EventHandlerTest::nullReadMarkers()
-{
-    QTest::ignoreMessage(QtWarningMsg, "hasReadMarkers called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.hasReadMarkers(), false);
-
-    QTest::ignoreMessage(QtWarningMsg, "getReadMarkers called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getReadMarkers(), QList<Quotient::RoomMember>());
-
-    QTest::ignoreMessage(QtWarningMsg, "getNumberExcessReadMarkers called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getNumberExcessReadMarkers(), QString());
-
-    QTest::ignoreMessage(QtWarningMsg, "getReadMarkersString called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getReadMarkersString(), QString());
-
-    EventHandler noEventHandler(room, nullptr);
-
-    QTest::ignoreMessage(QtWarningMsg, "hasReadMarkers called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.hasReadMarkers(), false);
-
-    QTest::ignoreMessage(QtWarningMsg, "getReadMarkers called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReadMarkers(), QList<Quotient::RoomMember>());
-
-    QTest::ignoreMessage(QtWarningMsg, "getNumberExcessReadMarkers called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getNumberExcessReadMarkers(), QString());
-
-    QTest::ignoreMessage(QtWarningMsg, "getReadMarkersString called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReadMarkersString(), QString());
 }
 
 QTEST_MAIN(EventHandlerTest)

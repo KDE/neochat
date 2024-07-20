@@ -13,20 +13,21 @@ Flow {
     property var avatarSize: Kirigami.Units.iconSizes.small
     property alias model: avatarFlowRepeater.model
     property string toolTipText
-    property alias excessAvatars: excessAvatarsLabel.text
 
     spacing: -avatarSize / 2
     Repeater {
         id: avatarFlowRepeater
         delegate: KirigamiComponents.Avatar {
-            required property var modelData
+            required property string displayName
+            required property url avatarUrl
+            required property color memberColor
 
             implicitWidth: root.avatarSize
             implicitHeight: root.avatarSize
 
-            name: modelData.displayName
-            source: modelData.avatarUrl
-            color: modelData.color
+            name: displayName
+            source: avatarUrl
+            color: memberColor
         }
     }
     QQC2.Label {
@@ -34,6 +35,9 @@ Flow {
         visible: text !== ""
         color: Kirigami.Theme.textColor
         horizontalAlignment: Text.AlignHCenter
+
+        text: root.model?.excessReadMarkersString ?? ""
+
         background: Kirigami.ShadowedRectangle {
             color: Kirigami.Theme.backgroundColor
             Kirigami.Theme.inherit: false
@@ -54,7 +58,7 @@ Flow {
         }
     }
 
-    QQC2.ToolTip.text: toolTipText
+    QQC2.ToolTip.text: root.model?.readMarkersString ?? ""
     QQC2.ToolTip.visible: hoverHandler.hovered
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 

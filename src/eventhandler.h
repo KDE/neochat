@@ -342,43 +342,6 @@ public:
      */
     QString getLocationAssetType() const;
 
-    /**
-     * @brief Whether the event has any read marker for other users.
-     */
-    bool hasReadMarkers() const;
-
-    /**
-     * @brief Returns a list of user read marker for the event.
-     *
-     * @param maxMarkers the maximum number of users to return. Usually the number
-     *                   of user read makers shown is limited to not clutter the UI.
-     *                   This needs to be the same as used in getNumberExcessReadMarkers
-     *                   so that the markers line up with the number displayed, i.e.
-     *                   the number of users shown plus the excess number will be
-     *                   the total number of other user read markers at an event.
-     */
-    QList<Quotient::RoomMember> getReadMarkers(int maxMarkers = 5) const;
-
-    /**
-     * @brief Returns the number of excess user read markers for the event.
-     *
-     * This returns a string in the form "+ x" ready for use in the UI.
-     *
-     * @param maxMarkers the maximum number of markers shown in the UI. This needs to
-     *                   be the same as used in getReadMarkers so that the value lines
-     *                   up with the number displayed, i.e. the number of users shown
-     *                   plus the excess number will be the total number of other user
-     *                   read markers at an event.
-     */
-    QString getNumberExcessReadMarkers(int maxMarkers = 5) const;
-
-    /**
-     * @brief Returns a string with the names of the read markers at the event.
-     *
-     * This is in the form "x users: name 1, name 2, ...".
-     */
-    QString getReadMarkersString() const;
-
 private:
     const NeoChatRoom *m_room = nullptr;
     const Quotient::RoomEvent *m_event = nullptr;

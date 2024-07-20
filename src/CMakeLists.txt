@@ -186,6 +186,8 @@ add_library(neochat STATIC
     models/permissionsmodel.h
     threepidbindhelper.cpp
     threepidbindhelper.h
+    models/readmarkermodel.cpp
+    models/readmarkermodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

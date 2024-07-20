@@ -54,16 +54,6 @@ TimelineDelegate {
     required property var readMarkers
 
     /**
-     * @brief String with the display name and matrix ID of the other user read markers.
-     */
-    required property string readMarkersString
-
-    /**
-     * @brief The number of other users at the event after the first 5.
-     */
-    required property var excessReadMarkers
-
-    /**
      * @brief Whether the other user read marker component should be shown.
      */
     required property bool showReadMarkers
@@ -197,8 +187,6 @@ TimelineDelegate {
             Layout.alignment: Qt.AlignRight
             visible: root.showReadMarkers
             model: root.readMarkers
-            toolTipText: root.readMarkersString
-            excessAvatars: root.excessReadMarkers
         }
     }
 
