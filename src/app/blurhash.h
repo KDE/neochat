@@ -1,28 +1,28 @@
-// SPDX-FileCopyrightText: 2018 Wolt Enterprises
+// SPDX-FileCopyrightText: 2024 Joshua Goins <josh@redstrate.com>
 // SPDX-License-Identifier: MIT
 
 #pragma once
 
-#include <stdint.h>
+#include <QtGui/QImage>
 
+namespace Quotient
+{
 /**
- * @brief Returns the pixel array of the result image given the blurhash string.
- *
- * @param blurhash a string representing the blurhash to be decoded.
- * @param width the width of the resulting image.
- * @param height the height of the resulting image.
- * @param punch the factor to improve the contrast, default = 1.
- * @param nChannels the number of channels in the resulting image array, 3 = RGB, 4 = RGBA.
- *
- * @return A pointer to memory region where pixels are stored in (H, W, C) format.
+ * @brief Encodes and decodes image to and from the BlurHash format. See https://blurha.sh/.
  */
-uint8_t *decode(const char *blurhash, int width, int height, int punch, int nChannels);
+namespace BlurHash
+{
+/** Decodes the @p blurhash string creating an image of @p size.
+ * @note Returns a null image if decoding failed.
+ */
+QImage decode(const QString &blurhash, const QSize &size);
 
-/**
- * @brief Checks if the Blurhash is valid or not.
- *
- * @param blurhash a string representing the blurhash.
- *
- * @return A bool (true if it is a valid blurhash, else false).
+/** Encodes the @p image and returns a blurhash string.
+ * @param image A non-null image.
+ * @param componentsX the number of components X-wise. Must be between 1 and 9.
+ * @param componentsY the number of components Y-wise. Must be between 1 and 9.
+ * @note Returns an empty string if it failed to encode the image.
  */
-bool isValidBlurhash(const char *blurhash);
+QString encode(const QImage &image, int componentsX = 4, int componentsY = 4);
+} // namespace BlurHash
+} // namespace Quotient
