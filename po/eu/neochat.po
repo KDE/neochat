@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-21 02:27+0000\n"
-"PO-Revision-Date: 2024-07-17 06:35+0200\n"
+"PO-Revision-Date: 2024-07-20 10:36+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1633,7 +1633,7 @@ msgstr "Ireki gakoaren babeskopia"
 #: src/qml/AccountMenu.qml:76 src/settings/AccountsPage.qml:71
 #, kde-format
 msgid "Logout"
-msgstr "Saio-itxi"
+msgstr "Saioa itxi"
 
 #: src/qml/AccountSwitchDialog.qml:29
 #, kde-format
@@ -1795,7 +1795,7 @@ msgstr "Aktibatu zifratzea"
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
-msgstr "Ezingo da zifratzea desgaitu behin hura gaitu denean."
+msgstr "Behin zifratzea gaituta, ezingo da hura ezgaitu."
 
 #: src/qml/ConfirmEncryptionDialog.qml:32 src/qml/ConfirmLogoutDialog.qml:31
 #: src/qml/ImageEditorPage.qml:124
@@ -2528,7 +2528,7 @@ msgstr "Bidali gonbita"
 #: src/qml/InviteUserPage.qml:115
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr "Erabiltzailea dagoeneko bazkidea da edo gonbidapena jaso du"
+msgstr "Erabiltzailea dagoeneko kidea da edo gonbidapena jaso du"
 
 #: src/qml/JoinRoomDialog.qml:29
 #, kde-format
@@ -2930,7 +2930,7 @@ msgstr "Ezarpenak"
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
-msgstr "Tokiko bazkideak"
+msgstr "Tokiko kideak"
 
 #: src/qml/RoomInformation.qml:40
 #, kde-format
@@ -2978,7 +2978,7 @@ msgstr "Irten gela honetatik"
 #: src/qml/RoomInformation.qml:137
 #, kde-format
 msgid "Members"
-msgstr "Bazkideak"
+msgstr "Kideak"
 
 #: src/qml/RoomInformation.qml:152 src/qml/SpaceHomePage.qml:55
 #, kde-format
@@ -2995,13 +2995,13 @@ msgstr "Gonbidatu erabiltzaile bat gelara"
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "Bazkide %1"
-msgstr[1] "%1 bazkide"
+msgstr[0] "Kide %1"
+msgstr[1] "%1 kide"
 
 #: src/qml/RoomInformation.qml:163
 #, kde-format
 msgid "No member count"
-msgstr "Ez dago bazkide zenbaketarik"
+msgstr "Ez dago kide kopururik"
 
 #: src/qml/RoomListPage.qml:195
 #, kde-format
@@ -4732,7 +4732,7 @@ msgstr "URL aurreikuspegiak"
 #: src/settings/RoomGeneralPage.qml:261
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr "Gaitu URL aurreikuspegiak, era lehenetsian, gelako bazkideentzat"
+msgstr "Gaitu URL aurreikuspegiak, era lehenetsian, gelako kideentzat"
 
 #: src/settings/RoomGeneralPage.qml:269
 #, kde-format
@@ -4856,7 +4856,7 @@ msgstr "Gonbidatutako jendea bakarrik batu daiteke."
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
-msgstr "Tokiko bazkideak"
+msgstr "Tokiko kideak"
 
 #: src/settings/RoomSecurityPage.qml:56
 #, kde-format
@@ -4913,7 +4913,7 @@ msgstr "Edonork, batu gabekoak ere, historia ikus dezake."
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "Bazkideak bakarrik"
+msgstr "Kideak bakarrik"
 
 #: src/settings/RoomSecurityPage.qml:118
 #, kde-format
@@ -4921,13 +4921,13 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
-"Bazkide guztiek ikus dezakete mezuen historia osoa, baita batu aurrekoa ere."
+"Kide guztiek ikus dezakete mezuen historia osoa, baita batu aurrekoa ere."
 
 #: src/settings/RoomSecurityPage.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr "Bazkideak bakarrik (gonbitetik aurrera)"
+msgstr "Kideak bakarrik (gonbitetik aurrera)"
 
 #: src/settings/RoomSecurityPage.qml:127
 #, kde-format
@@ -4936,14 +4936,14 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
-"Bazkide berriek mezuen historia ikus dezakete, gelara gonbidatu zituzten "
-"unetik aurrera."
+"Kide berriek mezuen historia ikus dezakete, gelara gonbidatu zituzten unetik "
+"aurrera."
 
 #: src/settings/RoomSecurityPage.qml:135
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr "Bazkideak bakarrik (batzetik aurrera)"
+msgstr "Kideak bakarrik (batzetik aurrera)"
 
 #: src/settings/RoomSecurityPage.qml:136
 #, kde-format
@@ -4951,8 +4951,7 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
-"Bazkide berriek mezuen historia ikus dezakete, gelara batu ziren unetik "
-"aurrera."
+"Kide berriek mezuen historia ikus dezakete, gelara batu ziren unetik aurrera."
 
 #: src/settings/RoomSettings.qml:44
 #, kde-format
