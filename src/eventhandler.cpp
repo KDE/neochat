@@ -143,6 +143,11 @@ QString EventHandler::getTimeString(bool relative, QLocale::FormatType format, b
     return {};
 }
 
+QString EventHandler::getTimeString(const QString &format, bool isPending, const QDateTime &lastUpdated)
+{
+    return getTime(isPending, lastUpdated).toLocalTime().toString(format);
+}
+
 bool EventHandler::isHighlighted()
 {
     if (m_room == nullptr) {

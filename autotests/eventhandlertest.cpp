@@ -163,6 +163,7 @@ void EventHandlerTest::timeString()
              QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().time(), QLocale::LongFormat));
     QCOMPARE(eventHandler.getTimeString(true, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().date(), QLocale::LongFormat));
+    QCOMPARE(eventHandler.getTimeString(QStringLiteral("hh:mm")), QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC).toString(QStringLiteral("hh:mm")));
 }
 
 void EventHandlerTest::nullTimeString()

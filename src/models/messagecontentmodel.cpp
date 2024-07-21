@@ -258,7 +258,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         });
 
         auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
-        return eventHandler.getTimeString(false, QLocale::ShortFormat, m_isPending, lastUpdated);
+        return eventHandler.getTimeString(QStringLiteral("hh:mm"), m_isPending, lastUpdated);
     }
     if (role == AuthorRole) {
         return QVariant::fromValue<NeochatRoomMember *>(m_eventSenderObject.get());
