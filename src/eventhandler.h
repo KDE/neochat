@@ -98,6 +98,8 @@ public:
      */
     QString getTimeString(bool relative, QLocale::FormatType format = QLocale::ShortFormat, bool isPending = false, QDateTime lastUpdated = {}) const;
 
+    QString getTimeString(const QString &format, bool isPending = false, const QDateTime &lastUpdated = {});
+
     /**
      * @brief Whether the event should be highlighted in the timeline.
      *
