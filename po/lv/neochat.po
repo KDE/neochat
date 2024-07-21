@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-18 00:39+0000\n"
+"POT-Creation-Date: 2024-07-21 00:39+0000\n"
 "PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -378,7 +378,7 @@ msgid "Custom"
 msgstr "Dažādi"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:113
+#: src/models/userlistmodel.cpp:114
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -388,13 +388,13 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:514
-#: src/models/messagecontentmodel.cpp:208 src/models/messageeventmodel.cpp:459
+#: src/models/messagecontentmodel.cpp:208 src/models/messageeventmodel.cpp:445
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Šī ziņa ir dzēsta]</i>"
 
 #: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:209
-#: src/models/messageeventmodel.cpp:460
+#: src/models/messageeventmodel.cpp:446
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Šī ziņa ir dzēsta: %1]</i>"
@@ -729,27 +729,6 @@ msgstr "atjaunināja statusu"
 #, kde-format
 msgid "started a poll"
 msgstr "uzsāka aptauju"
-
-#: src/eventhandler.cpp:1047
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "%1 lietotājs: "
-msgstr[1] "%1 lietotāji: "
-msgstr[2] "%1 lietotāju: "
-
-#: src/eventhandler.cpp:1052
-#, fuzzy, kde-format
-#| msgid "Unknown event"
-msgctxt "A member who is not in the room has been requested."
-msgid "unknown member"
-msgstr "Nezināms notikums"
-
-#: src/eventhandler.cpp:1056
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
@@ -1420,67 +1399,67 @@ msgstr "%1 ir izmests no šīs istabas"
 msgid "Removes the user from the room"
 msgstr "Noņem lietotāju no istabas"
 
-#: src/models/emojimodel.cpp:153 src/models/emojimodel.cpp:211
+#: src/models/emojimodel.cpp:155 src/models/emojimodel.cpp:213
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Vēsture"
 
-#: src/models/emojimodel.cpp:158
+#: src/models/emojimodel.cpp:160
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Smaidiņi"
 
-#: src/models/emojimodel.cpp:163
+#: src/models/emojimodel.cpp:165
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Cilvēki"
 
-#: src/models/emojimodel.cpp:168
+#: src/models/emojimodel.cpp:170
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Daba"
 
-#: src/models/emojimodel.cpp:173
+#: src/models/emojimodel.cpp:175
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Ēdiens"
 
-#: src/models/emojimodel.cpp:178
+#: src/models/emojimodel.cpp:180
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Aktivitātes"
 
-#: src/models/emojimodel.cpp:183
+#: src/models/emojimodel.cpp:185
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Ceļošana"
 
-#: src/models/emojimodel.cpp:188
+#: src/models/emojimodel.cpp:190
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Objekti"
 
-#: src/models/emojimodel.cpp:193
+#: src/models/emojimodel.cpp:195
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Simboli"
 
-#: src/models/emojimodel.cpp:198
+#: src/models/emojimodel.cpp:200
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Karogi"
 
-#: src/models/emojimodel.cpp:217
+#: src/models/emojimodel.cpp:219
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -1813,6 +1792,27 @@ msgstr[0] "%2 reaģēja ar %3"
 msgstr[1] "%2 reaģēja ar %3"
 msgstr[2] "%2 reaģēja ar %3"
 
+#: src/models/readmarkermodel.cpp:110
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "%1 lietotājs: "
+msgstr[1] "%1 lietotāji: "
+msgstr[2] "%1 lietotāju: "
+
+#: src/models/readmarkermodel.cpp:115
+#, fuzzy, kde-format
+#| msgid "Unknown event"
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "Nezināms notikums"
+
+#: src/models/readmarkermodel.cpp:117
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
+
 #: src/neochatconnection.cpp:85
 #, kde-format
 msgid "File too large to download."
@@ -1839,12 +1839,12 @@ msgstr "Istabas izveide neizdevās: %1"
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
 
-#: src/neochatroom.cpp:1372
+#: src/neochatroom.cpp:1379
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ziņojums ir veiksmīgi nosūtīts."
 
-#: src/neochatroom.cpp:1693 src/neochatroom.cpp:1701
+#: src/neochatroom.cpp:1700 src/neochatroom.cpp:1708
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3678,28 +3678,28 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Pamest telpu"
 
-#: src/qml/TimelineView.qml:195
+#: src/qml/TimelineView.qml:196
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Iet uz pirmo nelasīto ziņu"
 
-#: src/qml/TimelineView.qml:195
+#: src/qml/TimelineView.qml:196
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgid "Jump to oldest loaded message"
 msgstr "Iet uz pēdējo ziņu"
 
-#: src/qml/TimelineView.qml:235
+#: src/qml/TimelineView.qml:236
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Iet uz pēdējo ziņu"
 
-#: src/qml/TimelineView.qml:260
+#: src/qml/TimelineView.qml:261
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Velciet vienumus te, lai tos kopīgotu"
 
-#: src/qml/TimelineView.qml:267
+#: src/qml/TimelineView.qml:268
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4106,27 +4106,27 @@ msgstr "Turpināt"
 msgid "Working"
 msgstr "Darbojas"
 
-#: src/roommanager.cpp:125
+#: src/roommanager.cpp:137
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Nepareizi formatēts vai tukšs „Matrix“ ID"
 
-#: src/roommanager.cpp:125
+#: src/roommanager.cpp:137
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "„%1“ nav pareizs „Matrix“ identifikators"
 
-#: src/roommanager.cpp:337
+#: src/roommanager.cpp:349
 #, kde-format
 msgid "Failed to join room"
 msgstr "Neizdevās pievienoties istabai"
 
-#: src/roommanager.cpp:369
+#: src/roommanager.cpp:381
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Jūsu lūdzāt pievienoties „%1“"
 
-#: src/roommanager.cpp:373
+#: src/roommanager.cpp:385
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Neizdevās lūgt pievienoties istabai"
@@ -4530,7 +4530,7 @@ msgid "Keyword…"
 msgstr "Atslēgas vārds..."
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Pievienot atslēgas vārdu"
@@ -4914,27 +4914,27 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Parole:"
 
-#: src/settings/Permissions.qml:37
+#: src/settings/Permissions.qml:32
 #, kde-format
 msgid "Privileged Users"
 msgstr "Priviliģētie lietotāji"
 
-#: src/settings/Permissions.qml:238
+#: src/settings/Permissions.qml:233
 #, kde-format
 msgid "Default permissions"
 msgstr "Noklusējuma atļaujas"
 
-#: src/settings/Permissions.qml:278
+#: src/settings/Permissions.qml:273
 #, kde-format
 msgid "Basic permissions"
 msgstr "Pamata atļaujas"
 
-#: src/settings/Permissions.qml:318
+#: src/settings/Permissions.qml:313
 #, kde-format
 msgid "Event permissions"
 msgstr "Notikuma atļaujas"
 
-#: src/settings/Permissions.qml:365
+#: src/settings/Permissions.qml:360
 #, kde-format
 msgid "Event Type…"
 msgstr ""
@@ -5534,7 +5534,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Beidzās)"
 
-#: src/timeline/ReadMarkerDelegate.qml:39
+#: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"

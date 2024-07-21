@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-18 00:39+0000\n"
+"POT-Creation-Date: 2024-07-21 00:39+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -392,7 +392,7 @@ msgid "Custom"
 msgstr "Xüsusi"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:113
+#: src/models/userlistmodel.cpp:114
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -402,13 +402,13 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:306 src/eventhandler.cpp:514
-#: src/models/messagecontentmodel.cpp:208 src/models/messageeventmodel.cpp:459
+#: src/models/messagecontentmodel.cpp:208 src/models/messageeventmodel.cpp:445
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ismarıc silindi]</i>"
 
 #: src/eventhandler.cpp:306 src/models/messagecontentmodel.cpp:209
-#: src/models/messageeventmodel.cpp:460
+#: src/models/messageeventmodel.cpp:446
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Bu ismarıc silindi: %1]</i>"
@@ -766,28 +766,6 @@ msgstr "%1 vəziyyəti yeniləndi"
 #, kde-format
 msgid "started a poll"
 msgstr ""
-
-#: src/eventhandler.cpp:1047
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/eventhandler.cpp:1052
-#, fuzzy, kde-format
-#| msgid "Unknown event"
-msgctxt "A member who is not in the room has been requested."
-msgid "unknown member"
-msgstr "Naməlum hal"
-
-#: src/eventhandler.cpp:1056
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and action 3]"
-#| msgid ", "
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
 
 #: src/filetransferpseudojob.cpp:48
 #, fuzzy, kde-format
@@ -1556,68 +1534,68 @@ msgstr "öz özünü otaqdan kənarlaşdırdı"
 msgid "Removes the user from the room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/models/emojimodel.cpp:153 src/models/emojimodel.cpp:211
+#: src/models/emojimodel.cpp:155 src/models/emojimodel.cpp:213
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr ""
 
-#: src/models/emojimodel.cpp:158
+#: src/models/emojimodel.cpp:160
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr ""
 
-#: src/models/emojimodel.cpp:163
+#: src/models/emojimodel.cpp:165
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr ""
 
-#: src/models/emojimodel.cpp:168
+#: src/models/emojimodel.cpp:170
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr ""
 
-#: src/models/emojimodel.cpp:173
+#: src/models/emojimodel.cpp:175
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr ""
 
-#: src/models/emojimodel.cpp:178
+#: src/models/emojimodel.cpp:180
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr ""
 
-#: src/models/emojimodel.cpp:183
+#: src/models/emojimodel.cpp:185
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr ""
 
-#: src/models/emojimodel.cpp:188
+#: src/models/emojimodel.cpp:190
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "İmtina etmək"
 
-#: src/models/emojimodel.cpp:193
+#: src/models/emojimodel.cpp:195
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr ""
 
-#: src/models/emojimodel.cpp:198
+#: src/models/emojimodel.cpp:200
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr ""
 
-#: src/models/emojimodel.cpp:217
+#: src/models/emojimodel.cpp:219
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgctxt "'Custom' is a category of emoji"
@@ -1956,6 +1934,28 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2, %3 ilə cavab verdi"
 msgstr[1] "%2, %3 ilə cavab verdi"
 
+#: src/models/readmarkermodel.cpp:110
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/models/readmarkermodel.cpp:115
+#, fuzzy, kde-format
+#| msgid "Unknown event"
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "Naməlum hal"
+
+#: src/models/readmarkermodel.cpp:117
+#, fuzzy, kde-format
+#| msgctxt "[action 1], [action 2 and action 3]"
+#| msgid ", "
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
+
 #: src/neochatconnection.cpp:85
 #, kde-format
 msgid "File too large to download."
@@ -1984,13 +1984,13 @@ msgstr "Otaq yaradıla bilmədi: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/neochatroom.cpp:1372
+#: src/neochatroom.cpp:1379
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/neochatroom.cpp:1693 src/neochatroom.cpp:1701
+#: src/neochatroom.cpp:1700 src/neochatroom.cpp:1708
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3903,28 +3903,28 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr ""
 
-#: src/qml/TimelineView.qml:195
+#: src/qml/TimelineView.qml:196
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Birinci oxunmammış ismarıca keçin"
 
-#: src/qml/TimelineView.qml:195
+#: src/qml/TimelineView.qml:196
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgid "Jump to oldest loaded message"
 msgstr "Sonuncu ismarıca keçin"
 
-#: src/qml/TimelineView.qml:235
+#: src/qml/TimelineView.qml:236
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Sonuncu ismarıca keçin"
 
-#: src/qml/TimelineView.qml:260
+#: src/qml/TimelineView.qml:261
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Elementi paylaşmaq üçün buraya atın"
 
-#: src/qml/TimelineView.qml:267
+#: src/qml/TimelineView.qml:268
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4330,28 +4330,28 @@ msgstr "Davam etmək"
 msgid "Working"
 msgstr ""
 
-#: src/roommanager.cpp:125
+#: src/roommanager.cpp:137
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Matrix İD qüsurludur və ya boşdur"
 
-#: src/roommanager.cpp:125
+#: src/roommanager.cpp:137
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1, düzgün Matrix identifikatoru deyil"
 
-#: src/roommanager.cpp:337
+#: src/roommanager.cpp:349
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to join room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/roommanager.cpp:369
+#: src/roommanager.cpp:381
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:373
+#: src/roommanager.cpp:385
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to request joining room"
@@ -4793,7 +4793,7 @@ msgid "Keyword…"
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:116
-#: src/settings/Permissions.qml:391 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add word"
@@ -5213,27 +5213,27 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Şifrə:"
 
-#: src/settings/Permissions.qml:37
+#: src/settings/Permissions.qml:32
 #, kde-format
 msgid "Privileged Users"
 msgstr ""
 
-#: src/settings/Permissions.qml:238
+#: src/settings/Permissions.qml:233
 #, kde-format
 msgid "Default permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:278
+#: src/settings/Permissions.qml:273
 #, kde-format
 msgid "Basic permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:318
+#: src/settings/Permissions.qml:313
 #, kde-format
 msgid "Event permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:365
+#: src/settings/Permissions.qml:360
 #, kde-format
 msgid "Event Type…"
 msgstr ""
@@ -5861,7 +5861,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr ""
 
-#: src/timeline/ReadMarkerDelegate.qml:39
+#: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
