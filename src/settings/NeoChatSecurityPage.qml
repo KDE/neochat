@@ -17,6 +17,32 @@ FormCard.FormCardPage {
     title: i18nc("@title", "Security")
 
     FormCard.FormHeader {
+        title: i18nc("@title:group", "Invitations")
+    }
+    FormCard.FormCard {
+        FormCard.FormCheckDelegate {
+            text: i18nc("@option:check", "Reject invitations from unknown users")
+            description: connection.canCheckMutualRooms ? i18n("If enabled, NeoChat will reject invitations from from users you don't share a room with.") : i18n("Your server does not support this setting.")
+            checked: Config.rejectUnknownInvites
+            enabled: !Config.isRejectUnknownInvitesImmutable && connection.canCheckMutualRooms
+            onToggled: {
+                Config.rejectUnknownInvites = checked;
+                Config.save();
+            }
+        }
+    }
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Ignored Users")
+    }
+    FormCard.FormCard {
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "Manage ignored users")
+            onClicked: root.ApplicationWindow.window.pageStack.push(ignoredUsersDialogComponent, {}, {
+                title: i18nc("@title:window", "Ignored Users")
+            });
+        }
+    }
+    FormCard.FormHeader {
         title: i18nc("@title", "Keys")
     }
     FormCard.FormCard {
@@ -31,17 +57,6 @@ FormCard.FormCardPage {
         FormCard.FormTextDelegate {
             text: connection.deviceId
             description: i18n("Device id")
-        }
-    }
-    FormCard.FormHeader {
-        title: i18nc("@title:group", "Ignored Users")
-    }
-    FormCard.FormCard {
-        FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Manage ignored users")
-            onClicked: pageStack.pushDialogLayer(ignoredUsersDialogComponent, {}, {
-                title: i18nc("@title:window", "Ignored Users")
-            });
         }
     }
 

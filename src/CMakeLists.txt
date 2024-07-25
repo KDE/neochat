@@ -134,6 +134,8 @@ add_library(neochat STATIC
     jobs/neochatdeletedevicejob.h
     jobs/neochatchangepasswordjob.cpp
     jobs/neochatchangepasswordjob.h
+    jobs/neochatgetcommonroomsjob.cpp
+    jobs/neochatgetcommonroomsjob.h
     mediasizehelper.cpp
     mediasizehelper.h
     eventhandler.cpp
