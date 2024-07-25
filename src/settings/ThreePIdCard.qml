@@ -143,7 +143,7 @@ ColumnLayout {
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Authentication ||
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.AuthFailure ||
                       threePIdAddHelper.newIdStatus == ThreePIdAddHelper.VerificationFailure
-            label: root.medium === "email" ? i18nc("@label:textbox", "New email address") : i18nc("@label:textbox", "New phone number")
+            label: root.medium === "email" ? i18nc("@label:textbox", "New Email Address:") : i18nc("@label:textbox", "New Phone Number:")
 
             statusMessage: switch(threePIdAddHelper.newIdStatus) {
             case ThreePIdAddHelper.Verification:
@@ -177,7 +177,9 @@ ColumnLayout {
                 }
             }
         }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
+            icon.name: threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Ready ? "list-add-symbolic" : ""
             text: threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Ready ? i18nc("@action:button Add new email or phone number", "Add") : i18nc("@action:button", "Continue")
             onClicked: _private.openPasswordSheet()
         }
