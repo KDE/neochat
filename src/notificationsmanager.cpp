@@ -249,7 +249,6 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom, const QS
     notification->setText(i18n("%1 invited you to a room", sender));
     notification->setTitle(title);
     notification->setPixmap(createNotificationImage(icon, nullptr));
-    notification->setFlags(KNotification::Persistent);
     auto defaultAction = notification->addDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
         if (!room) {
