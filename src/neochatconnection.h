@@ -79,6 +79,11 @@ class NeoChatConnection : public Quotient::Connection
      */
     Q_PROPERTY(bool isOnline READ isOnline WRITE setIsOnline NOTIFY isOnlineChanged)
 
+    /**
+     * @brief Whether the server supports querying a user's mutual rooms.
+     */
+    Q_PROPERTY(bool canCheckMutualRooms READ canCheckMutualRooms NOTIFY canCheckMutualRoomsChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -95,6 +100,7 @@ public:
 
     Q_INVOKABLE void logout(bool serverSideLogout);
     Q_INVOKABLE QVariantList getSupportedRoomVersions() const;
+    bool canCheckMutualRooms() const;
 
     /**
      * @brief Change the password for an account.
@@ -196,6 +202,7 @@ Q_SIGNALS:
     void passwordStatus(NeoChatConnection::PasswordStatus status);
     void userConsentRequired(QUrl url);
     void badgeNotificationCountChanged(NeoChatConnection *connection, int count);
+    void canCheckMutualRoomsChanged();
 
 private:
     bool m_isOnline = true;
@@ -208,4 +215,6 @@ private:
     int m_badgeNotificationCount = 0;
 
     QHash<QUrl, LinkPreviewer *> m_linkPreviewers;
+
+    bool m_canCheckMutualRooms = false;
 };
