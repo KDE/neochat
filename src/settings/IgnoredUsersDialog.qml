@@ -20,15 +20,19 @@ FormCard.FormCardPage {
     width: Kirigami.Units.gridUnit * 16
     height: Kirigami.Units.gridUnit * 32
 
-    FormCard.FormHeader {
-        title: i18nc("@title:group", "Ignored Users")
+    children: Kirigami.PlaceholderMessage {
+        icon.name: "im-invisible-user"
+        text: i18nc("Placeholder message when no user is ignored", "No ignored users")
+        visible: repeater.count === 0
+
+        anchors.centerIn: parent
     }
 
     FormCard.FormCard {
-        FormCard.FormTextDelegate {
-            text: i18nc("Placeholder message when no user is ignored", "You are not ignoring any users")
-            visible: repeater.count === 0
-        }
+        visible: repeater.count > 0
+
+        Layout.topMargin: Kirigami.Units.largeSpacing
+
         Repeater {
             id: repeater
             model: root.connection.ignoredUsers()
