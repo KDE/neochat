@@ -41,6 +41,7 @@
 #include "events/joinrulesevent.h"
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
+#include "jobs/neochatgetcommonroomsjob.h"
 #include "neochatconfig.h"
 #include "notificationsmanager.h"
 #include "roomlastmessageprovider.h"
@@ -129,14 +130,38 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
                 return;
             }
             auto roomMemberEvent = currentState().get<RoomMemberEvent>(localMember().id());
-            QImage avatar_image;
-            if (roomMemberEvent && !member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
-                avatar_image = memberAvatar(roomMemberEvent->senderId()).get(this->connection(), 128, [] {});
+
+            auto showNotification = [this, roomMemberEvent] {
+                QImage avatar_image;
+                if (roomMemberEvent && !member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
+                    avatar_image = memberAvatar(roomMemberEvent->senderId()).get(this->connection(), 128, [] {});
+                } else {
+                    qWarning() << "using this room's avatar";
+                    avatar_image = avatar(128);
+                }
+
+                NotificationsManager::instance().postInviteNotification(this,
+                                                                        displayName(),
+                                                                        member(roomMemberEvent->senderId()).htmlSafeDisplayName(),
+                                                                        avatar_image);
+            };
+
+            if (NeoChatConfig::allowUnknownInvites()) {
+                showNotification();
             } else {
-                qWarning() << "using this room's avatar";
-                avatar_image = avatar(128);
+                auto job = this->connection()->callApi<NeochatGetCommonRoomsJob>(roomMemberEvent->senderId());
+                connect(job, &BaseJob::result, this, [this, job, roomMemberEvent, showNotification] {
+                    QJsonObject replyData = job->jsonData();
+                    if (replyData.contains(QStringLiteral("joined"))) {
+                        const bool inAnyOfOurRooms = !replyData[QStringLiteral("joined")].toArray().isEmpty();
+                        if (inAnyOfOurRooms) {
+                            showNotification();
+                        } else {
+                            leaveRoom();
+                        }
+                    }
+                });
             }
-            NotificationsManager::instance().postInviteNotification(this, displayName(), member(roomMemberEvent->senderId()).htmlSafeDisplayName(), avatar_image);
         },
         Qt::SingleShotConnection);
     connect(this, &Room::changed, this, [this] {
