@@ -54,7 +54,7 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         text: i18nc("@action:button", "Unignore this user")
                         icon.name: "list-remove-symbolic"
-                        onClicked: root.connection.removeFromIgnoredUsers(root.connection.user(modelData))
+                        onClicked: root.connection.removeFromIgnoredUsers(modelData)
                         display: QQC2.Button.IconOnly
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.visible: hovered
