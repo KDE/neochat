@@ -20,6 +20,22 @@ QQC2.Menu {
     margins: Kirigami.Units.smallSpacing
 
     QQC2.MenuItem {
+        text: i18nc("@action:button", "Show QR code")
+        icon.name: "view-barcode-qr-symbolic"
+        onTriggered: {
+            let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
+                text: "https://matrix.to/#/" + root.connection.localUser.id,
+                title: root.connection.localUser.displayName,
+                subtitle: root.connection.localUser.id,
+                avatarSource: root.connection.makeMediaUrl(root.connection.localUser.avatarUrl)
+            });
+            if (typeof root.closeDialog === "function") {
+                root.closeDialog();
+            }
+            qrMax.open();
+        }
+    }
+    QQC2.MenuItem {
         text: i18n("Edit this account")
         icon.name: "document-edit"
         onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
