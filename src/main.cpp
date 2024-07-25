@@ -148,7 +148,7 @@ int main(int argc, char *argv[])
                     i18n("Maintainer"),
                     QStringLiteral("carl@carlschwan.eu"),
                     QStringLiteral("https://carlschwan.eu"),
-                    QStringLiteral("https://carlschwan.eu/avatar.png"));
+                    QUrl(QStringLiteral("https://carlschwan.eu/avatar.png")));
     about.addAuthor(i18n("Tobias Fella"), i18n("Maintainer"), QStringLiteral("tobias.fella@kde.org"), QStringLiteral("https://tobiasfella.de"));
     about.addAuthor(i18n("James Graham"), i18n("Maintainer"), QStringLiteral("james.h.graham@protonmail.com"));
     about.addCredit(i18n("Black Hat"), i18n("Original author of Spectral"), QStringLiteral("bhat@encom.eu.org"));
