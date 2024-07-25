@@ -155,6 +155,7 @@ Kirigami.Page {
         sourceComponent: Kirigami.PlaceholderMessage {
             icon.name: "org.kde.neochat"
             text: i18n("Welcome to NeoChat")
+            explanation: i18n("Select or join a room to get started")
         }
     }
 
