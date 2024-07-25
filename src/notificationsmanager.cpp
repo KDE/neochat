@@ -110,6 +110,12 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
         }
         auto sender = room->member(notification["event"_ls]["sender"_ls].toString());
 
+        // Don't display notifications for events in invited rooms
+        // This should prevent empty notifications from appearing when they shouldn't
+        if (room->joinState() == JoinState::Invite) {
+            continue;
+        }
+
         QString body;
         if (notification["event"_ls]["type"_ls].toString() == "org.matrix.msc3381.poll.start"_ls) {
             body = notification["event"_ls]["content"_ls]["org.matrix.msc3381.poll.start"_ls]["question"_ls]["body"_ls].toString();
