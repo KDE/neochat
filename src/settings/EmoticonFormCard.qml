@@ -41,7 +41,7 @@ FormCard.FormCard {
                 width: stickerFlow.width / 4
                 height: width
 
-                onClicked: pageStack.pushDialogLayer(emoticonEditorPage, {
+                onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(emoticonEditorPage, {
                     description: model.body ?? "",
                     index: model.index,
                     url: model.url,
@@ -90,7 +90,7 @@ FormCard.FormCard {
             width: stickerFlow.width / 4
             height: width
 
-            onClicked: pageStack.pushDialogLayer(emoticonEditorPage, {
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(emoticonEditorPage, {
                 description: "",
                 index: -1,
                 url: "",
