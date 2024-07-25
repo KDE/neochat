@@ -115,6 +115,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "QR code for account")
+            icon.name: "view-barcode-qr-symbolic"
             onClicked: {
                 let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                     text: "https://matrix.to/#/" + root.connection.localUser.id,
@@ -131,6 +132,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18n("Save")
+            icon.name: "document-save-symbolic"
             onClicked: {
                 if (!root.connection.setAvatar(avatar.source)) {
                     showPassiveNotification("The Avatar could not be set");
@@ -186,6 +188,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18n("Save")
+            icon.name: "document-save-symbolic"
             enabled: currentPassword.text.length > 0 && newPassword.text.length > 0 && confirmPassword.text.length > 0
             onClicked: {
                 if (newPassword.text === confirmPassword.text) {
@@ -249,6 +252,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             id: deactivateAccountButton
             text: i18n("Deactivate Account")
+            icon.name: "trash-empty-symbolic"
             onClicked: {
                 const component = Qt.createComponent('org.kde.neochat', 'ConfirmDeactivateAccountDialog');
                 const dialog = component.createObject(QQC2.ApplicationWindow.window, {
