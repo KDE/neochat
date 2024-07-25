@@ -98,12 +98,12 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("User information")
+        title: i18n("User Information")
     }
     FormCard.FormCard {
         FormCard.FormTextFieldDelegate {
             id: name
-            label: i18n("Name:")
+            label: i18n("Display Name:")
             text: root.connection ? root.connection.localUser.displayName : ""
         }
         FormCard.FormDelegateSeparator {}
@@ -115,7 +115,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "QR code for account")
+            text: i18nc("@action:button", "Show QR Code")
             icon.name: "view-barcode-qr-symbolic"
             onClicked: {
                 let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
