@@ -25,7 +25,6 @@
 
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
-#include <Quotient/csapi/versions.h>
 #include <Quotient/database.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
@@ -133,20 +132,6 @@ void NeoChatConnection::connectSignals()
         Q_EMIT homeNotificationsChanged();
         Q_EMIT homeHaveHighlightNotificationsChanged();
     });
-
-    // Fetch unstable features
-    // TODO: Expose unstableFeatures() in libQuotient
-    connect(
-        this,
-        &Connection::connected,
-        this,
-        [this] {
-            callApi<GetVersionsJob>(BackgroundRequest).then([this](const GetVersionsJob::Response &r) {
-                m_canCheckMutualRooms = r.unstableFeatures.contains("uk.half-shot.msc2666.query_mutual_rooms"_ls);
-                Q_EMIT canCheckMutualRoomsChanged();
-            });
-        },
-        Qt::SingleShotConnection);
 }
 
 int NeoChatConnection::badgeNotificationCount() const
@@ -213,11 +198,6 @@ QVariantList NeoChatConnection::getSupportedRoomVersions() const
         supportedRoomVersions.append(roomVersionMap);
     }
     return supportedRoomVersions;
-}
-
-bool NeoChatConnection::canCheckMutualRooms() const
-{
-    return m_canCheckMutualRooms;
 }
 
 void NeoChatConnection::changePassword(const QString &currentPassword, const QString &newPassword)
