@@ -110,6 +110,7 @@ FormCard.FormCardPage {
         FormCard.FormTextFieldDelegate {
             id: accountLabel
             label: i18n("Label:")
+            placeholderText: i18n("Work")
             text: root.connection ? root.connection.label : ""
         }
         FormCard.FormDelegateSeparator {}
