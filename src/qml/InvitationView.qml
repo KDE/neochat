@@ -15,7 +15,10 @@ Kirigami.PlaceholderMessage {
     required property NeoChatRoom currentRoom
 
     text: i18n("Accept this invitation?")
+    explanation: root.currentRoom.connection.canCheckMutualRooms ? i18n("You can reject invitations from unknown users under Security settings.") : ""
     RowLayout {
+        Layout.alignment: Qt.AlignHCenter
+
         QQC2.Button {
             Layout.alignment: Qt.AlignHCenter
             text: i18nc("@action:button The thing being rejected is an invitation to chat", "Reject and ignore user")
