@@ -26,7 +26,7 @@ TimelineDelegate {
     /**
      * @brief The message author.
      */
-    required property RoomMember author
+    required property NeochatRoomMember author
 
     width: parent?.width
     rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
@@ -88,7 +88,7 @@ TimelineDelegate {
     QtObject {
         id: _private
         function showMessageMenu() {
-            RoomManager.viewEventMenu(root.eventId, root.room, "");
+            RoomManager.viewEventMenu(root.eventId, root.room, root.author, "");
         }
     }
 }

@@ -54,24 +54,9 @@ public:
     MessageComponentType::Type messageComponentType() const;
 
     /**
-     * @brief Get the author of the event in context of the room.
-     *
-     * An empty Quotient::RoomMember will be returned if the EventHandler hasn't had
-     * the room or event initialised.
-     *
-     * @param isPending if the event is pending, i.e. has not been confirmed by
-     *                  the server.
-     *
-     * @return a Quotient::RoomMember object for the user.
-     *
-     * @sa Quotient::RoomMember
-     */
-    Quotient::RoomMember getAuthor(bool isPending = false) const;
-
-    /**
      * @brief Get the display name of the event author.
      *
-     * This method is separate from getAuthor() and special in that it will return
+     * This method is special in that it will return
      * the old display name of the author if the current event is one that caused it
      * to change. This allows for scenarios where the UI wishes to notify that a
      * user's display name has changed and what it changed from.

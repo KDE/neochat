@@ -23,6 +23,7 @@
 #include "models/sortfilterspacelistmodel.h"
 #include "models/timelinemodel.h"
 #include "models/userlistmodel.h"
+#include "neochatroommember.h"
 
 class NeoChatRoom;
 class NeoChatConnection;
@@ -216,7 +217,7 @@ public:
      */
     Q_INVOKABLE void maximizeMedia(int index);
 
-    Q_INVOKABLE void maximizeCode(const RoomMember &author, const QDateTime &time, const QString &codeText, const QString &language);
+    Q_INVOKABLE void maximizeCode(NeochatRoomMember *author, const QDateTime &time, const QString &codeText, const QString &language);
 
     /**
      * @brief Request that any full screen overlay currently open closes.
@@ -231,7 +232,7 @@ public:
     /**
      * @brief Show a context menu for the given event.
      */
-    Q_INVOKABLE void viewEventMenu(const QString &eventId, NeoChatRoom *room, const QString &selectedText = {});
+    Q_INVOKABLE void viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText = {});
 
     ChatDocumentHandler *chatDocumentHandler() const;
     void setChatDocumentHandler(ChatDocumentHandler *handler);
@@ -287,7 +288,7 @@ Q_SIGNALS:
     /**
      * @brief Request a block of code is shown maximized.
      */
-    void showMaximizedCode(const RoomMember &author, const QDateTime &time, const QString &codeText, const QString &language);
+    void showMaximizedCode(NeochatRoomMember *author, const QDateTime &time, const QString &codeText, const QString &language);
 
     /**
      * @brief Request that any full screen overlay closes.
@@ -303,7 +304,7 @@ Q_SIGNALS:
      * @brief Request to show a menu for the given event.
      */
     void showMessageMenu(const QString &eventId,
-                         const Quotient::RoomMember &author,
+                         const NeochatRoomMember *author,
                          MessageComponentType::Type messageComponentType,
                          const QString &plainText,
                          const QString &htmlText,
@@ -313,7 +314,7 @@ Q_SIGNALS:
      * @brief Request to show a menu for the given media event.
      */
     void showFileMenu(const QString &eventId,
-                      const Quotient::RoomMember &author,
+                      const NeochatRoomMember *author,
                       MessageComponentType::Type messageComponentType,
                       const QString &plainText,
                       const QString &mimeType,

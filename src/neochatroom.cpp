@@ -1767,6 +1767,11 @@ const RoomEvent *NeoChatRoom::getEvent(const QString &eventId) const
         return timelineIt->get();
     }
 
+    const auto pendingIt = findPendingEvent(eventId);
+    if (pendingIt != pendingEvents().end()) {
+        return pendingIt->event();
+    }
+
     auto extraIt = std::find_if(m_extraEvents.begin(), m_extraEvents.end(), [eventId](const Quotient::event_ptr_tt<Quotient::RoomEvent> &event) {
         return event->id() == eventId;
     });

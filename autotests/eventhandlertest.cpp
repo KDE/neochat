@@ -36,8 +36,6 @@ private Q_SLOTS:
 
     void eventId();
     void nullEventId();
-    void author();
-    void nullAuthor();
     void authorDisplayName();
     void nullAuthorDisplayName();
     void singleLineSidplayName();
@@ -94,32 +92,6 @@ void EventHandlerTest::nullEventId()
     EventHandler noEventHandler(room, nullptr);
     QTest::ignoreMessage(QtWarningMsg, "getId called with m_event set to nullptr.");
     QCOMPARE(noEventHandler.getId(), QString());
-}
-
-void EventHandlerTest::author()
-{
-    auto event = room->messageEvents().at(0).get();
-    auto author = room->member(event->senderId());
-    EventHandler eventHandler(room, event);
-
-    auto eventHandlerAuthor = eventHandler.getAuthor();
-
-    QCOMPARE(eventHandlerAuthor.isLocalMember(), author.id() == room->localMember().id());
-    QCOMPARE(eventHandlerAuthor.id(), author.id());
-    QCOMPARE(eventHandlerAuthor.displayName(), author.displayName());
-    QCOMPARE(eventHandlerAuthor.avatarUrl(), author.avatarUrl());
-    QCOMPARE(eventHandlerAuthor.avatarMediaId(), author.avatarMediaId());
-    QCOMPARE(eventHandlerAuthor.color(), author.color());
-}
-
-void EventHandlerTest::nullAuthor()
-{
-    QTest::ignoreMessage(QtWarningMsg, "getAuthor called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getAuthor(), RoomMember());
-
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getAuthor called with m_event set to nullptr. Returning empty user.");
-    QCOMPARE(noEventHandler.getAuthor(), RoomMember());
 }
 
 void EventHandlerTest::authorDisplayName()

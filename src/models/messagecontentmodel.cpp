@@ -3,6 +3,7 @@
 
 #include "messagecontentmodel.h"
 #include "neochatconfig.h"
+#include "neochatroommember.h"
 
 #include <QImageReader>
 
@@ -35,10 +36,10 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::Room
     , m_room(room)
     , m_eventId(event != nullptr ? event->id() : QString())
     , m_eventSenderId(event != nullptr ? event->senderId() : QString())
-    , m_event(loadEvent<RoomEvent>(event->fullJson()))
     , m_isPending(isPending)
     , m_isReply(isReply)
 {
+    intiializeEvent(event);
     initializeModel();
 }
 
@@ -81,8 +82,7 @@ void MessageContentModel::initializeModel()
             if (m_eventId == serverEvent->id()) {
                 beginResetModel();
                 m_isPending = false;
-                m_event = loadEvent<RoomEvent>(serverEvent->fullJson());
-                Q_EMIT eventUpdated();
+                intiializeEvent(serverEvent);
                 endResetModel();
             }
         }
@@ -91,8 +91,7 @@ void MessageContentModel::initializeModel()
         if (m_room != nullptr && m_event != nullptr) {
             if (m_eventId == newEvent->id()) {
                 beginResetModel();
-                m_event = loadEvent<RoomEvent>(newEvent->fullJson());
-                Q_EMIT eventUpdated();
+                intiializeEvent(newEvent);
                 endResetModel();
             }
         }
@@ -152,6 +151,29 @@ void MessageContentModel::initializeModel()
         updateReplyModel();
     }
     resetModel();
+}
+
+void MessageContentModel::intiializeEvent(const QString &eventId)
+{
+    const auto newEvent = m_room->getEvent(eventId);
+    if (newEvent != nullptr) {
+        intiializeEvent(newEvent);
+    }
+}
+
+void MessageContentModel::intiializeEvent(const Quotient::RoomEvent *event)
+{
+    m_event = loadEvent<RoomEvent>(event->fullJson());
+    auto senderId = event->senderId();
+    // A pending event might not have a sender ID set yet but in that case it must
+    // be the local member.
+    if (senderId.isEmpty()) {
+        senderId = m_room->localMember().id();
+    }
+    if (m_eventSenderObject == nullptr) {
+        m_eventSenderObject = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_room, senderId));
+    }
+    Q_EMIT eventUpdated();
 }
 
 bool MessageContentModel::showAuthor() const
@@ -239,7 +261,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return eventHandler.getTimeString(false, QLocale::ShortFormat, m_isPending, lastUpdated);
     }
     if (role == AuthorRole) {
-        return QVariant::fromValue(eventHandler.getAuthor(m_isPending));
+        return QVariant::fromValue<NeochatRoomMember *>(m_eventSenderObject.get());
     }
     if (role == MediaInfoRole) {
         return eventHandler.getMediaInfo();

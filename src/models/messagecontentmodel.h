@@ -6,11 +6,13 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include <Quotient/events/roomevent.h>
 #include <Quotient/room.h>
 
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
 #include "itinerarymodel.h"
+#include "neochatroommember.h"
 
 struct MessageComponent {
     MessageComponentType::Type type = MessageComponentType::Other;
@@ -115,6 +117,7 @@ private:
     QPointer<NeoChatRoom> m_room;
     QString m_eventId;
     QString m_eventSenderId;
+    std::unique_ptr<NeochatRoomMember> m_eventSenderObject = nullptr;
     Quotient::RoomEventPtr m_event;
 
     bool m_isPending;
@@ -122,6 +125,8 @@ private:
     bool m_isReply;
 
     void initializeModel();
+    void intiializeEvent(const QString &eventId);
+    void intiializeEvent(const Quotient::RoomEvent *event);
 
     QList<MessageComponent> m_components;
     void resetModel();

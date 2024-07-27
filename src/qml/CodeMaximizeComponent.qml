@@ -17,7 +17,7 @@ Components.AbstractMaximizeComponent {
     /**
      * @brief The message author.
      */
-    property RoomMember author
+    property NeochatRoomMember author
 
     /**
      * @brief The timestamp of the message.

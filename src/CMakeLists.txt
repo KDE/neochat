@@ -190,6 +190,8 @@ add_library(neochat STATIC
     threepidbindhelper.h
     models/readmarkermodel.cpp
     models/readmarkermodel.h
+    neochatroommember.cpp
+    neochatroommember.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
