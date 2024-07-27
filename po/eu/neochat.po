@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-21 00:39+0000\n"
+"POT-Creation-Date: 2024-07-27 02:33+0000\n"
 "PO-Revision-Date: 2024-07-20 10:54+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1748,105 +1748,105 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:85
+#: src/neochatconnection.cpp:86
 #, kde-format
 msgid "File too large to download."
 msgstr "Fitxategia zama-jaisteko handiegia da."
 
-#: src/neochatconnection.cpp:85
+#: src/neochatconnection.cpp:86
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Jar zaitez zure matrix zerbitzariaren administratzailearekin harremanean "
 "euskarria lortzeko."
 
-#: src/neochatconnection.cpp:296
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ez da nortasun zerbitzaririk konfiguratu"
 
-#: src/neochatconnection.cpp:327
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Gela sortzea huts egin du: %1"
 
-#: src/neochatconnection.cpp:364
+#: src/neochatconnection.cpp:385
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/neochatroom.cpp:1379
+#: src/neochatroom.cpp:1403
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/neochatroom.cpp:1700 src/neochatroom.cpp:1708
+#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
-#: src/notificationsmanager.cpp:120 src/notificationsmanager.cpp:325
+#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:330
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: src/notificationsmanager.cpp:204 src/qml/Main.qml:279
+#: src/notificationsmanager.cpp:210 src/qml/Main.qml:279
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:210
+#: src/notificationsmanager.cpp:216
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Ireki NeoChat gela honetan"
 
-#: src/notificationsmanager.cpp:223 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:111
 #, kde-format
 msgid "Reply"
 msgstr "Erantzun"
 
-#: src/notificationsmanager.cpp:224
+#: src/notificationsmanager.cpp:230
 #, kde-format
 msgid "Reply..."
 msgstr "Erantzun..."
 
-#: src/notificationsmanager.cpp:243
+#: src/notificationsmanager.cpp:249
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1(e)k gela batera gonbidatu zaitu"
 
-#: src/notificationsmanager.cpp:247
+#: src/notificationsmanager.cpp:252
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Ireki gonbidapen hau NeoChat-en"
 
-#: src/notificationsmanager.cpp:257
+#: src/notificationsmanager.cpp:262
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Onartu"
 
-#: src/notificationsmanager.cpp:258
+#: src/notificationsmanager.cpp:263
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Errefusatu"
 
-#: src/notificationsmanager.cpp:259
+#: src/notificationsmanager.cpp:264
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Errefusatu eta erabiltzailea ezikusi"
 
-#: src/notificationsmanager.cpp:318
+#: src/notificationsmanager.cpp:323
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:329
+#: src/notificationsmanager.cpp:334
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Ireki NeoChat"
@@ -2775,18 +2775,23 @@ msgstr "Islatu"
 msgid "Accept this invitation?"
 msgstr "Gonbidapen hau onartu?"
 
-#: src/qml/InvitationView.qml:21
+#: src/qml/InvitationView.qml:18
+#, kde-format
+msgid "You can reject invitations from unknown users under Security settings."
+msgstr ""
+
+#: src/qml/InvitationView.qml:24
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
 msgstr "Errefusatu eta erabiltzailea ezikusi"
 
-#: src/qml/InvitationView.qml:30
+#: src/qml/InvitationView.qml:33
 #, kde-format
 msgid "Reject"
 msgstr "Errefusatu"
 
-#: src/qml/InvitationView.qml:37 src/qml/KeyVerificationDialog.qml:92
+#: src/qml/InvitationView.qml:40 src/qml/KeyVerificationDialog.qml:92
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
@@ -4463,7 +4468,7 @@ msgid "Ignored Users"
 msgstr "Ezikusitako erabiltzaileak"
 
 #: src/settings/IgnoredUsersDialog.qml:24
-#: src/settings/NeoChatSecurityPage.qml:37
+#: src/settings/NeoChatSecurityPage.qml:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
@@ -4594,37 +4599,63 @@ msgid "Security"
 msgstr "Segurtasuna"
 
 #: src/settings/NeoChatSecurityPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accept Invitation"
+msgctxt "@title:group"
+msgid "Invitations"
+msgstr "Onartu gonbidapena"
+
+#: src/settings/NeoChatSecurityPage.qml:24
 #, kde-format
-msgctxt "@title"
-msgid "Keys"
-msgstr "Gakoak"
+msgctxt "@option:check"
+msgid "Reject invitations from unknown users"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
-msgid "Device key"
-msgstr "Gailuaren gakoa"
+msgid ""
+"If enabled, NeoChat will reject invitations from from users you don't share "
+"a room with."
+msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:29
-#, kde-format
-msgid "Encryption key"
-msgstr "Zifratzeko gakoa"
+#: src/settings/NeoChatSecurityPage.qml:25
+#, fuzzy, kde-format
+#| msgid "Your server doesn't support changing your password"
+msgid "Your server does not support this setting."
+msgstr "Zure zerbitzariak ez du onartzen zure pasahitza aldatzea"
 
-#: src/settings/NeoChatSecurityPage.qml:33
-#, kde-format
-msgid "Device id"
-msgstr "Gailuaren ID"
-
-#: src/settings/NeoChatSecurityPage.qml:41
+#: src/settings/NeoChatSecurityPage.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
 msgstr "Kudeatu ezikusitako erabiltzaileak"
 
-#: src/settings/NeoChatSecurityPage.qml:43
+#: src/settings/NeoChatSecurityPage.qml:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Ezikusitako erabiltzaileak"
+
+#: src/settings/NeoChatSecurityPage.qml:46
+#, kde-format
+msgctxt "@title"
+msgid "Keys"
+msgstr "Gakoak"
+
+#: src/settings/NeoChatSecurityPage.qml:51
+#, kde-format
+msgid "Device key"
+msgstr "Gailuaren gakoa"
+
+#: src/settings/NeoChatSecurityPage.qml:55
+#, kde-format
+msgid "Encryption key"
+msgstr "Zifratzeko gakoa"
+
+#: src/settings/NeoChatSecurityPage.qml:59
+#, kde-format
+msgid "Device id"
+msgstr "Gailuaren ID"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -5696,9 +5727,6 @@ msgstr "Irten"
 
 #~ msgid "Space topic (optional)"
 #~ msgstr "Tokiaren gaia (aukerakoa)"
-
-#~ msgid "Accept Invitation"
-#~ msgstr "Onartu gonbidapena"
 
 #~ msgid "Reject Invitation"
 #~ msgstr "Errefusatu gonbidapena"
