@@ -50,7 +50,7 @@ TimelineDelegate {
      *
      * @sa Quotient::RoomMember
      */
-    required property var author
+    required property NeochatRoomMember author
 
     /**
      * @brief The model to visualise the content of the message.
@@ -365,7 +365,7 @@ TimelineDelegate {
         property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && root.author.isLocalMember && !Config.compactLayout && !root.alwaysFillWidth
 
         function showMessageMenu() {
-            RoomManager.viewEventMenu(root.eventId, root.room, root.selectedText);
+            RoomManager.viewEventMenu(root.eventId, root.room, root.author, root.selectedText);
         }
     }
 }

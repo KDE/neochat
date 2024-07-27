@@ -7,6 +7,7 @@
 #include "eventhandler.h"
 #include "models/messagecontentmodel.h"
 #include "neochatroom.h"
+#include "neochatroommember.h"
 
 #include <QGuiApplication>
 
@@ -66,7 +67,17 @@ void SearchModel::search()
     m_job = job;
     connect(job, &BaseJob::finished, this, [this, job] {
         beginResetModel();
+        m_memberObjects.clear();
         m_result = job->searchCategories().roomEvents;
+
+        if (m_result.has_value()) {
+            for (const auto &result : m_result.value().results) {
+                if (!m_memberObjects.contains(result.result->senderId())) {
+                    m_memberObjects[result.result->senderId()] = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_room, result.result->senderId()));
+                }
+            }
+        }
+
         endResetModel();
         setSearching(false);
         m_job = nullptr;
@@ -83,7 +94,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case AuthorRole:
-        return QVariant::fromValue(eventHandler.getAuthor());
+        return QVariant::fromValue<NeochatRoomMember *>(m_memberObjects.at(event.senderId()).get());
     case ShowSectionRole:
         if (row == 0) {
             return true;

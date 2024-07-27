@@ -61,20 +61,6 @@ MessageComponentType::Type EventHandler::messageComponentType() const
     return MessageComponentType::typeForEvent(*m_event);
 }
 
-Quotient::RoomMember EventHandler::getAuthor(bool isPending) const
-{
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getAuthor called with m_room set to nullptr.";
-        return {};
-    }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getAuthor called with m_event set to nullptr. Returning empty user.";
-        return {};
-    }
-
-    return isPending ? m_room->localMember() : m_room->member(m_event->senderId());
-}
-
 QString EventHandler::getAuthorDisplayName(bool isPending) const
 {
     if (m_room == nullptr) {

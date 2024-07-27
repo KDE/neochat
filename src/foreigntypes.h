@@ -51,9 +51,3 @@ struct ForeignSSSSHandler {
     QML_FOREIGN(Quotient::SSSSHandler)
     QML_NAMED_ELEMENT(SSSSHandler)
 };
-
-struct RoomMemberForeign {
-    Q_GADGET
-    QML_FOREIGN(Quotient::RoomMember)
-    QML_NAMED_ELEMENT(RoomMember)
-};

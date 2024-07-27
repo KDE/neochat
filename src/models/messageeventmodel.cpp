@@ -26,6 +26,8 @@
 #include "messagecontentmodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/reactionmodel.h"
+#include "neochatroom.h"
+#include "neochatroommember.h"
 #include "readmarkermodel.h"
 #include "texthandler.h"
 
@@ -90,6 +92,10 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         m_currentRoom->disconnect(this);
         m_currentRoom = nullptr;
         endResetModel();
+
+        // Don't clear the member objects until the model has been fully reset and all
+        // refs cleared.
+        m_memberObjects.clear();
     }
 
     beginResetModel();
@@ -150,8 +156,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                 refreshLastUserEvents(i);
             }
         });
-        connect(m_currentRoom, &Room::pendingEventAboutToAdd, this, [this] {
+        connect(m_currentRoom, &Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
             m_initialized = true;
+            createEventObjects(event);
             beginInsertRows({}, 0, 0);
         });
         connect(m_currentRoom, &Room::pendingEventAdded, this, &MessageEventModel::endInsertRows);
@@ -213,22 +220,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged, this, [this] {
             beginResetModel();
             endResetModel();
-        });
-        connect(m_currentRoom, &Room::memberNameUpdated, this, [this](RoomMember member) {
-            for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
-                auto event = it->event();
-                if (event->senderId() == member.id()) {
-                    refreshEventRoles(event->id(), {AuthorRole});
-                }
-            }
-        });
-        connect(m_currentRoom, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
-            for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
-                auto event = it->event();
-                if (event->senderId() == member.id()) {
-                    refreshEventRoles(event->id(), {AuthorRole});
-                }
-            }
         });
 
         qCDebug(MessageEvent) << "Connected to room" << room->id() << "as" << room->localMember().id();
@@ -397,6 +388,8 @@ void MessageEventModel::fetchMore(const QModelIndex &parent)
     }
 }
 
+static NeochatRoomMember *emptyNeochatRoomMember = new NeochatRoomMember;
+
 QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 {
     if (!checkIndex(idx, QAbstractItemModel::CheckIndexOption::IndexIsValid)) {
@@ -469,7 +462,18 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == AuthorRole) {
-        return QVariant::fromValue(eventHandler.getAuthor(isPending));
+        QString mId;
+        if (isPending) {
+            mId = m_currentRoom->localMember().id();
+        } else {
+            mId = evt.senderId();
+        }
+
+        if (!m_memberObjects.contains(mId)) {
+            return QVariant::fromValue<NeochatRoomMember *>(emptyNeochatRoomMember);
+        }
+
+        return QVariant::fromValue<NeochatRoomMember *>(m_memberObjects.at(mId).get());
     }
 
     if (role == HighlightRole) {
@@ -619,6 +623,16 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
     }
 
     auto eventId = event->id();
+    auto senderId = event->senderId();
+    // A pending event might not have a sender ID set yet but in that case it must
+    // be the local member.
+    if (senderId.isEmpty()) {
+        senderId = m_currentRoom->localMember().id();
+    }
+
+    if (!m_memberObjects.contains(senderId)) {
+        m_memberObjects[senderId] = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_currentRoom, senderId));
+    }
 
     // ReadMarkerModel handles updates to add and remove markers, we only need to
     // handle adding and removing whole models here.

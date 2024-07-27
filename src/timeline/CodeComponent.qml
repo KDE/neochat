@@ -20,7 +20,7 @@ QQC2.Control {
      *
      * @sa Quotient::RoomMember
      */
-    required property RoomMember author
+    required property NeochatRoomMember author
 
     /**
      * @brief The timestamp of the message.

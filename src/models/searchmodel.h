@@ -9,6 +9,8 @@
 
 #include <Quotient/csapi/search.h>
 
+#include "neochatroommember.h"
+
 namespace Quotient
 {
 class Connection;
@@ -123,4 +125,6 @@ private:
     std::optional<Quotient::SearchJob::ResultRoomEvents> m_result = std::nullopt;
     Quotient::SearchJob *m_job = nullptr;
     bool m_searching = false;
+
+    std::map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
 };

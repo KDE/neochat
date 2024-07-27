@@ -11,6 +11,7 @@
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
+#include "neochatroommember.h"
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 
@@ -184,7 +185,7 @@ void RoomManager::maximizeMedia(int index)
     Q_EMIT showMaximizedMedia(index);
 }
 
-void RoomManager::maximizeCode(const RoomMember &author, const QDateTime &time, const QString &codeText, const QString &language)
+void RoomManager::maximizeCode(NeochatRoomMember *author, const QDateTime &time, const QString &codeText, const QString &language)
 {
     if (codeText.isEmpty()) {
         return;
@@ -202,14 +203,14 @@ void RoomManager::viewEventSource(const QString &eventId)
     Q_EMIT showEventSource(eventId);
 }
 
-void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, const QString &selectedText)
+void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText)
 {
     const auto &event = **room->findInTimeline(eventId);
     const auto eventHandler = EventHandler(room, &event);
 
     if (eventHandler.getMediaInfo().contains("mimeType"_ls)) {
         Q_EMIT showFileMenu(eventId,
-                            eventHandler.getAuthor(),
+                            sender,
                             eventHandler.messageComponentType(),
                             eventHandler.getPlainBody(),
                             eventHandler.getMediaInfo()["mimeType"_ls].toString(),
@@ -217,12 +218,7 @@ void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, const
         return;
     }
 
-    Q_EMIT showMessageMenu(eventId,
-                           eventHandler.getAuthor(),
-                           eventHandler.messageComponentType(),
-                           eventHandler.getPlainBody(),
-                           eventHandler.getRichBody(),
-                           selectedText);
+    Q_EMIT showMessageMenu(eventId, sender, eventHandler.messageComponentType(), eventHandler.getPlainBody(), eventHandler.getRichBody(), selectedText);
 }
 
 bool RoomManager::hasOpenRoom() const

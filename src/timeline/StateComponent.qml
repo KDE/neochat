@@ -48,12 +48,13 @@ RowLayout {
 
         source: root.author?.avatarUrl ?? ""
         name: root.author?.displayName ?? ""
-        color: root.author?.color ?? undefined
+        color: root.author?.color ?? Kirigami.Theme.highlightColor
 
         MouseArea {
             anchors.fill: parent
+            enabled: root.author
             cursorShape: Qt.PointingHandCursor
-            onClicked: RoomManager.resolveResource("https://matrix.to/#/" + root.author.id)
+            onClicked: RoomManager.resolveResource("https://matrix.to/#/" + root.author?.id ?? "")
         }
     }
 
@@ -61,7 +62,7 @@ RowLayout {
         id: label
         Layout.alignment: Qt.AlignVCenter
         Layout.fillWidth: true
-        text: `<style>a {text-decoration: none; color: ${Kirigami.Theme.textColor};}</style><a href="https://matrix.to/#/${root.author.id}">${root.authorDisplayName}</a> ${root.text}`
+        text: `<style>a {text-decoration: none; color: ${Kirigami.Theme.textColor};}</style><a href="https://matrix.to/#/${root.author?.id ?? ""}">${root.authorDisplayName}</a> ${root.text}`
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
         onLinkActivated: link => RoomManager.resolveResource(link)

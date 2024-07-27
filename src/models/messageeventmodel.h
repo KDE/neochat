@@ -9,6 +9,7 @@
 
 #include "linkpreviewer.h"
 #include "neochatroom.h"
+#include "neochatroommember.h"
 #include "pollhandler.h"
 #include "readmarkermodel.h"
 
@@ -115,6 +116,7 @@ private:
     bool movingEvent = false;
     KFormat m_format;
 
+    std::map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
