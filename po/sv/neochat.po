@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:39+0000\n"
-"PO-Revision-Date: 2024-07-07 08:44+0200\n"
+"POT-Creation-Date: 2024-07-27 00:41+0000\n"
+"PO-Revision-Date: 2024-07-26 20:59+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -819,7 +819,7 @@ msgid "Loading…"
 msgstr "Läser in…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -860,7 +860,7 @@ msgstr "Registrera"
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
 #: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
@@ -1846,58 +1846,65 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Öppna NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23
+#, fuzzy, kde-format
+#| msgid "Shortcode:"
+msgctxt "@action:button"
+msgid "Show QR code"
+msgstr "Kort kod:"
+
+#: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "Redigera kontot"
 
-#: src/qml/AccountMenu.qml:28 src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:44 src/settings/AccountsPage.qml:34
 #: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "Kontoeditor"
 
-#: src/qml/AccountMenu.qml:32
+#: src/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Notification settings"
 msgstr "Underrättelseinställningar"
 
-#: src/qml/AccountMenu.qml:39 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettingsView.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Enheter"
 
-#: src/qml/AccountMenu.qml:46 src/settings/NeoChatGeneralPage.qml:241
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Open developer tools"
 msgstr "Öppna utvecklingsverktyg"
 
-#: src/qml/AccountMenu.qml:52
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Utvecklingsverktyg"
 
-#: src/qml/AccountMenu.qml:58
+#: src/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Öppna hemlig säkerhetskopia"
 
-#: src/qml/AccountMenu.qml:62
+#: src/qml/AccountMenu.qml:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Öppna nyckelsäkerhetskopia"
 
-#: src/qml/AccountMenu.qml:66
+#: src/qml/AccountMenu.qml:82
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "Verifiera enheten"
 
-#: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:88 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Logga ut"
@@ -2240,7 +2247,7 @@ msgstr "Välj typ"
 msgid "Space"
 msgstr "Utrymme"
 
-#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77
 #, kde-format
 msgid "Name:"
 msgstr "Namn:"
@@ -2775,6 +2782,8 @@ msgstr "Acceptera inbjudan?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Det går att avslå inbjudningar från okända användare under "
+"säkerhetsinställningarna."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -3292,7 +3301,13 @@ msgstr "Rumsmedia"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat är nedkopplat. Kontrollera nätverksanslutningen."
 
-#: src/qml/RoomPage.qml:264
+#: src/qml/RoomPage.qml:158
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgid "Select or join a room to get started"
+msgstr "Gå med i några rum för att komma igång"
+
+#: src/qml/RoomPage.qml:265
 #, kde-format
 msgid "Message Source"
 msgstr "Meddelandekälla"
@@ -4025,105 +4040,119 @@ msgid "Remove current avatar"
 msgstr "Ta bort nuvarande avatar"
 
 #: src/settings/AccountEditorPage.qml:101
-#, kde-format
-msgid "User information"
+#, fuzzy, kde-format
+#| msgid "User information"
+msgid "User Information"
 msgstr "Användarinformation"
+
+#: src/settings/AccountEditorPage.qml:106
+#, fuzzy, kde-format
+#| msgid "<display name>"
+msgid "Display Name:"
+msgstr "<visat namn>"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "Beteckning:"
 
-#: src/settings/AccountEditorPage.qml:117
-#, kde-format
-msgctxt "@action:button"
-msgid "QR code for account"
-msgstr "Kontots QR-kod"
+#: src/settings/AccountEditorPage.qml:113
+#, fuzzy, kde-format
+#| msgid "Working"
+msgid "Work"
+msgstr "Arbetar"
 
-#: src/settings/AccountEditorPage.qml:133
-#: src/settings/AccountEditorPage.qml:188
+#: src/settings/AccountEditorPage.qml:118
+#, fuzzy, kde-format
+#| msgid "Scan a QR Code"
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "Läs av en QR-kod"
+
+#: src/settings/AccountEditorPage.qml:135
+#: src/settings/AccountEditorPage.qml:191
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Spara"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:157
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Servern stöder inte ändring av ditt lösenord"
 
-#: src/settings/AccountEditorPage.qml:161
+#: src/settings/AccountEditorPage.qml:164
 #, kde-format
 msgid "Current Password:"
 msgstr "Nuvarande lösenord:"
 
-#: src/settings/AccountEditorPage.qml:168
+#: src/settings/AccountEditorPage.qml:171
 #, kde-format
 msgid "New Password:"
 msgstr "Nytt lösenord:"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Bekräfta nytt lösenord:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Lösenorden stämmer inte överens"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:198
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Lösenord stämmer inte"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Email Addresses"
 msgstr "E-postadresser"
 
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Phone Numbers"
 msgstr "Telefonnummer"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:216
 #, kde-format
 msgid "Identity Server"
 msgstr "Identitetsserver"
 
-#: src/settings/AccountEditorPage.qml:221
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Server Information"
 msgstr "Serverinformation"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "Webbadress för hemserver"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Kontohantering"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Inaktivera konto"
 
-#: src/settings/AccountEditorPage.qml:266
+#: src/settings/AccountEditorPage.qml:271
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Lösenord ändrat med lyckat resultat"
 
-#: src/settings/AccountEditorPage.qml:268
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Felaktigt lösenord inmatat"
 
-#: src/settings/AccountEditorPage.qml:270
+#: src/settings/AccountEditorPage.qml:275
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Okänt problem vid försök att ändra lösenord"
@@ -4463,20 +4492,15 @@ msgctxt "@title"
 msgid "Ignored Users"
 msgstr "Ignorerade användare"
 
-#: src/settings/IgnoredUsersDialog.qml:24
-#: src/settings/NeoChatSecurityPage.qml:35
-#, kde-format
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "Ignorerade användare"
-
-#: src/settings/IgnoredUsersDialog.qml:29
-#, kde-format
+#: src/settings/IgnoredUsersDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Manage ignored users"
 msgctxt "Placeholder message when no user is ignored"
-msgid "You are not ignoring any users"
-msgstr "Du ignorerar inte några användare"
+msgid "No ignored users"
+msgstr "Hantera ignorerade användare"
 
-#: src/settings/IgnoredUsersDialog.qml:51
+#: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
@@ -4595,30 +4619,39 @@ msgid "Security"
 msgstr "Säkerhet"
 
 #: src/settings/NeoChatSecurityPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Accept Invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Acceptera inbjudan"
+msgstr "Inbjudningar"
 
 #: src/settings/NeoChatSecurityPage.qml:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
-
-#: src/settings/NeoChatSecurityPage.qml:25
-#, kde-format
-msgid ""
-"If enabled, NeoChat will reject invitations from from users you don't share "
-"a room with."
-msgstr ""
+msgstr "Avslå inbjudningar från okända användare"
 
 #: src/settings/NeoChatSecurityPage.qml:25
 #, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#| msgid ""
+#| "If enabled, NeoChat will reject invitations from from users you don't "
+#| "share a room with."
+msgid ""
+"If enabled, NeoChat will reject invitations from users you don't share a "
+"room with."
+msgstr ""
+"Om aktiverat, avslår NeoChat inbjudningar från användare som du inte delar "
+"något rum med."
+
+#: src/settings/NeoChatSecurityPage.qml:25
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "Servern stöder inte ändring av ditt lösenord"
+msgstr "Servern stöder inte inställningen."
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Ignorerade användare"
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, kde-format
@@ -5199,15 +5232,19 @@ msgid "Country Code for new phone number"
 msgstr "Landskod för nytt telefonnummer"
 
 #: src/settings/ThreePIdCard.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New email address"
 msgctxt "@label:textbox"
-msgid "New email address"
+msgid "New Email Address:"
 msgstr "Ny e-postadress"
 
 #: src/settings/ThreePIdCard.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New phone number"
 msgctxt "@label:textbox"
-msgid "New phone number"
+msgid "New Phone Number:"
 msgstr "Nytt telefonnummer"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
@@ -5259,13 +5296,13 @@ msgstr ""
 "Telefonnumret har inte verifierats. Gå till textmeddelandet och följ "
 "instruktionerna där och klicka sedan på knappen nedan."
 
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Lägg till"
 
-#: src/settings/ThreePIdCard.qml:189
+#: src/settings/ThreePIdCard.qml:191
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
@@ -5469,6 +5506,14 @@ msgstr "Visa"
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
+
+#~ msgctxt "@action:button"
+#~ msgid "QR code for account"
+#~ msgstr "Kontots QR-kod"
+
+#~ msgctxt "Placeholder message when no user is ignored"
+#~ msgid "You are not ignoring any users"
+#~ msgstr "Du ignorerar inte några användare"
 
 #~ msgid "Settings"
 #~ msgstr "Inställningar"

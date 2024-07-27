@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:39+0000\n"
+"POT-Creation-Date: 2024-07-27 00:41+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -846,7 +846,7 @@ msgid "Loading…"
 msgstr "Wird geladen ..."
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -890,7 +890,7 @@ msgstr "Registrieren"
 msgid "Password:"
 msgstr "Passwort:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
 #: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
@@ -1971,60 +1971,66 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR code"
+msgstr ""
+
+#: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "Dieses Konto bearbeiten"
 
-#: src/qml/AccountMenu.qml:28 src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:44 src/settings/AccountsPage.qml:34
 #: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "Kontodetails"
 
-#: src/qml/AccountMenu.qml:32
+#: src/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Notification settings"
 msgstr "Benachrichtigungseinstellungen"
 
-#: src/qml/AccountMenu.qml:39 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettingsView.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Geräte"
 
-#: src/qml/AccountMenu.qml:46 src/settings/NeoChatGeneralPage.qml:241
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Open developer tools"
 msgstr "Entwicklungswerkzeuge öffnen"
 
-#: src/qml/AccountMenu.qml:52
+#: src/qml/AccountMenu.qml:68
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Entwicklungswerkzeuge"
 
-#: src/qml/AccountMenu.qml:58
+#: src/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:62
+#: src/qml/AccountMenu.qml:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:66
+#: src/qml/AccountMenu.qml:82
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "Gerät verifizieren"
 
-#: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:88 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Abmelden"
@@ -2403,7 +2409,7 @@ msgstr "Alle auswählen"
 msgid "Space"
 msgstr "Spaces"
 
-#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77
 #, kde-format
 msgid "Name:"
 msgstr "Name:"
@@ -3522,7 +3528,13 @@ msgstr "Raum-Version"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat ist offline. Bitte überprüfen Sie Ihre Netzwerkverbindung."
 
-#: src/qml/RoomPage.qml:264
+#: src/qml/RoomPage.qml:158
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgid "Select or join a room to get started"
+msgstr "Einen Raum betreten, um zu beginnen"
+
+#: src/qml/RoomPage.qml:265
 #, kde-format
 msgid "Message Source"
 msgstr "Nachrichten-Quelltext"
@@ -4309,110 +4321,121 @@ msgid "Remove current avatar"
 msgstr "Aktuellen Avatar löschen"
 
 #: src/settings/AccountEditorPage.qml:101
-#, kde-format
-msgid "User information"
+#, fuzzy, kde-format
+#| msgid "User information"
+msgid "User Information"
 msgstr "Nutzer-Informationen"
+
+#: src/settings/AccountEditorPage.qml:106
+#, fuzzy, kde-format
+#| msgid "<display name>"
+msgid "Display Name:"
+msgstr "<Anzeigename>"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "Beschriftung:"
 
-#: src/settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Edit this account"
-msgctxt "@action:button"
-msgid "QR code for account"
-msgstr "Dieses Konto bearbeiten"
+#: src/settings/AccountEditorPage.qml:113
+#, kde-format
+msgid "Work"
+msgstr ""
 
-#: src/settings/AccountEditorPage.qml:133
-#: src/settings/AccountEditorPage.qml:188
+#: src/settings/AccountEditorPage.qml:118
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr ""
+
+#: src/settings/AccountEditorPage.qml:135
+#: src/settings/AccountEditorPage.qml:191
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Speichern"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:157
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Ihr Server unterstützt das Ändern Ihres Passworts nicht."
 
-#: src/settings/AccountEditorPage.qml:161
+#: src/settings/AccountEditorPage.qml:164
 #, kde-format
 msgid "Current Password:"
 msgstr "Aktuelles Passwort:"
 
-#: src/settings/AccountEditorPage.qml:168
+#: src/settings/AccountEditorPage.qml:171
 #, kde-format
 msgid "New Password:"
 msgstr "Neues Passwort:"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Passwort bestätigen:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Die Passwörter stimmen nicht überein"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:198
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Die Passwörter stimmen nicht überein"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Email Addresses"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:211
 #, fuzzy, kde-format
 #| msgid "Members"
 msgid "Phone Numbers"
 msgstr "Mitglieder"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:216
 #, fuzzy, kde-format
 #| msgid "Add New Server"
 msgid "Identity Server"
 msgstr "Neuen Server hinzufügen"
 
-#: src/settings/AccountEditorPage.qml:221
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Server Information"
 msgstr "Server-Informationen"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "Heimserver-URL:"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:250
 #, fuzzy, kde-format
 #| msgid "Account editor"
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Kontodetails"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:255
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate Account"
 msgstr "Konto bearbeiten"
 
-#: src/settings/AccountEditorPage.qml:266
+#: src/settings/AccountEditorPage.qml:271
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Das Passwort wurde erfolgreich geändert"
 
-#: src/settings/AccountEditorPage.qml:268
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Falsches Passwort eingegeben"
 
-#: src/settings/AccountEditorPage.qml:270
+#: src/settings/AccountEditorPage.qml:275
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Unbekanntes Problem beim Ändern des Passworts aufgetreten"
@@ -4767,21 +4790,14 @@ msgctxt "@title"
 msgid "Ignored Users"
 msgstr "Diesen Benutzer ignorieren"
 
-#: src/settings/IgnoredUsersDialog.qml:24
-#: src/settings/NeoChatSecurityPage.qml:35
+#: src/settings/IgnoredUsersDialog.qml:25
 #, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "Diesen Benutzer ignorieren"
-
-#: src/settings/IgnoredUsersDialog.qml:29
-#, kde-format
+#| msgid "Unignore this user"
 msgctxt "Placeholder message when no user is ignored"
-msgid "You are not ignoring any users"
-msgstr ""
+msgid "No ignored users"
+msgstr "Diesen Benutzer nicht mehr ignorieren"
 
-#: src/settings/IgnoredUsersDialog.qml:51
+#: src/settings/IgnoredUsersDialog.qml:55
 #, fuzzy, kde-format
 #| msgid "Unignore this user"
 msgctxt "@action:button"
@@ -4923,8 +4939,8 @@ msgstr ""
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
 msgid ""
-"If enabled, NeoChat will reject invitations from from users you don't share "
-"a room with."
+"If enabled, NeoChat will reject invitations from users you don't share a "
+"room with."
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:25
@@ -4932,6 +4948,13 @@ msgstr ""
 #| msgid "Your server doesn't support changing your password"
 msgid "Your server does not support this setting."
 msgstr "Ihr Server unterstützt das Ändern Ihres Passworts nicht."
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Diesen Benutzer ignorieren"
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, fuzzy, kde-format
@@ -5544,14 +5567,14 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Confirm new display name"
 msgctxt "@label:textbox"
-msgid "New email address"
+msgid "New Email Address:"
 msgstr "Neuen Anzeigenamen bestätigen"
 
 #: src/settings/ThreePIdCard.qml:146
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@label:textbox"
-msgid "New phone number"
+msgid "New Phone Number:"
 msgstr "Mitglieder"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
@@ -5603,14 +5626,14 @@ msgid ""
 "follow the instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, fuzzy, kde-format
 #| msgid "Add"
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: src/settings/ThreePIdCard.qml:189
+#: src/settings/ThreePIdCard.qml:191
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Back"
@@ -5814,6 +5837,12 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#, fuzzy
+#~| msgid "Edit this account"
+#~ msgctxt "@action:button"
+#~ msgid "QR code for account"
+#~ msgstr "Dieses Konto bearbeiten"
 
 #, fuzzy
 #~| msgid "Room Settings"

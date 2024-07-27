@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:39+0000\n"
+"POT-Creation-Date: 2024-07-27 00:41+0000\n"
 "PO-Revision-Date: 2024-06-30 13:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -818,7 +818,7 @@ msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -859,7 +859,7 @@ msgstr "கணக்குருவாக்கு"
 msgid "Password:"
 msgstr "கடவுச்சொல்:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
 #: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
@@ -1844,58 +1844,65 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "நியோச்சாட்டைத் திற"
 
-#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23
+#, fuzzy, kde-format
+#| msgid "Shortcode:"
+msgctxt "@action:button"
+msgid "Show QR code"
+msgstr "குறுகுறி:"
+
+#: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "இந்தக் கணக்கைத் திருத்து"
 
-#: src/qml/AccountMenu.qml:28 src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:44 src/settings/AccountsPage.qml:34
 #: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "கணக்கு திருத்தி"
 
-#: src/qml/AccountMenu.qml:32
+#: src/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Notification settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
-#: src/qml/AccountMenu.qml:39 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettingsView.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "சாதனங்கள்"
 
-#: src/qml/AccountMenu.qml:46 src/settings/NeoChatGeneralPage.qml:241
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Open developer tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
 
-#: src/qml/AccountMenu.qml:52
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
 
-#: src/qml/AccountMenu.qml:58
+#: src/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "ரகசிய காப்புநகலைத் திற"
 
-#: src/qml/AccountMenu.qml:62
+#: src/qml/AccountMenu.qml:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "சாவி காப்புநகலைத் திறப்பது"
 
-#: src/qml/AccountMenu.qml:66
+#: src/qml/AccountMenu.qml:82
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "இச்சாதனத்தை உறுதிப்படுத்து"
 
-#: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:88 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "கணக்கிலிருந்து வெளியேறு"
@@ -2238,7 +2245,7 @@ msgstr "வகையைத் தேர்ந்தெடுக்கவும�
 msgid "Space"
 msgstr "இடம்"
 
-#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77
 #, kde-format
 msgid "Name:"
 msgstr "பெயர்:"
@@ -3286,7 +3293,13 @@ msgstr "அரங்கிலுள்ள படங்கள்"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. உங்கள் பிணைய இணைப்பை சரிபாருங்கள்."
 
-#: src/qml/RoomPage.qml:264
+#: src/qml/RoomPage.qml:158
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgid "Select or join a room to get started"
+msgstr "தொடங்க, சில அரங்குகளில் சேருங்கள்"
+
+#: src/qml/RoomPage.qml:265
 #, kde-format
 msgid "Message Source"
 msgstr "செய்தியின் மூலம்"
@@ -4004,105 +4017,119 @@ msgid "Remove current avatar"
 msgstr "தற்போதைய சின்னத்தை நீக்கு"
 
 #: src/settings/AccountEditorPage.qml:101
-#, kde-format
-msgid "User information"
+#, fuzzy, kde-format
+#| msgid "User information"
+msgid "User Information"
 msgstr "பயனரின் விவரங்கள்"
+
+#: src/settings/AccountEditorPage.qml:106
+#, fuzzy, kde-format
+#| msgid "<display name>"
+msgid "Display Name:"
+msgstr "<காட்சிப்பெயர்>"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "காட்சிப்பெயர்"
 
-#: src/settings/AccountEditorPage.qml:117
-#, kde-format
-msgctxt "@action:button"
-msgid "QR code for account"
-msgstr "கணக்கிற்கான QR குறியீடு"
+#: src/settings/AccountEditorPage.qml:113
+#, fuzzy, kde-format
+#| msgid "Working"
+msgid "Work"
+msgstr "வேலை செய்கிறது"
 
-#: src/settings/AccountEditorPage.qml:133
-#: src/settings/AccountEditorPage.qml:188
+#: src/settings/AccountEditorPage.qml:118
+#, fuzzy, kde-format
+#| msgid "Scan a QR Code"
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "QR குறியீட்டை வருடவும்"
+
+#: src/settings/AccountEditorPage.qml:135
+#: src/settings/AccountEditorPage.qml:191
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "சேமி"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:157
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "கடவுச்சொல்லை மாற்றுவதை உங்கள் சேவையகம் ஆதரிக்கவில்லை."
 
-#: src/settings/AccountEditorPage.qml:161
+#: src/settings/AccountEditorPage.qml:164
 #, kde-format
 msgid "Current Password:"
 msgstr "தற்போதைய கடவுச்சொல்:"
 
-#: src/settings/AccountEditorPage.qml:168
+#: src/settings/AccountEditorPage.qml:171
 #, kde-format
 msgid "New Password:"
 msgstr "புதிய கடவுச்சொல்:"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "புதிய கடவுச்சொல்லை உறுதி செய்க:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Passwords don't match"
 msgstr "கடவுச்சொற்கள் பொருந்தவில்லை"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:198
 #, kde-format
 msgid "Passwords do not match"
 msgstr "கடவுச்சொற்கள் பொருந்தவில்லை"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Email Addresses"
 msgstr "மின்னஞ்சல் முகவரிகள்"
 
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Phone Numbers"
 msgstr "தொலைபேசி எண்கள்"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:216
 #, kde-format
 msgid "Identity Server"
 msgstr "அடையாள சேவையகம்"
 
-#: src/settings/AccountEditorPage.qml:221
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Server Information"
 msgstr "சேவையக விவரங்கள்"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "தாய் சேவையக முகவரி"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "கணக்கு மேலாண்மை"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "கணக்கை முடக்கு"
 
-#: src/settings/AccountEditorPage.qml:266
+#: src/settings/AccountEditorPage.qml:271
 #, kde-format
 msgid "Password changed successfully"
 msgstr "கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது"
 
-#: src/settings/AccountEditorPage.qml:268
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgid "Wrong password entered"
 msgstr "தவறான கடவுச்சொல் உள்ளிடப்பட்டது"
 
-#: src/settings/AccountEditorPage.qml:270
+#: src/settings/AccountEditorPage.qml:275
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "கடவுச்சொல்லை மாற்றும்போது தெரியாத சிக்கல்"
@@ -4442,20 +4469,15 @@ msgctxt "@title"
 msgid "Ignored Users"
 msgstr "பொருட்படுத்தப்படா பயனர்கள்"
 
-#: src/settings/IgnoredUsersDialog.qml:24
-#: src/settings/NeoChatSecurityPage.qml:35
-#, kde-format
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "பொருட்படுத்தப்படா பயனர்கள்"
-
-#: src/settings/IgnoredUsersDialog.qml:29
-#, kde-format
+#: src/settings/IgnoredUsersDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Manage ignored users"
 msgctxt "Placeholder message when no user is ignored"
-msgid "You are not ignoring any users"
-msgstr "எந்த பயனர்களையும் நீங்கள் புறக்கணிக்கவில்லை"
+msgid "No ignored users"
+msgstr "பொருட்படுத்தப்படா பயனர்களை நிர்வகி"
 
-#: src/settings/IgnoredUsersDialog.qml:51
+#: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
@@ -4587,8 +4609,8 @@ msgstr ""
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
 msgid ""
-"If enabled, NeoChat will reject invitations from from users you don't share "
-"a room with."
+"If enabled, NeoChat will reject invitations from users you don't share a "
+"room with."
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:25
@@ -4596,6 +4618,12 @@ msgstr ""
 #| msgid "Your server doesn't support changing your password"
 msgid "Your server does not support this setting."
 msgstr "கடவுச்சொல்லை மாற்றுவதை உங்கள் சேவையகம் ஆதரிக்கவில்லை."
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "பொருட்படுத்தப்படா பயனர்கள்"
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, kde-format
@@ -5169,15 +5197,19 @@ msgid "Country Code for new phone number"
 msgstr "புதிய தொலைபேசி எண்ணுக்கான சர்வதேச குறியெண்"
 
 #: src/settings/ThreePIdCard.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New email address"
 msgctxt "@label:textbox"
-msgid "New email address"
+msgid "New Email Address:"
 msgstr "புதிய மின்னஞ்சல் முகவரி"
 
 #: src/settings/ThreePIdCard.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New phone number"
 msgctxt "@label:textbox"
-msgid "New phone number"
+msgid "New Phone Number:"
 msgstr "புதிய தொலைபேசி எண்"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
@@ -5229,13 +5261,13 @@ msgstr ""
 "இந்த தொலைபேசி எண் உறுதிசெய்யப்படாதது. உங்களுக்கு அனுப்பப்பட்ட குறுஞ்செய்தியிலுள்ளவாறு "
 "செய்தபின் கீழுள்ள பட்டனை அழுத்தவும்"
 
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "சேர்"
 
-#: src/settings/ThreePIdCard.qml:189
+#: src/settings/ThreePIdCard.qml:191
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
@@ -5436,6 +5468,14 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgctxt "@action:button"
+#~ msgid "QR code for account"
+#~ msgstr "கணக்கிற்கான QR குறியீடு"
+
+#~ msgctxt "Placeholder message when no user is ignored"
+#~ msgid "You are not ignoring any users"
+#~ msgstr "எந்த பயனர்களையும் நீங்கள் புறக்கணிக்கவில்லை"
 
 #~ msgid "Settings"
 #~ msgstr "அமைப்புகள்"

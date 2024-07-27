@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:39+0000\n"
+"POT-Creation-Date: 2024-07-27 00:41+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -840,7 +840,7 @@ msgid "Loading…"
 msgstr "Memuat..."
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -884,7 +884,7 @@ msgstr "Daftar"
 msgid "Password:"
 msgstr "Kata sandi:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
 #: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
@@ -1968,60 +1968,67 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23
+#, fuzzy, kde-format
+#| msgid "Shortcode:"
+msgctxt "@action:button"
+msgid "Show QR code"
+msgstr "Kode pendek:"
+
+#: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "Sunting akun ini"
 
-#: src/qml/AccountMenu.qml:28 src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:44 src/settings/AccountsPage.qml:34
 #: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "Penyunting akun"
 
-#: src/qml/AccountMenu.qml:32
+#: src/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Notification settings"
 msgstr "Pengaturan notifikasi"
 
-#: src/qml/AccountMenu.qml:39 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettingsView.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Peranti"
 
-#: src/qml/AccountMenu.qml:46 src/settings/NeoChatGeneralPage.qml:241
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Open developer tools"
 msgstr "Buka alat pengembang"
 
-#: src/qml/AccountMenu.qml:52
+#: src/qml/AccountMenu.qml:68
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Alat Pengembang"
 
-#: src/qml/AccountMenu.qml:58
+#: src/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:62
+#: src/qml/AccountMenu.qml:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:66
+#: src/qml/AccountMenu.qml:82
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "Verifikasi peranti"
 
-#: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:88 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Keluar dari Akun"
@@ -2394,7 +2401,7 @@ msgstr "Pilih Semua"
 msgid "Space"
 msgstr "Space"
 
-#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77
 #, kde-format
 msgid "Name:"
 msgstr "Nama:"
@@ -3509,7 +3516,13 @@ msgstr "Versi ruangan"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat sedang luring. Mohon periksa koneksi jaringan Anda."
 
-#: src/qml/RoomPage.qml:264
+#: src/qml/RoomPage.qml:158
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgid "Select or join a room to get started"
+msgstr "Bergabung ke beberapa ruangan untuk memulai"
+
+#: src/qml/RoomPage.qml:265
 #, kde-format
 msgid "Message Source"
 msgstr "Sumber Pesan"
@@ -4279,110 +4292,121 @@ msgid "Remove current avatar"
 msgstr "Hapus avatar saat ini"
 
 #: src/settings/AccountEditorPage.qml:101
-#, kde-format
-msgid "User information"
+#, fuzzy, kde-format
+#| msgid "User information"
+msgid "User Information"
 msgstr "Informasi pengguna"
+
+#: src/settings/AccountEditorPage.qml:106
+#, fuzzy, kde-format
+#| msgid "<display name>"
+msgid "Display Name:"
+msgstr "<nama tampilan>"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "Label:"
 
-#: src/settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Edit this account"
-msgctxt "@action:button"
-msgid "QR code for account"
-msgstr "Sunting akun ini"
+#: src/settings/AccountEditorPage.qml:113
+#, kde-format
+msgid "Work"
+msgstr ""
 
-#: src/settings/AccountEditorPage.qml:133
-#: src/settings/AccountEditorPage.qml:188
+#: src/settings/AccountEditorPage.qml:118
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr ""
+
+#: src/settings/AccountEditorPage.qml:135
+#: src/settings/AccountEditorPage.qml:191
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Simpan"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:157
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Server Anda tidak mendukung mengubah kata sandi Anda"
 
-#: src/settings/AccountEditorPage.qml:161
+#: src/settings/AccountEditorPage.qml:164
 #, kde-format
 msgid "Current Password:"
 msgstr "Kata Sandi Saat Ini:"
 
-#: src/settings/AccountEditorPage.qml:168
+#: src/settings/AccountEditorPage.qml:171
 #, kde-format
 msgid "New Password:"
 msgstr "Kata Sandi Baru:"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Konfirmasi Kata Sandi baru:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Kata sandi tidak cocok"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:198
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Kata sandi tidak cocok"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Email Addresses"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:211
 #, fuzzy, kde-format
 #| msgid "Members"
 msgid "Phone Numbers"
 msgstr "Anggota"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:216
 #, fuzzy, kde-format
 #| msgid "Add New Server"
 msgid "Identity Server"
 msgstr "Tambahkan Server Baru"
 
-#: src/settings/AccountEditorPage.qml:221
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Server Information"
 msgstr "Informasi Server"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL Homeserver"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:250
 #, fuzzy, kde-format
 #| msgid "Account editor"
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Penyunting akun"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:255
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgid "Deactivate Account"
 msgstr "Sunting Akun"
 
-#: src/settings/AccountEditorPage.qml:266
+#: src/settings/AccountEditorPage.qml:271
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Kata sandi berhasil diubah"
 
-#: src/settings/AccountEditorPage.qml:268
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Kata sandi salah"
 
-#: src/settings/AccountEditorPage.qml:270
+#: src/settings/AccountEditorPage.qml:275
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Terjadi masalah yang tidak diketahui saat mengubah kata sandi"
@@ -4735,21 +4759,14 @@ msgctxt "@title"
 msgid "Ignored Users"
 msgstr "Abaikan pengguna ini"
 
-#: src/settings/IgnoredUsersDialog.qml:24
-#: src/settings/NeoChatSecurityPage.qml:35
+#: src/settings/IgnoredUsersDialog.qml:25
 #, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "Abaikan pengguna ini"
-
-#: src/settings/IgnoredUsersDialog.qml:29
-#, kde-format
+#| msgid "Unignore this user"
 msgctxt "Placeholder message when no user is ignored"
-msgid "You are not ignoring any users"
-msgstr ""
+msgid "No ignored users"
+msgstr "Hilangkan pengabaian pengguna ini"
 
-#: src/settings/IgnoredUsersDialog.qml:51
+#: src/settings/IgnoredUsersDialog.qml:55
 #, fuzzy, kde-format
 #| msgid "Unignore this user"
 msgctxt "@action:button"
@@ -4889,8 +4906,8 @@ msgstr ""
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
 msgid ""
-"If enabled, NeoChat will reject invitations from from users you don't share "
-"a room with."
+"If enabled, NeoChat will reject invitations from users you don't share a "
+"room with."
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:25
@@ -4898,6 +4915,13 @@ msgstr ""
 #| msgid "Your server doesn't support changing your password"
 msgid "Your server does not support this setting."
 msgstr "Server Anda tidak mendukung mengubah kata sandi Anda"
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Abaikan pengguna ini"
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, fuzzy, kde-format
@@ -5504,14 +5528,14 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Confirm new display name"
 msgctxt "@label:textbox"
-msgid "New email address"
+msgid "New Email Address:"
 msgstr "Konfirmasi nama tampilan baru"
 
 #: src/settings/ThreePIdCard.qml:146
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@label:textbox"
-msgid "New phone number"
+msgid "New Phone Number:"
 msgstr "Anggota"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
@@ -5563,14 +5587,14 @@ msgid ""
 "follow the instructions there and then click the button below"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, fuzzy, kde-format
 #| msgid "Add"
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Tambahkan"
 
-#: src/settings/ThreePIdCard.qml:189
+#: src/settings/ThreePIdCard.qml:191
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Back"
@@ -5773,6 +5797,12 @@ msgstr "Tampilkan"
 #, kde-format
 msgid "Quit"
 msgstr "Keluar"
+
+#, fuzzy
+#~| msgid "Edit this account"
+#~ msgctxt "@action:button"
+#~ msgid "QR code for account"
+#~ msgstr "Sunting akun ini"
 
 #, fuzzy
 #~| msgid "Room Settings"

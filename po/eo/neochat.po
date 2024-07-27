@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:39+0000\n"
+"POT-Creation-Date: 2024-07-27 00:41+0000\n"
 "PO-Revision-Date: 2024-07-12 22:08+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -820,7 +820,7 @@ msgid "Loading…"
 msgstr "Ŝargante…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -861,7 +861,7 @@ msgstr "Registri"
 msgid "Password:"
 msgstr "Pasvorto:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
 #: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
@@ -1849,58 +1849,65 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Malfermi NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23
+#, fuzzy, kde-format
+#| msgid "Shortcode:"
+msgctxt "@action:button"
+msgid "Show QR code"
+msgstr "Mallongkodo:"
+
+#: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "Redakti ĉi tiun konton"
 
-#: src/qml/AccountMenu.qml:28 src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:44 src/settings/AccountsPage.qml:34
 #: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "Kontoredaktilo"
 
-#: src/qml/AccountMenu.qml:32
+#: src/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Notification settings"
 msgstr "Sciigaj agordoj"
 
-#: src/qml/AccountMenu.qml:39 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettingsView.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Aparatoj"
 
-#: src/qml/AccountMenu.qml:46 src/settings/NeoChatGeneralPage.qml:241
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Open developer tools"
 msgstr "Malfermi programistajn ilojn"
 
-#: src/qml/AccountMenu.qml:52
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Evoluistaj Iloj"
 
-#: src/qml/AccountMenu.qml:58
+#: src/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Malfermi Sekretan Sekurkopion"
 
-#: src/qml/AccountMenu.qml:62
+#: src/qml/AccountMenu.qml:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Malfermi Ŝlosilan Sekurkopion"
 
-#: src/qml/AccountMenu.qml:66
+#: src/qml/AccountMenu.qml:82
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "Konfirmi ĉi Aparaton"
 
-#: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:88 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Elsaluti"
@@ -2243,7 +2250,7 @@ msgstr "Elekti tipon"
 msgid "Space"
 msgstr "Spaco"
 
-#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77
 #, kde-format
 msgid "Name:"
 msgstr "Nomo:"
@@ -3293,7 +3300,13 @@ msgstr "Ĉambro-Komunikaĵoj"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat estas eksterrete. Bonvolu kontroli vian retan konekton."
 
-#: src/qml/RoomPage.qml:264
+#: src/qml/RoomPage.qml:158
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgid "Select or join a room to get started"
+msgstr "Aliĝi al iuj ĉambroj por komenci"
+
+#: src/qml/RoomPage.qml:265
 #, kde-format
 msgid "Message Source"
 msgstr "Mesaĝfonto"
@@ -4015,105 +4028,119 @@ msgid "Remove current avatar"
 msgstr "Forigi nunan avataron"
 
 #: src/settings/AccountEditorPage.qml:101
-#, kde-format
-msgid "User information"
+#, fuzzy, kde-format
+#| msgid "User information"
+msgid "User Information"
 msgstr "Informoj pri uzantoj"
+
+#: src/settings/AccountEditorPage.qml:106
+#, fuzzy, kde-format
+#| msgid "<display name>"
+msgid "Display Name:"
+msgstr "<montra nomo>"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "Etikedo:"
 
-#: src/settings/AccountEditorPage.qml:117
-#, kde-format
-msgctxt "@action:button"
-msgid "QR code for account"
-msgstr "QR-kodo por konto"
+#: src/settings/AccountEditorPage.qml:113
+#, fuzzy, kde-format
+#| msgid "Working"
+msgid "Work"
+msgstr "Laborante"
 
-#: src/settings/AccountEditorPage.qml:133
-#: src/settings/AccountEditorPage.qml:188
+#: src/settings/AccountEditorPage.qml:118
+#, fuzzy, kde-format
+#| msgid "Scan a QR Code"
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "Skani QR-Kodon"
+
+#: src/settings/AccountEditorPage.qml:135
+#: src/settings/AccountEditorPage.qml:191
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Konservi"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:157
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Via servilo ne subtenas ŝanĝi vian pasvorton"
 
-#: src/settings/AccountEditorPage.qml:161
+#: src/settings/AccountEditorPage.qml:164
 #, kde-format
 msgid "Current Password:"
 msgstr "Aktuala Pasvorto:"
 
-#: src/settings/AccountEditorPage.qml:168
+#: src/settings/AccountEditorPage.qml:171
 #, kde-format
 msgid "New Password:"
 msgstr "Nova pasvorto:"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Konfirmi novan pasvorton:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Pasvortoj ne kongruas"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:198
 #, kde-format
 msgid "Passwords do not match"
 msgstr "pasvortoj ne egalas"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Email Addresses"
 msgstr "Retpoŝtaj Adresoj"
 
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Phone Numbers"
 msgstr "Telefonnumeroj"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:216
 #, kde-format
 msgid "Identity Server"
 msgstr "Identeca Servilo"
 
-#: src/settings/AccountEditorPage.qml:221
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Server Information"
 msgstr "Servila Informo"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "Hejmservilo url"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Administrado de kontoj"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Malaktivigi Konton"
 
-#: src/settings/AccountEditorPage.qml:266
+#: src/settings/AccountEditorPage.qml:271
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Pasvorto ŝanĝiĝis sukcese"
 
-#: src/settings/AccountEditorPage.qml:268
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Malĝusta pasvorto enigita"
 
-#: src/settings/AccountEditorPage.qml:270
+#: src/settings/AccountEditorPage.qml:275
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Nekonata problemo dum vi provas ŝanĝi pasvorton"
@@ -4453,20 +4480,15 @@ msgctxt "@title"
 msgid "Ignored Users"
 msgstr "Ignoritaj Uzantoj"
 
-#: src/settings/IgnoredUsersDialog.qml:24
-#: src/settings/NeoChatSecurityPage.qml:35
-#, kde-format
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "Ignoritaj Uzantoj"
-
-#: src/settings/IgnoredUsersDialog.qml:29
-#, kde-format
+#: src/settings/IgnoredUsersDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Manage ignored users"
 msgctxt "Placeholder message when no user is ignored"
-msgid "You are not ignoring any users"
-msgstr "Vi ignoras neniujn uzantojn"
+msgid "No ignored users"
+msgstr "Administri ignoritajn uzantojn"
 
-#: src/settings/IgnoredUsersDialog.qml:51
+#: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
@@ -4599,8 +4621,8 @@ msgstr ""
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
 msgid ""
-"If enabled, NeoChat will reject invitations from from users you don't share "
-"a room with."
+"If enabled, NeoChat will reject invitations from users you don't share a "
+"room with."
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:25
@@ -4608,6 +4630,12 @@ msgstr ""
 #| msgid "Your server doesn't support changing your password"
 msgid "Your server does not support this setting."
 msgstr "Via servilo ne subtenas ŝanĝi vian pasvorton"
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Ignoritaj Uzantoj"
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, kde-format
@@ -5184,15 +5212,19 @@ msgid "Country Code for new phone number"
 msgstr "Landkodo por nova telefonnumero"
 
 #: src/settings/ThreePIdCard.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New email address"
 msgctxt "@label:textbox"
-msgid "New email address"
+msgid "New Email Address:"
 msgstr "Nova retpoŝta adreso"
 
 #: src/settings/ThreePIdCard.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New phone number"
 msgctxt "@label:textbox"
-msgid "New phone number"
+msgid "New Phone Number:"
 msgstr "Nova telefonnumero"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
@@ -5244,13 +5276,13 @@ msgstr ""
 "La telefonnumero ne estis konfirmita. Bonvolu iri al la retpoŝto kaj sekvi "
 "la instruojn tie kaj poste klaki la butonon malsupre"
 
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Aldoni"
 
-#: src/settings/ThreePIdCard.qml:189
+#: src/settings/ThreePIdCard.qml:191
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
@@ -5454,3 +5486,11 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgctxt "@action:button"
+#~ msgid "QR code for account"
+#~ msgstr "QR-kodo por konto"
+
+#~ msgctxt "Placeholder message when no user is ignored"
+#~ msgid "You are not ignoring any users"
+#~ msgstr "Vi ignoras neniujn uzantojn"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-26 00:39+0000\n"
-"PO-Revision-Date: 2024-07-07 21:50+0300\n"
+"POT-Creation-Date: 2024-07-27 00:41+0000\n"
+"PO-Revision-Date: 2024-07-26 13:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -819,7 +819,7 @@ msgid "Loading…"
 msgstr "Yükleniyor…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -860,7 +860,7 @@ msgstr "Kaydol"
 msgid "Password:"
 msgstr "Parola:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:149
+#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
 #: src/settings/NetworkProxyPage.qml:95
 #, kde-format
 msgid "Password"
@@ -1844,58 +1844,65 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Aç: NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23
+#, fuzzy, kde-format
+#| msgid "Shortcode:"
+msgctxt "@action:button"
+msgid "Show QR code"
+msgstr "Kısa kod:"
+
+#: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
 msgid "Edit this account"
 msgstr "Bu hesabı düzenle"
 
-#: src/qml/AccountMenu.qml:28 src/settings/AccountsPage.qml:34
+#: src/qml/AccountMenu.qml:44 src/settings/AccountsPage.qml:34
 #: src/settings/AccountsPage.qml:51
 #, kde-format
 msgid "Account editor"
 msgstr "Hesap düzenleyicisi"
 
-#: src/qml/AccountMenu.qml:32
+#: src/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Notification settings"
 msgstr "Bildirim ayarları"
 
-#: src/qml/AccountMenu.qml:39 src/settings/DevicesPage.qml:17
+#: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
 #: src/settings/NeoChatSettingsView.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: src/qml/AccountMenu.qml:46 src/settings/NeoChatGeneralPage.qml:241
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Open developer tools"
 msgstr "Geliştirici araçlarını aç"
 
-#: src/qml/AccountMenu.qml:52
+#: src/qml/AccountMenu.qml:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Geliştirici Araçları"
 
-#: src/qml/AccountMenu.qml:58
+#: src/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Giz Yedeğini Aç"
 
-#: src/qml/AccountMenu.qml:62
+#: src/qml/AccountMenu.qml:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Anahtar Yedeğini Aç"
 
-#: src/qml/AccountMenu.qml:66
+#: src/qml/AccountMenu.qml:82
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "Bu Aygıtı Doğrula"
 
-#: src/qml/AccountMenu.qml:72 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:88 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Oturumu Kapat"
@@ -2240,7 +2247,7 @@ msgstr "Tür seç"
 msgid "Space"
 msgstr "Alan"
 
-#: src/qml/CreateRoomDialog.qml:77 src/settings/AccountEditorPage.qml:106
+#: src/qml/CreateRoomDialog.qml:77
 #, kde-format
 msgid "Name:"
 msgstr "Ad:"
@@ -2774,6 +2781,8 @@ msgstr "Bu davet kabul edilsin mi?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Güvenlik ayarları altından bilinmeyen kullanıcılardan gelen davetleri "
+"reddedebilirsiniz."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -3289,7 +3298,13 @@ msgstr "Odadaki Ortamlar"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat, çevrimdışı. Lütfen ağ bağlantınızı denetleyin."
 
-#: src/qml/RoomPage.qml:264
+#: src/qml/RoomPage.qml:158
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgid "Select or join a room to get started"
+msgstr "Başlamak için odalara katılın"
+
+#: src/qml/RoomPage.qml:265
 #, kde-format
 msgid "Message Source"
 msgstr "İleti Kaynağı"
@@ -4020,105 +4035,119 @@ msgid "Remove current avatar"
 msgstr "Geçerli avatarı kaldır"
 
 #: src/settings/AccountEditorPage.qml:101
-#, kde-format
-msgid "User information"
+#, fuzzy, kde-format
+#| msgid "User information"
+msgid "User Information"
 msgstr "Kullanıcı bilgisi"
+
+#: src/settings/AccountEditorPage.qml:106
+#, fuzzy, kde-format
+#| msgid "<display name>"
+msgid "Display Name:"
+msgstr "<görüntü adı>"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
 msgid "Label:"
 msgstr "Etiket:"
 
-#: src/settings/AccountEditorPage.qml:117
-#, kde-format
-msgctxt "@action:button"
-msgid "QR code for account"
-msgstr "Hesabın Kare Kodu"
+#: src/settings/AccountEditorPage.qml:113
+#, fuzzy, kde-format
+#| msgid "Working"
+msgid "Work"
+msgstr "Çalışıyor"
 
-#: src/settings/AccountEditorPage.qml:133
-#: src/settings/AccountEditorPage.qml:188
+#: src/settings/AccountEditorPage.qml:118
+#, fuzzy, kde-format
+#| msgid "Scan a QR Code"
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "Bir Kare Kod Tara"
+
+#: src/settings/AccountEditorPage.qml:135
+#: src/settings/AccountEditorPage.qml:191
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:157
 #, kde-format
 msgid "Your server doesn't support changing your password"
-msgstr "Sunucunuz, parolanızı değiştirmeyi desteklemiyor"
+msgstr "Sunucunuz parolanızı değiştirmeyi desteklemiyor"
 
-#: src/settings/AccountEditorPage.qml:161
+#: src/settings/AccountEditorPage.qml:164
 #, kde-format
 msgid "Current Password:"
 msgstr "Geçerli parola:"
 
-#: src/settings/AccountEditorPage.qml:168
+#: src/settings/AccountEditorPage.qml:171
 #, kde-format
 msgid "New Password:"
 msgstr "Yeni parola:"
 
-#: src/settings/AccountEditorPage.qml:175
+#: src/settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Yeni parolayı onayla:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Parolalar uyuşmuyor"
 
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:198
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Parolalar uyuşmuyor"
 
-#: src/settings/AccountEditorPage.qml:201
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Email Addresses"
 msgstr "E-posta Adresleri"
 
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Phone Numbers"
 msgstr "Telefon Numaraları"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:216
 #, kde-format
 msgid "Identity Server"
 msgstr "Kimlik Sunucusu"
 
-#: src/settings/AccountEditorPage.qml:221
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgid "Server Information"
 msgstr "Sunucu Bilgisi"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "Ana Sunucu URL’si"
 
-#: src/settings/AccountEditorPage.qml:246
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgctxt "@title"
 msgid "Account Management"
 msgstr "Hesap Yönetimi"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Hesabı Devre Dışı Bırak"
 
-#: src/settings/AccountEditorPage.qml:266
+#: src/settings/AccountEditorPage.qml:271
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Parola başarıyla değiştirildi"
 
-#: src/settings/AccountEditorPage.qml:268
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Yanlış parola girildi"
 
-#: src/settings/AccountEditorPage.qml:270
+#: src/settings/AccountEditorPage.qml:275
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Parolayı değiştirmeye çalışırken bilinmeyen sorun"
@@ -4458,20 +4487,15 @@ msgctxt "@title"
 msgid "Ignored Users"
 msgstr "Yok Sayılan Kullanıcılar"
 
-#: src/settings/IgnoredUsersDialog.qml:24
-#: src/settings/NeoChatSecurityPage.qml:35
-#, kde-format
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "Yok Sayılan Kullanıcılar"
-
-#: src/settings/IgnoredUsersDialog.qml:29
-#, kde-format
+#: src/settings/IgnoredUsersDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Manage ignored users"
 msgctxt "Placeholder message when no user is ignored"
-msgid "You are not ignoring any users"
-msgstr "Hiçbir kullanıcıyı yok saymıyorsunuz"
+msgid "No ignored users"
+msgstr "Yok Sayılan Kullanıcıları Yönet"
 
-#: src/settings/IgnoredUsersDialog.qml:51
+#: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
@@ -4589,30 +4613,39 @@ msgid "Security"
 msgstr "Güvenlik"
 
 #: src/settings/NeoChatSecurityPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Davet gönder"
+msgstr "Davetler"
 
 #: src/settings/NeoChatSecurityPage.qml:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
-
-#: src/settings/NeoChatSecurityPage.qml:25
-#, kde-format
-msgid ""
-"If enabled, NeoChat will reject invitations from from users you don't share "
-"a room with."
-msgstr ""
+msgstr "Bilinmeyen kullanıcılardan gelen davetleri reddet"
 
 #: src/settings/NeoChatSecurityPage.qml:25
 #, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#| msgid ""
+#| "If enabled, NeoChat will reject invitations from from users you don't "
+#| "share a room with."
+msgid ""
+"If enabled, NeoChat will reject invitations from users you don't share a "
+"room with."
+msgstr ""
+"Etkinleştirilirse NeoChat, birlikte bir oda paylaşmadığınız kullanıcılardan "
+"gelen davetleri reddeder."
+
+#: src/settings/NeoChatSecurityPage.qml:25
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "Sunucunuz, parolanızı değiştirmeyi desteklemiyor"
+msgstr "Sunucunuz bu ayarı desteklemiyor."
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Ignored Users"
+msgstr "Yok Sayılan Kullanıcılar"
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, kde-format
@@ -5190,15 +5223,19 @@ msgid "Country Code for new phone number"
 msgstr "Yeni telefon numarası için ülke kodu"
 
 #: src/settings/ThreePIdCard.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New email address"
 msgctxt "@label:textbox"
-msgid "New email address"
+msgid "New Email Address:"
 msgstr "Yeni e-posta adresi"
 
 #: src/settings/ThreePIdCard.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New phone number"
 msgctxt "@label:textbox"
-msgid "New phone number"
+msgid "New Phone Number:"
 msgstr "Yeni telefon numarası"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
@@ -5250,13 +5287,13 @@ msgstr ""
 "Telefon numarası doğrulanmadı. Gelen SMS’e gidin ve oradaki yönergeleri "
 "izleyip aşağıdaki düğmeye tıklayın"
 
-#: src/settings/ThreePIdCard.qml:181
+#: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Ekle"
 
-#: src/settings/ThreePIdCard.qml:189
+#: src/settings/ThreePIdCard.qml:191
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
@@ -5458,6 +5495,14 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgctxt "@action:button"
+#~ msgid "QR code for account"
+#~ msgstr "Hesabın Kare Kodu"
+
+#~ msgctxt "Placeholder message when no user is ignored"
+#~ msgid "You are not ignoring any users"
+#~ msgstr "Hiçbir kullanıcıyı yok saymıyorsunuz"
 
 #~ msgid "Settings"
 #~ msgstr "Ayarlar"
