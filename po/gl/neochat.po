@@ -1,179 +1,169 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-28 00:40+0000\n"
-"PO-Revision-Date: 2024-01-08 19:47-0500\n"
-"Last-Translator: Weblate Admin <admin@example.com>\n"
-"Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
-"ilo-kde/neochat/tok/>\n"
-"Language: tok\n"
+"PO-Revision-Date: 2024-07-27 17:37+0200\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : 3;\n"
-"X-Generator: Poedit 3.4.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
 msgid "Choose local file"
-msgstr ""
+msgstr "Escoller un ficheiro local"
 
 #: src/chatbar/AttachDialog.qml:45
 #, kde-format
 msgid "Clipboard image"
-msgstr ""
+msgstr "Imaxe do portapapeis"
 
 #: src/chatbar/ChatBar.qml:79
 #, kde-format
 msgid "Attach an image or file"
-msgstr "o pana e sitelen anu lipu"
+msgstr "Anexar unha imaxe ou ficheiro"
 
 #: src/chatbar/ChatBar.qml:97
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "Expresións e adesivos"
 
 #: src/chatbar/ChatBar.qml:114
 #, kde-format
 msgid "Send a Location"
-msgstr ""
+msgstr "Enviar unha localización"
 
 #: src/chatbar/ChatBar.qml:130
 #, kde-format
 msgid "Send message"
-msgstr "o pana e toki"
+msgstr "Enviar unha mensaxe"
 
 #: src/chatbar/ChatBar.qml:208
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Send an encrypted message…"
-msgstr "o pana e toki"
+msgstr "Enviar unha mensaxe cifrada…"
 
 #: src/chatbar/ChatBar.qml:208
 #, kde-format
 msgid "Set an attachment caption…"
-msgstr ""
+msgstr "Definir unha lenda de anexo…"
 
 #: src/chatbar/ChatBar.qml:208
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Send a message…"
-msgstr "o pana e toki"
+msgstr "Enviar unha mensaxe…"
 
 #: src/chatbar/EmojiGrid.qml:87
 #, kde-format
 msgid "No stickers"
-msgstr ""
+msgstr "Non hai adhesivos"
 
 #: src/chatbar/EmojiGrid.qml:87
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgid "No emojis"
-msgstr "sitelen Emosi sina"
+msgstr "Non hai expresións"
 
 #: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgid "Emojis"
-msgstr "sitelen Emosi sina"
+msgstr "Expresións"
 
 #: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Adesivos"
 
 #: src/chatbar/ReplyPane.qml:89
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "o ala"
+msgstr "Cancelar a resposta"
 
 #: src/controller.cpp:132
-#, fuzzy, kde-format
-#| msgid "Receiving push notifications"
+#, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Receiving push notifications"
+msgstr "Recibindo notificacións de novas mensaxes."
 
 #: src/controller.cpp:211
 #, kde-format
 msgid "Network Error: %1"
-msgstr "pakala linluwi: %1"
+msgstr "Erro de rede: %1"
 
 #: src/controller.cpp:233
 #, kde-format
 msgid "Access token wasn't found"
-msgstr "nanpa sijelo len li ken ala alasa"
+msgstr "Non se atopou o pase de acceso."
 
 #: src/controller.cpp:233
 #, kde-format
 msgid "Maybe it was deleted?"
-msgstr "ken la ona li kama ala"
+msgstr "Pode que se eliminase?"
 
 #: src/controller.cpp:237
 #, kde-format
 msgid "Access to keychain was denied."
-msgstr "poki len li pana ala e ken kepeken"
+msgstr "Denegouse o acceso ao chaveiro."
 
 #: src/controller.cpp:237
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
-msgstr "o ken e ilo NeoChat tawa nanpa sijelo len"
+msgstr "Permita a NeoChat ler o pase de acceso."
 
 #: src/controller.cpp:240
 #, kde-format
 msgid "No keychain available."
-msgstr "poki len li lon ala."
+msgstr "Non hai ningún chaveiro dispoñíbel."
 
 #: src/controller.cpp:240
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
-msgstr ""
-"o kama jo e poki len. sina kepeken ilo Linux la ilo KWallet anu ilo GNOME "
-"Keyring li poki len."
+msgstr "Instale un chaveiro, p. ex. KWallet ou o chaveiro de GNOME en Linux."
 
 #: src/controller.cpp:243
 #, kde-format
 msgid "Unable to read access token"
-msgstr "mi ken ala kepeken nanpa sijelo len."
+msgstr "Non é posíbel ler o pase de acceso."
 
 #: src/controller.cpp:339
 #, kde-format
 msgid "Receiving push notifications"
-msgstr "Receiving push notifications"
+msgstr "Recibindo notificacións levadas"
 
 #: src/devtools/AccountData.qml:19
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
-msgstr ""
+msgstr "Datos da conta"
 
 #: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
-msgstr ""
+msgstr "Orixe do evento"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
-msgstr ""
+msgstr "Amosar os eventos agochados na cronoloxía."
 
 #: src/devtools/DebugOptions.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
-msgstr ""
+msgstr "Permitir sempre a verificación de dispositivo."
 
 #: src/devtools/DebugOptions.qml:27
 #, kde-format
@@ -181,61 +171,61 @@ msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
+"Permitir que a persoa usuaria inicie unha sesión de verificación con "
+"dispositivos que xa se verificaran."
 
 #: src/devtools/DebugOptions.qml:33
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
-msgstr ""
+msgstr "Amosar o enfoque na cabeceira da xanela."
 
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:245
 #, kde-format
 msgid "Developer Tools"
-msgstr ""
+msgstr "Ferramentas de desenvolvemento"
 
 #: src/devtools/DevtoolsPage.qml:29
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
-msgstr ""
+msgstr "Opcións de depuración"
 
 #: src/devtools/DevtoolsPage.qml:34
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
-msgstr "nimi tomo"
+msgstr "Datos da sala"
 
 #: src/devtools/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
-msgstr "nasin URL ilo:"
+msgstr "Información do servidor"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
-msgstr ""
+msgstr "Datos da conta"
 
 #: src/devtools/DevtoolsPage.qml:49
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
-msgstr ""
+msgstr "Marcas de funcionalidades"
 
 #: src/devtools/FeatureFlagPage.qml:20
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
-msgstr ""
+msgstr "Fíos"
 
 #: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Salvagarda secreta"
 
 #: src/devtools/FeatureFlagPage.qml:32
 #, kde-format
@@ -244,79 +234,73 @@ msgctxt ""
 "party ID"
 msgid "Add phone numbers as 3PIDs"
 msgstr ""
+"Engadir os números de teléfono como identificadores de terceiras partes."
 
 #: src/devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Choose Room"
-msgstr "o pali e tomo toki"
+msgstr "Escolla unha sala"
 
 #: src/devtools/RoomData.qml:25 src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgid "Room"
-msgstr "nimi tomo"
+msgstr "Sala"
 
 #: src/devtools/RoomData.qml:36
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgid "Room Id: %1"
-msgstr "nimi tomo"
+msgstr "Identificador da sala: %1"
 
 #: src/devtools/RoomData.qml:40
 #, kde-format
 msgid "Room Account Data"
-msgstr ""
+msgstr "Datos da conta da sala"
 
 #: src/devtools/RoomData.qml:53 src/devtools/RoomData.qml:99
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
-msgstr ""
+msgstr "Orixe do evento"
 
 #: src/devtools/RoomData.qml:61
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgid "Room State"
-msgstr "nimi tomo"
+msgstr "Estado da sala"
 
 #: src/devtools/RoomData.qml:75
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 evento deste tipo"
+msgstr[1] "%1 eventos deste tipo"
 
 #: src/devtools/RoomData.qml:84
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
-msgstr ""
+msgstr "Información do evento"
 
 #: src/devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Capacidades do servidor"
 
 #: src/devtools/ServerData.qml:24
-#, fuzzy, kde-format
-#| msgid "Login with password"
+#, kde-format
 msgid "Can change password"
-msgstr "o kama insa kepeken nimi len"
+msgstr "Pode cambiarse o contrasinal"
 
 #: src/devtools/ServerData.qml:29
 #, kde-format
 msgid "Default Room Version"
-msgstr ""
+msgstr "Versión predeterminada da sala"
 
 #: src/devtools/ServerData.qml:37
 #, kde-format
 msgid "Available Room Versions"
-msgstr ""
+msgstr "Versións de sala dispoñíbeis"
 
 #: src/devtools/StateKeys.qml:22
 #, kde-format
@@ -324,62 +308,62 @@ msgctxt ""
 "The name of one instance of a state of configuration. Unless you really know "
 "what you're doing, best leave this untranslated."
 msgid "State Keys"
-msgstr ""
+msgstr "State Keys"
 
 #: src/enums/neochatroomtype.h:59
 #, kde-format
 msgid "Invited"
-msgstr ""
+msgstr "Invitouse"
 
 #: src/enums/neochatroomtype.h:61
 #, kde-format
 msgid "Favorite"
-msgstr ""
+msgstr "Favorita"
 
 #: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:84
 #, kde-format
 msgid "Friends"
-msgstr ""
+msgstr "Amizades"
 
 #: src/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: src/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Low priority"
-msgstr ""
+msgstr "Prioridade baixa"
 
 #: src/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Spaces"
-msgstr ""
+msgstr "Espazos"
 
 #: src/enums/powerlevel.cpp:10
 #, kde-format
 msgid "Member"
-msgstr ""
+msgstr "Participante"
 
 #: src/enums/powerlevel.cpp:12
 #, kde-format
 msgid "Moderator"
-msgstr ""
+msgstr "Moderación"
 
 #: src/enums/powerlevel.cpp:14
 #, kde-format
 msgid "Admin"
-msgstr ""
+msgstr "Administración"
 
 #: src/enums/powerlevel.cpp:16
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "Silenciar"
 
 #: src/enums/powerlevel.cpp:18
 #, kde-format
 msgid "Custom"
-msgstr "sitelen Emosi sina"
+msgstr "Personalizada"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
 #: src/models/userlistmodel.cpp:114
@@ -388,200 +372,200 @@ msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
 "represents."
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:292 src/eventhandler.cpp:500
 #: src/models/messagecontentmodel.cpp:230 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
-msgstr "<i>[ijo ni li weka.]</i>"
+msgstr "<i>(Eliminouse esta mensaxe.)</i>"
 
 #: src/eventhandler.cpp:292 src/models/messagecontentmodel.cpp:231
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
-msgstr "<i>[ijo ni li weka tan ni: %1]</i>"
+msgstr "<i>(Eliminouse esta mensaxe: %1)</i>"
 
 #: src/eventhandler.cpp:326
 #, kde-format
 msgid "reinvited %1 to the room"
-msgstr "li pana sin e wile lon tawa %1"
+msgstr "invitouse a %1 de novo á sala"
 
 #: src/eventhandler.cpp:328
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
-msgstr " tan ni: %1"
+msgstr ": %1"
 
 #: src/eventhandler.cpp:337 src/eventhandler.cpp:524
 #, kde-format
 msgid "joined the room (repeated)"
-msgstr "li kama lon tomo (tenpo mute)"
+msgstr "uniuse á sala (repítese)"
 
 #: src/eventhandler.cpp:339
 #, kde-format
 msgid "invited %1 to the room"
-msgstr ""
+msgstr "invitouse a %1 á sala"
 
 #: src/eventhandler.cpp:339 src/eventhandler.cpp:526
 #, kde-format
 msgid "joined the room"
-msgstr ""
+msgstr "uniuse á sala"
 
 #: src/eventhandler.cpp:343
 #, kde-format
 msgid ": %1"
-msgstr ""
+msgstr ": %1"
 
 #: src/eventhandler.cpp:350 src/eventhandler.cpp:534
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
-msgstr ""
+msgstr "borrouse o seu nome visual"
 
 #: src/eventhandler.cpp:353
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
-msgstr ""
+msgstr "cambiou o seu nome visual a %1"
 
 #: src/eventhandler.cpp:359 src/eventhandler.cpp:541
 #, kde-format
 msgid " and "
-msgstr ""
+msgstr " e "
 
 #: src/eventhandler.cpp:362 src/eventhandler.cpp:544
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
-msgstr ""
+msgstr "borrou o seu avatar"
 
 #: src/eventhandler.cpp:364 src/eventhandler.cpp:546
 #, kde-format
 msgid "set an avatar"
-msgstr ""
+msgstr "definiu un avatar"
 
 #: src/eventhandler.cpp:366 src/eventhandler.cpp:548
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
-msgstr ""
+msgstr "actualizou o seu avatar"
 
 #: src/eventhandler.cpp:370 src/eventhandler.cpp:552
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
-msgstr ""
+msgstr "non cambiou nada"
 
 #: src/eventhandler.cpp:376
 #, kde-format
 msgid "withdrew %1's invitation"
-msgstr ""
+msgstr "retirou a invitación a %1"
 
 #: src/eventhandler.cpp:376 src/eventhandler.cpp:558
 #, kde-format
 msgid "rejected the invitation"
-msgstr ""
+msgstr "rexeitou a invitación"
 
 #: src/eventhandler.cpp:380
 #, kde-format
 msgid "unbanned %1"
-msgstr ""
+msgstr "readmitiu a %1"
 
 #: src/eventhandler.cpp:380 src/eventhandler.cpp:562
 #, kde-format
 msgid "self-unbanned"
-msgstr ""
+msgstr "readmitiuse"
 
 #: src/eventhandler.cpp:383
 #, kde-format
 msgid "has put %1 out of the room: %2"
-msgstr ""
+msgstr "sacou a %1 da sala: %2"
 
 #: src/eventhandler.cpp:384 src/eventhandler.cpp:564
 #, kde-format
 msgid "left the room"
-msgstr ""
+msgstr "saíu da sala"
 
 #: src/eventhandler.cpp:388
 #, kde-format
 msgid "banned %1 from the room"
-msgstr ""
+msgstr "prohibiu a %1 o acceso á sala"
 
 #: src/eventhandler.cpp:390
 #, kde-format
 msgid "banned %1 from the room: %2"
-msgstr ""
+msgstr "prohibiu a %1 o acceso á sala: %2"
 
 #: src/eventhandler.cpp:393 src/eventhandler.cpp:569
 #, kde-format
 msgid "self-banned from the room"
-msgstr ""
+msgstr "auto-prohibiuse o acceso á sala"
 
 #: src/eventhandler.cpp:397 src/eventhandler.cpp:572
 #, kde-format
 msgid "requested an invite"
-msgstr ""
+msgstr "solicitou unha invitación"
 
 #: src/eventhandler.cpp:397
 #, kde-format
 msgid "requested an invite with reason: %1"
-msgstr ""
+msgstr "solicitou unha invitación co seguinte motivo: %1"
 
 #: src/eventhandler.cpp:401 src/eventhandler.cpp:576
 #, kde-format
 msgid "made something unknown"
-msgstr ""
+msgstr "fixo algo descoñecido"
 
 #: src/eventhandler.cpp:404 src/eventhandler.cpp:579
 #, kde-format
 msgid "cleared the room main alias"
-msgstr ""
+msgstr "borrou o alias principal da sala"
 
 #: src/eventhandler.cpp:404
 #, kde-format
 msgid "set the room main alias to: %1"
-msgstr ""
+msgstr "definiu o alias principal da sala como: %1"
 
 #: src/eventhandler.cpp:407 src/eventhandler.cpp:582
 #, kde-format
 msgid "cleared the room name"
-msgstr ""
+msgstr "borrou o nome da sala"
 
 #: src/eventhandler.cpp:407
 #, kde-format
 msgid "set the room name to: %1"
-msgstr ""
+msgstr "definiu o nome da sala como: %1"
 
 #: src/eventhandler.cpp:410 src/eventhandler.cpp:585
 #, kde-format
 msgid "cleared the topic"
-msgstr ""
+msgstr "borrou o tema"
 
 #: src/eventhandler.cpp:411
 #, kde-format
 msgid "set the topic to: %1"
-msgstr ""
+msgstr "definiu o tema como: %1"
 
 #: src/eventhandler.cpp:417 src/eventhandler.cpp:588
 #, kde-format
 msgid "changed the room avatar"
-msgstr ""
+msgstr "cambiou o avatar da sala"
 
 #: src/eventhandler.cpp:420 src/eventhandler.cpp:591
 #, kde-format
 msgid "activated End-to-End Encryption"
-msgstr ""
+msgstr "activou a cifraxe de extremo a extremo"
 
 #: src/eventhandler.cpp:424
 #, kde-format
 msgid "upgraded the room to version %1"
-msgstr ""
+msgstr "anovou a versión da sala á %1"
 
 #: src/eventhandler.cpp:425
 #, kde-format
 msgid "created the room, version %1"
-msgstr ""
+msgstr "creou a sala, versión %1"
 
 #: src/eventhandler.cpp:428 src/eventhandler.cpp:597
 #, kde-format
@@ -633,10 +617,9 @@ msgid "a file"
 msgstr ""
 
 #: src/eventhandler.cpp:507
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "sent a message"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/eventhandler.cpp:511
 #, kde-format
@@ -665,10 +648,9 @@ msgid "withdrew a user's invitation"
 msgstr ""
 
 #: src/eventhandler.cpp:562
-#, fuzzy, kde-format
-#| msgid "Unban this user"
+#, kde-format
 msgid "unbanned a user"
-msgstr "o weka e weka pi jan ni"
+msgstr ""
 
 #: src/eventhandler.cpp:564
 #, kde-format
@@ -686,10 +668,9 @@ msgid "set the room main alias"
 msgstr ""
 
 #: src/eventhandler.cpp:582
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "set the room name"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/eventhandler.cpp:585
 #, kde-format
@@ -697,16 +678,14 @@ msgid "set the topic"
 msgstr ""
 
 #: src/eventhandler.cpp:594
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "upgraded the room version"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/eventhandler.cpp:594
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "created the room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/eventhandler.cpp:600
 #, kde-format
@@ -719,10 +698,9 @@ msgid "added a widget"
 msgstr ""
 
 #: src/eventhandler.cpp:610
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "removed a widget"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/eventhandler.cpp:612
 #, kde-format
@@ -740,20 +718,16 @@ msgid "started a poll"
 msgstr ""
 
 #: src/filetransferpseudojob.cpp:48
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "o kama jo"
+msgstr ""
 
 #: src/filetransferpseudojob.cpp:48
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "mi pali…"
+msgstr ""
 
 #: src/filetransferpseudojob.cpp:49
 #, kde-format
@@ -775,7 +749,7 @@ msgstr ""
 #: src/login.cpp:98
 #, kde-format
 msgid "Login Failed: %1"
-msgstr "sina ken ala sijelo: %1"
+msgstr ""
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -801,10 +775,9 @@ msgid "Re-send confirmation e-mail"
 msgstr ""
 
 #: src/login/Homeserver.qml:21
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Server Url:"
-msgstr "nasin URL ilo:"
+msgstr ""
 
 #: src/login/Homeserver.qml:26
 #, kde-format
@@ -813,43 +786,40 @@ msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
 #: src/timeline/LoadComponent.qml:33
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading"
-msgstr "mi pali…"
+msgstr ""
 
 #: src/login/Loading.qml:16
-#, fuzzy, kde-format
-#| msgid "Please wait. This might take a little while."
+#, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
 "a little while."
-msgstr "o awen. ken la tenpo ni li tenpo meso..."
+msgstr ""
 
 #: src/login/Login.qml:25
 #, kde-format
 msgid "Matrix ID:"
-msgstr "nimi pi ilo Matrix:"
+msgstr ""
 
 #: src/login/Login.qml:27
-#, fuzzy, kde-format
-#| msgid "Matrix ID:"
+#, kde-format
 msgid "Matrix ID"
-msgstr "nimi pi ilo Matrix:"
+msgstr ""
 
 #: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
 #: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
 #: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
-msgstr "mi pali…"
+msgstr ""
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:198
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
-msgstr "o awen tawa"
+msgstr ""
 
 #: src/login/Login.qml:38
 #, kde-format
@@ -857,57 +827,50 @@ msgid "Already logged in"
 msgstr ""
 
 #: src/login/LoginMethod.qml:20
-#, fuzzy, kde-format
-#| msgid "Login with password"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with password"
-msgstr "o kama insa kepeken nimi len"
+msgstr ""
 
 #: src/login/LoginMethod.qml:26
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
-msgstr "o kama insa kepeken ilo ante"
+msgstr ""
 
 #: src/login/LoginRegister.qml:24 src/login/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
-msgstr "o kama insa"
+msgstr ""
 
 #: src/login/LoginRegister.qml:31
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
-msgstr "o lon e sijelo sin"
+msgstr ""
 
 #: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
 #: src/settings/DevicesPage.qml:81
 #, kde-format
 msgid "Password:"
-msgstr "nimi len:"
+msgstr ""
 
 #: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
 #: src/settings/NetworkProxyPage.qml:95
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgid "Password"
-msgstr "nimi len"
+msgstr ""
 
 #: src/login/Password.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter your password"
+#, kde-format
 msgid "Invalid username or password"
-msgstr "o pana e nimi len sina"
+msgstr ""
 
 #: src/login/RegisterPassword.qml:30
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "nimi len:"
+msgstr ""
 
 #: src/login/RegisterPassword.qml:33
 #, kde-format
@@ -915,10 +878,9 @@ msgid "The passwords do not match."
 msgstr ""
 
 #: src/login/Sso.qml:30
-#, fuzzy, kde-format
-#| msgid "Complete the authentication steps in your browser"
+#, kde-format
 msgid "Continue the login process in your browser."
-msgstr "o awen tawa nasin lon ilo linluwi sina"
+msgstr ""
 
 #: src/login/Sso.qml:38
 #, kde-format
@@ -939,10 +901,9 @@ msgid ""
 msgstr ""
 
 #: src/login/Username.qml:20
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "Username:"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/login/Username.qml:23
 #, kde-format
@@ -952,14 +913,12 @@ msgstr ""
 #: src/login/WelcomePage.qml:25
 #, kde-format
 msgid "Welcome"
-msgstr "o kama pona a!"
+msgstr ""
 
 #: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Quit NeoChat"
+#, kde-format
 msgid "Welcome to NeoChat"
-msgstr "o pini e ilo toki NeoChat"
+msgstr ""
 
 #: src/login/WelcomePage.qml:54
 #, kde-format
@@ -968,18 +927,16 @@ msgid "Continue with an existing account"
 msgstr ""
 
 #: src/login/WelcomePage.qml:86
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
-msgstr "mi pali…"
+msgstr ""
 
 #: src/login/WelcomePage.qml:95
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/login/WelcomePage.qml:124
 #, kde-format
@@ -1064,7 +1021,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "kulupu pi ante toki pi toki pona"
+msgstr ""
 
 #: src/main.cpp:156
 #, kde-format
@@ -1157,10 +1114,8 @@ msgstr ""
 #: src/models/actionsmodel.cpp:119 src/models/actionsmodel.cpp:139
 #: src/models/actionsmodel.cpp:150 src/models/actionsmodel.cpp:166
 #: src/models/actionsmodel.cpp:176 src/models/actionsmodel.cpp:186
-#, fuzzy
-#| msgid "Send message"
 msgid "<message>"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/models/actionsmodel.cpp:70
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
@@ -1273,10 +1228,8 @@ msgid "<room alias or id> [<reason>]"
 msgstr ""
 
 #: src/models/actionsmodel.cpp:284
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Requests to join the given room"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/models/actionsmodel.cpp:298
 #, kde-format
@@ -1318,10 +1271,8 @@ msgid "%1 is now ignored."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:380
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Ignores the given user"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/models/actionsmodel.cpp:394
 #, kde-format
@@ -1336,10 +1287,8 @@ msgid "%1 is no longer ignored."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:404
-#, fuzzy
-#| msgid "Unignore this user"
 msgid "Unignores the given user"
-msgstr "o weka e len pi jan ni"
+msgstr ""
 
 #: src/models/actionsmodel.cpp:423
 msgid "<reaction text>"
@@ -1377,10 +1326,8 @@ msgid "<user id> [<reason>]"
 msgstr ""
 
 #: src/models/actionsmodel.cpp:466
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Bans the given user"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/models/actionsmodel.cpp:484
 #, kde-format
@@ -1400,10 +1347,8 @@ msgid "%1 was unbanned from this room."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:502
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Removes the ban of the given user"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/models/actionsmodel.cpp:517
 #, kde-format
@@ -1498,11 +1443,10 @@ msgid "Flags"
 msgstr ""
 
 #: src/models/emojimodel.cpp:219
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "sitelen Emosi sina"
+msgstr ""
 
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
@@ -1511,18 +1455,16 @@ msgid "Own Stickers"
 msgstr ""
 
 #: src/models/imagepacksmodel.cpp:92
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "sitelen Emosi sina"
+msgstr ""
 
 #: src/models/messagecontentmodel.cpp:223
 #: src/timeline/LinkPreviewLoadComponent.qml:66
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgid "Loading reply"
-msgstr "mi pali…"
+msgstr ""
 
 #: src/models/messagefiltermodel.cpp:164
 #, kde-format
@@ -1531,8 +1473,6 @@ msgid " %1"
 msgid_plural " %1 %2 times"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/models/messagefiltermodel.cpp:168
 #, kde-format
@@ -1541,8 +1481,6 @@ msgid " %1 user "
 msgid_plural " %1 users "
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/models/messagefiltermodel.cpp:177
 #, kde-format
@@ -1587,32 +1525,24 @@ msgid "Default power level to send messages"
 msgstr ""
 
 #: src/models/permissionsmodel.cpp:40
-#, fuzzy
-#| msgid "Ignore this user"
 msgctxt "Room permission type"
 msgid "Invite users"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/models/permissionsmodel.cpp:41
-#, fuzzy
-#| msgid "Kick this user"
 msgctxt "Room permission type"
 msgid "Kick users"
-msgstr "o weka e jan ni"
+msgstr ""
 
 #: src/models/permissionsmodel.cpp:42
-#, fuzzy
-#| msgid "Ban this user"
 msgctxt "Room permission type"
 msgid "Ban users"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/models/permissionsmodel.cpp:43
-#, fuzzy
-#| msgid "Delete recent messages by this user"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
-msgstr "o weka e toki pi tenpo pini lili tan jan ni"
+msgstr ""
 
 #: src/models/permissionsmodel.cpp:44
 msgctxt "Room permission type"
@@ -1620,11 +1550,9 @@ msgid "Send reactions"
 msgstr ""
 
 #: src/models/permissionsmodel.cpp:45
-#, fuzzy
-#| msgid "Edit Message"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/models/permissionsmodel.cpp:46
 msgctxt "Room permission type"
@@ -1632,18 +1560,14 @@ msgid "Change user permissions"
 msgstr ""
 
 #: src/models/permissionsmodel.cpp:47
-#, fuzzy
-#| msgid "Create a Room"
 msgctxt "Room permission type"
 msgid "Change the room name"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/models/permissionsmodel.cpp:48
-#, fuzzy
-#| msgid "Create a Room"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/models/permissionsmodel.cpp:49
 msgctxt "Room permission type"
@@ -1671,11 +1595,9 @@ msgid "Set pinned events"
 msgstr ""
 
 #: src/models/permissionsmodel.cpp:54
-#, fuzzy
-#| msgid "Create a Room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/models/permissionsmodel.cpp:55
 msgctxt "Room permission type"
@@ -1734,11 +1656,9 @@ msgid "Messages in encrypted group chats"
 msgstr ""
 
 #: src/models/pushrulemodel.cpp:25
-#, fuzzy
-#| msgid "Send message"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
@@ -1766,11 +1686,9 @@ msgid "Whole room (@room) notifications"
 msgstr ""
 
 #: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Ignore this user"
 msgctxt "Notification type"
 msgid "Invites to a room"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/models/pushrulemodel.cpp:32
 msgctxt "Notification type"
@@ -1781,7 +1699,7 @@ msgstr ""
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
-msgstr " en "
+msgstr ""
 
 #: src/models/reactionmodel.cpp:76
 #, kde-format
@@ -1790,8 +1708,6 @@ msgid " and %1 other"
 msgid_plural " and %1 others"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/models/reactionmodel.cpp:80
 #, kde-format
@@ -1800,8 +1716,6 @@ msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/models/readmarkermodel.cpp:110
 #, kde-format
@@ -1809,8 +1723,6 @@ msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/models/readmarkermodel.cpp:115
 #, kde-format
@@ -1827,12 +1739,12 @@ msgstr ""
 #: src/neochatconnection.cpp:86
 #, kde-format
 msgid "File too large to download."
-msgstr "lipu li suli pi ken jo ala."
+msgstr ""
 
 #: src/neochatconnection.cpp:86
 #, kde-format
 msgid "Contact your matrix server administrator for support."
-msgstr "o toki tawa lawa sina pi ilo Matrix."
+msgstr ""
 
 #: src/neochatconnection.cpp:317
 #, kde-format
@@ -1862,10 +1774,9 @@ msgid "Lat: %1, Lon: %2"
 msgstr ""
 
 #: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:330
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Encrypted Message"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/notificationsmanager.cpp:210 src/qml/Main.qml:279
 #, kde-format
@@ -1922,11 +1833,9 @@ msgid "%1 (%2)"
 msgstr ""
 
 #: src/notificationsmanager.cpp:334
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "NeoChat"
+#, kde-format
 msgid "Open NeoChat"
-msgstr "ilo toki NeoChat"
+msgstr ""
 
 #: src/qml/AccountMenu.qml:23
 #, kde-format
@@ -2008,18 +1917,16 @@ msgid "Log in or create a new account"
 msgstr ""
 
 #: src/qml/AccountSwitchDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
-msgstr "o kama insa"
+msgstr ""
 
 #: src/qml/AskDirectChatConfirmation.qml:20
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Start a chat"
-msgstr "o lon e tomo toki"
+msgstr ""
 
 #: src/qml/AskDirectChatConfirmation.qml:23
 #, kde-format
@@ -2027,22 +1934,21 @@ msgid "Do you want to start a chat with %1?"
 msgstr ""
 
 #: src/qml/AskDirectChatConfirmation.qml:32
-#, fuzzy, kde-format
-#| msgid "Start a Chat"
+#, kde-format
 msgctxt "@action:button"
 msgid "Start Chat"
-msgstr "o lon e tomo toki"
+msgstr ""
 
 #: src/qml/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
-msgstr "lipu:"
+msgstr ""
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:102
 #: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
-msgstr "ante"
+msgstr ""
 
 #: src/qml/AttachmentPane.qml:62
 #, kde-format
@@ -2050,16 +1956,14 @@ msgid "Cancel sending attachment"
 msgstr ""
 
 #: src/qml/BanSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "Ban User"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/qml/BanSheet.qml:27
-#, fuzzy, kde-format
-#| msgid "Unban this user"
+#, kde-format
 msgid "Reason for banning this user"
-msgstr "o weka e weka pi jan ni"
+msgstr ""
 
 #: src/qml/BanSheet.qml:43
 #, kde-format
@@ -2075,11 +1979,10 @@ msgid "Cancel"
 msgstr ""
 
 #: src/qml/ChooseRoomDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/CodeMaximizeComponent.qml:39
 #, kde-format
@@ -2103,12 +2006,10 @@ msgid ""
 msgstr ""
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
-msgstr "nimi len"
+msgstr ""
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:33
 #, kde-format
@@ -2133,11 +2034,10 @@ msgid "Activate Encryption"
 msgstr ""
 
 #: src/qml/ConfirmLeaveDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Room"
-msgstr "o ante e lawa"
+msgstr ""
 
 #: src/qml/ConfirmLeaveDialog.qml:17
 #, kde-format
@@ -2146,11 +2046,10 @@ msgid "Do you really want to leave %1?"
 msgstr ""
 
 #: src/qml/ConfirmLeaveDialog.qml:28
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -2170,14 +2069,10 @@ msgid "Sign out"
 msgstr ""
 
 #: src/qml/ConfirmUrlDialog.qml:14
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Open URL"
-msgstr "o open e lipu ni"
+msgstr ""
 
 #: src/qml/ConfirmUrlDialog.qml:15
 #, kde-kuit-format
@@ -2200,11 +2095,10 @@ msgid ""
 msgstr ""
 
 #: src/qml/ConsentDialog.qml:31
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr "o open"
+msgstr ""
 
 #: src/qml/ContextMenu.qml:31
 #, kde-format
@@ -2275,11 +2169,10 @@ msgid "Off"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/qml/ContextMenu.qml:121 src/qml/ContextMenu.qml:211
 #, kde-format
@@ -2297,29 +2190,26 @@ msgid "Add to Favourites"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:187
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Room Settings"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
 #: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:294
 #: src/qml/SpaceDrawer.qml:296
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
 #: src/qml/ExploreComponentMobile.qml:146
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:35
 #, kde-format
@@ -2344,13 +2234,12 @@ msgstr ""
 #: src/qml/CreateRoomDialog.qml:77
 #, kde-format
 msgid "Name:"
-msgstr "nimi:"
+msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:87
-#, fuzzy, kde-format
-#| msgid "Room Topic"
+#, kde-format
 msgid "Topic:"
-msgstr "nasin tomo"
+msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:96 src/qml/CreateRoomDialog.qml:235
 #, kde-format
@@ -2361,18 +2250,16 @@ msgid "Make this parent official"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Space"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:106
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:121
 #, kde-format
@@ -2389,11 +2276,10 @@ msgstr ""
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:58
 #: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:210
 #: src/qml/SelectParentDialog.qml:142
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
 #: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
@@ -2424,7 +2310,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
-msgstr "o ni"
+msgstr ""
 
 #: src/qml/DelegateContextMenu.qml:78
 #, kde-format
@@ -2437,11 +2323,10 @@ msgid "Remove"
 msgstr ""
 
 #: src/qml/DelegateContextMenu.qml:92 src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Message"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/DelegateContextMenu.qml:108 src/qml/ReportSheet.qml:43
 #, kde-format
@@ -2451,11 +2336,10 @@ msgid "Report"
 msgstr ""
 
 #: src/qml/DelegateContextMenu.qml:115
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report Message"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/DelegateContextMenu.qml:160
 #, kde-format
@@ -2471,13 +2355,13 @@ msgstr ""
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr "o weka e pali"
+msgstr ""
 
 #: src/qml/EditMenu.qml:25
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
-msgstr "o sin e pali weka"
+msgstr ""
 
 #: src/qml/EditMenu.qml:37
 #, kde-format
@@ -2501,7 +2385,7 @@ msgstr ""
 #, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
-msgstr "o weka"
+msgstr ""
 
 #: src/qml/EditMenu.qml:79
 #, kde-format
@@ -2510,11 +2394,10 @@ msgid "Select All"
 msgstr ""
 
 #: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
@@ -2568,13 +2451,12 @@ msgstr ""
 #: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
 msgid "Create a Room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:156
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "Create a Space"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:72
 #, kde-format
@@ -2588,31 +2470,27 @@ msgid "Scan a QR Code"
 msgstr ""
 
 #: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@title"
 msgid "Rooms"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:123
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/qml/ExploreComponent.qml:192
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Create rooms and chats"
-msgstr "o open e tomo toki pi sina tu taso"
+msgstr ""
 
 #: src/qml/ExploreComponentMobile.qml:36
 #, kde-format
@@ -2620,10 +2498,9 @@ msgid "Search"
 msgstr ""
 
 #: src/qml/ExploreComponentMobile.qml:79
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Create New"
-msgstr "o open e tomo toki pi sina tu taso"
+msgstr ""
 
 #: src/qml/ExplorerDelegate.qml:72
 #, kde-format
@@ -2632,11 +2509,10 @@ msgid "Space"
 msgstr ""
 
 #: src/qml/ExploreRoomsPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/ExploreRoomsPage.qml:62
 #, kde-format
@@ -2650,10 +2526,9 @@ msgid "Enter a room address"
 msgstr ""
 
 #: src/qml/ExploreRoomsPage.qml:107
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Find a room…"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/ExploreRoomsPage.qml:108
 #, kde-format
@@ -2675,7 +2550,7 @@ msgstr ""
 #: src/qml/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgid "Copy"
-msgstr "o tu e lipu tawa lipu jo"
+msgstr ""
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2685,37 +2560,36 @@ msgstr ""
 #: src/qml/FullScreenMap.qml:70
 #, kde-format
 msgid "Close"
-msgstr "o weka"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:21
 #, kde-format
 msgctxt "menu"
 msgid "NeoChat"
-msgstr "ilo toki NeoChat"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:24
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat..."
+#, kde-format
 msgid "Configure NeoChat…"
-msgstr "o ante e lawa pi ilo toki NeoChat..."
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:25
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
-msgstr "o ante e lawa pi ilo toki NeoChat..."
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
-msgstr "o pini e ilo toki NeoChat"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:38
 #, kde-format
 msgctxt "menu"
 msgid "File"
-msgstr "lipu"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:41
 #, kde-format
@@ -2727,25 +2601,25 @@ msgstr ""
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
-msgstr "o lon e tomo kulupu sin…"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:59
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
-msgstr "o alasa e tomo toki…"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:73
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
-msgstr "ante"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:77
 #, kde-format
 msgctxt "menu"
 msgid "View"
-msgstr "lukin"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:80
 #, kde-format
@@ -2753,47 +2627,43 @@ msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
 msgid "Open Quick Switcher"
-msgstr "o open e ilo tawa"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Window"
-msgstr "sijelo ilo"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
-msgstr "o weka tan ilo suli"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
-msgstr "o tawa ilo suli"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:93
 #, kde-format
 msgctxt "menu"
 msgid "Help"
-msgstr "wile pona"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:96
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Quit NeoChat"
+#, kde-format
 msgctxt "menu"
 msgid "About Matrix"
-msgstr "o pini e ilo toki NeoChat"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:100
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Quit NeoChat"
+#, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
-msgstr "o pini e ilo toki NeoChat"
+msgstr ""
 
 #: src/qml/GlobalMenu.qml:104
 #, kde-format
@@ -2831,7 +2701,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
-msgstr "o weka e pali"
+msgstr ""
 
 #: src/qml/ImageEditorPage.qml:44
 #, kde-format
@@ -2849,7 +2719,7 @@ msgstr ""
 #: src/qml/ImageEditorPage.qml:124
 #, kde-format
 msgid "Cancel"
-msgstr "o ala"
+msgstr ""
 
 #: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
 #, kde-format
@@ -2892,11 +2762,10 @@ msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
 
 #: src/qml/InvitationView.qml:24
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr "o weka e len pi jan ni"
+msgstr ""
 
 #: src/qml/InvitationView.qml:33
 #, kde-format
@@ -2921,7 +2790,7 @@ msgstr ""
 #: src/qml/InviteUserPage.qml:44
 #, kde-format
 msgid "Add"
-msgstr "o lon e nimi len luka"
+msgstr ""
 
 #: src/qml/InviteUserPage.qml:70
 #, kde-format
@@ -2939,18 +2808,16 @@ msgid "User is either already a member or has been invited"
 msgstr ""
 
 #: src/qml/JoinRoomDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Join Room"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/qml/JoinRoomDialog.qml:67
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Join room"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/KeyVerificationDialog.qml:16
 #, kde-format
@@ -3038,11 +2905,10 @@ msgid "Share"
 msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@title"
 msgid "Room ID or Alias"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3066,17 +2932,15 @@ msgid "The input is not a valid room ID or alias"
 msgstr ""
 
 #: src/qml/ManualUserDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title"
 msgid "User ID"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/qml/ManualUserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "User ID:"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
 #, kde-format
@@ -3095,31 +2959,27 @@ msgid "Forward"
 msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:53
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:70
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy Link"
-msgstr "o tu e lipu tawa lipu jo"
+msgstr ""
 
 #: src/qml/MessageSourceSheet.qml:46
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -3133,10 +2993,9 @@ msgid "No Notifications"
 msgstr ""
 
 #: src/qml/OpenFileDialog.qml:12
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "Select a File"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
@@ -3185,11 +3044,10 @@ msgid "Insert link"
 msgstr ""
 
 #: src/qml/QuickSwitcher.qml:29
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
@@ -3210,11 +3068,10 @@ msgid "Ignore"
 msgstr ""
 
 #: src/qml/RemoveChildDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Child"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/RemoveChildDialog.qml:39
 #, kde-format
@@ -3229,16 +3086,14 @@ msgid ""
 msgstr ""
 
 #: src/qml/RemoveSheet.qml:20
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Remove Messages"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/RemoveSheet.qml:20
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Remove Message"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/RemoveSheet.qml:29
 #, kde-format
@@ -3257,10 +3112,9 @@ msgid "Remove"
 msgstr ""
 
 #: src/qml/ReportSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Report Message"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/ReportSheet.qml:27
 #, kde-format
@@ -3278,11 +3132,10 @@ msgid "Configure room"
 msgstr ""
 
 #: src/qml/RoomDrawer.qml:104 src/qml/RoomDrawerPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/qml/RoomDrawer.qml:151 src/qml/RoomDrawerPage.qml:85
 #, kde-format
@@ -3335,10 +3188,9 @@ msgid "Remove room from favorites"
 msgstr ""
 
 #: src/qml/RoomInformation.qml:106
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "Favorite this room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/RoomInformation.qml:119
 #, kde-format
@@ -3346,11 +3198,10 @@ msgid "Show locations for this room"
 msgstr ""
 
 #: src/qml/RoomInformation.qml:134
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/RoomInformation.qml:147
 #, kde-format
@@ -3358,11 +3209,10 @@ msgid "Members"
 msgstr ""
 
 #: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Invite a User"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/qml/RoomInformation.qml:166
 #, kde-format
@@ -3375,8 +3225,6 @@ msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/qml/RoomInformation.qml:173
 #, kde-format
@@ -3384,10 +3232,9 @@ msgid "No member count"
 msgstr ""
 
 #: src/qml/RoomListPage.qml:195
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "No friends found"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/RoomListPage.qml:195
 #, kde-format
@@ -3416,16 +3263,15 @@ msgid "Search in friend directory"
 msgstr ""
 
 #: src/qml/RoomMedia.qml:29
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Media"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/qml/RoomPage.qml:100
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
-msgstr "ilo NeoChat li jo ala e linluwi. o pana e ona tawa ilo."
+msgstr ""
 
 #: src/qml/RoomPage.qml:158
 #, kde-format
@@ -3438,17 +3284,15 @@ msgid "Message Source"
 msgstr ""
 
 #: src/qml/RoomSearchPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/RoomSearchPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Find messages…"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/RoomSearchPage.qml:38
 #, kde-format
@@ -3456,10 +3300,9 @@ msgid "Enter text to start searching"
 msgstr ""
 
 #: src/qml/RoomSearchPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "No messages found"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/RoomTreeSection.qml:71
 #, kde-format
@@ -3486,11 +3329,10 @@ msgid "Select new official parent"
 msgstr ""
 
 #: src/qml/SelectParentDialog.qml:57
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/SelectParentDialog.qml:159
 #, kde-format
@@ -3519,12 +3361,10 @@ msgid "Make this space the canonical parent"
 msgstr ""
 
 #: src/qml/SelectSpacesDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Select a Homeserver"
+#, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
-msgstr "o pana e ilo kulupu Matrix sina"
+msgstr ""
 
 #: src/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3532,10 +3372,9 @@ msgid "Add New Server"
 msgstr ""
 
 #: src/qml/ServerComboBox.qml:63
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Home Server"
-msgstr "nasin URL ilo:"
+msgstr ""
 
 #: src/qml/ServerComboBox.qml:70
 #, kde-format
@@ -3560,10 +3399,9 @@ msgid "This server cannot be resolved or has already been added"
 msgstr ""
 
 #: src/qml/ServerComboBox.qml:152
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Server URL:"
-msgstr "nasin URL ilo:"
+msgstr ""
 
 #: src/qml/ShareAction.qml:23
 #, kde-format
@@ -3608,10 +3446,9 @@ msgid "Join %1"
 msgstr ""
 
 #: src/qml/SpaceDrawer.qml:284
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "Create a space"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -3625,8 +3462,6 @@ msgid "%1 member - "
 msgid_plural "%1 members - "
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/qml/SpaceHierarchyDelegate.qml:102
 #, kde-format
@@ -3635,8 +3470,6 @@ msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/qml/SpaceHierarchyDelegate.qml:111 src/qml/SpaceHomePage.qml:60
 #, kde-format
@@ -3645,11 +3478,10 @@ msgid "Add new room"
 msgstr ""
 
 #: src/qml/SpaceHierarchyDelegate.qml:122
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/SpaceHierarchyDelegate.qml:142
 #, kde-format
@@ -3664,18 +3496,16 @@ msgid "Make Suggested"
 msgstr ""
 
 #: src/qml/SpaceHomePage.qml:50
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:48
 #: src/qml/SpaceListContextMenu.qml:130
@@ -3685,11 +3515,10 @@ msgid "Space Settings"
 msgstr ""
 
 #: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Child"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/qml/SpaceListContextMenu.qml:32 src/qml/SpaceListContextMenu.qml:114
 #, kde-format
@@ -3709,10 +3538,9 @@ msgid "Jump to first unread message"
 msgstr ""
 
 #: src/qml/TimelineView.qml:196
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Jump to oldest loaded message"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/TimelineView.qml:236
 #, kde-format
@@ -3731,15 +3559,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/qml/UnlockSSSSDialog.qml:17
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/UnlockSSSSDialog.qml:48
 #, kde-format
@@ -3760,11 +3585,10 @@ msgid "If you have a backup passphrase for this account, enter it below."
 msgstr ""
 
 #: src/qml/UnlockSSSSDialog.qml:62
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "nimi len:"
+msgstr ""
 
 #: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
 #, kde-format
@@ -3827,40 +3651,38 @@ msgstr ""
 #: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Unignore this user"
-msgstr "o weka e len pi jan ni"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:109
 #, kde-format
 msgid "Ignore this user"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:122
 #, kde-format
 msgid "Kick this user"
-msgstr "o weka e jan ni"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:136
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:149
 #, kde-format
 msgid "Ban this user"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:157
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:169
 #, kde-format
 msgid "Unban this user"
-msgstr "o weka e weka pi jan ni"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:182
 #, kde-format
@@ -3868,17 +3690,15 @@ msgid "Set user power level"
 msgstr ""
 
 #: src/qml/UserDetailDialog.qml:207
-#, fuzzy, kde-format
-#| msgid "Delete recent messages by this user"
+#, kde-format
 msgid "Remove recent messages by this user"
-msgstr "o weka e toki pi tenpo pini lili tan jan ni"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:215
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:226
 #, kde-format
@@ -3887,16 +3707,14 @@ msgid "Chat with %1"
 msgstr ""
 
 #: src/qml/UserDetailDialog.qml:226
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Invite to private chat"
-msgstr "o open e tomo toki pi sina tu taso"
+msgstr ""
 
 #: src/qml/UserDetailDialog.qml:237
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy link"
-msgstr "o tu e lipu tawa lipu jo"
+msgstr ""
 
 #: src/qml/UserInfo.qml:90
 #, kde-format
@@ -3915,10 +3733,9 @@ msgid "Find Your Friends"
 msgstr ""
 
 #: src/qml/UserSearchPage.qml:46
-#, fuzzy, kde-format
-#| msgid "Enter your Matrix ID"
+#, kde-format
 msgid "Enter a user ID"
-msgstr "o pana e nimi sina pi ilo Matrix"
+msgstr ""
 
 #: src/qml/UserSearchPage.qml:91
 #, kde-format
@@ -3931,11 +3748,10 @@ msgid "Enter text to start searching for your friends"
 msgstr ""
 
 #: src/qml/UserSearchPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -4079,10 +3895,9 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 
 #: src/registration.cpp:311
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "No server."
-msgstr "nasin URL ilo:"
+msgstr ""
 
 #: src/registration.cpp:313
 #, kde-format
@@ -4100,11 +3915,9 @@ msgid "Registration for this server is disabled."
 msgstr ""
 
 #: src/registration.cpp:319
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "No username."
-msgstr "kulupu pi ante toki pi toki pona"
+msgstr ""
 
 #: src/registration.cpp:321
 #, kde-format
@@ -4117,11 +3930,9 @@ msgid "This username is not available."
 msgstr ""
 
 #: src/registration.cpp:325
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
+#, kde-format
 msgid "Continue"
-msgstr "o awen tawa"
+msgstr ""
 
 #: src/registration.cpp:327
 #, kde-format
@@ -4199,7 +4010,7 @@ msgstr ""
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
 #, kde-format
 msgid "Save"
-msgstr "o awen sona"
+msgstr ""
 
 #: src/settings/AccountEditorPage.qml:157
 #, kde-format
@@ -4242,10 +4053,9 @@ msgid "Phone Numbers"
 msgstr ""
 
 #: src/settings/AccountEditorPage.qml:216
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Identity Server"
-msgstr "nasin URL ilo:"
+msgstr ""
 
 #: src/settings/AccountEditorPage.qml:225
 #, kde-format
@@ -4253,10 +4063,9 @@ msgid "Server Information"
 msgstr ""
 
 #: src/settings/AccountEditorPage.qml:229
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Homeserver url"
-msgstr "nasin URL ilo:"
+msgstr ""
 
 #: src/settings/AccountEditorPage.qml:250
 #, kde-format
@@ -4296,11 +4105,10 @@ msgid "Add Account"
 msgstr ""
 
 #: src/settings/AppearanceSettingsPage.qml:18
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
-msgstr "nasin lukin"
+msgstr ""
 
 #: src/settings/AppearanceSettingsPage.qml:21
 #, kde-format
@@ -4440,18 +4248,16 @@ msgid "Remove device"
 msgstr ""
 
 #: src/settings/DevicesPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Add an Emoji"
+#, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
-msgstr "o pana e sitelen Emosi"
+msgstr ""
 
 #: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
 #, kde-format
@@ -4460,11 +4266,10 @@ msgid "Edit Sticker"
 msgstr ""
 
 #: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, fuzzy, kde-format
-#| msgid "Add an Emoji"
+#, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
-msgstr "o pana e sitelen Emosi"
+msgstr ""
 
 #: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
 #, kde-format
@@ -4478,10 +4283,9 @@ msgid "Sticker"
 msgstr ""
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgid "Emoji"
-msgstr "sitelen Emosi sina"
+msgstr ""
 
 #: src/settings/EmoticonEditorPage.qml:59
 #, kde-format
@@ -4510,10 +4314,9 @@ msgid "No Description"
 msgstr ""
 
 #: src/settings/EmoticonFormCard.qml:112
-#, fuzzy, kde-format
-#| msgid "Add an Emoji"
+#, kde-format
 msgid "Add Emoji"
-msgstr "o pana e sitelen Emosi"
+msgstr ""
 
 #: src/settings/EmoticonFormCard.qml:112
 #, kde-format
@@ -4620,25 +4423,22 @@ msgid "Remove identity server"
 msgstr ""
 
 #: src/settings/IgnoredUsersDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ignored Users"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "o weka e len pi jan ni"
+msgstr ""
 
 #: src/settings/IgnoredUsersDialog.qml:55
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr "o weka e len pi jan ni"
+msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -4694,10 +4494,9 @@ msgid "Timeline Events"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Show deleted messages"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
@@ -4720,11 +4519,10 @@ msgid "Show avatar update events"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:198
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
-msgstr "ante"
+msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:203
 #, kde-format
@@ -4777,25 +4575,22 @@ msgid "Your server does not support this setting."
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
-msgstr "o weka e len pi jan ni"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:41
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "o len e jan ni"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:46
 #, kde-format
@@ -4827,7 +4622,7 @@ msgstr ""
 #: src/settings/NeoChatSettingsView.qml:33
 #, kde-format
 msgid "Appearance"
-msgstr "nasin lukin"
+msgstr ""
 
 #: src/settings/NeoChatSettingsView.qml:39 src/settings/RoomSettingsView.qml:73
 #, kde-format
@@ -4909,10 +4704,9 @@ msgid "Port"
 msgstr ""
 
 #: src/settings/NetworkProxyPage.qml:86
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "User"
-msgstr "o weka wawa e jan ni"
+msgstr ""
 
 #: src/settings/NetworkProxyPage.qml:113
 #, kde-format
@@ -4961,18 +4755,16 @@ msgid "Delete keyword"
 msgstr ""
 
 #: src/settings/PasswordSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Login with password"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Enter password"
-msgstr "o kama insa kepeken nimi len"
+msgstr ""
 
 #: src/settings/PasswordSheet.qml:30
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
-msgstr "nimi len:"
+msgstr ""
 
 #: src/settings/Permissions.qml:32
 #, kde-format
@@ -5020,10 +4812,9 @@ msgid "Update avatar"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:70
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgid "Room name:"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:80
 #, kde-format
@@ -5031,10 +4822,9 @@ msgid "Room topic:"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:119
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgid "Room ID"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:124
 #, kde-format
@@ -5047,10 +4837,9 @@ msgid "Room version"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:144
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "Upgrade Room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:163
 #, kde-format
@@ -5068,11 +4857,9 @@ msgid "Make this alias the room's canonical alias"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:198
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete alias"
-msgstr "o weka"
+msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:222
 #, kde-format
@@ -5125,10 +4912,9 @@ msgid "Make canonical parent"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:333
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Remove parent"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:346
 #, kde-format
@@ -5147,10 +4933,9 @@ msgid "This room continues another conversation."
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:371
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "See older messages…"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:383
 #, kde-format
@@ -5163,10 +4948,9 @@ msgid "See new room…"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:410
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "Upgrade the Room"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:414
 #, kde-format
@@ -5225,10 +5009,9 @@ msgid "Anyone in the selected spaces can find and join."
 msgstr ""
 
 #: src/settings/RoomSecurityPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgid "Select spaces"
-msgstr "o pali e tomo toki"
+msgstr ""
 
 #: src/settings/RoomSecurityPage.qml:83
 #, kde-format
@@ -5318,11 +5101,10 @@ msgid "Space Settings"
 msgstr ""
 
 #: src/settings/RoomSettingsView.qml:30
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@title:window"
 msgid "Room Settings"
-msgstr "nimi tomo"
+msgstr ""
 
 #: src/settings/RoomSettingsView.qml:62
 #, kde-format
@@ -5342,11 +5124,10 @@ msgid "Share"
 msgstr ""
 
 #: src/settings/ThreePIdCard.qml:66
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/settings/ThreePIdCard.qml:85
 #, kde-format
@@ -5355,11 +5136,10 @@ msgid "Complete"
 msgstr ""
 
 #: src/settings/ThreePIdCard.qml:90
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "o ala"
+msgstr ""
 
 #: src/settings/ThreePIdCard.qml:130
 #, kde-format
@@ -5385,10 +5165,9 @@ msgid "We've sent you an email"
 msgstr ""
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "We've sent you a text message"
-msgstr "o pana e toki"
+msgstr ""
 
 #: src/settings/ThreePIdCard.qml:150
 #, kde-format
@@ -5426,11 +5205,10 @@ msgid ""
 msgstr ""
 
 #: src/settings/ThreePIdCard.qml:183
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
-msgstr "o lon e nimi len luka"
+msgstr ""
 
 #: src/settings/ThreePIdCard.qml:191
 #, kde-format
@@ -5474,14 +5252,14 @@ msgstr ""
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
 "device."
-msgstr "toki ni li len. jan pana li pana ala e ken pi lukin len tawa ilo ni."
+msgstr ""
 
 #: src/timeline/FileComponent.qml:103 src/timeline/FileComponent.qml:186
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
-msgstr "o kama jo"
+msgstr ""
 
 #: src/timeline/FileComponent.qml:119 src/timeline/FileComponent.qml:176
 #, kde-format
@@ -5489,20 +5267,20 @@ msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
 "file with an appropriate application"
 msgid "Open File"
-msgstr "o open e lipu ni"
+msgstr ""
 
 #: src/timeline/FileComponent.qml:134
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
-msgstr "%1 / %2"
+msgstr ""
 
 #: src/timeline/FileComponent.qml:139
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
-msgstr "o pini e kama jo"
+msgstr ""
 
 #: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
@@ -5534,11 +5312,10 @@ msgstr ""
 
 #: src/timeline/LinkPreviewComponent.qml:129
 #: src/timeline/LinkPreviewLoadComponent.qml:79
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
-msgstr "o ante e toki"
+msgstr ""
 
 #: src/timeline/LinkPreviewComponent.qml:147
 #, kde-format
@@ -5561,18 +5338,16 @@ msgid "%1 started a user verification"
 msgstr ""
 
 #: src/timeline/MessageEditComponent.qml:103
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "o ante e lawa"
+msgstr ""
 
 #: src/timeline/MessageEditComponent.qml:115
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
-msgstr "o ala"
+msgstr ""
 
 #: src/timeline/PollComponent.qml:73
 #, kde-format
@@ -5580,8 +5355,6 @@ msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: src/timeline/PollComponent.qml:73
 #, kde-format
@@ -5611,7 +5384,7 @@ msgstr ""
 #: src/timeline/VideoComponent.qml:197
 #, kde-format
 msgid "Video"
-msgstr "sitelen tawa"
+msgstr ""
 
 #: src/timeline/VideoComponent.qml:261
 #, kde-format
@@ -5633,126 +5406,3 @@ msgstr ""
 #, kde-format
 msgid "Quit"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Edit Message"
-#~ msgctxt "@action:button"
-#~ msgid "QR code for account"
-#~ msgstr "o ante e toki"
-
-#~ msgid "Configure"
-#~ msgstr "o ante e lawa"
-
-#, fuzzy
-#~| msgid "Configure"
-#~ msgctxt "@action:button"
-#~ msgid "Configure"
-#~ msgstr "o ante e lawa"
-
-#, fuzzy
-#~| msgctxt "menu"
-#~| msgid "Quit NeoChat"
-#~ msgctxt "@title:window"
-#~ msgid "About NeoChat"
-#~ msgstr "o pini e ilo toki NeoChat"
-
-#, fuzzy
-#~| msgctxt "text editing menu action"
-#~| msgid "Delete"
-#~ msgctxt "@action:button"
-#~ msgid "Delete word"
-#~ msgstr "o weka"
-
-#~ msgctxt "menu"
-#~ msgid "Matrix FAQ"
-#~ msgstr "lipu sona pi ilo Matrix"
-
-#, fuzzy
-#~| msgid "Open in new window"
-#~ msgid "Open in New Window"
-#~ msgstr "o lukin lon lipu sin"
-
-#, fuzzy
-#~| msgid "Room Name"
-#~ msgid "All Rooms"
-#~ msgstr "nimi tomo"
-
-#~ msgctxt "menu"
-#~ msgid "New Private Chat…"
-#~ msgstr "o lon e tomo toki len sin…"
-
-#, fuzzy
-#~| msgid "Open a private chat"
-#~ msgid "Create new chat"
-#~ msgstr "o open e tomo toki pi sina tu taso"
-
-#, fuzzy
-#~| msgid "Open a private chat"
-#~ msgid "Rooms and private chats"
-#~ msgstr "o open e tomo toki pi sina tu taso"
-
-#~ msgid "Login Failed: Access Token invalid or revoked"
-#~ msgstr "sina ken ala sijelo: nanpa len li pakala anu weka"
-
-#~ msgid "Please choose a file"
-#~ msgstr "o pana e lipu"
-
-#, fuzzy
-#~| msgid "Replying to %1:"
-#~ msgid "Replying to:"
-#~ msgstr "sina toki tawa %1:"
-
-#~ msgid "View"
-#~ msgstr "lukin"
-
-#~ msgid "Other..."
-#~ msgstr "ante..."
-
-#~ msgid "Url:"
-#~ msgstr "nasin:"
-
-#~ msgctxt "@title"
-#~ msgid "Login"
-#~ msgstr "o tawa insa"
-
-#~ msgid "Login Methods"
-#~ msgstr "nasin pi kama insa"
-
-#~ msgid "Login"
-#~ msgstr "o kama insa"
-
-#~ msgctxt "@title"
-#~ msgid "Password"
-#~ msgstr "nimi len"
-
-#, fuzzy
-#~| msgid "Custom"
-#~ msgctxt "@title:window"
-#~ msgid "Custom Emojis"
-#~ msgstr "sitelen Emosi sina"
-
-#, fuzzy
-#~| msgid "Custom"
-#~ msgid "Custom Emojis"
-#~ msgstr "sitelen Emosi sina"
-
-#, fuzzy
-#~| msgid "Save"
-#~ msgid "Save as"
-#~ msgstr "o awen sona"
-
-#~ msgid " (edited)"
-#~ msgstr " (ante)"
-
-#~ msgid "Editing message:"
-#~ msgstr "sina ante e toki ni:"
-
-#~ msgid ""
-#~ "This room is encrypted. Sending encrypted messages is not yet supported."
-#~ msgstr "tomo toki ni li len. mi ken ala pana e toki len."
-
-#~ msgid "Image View - %1"
-#~ msgstr "lukin sitelen - %1"
-
-#~ msgid "Write your message..."
-#~ msgstr "o sitelen e toki sina..."
