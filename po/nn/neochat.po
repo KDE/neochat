@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-28 02:34+0000\n"
-"PO-Revision-Date: 2024-07-18 12:53+0200\n"
+"PO-Revision-Date: 2024-07-28 00:22+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -2783,6 +2783,8 @@ msgstr "Vil du godta invitasjonen?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Du kan automatisk avvisa invitasjonar frå ukjende brukarar under «Tryggleik» "
+"i innstillingane."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -4590,17 +4592,16 @@ msgid "Security"
 msgstr "Tryggleik"
 
 #: src/settings/NeoChatSecurityPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Send invitasjon"
+msgstr "Invitasjonar"
 
 #: src/settings/NeoChatSecurityPage.qml:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "Avvis invitasjonar frå ukjende brukarar"
 
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
@@ -4608,12 +4609,13 @@ msgid ""
 "If enabled, NeoChat will reject invitations from from users you don't share "
 "a room with."
 msgstr ""
+"Viss det er kryssa av her, vil NeoChat automatisk avvisa invitasjonar frå "
+"brukarar som ikkje er i same rom som deg."
 
 #: src/settings/NeoChatSecurityPage.qml:25
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "Tenaren støttar ikkje endring av passord"
+msgstr "Tenaren din støttar ikkje denne innstillinga."
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, kde-format
