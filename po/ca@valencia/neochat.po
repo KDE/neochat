@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-28 00:40+0000\n"
-"PO-Revision-Date: 2024-07-07 10:33+0200\n"
+"PO-Revision-Date: 2024-07-27 11:05+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1854,11 +1854,10 @@ msgid "Open NeoChat"
 msgstr "Obri NeoChat"
 
 #: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR code"
-msgstr "Codi curt:"
+msgstr "Mostra el codi QR"
 
 #: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
@@ -2790,6 +2789,8 @@ msgstr "Accepteu esta invitació?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Podeu rebutjar invitacions d'usuaris desconeguts des de la configuració de "
+"seguretat."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -3309,10 +3310,9 @@ msgstr ""
 "xarxa."
 
 #: src/qml/RoomPage.qml:158
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgid "Select or join a room to get started"
-msgstr "Uniu-vos a diverses sales per a començar"
+msgstr "Seleccioneu o uniu-vos a una per a començar"
 
 #: src/qml/RoomPage.qml:265
 #, kde-format
@@ -4058,16 +4058,14 @@ msgid "Remove current avatar"
 msgstr "Elimina l'avatar actual"
 
 #: src/settings/AccountEditorPage.qml:101
-#, fuzzy, kde-format
-#| msgid "User information"
+#, kde-format
 msgid "User Information"
 msgstr "Informació d'usuari"
 
 #: src/settings/AccountEditorPage.qml:106
-#, fuzzy, kde-format
-#| msgid "<display name>"
+#, kde-format
 msgid "Display Name:"
-msgstr "<nom que es mostrarà>"
+msgstr "Nom que s'ha de mostrar:"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
@@ -4075,17 +4073,15 @@ msgid "Label:"
 msgstr "Etiqueta:"
 
 #: src/settings/AccountEditorPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgid "Work"
-msgstr "En funcionament"
+msgstr "Faena"
 
 #: src/settings/AccountEditorPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "Escaneja un codi QR"
+msgstr "Mostra el codi QR"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4513,12 +4509,10 @@ msgid "Ignored Users"
 msgstr "Usuaris ignorats"
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Manage ignored users"
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "Gestiona els usuaris ignorats"
+msgstr "Sense usuaris ignorats"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
@@ -4640,17 +4634,16 @@ msgid "Security"
 msgstr "Seguretat"
 
 #: src/settings/NeoChatSecurityPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Envia una invitació"
+msgstr "Invitacions"
 
 #: src/settings/NeoChatSecurityPage.qml:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "Rebutja invitacions d'usuaris desconeguts"
 
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
@@ -4658,12 +4651,13 @@ msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
 msgstr ""
+"Si està marcada, NeoChat rebutjarà invitacions d'usuaris amb els quals no "
+"compartiu cap sala."
 
 #: src/settings/NeoChatSecurityPage.qml:25
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "El vostre servidor no permet canviar la contrasenya"
+msgstr "El vostre servidor no permet este paràmetre."
 
 #: src/settings/NeoChatSecurityPage.qml:35
 #, kde-format
@@ -5254,20 +5248,16 @@ msgid "Country Code for new phone number"
 msgstr "Codi de país del número nou de telèfon"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New email address"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
-msgstr "Adreça de correu electrònic nova"
+msgstr "Adreça de correu electrònic nova:"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New phone number"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
-msgstr "Número de telèfon nou"
+msgstr "Número de telèfon nou:"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
@@ -5531,11 +5521,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgctxt "@action:button"
-#~ msgid "QR code for account"
-#~ msgstr "Codi QR per del compte"
-
-#~ msgctxt "Placeholder message when no user is ignored"
-#~ msgid "You are not ignoring any users"
-#~ msgstr "No heu ignorat cap usuari"

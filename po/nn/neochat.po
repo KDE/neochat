@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-28 00:40+0000\n"
-"PO-Revision-Date: 2024-07-18 12:53+0200\n"
+"PO-Revision-Date: 2024-07-28 00:22+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -1855,11 +1855,10 @@ msgid "Open NeoChat"
 msgstr "Opna NeoChat"
 
 #: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR code"
-msgstr "Kortkode:"
+msgstr "Vis QR-kode"
 
 #: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
@@ -2790,6 +2789,8 @@ msgstr "Vil du godta invitasjonen?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Du kan automatisk avvisa invitasjonar frå ukjende brukarar under «Tryggleik» "
+"i innstillingane."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -3306,10 +3307,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat er fråkopla. Sjå til at du er kopla til nettet."
 
 #: src/qml/RoomPage.qml:158
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgid "Select or join a room to get started"
-msgstr "Start ved å verta med i nokre rom"
+msgstr "Start ved å velja eller verta med i eit rom"
 
 #: src/qml/RoomPage.qml:265
 #, kde-format
@@ -4035,16 +4035,14 @@ msgid "Remove current avatar"
 msgstr "Fjern gjeldande avatar"
 
 #: src/settings/AccountEditorPage.qml:101
-#, fuzzy, kde-format
-#| msgid "User information"
+#, kde-format
 msgid "User Information"
 msgstr "Brukarinformasjon"
 
 #: src/settings/AccountEditorPage.qml:106
-#, fuzzy, kde-format
-#| msgid "<display name>"
+#, kde-format
 msgid "Display Name:"
-msgstr "<visingsnamn>"
+msgstr "Visingsnamn:"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
@@ -4052,17 +4050,15 @@ msgid "Label:"
 msgstr "Merkelapp:"
 
 #: src/settings/AccountEditorPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgid "Work"
-msgstr "Arbeider"
+msgstr "Arbeid"
 
 #: src/settings/AccountEditorPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "Skann QR-kode"
+msgstr "Vis QR-kode"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4488,12 +4484,10 @@ msgid "Ignored Users"
 msgstr "Ignorerte brukarar"
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Manage ignored users"
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "Handsam ignorerte brukarar"
+msgstr "Ingen ignorerte brukarar"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
@@ -4612,17 +4606,16 @@ msgid "Security"
 msgstr "Tryggleik"
 
 #: src/settings/NeoChatSecurityPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Send invitasjon"
+msgstr "Invitasjonar"
 
 #: src/settings/NeoChatSecurityPage.qml:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "Avvis invitasjonar frå ukjende brukarar"
 
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
@@ -4630,12 +4623,13 @@ msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
 msgstr ""
+"Viss det er kryssa av her, vil NeoChat automatisk avvisa invitasjonar frå "
+"brukarar som ikkje er i same rom som deg."
 
 #: src/settings/NeoChatSecurityPage.qml:25
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "Tenaren støttar ikkje endring av passord"
+msgstr "Tenaren din støttar ikkje denne innstillinga."
 
 #: src/settings/NeoChatSecurityPage.qml:35
 #, kde-format
@@ -5221,20 +5215,16 @@ msgid "Country Code for new phone number"
 msgstr "Landskode for nytt telefonnummer"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New email address"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
-msgstr "Ny e-postadresse"
+msgstr "Ny e-postadresse:"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New phone number"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
-msgstr "Nytt telefonnummer"
+msgstr "Nytt telefonnummer:"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
