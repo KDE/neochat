@@ -31,8 +31,8 @@
 
 using namespace Quotient;
 
-MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply, bool isPending)
-    : QAbstractListModel(nullptr)
+MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply, bool isPending, MessageContentModel *parent)
+    : QAbstractListModel(parent)
     , m_room(room)
     , m_eventId(event != nullptr ? event->id() : QString())
     , m_eventSenderId(event != nullptr ? event->senderId() : QString())
@@ -43,8 +43,8 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::Room
     initializeModel();
 }
 
-MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending)
-    : QAbstractListModel(nullptr)
+MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending, MessageContentModel *parent)
+    : QAbstractListModel(parent)
     , m_room(room)
     , m_eventId(eventId)
     , m_isPending(isPending)
@@ -58,15 +58,16 @@ void MessageContentModel::initializeModel()
     Q_ASSERT(m_room != nullptr);
     // Allow making a model for an event that is being downloaded but will appear later
     // e.g. a reply, but we need an ID to know when it has arrived.
-    Q_ASSERT(!m_eventId.isEmpty());
+    // Also note that a pending event may not have an event ID yet but as long as we have an event
+    // pointer we can pass out the transaction ID until it is set.
+    Q_ASSERT(!m_eventId.isEmpty() || m_event != nullptr);
 
     Quotient::connectUntil(m_room.get(), &NeoChatRoom::extraEventLoaded, this, [this](const QString &eventId) {
         if (m_room != nullptr) {
             if (eventId == m_eventId) {
-                m_event = loadEvent<RoomEvent>(m_room->getEvent(eventId)->fullJson());
-                Q_EMIT eventUpdated();
+                intiializeEvent(m_room->getEvent(eventId));
                 updateReplyModel();
-                resetContent();
+                resetModel();
                 return true;
             }
         }
@@ -164,7 +165,12 @@ void MessageContentModel::intiializeEvent(const QString &eventId)
 void MessageContentModel::intiializeEvent(const Quotient::RoomEvent *event)
 {
     m_event = loadEvent<RoomEvent>(event->fullJson());
-    auto senderId = event->senderId();
+    // a pending event may not previously have had an event ID so update.
+    if (m_eventId.isEmpty()) {
+        m_eventId = m_event->id();
+    }
+
+    auto senderId = m_event->senderId();
     // A pending event might not have a sender ID set yet but in that case it must
     // be the local member.
     if (senderId.isEmpty()) {
@@ -422,9 +428,9 @@ void MessageContentModel::updateReplyModel()
 
     const auto replyEvent = m_room->findInTimeline(eventHandler.getReplyId());
     if (replyEvent == m_room->historyEdge()) {
-        m_replyModel = new MessageContentModel(m_room, eventHandler.getReplyId(), true);
+        m_replyModel = new MessageContentModel(m_room, eventHandler.getReplyId(), true, false, this);
     } else {
-        m_replyModel = new MessageContentModel(m_room, replyEvent->get(), true);
+        m_replyModel = new MessageContentModel(m_room, replyEvent->get(), true, false, this);
     }
 
     connect(m_replyModel, &MessageContentModel::eventUpdated, this, [this]() {

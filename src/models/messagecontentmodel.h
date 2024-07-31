@@ -75,8 +75,12 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply = false, bool isPending = false);
-    MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply = false, bool isPending = false);
+    explicit MessageContentModel(NeoChatRoom *room,
+                                 const Quotient::RoomEvent *event,
+                                 bool isReply = false,
+                                 bool isPending = false,
+                                 MessageContentModel *parent = nullptr);
+    MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply = false, bool isPending = false, MessageContentModel *parent = nullptr);
 
     bool showAuthor() const;
     void setShowAuthor(bool showAuthor);

@@ -88,7 +88,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         // HACK: Reset the model to a null room first to make sure QML dismantles
         // last room's objects before the room is actually changed
         beginResetModel();
-        m_readMarkerModels.clear();
         m_currentRoom->disconnect(this);
         m_currentRoom = nullptr;
         endResetModel();
@@ -96,6 +95,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         // Don't clear the member objects until the model has been fully reset and all
         // refs cleared.
         m_memberObjects.clear();
+        m_contentModels.clear();
+        m_reactionModels.clear();
+        m_readMarkerModels.clear();
     }
 
     beginResetModel();
@@ -442,13 +444,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
-        if (!evt.isStateEvent() && !evt.id().isEmpty()) {
-            return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_currentRoom, &evt));
-        }
-        if (evt.isStateEvent()) {
-            if (evt.matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
-                return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_currentRoom, &evt));
-            }
+        if (m_contentModels.contains(evt.id())) {
+            return QVariant::fromValue<MessageContentModel *>(m_contentModels.at(evt.id()).get());
         }
         return {};
     }
@@ -632,6 +629,12 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
 
     if (!m_memberObjects.contains(senderId)) {
         m_memberObjects[senderId] = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_currentRoom, senderId));
+    }
+
+    if (!m_contentModels.contains(eventId)) {
+        if (!event->isStateEvent() || event->matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
+            m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_currentRoom, event));
+        }
     }
 
     // ReadMarkerModel handles updates to add and remove markers, we only need to

@@ -1748,6 +1748,7 @@ void NeoChatRoom::downloadEventFromServer(const QString &eventId)
     connect(job, &BaseJob::success, this, [this, job, eventId] {
         // The event may have arrived in the meantime so check it's not in the timeline.
         if (findInTimeline(eventId) != historyEdge()) {
+            Q_EMIT extraEventLoaded(eventId);
             return;
         }
 

@@ -8,6 +8,7 @@
 #include <QQmlEngine>
 
 #include "linkpreviewer.h"
+#include "messagecontentmodel.h"
 #include "neochatroom.h"
 #include "neochatroommember.h"
 #include "pollhandler.h"
@@ -117,6 +118,7 @@ private:
     KFormat m_format;
 
     std::map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
+    std::map<QString, std::unique_ptr<MessageContentModel>> m_contentModels;
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
