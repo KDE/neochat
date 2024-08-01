@@ -202,10 +202,24 @@ void Controller::invokeLogin()
                 m_connectionsLoading[accountId] = connection;
                 connect(connection, &NeoChatConnection::connected, this, [this, connection, accountId] {
                     connection->loadState();
-                    addConnection(connection);
-                    m_accountsLoading.removeAll(connection->userId());
-                    m_connectionsLoading.remove(accountId);
-                    Q_EMIT accountsLoadingChanged();
+                    if (connection->allRooms().size() == 0 || connection->allRooms()[0]->currentState().get<RoomCreateEvent>()) {
+                        addConnection(connection);
+                        m_accountsLoading.removeAll(connection->userId());
+                        m_connectionsLoading.remove(accountId);
+                        Q_EMIT accountsLoadingChanged();
+                    } else {
+                        connect(
+                            connection->allRooms()[0],
+                            &Room::baseStateLoaded,
+                            this,
+                            [this, connection, accountId]() {
+                                addConnection(connection);
+                                m_accountsLoading.removeAll(connection->userId());
+                                m_connectionsLoading.remove(accountId);
+                                Q_EMIT accountsLoadingChanged();
+                            },
+                            Qt::SingleShotConnection);
+                    }
                 });
                 connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
                     Q_EMIT errorOccured(i18n("Network Error: %1", error), {});
