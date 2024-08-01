@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:41+0000\n"
+"POT-Creation-Date: 2024-08-01 00:40+0000\n"
 "PO-Revision-Date: 2024-07-27 14:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -376,13 +376,13 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:297 src/eventhandler.cpp:505
-#: src/models/messagecontentmodel.cpp:230 src/models/messageeventmodel.cpp:438
+#: src/models/messagecontentmodel.cpp:236 src/models/messageeventmodel.cpp:440
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ileti silindi]</i>"
 
-#: src/eventhandler.cpp:297 src/models/messagecontentmodel.cpp:231
-#: src/models/messageeventmodel.cpp:439
+#: src/eventhandler.cpp:297 src/models/messagecontentmodel.cpp:237
+#: src/models/messageeventmodel.cpp:441
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Bu ileti silindi: %1]</i>"
@@ -1465,7 +1465,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Kendi Emojileriniz"
 
-#: src/models/messagecontentmodel.cpp:223
+#: src/models/messagecontentmodel.cpp:229
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -4382,6 +4382,47 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "Çıkartmalar ve Emojiler"
 
+#: src/settings/ExportKeysDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:101
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr ""
+
+#: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@label:textbox"
+msgid "Passphrase:"
+msgstr "Parola:"
+
+#: src/settings/ExportKeysDialog.qml:37
+#, kde-format
+msgid ""
+"A passphrase to secure your key backup. It should not be your account "
+"password."
+msgstr ""
+
+#: src/settings/ExportKeysDialog.qml:42
+#, kde-format
+msgctxt "@action:button"
+msgid "Export keys"
+msgstr ""
+
+#: src/settings/ExportKeysDialog.qml:50
+#, fuzzy, kde-format
+#| msgid "Report sent successfully."
+msgctxt "@info"
+msgid "Keys exported successfully"
+msgstr "Rapor başarıyla gönderildi."
+
+#: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
+#, fuzzy, kde-format
+#| msgid "Unknown"
+msgctxt "@info"
+msgid "Unknown error"
+msgstr "Bilinmeyen"
+
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
 msgctxt "@title:window"
@@ -4493,6 +4534,39 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Bu Kullanıcıyı Yok Sayma"
 
+#: src/settings/ImportKeysDialog.qml:22 src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr ""
+
+#: src/settings/ImportKeysDialog.qml:35
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@action:button"
+msgid "Choose backup file"
+msgstr "Yerel dosya seç"
+
+#: src/settings/ImportKeysDialog.qml:56
+#, kde-format
+msgctxt "@action:button"
+msgid "Import keys"
+msgstr ""
+
+#: src/settings/ImportKeysDialog.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Passphrase"
+msgctxt "@info"
+msgid "Invalid passphrase"
+msgstr "Anahtar Parolası ile Kilit Aç"
+
+#: src/settings/ImportKeysDialog.qml:70
+#, kde-format
+msgctxt "@info"
+msgid "Invalid key backup data"
+msgstr ""
+
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
 msgctxt "@title:window"
@@ -4598,25 +4672,25 @@ msgstr "Geliştirici Ayarları"
 msgid "Enable developer tools"
 msgstr "Geliştirici araçlarını etkinleştir"
 
-#: src/settings/NeoChatSecurityPage.qml:17
+#: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
 msgctxt "@title"
 msgid "Security"
 msgstr "Güvenlik"
 
-#: src/settings/NeoChatSecurityPage.qml:20
+#: src/settings/NeoChatSecurityPage.qml:28
 #, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
 msgstr "Davetler"
 
-#: src/settings/NeoChatSecurityPage.qml:24
+#: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "Bilinmeyen kullanıcılardan gelen davetleri reddet"
 
-#: src/settings/NeoChatSecurityPage.qml:25
+#: src/settings/NeoChatSecurityPage.qml:33
 #, kde-format
 msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
@@ -4625,49 +4699,77 @@ msgstr ""
 "Etkinleştirilirse NeoChat, birlikte bir oda paylaşmadığınız kullanıcılardan "
 "gelen davetleri reddeder."
 
-#: src/settings/NeoChatSecurityPage.qml:25
+#: src/settings/NeoChatSecurityPage.qml:33
 #, kde-format
 msgid "Your server does not support this setting."
 msgstr "Sunucunuz bu ayarı desteklemiyor."
 
-#: src/settings/NeoChatSecurityPage.qml:35
+#: src/settings/NeoChatSecurityPage.qml:43
 #, kde-format
 msgctxt "@title:group"
 msgid "Ignored Users"
 msgstr "Yok Sayılan Kullanıcılar"
 
-#: src/settings/NeoChatSecurityPage.qml:39
+#: src/settings/NeoChatSecurityPage.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Manage ignored users"
 msgstr "Yok Sayılan Kullanıcıları Yönet"
 
-#: src/settings/NeoChatSecurityPage.qml:41
+#: src/settings/NeoChatSecurityPage.qml:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Yok Sayılan Kullanıcılar"
 
-#: src/settings/NeoChatSecurityPage.qml:46
+#: src/settings/NeoChatSecurityPage.qml:54
 #, kde-format
 msgctxt "@title"
 msgid "Keys"
 msgstr "Anahtarlar"
 
-#: src/settings/NeoChatSecurityPage.qml:51
+#: src/settings/NeoChatSecurityPage.qml:59
 #, kde-format
 msgid "Device key"
 msgstr "Aygıt anahtarı"
 
-#: src/settings/NeoChatSecurityPage.qml:55
+#: src/settings/NeoChatSecurityPage.qml:63
 #, kde-format
 msgid "Encryption key"
 msgstr "Şifreleme anahtarı"
 
-#: src/settings/NeoChatSecurityPage.qml:59
+#: src/settings/NeoChatSecurityPage.qml:67
 #, kde-format
 msgid "Device id"
 msgstr "Aygıt kimliği"
+
+#: src/settings/NeoChatSecurityPage.qml:73
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@title"
+msgid "Encryption Keys"
+msgstr "Şifreleme anahtarı"
+
+#: src/settings/NeoChatSecurityPage.qml:78
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@action:button"
+msgid "Import Encryption Keys"
+msgstr "Şifreleme anahtarı"
+
+#: src/settings/NeoChatSecurityPage.qml:87
+#, fuzzy, kde-format
+#| msgid "Report sent successfully."
+msgctxt "@info"
+msgid "Keys imported successfully"
+msgstr "Rapor başarıyla gönderildi."
+
+#: src/settings/NeoChatSecurityPage.qml:95
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@action:button"
+msgid "Export Encryption Keys"
+msgstr "Şifreleme anahtarı"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
