@@ -136,6 +136,17 @@ Kirigami.Page {
 
                 model: RoomManager.sortFilterRoomTreeModel
 
+                visible: !RoomManager.roomTreeModel.loading
+
+                Connections {
+                    target: RoomManager.roomTreeModel
+                    function onLoadingChanged(): void {
+                        if (!RoomManager.roomTreeModel.loading) {
+                            treeView.expandRecursively()
+                        }
+                    }
+                }
+
                 selectionModel: ItemSelectionModel {}
 
                 delegate: DelegateChooser {
@@ -186,11 +197,17 @@ Kirigami.Page {
         }
     }
 
+    Kirigami.LoadingPlaceholder {
+        anchors.centerIn: parent
+        visible: RoomManager.roomTreeModel.loading
+        anchors.horizontalCenterOffset: (spaceDrawer.width + 1) / 2
+    }
+
     Kirigami.PlaceholderMessage {
         anchors.centerIn: parent
         anchors.horizontalCenterOffset: (spaceDrawer.width + 1) / 2
         width: scrollView.width - Kirigami.Units.largeSpacing * 4
-        visible: treeView.rows == 0
+        visible: treeView.rows == 0 && !RoomManager.roomTreeModel.loading
         text: if (RoomManager.sortFilterRoomTreeModel.filterText.length > 0) {
             return spaceDrawer.showDirectChats ? i18n("No friends found") : i18n("No rooms found");
         } else {

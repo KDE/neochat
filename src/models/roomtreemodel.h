@@ -23,6 +23,7 @@ class RoomTreeModel : public QAbstractItemModel
     QML_ELEMENT
 
     Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(bool loading READ loading NOTIFY loadingChanged)
 
 public:
     /**
@@ -79,12 +80,16 @@ public:
 
     Q_INVOKABLE QModelIndex indexForRoom(NeoChatRoom *room) const;
 
+    bool loading() const;
+
 Q_SIGNALS:
     void connectionChanged();
+    void loadingChanged();
 
 private:
     QPointer<NeoChatConnection> m_connection;
     std::unique_ptr<RoomTreeItem> m_rootItem;
+    bool m_loading = true;
 
     RoomTreeItem *getItem(const QModelIndex &index) const;
 

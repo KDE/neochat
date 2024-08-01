@@ -55,6 +55,21 @@ void RoomTreeModel::resetModel()
     }
 
     endResetModel();
+
+    if (m_connection->allRooms()[0]->currentState().get<RoomCreateEvent>()) {
+        m_loading = false;
+        Q_EMIT loadingChanged();
+    } else {
+        connect(
+            m_connection->allRooms()[0],
+            &Room::baseStateLoaded,
+            this,
+            [this]() {
+                m_loading = false;
+                Q_EMIT loadingChanged();
+            },
+            Qt::SingleShotConnection);
+    }
 }
 
 void RoomTreeModel::setConnection(NeoChatConnection *connection)
@@ -414,6 +429,11 @@ QModelIndex RoomTreeModel::indexForRoom(NeoChatRoom *room) const
     }
 
     return {};
+}
+
+bool RoomTreeModel::loading() const
+{
+    return m_loading;
 }
 
 #include "moc_roomtreemodel.cpp"
