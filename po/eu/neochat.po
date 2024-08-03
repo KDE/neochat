@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-30 02:34+0000\n"
-"PO-Revision-Date: 2024-07-20 10:54+0200\n"
+"PO-Revision-Date: 2024-08-02 22:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -2779,6 +2779,8 @@ msgstr "Gonbidapen hau onartu?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Erabiltzaile ezezagunen gonbidapenak, Segurtasun ezarpenetan errefusatu "
+"ditzakezu."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -4599,17 +4601,16 @@ msgid "Security"
 msgstr "Segurtasuna"
 
 #: src/settings/NeoChatSecurityPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Accept Invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Onartu gonbidapena"
+msgstr "Gonbidapenak"
 
 #: src/settings/NeoChatSecurityPage.qml:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "Errefusatu erabiltzaile ezezagunen gonbidapenak"
 
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
@@ -4617,12 +4618,13 @@ msgid ""
 "If enabled, NeoChat will reject invitations from from users you don't share "
 "a room with."
 msgstr ""
+"Gaituta badago, Neochat-ek, gelarik partekatzen ez duzun erabiltzaileen "
+"gonbidapenak errefusatuko ditu."
 
 #: src/settings/NeoChatSecurityPage.qml:25
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "Zure zerbitzariak ez du onartzen zure pasahitza aldatzea"
+msgstr "Zure zerbitzariak ez du ezarpen hau onartzen."
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, kde-format
