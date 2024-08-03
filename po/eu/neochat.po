@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-01 00:40+0000\n"
-"PO-Revision-Date: 2024-07-20 10:54+0200\n"
+"PO-Revision-Date: 2024-08-02 22:55+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1852,11 +1852,10 @@ msgid "Open NeoChat"
 msgstr "Ireki NeoChat"
 
 #: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR code"
-msgstr "Kode laburra:"
+msgstr "Erakutsi QR kodea"
 
 #: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
@@ -2786,6 +2785,8 @@ msgstr "Gonbidapen hau onartu?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Erabiltzaile ezezagunen gonbidapenak, Segurtasun ezarpenetan errefusatu "
+"ditzakezu."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -3303,10 +3304,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat lerroz kanpo dago. Mesedez, berrikusi zure sare-konexioa."
 
 #: src/qml/RoomPage.qml:158
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgid "Select or join a room to get started"
-msgstr "Hasteko, batu gela batzuetara"
+msgstr "Hasteko, hautatu edo batu gela batera"
 
 #: src/qml/RoomPage.qml:265
 #, kde-format
@@ -4042,16 +4042,14 @@ msgid "Remove current avatar"
 msgstr "Kendu uneko abatarra"
 
 #: src/settings/AccountEditorPage.qml:101
-#, fuzzy, kde-format
-#| msgid "User information"
+#, kde-format
 msgid "User Information"
 msgstr "Erabiltzailearen informazioa"
 
 #: src/settings/AccountEditorPage.qml:106
-#, fuzzy, kde-format
-#| msgid "<display name>"
+#, kde-format
 msgid "Display Name:"
-msgstr "<azaldu izena>"
+msgstr "Erakusteko izena:"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
@@ -4059,17 +4057,15 @@ msgid "Label:"
 msgstr "Labela:"
 
 #: src/settings/AccountEditorPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgid "Work"
-msgstr "Lanean"
+msgstr "Lana"
 
 #: src/settings/AccountEditorPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "Eskaneatu QR kode bat"
+msgstr "Erakutsi QR kodea"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4400,14 +4396,13 @@ msgstr "Eranskailuak eta Emojiak"
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
-msgstr ""
+msgstr "Esportatu gakoak"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
-msgstr "Pasahitza:"
+msgstr "Pasaesaldia:"
 
 #: src/settings/ExportKeysDialog.qml:37
 #, kde-format
@@ -4415,26 +4410,26 @@ msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
 msgstr ""
+"Gakoaren babeskopia segurtatzeko pasaesaldi bat. Ez zenuke zure kontuaren "
+"pasahitza erabili behar."
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Export keys"
-msgstr ""
+msgstr "Esportatu gakoak"
 
 #: src/settings/ExportKeysDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys exported successfully"
-msgstr "Txosten bidalketa arrakastatsua."
+msgstr "Gakoen esportatze arrakastatsua"
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown error"
-msgstr "Ezezaguna"
+msgstr "Errore ezezaguna"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4536,12 +4531,10 @@ msgid "Ignored Users"
 msgstr "Ezikusitako erabiltzaileak"
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Manage ignored users"
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "Kudeatu ezikusitako erabiltzaileak"
+msgstr "Ez dago ezikusitako erabiltzailerik"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
@@ -4553,34 +4546,31 @@ msgstr "Erabiltzaile horri ezikusiarena egiteari utzi"
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
-msgstr ""
+msgstr "Inportatu gakoak"
 
 #: src/settings/ImportKeysDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose backup file"
-msgstr "Hautatu tokiko fitxategia"
+msgstr "Hautatu babeskopia-fitxategia"
 
 #: src/settings/ImportKeysDialog.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Import keys"
-msgstr ""
+msgstr "Inportatu gakoak"
 
 #: src/settings/ImportKeysDialog.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr "Giltzapetik askatu pasaesaldi bat erabiliz"
+msgstr "Pasaesaldi baliogabea"
 
 #: src/settings/ImportKeysDialog.qml:70
 #, kde-format
 msgctxt "@info"
 msgid "Invalid key backup data"
-msgstr ""
+msgstr "Gako babeskopia datu baliogabeak"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -4695,17 +4685,16 @@ msgid "Security"
 msgstr "Segurtasuna"
 
 #: src/settings/NeoChatSecurityPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Accept Invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Onartu gonbidapena"
+msgstr "Gonbidapenak"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "Errefusatu erabiltzaile ezezagunen gonbidapenak"
 
 #: src/settings/NeoChatSecurityPage.qml:33
 #, kde-format
@@ -4713,12 +4702,13 @@ msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
 msgstr ""
+"Gaituta badago, Neochat-ek, gelarik partekatzen ez duzun erabiltzaileen "
+"gonbidapenak errefusatuko ditu."
 
 #: src/settings/NeoChatSecurityPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "Zure zerbitzariak ez du onartzen zure pasahitza aldatzea"
+msgstr "Zure zerbitzariak ez du ezarpen hau onartzen."
 
 #: src/settings/NeoChatSecurityPage.qml:43
 #, kde-format
@@ -4760,32 +4750,28 @@ msgid "Device id"
 msgstr "Gailuaren ID"
 
 #: src/settings/NeoChatSecurityPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@title"
 msgid "Encryption Keys"
-msgstr "Zifratzeko gakoa"
+msgstr "Zifratzeko gakoak"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Encryption Keys"
-msgstr "Zifratzeko gakoa"
+msgstr "Inportatu zifratzeko gakoak"
 
 #: src/settings/NeoChatSecurityPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
-msgstr "Txosten bidalketa arrakastatsua."
+msgstr "Gakoen inportatze arrakastatsua"
 
 #: src/settings/NeoChatSecurityPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Encryption Keys"
-msgstr "Zifratzeko gakoa"
+msgstr "Esportatu zifratzeko gakoak"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -5328,20 +5314,16 @@ msgid "Country Code for new phone number"
 msgstr "Telefono-zenbaki berrirako herrialde-kodea"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New email address"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
-msgstr "E-posta helbide berria"
+msgstr "E-posta helbide berria:"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New phone number"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
-msgstr "Telefono zenbaki berria"
+msgstr "Telefono-zenbaki berria:"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format

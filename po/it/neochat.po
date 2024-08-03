@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-01 00:40+0000\n"
-"PO-Revision-Date: 2024-07-07 13:40+0200\n"
+"PO-Revision-Date: 2024-08-01 12:48+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1853,11 +1853,10 @@ msgid "Open NeoChat"
 msgstr "Apri NeoChat"
 
 #: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR code"
-msgstr "Scorciatoia:"
+msgstr "Mostra il codice QR"
 
 #: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
@@ -2791,6 +2790,8 @@ msgstr "Vuoi accettare questo invito?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Puoi rifiutare gli inviti provenienti da utenti sconosciuti nelle "
+"impostazioni di sicurezza."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -3309,10 +3310,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat non è in linea. Controlla la tua connessione alla rete."
 
 #: src/qml/RoomPage.qml:158
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgid "Select or join a room to get started"
-msgstr "Entra in qualche stanza per iniziare"
+msgstr "Seleziona o unisciti a una stanza per iniziare"
 
 #: src/qml/RoomPage.qml:265
 #, kde-format
@@ -4060,16 +4060,14 @@ msgid "Remove current avatar"
 msgstr "Rimuovi l'avatar attuale"
 
 #: src/settings/AccountEditorPage.qml:101
-#, fuzzy, kde-format
-#| msgid "User information"
+#, kde-format
 msgid "User Information"
 msgstr "Informazioni utente"
 
 #: src/settings/AccountEditorPage.qml:106
-#, fuzzy, kde-format
-#| msgid "<display name>"
+#, kde-format
 msgid "Display Name:"
-msgstr "<nome visualizzato>"
+msgstr "Nome visualizzato:"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
@@ -4077,17 +4075,15 @@ msgid "Label:"
 msgstr "Etichetta:"
 
 #: src/settings/AccountEditorPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgid "Work"
-msgstr "Attivo"
+msgstr "Lavoro"
 
 #: src/settings/AccountEditorPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "Scansione di un codice QR"
+msgstr "Mostra il codice QR"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4420,14 +4416,13 @@ msgstr "Adesivi ed emoji"
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
-msgstr ""
+msgstr "Esporta chiavi"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
-msgstr "Password:"
+msgstr "Frase segreta:"
 
 #: src/settings/ExportKeysDialog.qml:37
 #, kde-format
@@ -4435,26 +4430,26 @@ msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
 msgstr ""
+"Una frase segreta per proteggere il backup della tua chiave. Non dovrebbe "
+"essere la password del tuo account."
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Export keys"
-msgstr ""
+msgstr "Esporta chiavi"
 
 #: src/settings/ExportKeysDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys exported successfully"
-msgstr "Segnalazione inviata correttamente."
+msgstr "Chiavi esportate correttamente"
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown error"
-msgstr "Sconosciuto"
+msgstr "Errore sconosciuto"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4556,12 +4551,10 @@ msgid "Ignored Users"
 msgstr "Utenti ignorati"
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Manage ignored users"
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "Gestisci gli utenti ignorati"
+msgstr "Nessun utente ignorato"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
@@ -4573,34 +4566,31 @@ msgstr "Non ignorare questo utente"
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
-msgstr ""
+msgstr "Importa chiavi"
 
 #: src/settings/ImportKeysDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose backup file"
-msgstr "Scegli file locale"
+msgstr "Scegli file di backup"
 
 #: src/settings/ImportKeysDialog.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Import keys"
-msgstr ""
+msgstr "Importa chiavi"
 
 #: src/settings/ImportKeysDialog.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr "Sblocca utilizzando la frase segreta"
+msgstr "Frase segreta non valida"
 
 #: src/settings/ImportKeysDialog.qml:70
 #, kde-format
 msgctxt "@info"
 msgid "Invalid key backup data"
-msgstr ""
+msgstr "Dati di backup della chiave non validi"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -4716,17 +4706,16 @@ msgid "Security"
 msgstr "Sicurezza"
 
 #: src/settings/NeoChatSecurityPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Accept Invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Accetta invito"
+msgstr "Inviti"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "Rifiuta gli inviti da utenti sconosciuti"
 
 #: src/settings/NeoChatSecurityPage.qml:33
 #, kde-format
@@ -4734,12 +4723,13 @@ msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
 msgstr ""
+"Se abilitata, NeoChat rifiuterà gli inviti da utenti con cui non condividi "
+"una stanza."
 
 #: src/settings/NeoChatSecurityPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "Il tuo server non supporta la modifica della password"
+msgstr "Il tuo server non supporta questa impostazione."
 
 #: src/settings/NeoChatSecurityPage.qml:43
 #, kde-format
@@ -4781,32 +4771,28 @@ msgid "Device id"
 msgstr "ID dispositivo"
 
 #: src/settings/NeoChatSecurityPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@title"
 msgid "Encryption Keys"
-msgstr "Chiave di cifratura"
+msgstr "Chiavi di cifratura"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Encryption Keys"
-msgstr "Chiave di cifratura"
+msgstr "Importa chiavi di cifratura"
 
 #: src/settings/NeoChatSecurityPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
-msgstr "Segnalazione inviata correttamente."
+msgstr "Chiavi importate correttamente"
 
 #: src/settings/NeoChatSecurityPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Encryption Keys"
-msgstr "Chiave di cifratura"
+msgstr "Esporta chiavi di cifratura"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -5361,20 +5347,16 @@ msgid "Country Code for new phone number"
 msgstr "Prefisso internazionale per il nuovo numero di telefono"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New email address"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
-msgstr "Nuovo indirizzo di posta"
+msgstr "Nuovo indirizzo di posta:"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New phone number"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
-msgstr "Nuovo numero di telefono"
+msgstr "Nuovo numero di telefono:"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
