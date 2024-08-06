@@ -15,6 +15,12 @@ Delegates.RoundedItemDelegate {
 
     property url source
 
+    property alias notificationCount: avatarNotification.notificationCount
+
+    property alias notificationHighlight: avatarNotification.notificationHighlight
+
+    property alias showNotificationLabel: avatarNotification.showNotificationLabel
+
     signal contextMenuRequested
     signal selected
 
@@ -41,7 +47,8 @@ Delegates.RoundedItemDelegate {
         }
     }
 
-    contentItem: KirigamiComponents.Avatar {
+    contentItem: AvatarNotification {
+        id: avatarNotification
         source: root.source
         name: root.text
     }

@@ -54,12 +54,16 @@ Delegates.RoundedItemDelegate {
     contentItem: RowLayout {
         spacing: Kirigami.Units.largeSpacing
 
-        Components.Avatar {
+        AvatarNotification {
             source: root.avatar ? root.connection.makeMediaUrl("mxc://" + root.avatar) : ""
             name: root.displayName
             visible: NeoChatConfig.showAvatarInRoomDrawer
             implicitHeight: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
             implicitWidth: visible ? implicitHeight : 0
+
+            notificationCount: root.contextNotificationCount
+            notificationHighlight: root.hasHighlightNotifications
+            showNotificationLabel: root.hasNotifications && root.collapsed
 
             Layout.fillHeight: true
             Layout.preferredWidth: height

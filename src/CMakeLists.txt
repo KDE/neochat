@@ -288,6 +288,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/ConsentDialog.qml
         qml/AskDirectChatConfirmation.qml
         qml/HoverLinkIndicator.qml
+        qml/AvatarNotification.qml
     DEPENDENCIES
         QtCore
         QtQuick

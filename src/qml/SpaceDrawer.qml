@@ -86,6 +86,34 @@ QQC2.Control {
                     text: i18n("Home")
                     contentItem: Kirigami.Icon {
                         source: "user-home-symbolic"
+
+                        QQC2.Label {
+                            id: homeNotificationCountLabel
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.topMargin: -Kirigami.Units.smallSpacing
+                            anchors.rightMargin: -Kirigami.Units.smallSpacing
+                            z: 1
+                            width: Math.max(homeNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
+                            height: Kirigami.Units.iconSizes.smallMedium
+
+                            text: root.connection.homeNotifications > 0 ? root.connection.homeNotifications : ""
+                            visible: root.connection.homeNotifications > 0 && (RoomManager.currentSpace.length > 0 || root.showDirectChats === true)
+                            color: Kirigami.Theme.textColor
+                            horizontalAlignment: Text.AlignHCenter
+                            background: Rectangle {
+                                visible: true
+                                Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                                Kirigami.Theme.inherit: false
+                                color: root.connection.homeHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
+                                radius: height / 2
+                            }
+
+                            TextMetrics {
+                                id: homeNotificationCountTextMetrics
+                                text: homeNotificationCountLabel.text
+                            }
+                        }
                     }
 
                     activeFocusOnTab: true
@@ -94,33 +122,6 @@ QQC2.Control {
                     onSelected: {
                         RoomManager.currentSpace = "";
                         root.selectionChanged();
-                    }
-
-                    QQC2.Label {
-                        id: homeNotificationCountLabel
-                        anchors.top: parent.top
-                        anchors.right: parent.right
-                        anchors.rightMargin: Kirigami.Units.smallSpacing / 2
-                        z: 1
-                        width: Math.max(homeNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
-                        height: Kirigami.Units.iconSizes.smallMedium
-
-                        text: root.connection.homeNotifications > 0 ? root.connection.homeNotifications : ""
-                        visible: root.connection.homeNotifications > 0 && (RoomManager.currentSpace.length > 0 || root.showDirectChats === true)
-                        color: Kirigami.Theme.textColor
-                        horizontalAlignment: Text.AlignHCenter
-                        background: Rectangle {
-                            visible: true
-                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                            Kirigami.Theme.inherit: false
-                            color: root.connection.homeHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
-                            radius: height / 2
-                        }
-
-                        TextMetrics {
-                            id: homeNotificationCountTextMetrics
-                            text: homeNotificationCountLabel.text
-                        }
                     }
                 }
                 AvatarTabButton {
@@ -134,6 +135,34 @@ QQC2.Control {
                     text: i18nc("@button View all one-on-one chats with your friends.", "Friends")
                     contentItem: Kirigami.Icon {
                         source: "system-users"
+
+                        QQC2.Label {
+                            id: directChatNotificationCountLabel
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.topMargin: -Kirigami.Units.smallSpacing
+                            anchors.rightMargin: -Kirigami.Units.smallSpacing
+                            z: 1
+                            width: Math.max(directChatNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
+                            height: Kirigami.Units.iconSizes.smallMedium
+
+                            text: root.connection.directChatNotifications > 0 ? root.connection.directChatNotifications : ""
+                            visible: (root.connection.directChatNotifications > 0 || root.connection.directChatInvites) && RoomManager.currentSpace !== "DM"
+                            color: Kirigami.Theme.textColor
+                            horizontalAlignment: Text.AlignHCenter
+                            background: Rectangle {
+                                visible: true
+                                Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                                Kirigami.Theme.inherit: false
+                                color: root.connection.directChatsHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
+                                radius: height / 2
+                            }
+
+                            TextMetrics {
+                                id: directChatNotificationCountTextMetrics
+                                text: directChatNotificationCountLabel.text
+                            }
+                        }
                     }
 
                     activeFocusOnTab: true
@@ -142,33 +171,6 @@ QQC2.Control {
                     onSelected: {
                         RoomManager.currentSpace = "DM";
                         root.selectionChanged();
-                    }
-
-                    QQC2.Label {
-                        id: directChatNotificationCountLabel
-                        anchors.top: parent.top
-                        anchors.right: parent.right
-                        anchors.rightMargin: Kirigami.Units.smallSpacing / 2
-                        z: 1
-                        width: Math.max(directChatNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
-                        height: Kirigami.Units.iconSizes.smallMedium
-
-                        text: root.connection.directChatNotifications > 0 ? root.connection.directChatNotifications : ""
-                        visible: (root.connection.directChatNotifications > 0 || root.connection.directChatInvites) && RoomManager.currentSpace !== "DM"
-                        color: Kirigami.Theme.textColor
-                        horizontalAlignment: Text.AlignHCenter
-                        background: Rectangle {
-                            visible: true
-                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                            Kirigami.Theme.inherit: false
-                            color: root.connection.directChatsHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
-                            radius: height / 2
-                        }
-
-                        TextMetrics {
-                            id: directChatNotificationCountTextMetrics
-                            text: directChatNotificationCountLabel.text
-                        }
                     }
                 }
 
@@ -190,6 +192,10 @@ QQC2.Control {
                         text: displayName
                         source: avatar ? root.connection.makeMediaUrl("mxc://" + avatar) : ""
 
+                        notificationCount: spaceDelegate.currentRoom.childrenNotificationCount
+                        notificationHighlight: spaceDelegate.currentRoom.childrenHaveHighlightNotifications
+                        showNotificationLabel: spaceDelegate.currentRoom.childrenNotificationCount > 0 && RoomManager.currentSpace != spaceDelegate.roomId
+
                         activeFocusOnTab: true
 
                         onSelected: {
@@ -198,34 +204,6 @@ QQC2.Control {
                         }
                         checked: RoomManager.currentSpace === roomId
                         onContextMenuRequested: root.createContextMenu(currentRoom)
-
-                        QQC2.Label {
-                            id: notificationCountLabel
-                            anchors.top: parent.top
-                            anchors.right: parent.right
-                            anchors.rightMargin: Kirigami.Units.smallSpacing / 2
-                            z: 1
-                            width: Math.max(notificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
-                            height: Kirigami.Units.iconSizes.smallMedium
-
-                            text: spaceDelegate.currentRoom.childrenNotificationCount > 0 ? spaceDelegate.currentRoom.childrenNotificationCount : ""
-                            visible: spaceDelegate.currentRoom.childrenNotificationCount > 0 && RoomManager.currentSpace != spaceDelegate.roomId
-                            color: Kirigami.Theme.textColor
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                            background: Rectangle {
-                                visible: true
-                                Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                                Kirigami.Theme.inherit: false
-                                color: spaceDelegate.currentRoom.childrenHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
-                                radius: height / 2
-                            }
-
-                            TextMetrics {
-                                id: notificationCountTextMetrics
-                                text: notificationCountLabel.text
-                            }
-                        }
                     }
                 }
 
