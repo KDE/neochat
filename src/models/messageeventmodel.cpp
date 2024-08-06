@@ -444,8 +444,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
-        if (m_contentModels.contains(evt.id())) {
-            return QVariant::fromValue<MessageContentModel *>(m_contentModels.at(evt.id()).get());
+        if (m_contentModels.contains(evt.id().isEmpty() ? evt.transactionId() : evt.id())) {
+            return QVariant::fromValue<MessageContentModel *>(m_contentModels.at(evt.id().isEmpty() ? evt.transactionId() : evt.id()).get());
         }
         return {};
     }
@@ -621,6 +621,9 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
 
     auto eventId = event->id();
     auto senderId = event->senderId();
+    if (eventId.isEmpty()) {
+        eventId = event->transactionId();
+    }
     // A pending event might not have a sender ID set yet but in that case it must
     // be the local member.
     if (senderId.isEmpty()) {
