@@ -288,6 +288,8 @@ TimelineDelegate {
 
                 showHighlight: root.showHighlight
 
+                isPending: root.isPending
+
                 onReplyClicked: eventId => {
                     root.replyClicked(eventId);
                 }

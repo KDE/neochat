@@ -74,6 +74,8 @@ QQC2.Control {
      */
     property real maxContentWidth: -1
 
+    required property bool isPending
+
     /**
      * @brief The reply has been clicked.
      */
@@ -89,28 +91,42 @@ QQC2.Control {
      */
     signal showMessageMenu
 
-    contentItem: ColumnLayout {
-        id: contentColumn
-        spacing: Kirigami.Units.smallSpacing
-        Repeater {
-            id: contentRepeater
-            model: root.contentModel
-            delegate: MessageComponentChooser {
-                room: root.room
-                index: root.index
-                actionsHandler: root.actionsHandler
-                timeline: root.timeline
-                maxContentWidth: root.maxContentWidth
+    contentItem: RowLayout {
+        Kirigami.Icon {
+            source: "content-loading-symbolic"
+            Layout.preferredWidth: Kirigami.Units.iconSizes.small
+            Layout.preferredHeight: Kirigami.Units.iconSizes.small
+            visible: root.isPending && NeoChatConfig.showLocalMessagesOnRight
+        }
+        ColumnLayout {
+            id: contentColumn
+            spacing: Kirigami.Units.smallSpacing
+            Repeater {
+                id: contentRepeater
+                model: root.contentModel
+                delegate: MessageComponentChooser {
+                    room: root.room
+                    index: root.index
+                    actionsHandler: root.actionsHandler
+                    timeline: root.timeline
+                    maxContentWidth: root.maxContentWidth
 
-                onReplyClicked: eventId => {
-                    root.replyClicked(eventId);
+                    onReplyClicked: eventId => {
+                        root.replyClicked(eventId);
+                    }
+                    onSelectedTextChanged: selectedText => {
+                        root.selectedTextChanged(selectedText);
+                    }
+                    onShowMessageMenu: root.showMessageMenu()
+                    onRemoveLinkPreview: index => root.contentModel.closeLinkPreview(index)
                 }
-                onSelectedTextChanged: selectedText => {
-                    root.selectedTextChanged(selectedText);
-                }
-                onShowMessageMenu: root.showMessageMenu()
-                onRemoveLinkPreview: index => root.contentModel.closeLinkPreview(index)
             }
+        }
+        Kirigami.Icon {
+            source: "content-loading-symbolic"
+            Layout.preferredWidth: Kirigami.Units.iconSizes.small
+            Layout.preferredHeight: Kirigami.Units.iconSizes.small
+            visible: root.isPending && !NeoChatConfig.showLocalMessagesOnRight
         }
     }
 
