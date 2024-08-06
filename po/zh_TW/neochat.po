@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-01 00:40+0000\n"
-"PO-Revision-Date: 2024-07-08 15:59+0900\n"
+"PO-Revision-Date: 2024-08-06 05:24+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -1833,11 +1833,10 @@ msgid "Open NeoChat"
 msgstr "開啟 NeoChat"
 
 #: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR code"
-msgstr "短碼："
+msgstr "顯示 QR 碼"
 
 #: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
@@ -2761,7 +2760,7 @@ msgstr "接收邀請嗎？"
 #: src/qml/InvitationView.qml:18
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
-msgstr ""
+msgstr "您可以在安全性設定底下設定回絕來自未知使用者的邀請。"
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -3275,10 +3274,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 目前為離線狀態。請檢查您的網路連線。"
 
 #: src/qml/RoomPage.qml:158
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgid "Select or join a room to get started"
-msgstr "先加入一些聊天室吧"
+msgstr "先加入或選擇聊天室吧"
 
 #: src/qml/RoomPage.qml:265
 #, kde-format
@@ -3984,16 +3982,14 @@ msgid "Remove current avatar"
 msgstr "移除目前頭貼"
 
 #: src/settings/AccountEditorPage.qml:101
-#, fuzzy, kde-format
-#| msgid "User information"
+#, kde-format
 msgid "User Information"
 msgstr "使用者資訊"
 
 #: src/settings/AccountEditorPage.qml:106
-#, fuzzy, kde-format
-#| msgid "<display name>"
+#, kde-format
 msgid "Display Name:"
-msgstr "<顯示名稱>"
+msgstr "顯示名稱："
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
@@ -4001,17 +3997,15 @@ msgid "Label:"
 msgstr "文字標籤："
 
 #: src/settings/AccountEditorPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgid "Work"
-msgstr "處理中"
+msgstr "工作"
 
 #: src/settings/AccountEditorPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "掃描 QR 碼"
+msgstr "顯示 QR 碼"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4342,11 +4336,10 @@ msgstr "貼圖與表情符號"
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
-msgstr ""
+msgstr "匯出金鑰"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
 msgstr "密碼："
@@ -4356,27 +4349,25 @@ msgstr "密碼："
 msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
-msgstr ""
+msgstr "維護金鑰備份安全用的密碼。它不應該與您帳號的密碼相同。"
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Export keys"
-msgstr ""
+msgstr "匯出金鑰"
 
 #: src/settings/ExportKeysDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys exported successfully"
-msgstr "已成功傳送檢舉"
+msgstr "已成功匯出金鑰"
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown error"
-msgstr "未知"
+msgstr "未知的錯誤"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4478,12 +4469,10 @@ msgid "Ignored Users"
 msgstr "已忽略的使用者"
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Manage ignored users"
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "管理已忽略的使用者"
+msgstr "沒有已忽略的使用者"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
@@ -4495,34 +4484,31 @@ msgstr "取消忽略這個使用者"
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
-msgstr ""
+msgstr "匯入金鑰"
 
 #: src/settings/ImportKeysDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose backup file"
-msgstr "選擇本機檔案"
+msgstr "選擇備份檔案"
 
 #: src/settings/ImportKeysDialog.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Import keys"
-msgstr ""
+msgstr "匯入金鑰"
 
 #: src/settings/ImportKeysDialog.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr "使用密碼解鎖"
+msgstr "無效密碼"
 
 #: src/settings/ImportKeysDialog.qml:70
 #, kde-format
 msgctxt "@info"
 msgid "Invalid key backup data"
-msgstr ""
+msgstr "無效金鑰備份資料"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -4635,30 +4621,28 @@ msgid "Security"
 msgstr "安全性"
 
 #: src/settings/NeoChatSecurityPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "傳送邀請"
+msgstr "邀請"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "回絕來自未知使用者的邀請"
 
 #: src/settings/NeoChatSecurityPage.qml:33
 #, kde-format
 msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
-msgstr ""
+msgstr "啟用時，NeoChat 會自動回絕來自與您沒有共同聊天室的使用者的邀請。"
 
 #: src/settings/NeoChatSecurityPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr "您的伺服器不支援變更您的密碼"
+msgstr "您的伺服器不支援這個設定。"
 
 #: src/settings/NeoChatSecurityPage.qml:43
 #, kde-format
@@ -4700,32 +4684,28 @@ msgid "Device id"
 msgstr "裝置 ID"
 
 #: src/settings/NeoChatSecurityPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@title"
 msgid "Encryption Keys"
 msgstr "加密金鑰"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Encryption Keys"
-msgstr "加密金鑰"
+msgstr "匯入加密金鑰"
 
 #: src/settings/NeoChatSecurityPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
-msgstr "已成功傳送檢舉"
+msgstr "已成功匯入金鑰"
 
 #: src/settings/NeoChatSecurityPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Encryption Keys"
-msgstr "加密金鑰"
+msgstr "匯出加密金鑰"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -5262,20 +5242,16 @@ msgid "Country Code for new phone number"
 msgstr "新的電話號碼的國碼"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New email address"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
-msgstr "新的電子郵件地址"
+msgstr "新的電子郵件地址："
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New phone number"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
-msgstr "新的電話號碼"
+msgstr "新的電話號碼："
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
