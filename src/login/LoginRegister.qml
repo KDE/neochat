@@ -31,4 +31,11 @@ LoginStep {
         text: i18nc("@action:button", "Register")
         onClicked: root.processed("Homeserver")
     }
+
+    FormCard.FormDelegateSeparator {}
+
+    FormCard.FormButtonDelegate {
+        text: i18nc("@action:button", "Login with OIDC")
+        onClicked: root.processed("Oidc")
+    }
 }

@@ -55,6 +55,16 @@ Kirigami.ApplicationWindow {
     }
 
     Connections {
+        id: pendingOidcConnections
+        target: Controller.pendingOidcConnection
+        function onConnected() {
+            console.warn("loading rooms")
+            root.load();
+            pendingOidcConnections.enabled = false;
+        }
+    }
+
+    Connections {
         target: root.quitAction
         function onTriggered() {
             Qt.quit();

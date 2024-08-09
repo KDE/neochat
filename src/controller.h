@@ -52,6 +52,8 @@ class Controller : public QObject
 
     Q_PROPERTY(bool csSupported READ csSupported CONSTANT)
 
+    Q_PROPERTY(NeoChatConnection *pendingOidcConnection READ pendingOidcConnection NOTIFY pendingOidcConnectionChanged)
+
 public:
     /**
      * @brief Define the types on inline messages that can be shown.
@@ -106,7 +108,11 @@ public:
 
     Q_INVOKABLE void removeConnection(const QString &userId);
 
+    Q_INVOKABLE void startOidcLogin(const QString &homeserver);
+
     bool csSupported() const;
+
+    NeoChatConnection *pendingOidcConnection() const;
 
 private:
     explicit Controller(QObject *parent = nullptr);
@@ -119,10 +125,13 @@ private:
     void loadSettings();
     void saveSettings() const;
 
+    QCoro::Task<void> doStartOidcLogin(QString homeserver);
+
     Quotient::AccountRegistry m_accountRegistry;
     QStringList m_accountsLoading;
     QMap<QString, QPointer<NeoChatConnection>> m_connectionsLoading;
     QString m_endpoint;
+    QPointer<NeoChatConnection> m_pendingOidcConnection;
 
 private Q_SLOTS:
     void invokeLogin();
@@ -136,4 +145,5 @@ Q_SIGNALS:
     void activeConnectionChanged(NeoChatConnection *connection);
     void accountsLoadingChanged();
     void showMessage(MessageType messageType, const QString &message);
+    void pendingOidcConnectionChanged();
 };

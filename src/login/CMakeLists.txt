@@ -20,4 +20,5 @@ ecm_add_qml_module(login GENERATE_PLUGIN_SOURCE
         Sso.qml
         Terms.qml
         Username.qml
+        Oidc.qml
 )

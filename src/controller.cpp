@@ -9,12 +9,18 @@
 #include <KLocalizedString>
 
 #include <QGuiApplication>
+#include <QNetworkReply>
+#include <QRandomGenerator>
+#include <QTcpServer>
 #include <QTimer>
+
+#include <QCoroNetworkReply>
 
 #include <signal.h>
 
 #include <Quotient/accountregistry.h>
 #include <Quotient/csapi/notifications.h>
+#include <Quotient/csapi/wellknown.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
@@ -45,6 +51,7 @@
 bool testMode = false;
 
 using namespace Quotient;
+using namespace Qt::Literals::StringLiterals;
 
 Controller::Controller(QObject *parent)
     : QObject(parent)
@@ -210,7 +217,12 @@ void Controller::invokeLogin()
                 connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
                     Q_EMIT errorOccured(i18n("Network Error: %1", error), {});
                 });
-                connection->assumeIdentity(account.userId(), accessToken);
+
+                if (!account.clientId().isEmpty()) {
+                    connection->assumeOidcIdentity(account.userId(), accessToken, account.clientId(), account.tokenEndpoint());
+                } else {
+                    connection->assumeIdentity(account.userId(), accessToken);
+                }
             });
         }
     }
@@ -414,6 +426,24 @@ bool Controller::csSupported() const
 #else
     return false;
 #endif
+}
+
+NeoChatConnection *Controller::pendingOidcConnection() const
+{
+    return m_pendingOidcConnection.get();
+}
+
+void Controller::startOidcLogin(const QString &homeserver)
+{
+    auto url = QUrl::fromUserInput(homeserver.startsWith(u"https:"_s) ? homeserver : u"https://%1"_s.arg(homeserver));
+    m_pendingOidcConnection = new NeoChatConnection(url, this);
+    Q_EMIT pendingOidcConnectionChanged();
+    m_pendingOidcConnection->startOidcLogin();
+    connect(m_pendingOidcConnection, &Connection::connected, this, [this]() {
+        m_pendingOidcConnection->loadState();
+        addConnection(m_pendingOidcConnection);
+        setActiveConnection(m_pendingOidcConnection);
+    });
 }
 
 #include "moc_controller.cpp"

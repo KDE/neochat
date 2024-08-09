@@ -23,6 +23,7 @@
 
 #include <KLocalizedString>
 
+#include <Quotient/connectiondata.h>
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
 #include <Quotient/csapi/versions.h>
@@ -148,6 +149,17 @@ void NeoChatConnection::connectSignals()
             });
         },
         Qt::SingleShotConnection);
+
+    connect(this, &Connection::refreshTokenChanged, this, [this]() {
+        QKeychain::WritePasswordJob job(qAppName());
+        job.setAutoDelete(true);
+        job.setKey(userId());
+        job.setBinaryData(connectionData()->refreshToken().toLatin1());
+        QEventLoop loop;
+        connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
+        job.start();
+        loop.exec();
+    });
 }
 
 int NeoChatConnection::badgeNotificationCount() const
