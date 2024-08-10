@@ -116,9 +116,6 @@ private:
 
     QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const QString &account);
 
-    void loadSettings();
-    void saveSettings() const;
-
     Quotient::AccountRegistry m_accountRegistry;
     QStringList m_accountsLoading;
     QMap<QString, QPointer<NeoChatConnection>> m_connectionsLoading;
