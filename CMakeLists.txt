@@ -38,6 +38,7 @@ include(KDEGitCommitHooks)
 include(ECMCheckOutboundLicense)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddAndroidApk)
+include(ECMQmlModule)
 if (NOT ANDROID)
     include(KDEClangFormat)
 endif()
@@ -59,7 +60,6 @@ set_package_properties(Qt6 PROPERTIES
     PURPOSE "Basic application components"
 )
 
-qt_policy(SET QTP0001 NEW)
 if (QT_KNOWN_POLICY_QTP0004)
 qt_policy(SET QTP0004 NEW)
 endif ()
