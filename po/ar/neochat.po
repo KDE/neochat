@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-07 00:40+0000\n"
-"PO-Revision-Date: 2024-07-28 13:14+0400\n"
+"PO-Revision-Date: 2024-08-15 11:36+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2792,7 +2792,7 @@ msgstr "هل تقبل هذه الدعوة؟"
 #: src/qml/InvitationView.qml:18
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
-msgstr ""
+msgstr "بإمكانك رفض الدعوات من المستخدمين غير المعروفين ضمن إعدادات الأمان."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -4060,7 +4060,7 @@ msgstr "العمل"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "أظهر صورة QR"
+msgstr "أظهر رمز الاستجابة السريعة"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4391,14 +4391,13 @@ msgstr "الملصقات والصور التعبيرية"
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
-msgstr ""
+msgstr "صدّر المفاتيح"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
-msgstr "كلمة السر:"
+msgstr "عبارة المرور:"
 
 #: src/settings/ExportKeysDialog.qml:37
 #, kde-format
@@ -4406,26 +4405,25 @@ msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
 msgstr ""
+"عبارة المرور لتأمين النسخة الاحتياطية لمفاتيحك. يجب أن تكون كلمة مرور حسابك."
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Export keys"
-msgstr ""
+msgstr "صدّر المفاتيح"
 
 #: src/settings/ExportKeysDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys exported successfully"
-msgstr "أرسل البلاغ بنجاح."
+msgstr "صدّرتُ المفاتيح بنجاح"
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown error"
-msgstr "مجهول"
+msgstr "خطأ مجهول"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4542,34 +4540,31 @@ msgstr "ألغ تجاهل هذا المستخدم"
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
-msgstr ""
+msgstr "استورد مفاتيح"
 
 #: src/settings/ImportKeysDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose backup file"
-msgstr "اختر ملف محلي"
+msgstr "اختر ملف النسخة الاحتياطيّة"
 
 #: src/settings/ImportKeysDialog.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Import keys"
-msgstr ""
+msgstr "استورد مفاتيح"
 
 #: src/settings/ImportKeysDialog.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr "فك القفل باستخدام عبارة المرور"
+msgstr "عبارة مرور غير صالحة"
 
 #: src/settings/ImportKeysDialog.qml:70
 #, kde-format
 msgctxt "@info"
 msgid "Invalid key backup data"
-msgstr ""
+msgstr "بيانات غير صالحة للنسخة الاحتياطية للمفاتيح"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -4691,7 +4686,7 @@ msgstr "الدّعوات"
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "ارفض الدعوات من المستخدمين المجهولين"
 
 #: src/settings/NeoChatSecurityPage.qml:33
 #, kde-format
@@ -4699,6 +4694,8 @@ msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
 msgstr ""
+"إذا مكن هذا الخيار، فسوف يرفض نيوتشات الدعوات من المستخدمين الذين لا تشارك "
+"معهم الغرفة."
 
 #: src/settings/NeoChatSecurityPage.qml:33
 #, kde-format
@@ -4745,32 +4742,28 @@ msgid "Device id"
 msgstr "معرّف الجهاز"
 
 #: src/settings/NeoChatSecurityPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@title"
 msgid "Encryption Keys"
-msgstr "مفتاح التعمية"
+msgstr "مفاتيح التّعمية"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Encryption Keys"
-msgstr "مفتاح التعمية"
+msgstr "استورد مفاتيح التعمية"
 
 #: src/settings/NeoChatSecurityPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
-msgstr "أرسل البلاغ بنجاح."
+msgstr "استوردتُ المفاتيح بنجاح"
 
 #: src/settings/NeoChatSecurityPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Encryption Keys"
-msgstr "مفتاح التعمية"
+msgstr "صدّر مفاتيح التّعمية"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
