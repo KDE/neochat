@@ -80,7 +80,7 @@ void MessageContentModel::initializeModel()
 
     connect(m_room, &NeoChatRoom::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
         if (m_room != nullptr && m_event != nullptr) {
-            if (m_eventId == serverEvent->id()) {
+            if (m_eventId == serverEvent->id() || m_eventId == serverEvent->transactionId()) {
                 beginResetModel();
                 m_isPending = false;
                 intiializeEvent(serverEvent);

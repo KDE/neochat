@@ -444,8 +444,14 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
-        if (m_contentModels.contains(evt.id().isEmpty() ? evt.transactionId() : evt.id())) {
-            return QVariant::fromValue<MessageContentModel *>(m_contentModels.at(evt.id().isEmpty() ? evt.transactionId() : evt.id()).get());
+        QString modelId;
+        if (!evt.id().isEmpty() && m_contentModels.contains(evt.id())) {
+            modelId = evt.id();
+        } else if (!evt.transactionId().isEmpty() && m_contentModels.contains(evt.transactionId())) {
+            modelId = evt.transactionId();
+        }
+        if (!modelId.isEmpty()) {
+            return QVariant::fromValue<MessageContentModel *>(m_contentModels.at(modelId).get());
         }
         return {};
     }
@@ -634,7 +640,7 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
         m_memberObjects[senderId] = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_currentRoom, senderId));
     }
 
-    if (!m_contentModels.contains(eventId)) {
+    if (!m_contentModels.contains(eventId) && !m_contentModels.contains(event->transactionId())) {
         if (!event->isStateEvent() || event->matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
             m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_currentRoom, event));
         }
