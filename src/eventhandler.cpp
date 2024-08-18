@@ -766,13 +766,20 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
     return mediaInfo;
 }
 
-bool EventHandler::hasReply() const
+bool EventHandler::hasReply(bool showFallbacks) const
 {
     if (m_event == nullptr) {
         qCWarning(EventHandling) << "hasReply called with m_event set to nullptr.";
         return false;
     }
-    return !m_event->contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString().isEmpty();
+
+    const auto relations = m_event->contentPart<QJsonObject>("m.relates_to"_ls);
+    if (!relations.isEmpty()) {
+        const bool hasReplyRelation = relations.contains("m.in_reply_to"_ls);
+        bool isFallingBack = relations["is_falling_back"_ls].toBool();
+        return hasReplyRelation && (showFallbacks ? true : !isFallingBack);
+    }
+    return false;
 }
 
 QString EventHandler::getReplyId() const

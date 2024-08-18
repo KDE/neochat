@@ -30,6 +30,7 @@
 #include "neochatroommember.h"
 #include "readmarkermodel.h"
 #include "texthandler.h"
+#include "threadmodel.h"
 
 using namespace Quotient;
 
@@ -70,6 +71,11 @@ MessageEventModel::MessageEventModel(QObject *parent)
     });
     connect(this, &MessageEventModel::modelReset, this, [this]() {
         resetting = false;
+    });
+
+    connect(NeoChatConfig::self(), &NeoChatConfig::ThreadsChanged, this, [this]() {
+        beginResetModel();
+        endResetModel();
     });
 }
 
@@ -497,6 +503,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return EventStatus::Hidden;
         }
 
+        if (eventHandler.isThreaded() && eventHandler.threadRoot() != eventHandler.getId() && NeoChatConfig::threads()) {
+            return EventStatus::Hidden;
+        }
+
         return EventStatus::Normal;
     }
 
@@ -646,6 +656,11 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
         }
     }
 
+    const auto eventHandler = EventHandler(m_currentRoom, event);
+    if (eventHandler.isThreaded() && !m_threadModels.contains(eventHandler.threadRoot())) {
+        m_threadModels[eventHandler.threadRoot()] = QSharedPointer<ThreadModel>(new ThreadModel(eventHandler.threadRoot(), m_currentRoom));
+    }
+
     // ReadMarkerModel handles updates to add and remove markers, we only need to
     // handle adding and removing whole models here.
     if (m_readMarkerModels.contains(eventId)) {
@@ -703,6 +718,11 @@ bool MessageEventModel::event(QEvent *event)
         Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
     }
     return QObject::event(event);
+}
+
+ThreadModel *MessageEventModel::threadModelForRootId(const QString &threadRootId) const
+{
+    return m_threadModels[threadRootId].data();
 }
 
 #include "moc_messageeventmodel.cpp"

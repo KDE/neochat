@@ -13,6 +13,7 @@
 #include "neochatroommember.h"
 #include "pollhandler.h"
 #include "readmarkermodel.h"
+#include "threadmodel.h"
 
 class ReactionModel;
 
@@ -55,8 +56,8 @@ public:
 
         ContentModelRole, /**< The MessageContentModel for the event. */
 
-        IsThreadedRole,
-        ThreadRootRole,
+        IsThreadedRole, /**< Whether the message is in a thread. */
+        ThreadRootRole, /**< The Matrix ID of the thread root message, if any . */
 
         ShowSectionRole, /**< Whether the section header should be shown. */
 
@@ -105,6 +106,8 @@ public:
      */
     Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
 
+    Q_INVOKABLE ThreadModel *threadModelForRootId(const QString &threadRootId) const;
+
 protected:
     bool event(QEvent *event) override;
 
@@ -120,6 +123,7 @@ private:
     std::map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
     std::map<QString, std::unique_ptr<MessageContentModel>> m_contentModels;
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
+    QMap<QString, QSharedPointer<ThreadModel>> m_threadModels;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     [[nodiscard]] int timelineBaseIndex() const;

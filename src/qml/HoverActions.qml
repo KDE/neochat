@@ -104,6 +104,7 @@ QQC2.Control {
                     onTriggered: {
                         root.currentRoom.editCache.editId = root.delegate.eventId;
                         root.currentRoom.mainCache.replyId = "";
+                        root.currentRoom.mainCache.threadId = "";
                     }
                 },
                 Kirigami.Action {
@@ -113,6 +114,7 @@ QQC2.Control {
                     onTriggered: {
                         root.currentRoom.mainCache.replyId = root.delegate.eventId;
                         root.currentRoom.editCache.editId = "";
+                        root.currentRoom.mainCache.threadId = "";
                         root.focusChatBar();
                     }
                 },
@@ -121,7 +123,7 @@ QQC2.Control {
                     text: i18n("Reply in Thread")
                     icon.name: "dialog-messages"
                     onTriggered: {
-                        root.currentRoom.mainCache.replyId = root.delegate.eventId;
+                        root.currentRoom.mainCache.replyId = "";
                         root.currentRoom.mainCache.threadId = root.delegate.isThreaded ? root.delegate.threadRoot : root.delegate.eventId;
                         root.currentRoom.editCache.editId = "";
                         root.focusChatBar();

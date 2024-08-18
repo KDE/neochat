@@ -64,6 +64,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
 {
     m_mainCache = new ChatBarCache(this);
     m_editCache = new ChatBarCache(this);
+    m_threadCache = new ChatBarCache(this);
 
     connect(connection, &Connection::accountDataChanged, this, &NeoChatRoom::updatePushNotificationState);
     connect(this, &Room::fileTransferCompleted, this, [this] {
@@ -516,9 +517,10 @@ void NeoChatRoom::postMessage(const QString &rawText,
                               MessageEventType type,
                               const QString &replyEventId,
                               const QString &relateToEventId,
-                              const QString &threadRootId)
+                              const QString &threadRootId,
+                              const QString &fallbackId)
 {
-    postHtmlMessage(rawText, text, type, replyEventId, relateToEventId, threadRootId);
+    postHtmlMessage(rawText, text, type, replyEventId, relateToEventId, threadRootId, fallbackId);
 }
 
 void NeoChatRoom::postHtmlMessage(const QString &text,
@@ -526,7 +528,8 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
                                   MessageEventType type,
                                   const QString &replyEventId,
                                   const QString &relateToEventId,
-                                  const QString &threadRootId)
+                                  const QString &threadRootId,
+                                  const QString &fallbackId)
 {
     bool isReply = !replyEventId.isEmpty();
     bool isEdit = !relateToEventId.isEmpty();
@@ -537,9 +540,21 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
     }
 
     if (isThread) {
-        EventHandler eventHandler(this, &**replyIt);
+        bool isFallingBack = !fallbackId.isEmpty();
+        QString replyEventId = isFallingBack ? fallbackId : QString();
+        if (isReply) {
+            EventHandler eventHandler(this, &**replyIt);
 
-        const bool isFallingBack = !eventHandler.isThreaded();
+            isFallingBack = false;
+            replyEventId = eventHandler.getId();
+        }
+
+        // If we are not replying and there is no fallback ID it means a new thread
+        // is being created.
+        if (!isFallingBack && !isReply) {
+            isFallingBack = true;
+            replyEventId = threadRootId;
+        }
 
         // clang-format off
         QJsonObject json{
@@ -1530,6 +1545,11 @@ ChatBarCache *NeoChatRoom::mainCache() const
 ChatBarCache *NeoChatRoom::editCache() const
 {
     return m_editCache;
+}
+
+ChatBarCache *NeoChatRoom::threadCache() const
+{
+    return m_threadCache;
 }
 
 void NeoChatRoom::replyLastMessage()

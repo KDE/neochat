@@ -396,6 +396,7 @@ QQC2.Control {
             root.currentRoom.markAllMessagesAsRead();
             textField.clear();
             _private.chatBarCache.replyId = "";
+            _private.chatBarCache.threadId = "";
             messageSent();
         }
 

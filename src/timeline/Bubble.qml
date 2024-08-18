@@ -49,7 +49,7 @@ QQC2.Control {
     /**
      * @brief The model to visualise the content of the message.
      */
-    required property MessageContentModel contentModel
+    required property var contentModel
 
     /**
      * @brief The ActionsHandler object to use.

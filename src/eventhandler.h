@@ -214,8 +214,12 @@ public:
 
     /**
      * @brief Whether the event is a reply to another in the timeline.
+     *
+     * @param showFallbacks whether message that have is_falling_back set true should
+     *                      show the fallback reply. Leave true for non-threaded
+     *                      timelines.
      */
-    bool hasReply() const;
+    bool hasReply(bool showFallbacks = true) const;
 
     /**
      * @brief Return the Matrix ID of the event replied to.

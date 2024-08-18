@@ -87,8 +87,14 @@ TimelineDelegate {
      */
     required property bool showReadMarkers
 
+    /**
+     * @brief Whether the message in a thread.
+     */
     required property bool isThreaded
 
+    /**
+     * @brief The Matrix ID of the root message in the thread, if any.
+     */
     required property string threadRoot
 
     /**
@@ -282,7 +288,13 @@ TimelineDelegate {
 
                 author: root.author
 
-                contentModel: root.contentModel
+                // HACK: This is stupid but seemingly QConcatenateTablesProxyModel
+                // can't be passed as a model role, always returning null.
+                contentModel: if (root.isThreaded && NeoChatConfig.threads) {
+                   return RoomManager.timelineModel.messageEventModel.threadModelForRootId(root.threadRoot);
+                } else {
+                   return root.contentModel;
+                }
                 actionsHandler: root.ListView.view?.actionsHandler ?? null
                 timeline: root.ListView.view
 

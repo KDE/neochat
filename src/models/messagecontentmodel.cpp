@@ -75,7 +75,10 @@ void MessageContentModel::initializeModel()
     });
 
     if (m_event == nullptr) {
-        m_room->downloadEventFromServer(m_eventId);
+        m_room->getEvent(m_eventId);
+        if (m_event == nullptr) {
+            m_room->downloadEventFromServer(m_eventId);
+        }
     }
 
     connect(m_room, &NeoChatRoom::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
@@ -148,6 +151,11 @@ void MessageContentModel::initializeModel()
         }
     });
 
+    connect(NeoChatConfig::self(), &NeoChatConfig::ThreadsChanged, this, [this]() {
+        updateReplyModel();
+        resetModel();
+    });
+
     if (m_event != nullptr) {
         updateReplyModel();
     }
@@ -168,6 +176,9 @@ void MessageContentModel::intiializeEvent(const Quotient::RoomEvent *event)
     // a pending event may not previously have had an event ID so update.
     if (m_eventId.isEmpty()) {
         m_eventId = m_event->id();
+        if (m_eventId.isEmpty()) {
+            m_eventId = m_event->transactionId();
+        }
     }
 
     auto senderId = m_event->senderId();
@@ -417,12 +428,19 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 
 void MessageContentModel::updateReplyModel()
 {
-    if (m_event == nullptr || m_replyModel != nullptr || m_isReply) {
+    if (m_event == nullptr || m_isReply) {
         return;
     }
 
     EventHandler eventHandler(m_room, m_event.get());
-    if (!eventHandler.hasReply()) {
+    if (!eventHandler.hasReply() || (eventHandler.isThreaded() && NeoChatConfig::self()->threads())) {
+        if (m_replyModel) {
+            delete m_replyModel;
+        }
+        return;
+    }
+
+    if (m_replyModel != nullptr) {
         return;
     }
 
