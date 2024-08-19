@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "reactionmodel.h"
-#include "neochatroom.h"
 
 #include <QDebug>
 #include <QFont>
@@ -14,8 +13,6 @@
 #endif
 
 #include <KLocalizedString>
-
-#include <Quotient/roommember.h>
 
 ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, NeoChatRoom *room)
     : QAbstractListModel(nullptr)

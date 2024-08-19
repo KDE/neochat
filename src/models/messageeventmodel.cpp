@@ -22,15 +22,9 @@
 #include "enums/delegatetype.h"
 #include "eventhandler.h"
 #include "events/pollevent.h"
-#include "linkpreviewer.h"
-#include "messagecontentmodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/reactionmodel.h"
-#include "neochatroom.h"
-#include "neochatroommember.h"
-#include "readmarkermodel.h"
 #include "texthandler.h"
-#include "threadmodel.h"
 
 using namespace Quotient;
 

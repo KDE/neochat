@@ -7,7 +7,6 @@
 #include <QTcpSocket>
 #include <QThread>
 
-#include <Quotient/csapi/registration.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 

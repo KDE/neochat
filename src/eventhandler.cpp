@@ -7,14 +7,12 @@
 
 #include <KLocalizedString>
 
-#include <Quotient/eventitem.h>
 #include <Quotient/events/encryptionevent.h>
 #include <Quotient/events/reactionevent.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roomavatarevent.h>
 #include <Quotient/events/roomcanonicalaliasevent.h>
 #include <Quotient/events/roommemberevent.h>
-#include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 #include <Quotient/events/simplestateevents.h>
 #include <Quotient/events/stickerevent.h>

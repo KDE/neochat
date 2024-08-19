@@ -11,7 +11,6 @@
 #include <Quotient/jobs/basejob.h>
 
 #include "neochatconfig.h"
-#include "neochatconnection.h"
 
 #include <KLazyLocalizedString>
 

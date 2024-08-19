@@ -7,7 +7,6 @@
 #include "eventhandler.h"
 #include "models/messagecontentmodel.h"
 #include "neochatroom.h"
-#include "neochatroommember.h"
 
 #include <QGuiApplication>
 

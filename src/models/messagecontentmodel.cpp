@@ -3,7 +3,6 @@
 
 #include "messagecontentmodel.h"
 #include "neochatconfig.h"
-#include "neochatroommember.h"
 
 #include <QImageReader>
 
@@ -20,10 +19,7 @@
 #endif
 
 #include "chatbarcache.h"
-#include "enums/messagecomponenttype.h"
-#include "eventhandler.h"
 #include "filetype.h"
-#include "itinerarymodel.h"
 #include "linkpreviewer.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"

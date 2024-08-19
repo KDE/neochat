@@ -13,13 +13,11 @@
 
 #include <signal.h>
 
-#include <Quotient/accountregistry.h>
 #include <Quotient/csapi/notifications.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
 #include "neochatconfig.h"
-#include "neochatconnection.h"
 #include "neochatroom.h"
 #include "notificationsmanager.h"
 #include "proxycontroller.h"

@@ -7,7 +7,6 @@
 
 #include <Quotient/avatar.h>
 #include <Quotient/events/roompowerlevelsevent.h>
-#include <Quotient/room.h>
 
 #include "enums/powerlevel.h"
 #include "neochatroom.h"

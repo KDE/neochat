@@ -6,7 +6,6 @@
 #include <Quotient/converters.h>
 #include <Quotient/csapi/definitions/auth_data.h>
 #include <Quotient/csapi/definitions/request_msisdn_validation.h>
-#include <Quotient/jobs/basejob.h>
 
 #include "jobs/neochatadd3pidjob.h"
 #include "neochatconnection.h"

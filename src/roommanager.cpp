@@ -6,12 +6,9 @@
 
 #include "chatbarcache.h"
 #include "controller.h"
-#include "eventhandler.h"
-#include "models/timelinemodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include "neochatroommember.h"
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 

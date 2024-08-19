@@ -3,7 +3,6 @@
 
 #include "threadmodel.h"
 
-#include <Quotient/csapi/relations.h>
 #include <Quotient/events/event.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/basejob.h>
@@ -11,7 +10,6 @@
 #include <memory>
 
 #include "eventhandler.h"
-#include "messagecontentmodel.h"
 #include "neochatroom.h"
 
 ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)

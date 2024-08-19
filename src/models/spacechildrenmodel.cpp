@@ -7,7 +7,6 @@
 #include <Quotient/room.h>
 
 #include "neochatconnection.h"
-#include "neochatroom.h"
 
 SpaceChildrenModel::SpaceChildrenModel(QObject *parent)
     : QAbstractItemModel(parent)
