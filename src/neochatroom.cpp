@@ -303,10 +303,16 @@ void NeoChatRoom::acceptInvitation()
 
 void NeoChatRoom::forget()
 {
-    if (const auto &predecessor = dynamic_cast<NeoChatRoom *>(this->predecessor(JoinState::Join))) {
-        predecessor->forget();
+    QStringList roomIds{id()};
+
+    NeoChatRoom *predecessor = this;
+    while (predecessor = dynamic_cast<NeoChatRoom *>(predecessor->predecessor(JoinState::Join)), predecessor && !roomIds.contains(predecessor->id())) {
+        roomIds += predecessor->id();
     }
-    connection()->forgetRoom(id());
+
+    for (const auto &id : roomIds) {
+        connection()->forgetRoom(id);
+    }
 }
 
 void NeoChatRoom::sendTypingNotification(bool isTyping)
