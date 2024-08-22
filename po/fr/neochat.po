@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-19 00:39+0000\n"
-"PO-Revision-Date: 2024-07-08 11:40+0200\n"
+"POT-Creation-Date: 2024-08-22 00:39+0000\n"
+"PO-Revision-Date: 2024-08-16 14:30+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -86,7 +86,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Annuler la réponse"
 
-#: src/controller.cpp:132
+#: src/controller.cpp:130
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -94,49 +94,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Réception de notifications de nouveaux messages"
 
-#: src/controller.cpp:211
+#: src/controller.cpp:209
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Erreur du réseau : %1"
 
-#: src/controller.cpp:233
+#: src/controller.cpp:231
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Il a été impossible de trouver le jeton d'accès."
 
-#: src/controller.cpp:233
+#: src/controller.cpp:231
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Peut-être a-t-il été supprimé ?"
 
-#: src/controller.cpp:237
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "L'accès au trousseau de clés a été refusé."
 
-#: src/controller.cpp:237
+#: src/controller.cpp:235
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Veuillez autoriser NeoChat à lire le jeton d'accès."
 
-#: src/controller.cpp:240
+#: src/controller.cpp:238
 #, kde-format
 msgid "No keychain available."
 msgstr "Aucun trousseau de clés disponible."
 
-#: src/controller.cpp:240
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Veuillez installer un trousseau de clés, par exemple, KWallet ou le "
 "trousseau de clés de GNOME sous Linux."
 
-#: src/controller.cpp:243
+#: src/controller.cpp:241
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Lecture impossible du jeton d'accès"
 
-#: src/controller.cpp:339
+#: src/controller.cpp:337
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Réception des notifications"
@@ -365,7 +365,7 @@ msgid "Custom"
 msgstr "Personnalisé"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:114
+#: src/models/userlistmodel.cpp:113
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -373,345 +373,345 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:297 src/eventhandler.cpp:505
-#: src/models/messagecontentmodel.cpp:247 src/models/messageeventmodel.cpp:446
+#: src/eventhandler.cpp:295 src/eventhandler.cpp:503
+#: src/models/messagecontentmodel.cpp:243 src/models/messageeventmodel.cpp:440
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ce message a été supprimé]</i>"
 
-#: src/eventhandler.cpp:297 src/models/messagecontentmodel.cpp:248
-#: src/models/messageeventmodel.cpp:447
+#: src/eventhandler.cpp:295 src/models/messagecontentmodel.cpp:244
+#: src/models/messageeventmodel.cpp:441
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Ce message a été supprimé : %1]</i>"
 
-#: src/eventhandler.cpp:331
+#: src/eventhandler.cpp:329
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "Ré-invité %1 dans le salon"
 
-#: src/eventhandler.cpp:333
+#: src/eventhandler.cpp:331
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr " : %1"
 
-#: src/eventhandler.cpp:342 src/eventhandler.cpp:529
+#: src/eventhandler.cpp:340 src/eventhandler.cpp:527
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "a rejoint le salon (répété)"
 
-#: src/eventhandler.cpp:344
+#: src/eventhandler.cpp:342
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 invité dans le salon"
 
-#: src/eventhandler.cpp:344 src/eventhandler.cpp:531
+#: src/eventhandler.cpp:342 src/eventhandler.cpp:529
 #, kde-format
 msgid "joined the room"
 msgstr "a rejoint le salon"
 
-#: src/eventhandler.cpp:348
+#: src/eventhandler.cpp:346
 #, kde-format
 msgid ": %1"
 msgstr " : %1"
 
-#: src/eventhandler.cpp:355 src/eventhandler.cpp:539
+#: src/eventhandler.cpp:353 src/eventhandler.cpp:537
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "a effacé leur nom d'affichage"
 
-#: src/eventhandler.cpp:358
+#: src/eventhandler.cpp:356
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "a modifié leur nom d'affichage en %1"
 
-#: src/eventhandler.cpp:364 src/eventhandler.cpp:546
+#: src/eventhandler.cpp:362 src/eventhandler.cpp:544
 #, kde-format
 msgid " and "
 msgstr "et"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:365 src/eventhandler.cpp:547
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "a effacé leur avatar"
 
-#: src/eventhandler.cpp:369 src/eventhandler.cpp:551
+#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
 #, kde-format
 msgid "set an avatar"
 msgstr "Définir un avatar"
 
-#: src/eventhandler.cpp:371 src/eventhandler.cpp:553
+#: src/eventhandler.cpp:369 src/eventhandler.cpp:551
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "a mis à jour leur avatar"
 
-#: src/eventhandler.cpp:375 src/eventhandler.cpp:557
+#: src/eventhandler.cpp:373 src/eventhandler.cpp:555
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "ne rien modifier"
 
-#: src/eventhandler.cpp:381
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "a retiré l'invitation de %1"
 
-#: src/eventhandler.cpp:381 src/eventhandler.cpp:563
+#: src/eventhandler.cpp:379 src/eventhandler.cpp:561
 #, kde-format
 msgid "rejected the invitation"
 msgstr "Invitation rejetée"
 
-#: src/eventhandler.cpp:385
+#: src/eventhandler.cpp:383
 #, kde-format
 msgid "unbanned %1"
 msgstr "ré-intégré %1"
 
-#: src/eventhandler.cpp:385 src/eventhandler.cpp:567
+#: src/eventhandler.cpp:383 src/eventhandler.cpp:565
 #, kde-format
 msgid "self-unbanned"
 msgstr "Auto-banni"
 
-#: src/eventhandler.cpp:388
+#: src/eventhandler.cpp:386
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "a déclaré %1 en dehors du salon : %2"
 
-#: src/eventhandler.cpp:389 src/eventhandler.cpp:569
+#: src/eventhandler.cpp:387 src/eventhandler.cpp:567
 #, kde-format
 msgid "left the room"
 msgstr "quitté le salon"
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:391
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "a banni %1 du salon"
 
-#: src/eventhandler.cpp:395
+#: src/eventhandler.cpp:393
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "a banni %1 du salon : %2"
 
-#: src/eventhandler.cpp:398 src/eventhandler.cpp:574
+#: src/eventhandler.cpp:396 src/eventhandler.cpp:572
 #, kde-format
 msgid "self-banned from the room"
 msgstr "auto-banni du salon"
 
-#: src/eventhandler.cpp:402 src/eventhandler.cpp:577
+#: src/eventhandler.cpp:400 src/eventhandler.cpp:575
 #, kde-format
 msgid "requested an invite"
 msgstr "Nécessite une invitation."
 
-#: src/eventhandler.cpp:402
+#: src/eventhandler.cpp:400
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "A demandé une invitation avec le motif : %1"
 
-#: src/eventhandler.cpp:406 src/eventhandler.cpp:581
+#: src/eventhandler.cpp:404 src/eventhandler.cpp:579
 #, kde-format
 msgid "made something unknown"
 msgstr "a fait quelque chose d'inconnu"
 
-#: src/eventhandler.cpp:409 src/eventhandler.cpp:584
+#: src/eventhandler.cpp:407 src/eventhandler.cpp:582
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "a effacé l'alias principal du salon"
 
-#: src/eventhandler.cpp:409
+#: src/eventhandler.cpp:407
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "a défini l'alias principal du salon à : %1"
 
-#: src/eventhandler.cpp:412 src/eventhandler.cpp:587
+#: src/eventhandler.cpp:410 src/eventhandler.cpp:585
 #, kde-format
 msgid "cleared the room name"
 msgstr "nom du salon effacé"
 
-#: src/eventhandler.cpp:412
+#: src/eventhandler.cpp:410
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "Définir le nom du salon à : %1"
 
-#: src/eventhandler.cpp:415 src/eventhandler.cpp:590
+#: src/eventhandler.cpp:413 src/eventhandler.cpp:588
 #, kde-format
 msgid "cleared the topic"
 msgstr "effacé le sujet"
 
-#: src/eventhandler.cpp:416
+#: src/eventhandler.cpp:414
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "définir le sujet à : %1"
 
-#: src/eventhandler.cpp:422 src/eventhandler.cpp:593
+#: src/eventhandler.cpp:420 src/eventhandler.cpp:591
 #, kde-format
 msgid "changed the room avatar"
 msgstr "L'avatar du salon changé"
 
-#: src/eventhandler.cpp:425 src/eventhandler.cpp:596
+#: src/eventhandler.cpp:423 src/eventhandler.cpp:594
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "a activé le chiffrement de bout en bout"
 
-#: src/eventhandler.cpp:429
+#: src/eventhandler.cpp:427
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "a mis à jour le salon vers la version %1"
 
-#: src/eventhandler.cpp:430
+#: src/eventhandler.cpp:428
 #, kde-format
 msgid "created the room, version %1"
 msgstr "a créé le salon en version %1"
 
-#: src/eventhandler.cpp:433 src/eventhandler.cpp:602
+#: src/eventhandler.cpp:431 src/eventhandler.cpp:600
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "Modification des privilèges d'accès pour ce salon."
 
-#: src/eventhandler.cpp:439 src/eventhandler.cpp:608
+#: src/eventhandler.cpp:437 src/eventhandler.cpp:606
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "Modification des listes de contrôle d'accès au serveur pour ce salon."
 
-#: src/eventhandler.cpp:443
+#: src/eventhandler.cpp:441
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "composant graphique %1 ajouté"
 
-#: src/eventhandler.cpp:446
+#: src/eventhandler.cpp:444
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "composant graphique %1 supprimé"
 
-#: src/eventhandler.cpp:448
+#: src/eventhandler.cpp:446
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "composant graphique %1 configuré"
 
-#: src/eventhandler.cpp:451
+#: src/eventhandler.cpp:449
 #, kde-format
 msgid "updated %1 state"
 msgstr "État mis à jour de %1"
 
-#: src/eventhandler.cpp:452
+#: src/eventhandler.cpp:450
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "État mis à jour de %1 vers %2"
 
-#: src/eventhandler.cpp:457 src/eventhandler.cpp:626
+#: src/eventhandler.cpp:455 src/eventhandler.cpp:624
 #, kde-format
 msgid "Unknown event"
 msgstr "Évènement inconnu"
 
-#: src/eventhandler.cpp:472
+#: src/eventhandler.cpp:470
 #, kde-format
 msgid "a file"
 msgstr "un fichier"
 
-#: src/eventhandler.cpp:512
+#: src/eventhandler.cpp:510
 #, kde-format
 msgid "sent a message"
 msgstr "Envoyer un message"
 
-#: src/eventhandler.cpp:516
+#: src/eventhandler.cpp:514
 #, kde-format
 msgid "sent a sticker"
 msgstr "a envoyé un autocollant"
 
-#: src/eventhandler.cpp:522
+#: src/eventhandler.cpp:520
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "a ré-invité une personne dans le salon"
 
-#: src/eventhandler.cpp:531
+#: src/eventhandler.cpp:529
 #, kde-format
 msgid "invited someone to the room"
 msgstr "a invité une personne dans le salon"
 
-#: src/eventhandler.cpp:541
+#: src/eventhandler.cpp:539
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "a modifié leur nom d'affichage"
 
-#: src/eventhandler.cpp:563
+#: src/eventhandler.cpp:561
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "a retiré l'invitation d'un utilisateur"
 
-#: src/eventhandler.cpp:567
+#: src/eventhandler.cpp:565
 #, kde-format
 msgid "unbanned a user"
 msgstr "ré-intégré un utilisateur"
 
-#: src/eventhandler.cpp:569
+#: src/eventhandler.cpp:567
 #, kde-format
 msgid "put a user out of the room"
 msgstr "a expulsé un utilisateur du salon"
 
-#: src/eventhandler.cpp:572
+#: src/eventhandler.cpp:570
 #, kde-format
 msgid "banned a user from the room"
 msgstr "a banni un utilisateur du salon"
 
-#: src/eventhandler.cpp:584
+#: src/eventhandler.cpp:582
 #, kde-format
 msgid "set the room main alias"
 msgstr "a défini l'alias principal du salon"
 
-#: src/eventhandler.cpp:587
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "set the room name"
 msgstr "définir le nom du salon"
 
-#: src/eventhandler.cpp:590
+#: src/eventhandler.cpp:588
 #, kde-format
 msgid "set the topic"
 msgstr "définir le sujet"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:597
 #, kde-format
 msgid "upgraded the room version"
 msgstr "a mis à jour la version du salon"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:597
 #, kde-format
 msgid "created the room"
 msgstr "a créé le salon"
 
-#: src/eventhandler.cpp:605
+#: src/eventhandler.cpp:603
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "Balise de localisation en direct envoyée"
 
-#: src/eventhandler.cpp:612
+#: src/eventhandler.cpp:610
 #, kde-format
 msgid "added a widget"
 msgstr "composant graphique ajouté"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:613
 #, kde-format
 msgid "removed a widget"
 msgstr "composant graphique supprimé"
 
-#: src/eventhandler.cpp:617
+#: src/eventhandler.cpp:615
 #, kde-format
 msgid "configured a widget"
 msgstr "composant graphique configuré"
 
-#: src/eventhandler.cpp:620
+#: src/eventhandler.cpp:618
 #, kde-format
 msgid "updated the state"
 msgstr "État mis à jour"
 
-#: src/eventhandler.cpp:624
+#: src/eventhandler.cpp:622
 #, kde-format
 msgid "started a poll"
 msgstr "a démarré un vote"
@@ -1020,7 +1020,7 @@ msgstr "Alexey Rusakov"
 #: src/main.cpp:155
 #, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "Mainteneur de la bibliothèque « libQuotient »"
+msgstr "Mainteneur de la bibliothèque « libquotient »"
 
 #: src/main.cpp:156
 #, kde-format
@@ -1054,7 +1054,7 @@ msgstr "Un client pour le protocole de communications  Matrix »"
 #: src/main.cpp:194
 #, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "Prend en charge le thème d'URL « matrix : »"
+msgstr "Prend en charge le thème d'URL « Matrix : »"
 
 #: src/main.cpp:195
 #, kde-format
@@ -1302,7 +1302,7 @@ msgstr "Reprendre en compte l'utilisateur donné"
 
 #: src/models/actionsmodel.cpp:423
 msgid "<reaction text>"
-msgstr "<reaction text>"
+msgstr "<texte de réponse>"
 
 #: src/models/actionsmodel.cpp:424
 msgid "React to the message with the given text"
@@ -1472,13 +1472,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Émoticônes personnelles"
 
-#: src/models/messagecontentmodel.cpp:240
+#: src/models/messagecontentmodel.cpp:236
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Chargement de la réponse..."
 
-#: src/models/messagefiltermodel.cpp:164
+#: src/models/messagefiltermodel.cpp:162
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
@@ -1486,7 +1486,7 @@ msgid_plural " %1 %2 times"
 msgstr[0] " %1"
 msgstr[1] " %1 %2 fois"
 
-#: src/models/messagefiltermodel.cpp:168
+#: src/models/messagefiltermodel.cpp:166
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -1494,25 +1494,25 @@ msgid_plural " %1 users "
 msgstr[0] " utilisateur %1 "
 msgstr[1] " %1 utilisateurs "
 
-#: src/models/messagefiltermodel.cpp:177
+#: src/models/messagefiltermodel.cpp:175
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:181
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " ou "
 
-#: src/models/messagefiltermodel.cpp:181
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr "et"
 
-#: src/models/messagefiltermodel.cpp:187
+#: src/models/messagefiltermodel.cpp:185
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -1648,78 +1648,78 @@ msgstr ""
 "Ceci est utilisé pour tous les évènements de messages n'ayant pas leur "
 "propre entrée ici."
 
-#: src/models/pushrulemodel.cpp:20
+#: src/models/pushrulemodel.cpp:19
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "Activer les notifications pour ce compte"
 
-#: src/models/pushrulemodel.cpp:21
+#: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
 msgstr "Messages dans des forums de discussions en tête à tête"
 
-#: src/models/pushrulemodel.cpp:22
+#: src/models/pushrulemodel.cpp:21
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
 msgstr "Messages chiffrés dans des forums de discussions en tête à tête"
 
-#: src/models/pushrulemodel.cpp:23
+#: src/models/pushrulemodel.cpp:22
 msgctxt "Notification type"
 msgid "Messages in group chats"
 msgstr "Messages dans des forums de discussions de groupe"
 
-#: src/models/pushrulemodel.cpp:24
+#: src/models/pushrulemodel.cpp:23
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
 msgstr "Messages dans des forums chiffrés de discussions de groupe"
 
-#: src/models/pushrulemodel.cpp:25
+#: src/models/pushrulemodel.cpp:24
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "Messages de mise à jour de salon"
 
-#: src/models/pushrulemodel.cpp:26
+#: src/models/pushrulemodel.cpp:25
 msgctxt "Notification type"
 msgid "Messages containing my display name"
 msgstr "Messages contenant mon nom affiché"
 
-#: src/models/pushrulemodel.cpp:27
+#: src/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
 msgstr "Messages mentionnant mon identifiant d'utilisateur Matrix"
 
-#: src/models/pushrulemodel.cpp:28
+#: src/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Messages which mention a room"
 msgstr "Messages mentionnant un salon"
 
-#: src/models/pushrulemodel.cpp:29
+#: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
 msgstr "Messages contenant la partie locale de mon identifiant Matrix"
 
-#: src/models/pushrulemodel.cpp:30
+#: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
 msgstr "Notifications pour la totalité des salons (@room)"
 
-#: src/models/pushrulemodel.cpp:31
+#: src/models/pushrulemodel.cpp:30
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "Invitations pour un salon"
 
-#: src/models/pushrulemodel.cpp:32
+#: src/models/pushrulemodel.cpp:31
 msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Envoyer une invitation"
 
-#: src/models/reactionmodel.cpp:69
+#: src/models/reactionmodel.cpp:66
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " et "
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:73
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1727,7 +1727,7 @@ msgid_plural " and %1 others"
 msgstr[0] " et %1 autre"
 msgstr[1] " et %1 autres"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:77
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1754,39 +1754,39 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:86
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "File too large to download."
 msgstr "Fichier trop volumineux pour être téléchargé"
 
-#: src/neochatconnection.cpp:86
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Veuillez contact votre administrateur du serveur « Matrix » pour de l'aide."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:316
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Aucun serveur d'identité n'a été configuré."
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:347
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Impossible de créer le salon : %1"
 
-#: src/neochatconnection.cpp:385
+#: src/neochatconnection.cpp:384
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer un espace : %1"
 
-#: src/neochatroom.cpp:1418
+#: src/neochatroom.cpp:1424
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport envoyé avec succès."
 
-#: src/neochatroom.cpp:1744 src/neochatroom.cpp:1752
+#: src/neochatroom.cpp:1750 src/neochatroom.cpp:1758
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1857,11 +1857,10 @@ msgid "Open NeoChat"
 msgstr "Ouvrir NeoChat"
 
 #: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR code"
-msgstr "Code simplifié :"
+msgstr "Afficher un code « QR »"
 
 #: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
@@ -2796,6 +2795,8 @@ msgstr "Accepter l'invitation ?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"Vous pouvez refuser les invitations d'utilisateurs inconnus avec les "
+"paramètres « Sécurité »."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -3316,10 +3317,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat est non connecté. Veuillez vérifier votre connexion au réseau."
 
 #: src/qml/RoomPage.qml:158
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgid "Select or join a room to get started"
-msgstr "Rejoindre certains salons pour vous lancer."
+msgstr "Sélectionner ou rejoindre un salon pour démarrer."
 
 #: src/qml/RoomPage.qml:265
 #, kde-format
@@ -3979,72 +3979,72 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "La vérification de session a été annulée à cause d'une erreur inconnue."
 
-#: src/registration.cpp:311
+#: src/registration.cpp:310
 #, kde-format
 msgid "No server."
 msgstr "Aucun serveur."
 
-#: src/registration.cpp:313
+#: src/registration.cpp:312
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Vérification de la disponibilité du serveur."
 
-#: src/registration.cpp:315
+#: src/registration.cpp:314
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Ceci n'est pas un serveur valable."
 
-#: src/registration.cpp:317
+#: src/registration.cpp:316
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "L'enregistrement avec ce serveur est désactivé."
 
-#: src/registration.cpp:319
+#: src/registration.cpp:318
 #, kde-format
 msgid "No username."
 msgstr "Aucun nom d'utilisateur."
 
-#: src/registration.cpp:321
+#: src/registration.cpp:320
 #, kde-format
 msgid "Checking username availability."
 msgstr "Vérification de la disponibilité du nom d'utilisateur."
 
-#: src/registration.cpp:323
+#: src/registration.cpp:322
 #, kde-format
 msgid "This username is not available."
 msgstr "Ce nom d'utilisateur est indisponible."
 
-#: src/registration.cpp:325
+#: src/registration.cpp:324
 #, kde-format
 msgid "Continue"
 msgstr "Continuer"
 
-#: src/registration.cpp:327
+#: src/registration.cpp:326
 #, kde-format
 msgid "Working"
 msgstr "De travail"
 
-#: src/roommanager.cpp:138
+#: src/roommanager.cpp:135
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Identifiant Matrix mal formé ou vide"
 
-#: src/roommanager.cpp:138
+#: src/roommanager.cpp:135
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 n'est pas un identifiant Matrix correct"
 
-#: src/roommanager.cpp:345
+#: src/roommanager.cpp:342
 #, kde-format
 msgid "Failed to join room"
 msgstr "Impossible de rejoindre un salon"
 
-#: src/roommanager.cpp:377
+#: src/roommanager.cpp:374
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vous avez demandé à rejoindre « %1 »"
 
-#: src/roommanager.cpp:381
+#: src/roommanager.cpp:378
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Échec de la demande pour rejoindre un salon"
@@ -4065,16 +4065,14 @@ msgid "Remove current avatar"
 msgstr "Supprimer l'avatar courant"
 
 #: src/settings/AccountEditorPage.qml:101
-#, fuzzy, kde-format
-#| msgid "User information"
+#, kde-format
 msgid "User Information"
-msgstr "Informations sur un utilisateur"
+msgstr "Informations sur l'utilisateur"
 
 #: src/settings/AccountEditorPage.qml:106
-#, fuzzy, kde-format
-#| msgid "<display name>"
+#, kde-format
 msgid "Display Name:"
-msgstr "<nom pour affichage>"
+msgstr "Nom d'affichage :"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
@@ -4082,17 +4080,15 @@ msgid "Label:"
 msgstr "Libellé :"
 
 #: src/settings/AccountEditorPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgid "Work"
 msgstr "De travail"
 
 #: src/settings/AccountEditorPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "Lire un code « QR »"
+msgstr "Afficher un code « QR »"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4427,14 +4423,13 @@ msgstr "Étiquettes auto-collantes et émoticônes"
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
-msgstr ""
+msgstr "Exporter des clés"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
-msgstr "Mot de passe :"
+msgstr "Phrase de passe :"
 
 #: src/settings/ExportKeysDialog.qml:37
 #, kde-format
@@ -4442,26 +4437,26 @@ msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
 msgstr ""
+"Une phrase de passe pour sécuriser votre sauvegarde de clés. Elle ne doit "
+"pas s'agir du mot de passe de votre compte."
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Export keys"
-msgstr ""
+msgstr "Exporter des clés"
 
 #: src/settings/ExportKeysDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys exported successfully"
-msgstr "Rapport envoyé avec succès."
+msgstr "Clés exportées avec succès."
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown error"
-msgstr "Inconnu"
+msgstr "Erreur inconnue"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4565,12 +4560,10 @@ msgid "Ignored Users"
 msgstr "Utilisateurs ignorés"
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Manage ignored users"
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "Gérer les utilisateurs ignorés"
+msgstr "Aucun utilisateur ignoré"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
@@ -4582,34 +4575,31 @@ msgstr "Re-considérer cet utilisateur"
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
-msgstr ""
+msgstr "Importer des clés"
 
 #: src/settings/ImportKeysDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose backup file"
-msgstr "Sélectionner un fichier local"
+msgstr "Sélectionner un fichier de sauvegarde"
 
 #: src/settings/ImportKeysDialog.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Import keys"
-msgstr ""
+msgstr "Importer des clés"
 
 #: src/settings/ImportKeysDialog.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr "Déverrouiller à l'aide de la phrase secrète"
+msgstr "Phrase de passe non valable"
 
 #: src/settings/ImportKeysDialog.qml:70
 #, kde-format
 msgctxt "@info"
 msgid "Invalid key backup data"
-msgstr ""
+msgstr "Données de sauvegarde de clé non valables"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -4726,17 +4716,16 @@ msgid "Security"
 msgstr "Sécurité"
 
 #: src/settings/NeoChatSecurityPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Accept Invitation"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Accepter une invitation"
+msgstr "Invitations"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "Refuser les invitations d'utilisateurs inconnus"
 
 #: src/settings/NeoChatSecurityPage.qml:33
 #, kde-format
@@ -4744,13 +4733,13 @@ msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
 msgstr ""
+"Si cette option est activée, NeoChat rejettera les invitations des "
+"utilisateurs avec lesquels vous ne partagez aucun salon."
 
 #: src/settings/NeoChatSecurityPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgid "Your server does not support this setting."
-msgstr ""
-"Votre serveur ne prend pas en charge la modification de votre mot de passe."
+msgstr "Votre serveur ne prend pas en charge ce paramètre."
 
 #: src/settings/NeoChatSecurityPage.qml:43
 #, kde-format
@@ -4792,32 +4781,28 @@ msgid "Device id"
 msgstr "Identifiant de périphérique"
 
 #: src/settings/NeoChatSecurityPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@title"
 msgid "Encryption Keys"
-msgstr "Clé de chiffrement"
+msgstr "Clés de chiffrement"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Encryption Keys"
-msgstr "Clé de chiffrement"
+msgstr "Importer les clés de chiffrement"
 
 #: src/settings/NeoChatSecurityPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
-msgstr "Rapport envoyé avec succès."
+msgstr "Clés importées avec succès."
 
 #: src/settings/NeoChatSecurityPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Encryption Keys"
-msgstr "Clé de chiffrement"
+msgstr "Exporter les clés de chiffrement"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -5370,27 +5355,23 @@ msgid "Country Code for new phone number"
 msgstr "Code international pour le nouveau numéro de téléphone"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New email address"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
-msgstr "Nouvelle adresse de courriel"
+msgstr "Nouvelle adresse de courriel :"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New phone number"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
-msgstr "Nouveau numéro de téléphone"
+msgstr "Nouveau numéro de téléphone :"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Nous vous avons envoyé un courriel."
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Nous vous avons envoyé un message de texte"
@@ -5403,12 +5384,12 @@ msgstr ""
 "%1. Veuillez suivre les instructions proposées là et ensuite cliquer sur le "
 "bouton ci-dessous."
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:178
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "L'adresse de courriel saisie est non valable."
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:178
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "Le numéro de téléphone saisi est non valable."
@@ -5450,7 +5431,7 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Revenir en arrière"
 
-#: src/threepidbindhelper.cpp:176
+#: src/threepidbindhelper.cpp:175
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
@@ -5458,7 +5439,7 @@ msgstr ""
 "%1. Veuillez suivre les instructions proposées là et ensuite cliquer sur le "
 "bouton ci-dessus."
 
-#: src/threepidbindhelper.cpp:182
+#: src/threepidbindhelper.cpp:181
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5467,7 +5448,7 @@ msgstr ""
 "Le courriel n'a pas été vérifié. Veuillez aller sur celui-ci, suivre les "
 "instructions proposées là et enfin cliquer sur le bouton ci-dessus."
 
-#: src/threepidbindhelper.cpp:183
+#: src/threepidbindhelper.cpp:182
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-19 00:39+0000\n"
+"POT-Creation-Date: 2024-08-22 00:39+0000\n"
 "PO-Revision-Date: 2024-08-01 13:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -90,7 +90,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Yanıtı İptal Et"
 
-#: src/controller.cpp:132
+#: src/controller.cpp:130
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -98,47 +98,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Yeni iletiler için bildirimler alınıyor"
 
-#: src/controller.cpp:211
+#: src/controller.cpp:209
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ağ hatası: %1"
 
-#: src/controller.cpp:233
+#: src/controller.cpp:231
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Erişim jetonu bulunamadı"
 
-#: src/controller.cpp:233
+#: src/controller.cpp:231
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Silinmiş olabilir mi?"
 
-#: src/controller.cpp:237
+#: src/controller.cpp:235
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Anahtar zincirine erişim reddedildi."
 
-#: src/controller.cpp:237
+#: src/controller.cpp:235
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Lütfen NeoChat’in erişim jetonunu okumasına izin verin"
 
-#: src/controller.cpp:240
+#: src/controller.cpp:238
 #, kde-format
 msgid "No keychain available."
 msgstr "Kullanılabilir anahtar zinciri yok."
 
-#: src/controller.cpp:240
+#: src/controller.cpp:238
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Lütfen bir anahtar zinciri kurun; örn. K Cüzdan veya GNOME keyring"
 
-#: src/controller.cpp:243
+#: src/controller.cpp:241
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Erişim jetonu okunamıyor"
 
-#: src/controller.cpp:339
+#: src/controller.cpp:337
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Anında bildirimler alınıyor"
@@ -367,7 +367,7 @@ msgid "Custom"
 msgstr "Özel"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:114
+#: src/models/userlistmodel.cpp:113
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -375,345 +375,345 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:297 src/eventhandler.cpp:505
-#: src/models/messagecontentmodel.cpp:247 src/models/messageeventmodel.cpp:446
+#: src/eventhandler.cpp:295 src/eventhandler.cpp:503
+#: src/models/messagecontentmodel.cpp:243 src/models/messageeventmodel.cpp:440
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ileti silindi]</i>"
 
-#: src/eventhandler.cpp:297 src/models/messagecontentmodel.cpp:248
-#: src/models/messageeventmodel.cpp:447
+#: src/eventhandler.cpp:295 src/models/messagecontentmodel.cpp:244
+#: src/models/messageeventmodel.cpp:441
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Bu ileti silindi: %1]</i>"
 
-#: src/eventhandler.cpp:331
+#: src/eventhandler.cpp:329
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1, odaya yeniden davet edildi"
 
-#: src/eventhandler.cpp:333
+#: src/eventhandler.cpp:331
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:342 src/eventhandler.cpp:529
+#: src/eventhandler.cpp:340 src/eventhandler.cpp:527
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "odaya katıldı (yinelendi)"
 
-#: src/eventhandler.cpp:344
+#: src/eventhandler.cpp:342
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1, odaya davet edildi"
 
-#: src/eventhandler.cpp:344 src/eventhandler.cpp:531
+#: src/eventhandler.cpp:342 src/eventhandler.cpp:529
 #, kde-format
 msgid "joined the room"
 msgstr "odaya katıldı"
 
-#: src/eventhandler.cpp:348
+#: src/eventhandler.cpp:346
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:355 src/eventhandler.cpp:539
+#: src/eventhandler.cpp:353 src/eventhandler.cpp:537
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "görüntü adını sildi"
 
-#: src/eventhandler.cpp:358
+#: src/eventhandler.cpp:356
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "görüntü adını %1 olarak değiştirdi"
 
-#: src/eventhandler.cpp:364 src/eventhandler.cpp:546
+#: src/eventhandler.cpp:362 src/eventhandler.cpp:544
 #, kde-format
 msgid " and "
 msgstr " ve "
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:365 src/eventhandler.cpp:547
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "avatarını sildi"
 
-#: src/eventhandler.cpp:369 src/eventhandler.cpp:551
+#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
 #, kde-format
 msgid "set an avatar"
 msgstr "bir avatar koydu"
 
-#: src/eventhandler.cpp:371 src/eventhandler.cpp:553
+#: src/eventhandler.cpp:369 src/eventhandler.cpp:551
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "avatarını güncelledi"
 
-#: src/eventhandler.cpp:375 src/eventhandler.cpp:557
+#: src/eventhandler.cpp:373 src/eventhandler.cpp:555
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "bir şey değiştirmedi"
 
-#: src/eventhandler.cpp:381
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "%1 kişisinin davetini geri çekti"
 
-#: src/eventhandler.cpp:381 src/eventhandler.cpp:563
+#: src/eventhandler.cpp:379 src/eventhandler.cpp:561
 #, kde-format
 msgid "rejected the invitation"
 msgstr "daveti reddetti"
 
-#: src/eventhandler.cpp:385
+#: src/eventhandler.cpp:383
 #, kde-format
 msgid "unbanned %1"
 msgstr "%1 kişisinin yasağını kaldırdı"
 
-#: src/eventhandler.cpp:385 src/eventhandler.cpp:567
+#: src/eventhandler.cpp:383 src/eventhandler.cpp:565
 #, kde-format
 msgid "self-unbanned"
 msgstr "kendi yasağını kaldırdı"
 
-#: src/eventhandler.cpp:388
+#: src/eventhandler.cpp:386
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "%1 kişisini odadan dışarı çıkardı: %2"
 
-#: src/eventhandler.cpp:389 src/eventhandler.cpp:569
+#: src/eventhandler.cpp:387 src/eventhandler.cpp:567
 #, kde-format
 msgid "left the room"
 msgstr "odadan çıktı"
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:391
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1 kişisini odadan yasakladı"
 
-#: src/eventhandler.cpp:395
+#: src/eventhandler.cpp:393
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1 kişisini odadan yasakladı: %2"
 
-#: src/eventhandler.cpp:398 src/eventhandler.cpp:574
+#: src/eventhandler.cpp:396 src/eventhandler.cpp:572
 #, kde-format
 msgid "self-banned from the room"
 msgstr "kendini yasakladı"
 
-#: src/eventhandler.cpp:402 src/eventhandler.cpp:577
+#: src/eventhandler.cpp:400 src/eventhandler.cpp:575
 #, kde-format
 msgid "requested an invite"
 msgstr "bir davet istedi"
 
-#: src/eventhandler.cpp:402
+#: src/eventhandler.cpp:400
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "şu nedenle bir davet istedi: %1"
 
-#: src/eventhandler.cpp:406 src/eventhandler.cpp:581
+#: src/eventhandler.cpp:404 src/eventhandler.cpp:579
 #, kde-format
 msgid "made something unknown"
 msgstr "bilinmeyen bir şeyler yaptı"
 
-#: src/eventhandler.cpp:409 src/eventhandler.cpp:584
+#: src/eventhandler.cpp:407 src/eventhandler.cpp:582
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "oda ana armasını sildi"
 
-#: src/eventhandler.cpp:409
+#: src/eventhandler.cpp:407
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "oda ana armasını %1 olarak ayarladı"
 
-#: src/eventhandler.cpp:412 src/eventhandler.cpp:587
+#: src/eventhandler.cpp:410 src/eventhandler.cpp:585
 #, kde-format
 msgid "cleared the room name"
 msgstr "oda adını sildi"
 
-#: src/eventhandler.cpp:412
+#: src/eventhandler.cpp:410
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "oda adını %1 olarak ayarladı"
 
-#: src/eventhandler.cpp:415 src/eventhandler.cpp:590
+#: src/eventhandler.cpp:413 src/eventhandler.cpp:588
 #, kde-format
 msgid "cleared the topic"
 msgstr "konuyu sildi"
 
-#: src/eventhandler.cpp:416
+#: src/eventhandler.cpp:414
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "konuyu %1 olarak ayarladı"
 
-#: src/eventhandler.cpp:422 src/eventhandler.cpp:593
+#: src/eventhandler.cpp:420 src/eventhandler.cpp:591
 #, kde-format
 msgid "changed the room avatar"
 msgstr "oda avatarını değiştirdi"
 
-#: src/eventhandler.cpp:425 src/eventhandler.cpp:596
+#: src/eventhandler.cpp:423 src/eventhandler.cpp:594
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "uçtan uca şifrelemeyi etkinleştirdi"
 
-#: src/eventhandler.cpp:429
+#: src/eventhandler.cpp:427
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "odayı %1 sürümüne güncelledi"
 
-#: src/eventhandler.cpp:430
+#: src/eventhandler.cpp:428
 #, kde-format
 msgid "created the room, version %1"
 msgstr "odayı oluşturdu, %1. sürüm"
 
-#: src/eventhandler.cpp:433 src/eventhandler.cpp:602
+#: src/eventhandler.cpp:431 src/eventhandler.cpp:600
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "bu oda için izin düzeylerini değiştirdi"
 
-#: src/eventhandler.cpp:439 src/eventhandler.cpp:608
+#: src/eventhandler.cpp:437 src/eventhandler.cpp:606
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "bu oda için sunucu erişim denetim listelerini değiştirdi"
 
-#: src/eventhandler.cpp:443
+#: src/eventhandler.cpp:441
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "%1 araç takımını ekledi"
 
-#: src/eventhandler.cpp:446
+#: src/eventhandler.cpp:444
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "%1 araç takımını kaldırdı"
 
-#: src/eventhandler.cpp:448
+#: src/eventhandler.cpp:446
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "%1 araç takımını yapılandırdı"
 
-#: src/eventhandler.cpp:451
+#: src/eventhandler.cpp:449
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 durumunu güncelledi"
 
-#: src/eventhandler.cpp:452
+#: src/eventhandler.cpp:450
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2 için %1 durumunu güncelledi"
 
-#: src/eventhandler.cpp:457 src/eventhandler.cpp:626
+#: src/eventhandler.cpp:455 src/eventhandler.cpp:624
 #, kde-format
 msgid "Unknown event"
 msgstr "Bilinmeyen olay"
 
-#: src/eventhandler.cpp:472
+#: src/eventhandler.cpp:470
 #, kde-format
 msgid "a file"
 msgstr "bir dosya"
 
-#: src/eventhandler.cpp:512
+#: src/eventhandler.cpp:510
 #, kde-format
 msgid "sent a message"
 msgstr "bir ileti gönderdi"
 
-#: src/eventhandler.cpp:516
+#: src/eventhandler.cpp:514
 #, kde-format
 msgid "sent a sticker"
 msgstr "bir çıkartma gönderdi"
 
-#: src/eventhandler.cpp:522
+#: src/eventhandler.cpp:520
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "birisini odaya yeniden davet etti"
 
-#: src/eventhandler.cpp:531
+#: src/eventhandler.cpp:529
 #, kde-format
 msgid "invited someone to the room"
 msgstr "birisini odaya davet etti"
 
-#: src/eventhandler.cpp:541
+#: src/eventhandler.cpp:539
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "görüntü adını değiştirdi"
 
-#: src/eventhandler.cpp:563
+#: src/eventhandler.cpp:561
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "bir kullanıcının yanıtını geri çevirdi"
 
-#: src/eventhandler.cpp:567
+#: src/eventhandler.cpp:565
 #, kde-format
 msgid "unbanned a user"
 msgstr "bir kullanıcının yasağını kaldırdı"
 
-#: src/eventhandler.cpp:569
+#: src/eventhandler.cpp:567
 #, kde-format
 msgid "put a user out of the room"
 msgstr "bir kişiyi odadan dışarı çıkardı"
 
-#: src/eventhandler.cpp:572
+#: src/eventhandler.cpp:570
 #, kde-format
 msgid "banned a user from the room"
 msgstr "bir kişiyi odadan yasakladı"
 
-#: src/eventhandler.cpp:584
+#: src/eventhandler.cpp:582
 #, kde-format
 msgid "set the room main alias"
 msgstr "oda ana armasını ayarladı"
 
-#: src/eventhandler.cpp:587
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "set the room name"
 msgstr "oda adını ayarladı"
 
-#: src/eventhandler.cpp:590
+#: src/eventhandler.cpp:588
 #, kde-format
 msgid "set the topic"
 msgstr "konuyu ayarladı"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:597
 #, kde-format
 msgid "upgraded the room version"
 msgstr "oda sürümünü yükseltti"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:597
 #, kde-format
 msgid "created the room"
 msgstr "odayı oluşturdu"
 
-#: src/eventhandler.cpp:605
+#: src/eventhandler.cpp:603
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "canlı konum işareti gönderdi"
 
-#: src/eventhandler.cpp:612
+#: src/eventhandler.cpp:610
 #, kde-format
 msgid "added a widget"
 msgstr "bir araç takımı ekledi"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:613
 #, kde-format
 msgid "removed a widget"
 msgstr "bir araç takımını kaldırdı"
 
-#: src/eventhandler.cpp:617
+#: src/eventhandler.cpp:615
 #, kde-format
 msgid "configured a widget"
 msgstr "bir araç takımını yapılandırdı"
 
-#: src/eventhandler.cpp:620
+#: src/eventhandler.cpp:618
 #, kde-format
 msgid "updated the state"
 msgstr "durumu güncelledi"
 
-#: src/eventhandler.cpp:624
+#: src/eventhandler.cpp:622
 #, kde-format
 msgid "started a poll"
 msgstr "bir anket başlattı"
@@ -1465,13 +1465,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Kendi Emojileriniz"
 
-#: src/models/messagecontentmodel.cpp:240
+#: src/models/messagecontentmodel.cpp:236
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Yanıt yükleniyor"
 
-#: src/models/messagefiltermodel.cpp:164
+#: src/models/messagefiltermodel.cpp:162
 #, kde-format
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
@@ -1479,7 +1479,7 @@ msgid_plural " %1 %2 times"
 msgstr[0] " %1"
 msgstr[1] " %2 kez %1"
 
-#: src/models/messagefiltermodel.cpp:168
+#: src/models/messagefiltermodel.cpp:166
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -1487,25 +1487,25 @@ msgid_plural " %1 users "
 msgstr[0] " %1 kullanıcı "
 msgstr[1] " %1 kullanıcı "
 
-#: src/models/messagefiltermodel.cpp:177
+#: src/models/messagefiltermodel.cpp:175
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/messagefiltermodel.cpp:181
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " veya "
 
-#: src/models/messagefiltermodel.cpp:181
+#: src/models/messagefiltermodel.cpp:179
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " ve "
 
-#: src/models/messagefiltermodel.cpp:187
+#: src/models/messagefiltermodel.cpp:185
 #, kde-format
 msgctxt ""
 "userText (%1) is either a Matrix username if a single user sent all the "
@@ -1637,78 +1637,78 @@ msgid ""
 msgstr ""
 "Bu, burada kendi özel girdisi olmayan tüm ileti olayları için kullanılır"
 
-#: src/models/pushrulemodel.cpp:20
+#: src/models/pushrulemodel.cpp:19
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "Bu hesap için bildirimleri etkinleştir"
 
-#: src/models/pushrulemodel.cpp:21
+#: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
 msgstr "Birebir sohbetlerdeki iletiler"
 
-#: src/models/pushrulemodel.cpp:22
+#: src/models/pushrulemodel.cpp:21
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
 msgstr "Birebir sohbetlerdeki şifreli iletiler"
 
-#: src/models/pushrulemodel.cpp:23
+#: src/models/pushrulemodel.cpp:22
 msgctxt "Notification type"
 msgid "Messages in group chats"
 msgstr "Grup sohbetlerdeki iletiler"
 
-#: src/models/pushrulemodel.cpp:24
+#: src/models/pushrulemodel.cpp:23
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
 msgstr "Şifreli grup sohbetlerindeki iletiler"
 
-#: src/models/pushrulemodel.cpp:25
+#: src/models/pushrulemodel.cpp:24
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "Oda yükseltme iletileri"
 
-#: src/models/pushrulemodel.cpp:26
+#: src/models/pushrulemodel.cpp:25
 msgctxt "Notification type"
 msgid "Messages containing my display name"
 msgstr "Görüntü adımı içeren iletiler"
 
-#: src/models/pushrulemodel.cpp:27
+#: src/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
 msgstr "Matrik kullanıcı kimliğimi belirten iletiler"
 
-#: src/models/pushrulemodel.cpp:28
+#: src/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Messages which mention a room"
 msgstr "Bir odayı belirten iletiler"
 
-#: src/models/pushrulemodel.cpp:29
+#: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
 msgstr "Matrix kimliğimin yerel kısmını içeren iletiler"
 
-#: src/models/pushrulemodel.cpp:30
+#: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
 msgstr "Tüm oda (@oda) bildirimleri"
 
-#: src/models/pushrulemodel.cpp:31
+#: src/models/pushrulemodel.cpp:30
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "Bir odaya olan davetler"
 
-#: src/models/pushrulemodel.cpp:32
+#: src/models/pushrulemodel.cpp:31
 msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Çağrı daveti"
 
-#: src/models/reactionmodel.cpp:69
+#: src/models/reactionmodel.cpp:66
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " ve"
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:73
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1716,7 +1716,7 @@ msgid_plural " and %1 others"
 msgstr[0] " ve %1 başkası"
 msgstr[1] " ve %1 başkası"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:77
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1743,38 +1743,38 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:86
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "File too large to download."
 msgstr "Dosya, indirmek için pek büyük."
 
-#: src/neochatconnection.cpp:86
+#: src/neochatconnection.cpp:85
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Destek için Matrix sunucusu yöneticisine ulaşın."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:316
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Yapılandırılmış kimlik sunucusu yok"
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:347
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Oda oluşturulamadı: %1"
 
-#: src/neochatconnection.cpp:385
+#: src/neochatconnection.cpp:384
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
 
-#: src/neochatroom.cpp:1418
+#: src/neochatroom.cpp:1424
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/neochatroom.cpp:1744 src/neochatroom.cpp:1752
+#: src/neochatroom.cpp:1750 src/neochatroom.cpp:1758
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3947,72 +3947,72 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Oturum doğrulaması, bilinmeyen bir hata yüzünden iptal edildi."
 
-#: src/registration.cpp:311
+#: src/registration.cpp:310
 #, kde-format
 msgid "No server."
 msgstr "Sunucu yok."
 
-#: src/registration.cpp:313
+#: src/registration.cpp:312
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Sunucu kullanılabilirliği denetleniyor."
 
-#: src/registration.cpp:315
+#: src/registration.cpp:314
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Bu, geçerli bir sunucu değil."
 
-#: src/registration.cpp:317
+#: src/registration.cpp:316
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Bu sunucu için kayıt işlemi devre dışı."
 
-#: src/registration.cpp:319
+#: src/registration.cpp:318
 #, kde-format
 msgid "No username."
 msgstr "Kullanıcı adı yok."
 
-#: src/registration.cpp:321
+#: src/registration.cpp:320
 #, kde-format
 msgid "Checking username availability."
 msgstr "Kullanıcı adı kullanılabilirliği denetleniyor."
 
-#: src/registration.cpp:323
+#: src/registration.cpp:322
 #, kde-format
 msgid "This username is not available."
 msgstr "Bu kullanıcı adı kullanılamıyor."
 
-#: src/registration.cpp:325
+#: src/registration.cpp:324
 #, kde-format
 msgid "Continue"
 msgstr "Sürdür"
 
-#: src/registration.cpp:327
+#: src/registration.cpp:326
 #, kde-format
 msgid "Working"
 msgstr "Çalışıyor"
 
-#: src/roommanager.cpp:138
+#: src/roommanager.cpp:135
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Hatalı oluşturulmuş veya boş Matrix kimliği"
 
-#: src/roommanager.cpp:138
+#: src/roommanager.cpp:135
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1, doğru bir Matrix tanımlayıcısı değil"
 
-#: src/roommanager.cpp:345
+#: src/roommanager.cpp:342
 #, kde-format
 msgid "Failed to join room"
 msgstr "Odaya katılamadı"
 
-#: src/roommanager.cpp:377
+#: src/roommanager.cpp:374
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "“%1” odasına katılmak istediniz"
 
-#: src/roommanager.cpp:381
+#: src/roommanager.cpp:378
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Odaya katılma istenemedi"
@@ -5317,12 +5317,12 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Yeni telefon numarası:"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Size bir e-posta gönderdik"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Size bir SMS gönderdik"
@@ -5333,12 +5333,12 @@ msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Oradaki yönergeleri izleyin ve aşağıdaki düğmeye tıklayın"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:178
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "Girilen e-posta geçerli değil"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:179
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:178
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "Girilen telefon numarası geçerli değil"
@@ -5378,13 +5378,13 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Geri"
 
-#: src/threepidbindhelper.cpp:176
+#: src/threepidbindhelper.cpp:175
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
 msgstr "%1. Oradaki yönergeleri izleyin ve yukarıdaki düğmeye tıklayın"
 
-#: src/threepidbindhelper.cpp:182
+#: src/threepidbindhelper.cpp:181
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5393,7 +5393,7 @@ msgstr ""
 "E-posta doğrulanmadı. Postanızı açıp oradaki yönergeleri izleyin ve "
 "sonrasında yukarıdaki düğmeye tıklayın"
 
-#: src/threepidbindhelper.cpp:183
+#: src/threepidbindhelper.cpp:182
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
