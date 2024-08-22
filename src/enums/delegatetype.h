@@ -38,6 +38,8 @@ public:
         ReadMarker, /**< The local user read marker. */
         Loading, /**< A delegate to tell the user more messages are being loaded. */
         TimelineEnd, /**< A delegate to inform that all messages are loaded. */
+        Predecessor, /**< A delegate to show a room predecessor. */
+        Successor, /**< A delegate to show a room successor. */
         Other, /**< Anything that cannot be classified as another type. */
     };
     Q_ENUM(Type);

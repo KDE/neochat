@@ -10,8 +10,10 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         HiddenDelegate.qml
         MessageDelegate.qml
         LoadingDelegate.qml
+        PredecessorDelegate.qml
         ReadMarkerDelegate.qml
         StateDelegate.qml
+        SuccessorDelegate.qml
         TimelineEndDelegate.qml
         Bubble.qml
         AvatarFlow.qml

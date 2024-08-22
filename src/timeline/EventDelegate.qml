@@ -42,6 +42,20 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: DelegateType.Predecessor
+        delegate: PredecessorDelegate {
+            room: root.room
+        }
+    }
+
+    DelegateChoice {
+        roleValue: DelegateType.Successor
+        delegate: SuccessorDelegate {
+            room: root.room
+        }
+    }
+
+    DelegateChoice {
         roleValue: DelegateType.TimelineEnd
         delegate: TimelineEndDelegate {
             room: root.room

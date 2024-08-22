@@ -11,6 +11,57 @@
 #include "neochatroom.h"
 
 /**
+ * @class TimelineBeginningModel
+ *
+ * A model to provide a delegate at the start of the timeline to show upgrades.
+ */
+class TimelineBeginningModel : public QAbstractListModel
+{
+    Q_OBJECT
+    QML_ELEMENT
+
+public:
+    /**
+     * @brief Defines the model roles.
+     */
+    enum Roles {
+        DelegateTypeRole = MessageEventModel::DelegateTypeRole, /**< The delegate type of the message. */
+    };
+    Q_ENUM(Roles)
+
+    explicit TimelineBeginningModel(QObject *parent = nullptr);
+
+    /**
+     * @brief Set the room for the timeline.
+     */
+    void setRoom(NeoChatRoom *room);
+
+    /**
+     * @brief Get the given role value at the given index.
+     *
+     * @sa QAbstractItemModel::data
+     */
+    [[nodiscard]] QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+
+    /**
+     * @brief 1, the answer is always 1.
+     *
+     * @sa QAbstractItemModel::rowCount
+     */
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+
+    /**
+     * @brief Returns a map with DelegateTypeRole it's the only one.
+     *
+     * @sa Roles, QAbstractItemModel::roleNames()
+     */
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+
+private:
+    QPointer<NeoChatRoom> m_room = nullptr;
+};
+
+/**
  * @class TimelineEndModel
  *
  * A model to provide a single delegate to mark the end of the timeline.
@@ -108,5 +159,6 @@ Q_SIGNALS:
 
 private:
     MessageEventModel *m_messageEventModel = nullptr;
+    TimelineBeginningModel *m_timelineBeginningModel = nullptr;
     TimelineEndModel *m_timelineEndModel = nullptr;
 };
