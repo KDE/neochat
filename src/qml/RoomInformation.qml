@@ -197,6 +197,14 @@ QQC2.ScrollView {
         clip: true
         focus: true
 
+        section.property: "powerLevelString"
+        section.delegate: Kirigami.ListSectionHeader {
+            required property string section
+
+            width: ListView.view.width
+            text: section
+        }
+
         delegate: Delegates.RoundedItemDelegate {
             id: userDelegate
 
@@ -230,21 +238,12 @@ QQC2.ScrollView {
 
                     Layout.fillHeight: true
                 }
-
                 QQC2.Label {
                     text: userDelegate.name
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
 
                     Layout.fillWidth: true
-                }
-
-                QQC2.Label {
-                    visible: userDelegate.powerLevel > 0
-
-                    text: userDelegate.powerLevelString
-                    color: Kirigami.Theme.disabledTextColor
-                    textFormat: Text.PlainText
                 }
             }
         }
