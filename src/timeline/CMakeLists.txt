@@ -23,6 +23,7 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         ReplyMessageComponentChooser.qml
         AuthorComponent.qml
         AudioComponent.qml
+        ChatBarComponent.qml
         CodeComponent.qml
         EncryptedComponent.qml
         FileComponent.qml
@@ -40,7 +41,6 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         LiveLocationComponent.qml
         LoadComponent.qml
         LocationComponent.qml
-        MessageEditComponent.qml
         MimeComponent.qml
         PdfPreviewComponent.qml
         PollComponent.qml

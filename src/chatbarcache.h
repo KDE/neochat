@@ -33,7 +33,7 @@ struct Mention {
  * A class to cache data from a chat bar.
  *
  * A chat bar can be anything that allows users to compose or edit message, it doesn't
- * necessarily have to use the ChatBar component, e.g. MessageEditComponent.
+ * necessarily have to use the ChatBar component, e.g. ChatBarComponent.
  *
  * This object is intended to allow the current contents of a chat bar to be cached
  * between different rooms, i.e. there is an expectation that each NeoChatRoom could
@@ -43,7 +43,7 @@ struct Mention {
  *       as it's parent. This is necessary for certain functions which need to get
  *       relevant room information.
  *
- * @sa ChatBar, MessageEditComponent, NeoChatRoom
+ * @sa ChatBar, ChatBarComponent, NeoChatRoom
  */
 class ChatBarCache : public QObject
 {
@@ -164,6 +164,13 @@ public:
 
     QString attachmentPath() const;
     void setAttachmentPath(const QString &attachmentPath);
+
+    /**
+     * @brief Clear all relations in the cache.
+     *
+     * This includes relation ID, thread root ID and attachment path.
+     */
+    Q_INVOKABLE void clearRelations();
 
     /**
      * @brief Retrieve the mentions for the current chat bar text.

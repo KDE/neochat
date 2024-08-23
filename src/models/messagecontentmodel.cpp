@@ -93,6 +93,7 @@ void MessageContentModel::initializeModel()
             if (m_eventId == newEvent->id()) {
                 beginResetModel();
                 intiializeEvent(newEvent);
+                resetContent();
                 endResetModel();
             }
         }

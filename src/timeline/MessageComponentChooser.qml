@@ -206,8 +206,9 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Edit
-        delegate: MessageEditComponent {
+        delegate: ChatBarComponent {
             room: root.room
+            chatBarCache: room.editCache
             actionsHandler: root.actionsHandler
             maxContentWidth: root.maxContentWidth
         }

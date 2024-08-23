@@ -160,6 +160,16 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
 }
 
+void ChatBarCache::clearRelations()
+{
+    const auto oldEventId = std::exchange(m_relationId, QString());
+    m_threadId = QString();
+    m_attachmentPath = QString();
+    Q_EMIT relationIdChanged(oldEventId, m_relationId);
+    Q_EMIT threadIdChanged();
+    Q_EMIT attachmentPathChanged();
+}
+
 QList<Mention> *ChatBarCache::mentions()
 {
     return &m_mentions;

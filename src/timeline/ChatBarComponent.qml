@@ -11,7 +11,7 @@ import org.kde.neochat
 import org.kde.neochat.chatbar
 
 /**
- * @brief A component to show an edit text field for a text message being edited.
+ * @brief A component to show a chat bar in a message bubble.
  */
 QQC2.TextArea {
     id: root
@@ -20,10 +20,12 @@ QQC2.TextArea {
      * @brief The NeoChatRoom the delegate is being displayed in.
      */
     required property NeoChatRoom room
-    onRoomChanged: {
-        _private.chatBarCache = room.editCache;
-        _private.chatBarCache.relationIdChanged.connect(_private.updateEditText());
-    }
+
+    /**
+     * @brief The ChatBarCache to use.
+     */
+    required property ChatBarCache chatBarCache
+    onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
 
     /**
      * @brief The ActionsHandler object to use.
@@ -33,27 +35,28 @@ QQC2.TextArea {
      */
     required property ActionsHandler actionsHandler
 
-    property var minimumHeight: editButtons.height + topPadding + bottomPadding
-    property var preferredWidth: editTextMetrics.advanceWidth + rightPadding + Kirigami.Units.smallSpacing + Kirigami.Units.gridUnit
-
     /**
      * @brief The maximum width that the bubble's content can be.
      */
     property real maxContentWidth: -1
 
     Layout.fillWidth: true
+    Layout.preferredWidth: textMetrics.advanceWidth + rightPadding + Kirigami.Units.smallSpacing + Kirigami.Units.gridUnit
     Layout.maximumWidth: root.maxContentWidth
+    Layout.minimumHeight: chatButtons.height + topPadding + bottomPadding
 
-    Component.onCompleted: _private.updateEditText()
+    Component.onCompleted: _private.updateText()
 
-    rightPadding: editButtons.width + editButtons.anchors.rightMargin * 2
+    topPadding: Kirigami.Units.smallSpacing
+    bottomPadding: Kirigami.Units.smallSpacing
+    rightPadding: chatButtons.width + chatButtons.anchors.rightMargin * 2
 
     color: Kirigami.Theme.textColor
     verticalAlignment: TextEdit.AlignVCenter
     wrapMode: TextEdit.Wrap
 
     onTextChanged: {
-        _private.chatBarCache.text = text;
+        root.chatBarCache.text = text;
     }
 
     Keys.onEnterPressed: {
@@ -62,7 +65,7 @@ QQC2.TextArea {
         } else if (event.modifiers & Qt.ShiftModifier) {
             root.insert(cursorPosition, "\n");
         } else {
-            root.postEdit();
+            _private.post();
         }
     }
     Keys.onReturnPressed: {
@@ -71,7 +74,7 @@ QQC2.TextArea {
         } else if (event.modifiers & Qt.ShiftModifier) {
             root.insert(cursorPosition, "\n");
         } else {
-            root.postEdit();
+            _private.post();
         }
     }
     Keys.onTabPressed: {
@@ -88,11 +91,11 @@ QQC2.TextArea {
     }
 
     /**
-    * This is anchored like this so that control expands properly as the edited
+    * This is anchored like this so that control expands properly as the
     * text grows in length.
     */
     RowLayout {
-        id: editButtons
+        id: chatButtons
         anchors.verticalCenter: root.verticalCenter
         anchors.right: root.right
         anchors.rightMargin: Kirigami.Units.smallSpacing
@@ -100,10 +103,10 @@ QQC2.TextArea {
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
             action: Kirigami.Action {
-                text: i18nc("@action:button", "Confirm edit")
-                icon.name: "checkmark"
+                text: root.chatBarCache.isEditing ? i18nc("@action:button", "Confirm edit") : i18nc("@action:button", "Post message in thread")
+                icon.name: "document-send"
                 onTriggered: {
-                    root.postEdit();
+                    _private.post();
                 }
             }
             QQC2.ToolTip.text: text
@@ -112,10 +115,10 @@ QQC2.TextArea {
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
             action: Kirigami.Action {
-                text: i18nc("@action:button", "Cancel edit")
+                text: i18nc("@action:button", "Cancel")
                 icon.name: "dialog-close"
                 onTriggered: {
-                    _private.chatBarCache.editId = "";
+                    root.chatBarCache.editId = "";
                 }
                 shortcut: "Escape"
             }
@@ -155,30 +158,28 @@ QQC2.TextArea {
     }
 
     TextMetrics {
-        id: editTextMetrics
+        id: textMetrics
         text: root.text
-    }
-
-    function postEdit() {
-        root.actionsHandler.handleMessageEvent(_private.chatBarCache);
-        root.clear();
-        _private.chatBarCache.editId = "";
     }
 
     QtObject {
         id: _private
-        property ChatBarCache chatBarCache
-        onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
 
-        function updateEditText() {
+        function updateText() {
             // This could possibly be undefined due to some esoteric QtQuick issue. Referencing it somewhere in JS is enough.
             documentHandler.document;
             if (chatBarCache?.isEditing && chatBarCache.relationMessage.length > 0) {
                 root.text = chatBarCache.relationMessage;
-                chatBarCache.updateMentions(root.textDocument, documentHandler);
+                root.chatBarCache.updateMentions(root.textDocument, documentHandler);
                 root.forceActiveFocus();
-                root.cursorPosition = root.length;
+                root.cursorPosition = root.text.length;
             }
+        }
+
+        function post() {
+            root.actionsHandler.handleMessageEvent(root.chatBarCache);
+            root.clear();
+            root.chatBarCache.clearRelations();
         }
     }
 }

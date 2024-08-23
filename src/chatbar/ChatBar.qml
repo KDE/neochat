@@ -395,8 +395,7 @@ QQC2.Control {
             repeatTimer.stop();
             root.currentRoom.markAllMessagesAsRead();
             textField.clear();
-            _private.chatBarCache.replyId = "";
-            _private.chatBarCache.threadId = "";
+            _private.chatBarCache.clearRelations();
             messageSent();
         }
 
