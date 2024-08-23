@@ -93,6 +93,12 @@ Video {
     fillMode: VideoOutput.PreserveAspectFit
 
     Component.onDestruction: root.stop()
+    Component.onCompleted: {
+        console.warn("state", root.state)
+        if (NeoChatConfig.hideImages && !Controller.isImageShown(root.eventId)) {
+            root.state = "hidden";
+        }
+    }
 
     states: [
         State {
@@ -167,6 +173,21 @@ Video {
                     root.play();
                 }
             }
+        },
+        State {
+            name: "hidden"
+            PropertyChanges {
+                target: mediaThumbnail
+                visible: false
+            }
+            PropertyChanges {
+                target: videoControls
+                visible: false
+            }
+            PropertyChanges {
+                target: hidden
+                visible: true
+            }
         }
     ]
 
@@ -184,7 +205,7 @@ Video {
         anchors.fill: parent
         visible: false
 
-        source: root.mediaInfo.tempInfo.source
+        source: visible ? root.mediaInfo.tempInfo.source : ""
         fillMode: Image.PreserveAspectFit
     }
 
@@ -222,6 +243,23 @@ Video {
             from: 0
             to: root.fileTransferInfo.total
             value: root.fileTransferInfo.progress
+        }
+    }
+
+    Rectangle {
+        id: hidden
+        anchors.fill: parent
+
+        visible: false
+        color: "#BB000000"
+
+        QQC2.Button {
+            anchors.centerIn: parent
+            text: i18nc("@action:button", "Show Video")
+            onClicked: {
+                root.state = "notDownloaded";
+                Controller.markImageShown(root.eventId);
+            }
         }
     }
 

@@ -439,4 +439,14 @@ void Controller::revertToDefaultConfig()
     config->save();
 }
 
+bool Controller::isImageShown(const QString &eventId)
+{
+    return m_shownImages.contains(eventId);
+}
+
+void Controller::markImageShown(const QString &eventId)
+{
+    m_shownImages.append(eventId);
+}
+
 #include "moc_controller.cpp"

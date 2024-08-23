@@ -116,6 +116,9 @@ public:
      */
     Q_INVOKABLE void revertToDefaultConfig();
 
+    Q_INVOKABLE bool isImageShown(const QString &eventId);
+    Q_INVOKABLE void markImageShown(const QString &eventId);
+
 private:
     explicit Controller(QObject *parent = nullptr);
 
@@ -128,6 +131,7 @@ private:
     QStringList m_accountsLoading;
     QMap<QString, QPointer<NeoChatConnection>> m_connectionsLoading;
     QString m_endpoint;
+    QStringList m_shownImages;
 
 private Q_SLOTS:
     void invokeLogin();

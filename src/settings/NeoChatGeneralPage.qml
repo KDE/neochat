@@ -193,6 +193,23 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
+
+        FormCard.FormDelegateSeparator {
+            above: showAvatarChangeDelegate
+            below: hideImagesDelegate
+        }
+
+        FormCard.FormCheckDelegate {
+            id: hideImagesDelegate
+            text: i18nc("@label:checkbox", "Hide image and video events by default")
+            description: i18nc("@info", "When this option is enabled, images and videos are only shown after a button is clicked.")
+            checked: NeoChatConfig.hideImages
+            enabled: !NeoChatConfig.isHideImagesImmutable
+            onToggled: {
+                NeoChatConfig.hideImages = checked;
+                NeoChatConfig.save();
+            }
+        }
     }
     FormCard.FormHeader {
         title: i18nc("Chat Editor", "Editor")

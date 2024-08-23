@@ -74,7 +74,7 @@ Item {
 
         anchors.fill: parent
 
-        active: !root.mediaInfo.animated
+        active: !root.mediaInfo.animated && !_private.hideImage
         sourceComponent: Image {
             source: root.mediaInfo.source
             sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
@@ -89,7 +89,7 @@ Item {
 
         anchors.fill: parent
 
-        active: root?.mediaInfo.animated ?? false
+        active: (root?.mediaInfo.animated ?? false) && !_private.hideImage
         sourceComponent: AnimatedImage {
             source: root.mediaInfo.source
 
@@ -101,8 +101,8 @@ Item {
 
     Image {
         anchors.fill: parent
-        source: root?.mediaInfo.tempInfo.source ?? ""
-        visible: _private.imageItem.status !== Image.Ready
+        source: visible ? (root?.mediaInfo.tempInfo.source ?? "") : ""
+        visible: _private.imageItem && _private.imageItem.status !== Image.Ready && !_private.hideImage
     }
 
     QQC2.ToolTip.text: root.display
@@ -124,10 +124,22 @@ Item {
             anchors.centerIn: parent
 
             width: parent.width * 0.8
+            visible: !_private.hideImage
 
             from: 0
             to: 1.0
             value: _private.imageItem.progress
+        }
+
+    }
+
+    QQC2.Button {
+        anchors.centerIn: parent
+        text: i18nc("@action:button", "Show Image")
+        visible: _private.hideImage
+        onClicked: {
+            _private.hideImage = false;
+            Controller.markImageShown(root.eventId);
         }
     }
 
@@ -180,5 +192,7 @@ Item {
 
         // The space available for the component after taking away the border
         readonly property real downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
+
+        property bool hideImage: NeoChatConfig.hideImages && !Controller.isImageShown(root.eventId)
     }
 }
