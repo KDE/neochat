@@ -108,6 +108,14 @@ public:
 
     bool csSupported() const;
 
+    /**
+     * @brief Revert all configuration values to their default.
+     *
+     * The parameters along with their defaults are specified in the config file
+     * neochatconfig.kcfg.
+     */
+    Q_INVOKABLE void revertToDefaultConfig();
+
 private:
     explicit Controller(QObject *parent = nullptr);
 

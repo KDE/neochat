@@ -246,4 +246,13 @@ FormCard.FormCardPage {
             });
         }
     }
+    FormCard.FormHeader {
+        title: i18nc("@title", "Default Settings")
+    }
+    FormCard.FormCard {
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "Reset all configuration values to their default")
+            onClicked: Controller.revertToDefaultConfig()
+        }
+    }
 }

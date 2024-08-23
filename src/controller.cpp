@@ -414,4 +414,11 @@ bool Controller::csSupported() const
 #endif
 }
 
+void Controller::revertToDefaultConfig()
+{
+    const auto config = NeoChatConfig::self();
+    config->setDefaults();
+    config->save();
+}
+
 #include "moc_controller.cpp"
