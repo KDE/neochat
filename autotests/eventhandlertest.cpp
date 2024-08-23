@@ -29,8 +29,6 @@ private:
     Connection *connection = nullptr;
     TestUtils::TestRoom *room = nullptr;
 
-    EventHandler emptyHandler = EventHandler(nullptr, nullptr);
-
 private Q_SLOTS:
     void initTestCase();
 
@@ -43,7 +41,6 @@ private Q_SLOTS:
     void time();
     void nullTime();
     void timeString();
-    void nullTimeString();
     void highlighted();
     void nullHighlighted();
     void hidden();
@@ -65,10 +62,6 @@ private Q_SLOTS:
     void nullReplyId();
     void replyAuthor();
     void nullReplyAuthor();
-    void replyBody();
-    void nullReplyBody();
-    void replyMediaInfo();
-    void nullReplyMediaInfo();
     void thread();
     void nullThread();
     void location();
@@ -83,157 +76,136 @@ void EventHandlerTest::initTestCase()
 
 void EventHandlerTest::eventId()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandler.getId(), QStringLiteral("$153456789:example.org"));
+    QCOMPARE(EventHandler::id(room->messageEvents().at(0).get()), QStringLiteral("$153456789:example.org"));
 }
 
 void EventHandlerTest::nullEventId()
 {
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getId called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getId(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "id called with event set to nullptr.");
+    QCOMPARE(EventHandler::id(nullptr), QString());
 }
 
 void EventHandlerTest::authorDisplayName()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(1).get());
-    QCOMPARE(eventHandler.getAuthorDisplayName(), QStringLiteral("before"));
+    QCOMPARE(EventHandler::authorDisplayName(room, room->messageEvents().at(1).get()), QStringLiteral("before"));
 }
 
 void EventHandlerTest::nullAuthorDisplayName()
 {
-    QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getAuthorDisplayName(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "authorDisplayName called with room set to nullptr.");
+    QCOMPARE(EventHandler::authorDisplayName(nullptr, nullptr), QString());
 
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getAuthorDisplayName(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "authorDisplayName called with event set to nullptr.");
+    QCOMPARE(EventHandler::authorDisplayName(room, nullptr), QString());
 }
 
 void EventHandlerTest::singleLineSidplayName()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(11).get());
-    QCOMPARE(eventHandler.singleLineAuthorDisplayname(), QStringLiteral("Look at me I put newlines in my display name"));
+    QCOMPARE(EventHandler::singleLineAuthorDisplayname(room, room->messageEvents().at(11).get()),
+             QStringLiteral("Look at me I put newlines in my display name"));
 }
 
 void EventHandlerTest::nullSingleLineDisplayName()
 {
-    QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.singleLineAuthorDisplayname(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "singleLineAuthorDisplayname called with room set to nullptr.");
+    QCOMPARE(EventHandler::singleLineAuthorDisplayname(nullptr, nullptr), QString());
 
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getAuthorDisplayName called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.singleLineAuthorDisplayname(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "singleLineAuthorDisplayname called with event set to nullptr.");
+    QCOMPARE(EventHandler::singleLineAuthorDisplayname(room, nullptr), QString());
 }
 
 void EventHandlerTest::time()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
+    const auto event = room->messageEvents().at(0).get();
 
-    QCOMPARE(eventHandler.getTime(), QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC));
-    QCOMPARE(eventHandler.getTime(true, QDateTime::fromMSecsSinceEpoch(1234, Qt::UTC)), QDateTime::fromMSecsSinceEpoch(1234, Qt::UTC));
+    QCOMPARE(EventHandler::time(event), QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC));
+    QCOMPARE(EventHandler::time(event, true, QDateTime::fromMSecsSinceEpoch(1234, Qt::UTC)), QDateTime::fromMSecsSinceEpoch(1234, Qt::UTC));
 }
 
 void EventHandlerTest::nullTime()
 {
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getTime called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getTime(), QDateTime());
+    QTest::ignoreMessage(QtWarningMsg, "time called with event set to nullptr.");
+    QCOMPARE(EventHandler::time(nullptr), QDateTime());
 
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
     QTest::ignoreMessage(QtWarningMsg, "a value must be provided for lastUpdated for a pending event.");
-    QCOMPARE(eventHandler.getTime(true), QDateTime());
+    QCOMPARE(EventHandler::time(room->messageEvents().at(0).get(), true), QDateTime());
 }
 
 void EventHandlerTest::timeString()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
+    const auto event = room->messageEvents().at(0).get();
 
     KFormat format;
 
-    QCOMPARE(eventHandler.getTimeString(false),
+    QCOMPARE(EventHandler::timeString(event, false),
              QLocale().toString(QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC).toLocalTime().time(), QLocale::ShortFormat));
-    QCOMPARE(eventHandler.getTimeString(true),
+    QCOMPARE(EventHandler::timeString(event, true),
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC).toLocalTime().date(), QLocale::ShortFormat));
-    QCOMPARE(eventHandler.getTimeString(false, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
+    QCOMPARE(EventHandler::timeString(event, false, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
              QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().time(), QLocale::ShortFormat));
-    QCOMPARE(eventHandler.getTimeString(true, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
+    QCOMPARE(EventHandler::timeString(event, true, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().date(), QLocale::ShortFormat));
-    QCOMPARE(eventHandler.getTimeString(false, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
+    QCOMPARE(EventHandler::timeString(event, false, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
              QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().time(), QLocale::LongFormat));
-    QCOMPARE(eventHandler.getTimeString(true, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
+    QCOMPARE(EventHandler::timeString(event, true, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().date(), QLocale::LongFormat));
-    QCOMPARE(eventHandler.getTimeString(QStringLiteral("hh:mm")), QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC).toString(QStringLiteral("hh:mm")));
-}
-
-void EventHandlerTest::nullTimeString()
-{
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getTimeString called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getTimeString(false), QString());
-
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
-    QTest::ignoreMessage(QtWarningMsg, "a value must be provided for lastUpdated for a pending event.");
-    QCOMPARE(eventHandler.getTimeString(false, QLocale::ShortFormat, true), QString());
+    QCOMPARE(EventHandler::timeString(event, QStringLiteral("hh:mm")),
+             QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC).toString(QStringLiteral("hh:mm")));
 }
 
 void EventHandlerTest::highlighted()
 {
-    EventHandler eventHandlerHighlight(room, room->messageEvents().at(2).get());
-    QCOMPARE(eventHandlerHighlight.isHighlighted(), true);
-
-    EventHandler eventHandlerNoHighlight(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoHighlight.isHighlighted(), false);
+    QCOMPARE(EventHandler::isHighlighted(room, room->messageEvents().at(2).get()), true);
+    QCOMPARE(EventHandler::isHighlighted(room, room->messageEvents().at(0).get()), false);
 }
 
 void EventHandlerTest::nullHighlighted()
 {
-    QTest::ignoreMessage(QtWarningMsg, "isHighlighted called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.isHighlighted(), false);
+    QTest::ignoreMessage(QtWarningMsg, "isHighlighted called with room set to nullptr.");
+    QCOMPARE(EventHandler::isHighlighted(nullptr, nullptr), false);
 
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "isHighlighted called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.isHighlighted(), false);
+    QTest::ignoreMessage(QtWarningMsg, "isHighlighted called with event set to nullptr.");
+    QCOMPARE(EventHandler::isHighlighted(room, nullptr), false);
 }
 
 void EventHandlerTest::hidden()
 {
-    EventHandler eventHandlerHidden(room, room->messageEvents().at(3).get());
-    QCOMPARE(eventHandlerHidden.isHidden(), true);
-
-    EventHandler eventHandlerNoHidden(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoHidden.isHidden(), false);
+    QCOMPARE(EventHandler::isHidden(room, room->messageEvents().at(3).get()), true);
+    QCOMPARE(EventHandler::isHidden(room, room->messageEvents().at(0).get()), false);
 }
 
 void EventHandlerTest::nullHidden()
 {
-    QTest::ignoreMessage(QtWarningMsg, "isHidden called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.isHidden(), false);
+    QTest::ignoreMessage(QtWarningMsg, "isHidden called with room set to nullptr.");
+    QCOMPARE(EventHandler::isHidden(nullptr, nullptr), false);
 
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "isHidden called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.isHidden(), false);
+    QTest::ignoreMessage(QtWarningMsg, "isHidden called with event set to nullptr.");
+    QCOMPARE(EventHandler::isHidden(room, nullptr), false);
 }
 
 void EventHandlerTest::body()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
+    const auto event = room->messageEvents().at(0).get();
 
-    QCOMPARE(eventHandler.getRichBody(), QStringLiteral("<b>This is an example<br>text message</b>"));
-    QCOMPARE(eventHandler.getRichBody(true), QStringLiteral("<b>This is an example text message</b>"));
-    QCOMPARE(eventHandler.getPlainBody(), QStringLiteral("This is an example\ntext message"));
-    QCOMPARE(eventHandler.getPlainBody(true), QStringLiteral("This is an example text message"));
+    QCOMPARE(EventHandler::richBody(room, event), QStringLiteral("<b>This is an example<br>text message</b>"));
+    QCOMPARE(EventHandler::richBody(room, event, true), QStringLiteral("<b>This is an example text message</b>"));
+    QCOMPARE(EventHandler::plainBody(room, event), QStringLiteral("This is an example\ntext message"));
+    QCOMPARE(EventHandler::plainBody(room, event, true), QStringLiteral("This is an example text message"));
 }
 
 void EventHandlerTest::nullBody()
 {
-    EventHandler noEventHandler(room, nullptr);
+    QTest::ignoreMessage(QtWarningMsg, "richBody called with room set to nullptr.");
+    QCOMPARE(EventHandler::richBody(nullptr, nullptr), QString());
 
-    QTest::ignoreMessage(QtWarningMsg, "getRichBody called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getRichBody(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "richBody called with event set to nullptr.");
+    QCOMPARE(EventHandler::richBody(room, nullptr), QString());
 
-    QTest::ignoreMessage(QtWarningMsg, "getPlainBody called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getPlainBody(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "plainBody called with room set to nullptr.");
+    QCOMPARE(EventHandler::plainBody(nullptr, nullptr), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "plainBody called with event set to nullptr.");
+    QCOMPARE(EventHandler::plainBody(room, nullptr), QString());
 }
 
 void EventHandlerTest::genericBody_data()
@@ -253,54 +225,45 @@ void EventHandlerTest::genericBody()
     QFETCH(int, eventNum);
     QFETCH(QString, output);
 
-    EventHandler eventHandler(room, room->messageEvents().at(eventNum).get());
-
-    QCOMPARE(eventHandler.getGenericBody(), output);
+    QCOMPARE(EventHandler::genericBody(room->messageEvents().at(eventNum).get()), output);
 }
 
 void EventHandlerTest::nullGenericBody()
 {
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getGenericBody called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getGenericBody(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "genericBody called with event set to nullptr.");
+    QCOMPARE(EventHandler::genericBody(nullptr), QString());
 }
 
 void EventHandlerTest::markdownBody()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
-
-    QCOMPARE(eventHandler.getMarkdownBody(), QStringLiteral("This is an example\ntext message"));
+    QCOMPARE(EventHandler::markdownBody(room->messageEvents().at(0).get()), QStringLiteral("This is an example\ntext message"));
 }
 
 void EventHandlerTest::markdownBodyReply()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(5).get());
-
-    QCOMPARE(eventHandler.getMarkdownBody(), QStringLiteral("reply"));
+    QCOMPARE(EventHandler::markdownBody(room->messageEvents().at(5).get()), QStringLiteral("reply"));
 }
 
 void EventHandlerTest::subtitle()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandler.subtitleText(), QStringLiteral("after: This is an example text message"));
-
-    EventHandler eventHandler2(room, room->messageEvents().at(2).get());
-    QCOMPARE(eventHandler2.subtitleText(), QStringLiteral("after: This is a highlight @bob:kde.org and this is a link https://kde.org"));
+    QCOMPARE(EventHandler::subtitleText(room, room->messageEvents().at(0).get()), QStringLiteral("after: This is an example text message"));
+    QCOMPARE(EventHandler::subtitleText(room, room->messageEvents().at(2).get()),
+             QStringLiteral("after: This is a highlight @bob:kde.org and this is a link https://kde.org"));
 }
 
 void EventHandlerTest::nullSubtitle()
 {
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "subtitleText called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.subtitleText(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "subtitleText called with room set to nullptr.");
+    QCOMPARE(EventHandler::subtitleText(nullptr, nullptr), QString());
+
+    QTest::ignoreMessage(QtWarningMsg, "subtitleText called with event set to nullptr.");
+    QCOMPARE(EventHandler::subtitleText(room, nullptr), QString());
 }
 
 void EventHandlerTest::mediaInfo()
 {
     auto event = room->messageEvents().at(4).get();
-    EventHandler eventHandler(room, event);
-
-    auto mediaInfo = eventHandler.getMediaInfo();
+    auto mediaInfo = EventHandler::mediaInfo(room, event);
     auto thumbnailInfo = mediaInfo["tempInfo"_ls].toMap();
 
     QCOMPARE(mediaInfo["source"_ls], room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/1234567"_ls)));
@@ -320,53 +283,42 @@ void EventHandlerTest::mediaInfo()
 
 void EventHandlerTest::nullMediaInfo()
 {
-    QTest::ignoreMessage(QtWarningMsg, "getMediaInfo called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getMediaInfo(), QVariantMap());
+    QTest::ignoreMessage(QtWarningMsg, "mediaInfo called with room set to nullptr.");
+    QCOMPARE(EventHandler::mediaInfo(nullptr, nullptr), QVariantMap());
 
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getMediaInfo called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getMediaInfo(), QVariantMap());
+    QTest::ignoreMessage(QtWarningMsg, "mediaInfo called with event set to nullptr.");
+    QCOMPARE(EventHandler::mediaInfo(room, nullptr), QVariantMap());
 }
 
 void EventHandlerTest::hasReply()
 {
-    EventHandler eventHandlerReply(room, room->messageEvents().at(5).get());
-    QCOMPARE(eventHandlerReply.hasReply(), true);
-
-    EventHandler eventHandlerNoReply(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoReply.hasReply(), false);
+    QCOMPARE(EventHandler::hasReply(room->messageEvents().at(5).get()), true);
+    QCOMPARE(EventHandler::hasReply(room->messageEvents().at(0).get()), false);
 }
 
 void EventHandlerTest::nullHasReply()
 {
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "hasReply called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.hasReply(), false);
+    QTest::ignoreMessage(QtWarningMsg, "hasReply called with event set to nullptr.");
+    QCOMPARE(EventHandler::hasReply(nullptr), false);
 }
 
 void EventHandlerTest::replyId()
 {
-    EventHandler eventHandlerReply(room, room->messageEvents().at(5).get());
-    QCOMPARE(eventHandlerReply.getReplyId(), QStringLiteral("$153456789:example.org"));
-
-    EventHandler eventHandlerNoReply(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoReply.getReplyId(), QStringLiteral(""));
+    QCOMPARE(EventHandler::replyId(room->messageEvents().at(5).get()), QStringLiteral("$153456789:example.org"));
+    QCOMPARE(EventHandler::replyId(room->messageEvents().at(0).get()), QStringLiteral(""));
 }
 
 void EventHandlerTest::nullReplyId()
 {
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getReplyId called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReplyId(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "replyId called with event set to nullptr.");
+    QCOMPARE(EventHandler::replyId(nullptr), QString());
 }
 
 void EventHandlerTest::replyAuthor()
 {
     auto replyEvent = room->messageEvents().at(0).get();
     auto replyAuthor = room->member(replyEvent->senderId());
-    EventHandler eventHandler(room, room->messageEvents().at(5).get());
-
-    auto eventHandlerReplyAuthor = eventHandler.getReplyAuthor();
+    auto eventHandlerReplyAuthor = EventHandler::replyAuthor(room, room->messageEvents().at(5).get());
 
     QCOMPARE(eventHandlerReplyAuthor.isLocalMember(), replyAuthor.id() == room->localMember().id());
     QCOMPARE(eventHandlerReplyAuthor.id(), replyAuthor.id());
@@ -375,121 +327,58 @@ void EventHandlerTest::replyAuthor()
     QCOMPARE(eventHandlerReplyAuthor.avatarMediaId(), replyAuthor.avatarMediaId());
     QCOMPARE(eventHandlerReplyAuthor.color(), replyAuthor.color());
 
-    EventHandler eventHandlerNoAuthor(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoAuthor.getReplyAuthor(), RoomMember());
+    QCOMPARE(EventHandler::replyAuthor(room, room->messageEvents().at(0).get()), RoomMember());
 }
 
 void EventHandlerTest::nullReplyAuthor()
 {
-    QTest::ignoreMessage(QtWarningMsg, "getReplyAuthor called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getReplyAuthor(), RoomMember());
+    QTest::ignoreMessage(QtWarningMsg, "replyAuthor called with room set to nullptr.");
+    QCOMPARE(EventHandler::replyAuthor(nullptr, nullptr), RoomMember());
 
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getReplyAuthor called with m_event set to nullptr. Returning empty user.");
-    QCOMPARE(noEventHandler.getReplyAuthor(), RoomMember());
-}
-
-void EventHandlerTest::replyBody()
-{
-    EventHandler eventHandler(room, room->messageEvents().at(5).get());
-
-    QCOMPARE(eventHandler.getReplyRichBody(), QStringLiteral("<b>This is an example<br>text message</b>"));
-    QCOMPARE(eventHandler.getReplyRichBody(true), QStringLiteral("<b>This is an example text message</b>"));
-    QCOMPARE(eventHandler.getReplyPlainBody(), QStringLiteral("This is an example\ntext message"));
-    QCOMPARE(eventHandler.getReplyPlainBody(true), QStringLiteral("This is an example text message"));
-}
-
-void EventHandlerTest::nullReplyBody()
-{
-    EventHandler noEventHandler(room, nullptr);
-
-    QTest::ignoreMessage(QtWarningMsg, "getReplyRichBody called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReplyRichBody(), QString());
-
-    QTest::ignoreMessage(QtWarningMsg, "getReplyPlainBody called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReplyPlainBody(), QString());
-}
-
-void EventHandlerTest::replyMediaInfo()
-{
-    auto event = room->messageEvents().at(6).get();
-    auto replyEvent = room->messageEvents().at(4).get();
-    EventHandler eventHandler(room, event);
-
-    auto mediaInfo = eventHandler.getReplyMediaInfo();
-    auto thumbnailInfo = mediaInfo["tempInfo"_ls].toMap();
-
-    QCOMPARE(mediaInfo["source"_ls], room->makeMediaUrl(replyEvent->id(), QUrl("mxc://kde.org/1234567"_ls)));
-    QCOMPARE(mediaInfo["mimeType"_ls], QStringLiteral("video/mp4"));
-    QCOMPARE(mediaInfo["mimeIcon"_ls], QStringLiteral("video-mp4"));
-    QCOMPARE(mediaInfo["size"_ls], 62650636);
-    QCOMPARE(mediaInfo["duration"_ls], 10);
-    QCOMPARE(mediaInfo["width"_ls], 1920);
-    QCOMPARE(mediaInfo["height"_ls], 1080);
-    QCOMPARE(thumbnailInfo["source"_ls], room->makeMediaUrl(replyEvent->id(), QUrl("mxc://kde.org/2234567"_ls)));
-    QCOMPARE(thumbnailInfo["mimeType"_ls], QStringLiteral("image/jpeg"));
-    QCOMPARE(thumbnailInfo["mimeIcon"_ls], QStringLiteral("image-jpeg"));
-    QCOMPARE(thumbnailInfo["size"_ls], 382249);
-    QCOMPARE(thumbnailInfo["width"_ls], 800);
-    QCOMPARE(thumbnailInfo["height"_ls], 450);
-}
-
-void EventHandlerTest::nullReplyMediaInfo()
-{
-    QTest::ignoreMessage(QtWarningMsg, "getReplyMediaInfo called with m_room set to nullptr.");
-    QCOMPARE(emptyHandler.getReplyMediaInfo(), QVariantMap());
-
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "getReplyMediaInfo called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.getReplyMediaInfo(), QVariantMap());
+    QTest::ignoreMessage(QtWarningMsg, "replyAuthor called with event set to nullptr. Returning empty user.");
+    QCOMPARE(EventHandler::replyAuthor(room, nullptr), RoomMember());
 }
 
 void EventHandlerTest::thread()
 {
-    EventHandler eventHandlerNoThread(room, room->messageEvents().at(0).get());
-    QCOMPARE(eventHandlerNoThread.isThreaded(), false);
-    QCOMPARE(eventHandlerNoThread.threadRoot(), QString());
+    QCOMPARE(EventHandler::isThreaded(room->messageEvents().at(0).get()), false);
+    QCOMPARE(EventHandler::threadRoot(room->messageEvents().at(0).get()), QString());
 
-    EventHandler eventHandlerThreadRoot(room, room->messageEvents().at(9).get());
-    QCOMPARE(eventHandlerThreadRoot.isThreaded(), true);
-    QCOMPARE(eventHandlerThreadRoot.threadRoot(), QStringLiteral("$threadroot:example.org"));
-    QCOMPARE(eventHandlerThreadRoot.getReplyId(), QStringLiteral("$threadroot:example.org"));
+    QCOMPARE(EventHandler::isThreaded(room->messageEvents().at(9).get()), true);
+    QCOMPARE(EventHandler::threadRoot(room->messageEvents().at(9).get()), QStringLiteral("$threadroot:example.org"));
+    QCOMPARE(EventHandler::replyId(room->messageEvents().at(9).get()), QStringLiteral("$threadroot:example.org"));
 
-    EventHandler eventHandlerThreadReply(room, room->messageEvents().at(10).get());
-    QCOMPARE(eventHandlerThreadReply.isThreaded(), true);
-    QCOMPARE(eventHandlerThreadReply.threadRoot(), QStringLiteral("$threadroot:example.org"));
-    QCOMPARE(eventHandlerThreadReply.getReplyId(), QStringLiteral("$threadmessage1:example.org"));
+    QCOMPARE(EventHandler::isThreaded(room->messageEvents().at(10).get()), true);
+    QCOMPARE(EventHandler::threadRoot(room->messageEvents().at(10).get()), QStringLiteral("$threadroot:example.org"));
+    QCOMPARE(EventHandler::replyId(room->messageEvents().at(10).get()), QStringLiteral("$threadmessage1:example.org"));
 }
 
 void EventHandlerTest::nullThread()
 {
-    QTest::ignoreMessage(QtWarningMsg, "isThreaded called with m_event set to nullptr.");
-    QCOMPARE(emptyHandler.isThreaded(), false);
+    QTest::ignoreMessage(QtWarningMsg, "isThreaded called with event set to nullptr.");
+    QCOMPARE(EventHandler::isThreaded(nullptr), false);
 
-    EventHandler noEventHandler(room, nullptr);
-    QTest::ignoreMessage(QtWarningMsg, "threadRoot called with m_event set to nullptr.");
-    QCOMPARE(noEventHandler.threadRoot(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "threadRoot called with event set to nullptr.");
+    QCOMPARE(EventHandler::threadRoot(nullptr), QString());
 }
 
 void EventHandlerTest::location()
 {
-    EventHandler eventHandler(room, room->messageEvents().at(7).get());
-
-    QCOMPARE(eventHandler.getLatitude(), QStringLiteral("51.7035").toFloat());
-    QCOMPARE(eventHandler.getLongitude(), QStringLiteral("-1.14394").toFloat());
-    QCOMPARE(eventHandler.getLocationAssetType(), QStringLiteral("m.pin"));
+    QCOMPARE(EventHandler::latitude(room->messageEvents().at(7).get()), QStringLiteral("51.7035").toFloat());
+    QCOMPARE(EventHandler::longitude(room->messageEvents().at(7).get()), QStringLiteral("-1.14394").toFloat());
+    QCOMPARE(EventHandler::locationAssetType(room->messageEvents().at(7).get()), QStringLiteral("m.pin"));
 }
 
 void EventHandlerTest::nullLocation()
 {
-    QTest::ignoreMessage(QtWarningMsg, "getLatitude called with m_event set to nullptr.");
-    QCOMPARE(emptyHandler.getLatitude(), -100.0);
+    QTest::ignoreMessage(QtWarningMsg, "latitude called with event set to nullptr.");
+    QCOMPARE(EventHandler::latitude(nullptr), -100.0);
 
-    QTest::ignoreMessage(QtWarningMsg, "getLongitude called with m_event set to nullptr.");
-    QCOMPARE(emptyHandler.getLongitude(), -200.0);
+    QTest::ignoreMessage(QtWarningMsg, "longitude called with event set to nullptr.");
+    QCOMPARE(EventHandler::longitude(nullptr), -200.0);
 
-    QTest::ignoreMessage(QtWarningMsg, "getLocationAssetType called with m_event set to nullptr.");
-    QCOMPARE(emptyHandler.getLocationAssetType(), QString());
+    QTest::ignoreMessage(QtWarningMsg, "locationAssetType called with event set to nullptr.");
+    QCOMPARE(EventHandler::locationAssetType(nullptr), QString());
 }
 
 QTEST_MAIN(EventHandlerTest)

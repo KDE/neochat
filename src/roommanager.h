@@ -13,7 +13,6 @@
 
 #include "chatdocumenthandler.h"
 #include "enums/messagecomponenttype.h"
-#include "eventhandler.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/roomlistmodel.h"

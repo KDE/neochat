@@ -6,6 +6,7 @@
 
 #include "chatbarcache.h"
 #include "controller.h"
+#include "eventhandler.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -203,19 +204,23 @@ void RoomManager::viewEventSource(const QString &eventId)
 void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText)
 {
     const auto &event = **room->findInTimeline(eventId);
-    const auto eventHandler = EventHandler(room, &event);
 
-    if (eventHandler.getMediaInfo().contains("mimeType"_ls)) {
+    if (EventHandler::mediaInfo(room, &event).contains("mimeType"_ls)) {
         Q_EMIT showFileMenu(eventId,
                             sender,
-                            eventHandler.messageComponentType(),
-                            eventHandler.getPlainBody(),
-                            eventHandler.getMediaInfo()["mimeType"_ls].toString(),
+                            MessageComponentType::typeForEvent(event),
+                            EventHandler::plainBody(room, &event),
+                            EventHandler::mediaInfo(room, &event)["mimeType"_ls].toString(),
                             room->fileTransferInfo(eventId));
         return;
     }
 
-    Q_EMIT showMessageMenu(eventId, sender, eventHandler.messageComponentType(), eventHandler.getPlainBody(), eventHandler.getRichBody(), selectedText);
+    Q_EMIT showMessageMenu(eventId,
+                           sender,
+                           MessageComponentType::typeForEvent(event),
+                           EventHandler::plainBody(room, &event),
+                           EventHandler::richBody(room, &event),
+                           selectedText);
 }
 
 bool RoomManager::hasOpenRoom() const

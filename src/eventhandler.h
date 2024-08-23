@@ -3,24 +3,22 @@
 
 #pragma once
 
-#include <QObject>
-
-#include <KFormat>
-
-#include <Quotient/eventitem.h>
-#include <Quotient/events/roomevent.h>
-#include <Quotient/events/roommessageevent.h>
-
-#include "enums/messagecomponenttype.h"
+#include <QDateTime>
+#include <QString>
+#include <Quotient/events/eventcontent.h>
 
 namespace Quotient
 {
+namespace EventContent
+{
+class FileInfo;
+}
+class RoomEvent;
 class RoomMember;
+class RoomMessageEvent;
 }
 
-class LinkPreviewer;
 class NeoChatRoom;
-class ReactionModel;
 
 /**
  * @class EventHandler
@@ -38,20 +36,14 @@ class ReactionModel;
  */
 class EventHandler
 {
-    Q_GADGET
-
 public:
-    EventHandler(const NeoChatRoom *room, const Quotient::RoomEvent *event);
-
     /**
-     * @brief Return the Matrix ID of the event.
+     * @brief Return the ID of the event.
+     *
+     * Returns the transaction ID if the Matrix ID is empty, which may be the case
+     * for a pending event.
      */
-    QString getId() const;
-
-    /**
-     * @brief The MessageComponentType to use to visualise the main event content.
-     */
-    MessageComponentType::Type messageComponentType() const;
+    static QString id(const Quotient::RoomEvent *event);
 
     /**
      * @brief Get the display name of the event author.
@@ -64,7 +56,7 @@ public:
      * @param isPending whether the event is pending as this cannot be derived from
      *                  just the event object.
      */
-    QString getAuthorDisplayName(bool isPending = false) const;
+    static QString authorDisplayName(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
 
     /**
      * @brief Get the display name of the event author but with any newlines removed.
@@ -75,12 +67,12 @@ public:
      * @param isPending whether the event is pending as this cannot be derived from
      *                  just the event object.
      */
-    QString singleLineAuthorDisplayname(bool isPending = false) const;
+    static QString singleLineAuthorDisplayname(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
 
     /**
      * @brief Return a QDateTime object for the event timestamp.
      */
-    QDateTime getTime(bool isPending = false, QDateTime lastUpdated = {}) const;
+    static QDateTime time(const Quotient::RoomEvent *event, bool isPending = false, QDateTime lastUpdated = {});
 
     /**
      * @brief Return a QString for the event timestamp.
@@ -96,16 +88,32 @@ public:
      * @param lastUpdated the time the event was last updated locally as this cannot be
      *                    obtained from the event.
      */
-    QString getTimeString(bool relative, QLocale::FormatType format = QLocale::ShortFormat, bool isPending = false, QDateTime lastUpdated = {}) const;
+    static QString timeString(const Quotient::RoomEvent *event,
+                              bool relative,
+                              QLocale::FormatType format = QLocale::ShortFormat,
+                              bool isPending = false,
+                              QDateTime lastUpdated = {});
 
-    QString getTimeString(const QString &format, bool isPending = false, const QDateTime &lastUpdated = {});
+    /**
+     * @brief Return a QString for the event timestamp.
+     *
+     * This is intended to return a string that is read for display in the UI without
+     * any further manipulation required.
+     *
+     * @param format the format to use as a string.
+     * @param isPending whether the event is pending as this cannot be derived from
+     *                  just the event object.
+     * @param lastUpdated the time the event was last updated locally as this cannot be
+     *                    obtained from the event.
+     */
+    static QString timeString(const Quotient::RoomEvent *event, const QString &format, bool isPending = false, const QDateTime &lastUpdated = {});
 
     /**
      * @brief Whether the event should be highlighted in the timeline.
      *
      * @note Messages in direct chats are never highlighted.
      */
-    bool isHighlighted();
+    static bool isHighlighted(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
      * @brief Whether the event should be hidden in the timeline.
@@ -114,7 +122,7 @@ public:
      * user has hidden all state events or if the sender has been ignored by the local
      * user.
      */
-    bool isHidden();
+    static bool isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
      * @brief The input format of the body in the message.
@@ -146,7 +154,7 @@ public:
      *
      * @param stripNewlines whether the output should have new lines in it.
      */
-    QString getRichBody(bool stripNewlines = false) const;
+    static QString richBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines = false);
 
     /**
      * @brief Output a string for the message content ready for display in a plain text field.
@@ -162,14 +170,14 @@ public:
      *
      * @param stripNewlines whether the output should have new lines in it.
      */
-    QString getPlainBody(bool stripNewlines = false) const;
+    static QString plainBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines = false);
 
     /**
      * @brief Output the original body for the message content, useful for editing the original message.
      *
      * The event type must be a room message event.
      */
-    QString getMarkdownBody() const;
+    static QString markdownBody(const Quotient::RoomEvent *event);
 
     /**
      * @brief Output a generic string for the message content ready for display.
@@ -182,9 +190,9 @@ public:
      * E.g. For a message the text will be:
      *      "sent a message"
      *
-     * @sa getRichBody(), getPlainBody()
+     * @sa richBody(), plainBody()
      */
-    QString getGenericBody() const;
+    static QString genericBody(const Quotient::RoomEvent *event);
 
     /**
      * @brief Output a string for the event to be used as  a RoomList subtitle.
@@ -192,7 +200,7 @@ public:
      * The output includes the username followed by the plain message, all with no
      * line breaks.
      */
-    QString subtitleText() const;
+    static QString subtitleText(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
      * @brief Return the media info for the event.
@@ -210,7 +218,7 @@ public:
      *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
      *  - isSticker - Whether the image is a sticker or not
      */
-    QVariantMap getMediaInfo() const;
+    static QVariantMap mediaInfo(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
      * @brief Whether the event is a reply to another in the timeline.
@@ -219,17 +227,12 @@ public:
      *                      show the fallback reply. Leave true for non-threaded
      *                      timelines.
      */
-    bool hasReply(bool showFallbacks = true) const;
+    static bool hasReply(const Quotient::RoomEvent *event, bool showFallbacks = true);
 
     /**
      * @brief Return the Matrix ID of the event replied to.
      */
-    QString getReplyId() const;
-
-    /**
-     * @brief The MessageComponentType to use to visualise the reply content.
-     */
-    MessageComponentType::Type replyMessageComponentType() const;
+    static QString replyId(const Quotient::RoomEvent *event);
 
     /**
      * @brief Get the author of the event replied to in context of the room.
@@ -244,73 +247,21 @@ public:
      *
      * @sa Quotient::RoomMember
      */
-    Quotient::RoomMember getReplyAuthor() const;
-
-    /**
-     * @brief Output a string for the message content of the event replied to ready
-     * for display in a rich text field.
-     *
-     * The output string is dependant upon the event type and the desired output format.
-     *
-     * For most messages this is the body content of the message. For media messages
-     * this will be the caption and for state events it will be a string specific
-     * to that event with some dynamic details about the event added.
-     *
-     * E.g. For a room topic state event the text will be:
-     *      "set the topic to: <new topic text>"
-     *
-     * @param stripNewlines whether the output should have new lines in it.
-     */
-    QString getReplyRichBody(bool stripNewlines = false) const;
-
-    /**
-     * @brief Output a string for the message content of the event replied to ready
-     * for display in a plain text field.
-     *
-     * The output string is dependant upon the event type and the desired output format.
-     *
-     * For most messages this is the body content of the message. For media messages
-     * this will be the caption and for state events it will be a string specific
-     * to that event with some dynamic details about the event added.
-     *
-     * E.g. For a room topic state event the text will be:
-     *      "set the topic to: <new topic text>"
-     *
-     * @param stripNewlines whether the output should have new lines in it.
-     */
-    QString getReplyPlainBody(bool stripNewlines = false) const;
-
-    /**
-     * @brief Return the media info for the event replied to.
-     *
-     * An empty QVariantMap will be returned for any event that doesn't have any
-     * media info.
-     *
-     * @return This should consist of the following:
-     *  - source - The mxc URL for the media.
-     *  - mimeType - The MIME type of the media (should be image/xxx for this delegate).
-     *  - mimeIcon - The MIME icon name (should be image-xxx).
-     *  - size - The file size in bytes.
-     *  - width - The width in pixels of the audio media.
-     *  - height - The height in pixels of the audio media.
-     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
-     *  - isSticker - Whether the image is a sticker or not
-     */
-    QVariantMap getReplyMediaInfo() const;
+    static Quotient::RoomMember replyAuthor(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
      * @brief Whether the message is part of a thread.
      *
      * i.e. There is a rel_type of m.thread.
      */
-    bool isThreaded() const;
+    static bool isThreaded(const Quotient::RoomEvent *event);
 
     /**
      * @brief Return the Matrix ID of the thread's root message.
      *
      * Empty if this not part of a thread.
      */
-    QString threadRoot() const;
+    static QString threadRoot(const Quotient::RoomEvent *event);
 
     /**
      * @brief Return the latitude for the event.
@@ -318,7 +269,7 @@ public:
      * Returns -100.0 if the event doesn't have a location (latitudes are in the
      * range -90deg to +90deg so -100 is out of range).
      */
-    float getLatitude() const;
+    static float latitude(const Quotient::RoomEvent *event);
 
     /**
      * @brief Return the longitude for the event.
@@ -326,23 +277,21 @@ public:
      * Returns -200.0 if the event doesn't have a location (latitudes are in the
      * range -180deg to +180deg so -200 is out of range).
      */
-    float getLongitude() const;
+    static float longitude(const Quotient::RoomEvent *event);
 
     /**
      * @brief Return the type of location marker for the event.
      */
-    QString getLocationAssetType() const;
+    static QString locationAssetType(const Quotient::RoomEvent *event);
 
 private:
-    const NeoChatRoom *m_room = nullptr;
-    const Quotient::RoomEvent *m_event = nullptr;
+    static QString getBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines);
+    static QString getMessageBody(const NeoChatRoom *room, const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines);
 
-    KFormat m_format;
-
-    QString getBody(const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines) const;
-    QString getMessageBody(const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines) const;
-
-    QVariantMap getMediaInfoForEvent(const Quotient::RoomEvent *event) const;
-    QVariantMap
-    getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false, bool isSticker = false) const;
+    static QVariantMap getMediaInfoForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event);
+    QVariantMap static getMediaInfoFromFileInfo(const NeoChatRoom *room,
+                                                const Quotient::EventContent::FileInfo *fileInfo,
+                                                const QString &eventId,
+                                                bool isThumbnail = false,
+                                                bool isSticker = false);
 };

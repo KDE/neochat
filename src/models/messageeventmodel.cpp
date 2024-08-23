@@ -432,15 +432,13 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     const auto pendingIt = m_currentRoom->pendingEvents().crbegin() + std::min(row, timelineBaseIndex());
     const auto &evt = isPending ? **pendingIt : **timelineIt;
 
-    EventHandler eventHandler(m_currentRoom, &evt);
-
     if (role == Qt::DisplayRole) {
         if (evt.isRedacted()) {
             auto reason = evt.redactedBecause()->reason();
             return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>")
                                       : i18n("<i>[This message was deleted: %1]</i>", evt.redactedBecause()->reason());
         }
-        return eventHandler.getRichBody();
+        return EventHandler::richBody(m_currentRoom, &evt);
     }
 
     if (role == ContentModelRole) {
@@ -457,7 +455,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == GenericDisplayRole) {
-        return eventHandler.getGenericBody();
+        return EventHandler::genericBody(&evt);
     }
 
     if (role == DelegateTypeRole) {
@@ -480,7 +478,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == HighlightRole) {
-        return eventHandler.isHighlighted();
+        return EventHandler::isHighlighted(m_currentRoom, &evt);
     }
 
     if (role == SpecialMarksRole) {
@@ -493,11 +491,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return pendingIt->deliveryStatus();
         }
 
-        if (eventHandler.isHidden()) {
+        if (EventHandler::isHidden(m_currentRoom, &evt)) {
             return EventStatus::Hidden;
         }
 
-        if (eventHandler.isThreaded() && eventHandler.threadRoot() != eventHandler.getId() && NeoChatConfig::threads()) {
+        if (EventHandler::isThreaded(&evt) && EventHandler::threadRoot(&evt) != EventHandler::id(&evt) && NeoChatConfig::threads()) {
             return EventStatus::Hidden;
         }
 
@@ -505,7 +503,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == EventIdRole) {
-        return eventHandler.getId();
+        return EventHandler::id(&evt);
     }
 
     if (role == ProgressInfoRole) {
@@ -521,20 +519,20 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == TimeRole) {
         auto lastUpdated = isPending ? pendingIt->lastUpdated() : QDateTime();
-        return eventHandler.getTime(isPending, lastUpdated);
+        return EventHandler::time(&evt, isPending, lastUpdated);
     }
 
     if (role == SectionRole) {
         auto lastUpdated = isPending ? pendingIt->lastUpdated() : QDateTime();
-        return eventHandler.getTimeString(true, QLocale::ShortFormat, isPending, lastUpdated);
+        return EventHandler::timeString(&evt, true, QLocale::ShortFormat, isPending, lastUpdated);
     }
 
     if (role == IsThreadedRole) {
-        return eventHandler.isThreaded();
+        return EventHandler::isThreaded(&evt);
     }
 
     if (role == ThreadRootRole) {
-        return eventHandler.threadRoot();
+        return EventHandler::threadRoot(&evt);
     }
 
     if (role == ShowSectionRole) {
@@ -587,7 +585,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == AuthorDisplayNameRole) {
-        return eventHandler.getAuthorDisplayName(isPending);
+        return EventHandler::authorDisplayName(m_currentRoom, &evt, isPending);
     }
 
     if (role == IsRedactedRole) {
@@ -599,11 +597,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == MediaInfoRole) {
-        return eventHandler.getMediaInfo();
+        return EventHandler::mediaInfo(m_currentRoom, &evt);
     }
 
     if (role == IsEditableRole) {
-        return eventHandler.messageComponentType() == MessageComponentType::Text && evt.senderId() == m_currentRoom->localMember().id();
+        return MessageComponentType::typeForEvent(evt) == MessageComponentType::Text && evt.senderId() == m_currentRoom->localMember().id();
     }
 
     return {};
@@ -650,9 +648,8 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
         }
     }
 
-    const auto eventHandler = EventHandler(m_currentRoom, event);
-    if (eventHandler.isThreaded() && !m_threadModels.contains(eventHandler.threadRoot())) {
-        m_threadModels[eventHandler.threadRoot()] = QSharedPointer<ThreadModel>(new ThreadModel(eventHandler.threadRoot(), m_currentRoom));
+    if (EventHandler::isThreaded(event) && !m_threadModels.contains(EventHandler::threadRoot(event))) {
+        m_threadModels[EventHandler::threadRoot(event)] = QSharedPointer<ThreadModel>(new ThreadModel(EventHandler::threadRoot(event), m_currentRoom));
     }
 
     // ReadMarkerModel handles updates to add and remove markers, we only need to

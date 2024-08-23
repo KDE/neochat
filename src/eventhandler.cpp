@@ -5,13 +5,16 @@
 
 #include <QMovie>
 
+#include <KFormat>
 #include <KLocalizedString>
 
 #include <Quotient/events/encryptionevent.h>
+#include <Quotient/events/event.h>
 #include <Quotient/events/reactionevent.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roomavatarevent.h>
 #include <Quotient/events/roomcanonicalaliasevent.h>
+#include <Quotient/events/roomevent.h>
 #include <Quotient/events/roommemberevent.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 #include <Quotient/events/simplestateevents.h>
@@ -23,9 +26,6 @@
 #include "events/locationbeaconevent.h"
 #include "events/pollevent.h"
 #include "events/widgetevent.h"
-#include "linkpreviewer.h"
-#include "messagecomponenttype.h"
-#include "models/reactionmodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "texthandler.h"
@@ -33,68 +33,52 @@
 
 using namespace Quotient;
 
-EventHandler::EventHandler(const NeoChatRoom *room, const RoomEvent *event)
-    : m_room(room)
-    , m_event(event)
+QString EventHandler::id(const Quotient::RoomEvent *event)
 {
-}
-
-QString EventHandler::getId() const
-{
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getId called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "id called with event set to nullptr.";
         return {};
     }
 
-    return !m_event->id().isEmpty() ? m_event->id() : m_event->transactionId();
+    return !event->id().isEmpty() ? event->id() : event->transactionId();
 }
 
-MessageComponentType::Type EventHandler::messageComponentType() const
+QString EventHandler::authorDisplayName(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "messageComponentType called with m_event set to nullptr.";
-        return MessageComponentType::Other;
-    }
-
-    return MessageComponentType::typeForEvent(*m_event);
-}
-
-QString EventHandler::getAuthorDisplayName(bool isPending) const
-{
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getAuthorDisplayName called with m_room set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "authorDisplayName called with room set to nullptr.";
         return {};
     }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getAuthorDisplayName called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "authorDisplayName called with event set to nullptr.";
         return {};
     }
 
-    if (is<RoomMemberEvent>(*m_event) && !m_event->unsignedJson()[QStringLiteral("prev_content")][QStringLiteral("displayname")].isNull()
-        && m_event->stateKey() == m_event->senderId()) {
-        auto previousDisplayName = m_event->unsignedJson()[QStringLiteral("prev_content")][QStringLiteral("displayname")].toString().toHtmlEscaped();
+    if (is<RoomMemberEvent>(*event) && !event->unsignedJson()[QStringLiteral("prev_content")][QStringLiteral("displayname")].isNull()
+        && event->stateKey() == event->senderId()) {
+        auto previousDisplayName = event->unsignedJson()[QStringLiteral("prev_content")][QStringLiteral("displayname")].toString().toHtmlEscaped();
         if (previousDisplayName.isEmpty()) {
-            previousDisplayName = m_event->senderId();
+            previousDisplayName = event->senderId();
         }
         return previousDisplayName;
     } else {
-        const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
+        const auto author = isPending ? room->localMember() : room->member(event->senderId());
         return author.htmlSafeDisplayName();
     }
 }
 
-QString EventHandler::singleLineAuthorDisplayname(bool isPending) const
+QString EventHandler::singleLineAuthorDisplayname(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending)
 {
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getAuthorDisplayName called with m_room set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "singleLineAuthorDisplayname called with room set to nullptr.";
         return {};
     }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getAuthorDisplayName called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "singleLineAuthorDisplayname called with event set to nullptr.";
         return {};
     }
 
-    const auto author = isPending ? m_room->localMember() : m_room->member(m_event->senderId());
+    const auto author = isPending ? room->localMember() : room->member(event->senderId());
     auto displayName = author.displayName();
     displayName.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
     displayName.replace(QStringLiteral("<br>"), QStringLiteral(" "));
@@ -105,10 +89,10 @@ QString EventHandler::singleLineAuthorDisplayname(bool isPending) const
     return displayName;
 }
 
-QDateTime EventHandler::getTime(bool isPending, QDateTime lastUpdated) const
+QDateTime EventHandler::time(const Quotient::RoomEvent *event, bool isPending, QDateTime lastUpdated)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getTime called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "time called with event set to nullptr.";
         return {};
     }
     if (isPending && lastUpdated == QDateTime()) {
@@ -116,24 +100,16 @@ QDateTime EventHandler::getTime(bool isPending, QDateTime lastUpdated) const
         return {};
     }
 
-    return isPending ? lastUpdated : m_event->originTimestamp();
+    return isPending ? lastUpdated : event->originTimestamp();
 }
 
-QString EventHandler::getTimeString(bool relative, QLocale::FormatType format, bool isPending, QDateTime lastUpdated) const
+QString EventHandler::timeString(const Quotient::RoomEvent *event, bool relative, QLocale::FormatType format, bool isPending, QDateTime lastUpdated)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getTimeString called with m_event set to nullptr.";
-        return {};
-    }
-    if (isPending && lastUpdated == QDateTime()) {
-        qCWarning(EventHandling) << "a value must be provided for lastUpdated for a pending event.";
-        return {};
-    }
-
-    auto ts = getTime(isPending, lastUpdated);
+    auto ts = time(event, isPending, lastUpdated);
     if (ts.isValid()) {
         if (relative) {
-            return m_format.formatRelativeDate(ts.toLocalTime().date(), format);
+            KFormat formatter;
+            return formatter.formatRelativeDate(ts.toLocalTime().date(), format);
         } else {
             return QLocale().toString(ts.toLocalTime().time(), format);
         }
@@ -141,41 +117,41 @@ QString EventHandler::getTimeString(bool relative, QLocale::FormatType format, b
     return {};
 }
 
-QString EventHandler::getTimeString(const QString &format, bool isPending, const QDateTime &lastUpdated)
+QString EventHandler::timeString(const Quotient::RoomEvent *event, const QString &format, bool isPending, const QDateTime &lastUpdated)
 {
-    return getTime(isPending, lastUpdated).toLocalTime().toString(format);
+    return time(event, isPending, lastUpdated).toLocalTime().toString(format);
 }
 
-bool EventHandler::isHighlighted()
+bool EventHandler::isHighlighted(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "isHighlighted called with m_room set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "isHighlighted called with room set to nullptr.";
         return false;
     }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "isHighlighted called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "isHighlighted called with event set to nullptr.";
         return false;
     }
 
-    return !m_room->isDirectChat() && m_room->isEventHighlighted(m_event);
+    return !room->isDirectChat() && room->isEventHighlighted(event);
 }
 
-bool EventHandler::isHidden()
+bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "isHidden called with m_room set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "isHidden called with room set to nullptr.";
         return false;
     }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "isHidden called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "isHidden called with event set to nullptr.";
         return false;
     }
 
-    if (m_event->isStateEvent() && !NeoChatConfig::self()->showStateEvent()) {
+    if (event->isStateEvent() && !NeoChatConfig::self()->showStateEvent()) {
         return true;
     }
 
-    if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(m_event)) {
+    if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
         if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent()) {
             return true;
         } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::self()->showRename()) {
@@ -186,33 +162,33 @@ bool EventHandler::isHidden()
         }
     }
 
-    if (m_event->isStateEvent() && eventCast<const StateEvent>(m_event)->repeatsState()) {
+    if (event->isStateEvent() && eventCast<const StateEvent>(event)->repeatsState()) {
         return true;
     }
 
     // isReplacement?
-    if (auto e = eventCast<const RoomMessageEvent>(m_event)) {
+    if (auto e = eventCast<const RoomMessageEvent>(event)) {
         if (!e->replacedEvent().isEmpty()) {
             return true;
         }
     }
 
-    if (is<RedactionEvent>(*m_event) || is<ReactionEvent>(*m_event)) {
+    if (is<RedactionEvent>(*event) || is<ReactionEvent>(*event)) {
         return true;
     }
 
-    if (auto e = eventCast<const RoomMessageEvent>(m_event)) {
+    if (auto e = eventCast<const RoomMessageEvent>(event)) {
         if (!e->replacedEvent().isEmpty() && e->replacedEvent() != e->id()) {
             return true;
         }
     }
 
-    if (m_room->connection()->isIgnored(m_event->senderId())) {
+    if (room->connection()->isIgnored(event->senderId())) {
         return true;
     }
 
     // hide ending live location beacons
-    if (m_event->isStateEvent() && m_event->matrixType() == "org.matrix.msc3672.beacon_info"_ls && !m_event->contentJson()["live"_ls].toBool()) {
+    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info"_ls && !event->contentJson()["live"_ls].toBool()) {
         return true;
     }
 
@@ -251,44 +227,52 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
     return body;
 }
 
-QString EventHandler::getRichBody(bool stripNewlines) const
+QString EventHandler::richBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getRichBody called with m_event set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "richBody called with room set to nullptr.";
         return {};
     }
-    return getBody(m_event, Qt::RichText, stripNewlines);
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "richBody called with event set to nullptr.";
+        return {};
+    }
+    return getBody(room, event, Qt::RichText, stripNewlines);
 }
 
-QString EventHandler::getPlainBody(bool stripNewlines) const
+QString EventHandler::plainBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getPlainBody called with m_event set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "plainBody called with room set to nullptr.";
         return {};
     }
-    return getBody(m_event, Qt::PlainText, stripNewlines);
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "plainBody called with event set to nullptr.";
+        return {};
+    }
+    return getBody(room, event, Qt::PlainText, stripNewlines);
 }
 
-QString EventHandler::getMarkdownBody() const
+QString EventHandler::markdownBody(const Quotient::RoomEvent *event)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getMarkdownBody called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "markdownBody called with event set to nullptr.";
         return {};
     }
 
-    if (!m_event->is<RoomMessageEvent>()) {
-        qCWarning(EventHandling) << "getMarkdownBody called when m_event isn't a RoomMessageEvent.";
+    if (!event->is<RoomMessageEvent>()) {
+        qCWarning(EventHandling) << "markdownBody called when event isn't a RoomMessageEvent.";
         return {};
     }
 
-    const auto roomMessageEvent = eventCast<const RoomMessageEvent>(m_event);
+    const auto roomMessageEvent = eventCast<const RoomMessageEvent>(event);
 
     QString plainBody = roomMessageEvent->plainBody();
     plainBody.remove(TextRegex::removeReply);
     return plainBody;
 }
 
-QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines) const
+QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines)
 {
     if (event->isRedacted()) {
         auto reason = event->redactedBecause()->reason();
@@ -299,15 +283,15 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
 
     return switchOnType(
         *event,
-        [this, format, stripNewlines](const RoomMessageEvent &event) {
-            return getMessageBody(event, format, stripNewlines);
+        [room, format, stripNewlines](const RoomMessageEvent &event) {
+            return getMessageBody(room, event, format, stripNewlines);
         },
         [](const StickerEvent &e) {
             return e.body();
         },
-        [this, prettyPrint](const RoomMemberEvent &e) {
+        [room, prettyPrint](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event
-            auto subjectName = m_room->member(e.userId()).htmlSafeDisplayName();
+            auto subjectName = room->member(e.userId()).htmlSafeDisplayName();
             if (e.membership() == Membership::Leave) {
                 if (e.prevContent() && e.prevContent()->displayName) {
                     subjectName = sanitized(*e.prevContent()->displayName);
@@ -319,7 +303,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
 
             if (prettyPrint) {
                 subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
-                                  .arg(e.userId(), m_room->member(e.userId()).color().name(), subjectName);
+                                  .arg(e.userId(), room->member(e.userId()).color().name(), subjectName);
             }
 
             // The below code assumes senderName output in AuthorRole
@@ -455,7 +439,7 @@ QString EventHandler::getBody(const Quotient::RoomEvent *event, Qt::TextFormat f
         i18n("Unknown event"));
 }
 
-QString EventHandler::getMessageBody(const RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines) const
+QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines)
 {
     TextHandler textHandler;
 
@@ -487,24 +471,24 @@ QString EventHandler::getMessageBody(const RoomMessageEvent &event, Qt::TextForm
     }
 
     if (format == Qt::RichText) {
-        return textHandler.handleRecieveRichText(inputFormat, m_room, &event, stripNewlines, event.isReplaced());
+        return textHandler.handleRecieveRichText(inputFormat, room, &event, stripNewlines, event.isReplaced());
     } else {
         return textHandler.handleRecievePlainText(inputFormat, stripNewlines);
     }
 }
 
-QString EventHandler::getGenericBody() const
+QString EventHandler::genericBody(const Quotient::RoomEvent *event)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getGenericBody called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "genericBody called with event set to nullptr.";
         return {};
     }
-    if (m_event->isRedacted()) {
+    if (event->isRedacted()) {
         return i18n("<i>[This message was deleted]</i>");
     }
 
     return switchOnType(
-        *m_event,
+        *event,
         [](const RoomMessageEvent &e) {
             Q_UNUSED(e)
             return i18n("sent a message");
@@ -624,29 +608,33 @@ QString EventHandler::getGenericBody() const
         i18n("Unknown event"));
 }
 
-QString EventHandler::subtitleText() const
+QString EventHandler::subtitleText(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "subtitleText called with m_event set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "subtitleText called with room set to nullptr.";
         return {};
     }
-    return singleLineAuthorDisplayname() + (m_event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": ")) + getPlainBody(true);
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "subtitleText called with event set to nullptr.";
+        return {};
+    }
+    return singleLineAuthorDisplayname(room, event) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": ")) + plainBody(room, event, true);
 }
 
-QVariantMap EventHandler::getMediaInfo() const
+QVariantMap EventHandler::mediaInfo(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getMediaInfo called with m_room set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "mediaInfo called with room set to nullptr.";
         return {};
     }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getMediaInfo called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "mediaInfo called with event set to nullptr.";
         return {};
     }
-    return getMediaInfoForEvent(m_event);
+    return getMediaInfoForEvent(room, event);
 }
 
-QVariantMap EventHandler::getMediaInfoForEvent(const Quotient::RoomEvent *event) const
+QVariantMap EventHandler::getMediaInfoForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
     QString eventId = event->id();
 
@@ -659,7 +647,7 @@ QVariantMap EventHandler::getMediaInfoForEvent(const Quotient::RoomEvent *event)
 
         const EventContent::FileInfo *fileInfo;
         fileInfo = roomMessageEvent->content()->fileInfo();
-        QVariantMap mediaInfo = getMediaInfoFromFileInfo(fileInfo, eventId, false, false);
+        QVariantMap mediaInfo = getMediaInfoFromFileInfo(room, fileInfo, eventId, false, false);
         // if filename isn't specifically given, it is in body
         // https://spec.matrix.org/latest/client-server-api/#mfile
         mediaInfo["filename"_ls] = (fileInfo->originalName.isEmpty()) ? roomMessageEvent->plainBody() : fileInfo->originalName;
@@ -671,13 +659,17 @@ QVariantMap EventHandler::getMediaInfoForEvent(const Quotient::RoomEvent *event)
         auto stickerEvent = eventCast<const StickerEvent>(event);
         fileInfo = &stickerEvent->image();
 
-        return getMediaInfoFromFileInfo(fileInfo, eventId, false, true);
+        return getMediaInfoFromFileInfo(room, fileInfo, eventId, false, true);
     } else {
         return {};
     }
 }
 
-QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail, bool isSticker) const
+QVariantMap EventHandler::getMediaInfoFromFileInfo(const NeoChatRoom *room,
+                                                   const EventContent::FileInfo *fileInfo,
+                                                   const QString &eventId,
+                                                   bool isThumbnail,
+                                                   bool isSticker)
 {
     QVariantMap mediaInfo;
 
@@ -685,7 +677,7 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
     if (!fileInfo->url().isValid() || fileInfo->url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
         mediaInfo["source"_ls] = QUrl();
     } else {
-        QUrl source = m_room->makeMediaUrl(eventId, fileInfo->url());
+        QUrl source = room->makeMediaUrl(eventId, fileInfo->url());
 
         if (source.isValid()) {
             mediaInfo["source"_ls] = source;
@@ -717,7 +709,7 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
 
             if (!isThumbnail) {
                 QVariantMap tempInfo;
-                auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
+                auto thumbnailInfo = getMediaInfoFromFileInfo(room, castInfo->thumbnailInfo(), eventId, true);
                 if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
                     tempInfo = thumbnailInfo;
                 } else {
@@ -740,7 +732,7 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
 
             if (!isThumbnail) {
                 QVariantMap tempInfo;
-                auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
+                auto thumbnailInfo = getMediaInfoFromFileInfo(room, castInfo->thumbnailInfo(), eventId, true);
                 if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
                     tempInfo = thumbnailInfo;
                 } else {
@@ -764,14 +756,14 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
     return mediaInfo;
 }
 
-bool EventHandler::hasReply(bool showFallbacks) const
+bool EventHandler::hasReply(const Quotient::RoomEvent *event, bool showFallbacks)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "hasReply called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "hasReply called with event set to nullptr.";
         return false;
     }
 
-    const auto relations = m_event->contentPart<QJsonObject>("m.relates_to"_ls);
+    const auto relations = event->contentPart<QJsonObject>("m.relates_to"_ls);
     if (!relations.isEmpty()) {
         const bool hasReplyRelation = relations.contains("m.in_reply_to"_ls);
         bool isFallingBack = relations["is_falling_back"_ls].toBool();
@@ -780,147 +772,73 @@ bool EventHandler::hasReply(bool showFallbacks) const
     return false;
 }
 
-QString EventHandler::getReplyId() const
+QString EventHandler::replyId(const Quotient::RoomEvent *event)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getReplyId called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "replyId called with event set to nullptr.";
         return {};
     }
-    return m_event->contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
+    return event->contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
 }
 
-MessageComponentType::Type EventHandler::replyMessageComponentType() const
+Quotient::RoomMember EventHandler::replyAuthor(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "replyMessageComponentType called with m_room set to nullptr.";
-        return MessageComponentType::Other;
-    }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "replyMessageComponentType called with m_event set to nullptr.";
-        return MessageComponentType::Other;
-    }
-
-    auto replyEvent = m_room->getReplyForEvent(*m_event);
-    if (replyEvent == nullptr) {
-        return MessageComponentType::Other;
-    }
-    return MessageComponentType::typeForEvent(*replyEvent);
-}
-
-Quotient::RoomMember EventHandler::getReplyAuthor() const
-{
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getReplyAuthor called with m_room set to nullptr.";
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "replyAuthor called with room set to nullptr.";
         return {};
     }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getReplyAuthor called with m_event set to nullptr. Returning empty user.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "replyAuthor called with event set to nullptr. Returning empty user.";
         return {};
     }
 
-    if (auto replyPtr = m_room->getReplyForEvent(*m_event)) {
-        return m_room->member(replyPtr->senderId());
+    if (auto replyPtr = room->getReplyForEvent(*event)) {
+        return room->member(replyPtr->senderId());
     } else {
-        return m_room->member(QString());
+        return room->member(QString());
     }
 }
 
-QString EventHandler::getReplyRichBody(bool stripNewlines) const
+bool EventHandler::isThreaded(const Quotient::RoomEvent *event)
 {
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getReplyRichBody called with m_room set to nullptr.";
-        return {};
-    }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getReplyRichBody called with m_event set to nullptr.";
-        return {};
-    }
-
-    auto replyEvent = m_room->getReplyForEvent(*m_event);
-    if (replyEvent == nullptr) {
-        return {};
-    }
-
-    return getBody(replyEvent, Qt::RichText, stripNewlines);
-}
-
-QString EventHandler::getReplyPlainBody(bool stripNewlines) const
-{
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getReplyPlainBody called with m_room set to nullptr.";
-        return {};
-    }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getReplyPlainBody called with m_event set to nullptr.";
-        return {};
-    }
-
-    auto replyEvent = m_room->getReplyForEvent(*m_event);
-    if (replyEvent == nullptr) {
-        return {};
-    }
-
-    return getBody(replyEvent, Qt::PlainText, stripNewlines);
-}
-
-QVariantMap EventHandler::getReplyMediaInfo() const
-{
-    if (m_room == nullptr) {
-        qCWarning(EventHandling) << "getReplyMediaInfo called with m_room set to nullptr.";
-        return {};
-    }
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getReplyMediaInfo called with m_event set to nullptr.";
-        return {};
-    }
-
-    auto replyPtr = m_room->getReplyForEvent(*m_event);
-    if (!replyPtr) {
-        return {};
-    }
-    return getMediaInfoForEvent(replyPtr);
-}
-
-bool EventHandler::isThreaded() const
-{
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "isThreaded called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "isThreaded called with event set to nullptr.";
         return false;
     }
 
-    return (m_event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
-            && m_event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls)
-        || (!m_event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && m_event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls));
+    return (event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
+            && event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls)
+        || (!event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls));
 }
 
-QString EventHandler::threadRoot() const
+QString EventHandler::threadRoot(const Quotient::RoomEvent *event)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "threadRoot called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "threadRoot called with event set to nullptr.";
         return {};
     }
 
     // Get the thread root ID from m.relates_to if it exists.
-    if (m_event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
-        && m_event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls) {
-        return m_event->contentPart<QJsonObject>("m.relates_to"_ls)["event_id"_ls].toString();
+    if (event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
+        && event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls) {
+        return event->contentPart<QJsonObject>("m.relates_to"_ls)["event_id"_ls].toString();
     }
     // For thread root events they have an m.relations in the unsigned part with a m.thread object.
     // If so return the event ID as it is the root.
-    if (!m_event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && m_event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls)) {
-        return getId();
+    if (!event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls)) {
+        return id(event);
     }
     return {};
 }
 
-float EventHandler::getLatitude() const
+float EventHandler::latitude(const Quotient::RoomEvent *event)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getLatitude called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "latitude called with event set to nullptr.";
         return -100.0;
     }
 
-    const auto geoUri = m_event->contentJson()["geo_uri"_ls].toString();
+    const auto geoUri = event->contentJson()["geo_uri"_ls].toString();
     if (geoUri.isEmpty()) {
         return -100.0; // latitude runs from -90deg to +90deg so -100 is out of range.
     }
@@ -928,14 +846,14 @@ float EventHandler::getLatitude() const
     return latitude.toFloat();
 }
 
-float EventHandler::getLongitude() const
+float EventHandler::longitude(const Quotient::RoomEvent *event)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getLongitude called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "longitude called with event set to nullptr.";
         return -200.0;
     }
 
-    const auto geoUri = m_event->contentJson()["geo_uri"_ls].toString();
+    const auto geoUri = event->contentJson()["geo_uri"_ls].toString();
     if (geoUri.isEmpty()) {
         return -200.0; // longitude runs from -180deg to +180deg so -200 is out of range.
     }
@@ -943,14 +861,14 @@ float EventHandler::getLongitude() const
     return latitude.toFloat();
 }
 
-QString EventHandler::getLocationAssetType() const
+QString EventHandler::locationAssetType(const Quotient::RoomEvent *event)
 {
-    if (m_event == nullptr) {
-        qCWarning(EventHandling) << "getLocationAssetType called with m_event set to nullptr.";
+    if (event == nullptr) {
+        qCWarning(EventHandling) << "locationAssetType called with event set to nullptr.";
         return {};
     }
 
-    const auto assetType = m_event->contentJson()["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
+    const auto assetType = event->contentJson()["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
     if (assetType.isEmpty()) {
         return {};
     }

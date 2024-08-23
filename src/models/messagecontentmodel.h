@@ -10,7 +10,6 @@
 #include <Quotient/room.h>
 
 #include "enums/messagecomponenttype.h"
-#include "eventhandler.h"
 #include "itinerarymodel.h"
 #include "neochatroommember.h"
 
@@ -66,7 +65,6 @@ public:
         AssetRole, /**< Type of location event, e.g. self pin of the user location. */
         PollHandlerRole, /**< The PollHandler for the event, if any. */
 
-        IsReplyRole, /**< Is the message a reply to another event. */
         ReplyEventIdRole, /**< The matrix ID of the message that was replied to. */
         ReplyAuthorRole, /**< The author of the event that was replied to. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */

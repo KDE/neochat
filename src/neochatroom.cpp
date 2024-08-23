@@ -549,10 +549,8 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
         bool isFallingBack = !fallbackId.isEmpty();
         QString replyEventId = isFallingBack ? fallbackId : QString();
         if (isReply) {
-            EventHandler eventHandler(this, &**replyIt);
-
             isFallingBack = false;
-            replyEventId = eventHandler.getId();
+            replyEventId = EventHandler::id(replyIt->get());
         }
 
         // If we are not replying and there is no fallback ID it means a new thread
@@ -605,12 +603,10 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
     if (isReply) {
         const auto &replyEvt = **replyIt;
 
-        EventHandler eventHandler(this, &**replyIt);
-
         // clang-format off
         QJsonObject json{
           {"msgtype"_ls, msgTypeToString(type)},
-          {"body"_ls, "> <%1> %2\n\n%3"_ls.arg(replyEvt.senderId(), eventHandler.getPlainBody(), text)},
+          {"body"_ls, "> <%1> %2\n\n%3"_ls.arg(replyEvt.senderId(), EventHandler::plainBody(this, &replyEvt), text)},
           {"format"_ls, "org.matrix.custom.html"_ls},
           {"m.relates_to"_ls,
             QJsonObject {
@@ -622,7 +618,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
             }
           },
           {"formatted_body"_ls,
-              "<mx-reply><blockquote><a href=\"https://matrix.to/#/%1/%2\">In reply to</a> <a href=\"https://matrix.to/#/%3\">%4</a><br>%5</blockquote></mx-reply>%6"_ls.arg(id(), replyEventId, replyEvt.senderId(), replyEvt.senderId(), eventHandler.getRichBody(), html)
+              "<mx-reply><blockquote><a href=\"https://matrix.to/#/%1/%2\">In reply to</a> <a href=\"https://matrix.to/#/%3\">%4</a><br>%5</blockquote></mx-reply>%6"_ls.arg(id(), replyEventId, replyEvt.senderId(), replyEvt.senderId(), EventHandler::richBody(this, &replyEvt), html)
           }
         };
         // clang-format on

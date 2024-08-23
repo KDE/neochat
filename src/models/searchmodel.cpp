@@ -89,8 +89,6 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     auto row = index.row();
     const auto &event = *m_result->results[row].result;
 
-    EventHandler eventHandler(m_room, &event);
-
     switch (role) {
     case AuthorRole:
         return QVariant::fromValue<NeochatRoomMember *>(m_memberObjects.at(event.senderId()).get());
@@ -100,7 +98,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         }
         return event.originTimestamp().date() != m_result->results[row - 1].result->originTimestamp().date();
     case SectionRole:
-        return eventHandler.getTimeString(true);
+        return EventHandler::timeString(&event, true);
     case ShowReactionsRole:
         return false;
     case ShowReadMarkersRole:
@@ -108,13 +106,13 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     case IsPendingRole:
         return false;
     case HighlightRole:
-        return eventHandler.isHighlighted();
+        return EventHandler::isHighlighted(m_room, &event);
     case EventIdRole:
-        return eventHandler.getId();
+        return EventHandler::id(&event);
     case IsThreadedRole:
-        return eventHandler.isThreaded();
+        return EventHandler::isThreaded(&event);
     case ThreadRootRole:
-        return eventHandler.threadRoot();
+        return EventHandler::threadRoot(&event);
     case ContentModelRole: {
         if (!event.isStateEvent()) {
             return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_room, &event));

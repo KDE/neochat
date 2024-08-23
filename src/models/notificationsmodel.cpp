@@ -121,12 +121,11 @@ void NotificationsModel::loadData()
                 const auto &authorAvatar = avatar.isValid() && avatar.scheme() == QStringLiteral("mxc") ? avatar : QUrl();
 
                 const auto &roomEvent = eventCast<const RoomEvent>(notification.event.get());
-                EventHandler eventHandler(dynamic_cast<NeoChatRoom *>(room), roomEvent);
                 beginInsertRows({}, m_notifications.length(), m_notifications.length());
                 m_notifications += Notification{
                     .roomId = notification.roomId,
                     .text = room->member(authorId).htmlSafeDisplayName() + (roomEvent->is<StateEvent>() ? QStringLiteral(" ") : QStringLiteral(": "))
-                        + eventHandler.getPlainBody(true),
+                        + EventHandler::plainBody(dynamic_cast<NeoChatRoom *>(room), roomEvent, true),
                     .authorName = room->member(authorId).htmlSafeDisplayName(),
                     .authorAvatar = authorAvatar,
                     .eventId = roomEvent->id(),

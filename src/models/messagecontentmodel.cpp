@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "messagecontentmodel.h"
+#include "eventhandler.h"
 #include "neochatconfig.h"
 
 #include <QImageReader>
@@ -228,7 +229,6 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    EventHandler eventHandler(m_room, m_event.get());
     const auto component = m_components[index.row()];
 
     if (role == DisplayRole) {
@@ -246,7 +246,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         if (!component.content.isEmpty()) {
             return component.content;
         }
-        return eventHandler.getRichBody();
+        return EventHandler::richBody(m_room, m_event.get());
     }
     if (role == ComponentTypeRole) {
         return component.type;
@@ -255,7 +255,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return component.attributes;
     }
     if (role == EventIdRole) {
-        return eventHandler.getId();
+        return EventHandler::id(m_event.get());
     }
     if (role == TimeRole) {
         const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [this](const PendingEventItem &pendingEvent) {
@@ -263,7 +263,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         });
 
         auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
-        return eventHandler.getTime(m_isPending, lastUpdated);
+        return EventHandler::time(m_event.get(), m_isPending, lastUpdated);
     }
     if (role == TimeStringRole) {
         const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [this](const PendingEventItem &pendingEvent) {
@@ -271,13 +271,13 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         });
 
         auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
-        return eventHandler.getTimeString(QStringLiteral("hh:mm"), m_isPending, lastUpdated);
+        return EventHandler::timeString(m_event.get(), QStringLiteral("hh:mm"), m_isPending, lastUpdated);
     }
     if (role == AuthorRole) {
         return QVariant::fromValue<NeochatRoomMember *>(m_eventSenderObject.get());
     }
     if (role == MediaInfoRole) {
-        return eventHandler.getMediaInfo();
+        return EventHandler::mediaInfo(m_room, m_event.get());
     }
     if (role == FileTransferInfoRole) {
         return QVariant::fromValue(m_room->cachedFileTransferInfo(m_event.get()));
@@ -286,25 +286,22 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue<ItineraryModel *>(m_itineraryModel);
     }
     if (role == LatitudeRole) {
-        return eventHandler.getLatitude();
+        return EventHandler::latitude(m_event.get());
     }
     if (role == LongitudeRole) {
-        return eventHandler.getLongitude();
+        return EventHandler::longitude(m_event.get());
     }
     if (role == AssetRole) {
-        return eventHandler.getLocationAssetType();
+        return EventHandler::locationAssetType(m_event.get());
     }
     if (role == PollHandlerRole) {
         return QVariant::fromValue<PollHandler *>(m_room->poll(m_eventId));
     }
-    if (role == IsReplyRole) {
-        return eventHandler.hasReply();
-    }
     if (role == ReplyEventIdRole) {
-        return eventHandler.getReplyId();
+        return EventHandler::replyId(m_event.get());
     }
     if (role == ReplyAuthorRole) {
-        return QVariant::fromValue(eventHandler.getReplyAuthor());
+        return QVariant::fromValue(EventHandler::replyAuthor(m_room, m_event.get()));
     }
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);
@@ -344,7 +341,6 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     roles[LongitudeRole] = "longitude";
     roles[AssetRole] = "asset";
     roles[PollHandlerRole] = "pollHandler";
-    roles[IsReplyRole] = "isReply";
     roles[ReplyEventIdRole] = "replyEventId";
     roles[ReplyAuthorRole] = "replyAuthor";
     roles[ReplyContentModelRole] = "replyContentModel";
@@ -411,8 +407,7 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     if (isEditing) {
         newComponents += MessageComponent{MessageComponentType::Edit, QString(), {}};
     } else {
-        EventHandler eventHandler(m_room, m_event.get());
-        newComponents.append(componentsForType(eventHandler.messageComponentType()));
+        newComponents.append(componentsForType(MessageComponentType::typeForEvent(*m_event.get())));
     }
 
     if (m_room->urlPreviewEnabled()) {
@@ -428,8 +423,7 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    EventHandler eventHandler(m_room, m_event.get());
-    if (!eventHandler.hasReply() || (eventHandler.isThreaded() && NeoChatConfig::self()->threads())) {
+    if (!EventHandler::hasReply(m_event.get()) || (EventHandler::isThreaded(m_event.get()) && NeoChatConfig::self()->threads())) {
         if (m_replyModel) {
             delete m_replyModel;
         }
@@ -440,9 +434,9 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    const auto replyEvent = m_room->findInTimeline(eventHandler.getReplyId());
+    const auto replyEvent = m_room->findInTimeline(EventHandler::replyId(m_event.get()));
     if (replyEvent == m_room->historyEdge()) {
-        m_replyModel = new MessageContentModel(m_room, eventHandler.getReplyId(), true, false, this);
+        m_replyModel = new MessageContentModel(m_room, EventHandler::replyId(m_event.get()), true, false, this);
     } else {
         m_replyModel = new MessageContentModel(m_room, replyEvent->get(), true, false, this);
     }

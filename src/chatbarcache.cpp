@@ -119,8 +119,7 @@ QString ChatBarCache::relationMessage() const
     }
 
     if (auto event = room->findInTimeline(m_relationId); event != room->historyEdge()) {
-        EventHandler eventhandler(room, &**event);
-        return eventhandler.getMarkdownBody();
+        return EventHandler::markdownBody(&**event);
     }
     return {};
 }
