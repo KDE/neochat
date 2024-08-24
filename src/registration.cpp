@@ -105,9 +105,7 @@ void Registration::registerAccount()
                 account.setHomeserver(connection->homeserver());
                 account.setDeviceId(connection->deviceId());
                 account.setDeviceName(displayName);
-                if (!Controller::instance().saveAccessTokenToKeyChain(account.userId(), connection->accessToken())) {
-                    qWarning() << "Couldn't save access token";
-                }
+                Controller::instance().saveAccessTokenToKeyChain(account.userId(), connection->accessToken());
                 account.sync();
                 Controller::instance().addConnection(connection);
                 Controller::instance().setActiveConnection(connection);

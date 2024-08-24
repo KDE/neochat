@@ -86,7 +86,7 @@ public:
     /**
      * @brief Save an access token to the keychain for the given account.
      */
-    bool saveAccessTokenToKeyChain(const QString &userId, const QByteArray &accessToken);
+    void saveAccessTokenToKeyChain(const QString &userId, const QByteArray &accessToken);
 
     [[nodiscard]] bool supportSystemTray() const;
 

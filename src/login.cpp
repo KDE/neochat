@@ -78,9 +78,7 @@ void LoginHelper::init()
         account.setHomeserver(m_connection->homeserver());
         account.setDeviceId(m_connection->deviceId());
         account.setDeviceName(m_deviceName);
-        if (!Controller::instance().saveAccessTokenToKeyChain(account.userId(), m_connection->accessToken())) {
-            qWarning() << "Couldn't save access token";
-        }
+        Controller::instance().saveAccessTokenToKeyChain(account.userId(), m_connection->accessToken());
         account.sync();
         Controller::instance().addConnection(m_connection);
         Controller::instance().setActiveConnection(m_connection);
