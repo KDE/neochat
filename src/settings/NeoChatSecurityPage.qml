@@ -31,11 +31,11 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             text: i18nc("@option:check", "Reject invitations from unknown users")
             description: connection.canCheckMutualRooms ? i18n("If enabled, NeoChat will reject invitations from users you don't share a room with.") : i18n("Your server does not support this setting.")
-            checked: Config.rejectUnknownInvites
-            enabled: !Config.isRejectUnknownInvitesImmutable && connection.canCheckMutualRooms
+            checked: NeoChatConfig.rejectUnknownInvites
+            enabled: !NeoChatConfig.isRejectUnknownInvitesImmutable && connection.canCheckMutualRooms
             onToggled: {
-                Config.rejectUnknownInvites = checked;
-                Config.save();
+                NeoChatConfig.rejectUnknownInvites = checked;
+                NeoChatConfig.save();
             }
         }
     }
