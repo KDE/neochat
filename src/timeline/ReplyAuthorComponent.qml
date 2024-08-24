@@ -48,5 +48,6 @@ RowLayout {
         color: root.author.color
         text: root.author.disambiguatedName
         elide: Text.ElideRight
+        textFormat: Text.PlainText
     }
 }
