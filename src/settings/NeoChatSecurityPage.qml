@@ -45,7 +45,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Manage ignored users")
-            onClicked: root.ApplicationWindow.window.pageStack.push(ignoredUsersDialogComponent, {}, {
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(ignoredUsersDialogComponent, {}, {
                 title: i18nc("@title:window", "Ignored Users")
             });
         }
