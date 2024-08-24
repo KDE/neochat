@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-23 00:39+0000\n"
+"POT-Creation-Date: 2024-08-24 00:39+0000\n"
 "PO-Revision-Date: 2024-08-02 21:17+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -99,47 +99,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Varsling av nye meldingar"
 
-#: src/controller.cpp:209
+#: src/controller.cpp:223
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Nettverksfeil: %1"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:245
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Fann ikkje tilgangspollett"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:245
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Kanskje han er sletta?"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:249
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Vart nekta tilgang til nøkkelring."
 
-#: src/controller.cpp:235
+#: src/controller.cpp:249
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Gje NeoChat løyve til å lesa tilgangspolletten"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:252
 #, kde-format
 msgid "No keychain available."
 msgstr "Ingen nøkkelring er tilgjengeleg."
 
-#: src/controller.cpp:238
+#: src/controller.cpp:252
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:255
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Klarte ikkje lesa tilgangspollett"
 
-#: src/controller.cpp:337
+#: src/controller.cpp:351
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Varsling av push-varslingar"
@@ -378,346 +378,346 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:295 src/eventhandler.cpp:503
-#: src/models/messagecontentmodel.cpp:243 src/models/messageeventmodel.cpp:440
+#: src/eventhandler.cpp:279 src/eventhandler.cpp:487
+#: src/models/messagecontentmodel.cpp:244 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Denne meldinga er sletta]</i>"
 
-#: src/eventhandler.cpp:295 src/models/messagecontentmodel.cpp:244
-#: src/models/messageeventmodel.cpp:441
+#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:245
+#: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Denne meldinga er sletta: %1]</i>"
 
-#: src/eventhandler.cpp:329
+#: src/eventhandler.cpp:313
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "inviterte %1 på nytt til rommet"
 
-#: src/eventhandler.cpp:331
+#: src/eventhandler.cpp:315
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:340 src/eventhandler.cpp:527
+#: src/eventhandler.cpp:324 src/eventhandler.cpp:511
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "kom inn i rommet (på nytt)"
 
-#: src/eventhandler.cpp:342
+#: src/eventhandler.cpp:326
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "inviterte %1 til rommet"
 
-#: src/eventhandler.cpp:342 src/eventhandler.cpp:529
+#: src/eventhandler.cpp:326 src/eventhandler.cpp:513
 #, kde-format
 msgid "joined the room"
 msgstr "kom inn i rommet"
 
-#: src/eventhandler.cpp:346
+#: src/eventhandler.cpp:330
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:353 src/eventhandler.cpp:537
+#: src/eventhandler.cpp:337 src/eventhandler.cpp:521
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "fjerna visingsnamnet"
 
-#: src/eventhandler.cpp:356
+#: src/eventhandler.cpp:340
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "endra visingsnamnet sitt til %1"
 
-#: src/eventhandler.cpp:362 src/eventhandler.cpp:544
+#: src/eventhandler.cpp:346 src/eventhandler.cpp:528
 #, kde-format
 msgid " and "
 msgstr " og "
 
-#: src/eventhandler.cpp:365 src/eventhandler.cpp:547
+#: src/eventhandler.cpp:349 src/eventhandler.cpp:531
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "fjerna avataren sin"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:351 src/eventhandler.cpp:533
 #, kde-format
 msgid "set an avatar"
 msgstr "valde ein avatar"
 
 # Kan gjelda meir enn éin person, så «oppdaterte avataren sin» vert feil.
-#: src/eventhandler.cpp:369 src/eventhandler.cpp:551
+#: src/eventhandler.cpp:353 src/eventhandler.cpp:535
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "valde ein ny avatar"
 
-#: src/eventhandler.cpp:373 src/eventhandler.cpp:555
+#: src/eventhandler.cpp:357 src/eventhandler.cpp:539
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "endra ingenting"
 
-#: src/eventhandler.cpp:379
+#: src/eventhandler.cpp:363
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "trekte tilbake invitasjonen til %1"
 
-#: src/eventhandler.cpp:379 src/eventhandler.cpp:561
+#: src/eventhandler.cpp:363 src/eventhandler.cpp:545
 #, kde-format
 msgid "rejected the invitation"
 msgstr "avviste invitasjonen"
 
-#: src/eventhandler.cpp:383
+#: src/eventhandler.cpp:367
 #, kde-format
 msgid "unbanned %1"
 msgstr "oppheva utestenging av %1"
 
-#: src/eventhandler.cpp:383 src/eventhandler.cpp:565
+#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
 #, kde-format
 msgid "self-unbanned"
 msgstr "utestengde seg sjølv"
 
-#: src/eventhandler.cpp:386
+#: src/eventhandler.cpp:370
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "fjerna %1 frå rommet: %2"
 
-#: src/eventhandler.cpp:387 src/eventhandler.cpp:567
+#: src/eventhandler.cpp:371 src/eventhandler.cpp:551
 #, kde-format
 msgid "left the room"
 msgstr "forlét rommet"
 
-#: src/eventhandler.cpp:391
+#: src/eventhandler.cpp:375
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "utestengde %1 frå rommet"
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:377
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "utestengde %1 frå rommet: %2"
 
-#: src/eventhandler.cpp:396 src/eventhandler.cpp:572
+#: src/eventhandler.cpp:380 src/eventhandler.cpp:556
 #, kde-format
 msgid "self-banned from the room"
 msgstr "utestengde seg sjølv frå rommet"
 
-#: src/eventhandler.cpp:400 src/eventhandler.cpp:575
+#: src/eventhandler.cpp:384 src/eventhandler.cpp:559
 #, kde-format
 msgid "requested an invite"
 msgstr "ba om ein invitasjon"
 
-#: src/eventhandler.cpp:400
+#: src/eventhandler.cpp:384
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "ba om ein invitasjon med denne grunngjevinga: %1"
 
-#: src/eventhandler.cpp:404 src/eventhandler.cpp:579
+#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
 #, kde-format
 msgid "made something unknown"
 msgstr "gjorde noko ukjent"
 
-#: src/eventhandler.cpp:407 src/eventhandler.cpp:582
+#: src/eventhandler.cpp:391 src/eventhandler.cpp:566
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "fjerna hovudaliaset til rommet"
 
-#: src/eventhandler.cpp:407
+#: src/eventhandler.cpp:391
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "bytte hovudalias for rommet til: %1"
 
-#: src/eventhandler.cpp:410 src/eventhandler.cpp:585
+#: src/eventhandler.cpp:394 src/eventhandler.cpp:569
 #, kde-format
 msgid "cleared the room name"
 msgstr "fjerna romnamnet"
 
-#: src/eventhandler.cpp:410
+#: src/eventhandler.cpp:394
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "bytte romnamnet til: %1"
 
-#: src/eventhandler.cpp:413 src/eventhandler.cpp:588
+#: src/eventhandler.cpp:397 src/eventhandler.cpp:572
 #, kde-format
 msgid "cleared the topic"
 msgstr "fjerna emnet"
 
-#: src/eventhandler.cpp:414
+#: src/eventhandler.cpp:398
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "bytte emnet til: %1"
 
-#: src/eventhandler.cpp:420 src/eventhandler.cpp:591
+#: src/eventhandler.cpp:404 src/eventhandler.cpp:575
 #, kde-format
 msgid "changed the room avatar"
 msgstr "bytte ut romavataren"
 
-#: src/eventhandler.cpp:423 src/eventhandler.cpp:594
+#: src/eventhandler.cpp:407 src/eventhandler.cpp:578
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "slo på ende-til-ende-kryptering"
 
-#: src/eventhandler.cpp:427
+#: src/eventhandler.cpp:411
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "oppgraderte rommet til versjon %1"
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:412
 #, kde-format
 msgid "created the room, version %1"
 msgstr "oppretta rommet, versjon %1"
 
-#: src/eventhandler.cpp:431 src/eventhandler.cpp:600
+#: src/eventhandler.cpp:415 src/eventhandler.cpp:584
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "endra maktnivået for rommet"
 
-#: src/eventhandler.cpp:437 src/eventhandler.cpp:606
+#: src/eventhandler.cpp:421 src/eventhandler.cpp:590
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "endra tenartilgangskontroll-lista for rommet"
 
-#: src/eventhandler.cpp:441
+#: src/eventhandler.cpp:425
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "la til eit %1-element"
 
-#: src/eventhandler.cpp:444
+#: src/eventhandler.cpp:428
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "fjerna eit %1-element"
 
-#: src/eventhandler.cpp:446
+#: src/eventhandler.cpp:430
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "endra innstillingar for eit %1-element"
 
-#: src/eventhandler.cpp:449
+#: src/eventhandler.cpp:433
 #, kde-format
 msgid "updated %1 state"
 msgstr "oppdaterte %1-tilstand"
 
-#: src/eventhandler.cpp:450
+#: src/eventhandler.cpp:434
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "oppdaterte %1-tilstand for %2"
 
-#: src/eventhandler.cpp:455 src/eventhandler.cpp:624
+#: src/eventhandler.cpp:439 src/eventhandler.cpp:608
 #, kde-format
 msgid "Unknown event"
 msgstr "Ukjend hending"
 
-#: src/eventhandler.cpp:470
+#: src/eventhandler.cpp:454
 #, kde-format
 msgid "a file"
 msgstr "ei fil"
 
-#: src/eventhandler.cpp:510
+#: src/eventhandler.cpp:494
 #, kde-format
 msgid "sent a message"
 msgstr "sende ei melding"
 
-#: src/eventhandler.cpp:514
+#: src/eventhandler.cpp:498
 #, kde-format
 msgid "sent a sticker"
 msgstr "sende eit klistremerke"
 
-#: src/eventhandler.cpp:520
+#: src/eventhandler.cpp:504
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "inviterte nokon på nytt til rommet"
 
-#: src/eventhandler.cpp:529
+#: src/eventhandler.cpp:513
 #, kde-format
 msgid "invited someone to the room"
 msgstr "inviterte nokon til rommet"
 
-#: src/eventhandler.cpp:539
+#: src/eventhandler.cpp:523
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "endra visingsnamnet sitt"
 
-#: src/eventhandler.cpp:561
+#: src/eventhandler.cpp:545
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "trekte tilbake ein invitasjonen"
 
-#: src/eventhandler.cpp:565
+#: src/eventhandler.cpp:549
 #, kde-format
 msgid "unbanned a user"
 msgstr "oppheva utestenging av ein brukar"
 
-#: src/eventhandler.cpp:567
+#: src/eventhandler.cpp:551
 #, kde-format
 msgid "put a user out of the room"
 msgstr "fjerna ein brukar frå rommet"
 
-#: src/eventhandler.cpp:570
+#: src/eventhandler.cpp:554
 #, kde-format
 msgid "banned a user from the room"
 msgstr "utestengde ein brukar frå rommet"
 
-#: src/eventhandler.cpp:582
+#: src/eventhandler.cpp:566
 #, kde-format
 msgid "set the room main alias"
 msgstr "bytte hovudalias for rommet"
 
-#: src/eventhandler.cpp:585
+#: src/eventhandler.cpp:569
 #, kde-format
 msgid "set the room name"
 msgstr "bytte romnamnet"
 
-#: src/eventhandler.cpp:588
+#: src/eventhandler.cpp:572
 #, kde-format
 msgid "set the topic"
 msgstr "bytte emnet"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:581
 #, kde-format
 msgid "upgraded the room version"
 msgstr "oppgraderte rommet til ny versjon"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:581
 #, kde-format
 msgid "created the room"
 msgstr "oppretta rommet"
 
-#: src/eventhandler.cpp:603
+#: src/eventhandler.cpp:587
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "sende eit sanntids posisjonssignal"
 
-#: src/eventhandler.cpp:610
+#: src/eventhandler.cpp:594
 #, kde-format
 msgid "added a widget"
 msgstr "la til eit element"
 
-#: src/eventhandler.cpp:613
+#: src/eventhandler.cpp:597
 #, kde-format
 msgid "removed a widget"
 msgstr "fjerna eit element"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:599
 #, kde-format
 msgid "configured a widget"
 msgstr "endra innstillingar for eit element"
 
-#: src/eventhandler.cpp:618
+#: src/eventhandler.cpp:602
 #, kde-format
 msgid "updated the state"
 msgstr "oppdaterte tilstanden"
 
-#: src/eventhandler.cpp:622
+#: src/eventhandler.cpp:606
 #, kde-format
 msgid "started a poll"
 msgstr "starta ei avstemming"
@@ -1077,16 +1077,6 @@ msgstr "Berre intern bruk."
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Del ei adresse på Matrix"
-
-#: src/matriximageprovider.cpp:38
-#, kde-format
-msgid "Media id '%1' doesn't follow server/mediaId pattern"
-msgstr "Medie-ID-en «%1» følgjer ikkje mønsteret «tenar/medie-ID»"
-
-#: src/matriximageprovider.cpp:96
-#, kde-format
-msgid "Image request has been cancelled"
-msgstr "Biletførespurnaden vart avbroten"
 
 #: src/models/actionsmodel.cpp:27
 #, kde-format
@@ -1469,7 +1459,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Eigne emojiar"
 
-#: src/models/messagecontentmodel.cpp:236
+#: src/models/messagecontentmodel.cpp:237
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -1779,12 +1769,12 @@ msgstr "Feil ved romregistrering: %1"
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/neochatroom.cpp:1424
+#: src/neochatroom.cpp:1420
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/neochatroom.cpp:1750 src/neochatroom.cpp:1758
+#: src/neochatroom.cpp:1746 src/neochatroom.cpp:1754
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3994,27 +3984,27 @@ msgstr "Hald fram"
 msgid "Working"
 msgstr "Arbeider"
 
-#: src/roommanager.cpp:135
+#: src/roommanager.cpp:136
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Tom eller ugyldig Matrix-ID"
 
-#: src/roommanager.cpp:135
+#: src/roommanager.cpp:136
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 er ikkje ein gyldig Matrix-identifikator"
 
-#: src/roommanager.cpp:342
+#: src/roommanager.cpp:347
 #, kde-format
 msgid "Failed to join room"
 msgstr "Klarte ikkje verta med i rommet"
 
-#: src/roommanager.cpp:374
+#: src/roommanager.cpp:379
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du har bedt om å få verta med i «%1»"
 
-#: src/roommanager.cpp:378
+#: src/roommanager.cpp:383
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Klarte ikkje be om å få verta med i rommet"
@@ -4669,6 +4659,19 @@ msgstr "Utviklarinnstillingar"
 msgid "Enable developer tools"
 msgstr "Vis utviklarverktøy"
 
+#: src/settings/NeoChatGeneralPage.qml:250
+#, fuzzy, kde-format
+#| msgid "Developer Settings"
+msgctxt "@title"
+msgid "Default Settings"
+msgstr "Utviklarinnstillingar"
+
+#: src/settings/NeoChatGeneralPage.qml:254
+#, kde-format
+msgctxt "@action:button"
+msgid "Reset all configuration values to their default"
+msgstr ""
+
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
 msgctxt "@title"
@@ -5296,7 +5299,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Fullført"
 
-#: src/settings/ThreePIdCard.qml:90
+#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:118
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5405,6 +5408,19 @@ msgstr ""
 "Telefonnummeret er ikkje stadfesta. Sjekk tekstmeldingane dine, følg "
 "instruksjonane der, og trykk så på knappen ovanfor."
 
+#: src/timeline/ChatBarComponent.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "Stadfest redigering"
+
+#: src/timeline/ChatBarComponent.qml:106
+#, fuzzy, kde-format
+#| msgid "No messages found"
+msgctxt "@action:button"
+msgid "Post message in thread"
+msgstr "Fann ingen meldingar"
+
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
 msgid "Copy to clipboard"
@@ -5503,22 +5519,10 @@ msgstr "Utvid førehandsvising"
 msgid "Loading URL preview"
 msgstr "Lastar førehandsvising av nettside"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:221
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 starta brukarstadfesting"
-
-#: src/timeline/MessageEditComponent.qml:103
-#, kde-format
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "Stadfest redigering"
-
-#: src/timeline/MessageEditComponent.qml:115
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel edit"
-msgstr "Avbryt redigering"
 
 #: src/timeline/PollComponent.qml:73
 #, kde-format
@@ -5577,3 +5581,13 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr "Avslutt"
+
+#~ msgid "Media id '%1' doesn't follow server/mediaId pattern"
+#~ msgstr "Medie-ID-en «%1» følgjer ikkje mønsteret «tenar/medie-ID»"
+
+#~ msgid "Image request has been cancelled"
+#~ msgstr "Biletførespurnaden vart avbroten"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel edit"
+#~ msgstr "Avbryt redigering"

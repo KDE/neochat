@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-23 00:39+0000\n"
+"POT-Creation-Date: 2024-08-24 00:39+0000\n"
 "PO-Revision-Date: 2024-03-28 07:13+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -98,49 +98,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Saņem jaunu ziņu paziņojumus"
 
-#: src/controller.cpp:209
+#: src/controller.cpp:223
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Tīkla kļūda: %1"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:245
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Piekļuves pilnvara nav atrasta"
 
-#: src/controller.cpp:231
+#: src/controller.cpp:245
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Varbūt tas ir izdzēsts?"
 
-#: src/controller.cpp:235
+#: src/controller.cpp:249
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Piekļuve atslēgu saišķim ir noraidīta."
 
-#: src/controller.cpp:235
+#: src/controller.cpp:249
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Ļaujiet „NeoChat“ nolasīt piekļuves pilnvaru"
 
-#: src/controller.cpp:238
+#: src/controller.cpp:252
 #, kde-format
 msgid "No keychain available."
 msgstr "Atslēgu saišķis nav pieejams."
 
-#: src/controller.cpp:238
+#: src/controller.cpp:252
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Ieinstalējot atslēgu saišķi, piemēram, „KWallet“ vai GNOME atslēgu saišķi "
 "„Linux“ sistēmā"
 
-#: src/controller.cpp:241
+#: src/controller.cpp:255
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Nevar nolasīt piekļuves pilnvaru"
 
-#: src/controller.cpp:337
+#: src/controller.cpp:351
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Saņem pašpiegādes ziņojumus"
@@ -387,345 +387,345 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:295 src/eventhandler.cpp:503
-#: src/models/messagecontentmodel.cpp:243 src/models/messageeventmodel.cpp:440
+#: src/eventhandler.cpp:279 src/eventhandler.cpp:487
+#: src/models/messagecontentmodel.cpp:244 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Šī ziņa ir dzēsta]</i>"
 
-#: src/eventhandler.cpp:295 src/models/messagecontentmodel.cpp:244
-#: src/models/messageeventmodel.cpp:441
+#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:245
+#: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Šī ziņa ir dzēsta: %1]</i>"
 
-#: src/eventhandler.cpp:329
+#: src/eventhandler.cpp:313
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "atkārtoti uzaicināt istabā %1"
 
-#: src/eventhandler.cpp:331
+#: src/eventhandler.cpp:315
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:340 src/eventhandler.cpp:527
+#: src/eventhandler.cpp:324 src/eventhandler.cpp:511
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "pievienojās istabai (atkārtoti)"
 
-#: src/eventhandler.cpp:342
+#: src/eventhandler.cpp:326
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 uzaicināts uz istabu"
 
-#: src/eventhandler.cpp:342 src/eventhandler.cpp:529
+#: src/eventhandler.cpp:326 src/eventhandler.cpp:513
 #, kde-format
 msgid "joined the room"
 msgstr "pievienojās istabai"
 
-#: src/eventhandler.cpp:346
+#: src/eventhandler.cpp:330
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:353 src/eventhandler.cpp:537
+#: src/eventhandler.cpp:337 src/eventhandler.cpp:521
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "noņēma parādāmo vārdu"
 
-#: src/eventhandler.cpp:356
+#: src/eventhandler.cpp:340
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "nomainīja savu parādāmo vārdu uz %1"
 
-#: src/eventhandler.cpp:362 src/eventhandler.cpp:544
+#: src/eventhandler.cpp:346 src/eventhandler.cpp:528
 #, kde-format
 msgid " and "
 msgstr " un "
 
-#: src/eventhandler.cpp:365 src/eventhandler.cpp:547
+#: src/eventhandler.cpp:349 src/eventhandler.cpp:531
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "noņēma savu attēlu"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:351 src/eventhandler.cpp:533
 #, kde-format
 msgid "set an avatar"
 msgstr "uzlika attēlu"
 
-#: src/eventhandler.cpp:369 src/eventhandler.cpp:551
+#: src/eventhandler.cpp:353 src/eventhandler.cpp:535
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "atjaunināja savu attēlu"
 
-#: src/eventhandler.cpp:373 src/eventhandler.cpp:555
+#: src/eventhandler.cpp:357 src/eventhandler.cpp:539
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "neko nemainīja"
 
-#: src/eventhandler.cpp:379
+#: src/eventhandler.cpp:363
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "atcēla %1 uzaicinājumu"
 
-#: src/eventhandler.cpp:379 src/eventhandler.cpp:561
+#: src/eventhandler.cpp:363 src/eventhandler.cpp:545
 #, kde-format
 msgid "rejected the invitation"
 msgstr "noraidīja uzaicinājumu"
 
-#: src/eventhandler.cpp:383
+#: src/eventhandler.cpp:367
 #, kde-format
 msgid "unbanned %1"
 msgstr "noņēma %1 aizliegumu"
 
-#: src/eventhandler.cpp:383 src/eventhandler.cpp:565
+#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
 #, kde-format
 msgid "self-unbanned"
 msgstr "pats sev noņēma aizliegumu"
 
-#: src/eventhandler.cpp:386
+#: src/eventhandler.cpp:370
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "izlika %1 no istabas: %2"
 
-#: src/eventhandler.cpp:387 src/eventhandler.cpp:567
+#: src/eventhandler.cpp:371 src/eventhandler.cpp:551
 #, kde-format
 msgid "left the room"
 msgstr "atstāja istabu"
 
-#: src/eventhandler.cpp:391
+#: src/eventhandler.cpp:375
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "aizliedza %1 atrasties istabā"
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:377
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "aizliedza %1 atrasties istabā: %2"
 
-#: src/eventhandler.cpp:396 src/eventhandler.cpp:572
+#: src/eventhandler.cpp:380 src/eventhandler.cpp:556
 #, kde-format
 msgid "self-banned from the room"
 msgstr "pats sev aizliedza atrasties istabā"
 
-#: src/eventhandler.cpp:400 src/eventhandler.cpp:575
+#: src/eventhandler.cpp:384 src/eventhandler.cpp:559
 #, kde-format
 msgid "requested an invite"
 msgstr "pieprasīja uzaicinājumu"
 
-#: src/eventhandler.cpp:400
+#: src/eventhandler.cpp:384
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "pieprasīja uzaicinājumu ar iemeslu: %1"
 
-#: src/eventhandler.cpp:404 src/eventhandler.cpp:579
+#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
 #, kde-format
 msgid "made something unknown"
 msgstr "izdarīja kaut ko nezināmu"
 
-#: src/eventhandler.cpp:407 src/eventhandler.cpp:582
+#: src/eventhandler.cpp:391 src/eventhandler.cpp:566
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "noņēma istabas pamata aizstājējvārdu"
 
-#: src/eventhandler.cpp:407
+#: src/eventhandler.cpp:391
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "iestatīja istabas pamata aizstājējvārdu uz: %1"
 
-#: src/eventhandler.cpp:410 src/eventhandler.cpp:585
+#: src/eventhandler.cpp:394 src/eventhandler.cpp:569
 #, kde-format
 msgid "cleared the room name"
 msgstr "noņēma istabas nosaukumu"
 
-#: src/eventhandler.cpp:410
+#: src/eventhandler.cpp:394
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "istabu nosauca par: %1"
 
-#: src/eventhandler.cpp:413 src/eventhandler.cpp:588
+#: src/eventhandler.cpp:397 src/eventhandler.cpp:572
 #, kde-format
 msgid "cleared the topic"
 msgstr "noņēma tēmu"
 
-#: src/eventhandler.cpp:414
+#: src/eventhandler.cpp:398
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "uzlika tēmu: %1"
 
-#: src/eventhandler.cpp:420 src/eventhandler.cpp:591
+#: src/eventhandler.cpp:404 src/eventhandler.cpp:575
 #, kde-format
 msgid "changed the room avatar"
 msgstr "nomainīja istabas attēlu"
 
-#: src/eventhandler.cpp:423 src/eventhandler.cpp:594
+#: src/eventhandler.cpp:407 src/eventhandler.cpp:578
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "ieslēdza galšifrēšanu"
 
-#: src/eventhandler.cpp:427
+#: src/eventhandler.cpp:411
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "atjaunināja istabu uz versiju %1"
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:412
 #, kde-format
 msgid "created the room, version %1"
 msgstr "izveidoja istabu, versija %1"
 
-#: src/eventhandler.cpp:431 src/eventhandler.cpp:600
+#: src/eventhandler.cpp:415 src/eventhandler.cpp:584
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "nomainīja šīs istabas svarīguma līmeni"
 
-#: src/eventhandler.cpp:437 src/eventhandler.cpp:606
+#: src/eventhandler.cpp:421 src/eventhandler.cpp:590
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "nomainīja istabas servera piekļuves kontroles sarakstu"
 
-#: src/eventhandler.cpp:441
+#: src/eventhandler.cpp:425
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "pievienoja %1 logdaļu"
 
-#: src/eventhandler.cpp:444
+#: src/eventhandler.cpp:428
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "noņēma %1 logdaļu"
 
-#: src/eventhandler.cpp:446
+#: src/eventhandler.cpp:430
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "konfigurēja %1 logdaļu"
 
-#: src/eventhandler.cpp:449
+#: src/eventhandler.cpp:433
 #, kde-format
 msgid "updated %1 state"
 msgstr "atjaunināja %1 statusu"
 
-#: src/eventhandler.cpp:450
+#: src/eventhandler.cpp:434
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "atjaunināja %1 statusu istabai %2"
 
-#: src/eventhandler.cpp:455 src/eventhandler.cpp:624
+#: src/eventhandler.cpp:439 src/eventhandler.cpp:608
 #, kde-format
 msgid "Unknown event"
 msgstr "Nezināms notikums"
 
-#: src/eventhandler.cpp:470
+#: src/eventhandler.cpp:454
 #, kde-format
 msgid "a file"
 msgstr "datne"
 
-#: src/eventhandler.cpp:510
+#: src/eventhandler.cpp:494
 #, kde-format
 msgid "sent a message"
 msgstr "nosūtīja ziņu"
 
-#: src/eventhandler.cpp:514
+#: src/eventhandler.cpp:498
 #, kde-format
 msgid "sent a sticker"
 msgstr "nosūtīja uzlīmi"
 
-#: src/eventhandler.cpp:520
+#: src/eventhandler.cpp:504
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "kādu atkārtoti uzaicināja istabā"
 
-#: src/eventhandler.cpp:529
+#: src/eventhandler.cpp:513
 #, kde-format
 msgid "invited someone to the room"
 msgstr "kādu uzaicināja istabā"
 
-#: src/eventhandler.cpp:539
+#: src/eventhandler.cpp:523
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "nomainīja parādāmo vārdu"
 
-#: src/eventhandler.cpp:561
+#: src/eventhandler.cpp:545
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "atsauca lietotāja uzaicināšanu"
 
-#: src/eventhandler.cpp:565
+#: src/eventhandler.cpp:549
 #, kde-format
 msgid "unbanned a user"
 msgstr "noņēma lietotāja aizliegumu"
 
-#: src/eventhandler.cpp:567
+#: src/eventhandler.cpp:551
 #, kde-format
 msgid "put a user out of the room"
 msgstr "lietotāju izlika no istabas"
 
-#: src/eventhandler.cpp:570
+#: src/eventhandler.cpp:554
 #, kde-format
 msgid "banned a user from the room"
 msgstr "aizliedza lietotājam atrasties istabā"
 
-#: src/eventhandler.cpp:582
+#: src/eventhandler.cpp:566
 #, kde-format
 msgid "set the room main alias"
 msgstr "iestatīja istabas pamata aizstājējvārdu"
 
-#: src/eventhandler.cpp:585
+#: src/eventhandler.cpp:569
 #, kde-format
 msgid "set the room name"
 msgstr "iestatīja istabas nosaukumu"
 
-#: src/eventhandler.cpp:588
+#: src/eventhandler.cpp:572
 #, kde-format
 msgid "set the topic"
 msgstr "iestatīja tēmu"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:581
 #, kde-format
 msgid "upgraded the room version"
 msgstr "atjaunināja istabas versiju"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:581
 #, kde-format
 msgid "created the room"
 msgstr "izveidoja istabu"
 
-#: src/eventhandler.cpp:603
+#: src/eventhandler.cpp:587
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "nosūtīja pašreizējās atrašanās bāku"
 
-#: src/eventhandler.cpp:610
+#: src/eventhandler.cpp:594
 #, kde-format
 msgid "added a widget"
 msgstr "pievienota logdaļa"
 
-#: src/eventhandler.cpp:613
+#: src/eventhandler.cpp:597
 #, kde-format
 msgid "removed a widget"
 msgstr "noņēma logdaļu"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:599
 #, kde-format
 msgid "configured a widget"
 msgstr "konfigurēja logdaļu"
 
-#: src/eventhandler.cpp:618
+#: src/eventhandler.cpp:602
 #, kde-format
 msgid "updated the state"
 msgstr "atjaunināja statusu"
 
-#: src/eventhandler.cpp:622
+#: src/eventhandler.cpp:606
 #, kde-format
 msgid "started a poll"
 msgstr "uzsāka aptauju"
@@ -1086,16 +1086,6 @@ msgstr "Tikai iekšējai lietošanai."
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Dalīties ar URL „Matrix“ klientā"
-
-#: src/matriximageprovider.cpp:38
-#, kde-format
-msgid "Media id '%1' doesn't follow server/mediaId pattern"
-msgstr "Multivides ar ID „%1“ neievēro servera/multivides ID paraugu"
-
-#: src/matriximageprovider.cpp:96
-#, kde-format
-msgid "Image request has been cancelled"
-msgstr "Attēla pieprasījums ir atcelts"
 
 #: src/models/actionsmodel.cpp:27
 #, kde-format
@@ -1477,7 +1467,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Savas emocijzīmes"
 
-#: src/models/messagecontentmodel.cpp:236
+#: src/models/messagecontentmodel.cpp:237
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -1839,12 +1829,12 @@ msgstr "Istabas izveide neizdevās: %1"
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
 
-#: src/neochatroom.cpp:1424
+#: src/neochatroom.cpp:1420
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ziņojums ir veiksmīgi nosūtīts."
 
-#: src/neochatroom.cpp:1750 src/neochatroom.cpp:1758
+#: src/neochatroom.cpp:1746 src/neochatroom.cpp:1754
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4124,27 +4114,27 @@ msgstr "Turpināt"
 msgid "Working"
 msgstr "Darbojas"
 
-#: src/roommanager.cpp:135
+#: src/roommanager.cpp:136
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Nepareizi formatēts vai tukšs „Matrix“ ID"
 
-#: src/roommanager.cpp:135
+#: src/roommanager.cpp:136
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "„%1“ nav pareizs „Matrix“ identifikators"
 
-#: src/roommanager.cpp:342
+#: src/roommanager.cpp:347
 #, kde-format
 msgid "Failed to join room"
 msgstr "Neizdevās pievienoties istabai"
 
-#: src/roommanager.cpp:374
+#: src/roommanager.cpp:379
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Jūsu lūdzāt pievienoties „%1“"
 
-#: src/roommanager.cpp:378
+#: src/roommanager.cpp:383
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Neizdevās lūgt pievienoties istabai"
@@ -4815,6 +4805,19 @@ msgstr "Iestatījumi izstrādātājiem"
 msgid "Enable developer tools"
 msgstr "Ieslēgt rīkus izstrādātājiem"
 
+#: src/settings/NeoChatGeneralPage.qml:250
+#, fuzzy, kde-format
+#| msgid "Developer Settings"
+msgctxt "@title"
+msgid "Default Settings"
+msgstr "Iestatījumi izstrādātājiem"
+
+#: src/settings/NeoChatGeneralPage.qml:254
+#, kde-format
+msgctxt "@action:button"
+msgid "Reset all configuration values to their default"
+msgstr ""
+
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
 msgctxt "@title"
@@ -5453,7 +5456,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Kompakts"
 
-#: src/settings/ThreePIdCard.qml:90
+#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:118
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -5562,6 +5565,19 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
+#: src/timeline/ChatBarComponent.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "Apstiprināt izmaiņas"
+
+#: src/timeline/ChatBarComponent.qml:106
+#, fuzzy, kde-format
+#| msgid "No messages found"
+msgctxt "@action:button"
+msgid "Post message in thread"
+msgstr "Ziņas nav atrastas"
+
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
 msgid "Copy to clipboard"
@@ -5660,23 +5676,11 @@ msgstr "Palielināt priekšskatījumu"
 msgid "Loading URL preview"
 msgstr "Ielādē URL priekšskatījumu"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:221
 #, fuzzy, kde-format
 #| msgid "withdrew a user's invitation"
 msgid "%1 started a user verification"
 msgstr "atsauca lietotāja uzaicināšanu"
-
-#: src/timeline/MessageEditComponent.qml:103
-#, kde-format
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "Apstiprināt izmaiņas"
-
-#: src/timeline/MessageEditComponent.qml:115
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel edit"
-msgstr "Atcelt izmaiņas"
 
 #: src/timeline/PollComponent.qml:73
 #, kde-format
@@ -5736,6 +5740,16 @@ msgstr "Rādīt"
 #, kde-format
 msgid "Quit"
 msgstr "Iziet"
+
+#~ msgid "Media id '%1' doesn't follow server/mediaId pattern"
+#~ msgstr "Multivides ar ID „%1“ neievēro servera/multivides ID paraugu"
+
+#~ msgid "Image request has been cancelled"
+#~ msgstr "Attēla pieprasījums ir atcelts"
+
+#~ msgctxt "@action:button"
+#~ msgid "Cancel edit"
+#~ msgstr "Atcelt izmaiņas"
 
 #, fuzzy
 #~| msgctxt "@action:button"
