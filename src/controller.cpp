@@ -273,23 +273,19 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const QStrin
     return job;
 }
 
-bool Controller::saveAccessTokenToKeyChain(const QString &userId, const QByteArray &accessToken)
+void Controller::saveAccessTokenToKeyChain(const QString &userId, const QByteArray &accessToken)
 {
     qDebug() << "Save the access token to the keychain for " << userId;
-    QKeychain::WritePasswordJob job(qAppName());
-    job.setAutoDelete(false);
-    job.setKey(userId);
-    job.setBinaryData(accessToken);
-    QEventLoop loop;
-    QKeychain::WritePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
-    job.start();
-    loop.exec();
-
-    if (job.error()) {
-        qWarning() << "Could not save access token to the keychain: " << qPrintable(job.errorString());
-        return false;
-    }
-    return true;
+    auto job = new QKeychain::WritePasswordJob(qAppName());
+    job->setAutoDelete(true);
+    job->setKey(userId);
+    job->setBinaryData(accessToken);
+    connect(job, &QKeychain::WritePasswordJob::finished, this, [job]() {
+        if (job->error()) {
+            qWarning() << "Could not save access token to the keychain: " << qPrintable(job->errorString());
+        }
+    });
+    job->start();
 }
 
 bool Controller::supportSystemTray() const
