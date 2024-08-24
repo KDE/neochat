@@ -62,7 +62,11 @@ Controller::Controller(QObject *parent)
         });
     } else {
         auto c = new NeoChatConnection(this);
+#if Quotient_VERSION_MINOR > 8
+        c->assumeIdentity(QStringLiteral("@user:localhost:1234"), QStringLiteral("device_1234"), QStringLiteral("token_1234"));
+#else
         c->assumeIdentity(QStringLiteral("@user:localhost:1234"), QStringLiteral("token_1234"));
+#endif
         connect(c, &Connection::connected, this, [c, this]() {
             m_accountRegistry.add(c);
             c->syncLoop();
@@ -222,7 +226,11 @@ void Controller::invokeLogin()
                 connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
                     Q_EMIT errorOccured(i18n("Network Error: %1", error), {});
                 });
+#if Quotient_VERSION_MINOR > 8
+                connection->assumeIdentity(account.userId(), account.deviceId(), accessToken);
+#else
                 connection->assumeIdentity(account.userId(), accessToken);
+#endif
             });
         }
     }
