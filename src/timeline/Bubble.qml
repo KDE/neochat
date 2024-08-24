@@ -96,7 +96,7 @@ QQC2.Control {
             source: "content-loading-symbolic"
             Layout.preferredWidth: Kirigami.Units.iconSizes.small
             Layout.preferredHeight: Kirigami.Units.iconSizes.small
-            visible: root.isPending && NeoChatConfig.showLocalMessagesOnRight
+            visible: root.isPending && Config.showLocalMessagesOnRight
         }
         ColumnLayout {
             id: contentColumn
@@ -126,7 +126,7 @@ QQC2.Control {
             source: "content-loading-symbolic"
             Layout.preferredWidth: Kirigami.Units.iconSizes.small
             Layout.preferredHeight: Kirigami.Units.iconSizes.small
-            visible: root.isPending && !NeoChatConfig.showLocalMessagesOnRight
+            visible: root.isPending && !Config.showLocalMessagesOnRight
         }
     }
 
