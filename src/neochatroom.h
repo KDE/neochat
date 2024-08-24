@@ -655,6 +655,7 @@ Q_SIGNALS:
     void urlPreviewEnabledChanged();
     void maxRoomVersionChanged();
     void extraEventLoaded(const QString &eventId);
+    void extraEventNotFound(const QString &eventId);
 
 public Q_SLOTS:
     /**

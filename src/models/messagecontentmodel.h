@@ -125,6 +125,7 @@ private:
     bool m_isPending;
     bool m_showAuthor = true;
     bool m_isReply;
+    bool m_notFound = false;
 
     void initializeModel();
     void intiializeEvent(const QString &eventId);

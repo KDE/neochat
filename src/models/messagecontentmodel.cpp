@@ -10,9 +10,10 @@
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
+#include <Quotient/qt_connection_util.h>
 
 #include <KLocalizedString>
-#include <Quotient/qt_connection_util.h>
+#include <Kirigami/Platform/PlatformTheme>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
@@ -62,8 +63,19 @@ void MessageContentModel::initializeModel()
     Quotient::connectUntil(m_room.get(), &NeoChatRoom::extraEventLoaded, this, [this](const QString &eventId) {
         if (m_room != nullptr) {
             if (eventId == m_eventId) {
+                m_notFound = false;
                 intiializeEvent(m_room->getEvent(eventId));
                 updateReplyModel();
+                resetModel();
+                return true;
+            }
+        }
+        return false;
+    });
+    Quotient::connectUntil(m_room.get(), &NeoChatRoom::extraEventNotFound, this, [this](const QString &eventId) {
+        if (m_room != nullptr) {
+            if (eventId == m_eventId) {
+                m_notFound = true;
                 resetModel();
                 return true;
             }
@@ -203,7 +215,7 @@ void MessageContentModel::setShowAuthor(bool showAuthor)
     }
     m_showAuthor = showAuthor;
 
-    if (m_event != nullptr) {
+    if (m_event != nullptr && m_room->connection()->ignoredUsers().contains(m_event->senderId())) {
         if (showAuthor) {
             beginInsertRows({}, 0, 0);
             m_components.prepend(MessageComponent{MessageComponentType::Author, QString(), {}});
@@ -233,6 +245,20 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     const auto component = m_components[index.row()];
 
     if (role == DisplayRole) {
+        if (m_notFound || (m_event && m_room->connection()->ignoredUsers().contains(m_event->senderId()))) {
+            Kirigami::Platform::PlatformTheme *theme =
+                static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+
+            QString disabledTextColor;
+            if (theme != nullptr) {
+                disabledTextColor = theme->disabledTextColor().name();
+            } else {
+                disabledTextColor = QStringLiteral("#000000");
+            }
+            return QString(QStringLiteral("<span style=\"color:%1\">").arg(disabledTextColor)
+                           + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user")
+                           + QStringLiteral("</span>"));
+        }
         if (component.type == MessageComponentType::Loading && m_isReply) {
             return i18n("Loading reply");
         }
@@ -353,6 +379,12 @@ void MessageContentModel::resetModel()
 {
     beginResetModel();
     m_components.clear();
+
+    if ((m_event && m_room->connection()->ignoredUsers().contains(m_event->senderId())) || m_notFound) {
+        m_components += MessageComponent{MessageComponentType::Text, QString(), {}};
+        endResetModel();
+        return;
+    }
 
     if (m_event == nullptr) {
         m_components += MessageComponent{MessageComponentType::Loading, QString(), {}};

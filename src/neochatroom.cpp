@@ -1778,6 +1778,11 @@ void NeoChatRoom::downloadEventFromServer(const QString &eventId)
         m_extraEvents.push_back(std::move(event));
         Q_EMIT extraEventLoaded(eventId);
     });
+    connect(job, &BaseJob::failure, this, [this, job, eventId] {
+        if (job->error() == BaseJob::NotFound) {
+            Q_EMIT extraEventNotFound(eventId);
+        }
+    });
 }
 
 const RoomEvent *NeoChatRoom::getEvent(const QString &eventId) const
