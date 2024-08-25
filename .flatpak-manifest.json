@@ -8,6 +8,15 @@
     "tags": [
         "nightly"
     ],
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable"
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "build-args" : [
+            "--share=network"
+        ]
+    },
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
         "--share=network",
@@ -37,23 +46,6 @@
                 {
                     "type": "git",
                     "url": "https://invent.kde.org/libraries/kquickimageeditor"
-                }
-            ]
-        },
-        {
-            "name": "olm",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [ "-DOLM_TESTS=OFF" ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.matrix.org/matrix-org/olm.git",
-                    "tag": "3.2.10",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^([\\d.]+)$"
-                    },
-                    "commit": "9908862979147a71dc6abaecd521be526ae77be1"
                 }
             ]
         },
@@ -104,13 +96,38 @@
             ]
         },
         {
+            "name": "corrosion-rs",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/corrosion-rs/corrosion.git",
+                    "branch": "master"
+                }
+            ]
+        },
+        {
+            "name": "vodozemac-cpp",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/tobiasfella/vodozemac-cpp.git",
+                    "branch": "main"
+                }
+            ],
+            "config-opts": [
+                "-DBUILD_SHARED_LIBS=false"
+            ]
+        },
+        {
             "name": "libQuotient",
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/quotient-im/libQuotient.git",
-                    "branch": "0.8.x",
+                    "branch": "tobias/vodozemac",
                     "disable-submodules": true
                 }
             ],
