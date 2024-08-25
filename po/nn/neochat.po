@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:39+0000\n"
+"POT-Creation-Date: 2024-08-25 00:39+0000\n"
 "PO-Revision-Date: 2024-08-02 21:17+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -91,7 +91,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Avbryt svar"
 
-#: src/controller.cpp:130
+#: src/controller.cpp:134
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -99,47 +99,47 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Varsling av nye meldingar"
 
-#: src/controller.cpp:223
+#: src/controller.cpp:227
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Nettverksfeil: %1"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:253
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Fann ikkje tilgangspollett"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:253
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Kanskje han er sletta?"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Vart nekta tilgang til nøkkelring."
 
-#: src/controller.cpp:249
+#: src/controller.cpp:257
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Gje NeoChat løyve til å lesa tilgangspolletten"
 
-#: src/controller.cpp:252
+#: src/controller.cpp:260
 #, kde-format
 msgid "No keychain available."
 msgstr "Ingen nøkkelring er tilgjengeleg."
 
-#: src/controller.cpp:252
+#: src/controller.cpp:260
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
 
-#: src/controller.cpp:255
+#: src/controller.cpp:263
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Klarte ikkje lesa tilgangspollett"
 
-#: src/controller.cpp:351
+#: src/controller.cpp:355
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Varsling av push-varslingar"
@@ -379,12 +379,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:279 src/eventhandler.cpp:487
-#: src/models/messagecontentmodel.cpp:244 src/models/messageeventmodel.cpp:438
+#: src/models/messagecontentmodel.cpp:270 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Denne meldinga er sletta]</i>"
 
-#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:245
+#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:271
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -746,12 +746,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Mål"
 
-#: src/login.cpp:90 src/login.cpp:105
+#: src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error"
 msgstr "Nettverksfeil"
 
-#: src/login.cpp:98
+#: src/login.cpp:96
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Feil ved innlogging: %1"
@@ -1459,7 +1459,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Eigne emojiar"
 
-#: src/models/messagecontentmodel.cpp:237
+#: src/models/messagecontentmodel.cpp:259
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+
+#: src/models/messagecontentmodel.cpp:263
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -3939,47 +3947,47 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Stadfestinga av økta vart av ukjend grunn avbroten."
 
-#: src/registration.cpp:310
+#: src/registration.cpp:308
 #, kde-format
 msgid "No server."
 msgstr "Ingen tenar."
 
-#: src/registration.cpp:312
+#: src/registration.cpp:310
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Kontrollerer tilgang til tenar."
 
-#: src/registration.cpp:314
+#: src/registration.cpp:312
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Dette er ikkje ein gyldig tenar."
 
-#: src/registration.cpp:316
+#: src/registration.cpp:314
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Denne tenaren er stengd for nye registreringar."
 
-#: src/registration.cpp:318
+#: src/registration.cpp:316
 #, kde-format
 msgid "No username."
 msgstr "Manglar brukarnamn."
 
-#: src/registration.cpp:320
+#: src/registration.cpp:318
 #, kde-format
 msgid "Checking username availability."
 msgstr "Ser om brukarnamnet er tilgjengeleg."
 
-#: src/registration.cpp:322
+#: src/registration.cpp:320
 #, kde-format
 msgid "This username is not available."
 msgstr "Brukarnamnet er ikkje tilgjengeleg."
 
-#: src/registration.cpp:324
+#: src/registration.cpp:322
 #, kde-format
 msgid "Continue"
 msgstr "Hald fram"
 
-#: src/registration.cpp:326
+#: src/registration.cpp:324
 #, kde-format
 msgid "Working"
 msgstr "Arbeider"
@@ -5581,13 +5589,3 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr "Avslutt"
-
-#~ msgid "Media id '%1' doesn't follow server/mediaId pattern"
-#~ msgstr "Medie-ID-en «%1» følgjer ikkje mønsteret «tenar/medie-ID»"
-
-#~ msgid "Image request has been cancelled"
-#~ msgstr "Biletførespurnaden vart avbroten"
-
-#~ msgctxt "@action:button"
-#~ msgid "Cancel edit"
-#~ msgstr "Avbryt redigering"

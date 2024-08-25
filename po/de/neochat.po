@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:39+0000\n"
+"POT-Creation-Date: 2024-08-25 00:39+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -92,7 +92,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Antwort abbrechen"
 
-#: src/controller.cpp:130
+#: src/controller.cpp:134
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt ""
@@ -101,49 +101,49 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Tippbenachrichtigungen senden"
 
-#: src/controller.cpp:223
+#: src/controller.cpp:227
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Netzwerkfehler: %1"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:253
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Zugangs-Token kann nicht gefunden werden"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:253
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Vielleicht ist es gelöscht worden?"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Der Zugriff auf das Schlüsselbund ist verweigert worden."
 
-#: src/controller.cpp:249
+#: src/controller.cpp:257
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Bitte erlauben Sie NeoChat, das Zugangs-Token zu lesen"
 
-#: src/controller.cpp:252
+#: src/controller.cpp:260
 #, kde-format
 msgid "No keychain available."
 msgstr "Kein Schlüsselbund verfügbar."
 
-#: src/controller.cpp:252
+#: src/controller.cpp:260
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Bitte installieren Sie ein Schlüsselbund, z. B. KWallet oder GNOME-"
 "Schlüsselbund unter Linux"
 
-#: src/controller.cpp:255
+#: src/controller.cpp:263
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
-#: src/controller.cpp:351
+#: src/controller.cpp:355
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -400,12 +400,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:279 src/eventhandler.cpp:487
-#: src/models/messagecontentmodel.cpp:244 src/models/messageeventmodel.cpp:438
+#: src/models/messagecontentmodel.cpp:270 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Diese Nachricht wurde gelöscht]</i>"
 
-#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:245
+#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:271
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -767,12 +767,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Ziel"
 
-#: src/login.cpp:90 src/login.cpp:105
+#: src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error"
 msgstr "Netzwerkfehler"
 
-#: src/login.cpp:98
+#: src/login.cpp:96
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Anmeldung fehlgeschlagen: %1"
@@ -1512,7 +1512,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emojis"
 
-#: src/models/messagecontentmodel.cpp:237
+#: src/models/messagecontentmodel.cpp:259
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+
+#: src/models/messagecontentmodel.cpp:263
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, fuzzy, kde-format
 #| msgid "Loading…"
@@ -4216,54 +4224,54 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "Die Sitzungsverifizierung wurde wegen eines unbekannten Fehlers abgebrochen."
 
-#: src/registration.cpp:310
+#: src/registration.cpp:308
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add server"
 msgid "No server."
 msgstr "Server hinzufügen"
 
-#: src/registration.cpp:312
+#: src/registration.cpp:310
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/registration.cpp:314
+#: src/registration.cpp:312
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "This is not a valid server."
 msgstr "Der eingegebene Text ist keine gültige URL"
 
-#: src/registration.cpp:316
+#: src/registration.cpp:314
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/registration.cpp:318
+#: src/registration.cpp:316
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Kein Name"
 
-#: src/registration.cpp:320
+#: src/registration.cpp:318
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/registration.cpp:322
+#: src/registration.cpp:320
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "Keine Benutzer verfügbar"
 
-#: src/registration.cpp:324
+#: src/registration.cpp:322
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: src/registration.cpp:326
+#: src/registration.cpp:324
 #, kde-format
 msgid "Working"
 msgstr ""

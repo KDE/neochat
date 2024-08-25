@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:39+0000\n"
+"POT-Creation-Date: 2024-08-25 00:39+0000\n"
 "PO-Revision-Date: 2024-08-01 12:48+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -88,7 +88,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Annulla la risposta"
 
-#: src/controller.cpp:130
+#: src/controller.cpp:134
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -96,48 +96,48 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Ricezione delle notifiche per i nuovi messaggi"
 
-#: src/controller.cpp:223
+#: src/controller.cpp:227
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Errore di rete: %1"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:253
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Il token di accesso non è stato trovato"
 
-#: src/controller.cpp:245
+#: src/controller.cpp:253
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Forse è stato eliminato?"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "L'accesso al portachiavi è stato negato."
 
-#: src/controller.cpp:249
+#: src/controller.cpp:257
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Consenti a Neochat di leggere il token di accesso"
 
-#: src/controller.cpp:252
+#: src/controller.cpp:260
 #, kde-format
 msgid "No keychain available."
 msgstr "Nessun portachiavi trovato."
 
-#: src/controller.cpp:252
+#: src/controller.cpp:260
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installa un portachiavi, ad es. KWallet o il portachiavi di GNOME su Linux"
 
-#: src/controller.cpp:255
+#: src/controller.cpp:263
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Impossibile leggere il token di accesso"
 
-#: src/controller.cpp:351
+#: src/controller.cpp:355
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricezione delle notifiche push"
@@ -375,12 +375,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:279 src/eventhandler.cpp:487
-#: src/models/messagecontentmodel.cpp:244 src/models/messageeventmodel.cpp:438
+#: src/models/messagecontentmodel.cpp:270 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Questo messaggio è stato eliminato]</i>"
 
-#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:245
+#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:271
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -741,12 +741,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Destinazione"
 
-#: src/login.cpp:90 src/login.cpp:105
+#: src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error"
 msgstr "Errore di rete"
 
-#: src/login.cpp:98
+#: src/login.cpp:96
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Accesso non riuscito: %1"
@@ -1459,7 +1459,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "I propri emoji"
 
-#: src/models/messagecontentmodel.cpp:237
+#: src/models/messagecontentmodel.cpp:259
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+
+#: src/models/messagecontentmodel.cpp:263
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -3964,47 +3972,47 @@ msgstr ""
 "La verifica della sessione è stata annullata a causa di un errore "
 "sconosciuto."
 
-#: src/registration.cpp:310
+#: src/registration.cpp:308
 #, kde-format
 msgid "No server."
 msgstr "Nessun server."
 
-#: src/registration.cpp:312
+#: src/registration.cpp:310
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Verifica della disponibilità del server."
 
-#: src/registration.cpp:314
+#: src/registration.cpp:312
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Questo non è un server valido."
 
-#: src/registration.cpp:316
+#: src/registration.cpp:314
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "La registrazione per questo server è disabilitata."
 
-#: src/registration.cpp:318
+#: src/registration.cpp:316
 #, kde-format
 msgid "No username."
 msgstr "Nessun nome utente."
 
-#: src/registration.cpp:320
+#: src/registration.cpp:318
 #, kde-format
 msgid "Checking username availability."
 msgstr "Verifica della disponibilità del nome utente."
 
-#: src/registration.cpp:322
+#: src/registration.cpp:320
 #, kde-format
 msgid "This username is not available."
 msgstr "Il nome utente non è disponibile."
 
-#: src/registration.cpp:324
+#: src/registration.cpp:322
 #, kde-format
 msgid "Continue"
 msgstr "Continua"
 
-#: src/registration.cpp:326
+#: src/registration.cpp:324
 #, kde-format
 msgid "Working"
 msgstr "Attivo"
