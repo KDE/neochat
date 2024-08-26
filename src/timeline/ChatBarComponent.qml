@@ -118,7 +118,7 @@ QQC2.TextArea {
                 text: i18nc("@action:button", "Cancel")
                 icon.name: "dialog-close"
                 onTriggered: {
-                    root.chatBarCache.editId = "";
+                    root.chatBarCache.clearRelations();
                 }
                 shortcut: "Escape"
             }

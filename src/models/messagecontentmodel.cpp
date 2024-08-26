@@ -140,6 +140,13 @@ void MessageContentModel::initializeModel()
             endResetModel();
         }
     });
+    connect(m_room->threadCache(), &ChatBarCache::threadIdChanged, this, [this](const QString &oldThreadId, const QString &newThreadId) {
+        if (m_event != nullptr && (oldThreadId == m_eventId || newThreadId == m_eventId)) {
+            beginResetModel();
+            resetContent(false, newThreadId == m_eventId);
+            endResetModel();
+        }
+    });
     connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
         resetContent();
     });
@@ -184,12 +191,7 @@ void MessageContentModel::intiializeEvent(const Quotient::RoomEvent *event)
 {
     m_event = loadEvent<RoomEvent>(event->fullJson());
     // a pending event may not previously have had an event ID so update.
-    if (m_eventId.isEmpty()) {
-        m_eventId = m_event->id();
-        if (m_eventId.isEmpty()) {
-            m_eventId = m_event->transactionId();
-        }
-    }
+    m_eventId = EventHandler::id(m_event.get());
 
     auto senderId = m_event->senderId();
     // A pending event might not have a sender ID set yet but in that case it must
@@ -341,6 +343,12 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue<LinkPreviewer *>(emptyLinkPreview);
         }
     }
+    if (role == ChatBarCacheRole) {
+        if (m_room->threadCache()->threadId() == m_eventId) {
+            return QVariant::fromValue<ChatBarCache *>(m_room->threadCache());
+        }
+        return QVariant::fromValue<ChatBarCache *>(m_room->editCache());
+    }
 
     return {};
 }
@@ -372,6 +380,7 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     roles[ReplyAuthorRole] = "replyAuthor";
     roles[ReplyContentModelRole] = "replyContentModel";
     roles[LinkPreviewerRole] = "linkPreviewer";
+    roles[ChatBarCacheRole] = "chatBarCache";
     return roles;
 }
 
@@ -400,7 +409,7 @@ void MessageContentModel::resetModel()
     endResetModel();
 }
 
-void MessageContentModel::resetContent(bool isEditing)
+void MessageContentModel::resetContent(bool isEditing, bool isThreading)
 {
     Q_ASSERT(m_event != nullptr);
 
@@ -409,7 +418,7 @@ void MessageContentModel::resetContent(bool isEditing)
     m_components.remove(startRow, rowCount() - startRow);
     endRemoveRows();
 
-    const auto newComponents = messageContentComponents(isEditing);
+    const auto newComponents = messageContentComponents(isEditing, isThreading);
     if (newComponents.size() == 0) {
         return;
     }
@@ -418,7 +427,7 @@ void MessageContentModel::resetContent(bool isEditing)
     endInsertRows();
 }
 
-QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEditing)
+QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEditing, bool isThreading)
 {
     QList<MessageComponent> newComponents;
 
@@ -438,13 +447,18 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     }
 
     if (isEditing) {
-        newComponents += MessageComponent{MessageComponentType::Edit, QString(), {}};
+        newComponents += MessageComponent{MessageComponentType::ChatBar, QString(), {}};
     } else {
         newComponents.append(componentsForType(MessageComponentType::typeForEvent(*m_event.get())));
     }
 
     if (m_room->urlPreviewEnabled()) {
         newComponents = addLinkPreviews(newComponents);
+    }
+
+    // If the event is already threaded the ThreadModel will handle displaying a chat bar.
+    if (isThreading && !EventHandler::isThreaded(m_event.get())) {
+        newComponents += MessageComponent{MessageComponentType::ChatBar, QString(), {}};
     }
 
     return newComponents;

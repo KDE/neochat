@@ -70,6 +70,7 @@ public:
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
 
         LinkPreviewerRole, /**< The link preview details. */
+        ChatBarCacheRole, /**< The ChatBarCache to use. */
     };
     Q_ENUM(Roles)
 
@@ -133,8 +134,8 @@ private:
 
     QList<MessageComponent> m_components;
     void resetModel();
-    void resetContent(bool isEditing = false);
-    QList<MessageComponent> messageContentComponents(bool isEditing = false);
+    void resetContent(bool isEditing = false, bool isThreading = false);
+    QList<MessageComponent> messageContentComponents(bool isEditing = false, bool isThreading = false);
 
     QPointer<MessageContentModel> m_replyModel;
     void updateReplyModel();

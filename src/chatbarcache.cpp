@@ -139,8 +139,8 @@ void ChatBarCache::setThreadId(const QString &threadId)
     if (m_threadId == threadId) {
         return;
     }
-    m_threadId = threadId;
-    Q_EMIT threadIdChanged();
+    const auto oldThreadId = std::exchange(m_threadId, threadId);
+    Q_EMIT threadIdChanged(oldThreadId, m_threadId);
 }
 
 QString ChatBarCache::attachmentPath() const
@@ -163,10 +163,10 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
 void ChatBarCache::clearRelations()
 {
     const auto oldEventId = std::exchange(m_relationId, QString());
-    m_threadId = QString();
+    const auto oldThreadId = std::exchange(m_threadId, QString());
     m_attachmentPath = QString();
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
-    Q_EMIT threadIdChanged();
+    Q_EMIT threadIdChanged(oldThreadId, m_threadId);
     Q_EMIT attachmentPathChanged();
 }
 

@@ -9,12 +9,15 @@
 #include <Quotient/omittable.h>
 #include <memory>
 
+#include "chatbarcache.h"
 #include "eventhandler.h"
+#include "messagecomponenttype.h"
 #include "neochatroom.h"
 
 ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     : QConcatenateTablesProxyModel(room)
     , m_threadRootId(threadRootId)
+    , m_threadChatBarModel(new ThreadChatBarModel(this, room))
 {
     Q_ASSERT(!m_threadRootId.isEmpty());
     Q_ASSERT(room);
@@ -25,7 +28,6 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
         if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
             if (EventHandler::isThreaded(roomEvent) && EventHandler::threadRoot(roomEvent) == m_threadRootId) {
                 addNewEvent(event);
-                clearModels();
                 addModels();
             }
         }
@@ -38,12 +40,16 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
                 }
             }
         }
-        clearModels();
         addModels();
     });
 
     fetchMore({});
     addModels();
+}
+
+QString ThreadModel::threadRootId() const
+{
+    return m_threadRootId;
 }
 
 MessageContentModel *ThreadModel::threadRootContentModel() const
@@ -77,7 +83,6 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
                 m_contentModels.push_back(new MessageContentModel(room, event.get()));
             }
 
-            clearModels();
             addModels();
 
             const auto newNextBatch = m_currentJob->nextBatch();
@@ -103,13 +108,15 @@ void ThreadModel::addNewEvent(const Quotient::RoomEvent *event)
 
 void ThreadModel::addModels()
 {
+    if (!sourceModels().isEmpty()) {
+        clearModels();
+    }
+
     addSourceModel(m_threadRootContentModel.get());
     for (auto it = m_contentModels.crbegin(); it != m_contentModels.crend(); ++it) {
         addSourceModel(*it);
     }
-
-    beginResetModel();
-    endResetModel();
+    addSourceModel(m_threadChatBarModel);
 }
 
 void ThreadModel::clearModels()
@@ -120,6 +127,61 @@ void ThreadModel::clearModels()
             removeSourceModel(model);
         }
     }
+    removeSourceModel(m_threadChatBarModel);
+}
+
+ThreadChatBarModel::ThreadChatBarModel(QObject *parent, NeoChatRoom *room)
+    : QAbstractListModel(parent)
+    , m_room(room)
+{
+    if (m_room != nullptr) {
+        connect(m_room->threadCache(), &ChatBarCache::threadIdChanged, this, [this](const QString &oldThreadId, const QString &newThreadId) {
+            const auto threadModel = dynamic_cast<ThreadModel *>(this->parent());
+            if (threadModel != nullptr && (oldThreadId == threadModel->threadRootId() || newThreadId == threadModel->threadRootId())) {
+                beginResetModel();
+                endResetModel();
+            }
+        });
+    }
+}
+
+QVariant ThreadChatBarModel::data(const QModelIndex &idx, int role) const
+{
+    if (idx.row() > 1) {
+        return {};
+    }
+
+    if (role == ComponentTypeRole) {
+        return MessageComponentType::ChatBar;
+    }
+    if (role == ChatBarCacheRole) {
+        if (m_room == nullptr) {
+            return {};
+        }
+        return QVariant::fromValue<ChatBarCache *>(m_room->threadCache());
+    }
+    return {};
+}
+
+int ThreadChatBarModel::rowCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent)
+    if (m_room == nullptr) {
+        return 0;
+    }
+    const auto threadModel = dynamic_cast<ThreadModel *>(this->parent());
+    if (threadModel != nullptr) {
+        return m_room->threadCache()->threadId() == threadModel->threadRootId() ? 1 : 0;
+    }
+    return 0;
+}
+
+QHash<int, QByteArray> ThreadChatBarModel::roleNames() const
+{
+    return {
+        {ComponentTypeRole, "componentType"},
+        {ChatBarCacheRole, "chatBarCache"},
+    };
 }
 
 #include "moc_threadmodel.cpp"

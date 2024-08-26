@@ -22,6 +22,57 @@ class NeoChatRoom;
 class ReactionModel;
 
 /**
+ * @class ThreadChatBarModel
+ *
+ * A model to provide a chat bar component to send new messages in a thread.
+ */
+class ThreadChatBarModel : public QAbstractListModel
+{
+    Q_OBJECT
+    QML_ELEMENT
+
+public:
+    /**
+     * @brief Defines the model roles.
+     *
+     * The role values need to match MessageContentModel not to blow up.
+     *
+     * @sa MessageContentModel
+     */
+    enum Roles {
+        ComponentTypeRole = MessageContentModel::ComponentTypeRole, /**< The type of component to visualise the message. */
+        ChatBarCacheRole = MessageContentModel::ChatBarCacheRole, /**< The ChatBarCache to use. */
+    };
+    Q_ENUM(Roles)
+
+    explicit ThreadChatBarModel(QObject *parent, NeoChatRoom *room);
+
+    /**
+     * @brief Get the given role value at the given index.
+     *
+     * @sa QAbstractItemModel::data
+     */
+    [[nodiscard]] QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+
+    /**
+     * @brief 1 or 0, depending on whether a chat bar should be shown.
+     *
+     * @sa QAbstractItemModel::rowCount
+     */
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+
+    /**
+     * @brief Returns a map with ComponentTypeRole it's the only one.
+     *
+     * @sa Roles, QAbstractItemModel::roleNames()
+     */
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+
+private:
+    QPointer<NeoChatRoom> m_room;
+};
+
+/**
  * @class ThreadModel
  *
  * This class defines the model for visualising a thread.
@@ -37,6 +88,8 @@ class ThreadModel : public QConcatenateTablesProxyModel
 
 public:
     explicit ThreadModel(const QString &threadRootId, NeoChatRoom *room);
+
+    QString threadRootId() const;
 
     /**
      * @brief The content model for the thread root event.
@@ -70,6 +123,7 @@ private:
     std::unique_ptr<MessageContentModel> m_threadRootContentModel;
 
     std::deque<MessageContentModel *> m_contentModels;
+    ThreadChatBarModel *m_threadChatBarModel;
 
     QList<QString> m_events;
     QList<QString> m_pendingEvents;

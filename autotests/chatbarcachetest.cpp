@@ -107,8 +107,13 @@ void ChatBarCacheTest::reply()
 void ChatBarCacheTest::edit()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
+
     chatBarCache->setText(QLatin1String("some text"));
     chatBarCache->setAttachmentPath(QLatin1String("some/path"));
+    connect(chatBarCache.get(), &ChatBarCache::relationIdChanged, this, [](const QString &oldEventId, const QString &newEventId) {
+        QCOMPARE(oldEventId, QString());
+        QCOMPARE(newEventId, QString(QLatin1String("$153456789:example.org")));
+    });
     chatBarCache->setEditId(QLatin1String("$153456789:example.org"));
 
     QCOMPARE(chatBarCache->text(), QLatin1String("some text"));

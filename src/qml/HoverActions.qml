@@ -123,9 +123,10 @@ QQC2.Control {
                     text: i18n("Reply in Thread")
                     icon.name: "dialog-messages"
                     onTriggered: {
-                        root.currentRoom.mainCache.replyId = "";
-                        root.currentRoom.mainCache.threadId = root.delegate.isThreaded ? root.delegate.threadRoot : root.delegate.eventId;
-                        root.currentRoom.editCache.editId = "";
+                        root.currentRoom.threadCache.replyId = "";
+                        root.currentRoom.threadCache.threadId = root.delegate.isThreaded ? root.delegate.threadRoot : root.delegate.eventId;
+                        root.currentRoom.mainCache.clearRelations();
+                        root.currentRoom.editCache.clearRelations();
                         root.focusChatBar();
                     }
                 }
