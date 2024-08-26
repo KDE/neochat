@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-25 00:39+0000\n"
-"PO-Revision-Date: 2024-08-01 12:54+0200\n"
+"PO-Revision-Date: 2024-08-25 15:26+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1464,6 +1464,8 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
+"Dit bericht was ofwel niet gevonden, u hebt geen recht het te bekijken of "
+"het is verzonden door een genegeerde gebruiker"
 
 #: src/models/messagecontentmodel.cpp:263
 #: src/timeline/LinkPreviewLoadComponent.qml:66
@@ -4692,17 +4694,16 @@ msgid "Enable developer tools"
 msgstr "Hulpmiddelen voor ontwikkelaars inschakelen"
 
 #: src/settings/NeoChatGeneralPage.qml:250
-#, fuzzy, kde-format
-#| msgid "Developer Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Default Settings"
-msgstr "Instellingen voor ontwikkelaar"
+msgstr "Standaardinstellingen"
 
 #: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
-msgstr ""
+msgstr "Alle configuratiewaarden resetten naar hun standaard"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -5448,11 +5449,10 @@ msgid "Confirm edit"
 msgstr "Bewerking bevestigen"
 
 #: src/timeline/ChatBarComponent.qml:106
-#, fuzzy, kde-format
-#| msgid "No messages found"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
-msgstr "Geen berichten gevonden"
+msgstr "Bericht in discussie posten"
 
 #: src/timeline/CodeComponent.qml:159
 #, kde-format

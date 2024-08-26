@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-25 00:39+0000\n"
-"PO-Revision-Date: 2024-08-02 21:17+0200\n"
+"PO-Revision-Date: 2024-08-25 12:15+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -1466,6 +1466,8 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
+"Fann ikkje meldinga, eller så har du ikkje løyve til å visa ho, eller ho var "
+"send av ein ignorert brukar"
 
 #: src/models/messagecontentmodel.cpp:263
 #: src/timeline/LinkPreviewLoadComponent.qml:66
@@ -4668,17 +4670,16 @@ msgid "Enable developer tools"
 msgstr "Vis utviklarverktøy"
 
 #: src/settings/NeoChatGeneralPage.qml:250
-#, fuzzy, kde-format
-#| msgid "Developer Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Default Settings"
-msgstr "Utviklarinnstillingar"
+msgstr "Standardinnstillingar"
 
 #: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
-msgstr ""
+msgstr "Nullstill alle innstillingane til standardverdiar"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -5423,11 +5424,10 @@ msgid "Confirm edit"
 msgstr "Stadfest redigering"
 
 #: src/timeline/ChatBarComponent.qml:106
-#, fuzzy, kde-format
-#| msgid "No messages found"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
-msgstr "Fann ingen meldingar"
+msgstr "Skriv innlegg i tråden"
 
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
