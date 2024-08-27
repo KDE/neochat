@@ -9,7 +9,6 @@
 #include "controller.h"
 #include "jobs/neochatchangepasswordjob.h"
 #include "jobs/neochatdeactivateaccountjob.h"
-#include "linkpreviewer.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "notificationsmanager.h"
@@ -45,6 +44,7 @@ NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
     , m_threePIdModel(new ThreePIdModel(this))
 {
+    m_linkPreviewers.setMaxCost(20);
     connectSignals();
 }
 
@@ -52,6 +52,7 @@ NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
     : Connection(server, parent)
     , m_threePIdModel(new ThreePIdModel(this))
 {
+    m_linkPreviewers.setMaxCost(20);
     connectSignals();
 }
 
@@ -563,13 +564,13 @@ LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
         return nullptr;
     }
 
-    auto previewer = m_linkPreviewers.value(link, nullptr);
+    auto previewer = m_linkPreviewers.object(link);
     if (previewer != nullptr) {
         return previewer;
     }
 
     previewer = new LinkPreviewer(link, this);
-    m_linkPreviewers[link] = previewer;
+    m_linkPreviewers.insert(link, previewer);
     return previewer;
 }
 

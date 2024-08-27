@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <QCache>
 #include <QObject>
 #include <QQmlEngine>
 
@@ -13,9 +14,8 @@
 #include <Quotient/keyimport.h>
 #endif
 
+#include "linkpreviewer.h"
 #include "models/threepidmodel.h"
-
-class LinkPreviewer;
 
 class NeoChatConnection : public Quotient::Connection
 {
@@ -222,7 +222,7 @@ private:
 
     int m_badgeNotificationCount = 0;
 
-    QHash<QUrl, LinkPreviewer *> m_linkPreviewers;
+    QCache<QUrl, LinkPreviewer> m_linkPreviewers;
 
     bool m_canCheckMutualRooms = false;
 };
