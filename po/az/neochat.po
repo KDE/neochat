@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-25 00:39+0000\n"
+"POT-Creation-Date: 2024-08-27 00:39+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -189,7 +189,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:245
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:262
 #, kde-format
 msgid "Developer Tools"
 msgstr ""
@@ -402,12 +402,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:279 src/eventhandler.cpp:487
-#: src/models/messagecontentmodel.cpp:270 src/models/messageeventmodel.cpp:438
+#: src/models/messagecontentmodel.cpp:272 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ismarıc silindi]</i>"
 
-#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:271
+#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:273
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1607,7 +1607,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Xüsusi Emoji"
 
-#: src/models/messagecontentmodel.cpp:259
+#: src/models/messagecontentmodel.cpp:261
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1615,7 +1615,7 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/models/messagecontentmodel.cpp:263
+#: src/models/messagecontentmodel.cpp:265
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, fuzzy, kde-format
 #| msgid "Loading…"
@@ -2093,7 +2093,7 @@ msgstr "Bildirişlərdə göstərmək"
 msgid "Devices"
 msgstr "Cihazlar"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:241
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
@@ -5061,45 +5061,59 @@ msgstr "Ad dəyişdirilməsi halını göstərmək"
 msgid "Show avatar update events"
 msgstr "Avatraın yenilənməsi halını göstərmək"
 
-#: src/settings/NeoChatGeneralPage.qml:198
+#: src/settings/NeoChatGeneralPage.qml:204
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Hide image and video events by default"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:205
+#, kde-format
+msgctxt "@info"
+msgid ""
+"When this option is enabled, images and videos are only shown after a button "
+"is clicked."
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Düzəliş etmək"
 
-#: src/settings/NeoChatGeneralPage.qml:203
+#: src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Sonuncu ismarıcınıza düzəliş etmək üçün s/text/replacement sintaksisindən "
 "istifadə edin"
 
-#: src/settings/NeoChatGeneralPage.qml:217
+#: src/settings/NeoChatGeneralPage.qml:234
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Send typing notifications"
 msgstr "\"Yazır\" bildirişi göndərilsin"
 
-#: src/settings/NeoChatGeneralPage.qml:227
+#: src/settings/NeoChatGeneralPage.qml:244
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Developer Settings"
 msgstr "Ayarlar"
 
-#: src/settings/NeoChatGeneralPage.qml:231
+#: src/settings/NeoChatGeneralPage.qml:248
 #, kde-format
 msgid "Enable developer tools"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:250
+#: src/settings/NeoChatGeneralPage.qml:267
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title"
 msgid "Default Settings"
 msgstr "Ayarlar"
 
-#: src/settings/NeoChatGeneralPage.qml:254
+#: src/settings/NeoChatGeneralPage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
@@ -5977,6 +5991,13 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
+#: src/timeline/ImageComponent.qml:138
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgctxt "@action:button"
+msgid "Show Image"
+msgstr "otağın adını silmək"
+
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
 msgctxt "@action"
@@ -6006,7 +6027,7 @@ msgstr ""
 msgid "Loading URL preview"
 msgstr ""
 
-#: src/timeline/MessageComponentChooser.qml:221
+#: src/timeline/MessageComponentChooser.qml:220
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 started a user verification"
@@ -6044,18 +6065,25 @@ msgstr ""
 msgid "Pl. %1"
 msgstr ""
 
-#: src/timeline/VideoComponent.qml:197
+#: src/timeline/VideoComponent.qml:218
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/timeline/VideoComponent.qml:261
+#: src/timeline/VideoComponent.qml:258
+#, fuzzy, kde-format
+#| msgid "Video"
+msgctxt "@action:button"
+msgid "Show Video"
+msgstr "Video"
+
+#: src/timeline/VideoComponent.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr ""
 
-#: src/timeline/VideoComponent.qml:345
+#: src/timeline/VideoComponent.qml:383
 #, kde-format
 msgid "Maximize"
 msgstr ""

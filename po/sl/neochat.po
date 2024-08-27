@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-25 00:39+0000\n"
+"POT-Creation-Date: 2024-08-27 00:39+0000\n"
 "PO-Revision-Date: 2024-08-25 08:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -184,7 +184,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Prikaži fokus v glavi okna"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:245
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:262
 #, kde-format
 msgid "Developer Tools"
 msgstr "Razvojna orodja"
@@ -380,12 +380,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:279 src/eventhandler.cpp:487
-#: src/models/messagecontentmodel.cpp:270 src/models/messageeventmodel.cpp:438
+#: src/models/messagecontentmodel.cpp:272 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano]</i>"
 
-#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:271
+#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:273
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1459,7 +1459,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Lastni čustvenčki"
 
-#: src/models/messagecontentmodel.cpp:259
+#: src/models/messagecontentmodel.cpp:261
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1469,7 +1469,7 @@ msgstr ""
 "Tega sporočila ni bilo mogoče najti, nimate dovoljenja za ogled ali pa ga je "
 "poslal prezrt uporabnik"
 
-#: src/models/messagecontentmodel.cpp:263
+#: src/models/messagecontentmodel.cpp:265
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -1885,7 +1885,7 @@ msgstr "Nastavitve obvestil"
 msgid "Devices"
 msgstr "Naprave"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:241
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgid "Open developer tools"
 msgstr "Odpri razvojna orodja"
@@ -4661,40 +4661,54 @@ msgstr "Prikaži dogodke spremembe imen"
 msgid "Show avatar update events"
 msgstr "Prikaži dogodke posodobitve avatarjev"
 
-#: src/settings/NeoChatGeneralPage.qml:198
+#: src/settings/NeoChatGeneralPage.qml:204
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Hide image and video events by default"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:205
+#, kde-format
+msgctxt "@info"
+msgid ""
+"When this option is enabled, images and videos are only shown after a button "
+"is clicked."
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Urejevalnik"
 
-#: src/settings/NeoChatGeneralPage.qml:203
+#: src/settings/NeoChatGeneralPage.qml:220
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Uporabi skladnjo s/besedilo/zamenjava za urejanje vašega zadnjega sporočila"
 
-#: src/settings/NeoChatGeneralPage.qml:217
+#: src/settings/NeoChatGeneralPage.qml:234
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Pošlji obvestila tipkanja"
 
-#: src/settings/NeoChatGeneralPage.qml:227
+#: src/settings/NeoChatGeneralPage.qml:244
 #, kde-format
 msgid "Developer Settings"
 msgstr "Nastavitve razvoja"
 
-#: src/settings/NeoChatGeneralPage.qml:231
+#: src/settings/NeoChatGeneralPage.qml:248
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Omogoči razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:250
+#: src/settings/NeoChatGeneralPage.qml:267
 #, kde-format
 msgctxt "@title"
 msgid "Default Settings"
 msgstr "Privzete nastavitve"
 
-#: src/settings/NeoChatGeneralPage.qml:254
+#: src/settings/NeoChatGeneralPage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
@@ -5516,6 +5530,13 @@ msgstr "Čas prijave: %1"
 msgid "Check-out time: %1"
 msgstr "Check-out time: %1"
 
+#: src/timeline/ImageComponent.qml:138
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:button"
+msgid "Show Image"
+msgstr "Nastavi sliko"
+
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
 msgctxt "@action"
@@ -5544,7 +5565,7 @@ msgstr "Razširi predogled"
 msgid "Loading URL preview"
 msgstr "Nalaganje predogleda URL"
 
-#: src/timeline/MessageComponentChooser.qml:221
+#: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 je začel preverjanje uporabnika"
@@ -5584,18 +5605,25 @@ msgstr ""
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/timeline/VideoComponent.qml:197
+#: src/timeline/VideoComponent.qml:218
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/timeline/VideoComponent.qml:261
+#: src/timeline/VideoComponent.qml:258
+#, fuzzy, kde-format
+#| msgid "Video"
+msgctxt "@action:button"
+msgid "Show Video"
+msgstr "Video"
+
+#: src/timeline/VideoComponent.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Glasnost"
 
-#: src/timeline/VideoComponent.qml:345
+#: src/timeline/VideoComponent.qml:383
 #, kde-format
 msgid "Maximize"
 msgstr "Razpni"
