@@ -84,7 +84,7 @@ void MessageContentModel::initializeModel()
     });
 
     if (m_event == nullptr) {
-        m_room->getEvent(m_eventId);
+        intiializeEvent(m_room->getEvent(m_eventId));
         if (m_event == nullptr) {
             m_room->downloadEventFromServer(m_eventId);
         }
@@ -189,6 +189,10 @@ void MessageContentModel::intiializeEvent(const QString &eventId)
 
 void MessageContentModel::intiializeEvent(const Quotient::RoomEvent *event)
 {
+    if (event == nullptr) {
+        return;
+    }
+
     m_event = loadEvent<RoomEvent>(event->fullJson());
     // a pending event may not previously have had an event ID so update.
     m_eventId = EventHandler::id(m_event.get());

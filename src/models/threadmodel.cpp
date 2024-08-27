@@ -117,6 +117,9 @@ void ThreadModel::addModels()
         addSourceModel(*it);
     }
     addSourceModel(m_threadChatBarModel);
+
+    beginResetModel();
+    endResetModel();
 }
 
 void ThreadModel::clearModels()
