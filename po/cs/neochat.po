@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-27 00:39+0000\n"
-"PO-Revision-Date: 2024-08-14 15:40+0200\n"
+"POT-Creation-Date: 2024-08-28 00:39+0000\n"
+"PO-Revision-Date: 2024-08-27 13:58+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -373,12 +373,12 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:279 src/eventhandler.cpp:487
-#: src/models/messagecontentmodel.cpp:272 src/models/messageeventmodel.cpp:438
+#: src/models/messagecontentmodel.cpp:276 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr ""
 
-#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:273
+#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:277
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
@@ -1448,7 +1448,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Vlastní emotikony"
 
-#: src/models/messagecontentmodel.cpp:261
+#: src/models/messagecontentmodel.cpp:265
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1456,7 +1456,7 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/models/messagecontentmodel.cpp:265
+#: src/models/messagecontentmodel.cpp:269
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
@@ -1737,28 +1737,28 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:85
+#: src/neochatconnection.cpp:86
 #, kde-format
 msgid "File too large to download."
 msgstr "Soubor je pro stažení příliš velký."
 
-#: src/neochatconnection.cpp:85
+#: src/neochatconnection.cpp:86
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Pomoc hledejte u správce serveru matrix."
 
-#: src/neochatconnection.cpp:316
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:347
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/neochatconnection.cpp:384
+#: src/neochatconnection.cpp:385
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
@@ -4635,17 +4635,16 @@ msgid "Enable developer tools"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:267
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Default Settings"
-msgstr "Otevřít nastavení"
+msgstr "Výchozí nastavení"
 
 #: src/settings/NeoChatGeneralPage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
-msgstr ""
+msgstr "Obnovit všechna nastavení na výchozí hodnoty"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -5373,7 +5372,7 @@ msgstr "Potvrdit úpravy"
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
-msgstr ""
+msgstr "Napsat zprávu do vlákna"
 
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
@@ -5444,11 +5443,10 @@ msgid "Check-out time: %1"
 msgstr ""
 
 #: src/timeline/ImageComponent.qml:138
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
-msgstr "Nastavit obrázek"
+msgstr ""
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -5522,11 +5520,10 @@ msgid "Video"
 msgstr "Video"
 
 #: src/timeline/VideoComponent.qml:258
-#, fuzzy, kde-format
-#| msgid "Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
-msgstr "Video"
+msgstr ""
 
 #: src/timeline/VideoComponent.qml:299
 #, kde-format
@@ -5548,7 +5545,3 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
-
-#~ msgctxt "@action:button"
-#~ msgid "Cancel edit"
-#~ msgstr "Zrušit úpravy"
