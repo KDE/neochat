@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-28 00:39+0000\n"
-"PO-Revision-Date: 2024-08-02 22:55+0200\n"
+"PO-Revision-Date: 2024-08-30 18:16+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
 msgid "Choose local file"
-msgstr "Hautatu tokiko fitxategia"
+msgstr "Hautatu fitxategi lokala"
 
 #: src/chatbar/AttachDialog.qml:45
 #, kde-format
@@ -1468,6 +1468,8 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
+"Mezua ez da aurkitu, ez duzu hura ikusteko baimena, edo ezikusitako "
+"erabiltzaile batek bidalitakoa da"
 
 #: src/models/messagecontentmodel.cpp:269
 #: src/timeline/LinkPreviewLoadComponent.qml:66
@@ -4654,7 +4656,7 @@ msgstr "Erakutsi abatara eguneratzeko gertaerak"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide image and video events by default"
-msgstr ""
+msgstr "Ezkutatu irudi- eta bideo-gertaerak era lehenetsian"
 
 #: src/settings/NeoChatGeneralPage.qml:205
 #, kde-format
@@ -4663,6 +4665,8 @@ msgid ""
 "When this option is enabled, images and videos are only shown after a button "
 "is clicked."
 msgstr ""
+"Aukera hau gaituta dagoenean, irudiak eta bideoak erakusteko botoi bat "
+"sakatu behar da."
 
 #: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
@@ -4691,17 +4695,16 @@ msgid "Enable developer tools"
 msgstr "Gaitu garatzailearen tresnak"
 
 #: src/settings/NeoChatGeneralPage.qml:267
-#, fuzzy, kde-format
-#| msgid "Developer Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Default Settings"
-msgstr "Garatzailearen ezarpenak"
+msgstr "Ezarpen lehenetsiak"
 
 #: src/settings/NeoChatGeneralPage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
-msgstr ""
+msgstr "Berrezarri konfigurazio-balio denak haien balio lehenetsietan"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -5444,11 +5447,10 @@ msgid "Confirm edit"
 msgstr "Berretsi editatutakoa"
 
 #: src/timeline/ChatBarComponent.qml:106
-#, fuzzy, kde-format
-#| msgid "No messages found"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
-msgstr "Ez da mezurik aurkitu"
+msgstr "Bidali mezua harian"
 
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
@@ -5520,11 +5522,10 @@ msgid "Check-out time: %1"
 msgstr "Ordaindu eta irtete ordua: %1"
 
 #: src/timeline/ImageComponent.qml:138
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
-msgstr "Ezarri irudia"
+msgstr "Erakutsi irudia"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -5599,11 +5600,10 @@ msgid "Video"
 msgstr "Bideoa"
 
 #: src/timeline/VideoComponent.qml:258
-#, fuzzy, kde-format
-#| msgid "Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
-msgstr "Bideoa"
+msgstr "Erakutsi bideoa"
 
 #: src/timeline/VideoComponent.qml:299
 #, kde-format
