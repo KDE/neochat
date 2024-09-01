@@ -17,7 +17,6 @@ class WindowControllerTest : public QObject
 
 private Q_SLOTS:
     void nullWindow();
-    void geometry();
     void showAndRaise();
     void toggle();
 
@@ -30,30 +29,8 @@ void WindowControllerTest::nullWindow()
     auto &instance = WindowController::instance();
     QCOMPARE(instance.window(), nullptr);
 
-    instance.restoreGeometry();
-    instance.saveGeometry();
     instance.showAndRaiseWindow({});
     instance.toggleWindow();
-}
-
-void WindowControllerTest::geometry()
-{
-    auto &instance = WindowController::instance();
-
-    QWindow window;
-    window.setGeometry(0, 0, 200, 200);
-    instance.setWindow(&window);
-    QCOMPARE(instance.window(), &window);
-
-    instance.saveGeometry();
-    const auto stateConfig = KSharedConfig::openStateConfig();
-    KConfigGroup windowGroup = stateConfig->group(QStringLiteral("Window"));
-    QCOMPARE(KWindowConfig::hasSavedWindowSize(windowGroup), true);
-
-    window.setGeometry(0, 0, 400, 400);
-    QCOMPARE(window.geometry(), QRect(0, 0, 400, 400));
-    instance.restoreGeometry();
-    QCOMPARE(window.geometry(), QRect(0, 0, 200, 200));
 }
 
 void WindowControllerTest::showAndRaise()
