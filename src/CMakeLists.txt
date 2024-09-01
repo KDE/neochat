@@ -144,8 +144,6 @@ add_library(neochat STATIC
     roomlastmessageprovider.h
     chatbarcache.cpp
     chatbarcache.h
-    colorschemer.cpp
-    colorschemer.h
     models/notificationsmodel.cpp
     models/notificationsmodel.h
     models/timelinemodel.cpp

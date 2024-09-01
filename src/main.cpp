@@ -37,6 +37,7 @@
 #include <KCrash>
 #endif
 
+#include <KColorSchemeManager>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
@@ -45,7 +46,6 @@
 #include <Quotient/networkaccessmanager.h>
 
 #include "blurhashimageprovider.h"
-#include "colorschemer.h"
 #include "controller.h"
 #include "logger.h"
 #include "neochatconfig.h"
@@ -184,10 +184,7 @@ int main(int argc, char *argv[])
                 QStringLiteral("/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf"));
 #endif
 
-    ColorSchemer colorScheme;
-    if (!NeoChatConfig::self()->colorScheme().isEmpty()) {
-        colorScheme.apply(NeoChatConfig::self()->colorScheme());
-    }
+    KColorSchemeManager::instance();
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
