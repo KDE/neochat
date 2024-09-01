@@ -9,6 +9,7 @@ import QtLocation
 import QtPositioning
 
 import org.kde.neochat
+import org.kde.kirigami as Kirigami
 
 /**
  * @brief A component to show a location from a message.
@@ -100,6 +101,18 @@ ColumnLayout {
             function onCopyrightLinkActivated(link: string) {
                 Qt.openUrlExternally(link);
             }
+        }
+
+        Button {
+            anchors {
+                top: parent.top
+                right: parent.right
+                margins: Kirigami.Units.smallSpacing
+            }
+
+            text: i18nc("@action:button Open the location in an external program", "Open Externally")
+            icon.name: "compass"
+            onClicked: Qt.openUrlExternally("geo:" + root.latitude + "," + root.longitude)
         }
     }
     Component {
