@@ -44,6 +44,7 @@ KirigamiSettings.ConfigurationView {
                     connection: root.connection
                 };
             }
+            visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "security"
@@ -55,12 +56,14 @@ KirigamiSettings.ConfigurationView {
                     connection: root.connection
                 };
             }
+            visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "accounts"
             text: i18n("Accounts")
             icon.name: "preferences-system-users"
             page: () => Qt.createComponent("org.kde.neochat.settings", "AccountsPage")
+            visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "emoticons"
@@ -72,6 +75,7 @@ KirigamiSettings.ConfigurationView {
                     connection: root.connection
                 };
             }
+            visible: root.connection !== null
         },
         KirigamiSettings.SpellcheckingConfigurationModule {},
         KirigamiSettings.ConfigurationModule {
@@ -90,6 +94,7 @@ KirigamiSettings.ConfigurationView {
                     connection: root.connection
                 };
             }
+            visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutNeochat"
