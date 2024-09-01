@@ -84,21 +84,19 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         return;
     }
 
-    if (m_currentRoom) {
-        // HACK: Reset the model to a null room first to make sure QML dismantles
-        // last room's objects before the room is actually changed
-        beginResetModel();
-        m_currentRoom->disconnect(this);
-        m_currentRoom = nullptr;
-        endResetModel();
+    // HACK: Reset the model to a null room first to make sure QML dismantles
+    // last room's objects before the room is actually changed
+    beginResetModel();
+    m_currentRoom->disconnect(this);
+    m_currentRoom = nullptr;
+    endResetModel();
 
-        // Don't clear the member objects until the model has been fully reset and all
-        // refs cleared.
-        m_memberObjects.clear();
-        m_contentModels.clear();
-        m_reactionModels.clear();
-        m_readMarkerModels.clear();
-    }
+    // Don't clear the member objects until the model has been fully reset and all
+    // refs cleared.
+    m_memberObjects.clear();
+    m_contentModels.clear();
+    m_reactionModels.clear();
+    m_readMarkerModels.clear();
 
     beginResetModel();
     m_currentRoom = room;
