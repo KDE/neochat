@@ -36,8 +36,29 @@ Components.AbstractMaximizeComponent {
             icon.name: "snap-bounding-box-center-symbolic"
             onTriggered: mapView.map.fitViewportToMapItems([mapView.locationMapItem])
             enabled: root.location !== undefined
+        },
+        Kirigami.Action {
+            text: i18nc("@action:intoolbar Determine the device's location", "Locate")
+            icon.name: "mark-location-symbolic"
+            enabled: positionSource.valid
+            onTriggered: positionSource.update()
         }
     ]
+
+    PositionSource {
+        id: positionSource
+
+        active: false
+
+        onPositionChanged: {
+            const coord = position.coordinate;
+            mapView.gpsMapItem.latitude = coord.latitude;
+            mapView.gpsMapItem.longitude = coord.longitude;
+
+            mapView.map.addMapItem(mapView.gpsMapItem);
+            mapView.map.fitViewportToMapItems([mapView.gpsMapItem])
+        }
+    }
 
     content: MapView {
         id: mapView
@@ -55,6 +76,15 @@ Components.AbstractMaximizeComponent {
             latitude: root.location.latitude
             longitude: root.location.longitude
             isLive: false
+            heading: NaN
+            asset: ""
+            author: null
+        }
+
+        readonly property LocationMapItem gpsMapItem: LocationMapItem {
+            latitude: 0.0
+            longitude: 0.0
+            isLive: true
             heading: NaN
             asset: ""
             author: null
