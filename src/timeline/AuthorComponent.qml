@@ -57,6 +57,9 @@ RowLayout {
             cursorShape: Qt.PointingHandCursor
         }
     }
+    Item {
+        Layout.fillWidth: true
+    }
     QQC2.Label {
         id: timeLabel
         text: root.timeString
