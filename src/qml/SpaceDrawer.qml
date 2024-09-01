@@ -154,13 +154,20 @@ QQC2.Control {
                                 visible: true
                                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
                                 Kirigami.Theme.inherit: false
-                                color: root.connection.directChatsHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
+                                color: root.connection.directChatsHaveHighlightNotifications || root.connection.directChatInvites ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                                 radius: height / 2
                             }
 
                             TextMetrics {
                                 id: directChatNotificationCountTextMetrics
                                 text: directChatNotificationCountLabel.text
+                            }
+
+                            Kirigami.Icon {
+                                anchors.fill: parent
+
+                                source: "list-add-symbolic"
+                                visible: root.connection.directChatInvites && root.connection.directChatNotifications === 0
                             }
                         }
                     }
