@@ -30,6 +30,12 @@ Components.AbstractMaximizeComponent {
                 root.close();
             }
             enabled: !!root.location
+        },
+        Kirigami.Action {
+            text: i18nc("@action:intoolbar Re-center the map onto the set location", "Re-Center")
+            icon.name: "snap-bounding-box-center-symbolic"
+            onTriggered: mapView.map.fitViewportToMapItems([mapView.locationMapItem])
+            enabled: root.location !== undefined
         }
     ]
 
