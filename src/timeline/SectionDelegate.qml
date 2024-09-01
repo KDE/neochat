@@ -23,6 +23,11 @@ QQC2.ItemDelegate {
     topPadding: Kirigami.Units.largeSpacing
     bottomPadding: 0 // Note not 0 by default
 
+    leftInset: 0
+    rightInset: 0
+    topInset: -1 // This -1 is intentional to stretch the background one more pixel to prevent a visual bug when scrolling
+    bottomInset: 0
+
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
         Layout.fillWidth: true
