@@ -43,7 +43,6 @@ RowLayout {
 
     QQC2.AbstractButton {
         id: nameButton
-        Layout.fillWidth: true
         contentItem: QQC2.Label {
             text: root.author.disambiguatedName
             color: root.author.color
@@ -53,6 +52,10 @@ RowLayout {
         }
         Accessible.name: contentItem.text
         onClicked: RoomManager.resolveResource(root.author.uri)
+
+        HoverHandler {
+            cursorShape: Qt.PointingHandCursor
+        }
     }
     QQC2.Label {
         id: timeLabel
