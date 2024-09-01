@@ -27,7 +27,10 @@ Kirigami.Page {
             let c = LocationHelper.center(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox));
             return QtPositioning.coordinate(c.y, c.x);
         }
-        map.zoomLevel: LocationHelper.zoomToFit(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox), mapView.width, mapView.height)
+        map.zoomLevel: {
+            const zoom = LocationHelper.zoomToFit(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox), mapView.width, mapView.height)
+            return Math.min(Math.max(zoom, map.minimumZoomLevel), map.maximumZoomLevel);
+        }
 
         MapItemView {
             Component.onCompleted: mapView.map.addMapItemView(this)

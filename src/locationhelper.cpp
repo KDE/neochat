@@ -40,7 +40,7 @@ float LocationHelper::zoomToFit(const QRectF &r, float mapWidth, float mapHeight
     const auto zy = std::log2((mapHeight / (p2.y() - p1.y())));
     const auto z = std::min(zx, zy);
 
-    return std::clamp(z, 5.0, 18.0);
+    return z;
 }
 
 #include "moc_locationhelper.cpp"
