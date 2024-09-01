@@ -15,10 +15,6 @@ FormCard.FormComboBoxDelegate {
     textRole: "display"
     valueRole: "display"
     model: ColorSchemer.model
-    Component.onCompleted: currentIndex = ColorSchemer.indexForScheme(NeoChatConfig.colorScheme)
-    onCurrentValueChanged: {
-        ColorSchemer.apply(currentIndex);
-        NeoChatConfig.colorScheme = ColorSchemer.nameForIndex(currentIndex);
-        NeoChatConfig.save();
-    }
+    Component.onCompleted: currentIndex = ColorSchemer.indexForCurrentScheme()
+    onCurrentValueChanged: ColorSchemer.apply(currentIndex);
 }

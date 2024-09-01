@@ -185,9 +185,6 @@ int main(int argc, char *argv[])
 #endif
 
     ColorSchemer colorScheme;
-    if (!NeoChatConfig::self()->colorScheme().isEmpty()) {
-        colorScheme.apply(NeoChatConfig::self()->colorScheme());
-    }
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));

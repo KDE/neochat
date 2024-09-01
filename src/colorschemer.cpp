@@ -26,23 +26,9 @@ void ColorSchemer::apply(int idx)
     c->activateScheme(c->model()->index(idx, 0));
 }
 
-void ColorSchemer::apply(const QString &name)
+int ColorSchemer::indexForCurrentScheme()
 {
-    c->activateScheme(c->indexForScheme(name));
-}
-
-int ColorSchemer::indexForScheme(const QString &name) const
-{
-    auto index = c->indexForScheme(name).row();
-    if (index == -1) {
-        index = 0;
-    }
-    return index;
-}
-
-QString ColorSchemer::nameForIndex(int index) const
-{
-    return c->model()->data(c->model()->index(index, 0), Qt::DisplayRole).toString();
+    return c->indexForSchemeId(c->activeSchemeId()).row();
 }
 
 #include "moc_colorschemer.cpp"
