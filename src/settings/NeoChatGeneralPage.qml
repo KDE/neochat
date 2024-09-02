@@ -45,7 +45,7 @@ FormCard.FormCardPage {
             id: minimizeDelegate
             text: i18n("Minimize to system tray on startup")
             checked: NeoChatConfig.minimizeToSystemTrayOnStartup
-            visible: Controller.supportSystemTray && !Kirigami.Settings.isMobile
+            visible: Controller.supportSystemTray && !Kirigami.Settings.isMobile && NeoChatConfig.systemTray
             enabled: NeoChatConfig.systemTray && !NeoChatConfig.isMinimizeToSystemTrayOnStartupImmutable
             onToggled: {
                 NeoChatConfig.minimizeToSystemTrayOnStartup = checked;
@@ -56,6 +56,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {
             above: minimizeDelegate
             below: automaticallyDelegate
+            visible: minimizeDelegate.visible
         }
 
         FormCard.FormCheckDelegate {
