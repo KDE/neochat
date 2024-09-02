@@ -145,7 +145,7 @@ Delegates.RoundedItemDelegate {
             text: i18n("Configure room")
             display: QQC2.Button.IconOnly
 
-            icon.name: "configure"
+            icon.name: "overflow-menu-symbolic"
             onClicked: createRoomListContextMenu()
         }
     }
