@@ -71,6 +71,11 @@ Loader {
     property list<Kirigami.Action> actions
 
     /**
+     * @brief Whether the web search menu should be shown or not.
+     */
+    property bool enableWebSearch: true
+
+    /**
      * Some common actions shared between menus
      */
     component ViewSourceAction: Kirigami.Action {
@@ -173,6 +178,7 @@ Loader {
                 id: webshortcutmenu
                 title: i18n("Search for '%1'", webshortcutmodel.trunkatedSearchText)
                 property bool isVisible: webshortcutmodel.enabled
+                property bool isVisible: webshortcutmodel.enabled && root.enableWebSearch
                 Component.onCompleted: {
                     webshortcutmenu.parent.visible = isVisible;
                 }

@@ -32,6 +32,9 @@ DelegateContextMenu {
      */
     required property var progressInfo
 
+    // Web search isn't useful for images
+    enableWebSearch: false
+
     /**
      * @brief The main list of menu item actions.
      *
