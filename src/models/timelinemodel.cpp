@@ -62,7 +62,7 @@ void TimelineBeginningModel::setRoom(NeoChatRoom *room)
 
     if (m_room != nullptr) {
         Quotient::connectUntil(m_room.get(), &Quotient::Room::eventsHistoryJobChanged, this, [this]() {
-            if (m_room->allHistoryLoaded()) {
+            if (m_room && m_room->allHistoryLoaded()) {
                 // HACK: We have to do it this way because DelegateChooser doesn't update dynamically.
                 beginRemoveRows({}, 0, 0);
                 endRemoveRows();
