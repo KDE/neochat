@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -15,7 +16,7 @@ FormCard.FormCardPage {
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title", "Security")
+    title: i18nc("@title", "Security & Safety")
 
     header: KirigamiComponents.Banner {
         id: banner
@@ -24,13 +25,39 @@ FormCard.FormCardPage {
         type: Kirigami.MessageType.Error
     }
 
-    FormCard.FormHeader {
-        title: i18nc("@title:group", "Invitations")
-    }
     FormCard.FormCard {
+        Layout.topMargin: Kirigami.Units.largeSpacing
+        FormCard.FormButtonDelegate {
+            id: ignoredUsersDelegate
+            text: i18nc("@action:button", "Ignored Users")
+            icon.name: "im-invisible-user"
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(ignoredUsersDialogComponent, {}, {
+                title: i18nc("@title:window", "Ignored Users")
+            });
+        }
+        FormCard.FormDelegateSeparator {
+            above: ignoredUsersDelegate
+            below: hideImagesDelegate
+        }
         FormCard.FormCheckDelegate {
+            id: hideImagesDelegate
+            text: i18nc("@label:checkbox", "Hide images and videos by default")
+            description: i18nc("@info", "When this option is enabled, images and videos are only shown after a button is clicked.")
+            checked: NeoChatConfig.hideImages
+            enabled: !NeoChatConfig.isHideImagesImmutable
+            onToggled: {
+                NeoChatConfig.hideImages = checked;
+                NeoChatConfig.save();
+            }
+        }
+        FormCard.FormDelegateSeparator {
+            above: hideImagesDelegate
+            below: rejectInvitationsDelegate
+        }
+        FormCard.FormCheckDelegate {
+            id: rejectInvitationsDelegate
             text: i18nc("@option:check", "Reject invitations from unknown users")
-            description: connection.canCheckMutualRooms ? i18n("If enabled, NeoChat will reject invitations from users you don't share a room with.") : i18n("Your server does not support this setting.")
+            description: connection.canCheckMutualRooms ? i18nc("@info", "If enabled, NeoChat will reject invitations from users you don't share a room with.") : i18nc("@info", "Your server does not support this setting.")
             checked: NeoChatConfig.rejectUnknownInvites
             enabled: !NeoChatConfig.isRejectUnknownInvitesImmutable && connection.canCheckMutualRooms
             onToggled: {
@@ -40,42 +67,15 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title:group", "Ignored Users")
-    }
-    FormCard.FormCard {
-        FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Manage ignored users")
-            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(ignoredUsersDialogComponent, {}, {
-                title: i18nc("@title:window", "Ignored Users")
-            });
-        }
-    }
-    FormCard.FormHeader {
-        title: i18nc("@title", "Keys")
-    }
-    FormCard.FormCard {
-        FormCard.FormTextDelegate {
-            text: connection.deviceKey
-            description: i18n("Device key")
-        }
-        FormCard.FormTextDelegate {
-            text: connection.encryptionKey
-            description: i18n("Encryption key")
-        }
-        FormCard.FormTextDelegate {
-            text: connection.deviceId
-            description: i18n("Device id")
-        }
-    }
-
-    FormCard.FormHeader {
+        title: i18nc("@title", "Encryption")
         visible: Controller.csSupported
-        title: i18nc("@title", "Encryption Keys")
     }
     FormCard.FormCard {
         visible: Controller.csSupported
         FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Import Encryption Keys")
+            id: importKeysDelegate
+            text: i18nc("@action:button", "Import Keys")
+            description: i18nc("@info", "Import encryption keys from a backup.")
             icon.name: "document-import"
             onClicked: {
                 let dialog = root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "ImportKeysDialog"), {
@@ -91,8 +91,14 @@ FormCard.FormCardPage {
                 banner.visible = false;
             }
         }
+        FormCard.FormDelegateSeparator {
+            above: importKeysDelegate
+            below: exportKeysDelegate
+        }
         FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Export Encryption Keys")
+            id: exportKeysDelegate
+            text: i18nc("@action:button", "Export Keys")
+            description: i18nc("@info", "Export this device's encryption keys.")
             icon.name: "document-export"
             onClicked: {
                 root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "ExportKeysDialog"), {

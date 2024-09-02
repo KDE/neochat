@@ -48,7 +48,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "security"
-            text: i18n("Security")
+            text: i18nc("@title", "Security & Safety")
             icon.name: "preferences-security"
             page: () => Qt.createComponent("org.kde.neochat.settings", "NeoChatSecurityPage")
             initialProperties: () => {
