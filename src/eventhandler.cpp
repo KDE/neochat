@@ -154,7 +154,8 @@ bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *
     if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
         if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent()) {
             return true;
-        } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::self()->showRename()) {
+        } else if (roomMemberEvent->isRename() && roomMemberEvent->prevContent() && roomMemberEvent->prevContent()->membership == roomMemberEvent->membership()
+                   && !NeoChatConfig::self()->showRename()) {
             return true;
         } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
                    && !NeoChatConfig::self()->showAvatarUpdate()) {
