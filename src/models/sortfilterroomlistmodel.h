@@ -38,6 +38,9 @@ class SortFilterRoomListModel : public QSortFilterProxyModel
      */
     Q_PROPERTY(QString filterText READ filterText READ filterText WRITE setFilterText NOTIFY filterTextChanged)
 
+    // This is a lazy hack to make this model compatible with SearchPage. TODO: rename the property entirely
+    Q_PROPERTY(QString searchText READ filterText READ filterText WRITE setFilterText NOTIFY filterTextChanged)
+
 public:
     explicit SortFilterRoomListModel(RoomListModel *sourceModel, QObject *parent = nullptr);
 

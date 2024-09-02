@@ -76,6 +76,11 @@ Kirigami.ScrollablePage {
     property alias listVerticalLayoutDirection: listView.verticalLayoutDirection
 
     /**
+     * @brief Set the visibility of the search button.
+     */
+    property bool showSearchButton: true
+
+    /**
      * @brief Force the search field to be focussed.
      */
     function focusSearch() {
@@ -127,6 +132,7 @@ Kirigami.ScrollablePage {
                 id: searchButton
                 icon.name: "search"
                 display: QQC2.Button.IconOnly
+                visible: root.showSearchButton
                 text: i18nc("@action:button", "Search")
 
                 onClicked: {
