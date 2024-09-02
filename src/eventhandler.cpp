@@ -366,9 +366,13 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
                 if (e.prevContent() && e.prevContent()->membership == Membership::Ban) {
                     return (e.senderId() != e.userId()) ? i18n("unbanned %1", subjectName) : i18n("self-unbanned");
                 }
-                return (e.senderId() != e.userId())
-                    ? i18n("has put %1 out of the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped())
-                    : i18n("left the room");
+                if (e.senderId() == e.userId()) {
+                    return i18n("left the room");
+                }
+                if (const auto &reason = e.contentJson()["reason"_ls].toString().toHtmlEscaped(); !reason.isEmpty()) {
+                    return i18n("has put %1 out of the room: %2", subjectName, reason);
+                }
+                return i18n("has put %1 out of the room", subjectName);
             case Membership::Ban:
                 if (e.senderId() != e.userId()) {
                     if (e.reason().isEmpty()) {
