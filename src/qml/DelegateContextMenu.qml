@@ -155,6 +155,7 @@ Loader {
                     id: menuItem
                     visible: modelData.visible
                     title: modelData.text
+                    icon: modelData.icon
 
                     Instantiator {
                         model: modelData.children
@@ -185,7 +186,7 @@ Loader {
             QQC2.Menu {
                 id: webshortcutmenu
                 title: i18n("Search for '%1'", webshortcutmodel.trunkatedSearchText)
-                property bool isVisible: webshortcutmodel.enabled
+                icon.name: "search-symbolic"
                 property bool isVisible: webshortcutmodel.enabled && root.enableWebSearch
                 Component.onCompleted: {
                     webshortcutmenu.parent.visible = isVisible;
