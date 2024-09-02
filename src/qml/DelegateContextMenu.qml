@@ -136,6 +136,14 @@ Loader {
         }
     }
 
+    component ShowUserAction: Kirigami.Action {
+        text: i18nc("@action:inmenu", "Show User")
+        icon.name: "username-copy"
+        onTriggered: {
+            RoomManager.resolveResource(author.id)
+        }
+    }
+
     Component {
         id: regularMenu
 

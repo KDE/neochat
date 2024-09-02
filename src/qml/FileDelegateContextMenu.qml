@@ -86,6 +86,7 @@ DelegateContextMenu {
             }
         },
         DelegateContextMenu.ReportMessageAction {},
+        DelegateContextMenu.ShowUserAction {},
         DelegateContextMenu.ViewSourceAction {}
     ]
 

@@ -66,13 +66,7 @@ DelegateContextMenu {
             onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.selectedText : root.plainText)
         },
         DelegateContextMenu.ReportMessageAction {},
-        Kirigami.Action {
-            text: i18nc("@action:inmenu", "Show User")
-            icon.name: "username-copy"
-            onTriggered: {
-                RoomManager.resolveResource(author.id)
-            }
-        },
+        DelegateContextMenu.ShowUserAction {},
         DelegateContextMenu.ViewSourceAction {},
         Kirigami.Action {
             text: i18n("Copy Link")
