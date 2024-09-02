@@ -66,7 +66,7 @@ Kirigami.Dialog {
                 if (switchUserButton.checked) {
                     switchUserButton.checked = false;
                 }
-                accountView.currentIndex = Controller.activeConnectionIndex;
+                root.close();
             }
             Keys.onUpPressed: {
                 accountView.currentIndex = accountView.count - 1;
