@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -11,111 +13,77 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
 
-Kirigami.ScrollablePage {
+SearchPage {
     id: root
 
     property NeoChatRoom room
 
-    title: i18n("Invite a User")
+    title: i18nc("@title:dialog", "Invite a User")
 
-    actions: [
-        Kirigami.Action {
-            icon.name: "dialog-close"
-            text: i18nc("@action", "Cancel")
-            onTriggered: root.closeDialog()
-        }
-    ]
-    header: RowLayout {
-        Layout.fillWidth: true
-        Layout.margins: Kirigami.Units.largeSpacing
+    searchFieldPlaceholder: i18nc("@info:placeholder", "Find a user…")
+    noResultPlaceholderMessage: i18nc("@info:placeholder", "No users found")
 
-        Kirigami.SearchField {
-            id: identifierField
-            property bool isUserId: text.match(/@(.+):(.+)/g)
-            Layout.fillWidth: true
+    headerTrailing: QQC2.Button {
+        icon.name: "list-add"
+        display: QQC2.Button.IconOnly
+        enabled: root.model.searchText.match(/@(.+):(.+)/g) && !root.room.containsUser(root.model.searchText)
 
-            placeholderText: i18n("Find a user...")
-            onAccepted: userDictListModel.search()
-        }
+        text: i18nc("@action:button", "Invite this User")
 
-        QQC2.Button {
-            visible: identifierField.isUserId
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.text: root.room.containsUser(root.model.searchText) ? i18nc("@info:tooltip", "User is either already a member or has been invited") : text
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
-            text: i18n("Add")
-            highlighted: true
-
-            onClicked: {
-                room.inviteToRoom(identifierField.text);
-            }
-        }
+        onClicked: root.room.inviteToRoom(root.model.searchText);
     }
 
-    ListView {
-        id: userDictListView
+    model: UserDirectoryListModel {
+        id: userDictListModel
 
-        clip: true
+        connection: root.room.connection
+    }
 
-        model: UserDirectoryListModel {
-            id: userDictListModel
+    modelDelegate: Delegates.RoundedItemDelegate {
+        id: delegate
 
-            connection: root.room.connection
-            searchText: identifierField.text
-        }
+        required property string userId
+        required property string displayName
+        required property url avatarUrl
 
-        Kirigami.PlaceholderMessage {
-            anchors.centerIn: parent
+        text: displayName
 
-            visible: userDictListView.count < 1
+        contentItem: RowLayout {
+            KirigamiComponents.Avatar {
+                Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                source: delegate.avatarUrl
+                name: delegate.displayName
+            }
 
-            text: i18n("No users available")
-        }
+            Delegates.SubtitleContentItem {
+                itemDelegate: delegate
+                subtitle: delegate.userId
+                labelItem.textFormat: Text.PlainText
+            }
 
-        delegate: Delegates.RoundedItemDelegate {
-            id: delegate
+            QQC2.ToolButton {
+                id: inviteButton
 
-            required property string userId
-            required property string displayName
-            required property url avatarUrl
+                readonly property bool inRoom: root.room && root.room.containsUser(delegate.userId)
 
-            property bool inRoom: room && room.containsUser(userId)
+                icon.name: "document-send"
+                text: i18nc("@action:button", "Send invitation")
+                opacity: inRoom ? 0.5 : 1
+                enabled: !inRoom
 
-            text: displayName
-
-            contentItem: RowLayout {
-                KirigamiComponents.Avatar {
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.medium
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                    source: delegate.avatarUrl
-                    name: delegate.displayName
+                onClicked: {
+                    inviteButton.enabled = false;
+                    root.room.inviteToRoom(delegate.userId);
                 }
 
-                Delegates.SubtitleContentItem {
-                    itemDelegate: delegate
-                    subtitle: delegate.userId
-                    labelItem.textFormat: Text.PlainText
-                }
-
-                QQC2.ToolButton {
-                    id: inviteButton
-                    icon.name: "document-send"
-                    text: i18n("Send invitation")
-                    checkable: true
-                    checked: inRoom
-                    opacity: inRoom ? 0.5 : 1
-
-                    onToggled: {
-                        if (inRoom) {
-                            checked = true;
-                        } else {
-                            room.inviteToRoom(delegate.userId);
-                            applicationWindow().pageStack.layers.pop();
-                        }
-                    }
-
-                    QQC2.ToolTip.text: !inRoom ? text : i18n("User is either already a member or has been invited")
-                    QQC2.ToolTip.visible: inviteButton.hovered
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
+                QQC2.ToolTip.text: !inRoom ? text : i18nc("@info:tooltip", "User is either already a member or has been invited")
+                QQC2.ToolTip.visible: inviteButton.hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
     }
