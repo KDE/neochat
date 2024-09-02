@@ -211,7 +211,7 @@ QList<ActionsModel::Action> actions{
                 Q_EMIT Controller::instance().showMessage(Controller::Positive, i18n("You are already in this room."));
                 return QString();
             }
-            if (room->members().contains(room->member(text))) {
+            if (room->joinedMemberIds().contains(text)) {
                 Q_EMIT Controller::instance().showMessage(Controller::Info, i18nc("<user> is already in this room.", "%1 is already in this room.", text));
                 return QString();
             }
