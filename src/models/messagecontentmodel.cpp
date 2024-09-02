@@ -221,7 +221,7 @@ void MessageContentModel::setShowAuthor(bool showAuthor)
     }
     m_showAuthor = showAuthor;
 
-    if (m_event != nullptr && m_room->connection()->ignoredUsers().contains(m_event->senderId())) {
+    if (m_event != nullptr && m_room->connection()->isIgnored(m_event->senderId())) {
         if (showAuthor) {
             beginInsertRows({}, 0, 0);
             m_components.prepend(MessageComponent{MessageComponentType::Author, QString(), {}});
@@ -251,7 +251,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     const auto component = m_components[index.row()];
 
     if (role == DisplayRole) {
-        if (m_notFound || (m_event && m_room->connection()->ignoredUsers().contains(m_event->senderId()))) {
+        if (m_notFound || (m_event && m_room->connection()->isIgnored(m_event->senderId()))) {
             Kirigami::Platform::PlatformTheme *theme =
                 static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
 
@@ -393,7 +393,7 @@ void MessageContentModel::resetModel()
     beginResetModel();
     m_components.clear();
 
-    if ((m_event && m_room->connection()->ignoredUsers().contains(m_event->senderId())) || m_notFound) {
+    if ((m_event && m_room->connection()->isIgnored(m_event->senderId())) || m_notFound) {
         m_components += MessageComponent{MessageComponentType::Text, QString(), {}};
         endResetModel();
         return;
