@@ -33,6 +33,7 @@ Kirigami.Dialog {
                 spacing: Kirigami.Units.largeSpacing * 4
                 Avatar {
                     source: root.connection.makeMediaUrl(SpaceHierarchyCache.recommendedSpaceAvatar)
+                    name: SpaceHierarchyCache.recommendedSpaceDisplayName
                 }
                 ColumnLayout {
                     Layout.fillWidth: true
