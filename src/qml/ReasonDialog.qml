@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
@@ -12,10 +12,11 @@ import org.kde.neochat
 Kirigami.Page {
     id: root
 
-    property NeoChatRoom room
-    property string userId
+    required property string placeholder
+    required property string actionText
+    required property string icon
 
-    title: i18n("Ban User")
+    signal accepted(reason: string)
 
     leftPadding: 0
     rightPadding: 0
@@ -24,7 +25,7 @@ Kirigami.Page {
 
     QQC2.TextArea {
         id: reason
-        placeholderText: i18n("Reason for banning this user")
+        placeholderText: root.placeholder
         anchors.fill: parent
         wrapMode: TextEdit.Wrap
 
@@ -40,11 +41,11 @@ Kirigami.Page {
                 Layout.fillWidth: true
             }
             QQC2.Button {
-                text: i18nc("@action:button 'Ban' as in 'Ban this user'", "Ban")
-                icon.name: "im-ban-user"
+                text: root.actionText
+                icon.name: root.icon
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 onClicked: {
-                    root.room.ban(root.userId, reason.text);
+                    root.accepted(reason.text);
                     root.closeDialog();
                 }
             }

@@ -150,12 +150,17 @@ Kirigami.Dialog {
                 icon.name: "im-ban-user"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'BanSheet'), {
-                        room: root.room,
-                        userId: root.user.id
+                    let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                        title: i18nc("@title:dialog", "Ban User"),
+                        placeholder: i18nc("@info:placeholder", "Reason for banning this user"),
+                        actionText: i18nc("@action:button 'Ban' as in 'Ban this user'", "Ban"),
+                        icon: "im-ban-user"
                     }, {
-                        title: i18nc("@title", "Ban User"),
+                        title: i18nc("@title:dialog", "Ban User"),
                         width: Kirigami.Units.gridUnit * 25
+                    });
+                    dialog.accepted.connect(reason => {
+                        root.room.ban(root.user.id, reason);
                     });
                     root.close();
                 }
@@ -204,16 +209,21 @@ Kirigami.Dialog {
             visible: root.room && (root.user.id === root.connection.localUserId || room.canSendState("redact"))
 
             action: Kirigami.Action {
-                text: i18n("Remove recent messages by this user")
+                text: i18nc("@action:button", "Remove recent messages by this user")
                 icon.name: "delete"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RemoveSheet'), {
-                        room: root.room,
-                        userId: root.user.id
+                    let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                        title: i18nc("@title:dialog", "Remove Messages"),
+                        placeholder: i18nc("@info:placeholder", "Reason for removing this user's recent messages"),
+                        actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
+                        icon: "delete"
                     }, {
                         title: i18nc("@title", "Remove Messages"),
                         width: Kirigami.Units.gridUnit * 25
+                    });
+                    dialog.accepted.connect(reason => {
+                        root.room.deleteMessagesByUser(root.user.id, reason);
                     });
                     root.close();
                 }

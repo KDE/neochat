@@ -82,16 +82,23 @@ Loader {
 
     component RemoveMessageAction: Kirigami.Action {
         visible: author.isLocalMember || currentRoom.canSendState("redact")
-        text: i18n("Remove")
+        text: i18nc("@action:button", "Remove")
         icon.name: "edit-delete-remove"
         icon.color: "red"
-        onTriggered: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RemoveSheet'), {
-            room: currentRoom,
-            eventId: eventId
-        }, {
-            title: i18nc("@title", "Remove Message"),
-            width: Kirigami.Units.gridUnit * 25
-        })
+        onTriggered: {
+            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                title: i18nc("@title:dialog", "Remove Message"),
+                placeholder: i18nc("@info:placeholder", "Reason for removing this message"),
+                actionText: i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
+                icon: "delete"
+            }, {
+                title: i18nc("@title:dialog", "Remove Message"),
+                width: Kirigami.Units.gridUnit * 25
+            });
+            dialog.accepted.connect(reason => {
+                currentRoom.redactEvent(root.eventId, reason);
+            });
+        }
     }
 
     component ReplyMessageAction: Kirigami.Action {
@@ -108,13 +115,20 @@ Loader {
         text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
         icon.name: "dialog-warning-symbolic"
         visible: !author.isLocalMember
-        onTriggered: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReportSheet'), {
-            room: currentRoom,
-            eventId: eventId
-        }, {
-            title: i18nc("@title", "Report Message"),
-            width: Kirigami.Units.gridUnit * 25
-        })
+        onTriggered: {
+            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                title: i18nc("@title:dialog", "Report Message"),
+                placeholder: i18nc("@info:placeholder", "Reason for reporting this message"),
+                icon: "dialog-warning-symbolic",
+                actionText: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
+            }, {
+                title: i18nc("@title", "Report Message"),
+                width: Kirigami.Units.gridUnit * 25
+            });
+            dialog.accepted.connect(reason => {
+                currentRoom.reportEvent(root.eventId, reason);
+            });
+        }
     }
 
     Component {

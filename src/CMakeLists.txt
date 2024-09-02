@@ -243,10 +243,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/MessageDelegateContextMenu.qml
         qml/FileDelegateContextMenu.qml
         qml/MessageSourceSheet.qml
-        qml/ReportSheet.qml
         qml/ConfirmEncryptionDialog.qml
-        qml/RemoveSheet.qml
-        qml/BanSheet.qml
         qml/RoomSearchPage.qml
         qml/LocationChooser.qml
         qml/TimelineView.qml
@@ -291,6 +288,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AskDirectChatConfirmation.qml
         qml/HoverLinkIndicator.qml
         qml/AvatarNotification.qml
+        qml/ReasonDialog.qml
     DEPENDENCIES
         QtCore
         QtQuick
