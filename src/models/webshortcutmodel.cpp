@@ -125,7 +125,7 @@ void WebShortcutModel::trigger(const QString &data)
 void WebShortcutModel::configureWebShortcuts()
 {
 #ifdef HAVE_KIO
-    auto job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), QStringList() << QStringLiteral("webshortcuts"), this);
+    auto job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell6"), QStringList() << QStringLiteral("webshortcuts"), this);
     job->exec();
 #endif
 }
