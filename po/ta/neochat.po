@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-28 00:39+0000\n"
+"POT-Creation-Date: 2024-09-02 00:38+0000\n"
 "PO-Revision-Date: 2024-06-30 13:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -817,7 +817,7 @@ msgstr "Matrix கணக்குப்பெயர்"
 msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:232
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -918,57 +918,47 @@ msgstr "இப்பெயர் கிடைக்கவில்லை"
 msgid "Welcome"
 msgstr "நல்வரவு"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
+#: src/login/WelcomePage.qml:73 src/main.cpp:142
 #, kde-format
-msgid "Welcome to NeoChat"
-msgstr "நியோச்சாட்டுக்கு நல்வரவு"
+msgid "NeoChat"
+msgstr "நியோச்சாட்"
 
-#: src/login/WelcomePage.qml:54
+#: src/login/WelcomePage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
 
-#: src/login/WelcomePage.qml:86
+#: src/login/WelcomePage.qml:115
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (ஏற்றப்படுகிறது)"
 
-#: src/login/WelcomePage.qml:95
+#: src/login/WelcomePage.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "இந்தக் கணக்கிலிருந்து வெளியேறு"
 
-#: src/login/WelcomePage.qml:124
+#: src/login/WelcomePage.qml:153
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "கணக்கில் நுழையவும் அல்லது புதியதை உருவாக்கவும்"
 
-#: src/login/WelcomePage.qml:206
+#: src/login/WelcomePage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "பின்னே செல்"
 
-#: src/login/WelcomePage.qml:217
-#, kde-format
+#: src/login/WelcomePage.qml:252
+#, fuzzy, kde-format
+#| msgid "Settings"
 msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "பதிலி அமைப்புகளை திற"
-
-#: src/login/WelcomePage.qml:220
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "பதிலி அமைப்புகள்"
-
-#: src/main.cpp:142
-#, kde-format
-msgid "NeoChat"
-msgstr "நியோச்சாட்"
+msgid "Settings"
+msgstr "அமைப்புகள்"
 
 #: src/main.cpp:144
 #, kde-format
@@ -1043,32 +1033,32 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 கொண்டு தொகுக்கப்பட்டது)"
 
-#: src/main.cpp:193
+#: src/main.cpp:190
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix தொடர்பு நெறிமுறைக்கான வாங்கி"
 
-#: src/main.cpp:194
+#: src/main.cpp:191
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: முகவரி திட்டமுறையை ஆதரிக்கும்"
 
-#: src/main.cpp:195
+#: src/main.cpp:192
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "அனைத்து SSL சிக்கல்களையும் பொருட்படுத்தாதே (எ.கா. கையொப்பமிடா சான்றிதழ்கள்)."
 
-#: src/main.cpp:197
+#: src/main.cpp:194
 #, kde-format
 msgid "Only used for autotests"
 msgstr "தானியங்கி சோதனைகளுக்கு மட்டும்"
 
-#: src/main.cpp:202
+#: src/main.cpp:199
 #, kde-format
 msgid "Internal usage only."
 msgstr "உள்ளக் பயன்பாட்டு மட்டும்."
 
-#: src/main.cpp:207
+#: src/main.cpp:204
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Matrix-க்கு ஓர் முகவரியை பகிர்"
@@ -1866,7 +1856,7 @@ msgid "Notification settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
 #: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:85
+#: src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "சாதனங்கள்"
@@ -2891,7 +2881,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "இருப்பிடங்கள்"
 
-#: src/qml/LocationsPage.qml:65
+#: src/qml/LocationsPage.qml:68
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "இவ்வரங்கில் எந்த இருப்பிடமும் பகிரப்படவில்லை."
@@ -3290,6 +3280,11 @@ msgstr "அரங்கிலுள்ள படங்கள்"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. உங்கள் பிணைய இணைப்பை சரிபாருங்கள்."
+
+#: src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "நியோச்சாட்டுக்கு நல்வரவு"
 
 #: src/qml/RoomPage.qml:158
 #, fuzzy, kde-format
@@ -4133,7 +4128,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "கடவுச்சொல்லை மாற்றும்போது தெரியாத சிக்கல்"
 
 #: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
-#: src/settings/NeoChatSettingsView.qml:61
+#: src/settings/NeoChatSettingsView.qml:63
 #, kde-format
 msgid "Accounts"
 msgstr "கணக்குகள்"
@@ -4801,35 +4796,35 @@ msgstr "தோற்றம்"
 msgid "Notifications"
 msgstr "அறிவிப்புகள்"
 
-#: src/settings/NeoChatSettingsView.qml:50 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettingsView.qml:51 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "பாதுகாப்பு"
 
-#: src/settings/NeoChatSettingsView.qml:67
+#: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "ஒட்டிகளும் முகவடிகளும்"
 
-#: src/settings/NeoChatSettingsView.qml:79 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:83 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "பிணைய பதிலி"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:101
 #, kde-format
 msgid "About NeoChat"
 msgstr "நியோச்சாட் பற்றி"
 
-#: src/settings/NeoChatSettingsView.qml:99
-#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:104
+#: src/settings/NeoChatSettingsView.qml:111
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "இதுபற்றி"
 
-#: src/settings/NeoChatSettingsView.qml:103
+#: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr "கே.டீ.யீ. பற்றி"
@@ -5541,6 +5536,13 @@ msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 msgid "Loading URL preview"
 msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
 
+#: src/timeline/LocationComponent.qml:113
+#, fuzzy, kde-format
+#| msgid "Open Externally"
+msgctxt "@action:button Open the location in an external program"
+msgid "Open Externally"
+msgstr "வெளியமைவாகத் திற"
+
 #: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
 msgid "%1 started a user verification"
@@ -5611,6 +5613,14 @@ msgstr "காட்டு"
 msgid "Quit"
 msgstr "வெளியேறு"
 
+#~ msgctxt "@action:button"
+#~ msgid "Open proxy settings"
+#~ msgstr "பதிலி அமைப்புகளை திற"
+
+#~ msgctxt "@title:window"
+#~ msgid "Proxy Settings"
+#~ msgstr "பதிலி அமைப்புகள்"
+
 #~ msgid "Media id '%1' doesn't follow server/mediaId pattern"
 #~ msgstr "'%1' என்ற ஊடக அடையாளம் server/mediaId எனும் பாங்கில் இல்லை"
 
@@ -5628,9 +5638,6 @@ msgstr "வெளியேறு"
 #~ msgctxt "Placeholder message when no user is ignored"
 #~ msgid "You are not ignoring any users"
 #~ msgstr "எந்த பயனர்களையும் நீங்கள் புறக்கணிக்கவில்லை"
-
-#~ msgid "Settings"
-#~ msgstr "அமைப்புகள்"
 
 #~ msgid "Room Settings"
 #~ msgstr "அரங்கின் அமைப்புகள்"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-28 00:39+0000\n"
+"POT-Creation-Date: 2024-09-02 00:38+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -845,7 +845,7 @@ msgstr "Matrix-ID:"
 msgid "Loading…"
 msgstr "Wird geladen ..."
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:232
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -955,20 +955,19 @@ msgstr "Keine Benutzer verfügbar"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
-#, fuzzy, kde-format
-#| msgid "Welcome to Matrix"
-msgid "Welcome to NeoChat"
-msgstr "Willkommen bei Matrix"
+#: src/login/WelcomePage.qml:73 src/main.cpp:142
+#, kde-format
+msgid "NeoChat"
+msgstr "NeoChat"
 
-#: src/login/WelcomePage.qml:54
+#: src/login/WelcomePage.qml:81
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Mit bestehendem Konto anmelden"
 
-#: src/login/WelcomePage.qml:86
+#: src/login/WelcomePage.qml:115
 #, fuzzy, kde-format
 #| msgctxt "Job heading, like 'Copying'"
 #| msgid "Uploading"
@@ -976,44 +975,32 @@ msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "Wird hochgeladen"
 
-#: src/login/WelcomePage.qml:95
+#: src/login/WelcomePage.qml:124
 #, fuzzy, kde-format
 #| msgid "Edit this account"
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "Dieses Konto bearbeiten"
 
-#: src/login/WelcomePage.qml:124
+#: src/login/WelcomePage.qml:153
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Mit bestehendem Konto anmelden"
 
-#: src/login/WelcomePage.qml:206
+#: src/login/WelcomePage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr ""
 
-#: src/login/WelcomePage.qml:217
+#: src/login/WelcomePage.qml:252
 #, fuzzy, kde-format
-#| msgid "Open Settings"
+#| msgid "Room Settings"
 msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Einstellungen öffnen"
-
-#: src/login/WelcomePage.qml:220
-#, fuzzy, kde-format
-#| msgid "Proxy Settings"
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Proxyeinstellungen"
-
-#: src/main.cpp:142
-#, kde-format
-msgid "NeoChat"
-msgstr "NeoChat"
+msgid "Settings"
+msgstr "Raum-Einstellungen"
 
 #: src/main.cpp:144
 #, kde-format
@@ -1093,32 +1080,32 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (für %2 kompiliert)"
 
-#: src/main.cpp:193
+#: src/main.cpp:190
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Programm für das Matrix-Protokoll"
 
-#: src/main.cpp:194
+#: src/main.cpp:191
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Unterstützt das Adressschema matrix:"
 
-#: src/main.cpp:195
+#: src/main.cpp:192
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 
-#: src/main.cpp:197
+#: src/main.cpp:194
 #, kde-format
 msgid "Only used for autotests"
 msgstr ""
 
-#: src/main.cpp:202
+#: src/main.cpp:199
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
 
-#: src/main.cpp:207
+#: src/main.cpp:204
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr ""
@@ -1992,7 +1979,7 @@ msgid "Notification settings"
 msgstr "Benachrichtigungseinstellungen"
 
 #: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:85
+#: src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Geräte"
@@ -3092,7 +3079,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Benachrichtigungen"
 
-#: src/qml/LocationsPage.qml:65
+#: src/qml/LocationsPage.qml:68
 #, fuzzy, kde-format
 #| msgid "You are already in this room."
 msgid "There are no locations shared in this room."
@@ -3525,6 +3512,12 @@ msgstr "Raum-Version"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat ist offline. Bitte überprüfen Sie Ihre Netzwerkverbindung."
+
+#: src/qml/RoomPage.qml:157
+#, fuzzy, kde-format
+#| msgid "Welcome to Matrix"
+msgid "Welcome to NeoChat"
+msgstr "Willkommen bei Matrix"
 
 #: src/qml/RoomPage.qml:158
 #, fuzzy, kde-format
@@ -4439,7 +4432,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "Unbekanntes Problem beim Ändern des Passworts aufgetreten"
 
 #: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
-#: src/settings/NeoChatSettingsView.qml:61
+#: src/settings/NeoChatSettingsView.qml:63
 #, kde-format
 msgid "Accounts"
 msgstr "Konten"
@@ -5140,36 +5133,36 @@ msgstr "Erscheinungsbild"
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: src/settings/NeoChatSettingsView.qml:50 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettingsView.qml:51 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Sicherheit"
 
-#: src/settings/NeoChatSettingsView.qml:67
+#: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Sticker & Emojis"
 
-#: src/settings/NeoChatSettingsView.qml:79 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:83 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Netzwerk-Proxy"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:101
 #, kde-format
 msgid "About NeoChat"
 msgstr "Über NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:99
-#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:104
+#: src/settings/NeoChatSettingsView.qml:111
 #, fuzzy, kde-format
 #| msgid "About KDE"
 msgctxt "@title:group"
 msgid "About"
 msgstr "Über KDE"
 
-#: src/settings/NeoChatSettingsView.qml:103
+#: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr "Über KDE"
@@ -5911,6 +5904,13 @@ msgstr "Vorschau vergrößern"
 msgid "Loading URL preview"
 msgstr "Adressvorschau wird geladen"
 
+#: src/timeline/LocationComponent.qml:113
+#, fuzzy, kde-format
+#| msgid "Open Externally"
+msgctxt "@action:button Open the location in an external program"
+msgid "Open Externally"
+msgstr "Extern öffnen"
+
 #: src/timeline/MessageComponentChooser.qml:220
 #, fuzzy, kde-format
 #| msgid "withdrew a user's invitation"
@@ -5982,6 +5982,18 @@ msgstr "Anzeigen"
 msgid "Quit"
 msgstr "Beenden"
 
+#, fuzzy
+#~| msgid "Open Settings"
+#~ msgctxt "@action:button"
+#~ msgid "Open proxy settings"
+#~ msgstr "Einstellungen öffnen"
+
+#, fuzzy
+#~| msgid "Proxy Settings"
+#~ msgctxt "@title:window"
+#~ msgid "Proxy Settings"
+#~ msgstr "Proxyeinstellungen"
+
 #~ msgid "Media id '%1' doesn't follow server/mediaId pattern"
 #~ msgstr "Medien-ID „%1“ folgt nicht dem Server/mediaId-Muster"
 
@@ -5997,11 +6009,6 @@ msgstr "Beenden"
 #~ msgctxt "@action:button"
 #~ msgid "QR code for account"
 #~ msgstr "Dieses Konto bearbeiten"
-
-#, fuzzy
-#~| msgid "Room Settings"
-#~ msgid "Settings"
-#~ msgstr "Raum-Einstellungen"
 
 #~ msgid "Room Settings"
 #~ msgstr "Raum-Einstellungen"

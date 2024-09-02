@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-28 00:39+0000\n"
+"POT-Creation-Date: 2024-09-02 00:38+0000\n"
 "PO-Revision-Date: 2024-08-30 18:16+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -822,7 +822,7 @@ msgstr "Matrix ID"
 msgid "Loading…"
 msgstr "Zamatzen..."
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:232
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -925,57 +925,47 @@ msgstr "Erabiltzaile-izena ez dago erabilgarri"
 msgid "Welcome"
 msgstr "Ongi etorri"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
+#: src/login/WelcomePage.qml:73 src/main.cpp:142
 #, kde-format
-msgid "Welcome to NeoChat"
-msgstr "Ongi etorri «NeoChat»era"
+msgid "NeoChat"
+msgstr "NeoChat"
 
-#: src/login/WelcomePage.qml:54
+#: src/login/WelcomePage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Jarraitu aurrez dagoen kontu batekin"
 
-#: src/login/WelcomePage.qml:86
+#: src/login/WelcomePage.qml:115
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (Zamatzen)"
 
-#: src/login/WelcomePage.qml:95
+#: src/login/WelcomePage.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "Irten kontu honetatik"
 
-#: src/login/WelcomePage.qml:124
+#: src/login/WelcomePage.qml:153
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Saioa hasi edo sortu kontu bat"
 
-#: src/login/WelcomePage.qml:206
+#: src/login/WelcomePage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Itzuli"
 
-#: src/login/WelcomePage.qml:217
-#, kde-format
+#: src/login/WelcomePage.qml:252
+#, fuzzy, kde-format
+#| msgid "Settings"
 msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Ireki ordezkariaren ezarpenak"
-
-#: src/login/WelcomePage.qml:220
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Ordezkariaren ezarpenak"
-
-#: src/main.cpp:142
-#, kde-format
-msgid "NeoChat"
-msgstr "NeoChat"
+msgid "Settings"
+msgstr "Ezarpenak"
 
 #: src/main.cpp:144
 #, kde-format
@@ -1050,32 +1040,32 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 erabiliz eraikia)"
 
-#: src/main.cpp:193
+#: src/main.cpp:190
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix, deszentralizatutako komunikazio protokolorako bezeroa"
 
-#: src/main.cpp:194
+#: src/main.cpp:191
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix onartzen du: URL eskema"
 
-#: src/main.cpp:195
+#: src/main.cpp:192
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ez egin kasu SSL erroreei, adib., sinatu gabeko ziurtagiriei."
 
-#: src/main.cpp:197
+#: src/main.cpp:194
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Auto-probetarako bakarrik erabilia"
 
-#: src/main.cpp:202
+#: src/main.cpp:199
 #, kde-format
 msgid "Internal usage only."
 msgstr "Barneko erabilera bakarrik."
 
-#: src/main.cpp:207
+#: src/main.cpp:204
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Partekatu URL bat «Matrix»ekin"
@@ -1874,7 +1864,7 @@ msgid "Notification settings"
 msgstr "Jakinarazpen-ezarpenak"
 
 #: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:85
+#: src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Gailuak"
@@ -2902,7 +2892,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Kokalekuak"
 
-#: src/qml/LocationsPage.qml:65
+#: src/qml/LocationsPage.qml:68
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "Gela honetan ez dago partekatutako kokalekurik."
@@ -3302,6 +3292,11 @@ msgstr "Gelako hedabideak"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat lerroz kanpo dago. Mesedez, berrikusi zure sare-konexioa."
+
+#: src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "Ongi etorri «NeoChat»era"
 
 #: src/qml/RoomPage.qml:158
 #, kde-format
@@ -4156,7 +4151,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "Arazo ezezaguna pasahitza aldatzen saiatzean"
 
 #: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
-#: src/settings/NeoChatSettingsView.qml:61
+#: src/settings/NeoChatSettingsView.qml:63
 #, kde-format
 msgid "Accounts"
 msgstr "Kontuak"
@@ -4817,35 +4812,35 @@ msgstr "Itxura"
 msgid "Notifications"
 msgstr "Jakinarazpenak"
 
-#: src/settings/NeoChatSettingsView.qml:50 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettingsView.qml:51 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Segurtasuna"
 
-#: src/settings/NeoChatSettingsView.qml:67
+#: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Eranskailuak eta Emojiak"
 
-#: src/settings/NeoChatSettingsView.qml:79 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:83 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Sareko ordezkaria"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:101
 #, kde-format
 msgid "About NeoChat"
 msgstr "Neochat-i buruz"
 
-#: src/settings/NeoChatSettingsView.qml:99
-#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:104
+#: src/settings/NeoChatSettingsView.qml:111
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Honi buruz"
 
-#: src/settings/NeoChatSettingsView.qml:103
+#: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr "KDEri buruz"
@@ -5555,6 +5550,13 @@ msgstr "Zabaldu aurreikuspegia"
 msgid "Loading URL preview"
 msgstr "URLaren aurreikuspegia zamatzen"
 
+#: src/timeline/LocationComponent.qml:113
+#, fuzzy, kde-format
+#| msgid "Open Externally"
+msgctxt "@action:button Open the location in an external program"
+msgid "Open Externally"
+msgstr "Kanpotik irekitzea"
+
 #: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
 msgid "%1 started a user verification"
@@ -5626,6 +5628,14 @@ msgstr "Erakutsi"
 msgid "Quit"
 msgstr "Irten"
 
+#~ msgctxt "@action:button"
+#~ msgid "Open proxy settings"
+#~ msgstr "Ireki ordezkariaren ezarpenak"
+
+#~ msgctxt "@title:window"
+#~ msgid "Proxy Settings"
+#~ msgstr "Ordezkariaren ezarpenak"
+
 #~ msgid "Media id '%1' doesn't follow server/mediaId pattern"
 #~ msgstr "'%1' hedabide IDak ez du jarraitzen zerbitzari/hedabideID eredua"
 
@@ -5643,9 +5653,6 @@ msgstr "Irten"
 #~ msgctxt "Placeholder message when no user is ignored"
 #~ msgid "You are not ignoring any users"
 #~ msgstr "Ez diozu ezikusiarena egiten inongo erabiltzaileri"
-
-#~ msgid "Settings"
-#~ msgstr "Ezarpenak"
 
 #~ msgid "Room Settings"
 #~ msgstr "Gelaren ezarpenak"

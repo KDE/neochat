@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-28 00:39+0000\n"
+"POT-Creation-Date: 2024-09-02 00:38+0000\n"
 "PO-Revision-Date: 2024-08-28 09:33+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -812,7 +812,7 @@ msgstr ""
 msgid "Loading…"
 msgstr "Probíhá načítání…"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:232
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -913,57 +913,48 @@ msgstr ""
 msgid "Welcome"
 msgstr "Vítejte"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
+#: src/login/WelcomePage.qml:73 src/main.cpp:142
 #, kde-format
-msgid "Welcome to NeoChat"
-msgstr ""
+msgid "NeoChat"
+msgstr "NeoChat"
 
-#: src/login/WelcomePage.qml:54
+#: src/login/WelcomePage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr ""
 
-#: src/login/WelcomePage.qml:86
+#: src/login/WelcomePage.qml:115
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (načítání)"
 
-#: src/login/WelcomePage.qml:95
+#: src/login/WelcomePage.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr ""
 
-#: src/login/WelcomePage.qml:124
+#: src/login/WelcomePage.qml:153
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr ""
 
-#: src/login/WelcomePage.qml:206
+#: src/login/WelcomePage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Přejít zpět"
 
-#: src/login/WelcomePage.qml:217
-#, kde-format
+#: src/login/WelcomePage.qml:252
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Room Settings"
 msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr ""
-
-#: src/login/WelcomePage.qml:220
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Nastavení proxy"
-
-#: src/main.cpp:142
-#, kde-format
-msgid "NeoChat"
-msgstr "NeoChat"
+msgid "Settings"
+msgstr "Nastavení místnosti"
 
 #: src/main.cpp:144
 #, kde-format
@@ -1038,32 +1029,32 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (sestaveno oproti %2)"
 
-#: src/main.cpp:193
+#: src/main.cpp:190
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr ""
 
-#: src/main.cpp:194
+#: src/main.cpp:191
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr ""
 
-#: src/main.cpp:195
+#: src/main.cpp:192
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 
-#: src/main.cpp:197
+#: src/main.cpp:194
 #, kde-format
 msgid "Only used for autotests"
 msgstr ""
 
-#: src/main.cpp:202
+#: src/main.cpp:199
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
 
-#: src/main.cpp:207
+#: src/main.cpp:204
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Sdílet URL na Matrixu"
@@ -1861,7 +1852,7 @@ msgid "Notification settings"
 msgstr "Nastavení oznamování"
 
 #: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:85
+#: src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Zařízení"
@@ -2876,7 +2867,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Umístění"
 
-#: src/qml/LocationsPage.qml:65
+#: src/qml/LocationsPage.qml:68
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr ""
@@ -3274,6 +3265,11 @@ msgstr ""
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je offline. Prosím, zkontrolujte internetové připojení."
+
+#: src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr ""
 
 #: src/qml/RoomPage.qml:158
 #, kde-format
@@ -4099,7 +4095,7 @@ msgid "Unknown problem while trying to change password"
 msgstr ""
 
 #: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
-#: src/settings/NeoChatSettingsView.qml:61
+#: src/settings/NeoChatSettingsView.qml:63
 #, kde-format
 msgid "Accounts"
 msgstr "Účty"
@@ -4757,35 +4753,35 @@ msgstr "Vzhled"
 msgid "Notifications"
 msgstr "Upozornění"
 
-#: src/settings/NeoChatSettingsView.qml:50 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettingsView.qml:51 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Bezpečnost"
 
-#: src/settings/NeoChatSettingsView.qml:67
+#: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr ""
 
-#: src/settings/NeoChatSettingsView.qml:79 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:83 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Síťová proxy"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:101
 #, kde-format
 msgid "About NeoChat"
 msgstr "O aplikaci NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:99
-#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:104
+#: src/settings/NeoChatSettingsView.qml:111
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "O aplikaci"
 
-#: src/settings/NeoChatSettingsView.qml:103
+#: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr "O prostředí KDE"
@@ -5478,6 +5474,13 @@ msgstr "Roztáhnout náhled"
 msgid "Loading URL preview"
 msgstr "Načítá se náhled URL"
 
+#: src/timeline/LocationComponent.qml:113
+#, fuzzy, kde-format
+#| msgid "Open Externally"
+msgctxt "@action:button Open the location in an external program"
+msgid "Open Externally"
+msgstr "Otevřít externě"
+
 #: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
 msgid "%1 started a user verification"
@@ -5547,3 +5550,7 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgctxt "@title:window"
+#~ msgid "Proxy Settings"
+#~ msgstr "Nastavení proxy"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-28 00:39+0000\n"
+"POT-Creation-Date: 2024-09-02 00:38+0000\n"
 "PO-Revision-Date: 2024-08-27 16:43+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -818,7 +818,7 @@ msgstr "Matrix-identifierare"
 msgid "Loading…"
 msgstr "Läser in…"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:198
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:232
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -921,57 +921,47 @@ msgstr "Användarnamn inte tillgängligt"
 msgid "Welcome"
 msgstr "Välkommen"
 
-#: src/login/WelcomePage.qml:46 src/qml/RoomPage.qml:157
+#: src/login/WelcomePage.qml:73 src/main.cpp:142
 #, kde-format
-msgid "Welcome to NeoChat"
-msgstr "Välkommen till NeoChat"
+msgid "NeoChat"
+msgstr "NeoChat"
 
-#: src/login/WelcomePage.qml:54
+#: src/login/WelcomePage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Fortsätt med ett befintligt konto"
 
-#: src/login/WelcomePage.qml:86
+#: src/login/WelcomePage.qml:115
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (läser in)"
 
-#: src/login/WelcomePage.qml:95
+#: src/login/WelcomePage.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "Logga ut från kontot"
 
-#: src/login/WelcomePage.qml:124
+#: src/login/WelcomePage.qml:153
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Logga in eller skapa ett nytt konto"
 
-#: src/login/WelcomePage.qml:206
+#: src/login/WelcomePage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Gå tillbaka"
 
-#: src/login/WelcomePage.qml:217
-#, kde-format
+#: src/login/WelcomePage.qml:252
+#, fuzzy, kde-format
+#| msgid "Settings"
 msgctxt "@action:button"
-msgid "Open proxy settings"
-msgstr "Öppna proxyinställningarna"
-
-#: src/login/WelcomePage.qml:220
-#, kde-format
-msgctxt "@title:window"
-msgid "Proxy Settings"
-msgstr "Proxyinställningar"
-
-#: src/main.cpp:142
-#, kde-format
-msgid "NeoChat"
-msgstr "NeoChat"
+msgid "Settings"
+msgstr "Inställningar"
 
 #: src/main.cpp:144
 #, kde-format
@@ -1046,32 +1036,32 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (byggd med %2)"
 
-#: src/main.cpp:193
+#: src/main.cpp:190
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient för kommunikationsprotokollet Matrix"
 
-#: src/main.cpp:194
+#: src/main.cpp:191
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Stöder matrix: webbadresschema"
 
-#: src/main.cpp:195
+#: src/main.cpp:192
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorera alla SSL-fel, t.ex. osignerade certifikat."
 
-#: src/main.cpp:197
+#: src/main.cpp:194
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Bara använd för automatiska tester"
 
-#: src/main.cpp:202
+#: src/main.cpp:199
 #, kde-format
 msgid "Internal usage only."
 msgstr "Bara intern användning."
 
-#: src/main.cpp:207
+#: src/main.cpp:204
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Dela en webbadress med Matrix"
@@ -1869,7 +1859,7 @@ msgid "Notification settings"
 msgstr "Underrättelseinställningar"
 
 #: src/qml/AccountMenu.qml:55 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:85
+#: src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Enheter"
@@ -2898,7 +2888,7 @@ msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Platser"
 
-#: src/qml/LocationsPage.qml:65
+#: src/qml/LocationsPage.qml:68
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "Det finns inga platser delade i rummet."
@@ -3299,6 +3289,11 @@ msgstr "Rumsmedia"
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat är nedkopplat. Kontrollera nätverksanslutningen."
+
+#: src/qml/RoomPage.qml:157
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "Välkommen till NeoChat"
 
 #: src/qml/RoomPage.qml:158
 #, kde-format
@@ -4152,7 +4147,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "Okänt problem vid försök att ändra lösenord"
 
 #: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
-#: src/settings/NeoChatSettingsView.qml:61
+#: src/settings/NeoChatSettingsView.qml:63
 #, kde-format
 msgid "Accounts"
 msgstr "Konton"
@@ -4813,35 +4808,35 @@ msgstr "Utseende"
 msgid "Notifications"
 msgstr "Underrättelser"
 
-#: src/settings/NeoChatSettingsView.qml:50 src/settings/RoomSecurityPage.qml:20
+#: src/settings/NeoChatSettingsView.qml:51 src/settings/RoomSecurityPage.qml:20
 #: src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Säkerhet"
 
-#: src/settings/NeoChatSettingsView.qml:67
+#: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Klistermärken och emoji"
 
-#: src/settings/NeoChatSettingsView.qml:79 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:83 src/settings/NetworkProxyPage.qml:21
 #, kde-format
 msgid "Network Proxy"
 msgstr "Nätverksproxy"
 
-#: src/settings/NeoChatSettingsView.qml:96
+#: src/settings/NeoChatSettingsView.qml:101
 #, kde-format
 msgid "About NeoChat"
 msgstr "Om NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:99
-#: src/settings/NeoChatSettingsView.qml:106
+#: src/settings/NeoChatSettingsView.qml:104
+#: src/settings/NeoChatSettingsView.qml:111
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Om"
 
-#: src/settings/NeoChatSettingsView.qml:103
+#: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
 msgid "About KDE"
 msgstr "Om KDE"
@@ -5555,6 +5550,13 @@ msgstr "Expandera förhandsgranskning"
 msgid "Loading URL preview"
 msgstr "Läser in webbadressförhandsgranskning"
 
+#: src/timeline/LocationComponent.qml:113
+#, fuzzy, kde-format
+#| msgid "Open Externally"
+msgctxt "@action:button Open the location in an external program"
+msgid "Open Externally"
+msgstr "Öppna externt"
+
 #: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
 msgid "%1 started a user verification"
@@ -5626,6 +5628,14 @@ msgstr "Visa"
 msgid "Quit"
 msgstr "Avsluta"
 
+#~ msgctxt "@action:button"
+#~ msgid "Open proxy settings"
+#~ msgstr "Öppna proxyinställningarna"
+
+#~ msgctxt "@title:window"
+#~ msgid "Proxy Settings"
+#~ msgstr "Proxyinställningar"
+
 #~ msgid "Media id '%1' doesn't follow server/mediaId pattern"
 #~ msgstr "Media-id '%1' följer inte server/media-id mönster"
 
@@ -5643,9 +5653,6 @@ msgstr "Avsluta"
 #~ msgctxt "Placeholder message when no user is ignored"
 #~ msgid "You are not ignoring any users"
 #~ msgstr "Du ignorerar inte några användare"
-
-#~ msgid "Settings"
-#~ msgstr "Inställningar"
 
 #~ msgid "Room Settings"
 #~ msgstr "Rumsinställningar"
