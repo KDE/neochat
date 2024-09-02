@@ -45,6 +45,7 @@ RowLayout {
 
         text: i18n("Edit this account")
         source: mediaId ? root.connection.makeMediaUrl("mxc://" + mediaId) : ""
+        name: root.connection.localUser.displayName
 
         activeFocusOnTab: true
 
