@@ -89,7 +89,7 @@ void SpaceHierarchyCache::addBatch(const QString &spaceId, Quotient::GetSpaceHie
     group.sync();
 
     const auto nextBatchToken = job->nextBatch();
-    if (!nextBatchToken.isEmpty() && nextBatchToken != *m_nextBatchTokens[spaceId]) {
+    if (!nextBatchToken.isEmpty() && nextBatchToken != *m_nextBatchTokens[spaceId] && m_connection) {
         *m_nextBatchTokens[spaceId] = nextBatchToken;
         auto nextJob = m_connection->callApi<GetSpaceHierarchyJob>(spaceId, std::nullopt, std::nullopt, std::nullopt, *m_nextBatchTokens[spaceId]);
         connect(nextJob, &BaseJob::success, this, [this, nextJob, spaceId]() {
