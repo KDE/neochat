@@ -29,7 +29,6 @@ class ReactionModel;
 class ThreadChatBarModel : public QAbstractListModel
 {
     Q_OBJECT
-    QML_ELEMENT
 
 public:
     /**
