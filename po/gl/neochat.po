@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-02 00:38+0000\n"
-"PO-Revision-Date: 2024-08-29 18:59+0200\n"
+"POT-Creation-Date: 2024-09-03 00:39+0000\n"
+"PO-Revision-Date: 2024-09-02 17:49+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -180,7 +180,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Amosar o enfoque na cabeceira da xanela."
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:262
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:246
 #, kde-format
 msgid "Developer Tools"
 msgstr "Ferramentas de desenvolvemento"
@@ -374,7 +374,7 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:279 src/eventhandler.cpp:487
+#: src/eventhandler.cpp:279 src/eventhandler.cpp:491
 #: src/models/messagecontentmodel.cpp:276 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
@@ -397,7 +397,7 @@ msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:324 src/eventhandler.cpp:511
+#: src/eventhandler.cpp:324 src/eventhandler.cpp:515
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "uniuse á sala (repítese)"
@@ -407,7 +407,7 @@ msgstr "uniuse á sala (repítese)"
 msgid "invited %1 to the room"
 msgstr "invitouse a %1 á sala"
 
-#: src/eventhandler.cpp:326 src/eventhandler.cpp:513
+#: src/eventhandler.cpp:326 src/eventhandler.cpp:517
 #, kde-format
 msgid "joined the room"
 msgstr "uniuse á sala"
@@ -417,7 +417,7 @@ msgstr "uniuse á sala"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:337 src/eventhandler.cpp:521
+#: src/eventhandler.cpp:337 src/eventhandler.cpp:525
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
@@ -429,29 +429,29 @@ msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "cambiou o seu nome visual a %1"
 
-#: src/eventhandler.cpp:346 src/eventhandler.cpp:528
+#: src/eventhandler.cpp:346 src/eventhandler.cpp:532
 #, kde-format
 msgid " and "
 msgstr " e "
 
-#: src/eventhandler.cpp:349 src/eventhandler.cpp:531
+#: src/eventhandler.cpp:349 src/eventhandler.cpp:535
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "borrou o seu avatar"
 
-#: src/eventhandler.cpp:351 src/eventhandler.cpp:533
+#: src/eventhandler.cpp:351 src/eventhandler.cpp:537
 #, kde-format
 msgid "set an avatar"
 msgstr "definiu un avatar"
 
-#: src/eventhandler.cpp:353 src/eventhandler.cpp:535
+#: src/eventhandler.cpp:353 src/eventhandler.cpp:539
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "actualizou o seu avatar"
 
-#: src/eventhandler.cpp:357 src/eventhandler.cpp:539
+#: src/eventhandler.cpp:357 src/eventhandler.cpp:543
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
@@ -462,7 +462,7 @@ msgstr "non cambiou nada"
 msgid "withdrew %1's invitation"
 msgstr "retirou a invitación a %1"
 
-#: src/eventhandler.cpp:363 src/eventhandler.cpp:545
+#: src/eventhandler.cpp:363 src/eventhandler.cpp:549
 #, kde-format
 msgid "rejected the invitation"
 msgstr "rexeitou a invitación"
@@ -472,247 +472,253 @@ msgstr "rexeitou a invitación"
 msgid "unbanned %1"
 msgstr "readmitiu a %1"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:367 src/eventhandler.cpp:553
 #, kde-format
 msgid "self-unbanned"
 msgstr "readmitiuse"
 
-#: src/eventhandler.cpp:370
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "sacou a %1 da sala: %2"
-
-#: src/eventhandler.cpp:371 src/eventhandler.cpp:551
+#: src/eventhandler.cpp:370 src/eventhandler.cpp:555
 #, kde-format
 msgid "left the room"
 msgstr "saíu da sala"
 
+#: src/eventhandler.cpp:373
+#, kde-format
+msgid "has put %1 out of the room: %2"
+msgstr "sacou a %1 da sala: %2"
+
 #: src/eventhandler.cpp:375
+#, fuzzy, kde-format
+#| msgid "has put %1 out of the room: %2"
+msgid "has put %1 out of the room"
+msgstr "sacou a %1 da sala: %2"
+
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "prohibiu a %1 o acceso á sala"
 
-#: src/eventhandler.cpp:377
+#: src/eventhandler.cpp:381
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "prohibiu a %1 o acceso á sala: %2"
 
-#: src/eventhandler.cpp:380 src/eventhandler.cpp:556
+#: src/eventhandler.cpp:384 src/eventhandler.cpp:560
 #, kde-format
 msgid "self-banned from the room"
 msgstr "auto-prohibiuse o acceso á sala"
 
-#: src/eventhandler.cpp:384 src/eventhandler.cpp:559
+#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
 #, kde-format
 msgid "requested an invite"
 msgstr "solicitou unha invitación"
 
-#: src/eventhandler.cpp:384
+#: src/eventhandler.cpp:388
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "solicitou unha invitación co seguinte motivo: %1"
 
-#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
+#: src/eventhandler.cpp:392 src/eventhandler.cpp:567
 #, kde-format
 msgid "made something unknown"
 msgstr "fixo algo descoñecido"
 
-#: src/eventhandler.cpp:391 src/eventhandler.cpp:566
+#: src/eventhandler.cpp:395 src/eventhandler.cpp:570
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "borrou o alias principal da sala"
 
-#: src/eventhandler.cpp:391
+#: src/eventhandler.cpp:395
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "definiu o alias principal da sala como: %1"
 
-#: src/eventhandler.cpp:394 src/eventhandler.cpp:569
+#: src/eventhandler.cpp:398 src/eventhandler.cpp:573
 #, kde-format
 msgid "cleared the room name"
 msgstr "borrou o nome da sala"
 
-#: src/eventhandler.cpp:394
+#: src/eventhandler.cpp:398
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "definiu o nome da sala como: %1"
 
-#: src/eventhandler.cpp:397 src/eventhandler.cpp:572
+#: src/eventhandler.cpp:401 src/eventhandler.cpp:576
 #, kde-format
 msgid "cleared the topic"
 msgstr "borrou o tema"
 
-#: src/eventhandler.cpp:398
+#: src/eventhandler.cpp:402
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "definiu o tema como: %1"
 
-#: src/eventhandler.cpp:404 src/eventhandler.cpp:575
+#: src/eventhandler.cpp:408 src/eventhandler.cpp:579
 #, kde-format
 msgid "changed the room avatar"
 msgstr "cambiou o avatar da sala"
 
-#: src/eventhandler.cpp:407 src/eventhandler.cpp:578
+#: src/eventhandler.cpp:411 src/eventhandler.cpp:582
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "activou a cifraxe de extremo a extremo"
 
-#: src/eventhandler.cpp:411
+#: src/eventhandler.cpp:415
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "anovou a versión da sala á %1"
 
-#: src/eventhandler.cpp:412
+#: src/eventhandler.cpp:416
 #, kde-format
 msgid "created the room, version %1"
 msgstr "creou a sala, versión %1"
 
-#: src/eventhandler.cpp:415 src/eventhandler.cpp:584
+#: src/eventhandler.cpp:419 src/eventhandler.cpp:588
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "cambiou os niveis de permisos da sala"
 
-#: src/eventhandler.cpp:421 src/eventhandler.cpp:590
+#: src/eventhandler.cpp:425 src/eventhandler.cpp:594
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "cambiou as listas de control de acceso do servidor desta sala"
 
-#: src/eventhandler.cpp:425
+#: src/eventhandler.cpp:429
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "engadiu o trebello %1"
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:432
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "retirou o trebello %1"
 
-#: src/eventhandler.cpp:430
+#: src/eventhandler.cpp:434
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "configurou o trebello %1"
 
-#: src/eventhandler.cpp:433
+#: src/eventhandler.cpp:437
 #, kde-format
 msgid "updated %1 state"
 msgstr "actualizou o estado de %1"
 
-#: src/eventhandler.cpp:434
+#: src/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "actualizou o estado de %1 para %2"
 
-#: src/eventhandler.cpp:439 src/eventhandler.cpp:608
+#: src/eventhandler.cpp:443 src/eventhandler.cpp:612
 #, kde-format
 msgid "Unknown event"
 msgstr "Evento descoñecido"
 
-#: src/eventhandler.cpp:454
+#: src/eventhandler.cpp:458
 #, kde-format
 msgid "a file"
 msgstr "un ficheiro"
 
-#: src/eventhandler.cpp:494
+#: src/eventhandler.cpp:498
 #, kde-format
 msgid "sent a message"
 msgstr "enviou unha mensaxe"
 
-#: src/eventhandler.cpp:498
+#: src/eventhandler.cpp:502
 #, kde-format
 msgid "sent a sticker"
 msgstr "enviou un adesivo"
 
-#: src/eventhandler.cpp:504
+#: src/eventhandler.cpp:508
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "invitou a alguén de novo á sala"
 
-#: src/eventhandler.cpp:513
+#: src/eventhandler.cpp:517
 #, kde-format
 msgid "invited someone to the room"
 msgstr "invitouse a alguén á sala"
 
-#: src/eventhandler.cpp:523
+#: src/eventhandler.cpp:527
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "cambiou o seu nome visual"
 
-#: src/eventhandler.cpp:545
+#: src/eventhandler.cpp:549
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "retirou unha invitación"
 
-#: src/eventhandler.cpp:549
+#: src/eventhandler.cpp:553
 #, kde-format
 msgid "unbanned a user"
 msgstr "readmitiu a alguén"
 
-#: src/eventhandler.cpp:551
+#: src/eventhandler.cpp:555
 #, kde-format
 msgid "put a user out of the room"
 msgstr "sacou a alguén da sala"
 
-#: src/eventhandler.cpp:554
+#: src/eventhandler.cpp:558
 #, kde-format
 msgid "banned a user from the room"
 msgstr "prohibiu a alguén o acceso á sala"
 
-#: src/eventhandler.cpp:566
+#: src/eventhandler.cpp:570
 #, kde-format
 msgid "set the room main alias"
 msgstr "definiu o alias principal da sala"
 
-#: src/eventhandler.cpp:569
+#: src/eventhandler.cpp:573
 #, kde-format
 msgid "set the room name"
 msgstr "definiu o nome da sala"
 
-#: src/eventhandler.cpp:572
+#: src/eventhandler.cpp:576
 #, kde-format
 msgid "set the topic"
 msgstr "definiu o tema"
 
-#: src/eventhandler.cpp:581
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "upgraded the room version"
 msgstr "anovou a versión da sala"
 
-#: src/eventhandler.cpp:581
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "created the room"
 msgstr "creou a sala"
 
-#: src/eventhandler.cpp:587
+#: src/eventhandler.cpp:591
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "enviou unha baliza de localización en directo"
 
-#: src/eventhandler.cpp:594
+#: src/eventhandler.cpp:598
 #, kde-format
 msgid "added a widget"
 msgstr "engadiu un trebello"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:601
 #, kde-format
 msgid "removed a widget"
 msgstr "retirou un trebello"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:603
 #, kde-format
 msgid "configured a widget"
 msgstr "configurou un trebello"
 
-#: src/eventhandler.cpp:602
+#: src/eventhandler.cpp:606
 #, kde-format
 msgid "updated the state"
 msgstr "actualizou o estado"
 
-#: src/eventhandler.cpp:606
+#: src/eventhandler.cpp:610
 #, kde-format
 msgid "started a poll"
 msgstr "abriu unha enquisa"
@@ -953,12 +959,10 @@ msgid "Go back"
 msgstr "Volver"
 
 #: src/login/WelcomePage.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Room Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
-msgstr "Configuración da sala"
+msgstr "Configuración"
 
 #: src/main.cpp:144
 #, kde-format
@@ -1788,7 +1792,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Abrir NeoChat nesta sala"
 
-#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply"
@@ -1865,7 +1869,7 @@ msgstr "Configuración das notificacións"
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:258
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:242
 #, kde-format
 msgid "Open developer tools"
 msgstr "Abrir as ferramentas de desenvolvemento"
@@ -1954,29 +1958,6 @@ msgstr "Editar"
 #, kde-format
 msgid "Cancel sending attachment"
 msgstr "Cancelar o envío do anexo"
-
-#: src/qml/BanSheet.qml:18
-#, kde-format
-msgid "Ban User"
-msgstr "Prohibir o acceso"
-
-#: src/qml/BanSheet.qml:27
-#, kde-format
-msgid "Reason for banning this user"
-msgstr "Motivo polo que se prohibiu o acceso a esta persoa."
-
-#: src/qml/BanSheet.qml:43
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "Prohibir o acceso"
-
-#: src/qml/BanSheet.qml:52 src/qml/InviteUserPage.qml:24
-#: src/qml/RemoveSheet.qml:57 src/qml/ReportSheet.qml:52
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Cancelar"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -2203,8 +2184,8 @@ msgstr "Configuración da sala"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:272
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:279
+#: src/qml/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2321,41 +2302,78 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Aceptar"
 
-#: src/qml/DelegateContextMenu.qml:78
+#: src/qml/DelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "Ver a orixe"
 
-#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:67
+#: src/qml/DelegateContextMenu.qml:90 src/settings/ThreePIdCard.qml:66
 #, kde-format
+msgctxt "@action:button"
 msgid "Remove"
 msgstr "Retirar"
 
-#: src/qml/DelegateContextMenu.qml:92 src/qml/FileDelegateContextMenu.qml:74
-#, kde-format
-msgctxt "@title"
+#: src/qml/DelegateContextMenu.qml:95 src/qml/DelegateContextMenu.qml:100
+#: src/qml/FileDelegateContextMenu.qml:75
+#: src/qml/FileDelegateContextMenu.qml:80
+#, fuzzy, kde-format
+#| msgid "Remove Message"
+msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Retirar a mensaxe"
 
-#: src/qml/DelegateContextMenu.qml:108 src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:76
+#, fuzzy, kde-format
+#| msgid "Reason for removing this message"
+msgctxt "@info:placeholder"
+msgid "Reason for removing this message"
+msgstr "Motivo polo que se retira a mensaxe."
+
+#: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:77
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "Retirar"
+
+#: src/qml/DelegateContextMenu.qml:120 src/qml/DelegateContextMenu.qml:128
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Denunciar"
 
-#: src/qml/DelegateContextMenu.qml:115
+#: src/qml/DelegateContextMenu.qml:125
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgctxt "@title:dialog"
+msgid "Report Message"
+msgstr "Denunciar a mensaxe"
+
+#: src/qml/DelegateContextMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Reason for reporting this message"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this message"
+msgstr "Motivo da denuncia desta mensaxe."
+
+#: src/qml/DelegateContextMenu.qml:130
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Denunciar a mensaxe"
 
-#: src/qml/DelegateContextMenu.qml:160
+#: src/qml/DelegateContextMenu.qml:140
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Amosar a persoa"
+
+#: src/qml/DelegateContextMenu.qml:188
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Buscar «%1»"
 
-#: src/qml/DelegateContextMenu.qml:181
+#: src/qml/DelegateContextMenu.qml:210
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configurar os atallos web…"
@@ -2547,21 +2565,26 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Non se atoparon salas públicas."
 
-#: src/qml/FileDelegateContextMenu.qml:42
+#: src/qml/FileDelegateContextMenu.qml:45
 #, kde-format
 msgid "Open Externally"
 msgstr "Abrir externamente"
 
-#: src/qml/FileDelegateContextMenu.qml:49
+#: src/qml/FileDelegateContextMenu.qml:52
 #, kde-format
 msgid "Save As"
 msgstr "Gardar como"
 
-#: src/qml/FileDelegateContextMenu.qml:59
+#: src/qml/FileDelegateContextMenu.qml:62
 #: src/qml/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgid "Copy"
 msgstr "Copiar"
+
+#: src/qml/FileDelegateContextMenu.qml:70
+#, kde-format
+msgid "Remove"
+msgstr "Retirar"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2792,35 +2815,47 @@ msgstr "Rexeitar"
 msgid "Accept"
 msgstr "Aceptar"
 
-#: src/qml/InviteUserPage.qml:19
-#, kde-format
+#: src/qml/InviteUserPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Invite a User"
+msgctxt "@title:dialog"
 msgid "Invite a User"
 msgstr "Invitar a alguén"
 
-#: src/qml/InviteUserPage.qml:37
-#, kde-format
-msgid "Find a user..."
+#: src/qml/InviteUserPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find a user..."
+msgctxt "@info:placeholder"
+msgid "Find a user…"
 msgstr "Atopar a alguén…"
 
-#: src/qml/InviteUserPage.qml:44
-#, kde-format
-msgid "Add"
-msgstr "Engadir"
+#: src/qml/InviteUserPage.qml:24
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "Non se atoparon salas."
 
-#: src/qml/InviteUserPage.qml:70
-#, kde-format
-msgid "No users available"
-msgstr "Non hai ninguén dispoñíbel."
+#: src/qml/InviteUserPage.qml:31
+#, fuzzy, kde-format
+#| msgid "Invite this user"
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "Invitar a esta persoa"
 
-#: src/qml/InviteUserPage.qml:101
-#, kde-format
-msgid "Send invitation"
-msgstr "Enviar unha invitación"
-
-#: src/qml/InviteUserPage.qml:115
-#, kde-format
+#: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
+#, fuzzy, kde-format
+#| msgid "User is either already a member or has been invited"
+msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "A persoa ou xa é membro ou ten unha invitación."
+
+#: src/qml/InviteUserPage.qml:75
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "Enviar unha invitación"
 
 #: src/qml/JoinRoomDialog.qml:29
 #, kde-format
@@ -2884,6 +2919,20 @@ msgstr "Escoller unha localización"
 #, kde-format
 msgid "Send this location"
 msgstr "Enviar a localización"
+
+#: src/qml/LocationChooser.qml:35
+#, kde-format
+msgctxt "@action:intoolbar Re-center the map onto the set location"
+msgid "Re-Center"
+msgstr ""
+
+#: src/qml/LocationChooser.qml:41
+#, fuzzy, kde-format
+#| msgctxt "Locations on a map"
+#| msgid "Locations"
+msgctxt "@action:intoolbar Determine the device's location"
+msgid "Locate"
+msgstr "Localizacións"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, kde-format
@@ -2981,13 +3030,7 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "Reenviar a mensaxe"
 
-#: src/qml/MessageDelegateContextMenu.qml:70
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Amosar a persoa"
-
-#: src/qml/MessageDelegateContextMenu.qml:78
+#: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
 msgid "Copy Link"
 msgstr "Copiar a ligazón"
@@ -3066,19 +3109,25 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Non se atopou ningunha sala."
 
+#: src/qml/ReasonDialog.qml:53
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Cancelar"
+
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
 msgstr "Unirse a %1"
 
-#: src/qml/RecommendedSpaceDialog.qml:52
+#: src/qml/RecommendedSpaceDialog.qml:53
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Unirse"
 
-#: src/qml/RecommendedSpaceDialog.qml:60
+#: src/qml/RecommendedSpaceDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
@@ -3101,42 +3150,6 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr "O espazo actual é o oficial desta sala, quere que deixe de selo?"
-
-#: src/qml/RemoveSheet.qml:20
-#, kde-format
-msgid "Remove Messages"
-msgstr "Retirar as mensaxes"
-
-#: src/qml/RemoveSheet.qml:20
-#, kde-format
-msgid "Remove Message"
-msgstr "Retirar a mensaxe"
-
-#: src/qml/RemoveSheet.qml:29
-#, kde-format
-msgid "Reason for removing this user's recent messages"
-msgstr "Motivo polo que se retiran as mensaxes recentes desta persoa."
-
-#: src/qml/RemoveSheet.qml:29
-#, kde-format
-msgid "Reason for removing this message"
-msgstr "Motivo polo que se retira a mensaxe."
-
-#: src/qml/RemoveSheet.qml:44
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove this message'"
-msgid "Remove"
-msgstr "Retirar"
-
-#: src/qml/ReportSheet.qml:18
-#, kde-format
-msgid "Report Message"
-msgstr "Denunciar a mensaxe"
-
-#: src/qml/ReportSheet.qml:27
-#, kde-format
-msgid "Reason for reporting this message"
-msgstr "Motivo da denuncia desta mensaxe."
 
 #: src/qml/RoomDelegate.qml:112
 #, kde-format
@@ -3464,13 +3477,13 @@ msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Amizades"
 
-#: src/qml/SpaceDrawer.qml:220
+#: src/qml/SpaceDrawer.qml:227
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Unirse a %1"
 
-#: src/qml/SpaceDrawer.qml:262
+#: src/qml/SpaceDrawer.qml:269
 #, kde-format
 msgid "Create a space"
 msgstr "Crear un espazo"
@@ -3703,55 +3716,92 @@ msgstr "Invitar a esta persoa"
 msgid "Ban this user"
 msgstr "Prohibir o acceso a esta persoa"
 
-#: src/qml/UserDetailDialog.qml:157
-#, kde-format
-msgctxt "@title"
+#: src/qml/UserDetailDialog.qml:154 src/qml/UserDetailDialog.qml:159
+#, fuzzy, kde-format
+#| msgid "Ban User"
+msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Prohibir o acceso"
 
-#: src/qml/UserDetailDialog.qml:169
+#: src/qml/UserDetailDialog.qml:155
+#, fuzzy, kde-format
+#| msgid "Reason for banning this user"
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "Motivo polo que se prohibiu o acceso a esta persoa."
+
+#: src/qml/UserDetailDialog.qml:156
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "Prohibir o acceso"
+
+#: src/qml/UserDetailDialog.qml:174
 #, kde-format
 msgid "Unban this user"
 msgstr "Readmitir a esta persoa"
 
-#: src/qml/UserDetailDialog.qml:182
+#: src/qml/UserDetailDialog.qml:187
 #, kde-format
 msgid "Set user power level"
 msgstr "Definir o nivel de permisos da persoa"
 
-#: src/qml/UserDetailDialog.qml:207
-#, kde-format
+#: src/qml/UserDetailDialog.qml:212
+#, fuzzy, kde-format
+#| msgid "Remove recent messages by this user"
+msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Retirar as mensaxes recentes desta persoa"
 
-#: src/qml/UserDetailDialog.qml:215
+#: src/qml/UserDetailDialog.qml:217
+#, fuzzy, kde-format
+#| msgid "Remove Messages"
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Retirar as mensaxes"
+
+#: src/qml/UserDetailDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Reason for removing this user's recent messages"
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "Motivo polo que se retiran as mensaxes recentes desta persoa."
+
+#: src/qml/UserDetailDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Retirar"
+
+#: src/qml/UserDetailDialog.qml:222
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Retirar as mensaxes"
 
-#: src/qml/UserDetailDialog.qml:226
+#: src/qml/UserDetailDialog.qml:236
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Conversar con %1"
 
-#: src/qml/UserDetailDialog.qml:226
+#: src/qml/UserDetailDialog.qml:236
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Invitar a unha conversa privada"
 
-#: src/qml/UserDetailDialog.qml:237
+#: src/qml/UserDetailDialog.qml:247
 #, kde-format
 msgid "Copy link"
 msgstr "Copiar a ligazón"
 
-#: src/qml/UserInfo.qml:90
+#: src/qml/UserInfo.qml:91
 #, kde-format
 msgid "Switch User"
 msgstr "Cambiar de conta"
 
-#: src/qml/UserInfo.qml:99
+#: src/qml/UserInfo.qml:100
 #, kde-format
 msgid "Open Settings"
 msgstr "Abrir a configuración"
@@ -4388,7 +4438,7 @@ msgid "Stickers & Emojis"
 msgstr "Adesivos e expresións"
 
 #: src/settings/ExportKeysDialog.qml:18
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:107
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -4589,72 +4639,135 @@ msgstr "Amosar na bandexa do sistema"
 msgid "Minimize to system tray on startup"
 msgstr "Minimizar á área de notificacións no inicio."
 
-#: src/settings/NeoChatGeneralPage.qml:63
+#: src/settings/NeoChatGeneralPage.qml:64
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Agochar ou amosar a información da sala automaticamente ao redimensionar a "
 "xanela."
 
-#: src/settings/NeoChatGeneralPage.qml:79
+#: src/settings/NeoChatGeneralPage.qml:80
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
 msgstr "Amosar todas as salas na lapela «Inicio»."
 
-#: src/settings/NeoChatGeneralPage.qml:90
+#: src/settings/NeoChatGeneralPage.qml:91
 #, kde-format
 msgid "Room list sort order"
 msgstr "Orde da lista de salas"
 
-#: src/settings/NeoChatGeneralPage.qml:94
+#: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Actividade"
 
-#: src/settings/NeoChatGeneralPage.qml:103
+#: src/settings/NeoChatGeneralPage.qml:104
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alfabética"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:114
 #, kde-format
 msgid "Timeline Events"
 msgstr "Eventos cronolóxicos"
 
-#: src/settings/NeoChatGeneralPage.qml:118
+#: src/settings/NeoChatGeneralPage.qml:119
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Amosar as mensaxes eliminadas."
 
-#: src/settings/NeoChatGeneralPage.qml:134
+#: src/settings/NeoChatGeneralPage.qml:135
 #, kde-format
 msgid "Show state events"
 msgstr "Amosar os eventos de estado."
 
-#: src/settings/NeoChatGeneralPage.qml:152
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Amosar os eventos de entrada e saída."
 
-#: src/settings/NeoChatGeneralPage.qml:170
+#: src/settings/NeoChatGeneralPage.qml:171
 #, kde-format
 msgid "Show name change events"
 msgstr "Amosar os eventos de cambio de nome."
 
-#: src/settings/NeoChatGeneralPage.qml:188
+#: src/settings/NeoChatGeneralPage.qml:189
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Amosar os eventos de actualización de avatar."
 
+#: src/settings/NeoChatGeneralPage.qml:199
+#, kde-format
+msgctxt "Chat Editor"
+msgid "Editor"
+msgstr "Editor"
+
 #: src/settings/NeoChatGeneralPage.qml:204
 #, kde-format
+msgid "Use s/text/replacement syntax to edit your last message"
+msgstr "Use a sintaxe «s/texto/substitución» para editar a súa última mensaxe."
+
+#: src/settings/NeoChatGeneralPage.qml:218
+#, kde-format
+msgid "Send typing notifications"
+msgstr "Enviar notificación de escritura"
+
+#: src/settings/NeoChatGeneralPage.qml:228
+#, kde-format
+msgid "Developer Settings"
+msgstr "Configuración de desenvolvemento"
+
+#: src/settings/NeoChatGeneralPage.qml:232
+#, kde-format
+msgid "Enable developer tools"
+msgstr "Activar as ferramentas de desenvolvemento"
+
+#: src/settings/NeoChatGeneralPage.qml:251
+#, kde-format
+msgctxt "@title"
+msgid "Default Settings"
+msgstr "Configuración predeterminada"
+
+#: src/settings/NeoChatGeneralPage.qml:255
+#, kde-format
+msgctxt "@action:button"
+msgid "Reset all configuration values to their default"
+msgstr "Restabelecer os valores predeterminados da configuración."
+
+#: src/settings/NeoChatSecurityPage.qml:19
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Chave de seguridade:"
+
+#: src/settings/NeoChatSecurityPage.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignored Users"
+msgctxt "@action:button"
+msgid "Ignored Users"
+msgstr "Xente ignorada"
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, kde-format
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "Xente ignorada"
+
+#: src/settings/NeoChatSecurityPage.qml:44
+#, fuzzy, kde-format
+#| msgctxt "@label:checkbox"
+#| msgid "Hide image and video events by default"
 msgctxt "@label:checkbox"
-msgid "Hide image and video events by default"
+msgid "Hide images and videos by default"
 msgstr "Agochar os eventos de imaxes e vídeos de maneira predeterminada."
 
-#: src/settings/NeoChatGeneralPage.qml:205
+#: src/settings/NeoChatSecurityPage.qml:45
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4663,64 +4776,18 @@ msgid ""
 msgstr ""
 "Se activa esta opcións, as imaxes e vídeos só se amosan tras premer un botón."
 
-#: src/settings/NeoChatGeneralPage.qml:215
-#, kde-format
-msgctxt "Chat Editor"
-msgid "Editor"
-msgstr "Editor"
-
-#: src/settings/NeoChatGeneralPage.qml:220
-#, kde-format
-msgid "Use s/text/replacement syntax to edit your last message"
-msgstr "Use a sintaxe «s/texto/substitución» para editar a súa última mensaxe."
-
-#: src/settings/NeoChatGeneralPage.qml:234
-#, kde-format
-msgid "Send typing notifications"
-msgstr "Enviar notificación de escritura"
-
-#: src/settings/NeoChatGeneralPage.qml:244
-#, kde-format
-msgid "Developer Settings"
-msgstr "Configuración de desenvolvemento"
-
-#: src/settings/NeoChatGeneralPage.qml:248
-#, kde-format
-msgid "Enable developer tools"
-msgstr "Activar as ferramentas de desenvolvemento"
-
-#: src/settings/NeoChatGeneralPage.qml:267
-#, kde-format
-msgctxt "@title"
-msgid "Default Settings"
-msgstr "Configuración predeterminada"
-
-#: src/settings/NeoChatGeneralPage.qml:271
-#, kde-format
-msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
-msgstr "Restabelecer os valores predeterminados da configuración."
-
-#: src/settings/NeoChatSecurityPage.qml:18
-#, kde-format
-msgctxt "@title"
-msgid "Security"
-msgstr "Seguridade"
-
-#: src/settings/NeoChatSecurityPage.qml:28
-#, kde-format
-msgctxt "@title:group"
-msgid "Invitations"
-msgstr "Invitacións"
-
-#: src/settings/NeoChatSecurityPage.qml:32
+#: src/settings/NeoChatSecurityPage.qml:59
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "Rexeitar as invitacións de persoas descoñecidas"
 
-#: src/settings/NeoChatSecurityPage.qml:33
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:60
+#, fuzzy, kde-format
+#| msgid ""
+#| "If enabled, NeoChat will reject invitations from users you don't share a "
+#| "room with."
+msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
@@ -4728,60 +4795,35 @@ msgstr ""
 "Se se marca, NeoChat rexeitará as invitacións de xente coa que non comparta "
 "unha sala."
 
-#: src/settings/NeoChatSecurityPage.qml:33
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:60
+#, fuzzy, kde-format
+#| msgid "Your server does not support this setting."
+msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "O seu servidor non permite esta opción."
 
-#: src/settings/NeoChatSecurityPage.qml:43
-#, kde-format
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "Xente ignorada"
+#: src/settings/NeoChatSecurityPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgctxt "@title"
+msgid "Encryption"
+msgstr "Cifraxe"
 
-#: src/settings/NeoChatSecurityPage.qml:47
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:77
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Import Keys"
 msgctxt "@action:button"
-msgid "Manage ignored users"
-msgstr "Xestionar a xente ignorada"
-
-#: src/settings/NeoChatSecurityPage.qml:49
-#, kde-format
-msgctxt "@title:window"
-msgid "Ignored Users"
-msgstr "Xente ignorada"
-
-#: src/settings/NeoChatSecurityPage.qml:54
-#, kde-format
-msgctxt "@title"
-msgid "Keys"
-msgstr "Chaves"
-
-#: src/settings/NeoChatSecurityPage.qml:59
-#, kde-format
-msgid "Device key"
-msgstr "Chave de dispositivo"
-
-#: src/settings/NeoChatSecurityPage.qml:63
-#, kde-format
-msgid "Encryption key"
-msgstr "Chave de cifraxe"
-
-#: src/settings/NeoChatSecurityPage.qml:67
-#, kde-format
-msgid "Device id"
-msgstr "Identificador de dispositivo"
-
-#: src/settings/NeoChatSecurityPage.qml:73
-#, kde-format
-msgctxt "@title"
-msgid "Encryption Keys"
-msgstr "Chaves de cifraxe"
+msgid "Import Keys"
+msgstr "Importar chaves"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, kde-format
-msgctxt "@action:button"
-msgid "Import Encryption Keys"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Import Encryption Keys"
+msgctxt "@info"
+msgid "Import encryption keys from a backup."
 msgstr "Importar chaves de cifraxe"
 
 #: src/settings/NeoChatSecurityPage.qml:87
@@ -4790,10 +4832,20 @@ msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Importáronse as chaves."
 
-#: src/settings/NeoChatSecurityPage.qml:95
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:100
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Export Keys"
 msgctxt "@action:button"
-msgid "Export Encryption Keys"
+msgid "Export Keys"
+msgstr "Exportar chaves"
+
+#: src/settings/NeoChatSecurityPage.qml:101
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Export Encryption Keys"
+msgctxt "@info"
+msgid "Export this device's encryption keys."
 msgstr "Exportar as chaves de cifraxe"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
@@ -4811,12 +4863,6 @@ msgstr "Aparencia"
 #, kde-format
 msgid "Notifications"
 msgstr "Notificacións"
-
-#: src/settings/NeoChatSettingsView.qml:51 src/settings/RoomSecurityPage.qml:20
-#: src/settings/RoomSettingsView.qml:51
-#, kde-format
-msgid "Security"
-msgstr "Seguridade"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5153,6 +5199,11 @@ msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "Ten que anovar a sala a unha nova versión para activar esta opción."
 
+#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#, kde-format
+msgid "Security"
+msgstr "Seguridade"
+
 #: src/settings/RoomSecurityPage.qml:23
 #, kde-format
 msgctxt "@option:check"
@@ -5319,12 +5370,6 @@ msgstr "Agochar"
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Compartir"
-
-#: src/settings/ThreePIdCard.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove"
-msgstr "Retirar"
 
 #: src/settings/ThreePIdCard.qml:85
 #, kde-format
@@ -5558,8 +5603,7 @@ msgid "Loading URL preview"
 msgstr "Cargando a vista previa do URL"
 
 #: src/timeline/LocationComponent.qml:113
-#, fuzzy, kde-format
-#| msgid "Open Externally"
+#, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Abrir externamente"
@@ -5632,6 +5676,53 @@ msgstr "Amosar"
 #, kde-format
 msgid "Quit"
 msgstr "Saír"
+
+#~ msgctxt "@title"
+#~ msgid "Remove Message"
+#~ msgstr "Retirar a mensaxe"
+
+#~ msgid "Add"
+#~ msgstr "Engadir"
+
+#~ msgid "No users available"
+#~ msgstr "Non hai ninguén dispoñíbel."
+
+#~ msgctxt "@title"
+#~ msgid "Ban User"
+#~ msgstr "Prohibir o acceso"
+
+#~ msgctxt "@title"
+#~ msgid "Security"
+#~ msgstr "Seguridade"
+
+#~ msgctxt "@title:group"
+#~ msgid "Invitations"
+#~ msgstr "Invitacións"
+
+#~ msgctxt "@title:group"
+#~ msgid "Ignored Users"
+#~ msgstr "Xente ignorada"
+
+#~ msgctxt "@action:button"
+#~ msgid "Manage ignored users"
+#~ msgstr "Xestionar a xente ignorada"
+
+#~ msgctxt "@title"
+#~ msgid "Keys"
+#~ msgstr "Chaves"
+
+#~ msgid "Device key"
+#~ msgstr "Chave de dispositivo"
+
+#~ msgid "Encryption key"
+#~ msgstr "Chave de cifraxe"
+
+#~ msgid "Device id"
+#~ msgstr "Identificador de dispositivo"
+
+#~ msgctxt "@title"
+#~ msgid "Encryption Keys"
+#~ msgstr "Chaves de cifraxe"
 
 #~ msgctxt "@action:button"
 #~ msgid "Open proxy settings"

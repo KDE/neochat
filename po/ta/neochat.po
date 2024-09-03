@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-02 00:38+0000\n"
-"PO-Revision-Date: 2024-06-30 13:18+0530\n"
+"POT-Creation-Date: 2024-09-03 00:39+0000\n"
+"PO-Revision-Date: 2024-09-02 22:05+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -180,7 +180,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "சாளர தலைப்புப்பகுதியில் குவியத்தைக் காட்டு"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:262
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:246
 #, kde-format
 msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
@@ -373,7 +373,7 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:279 src/eventhandler.cpp:487
+#: src/eventhandler.cpp:279 src/eventhandler.cpp:491
 #: src/models/messagecontentmodel.cpp:276 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
@@ -396,7 +396,7 @@ msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:324 src/eventhandler.cpp:511
+#: src/eventhandler.cpp:324 src/eventhandler.cpp:515
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "அரங்கில் சேர்ந்தார் (மறுபடியும்)"
@@ -406,7 +406,7 @@ msgstr "அரங்கில் சேர்ந்தார் (மறுபட
 msgid "invited %1 to the room"
 msgstr "%1 என்பவரை அரங்குக்கு வரவழைத்தார்"
 
-#: src/eventhandler.cpp:326 src/eventhandler.cpp:513
+#: src/eventhandler.cpp:326 src/eventhandler.cpp:517
 #, kde-format
 msgid "joined the room"
 msgstr "அரங்கில் சேர்ந்தார்"
@@ -416,7 +416,7 @@ msgstr "அரங்கில் சேர்ந்தார்"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:337 src/eventhandler.cpp:521
+#: src/eventhandler.cpp:337 src/eventhandler.cpp:525
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
@@ -428,29 +428,29 @@ msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
 
-#: src/eventhandler.cpp:346 src/eventhandler.cpp:528
+#: src/eventhandler.cpp:346 src/eventhandler.cpp:532
 #, kde-format
 msgid " and "
 msgstr " மற்றும் "
 
-#: src/eventhandler.cpp:349 src/eventhandler.cpp:531
+#: src/eventhandler.cpp:349 src/eventhandler.cpp:535
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "அவருடைய சின்னத்தை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:351 src/eventhandler.cpp:533
+#: src/eventhandler.cpp:351 src/eventhandler.cpp:537
 #, kde-format
 msgid "set an avatar"
 msgstr "ஒரு சின்னத்தை அமைத்தார்"
 
-#: src/eventhandler.cpp:353 src/eventhandler.cpp:535
+#: src/eventhandler.cpp:353 src/eventhandler.cpp:539
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "அவருடைய சின்னத்தை மாற்றினார்"
 
-#: src/eventhandler.cpp:357 src/eventhandler.cpp:539
+#: src/eventhandler.cpp:357 src/eventhandler.cpp:543
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
@@ -461,7 +461,7 @@ msgstr "எதையும் மாற்றவில்லை"
 msgid "withdrew %1's invitation"
 msgstr "%1 என்பவருக்கான அழைப்பை திரும்பப்பெற்றார்"
 
-#: src/eventhandler.cpp:363 src/eventhandler.cpp:545
+#: src/eventhandler.cpp:363 src/eventhandler.cpp:549
 #, kde-format
 msgid "rejected the invitation"
 msgstr "அழைப்பை மறுத்தார்"
@@ -471,247 +471,253 @@ msgstr "அழைப்பை மறுத்தார்"
 msgid "unbanned %1"
 msgstr "%1 மீதான தடையை நீக்கினார்"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:367 src/eventhandler.cpp:553
 #, kde-format
 msgid "self-unbanned"
 msgstr "தன்மேல் உள்ள தடையை நீக்கினார்"
 
-#: src/eventhandler.cpp:370
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்: %2"
-
-#: src/eventhandler.cpp:371 src/eventhandler.cpp:551
+#: src/eventhandler.cpp:370 src/eventhandler.cpp:555
 #, kde-format
 msgid "left the room"
 msgstr "அரங்கைவிட்டு வெளியேறினார்"
 
+#: src/eventhandler.cpp:373
+#, kde-format
+msgid "has put %1 out of the room: %2"
+msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்: %2"
+
 #: src/eventhandler.cpp:375
+#, fuzzy, kde-format
+#| msgid "has put %1 out of the room: %2"
+msgid "has put %1 out of the room"
+msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்: %2"
+
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/eventhandler.cpp:377
+#: src/eventhandler.cpp:381
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்: %2"
 
-#: src/eventhandler.cpp:380 src/eventhandler.cpp:556
+#: src/eventhandler.cpp:384 src/eventhandler.cpp:560
 #, kde-format
 msgid "self-banned from the room"
 msgstr "தன்னை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/eventhandler.cpp:384 src/eventhandler.cpp:559
+#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
 #, kde-format
 msgid "requested an invite"
 msgstr "வரவழைப்பு கோரினார்"
 
-#: src/eventhandler.cpp:384
+#: src/eventhandler.cpp:388
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "இக்காரணங்காட்டி வரவழைப்பு கோரினார்: %1"
 
-#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
+#: src/eventhandler.cpp:392 src/eventhandler.cpp:567
 #, kde-format
 msgid "made something unknown"
 msgstr "எதையோ தெரியாதவாறு செய்தார்"
 
-#: src/eventhandler.cpp:391 src/eventhandler.cpp:566
+#: src/eventhandler.cpp:395 src/eventhandler.cpp:570
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "அரங்கின் பிரதான மாற்றுப்பெயரை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:391
+#: src/eventhandler.cpp:395
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "அரங்கின் மாற்றுப்பெயரை %1 என்று அமைத்தார்"
 
-#: src/eventhandler.cpp:394 src/eventhandler.cpp:569
+#: src/eventhandler.cpp:398 src/eventhandler.cpp:573
 #, kde-format
 msgid "cleared the room name"
 msgstr "அரங்கின் பெயரை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:394
+#: src/eventhandler.cpp:398
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "அரங்கின் பெயரை %1 என்று அமைத்தார்"
 
-#: src/eventhandler.cpp:397 src/eventhandler.cpp:572
+#: src/eventhandler.cpp:401 src/eventhandler.cpp:576
 #, kde-format
 msgid "cleared the topic"
 msgstr "தலைப்பை காலியாக்கினார்"
 
-#: src/eventhandler.cpp:398
+#: src/eventhandler.cpp:402
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "தலைப்பை %1 என்று அமைத்தார்"
 
-#: src/eventhandler.cpp:404 src/eventhandler.cpp:575
+#: src/eventhandler.cpp:408 src/eventhandler.cpp:579
 #, kde-format
 msgid "changed the room avatar"
 msgstr "அரங்கின் சின்னத்தை மாற்றினார்"
 
-#: src/eventhandler.cpp:407 src/eventhandler.cpp:578
+#: src/eventhandler.cpp:411 src/eventhandler.cpp:582
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "தொடக்கத்திலிருந்து முடிவுவரை மறையாக்கம் பயன்படுத்தப்படுவதை இயக்கியுள்ளார்"
 
-#: src/eventhandler.cpp:411
+#: src/eventhandler.cpp:415
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "அரங்கை %1 பதிப்புக்கு மேம்படுத்தினார்"
 
-#: src/eventhandler.cpp:412
+#: src/eventhandler.cpp:416
 #, kde-format
 msgid "created the room, version %1"
 msgstr "அரங்கை உருவாக்கினார், பதிப்பு %1"
 
-#: src/eventhandler.cpp:415 src/eventhandler.cpp:584
+#: src/eventhandler.cpp:419 src/eventhandler.cpp:588
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "இந்த அரங்கிற்கான அனுமதிகளை மாற்றினார்"
 
-#: src/eventhandler.cpp:421 src/eventhandler.cpp:590
+#: src/eventhandler.cpp:425 src/eventhandler.cpp:594
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "இந்த அரங்கிற்கான சேவையக அணுகல் கட்டுப்பாட்டு பட்டியலை மாற்றியுள்ளார்"
 
-#: src/eventhandler.cpp:425
+#: src/eventhandler.cpp:429
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "%1 பலகையை சேர்த்தார்"
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:432
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "%1 பலகையை நீக்கினார்"
 
-#: src/eventhandler.cpp:430
+#: src/eventhandler.cpp:434
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "%1 பலகையை அமைத்தார்"
 
-#: src/eventhandler.cpp:433
+#: src/eventhandler.cpp:437
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 நிலையை புதுப்பித்தார்"
 
-#: src/eventhandler.cpp:434
+#: src/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2 என்பதற்கு %1 நிலையை புதுப்பித்தார்"
 
-#: src/eventhandler.cpp:439 src/eventhandler.cpp:608
+#: src/eventhandler.cpp:443 src/eventhandler.cpp:612
 #, kde-format
 msgid "Unknown event"
 msgstr "தெரியாத நிகழ்வு"
 
-#: src/eventhandler.cpp:454
+#: src/eventhandler.cpp:458
 #, kde-format
 msgid "a file"
 msgstr "ஒரு கோப்பு"
 
-#: src/eventhandler.cpp:494
+#: src/eventhandler.cpp:498
 #, kde-format
 msgid "sent a message"
 msgstr "செய்தியை அனுப்பினார்"
 
-#: src/eventhandler.cpp:498
+#: src/eventhandler.cpp:502
 #, kde-format
 msgid "sent a sticker"
 msgstr "ஒட்டியை அனுப்பினார்"
 
-#: src/eventhandler.cpp:504
+#: src/eventhandler.cpp:508
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "ஒருவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
 
-#: src/eventhandler.cpp:513
+#: src/eventhandler.cpp:517
 #, kde-format
 msgid "invited someone to the room"
 msgstr "எவரையே அரங்குக்கு வரவழைத்தார்"
 
-#: src/eventhandler.cpp:523
+#: src/eventhandler.cpp:527
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "தன் காட்சிப்பெயரை மாற்றினார்"
 
-#: src/eventhandler.cpp:545
+#: src/eventhandler.cpp:549
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "ஒருவருக்கு விடுத்த வரவழைப்பை திரும்பப்பெற்றார்"
 
-#: src/eventhandler.cpp:549
+#: src/eventhandler.cpp:553
 #, kde-format
 msgid "unbanned a user"
 msgstr "ஒருவர் மீதான தடையை நீக்கினார்"
 
-#: src/eventhandler.cpp:551
+#: src/eventhandler.cpp:555
 #, kde-format
 msgid "put a user out of the room"
 msgstr "ஒருவரை அரங்குகிலிருந்து வெளியே அனுப்பினார்"
 
-#: src/eventhandler.cpp:554
+#: src/eventhandler.cpp:558
 #, kde-format
 msgid "banned a user from the room"
 msgstr "ஒருவரை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/eventhandler.cpp:566
+#: src/eventhandler.cpp:570
 #, kde-format
 msgid "set the room main alias"
 msgstr "அரங்கின் மாற்றுப்பெயரை அமைத்தார்"
 
-#: src/eventhandler.cpp:569
+#: src/eventhandler.cpp:573
 #, kde-format
 msgid "set the room name"
 msgstr "அரங்கின் பெயரை அமைத்தார்"
 
-#: src/eventhandler.cpp:572
+#: src/eventhandler.cpp:576
 #, kde-format
 msgid "set the topic"
 msgstr "தலைப்பை அமைத்தார்"
 
-#: src/eventhandler.cpp:581
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "upgraded the room version"
 msgstr "அரங்கின் பதிப்பை மேம்படுத்தினார்"
 
-#: src/eventhandler.cpp:581
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "created the room"
 msgstr "அரங்கை உருவாக்கினார்"
 
-#: src/eventhandler.cpp:587
+#: src/eventhandler.cpp:591
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "நேரலை இருப்பிடக் குறியை அனுப்பினார்"
 
-#: src/eventhandler.cpp:594
+#: src/eventhandler.cpp:598
 #, kde-format
 msgid "added a widget"
 msgstr "ஓர் உட்பொதிநிரலை சேர்த்தார்"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:601
 #, kde-format
 msgid "removed a widget"
 msgstr "ஓர் உட்பொதிநிரலை நீக்கினார்"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:603
 #, kde-format
 msgid "configured a widget"
 msgstr "ஓர் உட்பொதிநிரல் மாற்றியமைத்தார்"
 
-#: src/eventhandler.cpp:602
+#: src/eventhandler.cpp:606
 #, kde-format
 msgid "updated the state"
 msgstr "நிலையை புதுப்பித்தார்"
 
-#: src/eventhandler.cpp:606
+#: src/eventhandler.cpp:610
 #, kde-format
 msgid "started a poll"
 msgstr "கருத்தாய்வை துவக்கினார்"
@@ -954,8 +960,7 @@ msgid "Go back"
 msgstr "பின்னே செல்"
 
 #: src/login/WelcomePage.qml:252
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "அமைப்புகள்"
@@ -1452,6 +1457,8 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
+"தகவல் கண்டுபிடிக்கப்படவில்லை, அல்லது அதைப் பார்க்கும் அனுமதி உங்களுக்கு இல்லை, அல்லது "
+"பொருட்படுத்தப்படா பயனரால் அனுப்பப்பட்டது"
 
 #: src/models/messagecontentmodel.cpp:269
 #: src/timeline/LinkPreviewLoadComponent.qml:66
@@ -1783,7 +1790,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "இந்த அரங்கில் நியோச்சாட்டை திற"
 
-#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply"
@@ -1833,11 +1840,10 @@ msgid "Open NeoChat"
 msgstr "நியோச்சாட்டைத் திற"
 
 #: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR code"
-msgstr "குறுகுறி:"
+msgstr "QR குறியைக் காட்டு"
 
 #: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
@@ -1861,7 +1867,7 @@ msgstr "அறிவிப்பு அமைப்புகள்"
 msgid "Devices"
 msgstr "சாதனங்கள்"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:258
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:242
 #, kde-format
 msgid "Open developer tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
@@ -1950,29 +1956,6 @@ msgstr "திருத்து"
 #, kde-format
 msgid "Cancel sending attachment"
 msgstr "உடனிணைப்பை அனுப்புவதை ரத்துசெய்"
-
-#: src/qml/BanSheet.qml:18
-#, kde-format
-msgid "Ban User"
-msgstr "பயனரை தடை செய்வது"
-
-#: src/qml/BanSheet.qml:27
-#, kde-format
-msgid "Reason for banning this user"
-msgstr "இப்பயனரை தடைசெய்வதற்கான காரணம்"
-
-#: src/qml/BanSheet.qml:43
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "தடை செய்"
-
-#: src/qml/BanSheet.qml:52 src/qml/InviteUserPage.qml:24
-#: src/qml/RemoveSheet.qml:57 src/qml/ReportSheet.qml:52
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "ரத்து செய்"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -2199,8 +2182,8 @@ msgstr "அரங்கின் அமைப்புகள்"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:272
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:279
+#: src/qml/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2314,41 +2297,78 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "சரி"
 
-#: src/qml/DelegateContextMenu.qml:78
+#: src/qml/DelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "மூலத்தைப் பார்"
 
-#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:67
+#: src/qml/DelegateContextMenu.qml:90 src/settings/ThreePIdCard.qml:66
 #, kde-format
+msgctxt "@action:button"
 msgid "Remove"
 msgstr "நீக்கு"
 
-#: src/qml/DelegateContextMenu.qml:92 src/qml/FileDelegateContextMenu.qml:74
-#, kde-format
-msgctxt "@title"
+#: src/qml/DelegateContextMenu.qml:95 src/qml/DelegateContextMenu.qml:100
+#: src/qml/FileDelegateContextMenu.qml:75
+#: src/qml/FileDelegateContextMenu.qml:80
+#, fuzzy, kde-format
+#| msgid "Remove Message"
+msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "செய்தியை நீக்குவது"
 
-#: src/qml/DelegateContextMenu.qml:108 src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:76
+#, fuzzy, kde-format
+#| msgid "Reason for removing this message"
+msgctxt "@info:placeholder"
+msgid "Reason for removing this message"
+msgstr "இச்செய்தியை நீக்குவதற்கான காரணம்"
+
+#: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:77
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "நீக்கு"
+
+#: src/qml/DelegateContextMenu.qml:120 src/qml/DelegateContextMenu.qml:128
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "புகாரளி"
 
-#: src/qml/DelegateContextMenu.qml:115
+#: src/qml/DelegateContextMenu.qml:125
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgctxt "@title:dialog"
+msgid "Report Message"
+msgstr "செய்தியைப் பற்றி புகாரளி"
+
+#: src/qml/DelegateContextMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Reason for reporting this message"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this message"
+msgstr "இச்செய்தியைப்பற்றி புகாரளிப்பதற்கான காரணம்"
+
+#: src/qml/DelegateContextMenu.qml:130
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "செய்தியைப் பற்றி புகாரளித்தல்"
 
-#: src/qml/DelegateContextMenu.qml:160
+#: src/qml/DelegateContextMenu.qml:140
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "பயனரைக் காட்டு"
+
+#: src/qml/DelegateContextMenu.qml:188
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' என்பதை தேடு"
 
-#: src/qml/DelegateContextMenu.qml:181
+#: src/qml/DelegateContextMenu.qml:210
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "இணைய சுருக்குவழிகளை அமை..."
@@ -2540,21 +2560,26 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "பொது அரங்குகள் கிடைக்கவில்லை"
 
-#: src/qml/FileDelegateContextMenu.qml:42
+#: src/qml/FileDelegateContextMenu.qml:45
 #, kde-format
 msgid "Open Externally"
 msgstr "வெளியமைவாகத் திற"
 
-#: src/qml/FileDelegateContextMenu.qml:49
+#: src/qml/FileDelegateContextMenu.qml:52
 #, kde-format
 msgid "Save As"
 msgstr "இவ்வாறு சேமி"
 
-#: src/qml/FileDelegateContextMenu.qml:59
+#: src/qml/FileDelegateContextMenu.qml:62
 #: src/qml/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgid "Copy"
 msgstr "நகலெடு"
+
+#: src/qml/FileDelegateContextMenu.qml:70
+#, kde-format
+msgid "Remove"
+msgstr "நீக்கு"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2766,6 +2791,8 @@ msgstr "அழைப்பை ஏற்கிறீர்களா?"
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
+"தெரியாத பயனர்களிடமிருந்தான அழைப்பிதழ்களை நிராகரிக்குமாறு பாதுகாப்பு அமைப்புகளில் "
+"அமைக்கலாம்."
 
 #: src/qml/InvitationView.qml:24
 #, kde-format
@@ -2783,35 +2810,47 @@ msgstr "மறு"
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: src/qml/InviteUserPage.qml:19
-#, kde-format
+#: src/qml/InviteUserPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Invite a User"
+msgctxt "@title:dialog"
 msgid "Invite a User"
 msgstr "பயனரை வரவழை"
 
-#: src/qml/InviteUserPage.qml:37
-#, kde-format
-msgid "Find a user..."
+#: src/qml/InviteUserPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find a user..."
+msgctxt "@info:placeholder"
+msgid "Find a user…"
 msgstr "பயனரைத் தேடு..."
 
-#: src/qml/InviteUserPage.qml:44
-#, kde-format
-msgid "Add"
-msgstr "சேர்"
+#: src/qml/InviteUserPage.qml:24
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
 
-#: src/qml/InviteUserPage.qml:70
-#, kde-format
-msgid "No users available"
-msgstr "எந்த பயனர்களும் கிடைக்கவில்லை"
+#: src/qml/InviteUserPage.qml:31
+#, fuzzy, kde-format
+#| msgid "Invite this user"
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "இந்த பயனரை வரவழை"
 
-#: src/qml/InviteUserPage.qml:101
-#, kde-format
-msgid "Send invitation"
-msgstr "வரவழை"
-
-#: src/qml/InviteUserPage.qml:115
-#, kde-format
+#: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
+#, fuzzy, kde-format
+#| msgid "User is either already a member or has been invited"
+msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "பயனர் ஏற்கனவே இவ்வரங்குக்கு வரவழைக்கப்பட்டுள்ளார், அல்லது இவ்வரங்கில் உள்ளார்"
+
+#: src/qml/InviteUserPage.qml:75
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "வரவழை"
 
 #: src/qml/JoinRoomDialog.qml:29
 #, kde-format
@@ -2874,6 +2913,19 @@ msgstr "இடத்தை தேர்வு செய்"
 #, kde-format
 msgid "Send this location"
 msgstr "இவ்விடத்தை அனுப்பு"
+
+#: src/qml/LocationChooser.qml:35
+#, kde-format
+msgctxt "@action:intoolbar Re-center the map onto the set location"
+msgid "Re-Center"
+msgstr ""
+
+#: src/qml/LocationChooser.qml:41
+#, fuzzy, kde-format
+#| msgid "Local"
+msgctxt "@action:intoolbar Determine the device's location"
+msgid "Locate"
+msgstr "உள்ளமைந்தவை"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, kde-format
@@ -2970,13 +3022,7 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "செய்தியை முன்ன‍னுப்புவது"
 
-#: src/qml/MessageDelegateContextMenu.qml:70
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "பயனரைக் காட்டு"
-
-#: src/qml/MessageDelegateContextMenu.qml:78
+#: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
 msgid "Copy Link"
 msgstr "இணைப்பை நகலெடு"
@@ -3050,11 +3096,16 @@ msgid "Insert link"
 msgstr "இணைப்பை நுழை"
 
 #: src/qml/QuickSwitcher.qml:29
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
-msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
+msgstr "எந்த அரங்கும் கிடைக்கவில்லை"
+
+#: src/qml/ReasonDialog.qml:53
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "ரத்து செய்"
 
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
@@ -3062,13 +3113,13 @@ msgctxt "@title Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 தனில் சேர்"
 
-#: src/qml/RecommendedSpaceDialog.qml:52
+#: src/qml/RecommendedSpaceDialog.qml:53
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "சேர்"
 
-#: src/qml/RecommendedSpaceDialog.qml:60
+#: src/qml/RecommendedSpaceDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
@@ -3091,42 +3142,6 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr "தற்போதைய இடம், இந்த அரங்கின் அதிகாரப்பூர்வ தாய் ஆகும். இந்த தொடர்பை நீக்க வேண்டுமா?"
-
-#: src/qml/RemoveSheet.qml:20
-#, kde-format
-msgid "Remove Messages"
-msgstr "செய்திகளை நீக்குவது"
-
-#: src/qml/RemoveSheet.qml:20
-#, kde-format
-msgid "Remove Message"
-msgstr "செய்தியை நீக்குவது"
-
-#: src/qml/RemoveSheet.qml:29
-#, kde-format
-msgid "Reason for removing this user's recent messages"
-msgstr "இப்பயனரின் சமீபத்திய செய்திகளை நீக்குவதற்கான காரணம்"
-
-#: src/qml/RemoveSheet.qml:29
-#, kde-format
-msgid "Reason for removing this message"
-msgstr "இச்செய்தியை நீக்குவதற்கான காரணம்"
-
-#: src/qml/RemoveSheet.qml:44
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove this message'"
-msgid "Remove"
-msgstr "நீக்கு"
-
-#: src/qml/ReportSheet.qml:18
-#, kde-format
-msgid "Report Message"
-msgstr "செய்தியைப் பற்றி புகாரளி"
-
-#: src/qml/ReportSheet.qml:27
-#, kde-format
-msgid "Reason for reporting this message"
-msgstr "இச்செய்தியைப்பற்றி புகாரளிப்பதற்கான காரணம்"
 
 #: src/qml/RoomDelegate.qml:112
 #, kde-format
@@ -3287,10 +3302,9 @@ msgid "Welcome to NeoChat"
 msgstr "நியோச்சாட்டுக்கு நல்வரவு"
 
 #: src/qml/RoomPage.qml:158
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgid "Select or join a room to get started"
-msgstr "தொடங்க, சில அரங்குகளில் சேருங்கள்"
+msgstr "தொடங்க, அரங்கைத் தேர்ந்தெடுக்கவும் அல்லது அதில் செரவும்"
 
 #: src/qml/RoomPage.qml:265
 #, kde-format
@@ -3413,10 +3427,9 @@ msgid "This server cannot be resolved or has already been added"
 msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
 
 #: src/qml/ServerComboBox.qml:152
-#, fuzzy, kde-format
-#| msgid "Server URL"
+#, kde-format
 msgid "Server URL:"
-msgstr "சேவையக முகவரி"
+msgstr "சேவையக முகவரி:"
 
 #: src/qml/ShareAction.qml:23
 #, kde-format
@@ -3454,13 +3467,13 @@ msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "நண்பர்கள்"
 
-#: src/qml/SpaceDrawer.qml:220
+#: src/qml/SpaceDrawer.qml:227
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 தனில் சேர்"
 
-#: src/qml/SpaceDrawer.qml:262
+#: src/qml/SpaceDrawer.qml:269
 #, kde-format
 msgid "Create a space"
 msgstr "இடத்தை உருவாக்கு"
@@ -3691,55 +3704,92 @@ msgstr "இந்த பயனரை வரவழை"
 msgid "Ban this user"
 msgstr "இந்த பயனரை தடை செய்"
 
-#: src/qml/UserDetailDialog.qml:157
-#, kde-format
-msgctxt "@title"
+#: src/qml/UserDetailDialog.qml:154 src/qml/UserDetailDialog.qml:159
+#, fuzzy, kde-format
+#| msgid "Ban User"
+msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "பயனரை தடை செய்வது"
 
-#: src/qml/UserDetailDialog.qml:169
+#: src/qml/UserDetailDialog.qml:155
+#, fuzzy, kde-format
+#| msgid "Reason for banning this user"
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "இப்பயனரை தடைசெய்வதற்கான காரணம்"
+
+#: src/qml/UserDetailDialog.qml:156
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "தடை செய்"
+
+#: src/qml/UserDetailDialog.qml:174
 #, kde-format
 msgid "Unban this user"
 msgstr "இப்பயனர் மீதான தடையை நீக்கு"
 
-#: src/qml/UserDetailDialog.qml:182
+#: src/qml/UserDetailDialog.qml:187
 #, kde-format
 msgid "Set user power level"
 msgstr "பயனரின் உரிமையளவை அமை"
 
-#: src/qml/UserDetailDialog.qml:207
-#, kde-format
+#: src/qml/UserDetailDialog.qml:212
+#, fuzzy, kde-format
+#| msgid "Remove recent messages by this user"
+msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "இப்பயனரின் சமீபத்திய செய்திகளை நீக்கு"
 
-#: src/qml/UserDetailDialog.qml:215
+#: src/qml/UserDetailDialog.qml:217
+#, fuzzy, kde-format
+#| msgid "Remove Messages"
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "செய்திகளை நீக்குவது"
+
+#: src/qml/UserDetailDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Reason for removing this user's recent messages"
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "இப்பயனரின் சமீபத்திய செய்திகளை நீக்குவதற்கான காரணம்"
+
+#: src/qml/UserDetailDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "நீக்கு"
+
+#: src/qml/UserDetailDialog.qml:222
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "செய்திகளை நீக்குவது"
 
-#: src/qml/UserDetailDialog.qml:226
+#: src/qml/UserDetailDialog.qml:236
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "%1 உடன் உரையாடு"
 
-#: src/qml/UserDetailDialog.qml:226
+#: src/qml/UserDetailDialog.qml:236
 #, kde-format
 msgid "Invite to private chat"
 msgstr "தனிப்பட்ட உரையாடலுக்கு அழை"
 
-#: src/qml/UserDetailDialog.qml:237
+#: src/qml/UserDetailDialog.qml:247
 #, kde-format
 msgid "Copy link"
 msgstr "இணைப்பை நகலெடு"
 
-#: src/qml/UserInfo.qml:90
+#: src/qml/UserInfo.qml:91
 #, kde-format
 msgid "Switch User"
 msgstr "பயனரை மாற்று"
 
-#: src/qml/UserInfo.qml:99
+#: src/qml/UserInfo.qml:100
 #, kde-format
 msgid "Open Settings"
 msgstr "அமைப்புகளை திற"
@@ -4010,16 +4060,14 @@ msgid "Remove current avatar"
 msgstr "தற்போதைய சின்னத்தை நீக்கு"
 
 #: src/settings/AccountEditorPage.qml:101
-#, fuzzy, kde-format
-#| msgid "User information"
+#, kde-format
 msgid "User Information"
 msgstr "பயனரின் விவரங்கள்"
 
 #: src/settings/AccountEditorPage.qml:106
-#, fuzzy, kde-format
-#| msgid "<display name>"
+#, kde-format
 msgid "Display Name:"
-msgstr "<காட்சிப்பெயர்>"
+msgstr "காட்சிப்பெயர்:"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
@@ -4027,17 +4075,15 @@ msgid "Label:"
 msgstr "காட்சிப்பெயர்"
 
 #: src/settings/AccountEditorPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Working"
+#, kde-format
 msgid "Work"
-msgstr "வேலை செய்கிறது"
+msgstr "வேலை"
 
 #: src/settings/AccountEditorPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "QR குறியீட்டை வருடவும்"
+msgstr "QR குறியைக் காட்டு"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4364,15 +4410,14 @@ msgid "Stickers & Emojis"
 msgstr "ஒட்டிகளும் முகவடிகளும்"
 
 #: src/settings/ExportKeysDialog.qml:18
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:107
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
-msgstr ""
+msgstr "சாவிகளை ஏற்றுமதி செய்"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
 msgstr "கடவுச்சொல்:"
@@ -4383,26 +4428,26 @@ msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
 msgstr ""
+"சாவியின் காப்புநகலை பாதுகாக்க பயன்படுத்த வேண்டிய கடவுச்சொல். இது உங்கள் கணக்கின் "
+"கடவுச்சொல்லாக இல்லாமல் இருந்தால் நல்லது."
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Export keys"
-msgstr ""
+msgstr "சாவிகளை ஏற்றுமதி செய்"
 
 #: src/settings/ExportKeysDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys exported successfully"
-msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
+msgstr "சாவிகள் வெற்றிகரமாக ஏற்றுமதி செய்யப்பட்டன"
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown error"
-msgstr "தெரியாதது"
+msgstr "தெரியாத சிக்கல்"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4504,12 +4549,10 @@ msgid "Ignored Users"
 msgstr "பொருட்படுத்தப்படா பயனர்கள்"
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Manage ignored users"
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "பொருட்படுத்தப்படா பயனர்களை நிர்வகி"
+msgstr "பொருட்படுத்தப்படா பயனர்கள் இல்லை"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
@@ -4521,34 +4564,31 @@ msgstr "இந்த பயனரை பொருட்படுத்தாம�
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
-msgstr ""
+msgstr "சாவிகளை இறக்குமதி செய்வது"
 
 #: src/settings/ImportKeysDialog.qml:35
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose backup file"
-msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
+msgstr "காப்புநகல் கோப்பை தேர்ந்தெடு"
 
 #: src/settings/ImportKeysDialog.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Import keys"
-msgstr ""
+msgstr "சாவிகளை இறக்குமதி செய்"
 
 #: src/settings/ImportKeysDialog.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr "கடவுச்சொல்லைக் கொண்டு திறப்பது"
+msgstr "செல்லுபடியாகாத கடவுச்சொல்"
 
 #: src/settings/ImportKeysDialog.qml:70
 #, kde-format
 msgctxt "@info"
 msgid "Invalid key backup data"
-msgstr ""
+msgstr "செல்லுபடியாகாத காப்புநகல் தரவு"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -4571,214 +4611,212 @@ msgstr "கணினித் தட்டில் காட்டு"
 msgid "Minimize to system tray on startup"
 msgstr "துவக்கும்போது கணினித்தட்டிற்கு ஒதுக்கு"
 
-#: src/settings/NeoChatGeneralPage.qml:63
+#: src/settings/NeoChatGeneralPage.qml:64
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "சாளரத்தின் அளவை மாற்றும்போது அரங்கின் விவரங்களை தானாக காட்டு/மறை"
 
-#: src/settings/NeoChatGeneralPage.qml:79
+#: src/settings/NeoChatGeneralPage.qml:80
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
 msgstr "முகப்பு கீற்றில் அனைத்து அரங்குகளையும் காட்டு"
 
-#: src/settings/NeoChatGeneralPage.qml:90
+#: src/settings/NeoChatGeneralPage.qml:91
 #, kde-format
 msgid "Room list sort order"
 msgstr "அரங்குகளை வரிசைப்படுத்தும் முறை"
 
-#: src/settings/NeoChatGeneralPage.qml:94
+#: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "கடைசி செயல்பாடு"
 
-#: src/settings/NeoChatGeneralPage.qml:103
+#: src/settings/NeoChatGeneralPage.qml:104
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "அகரவரிசை"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:114
 #, kde-format
 msgid "Timeline Events"
 msgstr "காலவரிசையிலுள்ளவை"
 
-#: src/settings/NeoChatGeneralPage.qml:118
+#: src/settings/NeoChatGeneralPage.qml:119
 #, kde-format
 msgid "Show deleted messages"
 msgstr "நீக்கப்பட்டுள்ள செய்திகளைக் பாட்டு"
 
-#: src/settings/NeoChatGeneralPage.qml:134
+#: src/settings/NeoChatGeneralPage.qml:135
 #, kde-format
 msgid "Show state events"
 msgstr "நிலைமாற்ற நிகழ்வுகளை காட்டு"
 
-#: src/settings/NeoChatGeneralPage.qml:152
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Show leave and join events"
 msgstr "மற்றவர்கள் வெளியேறுவதையும் சேருவதையும் காட்டு"
 
-#: src/settings/NeoChatGeneralPage.qml:170
+#: src/settings/NeoChatGeneralPage.qml:171
 #, kde-format
 msgid "Show name change events"
 msgstr "பெயர்மாற்றங்களை காட்டு"
 
-#: src/settings/NeoChatGeneralPage.qml:188
+#: src/settings/NeoChatGeneralPage.qml:189
 #, kde-format
 msgid "Show avatar update events"
 msgstr "சின்னங்கள் மாற்றப்படுவதை காட்டு"
 
+#: src/settings/NeoChatGeneralPage.qml:199
+#, kde-format
+msgctxt "Chat Editor"
+msgid "Editor"
+msgstr "உரைத்திருத்தி"
+
 #: src/settings/NeoChatGeneralPage.qml:204
 #, kde-format
-msgctxt "@label:checkbox"
-msgid "Hide image and video events by default"
-msgstr ""
+msgid "Use s/text/replacement syntax to edit your last message"
+msgstr "உங்கள் கடைசி செய்தியை s/text/replacement என்ற பாங்கில் திருத்து"
 
-#: src/settings/NeoChatGeneralPage.qml:205
+#: src/settings/NeoChatGeneralPage.qml:218
+#, kde-format
+msgid "Send typing notifications"
+msgstr "தட்டச்சிடுவதை அறிவி"
+
+#: src/settings/NeoChatGeneralPage.qml:228
+#, kde-format
+msgid "Developer Settings"
+msgstr "நிரலாளர்களுக்கான அமைப்புகள்"
+
+#: src/settings/NeoChatGeneralPage.qml:232
+#, kde-format
+msgid "Enable developer tools"
+msgstr "நிரலாக்க கருவிகளை இயக்கு"
+
+#: src/settings/NeoChatGeneralPage.qml:251
+#, kde-format
+msgctxt "@title"
+msgid "Default Settings"
+msgstr "இயல்பிருப்பு அமைப்புகள்"
+
+#: src/settings/NeoChatGeneralPage.qml:255
+#, kde-format
+msgctxt "@action:button"
+msgid "Reset all configuration values to their default"
+msgstr "அனைத்து அமைப்புகளையும் அவற்றின் இயல்பிருப்பு நிலைக்கு மீட்டமை"
+
+#: src/settings/NeoChatSecurityPage.qml:19
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "சாவி:"
+
+#: src/settings/NeoChatSecurityPage.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignored Users"
+msgctxt "@action:button"
+msgid "Ignored Users"
+msgstr "பொருட்படுத்தப்படா பயனர்கள்"
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, kde-format
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "பொருட்படுத்தப்படா பயனர்கள்"
+
+#: src/settings/NeoChatSecurityPage.qml:44
+#, fuzzy, kde-format
+#| msgctxt "@label:checkbox"
+#| msgid "Hide image and video events by default"
+msgctxt "@label:checkbox"
+msgid "Hide images and videos by default"
+msgstr "இயல்பிருப்பாக படங்களையும் நிகழ்படங்களையும் மறை"
+
+#: src/settings/NeoChatSecurityPage.qml:45
 #, kde-format
 msgctxt "@info"
 msgid ""
 "When this option is enabled, images and videos are only shown after a button "
 "is clicked."
 msgstr ""
+"இத்தேர்வு இயக்கப்பட்டிருந்தால், ஓர் பட்டனை அழுத்தியபின்னே படங்களும் நிகழ்படங்களும் காட்டப்படும்."
 
-#: src/settings/NeoChatGeneralPage.qml:215
-#, kde-format
-msgctxt "Chat Editor"
-msgid "Editor"
-msgstr "உரைத்திருத்தி"
-
-#: src/settings/NeoChatGeneralPage.qml:220
-#, kde-format
-msgid "Use s/text/replacement syntax to edit your last message"
-msgstr "உங்கள் கடைசி செய்தியை s/text/replacement என்ற பாங்கில் திருத்து"
-
-#: src/settings/NeoChatGeneralPage.qml:234
-#, kde-format
-msgid "Send typing notifications"
-msgstr "தட்டச்சிடுவதை அறிவி"
-
-#: src/settings/NeoChatGeneralPage.qml:244
-#, kde-format
-msgid "Developer Settings"
-msgstr "நிரலாளர்களுக்கான அமைப்புகள்"
-
-#: src/settings/NeoChatGeneralPage.qml:248
-#, kde-format
-msgid "Enable developer tools"
-msgstr "நிரலாக்க கருவிகளை இயக்கு"
-
-#: src/settings/NeoChatGeneralPage.qml:267
-#, fuzzy, kde-format
-#| msgid "Developer Settings"
-msgctxt "@title"
-msgid "Default Settings"
-msgstr "நிரலாளர்களுக்கான அமைப்புகள்"
-
-#: src/settings/NeoChatGeneralPage.qml:271
-#, kde-format
-msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
-msgstr ""
-
-#: src/settings/NeoChatSecurityPage.qml:18
-#, kde-format
-msgctxt "@title"
-msgid "Security"
-msgstr "பாதுகாப்பு"
-
-#: src/settings/NeoChatSecurityPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Accept Invitation"
-msgctxt "@title:group"
-msgid "Invitations"
-msgstr "அழைப்பை ஏற்"
-
-#: src/settings/NeoChatSecurityPage.qml:32
+#: src/settings/NeoChatSecurityPage.qml:59
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
-msgstr ""
+msgstr "தெரியாத பயனர்களிடமிருந்தான் அழைப்பிதழ்களை நிராகரி"
 
-#: src/settings/NeoChatSecurityPage.qml:33
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:60
+#, fuzzy, kde-format
+#| msgid ""
+#| "If enabled, NeoChat will reject invitations from users you don't share a "
+#| "room with."
+msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
 msgstr ""
+"இத்தேர்வு இயக்கப்பட்டிருந்தால், நீங்கள் இருக்கும் ஒரு அரங்கிலாவது இல்லாத பயனர்களிடமிருந்தான "
+"அழைப்பிதழ்கள் தானாக நிராகரிக்கப்படும்."
 
-#: src/settings/NeoChatSecurityPage.qml:33
+#: src/settings/NeoChatSecurityPage.qml:60
 #, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#| msgid "Your server does not support this setting."
+msgctxt "@info"
 msgid "Your server does not support this setting."
-msgstr "கடவுச்சொல்லை மாற்றுவதை உங்கள் சேவையகம் ஆதரிக்கவில்லை."
+msgstr "உங்கள் சேவையகம் இந்த அமைப்பை ஆதரிக்கவில்லை."
 
-#: src/settings/NeoChatSecurityPage.qml:43
-#, kde-format
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "பொருட்படுத்தப்படா பயனர்கள்"
-
-#: src/settings/NeoChatSecurityPage.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Manage ignored users"
-msgstr "பொருட்படுத்தப்படா பயனர்களை நிர்வகி"
-
-#: src/settings/NeoChatSecurityPage.qml:49
-#, kde-format
-msgctxt "@title:window"
-msgid "Ignored Users"
-msgstr "பொருட்படுத்தப்படா பயனர்கள்"
-
-#: src/settings/NeoChatSecurityPage.qml:54
-#, kde-format
-msgctxt "@title"
-msgid "Keys"
-msgstr "சாவிகள்"
-
-#: src/settings/NeoChatSecurityPage.qml:59
-#, kde-format
-msgid "Device key"
-msgstr "சாதனச் சாவிகள்"
-
-#: src/settings/NeoChatSecurityPage.qml:63
-#, kde-format
-msgid "Encryption key"
-msgstr "மறையாக்க சாவி"
-
-#: src/settings/NeoChatSecurityPage.qml:67
-#, kde-format
-msgid "Device id"
-msgstr "சாதன அடையாளம்"
-
-#: src/settings/NeoChatSecurityPage.qml:73
+#: src/settings/NeoChatSecurityPage.qml:70
 #, fuzzy, kde-format
-#| msgid "Encryption key"
+#| msgctxt "@option:check"
+#| msgid "Encryption"
 msgctxt "@title"
-msgid "Encryption Keys"
-msgstr "மறையாக்க சாவி"
+msgid "Encryption"
+msgstr "மறையாக்கம்"
+
+#: src/settings/NeoChatSecurityPage.qml:77
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Import Keys"
+msgctxt "@action:button"
+msgid "Import Keys"
+msgstr "சாவிகளை இறக்குமதி செய்வது"
 
 #: src/settings/NeoChatSecurityPage.qml:78
 #, fuzzy, kde-format
-#| msgid "Encryption key"
-msgctxt "@action:button"
-msgid "Import Encryption Keys"
-msgstr "மறையாக்க சாவி"
+#| msgctxt "@action:button"
+#| msgid "Import Encryption Keys"
+msgctxt "@info"
+msgid "Import encryption keys from a backup."
+msgstr "மறையாக்க சாவிகளை இறக்குமதி செய்"
 
 #: src/settings/NeoChatSecurityPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
-msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
+msgstr "சாவிகள் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன"
 
-#: src/settings/NeoChatSecurityPage.qml:95
+#: src/settings/NeoChatSecurityPage.qml:100
 #, fuzzy, kde-format
-#| msgid "Encryption key"
+#| msgctxt "@title"
+#| msgid "Export Keys"
 msgctxt "@action:button"
-msgid "Export Encryption Keys"
-msgstr "மறையாக்க சாவி"
+msgid "Export Keys"
+msgstr "சாவிகளை ஏற்றுமதி செய்"
+
+#: src/settings/NeoChatSecurityPage.qml:101
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Export Encryption Keys"
+msgctxt "@info"
+msgid "Export this device's encryption keys."
+msgstr "மறையாக்க சாவிகளை ஏற்றுமதி செய்"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -4795,12 +4833,6 @@ msgstr "தோற்றம்"
 #, kde-format
 msgid "Notifications"
 msgstr "அறிவிப்புகள்"
-
-#: src/settings/NeoChatSettingsView.qml:51 src/settings/RoomSecurityPage.qml:20
-#: src/settings/RoomSettingsView.qml:51
-#, kde-format
-msgid "Security"
-msgstr "பாதுகாப்பு"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5130,6 +5162,11 @@ msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "இத்தேர்வை பயன்படுத்த இவ்வரங்கை புதிய பதிப்புக்குப் புதுப்பிக்க வேண்டும்."
 
+#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#, kde-format
+msgid "Security"
+msgstr "பாதுகாப்பு"
+
 #: src/settings/RoomSecurityPage.qml:23
 #, kde-format
 msgctxt "@option:check"
@@ -5294,12 +5331,6 @@ msgctxt "@action:button"
 msgid "Share"
 msgstr "பகிர்"
 
-#: src/settings/ThreePIdCard.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove"
-msgstr "நீக்கு"
-
 #: src/settings/ThreePIdCard.qml:85
 #, kde-format
 msgctxt "@action:button"
@@ -5319,20 +5350,16 @@ msgid "Country Code for new phone number"
 msgstr "புதிய தொலைபேசி எண்ணுக்கான சர்வதேச குறியெண்"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New email address"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
-msgstr "புதிய மின்னஞ்சல் முகவரி"
+msgstr "புதிய மின்னஞ்சல் முகவரி:"
 
 #: src/settings/ThreePIdCard.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New phone number"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
-msgstr "புதிய தொலைபேசி எண்"
+msgstr "புதிய தொலைபேசி எண்:"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
 #, kde-format
@@ -5426,11 +5453,10 @@ msgid "Confirm edit"
 msgstr "திருத்தத்தை உறுதிசெய்"
 
 #: src/timeline/ChatBarComponent.qml:106
-#, fuzzy, kde-format
-#| msgid "No messages found"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
-msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
+msgstr "தொடரில் தகவலை இடு"
 
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
@@ -5502,11 +5528,10 @@ msgid "Check-out time: %1"
 msgstr "வெளியேற்றப்பதிவுக்கான நேரம்: %1"
 
 #: src/timeline/ImageComponent.qml:138
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
-msgstr "படத்தை அமை"
+msgstr "படத்தைக் காட்டு"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -5537,8 +5562,7 @@ msgid "Loading URL preview"
 msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
 
 #: src/timeline/LocationComponent.qml:113
-#, fuzzy, kde-format
-#| msgid "Open Externally"
+#, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "வெளியமைவாகத் திற"
@@ -5583,14 +5607,13 @@ msgstr "நடைமேடை %1"
 #: src/timeline/VideoComponent.qml:218
 #, kde-format
 msgid "Video"
-msgstr "ஒளிக்காட்சி"
+msgstr "நிகழ்படம்"
 
 #: src/timeline/VideoComponent.qml:258
-#, fuzzy, kde-format
-#| msgid "Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
-msgstr "ஒளிக்காட்சி"
+msgstr "நிகழ்படத்தை காட்டு"
 
 #: src/timeline/VideoComponent.qml:299
 #, kde-format
@@ -5612,6 +5635,55 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgctxt "@title"
+#~ msgid "Remove Message"
+#~ msgstr "செய்தியை நீக்குவது"
+
+#~ msgid "Add"
+#~ msgstr "சேர்"
+
+#~ msgid "No users available"
+#~ msgstr "எந்த பயனர்களும் கிடைக்கவில்லை"
+
+#~ msgctxt "@title"
+#~ msgid "Ban User"
+#~ msgstr "பயனரை தடை செய்வது"
+
+#~ msgctxt "@title"
+#~ msgid "Security"
+#~ msgstr "பாதுகாப்பு"
+
+#~| msgid "Accept Invitation"
+#~ msgctxt "@title:group"
+#~ msgid "Invitations"
+#~ msgstr "அழைப்பிதழ்கள்"
+
+#~ msgctxt "@title:group"
+#~ msgid "Ignored Users"
+#~ msgstr "பொருட்படுத்தப்படா பயனர்கள்"
+
+#~ msgctxt "@action:button"
+#~ msgid "Manage ignored users"
+#~ msgstr "பொருட்படுத்தப்படா பயனர்களை நிர்வகி"
+
+#~ msgctxt "@title"
+#~ msgid "Keys"
+#~ msgstr "சாவிகள்"
+
+#~ msgid "Device key"
+#~ msgstr "சாதனச் சாவிகள்"
+
+#~ msgid "Encryption key"
+#~ msgstr "மறையாக்க சாவி"
+
+#~ msgid "Device id"
+#~ msgstr "சாதன அடையாளம்"
+
+#~| msgid "Encryption key"
+#~ msgctxt "@title"
+#~ msgid "Encryption Keys"
+#~ msgstr "மறையாக்க சாவிகள்"
 
 #~ msgctxt "@action:button"
 #~ msgid "Open proxy settings"
@@ -6063,9 +6135,6 @@ msgstr "வெளியேறு"
 
 #~ msgid "Online"
 #~ msgstr "தொடர்பில்"
-
-#~ msgid "Local"
-#~ msgstr "உள்ளமைந்தவை"
 
 #~ msgid "Global"
 #~ msgstr "பொதுவானவை"

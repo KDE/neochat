@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-02 00:38+0000\n"
-"PO-Revision-Date: 2024-08-27 09:43+0200\n"
+"POT-Creation-Date: 2024-09-03 00:39+0000\n"
+"PO-Revision-Date: 2024-09-02 07:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -184,7 +184,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Prikaži fokus v glavi okna"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:262
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:246
 #, kde-format
 msgid "Developer Tools"
 msgstr "Razvojna orodja"
@@ -379,7 +379,7 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:279 src/eventhandler.cpp:487
+#: src/eventhandler.cpp:279 src/eventhandler.cpp:491
 #: src/models/messagecontentmodel.cpp:276 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
@@ -402,7 +402,7 @@ msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:324 src/eventhandler.cpp:511
+#: src/eventhandler.cpp:324 src/eventhandler.cpp:515
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "se je pridružil v sobi (ponovno)"
@@ -412,7 +412,7 @@ msgstr "se je pridružil v sobi (ponovno)"
 msgid "invited %1 to the room"
 msgstr "povabljen %1 v sobo"
 
-#: src/eventhandler.cpp:326 src/eventhandler.cpp:513
+#: src/eventhandler.cpp:326 src/eventhandler.cpp:517
 #, kde-format
 msgid "joined the room"
 msgstr "se je pridružil v sobi"
@@ -422,7 +422,7 @@ msgstr "se je pridružil v sobi"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:337 src/eventhandler.cpp:521
+#: src/eventhandler.cpp:337 src/eventhandler.cpp:525
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
@@ -434,29 +434,29 @@ msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "je spremenil ime prikaza na %1"
 
-#: src/eventhandler.cpp:346 src/eventhandler.cpp:528
+#: src/eventhandler.cpp:346 src/eventhandler.cpp:532
 #, kde-format
 msgid " and "
 msgstr " in "
 
-#: src/eventhandler.cpp:349 src/eventhandler.cpp:531
+#: src/eventhandler.cpp:349 src/eventhandler.cpp:535
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "je očistil njihov avatar"
 
-#: src/eventhandler.cpp:351 src/eventhandler.cpp:533
+#: src/eventhandler.cpp:351 src/eventhandler.cpp:537
 #, kde-format
 msgid "set an avatar"
 msgstr "nastavi avatarja"
 
-#: src/eventhandler.cpp:353 src/eventhandler.cpp:535
+#: src/eventhandler.cpp:353 src/eventhandler.cpp:539
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "posodobil njihov avatar"
 
-#: src/eventhandler.cpp:357 src/eventhandler.cpp:539
+#: src/eventhandler.cpp:357 src/eventhandler.cpp:543
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
@@ -467,7 +467,7 @@ msgstr "nič ni spremenjenega"
 msgid "withdrew %1's invitation"
 msgstr "je umaknil povabilo %1"
 
-#: src/eventhandler.cpp:363 src/eventhandler.cpp:545
+#: src/eventhandler.cpp:363 src/eventhandler.cpp:549
 #, kde-format
 msgid "rejected the invitation"
 msgstr "zavrnil povabilo"
@@ -477,247 +477,253 @@ msgstr "zavrnil povabilo"
 msgid "unbanned %1"
 msgstr "brez prepovedi %1"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:367 src/eventhandler.cpp:553
 #, kde-format
 msgid "self-unbanned"
 msgstr "sama rešena prepovedi"
 
-#: src/eventhandler.cpp:370
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "je postavil %1 ven iz sobe: %2"
-
-#: src/eventhandler.cpp:371 src/eventhandler.cpp:551
+#: src/eventhandler.cpp:370 src/eventhandler.cpp:555
 #, kde-format
 msgid "left the room"
 msgstr "je zapustil sobo"
 
+#: src/eventhandler.cpp:373
+#, kde-format
+msgid "has put %1 out of the room: %2"
+msgstr "je postavil %1 ven iz sobe: %2"
+
 #: src/eventhandler.cpp:375
+#, fuzzy, kde-format
+#| msgid "has put %1 out of the room: %2"
+msgid "has put %1 out of the room"
+msgstr "je postavil %1 ven iz sobe: %2"
+
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "prepovedan %1 iz sobe"
 
-#: src/eventhandler.cpp:377
+#: src/eventhandler.cpp:381
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "je prepovedal %1 v sobo: %2"
 
-#: src/eventhandler.cpp:380 src/eventhandler.cpp:556
+#: src/eventhandler.cpp:384 src/eventhandler.cpp:560
 #, kde-format
 msgid "self-banned from the room"
 msgstr "samo-prepovedano iz sobe"
 
-#: src/eventhandler.cpp:384 src/eventhandler.cpp:559
+#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
 #, kde-format
 msgid "requested an invite"
 msgstr "je zahteval povabilo"
 
-#: src/eventhandler.cpp:384
+#: src/eventhandler.cpp:388
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "je zahteval povabilo z razlogom: %1"
 
-#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
+#: src/eventhandler.cpp:392 src/eventhandler.cpp:567
 #, kde-format
 msgid "made something unknown"
 msgstr "je naredil nekaj neznanega"
 
-#: src/eventhandler.cpp:391 src/eventhandler.cpp:566
+#: src/eventhandler.cpp:395 src/eventhandler.cpp:570
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "je očistil glavni vzdevek sobe"
 
-#: src/eventhandler.cpp:391
+#: src/eventhandler.cpp:395
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "nastavi vzdevek sobe na: %1"
 
-#: src/eventhandler.cpp:394 src/eventhandler.cpp:569
+#: src/eventhandler.cpp:398 src/eventhandler.cpp:573
 #, kde-format
 msgid "cleared the room name"
 msgstr "je obrisal ime sobe"
 
-#: src/eventhandler.cpp:394
+#: src/eventhandler.cpp:398
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "je nastavil ime sobe na: %1"
 
-#: src/eventhandler.cpp:397 src/eventhandler.cpp:572
+#: src/eventhandler.cpp:401 src/eventhandler.cpp:576
 #, kde-format
 msgid "cleared the topic"
 msgstr "je počistil temo"
 
-#: src/eventhandler.cpp:398
+#: src/eventhandler.cpp:402
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "je nastavil temo na: %1"
 
-#: src/eventhandler.cpp:404 src/eventhandler.cpp:575
+#: src/eventhandler.cpp:408 src/eventhandler.cpp:579
 #, kde-format
 msgid "changed the room avatar"
 msgstr "je spremenil avatar sobe"
 
-#: src/eventhandler.cpp:407 src/eventhandler.cpp:578
+#: src/eventhandler.cpp:411 src/eventhandler.cpp:582
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "je aktiviral šifriranje od točke do točke"
 
-#: src/eventhandler.cpp:411
+#: src/eventhandler.cpp:415
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "je nadgradil sobo na verzijo %1"
 
-#: src/eventhandler.cpp:412
+#: src/eventhandler.cpp:416
 #, kde-format
 msgid "created the room, version %1"
 msgstr "je ustvaril sobo verzije %1"
 
-#: src/eventhandler.cpp:415 src/eventhandler.cpp:584
+#: src/eventhandler.cpp:419 src/eventhandler.cpp:588
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "spremenil ravni moči za to sobo"
 
-#: src/eventhandler.cpp:421 src/eventhandler.cpp:590
+#: src/eventhandler.cpp:425 src/eventhandler.cpp:594
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "spremenil sezname za nadzor dostopa do strežnika za to sobo"
 
-#: src/eventhandler.cpp:425
+#: src/eventhandler.cpp:429
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "dodan gradnik %1"
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:432
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "odstranjen gradnik %1"
 
-#: src/eventhandler.cpp:430
+#: src/eventhandler.cpp:434
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "nastavljen gradnik %1"
 
-#: src/eventhandler.cpp:433
+#: src/eventhandler.cpp:437
 #, kde-format
 msgid "updated %1 state"
 msgstr "je posodobil stanje %1"
 
-#: src/eventhandler.cpp:434
+#: src/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "je posodobil stanje %1 za %2"
 
-#: src/eventhandler.cpp:439 src/eventhandler.cpp:608
+#: src/eventhandler.cpp:443 src/eventhandler.cpp:612
 #, kde-format
 msgid "Unknown event"
 msgstr "Neznan dogodek"
 
-#: src/eventhandler.cpp:454
+#: src/eventhandler.cpp:458
 #, kde-format
 msgid "a file"
 msgstr "datoteka"
 
-#: src/eventhandler.cpp:494
+#: src/eventhandler.cpp:498
 #, kde-format
 msgid "sent a message"
 msgstr "je poslal sporočilo"
 
-#: src/eventhandler.cpp:498
+#: src/eventhandler.cpp:502
 #, kde-format
 msgid "sent a sticker"
 msgstr "je poslal nalepko"
 
-#: src/eventhandler.cpp:504
+#: src/eventhandler.cpp:508
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "je ponovno povabil nekoga v sobo"
 
-#: src/eventhandler.cpp:513
+#: src/eventhandler.cpp:517
 #, kde-format
 msgid "invited someone to the room"
 msgstr "je povabil nekoga v sobo"
 
-#: src/eventhandler.cpp:523
+#: src/eventhandler.cpp:527
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "je spremenil njihovo ime prikaza"
 
-#: src/eventhandler.cpp:545
+#: src/eventhandler.cpp:549
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "je umaknil povabilo"
 
-#: src/eventhandler.cpp:549
+#: src/eventhandler.cpp:553
 #, kde-format
 msgid "unbanned a user"
 msgstr "je umaknil prepoved uporabnika"
 
-#: src/eventhandler.cpp:551
+#: src/eventhandler.cpp:555
 #, kde-format
 msgid "put a user out of the room"
 msgstr "je postavil uporabnika iz sobe"
 
-#: src/eventhandler.cpp:554
+#: src/eventhandler.cpp:558
 #, kde-format
 msgid "banned a user from the room"
 msgstr "je prepovedal uporabniku v sobo"
 
-#: src/eventhandler.cpp:566
+#: src/eventhandler.cpp:570
 #, kde-format
 msgid "set the room main alias"
 msgstr "je nastavil vzdevek sobe"
 
-#: src/eventhandler.cpp:569
+#: src/eventhandler.cpp:573
 #, kde-format
 msgid "set the room name"
 msgstr "je nastavil ime sobe"
 
-#: src/eventhandler.cpp:572
+#: src/eventhandler.cpp:576
 #, kde-format
 msgid "set the topic"
 msgstr "je nastavil temo"
 
-#: src/eventhandler.cpp:581
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "upgraded the room version"
 msgstr "je nadgradil različico sobe"
 
-#: src/eventhandler.cpp:581
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "created the room"
 msgstr "je ustvaril sobo"
 
-#: src/eventhandler.cpp:587
+#: src/eventhandler.cpp:591
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "je v živo posvetil žarek iz lokacije"
 
-#: src/eventhandler.cpp:594
+#: src/eventhandler.cpp:598
 #, kde-format
 msgid "added a widget"
 msgstr "je dodaj gradnik"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:601
 #, kde-format
 msgid "removed a widget"
 msgstr "je odstranil gradnik"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:603
 #, kde-format
 msgid "configured a widget"
 msgstr "je nastavil gradnik"
 
-#: src/eventhandler.cpp:602
+#: src/eventhandler.cpp:606
 #, kde-format
 msgid "updated the state"
 msgstr "je posodobil stanje"
 
-#: src/eventhandler.cpp:606
+#: src/eventhandler.cpp:610
 #, kde-format
 msgid "started a poll"
 msgstr "je začel glasovanje"
@@ -960,8 +966,7 @@ msgid "Go back"
 msgstr "Pojdi nazaj"
 
 #: src/login/WelcomePage.qml:252
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Nastavitve"
@@ -1798,7 +1803,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
-#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply"
@@ -1875,7 +1880,7 @@ msgstr "Nastavitve obvestil"
 msgid "Devices"
 msgstr "Naprave"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:258
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:242
 #, kde-format
 msgid "Open developer tools"
 msgstr "Odpri razvojna orodja"
@@ -1964,29 +1969,6 @@ msgstr "Uredi"
 #, kde-format
 msgid "Cancel sending attachment"
 msgstr "Prekliči pošiljanje priloge"
-
-#: src/qml/BanSheet.qml:18
-#, kde-format
-msgid "Ban User"
-msgstr "Prepovej uporabnika"
-
-#: src/qml/BanSheet.qml:27
-#, kde-format
-msgid "Reason for banning this user"
-msgstr "Razlog za prepoved za tega uporabnika"
-
-#: src/qml/BanSheet.qml:43
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "Prepoved"
-
-#: src/qml/BanSheet.qml:52 src/qml/InviteUserPage.qml:24
-#: src/qml/RemoveSheet.qml:57 src/qml/ReportSheet.qml:52
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Prekliči"
 
 #: src/qml/ChooseRoomDialog.qml:14
 #, kde-format
@@ -2213,8 +2195,8 @@ msgstr "Nastavitve sobe"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:162
-#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:272
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/ExploreComponentMobile.qml:164 src/qml/SpaceDrawer.qml:279
+#: src/qml/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2328,41 +2310,78 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "V redu"
 
-#: src/qml/DelegateContextMenu.qml:78
+#: src/qml/DelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "Prikaži vir"
 
-#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:67
+#: src/qml/DelegateContextMenu.qml:90 src/settings/ThreePIdCard.qml:66
 #, kde-format
+msgctxt "@action:button"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/qml/DelegateContextMenu.qml:92 src/qml/FileDelegateContextMenu.qml:74
-#, kde-format
-msgctxt "@title"
+#: src/qml/DelegateContextMenu.qml:95 src/qml/DelegateContextMenu.qml:100
+#: src/qml/FileDelegateContextMenu.qml:75
+#: src/qml/FileDelegateContextMenu.qml:80
+#, fuzzy, kde-format
+#| msgid "Remove Message"
+msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Odstrani sporočilo"
 
-#: src/qml/DelegateContextMenu.qml:108 src/qml/ReportSheet.qml:43
+#: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:76
+#, fuzzy, kde-format
+#| msgid "Reason for removing this message"
+msgctxt "@info:placeholder"
+msgid "Reason for removing this message"
+msgstr "Razlog za odstranjevanje tega sporočila"
+
+#: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:77
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "Odstrani"
+
+#: src/qml/DelegateContextMenu.qml:120 src/qml/DelegateContextMenu.qml:128
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Poročilo"
 
-#: src/qml/DelegateContextMenu.qml:115
+#: src/qml/DelegateContextMenu.qml:125
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgctxt "@title:dialog"
+msgid "Report Message"
+msgstr "Poročaj sporočilo"
+
+#: src/qml/DelegateContextMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Reason for reporting this message"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this message"
+msgstr "Razlog za poročanje tega sporočila"
+
+#: src/qml/DelegateContextMenu.qml:130
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Poročaj sporočilo"
 
-#: src/qml/DelegateContextMenu.qml:160
+#: src/qml/DelegateContextMenu.qml:140
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Prikaži uporabnika"
+
+#: src/qml/DelegateContextMenu.qml:188
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Poišči »%1«"
 
-#: src/qml/DelegateContextMenu.qml:181
+#: src/qml/DelegateContextMenu.qml:210
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Nastavi spletne bližnjice …"
@@ -2554,21 +2573,26 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Nobene javne sobe ni najdene"
 
-#: src/qml/FileDelegateContextMenu.qml:42
+#: src/qml/FileDelegateContextMenu.qml:45
 #, kde-format
 msgid "Open Externally"
 msgstr "Odpri zunanje"
 
-#: src/qml/FileDelegateContextMenu.qml:49
+#: src/qml/FileDelegateContextMenu.qml:52
 #, kde-format
 msgid "Save As"
 msgstr "Shrani kot"
 
-#: src/qml/FileDelegateContextMenu.qml:59
+#: src/qml/FileDelegateContextMenu.qml:62
 #: src/qml/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgid "Copy"
 msgstr "Kopiraj"
+
+#: src/qml/FileDelegateContextMenu.qml:70
+#, kde-format
+msgid "Remove"
+msgstr "Odstrani"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2798,35 +2822,47 @@ msgstr "Zavrni"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/qml/InviteUserPage.qml:19
-#, kde-format
+#: src/qml/InviteUserPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Invite a User"
+msgctxt "@title:dialog"
 msgid "Invite a User"
 msgstr "Povabi uporabnika"
 
-#: src/qml/InviteUserPage.qml:37
-#, kde-format
-msgid "Find a user..."
+#: src/qml/InviteUserPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find a user..."
+msgctxt "@info:placeholder"
+msgid "Find a user…"
 msgstr "Najdi uporabnika …"
 
-#: src/qml/InviteUserPage.qml:44
-#, kde-format
-msgid "Add"
-msgstr "Dodaj"
+#: src/qml/InviteUserPage.qml:24
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/InviteUserPage.qml:70
-#, kde-format
-msgid "No users available"
-msgstr "Nobenega uporabnika ni na voljo"
+#: src/qml/InviteUserPage.qml:31
+#, fuzzy, kde-format
+#| msgid "Invite this user"
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "Povabi tega uporabnika"
 
-#: src/qml/InviteUserPage.qml:101
-#, kde-format
-msgid "Send invitation"
-msgstr "Pošlji povabilo"
-
-#: src/qml/InviteUserPage.qml:115
-#, kde-format
+#: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
+#, fuzzy, kde-format
+#| msgid "User is either already a member or has been invited"
+msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "Uporabnik je ali že član ali je bil povabljen"
+
+#: src/qml/InviteUserPage.qml:75
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "Pošlji povabilo"
 
 #: src/qml/JoinRoomDialog.qml:29
 #, kde-format
@@ -2889,6 +2925,20 @@ msgstr "Izberi lokacijo"
 #, kde-format
 msgid "Send this location"
 msgstr "Pošlji to lokacijo"
+
+#: src/qml/LocationChooser.qml:35
+#, kde-format
+msgctxt "@action:intoolbar Re-center the map onto the set location"
+msgid "Re-Center"
+msgstr ""
+
+#: src/qml/LocationChooser.qml:41
+#, fuzzy, kde-format
+#| msgctxt "Locations on a map"
+#| msgid "Locations"
+msgctxt "@action:intoolbar Determine the device's location"
+msgid "Locate"
+msgstr "Lokacije"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, kde-format
@@ -2985,13 +3035,7 @@ msgctxt "@title"
 msgid "Forward Message"
 msgstr "Prenesi sporočilo naprej"
 
-#: src/qml/MessageDelegateContextMenu.qml:70
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Prikaži uporabnika"
-
-#: src/qml/MessageDelegateContextMenu.qml:78
+#: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
 msgid "Copy Link"
 msgstr "Kopiraj povezavo"
@@ -3070,19 +3114,25 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nobene sobe ni mogoče najti"
 
+#: src/qml/ReasonDialog.qml:53
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Prekliči"
+
 #: src/qml/RecommendedSpaceDialog.qml:25
 #, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
 msgstr "Pridruži se %1"
 
-#: src/qml/RecommendedSpaceDialog.qml:52
+#: src/qml/RecommendedSpaceDialog.qml:53
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Pridruži se"
 
-#: src/qml/RecommendedSpaceDialog.qml:60
+#: src/qml/RecommendedSpaceDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
@@ -3105,42 +3155,6 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr "Trenutni prostor je uradni nadrejeni te sobe, ali naj bo izpraznjen?"
-
-#: src/qml/RemoveSheet.qml:20
-#, kde-format
-msgid "Remove Messages"
-msgstr "Odstrani sporočila"
-
-#: src/qml/RemoveSheet.qml:20
-#, kde-format
-msgid "Remove Message"
-msgstr "Odstrani sporočilo"
-
-#: src/qml/RemoveSheet.qml:29
-#, kde-format
-msgid "Reason for removing this user's recent messages"
-msgstr "Razlog za odstranjevanje nedavnih sporočil tega uporabnika"
-
-#: src/qml/RemoveSheet.qml:29
-#, kde-format
-msgid "Reason for removing this message"
-msgstr "Razlog za odstranjevanje tega sporočila"
-
-#: src/qml/RemoveSheet.qml:44
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove this message'"
-msgid "Remove"
-msgstr "Odstrani"
-
-#: src/qml/ReportSheet.qml:18
-#, kde-format
-msgid "Report Message"
-msgstr "Poročaj sporočilo"
-
-#: src/qml/ReportSheet.qml:27
-#, kde-format
-msgid "Reason for reporting this message"
-msgstr "Razlog za poročanje tega sporočila"
 
 #: src/qml/RoomDelegate.qml:112
 #, kde-format
@@ -3471,13 +3485,13 @@ msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Prijatelji"
 
-#: src/qml/SpaceDrawer.qml:220
+#: src/qml/SpaceDrawer.qml:227
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Pridruži se %1"
 
-#: src/qml/SpaceDrawer.qml:262
+#: src/qml/SpaceDrawer.qml:269
 #, kde-format
 msgid "Create a space"
 msgstr "Ustvari prostor"
@@ -3716,55 +3730,92 @@ msgstr "Povabi tega uporabnika"
 msgid "Ban this user"
 msgstr "Prepovej tega uporabnika"
 
-#: src/qml/UserDetailDialog.qml:157
-#, kde-format
-msgctxt "@title"
+#: src/qml/UserDetailDialog.qml:154 src/qml/UserDetailDialog.qml:159
+#, fuzzy, kde-format
+#| msgid "Ban User"
+msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Prepovej uporabnika"
 
-#: src/qml/UserDetailDialog.qml:169
+#: src/qml/UserDetailDialog.qml:155
+#, fuzzy, kde-format
+#| msgid "Reason for banning this user"
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "Razlog za prepoved za tega uporabnika"
+
+#: src/qml/UserDetailDialog.qml:156
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "Prepoved"
+
+#: src/qml/UserDetailDialog.qml:174
 #, kde-format
 msgid "Unban this user"
 msgstr "Prekini prepoved temu uporabniku"
 
-#: src/qml/UserDetailDialog.qml:182
+#: src/qml/UserDetailDialog.qml:187
 #, kde-format
 msgid "Set user power level"
 msgstr "Uredi raven moči uporabnika"
 
-#: src/qml/UserDetailDialog.qml:207
-#, kde-format
+#: src/qml/UserDetailDialog.qml:212
+#, fuzzy, kde-format
+#| msgid "Remove recent messages by this user"
+msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Odstrani nedavna sporočila tega uporabnika"
 
-#: src/qml/UserDetailDialog.qml:215
+#: src/qml/UserDetailDialog.qml:217
+#, fuzzy, kde-format
+#| msgid "Remove Messages"
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Odstrani sporočila"
+
+#: src/qml/UserDetailDialog.qml:218
+#, fuzzy, kde-format
+#| msgid "Reason for removing this user's recent messages"
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "Razlog za odstranjevanje nedavnih sporočil tega uporabnika"
+
+#: src/qml/UserDetailDialog.qml:219
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Odstrani"
+
+#: src/qml/UserDetailDialog.qml:222
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Odstrani sporočila"
 
-#: src/qml/UserDetailDialog.qml:226
+#: src/qml/UserDetailDialog.qml:236
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Klepet z %1"
 
-#: src/qml/UserDetailDialog.qml:226
+#: src/qml/UserDetailDialog.qml:236
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Povabi na zasebni klepet"
 
-#: src/qml/UserDetailDialog.qml:237
+#: src/qml/UserDetailDialog.qml:247
 #, kde-format
 msgid "Copy link"
 msgstr "Kopiraj povezavo"
 
-#: src/qml/UserInfo.qml:90
+#: src/qml/UserInfo.qml:91
 #, kde-format
 msgid "Switch User"
 msgstr "Preklopi uporabnika"
 
-#: src/qml/UserInfo.qml:99
+#: src/qml/UserInfo.qml:100
 #, kde-format
 msgid "Open Settings"
 msgstr "Odpri nastavitve"
@@ -4397,7 +4448,7 @@ msgid "Stickers & Emojis"
 msgstr "Nalepke in čustvenčki"
 
 #: src/settings/ExportKeysDialog.qml:18
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:107
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -4598,71 +4649,135 @@ msgstr "Prikaži na sistemskem pladnju"
 msgid "Minimize to system tray on startup"
 msgstr "Pomanjšaj na sistemski pladenj ob zagonu"
 
-#: src/settings/NeoChatGeneralPage.qml:63
+#: src/settings/NeoChatGeneralPage.qml:64
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Samodejno skrij/razkrij informacije o sobi ob spreminjanju velikosti okna"
 
-#: src/settings/NeoChatGeneralPage.qml:79
+#: src/settings/NeoChatGeneralPage.qml:80
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
 msgstr "Prikaži vse sobe v zavihku \"Domov\""
 
-#: src/settings/NeoChatGeneralPage.qml:90
+#: src/settings/NeoChatGeneralPage.qml:91
 #, kde-format
 msgid "Room list sort order"
 msgstr "Vrstni red seznama sob"
 
-#: src/settings/NeoChatGeneralPage.qml:94
+#: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Dejavnost"
 
-#: src/settings/NeoChatGeneralPage.qml:103
+#: src/settings/NeoChatGeneralPage.qml:104
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Abecedni"
 
-#: src/settings/NeoChatGeneralPage.qml:113
+#: src/settings/NeoChatGeneralPage.qml:114
 #, kde-format
 msgid "Timeline Events"
 msgstr "Dogodki na časovnici"
 
-#: src/settings/NeoChatGeneralPage.qml:118
+#: src/settings/NeoChatGeneralPage.qml:119
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Prikaži zbrisana sporočila"
 
-#: src/settings/NeoChatGeneralPage.qml:134
+#: src/settings/NeoChatGeneralPage.qml:135
 #, kde-format
 msgid "Show state events"
 msgstr "Prikaži dogodke stanj"
 
-#: src/settings/NeoChatGeneralPage.qml:152
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Prikaži dogodke odhodov in prihodov"
 
-#: src/settings/NeoChatGeneralPage.qml:170
+#: src/settings/NeoChatGeneralPage.qml:171
 #, kde-format
 msgid "Show name change events"
 msgstr "Prikaži dogodke spremembe imen"
 
-#: src/settings/NeoChatGeneralPage.qml:188
+#: src/settings/NeoChatGeneralPage.qml:189
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Prikaži dogodke posodobitve avatarjev"
 
+#: src/settings/NeoChatGeneralPage.qml:199
+#, kde-format
+msgctxt "Chat Editor"
+msgid "Editor"
+msgstr "Urejevalnik"
+
 #: src/settings/NeoChatGeneralPage.qml:204
 #, kde-format
+msgid "Use s/text/replacement syntax to edit your last message"
+msgstr ""
+"Uporabi skladnjo s/besedilo/zamenjava za urejanje vašega zadnjega sporočila"
+
+#: src/settings/NeoChatGeneralPage.qml:218
+#, kde-format
+msgid "Send typing notifications"
+msgstr "Pošlji obvestila tipkanja"
+
+#: src/settings/NeoChatGeneralPage.qml:228
+#, kde-format
+msgid "Developer Settings"
+msgstr "Nastavitve razvoja"
+
+#: src/settings/NeoChatGeneralPage.qml:232
+#, kde-format
+msgid "Enable developer tools"
+msgstr "Omogoči razvojna orodja"
+
+#: src/settings/NeoChatGeneralPage.qml:251
+#, kde-format
+msgctxt "@title"
+msgid "Default Settings"
+msgstr "Privzete nastavitve"
+
+#: src/settings/NeoChatGeneralPage.qml:255
+#, kde-format
+msgctxt "@action:button"
+msgid "Reset all configuration values to their default"
+msgstr "Ponastavi vse konfiguracijske vrednosti na privzete"
+
+#: src/settings/NeoChatSecurityPage.qml:19
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Varnostni ključ:"
+
+#: src/settings/NeoChatSecurityPage.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ignored Users"
+msgctxt "@action:button"
+msgid "Ignored Users"
+msgstr "Prezrti uporabniki"
+
+#: src/settings/NeoChatSecurityPage.qml:35
+#, kde-format
+msgctxt "@title:window"
+msgid "Ignored Users"
+msgstr "Prezrti uporabniki"
+
+#: src/settings/NeoChatSecurityPage.qml:44
+#, fuzzy, kde-format
+#| msgctxt "@label:checkbox"
+#| msgid "Hide image and video events by default"
 msgctxt "@label:checkbox"
-msgid "Hide image and video events by default"
+msgid "Hide images and videos by default"
 msgstr "Privzeto skrij slikovne in video dogodke"
 
-#: src/settings/NeoChatGeneralPage.qml:205
+#: src/settings/NeoChatSecurityPage.qml:45
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4672,65 +4787,18 @@ msgstr ""
 "Ko je ta možnost omogočena, se slike in videoposnetki prikažejo šele po "
 "kliku gumba."
 
-#: src/settings/NeoChatGeneralPage.qml:215
-#, kde-format
-msgctxt "Chat Editor"
-msgid "Editor"
-msgstr "Urejevalnik"
-
-#: src/settings/NeoChatGeneralPage.qml:220
-#, kde-format
-msgid "Use s/text/replacement syntax to edit your last message"
-msgstr ""
-"Uporabi skladnjo s/besedilo/zamenjava za urejanje vašega zadnjega sporočila"
-
-#: src/settings/NeoChatGeneralPage.qml:234
-#, kde-format
-msgid "Send typing notifications"
-msgstr "Pošlji obvestila tipkanja"
-
-#: src/settings/NeoChatGeneralPage.qml:244
-#, kde-format
-msgid "Developer Settings"
-msgstr "Nastavitve razvoja"
-
-#: src/settings/NeoChatGeneralPage.qml:248
-#, kde-format
-msgid "Enable developer tools"
-msgstr "Omogoči razvojna orodja"
-
-#: src/settings/NeoChatGeneralPage.qml:267
-#, kde-format
-msgctxt "@title"
-msgid "Default Settings"
-msgstr "Privzete nastavitve"
-
-#: src/settings/NeoChatGeneralPage.qml:271
-#, kde-format
-msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
-msgstr "Ponastavi vse konfiguracijske vrednosti na privzete"
-
-#: src/settings/NeoChatSecurityPage.qml:18
-#, kde-format
-msgctxt "@title"
-msgid "Security"
-msgstr "Varnost"
-
-#: src/settings/NeoChatSecurityPage.qml:28
-#, kde-format
-msgctxt "@title:group"
-msgid "Invitations"
-msgstr "Povabila"
-
-#: src/settings/NeoChatSecurityPage.qml:32
+#: src/settings/NeoChatSecurityPage.qml:59
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "Zavračaj povabila neznanih uporabnikov"
 
-#: src/settings/NeoChatSecurityPage.qml:33
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:60
+#, fuzzy, kde-format
+#| msgid ""
+#| "If enabled, NeoChat will reject invitations from users you don't share a "
+#| "room with."
+msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
 "room with."
@@ -4738,60 +4806,35 @@ msgstr ""
 "Če je omogočeno, bo NeoChat zavračal povabila uporabnikov s katerimi si ne "
 "delite sobe."
 
-#: src/settings/NeoChatSecurityPage.qml:33
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:60
+#, fuzzy, kde-format
+#| msgid "Your server does not support this setting."
+msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Vaš strežnik ne podpira te nastavitve."
 
-#: src/settings/NeoChatSecurityPage.qml:43
-#, kde-format
-msgctxt "@title:group"
-msgid "Ignored Users"
-msgstr "Prezrti uporabniki"
+#: src/settings/NeoChatSecurityPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgctxt "@title"
+msgid "Encryption"
+msgstr "Šifriranje"
 
-#: src/settings/NeoChatSecurityPage.qml:47
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:77
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Import Keys"
 msgctxt "@action:button"
-msgid "Manage ignored users"
-msgstr "Upravljaj prezrte uporabnike"
-
-#: src/settings/NeoChatSecurityPage.qml:49
-#, kde-format
-msgctxt "@title:window"
-msgid "Ignored Users"
-msgstr "Prezrti uporabniki"
-
-#: src/settings/NeoChatSecurityPage.qml:54
-#, kde-format
-msgctxt "@title"
-msgid "Keys"
-msgstr "Ključi"
-
-#: src/settings/NeoChatSecurityPage.qml:59
-#, kde-format
-msgid "Device key"
-msgstr "Ključ naprave"
-
-#: src/settings/NeoChatSecurityPage.qml:63
-#, kde-format
-msgid "Encryption key"
-msgstr "Šifrirni ključ"
-
-#: src/settings/NeoChatSecurityPage.qml:67
-#, kde-format
-msgid "Device id"
-msgstr "Določilnik naprave"
-
-#: src/settings/NeoChatSecurityPage.qml:73
-#, kde-format
-msgctxt "@title"
-msgid "Encryption Keys"
-msgstr "Šifrirni ključi"
+msgid "Import Keys"
+msgstr "Uvozi ključe"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, kde-format
-msgctxt "@action:button"
-msgid "Import Encryption Keys"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Import Encryption Keys"
+msgctxt "@info"
+msgid "Import encryption keys from a backup."
 msgstr "Uvozi šifrirne ključe"
 
 #: src/settings/NeoChatSecurityPage.qml:87
@@ -4800,10 +4843,20 @@ msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Ključi uspešno uvoženi"
 
-#: src/settings/NeoChatSecurityPage.qml:95
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:100
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Export Keys"
 msgctxt "@action:button"
-msgid "Export Encryption Keys"
+msgid "Export Keys"
+msgstr "Izvozi ključe"
+
+#: src/settings/NeoChatSecurityPage.qml:101
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Export Encryption Keys"
+msgctxt "@info"
+msgid "Export this device's encryption keys."
 msgstr "Izvozi šifrirne ključe"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
@@ -4821,12 +4874,6 @@ msgstr "Videz"
 #, kde-format
 msgid "Notifications"
 msgstr "Obvestila"
-
-#: src/settings/NeoChatSettingsView.qml:51 src/settings/RoomSecurityPage.qml:20
-#: src/settings/RoomSettingsView.qml:51
-#, kde-format
-msgid "Security"
-msgstr "Varnost"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5157,6 +5204,11 @@ msgid ""
 msgstr ""
 "Da bi omogočili to nastavitev, morate posodobiti to sobo na novo različico."
 
+#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#, kde-format
+msgid "Security"
+msgstr "Varnost"
+
 #: src/settings/RoomSecurityPage.qml:23
 #, kde-format
 msgctxt "@option:check"
@@ -5324,12 +5376,6 @@ msgstr "Skrij"
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Deli"
-
-#: src/settings/ThreePIdCard.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove"
-msgstr "Odstrani"
 
 #: src/settings/ThreePIdCard.qml:85
 #, kde-format
@@ -5562,11 +5608,10 @@ msgid "Loading URL preview"
 msgstr "Nalaganje predogleda URL"
 
 #: src/timeline/LocationComponent.qml:113
-#, fuzzy, kde-format
-#| msgid "Open Externally"
+#, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
-msgstr "Odpri zunanje"
+msgstr "Odpri od zunaj"
 
 #: src/timeline/MessageComponentChooser.qml:220
 #, kde-format
@@ -5639,6 +5684,53 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgctxt "@title"
+#~ msgid "Remove Message"
+#~ msgstr "Odstrani sporočilo"
+
+#~ msgid "Add"
+#~ msgstr "Dodaj"
+
+#~ msgid "No users available"
+#~ msgstr "Nobenega uporabnika ni na voljo"
+
+#~ msgctxt "@title"
+#~ msgid "Ban User"
+#~ msgstr "Prepovej uporabnika"
+
+#~ msgctxt "@title"
+#~ msgid "Security"
+#~ msgstr "Varnost"
+
+#~ msgctxt "@title:group"
+#~ msgid "Invitations"
+#~ msgstr "Povabila"
+
+#~ msgctxt "@title:group"
+#~ msgid "Ignored Users"
+#~ msgstr "Prezrti uporabniki"
+
+#~ msgctxt "@action:button"
+#~ msgid "Manage ignored users"
+#~ msgstr "Upravljaj prezrte uporabnike"
+
+#~ msgctxt "@title"
+#~ msgid "Keys"
+#~ msgstr "Ključi"
+
+#~ msgid "Device key"
+#~ msgstr "Ključ naprave"
+
+#~ msgid "Encryption key"
+#~ msgstr "Šifrirni ključ"
+
+#~ msgid "Device id"
+#~ msgstr "Določilnik naprave"
+
+#~ msgctxt "@title"
+#~ msgid "Encryption Keys"
+#~ msgstr "Šifrirni ključi"
 
 #~ msgctxt "@action:button"
 #~ msgid "Open proxy settings"
