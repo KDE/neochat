@@ -2,20 +2,40 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "permissionsmodel.h"
-#include "powerlevel.h"
 
 #include <Quotient/events/roompowerlevelsevent.h>
 
 #include <KLazyLocalizedString>
 
+#include "powerlevel.h"
+
+using namespace Qt::Literals::StringLiterals;
+
+namespace
+{
+constexpr auto UsersDefaultKey = "users_default"_L1;
+constexpr auto StateDefaultKey = "state_default"_L1;
+constexpr auto EventsDefaultKey = "events_default"_L1;
+
+constexpr auto InviteKey = "invite"_L1;
+constexpr auto KickKey = "kick"_L1;
+constexpr auto BanKey = "ban"_L1;
+constexpr auto RedactKey = "redact"_L1;
+
 static const QStringList defaultPermissions = {
-    QStringLiteral("users_default"),
-    QStringLiteral("state_default"),
-    QStringLiteral("events_default"),
-    QStringLiteral("invite"),
-    QStringLiteral("kick"),
-    QStringLiteral("ban"),
-    QStringLiteral("redact"),
+    UsersDefaultKey,
+    StateDefaultKey,
+    EventsDefaultKey,
+};
+
+static const QStringList basicPermissions = {
+    InviteKey,
+    KickKey,
+    BanKey,
+    RedactKey,
+};
+
+static const QStringList knownPermissions = {
     QStringLiteral("m.reaction"),
     QStringLiteral("m.room.redaction"),
     QStringLiteral("m.room.power_levels"),
@@ -33,14 +53,14 @@ static const QStringList defaultPermissions = {
 };
 
 // Alternate name text for default permissions.
-static const QHash<QString, KLazyLocalizedString> defaultPermissionNames = {
-    {QStringLiteral("users_default"), kli18nc("Room permission type", "Default user power level")},
-    {QStringLiteral("state_default"), kli18nc("Room permission type", "Default power level to set the room state")},
-    {QStringLiteral("events_default"), kli18nc("Room permission type", "Default power level to send messages")},
-    {QStringLiteral("invite"), kli18nc("Room permission type", "Invite users")},
-    {QStringLiteral("kick"), kli18nc("Room permission type", "Kick users")},
-    {QStringLiteral("ban"), kli18nc("Room permission type", "Ban users")},
-    {QStringLiteral("redact"), kli18nc("Room permission type", "Remove messages sent by other users")},
+static const QHash<QString, KLazyLocalizedString> permissionNames = {
+    {UsersDefaultKey, kli18nc("Room permission type", "Default user power level")},
+    {StateDefaultKey, kli18nc("Room permission type", "Default power level to set the room state")},
+    {EventsDefaultKey, kli18nc("Room permission type", "Default power level to send messages")},
+    {InviteKey, kli18nc("Room permission type", "Invite users")},
+    {KickKey, kli18nc("Room permission type", "Kick users")},
+    {BanKey, kli18nc("Room permission type", "Ban users")},
+    {RedactKey, kli18nc("Room permission type", "Remove messages sent by other users")},
     {QStringLiteral("m.reaction"), kli18nc("Room permission type", "Send reactions")},
     {QStringLiteral("m.room.redaction"), kli18nc("Room permission type", "Remove their own messages")},
     {QStringLiteral("m.room.power_levels"), kli18nc("Room permission type", "Change user permissions")},
@@ -58,10 +78,10 @@ static const QHash<QString, KLazyLocalizedString> defaultPermissionNames = {
 };
 
 // Subtitles for the default values.
-static const QHash<QString, KLazyLocalizedString> defaultSubtitles = {
-    {QStringLiteral("users_default"), kli18nc("Room permission type", "This is the power level for all new users when joining the room")},
-    {QStringLiteral("state_default"), kli18nc("Room permission type", "This is used for all state events that do not have their own entry here")},
-    {QStringLiteral("events_default"), kli18nc("Room permission type", "This is used for all message events that do not have their own entry here")},
+static const QHash<QString, KLazyLocalizedString> permissionSubtitles = {
+    {UsersDefaultKey, kli18nc("Room permission type", "This is the power level for all new users when joining the room")},
+    {StateDefaultKey, kli18nc("Room permission type", "This is used for all state events that do not have their own entry here")},
+    {EventsDefaultKey, kli18nc("Room permission type", "This is used for all message events that do not have their own entry here")},
 };
 
 // Permissions that should use the event default.
@@ -69,6 +89,7 @@ static const QStringList eventPermissions = {
     QStringLiteral("m.room.message"),
     QStringLiteral("m.reaction"),
     QStringLiteral("m.room.redaction"),
+};
 };
 
 PermissionsModel::PermissionsModel(QObject *parent)
@@ -109,6 +130,8 @@ void PermissionsModel::initializeModel()
     }
 
     m_permissions.append(defaultPermissions);
+    m_permissions.append(basicPermissions);
+    m_permissions.append(knownPermissions);
 
     for (const auto &event : currentPowerLevelEvent->events().keys()) {
         if (!m_permissions.contains(event)) {
@@ -131,17 +154,17 @@ QVariant PermissionsModel::data(const QModelIndex &index, int role) const
 
     const auto permission = m_permissions.value(index.row());
     if (role == NameRole) {
-        if (defaultPermissionNames.keys().contains(permission)) {
-            return defaultPermissionNames.value(permission).toString();
+        if (permissionNames.keys().contains(permission)) {
+            return permissionNames.value(permission).toString();
         }
         return permission;
     }
     if (role == SubtitleRole) {
-        if (permission.startsWith(QLatin1String("m.")) && defaultPermissionNames.keys().contains(permission)) {
+        if (knownPermissions.contains(permission) && permissionNames.keys().contains(permission)) {
             return permission;
         }
-        if (defaultSubtitles.contains(permission)) {
-            return defaultSubtitles.value(permission).toString();
+        if (permissionSubtitles.contains(permission)) {
+            return permissionSubtitles.value(permission).toString();
         }
         return QString();
     }
@@ -166,11 +189,10 @@ QVariant PermissionsModel::data(const QModelIndex &index, int role) const
         return QString();
     }
     if (role == IsDefaultValueRole) {
-        return permission.contains(QLatin1String("default"));
+        return defaultPermissions.contains(permission);
     }
     if (role == IsBasicPermissionRole) {
-        return permission == QStringLiteral("invite") || permission == QStringLiteral("kick") || permission == QStringLiteral("ban")
-            || permission == QStringLiteral("redact");
+        return basicPermissions.contains(permission);
     }
     return {};
 }
@@ -201,19 +223,19 @@ std::optional<int> PermissionsModel::powerLevel(const QString &permission) const
     }
 
     if (const auto currentPowerLevelEvent = m_room->currentState().get<Quotient::RoomPowerLevelsEvent>()) {
-        if (permission == QStringLiteral("ban")) {
+        if (permission == BanKey) {
             return currentPowerLevelEvent->ban();
-        } else if (permission == QStringLiteral("kick")) {
+        } else if (permission == KickKey) {
             return currentPowerLevelEvent->kick();
-        } else if (permission == QStringLiteral("invite")) {
+        } else if (permission == InviteKey) {
             return currentPowerLevelEvent->invite();
-        } else if (permission == QStringLiteral("redact")) {
+        } else if (permission == RedactKey) {
             return currentPowerLevelEvent->redact();
-        } else if (permission == QStringLiteral("users_default")) {
+        } else if (permission == UsersDefaultKey) {
             return currentPowerLevelEvent->usersDefault();
-        } else if (permission == QStringLiteral("state_default")) {
+        } else if (permission == StateDefaultKey) {
             return currentPowerLevelEvent->stateDefault();
-        } else if (permission == QStringLiteral("events_default")) {
+        } else if (permission == EventsDefaultKey) {
             return currentPowerLevelEvent->eventsDefault();
         } else if (eventPermissions.contains(permission)) {
             return currentPowerLevelEvent->powerLevelForEvent(permission);
@@ -240,6 +262,9 @@ void PermissionsModel::setPowerLevel(const QString &permission, const int &newPo
     if (auto currentPowerLevelEvent = m_room->currentState().get<Quotient::RoomPowerLevelsEvent>()) {
         auto powerLevelContent = currentPowerLevelEvent->contentJson();
         if (powerLevelContent.contains(permission)) {
+            powerLevelContent[permission] = clampPowerLevel;
+            // Deal with the case where a default or basic permission is missing from the event content erroneously.
+        } else if (defaultPermissions.contains(permission) || basicPermissions.contains(permission)) {
             powerLevelContent[permission] = clampPowerLevel;
         } else {
             auto eventPowerLevels = powerLevelContent[QLatin1String("events")].toObject();
