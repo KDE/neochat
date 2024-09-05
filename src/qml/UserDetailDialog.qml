@@ -122,7 +122,18 @@ Kirigami.Dialog {
                 text: i18n("Kick this user")
                 icon.name: "im-kick-user"
                 onTriggered: {
-                    root.room.kickMember(root.user.id);
+                    let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                        title: i18nc("@title:dialog", "Kick User"),
+                        placeholder: i18nc("@info:placeholder", "Reason for kicking this user"),
+                        actionText: i18nc("@action:button 'Kick' as in 'Kick this user from the room'", "Kick"),
+                        icon: "im-kick-user"
+                    }, {
+                        title: i18nc("@title:dialog", "Kick User"),
+                        width: Kirigami.Units.gridUnit * 25
+                    });
+                    dialog.accepted.connect(reason => {
+                        root.room.kickMember(root.user.id, reason);
+                    });
                     root.close();
                 }
             }
