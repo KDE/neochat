@@ -149,7 +149,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
 
             if (NeoChatConfig::rejectUnknownInvites()) {
                 auto job = this->connection()->callApi<NeochatGetCommonRoomsJob>(roomMemberEvent->senderId());
-                connect(job, &BaseJob::result, this, [this, job, roomMemberEvent, showNotification] {
+                connect(job, &BaseJob::result, this, [this, job, showNotification] {
                     QJsonObject replyData = job->jsonData();
                     if (replyData.contains(QStringLiteral("joined"))) {
                         const bool inAnyOfOurRooms = !replyData[QStringLiteral("joined")].toArray().isEmpty();
