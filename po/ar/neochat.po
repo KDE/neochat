@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-03 00:39+0000\n"
-"PO-Revision-Date: 2024-08-15 11:36+0400\n"
+"POT-Creation-Date: 2024-09-06 00:39+0000\n"
+"PO-Revision-Date: 2024-09-05 13:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -368,7 +368,7 @@ msgstr "اكتم"
 msgid "Custom"
 msgstr "مخصّص"
 
-#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
 #: src/models/userlistmodel.cpp:113
 #, kde-format
 msgctxt ""
@@ -377,351 +377,350 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:279 src/eventhandler.cpp:491
+#: src/eventhandler.cpp:280 src/eventhandler.cpp:492
 #: src/models/messagecontentmodel.cpp:276 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[هذه الرسالة محذوفة]</i>"
 
-#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:277
+#: src/eventhandler.cpp:280 src/models/messagecontentmodel.cpp:277
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[هذه الرسالة محذوفة: %1]</i>"
 
-#: src/eventhandler.cpp:313
+#: src/eventhandler.cpp:314
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "أعد دعوة ‏%1 للغرفة"
 
-#: src/eventhandler.cpp:315
+#: src/eventhandler.cpp:316
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": ‏%1"
 
-#: src/eventhandler.cpp:324 src/eventhandler.cpp:515
+#: src/eventhandler.cpp:325 src/eventhandler.cpp:516
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "انضم للغرفة (مكررا)"
 
-#: src/eventhandler.cpp:326
+#: src/eventhandler.cpp:327
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "ادع %1‏ للغرفة"
 
-#: src/eventhandler.cpp:326 src/eventhandler.cpp:517
+#: src/eventhandler.cpp:327 src/eventhandler.cpp:518
 #, kde-format
 msgid "joined the room"
 msgstr "انضم للغرفة"
 
-#: src/eventhandler.cpp:330
+#: src/eventhandler.cpp:331
 #, kde-format
 msgid ": %1"
 msgstr ": ‏%1"
 
-#: src/eventhandler.cpp:337 src/eventhandler.cpp:525
+#: src/eventhandler.cpp:338 src/eventhandler.cpp:526
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "مسح اسمهم"
 
-#: src/eventhandler.cpp:340
+#: src/eventhandler.cpp:341
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "غير اسمهم إلى %1"
 
-#: src/eventhandler.cpp:346 src/eventhandler.cpp:532
+#: src/eventhandler.cpp:347 src/eventhandler.cpp:533
 #, kde-format
 msgid " and "
 msgstr " و "
 
-#: src/eventhandler.cpp:349 src/eventhandler.cpp:535
+#: src/eventhandler.cpp:350 src/eventhandler.cpp:536
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "مسح صورتهم الرمزية"
 
-#: src/eventhandler.cpp:351 src/eventhandler.cpp:537
+#: src/eventhandler.cpp:352 src/eventhandler.cpp:538
 #, kde-format
 msgid "set an avatar"
 msgstr "عين صورة رمزية"
 
-#: src/eventhandler.cpp:353 src/eventhandler.cpp:539
+#: src/eventhandler.cpp:354 src/eventhandler.cpp:540
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "حدث صورتهم الرمزية"
 
-#: src/eventhandler.cpp:357 src/eventhandler.cpp:543
+#: src/eventhandler.cpp:358 src/eventhandler.cpp:544
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "لم يغير شيء"
 
-#: src/eventhandler.cpp:363
+#: src/eventhandler.cpp:364
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "سحب %1 دعوته"
 
-#: src/eventhandler.cpp:363 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:364 src/eventhandler.cpp:550
 #, kde-format
 msgid "rejected the invitation"
 msgstr "رفض الدعوة"
 
-#: src/eventhandler.cpp:367
+#: src/eventhandler.cpp:368
 #, kde-format
 msgid "unbanned %1"
 msgstr "ألغى حضر %1"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:553
+#: src/eventhandler.cpp:368 src/eventhandler.cpp:554
 #, kde-format
 msgid "self-unbanned"
 msgstr "ألغى حضر نفسه"
 
-#: src/eventhandler.cpp:370 src/eventhandler.cpp:555
+#: src/eventhandler.cpp:371 src/eventhandler.cpp:556
 #, kde-format
 msgid "left the room"
 msgstr "غادر الغرفة"
 
-#: src/eventhandler.cpp:373
+#: src/eventhandler.cpp:374
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "أخرج %1 من الغرفة: %2"
 
-#: src/eventhandler.cpp:375
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#: src/eventhandler.cpp:376
+#, kde-format
 msgid "has put %1 out of the room"
-msgstr "أخرج %1 من الغرفة: %2"
+msgstr "طُرد %1 من الغرفة"
 
-#: src/eventhandler.cpp:379
+#: src/eventhandler.cpp:380
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "حظر %1 من الغرفة"
 
-#: src/eventhandler.cpp:381
+#: src/eventhandler.cpp:382
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "حظر %1 من الغرفة: %2"
 
-#: src/eventhandler.cpp:384 src/eventhandler.cpp:560
+#: src/eventhandler.cpp:385 src/eventhandler.cpp:561
 #, kde-format
 msgid "self-banned from the room"
 msgstr "حضر نفسه من الغرفة"
 
-#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
+#: src/eventhandler.cpp:389 src/eventhandler.cpp:564
 #, kde-format
 msgid "requested an invite"
 msgstr "طلب دعوة"
 
-#: src/eventhandler.cpp:388
+#: src/eventhandler.cpp:389
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "دعوة مطلوبة بسبب: %1"
 
-#: src/eventhandler.cpp:392 src/eventhandler.cpp:567
+#: src/eventhandler.cpp:393 src/eventhandler.cpp:568
 #, kde-format
 msgid "made something unknown"
 msgstr "صنع شيء مجهول"
 
-#: src/eventhandler.cpp:395 src/eventhandler.cpp:570
+#: src/eventhandler.cpp:396 src/eventhandler.cpp:571
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "مسح معرف الغرفة العام"
 
-#: src/eventhandler.cpp:395
+#: src/eventhandler.cpp:396
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "غير معرف الغرفة العام إلى: %1"
 
-#: src/eventhandler.cpp:398 src/eventhandler.cpp:573
+#: src/eventhandler.cpp:399 src/eventhandler.cpp:574
 #, kde-format
 msgid "cleared the room name"
 msgstr "مسح اسم الغرفة"
 
-#: src/eventhandler.cpp:398
+#: src/eventhandler.cpp:399
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "غير اسم الغرفة إلى: %1"
 
-#: src/eventhandler.cpp:401 src/eventhandler.cpp:576
+#: src/eventhandler.cpp:402 src/eventhandler.cpp:577
 #, kde-format
 msgid "cleared the topic"
 msgstr "مسح الموضوع"
 
-#: src/eventhandler.cpp:402
+#: src/eventhandler.cpp:403
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "غير الموضوع إلى: %1"
 
-#: src/eventhandler.cpp:408 src/eventhandler.cpp:579
+#: src/eventhandler.cpp:409 src/eventhandler.cpp:580
 #, kde-format
 msgid "changed the room avatar"
 msgstr "غير الصورة الرمزية للغرفة"
 
-#: src/eventhandler.cpp:411 src/eventhandler.cpp:582
+#: src/eventhandler.cpp:412 src/eventhandler.cpp:583
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "فعل التشفير التام من طرف إلى طرف"
 
-#: src/eventhandler.cpp:415
+#: src/eventhandler.cpp:416
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "رقى إصدارة الغرفة إلى %1"
 
-#: src/eventhandler.cpp:416
+#: src/eventhandler.cpp:417
 #, kde-format
 msgid "created the room, version %1"
 msgstr "أنشى غرفة، إصدارة %1"
 
-#: src/eventhandler.cpp:419 src/eventhandler.cpp:588
+#: src/eventhandler.cpp:420 src/eventhandler.cpp:589
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "غير مستويات القوة لهذه الغرفة"
 
-#: src/eventhandler.cpp:425 src/eventhandler.cpp:594
+#: src/eventhandler.cpp:426 src/eventhandler.cpp:595
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "غير قوائم التحكم بنفاذ الخادم لهذه الغرفة"
 
-#: src/eventhandler.cpp:429
+#: src/eventhandler.cpp:430
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "أضاف ودجة %1"
 
-#: src/eventhandler.cpp:432
+#: src/eventhandler.cpp:433
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "أزال ودجة %1"
 
-#: src/eventhandler.cpp:434
+#: src/eventhandler.cpp:435
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "ضبطَ ودجة %1"
 
-#: src/eventhandler.cpp:437
+#: src/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state"
 msgstr "حدث حالة %1"
 
-#: src/eventhandler.cpp:438
+#: src/eventhandler.cpp:439
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "حدث حالة %1 لـ %2"
 
-#: src/eventhandler.cpp:443 src/eventhandler.cpp:612
+#: src/eventhandler.cpp:444 src/eventhandler.cpp:613
 #, kde-format
 msgid "Unknown event"
 msgstr "حدث مجهول"
 
-#: src/eventhandler.cpp:458
+#: src/eventhandler.cpp:459
 #, kde-format
 msgid "a file"
 msgstr "ملف"
 
-#: src/eventhandler.cpp:498
+#: src/eventhandler.cpp:499
 #, kde-format
 msgid "sent a message"
 msgstr "أرسل رسالة"
 
-#: src/eventhandler.cpp:502
+#: src/eventhandler.cpp:503
 #, kde-format
 msgid "sent a sticker"
 msgstr "أرسل ملصق"
 
-#: src/eventhandler.cpp:508
+#: src/eventhandler.cpp:509
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "أعد دعوة ‏شخص للغرفة"
 
-#: src/eventhandler.cpp:517
+#: src/eventhandler.cpp:518
 #, kde-format
 msgid "invited someone to the room"
 msgstr "دعا شخص للغرفة"
 
-#: src/eventhandler.cpp:527
+#: src/eventhandler.cpp:528
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "غير اسمه"
 
-#: src/eventhandler.cpp:549
+#: src/eventhandler.cpp:550
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "سحب دعوة مستخدم"
 
-#: src/eventhandler.cpp:553
+#: src/eventhandler.cpp:554
 #, kde-format
 msgid "unbanned a user"
 msgstr "ألغى حضر مستخدم"
 
-#: src/eventhandler.cpp:555
+#: src/eventhandler.cpp:556
 #, kde-format
 msgid "put a user out of the room"
 msgstr "أخرج مستخدم من الغرفة"
 
-#: src/eventhandler.cpp:558
+#: src/eventhandler.cpp:559
 #, kde-format
 msgid "banned a user from the room"
 msgstr "حظر مستخدم من الغرفة"
 
-#: src/eventhandler.cpp:570
+#: src/eventhandler.cpp:571
 #, kde-format
 msgid "set the room main alias"
 msgstr "غير معرف الغرفة العام"
 
-#: src/eventhandler.cpp:573
+#: src/eventhandler.cpp:574
 #, kde-format
 msgid "set the room name"
 msgstr "عين اسم الغرفة"
 
-#: src/eventhandler.cpp:576
+#: src/eventhandler.cpp:577
 #, kde-format
 msgid "set the topic"
 msgstr "عين الموضوع"
 
-#: src/eventhandler.cpp:585
+#: src/eventhandler.cpp:586
 #, kde-format
 msgid "upgraded the room version"
 msgstr "رقى إصدارة الغرفة"
 
-#: src/eventhandler.cpp:585
+#: src/eventhandler.cpp:586
 #, kde-format
 msgid "created the room"
 msgstr "أنشئ الغرفة"
 
-#: src/eventhandler.cpp:591
+#: src/eventhandler.cpp:592
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "أرسل منارة موقع حية"
 
-#: src/eventhandler.cpp:598
+#: src/eventhandler.cpp:599
 #, kde-format
 msgid "added a widget"
 msgstr "أضاف ودجة"
 
-#: src/eventhandler.cpp:601
+#: src/eventhandler.cpp:602
 #, kde-format
 msgid "removed a widget"
 msgstr "أزال ودجة"
 
-#: src/eventhandler.cpp:603
+#: src/eventhandler.cpp:604
 #, kde-format
 msgid "configured a widget"
 msgstr "ضبطَ ودجة"
 
-#: src/eventhandler.cpp:606
+#: src/eventhandler.cpp:607
 #, kde-format
 msgid "updated the state"
 msgstr "حدث الحالة"
 
-#: src/eventhandler.cpp:610
+#: src/eventhandler.cpp:611
 #, kde-format
 msgid "started a poll"
 msgstr "بدأ استفتاء"
@@ -962,8 +961,7 @@ msgid "Go back"
 msgstr "عُد"
 
 #: src/login/WelcomePage.qml:252
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "إعدادات"
@@ -1458,6 +1456,8 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
+"لم يعثر على هذه الرسالة، أو ليس لديك الإذن لعرضها، أو أرسلت بواسطة مستخدم "
+"متجاهل"
 
 #: src/models/messagecontentmodel.cpp:269
 #: src/timeline/LinkPreviewLoadComponent.qml:66
@@ -1516,122 +1516,122 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
-#: src/models/permissionsmodel.cpp:37
+#: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
 msgstr "مستوى قوة المستخدم المبدئية"
 
-#: src/models/permissionsmodel.cpp:38
+#: src/models/permissionsmodel.cpp:58
 msgctxt "Room permission type"
 msgid "Default power level to set the room state"
 msgstr "مستوى القوة المبدئي لتعيين حالة الغرفة"
 
-#: src/models/permissionsmodel.cpp:39
+#: src/models/permissionsmodel.cpp:59
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "مستوى القوة المبدئي لإرسال الرسائل"
 
-#: src/models/permissionsmodel.cpp:40
+#: src/models/permissionsmodel.cpp:60
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "دعوة المستخدمين"
 
-#: src/models/permissionsmodel.cpp:41
+#: src/models/permissionsmodel.cpp:61
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "ركل المستخدمين"
 
-#: src/models/permissionsmodel.cpp:42
+#: src/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "حظر المستخدمين"
 
-#: src/models/permissionsmodel.cpp:43
+#: src/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "إزالة رسائل مرسلة من مستخدمين آخرين"
 
-#: src/models/permissionsmodel.cpp:44
+#: src/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "إرسال ردود الفعل"
 
-#: src/models/permissionsmodel.cpp:45
+#: src/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "إزالة رسائلهم"
 
-#: src/models/permissionsmodel.cpp:46
+#: src/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "تغيير تصاريح مستخدم"
 
-#: src/models/permissionsmodel.cpp:47
+#: src/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "تغيير اسم الغرفة"
 
-#: src/models/permissionsmodel.cpp:48
+#: src/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "تغيير الصورة الرمزية للغرفة"
 
-#: src/models/permissionsmodel.cpp:49
+#: src/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "تغيير الاسم البديل العالمي للغرفة"
 
-#: src/models/permissionsmodel.cpp:50
+#: src/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "تغيير موضوع الغرفة"
 
-#: src/models/permissionsmodel.cpp:51
+#: src/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "تمكين التعمية للغرفة"
 
-#: src/models/permissionsmodel.cpp:52
+#: src/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "تغيير قدرة عرض الرسائل القديمة"
 
-#: src/models/permissionsmodel.cpp:53
+#: src/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Set pinned events"
 msgstr "تعيين الأحداث المثبتة"
 
-#: src/models/permissionsmodel.cpp:54
+#: src/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "ترقية الغرفة"
 
-#: src/models/permissionsmodel.cpp:55
+#: src/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "تغيير قوائم التحكم بنفاذ الخادم لهذه الغرفة"
 
-#: src/models/permissionsmodel.cpp:56
+#: src/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "تعيين أبناء هذا الفضاء"
 
-#: src/models/permissionsmodel.cpp:57
+#: src/models/permissionsmodel.cpp:77
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "تعيين الفضاء الرئيس لهذه الغرفة"
 
-#: src/models/permissionsmodel.cpp:62
+#: src/models/permissionsmodel.cpp:82
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room"
 msgstr "هذه مستوى القوة لجميع المستخدمين الجدد عندما ينضموا للغرفة"
 
-#: src/models/permissionsmodel.cpp:63
+#: src/models/permissionsmodel.cpp:83
 msgctxt "Room permission type"
 msgid "This is used for all state events that do not have their own entry here"
 msgstr "سيستخدم هذا لجميع أحداث الحالة التي لا تملك مدخلات خاص بها هنا"
 
-#: src/models/permissionsmodel.cpp:64
+#: src/models/permissionsmodel.cpp:84
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -2328,15 +2328,13 @@ msgstr "أزِل"
 #: src/qml/DelegateContextMenu.qml:95 src/qml/DelegateContextMenu.qml:100
 #: src/qml/FileDelegateContextMenu.qml:75
 #: src/qml/FileDelegateContextMenu.qml:80
-#, fuzzy, kde-format
-#| msgid "Remove Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "أزل رسالة"
 
 #: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:76
-#, fuzzy, kde-format
-#| msgid "Reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "سبب إزالة هذه الرسالة"
@@ -2355,15 +2353,13 @@ msgid "Report"
 msgstr "بلّغ"
 
 #: src/qml/DelegateContextMenu.qml:125
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "بلّغ عن الرسالة"
 
 #: src/qml/DelegateContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "سبب التبليغ عن هذه الرسالة"
@@ -2824,43 +2820,37 @@ msgid "Accept"
 msgstr "اقبل"
 
 #: src/qml/InviteUserPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Invite a User"
 msgstr "أدعو مستخدم"
 
 #: src/qml/InviteUserPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find a user..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find a user…"
 msgstr "اعثر على مستخدم…"
 
 #: src/qml/InviteUserPage.qml:24
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No users found"
-msgstr "لم يعثر على غرف"
+msgstr "لم يعثر على مستخدمين"
 
 #: src/qml/InviteUserPage.qml:31
-#, fuzzy, kde-format
-#| msgid "Invite this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "أدعو هذا المستخدم"
 
 #: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
-#, fuzzy, kde-format
-#| msgid "User is either already a member or has been invited"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "المستخدم مدعو أو أنه عضو بالفعل"
 
 #: src/qml/InviteUserPage.qml:75
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "أرسل دعوة"
@@ -2931,14 +2921,13 @@ msgstr "أرسل هذا الموقع"
 #, kde-format
 msgctxt "@action:intoolbar Re-center the map onto the set location"
 msgid "Re-Center"
-msgstr ""
+msgstr "أعد التوسيط"
 
 #: src/qml/LocationChooser.qml:41
-#, fuzzy, kde-format
-#| msgid "Local"
+#, kde-format
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
-msgstr "محليّ"
+msgstr "حدد الموقع"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, kde-format
@@ -3722,92 +3711,108 @@ msgstr "تجاهل هذا المستخدم"
 msgid "Kick this user"
 msgstr "أركل هذا المستخدم"
 
-#: src/qml/UserDetailDialog.qml:136
+#: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Kick users"
+msgctxt "@title:dialog"
+msgid "Kick User"
+msgstr "ركل المستخدمين"
+
+#: src/qml/UserDetailDialog.qml:127
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for banning this user"
+msgctxt "@info:placeholder"
+msgid "Reason for kicking this user"
+msgstr "سبب حظر هذه المستخدم"
+
+#: src/qml/UserDetailDialog.qml:128
+#, kde-format
+msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+msgid "Kick"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:147
 #, kde-format
 msgid "Invite this user"
 msgstr "أدعو هذا المستخدم"
 
-#: src/qml/UserDetailDialog.qml:149
+#: src/qml/UserDetailDialog.qml:160
 #, kde-format
 msgid "Ban this user"
 msgstr "احظر هذا المستخدم"
 
-#: src/qml/UserDetailDialog.qml:154 src/qml/UserDetailDialog.qml:159
-#, fuzzy, kde-format
-#| msgid "Ban User"
+#: src/qml/UserDetailDialog.qml:165 src/qml/UserDetailDialog.qml:170
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "احظر مستخدم"
 
-#: src/qml/UserDetailDialog.qml:155
-#, fuzzy, kde-format
-#| msgid "Reason for banning this user"
+#: src/qml/UserDetailDialog.qml:166
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "سبب حظر هذه المستخدم"
 
-#: src/qml/UserDetailDialog.qml:156
+#: src/qml/UserDetailDialog.qml:167
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "احظر"
 
-#: src/qml/UserDetailDialog.qml:174
+#: src/qml/UserDetailDialog.qml:185
 #, kde-format
 msgid "Unban this user"
 msgstr "ألغ حظر هذا المستخدم"
 
-#: src/qml/UserDetailDialog.qml:187
+#: src/qml/UserDetailDialog.qml:198
 #, kde-format
 msgid "Set user power level"
 msgstr "عيّن مستوى قدرة المستخدم"
 
-#: src/qml/UserDetailDialog.qml:212
-#, fuzzy, kde-format
-#| msgid "Remove recent messages by this user"
+#: src/qml/UserDetailDialog.qml:223
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "أزل آخر رسائل لهذا المستخدم"
 
-#: src/qml/UserDetailDialog.qml:217
-#, fuzzy, kde-format
-#| msgid "Remove Messages"
+#: src/qml/UserDetailDialog.qml:228
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "أزل الرسائل"
 
-#: src/qml/UserDetailDialog.qml:218
-#, fuzzy, kde-format
-#| msgid "Reason for removing this user's recent messages"
+#: src/qml/UserDetailDialog.qml:229
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "سبب إزالة هذه آخر رسائل هذا المستخدم"
 
-#: src/qml/UserDetailDialog.qml:219
-#, fuzzy, kde-format
-#| msgid "Remove"
+#: src/qml/UserDetailDialog.qml:230
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "أزل"
 
-#: src/qml/UserDetailDialog.qml:222
+#: src/qml/UserDetailDialog.qml:233
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "أزل الرسائل"
 
-#: src/qml/UserDetailDialog.qml:236
+#: src/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "محادثة مع %1"
 
-#: src/qml/UserDetailDialog.qml:236
+#: src/qml/UserDetailDialog.qml:247
 #, kde-format
 msgid "Invite to private chat"
 msgstr "أدع إلى دردشة خاصة"
 
-#: src/qml/UserDetailDialog.qml:247
+#: src/qml/UserDetailDialog.qml:258
 #, kde-format
 msgid "Copy link"
 msgstr "نسخ الرابط"
@@ -4715,31 +4720,26 @@ msgid "Enable developer tools"
 msgstr "مكّن أدوات المطوّر"
 
 #: src/settings/NeoChatGeneralPage.qml:251
-#, fuzzy, kde-format
-#| msgid "Developer Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Default Settings"
-msgstr "إعدادات المطور"
+msgstr "الإعدادات الافتراضيّة"
 
 #: src/settings/NeoChatGeneralPage.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
-msgstr ""
+msgstr "أعد كلّ الإعدادات إلى قيمها المبدئية"
 
 #: src/settings/NeoChatSecurityPage.qml:19
 #: src/settings/NeoChatSettingsView.qml:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@title"
 msgid "Security & Safety"
-msgstr "مفتاح الأمان:"
+msgstr "الأمان والسلامة"
 
 #: src/settings/NeoChatSecurityPage.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignored Users"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "المستخدمين مُتجاهَلين"
@@ -4754,7 +4754,7 @@ msgstr "المستخدمين مُتجاهَلين"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
-msgstr ""
+msgstr "أخف الصور والفيديوهات مبدئيًا"
 
 #: src/settings/NeoChatSecurityPage.qml:45
 #, kde-format
@@ -4763,6 +4763,7 @@ msgid ""
 "When this option is enabled, images and videos are only shown after a button "
 "is clicked."
 msgstr ""
+"عند تمكين هذا الخيار، لا تظهر الصور ومقاطع الفيديو إلا بعد النقر فوق الزر."
 
 #: src/settings/NeoChatSecurityPage.qml:59
 #, kde-format
@@ -4771,10 +4772,7 @@ msgid "Reject invitations from unknown users"
 msgstr "ارفض الدعوات من المستخدمين المجهولين"
 
 #: src/settings/NeoChatSecurityPage.qml:60
-#, fuzzy, kde-format
-#| msgid ""
-#| "If enabled, NeoChat will reject invitations from users you don't share a "
-#| "room with."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
@@ -4784,35 +4782,28 @@ msgstr ""
 "معهم الغرفة."
 
 #: src/settings/NeoChatSecurityPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Your server does not support this setting."
+#, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "لا يدعم خادمك هذا الإعداد."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title"
 msgid "Encryption"
 msgstr "التعمية"
 
 #: src/settings/NeoChatSecurityPage.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "استورد مفاتيح"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import Encryption Keys"
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
-msgstr "استورد مفاتيح التعمية"
+msgstr "استورد مفاتيح التعمية من نسخة احتياطية"
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
@@ -4821,20 +4812,16 @@ msgid "Keys imported successfully"
 msgstr "استوردتُ المفاتيح بنجاح"
 
 #: src/settings/NeoChatSecurityPage.qml:100
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "صدّر المفاتيح"
 
 #: src/settings/NeoChatSecurityPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Export Encryption Keys"
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
-msgstr "صدّر مفاتيح التّعمية"
+msgstr "صدّر مفاتيح التّعمية لهذا الجهاز"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -5468,11 +5455,10 @@ msgid "Confirm edit"
 msgstr "أكد التحرير"
 
 #: src/timeline/ChatBarComponent.qml:106
-#, fuzzy, kde-format
-#| msgid "No messages found"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
-msgstr "لا يعثر على رسائل"
+msgstr "أرسل رسالة في الموضوع"
 
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
@@ -5543,11 +5529,10 @@ msgid "Check-out time: %1"
 msgstr "وقت تسجيل الخروج: %1"
 
 #: src/timeline/ImageComponent.qml:138
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
-msgstr "عيّن صورة"
+msgstr "أظهر الصورة"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -5578,8 +5563,7 @@ msgid "Loading URL preview"
 msgstr "يحمل معاينة الرابط"
 
 #: src/timeline/LocationComponent.qml:113
-#, fuzzy, kde-format
-#| msgid "Open Externally"
+#, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "افتحه خارجيا"
@@ -5631,11 +5615,10 @@ msgid "Video"
 msgstr "فيديو"
 
 #: src/timeline/VideoComponent.qml:258
-#, fuzzy, kde-format
-#| msgid "Video"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
-msgstr "فيديو"
+msgstr "أظهر الفيديو"
 
 #: src/timeline/VideoComponent.qml:299
 #, kde-format

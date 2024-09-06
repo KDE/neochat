@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-03 00:39+0000\n"
+"POT-Creation-Date: 2024-09-06 00:39+0000\n"
 "PO-Revision-Date: 2024-09-03 07:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -370,7 +370,7 @@ msgstr "Utišan"
 msgid "Custom"
 msgstr "Po meri"
 
-#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
+#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
 #: src/models/userlistmodel.cpp:113
 #, kde-format
 msgctxt ""
@@ -379,350 +379,350 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:279 src/eventhandler.cpp:491
+#: src/eventhandler.cpp:280 src/eventhandler.cpp:492
 #: src/models/messagecontentmodel.cpp:276 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano]</i>"
 
-#: src/eventhandler.cpp:279 src/models/messagecontentmodel.cpp:277
+#: src/eventhandler.cpp:280 src/models/messagecontentmodel.cpp:277
 #: src/models/messageeventmodel.cpp:439
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano: %1]</i>"
 
-#: src/eventhandler.cpp:313
+#: src/eventhandler.cpp:314
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "ponovno povabljen %1 v sobo"
 
-#: src/eventhandler.cpp:315
+#: src/eventhandler.cpp:316
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:324 src/eventhandler.cpp:515
+#: src/eventhandler.cpp:325 src/eventhandler.cpp:516
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "se je pridružil v sobi (ponovno)"
 
-#: src/eventhandler.cpp:326
+#: src/eventhandler.cpp:327
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "povabljen %1 v sobo"
 
-#: src/eventhandler.cpp:326 src/eventhandler.cpp:517
+#: src/eventhandler.cpp:327 src/eventhandler.cpp:518
 #, kde-format
 msgid "joined the room"
 msgstr "se je pridružil v sobi"
 
-#: src/eventhandler.cpp:330
+#: src/eventhandler.cpp:331
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:337 src/eventhandler.cpp:525
+#: src/eventhandler.cpp:338 src/eventhandler.cpp:526
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "je očistil njihovo ime prikaza"
 
-#: src/eventhandler.cpp:340
+#: src/eventhandler.cpp:341
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "je spremenil ime prikaza na %1"
 
-#: src/eventhandler.cpp:346 src/eventhandler.cpp:532
+#: src/eventhandler.cpp:347 src/eventhandler.cpp:533
 #, kde-format
 msgid " and "
 msgstr " in "
 
-#: src/eventhandler.cpp:349 src/eventhandler.cpp:535
+#: src/eventhandler.cpp:350 src/eventhandler.cpp:536
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "je očistil njihov avatar"
 
-#: src/eventhandler.cpp:351 src/eventhandler.cpp:537
+#: src/eventhandler.cpp:352 src/eventhandler.cpp:538
 #, kde-format
 msgid "set an avatar"
 msgstr "nastavi avatarja"
 
-#: src/eventhandler.cpp:353 src/eventhandler.cpp:539
+#: src/eventhandler.cpp:354 src/eventhandler.cpp:540
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "posodobil njihov avatar"
 
-#: src/eventhandler.cpp:357 src/eventhandler.cpp:543
+#: src/eventhandler.cpp:358 src/eventhandler.cpp:544
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "nič ni spremenjenega"
 
-#: src/eventhandler.cpp:363
+#: src/eventhandler.cpp:364
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "je umaknil povabilo %1"
 
-#: src/eventhandler.cpp:363 src/eventhandler.cpp:549
+#: src/eventhandler.cpp:364 src/eventhandler.cpp:550
 #, kde-format
 msgid "rejected the invitation"
 msgstr "zavrnil povabilo"
 
-#: src/eventhandler.cpp:367
+#: src/eventhandler.cpp:368
 #, kde-format
 msgid "unbanned %1"
 msgstr "brez prepovedi %1"
 
-#: src/eventhandler.cpp:367 src/eventhandler.cpp:553
+#: src/eventhandler.cpp:368 src/eventhandler.cpp:554
 #, kde-format
 msgid "self-unbanned"
 msgstr "sama rešena prepovedi"
 
-#: src/eventhandler.cpp:370 src/eventhandler.cpp:555
+#: src/eventhandler.cpp:371 src/eventhandler.cpp:556
 #, kde-format
 msgid "left the room"
 msgstr "je zapustil sobo"
 
-#: src/eventhandler.cpp:373
+#: src/eventhandler.cpp:374
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "je postavil %1 ven iz sobe: %2"
 
-#: src/eventhandler.cpp:375
+#: src/eventhandler.cpp:376
 #, kde-format
 msgid "has put %1 out of the room"
 msgstr "je postavil %1 ven iz sobe"
 
-#: src/eventhandler.cpp:379
+#: src/eventhandler.cpp:380
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "prepovedan %1 iz sobe"
 
-#: src/eventhandler.cpp:381
+#: src/eventhandler.cpp:382
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "je prepovedal %1 v sobo: %2"
 
-#: src/eventhandler.cpp:384 src/eventhandler.cpp:560
+#: src/eventhandler.cpp:385 src/eventhandler.cpp:561
 #, kde-format
 msgid "self-banned from the room"
 msgstr "samo-prepovedano iz sobe"
 
-#: src/eventhandler.cpp:388 src/eventhandler.cpp:563
+#: src/eventhandler.cpp:389 src/eventhandler.cpp:564
 #, kde-format
 msgid "requested an invite"
 msgstr "je zahteval povabilo"
 
-#: src/eventhandler.cpp:388
+#: src/eventhandler.cpp:389
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "je zahteval povabilo z razlogom: %1"
 
-#: src/eventhandler.cpp:392 src/eventhandler.cpp:567
+#: src/eventhandler.cpp:393 src/eventhandler.cpp:568
 #, kde-format
 msgid "made something unknown"
 msgstr "je naredil nekaj neznanega"
 
-#: src/eventhandler.cpp:395 src/eventhandler.cpp:570
+#: src/eventhandler.cpp:396 src/eventhandler.cpp:571
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "je očistil glavni vzdevek sobe"
 
-#: src/eventhandler.cpp:395
+#: src/eventhandler.cpp:396
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "nastavi vzdevek sobe na: %1"
 
-#: src/eventhandler.cpp:398 src/eventhandler.cpp:573
+#: src/eventhandler.cpp:399 src/eventhandler.cpp:574
 #, kde-format
 msgid "cleared the room name"
 msgstr "je obrisal ime sobe"
 
-#: src/eventhandler.cpp:398
+#: src/eventhandler.cpp:399
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "je nastavil ime sobe na: %1"
 
-#: src/eventhandler.cpp:401 src/eventhandler.cpp:576
+#: src/eventhandler.cpp:402 src/eventhandler.cpp:577
 #, kde-format
 msgid "cleared the topic"
 msgstr "je počistil temo"
 
-#: src/eventhandler.cpp:402
+#: src/eventhandler.cpp:403
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "je nastavil temo na: %1"
 
-#: src/eventhandler.cpp:408 src/eventhandler.cpp:579
+#: src/eventhandler.cpp:409 src/eventhandler.cpp:580
 #, kde-format
 msgid "changed the room avatar"
 msgstr "je spremenil avatar sobe"
 
-#: src/eventhandler.cpp:411 src/eventhandler.cpp:582
+#: src/eventhandler.cpp:412 src/eventhandler.cpp:583
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "je aktiviral šifriranje od točke do točke"
 
-#: src/eventhandler.cpp:415
+#: src/eventhandler.cpp:416
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "je nadgradil sobo na verzijo %1"
 
-#: src/eventhandler.cpp:416
+#: src/eventhandler.cpp:417
 #, kde-format
 msgid "created the room, version %1"
 msgstr "je ustvaril sobo verzije %1"
 
-#: src/eventhandler.cpp:419 src/eventhandler.cpp:588
+#: src/eventhandler.cpp:420 src/eventhandler.cpp:589
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "spremenil ravni moči za to sobo"
 
-#: src/eventhandler.cpp:425 src/eventhandler.cpp:594
+#: src/eventhandler.cpp:426 src/eventhandler.cpp:595
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "spremenil sezname za nadzor dostopa do strežnika za to sobo"
 
-#: src/eventhandler.cpp:429
+#: src/eventhandler.cpp:430
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "dodan gradnik %1"
 
-#: src/eventhandler.cpp:432
+#: src/eventhandler.cpp:433
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "odstranjen gradnik %1"
 
-#: src/eventhandler.cpp:434
+#: src/eventhandler.cpp:435
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "nastavljen gradnik %1"
 
-#: src/eventhandler.cpp:437
+#: src/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state"
 msgstr "je posodobil stanje %1"
 
-#: src/eventhandler.cpp:438
+#: src/eventhandler.cpp:439
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "je posodobil stanje %1 za %2"
 
-#: src/eventhandler.cpp:443 src/eventhandler.cpp:612
+#: src/eventhandler.cpp:444 src/eventhandler.cpp:613
 #, kde-format
 msgid "Unknown event"
 msgstr "Neznan dogodek"
 
-#: src/eventhandler.cpp:458
+#: src/eventhandler.cpp:459
 #, kde-format
 msgid "a file"
 msgstr "datoteka"
 
-#: src/eventhandler.cpp:498
+#: src/eventhandler.cpp:499
 #, kde-format
 msgid "sent a message"
 msgstr "je poslal sporočilo"
 
-#: src/eventhandler.cpp:502
+#: src/eventhandler.cpp:503
 #, kde-format
 msgid "sent a sticker"
 msgstr "je poslal nalepko"
 
-#: src/eventhandler.cpp:508
+#: src/eventhandler.cpp:509
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "je ponovno povabil nekoga v sobo"
 
-#: src/eventhandler.cpp:517
+#: src/eventhandler.cpp:518
 #, kde-format
 msgid "invited someone to the room"
 msgstr "je povabil nekoga v sobo"
 
-#: src/eventhandler.cpp:527
+#: src/eventhandler.cpp:528
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "je spremenil njihovo ime prikaza"
 
-#: src/eventhandler.cpp:549
+#: src/eventhandler.cpp:550
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "je umaknil povabilo"
 
-#: src/eventhandler.cpp:553
+#: src/eventhandler.cpp:554
 #, kde-format
 msgid "unbanned a user"
 msgstr "je umaknil prepoved uporabnika"
 
-#: src/eventhandler.cpp:555
+#: src/eventhandler.cpp:556
 #, kde-format
 msgid "put a user out of the room"
 msgstr "je postavil uporabnika iz sobe"
 
-#: src/eventhandler.cpp:558
+#: src/eventhandler.cpp:559
 #, kde-format
 msgid "banned a user from the room"
 msgstr "je prepovedal uporabniku v sobo"
 
-#: src/eventhandler.cpp:570
+#: src/eventhandler.cpp:571
 #, kde-format
 msgid "set the room main alias"
 msgstr "je nastavil vzdevek sobe"
 
-#: src/eventhandler.cpp:573
+#: src/eventhandler.cpp:574
 #, kde-format
 msgid "set the room name"
 msgstr "je nastavil ime sobe"
 
-#: src/eventhandler.cpp:576
+#: src/eventhandler.cpp:577
 #, kde-format
 msgid "set the topic"
 msgstr "je nastavil temo"
 
-#: src/eventhandler.cpp:585
+#: src/eventhandler.cpp:586
 #, kde-format
 msgid "upgraded the room version"
 msgstr "je nadgradil različico sobe"
 
-#: src/eventhandler.cpp:585
+#: src/eventhandler.cpp:586
 #, kde-format
 msgid "created the room"
 msgstr "je ustvaril sobo"
 
-#: src/eventhandler.cpp:591
+#: src/eventhandler.cpp:592
 #, kde-format
 msgid "sent a live location beacon"
 msgstr "je v živo posvetil žarek iz lokacije"
 
-#: src/eventhandler.cpp:598
+#: src/eventhandler.cpp:599
 #, kde-format
 msgid "added a widget"
 msgstr "je dodaj gradnik"
 
-#: src/eventhandler.cpp:601
+#: src/eventhandler.cpp:602
 #, kde-format
 msgid "removed a widget"
 msgstr "je odstranil gradnik"
 
-#: src/eventhandler.cpp:603
+#: src/eventhandler.cpp:604
 #, kde-format
 msgid "configured a widget"
 msgstr "je nastavil gradnik"
 
-#: src/eventhandler.cpp:606
+#: src/eventhandler.cpp:607
 #, kde-format
 msgid "updated the state"
 msgstr "je posodobil stanje"
 
-#: src/eventhandler.cpp:610
+#: src/eventhandler.cpp:611
 #, kde-format
 msgid "started a poll"
 msgstr "je začel glasovanje"
@@ -1516,122 +1516,122 @@ msgctxt ""
 msgid "<style>a {text-decoration: none;}</style>%1 %2"
 msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
-#: src/models/permissionsmodel.cpp:37
+#: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
 msgstr "Raven moči privzetega uporabnika"
 
-#: src/models/permissionsmodel.cpp:38
+#: src/models/permissionsmodel.cpp:58
 msgctxt "Room permission type"
 msgid "Default power level to set the room state"
 msgstr "Privzeta raven moči za nastavitev sobe"
 
-#: src/models/permissionsmodel.cpp:39
+#: src/models/permissionsmodel.cpp:59
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "Privzeta raven moči za pošiljanje sporočil"
 
-#: src/models/permissionsmodel.cpp:40
+#: src/models/permissionsmodel.cpp:60
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Povabi uporabnike"
 
-#: src/models/permissionsmodel.cpp:41
+#: src/models/permissionsmodel.cpp:61
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Brcni uporabnike"
 
-#: src/models/permissionsmodel.cpp:42
+#: src/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Prepovej uporabnike"
 
-#: src/models/permissionsmodel.cpp:43
+#: src/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Odstrani sporočila poslana od drugih uporabnikov"
 
-#: src/models/permissionsmodel.cpp:44
+#: src/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Pošlji reakcije"
 
-#: src/models/permissionsmodel.cpp:45
+#: src/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "Odstrani njihova lastna sporočila"
 
-#: src/models/permissionsmodel.cpp:46
+#: src/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "Spremeni dovoljenja uporabnikov"
 
-#: src/models/permissionsmodel.cpp:47
+#: src/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "Spremeni ime sobe"
 
-#: src/models/permissionsmodel.cpp:48
+#: src/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Spremeni avatarja sobe"
 
-#: src/models/permissionsmodel.cpp:49
+#: src/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "Spremeni kanonični vzdevek sobe"
 
-#: src/models/permissionsmodel.cpp:50
+#: src/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "Spremeni temo sobe"
 
-#: src/models/permissionsmodel.cpp:51
+#: src/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Omogoči šifriranje za sobo"
 
-#: src/models/permissionsmodel.cpp:52
+#: src/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "Spremeni vidnost zgodovine sobe"
 
-#: src/models/permissionsmodel.cpp:53
+#: src/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Set pinned events"
 msgstr "Nastavi pripete dogodke"
 
-#: src/models/permissionsmodel.cpp:54
+#: src/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "Nadgradi sobo"
 
-#: src/models/permissionsmodel.cpp:55
+#: src/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "Nastavi seznam nadzora dostopa do strežnika te sobe"
 
-#: src/models/permissionsmodel.cpp:56
+#: src/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "Nastavi otroke tega prostora"
 
-#: src/models/permissionsmodel.cpp:57
+#: src/models/permissionsmodel.cpp:77
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "Nastavi prostor staršev te sobe"
 
-#: src/models/permissionsmodel.cpp:62
+#: src/models/permissionsmodel.cpp:82
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room"
 msgstr "To je raven moči za vse nove uporabnike, ko se pridružijo v sobi"
 
-#: src/models/permissionsmodel.cpp:63
+#: src/models/permissionsmodel.cpp:83
 msgctxt "Room permission type"
 msgid "This is used for all state events that do not have their own entry here"
 msgstr "To je uporabljeno za vse dogodke, ki nimajo lastnega vnosa tukaj"
 
-#: src/models/permissionsmodel.cpp:64
+#: src/models/permissionsmodel.cpp:84
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -3707,86 +3707,108 @@ msgstr "Prezri tega uporabnika"
 msgid "Kick this user"
 msgstr "Brcni tega uporabnika"
 
-#: src/qml/UserDetailDialog.qml:136
+#: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Kick users"
+msgctxt "@title:dialog"
+msgid "Kick User"
+msgstr "Brcni uporabnike"
+
+#: src/qml/UserDetailDialog.qml:127
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for banning this user"
+msgctxt "@info:placeholder"
+msgid "Reason for kicking this user"
+msgstr "Razlog za prepoved za tega uporabnika"
+
+#: src/qml/UserDetailDialog.qml:128
+#, kde-format
+msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+msgid "Kick"
+msgstr ""
+
+#: src/qml/UserDetailDialog.qml:147
 #, kde-format
 msgid "Invite this user"
 msgstr "Povabi tega uporabnika"
 
-#: src/qml/UserDetailDialog.qml:149
+#: src/qml/UserDetailDialog.qml:160
 #, kde-format
 msgid "Ban this user"
 msgstr "Prepovej tega uporabnika"
 
-#: src/qml/UserDetailDialog.qml:154 src/qml/UserDetailDialog.qml:159
+#: src/qml/UserDetailDialog.qml:165 src/qml/UserDetailDialog.qml:170
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Prepovej uporabnika"
 
-#: src/qml/UserDetailDialog.qml:155
+#: src/qml/UserDetailDialog.qml:166
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Razlog za prepoved za tega uporabnika"
 
-#: src/qml/UserDetailDialog.qml:156
+#: src/qml/UserDetailDialog.qml:167
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Prepoved"
 
-#: src/qml/UserDetailDialog.qml:174
+#: src/qml/UserDetailDialog.qml:185
 #, kde-format
 msgid "Unban this user"
 msgstr "Prekini prepoved temu uporabniku"
 
-#: src/qml/UserDetailDialog.qml:187
+#: src/qml/UserDetailDialog.qml:198
 #, kde-format
 msgid "Set user power level"
 msgstr "Uredi raven moči uporabnika"
 
-#: src/qml/UserDetailDialog.qml:212
+#: src/qml/UserDetailDialog.qml:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Odstrani nedavna sporočila tega uporabnika"
 
-#: src/qml/UserDetailDialog.qml:217
+#: src/qml/UserDetailDialog.qml:228
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Odstrani sporočila"
 
-#: src/qml/UserDetailDialog.qml:218
+#: src/qml/UserDetailDialog.qml:229
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Razlog za odstranjevanje nedavnih sporočil tega uporabnika"
 
-#: src/qml/UserDetailDialog.qml:219
+#: src/qml/UserDetailDialog.qml:230
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/qml/UserDetailDialog.qml:222
+#: src/qml/UserDetailDialog.qml:233
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Odstrani sporočila"
 
-#: src/qml/UserDetailDialog.qml:236
+#: src/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Klepet z %1"
 
-#: src/qml/UserDetailDialog.qml:236
+#: src/qml/UserDetailDialog.qml:247
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Povabi na zasebni klepet"
 
-#: src/qml/UserDetailDialog.qml:247
+#: src/qml/UserDetailDialog.qml:258
 #, kde-format
 msgid "Copy link"
 msgstr "Kopiraj povezavo"
