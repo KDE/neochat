@@ -249,7 +249,7 @@ Kirigami.ApplicationWindow {
         target: Controller
 
         function onErrorOccured(error, detail) {
-            showPassiveNotification(detail.length > 0 ? i18n("%1: %2", error, detail) : error);
+            showPassiveNotification(detail.length > 0 ? i18n("%1: %2", error, detail) : error, "short");
         }
     }
 
