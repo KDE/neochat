@@ -271,11 +271,6 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         if (m_event == nullptr) {
             return QString();
         }
-        if (m_event->isRedacted()) {
-            auto reason = m_event->redactedBecause()->reason();
-            return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>")
-                                      : i18n("<i>[This message was deleted: %1]</i>", m_event->redactedBecause()->reason());
-        }
         if (!component.content.isEmpty()) {
             return component.content;
         }

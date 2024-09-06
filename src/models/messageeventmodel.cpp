@@ -433,11 +433,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     const auto &evt = isPending ? **pendingIt : **timelineIt;
 
     if (role == Qt::DisplayRole) {
-        if (evt.isRedacted()) {
-            auto reason = evt.redactedBecause()->reason();
-            return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>")
-                                      : i18n("<i>[This message was deleted: %1]</i>", evt.redactedBecause()->reason().toHtmlEscaped());
-        }
         return EventHandler::richBody(m_currentRoom, &evt);
     }
 
