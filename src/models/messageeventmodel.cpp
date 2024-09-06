@@ -433,11 +433,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     EventHandler eventHandler(m_currentRoom, &evt);
 
     if (role == Qt::DisplayRole) {
-        if (evt.isRedacted()) {
-            auto reason = evt.redactedBecause()->reason();
-            return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>")
-                                      : i18n("<i>[This message was deleted: %1]</i>", evt.redactedBecause()->reason().toHtmlEscaped());
-        }
         return eventHandler.getRichBody();
     }
 
