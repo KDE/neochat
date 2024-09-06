@@ -119,10 +119,7 @@ QQC2.Control {
                     activeFocusOnTab: true
 
                     checked: RoomManager.currentSpace.length === 0
-                    onSelected: {
-                        RoomManager.currentSpace = "";
-                        root.selectionChanged();
-                    }
+                    onSelected: RoomManager.currentSpace = ""
                 }
                 AvatarTabButton {
                     id: directChatButton
@@ -175,10 +172,7 @@ QQC2.Control {
                     activeFocusOnTab: true
 
                     checked: RoomManager.currentSpace === "DM"
-                    onSelected: {
-                        RoomManager.currentSpace = "DM";
-                        root.selectionChanged();
-                    }
+                    onSelected: RoomManager.currentSpace = "DM"
                 }
 
                 Repeater {
