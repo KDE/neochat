@@ -459,7 +459,7 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
         nextAttributeIndex += 1;
 
         while (nextAttributeIndex < tagString.length()) {
-            nextSpaceIndex = tagString.indexOf(TextRegex::endTagType, nextAttributeIndex);
+            nextSpaceIndex = tagString.indexOf(TextRegex::endAttributeType, nextAttributeIndex);
             if (nextSpaceIndex == -1) {
                 nextSpaceIndex = tagString.length();
             }
@@ -505,7 +505,7 @@ QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagStr
         nextAttributeIndex += 1;
 
         while (nextAttributeIndex < tagString.length()) {
-            nextSpaceIndex = tagString.indexOf(TextRegex::endTagType, nextAttributeIndex);
+            nextSpaceIndex = tagString.indexOf(TextRegex::endAttributeType, nextAttributeIndex);
             if (nextSpaceIndex == -1) {
                 nextSpaceIndex = tagString.length();
             }

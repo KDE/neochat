@@ -46,6 +46,7 @@ private Q_SLOTS:
     void sendCustomEmojiCode_data();
     void sendCustomEmojiCode();
 
+    void receiveSpacelessSelfClosingTag();
     void receiveStripReply();
     void receivePlainTextIn();
 
@@ -250,6 +251,19 @@ void TextHandlerTest::sendCustomEmojiCode()
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.handleSendText(), testOutputString);
+}
+
+void TextHandlerTest::receiveSpacelessSelfClosingTag()
+{
+    const QString testInputString = QStringLiteral("Test...<br/>...ing");
+    const QString testRichOutputString = QStringLiteral("Test...<br/>...ing");
+    const QString testPlainOutputString = QStringLiteral("Test...\n...ing");
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleRecieveRichText(), testRichOutputString);
+    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText), testPlainOutputString);
 }
 
 void TextHandlerTest::receiveStripReply()
@@ -536,7 +550,7 @@ void TextHandlerTest::componentOutput_data()
                "someField }\nCustomQml {\n    someTextProperty: someField.text\n}\n</code></pre>Sure you can, it's still local to the same file where you "
                "defined the id")
         << QList<MessageComponent>{
-               MessageComponent{MessageComponentType::Text, QStringLiteral("Ah, you mean something like"), {}},
+               MessageComponent{MessageComponentType::Text, QStringLiteral("Ah, you mean something like<br/>"), {}},
                MessageComponent{
                    MessageComponentType::Code,
                    QStringLiteral(

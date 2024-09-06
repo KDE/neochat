@@ -57,7 +57,8 @@ inline QColor getUserColor(qreal hueF)
 
 namespace TextRegex
 {
-static const QRegularExpression endTagType{QStringLiteral("(>| )")};
+static const QRegularExpression endTagType{QStringLiteral("[> /]")};
+static const QRegularExpression endAttributeType{QStringLiteral("[> ]")};
 static const QRegularExpression attributeData{QStringLiteral("['\"](.*?)['\"]")};
 static const QRegularExpression removeReply{QStringLiteral("> <.*?>.*?\\n\\n"), QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression removeRichReply{QStringLiteral("<mx-reply>.*?</mx-reply>"), QRegularExpression::DotMatchesEverythingOption};
