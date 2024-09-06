@@ -171,11 +171,9 @@ Kirigami.ApplicationWindow {
         if (ShareHandler.text && root.connection) {
             root.handleShare()
         }
-        if (NeoChatConfig.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && NeoChatConfig.systemTray) {
-            restoreWindowGeometryConnections.enabled = true; // To restore window size and position
-        } else {
+        const hasSystemTray = Controller.supportSystemTray && NeoChatConfig.systemTray;
+        if (Kirigami.Settings.isMobile || !(hasSystemTray && NeoChatConfig.minimizeToSystemTrayOnStartup)) {
             visible = true;
-            saveWindowGeometryConnections.enabled = true;
         }
     }
     Connections {
@@ -250,21 +248,6 @@ Kirigami.ApplicationWindow {
 
         function onErrorOccured(error, detail) {
             showPassiveNotification(detail.length > 0 ? i18n("%1: %2", error, detail) : error, "short");
-        }
-    }
-
-    Connections {
-        id: restoreWindowGeometryConnections
-        enabled: false
-        target: root
-
-        function onVisibleChanged() {
-            if (!visible) {
-                return;
-            }
-            Controller.restoreWindowGeometry(root);
-            restoreWindowGeometryConnections.enabled = false; // Only restore window geometry for the first time
-            saveWindowGeometryConnections.enabled = true;
         }
     }
 
