@@ -2,15 +2,10 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "reactionmodel.h"
+#include "utils.h"
 
 #include <QDebug>
 #include <QFont>
-#ifdef HAVE_ICU
-#include <QTextBoundaryFinder>
-#include <QTextCharFormat>
-#include <unicode/uchar.h>
-#include <unicode/urename.h>
-#endif
 
 #include <KLocalizedString>
 
@@ -154,30 +149,6 @@ QHash<int, QByteArray> ReactionModel::roleNames() const
     };
 }
 
-bool isEmoji(const QString &text)
-{
-#ifdef HAVE_ICU
-    QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
-    int from = 0;
-    while (finder.toNextBoundary() != -1) {
-        auto to = finder.position();
-        if (text[from].isSpace()) {
-            from = to;
-            continue;
-        }
-
-        auto first = text.mid(from, to - from).toUcs4()[0];
-        if (!u_hasBinaryProperty(first, UCHAR_EMOJI)) {
-            return false;
-        }
-        from = to;
-    }
-    return true;
-#else
-    return false;
-#endif
-}
-
 QString ReactionModel::reactionText(QString text) const
 {
     text = text.toHtmlEscaped();
@@ -191,7 +162,7 @@ QString ReactionModel::reactionText(QString text) const
             .arg(m_room->connection()->makeMediaUrl(QUrl(text)).toString(), QString::number(size));
     }
 
-    return isEmoji(text) ? QStringLiteral("<span style=\"font-family: 'emoji';\">") + text + QStringLiteral("</span>") : text;
+    return Utils::isEmoji(text) ? QStringLiteral("<span style=\"font-family: 'emoji';\">") + text + QStringLiteral("</span>") : text;
 }
 
 #include "moc_reactionmodel.cpp"
