@@ -122,7 +122,7 @@ Kirigami.Page {
 
                             QQC2.ToolButton {
                                 text: i18nc("@action:button", "Log out of this account")
-                                icon.name: "edit-delete-remove"
+                                icon.name: "im-kick-user"
                                 onClicked: Controller.removeConnection(modelData)
                                 display: QQC2.Button.IconOnly
                                 QQC2.ToolTip.text: text
