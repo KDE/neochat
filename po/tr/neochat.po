@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:39+0000\n"
-"PO-Revision-Date: 2024-09-03 08:58+0300\n"
+"POT-Creation-Date: 2024-09-07 00:39+0000\n"
+"PO-Revision-Date: 2024-09-06 14:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1779,7 +1779,7 @@ msgstr "Enlem: %1, Boylam: %2"
 msgid "Encrypted Message"
 msgstr "Şifreli İleti"
 
-#: src/notificationsmanager.cpp:210 src/qml/Main.qml:279
+#: src/notificationsmanager.cpp:210 src/qml/Main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -2929,25 +2929,25 @@ msgstr "Konumlar"
 msgid "There are no locations shared in this room."
 msgstr "Bu odada paylaşılmış bir konum yok."
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Oda bilgisini göster"
 
-#: src/qml/Main.qml:169
+#: src/qml/Main.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Oda Bilgisi Çekmecesini Kapat"
 
-#: src/qml/Main.qml:308
+#: src/qml/Main.qml:281
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/Main.qml:344 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:317 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3689,26 +3689,22 @@ msgid "Kick this user"
 msgstr "Bu Kullanıcıyı Kov"
 
 #: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Kick users"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr "Kullanıcıları kov"
+msgstr "Kullanıcıyı Kov"
 
 #: src/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
-msgstr "Kullanıcıyı yasaklama gerekçesi"
+msgstr "Kullanıcıyı kovma gerekçesi"
 
 #: src/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr ""
+msgstr "Kov"
 
 #: src/qml/UserDetailDialog.qml:147
 #, kde-format

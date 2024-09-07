@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:39+0000\n"
-"PO-Revision-Date: 2024-09-03 07:24+0200\n"
+"POT-Creation-Date: 2024-09-07 00:39+0000\n"
+"PO-Revision-Date: 2024-09-06 07:17+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1792,7 +1792,7 @@ msgstr "Širina: %1, Dolžina: %2"
 msgid "Encrypted Message"
 msgstr "Šifrirano sporočilo"
 
-#: src/notificationsmanager.cpp:210 src/qml/Main.qml:279
+#: src/notificationsmanager.cpp:210 src/qml/Main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -2938,25 +2938,25 @@ msgstr "Lokacije"
 msgid "There are no locations shared in this room."
 msgstr "Ni deljenih lokacij v tej sobi."
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Prikaži informacije o sobi"
 
-#: src/qml/Main.qml:169
+#: src/qml/Main.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Zapri predal z informacijami o sobi"
 
-#: src/qml/Main.qml:308
+#: src/qml/Main.qml:281
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikacija seje"
 
-#: src/qml/Main.qml:344 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:317 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3708,26 +3708,22 @@ msgid "Kick this user"
 msgstr "Brcni tega uporabnika"
 
 #: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Kick users"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr "Brcni uporabnike"
+msgstr "Brcni uporabnika"
 
 #: src/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
-msgstr "Razlog za prepoved za tega uporabnika"
+msgstr "Razlog za brco za tega uporabnika"
 
 #: src/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr ""
+msgstr "Brcni"
 
 #: src/qml/UserDetailDialog.qml:147
 #, kde-format
@@ -4754,7 +4750,7 @@ msgstr "Ponastavi vse konfiguracijske vrednosti na privzete"
 #, kde-format
 msgctxt "@title"
 msgid "Security & Safety"
-msgstr "Varnost:"
+msgstr "Varnost"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format

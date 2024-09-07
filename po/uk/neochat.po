@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:39+0000\n"
-"PO-Revision-Date: 2024-09-03 08:48+0300\n"
+"POT-Creation-Date: 2024-09-07 00:39+0000\n"
+"PO-Revision-Date: 2024-09-06 23:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1801,7 +1801,7 @@ msgstr "Шир: %1, Довг: %2"
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/notificationsmanager.cpp:210 src/qml/Main.qml:279
+#: src/notificationsmanager.cpp:210 src/qml/Main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -2954,25 +2954,25 @@ msgstr "Місця"
 msgid "There are no locations shared in this room."
 msgstr "У цій кімнаті не оприлюднюються місця перебування."
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Показати дані щодо кімнати"
 
-#: src/qml/Main.qml:169
+#: src/qml/Main.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Закрити панель відомостей щодо кімнати"
 
-#: src/qml/Main.qml:308
+#: src/qml/Main.qml:281
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/Main.qml:344 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:317 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3728,26 +3728,22 @@ msgid "Kick this user"
 msgstr "Викинути цього користувача"
 
 #: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Kick users"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr "Викидання користувачів"
+msgstr "Викидання користувача"
 
 #: src/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
-msgstr "Причина блокування цього користувача"
+msgstr "Причина викидання цього користувача"
 
 #: src/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr ""
+msgstr "Викинути"
 
 #: src/qml/UserDetailDialog.qml:147
 #, kde-format

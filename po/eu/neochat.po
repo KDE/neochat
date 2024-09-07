@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-06 00:39+0000\n"
-"PO-Revision-Date: 2024-09-03 21:01+0200\n"
+"POT-Creation-Date: 2024-09-07 00:39+0000\n"
+"PO-Revision-Date: 2024-09-06 22:58+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1786,7 +1786,7 @@ msgstr "Lat: %1, Lon: %2"
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: src/notificationsmanager.cpp:210 src/qml/Main.qml:279
+#: src/notificationsmanager.cpp:210 src/qml/Main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -2934,25 +2934,25 @@ msgstr "Kokalekuak"
 msgid "There are no locations shared in this room."
 msgstr "Gela honetan ez dago partekatutako kokalekurik."
 
-#: src/qml/Main.qml:166
+#: src/qml/Main.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Erakutsi gelaren informazioa"
 
-#: src/qml/Main.qml:169
+#: src/qml/Main.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Itxi gelaren informazioaren tiradera"
 
-#: src/qml/Main.qml:308
+#: src/qml/Main.qml:281
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Saioa egiaztatzea"
 
-#: src/qml/Main.qml:344 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:317 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3695,26 +3695,22 @@ msgid "Kick this user"
 msgstr "Kanporatu erabiltzaile hau"
 
 #: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Kick users"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr "Erabiltzaileak kanporatzea"
+msgstr "Kanporatu erabiltzailea"
 
 #: src/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
-msgstr "Erabiltzaile honi debekua ezartzeko arrazoia"
+msgstr "Erabiltzailea kanporatzeko arrazoia"
 
 #: src/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr ""
+msgstr "Kanporatu"
 
 #: src/qml/UserDetailDialog.qml:147
 #, kde-format
