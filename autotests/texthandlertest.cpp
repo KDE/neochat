@@ -463,6 +463,9 @@ void TextHandlerTest::receiveRichPlainUrl()
     QString testOutputStringMxId = QStringLiteral(
         "<b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> <b><a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a></b>");
 
+    QString testInputStringMxIdWithPrefix = QStringLiteral("a @user:kde.org b");
+    QString testOutputStringMxIdWithPrefix = QStringLiteral("a <b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> b");
+
     TextHandler testTextHandler;
     testTextHandler.setData(testInputStringLink1);
 
@@ -476,6 +479,9 @@ void TextHandlerTest::receiveRichPlainUrl()
 
     testTextHandler.setData(testInputStringMxId);
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringMxId);
+
+    testTextHandler.setData(testInputStringMxIdWithPrefix);
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringMxIdWithPrefix);
 }
 
 void TextHandlerTest::receiveRichEdited_data()
