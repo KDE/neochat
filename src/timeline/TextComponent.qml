@@ -26,16 +26,6 @@ TextEdit {
     property bool isReply: false
 
     /**
-     * @brief Regex for detecting a message with a single emoji.
-     */
-    readonly property var isEmojiRegex: /^(<span style='.*'>)?(\u00a9|\u00ae|[\u20D0-\u2fff]|[\u3190-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+(<\/span>)?$/
-
-    /**
-     * @brief Whether the message is an emoji
-     */
-    readonly property var isEmoji: isEmojiRegex.test(display)
-
-    /**
      * @brief Regex for detecting a message with a spoiler.
      */
     readonly property var hasSpoiler: /data-mx-spoiler/g
@@ -113,8 +103,8 @@ a{
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor
     font {
-        pointSize: !root.isReply && root.isEmoji ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
-        family: root.isEmoji ? 'emoji' : Kirigami.Theme.defaultFont.family
+        pointSize: !root.isReply && QmlUtils.isEmoji(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
+        family: QmlUtils.isEmoji(display) ? 'emoji' : Kirigami.Theme.defaultFont.family
     }
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: true

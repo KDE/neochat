@@ -30,6 +30,7 @@ public:
         return _instance;
     }
 
+    Q_INVOKABLE bool isEmoji(const QString &text);
     Q_INVOKABLE bool isValidJson(const QByteArray &json);
     Q_INVOKABLE QString escapeString(const QString &string);
     Q_INVOKABLE QColor getUserColor(qreal hueF);
@@ -53,6 +54,8 @@ inline QColor getUserColor(qreal hueF)
     // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
     return QColor::fromHslF(hueF, 1, -0.7 * lightness + 0.9, 1);
 }
+
+bool isEmoji(const QString &text);
 }
 
 namespace TextRegex
