@@ -80,6 +80,6 @@ static const QRegularExpression
         QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
 static const QRegularExpression emailAddress(QStringLiteral(R"(<a.*?<\/a>(*SKIP)(*F)|\b(mailto:)?((\w|\.|-)+@(\w|\.|-)+\.\w+\b))"),
                                              QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
-static const QRegularExpression mxId(QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"),
+static const QRegularExpression mxId(QStringLiteral(R"((?<=^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"),
                                      QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
 }

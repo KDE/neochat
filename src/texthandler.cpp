@@ -626,7 +626,7 @@ QString TextHandler::linkifyUrls(QString stringIn)
         int skip = 0;
         if (match.captured(0).size() > 0) {
             if (stringIn.left(index).count(QStringLiteral("<code>")) == stringIn.left(index).count(QStringLiteral("</code>"))) {
-                auto replacement = QStringLiteral("<a href=\"https://matrix.to/#/%1\">%1</a>").arg(match.captured(2));
+                auto replacement = QStringLiteral("<a href=\"https://matrix.to/#/%1\">%1</a>").arg(match.captured(1));
                 stringIn = stringIn.replace(index, match.captured(0).size(), replacement);
             } else {
                 skip = match.captured().length();
