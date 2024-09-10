@@ -16,6 +16,7 @@ ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, NeoChatRoo
 {
     if (m_event != nullptr && m_room != nullptr) {
         connect(m_room, &NeoChatRoom::updatedEvent, this, [this](const QString &eventId) {
+            m_queuedEvents.clear();
             if (m_event && m_event->id() == eventId) {
                 updateReactions();
             }
@@ -103,22 +104,36 @@ void ReactionModel::updateReactions()
     m_shortcodes.clear();
 
     const auto &annotations = m_room->relatedEvents(*m_event, Quotient::EventRelation::AnnotationType);
-    if (annotations.isEmpty()) {
+    auto &pendingEvents = m_queuedEvents;
+
+    if (annotations.isEmpty() && pendingEvents.empty()) {
         endResetModel();
         return;
-    };
+    }
 
     QMap<QString, QStringList> reactions = {};
+
+    const auto addReaction = [this, &reactions](const Quotient::ReactionEvent *e) {
+        reactions[e->key()].append(e->senderId());
+        if (e->contentJson()[QStringLiteral("shortcode")].toString().length()) {
+            m_shortcodes[e->key()] = e->contentJson()[QStringLiteral("shortcode")].toString().toHtmlEscaped();
+        }
+    };
+
     for (const auto &a : annotations) {
         if (a->isRedacted()) { // Just in case?
             continue;
         }
         if (const auto &e = eventCast<const Quotient::ReactionEvent>(a)) {
-            reactions[e->key()].append(e->senderId());
-            if (e->contentJson()[QStringLiteral("shortcode")].toString().length()) {
-                m_shortcodes[e->key()] = e->contentJson()[QStringLiteral("shortcode")].toString().toHtmlEscaped();
-            }
+            addReaction(e);
         }
+    }
+
+    for (const auto &e : pendingEvents) {
+        if (e->isRedacted()) { // Just in case?
+            continue;
+        }
+        addReaction(e);
     }
 
     if (reactions.isEmpty()) {
@@ -127,12 +142,7 @@ void ReactionModel::updateReactions()
     }
     auto i = reactions.constBegin();
     while (i != reactions.constEnd()) {
-        QStringList members;
-        for (const auto &member : i.value()) {
-            members.append(member);
-        }
-
-        m_reactions.append(ReactionModel::Reaction{i.key(), members});
+        m_reactions.append(ReactionModel::Reaction{i.key(), i.value()});
         ++i;
     }
 
@@ -147,6 +157,12 @@ QHash<int, QByteArray> ReactionModel::roleNames() const
         {ToolTipRole, "toolTip"},
         {HasLocalMember, "hasLocalMember"},
     };
+}
+
+void ReactionModel::queueReaction(const Quotient::ReactionEvent *event)
+{
+    m_queuedEvents.push_back(event);
+    updateReactions();
 }
 
 QString ReactionModel::reactionText(QString text) const

@@ -108,7 +108,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         room->setDisplayed();
 
         for (auto event = m_currentRoom->messageEvents().begin(); event != m_currentRoom->messageEvents().end(); ++event) {
-            createEventObjects(&*event->viewAs<RoomEvent>());
+            createEventObjects(&*event->viewAs<RoomEvent>(), false);
             if (event->event()->is<PollStartEvent>()) {
                 m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event->event()));
             }
@@ -121,7 +121,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
 
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
             for (auto &&event : events) {
-                createEventObjects(event.get());
+                createEventObjects(event.get(), false);
                 if (event->is<PollStartEvent>()) {
                     m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event.get()));
                 }
@@ -131,7 +131,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
             for (auto &event : events) {
-                createEventObjects(event.get());
+                createEventObjects(event.get(), false);
                 if (event->is<PollStartEvent>()) {
                     m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(event.get()));
                 }
@@ -160,7 +160,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
             m_initialized = true;
-            createEventObjects(event);
+            createEventObjects(event, true);
             beginInsertRows({}, 0, 0);
         });
         connect(m_currentRoom, &Room::pendingEventAdded, this, &MessageEventModel::endInsertRows);
@@ -196,7 +196,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             moveReadMarker(toEventId);
         });
         connect(m_currentRoom, &Room::replacedEvent, this, [this](const RoomEvent *newEvent) {
-            createEventObjects(newEvent);
+            createEventObjects(newEvent, false);
         });
         connect(m_currentRoom, &Room::updatedEvent, this, [this](const QString &eventId) {
             if (eventId.isEmpty()) { // How did we get here?
@@ -204,7 +204,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             const auto eventIt = m_currentRoom->findInTimeline(eventId);
             if (eventIt != m_currentRoom->historyEdge()) {
-                createEventObjects(eventIt->event());
+                createEventObjects(eventIt->event(), false);
                 if (eventIt->event()->is<PollStartEvent>()) {
                     m_currentRoom->createPollHandler(eventCast<const PollStartEvent>(eventIt->event()));
                 }
@@ -215,7 +215,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             if (changes.testFlag(Quotient::Room::Change::Other)) {
                 // this is slow
                 for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
-                    createEventObjects(it->event());
+                    createEventObjects(it->event(), false);
                 }
             }
         });
@@ -621,7 +621,7 @@ int MessageEventModel::eventIdToRow(const QString &eventID) const
     return it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
 }
 
-void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
+void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event, bool pending)
 {
     if (event == nullptr) {
         return;
@@ -696,6 +696,28 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
                     m_reactionModels[eventId] = reactionModel;
                     if (!resetting) {
                         refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole});
+                    }
+                }
+            }
+        }
+    }
+
+    if (pending) {
+        if (const auto reactionEvent = eventCast<const ReactionEvent>(event)) {
+            auto targetEvent = m_currentRoom->getEvent(reactionEvent->eventId());
+            if (!targetEvent) {
+                return;
+            }
+
+            if (const auto roomEvent = eventCast<const RoomMessageEvent>(targetEvent)) {
+                if (m_reactionModels.contains(targetEvent->id())) {
+                    m_reactionModels[targetEvent->id()]->queueReaction(reactionEvent);
+                } else {
+                    auto reactionModel = QSharedPointer<ReactionModel>(new ReactionModel(roomEvent, m_currentRoom));
+                    m_reactionModels[targetEvent->id()] = reactionModel;
+                    reactionModel->queueReaction(reactionEvent);
+                    if (!resetting) {
+                        refreshEventRoles(targetEvent->id(), {ReactionRole, ShowReactionsRole});
                     }
                 }
             }

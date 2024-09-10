@@ -61,11 +61,21 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    /**
+     * @brief Puts a ReactionEvent into the pending queue. This reaction should be pulled from the pending queue.
+     *
+     * This queue is cleared once the message is updated.
+     *
+     * @param event The ReactionEvent to add.
+     */
+    void queueReaction(const Quotient::ReactionEvent *event);
+
 private:
     QPointer<NeoChatRoom> m_room;
     const Quotient::RoomMessageEvent *m_event;
     QList<Reaction> m_reactions;
     QMap<QString, QString> m_shortcodes;
+    QList<const Quotient::ReactionEvent *> m_queuedEvents;
 
     void updateReactions();
     QString reactionText(QString text) const;
