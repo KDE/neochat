@@ -192,7 +192,7 @@ protected:
 private:
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
 
-    void createEventObjects(const Quotient::RoomEvent *event);
+    void createEventObjects(const Quotient::RoomEvent *event, bool pending);
 
     static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
     static bool m_threadsEnabled;

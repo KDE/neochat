@@ -428,7 +428,7 @@ void MessageModel::refreshLastUserEvents(int baseTimelineRow)
     }
 }
 
-void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
+void MessageModel::createEventObjects(const Quotient::RoomEvent *event, bool pending)
 {
     if (event == nullptr) {
         return;
@@ -465,6 +465,28 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
                 m_readMarkerModels[eventId] = newModel;
                 if (!m_resetting) {
                     refreshEventRoles(eventId, {ReadMarkersRole, ShowReadMarkersRole});
+                }
+            }
+        }
+    }
+
+    if (pending) {
+        if (const auto reactionEvent = eventCast<const ReactionEvent>(event)) {
+            auto targetEvent = m_currentRoom->getEvent(reactionEvent->eventId());
+            if (!targetEvent) {
+                return;
+            }
+
+            if (const auto roomEvent = eventCast<const RoomMessageEvent>(targetEvent)) {
+                if (m_reactionModels.contains(targetEvent->id())) {
+                    m_reactionModels[targetEvent->id()]->queueReaction(reactionEvent);
+                } else {
+                    auto reactionModel = QSharedPointer<ReactionModel>(new ReactionModel(roomEvent, m_currentRoom));
+                    m_reactionModels[targetEvent->id()] = reactionModel;
+                    reactionModel->queueReaction(reactionEvent);
+                    if (!resetting) {
+                        refreshEventRoles(targetEvent->id(), {ReactionRole, ShowReactionsRole});
+                    }
                 }
             }
         }
