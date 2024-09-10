@@ -24,6 +24,7 @@ class UserFilterModel : public QSortFilterProxyModel
      * The text is either a desired display name or matrix id.
      */
     Q_PROPERTY(QString filterText READ filterText WRITE setFilterText NOTIFY filterTextChanged)
+    Q_PROPERTY(bool allowEmpty READ allowEmpty WRITE setAllowEmpty NOTIFY allowEmptyChanged)
 
 public:
     /**
@@ -36,9 +37,14 @@ public:
     QString filterText() const;
     void setFilterText(const QString &filterText);
 
+    bool allowEmpty() const;
+    void setAllowEmpty(bool allowEmpty);
+
 Q_SIGNALS:
     void filterTextChanged();
+    void allowEmptyChanged();
 
 private:
     QString m_filterText;
+    bool m_allowEmpty = false;
 };

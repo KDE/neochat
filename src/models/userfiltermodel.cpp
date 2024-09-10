@@ -8,7 +8,7 @@
 bool UserFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
     Q_UNUSED(sourceParent);
-    if (m_filterText.length() < 1) {
+    if (!m_allowEmpty && m_filterText.length() < 1) {
         return false;
     }
     return sourceModel()->data(sourceModel()->index(sourceRow, 0), UserListModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
@@ -25,6 +25,17 @@ void UserFilterModel::setFilterText(const QString &filterText)
     m_filterText = filterText;
     Q_EMIT filterTextChanged();
     invalidateFilter();
+}
+
+bool UserFilterModel::allowEmpty() const
+{
+    return m_allowEmpty;
+}
+
+void UserFilterModel::setAllowEmpty(bool allowEmpty)
+{
+    m_allowEmpty = allowEmpty;
+    Q_EMIT allowEmptyChanged();
 }
 
 #include "moc_userfiltermodel.cpp"
