@@ -28,7 +28,8 @@ void ColorSchemer::apply(int idx)
 
 int ColorSchemer::indexForCurrentScheme()
 {
-    return c->indexForSchemeId(c->activeSchemeId()).row();
+    return -1;
+    // return c->indexForSchemeId(c->activeSchemeId()).row();
 }
 
 #include "moc_colorschemer.cpp"

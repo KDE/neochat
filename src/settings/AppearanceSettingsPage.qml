@@ -217,12 +217,12 @@ FormCard.FormCardPage {
             visible: colorSchemeDelegate.visible
         }
 
-        Loader {
-            id: colorSchemeDelegate
-            visible: item !== null
-            sourceComponent: Qt.createComponent('org.kde.neochat.settings', 'ColorScheme')
-            Layout.fillWidth: true
-        }
+        // Loader {
+        //     id: colorSchemeDelegate
+        //     visible: item !== null
+        //     sourceComponent: Qt.createComponent('org.kde.neochat.settings', 'ColorScheme')
+        //     Layout.fillWidth: true
+        // }
     }
 
     FormCard.FormCard {
