@@ -306,7 +306,7 @@ add_subdirectory(devtools)
 add_subdirectory(login)
 add_subdirectory(chatbar)
 
-if(UNIX)
+if(NOT ANDROID AND NOT WIN32)
     qt_target_qml_sources(neochat QML_FILES qml/ShareAction.qml)
 else()
     set_source_files_properties(qml/ShareActionStub.qml PROPERTIES
