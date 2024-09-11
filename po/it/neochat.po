@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-09 00:39+0000\n"
-"PO-Revision-Date: 2024-08-27 15:20+0200\n"
+"POT-Creation-Date: 2024-09-11 00:39+0000\n"
+"PO-Revision-Date: 2024-09-06 20:29+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -375,13 +375,11 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:280 src/eventhandler.cpp:492
-#: src/models/messagecontentmodel.cpp:276 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Questo messaggio è stato eliminato]</i>"
 
-#: src/eventhandler.cpp:280 src/models/messagecontentmodel.cpp:277
-#: src/models/messageeventmodel.cpp:439
+#: src/eventhandler.cpp:280
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Questo messaggio è stato eliminato: %1]</i>"
@@ -488,10 +486,9 @@ msgid "has put %1 out of the room: %2"
 msgstr "ha espulso %1 dalla stanza: %2"
 
 #: src/eventhandler.cpp:376
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#, kde-format
 msgid "has put %1 out of the room"
-msgstr "ha espulso %1 dalla stanza: %2"
+msgstr "ha espulso %1 dalla stanza"
 
 #: src/eventhandler.cpp:380
 #, kde-format
@@ -963,8 +960,7 @@ msgid "Go back"
 msgstr "Indietro"
 
 #: src/login/WelcomePage.qml:252
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Impostazioni"
@@ -2325,15 +2321,13 @@ msgstr "Rimuovi"
 #: src/qml/DelegateContextMenu.qml:95 src/qml/DelegateContextMenu.qml:100
 #: src/qml/FileDelegateContextMenu.qml:75
 #: src/qml/FileDelegateContextMenu.qml:80
-#, fuzzy, kde-format
-#| msgid "Remove Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
-msgstr "Rimuovi il messaggio"
+msgstr "Rimuovi messaggio"
 
 #: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:76
-#, fuzzy, kde-format
-#| msgid "Reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Motivo per la rimozione di questo messaggio"
@@ -2352,15 +2346,13 @@ msgid "Report"
 msgstr "Segnala"
 
 #: src/qml/DelegateContextMenu.qml:125
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Messaggio della segnalazione"
 
 #: src/qml/DelegateContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Motivo della segnalazione di questo messaggio"
@@ -2825,43 +2817,37 @@ msgid "Accept"
 msgstr "Accetta"
 
 #: src/qml/InviteUserPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Invite a User"
 msgstr "Invita un utente"
 
 #: src/qml/InviteUserPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find a user..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find a user…"
-msgstr "Trova un utente..."
+msgstr "Trova un utente…"
 
 #: src/qml/InviteUserPage.qml:24
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No users found"
-msgstr "Nessuna stanza trovata"
+msgstr "Nessun utente trovato"
 
 #: src/qml/InviteUserPage.qml:31
-#, fuzzy, kde-format
-#| msgid "Invite this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "Invita questo utente"
 
 #: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
-#, fuzzy, kde-format
-#| msgid "User is either already a member or has been invited"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "L'utente è già membro o è stato invitato"
 
 #: src/qml/InviteUserPage.qml:75
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Invia l'invito"
@@ -2932,14 +2918,13 @@ msgstr "Invia questa località"
 #, kde-format
 msgctxt "@action:intoolbar Re-center the map onto the set location"
 msgid "Re-Center"
-msgstr ""
+msgstr "Centra"
 
 #: src/qml/LocationChooser.qml:41
-#, fuzzy, kde-format
-#| msgid "Local"
+#, kde-format
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
-msgstr "Locale"
+msgstr "Localizza"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
 #, kde-format
@@ -3717,25 +3702,22 @@ msgid "Kick this user"
 msgstr "Espelli questo utente"
 
 #: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Kick users"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr "Espelli utenti"
+msgstr "Espelli utente"
 
 #: src/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
-msgstr "Motivo per bandire questo utente"
+msgstr "Motivo per l'espulsione di questo utente"
 
 #: src/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr ""
+msgstr "Espelli"
 
 #: src/qml/UserDetailDialog.qml:147
 #, kde-format
@@ -3748,15 +3730,13 @@ msgid "Ban this user"
 msgstr "Bandisci questo utente"
 
 #: src/qml/UserDetailDialog.qml:165 src/qml/UserDetailDialog.qml:170
-#, fuzzy, kde-format
-#| msgid "Ban User"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Bandisci utente"
 
 #: src/qml/UserDetailDialog.qml:166
-#, fuzzy, kde-format
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Motivo per bandire questo utente"
@@ -3778,29 +3758,25 @@ msgid "Set user power level"
 msgstr "Imposta il livello di potere dell'utente"
 
 #: src/qml/UserDetailDialog.qml:223
-#, fuzzy, kde-format
-#| msgid "Remove recent messages by this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Rimuovi i messaggi recenti di questo utente"
 
 #: src/qml/UserDetailDialog.qml:228
-#, fuzzy, kde-format
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Rimuovi i messaggi"
 
 #: src/qml/UserDetailDialog.qml:229
-#, fuzzy, kde-format
-#| msgid "Reason for removing this user's recent messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Motivo per la rimozione dei messaggi recenti di questo utente"
 
 #: src/qml/UserDetailDialog.qml:230
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Rimuovi"
@@ -4780,17 +4756,13 @@ msgstr "Ripristina tutti i valori di configurazione ai valori predefiniti"
 
 #: src/settings/NeoChatSecurityPage.qml:19
 #: src/settings/NeoChatSettingsView.qml:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@title"
 msgid "Security & Safety"
-msgstr "Chiave di sicurezza:"
+msgstr "Sicurezza"
 
 #: src/settings/NeoChatSecurityPage.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignored Users"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Utenti ignorati"
@@ -4802,12 +4774,10 @@ msgid "Ignored Users"
 msgstr "Utenti ignorati"
 
 #: src/settings/NeoChatSecurityPage.qml:44
-#, fuzzy, kde-format
-#| msgctxt "@label:checkbox"
-#| msgid "Hide image and video events by default"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
-msgstr "Nascondi eventi immagine e video in modo predefinito"
+msgstr "Nascondi immagini e video in modo predefinito"
 
 #: src/settings/NeoChatSecurityPage.qml:45
 #, kde-format
@@ -4826,10 +4796,7 @@ msgid "Reject invitations from unknown users"
 msgstr "Rifiuta gli inviti da utenti sconosciuti"
 
 #: src/settings/NeoChatSecurityPage.qml:60
-#, fuzzy, kde-format
-#| msgid ""
-#| "If enabled, NeoChat will reject invitations from users you don't share a "
-#| "room with."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
@@ -4839,35 +4806,28 @@ msgstr ""
 "una stanza."
 
 #: src/settings/NeoChatSecurityPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Your server does not support this setting."
+#, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Il tuo server non supporta questa impostazione."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title"
 msgid "Encryption"
 msgstr "Cifratura"
 
 #: src/settings/NeoChatSecurityPage.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importa chiavi"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import Encryption Keys"
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
-msgstr "Importa chiavi di cifratura"
+msgstr "Importa le chiavi di cifratura da un copia di sicurezza."
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
@@ -4876,20 +4836,16 @@ msgid "Keys imported successfully"
 msgstr "Chiavi importate correttamente"
 
 #: src/settings/NeoChatSecurityPage.qml:100
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Esporta chiavi"
 
 #: src/settings/NeoChatSecurityPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Export Encryption Keys"
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
-msgstr "Esporta chiavi di cifratura"
+msgstr "Esporta le chiavi di cifratura di questo dispositivo."
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -5650,8 +5606,7 @@ msgid "Loading URL preview"
 msgstr "Caricamento dell'anteprima dell'URL"
 
 #: src/timeline/LocationComponent.qml:113
-#, fuzzy, kde-format
-#| msgid "Open Externally"
+#, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Apri esternamente"
