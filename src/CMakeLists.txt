@@ -242,6 +242,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/EditMenu.qml
         qml/MessageDelegateContextMenu.qml
         qml/FileDelegateContextMenu.qml
+        qml/FileDelegateContextMenuMobile.qml
         qml/MessageSourceSheet.qml
         qml/ConfirmEncryptionDialog.qml
         qml/RoomSearchPage.qml

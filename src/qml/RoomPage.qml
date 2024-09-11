@@ -281,15 +281,27 @@ Kirigami.Page {
         }
 
         function onShowFileMenu(eventId, author, messageComponentType, plainText, mimeType, progressInfo, isThread) {
-            const contextMenu = fileDelegateContextMenu.createObject(root, {
-                author: author,
-                eventId: eventId,
-                plainText: plainText,
-                mimeType: mimeType,
-                progressInfo: progressInfo,
-                isThread: isThread
-            });
-            contextMenu.open();
+            if (Kirigami.Settings.isMobile) {
+                const contextMenu = fileDelegateContextMenuMobile.createObject(root, {
+                    author: author,
+                    eventId: eventId,
+                    plainText: plainText,
+                    mimeType: mimeType,
+                    progressInfo: progressInfo,
+                    isThread: isThread
+                });
+                contextMenu.open();
+            } else {
+                const contextMenu = fileDelegateContextMenu.createObject(root, {
+                    author: author,
+                    eventId: eventId,
+                    plainText: plainText,
+                    mimeType: mimeType,
+                    progressInfo: progressInfo,
+                    isThread: isThread
+                });
+                contextMenu.open();
+            }
         }
 
         function onShowMaximizedMedia(index) {
@@ -323,6 +335,13 @@ Kirigami.Page {
     Component {
         id: fileDelegateContextMenu
         FileDelegateContextMenu {
+            connection: root.connection
+        }
+    }
+
+    Component {
+        id: fileDelegateContextMenuMobile
+        FileDelegateContextMenuMobile {
             connection: root.connection
         }
     }
