@@ -38,20 +38,20 @@ ColumnLayout {
             text: i18n("Edit")
             display: QQC2.AbstractButton.IconOnly
 
-            Component {
-                id: imageEditorPage
-                ImageEditorPage {
-                    imagePath: root.attachmentPath
-                }
-            }
+            // Component {
+            //     id: imageEditorPage
+            //     ImageEditorPage {
+            //         imagePath: root.attachmentPath
+            //     }
+            // }
 
-            onClicked: {
-                let imageEditor = applicationWindow().pageStack.pushDialogLayer(imageEditorPage);
-                imageEditor.newPathChanged.connect(function (newPath) {
-                    applicationWindow().pageStack.layers.pop();
-                    root.attachmentPath = newPath;
-                });
-            }
+            // onClicked: {
+            //     let imageEditor = applicationWindow().pageStack.pushDialogLayer(imageEditorPage);
+            //     imageEditor.newPathChanged.connect(function (newPath) {
+            //         applicationWindow().pageStack.layers.pop();
+            //         root.attachmentPath = newPath;
+            //     });
+            // }
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
         }
