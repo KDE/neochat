@@ -213,11 +213,13 @@ void EventHandlerTest::genericBody_data()
     QTest::addColumn<int>("eventNum");
     QTest::addColumn<QString>("output");
 
-    QTest::newRow("message") << 0 << QStringLiteral("sent a message");
-    QTest::newRow("member") << 1 << QStringLiteral("changed their display name and updated their avatar");
-    QTest::newRow("message 2") << 2 << QStringLiteral("sent a message");
+    QTest::newRow("message") << 0 << QStringLiteral("<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message");
+    QTest::newRow("member") << 1
+                            << QStringLiteral(
+                                   "<a href=\"https://matrix.to/#/@example:example.org\">after</a> changed their display name and updated their avatar");
+    QTest::newRow("message 2") << 2 << QStringLiteral("<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message");
     QTest::newRow("reaction") << 3 << QStringLiteral("Unknown event");
-    QTest::newRow("video") << 4 << QStringLiteral("sent a message");
+    QTest::newRow("video") << 4 << QStringLiteral("<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message");
 }
 
 void EventHandlerTest::genericBody()
@@ -225,13 +227,16 @@ void EventHandlerTest::genericBody()
     QFETCH(int, eventNum);
     QFETCH(QString, output);
 
-    QCOMPARE(EventHandler::genericBody(room->messageEvents().at(eventNum).get()), output);
+    QCOMPARE(EventHandler::genericBody(room, room->messageEvents().at(eventNum).get()), output);
 }
 
 void EventHandlerTest::nullGenericBody()
 {
+    QTest::ignoreMessage(QtWarningMsg, "genericBody called with room set to nullptr.");
+    QCOMPARE(EventHandler::genericBody(nullptr, nullptr), QString());
+
     QTest::ignoreMessage(QtWarningMsg, "genericBody called with event set to nullptr.");
-    QCOMPARE(EventHandler::genericBody(nullptr), QString());
+    QCOMPARE(EventHandler::genericBody(room, nullptr), QString());
 }
 
 void EventHandlerTest::markdownBody()

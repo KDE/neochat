@@ -192,7 +192,7 @@ public:
      *
      * @sa richBody(), plainBody()
      */
-    static QString genericBody(const Quotient::RoomEvent *event);
+    static QString genericBody(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
      * @brief Output a string for the event to be used as  a RoomList subtitle.

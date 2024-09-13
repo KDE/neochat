@@ -450,7 +450,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == GenericDisplayRole) {
-        return EventHandler::genericBody(&evt);
+        return EventHandler::genericBody(m_currentRoom, &evt);
     }
 
     if (role == DelegateTypeRole) {

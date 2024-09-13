@@ -33,6 +33,21 @@
 
 using namespace Quotient;
 
+namespace
+{
+enum MemberChange {
+    None = 0,
+    AddName = 1,
+    Rename = 2,
+    RemoveName = 4,
+    AddAvatar = 8,
+    UpdateAvatar = 16,
+    RemoveAvatar = 32,
+};
+Q_DECLARE_FLAGS(MemberChanges, MemberChange)
+Q_DECLARE_OPERATORS_FOR_FLAGS(MemberChanges)
+};
+
 QString EventHandler::id(const Quotient::RoomEvent *event)
 {
     if (event == nullptr) {
@@ -482,8 +497,12 @@ QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageE
     }
 }
 
-QString EventHandler::genericBody(const Quotient::RoomEvent *event)
+QString EventHandler::genericBody(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
+    if (room == nullptr) {
+        qCWarning(EventHandling) << "genericBody called with room set to nullptr.";
+        return {};
+    }
     if (event == nullptr) {
         qCWarning(EventHandling) << "genericBody called with event set to nullptr.";
         return {};
@@ -492,123 +511,149 @@ QString EventHandler::genericBody(const Quotient::RoomEvent *event)
         return i18n("<i>[This message was deleted]</i>");
     }
 
+    const auto sender = room->member(event->senderId());
+    const auto senderString = QStringLiteral("<a href=\"https://matrix.to/#/%1\">%2</a>").arg(sender.id(), sender.htmlSafeDisplayName());
+
     return switchOnType(
         *event,
-        [](const RoomMessageEvent &e) {
-            Q_UNUSED(e)
-            return i18n("sent a message");
+        [senderString](const RoomMessageEvent &) {
+            return i18n("%1 sent a message", senderString);
         },
-        [](const StickerEvent &e) {
-            Q_UNUSED(e)
-            return i18n("sent a sticker");
+        [senderString](const StickerEvent &) {
+            return i18n("%1 sent a sticker", senderString);
         },
-        [](const RoomMemberEvent &e) {
+        [senderString](const RoomMemberEvent &e) {
             switch (e.membership()) {
             case Membership::Invite:
                 if (e.repeatsState()) {
-                    return i18n("reinvited someone to the room");
+                    return i18n("%1 reinvited someone to the room", senderString);
                 }
                 Q_FALLTHROUGH();
             case Membership::Join: {
-                QString text{};
                 // Part 1: invites and joins
                 if (e.repeatsState()) {
-                    text = i18n("joined the room (repeated)");
+                    return i18n("%1 joined the room (repeated)", senderString);
                 } else if (e.changesMembership()) {
-                    text = e.membership() == Membership::Invite ? i18n("invited someone to the room") : i18n("joined the room");
+                    return e.membership() == Membership::Invite ? i18n("%1 invited someone to the room", senderString)
+                                                                : i18n("%1 joined the room", senderString);
                 }
-                if (!text.isEmpty()) {
-                    return text;
-                }
+
                 // Part 2: profile changes of joined members
+                MemberChanges changes = None;
                 if (e.isRename()) {
                     if (!e.newDisplayName()) {
-                        text = i18nc("their refers to a singular user", "cleared their display name");
+                        changes |= RemoveName;
+                    } else if (!e.prevContent()->displayName) {
+                        changes |= AddName;
                     } else {
-                        text = i18nc("their refers to a singular user", "changed their display name");
+                        changes |= Rename;
                     }
                 }
                 if (e.isAvatarUpdate()) {
-                    if (!text.isEmpty()) {
-                        text += i18n(" and ");
-                    }
                     if (!e.newAvatarUrl()) {
-                        text += i18nc("their refers to a singular user", "cleared their avatar");
+                        changes |= RemoveAvatar;
                     } else if (!e.prevContent()->avatarUrl) {
-                        text += i18n("set an avatar");
+                        changes |= AddAvatar;
                     } else {
-                        text += i18nc("their refers to a singular user", "updated their avatar");
+                        changes |= UpdateAvatar;
                     }
                 }
-                if (text.isEmpty()) {
-                    text = i18nc("<user> changed nothing", "changed nothing");
+
+                if (changes.testFlag(AddName)) {
+                    if (changes.testFlag(AddAvatar)) {
+                        return i18n("%1 set a display name and set an avatar", senderString);
+                    } else if (changes.testFlag(UpdateAvatar)) {
+                        return i18n("%1 set a display name and updated their avatar", senderString);
+                    } else if (changes.testFlag(RemoveAvatar)) {
+                        return i18n("%1 set a display name and cleared their avatar", senderString);
+                    }
+                    return i18n("%1 set a display name for this room", senderString);
+                } else if (changes.testFlag(Rename)) {
+                    if (changes.testFlag(AddAvatar)) {
+                        return i18n("%1 changed their display name and set an avatar", senderString);
+                    } else if (changes.testFlag(UpdateAvatar)) {
+                        return i18n("%1 changed their display name and updated their avatar", senderString);
+                    } else if (changes.testFlag(RemoveAvatar)) {
+                        return i18n("%1 changed their display name and cleared their avatar", senderString);
+                    }
+                    return i18n("%1 changed their display name", senderString);
+                } else if (changes.testFlag(RemoveName)) {
+                    if (changes.testFlag(AddAvatar)) {
+                        return i18n("%1 cleared their display name and set an avatar", senderString);
+                    } else if (changes.testFlag(UpdateAvatar)) {
+                        return i18n("%1 cleared their display name and updated their avatar", senderString);
+                    } else if (changes.testFlag(RemoveAvatar)) {
+                        return i18n("%1 cleared their display name and cleared their avatar", senderString);
+                    }
+                    return i18n("%1 cleared their display name", senderString);
                 }
-                return text;
+
+                return i18nc("<user> changed nothing", "%1 changed nothing", senderString);
             }
             case Membership::Leave:
                 if (e.prevContent() && e.prevContent()->membership == Membership::Invite) {
-                    return (e.senderId() != e.userId()) ? i18n("withdrew a user's invitation") : i18n("rejected the invitation");
+                    return (e.senderId() != e.userId()) ? i18n("%1 withdrew a user's invitation", senderString)
+                                                        : i18n("%1 rejected the invitation", senderString);
                 }
 
                 if (e.prevContent() && e.prevContent()->membership == Membership::Ban) {
-                    return (e.senderId() != e.userId()) ? i18n("unbanned a user") : i18n("self-unbanned");
+                    return (e.senderId() != e.userId()) ? i18n("%1 unbanned a user", senderString) : i18n("%1 self-unbanned", senderString);
                 }
-                return (e.senderId() != e.userId()) ? i18n("put a user out of the room") : i18n("left the room");
+                return (e.senderId() != e.userId()) ? i18n("%1 put a user out of the room", senderString) : i18n("%1 left the room", senderString);
             case Membership::Ban:
                 if (e.senderId() != e.userId()) {
-                    return i18n("banned a user from the room");
+                    return i18n("%1 banned a user from the room", senderString);
                 } else {
-                    return i18n("self-banned from the room");
+                    return i18n("%1 self-banned from the room", senderString);
                 }
             case Membership::Knock: {
-                return i18n("requested an invite");
+                return i18n("%1 requested an invite", senderString);
             }
             default:;
             }
-            return i18n("made something unknown");
+            return i18n("%1 made something unknown", senderString);
         },
-        [](const RoomCanonicalAliasEvent &e) {
-            return (e.alias().isEmpty()) ? i18n("cleared the room main alias") : i18n("set the room main alias");
+        [senderString](const RoomCanonicalAliasEvent &e) {
+            return (e.alias().isEmpty()) ? i18n("%1 cleared the room main alias", senderString) : i18n("%1 set the room main alias", senderString);
         },
-        [](const RoomNameEvent &e) {
-            return (e.name().isEmpty()) ? i18n("cleared the room name") : i18n("set the room name");
+        [senderString](const RoomNameEvent &e) {
+            return (e.name().isEmpty()) ? i18n("%1 cleared the room name", senderString) : i18n("%1 set the room name", senderString);
         },
-        [](const RoomTopicEvent &e) {
-            return (e.topic().isEmpty()) ? i18n("cleared the topic") : i18n("set the topic");
+        [senderString](const RoomTopicEvent &e) {
+            return (e.topic().isEmpty()) ? i18n("%1 cleared the topic", senderString) : i18n("%1 set the topic", senderString);
         },
-        [](const RoomAvatarEvent &) {
-            return i18n("changed the room avatar");
+        [senderString](const RoomAvatarEvent &) {
+            return i18n("%1 changed the room avatar", senderString);
         },
-        [](const EncryptionEvent &) {
-            return i18n("activated End-to-End Encryption");
+        [senderString](const EncryptionEvent &) {
+            return i18n("%1 activated End-to-End Encryption", senderString);
         },
-        [](const RoomCreateEvent &e) {
-            return e.isUpgrade() ? i18n("upgraded the room version") : i18n("created the room");
+        [senderString](const RoomCreateEvent &e) {
+            return e.isUpgrade() ? i18n("%1 upgraded the room version", senderString) : i18n("%1 created the room", senderString);
         },
-        [](const RoomPowerLevelsEvent &) {
-            return i18nc("'power level' means permission level", "changed the power levels for this room");
+        [senderString](const RoomPowerLevelsEvent &) {
+            return i18nc("'power level' means permission level", "%1 changed the power levels for this room", senderString);
         },
-        [](const LocationBeaconEvent &) {
-            return i18n("sent a live location beacon");
+        [senderString](const LocationBeaconEvent &) {
+            return i18n("%1 sent a live location beacon", senderString);
         },
-        [](const RoomServerAclEvent &) {
-            return i18n("changed the server access control lists for this room");
+        [senderString](const RoomServerAclEvent &) {
+            return i18n("%1 changed the server access control lists for this room", senderString);
         },
-        [](const WidgetEvent &e) {
+        [senderString](const WidgetEvent &e) {
             if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
-                return i18n("added a widget");
+                return i18n("%1 added a widget", senderString);
             }
             if (e.contentJson().isEmpty()) {
-                return i18n("removed a widget");
+                return i18n("%1 removed a widget", senderString);
             }
-            return i18n("configured a widget");
+            return i18n("%1 configured a widget", senderString);
         },
-        [](const StateEvent &) {
-            return i18n("updated the state");
+        [senderString](const StateEvent &) {
+            return i18n("%1 updated the state", senderString);
         },
-        [](const PollStartEvent &e) {
-            Q_UNUSED(e);
-            return i18n("started a poll");
+        [senderString](const PollStartEvent &) {
+            return i18n("%1 started a poll", senderString);
         },
         i18n("Unknown event"));
 }

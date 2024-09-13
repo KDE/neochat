@@ -133,14 +133,11 @@ bool MessageFilterModel::showAuthor(QModelIndex index) const
 
 QString MessageFilterModel::aggregateEventToString(int sourceRow) const
 {
-    QStringList parts;
-    QVariantList uniqueAuthors;
+    QString aggregateString;
     for (int i = sourceRow; i >= 0; i--) {
-        parts += sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::GenericDisplayRole).toString();
+        aggregateString += sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::GenericDisplayRole).toString();
+        aggregateString += ", "_ls;
         QVariant nextAuthor = sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorRole);
-        if (!uniqueAuthors.contains(nextAuthor)) {
-            uniqueAuthors.append(nextAuthor);
-        }
         if (i > 0
             && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole) != DelegateType::State // If it's not a state event
                 || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
@@ -148,46 +145,12 @@ QString MessageFilterModel::aggregateEventToString(int sourceRow) const
             break;
         }
     }
-    parts.sort(); // Sort them so that all identical events can be collected.
-    if (!parts.isEmpty()) {
-        QStringList chunks;
-        while (!parts.isEmpty()) {
-            chunks += QString();
-            int count = 1;
-            auto part = parts.takeFirst();
-            while (!parts.isEmpty() && parts.first() == part) {
-                parts.removeFirst();
-                count++;
-            }
-            chunks.last() += i18ncp("%1: What's being done; %2: How often it is done.", " %1", " %1 %2 times", part, count);
-        }
-        chunks.removeDuplicates();
-        // The author text is either "n users" if > 1 user or the matrix.to link to a single user.
-        QString userText = uniqueAuthors.length() > 1 ? i18ncp("n users", " %1 user ", " %1 users ", uniqueAuthors.length())
-                                                      : QStringLiteral("<a href=\"https://matrix.to/#/%1\">%3</a> ")
-                                                            .arg(uniqueAuthors[0].toMap()[QStringLiteral("id")].toString(),
-                                                                 uniqueAuthors[0].toMap()[QStringLiteral("displayName")].toString().toHtmlEscaped());
 
-        QString chunksText;
-        chunksText += chunks.takeFirst();
-        if (chunks.size() > 0) {
-            while (chunks.size() > 1) {
-                chunksText += i18nc("[action 1], [action 2 and/or action 3]", ", ");
-                chunksText += chunks.takeFirst();
-            }
-            chunksText +=
-                uniqueAuthors.length() > 1 ? i18nc("[action 1, action 2] or [action 3]", " or ") : i18nc("[action 1, action 2] and [action 3]", " and ");
-            chunksText += chunks.takeFirst();
-        }
-        return i18nc(
-            "userText (%1) is either a Matrix username if a single user sent all the states or n users if they were sent by multiple users."
-            "chunksText (%2) is a list of comma separated actions for each of the state events in the group.",
-            "<style>a {text-decoration: none;}</style>%1 %2",
-            userText,
-            chunksText);
-    } else {
-        return {};
+    aggregateString = aggregateString.trimmed();
+    if (aggregateString.endsWith(u',')) {
+        aggregateString.removeLast();
     }
+    return aggregateString;
 }
 
 QVariantList MessageFilterModel::stateEventsList(int sourceRow) const
