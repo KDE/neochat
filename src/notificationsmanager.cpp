@@ -131,7 +131,11 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
 
         QImage avatar_image;
         if (!sender.avatarUrl().isEmpty()) {
+#if Quotient_VERSION_MINOR > 8
+            avatar_image = room->member(sender.id()).avatar(128, 128, {});
+#else
             avatar_image = room->memberAvatar(sender.id()).get(connection, 128, {});
+#endif
         } else {
             avatar_image = room->avatar(128);
         }

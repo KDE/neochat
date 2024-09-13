@@ -135,7 +135,11 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             auto showNotification = [this, roomMemberEvent] {
                 QImage avatar_image;
                 if (roomMemberEvent && !member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
+#if Quotient_VERSION_MINOR > 8
+                    avatar_image = member(roomMemberEvent->senderId()).avatar(128, 128, {});
+#else
                     avatar_image = memberAvatar(roomMemberEvent->senderId()).get(this->connection(), 128, [] {});
+#endif
                 } else {
                     qWarning() << "using this room's avatar";
                     avatar_image = avatar(128);

@@ -87,7 +87,11 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return memberId;
     }
     if (role == AvatarRole) {
+#if Quotient_VERSION_MINOR > 8
+        return m_currentRoom->member(memberId).avatarUrl();
+#else
         return m_currentRoom->memberAvatar(memberId).url();
+#endif
     }
     if (role == ObjectRole) {
         return QVariant::fromValue(memberId);
