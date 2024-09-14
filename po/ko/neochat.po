@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-14 00:40+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -376,7 +376,7 @@ msgid "Custom"
 msgstr "사용자 정의"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/models/userlistmodel.cpp:117
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -385,353 +385,548 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: src/eventhandler.cpp:280 src/eventhandler.cpp:492
+#: src/eventhandler.cpp:295 src/eventhandler.cpp:511
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[이 메시지가 삭제됨]</i>"
 
-#: src/eventhandler.cpp:280
+#: src/eventhandler.cpp:295
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[이 메시지가 삭제됨: %1]</i>"
 
-#: src/eventhandler.cpp:314
+#: src/eventhandler.cpp:329
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 님을 대화방에 다시 초대함"
 
-#: src/eventhandler.cpp:316
+#: src/eventhandler.cpp:331
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
 # 여기서부터 등장하는 소문자로 시작하는 메시지는 대화명 바로 뒤에 나오므로 메시지 앞에 대화명이 있다고 가정하고 번역해야 함.
-#: src/eventhandler.cpp:325 src/eventhandler.cpp:516
+#: src/eventhandler.cpp:340
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "님이 대화방에 입장함(반복됨)"
 
-#: src/eventhandler.cpp:327
+#: src/eventhandler.cpp:342
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "님이 %1 님을 대화방에 초대함"
 
-#: src/eventhandler.cpp:327 src/eventhandler.cpp:518
+#: src/eventhandler.cpp:342
 #, kde-format
 msgid "joined the room"
 msgstr "님이 대화방에 입장함"
 
-#: src/eventhandler.cpp:331
+#: src/eventhandler.cpp:346
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:338 src/eventhandler.cpp:526
+#: src/eventhandler.cpp:353
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "님이 표시 이름을 지움"
 
-#: src/eventhandler.cpp:341
+#: src/eventhandler.cpp:356
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "님이 표시 이름을 %1(으)로 변경함|/|표시 이름을 %1$[으 %1]로 변경함"
 
-#: src/eventhandler.cpp:347 src/eventhandler.cpp:533
+#: src/eventhandler.cpp:362
 #, kde-format
 msgid " and "
 msgstr " 및 "
 
-#: src/eventhandler.cpp:350 src/eventhandler.cpp:536
+#: src/eventhandler.cpp:365
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "님이 아바타를 지움"
 
-#: src/eventhandler.cpp:352 src/eventhandler.cpp:538
+#: src/eventhandler.cpp:367
 #, kde-format
 msgid "set an avatar"
 msgstr "님이 아바타를 설정함"
 
-#: src/eventhandler.cpp:354 src/eventhandler.cpp:540
+#: src/eventhandler.cpp:369
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "님이 아바타를 업데이트함"
 
-#: src/eventhandler.cpp:358 src/eventhandler.cpp:544
+#: src/eventhandler.cpp:373
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "님이 아무것도 변경하지 않음"
 
-#: src/eventhandler.cpp:364
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "님이 %1 님의 초대를 거절함"
 
-#: src/eventhandler.cpp:364 src/eventhandler.cpp:550
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "rejected the invitation"
 msgstr "님이 초대를 거절함"
 
-#: src/eventhandler.cpp:368
+#: src/eventhandler.cpp:383
 #, kde-format
 msgid "unbanned %1"
 msgstr "님이 %1 님의 차단을 해제함"
 
-#: src/eventhandler.cpp:368 src/eventhandler.cpp:554
+#: src/eventhandler.cpp:383
 #, kde-format
 msgid "self-unbanned"
 msgstr "님이 자기 자신의 차단을 해제함"
 
-#: src/eventhandler.cpp:371 src/eventhandler.cpp:556
+#: src/eventhandler.cpp:386
 #, kde-format
 msgid "left the room"
 msgstr "님이 대화방을 떠남"
 
-#: src/eventhandler.cpp:374
+#: src/eventhandler.cpp:389
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "님이 %1 님을 대화방에서 추방함: %2"
 
-#: src/eventhandler.cpp:376
+#: src/eventhandler.cpp:391
 #, fuzzy, kde-format
 #| msgid "has put %1 out of the room: %2"
 msgid "has put %1 out of the room"
 msgstr "님이 %1 님을 대화방에서 추방함: %2"
 
-#: src/eventhandler.cpp:380
+#: src/eventhandler.cpp:395
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "님이 %1 님을 대화방에서 차단함"
 
-#: src/eventhandler.cpp:382
+#: src/eventhandler.cpp:397
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "님이 %1 님을 대화방에서 차단함: %2"
 
-#: src/eventhandler.cpp:385 src/eventhandler.cpp:561
+#: src/eventhandler.cpp:400
 #, kde-format
 msgid "self-banned from the room"
 msgstr "님이 대화방에서 자기 자신을 차단함"
 
-#: src/eventhandler.cpp:389 src/eventhandler.cpp:564
+#: src/eventhandler.cpp:404
 #, kde-format
 msgid "requested an invite"
 msgstr "님이 초대를 요청함"
 
-#: src/eventhandler.cpp:389
+#: src/eventhandler.cpp:404
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "님이 이유와 함께 초대를 요청함: %1"
 
-#: src/eventhandler.cpp:393 src/eventhandler.cpp:568
+#: src/eventhandler.cpp:408
 #, kde-format
 msgid "made something unknown"
 msgstr "님이 알 수 없는 무언가를 함"
 
-#: src/eventhandler.cpp:396 src/eventhandler.cpp:571
+#: src/eventhandler.cpp:411
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "님이 대화방 주 별명을 지움"
 
-#: src/eventhandler.cpp:396
+#: src/eventhandler.cpp:411
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "님이 대화방 주 별명을 다음으로 설정함: %1"
 
-#: src/eventhandler.cpp:399 src/eventhandler.cpp:574
+#: src/eventhandler.cpp:414
 #, kde-format
 msgid "cleared the room name"
 msgstr "님이 대화방 이름을 지움"
 
-#: src/eventhandler.cpp:399
+#: src/eventhandler.cpp:414
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "님이 대화방 이름을 다음으로 설정함: %1"
 
-#: src/eventhandler.cpp:402 src/eventhandler.cpp:577
+#: src/eventhandler.cpp:417
 #, kde-format
 msgid "cleared the topic"
 msgstr "님이 대화방 주제를 삭제함"
 
-#: src/eventhandler.cpp:403
+#: src/eventhandler.cpp:418
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "님이 대화방 주제를 설정함: %1"
 
-#: src/eventhandler.cpp:409 src/eventhandler.cpp:580
+#: src/eventhandler.cpp:424
 #, kde-format
 msgid "changed the room avatar"
 msgstr "님이 대화방 아바타를 변경함"
 
-#: src/eventhandler.cpp:412 src/eventhandler.cpp:583
+#: src/eventhandler.cpp:427
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "님이 종단간 암호화를 활성화함"
 
-#: src/eventhandler.cpp:416
+#: src/eventhandler.cpp:431
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "님이 대화방을 버전 %1(으)로 업그레이드함"
 
-#: src/eventhandler.cpp:417
+#: src/eventhandler.cpp:432
 #, kde-format
 msgid "created the room, version %1"
 msgstr "님이 대화방을 만듦, 버전 %1"
 
-#: src/eventhandler.cpp:420 src/eventhandler.cpp:589
+#: src/eventhandler.cpp:435
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "님이 이 대화방의 권한 수준을 변경함"
 
-#: src/eventhandler.cpp:426 src/eventhandler.cpp:595
+#: src/eventhandler.cpp:441
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "님이 이 대화방의 서버 측 접근 권한 목록을 변경함"
 
-#: src/eventhandler.cpp:430
+#: src/eventhandler.cpp:445
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "님이 %1 위젯을 추가함"
 
-#: src/eventhandler.cpp:433
+#: src/eventhandler.cpp:448
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "님이 %1 위젯을 삭제함"
 
-#: src/eventhandler.cpp:435
+#: src/eventhandler.cpp:450
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "님이 %1 위젯을 설정함"
 
-#: src/eventhandler.cpp:438
+#: src/eventhandler.cpp:453
 #, kde-format
 msgid "updated %1 state"
 msgstr "님이 %1 상태를 업데이트함"
 
-#: src/eventhandler.cpp:439
+#: src/eventhandler.cpp:454
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr ""
 "님이 %1 상태를 %2(으)로 업데이트함|/|님이 %1 상태를 %2$[으 %2]로 업데이트함"
 
-#: src/eventhandler.cpp:444 src/eventhandler.cpp:613
+#: src/eventhandler.cpp:459 src/eventhandler.cpp:658
 #, kde-format
 msgid "Unknown event"
 msgstr "알 수 없는 이벤트"
 
-#: src/eventhandler.cpp:459
+#: src/eventhandler.cpp:474
 #, kde-format
 msgid "a file"
 msgstr "파일"
 
-#: src/eventhandler.cpp:499
-#, kde-format
-msgid "sent a message"
+#: src/eventhandler.cpp:520
+#, fuzzy, kde-format
+#| msgid "sent a message"
+msgid "%1 sent a message"
 msgstr "님이 메시지를 보냄"
 
-#: src/eventhandler.cpp:503
-#, kde-format
-msgid "sent a sticker"
+#: src/eventhandler.cpp:523
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "%1 sent a sticker"
 msgstr "님이 스티커를 보냄"
 
-#: src/eventhandler.cpp:509
-#, kde-format
-msgid "reinvited someone to the room"
+#: src/eventhandler.cpp:529
+#, fuzzy, kde-format
+#| msgid "reinvited someone to the room"
+msgid "%1 reinvited someone to the room"
 msgstr "님이 누군가를 대화방에 다시 초대함"
 
-#: src/eventhandler.cpp:518
-#, kde-format
-msgid "invited someone to the room"
+# 여기서부터 등장하는 소문자로 시작하는 메시지는 대화명 바로 뒤에 나오므로 메시지 앞에 대화명이 있다고 가정하고 번역해야 함.
+#: src/eventhandler.cpp:535
+#, fuzzy, kde-format
+#| msgid "joined the room (repeated)"
+msgid "%1 joined the room (repeated)"
+msgstr "님이 대화방에 입장함(반복됨)"
+
+#: src/eventhandler.cpp:537
+#, fuzzy, kde-format
+#| msgid "invited someone to the room"
+msgid "%1 invited someone to the room"
 msgstr "님이 누군가를 대화방에 초대함"
 
-#: src/eventhandler.cpp:528
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "changed their display name"
-msgstr "님이 표시 이름을 변경함"
+#: src/eventhandler.cpp:538
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgid "%1 joined the room"
+msgstr "님이 대화방에 입장함"
 
-#: src/eventhandler.cpp:550
+#: src/eventhandler.cpp:564
 #, kde-format
-msgid "withdrew a user's invitation"
-msgstr "님이 사용자의 초대를 거절함"
+msgid "%1 set a display name and set an avatar"
+msgstr ""
 
-#: src/eventhandler.cpp:554
-#, kde-format
-msgid "unbanned a user"
-msgstr "님이 사용자의 차단을 해제함"
+#: src/eventhandler.cpp:566
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "updated their avatar"
+msgid "%1 set a display name and updated their avatar"
+msgstr "님이 아바타를 업데이트함"
 
-#: src/eventhandler.cpp:556
-#, kde-format
-msgid "put a user out of the room"
-msgstr "님이 대화방에서 사용자를 추방함"
+#: src/eventhandler.cpp:568
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their avatar"
+msgid "%1 set a display name and cleared their avatar"
+msgstr "님이 아바타를 지움"
 
-#: src/eventhandler.cpp:559
-#, kde-format
-msgid "banned a user from the room"
-msgstr "님이 대화방에서 사용자를 차단함"
+#: src/eventhandler.cpp:570
+#, fuzzy, kde-format
+#| msgid "Changes your display name in this room"
+msgid "%1 set a display name for this room"
+msgstr "이 대화방에서의 표시 이름을 변경함"
 
-#: src/eventhandler.cpp:571
-#, kde-format
-msgid "set the room main alias"
-msgstr "님이 대화방 주 별명을 설정함"
+#: src/eventhandler.cpp:573
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "%1 changed their display name and set an avatar"
+msgstr "님이 표시 이름을 %1(으)로 변경함|/|표시 이름을 %1$[으 %1]로 변경함"
 
-#: src/eventhandler.cpp:574
-#, kde-format
-msgid "set the room name"
-msgstr "님이 대화방 이름을 설정함"
+#: src/eventhandler.cpp:575
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "%1 changed their display name and updated their avatar"
+msgstr "님이 표시 이름을 %1(으)로 변경함|/|표시 이름을 %1$[으 %1]로 변경함"
 
 #: src/eventhandler.cpp:577
-#, kde-format
-msgid "set the topic"
-msgstr "님이 주제를 설정함"
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "%1 changed their display name and cleared their avatar"
+msgstr "님이 표시 이름을 %1(으)로 변경함|/|표시 이름을 %1$[으 %1]로 변경함"
+
+#: src/eventhandler.cpp:579
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name"
+msgid "%1 changed their display name"
+msgstr "님이 표시 이름을 변경함"
+
+#: src/eventhandler.cpp:582
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "%1 cleared their display name and set an avatar"
+msgstr "님이 표시 이름을 지움"
+
+#: src/eventhandler.cpp:584
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "%1 cleared their display name and updated their avatar"
+msgstr "님이 표시 이름을 지움"
 
 #: src/eventhandler.cpp:586
-#, kde-format
-msgid "upgraded the room version"
-msgstr "님이 대화방 버전을 업그레이드함"
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "%1 cleared their display name and cleared their avatar"
+msgstr "님이 표시 이름을 지움"
 
-#: src/eventhandler.cpp:586
-#, kde-format
-msgid "created the room"
-msgstr "님이 대화방을 생성함"
+#: src/eventhandler.cpp:588
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "%1 cleared their display name"
+msgstr "님이 표시 이름을 지움"
 
-#: src/eventhandler.cpp:592
-#, kde-format
-msgid "sent a live location beacon"
-msgstr "님이 실시간 위치 비콘을 전송함"
+#: src/eventhandler.cpp:591
+#, fuzzy, kde-format
+#| msgctxt "<user> changed nothing"
+#| msgid "changed nothing"
+msgctxt "<user> changed nothing"
+msgid "%1 changed nothing"
+msgstr "님이 아무것도 변경하지 않음"
 
-#: src/eventhandler.cpp:599
-#, kde-format
-msgid "added a widget"
-msgstr "님이 위젯을 추가함"
+#: src/eventhandler.cpp:595
+#, fuzzy, kde-format
+#| msgid "withdrew a user's invitation"
+msgid "%1 withdrew a user's invitation"
+msgstr "님이 사용자의 초대를 거절함"
+
+#: src/eventhandler.cpp:596
+#, fuzzy, kde-format
+#| msgid "rejected the invitation"
+msgid "%1 rejected the invitation"
+msgstr "님이 초대를 거절함"
+
+#: src/eventhandler.cpp:600
+#, fuzzy, kde-format
+#| msgid "unbanned a user"
+msgid "%1 unbanned a user"
+msgstr "님이 사용자의 차단을 해제함"
+
+#: src/eventhandler.cpp:600
+#, fuzzy, kde-format
+#| msgid "self-unbanned"
+msgid "%1 self-unbanned"
+msgstr "님이 자기 자신의 차단을 해제함"
 
 #: src/eventhandler.cpp:602
-#, kde-format
-msgid "removed a widget"
-msgstr "님이 위젯을 삭제함"
+#, fuzzy, kde-format
+#| msgid "put a user out of the room"
+msgid "%1 put a user out of the room"
+msgstr "님이 대화방에서 사용자를 추방함"
 
-#: src/eventhandler.cpp:604
-#, kde-format
-msgid "configured a widget"
-msgstr "님이 위젯을 설정함"
+#: src/eventhandler.cpp:602
+#, fuzzy, kde-format
+#| msgid "left the room"
+msgid "%1 left the room"
+msgstr "님이 대화방을 떠남"
+
+#: src/eventhandler.cpp:605
+#, fuzzy, kde-format
+#| msgid "banned a user from the room"
+msgid "%1 banned a user from the room"
+msgstr "님이 대화방에서 사용자를 차단함"
 
 #: src/eventhandler.cpp:607
-#, kde-format
-msgid "updated the state"
+#, fuzzy, kde-format
+#| msgid "self-banned from the room"
+msgid "%1 self-banned from the room"
+msgstr "님이 대화방에서 자기 자신을 차단함"
+
+#: src/eventhandler.cpp:610
+#, fuzzy, kde-format
+#| msgid "requested an invite"
+msgid "%1 requested an invite"
+msgstr "님이 초대를 요청함"
+
+#: src/eventhandler.cpp:614
+#, fuzzy, kde-format
+#| msgid "made something unknown"
+msgid "%1 made something unknown"
+msgstr "님이 알 수 없는 무언가를 함"
+
+#: src/eventhandler.cpp:617
+#, fuzzy, kde-format
+#| msgid "cleared the room main alias"
+msgid "%1 cleared the room main alias"
+msgstr "님이 대화방 주 별명을 지움"
+
+#: src/eventhandler.cpp:617
+#, fuzzy, kde-format
+#| msgid "set the room main alias"
+msgid "%1 set the room main alias"
+msgstr "님이 대화방 주 별명을 설정함"
+
+#: src/eventhandler.cpp:620
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgid "%1 cleared the room name"
+msgstr "님이 대화방 이름을 지움"
+
+#: src/eventhandler.cpp:620
+#, fuzzy, kde-format
+#| msgid "set the room name"
+msgid "%1 set the room name"
+msgstr "님이 대화방 이름을 설정함"
+
+#: src/eventhandler.cpp:623
+#, fuzzy, kde-format
+#| msgid "cleared the topic"
+msgid "%1 cleared the topic"
+msgstr "님이 대화방 주제를 삭제함"
+
+#: src/eventhandler.cpp:623
+#, fuzzy, kde-format
+#| msgid "set the topic"
+msgid "%1 set the topic"
+msgstr "님이 주제를 설정함"
+
+#: src/eventhandler.cpp:626
+#, fuzzy, kde-format
+#| msgid "changed the room avatar"
+msgid "%1 changed the room avatar"
+msgstr "님이 대화방 아바타를 변경함"
+
+#: src/eventhandler.cpp:629
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgid "%1 activated End-to-End Encryption"
+msgstr "님이 종단간 암호화를 활성화함"
+
+#: src/eventhandler.cpp:632
+#, fuzzy, kde-format
+#| msgid "upgraded the room version"
+msgid "%1 upgraded the room version"
+msgstr "님이 대화방 버전을 업그레이드함"
+
+#: src/eventhandler.cpp:632
+#, fuzzy, kde-format
+#| msgid "created the room"
+msgid "%1 created the room"
+msgstr "님이 대화방을 생성함"
+
+#: src/eventhandler.cpp:635
+#, fuzzy, kde-format
+#| msgctxt "'power level' means permission level"
+#| msgid "changed the power levels for this room"
+msgctxt "'power level' means permission level"
+msgid "%1 changed the power levels for this room"
+msgstr "님이 이 대화방의 권한 수준을 변경함"
+
+#: src/eventhandler.cpp:638
+#, fuzzy, kde-format
+#| msgid "sent a live location beacon"
+msgid "%1 sent a live location beacon"
+msgstr "님이 실시간 위치 비콘을 전송함"
+
+#: src/eventhandler.cpp:641
+#, fuzzy, kde-format
+#| msgid "changed the server access control lists for this room"
+msgid "%1 changed the server access control lists for this room"
+msgstr "님이 이 대화방의 서버 측 접근 권한 목록을 변경함"
+
+#: src/eventhandler.cpp:645
+#, fuzzy, kde-format
+#| msgid "added a widget"
+msgid "%1 added a widget"
+msgstr "님이 위젯을 추가함"
+
+#: src/eventhandler.cpp:648
+#, fuzzy, kde-format
+#| msgid "removed a widget"
+msgid "%1 removed a widget"
+msgstr "님이 위젯을 삭제함"
+
+#: src/eventhandler.cpp:650
+#, fuzzy, kde-format
+#| msgid "configured a widget"
+msgid "%1 configured a widget"
+msgstr "님이 위젯을 설정함"
+
+#: src/eventhandler.cpp:653
+#, fuzzy, kde-format
+#| msgid "updated the state"
+msgid "%1 updated the state"
 msgstr "님이 상태를 업데이트함"
 
-#: src/eventhandler.cpp:611
-#, kde-format
-msgid "started a poll"
+#: src/eventhandler.cpp:656
+#, fuzzy, kde-format
+#| msgid "started a poll"
+msgid "%1 started a poll"
 msgstr "님이 투표를 시작함"
 
 #: src/filetransferpseudojob.cpp:48
@@ -1475,47 +1670,6 @@ msgstr ""
 msgid "Loading reply"
 msgstr "답장 불러오는 중"
 
-#: src/models/messagefiltermodel.cpp:162
-#, kde-format
-msgctxt "%1: What's being done; %2: How often it is done."
-msgid " %1"
-msgid_plural " %1 %2 times"
-msgstr[0] " %1 %2회"
-
-#: src/models/messagefiltermodel.cpp:166
-#, kde-format
-msgctxt "n users"
-msgid " %1 user "
-msgid_plural " %1 users "
-msgstr[0] " 사용자 %1명"
-
-#: src/models/messagefiltermodel.cpp:175
-#, kde-format
-msgctxt "[action 1], [action 2 and/or action 3]"
-msgid ", "
-msgstr ", "
-
-#: src/models/messagefiltermodel.cpp:179
-#, kde-format
-msgctxt "[action 1, action 2] or [action 3]"
-msgid " or "
-msgstr " 또는 "
-
-#: src/models/messagefiltermodel.cpp:179
-#, kde-format
-msgctxt "[action 1, action 2] and [action 3]"
-msgid " and "
-msgstr " 그리고 "
-
-#: src/models/messagefiltermodel.cpp:185
-#, kde-format
-msgctxt ""
-"userText (%1) is either a Matrix username if a single user sent all the "
-"states or n users if they were sent by multiple users.chunksText (%2) is a "
-"list of comma separated actions for each of the state events in the group."
-msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr "<style>a {text-decoration: none;}</style>%1 %2"
-
 #: src/models/permissionsmodel.cpp:57
 #, fuzzy
 #| msgid "Default user power level"
@@ -1817,77 +1971,77 @@ msgstr "대화방 생성 실패: %1"
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/neochatroom.cpp:1420
+#: src/neochatroom.cpp:1424
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/neochatroom.cpp:1746 src/neochatroom.cpp:1754
+#: src/neochatroom.cpp:1750 src/neochatroom.cpp:1758
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "위도: %1, 경도: %2"
 
-#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:330
+#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:334
 #, kde-format
 msgid "Encrypted Message"
 msgstr "암호화된 메시지"
 
-#: src/notificationsmanager.cpp:210 src/qml/Main.qml:250
+#: src/notificationsmanager.cpp:214 src/qml/Main.qml:250
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:216
+#: src/notificationsmanager.cpp:220
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "이 대화방에서 NeoChat 열기"
 
-#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:233 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply"
 msgstr "답장"
 
-#: src/notificationsmanager.cpp:230
+#: src/notificationsmanager.cpp:234
 #, kde-format
 msgid "Reply..."
 msgstr "답장..."
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:253
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 님이 대화방에 초대함"
 
-#: src/notificationsmanager.cpp:252
+#: src/notificationsmanager.cpp:256
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "NeoChat에서 이 초대장 열기"
 
-#: src/notificationsmanager.cpp:262
+#: src/notificationsmanager.cpp:266
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "수락"
 
-#: src/notificationsmanager.cpp:263
+#: src/notificationsmanager.cpp:267
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "거부"
 
-#: src/notificationsmanager.cpp:264
+#: src/notificationsmanager.cpp:268
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "거부하고 사용자 무시"
 
-#: src/notificationsmanager.cpp:323
+#: src/notificationsmanager.cpp:327
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: src/notificationsmanager.cpp:334
+#: src/notificationsmanager.cpp:338
 #, kde-format
 msgid "Open NeoChat"
 msgstr "NeoChat 열기"
@@ -3027,7 +3181,7 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "로컬"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3276,19 +3430,19 @@ msgstr "정보"
 msgid "Media"
 msgstr "미디어"
 
-#: src/qml/RoomInformation.qml:40
+#: src/qml/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "스페이스 구성원"
 
-#: src/qml/RoomInformation.qml:40
+#: src/qml/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "대화방 정보"
 
-#: src/qml/RoomInformation.qml:68
+#: src/qml/RoomInformation.qml:70
 #, fuzzy, kde-format
 #| msgctxt "Locations on a map"
 #| msgid "Locations"
@@ -3296,70 +3450,70 @@ msgctxt "Room actions"
 msgid "Actions"
 msgstr "위치"
 
-#: src/qml/RoomInformation.qml:78
+#: src/qml/RoomInformation.qml:80
 #, kde-format
 msgid "Search in this room"
 msgstr "이 대화방에서 검색"
 
-#: src/qml/RoomInformation.qml:87
+#: src/qml/RoomInformation.qml:89
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/RoomInformation.qml:95
+#: src/qml/RoomInformation.qml:97
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "장치 확인"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:108
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "책갈피에서 대화방 삭제"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:108
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgid "Favorite this room"
 msgstr "이 대화방을 떠납니다."
 
-#: src/qml/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr "이 대화방에서 위치 표시"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:136
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "이 대화방을 떠납니다."
 
-#: src/qml/RoomInformation.qml:147
+#: src/qml/RoomInformation.qml:149
 #, kde-format
 msgid "Members"
 msgstr "구성원"
 
-#: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "사용자 초대"
 
-#: src/qml/RoomInformation.qml:166
+#: src/qml/RoomInformation.qml:168
 #, kde-format
 msgid "Invite user to room"
 msgstr "대화방에 사용자 초대"
 
-#: src/qml/RoomInformation.qml:173
+#: src/qml/RoomInformation.qml:175
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "구성원 %1명"
 
-#: src/qml/RoomInformation.qml:173
+#: src/qml/RoomInformation.qml:175
 #, kde-format
 msgid "No member count"
 msgstr "구성원 집계 없음"
@@ -5788,6 +5942,36 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgctxt "%1: What's being done; %2: How often it is done."
+#~ msgid " %1"
+#~ msgid_plural " %1 %2 times"
+#~ msgstr[0] " %1 %2회"
+
+#~ msgctxt "n users"
+#~ msgid " %1 user "
+#~ msgid_plural " %1 users "
+#~ msgstr[0] " 사용자 %1명"
+
+#~ msgctxt "[action 1], [action 2 and/or action 3]"
+#~ msgid ", "
+#~ msgstr ", "
+
+#~ msgctxt "[action 1, action 2] or [action 3]"
+#~ msgid " or "
+#~ msgstr " 또는 "
+
+#~ msgctxt "[action 1, action 2] and [action 3]"
+#~ msgid " and "
+#~ msgstr " 그리고 "
+
+#~ msgctxt ""
+#~ "userText (%1) is either a Matrix username if a single user sent all the "
+#~ "states or n users if they were sent by multiple users.chunksText (%2) is "
+#~ "a list of comma separated actions for each of the state events in the "
+#~ "group."
+#~ msgid "<style>a {text-decoration: none;}</style>%1 %2"
+#~ msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #~ msgctxt "@title"
 #~ msgid "Remove Message"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-13 00:39+0000\n"
+"POT-Creation-Date: 2024-09-14 00:40+0000\n"
 "PO-Revision-Date: 2024-09-06 22:58+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -369,7 +369,7 @@ msgid "Custom"
 msgstr "Neurrira"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/models/userlistmodel.cpp:117
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -377,351 +377,546 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:280 src/eventhandler.cpp:492
+#: src/eventhandler.cpp:295 src/eventhandler.cpp:511
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Mezu hau ezabatu egin da]</i>"
 
-#: src/eventhandler.cpp:280
+#: src/eventhandler.cpp:295
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Mezu hau ezabatu egin da: %1]</i>"
 
-#: src/eventhandler.cpp:314
+#: src/eventhandler.cpp:329
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 gelara berriz gonbidatua"
 
-#: src/eventhandler.cpp:316
+#: src/eventhandler.cpp:331
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:325 src/eventhandler.cpp:516
+#: src/eventhandler.cpp:340
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "gelara batu da (errepikatuta)"
 
-#: src/eventhandler.cpp:327
+#: src/eventhandler.cpp:342
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 gelara gonbidatu du"
 
-#: src/eventhandler.cpp:327 src/eventhandler.cpp:518
+#: src/eventhandler.cpp:342
 #, kde-format
 msgid "joined the room"
 msgstr "gelara batu da"
 
-#: src/eventhandler.cpp:331
+#: src/eventhandler.cpp:346
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:338 src/eventhandler.cpp:526
+#: src/eventhandler.cpp:353
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "azaldutako bere izena garbitu du"
 
-#: src/eventhandler.cpp:341
+#: src/eventhandler.cpp:356
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "azaldutako bere izena «%1»(e)ra aldatu du"
 
-#: src/eventhandler.cpp:347 src/eventhandler.cpp:533
+#: src/eventhandler.cpp:362
 #, kde-format
 msgid " and "
 msgstr " eta "
 
-#: src/eventhandler.cpp:350 src/eventhandler.cpp:536
+#: src/eventhandler.cpp:365
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "bere abatarra garbitu du"
 
-#: src/eventhandler.cpp:352 src/eventhandler.cpp:538
+#: src/eventhandler.cpp:367
 #, kde-format
 msgid "set an avatar"
 msgstr "ezarri abatar bat"
 
-#: src/eventhandler.cpp:354 src/eventhandler.cpp:540
+#: src/eventhandler.cpp:369
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "bere abatarra eguneratu du"
 
-#: src/eventhandler.cpp:358 src/eventhandler.cpp:544
+#: src/eventhandler.cpp:373
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "ez da ezer aldatu"
 
-#: src/eventhandler.cpp:364
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "%1(r)en gonbita erretiratu du"
 
-#: src/eventhandler.cpp:364 src/eventhandler.cpp:550
+#: src/eventhandler.cpp:379
 #, kde-format
 msgid "rejected the invitation"
 msgstr "gonbidapena errefusatu du"
 
-#: src/eventhandler.cpp:368
+#: src/eventhandler.cpp:383
 #, kde-format
 msgid "unbanned %1"
 msgstr "%1(e)ri debekua altxatu zaio"
 
-#: src/eventhandler.cpp:368 src/eventhandler.cpp:554
+#: src/eventhandler.cpp:383
 #, kde-format
 msgid "self-unbanned"
 msgstr "bere buruari debekua altxatuta"
 
-#: src/eventhandler.cpp:371 src/eventhandler.cpp:556
+#: src/eventhandler.cpp:386
 #, kde-format
 msgid "left the room"
 msgstr "gela utzi du"
 
-#: src/eventhandler.cpp:374
+#: src/eventhandler.cpp:389
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "%1 gelatik kanporatu du: %2"
 
-#: src/eventhandler.cpp:376
+#: src/eventhandler.cpp:391
 #, kde-format
 msgid "has put %1 out of the room"
 msgstr "%1 gelatik kanporatu du"
 
-#: src/eventhandler.cpp:380
+#: src/eventhandler.cpp:395
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1(e)ri gelarako debekua ipini zaio"
 
-#: src/eventhandler.cpp:382
+#: src/eventhandler.cpp:397
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1(e)ri gelarako debekua ipini zaio: %2"
 
-#: src/eventhandler.cpp:385 src/eventhandler.cpp:561
+#: src/eventhandler.cpp:400
 #, kde-format
 msgid "self-banned from the room"
 msgstr "bere buruari gela honetarako debekua ipinita"
 
-#: src/eventhandler.cpp:389 src/eventhandler.cpp:564
+#: src/eventhandler.cpp:404
 #, kde-format
 msgid "requested an invite"
 msgstr "gonbidapen bat eskatu du"
 
-#: src/eventhandler.cpp:389
+#: src/eventhandler.cpp:404
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "gonbidapen bat eskatu du, arrazoia: %1"
 
-#: src/eventhandler.cpp:393 src/eventhandler.cpp:568
+#: src/eventhandler.cpp:408
 #, kde-format
 msgid "made something unknown"
 msgstr "zerbait ezezaguna egin du"
 
-#: src/eventhandler.cpp:396 src/eventhandler.cpp:571
+#: src/eventhandler.cpp:411
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "gelaren ezizen nagusia garbitu da"
 
-#: src/eventhandler.cpp:396
+#: src/eventhandler.cpp:411
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ezarri gelako ezizen nagusia honetara: %1"
 
-#: src/eventhandler.cpp:399 src/eventhandler.cpp:574
+#: src/eventhandler.cpp:414
 #, kde-format
 msgid "cleared the room name"
 msgstr "gelako izena garbitu da"
 
-#: src/eventhandler.cpp:399
+#: src/eventhandler.cpp:414
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ezarri gelaren izana honetara: %1"
 
-#: src/eventhandler.cpp:402 src/eventhandler.cpp:577
+#: src/eventhandler.cpp:417
 #, kde-format
 msgid "cleared the topic"
 msgstr "gaia garbitu da"
 
-#: src/eventhandler.cpp:403
+#: src/eventhandler.cpp:418
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ezarri gai honetara: %1"
 
-#: src/eventhandler.cpp:409 src/eventhandler.cpp:580
+#: src/eventhandler.cpp:424
 #, kde-format
 msgid "changed the room avatar"
 msgstr "gelako abatarra aldatu da"
 
-#: src/eventhandler.cpp:412 src/eventhandler.cpp:583
+#: src/eventhandler.cpp:427
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "muturren arteko zifratzea aktibatu da"
 
-#: src/eventhandler.cpp:416
+#: src/eventhandler.cpp:431
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "gela %1 bertsiora bertsio-berritu da"
 
-#: src/eventhandler.cpp:417
+#: src/eventhandler.cpp:432
 #, kde-format
 msgid "created the room, version %1"
 msgstr "gela sortu da, %1 bertsioa"
 
-#: src/eventhandler.cpp:420 src/eventhandler.cpp:589
+#: src/eventhandler.cpp:435
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "gela honetako ahalmen mailak aldatu dira"
 
-#: src/eventhandler.cpp:426 src/eventhandler.cpp:595
+#: src/eventhandler.cpp:441
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 "gela honetarako zerbitzarirako sarrera-kontroleko zerrendak aldatu zituen"
 
-#: src/eventhandler.cpp:430
+#: src/eventhandler.cpp:445
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "trepeta %1 gehitu da"
 
-#: src/eventhandler.cpp:433
+#: src/eventhandler.cpp:448
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "trepeta %1 kendu da"
 
-#: src/eventhandler.cpp:435
+#: src/eventhandler.cpp:450
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "trepeta %1 konfiguratu da"
 
-#: src/eventhandler.cpp:438
+#: src/eventhandler.cpp:453
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 egoera eguneratu da"
 
-#: src/eventhandler.cpp:439
+#: src/eventhandler.cpp:454
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2(r)en %1 egoera eguneratu da"
 
-#: src/eventhandler.cpp:444 src/eventhandler.cpp:613
+#: src/eventhandler.cpp:459 src/eventhandler.cpp:658
 #, kde-format
 msgid "Unknown event"
 msgstr "Gertaera ezezaguna"
 
-#: src/eventhandler.cpp:459
+#: src/eventhandler.cpp:474
 #, kde-format
 msgid "a file"
 msgstr "fitxategi bat"
 
-#: src/eventhandler.cpp:499
-#, kde-format
-msgid "sent a message"
+#: src/eventhandler.cpp:520
+#, fuzzy, kde-format
+#| msgid "sent a message"
+msgid "%1 sent a message"
 msgstr "mezua bat bidali du..."
 
-#: src/eventhandler.cpp:503
-#, kde-format
-msgid "sent a sticker"
+#: src/eventhandler.cpp:523
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "%1 sent a sticker"
 msgstr "eranskailu bat bidali du"
 
-#: src/eventhandler.cpp:509
-#, kde-format
-msgid "reinvited someone to the room"
+#: src/eventhandler.cpp:529
+#, fuzzy, kde-format
+#| msgid "reinvited someone to the room"
+msgid "%1 reinvited someone to the room"
 msgstr "norbait gelara berriz gonbidatu du"
 
-#: src/eventhandler.cpp:518
-#, kde-format
-msgid "invited someone to the room"
+#: src/eventhandler.cpp:535
+#, fuzzy, kde-format
+#| msgid "joined the room (repeated)"
+msgid "%1 joined the room (repeated)"
+msgstr "gelara batu da (errepikatuta)"
+
+#: src/eventhandler.cpp:537
+#, fuzzy, kde-format
+#| msgid "invited someone to the room"
+msgid "%1 invited someone to the room"
 msgstr "norbait gelara gonbidatu du"
 
-#: src/eventhandler.cpp:528
-#, kde-format
-msgctxt "their refers to a singular user"
-msgid "changed their display name"
-msgstr "azaldutako bere izena aldatu du"
+#: src/eventhandler.cpp:538
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgid "%1 joined the room"
+msgstr "gelara batu da"
 
-#: src/eventhandler.cpp:550
+#: src/eventhandler.cpp:564
 #, kde-format
-msgid "withdrew a user's invitation"
-msgstr "erabiltzaile bati gonbidapena erretiratu dio"
+msgid "%1 set a display name and set an avatar"
+msgstr ""
 
-#: src/eventhandler.cpp:554
-#, kde-format
-msgid "unbanned a user"
-msgstr "erabiltzaile bati debekua altxatu dio"
+#: src/eventhandler.cpp:566
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "updated their avatar"
+msgid "%1 set a display name and updated their avatar"
+msgstr "bere abatarra eguneratu du"
 
-#: src/eventhandler.cpp:556
-#, kde-format
-msgid "put a user out of the room"
-msgstr "erabiltzaile bat gelatik kanporatu du"
+#: src/eventhandler.cpp:568
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their avatar"
+msgid "%1 set a display name and cleared their avatar"
+msgstr "bere abatarra garbitu du"
 
-#: src/eventhandler.cpp:559
-#, kde-format
-msgid "banned a user from the room"
-msgstr "erabiltzaile bati gelarako debekua ipini dio"
+#: src/eventhandler.cpp:570
+#, fuzzy, kde-format
+#| msgid "Changes your display name in this room"
+msgid "%1 set a display name for this room"
+msgstr "Zure azaldutako izena gela honetan aldatzen du"
 
-#: src/eventhandler.cpp:571
-#, kde-format
-msgid "set the room main alias"
-msgstr "gelaren ezizen nagusia ezarri du"
+#: src/eventhandler.cpp:573
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "%1 changed their display name and set an avatar"
+msgstr "azaldutako bere izena «%1»(e)ra aldatu du"
 
-#: src/eventhandler.cpp:574
-#, kde-format
-msgid "set the room name"
-msgstr "gelaren izena ezarri du"
+#: src/eventhandler.cpp:575
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "%1 changed their display name and updated their avatar"
+msgstr "azaldutako bere izena «%1»(e)ra aldatu du"
 
 #: src/eventhandler.cpp:577
-#, kde-format
-msgid "set the topic"
-msgstr "gaia ezarri du"
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "%1 changed their display name and cleared their avatar"
+msgstr "azaldutako bere izena «%1»(e)ra aldatu du"
+
+#: src/eventhandler.cpp:579
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name"
+msgid "%1 changed their display name"
+msgstr "azaldutako bere izena aldatu du"
+
+#: src/eventhandler.cpp:582
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "%1 cleared their display name and set an avatar"
+msgstr "azaldutako bere izena garbitu du"
+
+#: src/eventhandler.cpp:584
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "%1 cleared their display name and updated their avatar"
+msgstr "azaldutako bere izena garbitu du"
 
 #: src/eventhandler.cpp:586
-#, kde-format
-msgid "upgraded the room version"
-msgstr "gelaren bertsioa bertsio-berritu du"
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "%1 cleared their display name and cleared their avatar"
+msgstr "azaldutako bere izena garbitu du"
 
-#: src/eventhandler.cpp:586
-#, kde-format
-msgid "created the room"
-msgstr "gela sortu du"
+#: src/eventhandler.cpp:588
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "%1 cleared their display name"
+msgstr "azaldutako bere izena garbitu du"
 
-#: src/eventhandler.cpp:592
-#, kde-format
-msgid "sent a live location beacon"
-msgstr "kokalekua zuzenean zehazteko baliza bidali du"
+#: src/eventhandler.cpp:591
+#, fuzzy, kde-format
+#| msgctxt "<user> changed nothing"
+#| msgid "changed nothing"
+msgctxt "<user> changed nothing"
+msgid "%1 changed nothing"
+msgstr "ez da ezer aldatu"
 
-#: src/eventhandler.cpp:599
-#, kde-format
-msgid "added a widget"
-msgstr "trepeta bat gehitu du"
+#: src/eventhandler.cpp:595
+#, fuzzy, kde-format
+#| msgid "withdrew a user's invitation"
+msgid "%1 withdrew a user's invitation"
+msgstr "erabiltzaile bati gonbidapena erretiratu dio"
+
+#: src/eventhandler.cpp:596
+#, fuzzy, kde-format
+#| msgid "rejected the invitation"
+msgid "%1 rejected the invitation"
+msgstr "gonbidapena errefusatu du"
+
+#: src/eventhandler.cpp:600
+#, fuzzy, kde-format
+#| msgid "unbanned a user"
+msgid "%1 unbanned a user"
+msgstr "erabiltzaile bati debekua altxatu dio"
+
+#: src/eventhandler.cpp:600
+#, fuzzy, kde-format
+#| msgid "self-unbanned"
+msgid "%1 self-unbanned"
+msgstr "bere buruari debekua altxatuta"
 
 #: src/eventhandler.cpp:602
-#, kde-format
-msgid "removed a widget"
-msgstr "trepeta bat kendu du"
+#, fuzzy, kde-format
+#| msgid "put a user out of the room"
+msgid "%1 put a user out of the room"
+msgstr "erabiltzaile bat gelatik kanporatu du"
 
-#: src/eventhandler.cpp:604
-#, kde-format
-msgid "configured a widget"
-msgstr "trepeta bat konfiguratu du"
+#: src/eventhandler.cpp:602
+#, fuzzy, kde-format
+#| msgid "left the room"
+msgid "%1 left the room"
+msgstr "gela utzi du"
+
+#: src/eventhandler.cpp:605
+#, fuzzy, kde-format
+#| msgid "banned a user from the room"
+msgid "%1 banned a user from the room"
+msgstr "erabiltzaile bati gelarako debekua ipini dio"
 
 #: src/eventhandler.cpp:607
-#, kde-format
-msgid "updated the state"
+#, fuzzy, kde-format
+#| msgid "self-banned from the room"
+msgid "%1 self-banned from the room"
+msgstr "bere buruari gela honetarako debekua ipinita"
+
+#: src/eventhandler.cpp:610
+#, fuzzy, kde-format
+#| msgid "requested an invite"
+msgid "%1 requested an invite"
+msgstr "gonbidapen bat eskatu du"
+
+#: src/eventhandler.cpp:614
+#, fuzzy, kde-format
+#| msgid "made something unknown"
+msgid "%1 made something unknown"
+msgstr "zerbait ezezaguna egin du"
+
+#: src/eventhandler.cpp:617
+#, fuzzy, kde-format
+#| msgid "cleared the room main alias"
+msgid "%1 cleared the room main alias"
+msgstr "gelaren ezizen nagusia garbitu da"
+
+#: src/eventhandler.cpp:617
+#, fuzzy, kde-format
+#| msgid "set the room main alias"
+msgid "%1 set the room main alias"
+msgstr "gelaren ezizen nagusia ezarri du"
+
+#: src/eventhandler.cpp:620
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgid "%1 cleared the room name"
+msgstr "gelako izena garbitu da"
+
+#: src/eventhandler.cpp:620
+#, fuzzy, kde-format
+#| msgid "set the room name"
+msgid "%1 set the room name"
+msgstr "gelaren izena ezarri du"
+
+#: src/eventhandler.cpp:623
+#, fuzzy, kde-format
+#| msgid "cleared the topic"
+msgid "%1 cleared the topic"
+msgstr "gaia garbitu da"
+
+#: src/eventhandler.cpp:623
+#, fuzzy, kde-format
+#| msgid "set the topic"
+msgid "%1 set the topic"
+msgstr "gaia ezarri du"
+
+#: src/eventhandler.cpp:626
+#, fuzzy, kde-format
+#| msgid "changed the room avatar"
+msgid "%1 changed the room avatar"
+msgstr "gelako abatarra aldatu da"
+
+#: src/eventhandler.cpp:629
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgid "%1 activated End-to-End Encryption"
+msgstr "muturren arteko zifratzea aktibatu da"
+
+#: src/eventhandler.cpp:632
+#, fuzzy, kde-format
+#| msgid "upgraded the room version"
+msgid "%1 upgraded the room version"
+msgstr "gelaren bertsioa bertsio-berritu du"
+
+#: src/eventhandler.cpp:632
+#, fuzzy, kde-format
+#| msgid "created the room"
+msgid "%1 created the room"
+msgstr "gela sortu du"
+
+#: src/eventhandler.cpp:635
+#, fuzzy, kde-format
+#| msgctxt "'power level' means permission level"
+#| msgid "changed the power levels for this room"
+msgctxt "'power level' means permission level"
+msgid "%1 changed the power levels for this room"
+msgstr "gela honetako ahalmen mailak aldatu dira"
+
+#: src/eventhandler.cpp:638
+#, fuzzy, kde-format
+#| msgid "sent a live location beacon"
+msgid "%1 sent a live location beacon"
+msgstr "kokalekua zuzenean zehazteko baliza bidali du"
+
+#: src/eventhandler.cpp:641
+#, fuzzy, kde-format
+#| msgid "changed the server access control lists for this room"
+msgid "%1 changed the server access control lists for this room"
+msgstr ""
+"gela honetarako zerbitzarirako sarrera-kontroleko zerrendak aldatu zituen"
+
+#: src/eventhandler.cpp:645
+#, fuzzy, kde-format
+#| msgid "added a widget"
+msgid "%1 added a widget"
+msgstr "trepeta bat gehitu du"
+
+#: src/eventhandler.cpp:648
+#, fuzzy, kde-format
+#| msgid "removed a widget"
+msgid "%1 removed a widget"
+msgstr "trepeta bat kendu du"
+
+#: src/eventhandler.cpp:650
+#, fuzzy, kde-format
+#| msgid "configured a widget"
+msgid "%1 configured a widget"
+msgstr "trepeta bat konfiguratu du"
+
+#: src/eventhandler.cpp:653
+#, fuzzy, kde-format
+#| msgid "updated the state"
+msgid "%1 updated the state"
 msgstr "egoera eguneratu du"
 
-#: src/eventhandler.cpp:611
-#, kde-format
-msgid "started a poll"
+#: src/eventhandler.cpp:656
+#, fuzzy, kde-format
+#| msgid "started a poll"
+msgid "%1 started a poll"
 msgstr "inkesta bat hasi du"
 
 #: src/filetransferpseudojob.cpp:48
@@ -1469,49 +1664,6 @@ msgstr ""
 msgid "Loading reply"
 msgstr "Erantzuna zamatzen"
 
-#: src/models/messagefiltermodel.cpp:162
-#, kde-format
-msgctxt "%1: What's being done; %2: How often it is done."
-msgid " %1"
-msgid_plural " %1 %2 times"
-msgstr[0] " %1"
-msgstr[1] " %1 %2 aldiz"
-
-#: src/models/messagefiltermodel.cpp:166
-#, kde-format
-msgctxt "n users"
-msgid " %1 user "
-msgid_plural " %1 users "
-msgstr[0] "Erabiltzaile %1"
-msgstr[1] "%1 erabiltzaile"
-
-#: src/models/messagefiltermodel.cpp:175
-#, kde-format
-msgctxt "[action 1], [action 2 and/or action 3]"
-msgid ", "
-msgstr ", "
-
-#: src/models/messagefiltermodel.cpp:179
-#, kde-format
-msgctxt "[action 1, action 2] or [action 3]"
-msgid " or "
-msgstr " edo "
-
-#: src/models/messagefiltermodel.cpp:179
-#, kde-format
-msgctxt "[action 1, action 2] and [action 3]"
-msgid " and "
-msgstr " eta "
-
-#: src/models/messagefiltermodel.cpp:185
-#, kde-format
-msgctxt ""
-"userText (%1) is either a Matrix username if a single user sent all the "
-"states or n users if they were sent by multiple users.chunksText (%2) is a "
-"list of comma separated actions for each of the state events in the group."
-msgid "<style>a {text-decoration: none;}</style>%1 %2"
-msgstr "<style>a {text-decoration: none;}</style>%1 %2"
-
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
@@ -1768,77 +1920,77 @@ msgstr "Gela sortzea huts egin du: %1"
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/neochatroom.cpp:1420
+#: src/neochatroom.cpp:1424
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/neochatroom.cpp:1746 src/neochatroom.cpp:1754
+#: src/neochatroom.cpp:1750 src/neochatroom.cpp:1758
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
-#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:330
+#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:334
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: src/notificationsmanager.cpp:210 src/qml/Main.qml:250
+#: src/notificationsmanager.cpp:214 src/qml/Main.qml:250
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:216
+#: src/notificationsmanager.cpp:220
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Ireki NeoChat gela honetan"
 
-#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:233 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:112
 #, kde-format
 msgid "Reply"
 msgstr "Erantzun"
 
-#: src/notificationsmanager.cpp:230
+#: src/notificationsmanager.cpp:234
 #, kde-format
 msgid "Reply..."
 msgstr "Erantzun..."
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:253
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1(e)k gela batera gonbidatu zaitu"
 
-#: src/notificationsmanager.cpp:252
+#: src/notificationsmanager.cpp:256
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Ireki gonbidapen hau NeoChat-en"
 
-#: src/notificationsmanager.cpp:262
+#: src/notificationsmanager.cpp:266
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Onartu"
 
-#: src/notificationsmanager.cpp:263
+#: src/notificationsmanager.cpp:267
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Errefusatu"
 
-#: src/notificationsmanager.cpp:264
+#: src/notificationsmanager.cpp:268
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Errefusatu eta erabiltzailea ezikusi"
 
-#: src/notificationsmanager.cpp:323
+#: src/notificationsmanager.cpp:327
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:334
+#: src/notificationsmanager.cpp:338
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Ireki NeoChat"
@@ -2921,7 +3073,7 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Kokatu"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3164,86 +3316,86 @@ msgstr "Informazioa"
 msgid "Media"
 msgstr "Hedabideak"
 
-#: src/qml/RoomInformation.qml:40
+#: src/qml/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "Tokiko kideak"
 
-#: src/qml/RoomInformation.qml:40
+#: src/qml/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "Gelaren informazioa"
 
-#: src/qml/RoomInformation.qml:68
+#: src/qml/RoomInformation.qml:70
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: src/qml/RoomInformation.qml:78
+#: src/qml/RoomInformation.qml:80
 #, kde-format
 msgid "Search in this room"
 msgstr "Bilatu gela honetan"
 
-#: src/qml/RoomInformation.qml:87
+#: src/qml/RoomInformation.qml:89
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Bilatu"
 
-#: src/qml/RoomInformation.qml:95
+#: src/qml/RoomInformation.qml:97
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Egiaztatu erabiltzailea"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:108
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Kendu gela gogokoetatik"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:108
 #, kde-format
 msgid "Favorite this room"
 msgstr "Gela hau gogoko egin"
 
-#: src/qml/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Erakutsi gela honetarako kokalekuak"
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Irten gela honetatik"
 
-#: src/qml/RoomInformation.qml:147
+#: src/qml/RoomInformation.qml:149
 #, kde-format
 msgid "Members"
 msgstr "Kideak"
 
-#: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Gonbidatu erabiltzaile bat"
 
-#: src/qml/RoomInformation.qml:166
+#: src/qml/RoomInformation.qml:168
 #, kde-format
 msgid "Invite user to room"
 msgstr "Gonbidatu erabiltzaile bat gelara"
 
-#: src/qml/RoomInformation.qml:173
+#: src/qml/RoomInformation.qml:175
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "Kide %1"
 msgstr[1] "%1 kide"
 
-#: src/qml/RoomInformation.qml:173
+#: src/qml/RoomInformation.qml:175
 #, kde-format
 msgid "No member count"
 msgstr "Ez dago kide kopururik"
@@ -5649,6 +5801,38 @@ msgstr "Erakutsi"
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
+
+#~ msgctxt "%1: What's being done; %2: How often it is done."
+#~ msgid " %1"
+#~ msgid_plural " %1 %2 times"
+#~ msgstr[0] " %1"
+#~ msgstr[1] " %1 %2 aldiz"
+
+#~ msgctxt "n users"
+#~ msgid " %1 user "
+#~ msgid_plural " %1 users "
+#~ msgstr[0] "Erabiltzaile %1"
+#~ msgstr[1] "%1 erabiltzaile"
+
+#~ msgctxt "[action 1], [action 2 and/or action 3]"
+#~ msgid ", "
+#~ msgstr ", "
+
+#~ msgctxt "[action 1, action 2] or [action 3]"
+#~ msgid " or "
+#~ msgstr " edo "
+
+#~ msgctxt "[action 1, action 2] and [action 3]"
+#~ msgid " and "
+#~ msgstr " eta "
+
+#~ msgctxt ""
+#~ "userText (%1) is either a Matrix username if a single user sent all the "
+#~ "states or n users if they were sent by multiple users.chunksText (%2) is "
+#~ "a list of comma separated actions for each of the state events in the "
+#~ "group."
+#~ msgid "<style>a {text-decoration: none;}</style>%1 %2"
+#~ msgstr "<style>a {text-decoration: none;}</style>%1 %2"
 
 #~ msgctxt "@title"
 #~ msgid "Remove Message"
