@@ -51,7 +51,7 @@ void ChatBarCacheTest::empty()
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
-    QCOMPARE(chatBarCache->relationUser(), room->member(QString()));
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(QString()));
     QCOMPARE(chatBarCache->relationMessage(), QString());
     QCOMPARE(chatBarCache->attachmentPath(), QString());
 }
@@ -65,7 +65,7 @@ void ChatBarCacheTest::noRoom()
     // ChatBarCache has no parent.
 
     QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.");
-    QCOMPARE(chatBarCache->relationUser(), Quotient::RoomMember());
+    QCOMPARE(chatBarCache->relationAuthor(), Quotient::RoomMember());
 
     QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.");
     QCOMPARE(chatBarCache->relationMessage(), QString());
@@ -81,7 +81,7 @@ void ChatBarCacheTest::badParent()
     // ChatBarCache has no parent.
 
     QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.");
-    QCOMPARE(chatBarCache->relationUser(), Quotient::RoomMember());
+    QCOMPARE(chatBarCache->relationAuthor(), Quotient::RoomMember());
 
     QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.");
     QCOMPARE(chatBarCache->relationMessage(), QString());
@@ -99,7 +99,7 @@ void ChatBarCacheTest::reply()
     QCOMPARE(chatBarCache->replyId(), QLatin1String("$153456789:example.org"));
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
-    QCOMPARE(chatBarCache->relationUser(), room->member(QLatin1String("@example:example.org")));
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(QLatin1String("@example:example.org")));
     QCOMPARE(chatBarCache->relationMessage(), QLatin1String("This is an example\ntext message"));
     QCOMPARE(chatBarCache->attachmentPath(), QString());
 }
@@ -121,7 +121,7 @@ void ChatBarCacheTest::edit()
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), true);
     QCOMPARE(chatBarCache->editId(), QLatin1String("$153456789:example.org"));
-    QCOMPARE(chatBarCache->relationUser(), room->member(QLatin1String("@example:example.org")));
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(QLatin1String("@example:example.org")));
     QCOMPARE(chatBarCache->relationMessage(), QLatin1String("This is an example\ntext message"));
     QCOMPARE(chatBarCache->attachmentPath(), QString());
 }
@@ -138,7 +138,7 @@ void ChatBarCacheTest::attachment()
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
-    QCOMPARE(chatBarCache->relationUser(), room->member(QString()));
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(QString()));
     QCOMPARE(chatBarCache->relationMessage(), QString());
     QCOMPARE(chatBarCache->attachmentPath(), QLatin1String("some/path"));
 }

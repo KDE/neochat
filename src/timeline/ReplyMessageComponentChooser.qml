@@ -5,6 +5,8 @@ import QtQuick
 import QtQuick.Layouts
 import Qt.labs.qmlmodels
 
+import org.kde.kirigami as Kirigami
+
 import org.kde.neochat
 
 /**
@@ -60,6 +62,7 @@ DelegateChooser {
             MediaSizeHelper {
                 id: mediaSizeHelper
                 contentMaxWidth: root.maxContentWidth
+                contentMaxHeight: Kirigami.Units.gridUnit * 5
                 mediaWidth: image.mediaInfo.width ?? 0
                 mediaHeight: image.mediaInfo.height ?? 0
             }
@@ -81,6 +84,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageComponentType.Code
         delegate: CodeComponent {
+            Layout.maximumHeight: Kirigami.Units.gridUnit * 5
             maxContentWidth: root.maxContentWidth
 
             MouseArea {

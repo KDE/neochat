@@ -11,7 +11,6 @@ ecm_add_qml_module(chatbar GENERATE_PLUGIN_SOURCE
         CompletionMenu.qml
         EmojiDelegate.qml
         EmojiGrid.qml
-        ReplyPane.qml
         PieProgressBar.qml
         EmojiPicker.qml
         EmojiDialog.qml

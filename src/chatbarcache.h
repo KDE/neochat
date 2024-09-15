@@ -8,6 +8,8 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
+#include "models/messagecontentmodel.h"
+
 class ChatDocumentHandler;
 
 namespace Quotient
@@ -100,7 +102,7 @@ class ChatBarCache : public QObject
      *
      * @sa Quotient::RoomMember
      */
-    Q_PROPERTY(Quotient::RoomMember relationUser READ relationUser NOTIFY relationIdChanged)
+    Q_PROPERTY(Quotient::RoomMember relationAuthor READ relationAuthor NOTIFY relationIdChanged)
 
     /**
      * @brief The content of the related message.
@@ -108,6 +110,13 @@ class ChatBarCache : public QObject
      * Will be QString() if no related message.
      */
     Q_PROPERTY(QString relationMessage READ relationMessage NOTIFY relationIdChanged)
+
+    /**
+     * @brief The MessageContentModel for the related message.
+     *
+     * Will be nullptr if no related message.
+     */
+    Q_PROPERTY(MessageContentModel *relationEventContentModel READ relationEventContentModel NOTIFY relationIdChanged)
 
     /**
      * @brief Whether the chat bar is replying in a thread.
@@ -154,9 +163,10 @@ public:
     QString editId() const;
     void setEditId(const QString &editId);
 
-    Quotient::RoomMember relationUser() const;
+    Quotient::RoomMember relationAuthor() const;
 
     QString relationMessage() const;
+    MessageContentModel *relationEventContentModel();
 
     bool isThreaded() const;
     QString threadId() const;
@@ -206,4 +216,6 @@ private:
     QString m_attachmentPath = QString();
     QList<Mention> m_mentions;
     QString m_savedText;
+
+    QPointer<MessageContentModel> m_relationContentModel;
 };

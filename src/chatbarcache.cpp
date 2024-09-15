@@ -7,6 +7,7 @@
 
 #include "chatdocumenthandler.h"
 #include "eventhandler.h"
+#include "messagecontentmodel.h"
 #include "neochatroom.h"
 
 ChatBarCache::ChatBarCache(QObject *parent)
@@ -53,6 +54,7 @@ void ChatBarCache::setReplyId(const QString &replyId)
         m_relationType = Reply;
     }
     m_attachmentPath = QString();
+    delete m_relationContentModel;
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT attachmentPathChanged();
 }
@@ -82,11 +84,12 @@ void ChatBarCache::setEditId(const QString &editId)
         m_relationType = Edit;
     }
     m_attachmentPath = QString();
+    delete m_relationContentModel;
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT attachmentPathChanged();
 }
 
-Quotient::RoomMember ChatBarCache::relationUser() const
+Quotient::RoomMember ChatBarCache::relationAuthor() const
 {
     if (parent() == nullptr) {
         qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
@@ -124,6 +127,28 @@ QString ChatBarCache::relationMessage() const
     return {};
 }
 
+MessageContentModel *ChatBarCache::relationEventContentModel()
+{
+    if (parent() == nullptr) {
+        qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
+        return nullptr;
+    }
+    if (m_relationId.isEmpty()) {
+        return nullptr;
+    }
+    if (m_relationContentModel != nullptr) {
+        return m_relationContentModel;
+    }
+
+    auto room = dynamic_cast<NeoChatRoom *>(parent());
+    if (room == nullptr) {
+        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
+        return nullptr;
+    }
+    m_relationContentModel = new MessageContentModel(room, m_relationId, true);
+    return m_relationContentModel;
+}
+
 bool ChatBarCache::isThreaded() const
 {
     return !m_threadId.isEmpty();
@@ -156,6 +181,7 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
     m_attachmentPath = attachmentPath;
     m_relationType = None;
     const auto oldEventId = std::exchange(m_relationId, QString());
+    delete m_relationContentModel;
     Q_EMIT attachmentPathChanged();
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
 }
@@ -165,6 +191,7 @@ void ChatBarCache::clearRelations()
     const auto oldEventId = std::exchange(m_relationId, QString());
     const auto oldThreadId = std::exchange(m_threadId, QString());
     m_attachmentPath = QString();
+    delete m_relationContentModel;
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT threadIdChanged(oldThreadId, m_threadId);
     Q_EMIT attachmentPathChanged();

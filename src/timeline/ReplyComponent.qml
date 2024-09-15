@@ -53,6 +53,8 @@ RowLayout {
      */
     signal replyClicked(string eventID)
 
+    Layout.fillWidth: true
+
     spacing: Kirigami.Units.largeSpacing
 
     Rectangle {

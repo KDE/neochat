@@ -175,6 +175,7 @@ QQC2.Control {
 
             Layout.fillWidth: true
             Layout.margins: Kirigami.Units.largeSpacing
+            Layout.preferredHeight: active ? item.implicitHeight : 0
 
             active: visible
             visible: root.currentRoom.mainCache.replyId.length > 0 || root.currentRoom.mainCache.attachmentPath.length > 0
@@ -361,15 +362,32 @@ QQC2.Control {
 
     Component {
         id: replyPane
-        ReplyPane {
-            userName: _private.chatBarCache.relationUser.displayName
-            userColor: _private.chatBarCache.relationUser.color
-            userAvatar: _private.chatBarCache.relationUser.avatarUrl
-            text: _private.chatBarCache.relationMessage
+        Item {
+            implicitWidth: replyComponent.implicitWidth
+            implicitHeight: replyComponent.implicitHeight
+            ReplyComponent {
+                id: replyComponent
+                replyEventId: _private.chatBarCache.replyId
+                replyAuthor: _private.chatBarCache.relationAuthor
+                replyContentModel: _private.chatBarCache.relationEventContentModel
+                maxContentWidth: paneLoader.item.width
+            }
+            QQC2.Button {
+                id: cancelButton
 
-            onCancel: {
-                _private.chatBarCache.replyId = "";
-                _private.chatBarCache.attachmentPath = "";
+                anchors.top: parent.top
+                anchors.right: parent.right
+
+                display: QQC2.AbstractButton.IconOnly
+                text: i18nc("@action:button", "Cancel reply")
+                icon.name: "dialog-close"
+                onClicked: {
+                    _private.chatBarCache.replyId = "";
+                    _private.chatBarCache.attachmentPath = "";
+                }
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
     }
