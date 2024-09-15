@@ -81,6 +81,7 @@ Item {
             sourceSize.height: mediaSizeHelper.currentSize.height * Screen.devicePixelRatio
 
             fillMode: Image.PreserveAspectFit
+            autoTransform: true
         }
     }
 
@@ -94,6 +95,7 @@ Item {
             source: root.mediaInfo.source
 
             fillMode: Image.PreserveAspectFit
+            autoTransform: true
 
             paused: !applicationWindow().active
         }
