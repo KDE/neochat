@@ -16,6 +16,7 @@
 #include "urlhelper.h"
 
 #include <KLocalizedString>
+#include <KRuntimePlatform>
 #include <QDesktopServices>
 #include <QQuickTextDocument>
 #include <QStandardPaths>
@@ -237,6 +238,12 @@ void RoomManager::loadInitialRoom()
 
     if (!m_arg.isEmpty()) {
         resolveResource(m_arg);
+    }
+
+    const auto runtimePlatform = KRuntimePlatform::runtimePlatform();
+    if (runtimePlatform.contains(QStringLiteral("phone")) || runtimePlatform.contains(QStringLiteral("handset"))) {
+        // We don't want to open a room on startup on mobile
+        return;
     }
 
     if (m_currentRoom) {
