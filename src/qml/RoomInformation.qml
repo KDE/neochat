@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -188,11 +190,17 @@ QQC2.ScrollView {
 
                 focusSequence: "Ctrl+Shift+F"
 
-                onAccepted: sortedMessageEventModel.filterString = text
+                onAccepted: userFilterModel.filterText = text
             }
         }
 
-        model: root.room.isDirectChat() ? 0 : RoomManager.userListModel
+        model: root.room.isDirectChat() ? 0 : userFilterModel
+
+        UserFilterModel {
+            id: userFilterModel
+            sourceModel: RoomManager.userListModel
+            allowEmpty: true
+        }
 
         clip: true
         focus: true
