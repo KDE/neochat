@@ -29,18 +29,6 @@
 
 using namespace Quotient;
 
-MessageContentModel::MessageContentModel(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply, bool isPending, MessageContentModel *parent)
-    : QAbstractListModel(parent)
-    , m_room(room)
-    , m_eventId(event != nullptr ? event->id() : QString())
-    , m_eventSenderId(event != nullptr ? event->senderId() : QString())
-    , m_isPending(isPending)
-    , m_isReply(isReply)
-{
-    intiializeEvent(event);
-    initializeModel();
-}
-
 MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending, MessageContentModel *parent)
     : QAbstractListModel(parent)
     , m_room(room)
@@ -54,17 +42,137 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &event
 void MessageContentModel::initializeModel()
 {
     Q_ASSERT(m_room != nullptr);
-    // Allow making a model for an event that is being downloaded but will appear later
-    // e.g. a reply, but we need an ID to know when it has arrived.
-    // Also note that a pending event may not have an event ID yet but as long as we have an event
-    // pointer we can pass out the transaction ID until it is set.
-    Q_ASSERT(!m_eventId.isEmpty() || m_event != nullptr);
+    Q_ASSERT(!m_eventId.isEmpty());
 
+    connect(this, &MessageContentModel::eventUnavailable, this, &MessageContentModel::getEvent);
+
+    connect(m_room, &NeoChatRoom::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
+        if (m_room != nullptr) {
+            if (m_eventId == serverEvent->id() || m_eventId == serverEvent->transactionId()) {
+                beginResetModel();
+                m_isPending = false;
+                m_eventId = serverEvent->id();
+                initializeEvent();
+                endResetModel();
+            }
+        }
+    });
+    connect(m_room, &NeoChatRoom::addedMessages, this, [this](int fromIndex, int toIndex) {
+        if (m_room != nullptr) {
+            for (int i = fromIndex; i <= toIndex; i++) {
+                if (m_room->findInTimeline(i)->event()->id() == m_eventId) {
+                    initializeEvent();
+                    updateReplyModel();
+                    resetModel();
+                }
+            }
+        }
+    });
+    connect(m_room, &NeoChatRoom::replacedEvent, this, [this](const Quotient::RoomEvent *newEvent) {
+        if (m_room != nullptr) {
+            if (m_eventId == newEvent->id()) {
+                beginResetModel();
+                initializeEvent();
+                resetContent();
+                endResetModel();
+            }
+        }
+    });
+    connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
+        if (eventId == m_eventId) {
+            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+        }
+    });
+    connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
+        if (eventId == m_eventId) {
+            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+        }
+    });
+    connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
+        if (m_room != nullptr && eventId == m_eventId) {
+            resetContent();
+            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+        }
+    });
+    connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
+        if (eventId == m_eventId) {
+            resetContent();
+            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+        }
+    });
+    connect(m_room->editCache(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
+        if (oldEventId == m_eventId || newEventId == m_eventId) {
+            // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
+            beginResetModel();
+            resetContent(newEventId == m_eventId);
+            endResetModel();
+        }
+    });
+    connect(m_room->threadCache(), &ChatBarCache::threadIdChanged, this, [this](const QString &oldThreadId, const QString &newThreadId) {
+        if (oldThreadId == m_eventId || newThreadId == m_eventId) {
+            beginResetModel();
+            resetContent(false, newThreadId == m_eventId);
+            endResetModel();
+        }
+    });
+    connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
+        resetContent();
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
+        resetContent();
+    });
+    connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
+        if (m_room != nullptr) {
+            if (m_eventSenderId.isEmpty() || m_eventSenderId == member.id()) {
+                Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
+            }
+        }
+    });
+    connect(m_room, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
+        if (m_room != nullptr) {
+            if (m_eventSenderId.isEmpty() || m_eventSenderId == member.id()) {
+                Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
+            }
+        }
+    });
+
+    connect(NeoChatConfig::self(), &NeoChatConfig::ThreadsChanged, this, [this]() {
+        updateReplyModel();
+        resetModel();
+    });
+
+    initializeEvent();
+    updateReplyModel();
+    resetModel();
+}
+
+void MessageContentModel::initializeEvent()
+{
+    const auto event = m_room->getEvent(m_eventId);
+    if (event == nullptr) {
+        Q_EMIT eventUnavailable();
+        return;
+    }
+
+    if (m_eventSenderObject == nullptr) {
+        auto senderId = event->senderId();
+        // A pending event might not have a sender ID set yet but in that case it must
+        // be the local member.
+        if (senderId.isEmpty()) {
+            senderId = m_room->localMember().id();
+        }
+        m_eventSenderObject = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_room, senderId));
+    }
+    Q_EMIT eventUpdated();
+}
+
+void MessageContentModel::getEvent()
+{
     Quotient::connectUntil(m_room.get(), &NeoChatRoom::extraEventLoaded, this, [this](const QString &eventId) {
         if (m_room != nullptr) {
             if (eventId == m_eventId) {
                 m_notFound = false;
-                intiializeEvent(m_room->getEvent(eventId));
+                initializeEvent();
                 updateReplyModel();
                 resetModel();
                 return true;
@@ -83,130 +191,7 @@ void MessageContentModel::initializeModel()
         return false;
     });
 
-    if (m_event == nullptr) {
-        intiializeEvent(m_room->getEvent(m_eventId));
-        if (m_event == nullptr) {
-            m_room->downloadEventFromServer(m_eventId);
-        }
-    }
-
-    connect(m_room, &NeoChatRoom::pendingEventAboutToMerge, this, [this](Quotient::RoomEvent *serverEvent) {
-        if (m_room != nullptr && m_event != nullptr) {
-            if (m_eventId == serverEvent->id() || m_eventId == serverEvent->transactionId()) {
-                beginResetModel();
-                m_isPending = false;
-                intiializeEvent(serverEvent);
-                endResetModel();
-            }
-        }
-    });
-    connect(m_room, &NeoChatRoom::replacedEvent, this, [this](const Quotient::RoomEvent *newEvent) {
-        if (m_room != nullptr && m_event != nullptr) {
-            if (m_eventId == newEvent->id()) {
-                beginResetModel();
-                intiializeEvent(newEvent);
-                resetContent();
-                endResetModel();
-            }
-        }
-    });
-    connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
-        if (m_event != nullptr && eventId == m_eventId) {
-            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
-        }
-    });
-    connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
-        if (m_event != nullptr && eventId == m_eventId) {
-            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
-        }
-    });
-    connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
-        if (m_room != nullptr && m_event != nullptr && eventId == m_eventId) {
-            resetContent();
-            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
-        }
-    });
-    connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
-        if (m_event != nullptr && eventId == m_eventId) {
-            resetContent();
-            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
-        }
-    });
-    connect(m_room->editCache(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
-        if (m_event != nullptr && (oldEventId == m_eventId || newEventId == m_eventId)) {
-            // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
-            beginResetModel();
-            resetContent(newEventId == m_eventId);
-            endResetModel();
-        }
-    });
-    connect(m_room->threadCache(), &ChatBarCache::threadIdChanged, this, [this](const QString &oldThreadId, const QString &newThreadId) {
-        if (m_event != nullptr && (oldThreadId == m_eventId || newThreadId == m_eventId)) {
-            beginResetModel();
-            resetContent(false, newThreadId == m_eventId);
-            endResetModel();
-        }
-    });
-    connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
-        resetContent();
-    });
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
-        resetContent();
-    });
-    connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
-        if (m_room != nullptr && m_event != nullptr) {
-            if (m_eventSenderId.isEmpty() || m_eventSenderId == member.id()) {
-                Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
-            }
-        }
-    });
-    connect(m_room, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
-        if (m_room != nullptr && m_event != nullptr) {
-            if (m_eventSenderId.isEmpty() || m_eventSenderId == member.id()) {
-                Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
-            }
-        }
-    });
-
-    connect(NeoChatConfig::self(), &NeoChatConfig::ThreadsChanged, this, [this]() {
-        updateReplyModel();
-        resetModel();
-    });
-
-    if (m_event != nullptr) {
-        updateReplyModel();
-    }
-    resetModel();
-}
-
-void MessageContentModel::intiializeEvent(const QString &eventId)
-{
-    const auto newEvent = m_room->getEvent(eventId);
-    if (newEvent != nullptr) {
-        intiializeEvent(newEvent);
-    }
-}
-
-void MessageContentModel::intiializeEvent(const Quotient::RoomEvent *event)
-{
-    if (event == nullptr) {
-        return;
-    }
-
-    m_event = loadEvent<RoomEvent>(event->fullJson());
-    // a pending event may not previously have had an event ID so update.
-    m_eventId = EventHandler::id(m_event.get());
-
-    auto senderId = m_event->senderId();
-    // A pending event might not have a sender ID set yet but in that case it must
-    // be the local member.
-    if (senderId.isEmpty()) {
-        senderId = m_room->localMember().id();
-    }
-    if (m_eventSenderObject == nullptr) {
-        m_eventSenderObject = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_room, senderId));
-    }
-    Q_EMIT eventUpdated();
+    m_room->downloadEventFromServer(m_eventId);
 }
 
 bool MessageContentModel::showAuthor() const
@@ -221,7 +206,7 @@ void MessageContentModel::setShowAuthor(bool showAuthor)
     }
     m_showAuthor = showAuthor;
 
-    if (m_event != nullptr && m_room->connection()->isIgnored(m_event->senderId())) {
+    if (m_room->connection()->isIgnored(m_eventSenderId)) {
         if (showAuthor) {
             beginInsertRows({}, 0, 0);
             m_components.prepend(MessageComponent{MessageComponentType::Author, QString(), {}});
@@ -250,8 +235,23 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
 
     const auto component = m_components[index.row()];
 
+    const auto event = m_room->getEvent(m_eventId);
+    if (event == nullptr) {
+        if (role == DisplayRole) {
+            if (m_isReply) {
+                return i18n("Loading reply");
+            } else {
+                return i18n("Loading");
+            }
+        }
+        if (role == ComponentTypeRole) {
+            return component.type;
+        }
+        return {};
+    }
+
     if (role == DisplayRole) {
-        if (m_notFound || (m_event && m_room->connection()->isIgnored(m_event->senderId()))) {
+        if (m_notFound || m_room->connection()->isIgnored(m_eventSenderId)) {
             Kirigami::Platform::PlatformTheme *theme =
                 static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
 
@@ -265,16 +265,17 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
                            + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user")
                            + QStringLiteral("</span>"));
         }
-        if (component.type == MessageComponentType::Loading && m_isReply) {
-            return i18n("Loading reply");
-        }
-        if (m_event == nullptr) {
-            return QString();
+        if (component.type == MessageComponentType::Loading) {
+            if (m_isReply) {
+                return i18n("Loading reply");
+            } else {
+                return i18n("Loading");
+            }
         }
         if (!component.content.isEmpty()) {
             return component.content;
         }
-        return EventHandler::richBody(m_room, m_event.get());
+        return EventHandler::richBody(m_room, event);
     }
     if (role == ComponentTypeRole) {
         return component.type;
@@ -283,53 +284,53 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return component.attributes;
     }
     if (role == EventIdRole) {
-        return EventHandler::id(m_event.get());
+        return EventHandler::id(event);
     }
     if (role == TimeRole) {
-        const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [this](const PendingEventItem &pendingEvent) {
-            return m_event->transactionId() == pendingEvent->transactionId();
+        const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [event](const PendingEventItem &pendingEvent) {
+            return event->transactionId() == pendingEvent->transactionId();
         });
 
         auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
-        return EventHandler::time(m_event.get(), m_isPending, lastUpdated);
+        return EventHandler::time(event, m_isPending, lastUpdated);
     }
     if (role == TimeStringRole) {
-        const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [this](const PendingEventItem &pendingEvent) {
-            return m_event->transactionId() == pendingEvent->transactionId();
+        const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [event](const PendingEventItem &pendingEvent) {
+            return event->transactionId() == pendingEvent->transactionId();
         });
 
         auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
-        return EventHandler::timeString(m_event.get(), QStringLiteral("hh:mm"), m_isPending, lastUpdated);
+        return EventHandler::timeString(event, QStringLiteral("hh:mm"), m_isPending, lastUpdated);
     }
     if (role == AuthorRole) {
         return QVariant::fromValue<NeochatRoomMember *>(m_eventSenderObject.get());
     }
     if (role == MediaInfoRole) {
-        return EventHandler::mediaInfo(m_room, m_event.get());
+        return EventHandler::mediaInfo(m_room, event);
     }
     if (role == FileTransferInfoRole) {
-        return QVariant::fromValue(m_room->cachedFileTransferInfo(m_event.get()));
+        return QVariant::fromValue(m_room->cachedFileTransferInfo(event));
     }
     if (role == ItineraryModelRole) {
         return QVariant::fromValue<ItineraryModel *>(m_itineraryModel);
     }
     if (role == LatitudeRole) {
-        return EventHandler::latitude(m_event.get());
+        return EventHandler::latitude(event);
     }
     if (role == LongitudeRole) {
-        return EventHandler::longitude(m_event.get());
+        return EventHandler::longitude(event);
     }
     if (role == AssetRole) {
-        return EventHandler::locationAssetType(m_event.get());
+        return EventHandler::locationAssetType(event);
     }
     if (role == PollHandlerRole) {
         return QVariant::fromValue<PollHandler *>(m_room->poll(m_eventId));
     }
     if (role == ReplyEventIdRole) {
-        return EventHandler::replyId(m_event.get());
+        return EventHandler::replyId(event);
     }
     if (role == ReplyAuthorRole) {
-        return QVariant::fromValue(EventHandler::replyAuthor(m_room, m_event.get()));
+        return QVariant::fromValue(EventHandler::replyAuthor(m_room, event));
     }
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);
@@ -385,16 +386,18 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
 
 void MessageContentModel::resetModel()
 {
+    const auto event = m_room->getEvent(m_eventId);
+
     beginResetModel();
     m_components.clear();
 
-    if ((m_event && m_room->connection()->isIgnored(m_event->senderId())) || m_notFound) {
+    if (m_room->connection()->isIgnored(m_eventSenderId) || m_notFound) {
         m_components += MessageComponent{MessageComponentType::Text, QString(), {}};
         endResetModel();
         return;
     }
 
-    if (m_event == nullptr) {
+    if (event == nullptr) {
         m_components += MessageComponent{MessageComponentType::Loading, QString(), {}};
         endResetModel();
         return;
@@ -410,8 +413,6 @@ void MessageContentModel::resetModel()
 
 void MessageContentModel::resetContent(bool isEditing, bool isThreading)
 {
-    Q_ASSERT(m_event != nullptr);
-
     const auto startRow = m_components[0].type == MessageComponentType::Author ? 1 : 0;
     beginRemoveRows({}, startRow, rowCount() - 1);
     m_components.remove(startRow, rowCount() - startRow);
@@ -428,15 +429,20 @@ void MessageContentModel::resetContent(bool isEditing, bool isThreading)
 
 QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEditing, bool isThreading)
 {
+    const auto event = m_room->getEvent(m_eventId);
+    if (event == nullptr) {
+        return {};
+    }
+
     QList<MessageComponent> newComponents;
 
-    if (eventCast<const Quotient::RoomMessageEvent>(m_event)
-        && eventCast<const Quotient::RoomMessageEvent>(m_event)->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
+    if (eventCast<const Quotient::RoomMessageEvent>(event)
+        && eventCast<const Quotient::RoomMessageEvent>(event)->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
         newComponents += MessageComponent{MessageComponentType::Verification, QString(), {}};
         return newComponents;
     }
 
-    if (m_event->isRedacted()) {
+    if (event->isRedacted()) {
         newComponents += MessageComponent{MessageComponentType::Text, QString(), {}};
         return newComponents;
     }
@@ -448,7 +454,7 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     if (isEditing) {
         newComponents += MessageComponent{MessageComponentType::ChatBar, QString(), {}};
     } else {
-        newComponents.append(componentsForType(MessageComponentType::typeForEvent(*m_event.get())));
+        newComponents.append(componentsForType(MessageComponentType::typeForEvent(*event)));
     }
 
     if (m_room->urlPreviewEnabled()) {
@@ -456,7 +462,7 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
-    if (isThreading && !EventHandler::isThreaded(m_event.get())) {
+    if (isThreading && !EventHandler::isThreaded(event)) {
         newComponents += MessageComponent{MessageComponentType::ChatBar, QString(), {}};
     }
 
@@ -465,11 +471,12 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 
 void MessageContentModel::updateReplyModel()
 {
-    if (m_event == nullptr || m_isReply) {
+    const auto event = m_room->getEvent(m_eventId);
+    if (event == nullptr || m_isReply) {
         return;
     }
 
-    if (!EventHandler::hasReply(m_event.get()) || (EventHandler::isThreaded(m_event.get()) && NeoChatConfig::self()->threads())) {
+    if (!EventHandler::hasReply(event) || (EventHandler::isThreaded(event) && NeoChatConfig::self()->threads())) {
         if (m_replyModel) {
             delete m_replyModel;
         }
@@ -480,12 +487,7 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    const auto replyEvent = m_room->findInTimeline(EventHandler::replyId(m_event.get()));
-    if (replyEvent == m_room->historyEdge()) {
-        m_replyModel = new MessageContentModel(m_room, EventHandler::replyId(m_event.get()), true, false, this);
-    } else {
-        m_replyModel = new MessageContentModel(m_room, replyEvent->get(), true, false, this);
-    }
+    m_replyModel = new MessageContentModel(m_room, EventHandler::replyId(event), true, false, this);
 
     connect(m_replyModel, &MessageContentModel::eventUpdated, this, [this]() {
         Q_EMIT dataChanged(index(0), index(0), {ReplyAuthorRole});
@@ -494,28 +496,37 @@ void MessageContentModel::updateReplyModel()
 
 QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentType::Type type)
 {
+    const auto event = m_room->getEvent(m_eventId);
+    if (event == nullptr) {
+        return {};
+    }
+
     switch (type) {
     case MessageComponentType::Text: {
-        const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
-        auto body = EventHandler::rawMessageBody(*event);
-        return TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
+        const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+        auto body = EventHandler::rawMessageBody(*roomMessageEvent);
+        return TextHandler().textComponents(body,
+                                            EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                            m_room,
+                                            roomMessageEvent,
+                                            roomMessageEvent->isReplaced());
     }
     case MessageComponentType::File: {
         QList<MessageComponent> components;
         components += MessageComponent{MessageComponentType::File, QString(), {}};
-        const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
+        const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
 
         if (m_emptyItinerary) {
             if (!m_isReply) {
-                auto fileTransferInfo = m_room->cachedFileTransferInfo(m_event.get());
+                auto fileTransferInfo = m_room->cachedFileTransferInfo(event);
 
 #ifndef Q_OS_ANDROID
-                Q_ASSERT(event->content() != nullptr && event->content()->fileInfo() != nullptr);
-                const QMimeType mimeType = event->content()->fileInfo()->mimeType;
+                Q_ASSERT(roomMessageEvent->content() != nullptr && roomMessageEvent->content()->fileInfo() != nullptr);
+                const QMimeType mimeType = roomMessageEvent->content()->fileInfo()->mimeType;
                 if (mimeType.name() == QStringLiteral("text/plain") || mimeType.parentMimeTypes().contains(QStringLiteral("text/plain"))) {
-                    QString originalName = event->content()->fileInfo()->originalName;
+                    QString originalName = roomMessageEvent->content()->fileInfo()->originalName;
                     if (originalName.isEmpty()) {
-                        originalName = event->plainBody();
+                        originalName = roomMessageEvent->plainBody();
                     }
                     KSyntaxHighlighting::Repository repository;
                     KSyntaxHighlighting::Definition definitionForFile = repository.definitionForFileName(originalName);
@@ -544,19 +555,27 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
         } else {
             updateItineraryModel();
         }
-        auto body = EventHandler::rawMessageBody(*event);
-        components += TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
+        auto body = EventHandler::rawMessageBody(*roomMessageEvent);
+        components += TextHandler().textComponents(body,
+                                                   EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                                   m_room,
+                                                   roomMessageEvent,
+                                                   roomMessageEvent->isReplaced());
         return components;
     }
     case MessageComponentType::Image:
     case MessageComponentType::Audio:
     case MessageComponentType::Video: {
-        if (!m_event->is<StickerEvent>()) {
-            const auto event = eventCast<const Quotient::RoomMessageEvent>(m_event);
+        if (!event->is<StickerEvent>()) {
+            const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
             QList<MessageComponent> components;
             components += MessageComponent{type, QString(), {}};
-            auto body = EventHandler::rawMessageBody(*event);
-            components += TextHandler().textComponents(body, EventHandler::messageBodyInputFormat(*event), m_room, event, event->isReplaced());
+            auto body = EventHandler::rawMessageBody(*roomMessageEvent);
+            components += TextHandler().textComponents(body,
+                                                       EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                                       m_room,
+                                                       roomMessageEvent,
+                                                       roomMessageEvent->isReplaced());
             return components;
         }
     }
@@ -626,13 +645,14 @@ void MessageContentModel::closeLinkPreview(int row)
 
 void MessageContentModel::updateItineraryModel()
 {
-    if (m_room == nullptr || m_event == nullptr) {
+    const auto event = m_room->getEvent(m_eventId);
+    if (m_room == nullptr || event == nullptr) {
         return;
     }
 
-    if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-        if (event->hasFileContent()) {
-            auto filePath = m_room->cachedFileTransferInfo(m_event.get()).localPath;
+    if (auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
+        if (roomMessageEvent->hasFileContent()) {
+            auto filePath = m_room->cachedFileTransferInfo(event).localPath;
             if (filePath.isEmpty() && m_itineraryModel != nullptr) {
                 delete m_itineraryModel;
                 m_itineraryModel = nullptr;

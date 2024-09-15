@@ -80,7 +80,7 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
             const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
             auto newEvents = m_currentJob->chunk();
             for (auto &event : newEvents) {
-                m_contentModels.push_back(new MessageContentModel(room, event.get()));
+                m_contentModels.push_back(new MessageContentModel(room, event->id()));
             }
 
             addModels();
@@ -103,7 +103,7 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
 void ThreadModel::addNewEvent(const Quotient::RoomEvent *event)
 {
     const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
-    m_contentModels.push_front(new MessageContentModel(room, event));
+    m_contentModels.push_front(new MessageContentModel(room, event->id()));
 }
 
 void ThreadModel::addModels()

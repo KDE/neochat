@@ -75,11 +75,10 @@ public:
     Q_ENUM(Roles)
 
     explicit MessageContentModel(NeoChatRoom *room,
-                                 const Quotient::RoomEvent *event,
+                                 const QString &eventId,
                                  bool isReply = false,
                                  bool isPending = false,
                                  MessageContentModel *parent = nullptr);
-    MessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply = false, bool isPending = false, MessageContentModel *parent = nullptr);
 
     bool showAuthor() const;
     void setShowAuthor(bool showAuthor);
@@ -114,6 +113,7 @@ public:
 
 Q_SIGNALS:
     void showAuthorChanged();
+    void eventUnavailable();
     void eventUpdated();
 
 private:
@@ -121,7 +121,6 @@ private:
     QString m_eventId;
     QString m_eventSenderId;
     std::unique_ptr<NeochatRoomMember> m_eventSenderObject = nullptr;
-    Quotient::RoomEventPtr m_event;
 
     bool m_isPending;
     bool m_showAuthor = true;
@@ -129,8 +128,8 @@ private:
     bool m_notFound = false;
 
     void initializeModel();
-    void intiializeEvent(const QString &eventId);
-    void intiializeEvent(const Quotient::RoomEvent *event);
+    void initializeEvent();
+    void getEvent();
 
     QList<MessageComponent> m_components;
     void resetModel();

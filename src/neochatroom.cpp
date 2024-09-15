@@ -1768,6 +1768,9 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
 void NeoChatRoom::downloadEventFromServer(const QString &eventId)
 {
     if (findInTimeline(eventId) != historyEdge()) {
+        // For whatever reason the event has now appeared so the function that called
+        // this need to whatever it wanted to do with the event.
+        Q_EMIT extraEventLoaded(eventId);
         return;
     }
     auto job = connection()->callApi<GetOneRoomEventJob>(id(), eventId);

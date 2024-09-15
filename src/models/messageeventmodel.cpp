@@ -639,7 +639,7 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
 
     if (!m_contentModels.contains(eventId) && !m_contentModels.contains(event->transactionId())) {
         if (!event->isStateEvent() || event->matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
-            m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_currentRoom, event));
+            m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_currentRoom, eventId));
         }
     }
 
