@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-14 00:40+0000\n"
+"POT-Creation-Date: 2024-09-16 00:39+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -49,21 +49,27 @@ msgstr "Enviar a Localização"
 msgid "Send message"
 msgstr "Enviar uma mensagem"
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Enviar uma mensagem codificada…"
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, fuzzy, kde-format
 #| msgid "Set an attachment caption..."
 msgid "Set an attachment caption…"
 msgstr "Definir uma legenda do anexo..."
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, kde-format
 msgid "Send a message…"
 msgstr "Enviar uma mensagem…"
+
+#: src/chatbar/ChatBar.qml:382
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Cancelar a resposta"
 
 #: src/chatbar/EmojiGrid.qml:87
 #, kde-format
@@ -84,12 +90,6 @@ msgstr "Emojis"
 #, kde-format
 msgid "Stickers"
 msgstr "Autocolantes"
-
-#: src/chatbar/ReplyPane.qml:89
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Cancelar a resposta"
 
 #: src/controller.cpp:134
 #, fuzzy, kde-format
@@ -1006,7 +1006,8 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:244
+#: src/models/messagecontentmodel.cpp:272 src/timeline/LoadComponent.qml:33
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -1684,6 +1685,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Próprios Emojis"
 
+#: src/models/messagecontentmodel.cpp:242
+#: src/models/messagecontentmodel.cpp:270
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading reply"
+msgstr "A carregar…"
+
 #: src/models/messagecontentmodel.cpp:265
 #, kde-format
 msgctxt "@info"
@@ -1691,13 +1700,6 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
-
-#: src/models/messagecontentmodel.cpp:269
-#: src/timeline/LinkPreviewLoadComponent.qml:66
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgid "Loading reply"
-msgstr "A carregar…"
 
 #: src/models/permissionsmodel.cpp:57
 #, fuzzy
@@ -6028,7 +6030,7 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
-#: src/timeline/ImageComponent.qml:138
+#: src/timeline/ImageComponent.qml:140
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"

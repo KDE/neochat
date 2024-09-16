@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-14 00:40+0000\n"
+"POT-Creation-Date: 2024-09-16 00:39+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -47,20 +47,26 @@ msgstr "위치 보내기"
 msgid "Send message"
 msgstr "메시지 보내기"
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "암호화된 메시지 보내기…"
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "첨부 파일 캡션 설정…"
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, kde-format
 msgid "Send a message…"
 msgstr "메시지 보내기…"
+
+#: src/chatbar/ChatBar.qml:382
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "답장 취소"
 
 #: src/chatbar/EmojiGrid.qml:87
 #, kde-format
@@ -81,12 +87,6 @@ msgstr "이모지"
 #, kde-format
 msgid "Stickers"
 msgstr "스티커"
-
-#: src/chatbar/ReplyPane.qml:89
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "답장 취소"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -999,7 +999,8 @@ msgid "Registration is disabled on this server."
 msgstr "이 서버에 등록이 비활성화되어 있습니다."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:244
+#: src/models/messagecontentmodel.cpp:272 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "불러오는 중"
@@ -1656,6 +1657,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "내 이모지"
 
+#: src/models/messagecontentmodel.cpp:242
+#: src/models/messagecontentmodel.cpp:270
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, kde-format
+msgid "Loading reply"
+msgstr "답장 불러오는 중"
+
 #: src/models/messagecontentmodel.cpp:265
 #, kde-format
 msgctxt "@info"
@@ -1663,12 +1671,6 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
-
-#: src/models/messagecontentmodel.cpp:269
-#: src/timeline/LinkPreviewLoadComponent.qml:66
-#, kde-format
-msgid "Loading reply"
-msgstr "답장 불러오는 중"
 
 #: src/models/permissionsmodel.cpp:57
 #, fuzzy
@@ -5830,7 +5832,7 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
-#: src/timeline/ImageComponent.qml:138
+#: src/timeline/ImageComponent.qml:140
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"

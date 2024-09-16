@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-14 00:40+0000\n"
-"PO-Revision-Date: 2024-09-06 20:29+0200\n"
+"POT-Creation-Date: 2024-09-16 00:39+0000\n"
+"PO-Revision-Date: 2024-09-14 12:59+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -47,20 +47,26 @@ msgstr "Invia una località"
 msgid "Send message"
 msgstr "Invia messaggio"
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Invia un messaggio cifrato…"
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Imposta una didascalia per l'allegato..."
 
-#: src/chatbar/ChatBar.qml:208
+#: src/chatbar/ChatBar.qml:209
 #, kde-format
 msgid "Send a message…"
 msgstr "Invia un messaggio…"
+
+#: src/chatbar/ChatBar.qml:382
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Annulla la risposta"
 
 #: src/chatbar/EmojiGrid.qml:87
 #, kde-format
@@ -81,12 +87,6 @@ msgstr "Emoji"
 #, kde-format
 msgid "Stickers"
 msgstr "Adesivi"
-
-#: src/chatbar/ReplyPane.qml:89
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Annulla la risposta"
 
 #: src/controller.cpp:134
 #, kde-format
@@ -620,299 +620,241 @@ msgid "a file"
 msgstr "un file"
 
 #: src/eventhandler.cpp:520
-#, fuzzy, kde-format
-#| msgid "sent a message"
+#, kde-format
 msgid "%1 sent a message"
-msgstr "ha inviato un messaggio"
+msgstr "%1 ha inviato un messaggio"
 
 #: src/eventhandler.cpp:523
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "%1 sent a sticker"
-msgstr "ha inviato un adesivo"
+msgstr "%1 ha inviato un adesivo"
 
 #: src/eventhandler.cpp:529
-#, fuzzy, kde-format
-#| msgid "reinvited someone to the room"
+#, kde-format
 msgid "%1 reinvited someone to the room"
-msgstr "ha invitato nuovamente qualcuno alla stanza"
+msgstr "%1 ha invitato nuovamente qualcuno alla stanza"
 
 #: src/eventhandler.cpp:535
-#, fuzzy, kde-format
-#| msgid "joined the room (repeated)"
+#, kde-format
 msgid "%1 joined the room (repeated)"
-msgstr "è entrato nella stanza (ripetuto)"
+msgstr "%1 è entrato nella stanza (ripetuto)"
 
 #: src/eventhandler.cpp:537
-#, fuzzy, kde-format
-#| msgid "invited someone to the room"
+#, kde-format
 msgid "%1 invited someone to the room"
-msgstr "ha invitato qualcuno alla stanza"
+msgstr "%1 ha invitato qualcuno alla stanza"
 
 #: src/eventhandler.cpp:538
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgid "%1 joined the room"
-msgstr "è entrato nella stanza"
+msgstr "%1 è entrato nella stanza"
 
 #: src/eventhandler.cpp:564
 #, kde-format
 msgid "%1 set a display name and set an avatar"
-msgstr ""
+msgstr "%1 ha impostato un nome visualizzato e un avatar"
 
 #: src/eventhandler.cpp:566
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "updated their avatar"
+#, kde-format
 msgid "%1 set a display name and updated their avatar"
-msgstr "ha aggiornato il suo avatar"
+msgstr "%1 ha impostato un nome visualizzato e aggiornato il proprio avatar"
 
 #: src/eventhandler.cpp:568
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their avatar"
+#, kde-format
 msgid "%1 set a display name and cleared their avatar"
-msgstr "ha cancellato il suo avatar"
+msgstr "%1 ha impostato un nome visualizzato e cancellato il proprio avatar"
 
 #: src/eventhandler.cpp:570
-#, fuzzy, kde-format
-#| msgid "Changes your display name in this room"
+#, kde-format
 msgid "%1 set a display name for this room"
-msgstr "Cambia il nome visualizzato in questa stanza"
+msgstr "%1 ha impostato il nome visualizzato per questa stanza"
 
 #: src/eventhandler.cpp:573
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and set an avatar"
-msgstr "ha cambiato il suo nome visualizzato in %1"
+msgstr "%1 ha cambiato il nome visualizzato e impostato un avatar"
 
 #: src/eventhandler.cpp:575
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and updated their avatar"
-msgstr "ha cambiato il suo nome visualizzato in %1"
+msgstr "%1 ha cambiato il nome visualizzato e aggiornato il proprio avatar"
 
 #: src/eventhandler.cpp:577
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and cleared their avatar"
-msgstr "ha cambiato il suo nome visualizzato in %1"
+msgstr "%1 ha cambiato il suo nome visualizzato e ha cancellato il suo avatar"
 
 #: src/eventhandler.cpp:579
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name"
+#, kde-format
 msgid "%1 changed their display name"
-msgstr "ha cambiato il suo nome visualizzato"
+msgstr "%1 ha cambiato il suo nome visualizzato"
 
 #: src/eventhandler.cpp:582
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and set an avatar"
-msgstr "ha cancellato il suo nome visualizzato"
+msgstr "%1 ha cancellato il nome visualizzato e impostato un avatar"
 
 #: src/eventhandler.cpp:584
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and updated their avatar"
-msgstr "ha cancellato il suo nome visualizzato"
+msgstr "%1 ha cancellato il nome visualizzato e aggiornato il proprio avatar"
 
 #: src/eventhandler.cpp:586
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
-msgstr "ha cancellato il suo nome visualizzato"
+msgstr "%1 ha cancellato il nome visualizzato e il suo avatar"
 
 #: src/eventhandler.cpp:588
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name"
-msgstr "ha cancellato il suo nome visualizzato"
+msgstr "%1 ha cancellato il suo nome visualizzato"
 
 #: src/eventhandler.cpp:591
-#, fuzzy, kde-format
-#| msgctxt "<user> changed nothing"
-#| msgid "changed nothing"
+#, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
-msgstr "nessuna modifica"
+msgstr "%1 non ha modificato nulla"
 
 #: src/eventhandler.cpp:595
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
+#, kde-format
 msgid "%1 withdrew a user's invitation"
-msgstr "ha ritirato l'invito di utente"
+msgstr "%1 ha ritirato l'invito di un utente"
 
 #: src/eventhandler.cpp:596
-#, fuzzy, kde-format
-#| msgid "rejected the invitation"
+#, kde-format
 msgid "%1 rejected the invitation"
-msgstr "ha rifiutato l'invito"
+msgstr "%1 ha rifiutato l'invito"
 
 #: src/eventhandler.cpp:600
-#, fuzzy, kde-format
-#| msgid "unbanned a user"
+#, kde-format
 msgid "%1 unbanned a user"
-msgstr "ha rimosso il bando per un utente"
+msgstr "%1 ha rimosso il bando per un utente"
 
 #: src/eventhandler.cpp:600
-#, fuzzy, kde-format
-#| msgid "self-unbanned"
+#, kde-format
 msgid "%1 self-unbanned"
-msgstr "ha rimosso il bando da se stesso"
+msgstr "%1 ha rimosso il bando da se stesso"
 
 #: src/eventhandler.cpp:602
-#, fuzzy, kde-format
-#| msgid "put a user out of the room"
+#, kde-format
 msgid "%1 put a user out of the room"
-msgstr "ha espulso un utente dalla stanza"
+msgstr "%1 ha espulso un utente dalla stanza"
 
 #: src/eventhandler.cpp:602
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "%1 left the room"
-msgstr "ha abbandonato la stanza"
+msgstr "%1 ha abbandonato la stanza"
 
 #: src/eventhandler.cpp:605
-#, fuzzy, kde-format
-#| msgid "banned a user from the room"
+#, kde-format
 msgid "%1 banned a user from the room"
-msgstr "ha bandito un utente dalla stanza"
+msgstr "%1 ha bandito un utente dalla stanza"
 
 #: src/eventhandler.cpp:607
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgid "%1 self-banned from the room"
-msgstr "auto-bandito dalla stanza"
+msgstr "%1 ha bandito se stesso dalla stanza"
 
 #: src/eventhandler.cpp:610
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "%1 requested an invite"
-msgstr "ha richiesto un invito"
+msgstr "%1 ha richiesto un invito"
 
 #: src/eventhandler.cpp:614
-#, fuzzy, kde-format
-#| msgid "made something unknown"
+#, kde-format
 msgid "%1 made something unknown"
-msgstr "ha fatto qualcosa di sconosciuto"
+msgstr "%1 ha fatto qualcosa di sconosciuto"
 
 #: src/eventhandler.cpp:617
-#, fuzzy, kde-format
-#| msgid "cleared the room main alias"
+#, kde-format
 msgid "%1 cleared the room main alias"
-msgstr "ha cancellato l'alias principale della stanza"
+msgstr "%1 ha cancellato l'alias principale della stanza"
 
 #: src/eventhandler.cpp:617
-#, fuzzy, kde-format
-#| msgid "set the room main alias"
+#, kde-format
 msgid "%1 set the room main alias"
-msgstr "ha impostato l'alias principale della stanza"
+msgstr "%1 ha impostato l'alias principale della stanza"
 
 #: src/eventhandler.cpp:620
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "%1 cleared the room name"
-msgstr "ha cancellato il nome della stanza"
+msgstr "%1 ha cancellato il nome della stanza"
 
 #: src/eventhandler.cpp:620
-#, fuzzy, kde-format
-#| msgid "set the room name"
+#, kde-format
 msgid "%1 set the room name"
-msgstr "ha impostato il nome della stanza"
+msgstr "%1 ha impostato il nome della stanza"
 
 #: src/eventhandler.cpp:623
-#, fuzzy, kde-format
-#| msgid "cleared the topic"
+#, kde-format
 msgid "%1 cleared the topic"
-msgstr "ha cancellato l'argomento"
+msgstr "%1 ha cancellato l'argomento"
 
 #: src/eventhandler.cpp:623
-#, fuzzy, kde-format
-#| msgid "set the topic"
+#, kde-format
 msgid "%1 set the topic"
-msgstr "ha impostato l'argomento"
+msgstr "%1 ha impostato l'argomento"
 
 #: src/eventhandler.cpp:626
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "%1 changed the room avatar"
-msgstr "ha cambiato l'avatar della stanza"
+msgstr "%1 ha cambiato l'avatar della stanza"
 
 #: src/eventhandler.cpp:629
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "%1 activated End-to-End Encryption"
-msgstr "ha attivato la cifratura End-to-End"
+msgstr "%1 ha attivato la cifratura End-to-End"
 
 #: src/eventhandler.cpp:632
-#, fuzzy, kde-format
-#| msgid "upgraded the room version"
+#, kde-format
 msgid "%1 upgraded the room version"
-msgstr "ha aggiornato la versione della stanza"
+msgstr "%1 ha aggiornato la versione della stanza"
 
 #: src/eventhandler.cpp:632
-#, fuzzy, kde-format
-#| msgid "created the room"
+#, kde-format
 msgid "%1 created the room"
-msgstr "ha creato la stanza"
+msgstr "%1 ha creato la stanza"
 
 #: src/eventhandler.cpp:635
-#, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
+#, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
-msgstr "ha modificato i livelli di potenza per questa stanza"
+msgstr "%1 ha modificato i livelli di potenza per questa stanza"
 
 #: src/eventhandler.cpp:638
-#, fuzzy, kde-format
-#| msgid "sent a live location beacon"
+#, kde-format
 msgid "%1 sent a live location beacon"
-msgstr "ha inviato un segnale di posizione in tempo reale"
+msgstr "%1 ha inviato un segnale di posizione in tempo reale"
 
 #: src/eventhandler.cpp:641
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "%1 changed the server access control lists for this room"
-msgstr "ha modificato la lista di controllo degli accessi per questa stanza"
+msgstr "%1 ha modificato la lista di controllo degli accessi per questa stanza"
 
 #: src/eventhandler.cpp:645
-#, fuzzy, kde-format
-#| msgid "added a widget"
+#, kde-format
 msgid "%1 added a widget"
-msgstr "ha aggiunto un oggetto"
+msgstr "%1 ha aggiunto un oggetto"
 
 #: src/eventhandler.cpp:648
-#, fuzzy, kde-format
-#| msgid "removed a widget"
+#, kde-format
 msgid "%1 removed a widget"
-msgstr "ha rimosso un oggetto"
+msgstr "%1 ha rimosso un oggetto"
 
 #: src/eventhandler.cpp:650
-#, fuzzy, kde-format
-#| msgid "configured a widget"
+#, kde-format
 msgid "%1 configured a widget"
-msgstr "ha configurato un oggetto"
+msgstr "%1 ha configurato un oggetto"
 
 #: src/eventhandler.cpp:653
-#, fuzzy, kde-format
-#| msgid "updated the state"
+#, kde-format
 msgid "%1 updated the state"
-msgstr "ha aggiornato lo stato"
+msgstr "%1 ha aggiornato lo stato"
 
 #: src/eventhandler.cpp:656
-#, fuzzy, kde-format
-#| msgid "started a poll"
+#, kde-format
 msgid "%1 started a poll"
-msgstr "ha avviato un sondaggio"
+msgstr "%1 ha avviato un sondaggio"
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
@@ -985,7 +927,8 @@ msgid "Registration is disabled on this server."
 msgstr "La registrazione è disabilitata su questo server."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:244
+#: src/models/messagecontentmodel.cpp:272 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Caricamento"
@@ -1645,6 +1588,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "I propri emoji"
 
+#: src/models/messagecontentmodel.cpp:242
+#: src/models/messagecontentmodel.cpp:270
+#: src/timeline/LinkPreviewLoadComponent.qml:66
+#, kde-format
+msgid "Loading reply"
+msgstr "Caricamento risposta"
+
 #: src/models/messagecontentmodel.cpp:265
 #, kde-format
 msgctxt "@info"
@@ -1654,12 +1604,6 @@ msgid ""
 msgstr ""
 "Questo messaggio non è stato trovato, non hai l'autorizzazione per "
 "visualizzarlo oppure è stato inviato da un utente ignorato"
-
-#: src/models/messagecontentmodel.cpp:269
-#: src/timeline/LinkPreviewLoadComponent.qml:66
-#, kde-format
-msgid "Loading reply"
-msgstr "Caricamento risposta"
 
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5722,7 +5666,7 @@ msgstr "Ora di check-in: %1"
 msgid "Check-out time: %1"
 msgstr "Ora di check-out: %1"
 
-#: src/timeline/ImageComponent.qml:138
+#: src/timeline/ImageComponent.qml:140
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
