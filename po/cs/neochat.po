@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-03 02:28+0000\n"
+"POT-Creation-Date: 2024-09-16 02:52+0000\n"
 "PO-Revision-Date: 2024-07-09 16:19+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1695,13 +1695,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr ""
 
-#: src/models/reactionmodel.cpp:69
+#: src/models/reactionmodel.cpp:64
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " a "
 
-#: src/models/reactionmodel.cpp:76
+#: src/models/reactionmodel.cpp:71
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1710,7 +1710,7 @@ msgstr[0] " a 1 další"
 msgstr[1] " a %1 další"
 msgstr[2] " a %1 dalších"
 
-#: src/models/reactionmodel.cpp:80
+#: src/models/reactionmodel.cpp:75
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2866,7 +2866,7 @@ msgstr "Vyberte polohu"
 msgid "Send this location"
 msgstr "Poslat tuto polohu"
 
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:125
+#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3144,79 +3144,79 @@ msgstr "Informace"
 msgid "Media"
 msgstr "Média"
 
-#: src/qml/RoomInformation.qml:40
+#: src/qml/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:40
+#: src/qml/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Room information"
 msgstr "informace o místnosti"
 
-#: src/qml/RoomInformation.qml:68
+#: src/qml/RoomInformation.qml:70
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Činnosti"
 
-#: src/qml/RoomInformation.qml:78
+#: src/qml/RoomInformation.qml:80
 #, kde-format
 msgid "Search in this room"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:87
+#: src/qml/RoomInformation.qml:89
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Hledat"
 
-#: src/qml/RoomInformation.qml:95
+#: src/qml/RoomInformation.qml:97
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Ověřit uživatele"
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:108
 #, kde-format
 msgid "Remove room from favorites"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:106
+#: src/qml/RoomInformation.qml:108
 #, kde-format
 msgid "Favorite this room"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:119
+#: src/qml/RoomInformation.qml:121
 #, kde-format
 msgid "Show locations for this room"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:134
+#: src/qml/RoomInformation.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:147
+#: src/qml/RoomInformation.qml:149
 #, kde-format
 msgid "Members"
 msgstr "Členové"
 
-#: src/qml/RoomInformation.qml:162 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Pozvat uživatele"
 
-#: src/qml/RoomInformation.qml:166
+#: src/qml/RoomInformation.qml:168
 #, kde-format
 msgid "Invite user to room"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:173
+#: src/qml/RoomInformation.qml:175
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -3224,7 +3224,7 @@ msgstr[0] "%1 člen"
 msgstr[1] "%1 členové"
 msgstr[2] "%1 členů"
 
-#: src/qml/RoomInformation.qml:173
+#: src/qml/RoomInformation.qml:175
 #, kde-format
 msgid "No member count"
 msgstr "Žádný počet členů"
@@ -3935,27 +3935,27 @@ msgstr "Pokračovat"
 msgid "Working"
 msgstr "Pracuje"
 
-#: src/roommanager.cpp:138
+#: src/roommanager.cpp:139
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Poškozené nebo prázdné id pro Matrix"
 
-#: src/roommanager.cpp:138
+#: src/roommanager.cpp:139
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 není platný identifikátor pro Matrix"
 
-#: src/roommanager.cpp:345
+#: src/roommanager.cpp:352
 #, kde-format
 msgid "Failed to join room"
 msgstr ""
 
-#: src/roommanager.cpp:377
+#: src/roommanager.cpp:384
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vyžádali jste vstup do '%1'."
 
-#: src/roommanager.cpp:381
+#: src/roommanager.cpp:388
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Vyžádání požadavku o vstup do místnosti selhalo"
