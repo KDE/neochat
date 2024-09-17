@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-16 02:52+0000\n"
-"PO-Revision-Date: 2024-07-09 16:19+0200\n"
+"PO-Revision-Date: 2024-08-28 09:33+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -86,7 +86,7 @@ msgstr "Nálepky"
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr ""
+msgstr "Zrušit odpověď"
 
 #: src/controller.cpp:136
 #, kde-format
@@ -258,7 +258,7 @@ msgstr ""
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
-msgstr ""
+msgstr "Zdroj události"
 
 #: src/devtools/RoomData.qml:61
 #, kde-format
@@ -311,7 +311,7 @@ msgstr ""
 #: src/enums/neochatroomtype.h:59
 #, kde-format
 msgid "Invited"
-msgstr ""
+msgstr "Pozváni"
 
 #: src/enums/neochatroomtype.h:61
 #, kde-format
@@ -958,7 +958,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy Settings"
-msgstr ""
+msgstr "Nastavení proxy"
 
 #: src/main.cpp:142
 #, kde-format
@@ -1469,9 +1469,9 @@ msgstr ""
 msgctxt "%1: What's being done; %2: How often it is done."
 msgid " %1"
 msgid_plural " %1 %2 times"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " %1"
+msgstr[1] "%1 %2 krát"
+msgstr[2] "%1 %2 krát"
 
 #: src/models/messagefiltermodel.cpp:168
 #, kde-format
@@ -2417,12 +2417,12 @@ msgstr ""
 #: src/qml/EmojiSas.qml:45
 #, kde-format
 msgid "They match"
-msgstr ""
+msgstr "Jsou stejné"
 
 #: src/qml/EmojiSas.qml:51
 #, kde-format
 msgid "They don't match"
-msgstr ""
+msgstr "Nejsou stejné"
 
 #: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:52
 #: src/qml/RoomListPage.qml:204
@@ -2448,7 +2448,7 @@ msgstr ""
 #: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:140
 #, kde-format
 msgid "Create a Room"
-msgstr ""
+msgstr "Vytvořit místnost"
 
 #: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:156
 #, kde-format
@@ -2503,7 +2503,7 @@ msgstr "Vytvořit nový"
 #, kde-format
 msgctxt "@info:label A matrix space"
 msgid "Space"
-msgstr ""
+msgstr "Mezera"
 
 #: src/qml/ExploreRoomsPage.qml:52
 #, kde-format
@@ -2574,7 +2574,7 @@ msgstr "Nastavit NeoChat…"
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
-msgstr ""
+msgstr "Nastavit NeoChat..."
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
@@ -2762,7 +2762,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and ignore user"
-msgstr ""
+msgstr "Odmítnout a ignorovat uživatele"
 
 #: src/qml/InvitationView.qml:33
 #, kde-format
@@ -2777,7 +2777,7 @@ msgstr "Přijmout"
 #: src/qml/InviteUserPage.qml:19
 #, kde-format
 msgid "Invite a User"
-msgstr ""
+msgstr "Pozvat uživatele"
 
 #: src/qml/InviteUserPage.qml:37
 #, kde-format
@@ -2808,13 +2808,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Join Room"
-msgstr ""
+msgstr "Připojit se do místnosti"
 
 #: src/qml/JoinRoomDialog.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Join room"
-msgstr ""
+msgstr "Připojit se do místnosti"
 
 #: src/qml/KeyVerificationDialog.qml:16
 #, kde-format
@@ -3050,7 +3050,7 @@ msgstr "Žádná místnost nebyla nalezena"
 #, kde-format
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
-msgstr ""
+msgstr "Připojit se k %1"
 
 #: src/qml/RecommendedSpaceDialog.qml:52
 #, kde-format
@@ -4099,7 +4099,7 @@ msgstr "Vzhled"
 #: src/settings/AppearanceSettingsPage.qml:21
 #, kde-format
 msgid "General theme"
-msgstr ""
+msgstr "Obecný motiv"
 
 #: src/settings/AppearanceSettingsPage.qml:115
 #, kde-format
@@ -4528,7 +4528,7 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:217
 #, kde-format
 msgid "Send typing notifications"
-msgstr "Posílat oznamování o psaní"
+msgstr "Posílat upozornění o psaní"
 
 #: src/settings/NeoChatGeneralPage.qml:227
 #, kde-format
@@ -4547,11 +4547,10 @@ msgid "Security"
 msgstr "Bezpečnost"
 
 #: src/settings/NeoChatSecurityPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invitations"
-msgstr "Pozvánky"
+msgstr "Pozvání"
 
 #: src/settings/NeoChatSecurityPage.qml:24
 #, kde-format
@@ -4569,7 +4568,7 @@ msgstr ""
 #: src/settings/NeoChatSecurityPage.qml:25
 #, kde-format
 msgid "Your server does not support this setting."
-msgstr ""
+msgstr "Váš server nepodporuje toto nastavení."
 
 #: src/settings/NeoChatSecurityPage.qml:39
 #, kde-format
@@ -4795,7 +4794,7 @@ msgstr ""
 #: src/settings/RoomGeneralPage.qml:25
 #, kde-format
 msgid "Room Information"
-msgstr ""
+msgstr "Informace o místnosti"
 
 #: src/settings/RoomGeneralPage.qml:47
 #, kde-format
@@ -5142,13 +5141,13 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New email address"
-msgstr ""
+msgstr "Nová e-mailová adresa"
 
 #: src/settings/ThreePIdCard.qml:146
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New phone number"
-msgstr ""
+msgstr "Nové telefonní číslo"
 
 #: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:177
 #, kde-format
@@ -5352,7 +5351,7 @@ msgstr[2] ""
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr ""
+msgstr "(Ukončeno)"
 
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
