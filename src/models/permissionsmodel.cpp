@@ -272,7 +272,7 @@ void PermissionsModel::setPowerLevel(const QString &permission, const int &newPo
             powerLevelContent[QLatin1String("events")] = eventPowerLevels;
         }
 
-        m_room->setState<Quotient::RoomPowerLevelsEvent>(powerLevelContent);
+        m_room->setState<Quotient::RoomPowerLevelsEvent>(Quotient::fromJson<Quotient::PowerLevelsEventContent>(powerLevelContent));
     }
 }
 
