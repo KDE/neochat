@@ -81,83 +81,93 @@ Kirigami.OverlayDrawer {
         id: loader
         active: root.drawerOpen
 
-        sourceComponent: ColumnLayout {
+        sourceComponent: RowLayout {
             spacing: 0
 
-            Component.onCompleted: infoAction.toggle()
+            Kirigami.Separator {
+                Layout.fillHeight: true
+            }
 
-            QQC2.ToolBar {
-                Layout.fillWidth: true
+            ColumnLayout {
+                spacing: 0
 
-                Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
+                Component.onCompleted: infoAction.toggle()
 
-                contentItem: RowLayout {
-                    Kirigami.Heading {
-                        Layout.fillWidth: true
-                        text: drawerItemLoader.item ? drawerItemLoader.item.title : ""
-                    }
+                QQC2.ToolBar {
+                    Layout.fillWidth: true
 
-                    QQC2.ToolButton {
-                        id: settingsButton
+                    Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
 
-                        display: QQC2.AbstractButton.IconOnly
-                        text: i18nc("@action:button", "Room settings")
-                        icon.name: 'settings-configure-symbolic'
+                    contentItem: RowLayout {
+                        Kirigami.Heading {
+                            Layout.fillWidth: true
+                            text: drawerItemLoader.item ? drawerItemLoader.item.title : ""
+                        }
 
-                        QQC2.ToolTip.text: text
-                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                        QQC2.ToolTip.visible: hovered
+                        QQC2.ToolButton {
+                            id: settingsButton
 
-                        onClicked: {
-                            RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
+                            display: QQC2.AbstractButton.IconOnly
+                            text: i18nc("@action:button", "Room settings")
+                            icon.name: 'settings-configure-symbolic'
+
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                            QQC2.ToolTip.visible: hovered
+
+                            onClicked: {
+                                RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
+                            }
                         }
                     }
                 }
-            }
 
-            Loader {
-                id: drawerItemLoader
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                sourceComponent: roomInformation
-            }
-
-            Component {
-                id: roomInformation
-                RoomInformation {
-                    room: root.room
-                    connection: root.connection
+                Loader {
+                    id: drawerItemLoader
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    sourceComponent: roomInformation
                 }
-            }
 
-            Component {
-                id: roomMedia
-                RoomMedia {
-                    currentRoom: root.room
-                    connection: root.connection
-                }
-            }
-
-            Kirigami.NavigationTabBar {
-                id: navigationBar
-                Layout.fillWidth: true
-                visible: !root.room.isSpace
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                Kirigami.Theme.inherit: false
-
-                actions: [
-                    Kirigami.Action {
-                        id: infoAction
-                        text: i18n("Information")
-                        icon.name: "documentinfo"
-                        onTriggered: drawerItemLoader.sourceComponent = roomInformation
-                    },
-                    Kirigami.Action {
-                        text: i18n("Media")
-                        icon.name: "mail-attachment-symbollic"
-                        onTriggered: drawerItemLoader.sourceComponent = roomMedia
+                Component {
+                    id: roomInformation
+                    RoomInformation {
+                        room: root.room
+                        connection: root.connection
                     }
-                ]
+                }
+
+                Component {
+                    id: roomMedia
+                    RoomMedia {
+                        currentRoom: root.room
+                        connection: root.connection
+                    }
+                }
+
+                Kirigami.NavigationTabBar {
+                    id: navigationBar
+                    Layout.fillWidth: true
+                    visible: !root.room.isSpace
+                    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                    Kirigami.Theme.inherit: false
+
+                    position: QQC2.ToolBar.Footer
+
+                    actions: [
+                        Kirigami.Action {
+                            id: infoAction
+                            text: i18n("Information")
+                            icon.name: "documentinfo"
+                            onTriggered: drawerItemLoader.sourceComponent = roomInformation
+                        },
+                        Kirigami.Action {
+                            text: i18n("Media")
+                            icon.name: "mail-attachment-symbollic"
+                            onTriggered: drawerItemLoader.sourceComponent = roomMedia
+                        }
+                    ]
+                }
             }
         }
     }
