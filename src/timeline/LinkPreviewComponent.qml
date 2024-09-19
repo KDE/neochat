@@ -69,6 +69,7 @@ QQC2.Control {
             Layout.fillHeight: true
             width: Kirigami.Units.smallSpacing
             color: Kirigami.Theme.highlightColor
+            radius: Kirigami.Units.cornerRadius
         }
         Image {
             id: previewImage

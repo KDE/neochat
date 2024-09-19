@@ -63,6 +63,7 @@ RowLayout {
 
         implicitWidth: Kirigami.Units.smallSpacing
         color: root.replyAuthor.color
+        radius: Kirigami.Units.cornerRadius
     }
     ColumnLayout {
         id: contentColumn
