@@ -1731,9 +1731,13 @@ int NeoChatRoom::maxRoomVersion() const
     return maxVersion;
 }
 
-Quotient::RoomMember NeoChatRoom::directChatRemoteMember() const
+NeochatRoomMember *NeoChatRoom::directChatRemoteMember()
 {
-    return directChatMembers()[0];
+    if (directChatMembers().size() == 0) {
+        qWarning() << "No other member available in this room";
+        return {};
+    }
+    return new NeochatRoomMember(this, directChatMembers()[0].id());
 }
 
 void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
