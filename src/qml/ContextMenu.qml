@@ -35,7 +35,7 @@ Loader {
 
             QQC2.MenuItem {
                 text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
-                icon.name: room.isLowPriority ? "arrow-up" : "arrow-down"
+                icon.name: room.isLowPriority ? "arrow-up-symbolic" : "arrow-down-symbolic"
                 onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
             }
 
@@ -195,7 +195,7 @@ Loader {
 
                 Delegates.RoundedItemDelegate {
                     text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
-                    icon.name: room.isLowPriority ? "arrow-up" : "arrow-down"
+                    icon.name: room.isLowPriority ? "arrow-up-symbolic" : "arrow-down-symbolic"
                     onClicked: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
                     Layout.fillWidth: true
                 }

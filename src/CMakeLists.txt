@@ -443,8 +443,11 @@ if(ANDROID)
     target_sources(neochat-app PRIVATE notifyrc.qrc)
     target_link_libraries(neochat PUBLIC Qt::Svg OpenSSL::SSL)
     kirigami_package_breeze_icons(ICONS
-        "arrow-down"
-        "arrow-up"
+        "arrow-down-symbolic"
+        "arrow-up-symbolic"
+        "arrow-up-double-symbolic"
+        "arrow-left-symbolic"
+        "arrow-right-symbolic"
         "checkmark"
         "help-about"
         "im-user"

@@ -33,7 +33,7 @@ QQC2.ItemDelegate {
             Kirigami.Icon {
                 width: Kirigami.Units.gridUnit * 0.5
                 height: Kirigami.Units.gridUnit * 0.5
-                source: "arrow-down"
+                source: "arrow-down-symbolic"
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right
                 visible: root.showTones

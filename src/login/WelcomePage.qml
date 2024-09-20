@@ -232,7 +232,7 @@ Kirigami.Page {
                     text: root.currentStep.nextAction && root.currentStep.nextAction.text ? root.currentStep.nextAction.text : i18nc("@action:button", "Continue")
                     visible: root.currentStep.nextAction
                     onClicked: root.currentStep.nextAction.trigger()
-                    icon.name: "arrow-right"
+                    icon.name: "arrow-right-symbolic"
                     enabled: root.currentStep.nextAction ? root.currentStep.nextAction.enabled : false
                 }
 
@@ -240,7 +240,7 @@ Kirigami.Page {
                     text: i18nc("@action:button", "Go back")
                     visible: root.currentStep.previousAction
                     onClicked: root.currentStep.previousAction.trigger()
-                    icon.name: "arrow-left"
+                    icon.name: "arrow-left-symbolic"
                     enabled: root.currentStep.previousAction ? root.currentStep.previousAction.enabled : false
                 }
             }
