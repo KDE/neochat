@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-16 00:39+0000\n"
-"PO-Revision-Date: 2024-09-17 12:27+0400\n"
+"POT-Creation-Date: 2024-09-20 00:40+0000\n"
+"PO-Revision-Date: 2024-09-19 09:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -655,7 +655,7 @@ msgstr "%1 انضم للغرفة"
 #: src/eventhandler.cpp:564
 #, kde-format
 msgid "%1 set a display name and set an avatar"
-msgstr ""
+msgstr "%1 وضع اسم عرضه ووضع صورة رمزية"
 
 #: src/eventhandler.cpp:566
 #, kde-format
@@ -678,18 +678,14 @@ msgid "%1 changed their display name and set an avatar"
 msgstr "%1 غير اسم عرضه ووضع صورة رمزية"
 
 #: src/eventhandler.cpp:575
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and updated their avatar"
-msgstr "غير اسمهم إلى %1"
+msgstr "%1 غير اسمه وحدث صورته الرمزية"
 
 #: src/eventhandler.cpp:577
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and cleared their avatar"
-msgstr "غير اسمهم إلى %1"
+msgstr "%1 غير اسمه ومسح صورته الرمزية"
 
 #: src/eventhandler.cpp:579
 #, kde-format
@@ -697,25 +693,19 @@ msgid "%1 changed their display name"
 msgstr "%1 غير اسمه"
 
 #: src/eventhandler.cpp:582
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and set an avatar"
-msgstr "مسح اسمهم"
+msgstr "%1 مسح اسم عرضه ووضع صورة رمزية"
 
 #: src/eventhandler.cpp:584
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and updated their avatar"
-msgstr "مسح اسمهم"
+msgstr "%1 مسح اسمه وحدث صورته الرمزية"
 
 #: src/eventhandler.cpp:586
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
-msgstr "مسح اسمهم"
+msgstr "%1 مسح اسمه ومسح صورته الرمزية"
 
 #: src/eventhandler.cpp:588
 #, kde-format
@@ -1881,7 +1871,7 @@ msgstr "فشل إنشاء فضاء: %1"
 msgid "Report sent successfully."
 msgstr "أرسل البلاغ بنجاح."
 
-#: src/neochatroom.cpp:1750 src/neochatroom.cpp:1758
+#: src/neochatroom.cpp:1754 src/neochatroom.cpp:1762
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2069,7 +2059,7 @@ msgstr "حرّر"
 msgid "Cancel sending attachment"
 msgstr "ألغ إرسال المرفق"
 
-#: src/qml/ChooseRoomDialog.qml:14
+#: src/qml/ChooseRoomDialog.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
@@ -3444,7 +3434,7 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "وسع %1"
 
-#: src/qml/SearchPage.qml:130
+#: src/qml/SearchPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
