@@ -68,6 +68,9 @@ FormCard.FormCardPage {
                 proxyConfigChanged = true;
             }
         }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormSpinBoxDelegate {
             id: portField
             label: i18n("Port")
@@ -81,6 +84,9 @@ FormCard.FormCardPage {
                 proxyConfigChanged = true;
             }
         }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormTextFieldDelegate {
             id: userField
             label: i18n("User")
@@ -90,6 +96,9 @@ FormCard.FormCardPage {
                 proxyConfigChanged = true;
             }
         }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormTextFieldDelegate {
             id: passwordField
             label: i18n("Password")
