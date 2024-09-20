@@ -44,8 +44,6 @@ QQC2.Control {
     leftPadding: 0
     rightPadding: 0
 
-    width: delegate ? delegate.bubbleWidth : Kirigami.Units.gridUnit * 4
-
     visible: (root.hovered || root.showActions || showActionsTimer.running) && !Kirigami.Settings.isMobile
     onVisibleChanged: {
         if (visible) {
@@ -59,16 +57,19 @@ QQC2.Control {
         interval: 200
     }
 
-    function updatePosition() {
+    function updatePosition(): void {
         if (delegate) {
-            root.x = delegate.contentItem.x + delegate.bubbleX;
+            root.x = delegate.contentItem.x + delegate.bubbleX + delegate.bubbleWidth - root.implicitWidth;
             root.y = delegate.mapToItem(parent, 0, 0).y + delegate.bubbleY - height + Kirigami.Units.smallSpacing;
         }
     }
 
     onDelegateChanged: updatePosition()
+    onWidthChanged: updatePosition()
 
     contentItem: RowLayout {
+        id: actionsLayout
+
         spacing: Kirigami.Units.smallSpacing
 
         Item {
