@@ -69,9 +69,12 @@ QQC2.Control {
     onDelegateChanged: updatePosition()
 
     contentItem: RowLayout {
+        spacing: Kirigami.Units.smallSpacing
+
         Item {
             Layout.fillWidth: true
         }
+
         Kirigami.Icon {
             source: "security-high"
             width: height
@@ -80,67 +83,83 @@ QQC2.Control {
             HoverHandler {
                 id: hover
             }
+
             QQC2.ToolTip.text: i18n("This message was sent from a verified device")
             QQC2.ToolTip.visible: hover.hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
-        Kirigami.ActionToolBar {
-            Layout.maximumWidth: maximumContentWidth + Kirigami.Units.largeSpacing
-            rightPadding: Kirigami.Units.largeSpacing
-            alignment: Qt.AlignRight
-            flat: false
+
+        QQC2.Button {
+            text: i18n("React")
+            icon.name: "preferences-desktop-emoticons"
+            onClicked: emojiDialog.open()
+            display: QQC2.ToolButton.IconOnly
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.Button {
+            visible: root.delegate && root.delegate.isEditable && !root.currentRoom.readOnly
+            text: i18n("Edit")
+            icon.name: "document-edit"
             display: QQC2.Button.IconOnly
 
-            actions: [
-                Kirigami.Action {
-                    text: i18n("React")
-                    icon.name: "preferences-desktop-emoticons"
-                    onTriggered: emojiDialog.open()
-                },
-                Kirigami.Action {
-                    visible: root.delegate && root.delegate.isEditable && !root.currentRoom.readOnly
-                    text: i18n("Edit")
-                    icon.name: "document-edit"
-                    onTriggered: {
-                        root.currentRoom.editCache.editId = root.delegate.eventId;
-                        root.currentRoom.mainCache.replyId = "";
-                        root.currentRoom.mainCache.threadId = "";
-                    }
-                },
-                Kirigami.Action {
-                    visible: !root.currentRoom.readOnly
-                    text: i18n("Reply")
-                    icon.name: "mail-replied-symbolic"
-                    onTriggered: {
-                        root.currentRoom.mainCache.replyId = root.delegate.eventId;
-                        root.currentRoom.editCache.editId = "";
-                        root.currentRoom.mainCache.threadId = "";
-                        root.focusChatBar();
-                    }
-                },
-                Kirigami.Action {
-                    visible: NeoChatConfig.threads && !root.currentRoom.readOnly
-                    text: i18n("Reply in Thread")
-                    icon.name: "dialog-messages"
-                    onTriggered: {
-                        root.currentRoom.threadCache.replyId = "";
-                        root.currentRoom.threadCache.threadId = root.delegate.isThreaded ? root.delegate.threadRoot : root.delegate.eventId;
-                        root.currentRoom.mainCache.clearRelations();
-                        root.currentRoom.editCache.clearRelations();
-                        root.focusChatBar();
-                    }
-                }
-            ]
+            onClicked: {
+                root.currentRoom.editCache.editId = root.delegate.eventId;
+                root.currentRoom.mainCache.replyId = "";
+                root.currentRoom.mainCache.threadId = "";
+            }
 
-            EmojiDialog {
-                id: emojiDialog
-                currentRoom: root.currentRoom
-                showQuickReaction: true
-                onChosen: emoji => {
-                    root.currentRoom.toggleReaction(root.delegate.eventId, emoji);
-                    if (!Kirigami.Settings.isMobile) {
-                        root.focusChatBar();
-                    }
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.Button {
+            visible: !root.currentRoom.readOnly
+            text: i18n("Reply")
+            icon.name: "mail-replied-symbolic"
+            display: QQC2.Button.IconOnly
+            onClicked: {
+                root.currentRoom.mainCache.replyId = root.delegate.eventId;
+                root.currentRoom.editCache.editId = "";
+                root.currentRoom.mainCache.threadId = "";
+                root.focusChatBar();
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.Button {
+            visible: NeoChatConfig.threads && !root.currentRoom.readOnly
+            text: i18n("Reply in Thread")
+            icon.name: "dialog-messages"
+            display: QQC2.Button.IconOnly
+            onClicked: {
+                root.currentRoom.threadCache.replyId = "";
+                root.currentRoom.threadCache.threadId = root.delegate.isThreaded ? root.delegate.threadRoot : root.delegate.eventId;
+                root.currentRoom.mainCache.clearRelations();
+                root.currentRoom.editCache.clearRelations();
+                root.focusChatBar();
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        EmojiDialog {
+            id: emojiDialog
+            currentRoom: root.currentRoom
+            showQuickReaction: true
+            onChosen: emoji => {
+                root.currentRoom.toggleReaction(root.delegate.eventId, emoji);
+                if (!Kirigami.Settings.isMobile) {
+                    root.focusChatBar();
                 }
             }
         }
