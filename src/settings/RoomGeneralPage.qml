@@ -21,50 +21,48 @@ FormCard.FormCardPage {
 
     title: i18n("General")
 
+    KirigamiComponents.Avatar {
+        id: avatar
+        Layout.alignment: Qt.AlignHCenter
+        Layout.topMargin: Kirigami.Units.gridUnit
+        name: room.name
+        source: room.avatarMediaId ? root.connection.makeMediaUrl("mxc://" + room.avatarMediaId) : ""
+        implicitWidth: Kirigami.Units.iconSizes.enormous
+        implicitHeight: Kirigami.Units.iconSizes.enormous
+
+        QQC2.Button {
+            enabled: room.canSendState("m.room.avatar")
+            visible: enabled
+            icon.name: "cloud-upload"
+            text: i18n("Update avatar")
+            display: QQC2.AbstractButton.IconOnly
+
+            onClicked: {
+                const fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay);
+                fileDialog.chosen.connect(function (path) {
+                    if (!path)
+                        return;
+                    room.changeAvatar(path);
+                });
+                fileDialog.open();
+            }
+
+            anchors {
+                bottom: parent.bottom
+                right: parent.right
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+    }
+
     FormCard.FormHeader {
         title: i18n("Room Information")
     }
+
     FormCard.FormCard {
-        FormCard.AbstractFormDelegate {
-            background: null
-            contentItem: RowLayout {
-                Item {
-                    Layout.fillWidth: true
-                }
-                KirigamiComponents.Avatar {
-                    id: avatar
-                    Layout.alignment: Qt.AlignRight
-                    name: room.name
-                    source: room.avatarMediaId ? root.connection.makeMediaUrl("mxc://" + room.avatarMediaId) : ""
-                    implicitWidth: Kirigami.Units.iconSizes.enormous
-                    implicitHeight: Kirigami.Units.iconSizes.enormous
-                }
-                QQC2.Button {
-                    Layout.alignment: Qt.AlignLeft
-                    enabled: room.canSendState("m.room.avatar")
-                    visible: enabled
-                    icon.name: "cloud-upload"
-                    text: i18n("Update avatar")
-                    display: QQC2.AbstractButton.IconOnly
-
-                    onClicked: {
-                        const fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay);
-                        fileDialog.chosen.connect(function (path) {
-                            if (!path)
-                                return;
-                            room.changeAvatar(path);
-                        });
-                        fileDialog.open();
-                    }
-
-                    QQC2.ToolTip.text: text
-                    QQC2.ToolTip.visible: hovered
-                }
-                Item {
-                    Layout.fillWidth: true
-                }
-            }
-        }
         FormCard.FormTextFieldDelegate {
             id: roomNameField
             label: i18n("Room name:")
