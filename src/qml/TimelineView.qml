@@ -183,12 +183,17 @@ QQC2.ScrollView {
         KirigamiComponents.FloatingButton {
             id: goReadMarkerFab
 
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.topMargin: Kirigami.Units.largeSpacing
-            anchors.rightMargin: Kirigami.Units.largeSpacing
-            implicitWidth: Kirigami.Units.gridUnit * 2
-            implicitHeight: Kirigami.Units.gridUnit * 2
+            anchors {
+                right: parent.right
+                top: parent.top
+                topMargin: Kirigami.Units.largeSpacing
+                rightMargin: Kirigami.Units.largeSpacing
+            }
+
+            implicitWidth: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+            implicitHeight: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+
+            padding: Kirigami.Units.largeSpacing
 
             z: 2
             visible: (root.currentRoom?.hasUnreadMessages ?? false)
@@ -215,12 +220,16 @@ QQC2.ScrollView {
         }
         KirigamiComponents.FloatingButton {
             id: goMarkAsReadFab
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: Kirigami.Units.largeSpacing
-            anchors.rightMargin: Kirigami.Units.largeSpacing
-            implicitWidth: Kirigami.Units.gridUnit * 2
-            implicitHeight: Kirigami.Units.gridUnit * 2
+            anchors {
+                right: parent.right
+                bottom: parent.bottom
+                bottomMargin: Kirigami.Units.largeSpacing
+                rightMargin: Kirigami.Units.largeSpacing
+            }
+            implicitWidth: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+            implicitHeight: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+
+            padding: Kirigami.Units.largeSpacing
 
             z: 2
             visible: !messageListView.atYEnd
