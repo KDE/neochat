@@ -242,6 +242,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {
             above: hasWindowSystemDelegate
             below: transparencyDelegate
+            visible: WindowController.hasWindowSystem
         }
 
         FormCard.AbstractFormDelegate {
