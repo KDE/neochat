@@ -71,25 +71,14 @@ FormCard.FormCardPage {
             text: room.name
             readOnly: !room.canSendState("m.room.name")
         }
-        FormCard.AbstractFormDelegate {
+
+        FormCard.FormTextAreaDelegate {
             id: roomTopicField
-            background: Item {}
-            contentItem: ColumnLayout {
-                QQC2.Label {
-                    id: roomTopicLabel
-                    text: i18n("Room topic:")
-                    Layout.fillWidth: true
-                }
-                QQC2.TextArea {
-                    id: roomTopicTextArea
-                    Accessible.description: roomTopicLabel.text
-                    Layout.fillWidth: true
-                    wrapMode: TextEdit.Wrap
-                    text: room.topic
-                    readOnly: !room.canSendState("m.room.topic")
-                    onTextChanged: roomTopicField.text = text
-                }
-            }
+            label: i18n("Room topic:")
+            Accessible.description: roomTopicLabel.text
+            text: room.topic
+            readOnly: !room.canSendState("m.room.topic")
+            onTextChanged: roomTopicField.text = text
         }
         FormCard.AbstractFormDelegate {
             visible: !roomNameField.readOnly || !roomTopicTextArea.readOnly
