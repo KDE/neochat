@@ -103,6 +103,11 @@ FormCard.FormCardPage {
                 }
             }
         }
+    }
+
+    FormCard.FormCard {
+        Layout.topMargin: Kirigami.Units.gridUnit
+
         FormCard.FormTextDelegate {
             id: roomIdDelegate
             text: i18n("Room ID")
