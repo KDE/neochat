@@ -64,8 +64,9 @@ Kirigami.ApplicationWindow {
 
     Loader {
         active: Kirigami.Settings.hasPlatformMenuBar && !Kirigami.Settings.isMobile
-        sourceComponent: GlobalMenu {
-            connection: root.connection
+        sourceComponent: Qt.createComponent("org.kde.neochat", "GlobalMenu")
+        onActiveChanged: if (active) {
+            item.connection = root.connection;
         }
     }
 

@@ -238,7 +238,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/EmojiSas.qml
         qml/ConfirmDeactivateAccountDialog.qml
         qml/VerificationCanceled.qml
-        qml/GlobalMenu.qml
         qml/EditMenu.qml
         qml/MessageDelegateContextMenu.qml
         qml/FileDelegateContextMenu.qml
@@ -307,7 +306,10 @@ add_subdirectory(login)
 add_subdirectory(chatbar)
 
 if(NOT ANDROID AND NOT WIN32)
-    qt_target_qml_sources(neochat QML_FILES qml/ShareAction.qml)
+    qt_target_qml_sources(neochat QML_FILES
+        qml/ShareAction.qml
+        qml/GlobalMenu.qml
+    )
 else()
     set_source_files_properties(qml/ShareActionStub.qml PROPERTIES
         QT_RESOURCE_ALIAS qml/ShareAction.qml
