@@ -148,7 +148,7 @@ TimelineDelegate {
                 visible: root.folded
 
                 text: root.aggregateDisplay
-                textFormat: TextEdit.StyledText
+                textFormat: Text.StyledText
                 elide: Text.ElideRight
                 onLinkActivated: RoomManager.resolveResource(link)
                 HoverHandler {
