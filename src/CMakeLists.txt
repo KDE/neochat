@@ -453,6 +453,7 @@ if(ANDROID)
         "mail-attachment"
         "dialog-cancel"
         "preferences-desktop-emoticons"
+        "preferences-security"
         "document-open"
         "document-save"
         "document-send"
