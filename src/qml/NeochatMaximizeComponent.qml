@@ -1,10 +1,11 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+import QtCore as Core
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import Qt.labs.platform as Platform
+import QtQuick.Dialogs as Dialogs
 import QtMultimedia
 
 import org.kde.kirigami as Kirigami
@@ -36,7 +37,7 @@ Components.AlbumMaximizeComponent {
     downloadAction: Components.DownloadAction {
         id: downloadAction
         onTriggered: {
-            currentRoom.downloadFile(root.currentEventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.currentEventId));
+            currentRoom.downloadFile(root.currentEventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.currentEventId));
         }
     }
 
@@ -120,16 +121,16 @@ Components.AlbumMaximizeComponent {
 
     Component {
         id: saveAsDialog
-        Platform.FileDialog {
-            fileMode: Platform.FileDialog.SaveFile
-            folder: root.saveFolder
+        Dialogs.FileDialog {
+            fileMode: Dialogs.FileDialog.SaveFile
+            currentFolder: root.saveFolder
             onAccepted: {
-                NeoChatConfig.lastSaveDirectory = folder;
+                NeoChatConfig.lastSaveDirectory = currentFolder;
                 NeoChatConfig.save();
-                if (!currentFile) {
+                if (!selectedFile) {
                     return;
                 }
-                currentRoom.downloadFile(root.currentEventId, currentFile);
+                currentRoom.downloadFile(root.currentEventId, selectedFile);
             }
         }
     }

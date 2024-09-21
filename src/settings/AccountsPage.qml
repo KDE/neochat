@@ -5,7 +5,6 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQuick.Window
-import Qt.labs.platform
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard

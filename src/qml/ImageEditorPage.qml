@@ -4,7 +4,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import Qt.labs.platform as Platform
+import QtCore as Core
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
@@ -44,7 +44,7 @@ Kirigami.Page {
             text: i18nc("@action:button Accept image modification", "Accept")
             icon.name: "dialog-ok"
             onTriggered: {
-                let newPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + (new Date()).getTime() + "." + imagePath.split('.').pop();
+                let newPath = Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + (new Date()).getTime() + "." + imagePath.split('.').pop();
                 if (imageDoc.saveAs(newPath)) {
                     newPathChanged(newPath);
                 } else {

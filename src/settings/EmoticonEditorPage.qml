@@ -1,10 +1,10 @@
 // SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+import QtCore as Core
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import Qt.labs.platform
 import QtQuick.Window
 
 import org.kde.kirigami as Kirigami
@@ -130,7 +130,7 @@ FormCard.FormCardPage {
         id: openFileDialog
 
         OpenFileDialog {
-            currentFolder: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
+            currentFolder: Core.StandardPaths.standardLocations(Core.StandardPaths.PicturesLocation)[0]
             parentWindow: root.Window.window
         }
     }

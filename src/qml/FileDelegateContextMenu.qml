@@ -1,9 +1,10 @@
 // SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
 // SPDX-License-Identifier: GPL-3.0-only
 
+import QtCore as Core
 import QtQuick
 import QtQuick.Controls as QQC2
-import Qt.labs.platform
+import QtQuick.Dialogs as Dialogs
 
 import org.kde.kirigami as Kirigami
 
@@ -110,16 +111,16 @@ DelegateContextMenu {
 
     Component {
         id: saveAsDialog
-        FileDialog {
-            fileMode: FileDialog.SaveFile
-            folder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+        Dialogs.FileDialog {
+            fileMode: Dialogs.FileDialog.SaveFile
+            currentFolder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : Core.StandardPaths.writableLocation(Core.StandardPaths.DownloadLocation)
             onAccepted: {
-                if (!currentFile) {
+                if (!selectedFile) {
                     return;
                 }
-                NeoChatConfig.lastSaveDirectory = folder;
+                NeoChatConfig.lastSaveDirectory = currentFolder;
                 NeoChatConfig.save();
-                currentRoom.downloadFile(eventId, currentFile);
+                currentRoom.downloadFile(eventId, selectedFile);
             }
         }
     }

@@ -2,11 +2,11 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-3.0-only
 
+import QtCore as Core
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtMultimedia
-import Qt.labs.platform as Platform
 
 import org.kde.coreaddons
 import org.kde.kirigami as Kirigami
@@ -451,7 +451,7 @@ Video {
             playSavedFile();
         } else {
             playOnFinished = true;
-            root.room.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId));
+            root.room.downloadFile(root.eventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId));
         }
     }
 

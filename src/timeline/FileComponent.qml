@@ -2,10 +2,11 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-3.0-only
 
+import QtCore as Core
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import Qt.labs.platform
+import QtQuick.Dialogs as Dialogs
 import Qt.labs.qmlmodels
 
 import org.kde.coreaddons
@@ -191,16 +192,16 @@ ColumnLayout {
         Component {
             id: fileDialog
 
-            FileDialog {
-                fileMode: FileDialog.SaveFile
-                folder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+            Dialogs.FileDialog {
+                fileMode: Dialogs.FileDialog.SaveFile
+                currentFolder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : Core.StandardPaths.writableLocation(Core.StandardPaths.DownloadLocation)
                 onAccepted: {
-                    NeoChatConfig.lastSaveDirectory = folder;
+                    NeoChatConfig.lastSaveDirectory = currentFolder;
                     NeoChatConfig.save();
                     if (autoOpenFile) {
-                        UrlHelper.copyTo(root.fileTransferInfo.localPath, file);
+                        UrlHelper.copyTo(root.fileTransferInfo.localPath, selectedFile);
                     } else {
-                        root.room.download(root.eventId, file);
+                        root.room.download(root.eventId, selectedFile);
                     }
                 }
             }
