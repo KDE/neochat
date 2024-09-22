@@ -13,6 +13,7 @@
 #include <Quotient/roommember.h>
 
 #include "enums/pushrule.h"
+#include "neochatroommember.h"
 #include "pollhandler.h"
 
 namespace Quotient
@@ -74,7 +75,7 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief Get a RoomMember object for the other person in a direct chat.
      */
-    Q_PROPERTY(Quotient::RoomMember directChatRemoteMember READ directChatRemoteMember CONSTANT)
+    Q_PROPERTY(NeochatRoomMember *directChatRemoteMember READ directChatRemoteMember CONSTANT)
 
     /**
      * @brief The Matrix IDs of this room's parents.
@@ -319,7 +320,7 @@ public:
 
     [[nodiscard]] QString avatarMediaId() const;
 
-    Quotient::RoomMember directChatRemoteMember() const;
+    NeochatRoomMember *directChatRemoteMember();
 
     /**
      * @brief Whether this room has one or more parent spaces set.
