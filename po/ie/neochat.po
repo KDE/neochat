@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-21 00:40+0000\n"
+"POT-Creation-Date: 2024-09-22 00:40+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1044,7 +1044,7 @@ msgid "Password:"
 msgstr "Contrasigne:"
 
 #: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
-#: src/settings/NetworkProxyPage.qml:95
+#: src/settings/NetworkProxyPage.qml:104
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -2070,8 +2070,8 @@ msgstr ""
 msgid "Edit this account"
 msgstr "_Conto:"
 
-#: src/qml/AccountMenu.qml:44 src/settings/AccountsPage.qml:34
-#: src/settings/AccountsPage.qml:51
+#: src/qml/AccountMenu.qml:44 src/settings/AccountsPage.qml:33
+#: src/settings/AccountsPage.qml:50
 #, fuzzy, kde-format
 msgid "Account editor"
 msgstr "Conto:"
@@ -2117,7 +2117,7 @@ msgctxt "@action:inmenu"
 msgid "Verify this Device"
 msgstr "Verificar li aparate"
 
-#: src/qml/AccountMenu.qml:88 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:88 src/settings/AccountsPage.qml:87
 #, kde-format
 msgid "Logout"
 msgstr "Cluder li session"
@@ -2554,21 +2554,21 @@ msgid "Remove"
 msgstr "Remover"
 
 #: src/qml/DelegateContextMenu.qml:95 src/qml/DelegateContextMenu.qml:100
-#: src/qml/FileDelegateContextMenu.qml:75
-#: src/qml/FileDelegateContextMenu.qml:80
+#: src/qml/FileDelegateContextMenu.qml:76
+#: src/qml/FileDelegateContextMenu.qml:81
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Raportar li missage"
 
-#: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:76
+#: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:77
 #, fuzzy, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Raportante spam..."
 
-#: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:77
+#: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:78
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
@@ -2812,23 +2812,23 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Chambres"
 
-#: src/qml/FileDelegateContextMenu.qml:45
+#: src/qml/FileDelegateContextMenu.qml:46
 #, fuzzy, kde-format
 msgid "Open Externally"
 msgstr "Aperter _externmen"
 
-#: src/qml/FileDelegateContextMenu.qml:52
+#: src/qml/FileDelegateContextMenu.qml:53
 #, kde-format
 msgid "Save As"
 msgstr "Gardar quam"
 
-#: src/qml/FileDelegateContextMenu.qml:62
+#: src/qml/FileDelegateContextMenu.qml:63
 #: src/qml/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/qml/FileDelegateContextMenu.qml:70
+#: src/qml/FileDelegateContextMenu.qml:71
 #, kde-format
 msgid "Remove"
 msgstr "Remover"
@@ -3328,7 +3328,7 @@ msgstr ""
 msgid "New power level"
 msgstr ""
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:422
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
 #, kde-format
 msgid "Confirm"
 msgstr "Confirmar"
@@ -4407,7 +4407,7 @@ msgstr ""
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:105
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:94
 #, kde-format
 msgid "Save"
 msgstr "Gardar"
@@ -4497,13 +4497,13 @@ msgstr "Contrasigne es ínvalid."
 msgid "Unknown problem while trying to change password"
 msgstr ""
 
-#: src/settings/AccountsPage.qml:21 src/settings/AccountsPage.qml:39
+#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
 #: src/settings/NeoChatSettingsView.qml:63
 #, kde-format
 msgid "Accounts"
 msgstr "Contos"
 
-#: src/settings/AccountsPage.qml:118
+#: src/settings/AccountsPage.qml:117
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
@@ -4541,39 +4541,39 @@ msgstr ""
 msgid "Use transparent chat page"
 msgstr "Usar li actual págine quam Hem-págine"
 
-#: src/settings/AppearanceSettingsPage.qml:254
+#: src/settings/AppearanceSettingsPage.qml:255
 #, fuzzy, kde-format
 #| msgid "Transparency:"
 msgid "Transparency"
 msgstr "Transparentie:"
 
-#: src/settings/AppearanceSettingsPage.qml:273
+#: src/settings/AppearanceSettingsPage.qml:274
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:290
+#: src/settings/AppearanceSettingsPage.qml:291
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Monstrar vor missages al dextri"
 
-#: src/settings/AppearanceSettingsPage.qml:306
+#: src/settings/AppearanceSettingsPage.qml:307
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:316
+#: src/settings/AppearanceSettingsPage.qml:317
 #, fuzzy, kde-format
 #| msgid "Show Avatar:"
 msgid "Show Avatar"
 msgstr "Monstrar li avatar"
 
-#: src/settings/AppearanceSettingsPage.qml:320
+#: src/settings/AppearanceSettingsPage.qml:321
 #, kde-format
 msgid "In chat"
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:330
+#: src/settings/AppearanceSettingsPage.qml:331
 #, fuzzy, kde-format
 #| msgid "In Sidebar"
 msgid "In sidebar"
@@ -5238,18 +5238,18 @@ msgstr "Parametres del chambre"
 msgid "Host"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:73
+#: src/settings/NetworkProxyPage.qml:76
 #, kde-format
 msgid "Port"
 msgstr ""
 
-#: src/settings/NetworkProxyPage.qml:86
+#: src/settings/NetworkProxyPage.qml:92
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgid "User"
 msgstr "Bannir ti usator"
 
-#: src/settings/NetworkProxyPage.qml:113
+#: src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Apply"
 msgstr "Applicar"
@@ -5366,157 +5366,157 @@ msgstr "Avatar:"
 msgid "Room name:"
 msgstr "Nómine del chambre:"
 
-#: src/settings/RoomGeneralPage.qml:80
+#: src/settings/RoomGeneralPage.qml:77
 #, kde-format
 msgid "Room topic:"
 msgstr "Tema del chambre:"
 
-#: src/settings/RoomGeneralPage.qml:119
+#: src/settings/RoomGeneralPage.qml:113
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Room ID"
 msgstr "Chambres"
 
-#: src/settings/RoomGeneralPage.qml:124
+#: src/settings/RoomGeneralPage.qml:118
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Address to Clipboard"
 msgid "Copy room ID to clipboard"
 msgstr "Copiar li adresse al Paperiere"
 
-#: src/settings/RoomGeneralPage.qml:138
+#: src/settings/RoomGeneralPage.qml:132
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "Room version"
 msgstr "Information pri li chambre"
 
-#: src/settings/RoomGeneralPage.qml:144
+#: src/settings/RoomGeneralPage.qml:138
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgid "Upgrade Room"
 msgstr "Explorar chambres"
 
-#: src/settings/RoomGeneralPage.qml:163
+#: src/settings/RoomGeneralPage.qml:157
 #, fuzzy, kde-format
 #| msgid "Other Aliases:"
 msgid "Aliases"
 msgstr "Altri pseudonimes:"
 
-#: src/settings/RoomGeneralPage.qml:168
+#: src/settings/RoomGeneralPage.qml:162
 #, fuzzy, kde-format
 msgid "No canonical alias set"
 msgstr "Pseudonim"
 
-#: src/settings/RoomGeneralPage.qml:183
+#: src/settings/RoomGeneralPage.qml:177
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:198
+#: src/settings/RoomGeneralPage.qml:192
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Delete"
 msgid "Delete alias"
 msgstr "Remover"
 
-#: src/settings/RoomGeneralPage.qml:222
+#: src/settings/RoomGeneralPage.qml:216
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:239
+#: src/settings/RoomGeneralPage.qml:233
 #, kde-format
 msgid "Add new alias"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:259
+#: src/settings/RoomGeneralPage.qml:253
 #, kde-format
 msgid "URL Previews"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:263
+#: src/settings/RoomGeneralPage.qml:257
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:271
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "Enable URL previews"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:273
+#: src/settings/RoomGeneralPage.qml:267
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
 msgid "URL previews are enabled by default in this room"
 msgstr "%1 ja es in ti chambre."
 
-#: src/settings/RoomGeneralPage.qml:273
+#: src/settings/RoomGeneralPage.qml:267
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
 msgid "URL previews are disabled by default in this room"
 msgstr "%1 ja es in ti chambre."
 
-#: src/settings/RoomGeneralPage.qml:281
+#: src/settings/RoomGeneralPage.qml:275
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:314
+#: src/settings/RoomGeneralPage.qml:308
 #, fuzzy, kde-format
 msgid "Canonical"
 msgstr "Pseudonim"
 
-#: src/settings/RoomGeneralPage.qml:321
+#: src/settings/RoomGeneralPage.qml:315
 #, fuzzy, kde-format
 msgid "Make canonical parent"
 msgstr "Pseudonim"
 
-#: src/settings/RoomGeneralPage.qml:333
+#: src/settings/RoomGeneralPage.qml:327
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Remove parent"
 msgstr "Raportar li missage"
 
-#: src/settings/RoomGeneralPage.qml:346
+#: src/settings/RoomGeneralPage.qml:340
 #, fuzzy, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Missage esset respondet"
 
-#: src/settings/RoomGeneralPage.qml:350
+#: src/settings/RoomGeneralPage.qml:344
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Pseudonim"
 
-#: src/settings/RoomGeneralPage.qml:367 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:361 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:371 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:365 src/timeline/PredecessorDelegate.qml:29
 #, fuzzy, kde-format
 msgid "See older messages…"
 msgstr "(o plu old)"
 
-#: src/settings/RoomGeneralPage.qml:383 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:377 src/timeline/SuccessorDelegate.qml:26
 #, fuzzy, kde-format
 msgid "This room has been replaced."
 msgstr "Missage esset respondet"
 
-#: src/settings/RoomGeneralPage.qml:387 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:381 src/timeline/SuccessorDelegate.qml:29
 #, fuzzy, kde-format
 msgid "See new room…"
 msgstr "Vu have un nov invitation a un chambre"
 
-#: src/settings/RoomGeneralPage.qml:410
+#: src/settings/RoomGeneralPage.qml:404
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "Upgrade the Room"
 msgstr "forlassat li chambre"
 
-#: src/settings/RoomGeneralPage.qml:414
+#: src/settings/RoomGeneralPage.qml:408
 #, fuzzy, kde-format
 msgid "Select new version"
 msgstr "Vu have un nov invitation a un chambre"
@@ -5844,14 +5844,14 @@ msgid ""
 "device."
 msgstr ""
 
-#: src/timeline/FileComponent.qml:103 src/timeline/FileComponent.qml:186
+#: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Descargar"
 
-#: src/timeline/FileComponent.qml:119 src/timeline/FileComponent.qml:176
+#: src/timeline/FileComponent.qml:120 src/timeline/FileComponent.qml:177
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -5859,13 +5859,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Aperter li file"
 
-#: src/timeline/FileComponent.qml:134
+#: src/timeline/FileComponent.qml:135
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/timeline/FileComponent.qml:139
+#: src/timeline/FileComponent.qml:140
 #, fuzzy, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -5941,14 +5941,14 @@ msgstr "Aperter _externmen"
 msgid "%1 started a user verification"
 msgstr "revocat li invitation de %1"
 
-#: src/timeline/PollComponent.qml:73
+#: src/timeline/PollComponent.qml:72
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/timeline/PollComponent.qml:73
+#: src/timeline/PollComponent.qml:72
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
