@@ -555,6 +555,11 @@ QList<MessageComponent> MessageContentModel::addLinkPreviews(QList<MessageCompon
 
 void MessageContentModel::closeLinkPreview(int row)
 {
+    if (row < 0 || row > m_components.size()) {
+        qWarning() << "closeLinkPreview() called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
+        return;
+    }
+
     if (m_components[row].type == MessageComponentType::LinkPreview || m_components[row].type == MessageComponentType::LinkPreviewLoad) {
         beginResetModel();
         m_removedLinkPreviews += m_components[row].attributes["link"_ls].toUrl();
