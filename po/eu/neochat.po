@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-16 02:52+0000\n"
-"PO-Revision-Date: 2024-08-30 18:10+0200\n"
+"POT-Creation-Date: 2024-09-23 02:28+0000\n"
+"PO-Revision-Date: 2024-09-22 22:11+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -424,7 +424,7 @@ msgstr ": %1"
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
-msgstr "azaldutako bere izena garbitu du"
+msgstr "azaldutako bere izena hustu du"
 
 #: src/eventhandler.cpp:358
 #, kde-format
@@ -441,7 +441,7 @@ msgstr " eta "
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
-msgstr "bere abatarra garbitu du"
+msgstr "bere abatarra hustu du"
 
 #: src/eventhandler.cpp:369 src/eventhandler.cpp:551
 #, kde-format
@@ -463,7 +463,7 @@ msgstr "ez da ezer aldatu"
 #: src/eventhandler.cpp:381
 #, kde-format
 msgid "withdrew %1's invitation"
-msgstr "%1(r)en gonbita erretiratu du"
+msgstr "%1(r)en gonbidapena indargabetu du"
 
 #: src/eventhandler.cpp:381 src/eventhandler.cpp:563
 #, kde-format
@@ -478,7 +478,7 @@ msgstr "%1(e)ri debekua altxatu zaio"
 #: src/eventhandler.cpp:385 src/eventhandler.cpp:567
 #, kde-format
 msgid "self-unbanned"
-msgstr "bere buruari debekua altxatuta"
+msgstr "bere buruari debekua altxatu dio"
 
 #: src/eventhandler.cpp:388
 #, kde-format
@@ -523,7 +523,7 @@ msgstr "zerbait ezezaguna egin du"
 #: src/eventhandler.cpp:409 src/eventhandler.cpp:584
 #, kde-format
 msgid "cleared the room main alias"
-msgstr "gelaren ezizen nagusia garbitu da"
+msgstr "gelaren ezizen nagusia hustu du"
 
 #: src/eventhandler.cpp:409
 #, kde-format
@@ -533,7 +533,7 @@ msgstr "ezarri gelako ezizen nagusia honetara: %1"
 #: src/eventhandler.cpp:412 src/eventhandler.cpp:587
 #, kde-format
 msgid "cleared the room name"
-msgstr "gelako izena garbitu da"
+msgstr "gelako izena hustu du"
 
 #: src/eventhandler.cpp:412
 #, kde-format
@@ -543,7 +543,7 @@ msgstr "ezarri gelaren izana honetara: %1"
 #: src/eventhandler.cpp:415 src/eventhandler.cpp:590
 #, kde-format
 msgid "cleared the topic"
-msgstr "gaia garbitu da"
+msgstr "gaia hustu du"
 
 #: src/eventhandler.cpp:416
 #, kde-format
@@ -553,7 +553,7 @@ msgstr "ezarri gai honetara: %1"
 #: src/eventhandler.cpp:422 src/eventhandler.cpp:593
 #, kde-format
 msgid "changed the room avatar"
-msgstr "gelako abatarra aldatu da"
+msgstr "gelako abatarra aldatu du"
 
 #: src/eventhandler.cpp:425 src/eventhandler.cpp:596
 #, kde-format
@@ -579,8 +579,7 @@ msgstr "gela honetako ahalmen mailak aldatu dira"
 #: src/eventhandler.cpp:439 src/eventhandler.cpp:608
 #, kde-format
 msgid "changed the server access control lists for this room"
-msgstr ""
-"gela honetarako zerbitzarirako sarrera-kontroleko zerrendak aldatu zituen"
+msgstr "gela honetarako zerbitzarira sartzeko kontrol-zerrendak aldatu ditu"
 
 #: src/eventhandler.cpp:443
 #, kde-format
@@ -1613,7 +1612,7 @@ msgstr "Gela bertsio-berritzea"
 #: src/models/permissionsmodel.cpp:55
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
-msgstr "Gelako zerbitzariaren sarbide kontrolerako zerrenda (ACL) ezartzea"
+msgstr "Gelako zerbitzarira sartzeko kontrol-zerrenda (ACL) ezartzea"
 
 #: src/models/permissionsmodel.cpp:56
 msgctxt "Room permission type"
@@ -1781,7 +1780,7 @@ msgstr "Tokia sortzea huts egin du: %1"
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/neochatroom.cpp:1724 src/neochatroom.cpp:1732
+#: src/neochatroom.cpp:1728 src/neochatroom.cpp:1736
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3552,27 +3551,27 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Utzi tokia"
 
-#: src/qml/TimelineView.qml:196
+#: src/qml/TimelineView.qml:201
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Jauzi irakurri gabeko lehenengo mezura"
 
-#: src/qml/TimelineView.qml:196
+#: src/qml/TimelineView.qml:201
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "Jauzi zamatutako mezu zaharrenera"
 
-#: src/qml/TimelineView.qml:236
+#: src/qml/TimelineView.qml:245
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Jauzi azken mezura"
 
-#: src/qml/TimelineView.qml:261
+#: src/qml/TimelineView.qml:270
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrastatu elementuak hona haiek partekatzeko"
 
-#: src/qml/TimelineView.qml:268
+#: src/qml/TimelineView.qml:277
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
