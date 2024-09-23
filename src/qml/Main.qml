@@ -71,7 +71,7 @@ Kirigami.ApplicationWindow {
     }
 
     KConfig.WindowStateSaver {
-        configGroupName: "Window"
+        configGroupName: "MainWindow"
     }
 
     QuickSwitcher {
