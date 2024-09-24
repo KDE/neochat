@@ -32,20 +32,18 @@ Kirigami.Dialog {
 
     onAccepted: parentRoom.removeChild(root.roomId, removeOfficalCheck.checked)
 
-    contentItem: FormCard.FormCardPage {
-        FormCard.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
-            FormCard.FormTextDelegate {
-                text: i18n("The child %1 will be removed from the space %2", root.displayName, root.parentDisplayName)
-                textItem.wrapMode: Text.Wrap
-            }
-            FormCard.FormCheckDelegate {
-                id: removeOfficalCheck
-                visible: root.isDeclaredParent
-                enabled: root.canSetParent
-                text: i18n("The current space is the official parent of this room, should this be cleared?")
-                checked: root.canSetParent
-            }
+    contentItem: ColumnLayout {
+        spacing: 0
+        FormCard.FormTextDelegate {
+            text: i18n("The child %1 will be removed from the space %2", root.displayName, root.parentDisplayName)
+            textItem.wrapMode: Text.Wrap
+        }
+        FormCard.FormCheckDelegate {
+            id: removeOfficalCheck
+            visible: root.isDeclaredParent
+            enabled: root.canSetParent
+            text: i18n("The current space is the official parent of this room, should this be cleared?")
+            checked: root.canSetParent
         }
     }
 }
