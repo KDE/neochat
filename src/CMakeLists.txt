@@ -387,7 +387,7 @@ if(NOT ANDROID)
     target_compile_definitions(neochat PUBLIC -DHAVE_ICU)
 endif()
 
-if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
+if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
     target_compile_definitions(neochat PUBLIC -DHAVE_X11=1)
     target_sources(neochat PRIVATE runner.cpp)
