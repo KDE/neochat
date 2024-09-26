@@ -1244,7 +1244,11 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         for (const auto &i : roomRuleArray) {
             QJsonObject roomRule = i.toObject();
             if (roomRule["rule_id"_ls] == id()) {
-                connection()->callApi<DeletePushRuleJob>("global"_ls, "room"_ls, id());
+#if Quotient_VERSION_MINOR > 8
+                connection()->callApi<DeletePushRuleJob>("room"_ls, id());
+#else
+                connection()->callApi<DeletePushRuleJob>(QLatin1String("global"), "room"_ls, id());
+#endif
             }
         }
     }
@@ -1255,7 +1259,11 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         for (const auto &i : overrideRuleArray) {
             QJsonObject overrideRule = i.toObject();
             if (overrideRule["rule_id"_ls] == id()) {
+#if Quotient_VERSION_MINOR > 8
+                connection()->callApi<DeletePushRuleJob>("override"_ls, id());
+#else
                 connection()->callApi<DeletePushRuleJob>("global"_ls, "override"_ls, id());
+#endif
             }
         }
     }
@@ -1291,9 +1299,17 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions = {pushCondition};
 
         // Add new override rule and make sure it's enabled
+#if Quotient_VERSION_MINOR > 8
+        auto job = connection()->callApi<SetPushRuleJob>("override"_ls, id(), actions, QString(), QString(), conditions, QString());
+#else
         auto job = connection()->callApi<SetPushRuleJob>("global"_ls, "override"_ls, id(), actions, QString(), QString(), conditions, QString());
+#endif
         connect(job, &BaseJob::success, this, [this]() {
+#if Quotient_VERSION_MINOR > 8
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("override"_ls, id(), true);
+#else
             auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "override"_ls, id(), true);
+#endif
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1317,9 +1333,17 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         // No conditions for a room rule
         const QList<PushCondition> conditions;
 
+#if Quotient_VERSION_MINOR > 8
+        auto setJob = connection()->callApi<SetPushRuleJob>("room"_ls, id(), actions, QString(), QString(), conditions, QString());
+#else
         auto setJob = connection()->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
+#endif
         connect(setJob, &BaseJob::success, this, [this]() {
+#if Quotient_VERSION_MINOR > 8
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_ls, id(), true);
+#else
             auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
+#endif
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1348,9 +1372,17 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions;
 
         // Add new room rule and make sure enabled
+#if Quotient_VERSION_MINOR > 8
+        auto setJob = connection()->callApi<SetPushRuleJob>("room"_ls, id(), actions, QString(), QString(), conditions, QString());
+#else
         auto setJob = connection()->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
+#endif
         connect(setJob, &BaseJob::success, this, [this]() {
+#if Quotient_VERSION_MINOR > 8
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_ls, id(), true);
+#else
             auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
+#endif
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });

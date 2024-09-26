@@ -359,7 +359,11 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
 
 void RoomManager::knockRoom(NeoChatConnection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers)
 {
+#if Quotient_VERSION_MINOR > 8
+    auto job = account->callApi<KnockRoomJob>(roomAliasOrId, viaServers, viaServers, reason);
+#else
     auto job = account->callApi<KnockRoomJob>(roomAliasOrId, viaServers, reason);
+#endif
     // Upon completion, ensure a room object is created in case it hasn't come
     // with a sync yet. If the room object is not there, provideRoom() will
     // create it in Join state. finished() is used here instead of success()
