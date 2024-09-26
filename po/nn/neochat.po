@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-22 00:40+0000\n"
-"PO-Revision-Date: 2024-09-07 13:27+0200\n"
+"PO-Revision-Date: 2024-09-25 18:46+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -491,10 +491,9 @@ msgid "has put %1 out of the room: %2"
 msgstr "fjerna %1 frå rommet: %2"
 
 #: src/eventhandler.cpp:391
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#, kde-format
 msgid "has put %1 out of the room"
-msgstr "fjerna %1 frå rommet: %2"
+msgstr "fjerna %1 frå rommet"
 
 #: src/eventhandler.cpp:395
 #, kde-format
@@ -626,40 +625,34 @@ msgid "a file"
 msgstr "ei fil"
 
 #: src/eventhandler.cpp:520
-#, fuzzy, kde-format
-#| msgid "sent a message"
+#, kde-format
 msgid "%1 sent a message"
-msgstr "sende ei melding"
+msgstr "%1 sende ei melding"
 
 #: src/eventhandler.cpp:523
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "%1 sent a sticker"
-msgstr "sende eit klistremerke"
+msgstr "%1 sende eit klistremerke"
 
 #: src/eventhandler.cpp:529
-#, fuzzy, kde-format
-#| msgid "reinvited someone to the room"
+#, kde-format
 msgid "%1 reinvited someone to the room"
-msgstr "inviterte nokon på nytt til rommet"
+msgstr "%1 inviterte nokon på nytt til rommet"
 
 #: src/eventhandler.cpp:535
-#, fuzzy, kde-format
-#| msgid "joined the room (repeated)"
+#, kde-format
 msgid "%1 joined the room (repeated)"
-msgstr "kom inn i rommet (på nytt)"
+msgstr "%1 kom inn i rommet (på nytt)"
 
 #: src/eventhandler.cpp:537
-#, fuzzy, kde-format
-#| msgid "invited someone to the room"
+#, kde-format
 msgid "%1 invited someone to the room"
-msgstr "inviterte nokon til rommet"
+msgstr "%1 inviterte nokon til rommet"
 
 #: src/eventhandler.cpp:538
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgid "%1 joined the room"
-msgstr "kom inn i rommet"
+msgstr "%1 kom inn i rommet"
 
 #: src/eventhandler.cpp:564
 #, kde-format
@@ -737,139 +730,115 @@ msgid "%1 cleared their display name and cleared their avatar"
 msgstr "fjerna visingsnamnet"
 
 #: src/eventhandler.cpp:588
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name"
-msgstr "fjerna visingsnamnet"
+msgstr "%1 fjerna visingsnamnet sitt"
 
 #: src/eventhandler.cpp:591
-#, fuzzy, kde-format
-#| msgctxt "<user> changed nothing"
-#| msgid "changed nothing"
+#, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
-msgstr "endra ingenting"
+msgstr "%1 endra ingenting"
 
 #: src/eventhandler.cpp:595
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
+#, kde-format
 msgid "%1 withdrew a user's invitation"
-msgstr "trekte tilbake ein invitasjonen"
+msgstr "%1 trekte tilbake ein invitasjonen"
 
 #: src/eventhandler.cpp:596
-#, fuzzy, kde-format
-#| msgid "rejected the invitation"
+#, kde-format
 msgid "%1 rejected the invitation"
-msgstr "avviste invitasjonen"
+msgstr "%1 avviste invitasjonen"
 
 #: src/eventhandler.cpp:600
-#, fuzzy, kde-format
-#| msgid "unbanned a user"
+#, kde-format
 msgid "%1 unbanned a user"
-msgstr "oppheva utestenging av ein brukar"
+msgstr "%1 oppheva utestenging av ein brukar"
 
 #: src/eventhandler.cpp:600
-#, fuzzy, kde-format
-#| msgid "self-unbanned"
+#, kde-format
 msgid "%1 self-unbanned"
-msgstr "utestengde seg sjølv"
+msgstr "%1 utestengde seg sjølv"
 
 #: src/eventhandler.cpp:602
-#, fuzzy, kde-format
-#| msgid "put a user out of the room"
+#, kde-format
 msgid "%1 put a user out of the room"
-msgstr "fjerna ein brukar frå rommet"
+msgstr "%1 fjerna ein brukar frå rommet"
 
 #: src/eventhandler.cpp:602
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "%1 left the room"
-msgstr "forlét rommet"
+msgstr "%1 forlét rommet"
 
 #: src/eventhandler.cpp:605
-#, fuzzy, kde-format
-#| msgid "banned a user from the room"
+#, kde-format
 msgid "%1 banned a user from the room"
-msgstr "utestengde ein brukar frå rommet"
+msgstr "%1 utestengde ein brukar frå rommet"
 
 #: src/eventhandler.cpp:607
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgid "%1 self-banned from the room"
-msgstr "utestengde seg sjølv frå rommet"
+msgstr "%1 utestengde seg sjølv frå rommet"
 
 #: src/eventhandler.cpp:610
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "%1 requested an invite"
-msgstr "ba om ein invitasjon"
+msgstr "%1 ba om ein invitasjon"
 
 #: src/eventhandler.cpp:614
-#, fuzzy, kde-format
-#| msgid "made something unknown"
+#, kde-format
 msgid "%1 made something unknown"
-msgstr "gjorde noko ukjent"
+msgstr "%1 gjorde noko ukjent"
 
 #: src/eventhandler.cpp:617
-#, fuzzy, kde-format
-#| msgid "cleared the room main alias"
+#, kde-format
 msgid "%1 cleared the room main alias"
-msgstr "fjerna hovudaliaset til rommet"
+msgstr "%1 fjerna hovudaliaset til rommet"
 
 #: src/eventhandler.cpp:617
-#, fuzzy, kde-format
-#| msgid "set the room main alias"
+#, kde-format
 msgid "%1 set the room main alias"
-msgstr "bytte hovudalias for rommet"
+msgstr "%1 bytte hovudalias for rommet"
 
 #: src/eventhandler.cpp:620
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "%1 cleared the room name"
-msgstr "fjerna romnamnet"
+msgstr "%1 fjerna romnamnet"
 
 #: src/eventhandler.cpp:620
-#, fuzzy, kde-format
-#| msgid "set the room name"
+#, kde-format
 msgid "%1 set the room name"
-msgstr "bytte romnamnet"
+msgstr "%1 bytte romnamnet"
 
 #: src/eventhandler.cpp:623
-#, fuzzy, kde-format
-#| msgid "cleared the topic"
+#, kde-format
 msgid "%1 cleared the topic"
-msgstr "fjerna emnet"
+msgstr "%1 fjerna emnet"
 
 #: src/eventhandler.cpp:623
-#, fuzzy, kde-format
-#| msgid "set the topic"
+#, kde-format
 msgid "%1 set the topic"
-msgstr "bytte emnet"
+msgstr "%1 bytte emnet"
 
 #: src/eventhandler.cpp:626
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "%1 changed the room avatar"
-msgstr "bytte ut romavataren"
+msgstr "%1 bytte ut romavataren"
 
 #: src/eventhandler.cpp:629
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "%1 activated End-to-End Encryption"
-msgstr "slo på ende-til-ende-kryptering"
+msgstr "%1 slo på ende-til-ende-kryptering"
 
 #: src/eventhandler.cpp:632
-#, fuzzy, kde-format
-#| msgid "upgraded the room version"
+#, kde-format
 msgid "%1 upgraded the room version"
-msgstr "oppgraderte rommet til ny versjon"
+msgstr "%1 oppgraderte rommet til ny versjon"
 
 #: src/eventhandler.cpp:632
-#, fuzzy, kde-format
-#| msgid "created the room"
+#, kde-format
 msgid "%1 created the room"
-msgstr "oppretta rommet"
+msgstr "%1 oppretta rommet"
 
 #: src/eventhandler.cpp:635
 #, fuzzy, kde-format
@@ -880,46 +849,39 @@ msgid "%1 changed the power levels for this room"
 msgstr "endra maktnivået for rommet"
 
 #: src/eventhandler.cpp:638
-#, fuzzy, kde-format
-#| msgid "sent a live location beacon"
+#, kde-format
 msgid "%1 sent a live location beacon"
-msgstr "sende eit sanntids posisjonssignal"
+msgstr "%1 sende eit sanntids posisjonssignal"
 
 #: src/eventhandler.cpp:641
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "%1 changed the server access control lists for this room"
-msgstr "endra tenartilgangskontroll-lista for rommet"
+msgstr "%1 endra tenartilgangskontroll-lista for rommet"
 
 #: src/eventhandler.cpp:645
-#, fuzzy, kde-format
-#| msgid "added a widget"
+#, kde-format
 msgid "%1 added a widget"
-msgstr "la til eit element"
+msgstr "%1 la til eit element"
 
 #: src/eventhandler.cpp:648
-#, fuzzy, kde-format
-#| msgid "removed a widget"
+#, kde-format
 msgid "%1 removed a widget"
-msgstr "fjerna eit element"
+msgstr "%1 fjerna eit element"
 
 #: src/eventhandler.cpp:650
-#, fuzzy, kde-format
-#| msgid "configured a widget"
+#, kde-format
 msgid "%1 configured a widget"
-msgstr "endra innstillingar for eit element"
+msgstr "%1 endra innstillingar for eit element"
 
 #: src/eventhandler.cpp:653
-#, fuzzy, kde-format
-#| msgid "updated the state"
+#, kde-format
 msgid "%1 updated the state"
-msgstr "oppdaterte tilstanden"
+msgstr "%1 oppdaterte tilstanden"
 
 #: src/eventhandler.cpp:656
-#, fuzzy, kde-format
-#| msgid "started a poll"
+#, kde-format
 msgid "%1 started a poll"
-msgstr "starta ei avstemming"
+msgstr "%1 starta ei avrøysting"
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
@@ -3267,7 +3229,7 @@ msgstr "Set inn lenkje"
 #, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
-msgstr "Fann ingen rom"
+msgstr "Fann ikkje nokon rom"
 
 #: src/qml/ReasonDialog.qml:53
 #, kde-format
@@ -3424,12 +3386,12 @@ msgstr "Manglar medlemstal"
 #: src/qml/RoomListPage.qml:195
 #, kde-format
 msgid "No friends found"
-msgstr "Fann ingen vennar"
+msgstr "Fann ikkje nokon vennar"
 
 #: src/qml/RoomListPage.qml:195
 #, kde-format
 msgid "No rooms found"
-msgstr "Fann ingen rom"
+msgstr "Fann ikkje nokon rom"
 
 #: src/qml/RoomListPage.qml:197
 #, kde-format
@@ -3499,7 +3461,7 @@ msgstr "Skriv inn tekst for å starta søket"
 #: src/qml/RoomSearchPage.qml:39
 #, kde-format
 msgid "No messages found"
-msgstr "Fann ingen meldingar"
+msgstr "Fann ikkje nokon meldingar"
 
 #: src/qml/RoomTreeSection.qml:71
 #, kde-format
@@ -3866,25 +3828,22 @@ msgid "Kick this user"
 msgstr "Kast ut brukaren"
 
 #: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Kick users"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr "Kasta ut brukarar"
+msgstr "Kast ut brukar"
 
 #: src/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
-msgstr "Grunngjeving for utestenging av brukaren"
+msgstr "Grunngjeving for å sparka ut brukaren"
 
 #: src/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr ""
+msgstr "Spark ut"
 
 #: src/qml/UserDetailDialog.qml:147
 #, kde-format
@@ -3897,15 +3856,13 @@ msgid "Ban this user"
 msgstr "Utesteng brukaren"
 
 #: src/qml/UserDetailDialog.qml:165 src/qml/UserDetailDialog.qml:170
-#, fuzzy, kde-format
-#| msgid "Ban User"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Utesteng brukar"
 
 #: src/qml/UserDetailDialog.qml:166
-#, fuzzy, kde-format
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Grunngjeving for utestenging av brukaren"
@@ -3927,15 +3884,13 @@ msgid "Set user power level"
 msgstr "Vel maktnivå for brukar"
 
 #: src/qml/UserDetailDialog.qml:223
-#, fuzzy, kde-format
-#| msgid "Remove recent messages by this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Fjern nylege meldingar frå brukaren"
 
 #: src/qml/UserDetailDialog.qml:228
-#, fuzzy, kde-format
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Fjern meldingar"
@@ -4011,7 +3966,7 @@ msgstr "Skriv inn tekst for å starta søk etter vennane dine"
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
-msgstr "Fann ingen treff"
+msgstr "Fann ikkje nokon treff"
 
 #: src/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -4913,9 +4868,7 @@ msgid "Security & Safety"
 msgstr "Tryggleiksnøkkel:"
 
 #: src/settings/NeoChatSecurityPage.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ignored Users"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Ignorerte brukarar"
@@ -5767,8 +5720,7 @@ msgid "Loading URL preview"
 msgstr "Lastar førehandsvising av nettside"
 
 #: src/timeline/LocationComponent.qml:113
-#, fuzzy, kde-format
-#| msgid "Open Externally"
+#, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Opna eksternt"
@@ -5782,7 +5734,7 @@ msgstr "%1 starta brukarstadfesting"
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] "Basert på avstemming for %1 brukar"
+msgstr[0] "Basert på avrøysting for %1 brukar"
 msgstr[1] "Basert på avstemming blant %1 brukarar"
 
 #: src/timeline/PollComponent.qml:72
