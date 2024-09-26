@@ -312,8 +312,12 @@ void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
         pushConditions.append(keywordCondition);
     }
 
+#if Quotient_VERSION_MINOR > 8
+    auto job = m_connection->callApi<Quotient::SetPushRuleJob>(PushRuleKind::kindString(kind),
+#else
     auto job = m_connection->callApi<Quotient::SetPushRuleJob>(QLatin1String("global"),
                                                                PushRuleKind::kindString(kind),
+#endif
                                                                keyword,
                                                                actions,
                                                                QString(),
@@ -338,7 +342,11 @@ void PushRuleModel::removeKeyword(const QString &keyword)
     }
 
     auto kind = PushRuleKind::kindString(m_rules[index].kind);
+#if Quotient_VERSION_MINOR > 8
+    auto job = m_connection->callApi<Quotient::DeletePushRuleJob>(kind, m_rules[index].id);
+#else
     auto job = m_connection->callApi<Quotient::DeletePushRuleJob>(QStringLiteral("global"), kind, m_rules[index].id);
+#endif
     connect(job, &Quotient::BaseJob::failure, this, [this, job, index]() {
         qWarning() << QLatin1String("Unable to remove push rule for keyword %1: ").arg(m_rules[index].id) << job->errorString();
     });
@@ -346,10 +354,18 @@ void PushRuleModel::removeKeyword(const QString &keyword)
 
 void PushRuleModel::setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled)
 {
+#if Quotient_VERSION_MINOR > 8
+    auto job = m_connection->callApi<Quotient::IsPushRuleEnabledJob>(kind, ruleId);
+#else
     auto job = m_connection->callApi<Quotient::IsPushRuleEnabledJob>(QStringLiteral("global"), kind, ruleId);
+#endif
     connect(job, &Quotient::BaseJob::success, this, [job, kind, ruleId, enabled, this]() {
         if (job->enabled() != enabled) {
+#if Quotient_VERSION_MINOR > 8
+            m_connection->callApi<Quotient::SetPushRuleEnabledJob>(kind, ruleId, enabled);
+#else
             m_connection->callApi<Quotient::SetPushRuleEnabledJob>(QStringLiteral("global"), kind, ruleId, enabled);
+#endif
         }
     });
 }
@@ -363,7 +379,11 @@ void PushRuleModel::setNotificationRuleActions(const QString &kind, const QStrin
         actions = actionToVariant(action);
     }
 
+#if Quotient_VERSION_MINOR > 8
+    m_connection->callApi<Quotient::SetPushRuleActionsJob>(kind, ruleId, actions);
+#else
     m_connection->callApi<Quotient::SetPushRuleActionsJob>(QStringLiteral("global"), kind, ruleId, actions);
+#endif
 }
 
 PushRuleAction::Action PushRuleModel::variantToAction(const QList<QVariant> &actions, bool enabled)
