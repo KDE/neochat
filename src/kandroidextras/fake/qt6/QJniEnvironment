@@ -1,0 +1,17 @@
+/*
+    SPDX-FileCopyrightText: 2020-2022 Volker Krause <vkrause@kde.org>
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#ifndef KANDROIDEXTRAS_MOCK_QJNIENVIRONMENT_H
+#define KANDROIDEXTRAS_MOCK_QJNIENVIRONMENT_H
+
+#include "mock_jnienvironment.h"
+
+class QJniEnvironment : public KAndroidExtras::MockJniEnvironment
+{
+public:
+    inline JNIEnv* jniEnv() const { return &m_env; }
+};
+
+#endif

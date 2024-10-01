@@ -23,6 +23,7 @@
 #include "controller.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
+#include "permissionmanager.h"
 #include "roommanager.h"
 #include "texthandler.h"
 #include "windowcontroller.h"
@@ -42,6 +43,10 @@ NotificationsManager::NotificationsManager(QObject *parent)
 
 void NotificationsManager::handleNotifications(QPointer<NeoChatConnection> connection)
 {
+    if (!PermissionManager::instance().checkPermission(Permission::PostNotification)) {
+        return;
+    }
+
     if (!m_connActiveJob.contains(connection->user()->id())) {
         auto job = connection->callApi<GetNotificationsJob>();
         m_connActiveJob.append(connection->user()->id());

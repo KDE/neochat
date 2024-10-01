@@ -194,6 +194,8 @@ add_library(neochat STATIC
     neochatroommember.h
     models/threadmodel.cpp
     models/threadmodel.h
+    permissionmanager.cpp
+    permissionmanager.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -303,6 +305,10 @@ add_subdirectory(timeline)
 add_subdirectory(devtools)
 add_subdirectory(login)
 add_subdirectory(chatbar)
+
+if (ANDROID)
+    add_subdirectory(kandroidextras)
+endif()
 
 if(NOT ANDROID AND NOT WIN32)
     qt_target_qml_sources(neochat QML_FILES
@@ -436,7 +442,7 @@ endif()
 
 if(ANDROID)
     target_sources(neochat PRIVATE notifyrc.qrc)
-    target_link_libraries(neochat PRIVATE Qt::Svg OpenSSL::SSL)
+    target_link_libraries(neochat PUBLIC KAndroidExtras PRIVATE Qt::Svg OpenSSL::SSL)
     if(SQLite3_FOUND)
         target_link_libraries(neochat-app PRIVATE SQLite::SQLite3)
     endif()
