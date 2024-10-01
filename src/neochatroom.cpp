@@ -48,7 +48,6 @@
 #include "spacehierarchycache.h"
 #include "texthandler.h"
 #include "urlhelper.h"
-#include "utils.h"
 
 #ifndef Q_OS_ANDROID
 #include <KIO/Job>
