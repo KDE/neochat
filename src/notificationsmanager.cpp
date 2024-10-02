@@ -9,6 +9,7 @@
 
 #include <KLocalizedString>
 #include <KNotification>
+#include <KNotificationPermission>
 #include <KNotificationReplyAction>
 
 #include <QPainter>
@@ -23,7 +24,6 @@
 #include "controller.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include "permissionmanager.h"
 #include "roommanager.h"
 #include "texthandler.h"
 #include "windowcontroller.h"
@@ -43,7 +43,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 
 void NotificationsManager::handleNotifications(QPointer<NeoChatConnection> connection)
 {
-    if (!PermissionManager::instance().checkPermission(Permission::PostNotification)) {
+    if (KNotificationPermission::checkPermission() != Qt::PermissionStatus::Granted) {
         return;
     }
 
