@@ -214,7 +214,7 @@ Kirigami.Page {
                     Connections {
                         target: LoginHelper
 
-                        function onErrorOccured(message) {
+                        function onLoginErrorOccured(message) {
                             headerMessage.text = message;
                             headerMessage.visible = message.length > 0;
                             headerMessage.type = Kirigami.MessageType.Error;

@@ -224,7 +224,7 @@ void Controller::invokeLogin()
                     }
                 });
                 connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
-                    Q_EMIT errorOccured(i18n("Network Error: %1", error), {});
+                    Q_EMIT errorOccured(i18n("Network Error: %1", error));
                 });
 #if Quotient_VERSION_MINOR > 8
                 connection->assumeIdentity(account.userId(), account.deviceId(), accessToken);
@@ -250,17 +250,17 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const QStrin
 
         switch (job->error()) {
         case QKeychain::EntryNotFound:
-            Q_EMIT errorOccured(i18n("Access token wasn't found"), i18n("Maybe it was deleted?"));
+            Q_EMIT errorOccured(i18n("Access token wasn't found: Maybe it was deleted?"));
             break;
         case QKeychain::AccessDeniedByUser:
         case QKeychain::AccessDenied:
-            Q_EMIT errorOccured(i18n("Access to keychain was denied."), i18n("Please allow NeoChat to read the access token"));
+            Q_EMIT errorOccured(i18n("Access to keychain was denied: Please allow NeoChat to read the access token"));
             break;
         case QKeychain::NoBackendAvailable:
-            Q_EMIT errorOccured(i18n("No keychain available."), i18n("Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
+            Q_EMIT errorOccured(i18n("No keychain available: Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
             break;
         case QKeychain::OtherError:
-            Q_EMIT errorOccured(i18n("Unable to read access token"), job->errorString());
+            Q_EMIT errorOccured(i18n("Unable to read access token: %1", job->errorString()));
             break;
         default:
             break;
@@ -325,11 +325,17 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
         return;
     }
 
+    if (m_connection != nullptr) {
+        m_connection->disconnect(this);
+    }
+
     m_connection = connection;
 
     if (m_connection != nullptr) {
         m_connection->refreshBadgeNotificationCount();
         updateBadgeNotificationCount(m_connection, m_connection->badgeNotificationCount());
+
+        connect(m_connection, &NeoChatConnection::errorOccured, this, &Controller::errorOccured);
     }
 
     Q_EMIT activeConnectionChanged(m_connection);

@@ -6,7 +6,6 @@
 #include <QImageReader>
 #include <QJsonDocument>
 
-#include "controller.h"
 #include "jobs/neochatchangepasswordjob.h"
 #include "jobs/neochatdeactivateaccountjob.h"
 #include "neochatconfig.h"
@@ -345,8 +344,8 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
             }
         });
     }
-    connect(job, &CreateRoomJob::failure, this, [job] {
-        Q_EMIT Controller::instance().errorOccured(i18n("Room creation failed: %1", job->errorString()), {});
+    connect(job, &CreateRoomJob::failure, this, [this, job] {
+        Q_EMIT errorOccured(i18n("Room creation failed: %1", job->errorString()));
     });
     connect(
         this,
@@ -382,8 +381,8 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
             }
         });
     }
-    connect(job, &CreateRoomJob::failure, this, [job] {
-        Q_EMIT Controller::instance().errorOccured(i18n("Space creation failed: %1", job->errorString()), {});
+    connect(job, &CreateRoomJob::failure, this, [this, job] {
+        Q_EMIT errorOccured(i18n("Space creation failed: %1", job->errorString()));
     });
     connect(
         this,

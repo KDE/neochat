@@ -85,7 +85,7 @@ void LoginHelper::init()
         m_connection = nullptr;
     });
     connect(m_connection, &Connection::networkError, this, [this](QString error, const QString &, int, int) {
-        Q_EMIT Controller::instance().errorOccured(i18n("Network Error"), std::move(error));
+        Q_EMIT m_connection->errorOccured(i18n("Network Error: %1", std::move(error)));
         m_isLoggingIn = false;
         Q_EMIT isLoggingInChanged();
     });
@@ -93,14 +93,14 @@ void LoginHelper::init()
         if (error == QStringLiteral("Invalid username or password")) {
             setInvalidPassword(true);
         } else {
-            Q_EMIT errorOccured(i18n("Login Failed: %1", error));
+            Q_EMIT loginErrorOccured(i18n("Login Failed: %1", error));
         }
         m_isLoggingIn = false;
         Q_EMIT isLoggingInChanged();
     });
 
-    connect(m_connection, &Connection::resolveError, this, [](QString error) {
-        Q_EMIT Controller::instance().errorOccured(i18n("Network Error"), std::move(error));
+    connect(m_connection, &Connection::resolveError, this, [this](QString error) {
+        Q_EMIT m_connection->errorOccured(i18n("Network Error: %1", std::move(error)));
     });
 
     connect(

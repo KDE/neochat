@@ -129,7 +129,10 @@ private Q_SLOTS:
     void updateBadgeNotificationCount(NeoChatConnection *connection, int count);
 
 Q_SIGNALS:
-    void errorOccured(const QString &error, const QString &detail);
+    /**
+     * @brief Request a error message be shown to the user.
+     */
+    void errorOccured(const QString &error);
     void connectionAdded(NeoChatConnection *connection);
     void connectionDropped(NeoChatConnection *connection);
     void activeConnectionChanged(NeoChatConnection *connection);

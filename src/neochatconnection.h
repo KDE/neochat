@@ -212,6 +212,11 @@ Q_SIGNALS:
     void badgeNotificationCountChanged(NeoChatConnection *connection, int count);
     void canCheckMutualRoomsChanged();
 
+    /**
+     * @brief Request a error message be shown to the user.
+     */
+    void errorOccured(const QString &error);
+
 private:
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);

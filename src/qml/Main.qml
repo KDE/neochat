@@ -247,8 +247,8 @@ Kirigami.ApplicationWindow {
     Connections {
         target: Controller
 
-        function onErrorOccured(error, detail) {
-            showPassiveNotification(detail.length > 0 ? i18n("%1: %2", error, detail) : error, "short");
+        function onErrorOccured(error) {
+            showPassiveNotification(error, "short");
         }
     }
 
