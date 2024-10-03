@@ -36,7 +36,6 @@
 
 #include "chatbarcache.h"
 #include "clipboard.h"
-#include "controller.h"
 #include "eventhandler.h"
 #include "events/joinrulesevent.h"
 #include "events/pollevent.h"
@@ -1450,9 +1449,9 @@ void NeoChatRoom::updatePushNotificationState(QString type)
 void NeoChatRoom::reportEvent(const QString &eventId, const QString &reason)
 {
     auto job = connection()->callApi<ReportContentJob>(id(), eventId, -50, reason);
-    connect(job, &BaseJob::finished, this, [job]() {
+    connect(job, &BaseJob::finished, this, [this, job]() {
         if (job->error() == BaseJob::Success) {
-            Q_EMIT Controller::instance().showMessage(Controller::Positive, i18n("Report sent successfully."));
+            Q_EMIT showMessage(MessageType::Positive, i18n("Report sent successfully."));
         }
     });
 }

@@ -199,10 +199,6 @@ Kirigami.Page {
             }
         }
 
-        function onWarning(title, message) {
-            root.warning(title, message);
-        }
-
         function onGoToEvent(eventId) {
             (timelineViewLoader.item as TimelineView).goToEvent(eventId);
         }
@@ -241,22 +237,13 @@ Kirigami.Page {
     }
 
     Connections {
-        target: Controller
+        target: RoomManager
+
         function onShowMessage(messageType, message) {
             banner.text = message;
-            banner.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : messageType === ActionsHandler.Positive ? Kirigami.MessageType.Positive : Kirigami.MessageType.Information;
+            banner.type = messageType;
             banner.visible = true;
         }
-    }
-
-    function warning(title, message) {
-        banner.text = `${title}<br />${message}`;
-        banner.type = Kirigami.MessageType.Warning;
-        banner.visible = true;
-    }
-
-    Connections {
-        target: RoomManager
 
         function onShowEventSource(eventId) {
             applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {

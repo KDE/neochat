@@ -12,6 +12,7 @@
 #include <QCoroTask>
 #include <Quotient/roommember.h>
 
+#include "enums/messagetype.h"
 #include "enums/pushrule.h"
 #include "neochatroommember.h"
 #include "pollhandler.h"
@@ -657,6 +658,11 @@ Q_SIGNALS:
     void maxRoomVersionChanged();
     void extraEventLoaded(const QString &eventId);
     void extraEventNotFound(const QString &eventId);
+
+    /**
+     * @brief Request a message be shown to the user of the given type.
+     */
+    void showMessage(MessageType::Type messageType, const QString &message);
 
 public Q_SLOTS:
     /**

@@ -83,7 +83,8 @@ void NeoChatConnection::connectSignals()
     });
     connect(this, &NeoChatConnection::requestFailed, this, [](BaseJob *job) {
         if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
-            RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
+            RoomManager::instance().showMessage(MessageType::Warning,
+                                                i18n("File too large to download.<br />Contact your matrix server administrator for support."));
         }
     });
     connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {

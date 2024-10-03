@@ -13,6 +13,7 @@
 
 #include "chatdocumenthandler.h"
 #include "enums/messagecomponenttype.h"
+#include "enums/messagetype.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/roomlistmodel.h"
@@ -328,9 +329,9 @@ Q_SIGNALS:
     void askDirectChatConfirmation(const Quotient::User *user);
 
     /**
-     * @brief Displays warning to the user.
+     * @brief Request a message be shown to the user of the given type.
      */
-    void warning(const QString &title, const QString &message);
+    void showMessage(MessageType::Type messageType, const QString &message);
 
     void chatDocumentHandlerChanged();
 

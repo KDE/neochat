@@ -134,7 +134,7 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
 {
     Uri uri{idOrUri};
     if (!uri.isValid()) {
-        Q_EMIT warning(i18n("Malformed or empty Matrix id"), i18n("%1 is not a correct Matrix identifier", idOrUri));
+        Q_EMIT showMessage(MessageType::Warning, i18n("Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier", idOrUri));
         return;
     }
 
@@ -351,7 +351,7 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
                     },
                     Qt::SingleShotConnection);
             } else {
-                Q_EMIT warning(i18n("Failed to join room"), finish->errorString());
+                Q_EMIT showMessage(MessageType::Warning, i18n("Failed to join room<br />%1", finish->errorString()));
             }
         },
         Qt::SingleShotConnection);
@@ -386,12 +386,12 @@ void RoomManager::knockRoom(NeoChatConnection *account, const QString &roomAlias
                     account,
                     &NeoChatConnection::newRoom,
                     this,
-                    [](Quotient::Room *room) {
-                        Q_EMIT Controller::instance().showMessage(Controller::Info, i18n("You requested to join '%1'", room -> name()));
+                    [this](Quotient::Room *room) {
+                        Q_EMIT showMessage(MessageType::Information, i18n("You requested to join '%1'", room->name()));
                     },
                     Qt::SingleShotConnection);
             } else {
-                Q_EMIT warning(i18n("Failed to request joining room"), job->errorString());
+                Q_EMIT showMessage(MessageType::Warning, i18n("Failed to request joining room<br />%1", job->errorString()));
             }
         },
         Qt::SingleShotConnection);
@@ -466,11 +466,20 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
 
 void RoomManager::setCurrentRoom(const QString &roomId)
 {
+    if (m_currentRoom != nullptr) {
+        m_currentRoom->disconnect(this);
+    }
+
     if (roomId.isEmpty()) {
         m_currentRoom = nullptr;
     } else {
         m_currentRoom = dynamic_cast<NeoChatRoom *>(m_connection->room(roomId));
     }
+
+    if (m_currentRoom != nullptr) {
+        connect(m_currentRoom, &NeoChatRoom::showMessage, this, &RoomManager::showMessage);
+    }
+
     Q_EMIT currentRoomChanged();
     if (m_connection) {
         m_lastRoomConfig.writeEntry(m_connection->userId(), roomId);
