@@ -11,7 +11,6 @@
 
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include "roomlistmodel.h"
 
 using namespace Quotient;
 

@@ -7,7 +7,6 @@
 
 #include "chatdocumenthandler.h"
 #include "eventhandler.h"
-#include "messagecontentmodel.h"
 #include "neochatroom.h"
 
 ChatBarCache::ChatBarCache(QObject *parent)

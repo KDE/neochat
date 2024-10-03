@@ -6,8 +6,6 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
-#include "enums/neochatroomtype.h"
-
 class NeoChatRoom;
 
 namespace Quotient

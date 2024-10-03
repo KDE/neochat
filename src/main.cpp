@@ -48,7 +48,6 @@
 #include "colorschemer.h"
 #include "controller.h"
 #include "logger.h"
-#include "neochatconfig.h"
 #include "roommanager.h"
 #include "sharehandler.h"
 #include "windowcontroller.h"

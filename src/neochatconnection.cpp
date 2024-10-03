@@ -518,6 +518,7 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
         qWarning() << "There's no gateway, not setting up push notifications.";
     }
 #else
+    Q_UNUSED(endpoint)
     co_return;
 #endif
 }
