@@ -59,7 +59,7 @@ SearchPage {
         text: displayName
 
         onClicked: {
-            root.connection.openOrCreateDirectChat(userDelegate.userId);
+            root.connection.requestDirectChat(userDelegate.userId);
             root.closeDialog();
         }
 

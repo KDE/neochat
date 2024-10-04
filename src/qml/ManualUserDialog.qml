@@ -38,7 +38,7 @@ Kirigami.Dialog {
             text: i18n("OK")
             icon.name: "dialog-ok"
             onTriggered: {
-                root.connection.openOrCreateDirectChat(userIdText.text);
+                root.connection.requestDirectChat(userIdText.text);
                 root.accept();
             }
         }

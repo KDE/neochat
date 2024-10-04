@@ -437,7 +437,19 @@ void RoomManager::setConnection(NeoChatConnection *connection)
     if (m_connection == connection) {
         return;
     }
+
+    if (m_connection != nullptr) {
+        m_connection->disconnect(this);
+    }
+
     m_connection = connection;
+
+    if (m_connection != nullptr) {
+        connect(m_connection, &NeoChatConnection::directChatAvailable, this, [this](Quotient::Room *directChat) {
+            resolveResource(directChat->id());
+        });
+    }
+
     Q_EMIT connectionChanged();
 }
 

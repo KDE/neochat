@@ -255,9 +255,6 @@ Kirigami.ApplicationWindow {
     Connections {
         target: root.connection
 
-        function onDirectChatAvailable(directChat) {
-            RoomManager.resolveResource(directChat.id);
-        }
         function onNewKeyVerificationSession(session) {
             root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "KeyVerificationDialog"), {
                 session: session

@@ -247,7 +247,7 @@ Kirigami.Dialog {
                 text: root.connection.directChatExists(root.user) ? i18nc("%1 is the name of the user.", "Chat with %1", root.room ? root.room.member(root.user.id).htmlSafeDisplayName : QmlUtils.escapeString(root.user.displayName)) : i18n("Invite to private chat")
                 icon.name: "document-send"
                 onTriggered: {
-                    root.connection.openOrCreateDirectChat(root.user.id);
+                    root.connection.requestDirectChat(root.user.id);
                     root.close();
                 }
             }
