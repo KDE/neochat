@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-03 00:39+0000\n"
+"POT-Creation-Date: 2024-10-04 00:39+0000\n"
 "PO-Revision-Date: 2024-09-14 07:40+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -96,48 +96,40 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Skicka skrivunderrättelser för nya meddelanden"
 
-#: src/controller.cpp:227
+#: src/controller.cpp:227 src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Nätverksfel: %1"
 
 #: src/controller.cpp:253
-#, kde-format
-msgid "Access token wasn't found"
+#, fuzzy, kde-format
+#| msgid "Access token wasn't found"
+msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Åtkomstsymbol hittades inte"
 
-#: src/controller.cpp:253
-#, kde-format
-msgid "Maybe it was deleted?"
-msgstr "Kanske har den tagits bort?"
-
 #: src/controller.cpp:257
-#, kde-format
-msgid "Access to keychain was denied."
-msgstr "Åtkomst till nyckelkedja nekades."
-
-#: src/controller.cpp:257
-#, kde-format
-msgid "Please allow NeoChat to read the access token"
+#, fuzzy, kde-format
+#| msgid "Please allow NeoChat to read the access token"
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Ge NeoChat tillåtelse att läsa åtkomstsymbolen"
 
 #: src/controller.cpp:260
-#, kde-format
-msgid "No keychain available."
-msgstr "Ingen nyckelkedja tillgänglig."
-
-#: src/controller.cpp:260
-#, kde-format
-msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, fuzzy, kde-format
+#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
 msgstr ""
 "Installera en nyckelkedja, t.ex. plånboken eller GNOME-nyckelring på Linux"
 
 #: src/controller.cpp:263
-#, kde-format
-msgid "Unable to read access token"
+#, fuzzy, kde-format
+#| msgid "Unable to read access token"
+msgid "Unable to read access token: %1"
 msgstr "Kan inte läsa åtkomstsymbol"
 
-#: src/controller.cpp:355
+#: src/controller.cpp:361
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Tar emot utskickade underrättelser"
@@ -880,11 +872,6 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Mål"
 
-#: src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error"
-msgstr "Nätverksfel"
-
 #: src/login.cpp:96
 #, kde-format
 msgid "Login Failed: %1"
@@ -1061,7 +1048,7 @@ msgstr "Användarnamn inte tillgängligt"
 msgid "Welcome"
 msgstr "Välkommen"
 
-#: src/login/WelcomePage.qml:73 src/main.cpp:142
+#: src/login/WelcomePage.qml:73 src/main.cpp:141
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1102,105 +1089,105 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/main.cpp:144
+#: src/main.cpp:143
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-klient"
 
-#: src/main.cpp:146
+#: src/main.cpp:145
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE-gemenskapen"
 
-#: src/main.cpp:147
+#: src/main.cpp:146
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:148 src/main.cpp:152 src/main.cpp:153
+#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
 msgstr "Underhållsansvarig"
 
-#: src/main.cpp:152
+#: src/main.cpp:151
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:153
+#: src/main.cpp:152
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:154
+#: src/main.cpp:153
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:154
+#: src/main.cpp:153
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Ursprunglig upphovsman till Spectral"
 
-#: src/main.cpp:155
+#: src/main.cpp:154
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:155
+#: src/main.cpp:154
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Underhållsansvarig för libQuotient"
 
-#: src/main.cpp:156
+#: src/main.cpp:155
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: src/main.cpp:156
+#: src/main.cpp:155
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: src/main.cpp:160
+#: src/main.cpp:159
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Att Qt-bibliotek för att skriva Matrix-klienter för flera plattformar"
 
-#: src/main.cpp:162
+#: src/main.cpp:161
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (byggd med %2)"
 
-#: src/main.cpp:190
+#: src/main.cpp:189
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient för kommunikationsprotokollet Matrix"
 
-#: src/main.cpp:191
+#: src/main.cpp:190
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Stöder matrix: webbadresschema"
 
-#: src/main.cpp:192
+#: src/main.cpp:191
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorera alla SSL-fel, t.ex. osignerade certifikat."
 
-#: src/main.cpp:194
+#: src/main.cpp:193
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Bara använd för automatiska tester"
 
-#: src/main.cpp:199
+#: src/main.cpp:198
 #, kde-format
 msgid "Internal usage only."
 msgstr "Bara intern användning."
 
-#: src/main.cpp:204
+#: src/main.cpp:203
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Dela en webbadress med Matrix"
@@ -1210,300 +1197,300 @@ msgstr "Dela en webbadress med Matrix"
 msgid "Leaving this room."
 msgstr "Lämnar rummet."
 
-#: src/models/actionsmodel.cpp:35 src/models/actionsmodel.cpp:236
-#: src/models/actionsmodel.cpp:263 src/models/actionsmodel.cpp:294
+#: src/models/actionsmodel.cpp:34 src/models/actionsmodel.cpp:232
+#: src/models/actionsmodel.cpp:258 src/models/actionsmodel.cpp:288
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "%1 ser inte ut som en rumsidentifierare eller alias."
 
-#: src/models/actionsmodel.cpp:43
+#: src/models/actionsmodel.cpp:42
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Lämnar rummet %1."
 
-#: src/models/actionsmodel.cpp:46
+#: src/models/actionsmodel.cpp:45
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Rummet %1 hittades inte."
 
-#: src/models/actionsmodel.cpp:54 src/models/actionsmodel.cpp:330
+#: src/models/actionsmodel.cpp:53 src/models/actionsmodel.cpp:324
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Inget nytt smeknamn angivet, inga ändringar görs"
 
-#: src/models/actionsmodel.cpp:69 src/models/actionsmodel.cpp:79
-#: src/models/actionsmodel.cpp:89 src/models/actionsmodel.cpp:99
-#: src/models/actionsmodel.cpp:119 src/models/actionsmodel.cpp:139
-#: src/models/actionsmodel.cpp:150 src/models/actionsmodel.cpp:166
-#: src/models/actionsmodel.cpp:176 src/models/actionsmodel.cpp:186
+#: src/models/actionsmodel.cpp:68 src/models/actionsmodel.cpp:78
+#: src/models/actionsmodel.cpp:88 src/models/actionsmodel.cpp:98
+#: src/models/actionsmodel.cpp:118 src/models/actionsmodel.cpp:138
+#: src/models/actionsmodel.cpp:149 src/models/actionsmodel.cpp:165
+#: src/models/actionsmodel.cpp:175 src/models/actionsmodel.cpp:185
 msgid "<message>"
 msgstr "<meddelande>"
 
-#: src/models/actionsmodel.cpp:70
+#: src/models/actionsmodel.cpp:69
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Lägger till ¯\\_(ツ)_/¯ först i ett vanligt textmeddelande"
 
-#: src/models/actionsmodel.cpp:80
+#: src/models/actionsmodel.cpp:79
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Lägger till ( ͡° ͜ʖ ͡°) först i ett vanligt textmeddelande"
 
-#: src/models/actionsmodel.cpp:90
+#: src/models/actionsmodel.cpp:89
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Lägger till (╯°□°）╯︵ ┻━┻ först i ett vanligt textmeddelande"
 
-#: src/models/actionsmodel.cpp:100
+#: src/models/actionsmodel.cpp:99
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Lägger till ┬──┬ ノ( ゜-゜ノ) först i ett vanligt textmeddelande"
 
-#: src/models/actionsmodel.cpp:120
+#: src/models/actionsmodel.cpp:119
 msgid "Sends the given message colored as a rainbow"
 msgstr "Skickar givet meddelande färglagt som en regnbåge"
 
-#: src/models/actionsmodel.cpp:140
+#: src/models/actionsmodel.cpp:139
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Skickar given smilis färglagd som en regnbåge"
 
-#: src/models/actionsmodel.cpp:151
+#: src/models/actionsmodel.cpp:150
 msgid "Sends the given message as plain text"
 msgstr "Skickar givet meddelande som vanlig text"
 
-#: src/models/actionsmodel.cpp:167
+#: src/models/actionsmodel.cpp:166
 msgid "Sends the given message as a spoiler"
 msgstr "Skickar angivet meddelande som en spoiler"
 
-#: src/models/actionsmodel.cpp:177
+#: src/models/actionsmodel.cpp:176
 msgid "Sends the given emote"
 msgstr "Skickar given smilis"
 
-#: src/models/actionsmodel.cpp:187
+#: src/models/actionsmodel.cpp:186
 msgid "Sends the given message as a notice"
 msgstr "Skickar givet meddelande som en anmärkning"
 
-#: src/models/actionsmodel.cpp:197 src/models/actionsmodel.cpp:365
-#: src/models/actionsmodel.cpp:390 src/models/actionsmodel.cpp:435
-#: src/models/actionsmodel.cpp:476 src/models/actionsmodel.cpp:513
+#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:358
+#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:426
+#: src/models/actionsmodel.cpp:465 src/models/actionsmodel.cpp:500
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "%1 ser inte ut som en matrix-identifierare"
 
-#: src/models/actionsmodel.cpp:203
+#: src/models/actionsmodel.cpp:201
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 är redan inbjuden till rummet."
 
-#: src/models/actionsmodel.cpp:207
+#: src/models/actionsmodel.cpp:205
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 är bannlyst från rummet."
 
-#: src/models/actionsmodel.cpp:211
+#: src/models/actionsmodel.cpp:209
 #, kde-format
 msgid "You are already in this room."
 msgstr "Du är redan i rummet."
 
-#: src/models/actionsmodel.cpp:215
+#: src/models/actionsmodel.cpp:213
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 är redan i rummet."
 
-#: src/models/actionsmodel.cpp:220
+#: src/models/actionsmodel.cpp:217
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 bjöds in till rummet."
 
-#: src/models/actionsmodel.cpp:225 src/models/actionsmodel.cpp:379
-#: src/models/actionsmodel.cpp:403 src/models/actionsmodel.cpp:501
+#: src/models/actionsmodel.cpp:222 src/models/actionsmodel.cpp:372
+#: src/models/actionsmodel.cpp:395 src/models/actionsmodel.cpp:488
 msgid "<user id>"
 msgstr "<användaridentifikation>"
 
-#: src/models/actionsmodel.cpp:226
+#: src/models/actionsmodel.cpp:223
 msgid "Invites the user to this room"
 msgstr "Bjuder in användare till rummet"
 
-#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:301
+#: src/models/actionsmodel.cpp:240 src/models/actionsmodel.cpp:295
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Går med i rummet %1."
 
-#: src/models/actionsmodel.cpp:250 src/models/actionsmodel.cpp:307
+#: src/models/actionsmodel.cpp:246 src/models/actionsmodel.cpp:301
 msgid "<room alias or id>"
 msgstr "<rumalias eller identifierare>"
 
-#: src/models/actionsmodel.cpp:251 src/models/actionsmodel.cpp:308
+#: src/models/actionsmodel.cpp:247 src/models/actionsmodel.cpp:302
 msgid "Joins the given room"
 msgstr "Går med i det givna rummet"
 
-#: src/models/actionsmodel.cpp:271
+#: src/models/actionsmodel.cpp:266
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Knackar på rum %1."
 
-#: src/models/actionsmodel.cpp:283
+#: src/models/actionsmodel.cpp:278
 msgid "<room alias or id> [<reason>]"
 msgstr "<rumalias eller identifikation> [<orsak>]"
 
-#: src/models/actionsmodel.cpp:284
+#: src/models/actionsmodel.cpp:279
 msgid "Requests to join the given room"
 msgstr "Frågar om att gå med i det angivna rummet"
 
-#: src/models/actionsmodel.cpp:298
+#: src/models/actionsmodel.cpp:292
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Du är redan i rummet %1."
 
-#: src/models/actionsmodel.cpp:315 src/models/actionsmodel.cpp:323
+#: src/models/actionsmodel.cpp:309 src/models/actionsmodel.cpp:317
 msgid "[<room alias or id>]"
 msgstr "[<rumalias eller identifierare>]"
 
-#: src/models/actionsmodel.cpp:316 src/models/actionsmodel.cpp:324
+#: src/models/actionsmodel.cpp:310 src/models/actionsmodel.cpp:318
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Lämnar angivet rum eller detta rummet, om inget är angivet"
 
-#: src/models/actionsmodel.cpp:338 src/models/actionsmodel.cpp:346
-#: src/models/actionsmodel.cpp:354
+#: src/models/actionsmodel.cpp:332 src/models/actionsmodel.cpp:340
+#: src/models/actionsmodel.cpp:348
 msgid "<display name>"
 msgstr "<visat namn>"
 
-#: src/models/actionsmodel.cpp:339
+#: src/models/actionsmodel.cpp:333
 msgid "Changes your global display name"
 msgstr "Ändrar ditt globala namn att visa"
 
-#: src/models/actionsmodel.cpp:347 src/models/actionsmodel.cpp:355
+#: src/models/actionsmodel.cpp:341 src/models/actionsmodel.cpp:349
 msgid "Changes your display name in this room"
 msgstr "Ändrar ditt namn att visa för rummet"
 
-#: src/models/actionsmodel.cpp:369
+#: src/models/actionsmodel.cpp:362
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 är redan ignorerad"
 
-#: src/models/actionsmodel.cpp:373
+#: src/models/actionsmodel.cpp:366
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 är nu ignorerad."
 
-#: src/models/actionsmodel.cpp:380
+#: src/models/actionsmodel.cpp:373
 msgid "Ignores the given user"
 msgstr "Ignorerar den angivna användaren"
 
-#: src/models/actionsmodel.cpp:394
+#: src/models/actionsmodel.cpp:386
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 ignoreras inte"
 
-#: src/models/actionsmodel.cpp:398
+#: src/models/actionsmodel.cpp:390
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 ignoreras inte längre"
 
-#: src/models/actionsmodel.cpp:404
+#: src/models/actionsmodel.cpp:396
 msgid "Unignores the given user"
 msgstr "Sluta ignorera den angivna användaren"
 
-#: src/models/actionsmodel.cpp:423
+#: src/models/actionsmodel.cpp:415
 msgid "<reaction text>"
 msgstr "<reaktionstext>"
 
-#: src/models/actionsmodel.cpp:424
+#: src/models/actionsmodel.cpp:416
 msgid "React to the message with the given text"
 msgstr "Reagera på meddelandet med den angivna texten"
 
-#: src/models/actionsmodel.cpp:441
+#: src/models/actionsmodel.cpp:432
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 är redan bannlyst från rummet."
 
-#: src/models/actionsmodel.cpp:449
+#: src/models/actionsmodel.cpp:440
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Du har inte tillåtelse att bannlysa användare från rummet."
 
-#: src/models/actionsmodel.cpp:455
+#: src/models/actionsmodel.cpp:446
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Du har inte tillåtelse att bannlysa %1 från rummet."
 
-#: src/models/actionsmodel.cpp:460
+#: src/models/actionsmodel.cpp:450
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 har bannlysts från rummet."
 
-#: src/models/actionsmodel.cpp:465 src/models/actionsmodel.cpp:546
+#: src/models/actionsmodel.cpp:455 src/models/actionsmodel.cpp:532
 msgid "<user id> [<reason>]"
 msgstr "<användaridentifikation> [<orsak>]"
 
-#: src/models/actionsmodel.cpp:466
+#: src/models/actionsmodel.cpp:456
 msgid "Bans the given user"
 msgstr "Bannlyser den angivna användaren"
 
-#: src/models/actionsmodel.cpp:484
+#: src/models/actionsmodel.cpp:473
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "Du har inte tillåtelse att sluta bannlysa användare från rummet."
 
-#: src/models/actionsmodel.cpp:490
+#: src/models/actionsmodel.cpp:478
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 är inte bannlyst från rummet."
 
-#: src/models/actionsmodel.cpp:495
+#: src/models/actionsmodel.cpp:482
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 har slutat bannlysas från rummet."
 
-#: src/models/actionsmodel.cpp:502
+#: src/models/actionsmodel.cpp:489
 msgid "Removes the ban of the given user"
 msgstr "Tar bort bannlysningen för den angivna användaren"
 
-#: src/models/actionsmodel.cpp:517
+#: src/models/actionsmodel.cpp:504
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Du kan inte kasta ut dig själv från rummet."
 
-#: src/models/actionsmodel.cpp:521
+#: src/models/actionsmodel.cpp:508
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 finns inte i rummet."
 
-#: src/models/actionsmodel.cpp:530
+#: src/models/actionsmodel.cpp:517
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Du har inte tillåtelse att kasta ut användare från rummet."
 
-#: src/models/actionsmodel.cpp:536
+#: src/models/actionsmodel.cpp:523
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Du har inte tillåtelse att kasta ut %1 från rummet."
 
-#: src/models/actionsmodel.cpp:541
+#: src/models/actionsmodel.cpp:527
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 kastades ut från rummet."
 
-#: src/models/actionsmodel.cpp:547
+#: src/models/actionsmodel.cpp:533
 msgid "Removes the user from the room"
 msgstr "Tar bort användaren från rummet"
 
@@ -1833,13 +1820,11 @@ msgid ", "
 msgstr ", "
 
 #: src/neochatconnection.cpp:86
-#, kde-format
-msgid "File too large to download."
-msgstr "Filen är för stor att ladda ner"
-
-#: src/neochatconnection.cpp:86
-#, kde-format
-msgid "Contact your matrix server administrator for support."
+#, fuzzy, kde-format
+#| msgid "Contact your matrix server administrator for support."
+msgid ""
+"File too large to download.<br />Contact your matrix server administrator "
+"for support."
 msgstr "Kontakta matrix-serveradministratören för support."
 
 #: src/neochatconnection.cpp:317
@@ -1858,12 +1843,12 @@ msgstr "Misslyckades skapa rum: \"%1"
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
 
-#: src/neochatroom.cpp:1455
+#: src/neochatroom.cpp:1454
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport skickades med lyckat resultat."
 
-#: src/neochatroom.cpp:1785 src/neochatroom.cpp:1793
+#: src/neochatroom.cpp:1784 src/neochatroom.cpp:1792
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1874,7 +1859,7 @@ msgstr "Latitud: %1, Longitud: %2"
 msgid "Encrypted Message"
 msgstr "Krypterat meddelande"
 
-#: src/notificationsmanager.cpp:219 src/qml/Main.qml:251
+#: src/notificationsmanager.cpp:219
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3394,7 +3379,7 @@ msgstr "Välkommen till NeoChat"
 msgid "Select or join a room to get started"
 msgstr "Välj eller gå med i ett rum för att komma igång"
 
-#: src/qml/RoomPage.qml:265
+#: src/qml/RoomPage.qml:252
 #, kde-format
 msgid "Message Source"
 msgstr "Meddelandekälla"
@@ -4136,18 +4121,15 @@ msgid "Working"
 msgstr "Arbetar"
 
 #: src/roommanager.cpp:137
-#, kde-format
-msgid "Malformed or empty Matrix id"
-msgstr "Felformad eller tom Matrix-identifierare"
-
-#: src/roommanager.cpp:137
-#, kde-format
-msgid "%1 is not a correct Matrix identifier"
+#, fuzzy, kde-format
+#| msgid "%1 is not a correct Matrix identifier"
+msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 är inte en korrekt Matrix-identifierare"
 
 #: src/roommanager.cpp:354
-#, kde-format
-msgid "Failed to join room"
+#, fuzzy, kde-format
+#| msgid "Failed to join room"
+msgid "Failed to join room<br />%1"
 msgstr "Misslyckades gå med i rum"
 
 #: src/roommanager.cpp:390
@@ -4156,8 +4138,9 @@ msgid "You requested to join '%1'"
 msgstr "Du frågade om att gå med i '%1'"
 
 #: src/roommanager.cpp:394
-#, kde-format
-msgid "Failed to request joining room"
+#, fuzzy, kde-format
+#| msgid "Failed to request joining room"
+msgid "Failed to request joining room<br />%1"
 msgstr "Misslyckades fråga om att gå med i rum"
 
 #: src/settings/AccountEditorPage.qml:20
@@ -5744,6 +5727,24 @@ msgstr "Visa"
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
+
+#~ msgid "Maybe it was deleted?"
+#~ msgstr "Kanske har den tagits bort?"
+
+#~ msgid "Access to keychain was denied."
+#~ msgstr "Åtkomst till nyckelkedja nekades."
+
+#~ msgid "No keychain available."
+#~ msgstr "Ingen nyckelkedja tillgänglig."
+
+#~ msgid "Network Error"
+#~ msgstr "Nätverksfel"
+
+#~ msgid "File too large to download."
+#~ msgstr "Filen är för stor att ladda ner"
+
+#~ msgid "Malformed or empty Matrix id"
+#~ msgstr "Felformad eller tom Matrix-identifierare"
 
 #~ msgctxt "%1: What's being done; %2: How often it is done."
 #~ msgid " %1"
