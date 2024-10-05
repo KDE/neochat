@@ -14,6 +14,7 @@
 #include <Quotient/keyimport.h>
 #endif
 
+#include "enums/messagetype.h"
 #include "linkpreviewer.h"
 #include "models/threepidmodel.h"
 
@@ -197,6 +198,11 @@ Q_SIGNALS:
     void userConsentRequired(QUrl url);
     void badgeNotificationCountChanged(NeoChatConnection *connection, int count);
     void canCheckMutualRoomsChanged();
+
+    /**
+     * @brief Request a message be shown to the user of the given type.
+     */
+    void showMessage(MessageType::Type messageType, const QString &message);
 
     /**
      * @brief Request a error message be shown to the user.

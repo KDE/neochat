@@ -11,7 +11,6 @@
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "notificationsmanager.h"
-#include "roommanager.h"
 #include "spacehierarchycache.h"
 
 #include <Quotient/jobs/basejob.h>
@@ -80,10 +79,9 @@ void NeoChatConnection::connectSignals()
             Q_EMIT userConsentRequired(job->errorUrl());
         }
     });
-    connect(this, &NeoChatConnection::requestFailed, this, [](BaseJob *job) {
+    connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
         if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
-            RoomManager::instance().showMessage(MessageType::Warning,
-                                                i18n("File too large to download.<br />Contact your matrix server administrator for support."));
+            Q_EMIT showMessage(MessageType::Warning, i18n("File too large to download.<br />Contact your matrix server administrator for support."));
         }
     });
     connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {
@@ -347,14 +345,6 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
     connect(job, &CreateRoomJob::failure, this, [this, job] {
         Q_EMIT errorOccured(i18n("Room creation failed: %1", job->errorString()));
     });
-    connect(
-        this,
-        &Connection::newRoom,
-        this,
-        [](Room *room) {
-            RoomManager::instance().resolveResource(room->id());
-        },
-        Qt::SingleShotConnection);
 }
 
 void NeoChatConnection::createSpace(const QString &name, const QString &topic, const QString &parent, bool setChildParent)
@@ -384,14 +374,6 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
     connect(job, &CreateRoomJob::failure, this, [this, job] {
         Q_EMIT errorOccured(i18n("Space creation failed: %1", job->errorString()));
     });
-    connect(
-        this,
-        &Connection::newRoom,
-        this,
-        [](Room *room) {
-            RoomManager::instance().resolveResource(room->id());
-        },
-        Qt::SingleShotConnection);
 }
 
 bool NeoChatConnection::directChatExists(Quotient::User *user)
