@@ -12,9 +12,7 @@
 
 #include "enums/messagecomponenttype.h"
 #include "models/customemojimodel.h"
-#include "models/messagecontentmodel.h"
 #include "neochatconnection.h"
-#include "utils.h"
 
 #include "testutils.h"
 

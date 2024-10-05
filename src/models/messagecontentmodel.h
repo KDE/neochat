@@ -11,23 +11,8 @@
 
 #include "enums/messagecomponenttype.h"
 #include "itinerarymodel.h"
+#include "messagecomponent.h"
 #include "neochatroommember.h"
-
-struct MessageComponent {
-    MessageComponentType::Type type = MessageComponentType::Other;
-    QString content;
-    QVariantMap attributes;
-
-    int operator==(const MessageComponent &right) const
-    {
-        return type == right.type && content == right.content && attributes == right.attributes;
-    }
-
-    bool isEmpty() const
-    {
-        return type == MessageComponentType::Other;
-    }
-};
 
 /**
  * @class MessageContentModel

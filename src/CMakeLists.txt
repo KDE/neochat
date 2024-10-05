@@ -195,6 +195,7 @@ add_library(neochat STATIC
     models/threadmodel.cpp
     models/threadmodel.h
     enums/messagetype.h
+    messagecomponent.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

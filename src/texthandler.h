@@ -6,7 +6,7 @@
 #include <QObject>
 #include <QString>
 
-#include "models/messagecontentmodel.h"
+#include "messagecomponent.h"
 #include "neochatroom.h"
 
 namespace Quotient

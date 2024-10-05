@@ -17,7 +17,6 @@
 #include <Kirigami/Platform/PlatformTheme>
 
 #include "messagecomponenttype.h"
-#include "messagecontentmodel.h"
 #include "models/customemojimodel.h"
 #include "utils.h"
 
