@@ -95,14 +95,14 @@ void ThreePIdAddHelper::initiateNewIdAdd()
 
 void ThreePIdAddHelper::emailTokenJob()
 {
-    m_newIdSecret = QString::fromLatin1(QUuid::createUuid().toString().toLatin1().toBase64());
-    Quotient::EmailValidationData data;
-    data.email = m_newId;
-    data.clientSecret = m_newIdSecret;
-    data.sendAttempt = 0;
-
-    const auto job = m_connection->callApi<Quotient::RequestTokenTo3PIDEmailJob>(data);
-    connect(job, &Quotient::BaseJob::finished, this, &ThreePIdAddHelper::tokenJobFinished);
+    // m_newIdSecret = QString::fromLatin1(QUuid::createUuid().toString().toLatin1().toBase64());
+    // Quotient::EmailValidationData data;
+    // data.email = m_newId;
+    // data.clientSecret = m_newIdSecret;
+    // data.sendAttempt = 0;
+    //
+    // const auto job = m_connection->callApi<Quotient::RequestTokenTo3PIDEmailJob>(data);
+    // connect(job, &Quotient::BaseJob::finished, this, &ThreePIdAddHelper::tokenJobFinished);
 }
 
 void ThreePIdAddHelper::msisdnTokenJob()
@@ -114,8 +114,8 @@ void ThreePIdAddHelper::msisdnTokenJob()
     data.clientSecret = m_newIdSecret;
     data.sendAttempt = 0;
 
-    const auto job = m_connection->callApi<Quotient::RequestTokenTo3PIDMSISDNJob>(data);
-    connect(job, &Quotient::BaseJob::finished, this, &ThreePIdAddHelper::tokenJobFinished);
+    // const auto job = m_connection->callApi<Quotient::RequestTokenTo3PIDMSISDNJob>(data);
+    // connect(job, &Quotient::BaseJob::finished, this, &ThreePIdAddHelper::tokenJobFinished);
 }
 
 void ThreePIdAddHelper::tokenJobFinished(Quotient::BaseJob *job)
@@ -151,43 +151,43 @@ void ThreePIdAddHelper::finalizeNewIdAdd(const QString &password)
             QJsonObject identifier = {{QLatin1String("type"), QLatin1String("m.id.user")}, {QLatin1String("user"), m_connection->userId()}};
             authData[QLatin1String("identifier")] = identifier;
             const auto innerJob = m_connection->callApi<NeochatAdd3PIdJob>(m_newIdSecret, m_newIdSid, authData);
-            connect(innerJob, &Quotient::BaseJob::success, this, [this]() {
-                m_connection->threePIdModel()->refreshModel();
-                m_newIdSecret.clear();
-                m_newIdSid.clear();
-                m_newIdStatus = Success;
-                Q_EMIT newIdStatusChanged();
-            });
-            connect(innerJob, &Quotient::BaseJob::failure, this, [innerJob, this]() {
-                if (innerJob->jsonData()[QLatin1String("errcode")] == QLatin1String("M_FORBIDDEN")) {
-                    m_newIdStatus = AuthFailure;
-                    Q_EMIT newIdStatusChanged();
-                } else if (innerJob->jsonData()[QLatin1String("errcode")] == QLatin1String("M_THREEPID_AUTH_FAILED")) {
-                    m_newIdStatus = VerificationFailure;
-                    Q_EMIT newIdStatusChanged();
-                } else {
-                    m_newIdStatus = Other;
-                    Q_EMIT newIdStatusChanged();
-                }
-            });
+            // connect(innerJob, &Quotient::BaseJob::success, this, [this]() {
+            //     m_connection->threePIdModel()->refreshModel();
+            //     m_newIdSecret.clear();
+            //     m_newIdSid.clear();
+            //     m_newIdStatus = Success;
+            //     Q_EMIT newIdStatusChanged();
+            // });
+            // connect(innerJob, &Quotient::BaseJob::failure, this, [innerJob, this]() {
+            //     if (innerJob->jsonData()[QLatin1String("errcode")] == QLatin1String("M_FORBIDDEN")) {
+            //         m_newIdStatus = AuthFailure;
+            //         Q_EMIT newIdStatusChanged();
+            //     } else if (innerJob->jsonData()[QLatin1String("errcode")] == QLatin1String("M_THREEPID_AUTH_FAILED")) {
+            //         m_newIdStatus = VerificationFailure;
+            //         Q_EMIT newIdStatusChanged();
+            //     } else {
+            //         m_newIdStatus = Other;
+            //         Q_EMIT newIdStatusChanged();
+            //     }
+            // });
         }
     });
 }
 
 void ThreePIdAddHelper::remove3PId(const QString &threePId, const QString &type)
 {
-    const auto job = m_connection->callApi<Quotient::Delete3pidFromAccountJob>(type, threePId);
-    connect(job, &Quotient::BaseJob::success, this, [this]() {
-        m_connection->threePIdModel()->refreshModel();
-    });
+    // const auto job = m_connection->callApi<Quotient::Delete3pidFromAccountJob>(type, threePId);
+    // connect(job, &Quotient::BaseJob::success, this, [this]() {
+    //     m_connection->threePIdModel()->refreshModel();
+    // });
 }
 
 void ThreePIdAddHelper::unbind3PId(const QString &threePId, const QString &type)
 {
-    const auto job = m_connection->callApi<Quotient::Unbind3pidFromAccountJob>(type, threePId);
-    connect(job, &Quotient::BaseJob::success, this, [this]() {
-        m_connection->threePIdModel()->refreshModel();
-    });
+    // const auto job = m_connection->callApi<Quotient::Unbind3pidFromAccountJob>(type, threePId);
+    // connect(job, &Quotient::BaseJob::success, this, [this]() {
+    //     m_connection->threePIdModel()->refreshModel();
+    // });
 }
 
 void ThreePIdAddHelper::back()

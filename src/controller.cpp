@@ -111,7 +111,7 @@ Controller::Controller(QObject *parent)
                 this,
                 [this, connection] {
                     if (!m_endpoint.isEmpty()) {
-                        connection->setupPushNotifications(m_endpoint);
+                        // connection->setupPushNotifications(m_endpoint);
                     }
                 },
                 Qt::SingleShotConnection);

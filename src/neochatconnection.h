@@ -3,20 +3,20 @@
 
 #pragma once
 
-#include <QCache>
+// #include <QCache>
 #include <QObject>
 #include <QQmlEngine>
 
-#include <QCoroTask>
+// #include <QCoroTask>
 #include <Quotient/connection.h>
 
-#if Quotient_VERSION_MINOR > 8
-#include <Quotient/keyimport.h>
-#endif
+// #if Quotient_VERSION_MINOR > 8
+// #include <Quotient/keyimport.h>
+// #endif
 
 #include "enums/messagetype.h"
-#include "linkpreviewer.h"
-#include "models/threepidmodel.h"
+// #include "linkpreviewer.h"
+// #include "models/threepidmodel.h"
 
 class NeoChatConnection : public Quotient::Connection
 {
@@ -39,7 +39,7 @@ class NeoChatConnection : public Quotient::Connection
     /**
      * @brief The model with the account's 3PIDs.
      */
-    Q_PROPERTY(ThreePIdModel *threePIdModel READ threePIdModel CONSTANT)
+    // Q_PROPERTY(ThreePIdModel *threePIdModel READ threePIdModel CONSTANT)
 
     /**
      * @brief Whether an identity server is configured.
@@ -127,7 +127,7 @@ public:
 
     Q_INVOKABLE void deactivateAccount(const QString &password);
 
-    ThreePIdModel *threePIdModel() const;
+    // ThreePIdModel *threePIdModel() const;
 
     bool hasIdentityServer() const;
 
@@ -160,9 +160,9 @@ public:
      */
     Q_INVOKABLE QString accountDataJsonString(const QString &type) const;
 
-#if Quotient_VERSION_MINOR > 8
-    Q_INVOKABLE Quotient::KeyImport::Error exportMegolmSessions(const QString &passphrase, const QString &path);
-#endif
+    // #if Quotient_VERSION_MINOR > 8
+    //     Q_INVOKABLE Quotient::KeyImport::Error exportMegolmSessions(const QString &passphrase, const QString &path);
+    // #endif
 
     qsizetype directChatNotifications() const;
     bool directChatsHaveHighlightNotifications() const;
@@ -176,14 +176,14 @@ public:
 
     // note: this is intentionally a copied QString because
     // the reference could be destroyed before the task is finished
-    QCoro::Task<void> setupPushNotifications(QString endpoint);
+    // QCoro::Task<void> setupPushNotifications(QString endpoint);
 
     QString deviceKey() const;
     QString encryptionKey() const;
 
     bool isOnline() const;
 
-    LinkPreviewer *previewerForLink(const QUrl &link);
+    // LinkPreviewer *previewerForLink(const QUrl &link);
 
 Q_SIGNALS:
     void labelChanged();
@@ -213,13 +213,13 @@ private:
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);
 
-    ThreePIdModel *m_threePIdModel;
+    // ThreePIdModel *m_threePIdModel;
 
     void connectSignals();
 
     int m_badgeNotificationCount = 0;
 
-    QCache<QUrl, LinkPreviewer> m_linkPreviewers;
+    // QCache<QUrl, LinkPreviewer> m_linkPreviewers;
 
     bool m_canCheckMutualRooms = false;
 };

@@ -337,8 +337,8 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     }
     if (role == LinkPreviewerRole) {
         if (component.type == MessageComponentType::LinkPreview) {
-            return QVariant::fromValue<LinkPreviewer *>(
-                dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(component.attributes["link"_ls].toUrl()));
+            // return QVariant::fromValue<LinkPreviewer *>(
+            //     dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(component.attributes["link"_ls].toUrl()));
         } else {
             return QVariant::fromValue<LinkPreviewer *>(emptyLinkPreview);
         }
@@ -586,28 +586,29 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
 
 MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
 {
-    const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
-    if (linkPreviewer == nullptr) {
-        return {};
-    }
-    if (linkPreviewer->loaded()) {
-        return MessageComponent{MessageComponentType::LinkPreview, QString(), {{"link"_ls, link}}};
-    } else {
-        connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
-            const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
-            if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
-                for (auto &component : m_components) {
-                    if (component.attributes["link"_ls].toUrl() == link) {
-                        // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
-                        beginResetModel();
-                        component.type = MessageComponentType::LinkPreview;
-                        endResetModel();
-                    }
-                }
-            }
-        });
-        return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_ls, link}}};
-    }
+    // const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
+    // if (linkPreviewer == nullptr) {
+    //     return {};
+    // }
+    // if (linkPreviewer->loaded()) {
+    //     return MessageComponent{MessageComponentType::LinkPreview, QString(), {{"link"_ls, link}}};
+    // } else {
+    //     connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
+    //         const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
+    //         if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
+    //             for (auto &component : m_components) {
+    //                 if (component.attributes["link"_ls].toUrl() == link) {
+    //                     // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
+    //                     beginResetModel();
+    //                     component.type = MessageComponentType::LinkPreview;
+    //                     endResetModel();
+    //                 }
+    //             }
+    //         }
+    //     });
+    //     return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_ls, link}}};
+    // }
+    return {};
 }
 
 QList<MessageComponent> MessageContentModel::addLinkPreviews(QList<MessageComponent> inputComponents)

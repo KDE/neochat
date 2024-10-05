@@ -3,149 +3,148 @@
 
 #include "neochatconnection.h"
 
-#include <QImageReader>
+// #include <QImageReader>
 #include <QJsonDocument>
 
-#include "jobs/neochatchangepasswordjob.h"
-#include "jobs/neochatdeactivateaccountjob.h"
+// #include "jobs/neochatchangepasswordjob.h"
+// #include "jobs/neochatdeactivateaccountjob.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
-#include "notificationsmanager.h"
-#include "spacehierarchycache.h"
+// #include "notificationsmanager.h"
+// #include "spacehierarchycache.h"
 
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
-#include <qt6keychain/keychain.h>
+// #include <qt6keychain/keychain.h>
 
 #include <KLocalizedString>
 
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
 #include <Quotient/csapi/versions.h>
-#include <Quotient/database.h>
+// #include <Quotient/database.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
-#include <Quotient/room.h>
-#include <Quotient/settings.h>
+// #include <Quotient/settings.h>
 #include <Quotient/user.h>
 
-#ifdef HAVE_KUNIFIEDPUSH
-#include <QCoroNetwork>
-#include <Quotient/csapi/pusher.h>
-#include <Quotient/networkaccessmanager.h>
-#endif
+// #ifdef HAVE_KUNIFIEDPUSH
+// #include <QCoroNetwork>
+// #include <Quotient/csapi/pusher.h>
+// #include <Quotient/networkaccessmanager.h>
+// #endif
 
 using namespace Quotient;
 using namespace Qt::StringLiterals;
 
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
-    , m_threePIdModel(new ThreePIdModel(this))
+// , m_threePIdModel(new ThreePIdModel(this))
 {
-    m_linkPreviewers.setMaxCost(20);
+    // m_linkPreviewers.setMaxCost(20);
     connectSignals();
 }
 
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
     : Connection(server, parent)
-    , m_threePIdModel(new ThreePIdModel(this))
+// , m_threePIdModel(new ThreePIdModel(this))
 {
-    m_linkPreviewers.setMaxCost(20);
+    // m_linkPreviewers.setMaxCost(20);
     connectSignals();
 }
 
 void NeoChatConnection::connectSignals()
 {
-    connect(this, &NeoChatConnection::accountDataChanged, this, [this](const QString &type) {
-        if (type == QLatin1String("org.kde.neochat.account_label")) {
-            Q_EMIT labelChanged();
-        }
-        if (type == QLatin1String("m.identity_server")) {
-            Q_EMIT identityServerChanged();
-        }
-    });
-    connect(this, &NeoChatConnection::syncDone, this, [this] {
-        setIsOnline(true);
-
-        connect(this, &NeoChatConnection::syncDone, this, [this]() {
-            NotificationsManager::instance().handleNotifications(this);
-        });
-    });
-    connect(this, &NeoChatConnection::networkError, this, [this]() {
-        setIsOnline(false);
-    });
-    connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
-        if (job->error() == BaseJob::UserConsentRequired) {
-            Q_EMIT userConsentRequired(job->errorUrl());
-        }
-    });
-    connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
-        if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
-            Q_EMIT showMessage(MessageType::Warning, i18n("File too large to download.<br />Contact your matrix server administrator for support."));
-        }
-    });
-    connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {
-        Q_EMIT directChatInvitesChanged();
-        for (const auto &chatId : additions) {
-            if (const auto chat = room(chatId)) {
-                connect(chat, &Room::unreadStatsChanged, this, [this]() {
-                    refreshBadgeNotificationCount();
-                    Q_EMIT directChatNotificationsChanged();
-                    Q_EMIT directChatsHaveHighlightNotificationsChanged();
-                });
-            }
-        }
-        for (const auto &chatId : removals) {
-            if (const auto chat = room(chatId)) {
-                disconnect(chat, &Room::unreadStatsChanged, this, nullptr);
-            }
-        }
-    });
-    connect(this, &NeoChatConnection::joinedRoom, this, [this](Room *room) {
-        if (room->isDirectChat()) {
-            connect(room, &Room::unreadStatsChanged, this, [this]() {
-                Q_EMIT directChatNotificationsChanged();
-                Q_EMIT directChatsHaveHighlightNotificationsChanged();
-            });
-        }
-        connect(room, &Room::unreadStatsChanged, this, [this]() {
-            refreshBadgeNotificationCount();
-            Q_EMIT homeNotificationsChanged();
-            Q_EMIT homeHaveHighlightNotificationsChanged();
-        });
-    });
-    connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {
-        Q_UNUSED(room)
-        if (prev && prev->isDirectChat()) {
-            Q_EMIT directChatInvitesChanged();
-            Q_EMIT directChatNotificationsChanged();
-            Q_EMIT directChatsHaveHighlightNotificationsChanged();
-        }
-        refreshBadgeNotificationCount();
-        Q_EMIT homeNotificationsChanged();
-        Q_EMIT homeHaveHighlightNotificationsChanged();
-    });
-
-    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
-        refreshBadgeNotificationCount();
-        Q_EMIT homeNotificationsChanged();
-        Q_EMIT homeHaveHighlightNotificationsChanged();
-    });
-
-    // Fetch unstable features
-    // TODO: Expose unstableFeatures() in libQuotient
-    connect(
-        this,
-        &Connection::connected,
-        this,
-        [this] {
-            auto job = callApi<GetVersionsJob>(BackgroundRequest);
-            connect(job, &GetVersionsJob::success, this, [this, job] {
-                m_canCheckMutualRooms = job->unstableFeatures().contains("uk.half-shot.msc2666.query_mutual_rooms"_ls);
-                Q_EMIT canCheckMutualRoomsChanged();
-            });
-        },
-        Qt::SingleShotConnection);
+    // connect(this, &NeoChatConnection::accountDataChanged, this, [this](const QString &type) {
+    //     if (type == QLatin1String("org.kde.neochat.account_label")) {
+    //         Q_EMIT labelChanged();
+    //     }
+    //     if (type == QLatin1String("m.identity_server")) {
+    //         Q_EMIT identityServerChanged();
+    //     }
+    // });
+    // connect(this, &NeoChatConnection::syncDone, this, [this] {
+    //     setIsOnline(true);
+    //
+    //     // connect(this, &NeoChatConnection::syncDone, this, [this]() {
+    //     //     NotificationsManager::instance().handleNotifications(this);
+    //     // });
+    // });
+    // connect(this, &NeoChatConnection::networkError, this, [this]() {
+    //     setIsOnline(false);
+    // });
+    // connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
+    //     if (job->error() == BaseJob::UserConsentRequired) {
+    //         Q_EMIT userConsentRequired(job->errorUrl());
+    //     }
+    // });
+    // connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
+    //     if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
+    //         Q_EMIT showMessage(MessageType::Warning, i18n("File too large to download.<br />Contact your matrix server administrator for support."));
+    //     }
+    // });
+    // connect(this, &NeoChatConnection::directChatsListChanged, this, [this](DirectChatsMap additions, DirectChatsMap removals) {
+    //     Q_EMIT directChatInvitesChanged();
+    //     for (const auto &chatId : additions) {
+    //         if (const auto chat = room(chatId)) {
+    //             connect(chat, &Room::unreadStatsChanged, this, [this]() {
+    //                 refreshBadgeNotificationCount();
+    //                 Q_EMIT directChatNotificationsChanged();
+    //                 Q_EMIT directChatsHaveHighlightNotificationsChanged();
+    //             });
+    //         }
+    //     }
+    //     for (const auto &chatId : removals) {
+    //         if (const auto chat = room(chatId)) {
+    //             disconnect(chat, &Room::unreadStatsChanged, this, nullptr);
+    //         }
+    //     }
+    // });
+    // connect(this, &NeoChatConnection::joinedRoom, this, [this](Room *room) {
+    //     if (room->isDirectChat()) {
+    //         connect(room, &Room::unreadStatsChanged, this, [this]() {
+    //             Q_EMIT directChatNotificationsChanged();
+    //             Q_EMIT directChatsHaveHighlightNotificationsChanged();
+    //         });
+    //     }
+    //     connect(room, &Room::unreadStatsChanged, this, [this]() {
+    //         refreshBadgeNotificationCount();
+    //         Q_EMIT homeNotificationsChanged();
+    //         Q_EMIT homeHaveHighlightNotificationsChanged();
+    //     });
+    // });
+    // connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {
+    //     Q_UNUSED(room)
+    //     if (prev && prev->isDirectChat()) {
+    //         Q_EMIT directChatInvitesChanged();
+    //         Q_EMIT directChatNotificationsChanged();
+    //         Q_EMIT directChatsHaveHighlightNotificationsChanged();
+    //     }
+    //     refreshBadgeNotificationCount();
+    //     Q_EMIT homeNotificationsChanged();
+    //     Q_EMIT homeHaveHighlightNotificationsChanged();
+    // });
+    //
+    // // connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
+    // //     refreshBadgeNotificationCount();
+    // //     Q_EMIT homeNotificationsChanged();
+    // //     Q_EMIT homeHaveHighlightNotificationsChanged();
+    // // });
+    //
+    // // Fetch unstable features
+    // // TODO: Expose unstableFeatures() in libQuotient
+    // connect(
+    //     this,
+    //     &Connection::connected,
+    //     this,
+    //     [this] {
+    //         auto job = callApi<GetVersionsJob>(BackgroundRequest);
+    //         connect(job, &GetVersionsJob::success, this, [this, job] {
+    //             m_canCheckMutualRooms = job->unstableFeatures().contains("uk.half-shot.msc2666.query_mutual_rooms"_ls);
+    //             Q_EMIT canCheckMutualRoomsChanged();
+    //         });
+    //     },
+    //     Qt::SingleShotConnection);
 }
 
 int NeoChatConnection::badgeNotificationCount() const
@@ -170,20 +169,20 @@ void NeoChatConnection::refreshBadgeNotificationCount()
 
 void NeoChatConnection::logout(bool serverSideLogout)
 {
-    SettingsGroup(QStringLiteral("Accounts")).remove(userId());
+    // SettingsGroup(QStringLiteral("Accounts")).remove(userId());
 
-    QKeychain::DeletePasswordJob job(qAppName());
-    job.setAutoDelete(true);
-    job.setKey(userId());
-    QEventLoop loop;
-    QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
-    job.start();
-    loop.exec();
-
-    if (!serverSideLogout) {
-        return;
-    }
-    Connection::logout();
+    // QKeychain::DeletePasswordJob job(qAppName());
+    // job.setAutoDelete(true);
+    // job.setKey(userId());
+    // QEventLoop loop;
+    // QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
+    // job.start();
+    // loop.exec();
+    //
+    // if (!serverSideLogout) {
+    //     return;
+    // }
+    // Connection::logout();
 }
 
 bool NeoChatConnection::setAvatar(const QUrl &avatarSource)
@@ -193,11 +192,12 @@ bool NeoChatConnection::setAvatar(const QUrl &avatarSource)
         callApi<SetAvatarUrlJob>(user()->id(), avatarSource);
         return true;
     }
-    if (QImageReader(decoded).read().isNull()) {
-        return false;
-    } else {
-        return user()->setAvatar(decoded);
-    }
+    return false;
+    // if (QImageReader(decoded).read().isNull()) {
+    //     return false;
+    // } else {
+    //     return user()->setAvatar(decoded);
+    // }
 }
 
 QVariantList NeoChatConnection::getSupportedRoomVersions() const
@@ -221,26 +221,26 @@ bool NeoChatConnection::canCheckMutualRooms() const
 
 void NeoChatConnection::changePassword(const QString &currentPassword, const QString &newPassword)
 {
-    auto job = callApi<NeochatChangePasswordJob>(newPassword, false);
-    connect(job, &BaseJob::result, this, [this, job, currentPassword, newPassword] {
-        if (job->error() == 103) {
-            QJsonObject replyData = job->jsonData();
-            QJsonObject authData;
-            authData["session"_ls] = replyData["session"_ls];
-            authData["password"_ls] = currentPassword;
-            authData["type"_ls] = "m.login.password"_ls;
-            authData["user"_ls] = user()->id();
-            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, user()->id()}};
-            authData["identifier"_ls] = identifier;
-            NeochatChangePasswordJob *innerJob = callApi<NeochatChangePasswordJob>(newPassword, false, authData);
-            connect(innerJob, &BaseJob::success, this, [this]() {
-                Q_EMIT passwordStatus(PasswordStatus::Success);
-            });
-            connect(innerJob, &BaseJob::failure, this, [innerJob, this]() {
-                Q_EMIT passwordStatus(innerJob->jsonData()["errcode"_ls] == "M_FORBIDDEN"_ls ? PasswordStatus::Wrong : PasswordStatus::Other);
-            });
-        }
-    });
+    // auto job = callApi<NeochatChangePasswordJob>(newPassword, false);
+    // connect(job, &BaseJob::result, this, [this, job, currentPassword, newPassword] {
+    //     if (job->error() == 103) {
+    //         QJsonObject replyData = job->jsonData();
+    //         QJsonObject authData;
+    //         authData["session"_ls] = replyData["session"_ls];
+    //         authData["password"_ls] = currentPassword;
+    //         authData["type"_ls] = "m.login.password"_ls;
+    //         authData["user"_ls] = user()->id();
+    //         QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, user()->id()}};
+    //         authData["identifier"_ls] = identifier;
+    //         NeochatChangePasswordJob *innerJob = callApi<NeochatChangePasswordJob>(newPassword, false, authData);
+    //         connect(innerJob, &BaseJob::success, this, [this]() {
+    //             Q_EMIT passwordStatus(PasswordStatus::Success);
+    //         });
+    //         connect(innerJob, &BaseJob::failure, this, [innerJob, this]() {
+    //             Q_EMIT passwordStatus(innerJob->jsonData()["errcode"_ls] == "M_FORBIDDEN"_ls ? PasswordStatus::Wrong : PasswordStatus::Other);
+    //         });
+    //     }
+    // });
 }
 
 void NeoChatConnection::setLabel(const QString &label)
@@ -259,29 +259,29 @@ QString NeoChatConnection::label() const
 
 void NeoChatConnection::deactivateAccount(const QString &password)
 {
-    auto job = callApi<NeoChatDeactivateAccountJob>();
-    connect(job, &BaseJob::result, this, [this, job, password] {
-        if (job->error() == 103) {
-            QJsonObject replyData = job->jsonData();
-            QJsonObject authData;
-            authData["session"_ls] = replyData["session"_ls];
-            authData["password"_ls] = password;
-            authData["type"_ls] = "m.login.password"_ls;
-            authData["user"_ls] = user()->id();
-            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, user()->id()}};
-            authData["identifier"_ls] = identifier;
-            auto innerJob = callApi<NeoChatDeactivateAccountJob>(authData);
-            connect(innerJob, &BaseJob::success, this, [this]() {
-                logout(false);
-            });
-        }
-    });
+    // auto job = callApi<NeoChatDeactivateAccountJob>();
+    // connect(job, &BaseJob::result, this, [this, job, password] {
+    //     if (job->error() == 103) {
+    //         QJsonObject replyData = job->jsonData();
+    //         QJsonObject authData;
+    //         authData["session"_ls] = replyData["session"_ls];
+    //         authData["password"_ls] = password;
+    //         authData["type"_ls] = "m.login.password"_ls;
+    //         authData["user"_ls] = user()->id();
+    //         QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, user()->id()}};
+    //         authData["identifier"_ls] = identifier;
+    //         auto innerJob = callApi<NeoChatDeactivateAccountJob>(authData);
+    //         connect(innerJob, &BaseJob::success, this, [this]() {
+    //             logout(false);
+    //         });
+    //     }
+    // });
 }
 
-ThreePIdModel *NeoChatConnection::threePIdModel() const
-{
-    return m_threePIdModel;
-}
+// ThreePIdModel *NeoChatConnection::threePIdModel() const
+// {
+//     return m_threePIdModel;
+// }
 
 bool NeoChatConnection::hasIdentityServer() const
 {
@@ -412,28 +412,28 @@ qsizetype NeoChatConnection::homeNotifications() const
 {
     qsizetype notifications = 0;
     QStringList added;
-    const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
-    for (const auto &r : allRooms()) {
-        if (const auto room = static_cast<NeoChatRoom *>(r)) {
-            if (!added.contains(room->id()) && !room->isDirectChat() && !spaceHierarchyCache.isChild(room->id())) {
-                notifications += dynamic_cast<NeoChatRoom *>(room)->contextAwareNotificationCount();
-                added += room->id();
-            }
-        }
-    }
+    // const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
+    // for (const auto &r : allRooms()) {
+    //     if (const auto room = static_cast<NeoChatRoom *>(r)) {
+    //         if (!added.contains(room->id()) && !room->isDirectChat() && !spaceHierarchyCache.isChild(room->id())) {
+    //             notifications += dynamic_cast<NeoChatRoom *>(room)->contextAwareNotificationCount();
+    //             added += room->id();
+    //         }
+    //     }
+    // }
     return notifications;
 }
 
 bool NeoChatConnection::homeHaveHighlightNotifications() const
 {
-    const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
-    for (const auto &r : allRooms()) {
-        if (const auto room = static_cast<NeoChatRoom *>(r)) {
-            if (!room->isDirectChat() && !spaceHierarchyCache.isChild(room->id()) && room->highlightCount() > 0) {
-                return true;
-            }
-        }
-    }
+    // const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
+    // for (const auto &r : allRooms()) {
+    //     if (const auto room = static_cast<NeoChatRoom *>(r)) {
+    //         if (!room->isDirectChat() && !spaceHierarchyCache.isChild(room->id()) && room->highlightCount() > 0) {
+    //             return true;
+    //         }
+    //     }
+    // }
     return false;
 }
 
@@ -448,39 +448,40 @@ bool NeoChatConnection::directChatInvites() const
     return false;
 }
 
-QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
-{
-#ifdef HAVE_KUNIFIEDPUSH
-    QUrl gatewayEndpoint(endpoint);
-    gatewayEndpoint.setPath(QStringLiteral("/_matrix/push/v1/notify"));
-
-    QNetworkRequest checkGateway(gatewayEndpoint);
-    auto reply = co_await NetworkAccessManager::instance()->get(checkGateway);
-
-    // We want to check if this UnifiedPush server has a Matrix gateway
-    // This is because Matrix does not natively support UnifiedPush
-    const auto &replyJson = QJsonDocument::fromJson(reply->readAll()).object();
-
-    if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == QStringLiteral("matrix")) {
-        callApi<PostPusherJob>(endpoint,
-                               QStringLiteral("http"),
-                               QStringLiteral("org.kde.neochat"),
-                               QStringLiteral("NeoChat"),
-                               deviceId(),
-                               QString(), // profileTag is intentionally left empty for now, it's optional
-                               QStringLiteral("en-US"),
-                               PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")},
-                               false);
-
-        qInfo() << "Registered for push notifications";
-    } else {
-        qWarning() << "There's no gateway, not setting up push notifications.";
-    }
-#else
-    Q_UNUSED(endpoint)
-    co_return;
-#endif
-}
+// QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
+// {
+//     // #ifdef HAVE_KUNIFIEDPUSH
+//     //     QUrl gatewayEndpoint(endpoint);
+//     //     gatewayEndpoint.setPath(QStringLiteral("/_matrix/push/v1/notify"));
+//     //
+//     //     QNetworkRequest checkGateway(gatewayEndpoint);
+//     //     auto reply = co_await NetworkAccessManager::instance()->get(checkGateway);
+//     //
+//     //     // We want to check if this UnifiedPush server has a Matrix gateway
+//     //     // This is because Matrix does not natively support UnifiedPush
+//     //     const auto &replyJson = QJsonDocument::fromJson(reply->readAll()).object();
+//     //
+//     //     if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == QStringLiteral("matrix")) {
+//     //         callApi<PostPusherJob>(endpoint,
+//     //                                QStringLiteral("http"),
+//     //                                QStringLiteral("org.kde.neochat"),
+//     //                                QStringLiteral("NeoChat"),
+//     //                                deviceId(),
+//     //                                QString(), // profileTag is intentionally left empty for now, it's optional
+//     //                                QStringLiteral("en-US"),
+//     //                                PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")},
+//     //                                false);
+//     //
+//     //         qInfo() << "Registered for push notifications";
+//     //     } else {
+//     //         qWarning() << "There's no gateway, not setting up push notifications.";
+//     //     }
+//     // #else
+//     //     Q_UNUSED(endpoint)
+//     //     co_return;
+//     // #endif
+//     co_return;
+// }
 
 QString NeoChatConnection::deviceKey() const
 {
@@ -489,14 +490,16 @@ QString NeoChatConnection::deviceKey() const
 
 QString NeoChatConnection::encryptionKey() const
 {
-    auto query = database()->prepareQuery(QStringLiteral("SELECT curveKey FROM tracked_devices WHERE matrixId=:matrixId AND deviceid=:deviceId LIMIT 1;"));
-    query.bindValue(QStringLiteral(":matrixId"), userId());
-    query.bindValue(QStringLiteral(":deviceId"), deviceId());
-    database()->execute(query);
-    if (!query.next()) {
-        return {};
-    }
-    return query.value(0).toString();
+    // auto query = database()->prepareQuery(QStringLiteral("SELECT curveKey FROM tracked_devices WHERE matrixId=:matrixId AND deviceid=:deviceId LIMIT 1;"));
+    // query.bindValue(QStringLiteral(":matrixId"), userId());
+    // query.bindValue(QStringLiteral(":deviceId"), deviceId());
+    // database()->execute(query);
+    // if (!query.next()) {
+    //     return {};
+    // }
+    // return query.value(0).toString();
+
+    return {};
 }
 
 bool NeoChatConnection::isOnline() const
@@ -518,37 +521,37 @@ QString NeoChatConnection::accountDataJsonString(const QString &type) const
     return QString::fromUtf8(QJsonDocument(accountDataJson(type)).toJson());
 }
 
-LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
-{
-    if (!NeoChatConfig::showLinkPreview()) {
-        return nullptr;
-    }
+// LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
+// {
+//     if (!NeoChatConfig::showLinkPreview()) {
+//         return nullptr;
+//     }
+//
+//     auto previewer = m_linkPreviewers.object(link);
+//     if (previewer != nullptr) {
+//         return previewer;
+//     }
+//
+//     previewer = new LinkPreviewer(link, this);
+//     m_linkPreviewers.insert(link, previewer);
+//     return previewer;
+// }
 
-    auto previewer = m_linkPreviewers.object(link);
-    if (previewer != nullptr) {
-        return previewer;
-    }
-
-    previewer = new LinkPreviewer(link, this);
-    m_linkPreviewers.insert(link, previewer);
-    return previewer;
-}
-
-#if Quotient_VERSION_MINOR > 8
-KeyImport::Error NeoChatConnection::exportMegolmSessions(const QString &passphrase, const QString &path)
-{
-    KeyImport keyImport;
-    auto result = keyImport.exportKeys(passphrase, this);
-    if (!result.has_value()) {
-        return result.error();
-    }
-    QUrl url(path);
-    QFile file(url.toLocalFile());
-    file.open(QFile::WriteOnly);
-    file.write(result.value());
-    file.close();
-    return KeyImport::Success;
-}
-#endif
+// #if Quotient_VERSION_MINOR > 8
+// KeyImport::Error NeoChatConnection::exportMegolmSessions(const QString &passphrase, const QString &path)
+// {
+//     KeyImport keyImport;
+//     auto result = keyImport.exportKeys(passphrase, this);
+//     if (!result.has_value()) {
+//         return result.error();
+//     }
+//     QUrl url(path);
+//     QFile file(url.toLocalFile());
+//     file.open(QFile::WriteOnly);
+//     file.write(result.value());
+//     file.close();
+//     return KeyImport::Success;
+// }
+// #endif
 
 #include "moc_neochatconnection.cpp"

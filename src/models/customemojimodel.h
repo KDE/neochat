@@ -7,7 +7,7 @@
 #include <QQmlEngine>
 #include <QRegularExpression>
 
-#include "neochatconnection.h"
+// #include "neochatconnection.h"
 
 struct CustomEmoji {
     QString name; // with :semicolons:
@@ -32,7 +32,7 @@ class CustomEmojiModel : public QAbstractListModel
     QML_ELEMENT
     QML_SINGLETON
 
-    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    // Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     /**
@@ -101,8 +101,8 @@ public:
      */
     Q_INVOKABLE void removeEmoji(const QString &name);
 
-    void setConnection(NeoChatConnection *connection);
-    NeoChatConnection *connection() const;
+    // void setConnection(NeoChatConnection *connection);
+    // NeoChatConnection *connection() const;
 
 Q_SIGNALS:
     void connectionChanged();
@@ -110,7 +110,7 @@ Q_SIGNALS:
 private:
     explicit CustomEmojiModel(QObject *parent = nullptr);
     QList<CustomEmoji> m_emojis;
-    QPointer<NeoChatConnection> m_connection;
+    // QPointer<NeoChatConnection> m_connection;
 
     void fetchEmojis();
 };

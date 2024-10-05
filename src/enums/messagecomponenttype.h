@@ -11,7 +11,7 @@
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 
-#include "events/pollevent.h"
+// #include "events/pollevent.h"
 
 /**
  * @class MessageComponentType
@@ -100,13 +100,13 @@ public:
         if (is<const EncryptedEvent>(event)) {
             return MessageComponentType::Encrypted;
         }
-        if (is<PollStartEvent>(event)) {
-            const auto pollEvent = eventCast<const PollStartEvent>(&event);
-            if (pollEvent->isRedacted()) {
-                return MessageComponentType::Text;
-            }
-            return MessageComponentType::Poll;
-        }
+        // if (is<PollStartEvent>(event)) {
+        //     const auto pollEvent = eventCast<const PollStartEvent>(&event);
+        //     if (pollEvent->isRedacted()) {
+        //         return MessageComponentType::Text;
+        //     }
+        //     return MessageComponentType::Poll;
+        // }
 
         return MessageComponentType::Other;
     }
