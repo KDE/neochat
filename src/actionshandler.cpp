@@ -126,11 +126,6 @@ void ActionsHandler::handleMessage(NeoChatRoom *room, QString handledText, ChatB
     textHandler.setData(handledText);
     handledText = textHandler.handleSendText();
 
-    if (handledText.count("<p>"_ls) == 1 && handledText.count("</p>"_ls) == 1) {
-        handledText.remove("<p>"_ls);
-        handledText.remove("</p>"_ls);
-    }
-
     if (handledText.length() == 0) {
         return;
     }

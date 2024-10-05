@@ -20,6 +20,8 @@
 #include "models/customemojimodel.h"
 #include "utils.h"
 
+using namespace Qt::StringLiterals;
+
 static const QStringList allowedTags = {
     QStringLiteral("font"),    QStringLiteral("del"),    QStringLiteral("h1"),         QStringLiteral("h2"),     QStringLiteral("h3"),    QStringLiteral("h4"),
     QStringLiteral("h5"),      QStringLiteral("h6"),     QStringLiteral("blockquote"), QStringLiteral("p"),      QStringLiteral("a"),     QStringLiteral("ul"),
@@ -93,6 +95,12 @@ QString TextHandler::handleSendText()
 
         m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
     }
+
+    if (outputString.count("<p>"_L1) == 1 && outputString.count("</p>"_L1) == 1 && outputString.startsWith("<p>"_L1) && outputString.endsWith("</p>"_L1)) {
+        outputString.remove("<p>"_L1);
+        outputString.remove("</p>"_L1);
+    }
+
     return outputString;
 }
 
@@ -170,6 +178,12 @@ TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom
      * convert as that is what is needed for Qt::RichText.
      */
     outputString.replace(TextRegex::strikethrough, QStringLiteral("<s>\\1</s>"));
+
+    if (outputString.count("<p>"_L1) == 1 && outputString.count("</p>"_L1) == 1 && outputString.startsWith("<p>"_L1) && outputString.endsWith("</p>"_L1)) {
+        outputString.remove("<p>"_L1);
+        outputString.remove("</p>"_L1);
+    }
+
     return outputString;
 }
 

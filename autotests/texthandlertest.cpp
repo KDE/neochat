@@ -84,11 +84,11 @@ void TextHandlerTest::initTestCase()
 
 void TextHandlerTest::allowedAttributes()
 {
-    const QString testInputString1 = QStringLiteral("<p><span data-mx-spoiler><font color=#FFFFFF>Test</font><span></p>");
-    const QString testOutputString1 = QStringLiteral("<p><span data-mx-spoiler><font color=#FFFFFF>Test</font><span></p>");
+    const QString testInputString1 = QStringLiteral("<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>");
+    const QString testOutputString1 = QStringLiteral("<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>");
     // Handle urls where the href has either single (') or double (") quotes.
-    const QString testInputString2 = QStringLiteral("<p><a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a></p>");
-    const QString testOutputString2 = QStringLiteral("<p><a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a></p>");
+    const QString testInputString2 = QStringLiteral("<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>");
+    const QString testOutputString2 = QStringLiteral("<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString1);
@@ -116,7 +116,7 @@ void TextHandlerTest::stripDisallowedTags()
 void TextHandlerTest::stripDisallowedAttributes()
 {
     const QString testInputString = QStringLiteral("<p style=\"font-size:50px;\" color=#FFFFFF>Test</p>");
-    const QString testOutputString = QStringLiteral("<p>Test</p>");
+    const QString testOutputString = QStringLiteral("Test");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -143,8 +143,8 @@ void TextHandlerTest::emptyCodeTags()
 
 void TextHandlerTest::sendSimpleStringCase()
 {
-    const QString testInputString = QStringLiteral("This data should just be put in a paragraph.");
-    const QString testOutputString = QStringLiteral("<p>This data should just be put in a paragraph.</p>");
+    const QString testInputString = QStringLiteral("This data should just be left alone.");
+    const QString testOutputString = QStringLiteral("This data should just be left alone.");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -157,8 +157,8 @@ void TextHandlerTest::sendSingleParaMarkup()
     const QString testInputString = QStringLiteral(
         "Text para with **bold**, *italic*, [link](https://kde.org), ![image](mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e), `inline code`.");
     const QString testOutputString = QStringLiteral(
-        "<p>Text para with <strong>bold</strong>, <em>italic</em>, <a href=\"https://kde.org\">link</a>, <img "
-        "src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\">, <code>inline code</code>.</p>");
+        "Text para with <strong>bold</strong>, <em>italic</em>, <a href=\"https://kde.org\">link</a>, <img "
+        "src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\">, <code>inline code</code>.");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -184,7 +184,7 @@ void TextHandlerTest::sendMultipleSectionMarkup()
 void TextHandlerTest::sendBadLinks()
 {
     const QString testInputString = QStringLiteral("[link](kde.org), ![image](https://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e)");
-    const QString testOutputString = QStringLiteral("<p><a>link</a>, <img alt=\"image\"></p>");
+    const QString testOutputString = QStringLiteral("<a>link</a>, <img alt=\"image\">");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -221,8 +221,8 @@ void TextHandlerTest::sendCodeClass()
 void TextHandlerTest::sendCustomEmoji()
 {
     const QString testInputString = QStringLiteral(":test:");
-    const QString testOutputString = QStringLiteral(
-        "<p><img data-mx-emoticon=\"\" src=\"mxc://example.org/test\" alt=\":test:\" title=\":test:\" height=\"32\" vertical-align=\"middle\" /></p>");
+    const QString testOutputString =
+        QStringLiteral("<img data-mx-emoticon=\"\" src=\"mxc://example.org/test\" alt=\":test:\" title=\":test:\" height=\"32\" vertical-align=\"middle\" />");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -235,7 +235,7 @@ void TextHandlerTest::sendCustomEmojiCode_data()
     QTest::addColumn<QString>("testInputString");
     QTest::addColumn<QString>("testOutputString");
 
-    QTest::newRow("inline") << QStringLiteral("`:test:`") << QStringLiteral("<p><code>:test:</code></p>");
+    QTest::newRow("inline") << QStringLiteral("`:test:`") << QStringLiteral("<code>:test:</code>");
     QTest::newRow("block") << QStringLiteral("```\n:test:\n```") << QStringLiteral("<pre><code>:test:\n</code></pre>");
 }
 
@@ -373,7 +373,7 @@ void TextHandlerTest::receivePlainStripMarkup()
 void TextHandlerTest::receiveRichUserPill()
 {
     const QString testInputString = QStringLiteral("<p><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></p>");
-    const QString testOutputString = QStringLiteral("<p><b><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></b></p>");
+    const QString testOutputString = QStringLiteral("<b><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></b>");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -384,7 +384,7 @@ void TextHandlerTest::receiveRichUserPill()
 void TextHandlerTest::receiveRichStrikethrough()
 {
     const QString testInputString = QStringLiteral("<p><del>Test</del></p>");
-    const QString testOutputString = QStringLiteral("<p><s>Test</s></p>");
+    const QString testOutputString = QStringLiteral("<s>Test</s>");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
