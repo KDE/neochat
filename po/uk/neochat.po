@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-04 00:39+0000\n"
-"PO-Revision-Date: 2024-09-14 20:01+0300\n"
+"POT-Creation-Date: 2024-10-05 00:39+0000\n"
+"PO-Revision-Date: 2024-10-04 07:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -105,33 +105,31 @@ msgid "Network Error: %1"
 msgstr "Помилка у мережі: %1"
 
 #: src/controller.cpp:253
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Не знайдено жетона доступу"
+msgstr "Не знайдено жетона доступу: можливо, його вилучено?"
 
 #: src/controller.cpp:257
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Будь ласка, дозвольте NeoChat читання жетона доступу"
+msgstr ""
+"У доступі до ланцюжка ключів відмовлено: будь ласка, дозвольте NeoChat "
+"читання жетона доступу"
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
-"Будь ласка, встановіть засіб керування ключами, наприклад KWallet або GNOME "
-"keyring у Linux"
+"Немає доступного ланцюжка ключів: будь ласка, встановіть засіб керування "
+"ключами, наприклад KWallet або GNOME keyring у Linux"
 
 #: src/controller.cpp:263
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Не вдалося прочитати жетон доступу"
+msgstr "Не вдалося прочитати жетон доступу: %1"
 
 #: src/controller.cpp:361
 #, kde-format
@@ -1835,13 +1833,13 @@ msgid ", "
 msgstr ", "
 
 #: src/neochatconnection.cpp:86
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
-"Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
+"Файл є надто великим для отримання.<br />Зв'яжіться із адміністратором "
+"вашого сервера matrix, щоб отримати допомогу."
 
 #: src/neochatconnection.cpp:317
 #, kde-format
@@ -3040,13 +3038,13 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Закрити панель відомостей щодо кімнати"
 
-#: src/qml/Main.qml:265
+#: src/qml/Main.qml:262
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/Main.qml:301 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:298 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -4153,16 +4151,16 @@ msgid "Working"
 msgstr "Працюємо"
 
 #: src/roommanager.cpp:137
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 не є правильним ідентифікатором Matrix"
+msgstr ""
+"Помилково форматований або порожній ідентифікатор Matrix<br />%1 не є "
+"правильним ідентифікатором Matrix"
 
 #: src/roommanager.cpp:354
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Не вдалося приєднатися до кімнати"
+msgstr "Не вдалося приєднатися до кімнати<br />%1"
 
 #: src/roommanager.cpp:390
 #, kde-format
@@ -4170,10 +4168,9 @@ msgid "You requested to join '%1'"
 msgstr "Ви надіслали запит щодо долучення до «%1»"
 
 #: src/roommanager.cpp:394
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Не вдалося надіслати запит щодо долучення до кімнати"
+msgstr "Не вдалося надіслати запит щодо долучення до кімнати<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
