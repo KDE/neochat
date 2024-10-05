@@ -14,7 +14,6 @@ class ActionsHandlerTest : public QObject
 
 private:
     Quotient::Connection *connection = Quotient::Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    ActionsHandler *actionsHandler = new ActionsHandler(this);
 
 private Q_SLOTS:
     void nullObject();
@@ -23,20 +22,19 @@ private Q_SLOTS:
 void ActionsHandlerTest::nullObject()
 {
     QTest::ignoreMessage(QtWarningMsg, "ActionsHandler::handleMessageEvent - called with m_room and/or chatBarCache set to nullptr.");
-    actionsHandler->handleMessageEvent(nullptr);
+    ActionsHandler::handleMessageEvent(nullptr, nullptr);
 
     auto chatBarCache = new ChatBarCache(this);
     QTest::ignoreMessage(QtWarningMsg, "ActionsHandler::handleMessageEvent - called with m_room and/or chatBarCache set to nullptr.");
-    actionsHandler->handleMessageEvent(chatBarCache);
+    ActionsHandler::handleMessageEvent(nullptr, chatBarCache);
 
     auto room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"));
-    actionsHandler->setRoom(room);
     QTest::ignoreMessage(QtWarningMsg, "ActionsHandler::handleMessageEvent - called with m_room and/or chatBarCache set to nullptr.");
-    actionsHandler->handleMessageEvent(nullptr);
+    ActionsHandler::handleMessageEvent(room, nullptr);
 
     // The final one should throw no warning so we make sure.
     QTest::failOnWarning("ActionsHandler::handleMessageEvent - called with m_room and/or chatBarCache set to nullptr.");
-    actionsHandler->handleMessageEvent(chatBarCache);
+    ActionsHandler::handleMessageEvent(room, chatBarCache);
 }
 
 QTEST_GUILESS_MAIN(ActionsHandlerTest)

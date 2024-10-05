@@ -28,14 +28,6 @@ QQC2.TextArea {
     onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
 
     /**
-     * @brief The ActionsHandler object to use.
-     *
-     * This is expected to have the correct room set otherwise messages will be sent
-     * to the wrong room.
-     */
-    required property ActionsHandler actionsHandler
-
-    /**
      * @brief The maximum width that the bubble's content can be.
      */
     property real maxContentWidth: -1
@@ -177,7 +169,7 @@ QQC2.TextArea {
         }
 
         function post() {
-            root.actionsHandler.handleMessageEvent(root.chatBarCache);
+            root.chatBarCache.postMessage();
             root.clear();
             root.chatBarCache.clearRelations();
         }

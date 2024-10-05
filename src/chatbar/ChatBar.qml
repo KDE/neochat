@@ -54,14 +54,6 @@ QQC2.Control {
     }
 
     /**
-     * @brief The ActionsHandler object to use.
-     *
-     * This is expected to have the correct room set otherwise messages will be sent
-     * to the wrong room.
-     */
-    required property ActionsHandler actionsHandler
-
-    /**
      * @brief The list of actions in the ChatBar.
      *
      * Each of these will be visualised in the ChatBar so new actions can be added
@@ -409,7 +401,7 @@ QQC2.Control {
         onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
 
         function postMessage() {
-            root.actionsHandler.handleMessageEvent(_private.chatBarCache);
+            _private.chatBarCache.postMessage();
             repeatTimer.stop();
             root.currentRoom.markAllMessagesAsRead();
             textField.clear();

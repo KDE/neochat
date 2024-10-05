@@ -52,14 +52,6 @@ QQC2.Control {
     required property var contentModel
 
     /**
-     * @brief The ActionsHandler object to use.
-     *
-     * This is expected to have the correct room set otherwise messages will be sent
-     * to the wrong room.
-     */
-    property ActionsHandler actionsHandler
-
-    /**
      * @brief Whether the bubble background should be shown.
      */
     property alias showBackground: bubbleBackground.visible
@@ -107,7 +99,6 @@ QQC2.Control {
                 delegate: MessageComponentChooser {
                     room: root.room
                     index: root.index
-                    actionsHandler: root.actionsHandler
                     timeline: root.timeline
                     maxContentWidth: root.maxContentWidth
 

@@ -202,6 +202,11 @@ public:
      */
     void setSavedText(const QString &savedText);
 
+    /**
+     * @brief Post the contents of the cache as a message in the room.
+     */
+    Q_INVOKABLE void postMessage();
+
 Q_SIGNALS:
     void textChanged();
     void relationIdChanged(const QString &oldEventId, const QString &newEventId);

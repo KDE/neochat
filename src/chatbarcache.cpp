@@ -5,6 +5,7 @@
 
 #include <Quotient/roommember.h>
 
+#include "actionshandler.h"
 #include "chatdocumenthandler.h"
 #include "eventhandler.h"
 #include "neochatroom.h"
@@ -257,6 +258,17 @@ QString ChatBarCache::savedText() const
 void ChatBarCache::setSavedText(const QString &savedText)
 {
     m_savedText = savedText;
+}
+
+void ChatBarCache::postMessage()
+{
+    auto room = dynamic_cast<NeoChatRoom *>(parent());
+    if (room == nullptr) {
+        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
+        return;
+    }
+
+    ActionsHandler::handleMessageEvent(room, this);
 }
 
 #include "moc_chatbarcache.cpp"

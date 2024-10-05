@@ -295,7 +295,6 @@ TimelineDelegate {
                 } else {
                    return root.contentModel;
                 }
-                actionsHandler: root.ListView.view?.actionsHandler ?? null
                 timeline: root.ListView.view
 
                 showHighlight: root.showHighlight

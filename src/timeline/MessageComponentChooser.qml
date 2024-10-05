@@ -23,14 +23,6 @@ DelegateChooser {
     required property var index
 
     /**
-     * @brief The ActionsHandler object to use.
-     *
-     * This is expected to have the correct room set otherwise messages will be sent
-     * to the wrong room.
-     */
-    required property ActionsHandler actionsHandler
-
-    /**
      * @brief The timeline ListView this component is being used in.
      */
     required property ListView timeline
@@ -208,7 +200,6 @@ DelegateChooser {
         roleValue: MessageComponentType.ChatBar
         delegate: ChatBarComponent {
             room: root.room
-            actionsHandler: root.actionsHandler
             maxContentWidth: root.maxContentWidth
         }
     }

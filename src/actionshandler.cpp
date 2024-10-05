@@ -1,70 +1,48 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carlschwan@kde.org>
+// SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actionshandler.h"
 
-#include <Quotient/csapi/joining.h>
-#include <Quotient/events/roommemberevent.h>
-
-#include <cmark.h>
-
-#include <KLocalizedString>
-#include <QStringBuilder>
-
+#include "chatbarcache.h"
 #include "models/actionsmodel.h"
 #include "neochatconfig.h"
 #include "texthandler.h"
 
 using namespace Quotient;
+using namespace Qt::StringLiterals;
 
-ActionsHandler::ActionsHandler(QObject *parent)
-    : QObject(parent)
+void ActionsHandler::handleMessageEvent(NeoChatRoom *room, ChatBarCache *chatBarCache)
 {
-}
-
-NeoChatRoom *ActionsHandler::room() const
-{
-    return m_room;
-}
-
-void ActionsHandler::setRoom(NeoChatRoom *room)
-{
-    if (m_room == room) {
-        return;
-    }
-
-    m_room = room;
-    Q_EMIT roomChanged();
-}
-
-void ActionsHandler::handleMessageEvent(ChatBarCache *chatBarCache)
-{
-    if (!m_room || !chatBarCache) {
+    if (room == nullptr || chatBarCache == nullptr) {
         qWarning() << "ActionsHandler::handleMessageEvent - called with m_room and/or chatBarCache set to nullptr.";
         return;
     }
 
-    checkEffects(chatBarCache->text());
     if (!chatBarCache->attachmentPath().isEmpty()) {
         QUrl url(chatBarCache->attachmentPath());
         auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
-        m_room->uploadFile(QUrl(path), chatBarCache->text().isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : chatBarCache->text());
+        room->uploadFile(QUrl(path), chatBarCache->text().isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : chatBarCache->text());
         chatBarCache->setAttachmentPath({});
         chatBarCache->setText({});
         return;
     }
 
-    QString handledText = chatBarCache->text();
-    handledText = handleMentions(handledText, chatBarCache->mentions());
-    handleMessage(chatBarCache->text(), handledText, chatBarCache);
+    const auto handledText = handleMentions(chatBarCache);
+    const auto result = handleQuickEdit(room, handledText);
+    if (!result) {
+        handleMessage(room, handledText, chatBarCache);
+    }
 }
 
-QString ActionsHandler::handleMentions(QString handledText, QList<Mention> *mentions)
+QString ActionsHandler::handleMentions(ChatBarCache *chatBarCache)
 {
+    const auto mentions = chatBarCache->mentions();
     std::sort(mentions->begin(), mentions->end(), [](const auto &a, const auto &b) -> bool {
         return a.cursor.anchor() > b.cursor.anchor();
     });
 
+    auto handledText = chatBarCache->text();
     for (const auto &mention : *mentions) {
         if (mention.text.isEmpty() || mention.id.isEmpty()) {
             continue;
@@ -78,48 +56,60 @@ QString ActionsHandler::handleMentions(QString handledText, QList<Mention> *ment
     return handledText;
 }
 
-void ActionsHandler::handleMessage(const QString &text, QString handledText, ChatBarCache *chatBarCache)
+bool ActionsHandler::handleQuickEdit(NeoChatRoom *room, const QString &handledText)
 {
-    Q_ASSERT(m_room);
+    if (room == nullptr) {
+        return false;
+    }
+
     if (NeoChatConfig::allowQuickEdit()) {
         QRegularExpression sed(QStringLiteral("^s/([^/]*)/([^/]*)(/g)?$"));
-        auto match = sed.match(text);
+        auto match = sed.match(handledText);
         if (match.hasMatch()) {
             const QString regex = match.captured(1);
             const QString replacement = match.captured(2).toHtmlEscaped();
             const QString flags = match.captured(3);
 
-            for (auto it = m_room->messageEvents().crbegin(); it != m_room->messageEvents().crend(); it++) {
+            for (auto it = room->messageEvents().crbegin(); it != room->messageEvents().crend(); it++) {
                 if (const auto event = eventCast<const RoomMessageEvent>(&**it)) {
-                    if (event->senderId() == m_room->localMember().id() && event->hasTextContent()) {
+                    if (event->senderId() == room->localMember().id() && event->hasTextContent()) {
                         QString originalString;
                         if (event->content()) {
                             originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content())->body;
                         } else {
                             originalString = event->plainBody();
                         }
-                        if (flags == "/g"_ls) {
-                            m_room->postHtmlMessage(handledText, originalString.replace(regex, replacement), event->msgtype(), {}, event->id());
+                        if (flags == "/g"_L1) {
+                            room->postHtmlMessage(handledText, originalString.replace(regex, replacement), event->msgtype(), {}, event->id());
                         } else {
-                            m_room->postHtmlMessage(handledText,
-                                                    originalString.replace(originalString.indexOf(regex), regex.size(), replacement),
-                                                    event->msgtype(),
-                                                    {},
-                                                    event->id());
+                            room->postHtmlMessage(handledText,
+                                                  originalString.replace(originalString.indexOf(regex), regex.size(), replacement),
+                                                  event->msgtype(),
+                                                  {},
+                                                  event->id());
                         }
-                        return;
+                        return true;
                     }
                 }
             }
         }
     }
+    return false;
+}
+
+void ActionsHandler::handleMessage(NeoChatRoom *room, QString handledText, ChatBarCache *chatBarCache)
+{
+    if (room == nullptr) {
+        return;
+    }
+
     auto messageType = RoomMessageEvent::MsgType::Text;
 
     if (handledText.startsWith(QLatin1Char('/'))) {
         for (const auto &action : ActionsModel::instance().allActions()) {
             if (handledText.indexOf(action.prefix) == 1
                 && (handledText.indexOf(" "_ls) == action.prefix.length() + 1 || handledText.length() == action.prefix.length() + 1)) {
-                handledText = action.handle(handledText.mid(action.prefix.length() + 1).trimmed(), m_room, chatBarCache);
+                handledText = action.handle(handledText.mid(action.prefix.length() + 1).trimmed(), room, chatBarCache);
                 if (action.messageType.has_value()) {
                     messageType = *action.messageType;
                 }
@@ -145,26 +135,7 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, Cha
         return;
     }
 
-    m_room->postMessage(text, handledText, messageType, chatBarCache->replyId(), chatBarCache->editId(), chatBarCache->threadId());
-}
-
-void ActionsHandler::checkEffects(const QString &text)
-{
-    std::optional<QString> effect = std::nullopt;
-    if (text.contains(QStringLiteral("\u2744"))) {
-        effect = QLatin1String("snowflake");
-    } else if (text.contains(QStringLiteral("\u1F386"))) {
-        effect = QLatin1String("fireworks");
-    } else if (text.contains(QStringLiteral("\u2F387"))) {
-        effect = QLatin1String("fireworks");
-    } else if (text.contains(QStringLiteral("\u1F389"))) {
-        effect = QLatin1String("confetti");
-    } else if (text.contains(QStringLiteral("\u1F38A"))) {
-        effect = QLatin1String("confetti");
-    }
-    if (effect.has_value()) {
-        Q_EMIT showEffect(*effect);
-    }
+    room->postMessage(chatBarCache->text(), handledText, messageType, chatBarCache->replyId(), chatBarCache->editId(), chatBarCache->threadId());
 }
 
 #include "moc_actionshandler.cpp"
