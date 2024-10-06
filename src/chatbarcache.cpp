@@ -120,7 +120,11 @@ QString ChatBarCache::relationMessage() const
 
     if (auto event = room->findInTimeline(m_relationId); event != room->historyEdge()) {
         EventHandler eventhandler(room, &**event);
-        return eventhandler.getMarkdownBody();
+        if (isEditing()) {
+            return eventhandler.getMarkdownBody();
+        } else {
+            return eventhandler.getMarkdownBody().toHtmlEscaped();
+        }
     }
     return {};
 }
