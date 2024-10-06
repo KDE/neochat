@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-09-16 01:25+0200\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"PO-Revision-Date: 2024-10-06 01:43+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -29,42 +29,42 @@ msgstr "Escoger archivo local"
 msgid "Clipboard image"
 msgstr "Imagen del portapapeles"
 
-#: src/chatbar/ChatBar.qml:79
+#: src/chatbar/ChatBar.qml:71
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Adjuntar una imagen o un archivo"
 
-#: src/chatbar/ChatBar.qml:97
+#: src/chatbar/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis y pegatinas"
 
-#: src/chatbar/ChatBar.qml:114
+#: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgid "Send a Location"
 msgstr "Enviar una ubicación"
 
-#: src/chatbar/ChatBar.qml:130
+#: src/chatbar/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "Enviar mensaje"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Enviar un mensaje cifrado..."
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Definir un subtítulo de adjunto..."
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send a message…"
 msgstr "Enviar un mensaje..."
 
-#: src/chatbar/ChatBar.qml:382
+#: src/chatbar/ChatBar.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -104,32 +104,31 @@ msgid "Network Error: %1"
 msgstr "Error de red: %1"
 
 #: src/controller.cpp:253
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "El token de acceso no se ha encontrado"
+msgstr "El token de acceso no se ha encontrado (¿tal vez se ha borrado?)"
 
 #: src/controller.cpp:257
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Por favor, permita que NeoChat pueda leer el token de acceso"
+msgstr ""
+"Se ha denegado el acceso a la cadena de claves: Permita que NeoChat pueda "
+"leer el token de acceso"
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
-"Instale una cadena de claves, como KWallet o el llavero de GNOME en Linux"
+"No hay ninguna cadena de claves disponible: Instale una cadena de claves, "
+"como KWallet o el llavero de GNOME en Linux"
 
 #: src/controller.cpp:263
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "No se ha podido leer el token de acceso"
+msgstr "No se ha podido leer el token de acceso: %1"
 
 #: src/controller.cpp:361
 #, kde-format
@@ -1826,28 +1825,27 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:86
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#: src/neochatconnection.cpp:84
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
-"Póngase en contacto con el administrador del servidor matrix para obtener "
-"asistencia."
+"Archivo demasiado grande para descargarlo.<br />Póngase en contacto con el "
+"administrador del servidor matrix para obtener asistencia."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:315
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "No se ha configurado ningún servidor de identidades"
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:346
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "La creación de la sala ha fallado: %1"
 
-#: src/neochatconnection.cpp:385
+#: src/neochatconnection.cpp:375
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "La creación del espacio ha fallado: %1"
@@ -3371,22 +3369,22 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Multimedia de la sala"
 
-#: src/qml/RoomPage.qml:100
+#: src/qml/RoomPage.qml:93
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat no está conectado. Compruebe su conexión de red."
 
-#: src/qml/RoomPage.qml:157
+#: src/qml/RoomPage.qml:149
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Bienvenido a NeoChat"
 
-#: src/qml/RoomPage.qml:158
+#: src/qml/RoomPage.qml:150
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Seleccione o únase a una sala para empezar"
 
-#: src/qml/RoomPage.qml:252
+#: src/qml/RoomPage.qml:243
 #, kde-format
 msgid "Message Source"
 msgstr "Fuente del mensaje"
@@ -3642,27 +3640,27 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Dejar el espacio"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Saltar al primer mensaje sin leer"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "Saltar al mensaje cargado más antiguo"
 
-#: src/qml/TimelineView.qml:245
+#: src/qml/TimelineView.qml:235
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Saltar al último mensaje"
 
-#: src/qml/TimelineView.qml:270
+#: src/qml/TimelineView.qml:260
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrastre elementos aquí para compartirlos"
 
-#: src/qml/TimelineView.qml:277
+#: src/qml/TimelineView.qml:267
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4140,16 +4138,16 @@ msgid "Working"
 msgstr "Trabajando"
 
 #: src/roommanager.cpp:137
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 no es un identificador de Matrix correcto"
+msgstr ""
+"Id de Matrix mal formada o vacía<br />%1 no es un identificador de Matrix "
+"correcto"
 
 #: src/roommanager.cpp:354
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "No se ha podido unir a la sala"
+msgstr "No se ha podido unir a la sala<br />%1"
 
 #: src/roommanager.cpp:390
 #, kde-format
@@ -4157,10 +4155,9 @@ msgid "You requested to join '%1'"
 msgstr "Ha solicitado unirse a «%1»"
 
 #: src/roommanager.cpp:394
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "No se ha podido solicitar unirse a la sala"
+msgstr "No se ha podido solicitar unirse a la sala<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -5451,7 +5448,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Completar"
 
-#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:118
+#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:110
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5560,13 +5557,13 @@ msgstr ""
 "El número de teléfono no ha sido verificado. Vaya al mensaje de texto, siga "
 "las instrucciones que contiene y pulse el botón superior."
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Confirmar edición"
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
@@ -5682,7 +5679,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Abrir externamente"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:211
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 ha iniciado una verificación de usuario"

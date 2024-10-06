@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-09-14 07:40+0200\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"PO-Revision-Date: 2024-10-05 08:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -27,42 +27,42 @@ msgstr "Välj lokal fil"
 msgid "Clipboard image"
 msgstr "Klippbordsbild"
 
-#: src/chatbar/ChatBar.qml:79
+#: src/chatbar/ChatBar.qml:71
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Lägg till en bild eller fil"
 
-#: src/chatbar/ChatBar.qml:97
+#: src/chatbar/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji och klistermärken"
 
-#: src/chatbar/ChatBar.qml:114
+#: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgid "Send a Location"
 msgstr "Skicka en plats"
 
-#: src/chatbar/ChatBar.qml:130
+#: src/chatbar/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "Skicka meddelande"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Skicka ett krypterat meddelande…"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Ange rubrik för bilaga…"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send a message…"
 msgstr "Skicka ett meddelande…"
 
-#: src/chatbar/ChatBar.qml:382
+#: src/chatbar/ChatBar.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -102,32 +102,30 @@ msgid "Network Error: %1"
 msgstr "Nätverksfel: %1"
 
 #: src/controller.cpp:253
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Åtkomstsymbol hittades inte"
+msgstr "Åtkomstsymbol hittades inte. Kanske den har tagits bort?"
 
 #: src/controller.cpp:257
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Ge NeoChat tillåtelse att läsa åtkomstsymbolen"
+msgstr ""
+"Åtkomst till nyckelkedja nekades. Tillåt NeoChat att läsa åtkomstsymbolen."
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
-"Installera en nyckelkedja, t.ex. plånboken eller GNOME-nyckelring på Linux"
+"Ingen nyckelkedja tillgänglig. Installera en nyckelkedja, t.ex. plånboken "
+"eller GNOME-nyckelring på Linux"
 
 #: src/controller.cpp:263
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Kan inte läsa åtkomstsymbol"
+msgstr "Kan inte läsa åtkomstsymbol: %1"
 
 #: src/controller.cpp:361
 #, kde-format
@@ -1819,26 +1817,27 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:86
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#: src/neochatconnection.cpp:84
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "Kontakta matrix-serveradministratören för support."
+msgstr ""
+"Filen är för stor för att ladda ner.<br />Kontakta matrix-"
+"serveradministratören för support."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:315
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ingen identitetsserver inställd"
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:346
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1"
 
-#: src/neochatconnection.cpp:385
+#: src/neochatconnection.cpp:375
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
@@ -3364,22 +3363,22 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Rumsmedia"
 
-#: src/qml/RoomPage.qml:100
+#: src/qml/RoomPage.qml:93
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat är nedkopplat. Kontrollera nätverksanslutningen."
 
-#: src/qml/RoomPage.qml:157
+#: src/qml/RoomPage.qml:149
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Välkommen till NeoChat"
 
-#: src/qml/RoomPage.qml:158
+#: src/qml/RoomPage.qml:150
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Välj eller gå med i ett rum för att komma igång"
 
-#: src/qml/RoomPage.qml:252
+#: src/qml/RoomPage.qml:243
 #, kde-format
 msgid "Message Source"
 msgstr "Meddelandekälla"
@@ -3635,27 +3634,27 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Lämna utrymme"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Gå till första olästa meddelande"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "Gå till äldsta inlästa meddelande"
 
-#: src/qml/TimelineView.qml:245
+#: src/qml/TimelineView.qml:235
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Gå till sista meddelande"
 
-#: src/qml/TimelineView.qml:270
+#: src/qml/TimelineView.qml:260
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Dra objekt hit för att dela dem"
 
-#: src/qml/TimelineView.qml:277
+#: src/qml/TimelineView.qml:267
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4121,16 +4120,16 @@ msgid "Working"
 msgstr "Arbetar"
 
 #: src/roommanager.cpp:137
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 är inte en korrekt Matrix-identifierare"
+msgstr ""
+"Felaktig eller tom Matris-identifierare<br />%1 är inte en korrekt Matrix-"
+"identifierare"
 
 #: src/roommanager.cpp:354
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Misslyckades gå med i rum"
+msgstr "Misslyckades gå med i rum<br />%1"
 
 #: src/roommanager.cpp:390
 #, kde-format
@@ -4138,10 +4137,9 @@ msgid "You requested to join '%1'"
 msgstr "Du frågade om att gå med i '%1'"
 
 #: src/roommanager.cpp:394
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Misslyckades fråga om att gå med i rum"
+msgstr "Misslyckades fråga om att gå med i rum<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -5426,7 +5424,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Komplettera"
 
-#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:118
+#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:110
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5535,13 +5533,13 @@ msgstr ""
 "Telefonnumret har inte verifierats. Gå till textmeddelandet och följ "
 "instruktionerna där och klicka sedan på knappen ovan."
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Bekräfta redigering"
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
@@ -5657,7 +5655,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Öppna externt"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:211
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 startade en användarverifikation"

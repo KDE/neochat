@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 00:39+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,43 +27,43 @@ msgstr "Yerli faylı seçin"
 msgid "Clipboard image"
 msgstr "Mübadilə yaddaşındakı şəkil"
 
-#: src/chatbar/ChatBar.qml:79
+#: src/chatbar/ChatBar.qml:71
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Şəkil və ya fayl əlavə edin"
 
-#: src/chatbar/ChatBar.qml:97
+#: src/chatbar/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:114
+#: src/chatbar/ChatBar.qml:106
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgid "Send a Location"
 msgstr "Dəvət göndərmək"
 
-#: src/chatbar/ChatBar.qml:130
+#: src/chatbar/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "İsmarıcı göndərin"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Şifrələnmiş ismarıc göndərin..."
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send a message…"
 msgstr "İsmarıcı göndərin..."
 
-#: src/chatbar/ChatBar.qml:382
+#: src/chatbar/ChatBar.qml:374
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -2060,26 +2060,26 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:86
+#: src/neochatconnection.cpp:84
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:315
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:346
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/neochatconnection.cpp:385
+#: src/neochatconnection.cpp:375
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -3734,24 +3734,24 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Otaq haqqında"
 
-#: src/qml/RoomPage.qml:100
+#: src/qml/RoomPage.qml:93
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat qoşulmayıb. Lütfən, şəbəkə bağlantısını yoxlayın."
 
-#: src/qml/RoomPage.qml:157
+#: src/qml/RoomPage.qml:149
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgid "Welcome to NeoChat"
 msgstr "Matrix'ə xoş gəldiniz"
 
-#: src/qml/RoomPage.qml:158
+#: src/qml/RoomPage.qml:150
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgid "Select or join a room to get started"
 msgstr "Başlamaq üçün bəzi otaqlara qoşulun"
 
-#: src/qml/RoomPage.qml:252
+#: src/qml/RoomPage.qml:243
 #, kde-format
 msgid "Message Source"
 msgstr "İsmarıc mənbəyi"
@@ -4029,28 +4029,28 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr ""
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Birinci oxunmammış ismarıca keçin"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgid "Jump to oldest loaded message"
 msgstr "Sonuncu ismarıca keçin"
 
-#: src/qml/TimelineView.qml:245
+#: src/qml/TimelineView.qml:235
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Sonuncu ismarıca keçin"
 
-#: src/qml/TimelineView.qml:270
+#: src/qml/TimelineView.qml:260
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Elementi paylaşmaq üçün buraya atın"
 
-#: src/qml/TimelineView.qml:277
+#: src/qml/TimelineView.qml:267
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -5930,7 +5930,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Yığcam"
 
-#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:118
+#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:110
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -6040,14 +6040,14 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Təsdiq etmək"
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@action:button"
@@ -6167,7 +6167,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Xaricdə açmaq"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:211
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 started a user verification"

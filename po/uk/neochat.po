@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 00:39+0000\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
 "PO-Revision-Date: 2024-10-04 07:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -30,42 +30,42 @@ msgstr "Виберіть локальний файл"
 msgid "Clipboard image"
 msgstr "Зображення з буфера"
 
-#: src/chatbar/ChatBar.qml:79
+#: src/chatbar/ChatBar.qml:71
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Долучити зображення або файл"
 
-#: src/chatbar/ChatBar.qml:97
+#: src/chatbar/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Емоційки і наліпки"
 
-#: src/chatbar/ChatBar.qml:114
+#: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgid "Send a Location"
 msgstr "Надіслати дані місця"
 
-#: src/chatbar/ChatBar.qml:130
+#: src/chatbar/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "Надіслати повідомлення"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Надіслати шифроване повідомлення…"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Встановити підпис до долучення…"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
-#: src/chatbar/ChatBar.qml:382
+#: src/chatbar/ChatBar.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1832,7 +1832,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:86
+#: src/neochatconnection.cpp:84
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1841,18 +1841,18 @@ msgstr ""
 "Файл є надто великим для отримання.<br />Зв'яжіться із адміністратором "
 "вашого сервера matrix, щоб отримати допомогу."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:315
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Не налаштовано жодного сервера профілів"
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:346
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Не вдалося створити кімнату: %1"
 
-#: src/neochatconnection.cpp:385
+#: src/neochatconnection.cpp:375
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
@@ -3382,24 +3382,24 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Мультимедіа кімнати"
 
-#: src/qml/RoomPage.qml:100
+#: src/qml/RoomPage.qml:93
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "NeoChat поза мережею. Будь ласка, перевірте, чи працездатне з'єднання із "
 "інтернетом."
 
-#: src/qml/RoomPage.qml:157
+#: src/qml/RoomPage.qml:149
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Вітаємо у NeoChat"
 
-#: src/qml/RoomPage.qml:158
+#: src/qml/RoomPage.qml:150
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Для початку, виберіть кімнату або долучіться до неї"
 
-#: src/qml/RoomPage.qml:252
+#: src/qml/RoomPage.qml:243
 #, kde-format
 msgid "Message Source"
 msgstr "Джерело повідомлення"
@@ -3659,27 +3659,27 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Полишити простір"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Перейти до першого непрочитаного повідомлення"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "Перейти до найдавнішого завантаженого повідомлення"
 
-#: src/qml/TimelineView.qml:245
+#: src/qml/TimelineView.qml:235
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Перейти до останнього повідомлення"
 
-#: src/qml/TimelineView.qml:270
+#: src/qml/TimelineView.qml:260
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
-#: src/qml/TimelineView.qml:277
+#: src/qml/TimelineView.qml:267
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -5458,7 +5458,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Завершено"
 
-#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:118
+#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:110
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5575,13 +5575,13 @@ msgstr ""
 "повідомлення і виконайте настанови з нього, а потім натисніть кнопку, яку "
 "розташовано вище"
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Підтвердити редагування"
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
@@ -5697,7 +5697,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Відкрити у сторонній програмі"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:211
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 розпочато перевірку користувача"

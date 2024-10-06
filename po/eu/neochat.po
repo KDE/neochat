@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-05 00:39+0000\n"
-"PO-Revision-Date: 2024-09-22 22:20+0200\n"
+"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"PO-Revision-Date: 2024-10-05 20:27+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -30,42 +30,42 @@ msgstr "Hautatu fitxategi lokala"
 msgid "Clipboard image"
 msgstr "Arbelako irudia"
 
-#: src/chatbar/ChatBar.qml:79
+#: src/chatbar/ChatBar.qml:71
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Erantsi irudi edo fitxategi bat"
 
-#: src/chatbar/ChatBar.qml:97
+#: src/chatbar/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojiak eta eranskailuak"
 
-#: src/chatbar/ChatBar.qml:114
+#: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgid "Send a Location"
 msgstr "Bidali kokaleku bat"
 
-#: src/chatbar/ChatBar.qml:130
+#: src/chatbar/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "Bidali mezua"
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Bidali zifratutako mezu bat..."
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Ezarri eranskin baten epigrafea..."
 
-#: src/chatbar/ChatBar.qml:209
+#: src/chatbar/ChatBar.qml:201
 #, kde-format
 msgid "Send a message…"
 msgstr "Bidali mezua bat..."
 
-#: src/chatbar/ChatBar.qml:382
+#: src/chatbar/ChatBar.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -105,32 +105,31 @@ msgid "Network Error: %1"
 msgstr "Sareko errorea: %1"
 
 #: src/controller.cpp:253
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Sartzeko tokena ez du aurkitu"
+msgstr "Ez du aurkitu sartzeko tokena: Agiaz ezabatu egin da?"
 
 #: src/controller.cpp:257
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Mesedez, utzi NeoChat-i sartzeko tokena irakurtzen"
+msgstr ""
+"Giltzatakoan sartzea ukatu egin da: Mesedez, utzi NeoChat-eri sarrerako "
+"tokena irakurtzen"
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
-"Mesedez, instalatu gako-kate bat, adib. KWallet edo «GNOME keyring» Linux-en"
+"Ez dago giltzatarakorik erabilgarri: Mesedez, instalatu giltzatarako bat, "
+"adib. KWallet edo GNOMEren giltzatarakoa Linux-en"
 
 #: src/controller.cpp:263
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Ez da sartzeko tokena irakurtzeko gai"
+msgstr "Ez da sartzeko tokena irakurtzeko gai: %1"
 
 #: src/controller.cpp:361
 #, kde-format
@@ -1822,28 +1821,27 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:86
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#: src/neochatconnection.cpp:84
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
-"Jar zaitez zure matrix zerbitzariaren administratzailearekin harremanean "
-"euskarria lortzeko."
+"Zama-jaisteko fitxategi handiegia.<br />Jar zaitez zure matrix "
+"zerbitzariaren administratzailearekin harremanean, laguntza lortzeko."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:315
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ez da nortasun zerbitzaririk konfiguratu"
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:346
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Gela sortzea huts egin du: %1"
 
-#: src/neochatconnection.cpp:385
+#: src/neochatconnection.cpp:375
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
@@ -3367,22 +3365,22 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Gelako hedabideak"
 
-#: src/qml/RoomPage.qml:100
+#: src/qml/RoomPage.qml:93
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat lerroz kanpo dago. Mesedez, berrikusi zure sare-konexioa."
 
-#: src/qml/RoomPage.qml:157
+#: src/qml/RoomPage.qml:149
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Ongi etorri «NeoChat»era"
 
-#: src/qml/RoomPage.qml:158
+#: src/qml/RoomPage.qml:150
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Hasteko, hautatu edo batu gela batera"
 
-#: src/qml/RoomPage.qml:252
+#: src/qml/RoomPage.qml:243
 #, kde-format
 msgid "Message Source"
 msgstr "Mezuaren sorburua"
@@ -3637,27 +3635,27 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Utzi tokia"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Jauzi irakurri gabeko lehenengo mezura"
 
-#: src/qml/TimelineView.qml:201
+#: src/qml/TimelineView.qml:191
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "Jauzi zamatutako mezu zaharrenera"
 
-#: src/qml/TimelineView.qml:245
+#: src/qml/TimelineView.qml:235
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Jauzi azken mezura"
 
-#: src/qml/TimelineView.qml:270
+#: src/qml/TimelineView.qml:260
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrastatu elementuak hona haiek partekatzeko"
 
-#: src/qml/TimelineView.qml:277
+#: src/qml/TimelineView.qml:267
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -4125,16 +4123,16 @@ msgid "Working"
 msgstr "Lanean"
 
 #: src/roommanager.cpp:137
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 ez da Matrix identifikatzaile zuzena"
+msgstr ""
+"Gaizki eratuta edo hutsik dagoen Matrix ID<br />%1 ez da "
+"Matrixidentifikatzaile zuzena"
 
 #: src/roommanager.cpp:354
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Gelara batzea huts egin du"
+msgstr "Gelara batzea huts egin du<br />%1"
 
 #: src/roommanager.cpp:390
 #, kde-format
@@ -4142,10 +4140,9 @@ msgid "You requested to join '%1'"
 msgstr "'%1'(e)ra batzea eskatu duzu"
 
 #: src/roommanager.cpp:394
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Gelara batzeko eskaerak huts egin du"
+msgstr "Gelara batzeko eskaerak huts egin du<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -5425,7 +5422,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Osatu"
 
-#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:118
+#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:110
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5536,13 +5533,13 @@ msgstr ""
 "Telefono-zenbaki ez da egiaztatu. Mesedez, joan testu-mezura, jarraitu hango "
 "jarraibideak eta egin klik goiko botoian"
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Berretsi editatutakoa"
 
-#: src/timeline/ChatBarComponent.qml:106
+#: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
@@ -5657,7 +5654,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Ireki kanpotik"
 
-#: src/timeline/MessageComponentChooser.qml:220
+#: src/timeline/MessageComponentChooser.qml:211
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1(e)k erabiltzaile egiaztapen bat abiatu du"
