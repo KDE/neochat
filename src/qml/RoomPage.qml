@@ -186,7 +186,7 @@ Kirigami.Page {
         target: RoomManager
         function onCurrentRoomChanged() {
             if (root.currentRoom && root.currentRoom.isInvite) {
-                root.currentRoom.clearInvitationNotification();
+                Controller.clearInvitationNotification(root.currentRoom.id);
             }
         }
 

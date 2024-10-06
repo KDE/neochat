@@ -18,6 +18,7 @@
 #include <Quotient/settings.h>
 
 #include "neochatconfig.h"
+#include "neochatconnection.h"
 #include "neochatroom.h"
 #include "notificationsmanager.h"
 #include "proxycontroller.h"
@@ -168,6 +169,10 @@ void Controller::addConnection(NeoChatConnection *c)
         dropConnection(c);
     });
     connect(c, &NeoChatConnection::badgeNotificationCountChanged, this, &Controller::updateBadgeNotificationCount);
+    connect(c, &NeoChatConnection::syncDone, this, [this, c]() {
+        m_notificationsManager.handleNotifications(c);
+    });
+    connect(c, &NeoChatConnection::showInviteNotification, &m_notificationsManager, &NotificationsManager::postInviteNotification);
 
     c->sync();
 
@@ -178,6 +183,8 @@ void Controller::dropConnection(NeoChatConnection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
 
+    c->disconnect(this);
+    c->disconnect(&m_notificationsManager);
     m_accountRegistry.drop(c);
     Q_EMIT connectionDropped(c);
 }
@@ -327,6 +334,7 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
 
     if (m_connection != nullptr) {
         m_connection->disconnect(this);
+        m_connection->disconnect(&m_notificationsManager);
     }
 
     m_connection = connection;
@@ -350,7 +358,7 @@ void Controller::listenForNotifications()
     connect(timer, &QTimer::timeout, qGuiApp, &QGuiApplication::quit);
 
     connect(connector, &KUnifiedPush::Connector::messageReceived, [timer](const QByteArray &data) {
-        NotificationsManager::instance().postPushNotification(data);
+        m_notificationsManager.postPushNotification(data);
         timer->stop();
     });
 
@@ -360,6 +368,11 @@ void Controller::listenForNotifications()
 
     connector->registerClient(i18n("Receiving push notifications"));
 #endif
+}
+
+void Controller::clearInvitationNotification(const QString &roomId)
+{
+    m_notificationsManager.clearInvitationNotification(roomId);
 }
 
 void Controller::updateBadgeNotificationCount(NeoChatConnection *connection, int count)

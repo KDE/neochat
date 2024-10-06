@@ -418,8 +418,6 @@ public:
 
     bool readOnly() const;
 
-    Q_INVOKABLE void clearInvitationNotification();
-
     [[nodiscard]] QString joinRule() const;
 
     /**
@@ -663,6 +661,14 @@ Q_SIGNALS:
      * @brief Request a message be shown to the user of the given type.
      */
     void showMessage(MessageType::Type messageType, const QString &message);
+
+    /**
+     * @brief Request a notification be shown for an invite to this room.
+     *
+     * @note This may later be blocked if there are any rules on where invites can
+     * come from, but this is not NeoChatRoom's responsibility.
+     */
+    void showInviteNotification(NeoChatRoom *room);
 
 public Q_SLOTS:
     /**

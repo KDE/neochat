@@ -40,9 +40,7 @@
 #include "events/joinrulesevent.h"
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
-#include "jobs/neochatgetcommonroomsjob.h"
 #include "neochatconfig.h"
-#include "notificationsmanager.h"
 #include "roomlastmessageprovider.h"
 #include "spacehierarchycache.h"
 #include "texthandler.h"
@@ -125,45 +123,8 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             updatePushNotificationState(QStringLiteral("m.push_rules"));
 
             Q_EMIT canEncryptRoomChanged();
-            if (this->joinState() != JoinState::Invite) {
-                return;
-            }
-            auto roomMemberEvent = currentState().get<RoomMemberEvent>(localMember().id());
-
-            auto showNotification = [this, roomMemberEvent] {
-                QImage avatar_image;
-                if (roomMemberEvent && !member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
-#if Quotient_VERSION_MINOR > 8
-                    avatar_image = member(roomMemberEvent->senderId()).avatar(128, 128, {});
-#else
-                    avatar_image = memberAvatar(roomMemberEvent->senderId()).get(this->connection(), 128, [] {});
-#endif
-                } else {
-                    qWarning() << "using this room's avatar";
-                    avatar_image = avatar(128);
-                }
-
-                NotificationsManager::instance().postInviteNotification(this,
-                                                                        displayName(),
-                                                                        member(roomMemberEvent->senderId()).htmlSafeDisplayName(),
-                                                                        avatar_image);
-            };
-
-            if (NeoChatConfig::rejectUnknownInvites()) {
-                auto job = this->connection()->callApi<NeochatGetCommonRoomsJob>(roomMemberEvent->senderId());
-                connect(job, &BaseJob::result, this, [this, job, showNotification] {
-                    QJsonObject replyData = job->jsonData();
-                    if (replyData.contains(QStringLiteral("joined"))) {
-                        const bool inAnyOfOurRooms = !replyData[QStringLiteral("joined")].toArray().isEmpty();
-                        if (inAnyOfOurRooms) {
-                            showNotification();
-                        } else {
-                            leaveRoom();
-                        }
-                    }
-                });
-            } else {
-                showNotification();
+            if (this->joinState() == JoinState::Invite) {
+                Q_EMIT showInviteNotification(this);
             }
         },
         Qt::SingleShotConnection);
@@ -944,11 +905,6 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QStri
             break;
         }
     }
-}
-
-void NeoChatRoom::clearInvitationNotification()
-{
-    NotificationsManager::instance().clearInvitationNotification(id());
 }
 
 bool NeoChatRoom::hasParent() const

@@ -7,6 +7,7 @@
 #include <QQmlEngine>
 
 #include "neochatconnection.h"
+#include "notificationsmanager.h"
 #include <Quotient/accountregistry.h>
 
 class TrayIcon;
@@ -88,6 +89,13 @@ public:
      */
     static void listenForNotifications();
 
+    /**
+     * @brief Clear an existing invite notification for the given room.
+     *
+     * Nothing happens if the given room doesn't have an invite notification.
+     */
+    Q_INVOKABLE void clearInvitationNotification(const QString &roomId);
+
     Q_INVOKABLE QString loadFileContent(const QString &path) const;
 
     Quotient::AccountRegistry &accounts();
@@ -122,6 +130,8 @@ private:
     QMap<QString, QPointer<NeoChatConnection>> m_connectionsLoading;
     QString m_endpoint;
     QStringList m_shownImages;
+
+    NotificationsManager m_notificationsManager;
 
 private Q_SLOTS:
     void invokeLogin();

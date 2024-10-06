@@ -15,6 +15,7 @@
 #include <QPainter>
 #include <Quotient/accountregistry.h>
 #include <Quotient/csapi/pushrules.h>
+#include <Quotient/events/roommemberevent.h>
 #include <Quotient/user.h>
 
 #ifdef HAVE_KIO
@@ -22,6 +23,8 @@
 #endif
 
 #include "controller.h"
+#include "jobs/neochatgetcommonroomsjob.h"
+#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "roommanager.h"
@@ -29,12 +32,6 @@
 #include "windowcontroller.h"
 
 using namespace Quotient;
-
-NotificationsManager &NotificationsManager::instance()
-{
-    static NotificationsManager _instance;
-    return _instance;
-}
 
 NotificationsManager::NotificationsManager(QObject *parent)
     : QObject(parent)
@@ -249,15 +246,57 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     notification->sendEvent();
 }
 
-void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom, const QString &title, const QString &sender, const QImage &icon)
+void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom)
 {
     QPointer room(rawRoom);
-    QPixmap img;
-    img.convertFromImage(icon);
+
+    const auto roomMemberEvent = room->currentState().get<RoomMemberEvent>(room->localMember().id());
+    if (roomMemberEvent == nullptr) {
+        return;
+    }
+
+    if (NeoChatConfig::rejectUnknownInvites()) {
+        auto job = room->connection()->callApi<NeochatGetCommonRoomsJob>(roomMemberEvent->senderId());
+        connect(job, &BaseJob::result, this, [this, job, room] {
+            QJsonObject replyData = job->jsonData();
+            if (replyData.contains(QStringLiteral("joined"))) {
+                const bool inAnyOfOurRooms = !replyData[QStringLiteral("joined")].toArray().isEmpty();
+                if (inAnyOfOurRooms) {
+                    doPostInviteNotification(room);
+                } else {
+                    room->leaveRoom();
+                }
+            }
+        });
+    } else {
+        doPostInviteNotification(room);
+    }
+}
+
+void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
+{
+    const auto roomMemberEvent = room->currentState().get<RoomMemberEvent>(room->localMember().id());
+    if (roomMemberEvent == nullptr) {
+        return;
+    }
+    const auto sender = room->member(roomMemberEvent->senderId());
+
+    QImage avatar_image;
+    if (roomMemberEvent && !room->member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
+#if Quotient_VERSION_MINOR > 8
+        avatar_image = room->member(roomMemberEvent->senderId()).avatar(128, 128, {});
+#else
+        avatar_image = room->memberAvatar(roomMemberEvent->senderId()).get(room->connection(), 128, [] {});
+#endif
+    } else {
+        qWarning() << "using this room's avatar";
+        avatar_image = room->avatar(128);
+    }
+
     KNotification *notification = new KNotification(QStringLiteral("invite"));
-    notification->setText(i18n("%1 invited you to a room", sender));
-    notification->setTitle(title);
-    notification->setPixmap(createNotificationImage(icon, nullptr));
+    notification->setText(i18n("%1 invited you to a room", sender.htmlSafeDisplayName()));
+    notification->setTitle(room->displayName());
+    notification->setPixmap(createNotificationImage(avatar_image, nullptr));
     auto defaultAction = notification->addDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
         if (!room) {

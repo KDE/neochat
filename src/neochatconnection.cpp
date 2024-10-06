@@ -10,7 +10,6 @@
 #include "jobs/neochatdeactivateaccountjob.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
-#include "notificationsmanager.h"
 #include "spacehierarchycache.h"
 
 #include <Quotient/jobs/basejob.h>
@@ -66,10 +65,6 @@ void NeoChatConnection::connectSignals()
     });
     connect(this, &NeoChatConnection::syncDone, this, [this] {
         setIsOnline(true);
-
-        connect(this, &NeoChatConnection::syncDone, this, [this]() {
-            NotificationsManager::instance().handleNotifications(this);
-        });
     });
     connect(this, &NeoChatConnection::networkError, this, [this]() {
         setIsOnline(false);
@@ -113,6 +108,10 @@ void NeoChatConnection::connectSignals()
             Q_EMIT homeNotificationsChanged();
             Q_EMIT homeHaveHighlightNotificationsChanged();
         });
+    });
+    connect(this, &NeoChatConnection::invitedRoom, this, [this](Quotient::Room *room) {
+        auto r = dynamic_cast<NeoChatRoom *>(room);
+        connect(r, &NeoChatRoom::showInviteNotification, this, &NeoChatConnection::showInviteNotification);
     });
     connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {
         Q_UNUSED(room)

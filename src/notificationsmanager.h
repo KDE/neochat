@@ -34,31 +34,14 @@ class NotificationsManager : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
-    QML_SINGLETON
 
 public:
-    static NotificationsManager &instance();
-    static NotificationsManager *create(QQmlEngine *engine, QJSEngine *)
-    {
-        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
-        return &instance();
-    }
-
-    /**
-     * @brief Display a native notification for an message.
-     */
-    Q_INVOKABLE void postNotification(NeoChatRoom *room,
-                                      const QString &sender,
-                                      const QString &text,
-                                      const QImage &icon,
-                                      const QString &replyEventId,
-                                      bool canReply,
-                                      qint64 timestamp);
+    explicit NotificationsManager(QObject *parent = nullptr);
 
     /**
      * @brief Display a native notification for an invite.
      */
-    void postInviteNotification(NeoChatRoom *room, const QString &title, const QString &sender, const QImage &icon);
+    void postInviteNotification(NeoChatRoom *room);
 
     /**
      * @brief Clear an existing invite notification for the given room.
@@ -78,21 +61,26 @@ public:
     void handleNotifications(QPointer<NeoChatConnection> connection);
 
 private:
-    explicit NotificationsManager(QObject *parent = nullptr);
-
     QHash<QString, qint64> m_initialTimestamp;
     QHash<QString, QStringList> m_oldNotifications;
 
     QStringList m_connActiveJob;
 
+    QPixmap createNotificationImage(const QImage &icon, NeoChatRoom *room);
     bool shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification);
+    void postNotification(NeoChatRoom *room,
+                          const QString &sender,
+                          const QString &text,
+                          const QImage &icon,
+                          const QString &replyEventId,
+                          bool canReply,
+                          qint64 timestamp);
+
+    void doPostInviteNotification(QPointer<NeoChatRoom> room);
 
     QHash<QString, std::pair<qint64, KNotification *>> m_notifications;
     QHash<QString, QPointer<KNotification>> m_invitations;
 
 private Q_SLOTS:
     void processNotificationJob(QPointer<NeoChatConnection> connection, Quotient::GetNotificationsJob *job, bool initialization);
-
-private:
-    QPixmap createNotificationImage(const QImage &icon, NeoChatRoom *room);
 };
