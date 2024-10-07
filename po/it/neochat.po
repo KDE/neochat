@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-23 02:28+0000\n"
+"POT-Creation-Date: 2024-10-07 02:28+0000\n"
 "PO-Revision-Date: 2024-08-01 12:48+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -366,7 +366,7 @@ msgid "Custom"
 msgstr "Personalizzato"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:114
+#: src/models/userlistmodel.cpp:118
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -375,13 +375,11 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:297 src/eventhandler.cpp:505
-#: src/models/messagecontentmodel.cpp:230 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Questo messaggio è stato eliminato]</i>"
 
-#: src/eventhandler.cpp:297 src/models/messagecontentmodel.cpp:231
-#: src/models/messageeventmodel.cpp:439
+#: src/eventhandler.cpp:297
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Questo messaggio è stato eliminato: %1]</i>"
@@ -1777,77 +1775,77 @@ msgstr "Creazione della stanza non riuscita: %1"
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
 
-#: src/neochatroom.cpp:1403
+#: src/neochatroom.cpp:1439
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Segnalazione inviata correttamente."
 
-#: src/neochatroom.cpp:1728 src/neochatroom.cpp:1736
+#: src/neochatroom.cpp:1764 src/neochatroom.cpp:1772
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
-#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:330
+#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:334
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Messaggio cifrato"
 
-#: src/notificationsmanager.cpp:210 src/qml/Main.qml:279
+#: src/notificationsmanager.cpp:214 src/qml/Main.qml:279
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:216
+#: src/notificationsmanager.cpp:220
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Apri NeoChat in questa stanza"
 
-#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:233 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:111
 #, kde-format
 msgid "Reply"
 msgstr "Rispondi"
 
-#: src/notificationsmanager.cpp:230
+#: src/notificationsmanager.cpp:234
 #, kde-format
 msgid "Reply..."
 msgstr "Rispondi..."
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:253
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 ti ha invitato in una stanza"
 
-#: src/notificationsmanager.cpp:252
+#: src/notificationsmanager.cpp:256
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Apri questo invito in NeoChat"
 
-#: src/notificationsmanager.cpp:262
+#: src/notificationsmanager.cpp:266
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Accetta"
 
-#: src/notificationsmanager.cpp:263
+#: src/notificationsmanager.cpp:267
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rifiuta"
 
-#: src/notificationsmanager.cpp:264
+#: src/notificationsmanager.cpp:268
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Rifiuta e ignora utente"
 
-#: src/notificationsmanager.cpp:323
+#: src/notificationsmanager.cpp:327
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:334
+#: src/notificationsmanager.cpp:338
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Apri NeoChat"
@@ -4023,12 +4021,12 @@ msgstr "%1 non è un identificatore Matrix corretto"
 msgid "Failed to join room"
 msgstr "Accesso alla stanza non riuscito"
 
-#: src/roommanager.cpp:384
+#: src/roommanager.cpp:388
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Hai chiesto di unirti a «%1»"
 
-#: src/roommanager.cpp:388
+#: src/roommanager.cpp:392
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Impossibile richiedere l'accesso alla stanza"

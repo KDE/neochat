@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-23 02:28+0000\n"
+"POT-Creation-Date: 2024-10-07 02:28+0000\n"
 "PO-Revision-Date: 2024-09-02 22:05+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -365,7 +365,7 @@ msgid "Custom"
 msgstr "விருப்பமானது"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:162
-#: src/models/userlistmodel.cpp:114
+#: src/models/userlistmodel.cpp:118
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -374,13 +374,11 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/eventhandler.cpp:297 src/eventhandler.cpp:505
-#: src/models/messagecontentmodel.cpp:230 src/models/messageeventmodel.cpp:438
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது]</i>"
 
-#: src/eventhandler.cpp:297 src/models/messagecontentmodel.cpp:231
-#: src/models/messageeventmodel.cpp:439
+#: src/eventhandler.cpp:297
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது: %1]</i>"
@@ -1769,77 +1767,77 @@ msgstr "அரங்கு உருவாக்கம் தோல்விய�
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1403
+#: src/neochatroom.cpp:1439
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1728 src/neochatroom.cpp:1736
+#: src/neochatroom.cpp:1764 src/neochatroom.cpp:1772
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "அட்ச: %1, தீர்க்க: %2"
 
-#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:330
+#: src/notificationsmanager.cpp:126 src/notificationsmanager.cpp:334
 #, kde-format
 msgid "Encrypted Message"
 msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
 
-#: src/notificationsmanager.cpp:210 src/qml/Main.qml:279
+#: src/notificationsmanager.cpp:214 src/qml/Main.qml:279
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:216
+#: src/notificationsmanager.cpp:220
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "இந்த அரங்கில் நியோச்சாட்டை திற"
 
-#: src/notificationsmanager.cpp:229 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:233 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:111
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
 
-#: src/notificationsmanager.cpp:230
+#: src/notificationsmanager.cpp:234
 #, kde-format
 msgid "Reply..."
 msgstr "பதிலளி..."
 
-#: src/notificationsmanager.cpp:249
+#: src/notificationsmanager.cpp:253
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 உங்களை ஒர் அரங்குக்கு வரவழைத்தார்"
 
-#: src/notificationsmanager.cpp:252
+#: src/notificationsmanager.cpp:256
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "இவ்வழைப்பை நியோச்சாட்டில் திற"
 
-#: src/notificationsmanager.cpp:262
+#: src/notificationsmanager.cpp:266
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: src/notificationsmanager.cpp:263
+#: src/notificationsmanager.cpp:267
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "மறு"
 
-#: src/notificationsmanager.cpp:264
+#: src/notificationsmanager.cpp:268
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "மறுத்து பயனரைத் தடு"
 
-#: src/notificationsmanager.cpp:323
+#: src/notificationsmanager.cpp:327
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:334
+#: src/notificationsmanager.cpp:338
 #, kde-format
 msgid "Open NeoChat"
 msgstr "நியோச்சாட்டைத் திற"
@@ -3978,12 +3976,12 @@ msgstr "%1 ஒரு முறையான Matrix கணக்குப்பெ
 msgid "Failed to join room"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:384
+#: src/roommanager.cpp:388
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/roommanager.cpp:388
+#: src/roommanager.cpp:392
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது"
