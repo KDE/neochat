@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-10-05 01:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -90,7 +90,7 @@ msgstr "Emojiler"
 msgid "Stickers"
 msgstr "Çıkartmalar"
 
-#: src/controller.cpp:134
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -98,17 +98,17 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Yeni iletiler için bildirimler alınıyor"
 
-#: src/controller.cpp:227 src/login.cpp:88 src/login.cpp:103
+#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ağ hatası: %1"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:260
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Erişim jetonu bulunamadı: Silinmiş olabilir mi?"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -116,7 +116,7 @@ msgstr ""
 "Anahtar zincirine erişim reddedildi: Lütfen NeoChat’in erişim jetonunu "
 "okumasına izin verin"
 
-#: src/controller.cpp:260
+#: src/controller.cpp:267
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -125,12 +125,12 @@ msgstr ""
 "Kullanılabilir anahtar zinciri yok: Lütfen bir anahtar zinciri kurun; örn. K "
 "Cüzdan veya GNOME keyring"
 
-#: src/controller.cpp:263
+#: src/controller.cpp:270
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Erişim jetonu okunamıyor: %1"
 
-#: src/controller.cpp:361
+#: src/controller.cpp:369
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Anında bildirimler alınıyor"
@@ -1817,7 +1817,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:84
+#: src/neochatconnection.cpp:79
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1826,93 +1826,93 @@ msgstr ""
 "Dosya indirmek için pek büyük.<br />Destek için Matrix sunucusu yöneticisine "
 "ulaşın."
 
-#: src/neochatconnection.cpp:315
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Yapılandırılmış kimlik sunucusu yok"
 
-#: src/neochatconnection.cpp:346
+#: src/neochatconnection.cpp:345
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Oda oluşturulamadı: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
 
-#: src/neochatroom.cpp:1454
+#: src/neochatroom.cpp:1410
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/neochatroom.cpp:1784 src/neochatroom.cpp:1792
+#: src/neochatroom.cpp:1740 src/neochatroom.cpp:1748
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Enlem: %1, Boylam: %2"
 
-#: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:339
+#: src/notificationsmanager.cpp:128 src/notificationsmanager.cpp:378
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Şifreli İleti"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:216
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:225
+#: src/notificationsmanager.cpp:222
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Bu odayı NeoChat’te açın"
 
-#: src/notificationsmanager.cpp:238 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:235 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: src/notificationsmanager.cpp:239
+#: src/notificationsmanager.cpp:236
 #, kde-format
 msgid "Reply..."
 msgstr "Yanıtla…"
 
-#: src/notificationsmanager.cpp:258
+#: src/notificationsmanager.cpp:297
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1, sizi bir odaya davet etti"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:300
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Bu daveti NeoChat’te aç"
 
-#: src/notificationsmanager.cpp:271
+#: src/notificationsmanager.cpp:310
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Kabul Et"
 
-#: src/notificationsmanager.cpp:272
+#: src/notificationsmanager.cpp:311
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Reddet"
 
-#: src/notificationsmanager.cpp:273
+#: src/notificationsmanager.cpp:312
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Kullanıcı Reddet ve Yok Say"
 
-#: src/notificationsmanager.cpp:332
+#: src/notificationsmanager.cpp:371
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:343
+#: src/notificationsmanager.cpp:382
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Aç: NeoChat"
@@ -3130,7 +3130,7 @@ msgstr "Kullanıcı Güç Düzeyini Düzenle"
 msgid "New power level"
 msgstr "Yeni Güç Düzeyi"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:414
 #, kde-format
 msgid "Confirm"
 msgstr "Onayla"
@@ -4181,7 +4181,7 @@ msgstr "Kare Kodu Göster"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:94
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:92
 #, kde-format
 msgid "Save"
 msgstr "Kaydet"
@@ -5076,158 +5076,158 @@ msgstr "Oda Bildirimleri Ayarı"
 msgid "Follow global setting"
 msgstr "Global ayarı izle"
 
-#: src/settings/RoomGeneralPage.qml:25
-#, kde-format
-msgid "Room Information"
-msgstr "Oda Bilgisi"
-
-#: src/settings/RoomGeneralPage.qml:47
+#: src/settings/RoomGeneralPage.qml:37
 #, kde-format
 msgid "Update avatar"
 msgstr "Avatarı güncelle"
 
-#: src/settings/RoomGeneralPage.qml:70
+#: src/settings/RoomGeneralPage.qml:62
+#, kde-format
+msgid "Room Information"
+msgstr "Oda Bilgisi"
+
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgid "Room name:"
 msgstr "Oda adı:"
 
-#: src/settings/RoomGeneralPage.qml:77
+#: src/settings/RoomGeneralPage.qml:75
 #, kde-format
 msgid "Room topic:"
 msgstr "Oda konusu:"
 
-#: src/settings/RoomGeneralPage.qml:113
+#: src/settings/RoomGeneralPage.qml:111
 #, kde-format
 msgid "Room ID"
 msgstr "Oda kimliği"
 
-#: src/settings/RoomGeneralPage.qml:118
+#: src/settings/RoomGeneralPage.qml:116
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Oda kimliğini panoya kopyala"
 
-#: src/settings/RoomGeneralPage.qml:132
+#: src/settings/RoomGeneralPage.qml:130
 #, kde-format
 msgid "Room version"
 msgstr "Oda sürümü"
 
-#: src/settings/RoomGeneralPage.qml:138
+#: src/settings/RoomGeneralPage.qml:136
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Odayı Yükselt"
 
-#: src/settings/RoomGeneralPage.qml:157
+#: src/settings/RoomGeneralPage.qml:155
 #, kde-format
 msgid "Aliases"
 msgstr "Armalar"
 
-#: src/settings/RoomGeneralPage.qml:162
+#: src/settings/RoomGeneralPage.qml:160
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Resmi arma ayarlanmamış"
 
-#: src/settings/RoomGeneralPage.qml:177
+#: src/settings/RoomGeneralPage.qml:175
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Bu armayı, odanın resmi arması yap"
 
-#: src/settings/RoomGeneralPage.qml:192
+#: src/settings/RoomGeneralPage.qml:190
 #, kde-format
 msgid "Delete alias"
 msgstr "Armayı sil"
 
-#: src/settings/RoomGeneralPage.qml:216
+#: src/settings/RoomGeneralPage.qml:214
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#yeni_arma:sunucu.org"
 
-#: src/settings/RoomGeneralPage.qml:233
+#: src/settings/RoomGeneralPage.qml:231
 #, kde-format
 msgid "Add new alias"
 msgstr "Yeni arma ekle"
 
-#: src/settings/RoomGeneralPage.qml:253
+#: src/settings/RoomGeneralPage.qml:251
 #, kde-format
 msgid "URL Previews"
 msgstr "URL Önizlemeleri"
 
-#: src/settings/RoomGeneralPage.qml:257
+#: src/settings/RoomGeneralPage.qml:255
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "Oda üyeleri için URL önizlemelerini öntanımlı olarak etkinleştir"
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:263
 #, kde-format
 msgid "Enable URL previews"
 msgstr "URL önizlemelerini etkinleştir"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "URL önizlemeleri, bu odada öntanımlı olarak etkin"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "URL önizlemeleri, bu odada öntanımlı olarak devre dışı"
 
-#: src/settings/RoomGeneralPage.qml:275
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Resmi Üst Alanlar"
 
-#: src/settings/RoomGeneralPage.qml:308
+#: src/settings/RoomGeneralPage.qml:306
 #, kde-format
 msgid "Canonical"
 msgstr "Resmi"
 
-#: src/settings/RoomGeneralPage.qml:315
+#: src/settings/RoomGeneralPage.qml:313
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Resmi üst öge yap"
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:325
 #, kde-format
 msgid "Remove parent"
 msgstr "Üst ögeyi kaldır"
 
-#: src/settings/RoomGeneralPage.qml:340
+#: src/settings/RoomGeneralPage.qml:338
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Bu odanın resmi üst alanı yok."
 
-#: src/settings/RoomGeneralPage.qml:344
+#: src/settings/RoomGeneralPage.qml:342
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Yeni Resmi Üst Alan Ekle"
 
-#: src/settings/RoomGeneralPage.qml:361 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:359 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Bu oda, başka bir konuşmayı sürdürüyor."
 
-#: src/settings/RoomGeneralPage.qml:365 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:363 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Daha eski iletileri gör…"
 
-#: src/settings/RoomGeneralPage.qml:377 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:375 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Bu oda, başkasıyla değiştirildi."
 
-#: src/settings/RoomGeneralPage.qml:381 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:379 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Yeni odayı gör…"
 
-#: src/settings/RoomGeneralPage.qml:404
+#: src/settings/RoomGeneralPage.qml:402
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Odayı Yükselt"
 
-#: src/settings/RoomGeneralPage.qml:408
+#: src/settings/RoomGeneralPage.qml:406
 #, kde-format
 msgid "Select new version"
 msgstr "Yeni sürüm seç"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-09-07 19:43+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -88,7 +88,7 @@ msgstr "முகவடிகள்"
 msgid "Stickers"
 msgstr "ஒட்டிகள்"
 
-#: src/controller.cpp:134
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -96,25 +96,25 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "புதிய செய்திகளுக்கான அறிவிப்புகளைப் பெறுவதற்கு"
 
-#: src/controller.cpp:227 src/login.cpp:88 src/login.cpp:103
+#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error: %1"
 msgstr "பிணைய சிக்கல்: %1"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:260
 #, fuzzy, kde-format
 #| msgid "Access token wasn't found"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "அணுகல் டோக்கன் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:264
 #, fuzzy, kde-format
 #| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "அணுகல் டோக்கனை படிக்க நியோச்சாட்டை அனுமதிக்கவும்"
 
-#: src/controller.cpp:260
+#: src/controller.cpp:267
 #, fuzzy, kde-format
 #| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
@@ -123,13 +123,13 @@ msgid ""
 msgstr ""
 "ஓர் சாவிக்கொத்து நிரலை நிறுவுங்கள், எ.கா. லினக்ஸில் KWallet அல்லது GNOME keyring."
 
-#: src/controller.cpp:263
+#: src/controller.cpp:270
 #, fuzzy, kde-format
 #| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
 
-#: src/controller.cpp:361
+#: src/controller.cpp:369
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
@@ -1875,7 +1875,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:84
+#: src/neochatconnection.cpp:79
 #, fuzzy, kde-format
 #| msgid "Contact your matrix server administrator for support."
 msgid ""
@@ -1883,93 +1883,93 @@ msgid ""
 "for support."
 msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக நிர்வாகியை தொடர்புகொள்ளுங்கள்."
 
-#: src/neochatconnection.cpp:315
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "எந்த அடையாளச் சேவையகமும் அமைக்கப்பட்டிருக்கவில்லை"
 
-#: src/neochatconnection.cpp:346
+#: src/neochatconnection.cpp:345
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/neochatroom.cpp:1454
+#: src/neochatroom.cpp:1410
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1784 src/neochatroom.cpp:1792
+#: src/neochatroom.cpp:1740 src/neochatroom.cpp:1748
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "அட்ச: %1, தீர்க்க: %2"
 
-#: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:339
+#: src/notificationsmanager.cpp:128 src/notificationsmanager.cpp:378
 #, kde-format
 msgid "Encrypted Message"
 msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:216
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:225
+#: src/notificationsmanager.cpp:222
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "இந்த அரங்கில் நியோச்சாட்டை திற"
 
-#: src/notificationsmanager.cpp:238 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:235 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
 
-#: src/notificationsmanager.cpp:239
+#: src/notificationsmanager.cpp:236
 #, kde-format
 msgid "Reply..."
 msgstr "பதிலளி..."
 
-#: src/notificationsmanager.cpp:258
+#: src/notificationsmanager.cpp:297
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 உங்களை ஒர் அரங்குக்கு வரவழைத்தார்"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:300
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "இவ்வழைப்பை நியோச்சாட்டில் திற"
 
-#: src/notificationsmanager.cpp:271
+#: src/notificationsmanager.cpp:310
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: src/notificationsmanager.cpp:272
+#: src/notificationsmanager.cpp:311
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "மறு"
 
-#: src/notificationsmanager.cpp:273
+#: src/notificationsmanager.cpp:312
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "மறுத்து பயனரைத் தடு"
 
-#: src/notificationsmanager.cpp:332
+#: src/notificationsmanager.cpp:371
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:343
+#: src/notificationsmanager.cpp:382
 #, kde-format
 msgid "Open NeoChat"
 msgstr "நியோச்சாட்டைத் திற"
@@ -3184,7 +3184,7 @@ msgstr "பயனரின் உரிமையளவை மாற்று"
 msgid "New power level"
 msgstr "புதிய உரிமையளவு"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:414
 #, kde-format
 msgid "Confirm"
 msgstr "உறுதிசெய்"
@@ -4221,7 +4221,7 @@ msgstr "QR குறியைக் காட்டு"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:94
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:92
 #, kde-format
 msgid "Save"
 msgstr "சேமி"
@@ -5114,158 +5114,158 @@ msgstr "அரங்குக்கான அறிவிப்பமைப்�
 msgid "Follow global setting"
 msgstr "பொதுவான அமைப்பை பயன்படுத்து"
 
-#: src/settings/RoomGeneralPage.qml:25
-#, kde-format
-msgid "Room Information"
-msgstr "அரங்கின் விவரங்கள்"
-
-#: src/settings/RoomGeneralPage.qml:47
+#: src/settings/RoomGeneralPage.qml:37
 #, kde-format
 msgid "Update avatar"
 msgstr "சின்னத்தை மாற்று"
 
-#: src/settings/RoomGeneralPage.qml:70
+#: src/settings/RoomGeneralPage.qml:62
+#, kde-format
+msgid "Room Information"
+msgstr "அரங்கின் விவரங்கள்"
+
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgid "Room name:"
 msgstr "அரங்கின் பெயர்:"
 
-#: src/settings/RoomGeneralPage.qml:77
+#: src/settings/RoomGeneralPage.qml:75
 #, kde-format
 msgid "Room topic:"
 msgstr "அரங்கின் தலைப்பு:"
 
-#: src/settings/RoomGeneralPage.qml:113
+#: src/settings/RoomGeneralPage.qml:111
 #, kde-format
 msgid "Room ID"
 msgstr "அரங்கின் அடையாள எண்"
 
-#: src/settings/RoomGeneralPage.qml:118
+#: src/settings/RoomGeneralPage.qml:116
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "அரங்கின் முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
 
-#: src/settings/RoomGeneralPage.qml:132
+#: src/settings/RoomGeneralPage.qml:130
 #, kde-format
 msgid "Room version"
 msgstr "அரங்கின் பதிப்பு"
 
-#: src/settings/RoomGeneralPage.qml:138
+#: src/settings/RoomGeneralPage.qml:136
 #, kde-format
 msgid "Upgrade Room"
 msgstr "அரங்கைப் புதுப்பி"
 
-#: src/settings/RoomGeneralPage.qml:157
+#: src/settings/RoomGeneralPage.qml:155
 #, kde-format
 msgid "Aliases"
 msgstr "மாற்றுப் பெயர்கள்"
 
-#: src/settings/RoomGeneralPage.qml:162
+#: src/settings/RoomGeneralPage.qml:160
 #, kde-format
 msgid "No canonical alias set"
 msgstr "செந்தர மாற்றுப்பெயர் அமைக்கப்படவில்லை"
 
-#: src/settings/RoomGeneralPage.qml:177
+#: src/settings/RoomGeneralPage.qml:175
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "இதை அரங்கின் செந்தர மாற்றுப்பெயராக்கு"
 
-#: src/settings/RoomGeneralPage.qml:192
+#: src/settings/RoomGeneralPage.qml:190
 #, kde-format
 msgid "Delete alias"
 msgstr "மாற்றுப்பெயரை நீக்கு"
 
-#: src/settings/RoomGeneralPage.qml:216
+#: src/settings/RoomGeneralPage.qml:214
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/settings/RoomGeneralPage.qml:233
+#: src/settings/RoomGeneralPage.qml:231
 #, kde-format
 msgid "Add new alias"
 msgstr "புதிய மாற்றுப்பெயரைச் சேர்"
 
-#: src/settings/RoomGeneralPage.qml:253
+#: src/settings/RoomGeneralPage.qml:251
 #, kde-format
 msgid "URL Previews"
 msgstr "முகவரியின் முன்னோட்டம்"
 
-#: src/settings/RoomGeneralPage.qml:257
+#: src/settings/RoomGeneralPage.qml:255
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "அரங்கிலுள்ளோருக்கு இயல்பிருப்பாக முகவரி முன்னோட்டத்தை இயக்கு"
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:263
 #, kde-format
 msgid "Enable URL previews"
 msgstr "முகவரியின் முன்னோட்டத்தை இயக்கு"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "இவ்வரங்கில் முகவரி முன்னோட்டம் இயல்பிருப்பாக இயக்கப்பட்டுள்ளது"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "இவ்வரங்கில் முகவரி முன்னோட்டம் இயல்பிருப்பாக முடக்கப்பட்டுள்ளது"
 
-#: src/settings/RoomGeneralPage.qml:275
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "அதிகாரப்பூர்வ தாய் இடங்கள்"
 
-#: src/settings/RoomGeneralPage.qml:308
+#: src/settings/RoomGeneralPage.qml:306
 #, kde-format
 msgid "Canonical"
 msgstr "செந்தரம்"
 
-#: src/settings/RoomGeneralPage.qml:315
+#: src/settings/RoomGeneralPage.qml:313
 #, kde-format
 msgid "Make canonical parent"
 msgstr "செந்தர தாயாக்கு"
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:325
 #, kde-format
 msgid "Remove parent"
 msgstr "தாயை நீக்கு"
 
-#: src/settings/RoomGeneralPage.qml:340
+#: src/settings/RoomGeneralPage.qml:338
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "இந்த அரங்குக்கு அதிகாரப்பூர்வமான தாய் இடம் இல்லை."
 
-#: src/settings/RoomGeneralPage.qml:344
+#: src/settings/RoomGeneralPage.qml:342
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "புதிய அதிகாரப்பூர்வ தாய் இடத்தை சேர்"
 
-#: src/settings/RoomGeneralPage.qml:361 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:359 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "இந்த அரங்கு இன்னொரு உரையாடலைத் தொடர்கிறது."
 
-#: src/settings/RoomGeneralPage.qml:365 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:363 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "பழைய செய்திகளைக் காட்டு…"
 
-#: src/settings/RoomGeneralPage.qml:377 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:375 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "இந்த அரங்கு மாற்றப்பட்டுள்ளது."
 
-#: src/settings/RoomGeneralPage.qml:381 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:379 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "புதிய அரங்கைக் காட்டு…"
 
-#: src/settings/RoomGeneralPage.qml:404
+#: src/settings/RoomGeneralPage.qml:402
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "அரங்கைப் புதுப்பி"
 
-#: src/settings/RoomGeneralPage.qml:408
+#: src/settings/RoomGeneralPage.qml:406
 #, kde-format
 msgid "Select new version"
 msgstr "புதிய பதிப்பைத் தேர்ந்தெடுங்கள்"

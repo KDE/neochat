@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 21:36+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -90,7 +90,7 @@ msgstr "Emodzsik"
 msgid "Stickers"
 msgstr "Matricák"
 
-#: src/controller.cpp:134
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -98,25 +98,25 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Új üzenetek értesítéseinek fogadása"
 
-#: src/controller.cpp:227 src/login.cpp:88 src/login.cpp:103
+#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Hálózati hiba: %1"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:260
 #, fuzzy, kde-format
 #| msgid "Access token wasn't found"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "A hozzáférési token nem található"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:264
 #, fuzzy, kde-format
 #| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Kérjük, engedélyezze a NeoChatnek a hozzáférési token olvasását"
 
-#: src/controller.cpp:260
+#: src/controller.cpp:267
 #, fuzzy, kde-format
 #| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
@@ -126,13 +126,13 @@ msgstr ""
 "Kérjük, telepítsen egy kulcstartót, Linuxon például a KWalletet vagy a GNOME "
 "kulcstartót"
 
-#: src/controller.cpp:263
+#: src/controller.cpp:270
 #, fuzzy, kde-format
 #| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "Nem lehet olvasni a hozzáférési tokent"
 
-#: src/controller.cpp:361
+#: src/controller.cpp:369
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Leküldéses értesítések fogadása"
@@ -1826,7 +1826,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:84
+#: src/neochatconnection.cpp:79
 #, fuzzy, kde-format
 #| msgid "Contact your matrix server administrator for support."
 msgid ""
@@ -1834,93 +1834,93 @@ msgid ""
 "for support."
 msgstr "Támogatásért forduljon a matrix kiszolgáló rendszergazdájához."
 
-#: src/neochatconnection.cpp:315
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nincs beállítva identitáskiszolgáló"
 
-#: src/neochatconnection.cpp:346
+#: src/neochatconnection.cpp:345
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Nem sikerült létrehozni a szobát: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Nem sikerült létrehozni a teret: %1"
 
-#: src/neochatroom.cpp:1454
+#: src/neochatroom.cpp:1410
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Jelentés sikeresen elküldve."
 
-#: src/neochatroom.cpp:1784 src/neochatroom.cpp:1792
+#: src/neochatroom.cpp:1740 src/neochatroom.cpp:1748
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Hossz.: %1, Szél.: %2"
 
-#: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:339
+#: src/notificationsmanager.cpp:128 src/notificationsmanager.cpp:378
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Titkosított üzenet"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:216
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:225
+#: src/notificationsmanager.cpp:222
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/notificationsmanager.cpp:238 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:235 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Válasz"
 
-#: src/notificationsmanager.cpp:239
+#: src/notificationsmanager.cpp:236
 #, kde-format
 msgid "Reply..."
 msgstr "Válasz…"
 
-#: src/notificationsmanager.cpp:258
+#: src/notificationsmanager.cpp:297
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 meghívta Önt egy szobába"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:300
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Meghívás megnyitása NeoChatben"
 
-#: src/notificationsmanager.cpp:271
+#: src/notificationsmanager.cpp:310
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: src/notificationsmanager.cpp:272
+#: src/notificationsmanager.cpp:311
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Elutasítás"
 
-#: src/notificationsmanager.cpp:273
+#: src/notificationsmanager.cpp:312
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Elutasítás és felhasználó mellőzése"
 
-#: src/notificationsmanager.cpp:332
+#: src/notificationsmanager.cpp:371
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:343
+#: src/notificationsmanager.cpp:382
 #, kde-format
 msgid "Open NeoChat"
 msgstr "NeoChat megnyitása"
@@ -3141,7 +3141,7 @@ msgstr "Felhasználói jogosultsági szint szerkesztése"
 msgid "New power level"
 msgstr "Új jogosultsági szint"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:414
 #, kde-format
 msgid "Confirm"
 msgstr "Megerősítés"
@@ -4194,7 +4194,7 @@ msgstr "QR-kód megjelenítése"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:94
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:92
 #, kde-format
 msgid "Save"
 msgstr "Mentés"
@@ -5094,158 +5094,158 @@ msgstr "A szoba értesítéseinek beállítása"
 msgid "Follow global setting"
 msgstr "Globális beállítások követése"
 
-#: src/settings/RoomGeneralPage.qml:25
-#, kde-format
-msgid "Room Information"
-msgstr "Szobainformációk"
-
-#: src/settings/RoomGeneralPage.qml:47
+#: src/settings/RoomGeneralPage.qml:37
 #, kde-format
 msgid "Update avatar"
 msgstr "Profilkép frissítése"
 
-#: src/settings/RoomGeneralPage.qml:70
+#: src/settings/RoomGeneralPage.qml:62
+#, kde-format
+msgid "Room Information"
+msgstr "Szobainformációk"
+
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgid "Room name:"
 msgstr "A szoba neve:"
 
-#: src/settings/RoomGeneralPage.qml:77
+#: src/settings/RoomGeneralPage.qml:75
 #, kde-format
 msgid "Room topic:"
 msgstr "A szoba témája:"
 
-#: src/settings/RoomGeneralPage.qml:113
+#: src/settings/RoomGeneralPage.qml:111
 #, kde-format
 msgid "Room ID"
 msgstr "Szobaazonosító"
 
-#: src/settings/RoomGeneralPage.qml:118
+#: src/settings/RoomGeneralPage.qml:116
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Szobaazonosító másolása a vágólapra"
 
-#: src/settings/RoomGeneralPage.qml:132
+#: src/settings/RoomGeneralPage.qml:130
 #, kde-format
 msgid "Room version"
 msgstr "A szoba verziója"
 
-#: src/settings/RoomGeneralPage.qml:138
+#: src/settings/RoomGeneralPage.qml:136
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Szoba frissítése"
 
-#: src/settings/RoomGeneralPage.qml:157
+#: src/settings/RoomGeneralPage.qml:155
 #, kde-format
 msgid "Aliases"
 msgstr "Álnevek:"
 
-#: src/settings/RoomGeneralPage.qml:162
+#: src/settings/RoomGeneralPage.qml:160
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Nincs beállítva kanonikus álnév"
 
-#: src/settings/RoomGeneralPage.qml:177
+#: src/settings/RoomGeneralPage.qml:175
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Legyen ez az álnév a szoba kanonikus álneve"
 
-#: src/settings/RoomGeneralPage.qml:192
+#: src/settings/RoomGeneralPage.qml:190
 #, kde-format
 msgid "Delete alias"
 msgstr "Álnév törlése"
 
-#: src/settings/RoomGeneralPage.qml:216
+#: src/settings/RoomGeneralPage.qml:214
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#új_álnév:server.org"
 
-#: src/settings/RoomGeneralPage.qml:233
+#: src/settings/RoomGeneralPage.qml:231
 #, kde-format
 msgid "Add new alias"
 msgstr "Új álnév hozzáadása"
 
-#: src/settings/RoomGeneralPage.qml:253
+#: src/settings/RoomGeneralPage.qml:251
 #, kde-format
 msgid "URL Previews"
 msgstr "URL előnézetek"
 
-#: src/settings/RoomGeneralPage.qml:257
+#: src/settings/RoomGeneralPage.qml:255
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "URL előnézetek alapértelmezett engedélyezése a szoba tagjai számára"
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:263
 #, kde-format
 msgid "Enable URL previews"
 msgstr "URL előnézetek engedélyezése"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "Az URL előnézetek alapértelmezetten engedélyezve vannak a szobában"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "Az URL előnézetek alapértelmezetten tiltva vannak a szobában"
 
-#: src/settings/RoomGeneralPage.qml:275
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Hivatalos szülőterek"
 
-#: src/settings/RoomGeneralPage.qml:308
+#: src/settings/RoomGeneralPage.qml:306
 #, kde-format
 msgid "Canonical"
 msgstr "Kanonikus"
 
-#: src/settings/RoomGeneralPage.qml:315
+#: src/settings/RoomGeneralPage.qml:313
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Legyen kanonikus szülő"
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:325
 #, kde-format
 msgid "Remove parent"
 msgstr "Szülő eltávolítása"
 
-#: src/settings/RoomGeneralPage.qml:340
+#: src/settings/RoomGeneralPage.qml:338
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Ennek a szobának nincsenek hivatalos szülőterei."
 
-#: src/settings/RoomGeneralPage.qml:344
+#: src/settings/RoomGeneralPage.qml:342
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Új hivatalos szülő hozzáadása"
 
-#: src/settings/RoomGeneralPage.qml:361 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:359 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Ez a szoba egy másik beszélgetést folytat."
 
-#: src/settings/RoomGeneralPage.qml:365 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:363 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Régebbi üzenetek megtekintése…"
 
-#: src/settings/RoomGeneralPage.qml:377 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:375 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ezt a szobát lecserélték."
 
-#: src/settings/RoomGeneralPage.qml:381 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:379 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Új szoba megtekintése…"
 
-#: src/settings/RoomGeneralPage.qml:404
+#: src/settings/RoomGeneralPage.qml:402
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Szoba frissítése"
 
-#: src/settings/RoomGeneralPage.qml:408
+#: src/settings/RoomGeneralPage.qml:406
 #, kde-format
 msgid "Select new version"
 msgstr "Új verzió"

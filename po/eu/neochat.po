@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-10-05 20:27+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -91,7 +91,7 @@ msgstr "Emojiak"
 msgid "Stickers"
 msgstr "Eranskailuak"
 
-#: src/controller.cpp:134
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -99,17 +99,17 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Mezu berrien jakinarazpenak jasotzeko"
 
-#: src/controller.cpp:227 src/login.cpp:88 src/login.cpp:103
+#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Sareko errorea: %1"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:260
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Ez du aurkitu sartzeko tokena: Agiaz ezabatu egin da?"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -117,7 +117,7 @@ msgstr ""
 "Giltzatakoan sartzea ukatu egin da: Mesedez, utzi NeoChat-eri sarrerako "
 "tokena irakurtzen"
 
-#: src/controller.cpp:260
+#: src/controller.cpp:267
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -126,12 +126,12 @@ msgstr ""
 "Ez dago giltzatarakorik erabilgarri: Mesedez, instalatu giltzatarako bat, "
 "adib. KWallet edo GNOMEren giltzatarakoa Linux-en"
 
-#: src/controller.cpp:263
+#: src/controller.cpp:270
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Ez da sartzeko tokena irakurtzeko gai: %1"
 
-#: src/controller.cpp:361
+#: src/controller.cpp:369
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Bultzada-jakinarazpenak jasotzea"
@@ -1821,7 +1821,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:84
+#: src/neochatconnection.cpp:79
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1830,93 +1830,93 @@ msgstr ""
 "Zama-jaisteko fitxategi handiegia.<br />Jar zaitez zure matrix "
 "zerbitzariaren administratzailearekin harremanean, laguntza lortzeko."
 
-#: src/neochatconnection.cpp:315
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ez da nortasun zerbitzaririk konfiguratu"
 
-#: src/neochatconnection.cpp:346
+#: src/neochatconnection.cpp:345
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Gela sortzea huts egin du: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/neochatroom.cpp:1454
+#: src/neochatroom.cpp:1410
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/neochatroom.cpp:1784 src/neochatroom.cpp:1792
+#: src/neochatroom.cpp:1740 src/neochatroom.cpp:1748
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
-#: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:339
+#: src/notificationsmanager.cpp:128 src/notificationsmanager.cpp:378
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:216
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:225
+#: src/notificationsmanager.cpp:222
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Ireki NeoChat gela honetan"
 
-#: src/notificationsmanager.cpp:238 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:235 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Erantzun"
 
-#: src/notificationsmanager.cpp:239
+#: src/notificationsmanager.cpp:236
 #, kde-format
 msgid "Reply..."
 msgstr "Erantzun..."
 
-#: src/notificationsmanager.cpp:258
+#: src/notificationsmanager.cpp:297
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1(e)k gela batera gonbidatu zaitu"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:300
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Ireki gonbidapen hau NeoChat-en"
 
-#: src/notificationsmanager.cpp:271
+#: src/notificationsmanager.cpp:310
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Onartu"
 
-#: src/notificationsmanager.cpp:272
+#: src/notificationsmanager.cpp:311
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Errefusatu"
 
-#: src/notificationsmanager.cpp:273
+#: src/notificationsmanager.cpp:312
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Errefusatu eta erabiltzailea ezikusi"
 
-#: src/notificationsmanager.cpp:332
+#: src/notificationsmanager.cpp:371
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:343
+#: src/notificationsmanager.cpp:382
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Ireki NeoChat"
@@ -3132,7 +3132,7 @@ msgstr "Editatu erabiltzailearen ahalmen maila"
 msgid "New power level"
 msgstr "Ahalmen maila berria"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:414
 #, kde-format
 msgid "Confirm"
 msgstr "Berretsi"
@@ -4187,7 +4187,7 @@ msgstr "Erakutsi QR kodea"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:94
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:92
 #, kde-format
 msgid "Save"
 msgstr "Gorde"
@@ -5083,158 +5083,158 @@ msgstr "Gelako jakinarazpenen ezarpena"
 msgid "Follow global setting"
 msgstr "Jarraitu ezarpen orokorra"
 
-#: src/settings/RoomGeneralPage.qml:25
-#, kde-format
-msgid "Room Information"
-msgstr "Gelaren informazioa"
-
-#: src/settings/RoomGeneralPage.qml:47
+#: src/settings/RoomGeneralPage.qml:37
 #, kde-format
 msgid "Update avatar"
 msgstr "Eguneratu abatarra"
 
-#: src/settings/RoomGeneralPage.qml:70
+#: src/settings/RoomGeneralPage.qml:62
+#, kde-format
+msgid "Room Information"
+msgstr "Gelaren informazioa"
+
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgid "Room name:"
 msgstr "Gelaren izena:"
 
-#: src/settings/RoomGeneralPage.qml:77
+#: src/settings/RoomGeneralPage.qml:75
 #, kde-format
 msgid "Room topic:"
 msgstr "Gelaren gaia:"
 
-#: src/settings/RoomGeneralPage.qml:113
+#: src/settings/RoomGeneralPage.qml:111
 #, kde-format
 msgid "Room ID"
 msgstr "Gelaren ID"
 
-#: src/settings/RoomGeneralPage.qml:118
+#: src/settings/RoomGeneralPage.qml:116
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Kopiatu gelaren IDa arbelera"
 
-#: src/settings/RoomGeneralPage.qml:132
+#: src/settings/RoomGeneralPage.qml:130
 #, kde-format
 msgid "Room version"
 msgstr "Gelaren bertsioa"
 
-#: src/settings/RoomGeneralPage.qml:138
+#: src/settings/RoomGeneralPage.qml:136
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Gela bertsio-berritu"
 
-#: src/settings/RoomGeneralPage.qml:157
+#: src/settings/RoomGeneralPage.qml:155
 #, kde-format
 msgid "Aliases"
 msgstr "Ezizenak"
 
-#: src/settings/RoomGeneralPage.qml:162
+#: src/settings/RoomGeneralPage.qml:160
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Ez da ezizen kanonikorik ezarri"
 
-#: src/settings/RoomGeneralPage.qml:177
+#: src/settings/RoomGeneralPage.qml:175
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Egin ezizen hau gelako ezizen kanonikoa"
 
-#: src/settings/RoomGeneralPage.qml:192
+#: src/settings/RoomGeneralPage.qml:190
 #, kde-format
 msgid "Delete alias"
 msgstr "Ezabatu ezizena"
 
-#: src/settings/RoomGeneralPage.qml:216
+#: src/settings/RoomGeneralPage.qml:214
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#ezizen_berria:server.org"
 
-#: src/settings/RoomGeneralPage.qml:233
+#: src/settings/RoomGeneralPage.qml:231
 #, kde-format
 msgid "Add new alias"
 msgstr "Gehitu ezizen berria"
 
-#: src/settings/RoomGeneralPage.qml:253
+#: src/settings/RoomGeneralPage.qml:251
 #, kde-format
 msgid "URL Previews"
 msgstr "URL aurreikuspegiak"
 
-#: src/settings/RoomGeneralPage.qml:257
+#: src/settings/RoomGeneralPage.qml:255
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "Gaitu URL aurreikuspegiak, era lehenetsian, gelako kideentzat"
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:263
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Gaitu URL aurreikuspegiak"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "URL aurreikuspegiak gaituta daude gela honetan era lehenetsian"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "URL aurreikuspegiak ezgaituta daude gela honetan era lehenetsian"
 
-#: src/settings/RoomGeneralPage.qml:275
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Guraso toki ofizialak"
 
-#: src/settings/RoomGeneralPage.qml:308
+#: src/settings/RoomGeneralPage.qml:306
 #, kde-format
 msgid "Canonical"
 msgstr "Kanonikoa"
 
-#: src/settings/RoomGeneralPage.qml:315
+#: src/settings/RoomGeneralPage.qml:313
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Egin guraso kanonikoa"
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:325
 #, kde-format
 msgid "Remove parent"
 msgstr "Kendu gurasoa"
 
-#: src/settings/RoomGeneralPage.qml:340
+#: src/settings/RoomGeneralPage.qml:338
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Gela horrek ez du guraso toki ofizialik."
 
-#: src/settings/RoomGeneralPage.qml:344
+#: src/settings/RoomGeneralPage.qml:342
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Gehitu guraso ofizial berria"
 
-#: src/settings/RoomGeneralPage.qml:361 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:359 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Gela honek beste elkarrizketa bat du."
 
-#: src/settings/RoomGeneralPage.qml:365 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:363 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Ikusi mezu zaharragoak..."
 
-#: src/settings/RoomGeneralPage.qml:377 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:375 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Gela hau ordezkatu egin da."
 
-#: src/settings/RoomGeneralPage.qml:381 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:379 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Ikusi gela berria..."
 
-#: src/settings/RoomGeneralPage.qml:404
+#: src/settings/RoomGeneralPage.qml:402
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Gela bertsio-berritu"
 
-#: src/settings/RoomGeneralPage.qml:408
+#: src/settings/RoomGeneralPage.qml:406
 #, kde-format
 msgid "Select new version"
 msgstr "Hautatu bertsio berria"

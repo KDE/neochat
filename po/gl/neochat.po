@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-06 00:39+0000\n"
+"POT-Creation-Date: 2024-10-07 00:39+0000\n"
 "PO-Revision-Date: 2024-09-21 16:28+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -88,7 +88,7 @@ msgstr "Expresións"
 msgid "Stickers"
 msgstr "Adesivos"
 
-#: src/controller.cpp:134
+#: src/controller.cpp:135
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -96,25 +96,25 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Recibindo notificacións de novas mensaxes."
 
-#: src/controller.cpp:227 src/login.cpp:88 src/login.cpp:103
+#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Erro de rede: %1"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:260
 #, fuzzy, kde-format
 #| msgid "Access token wasn't found"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Non se atopou o pase de acceso."
 
-#: src/controller.cpp:257
+#: src/controller.cpp:264
 #, fuzzy, kde-format
 #| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Permita a NeoChat ler o pase de acceso."
 
-#: src/controller.cpp:260
+#: src/controller.cpp:267
 #, fuzzy, kde-format
 #| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
@@ -122,13 +122,13 @@ msgid ""
 "keyring on Linux"
 msgstr "Instale un chaveiro, p. ex. KWallet ou o chaveiro de GNOME en Linux."
 
-#: src/controller.cpp:263
+#: src/controller.cpp:270
 #, fuzzy, kde-format
 #| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "Non é posíbel ler o pase de acceso."
 
-#: src/controller.cpp:361
+#: src/controller.cpp:369
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Recibindo notificacións levadas"
@@ -1819,7 +1819,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:84
+#: src/neochatconnection.cpp:79
 #, fuzzy, kde-format
 #| msgid "Contact your matrix server administrator for support."
 msgid ""
@@ -1827,93 +1827,93 @@ msgid ""
 "for support."
 msgstr "Solicite asistencia á administración do seu servidor de Matrix."
 
-#: src/neochatconnection.cpp:315
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Non hai configurado ningún servidor de identidade."
 
-#: src/neochatconnection.cpp:346
+#: src/neochatconnection.cpp:345
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "A creación da sala fallou: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "A creación do espazo fallou: %1"
 
-#: src/neochatroom.cpp:1454
+#: src/neochatroom.cpp:1410
 #, kde-format
 msgid "Report sent successfully."
 msgstr "O informe enviouse correctamente."
 
-#: src/neochatroom.cpp:1784 src/neochatroom.cpp:1792
+#: src/neochatroom.cpp:1740 src/neochatroom.cpp:1748
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1; lonx: %2"
 
-#: src/notificationsmanager.cpp:131 src/notificationsmanager.cpp:339
+#: src/notificationsmanager.cpp:128 src/notificationsmanager.cpp:378
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Mensaxe cifrada"
 
-#: src/notificationsmanager.cpp:219
+#: src/notificationsmanager.cpp:216
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:225
+#: src/notificationsmanager.cpp:222
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Abrir NeoChat nesta sala"
 
-#: src/notificationsmanager.cpp:238 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:235 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
 
-#: src/notificationsmanager.cpp:239
+#: src/notificationsmanager.cpp:236
 #, kde-format
 msgid "Reply..."
 msgstr "Responder…"
 
-#: src/notificationsmanager.cpp:258
+#: src/notificationsmanager.cpp:297
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 envioulle unha invitación a unha sala"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:300
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Abrir a invitación en NeoChat"
 
-#: src/notificationsmanager.cpp:271
+#: src/notificationsmanager.cpp:310
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Aceptar"
 
-#: src/notificationsmanager.cpp:272
+#: src/notificationsmanager.cpp:311
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rexeitar"
 
-#: src/notificationsmanager.cpp:273
+#: src/notificationsmanager.cpp:312
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Rexeitar e ignorar a persoa"
 
-#: src/notificationsmanager.cpp:332
+#: src/notificationsmanager.cpp:371
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:343
+#: src/notificationsmanager.cpp:382
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Abrir NeoChat"
@@ -3133,7 +3133,7 @@ msgstr "Editar o nivel de permisos da persoa"
 msgid "New power level"
 msgstr "Novo nivel de permisos"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:416
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:414
 #, kde-format
 msgid "Confirm"
 msgstr "Confirmar"
@@ -4190,7 +4190,7 @@ msgstr "Amosar o código QR"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:94
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:92
 #, kde-format
 msgid "Save"
 msgstr "Gardar"
@@ -5085,165 +5085,165 @@ msgstr "Opción de notificacións de sala"
 msgid "Follow global setting"
 msgstr "Usar a opción global"
 
-#: src/settings/RoomGeneralPage.qml:25
-#, kde-format
-msgid "Room Information"
-msgstr "Información da sala"
-
-#: src/settings/RoomGeneralPage.qml:47
+#: src/settings/RoomGeneralPage.qml:37
 #, kde-format
 msgid "Update avatar"
 msgstr "Actualizar o avatar"
 
-#: src/settings/RoomGeneralPage.qml:70
+#: src/settings/RoomGeneralPage.qml:62
+#, kde-format
+msgid "Room Information"
+msgstr "Información da sala"
+
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgid "Room name:"
 msgstr "Nome da sala:"
 
-#: src/settings/RoomGeneralPage.qml:77
+#: src/settings/RoomGeneralPage.qml:75
 #, kde-format
 msgid "Room topic:"
 msgstr "Tema da sala:"
 
-#: src/settings/RoomGeneralPage.qml:113
+#: src/settings/RoomGeneralPage.qml:111
 #, kde-format
 msgid "Room ID"
 msgstr "Identificador da sala"
 
-#: src/settings/RoomGeneralPage.qml:118
+#: src/settings/RoomGeneralPage.qml:116
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Copiar o identificador de sala no portapapeis"
 
-#: src/settings/RoomGeneralPage.qml:132
+#: src/settings/RoomGeneralPage.qml:130
 #, kde-format
 msgid "Room version"
 msgstr "Versión da sala"
 
-#: src/settings/RoomGeneralPage.qml:138
+#: src/settings/RoomGeneralPage.qml:136
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Anovar a sala"
 
-#: src/settings/RoomGeneralPage.qml:157
+#: src/settings/RoomGeneralPage.qml:155
 #, kde-format
 msgid "Aliases"
 msgstr "Abreviaturas"
 
-#: src/settings/RoomGeneralPage.qml:162
+#: src/settings/RoomGeneralPage.qml:160
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Non hai un alias canónico definido"
 
-#: src/settings/RoomGeneralPage.qml:177
+#: src/settings/RoomGeneralPage.qml:175
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Facer este alias o canónico da sala"
 
-#: src/settings/RoomGeneralPage.qml:192
+#: src/settings/RoomGeneralPage.qml:190
 #, kde-format
 msgid "Delete alias"
 msgstr "Eliminar o alias"
 
 # well-spelled: example
-#: src/settings/RoomGeneralPage.qml:216
+#: src/settings/RoomGeneralPage.qml:214
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#novo_alias:servidor.example"
 
-#: src/settings/RoomGeneralPage.qml:233
+#: src/settings/RoomGeneralPage.qml:231
 #, kde-format
 msgid "Add new alias"
 msgstr "Engadir un novo alias"
 
-#: src/settings/RoomGeneralPage.qml:253
+#: src/settings/RoomGeneralPage.qml:251
 #, kde-format
 msgid "URL Previews"
 msgstr "Vistas previas de URL"
 
-#: src/settings/RoomGeneralPage.qml:257
+#: src/settings/RoomGeneralPage.qml:255
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 "Activar as vistas previas de URL de maneira predeterminada para os membros "
 "da sala."
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:263
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Activar as vistas previas de URL"
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr ""
 "As vistas previas de URL están activadas de maneira predeterminada nesta "
 "sala."
 
-#: src/settings/RoomGeneralPage.qml:267
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr ""
 "As vistas previas de URL están desactivadas de maneira predeterminada nesta "
 "sala."
 
-#: src/settings/RoomGeneralPage.qml:275
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Espazos oficiais"
 
-#: src/settings/RoomGeneralPage.qml:308
+#: src/settings/RoomGeneralPage.qml:306
 #, kde-format
 msgid "Canonical"
 msgstr "Canónico"
 
-#: src/settings/RoomGeneralPage.qml:315
+#: src/settings/RoomGeneralPage.qml:313
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Facer o espazo canónico"
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:325
 #, kde-format
 msgid "Remove parent"
 msgstr "Retirar o espazo"
 
-#: src/settings/RoomGeneralPage.qml:340
+#: src/settings/RoomGeneralPage.qml:338
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Esta sala non ten espazos oficiais."
 
-#: src/settings/RoomGeneralPage.qml:344
+#: src/settings/RoomGeneralPage.qml:342
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Engadir un novo espazo oficial"
 
-#: src/settings/RoomGeneralPage.qml:361 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:359 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Esta sala continúa outra conversa."
 
-#: src/settings/RoomGeneralPage.qml:365 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:363 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Ver as mensaxes anteriores…"
 
-#: src/settings/RoomGeneralPage.qml:377 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:375 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Substituíuse a sala."
 
-#: src/settings/RoomGeneralPage.qml:381 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:379 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Ver a nova sala…"
 
-#: src/settings/RoomGeneralPage.qml:404
+#: src/settings/RoomGeneralPage.qml:402
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Anovar a sala"
 
-#: src/settings/RoomGeneralPage.qml:408
+#: src/settings/RoomGeneralPage.qml:406
 #, kde-format
 msgid "Select new version"
 msgstr "Seleccionar a nova versión"
