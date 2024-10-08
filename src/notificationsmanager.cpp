@@ -40,7 +40,22 @@ NotificationsManager::NotificationsManager(QObject *parent)
 
 void NotificationsManager::handleNotifications(QPointer<NeoChatConnection> connection)
 {
-    if (KNotificationPermission::checkPermission() != Qt::PermissionStatus::Granted) {
+    if (KNotificationPermission::checkPermission() == Qt::PermissionStatus::Granted) {
+        startNotificationJob(connection);
+    } else if (!permissionAsked) {
+        KNotificationPermission::requestPermission(this, [this, connection](Qt::PermissionStatus result) {
+            if (result == Qt::PermissionStatus::Granted) {
+                startNotificationJob(connection);
+            } else {
+                permissionAsked = true;
+            }
+        });
+    }
+}
+
+void NotificationsManager::startNotificationJob(QPointer<NeoChatConnection> connection)
+{
+    if (connection == nullptr) {
         return;
     }
 
