@@ -358,7 +358,7 @@ void Controller::listenForNotifications()
     connect(timer, &QTimer::timeout, qGuiApp, &QGuiApplication::quit);
 
     connect(connector, &KUnifiedPush::Connector::messageReceived, [timer](const QByteArray &data) {
-        m_notificationsManager.postPushNotification(data);
+        instance().m_notificationsManager.postPushNotification(data);
         timer->stop();
     });
 
