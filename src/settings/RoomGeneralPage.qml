@@ -70,17 +70,23 @@ FormCard.FormCardPage {
             readOnly: !room.canSendState("m.room.name")
         }
 
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormTextAreaDelegate {
             id: roomTopicField
             label: i18n("Room topic:")
-            Accessible.description: roomTopicLabel.text
             text: room.topic
             readOnly: !room.canSendState("m.room.topic")
             onTextChanged: roomTopicField.text = text
         }
+
+        FormCard.FormDelegateSeparator {
+            visible: !roomNameField.readOnly || !roomTopicField.readOnly
+        }
+
         FormCard.AbstractFormDelegate {
-            visible: !roomNameField.readOnly || !roomTopicTextArea.readOnly
-            background: Item {}
+            visible: !roomNameField.readOnly || !roomTopicField.readOnly
+            background: null
             contentItem: RowLayout {
                 Item {
                     Layout.fillWidth: true
@@ -90,6 +96,7 @@ FormCard.FormCardPage {
                     Layout.topMargin: Kirigami.Units.smallSpacing
                     enabled: room.name !== roomNameField.text || room.topic !== roomTopicField.text
                     text: i18n("Save")
+                    icon.name: "document-save-symbolic"
                     onClicked: {
                         if (room.name != roomNameField.text) {
                             room.setName(roomNameField.text);
