@@ -303,7 +303,8 @@ void RoomManager::visitRoom(Room *r, const QString &eventId)
         return;
     }
 
-    if (m_currentRoom && m_currentRoom->id() == room->id()) {
+    // It's important that we compare room *objects* here, not just room *ids*, since we need to deal with the object changing when going invite -> joined
+    if (m_currentRoom && m_currentRoom == room) {
         Q_EMIT goToEvent(eventId);
     } else {
         setCurrentRoom(room->id());
@@ -436,6 +437,11 @@ void RoomManager::setConnection(NeoChatConnection *connection)
         });
         connect(m_connection, &NeoChatConnection::directChatAvailable, this, [this](Quotient::Room *directChat) {
             resolveResource(directChat->id());
+        });
+        connect(m_connection, &NeoChatConnection::joinedRoom, this, [this](const auto &room, const auto &previousRoom) {
+            if (m_currentRoom == previousRoom) {
+                resolveResource(room->id());
+            }
         });
     }
 
