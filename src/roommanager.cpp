@@ -158,21 +158,6 @@ void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
         if ((uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) && action != "no_join"_ls) {
             Q_EMIT askJoinRoom(uri.primaryId());
         }
-    } else {
-        if (result != Quotient::UriResolved) {
-            return;
-        }
-
-        if (uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) {
-            connect(
-                m_connection.get(),
-                &NeoChatConnection::newRoom,
-                this,
-                [this, uri](Room *room) {
-                    resolveResource(room->id());
-                },
-                Qt::SingleShotConnection);
-        }
     }
 }
 
