@@ -94,7 +94,7 @@ int TimelineBeginningModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     if (m_room == nullptr) {
-        return 0;
+        return 1;
     }
     return m_room->successorId().isEmpty() ? 0 : 1;
 }
@@ -159,7 +159,7 @@ int TimelineEndModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     if (m_room == nullptr) {
-        return 0;
+        return 1;
     }
     return m_room->predecessorId().isEmpty() ? 1 : (m_room->allHistoryLoaded() ? 2 : 1);
 }
