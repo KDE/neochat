@@ -94,7 +94,6 @@ Video {
 
     Component.onDestruction: root.stop()
     Component.onCompleted: {
-        console.warn("state", root.state)
         if (NeoChatConfig.hideImages && !Controller.isImageShown(root.eventId)) {
             root.state = "hidden";
         }

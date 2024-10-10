@@ -43,7 +43,6 @@ Kirigami.Dialog {
             }
         }
         root.room.setJoinRule("restricted", ids);
-        console.warn(ids);
     }
 
     QQC2.ButtonGroup {

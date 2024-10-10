@@ -95,7 +95,6 @@ void RoomTreeModel::newRoom(Room *r)
     parentItem->insertChild(std::make_unique<RoomTreeItem>(room, parentItem));
     connectRoomSignals(room);
     endInsertRows();
-    qWarning() << "adding room" << type << "new count" << parentItem->childCount();
 }
 
 void RoomTreeModel::leftRoom(Room *r)
