@@ -6,6 +6,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.neochat
 
 /**
@@ -40,33 +42,39 @@ ColumnLayout {
     Layout.fillWidth: true
     Layout.maximumWidth: root.maxContentWidth
 
+    spacing: 0
+
     Label {
         id: questionLabel
         text: root.pollHandler.question
         wrapMode: Text.Wrap
         Layout.fillWidth: true
+        visible: text.length > 0
     }
+
     Repeater {
         model: root.pollHandler.options
-        delegate: RowLayout {
+        delegate: FormCard.FormCheckDelegate {
             Layout.fillWidth: true
-            CheckBox {
-                checked: root.pollHandler.answers[root.room.localMember.id] ? root.pollHandler.answers[root.room.localMember.id].includes(modelData["id"]) : false
-                onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])
-                enabled: !root.pollHandler.hasEnded
-            }
-            Label {
-                text: modelData["org.matrix.msc1767.text"]
-                Layout.fillWidth: true
-                wrapMode: Text.Wrap
-            }
-            Label {
+            Layout.leftMargin: -Kirigami.Units.largeSpacing - Kirigami.Units.smallSpacing
+            Layout.rightMargin: -Kirigami.Units.largeSpacing - Kirigami.Units.smallSpacing
+
+            checked: root.pollHandler.answers[root.room.localMember.id] ? root.pollHandler.answers[root.room.localMember.id].includes(modelData["id"]) : false
+            onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])
+            enabled: !root.pollHandler.hasEnded
+            text: modelData["org.matrix.msc1767.text"]
+
+            topPadding: Kirigami.Units.smallSpacing
+            bottomPadding: Kirigami.Units.smallSpacing
+
+            trailing: Label {
                 visible: root.pollHandler.kind == "org.matrix.msc3381.poll.disclosed" || pollHandler.hasEnded
                 Layout.preferredWidth: contentWidth
                 text: root.pollHandler.counts[modelData["id"]] ?? "0"
             }
         }
     }
+
     Label {
         visible: root.pollHandler.kind == "org.matrix.msc3381.poll.disclosed" || root.pollHandler.hasEnded
         text: i18np("Based on votes by %1 user", "Based on votes by %1 users", root.pollHandler.answerCount) + (root.pollHandler.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
