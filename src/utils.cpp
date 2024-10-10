@@ -20,7 +20,6 @@ bool QmlUtils::isEmoji(const QString &text)
 {
     return Utils::isEmoji(text);
 }
-
 bool QmlUtils::isValidJson(const QByteArray &json)
 {
     return !QJsonDocument::fromJson(json).isNull();
@@ -51,7 +50,7 @@ bool Utils::isEmoji(const QString &text)
         }
 
         auto first = text.mid(from, to - from).toUcs4()[0];
-        if (!u_hasBinaryProperty(first, UCHAR_EMOJI)) {
+        if (!u_hasBinaryProperty(first, UCHAR_EMOJI_PRESENTATION)) {
             return false;
         }
         from = to;
