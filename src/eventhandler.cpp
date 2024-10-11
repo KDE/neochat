@@ -307,7 +307,7 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
         },
         [room, prettyPrint](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event
-            auto subjectName = room->member(e.userId()).htmlSafeDisplayName();
+            auto subjectName = prettyPrint ? room->member(e.userId()).htmlSafeDisplayName() : room->member(e.userId()).displayName();
             if (e.membership() == Membership::Leave) {
                 if (e.prevContent() && e.prevContent()->displayName) {
                     subjectName = sanitized(*e.prevContent()->displayName);
