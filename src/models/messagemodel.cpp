@@ -273,7 +273,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         if (event.value().get().originalEvent()) {
             auto encrypted = dynamic_cast<const EncryptedEvent *>(event.value().get().originalEvent());
             Q_ASSERT(encrypted);
-            return m_room->connection()->isVerifiedSession(encrypted->sessionId().toLatin1());
+            // return m_room->connection()->isVerifiedSession(encrypted->sessionId().toLatin1());
         }
         return false;
     }

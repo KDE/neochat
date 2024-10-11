@@ -170,9 +170,9 @@ void DevicesModel::setConnection(NeoChatConnection *connection)
             fetchDevices();
         }
     });
-    connect(m_connection, &Connection::finishedQueryingKeys, this, [this]() {
-        fetchDevices();
-    });
+    // connect(m_connection, &Connection::finishedQueryingKeys, this, [this]() {
+    //     fetchDevices();
+    // });
 }
 
 #include "moc_devicesmodel.cpp"

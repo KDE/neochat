@@ -35,7 +35,10 @@ FormCard.FormCardPage {
         connection: Controller.activeConnection
         onKeyBackupUnlocked: {
             ssssHandler.processing = false
-            root.closeDialog()
+            banner.text = i18nc("@info:status", "Encrption keys restored.")
+            banner.type = Kirigami.MessageType.Positive
+            banner.visible = true
+
         }
         onError: error => {
             if (error !== SSSSHandler.WrongKeyError) {

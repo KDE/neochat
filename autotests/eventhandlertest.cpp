@@ -102,7 +102,7 @@ void EventHandlerTest::time()
 
     QCOMPARE(EventHandler::time(room, event), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)));
 
-    const auto txID = room->postJson("m.room.message"_L1, event->fullJson());
+    const auto txID = room->postJson("m.room.message"_L1, event->fullJson())->transactionId();
     QCOMPARE(room->pendingEvents().size(), 1);
     const auto pendingIt = room->findPendingEvent(txID);
     QCOMPARE(EventHandler::time(room, pendingIt->event(), true), pendingIt->lastUpdated());
@@ -132,7 +132,7 @@ void EventHandlerTest::timeString()
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::ShortFormat));
     QCOMPARE(EventHandler::timeString(room, event, u"hh:mm"_s), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toString(u"hh:mm"_s));
 
-    const auto txID = room->postJson("m.room.message"_L1, event->fullJson());
+    const auto txID = room->postJson("m.room.message"_L1, event->fullJson())->transactionId();
     QCOMPARE(room->pendingEvents().size(), 1);
     const auto pendingIt = room->findPendingEvent(txID);
 
