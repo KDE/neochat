@@ -200,6 +200,10 @@ add_library(neochat STATIC
     models/pollanswermodel.h
 )
 
+if (NOT TARGET Olm::Olm)
+   target_compile_definitions(neochat PUBLIC -DRUST_CRYPTO)
+endif()
+
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
     QT_QML_SINGLETON_TYPE TRUE
 )
