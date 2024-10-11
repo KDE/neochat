@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-08 00:39+0000\n"
-"PO-Revision-Date: 2024-09-19 09:44+0400\n"
+"POT-Creation-Date: 2024-10-11 00:40+0000\n"
+"PO-Revision-Date: 2024-10-10 08:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -103,31 +103,30 @@ msgid "Network Error: %1"
 msgstr "خطأ شبكي: %1"
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "رمز النفاذ غير موجود"
+msgstr "رمز النفاذ غير موجود: ربما حذفت؟"
 
 #: src/controller.cpp:264
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "الرجاء السماح لنيوتشات بقراءة رمز النفاذ"
+msgstr ""
+"منع النفاذ إلى حَمَّالَة المَفَاتِيح: الرجاء السماح لنيوتشات بقراءة رمز النفاذ"
 
 #: src/controller.cpp:267
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
-msgstr "الرجاء تثبيت حَمَّالَة مَفَاتِيح مثل محفظتك من كِيدِي أو غنوم Keyring على لينكس"
+msgstr ""
+"لا يوجد حَمَّالَة المَفَاتِيح. الرجاء تثبيت حَمَّالَة مَفَاتِيح مثل محفظتك من كِيدِي أو غنوم "
+"Keyring على لينكس"
 
 #: src/controller.cpp:270
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "غير قادر على قراءة رقم النفاذ"
+msgstr "غير قادر على قراءة رقم النفاذ: %1"
 
 #: src/controller.cpp:369
 #, kde-format
@@ -1828,12 +1827,12 @@ msgid ", "
 msgstr "، "
 
 #: src/neochatconnection.cpp:79
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "راسل مدير خادوم ماتركس للدعم."
+msgstr ""
+"الملف كبير للغاية بحيث لا يمكن تحميله.<br />راسل مدير خادوم ماتركس للدعم."
 
 #: src/neochatconnection.cpp:314
 #, kde-format
@@ -4112,16 +4111,14 @@ msgid "Working"
 msgstr "يعمل"
 
 #: src/roommanager.cpp:137
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "معرف ماتركس %1 غير صحيح"
+msgstr "معرف ماتركس مشوه أو فارغ<br />معرف ماتركس %1 غير صحيح"
 
 #: src/roommanager.cpp:354
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "أخفق في الانضمام إلى غرفة"
+msgstr "أخفق في الانضمام إلى غرفة<br />%1"
 
 #: src/roommanager.cpp:390
 #, kde-format
@@ -4129,10 +4126,9 @@ msgid "You requested to join '%1'"
 msgstr "طلبت الانضمام إلى '%1'"
 
 #: src/roommanager.cpp:394
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "فشل في طلب الانضمام لغرفة"
+msgstr "فشل في طلب الانضمام لغرفة<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -5673,24 +5669,24 @@ msgstr "هذه هي بداية الدردشة. ولا توجد رسائل قدي
 msgid "Pl. %1"
 msgstr "المنصة %1"
 
-#: src/timeline/VideoComponent.qml:218
+#: src/timeline/VideoComponent.qml:217
 #, kde-format
 msgid "Video"
 msgstr "فيديو"
 
-#: src/timeline/VideoComponent.qml:258
+#: src/timeline/VideoComponent.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "أظهر الفيديو"
 
-#: src/timeline/VideoComponent.qml:299
+#: src/timeline/VideoComponent.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "الصوت"
 
-#: src/timeline/VideoComponent.qml:383
+#: src/timeline/VideoComponent.qml:382
 #, kde-format
 msgid "Maximize"
 msgstr "كبّر"
