@@ -6,8 +6,6 @@
 #include <QQmlEngine>
 
 #include <Quotient/accountregistry.h>
-#include <Quotient/e2ee/sssshandler.h>
-#include <Quotient/keyimport.h>
 #include <Quotient/keyverificationsession.h>
 #include <Quotient/roommember.h>
 
@@ -32,17 +30,4 @@ struct ForeignKeyVerificationSession {
     QML_FOREIGN(Quotient::KeyVerificationSession)
     QML_NAMED_ELEMENT(KeyVerificationSession)
     QML_UNCREATABLE("")
-};
-
-struct ForeignSSSSHandler {
-    Q_GADGET
-    QML_FOREIGN(Quotient::SSSSHandler)
-    QML_NAMED_ELEMENT(SSSSHandler)
-};
-
-struct ForeignKeyImport {
-    Q_GADGET
-    QML_SINGLETON
-    QML_FOREIGN(Quotient::KeyImport)
-    QML_NAMED_ELEMENT(KeyImport)
 };

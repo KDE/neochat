@@ -75,14 +75,14 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         if (device.deviceId == m_connection->deviceId()) {
             return This;
         }
-        if (!m_connection->isKnownE2eeCapableDevice(m_connection->userId(), device.deviceId)) {
-            return Unencrypted;
-        }
-        if (m_connection->isVerifiedDevice(m_connection->userId(), device.deviceId)) {
-            return Verified;
-        } else {
-            return Unverified;
-        }
+        // if (!m_connection->isKnownE2eeCapableDevice(m_connection->userId(), device.deviceId)) {
+        //     return Unencrypted;
+        // }
+        // if (m_connection->isVerifiedDevice(m_connection->userId(), device.deviceId)) {
+        //     return Verified;
+        // } else {
+        //     return Unverified;
+        // }
     }
     return {};
 }
@@ -173,9 +173,9 @@ void DevicesModel::setConnection(NeoChatConnection *connection)
             fetchDevices();
         }
     });
-    connect(m_connection, &Connection::finishedQueryingKeys, this, [this]() {
-        fetchDevices();
-    });
+    // connect(m_connection, &Connection::finishedQueryingKeys, this, [this]() {
+    //     fetchDevices();
+    // });
 }
 
 #include "moc_devicesmodel.cpp"
