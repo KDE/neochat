@@ -208,7 +208,7 @@ DelegateChooser {
         roleValue: MessageComponentType.Verification
         delegate: MimeComponent {
             mimeIconSource: "security-high"
-            label: i18n("%1 started a user verification", model.author.displayName)
+            label: i18n("%1 started a user verification", model.author.htmlSafeDisplayName)
         }
     }
 
