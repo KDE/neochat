@@ -69,7 +69,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/QuickSwitcher.qml
         qml/QuickFormatBar.qml
         qml/UserDetailDialog.qml
-        qml/KeyVerificationDialog.qml
         qml/ConfirmLogoutDialog.qml
         qml/VerificationMessage.qml
         qml/EmojiItem.qml
@@ -126,6 +125,17 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         org.kde.syntaxhighlighting
         ${EXTRA_IMPORTS}
 )
+
+
+# TODO: Remove OlmKeyVerificationDialog once we depend on libQuotient 0.10
+if(NOT TARGET Olm::Olm)
+    qt_target_qml_sources(neochat QML_FILES qml/KeyVerificationDialog.qml)
+else()
+    set_source_files_properties(qml/OlmKeyVerificationDialog.qml PROPERTIES
+        QT_QML_SOURCE_TYPENAME KeyVerificationDialog
+    )
+    qt_target_qml_sources(neochat QML_FILES qml/OlmKeyVerificationDialog.qml)
+endif()
 
 if(NOT ANDROID AND NOT WIN32)
     qt_target_qml_sources(neochat QML_FILES
