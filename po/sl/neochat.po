@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-11 00:40+0000\n"
-"PO-Revision-Date: 2024-09-14 09:01+0200\n"
+"POT-Creation-Date: 2024-10-12 00:38+0000\n"
+"PO-Revision-Date: 2024-10-11 19:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -106,31 +106,31 @@ msgid "Network Error: %1"
 msgstr "Napaka omrežja: %1"
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Žetona za dostop ni bilo mogoče najti"
+msgstr "Žetona za dostop ni bilo mogoče najti: morda je bil izbrisan?"
 
 #: src/controller.cpp:264
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Dovolite, da NeoChat prebere žeton za dostop"
+msgstr ""
+"Dostop do obeska ključev je bil zavrnjen: dovolite NeoChatu, da prebere "
+"žeton za dostop"
 
 #: src/controller.cpp:267
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
-msgstr "Namestite verigo ključev, npr. KWallet ali GNOME Keyring v Linux"
+msgstr ""
+"Obesek za ključe ni na voljo: namestite obesek za ključe, npr. KWallet ali "
+"GNOME kot obesek za ključe na Linuxu"
 
 #: src/controller.cpp:270
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Žetona za dostop ni mogoče prebrati"
+msgstr "Ni mogoče prebrati žetona za dostop: %1"
 
 #: src/controller.cpp:369
 #, kde-format
@@ -1827,12 +1827,13 @@ msgid ", "
 msgstr ", "
 
 #: src/neochatconnection.cpp:79
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "Stopite v stik za podporo z vašim skrbnikom matrixa."
+msgstr ""
+"Datoteka je prevelika za prenos.<br />Za podporo se obrnite na skrbnika "
+"strežnika matrix."
 
 #: src/neochatconnection.cpp:314
 #, kde-format
@@ -1861,66 +1862,66 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Širina: %1, Dolžina: %2"
 
-#: src/notificationsmanager.cpp:128 src/notificationsmanager.cpp:378
+#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:393
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Šifrirano sporočilo"
 
-#: src/notificationsmanager.cpp:216
+#: src/notificationsmanager.cpp:231
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:222
+#: src/notificationsmanager.cpp:237
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
-#: src/notificationsmanager.cpp:235 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:250 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
 
-#: src/notificationsmanager.cpp:236
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgid "Reply..."
 msgstr "Odgovori …"
 
-#: src/notificationsmanager.cpp:297
+#: src/notificationsmanager.cpp:312
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 vas je povabil v sobo"
 
-#: src/notificationsmanager.cpp:300
+#: src/notificationsmanager.cpp:315
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Odprite to povabilo v NeoChat"
 
-#: src/notificationsmanager.cpp:310
+#: src/notificationsmanager.cpp:325
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/notificationsmanager.cpp:311
+#: src/notificationsmanager.cpp:326
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Zavrni"
 
-#: src/notificationsmanager.cpp:312
+#: src/notificationsmanager.cpp:327
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Zavrni in prezri uporabnika"
 
-#: src/notificationsmanager.cpp:371
+#: src/notificationsmanager.cpp:386
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:382
+#: src/notificationsmanager.cpp:397
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Odpri NeoChat"
@@ -3217,12 +3218,12 @@ msgid ""
 "cleared?"
 msgstr "Trenutni prostor je uradni nadrejeni te sobe, ali naj bo izpraznjen?"
 
-#: src/qml/RoomDelegate.qml:112
+#: src/qml/RoomDelegate.qml:111
 #, kde-format
 msgid "Muted room"
 msgstr "Utišana soba"
 
-#: src/qml/RoomDelegate.qml:145
+#: src/qml/RoomDelegate.qml:144
 #, kde-format
 msgid "Configure room"
 msgstr "Nastavi sobo"
@@ -4131,27 +4132,26 @@ msgid "Working"
 msgstr "V delovanju"
 
 #: src/roommanager.cpp:137
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 ni pravilen Matrix identifikator"
+msgstr ""
+"Napačno oblikovan ali prazen ID Matrixa<br />%1 ni pravilen določilnik za "
+"Matrix"
 
-#: src/roommanager.cpp:354
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#: src/roommanager.cpp:340
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Neuspela pridružitev v sobo"
+msgstr "Neuspela pridružitev v sobo<br />%1"
 
-#: src/roommanager.cpp:390
+#: src/roommanager.cpp:376
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Prosili ste za pridružitev v »%1«"
 
-#: src/roommanager.cpp:394
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#: src/roommanager.cpp:380
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Neuspela prošnja za pridružitev v sobo"
+msgstr "Neuspel zahtevek za pridružitev v sobo<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
