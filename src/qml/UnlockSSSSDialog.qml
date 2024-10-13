@@ -27,28 +27,6 @@ FormCard.FormCardPage {
         position: Kirigami.InlineMessage.Position.Header
     }
 
-    property SSSSHandler ssssHandler: SSSSHandler {
-        id: ssssHandler
-
-        property bool processing: false
-
-        connection: Controller.activeConnection
-        onKeyBackupUnlocked: {
-            ssssHandler.processing = false
-            root.closeDialog()
-        }
-        onError: error => {
-            if (error !== SSSSHandler.WrongKeyError) {
-                banner.text = error
-                banner.visible = true
-                return;
-            }
-            passwordField.clear()
-            ssssHandler.processing = false
-            banner.text = i18nc("@info:status", "The security phrase was not correct.")
-            banner.visible = true
-        }
-    }
 
     FormCard.FormHeader {
         title: i18nc("@title", "Unlock using Passphrase")
@@ -66,11 +44,9 @@ FormCard.FormCardPage {
             id: unlockButton
             text: i18nc("@action:button", "Unlock")
             icon.name: "unlock"
-            enabled: passwordField.text.length > 0 && !ssssHandler.processing
+            enabled: passwordField.text.length > 0
             onClicked: {
-                ssssHandler.processing = true
-                banner.visible = false
-                ssssHandler.unlockSSSSWithPassphrase(passwordField.text)
+                Controller.activeConnection.loadFromBackup(passwordField.text)
             }
         }
     }
