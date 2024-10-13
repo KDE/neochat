@@ -284,7 +284,7 @@ Loader {
                         spacing: Kirigami.Units.largeSpacing
                         KirigamiComponents.Avatar {
                             id: avatar
-                            source: author.avatarSource
+                            source: author.avatarUrl
                             Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
                             Layout.alignment: Qt.AlignTop
@@ -294,7 +294,7 @@ Loader {
                             Kirigami.Heading {
                                 level: 3
                                 Layout.fillWidth: true
-                                text: currentRoom.htmlSafeMemberName(author.id)
+                                text: author.htmlSafeDisplayName
                                 wrapMode: Text.WordWrap
                             }
                             QQC2.Label {
