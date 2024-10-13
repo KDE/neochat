@@ -10,9 +10,8 @@ import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
-ColumnLayout {
+Kirigami.NavigationTabBar {
     id: root
-    spacing: 0
 
     /**
      * @brief The connection for the current user.
@@ -24,75 +23,72 @@ ColumnLayout {
      */
     signal textChanged(string newText)
 
-    Kirigami.Separator {
-        Layout.fillWidth: true
-    }
-    Kirigami.NavigationTabBar {
-        id: exploreTabBar
-        Layout.fillWidth: true
-        actions: [
-            Kirigami.Action {
-                id: infoAction
-                text: i18n("Search")
-                icon.name: "search"
-                onTriggered: {
-                    if (explorePopup.visible && explorePopupLoader.sourceComponent == search) {
-                        explorePopup.close();
-                        exploreTabBar.currentIndex = -1;
-                    } else if (explorePopup.visible && explorePopupLoader.sourceComponent != search) {
-                        explorePopup.close();
-                        explorePopup.open();
-                    } else {
-                        explorePopup.open();
-                    }
-                    explorePopupLoader.sourceComponent = search;
+    Layout.fillWidth: true
+
+    actions: [
+        Kirigami.Action {
+            id: infoAction
+            text: i18n("Search")
+            icon.name: "search"
+            onTriggered: {
+                if (explorePopup.visible && explorePopupLoader.sourceComponent == search) {
+                    explorePopup.close();
+                    root.currentIndex = -1;
+                } else if (explorePopup.visible && explorePopupLoader.sourceComponent != search) {
+                    explorePopup.close();
+                    explorePopup.open();
+                } else {
+                    explorePopup.open();
                 }
-            },
-            Kirigami.Action {
-                text: i18n("Explore rooms")
-                icon.name: "compass"
-                onTriggered: {
-                    let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
-                        connection: root.connection
-                    }, {
-                        title: i18nc("@title", "Explore Rooms")
-                    });
-                    dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                        RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
-                    });
-                    exploreTabBar.currentIndex = -1;
-                }
-            },
-            Kirigami.Action {
-                text: i18n("Find your friends")
-                icon.name: "list-add-user"
-                onTriggered: {
-                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
-                        connection: root.connection
-                    }, {
-                        title: i18nc("@title", "Find your friends")
-                    });
-                    exploreTabBar.currentIndex = -1;
-                }
-            },
-            Kirigami.Action {
-                text: i18n("Create New")
-                icon.name: "list-add"
-                onTriggered: {
-                    if (explorePopup.visible && explorePopupLoader.sourceComponent == create) {
-                        explorePopup.close();
-                        exploreTabBar.currentIndex = -1;
-                    } else if (explorePopup.visible && explorePopupLoader.sourceComponent != create) {
-                        explorePopup.close();
-                        explorePopup.open();
-                    } else {
-                        explorePopup.open();
-                    }
-                    explorePopupLoader.sourceComponent = create;
-                }
+                explorePopupLoader.switchComponent(search);
             }
-        ]
-    }
+        },
+        Kirigami.Action {
+            text: i18n("Explore rooms")
+            icon.name: "compass"
+            onTriggered: {
+                explorePopup.close();
+                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
+                    connection: root.connection
+                }, {
+                    title: i18nc("@title", "Explore Rooms")
+                });
+                dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
+                    RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
+                });
+                root.currentIndex = -1;
+            }
+        },
+        Kirigami.Action {
+            text: i18n("Find your friends")
+            icon.name: "list-add-user"
+            onTriggered: {
+                explorePopup.close();
+                pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
+                    connection: root.connection
+                }, {
+                    title: i18nc("@title", "Find your friends")
+                });
+                root.currentIndex = -1;
+            }
+        },
+        Kirigami.Action {
+            text: i18n("Create New")
+            icon.name: "list-add"
+            onTriggered: {
+                if (explorePopup.visible && explorePopupLoader.sourceComponent == create) {
+                    explorePopup.close();
+                    root.currentIndex = -1;
+                } else if (explorePopup.visible && explorePopupLoader.sourceComponent != create) {
+                    explorePopup.close();
+                    explorePopup.open();
+                } else {
+                    explorePopup.open();
+                }
+                explorePopupLoader.switchComponent(create);
+            }
+        }
+    ]
 
     QQC2.Popup {
         id: explorePopup
@@ -110,6 +106,13 @@ ColumnLayout {
         contentItem: Loader {
             id: explorePopupLoader
             sourceComponent: search
+
+            function switchComponent(newComponent) {
+                if (sourceComponent == search) {
+                    root.textChanged("");
+                }
+                sourceComponent = newComponent;
+            }
         }
 
         background: ColumnLayout {
