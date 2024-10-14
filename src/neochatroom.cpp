@@ -363,7 +363,11 @@ bool NeoChatRoom::lastEventIsSpoiler() const
     if (auto event = lastEvent()) {
         if (auto e = eventCast<const RoomMessageEvent>(event)) {
             if (e->hasTextContent() && e->content() && e->mimeType().name() == "text/html"_ls) {
+#if Quotient_VERSION_MINOR > 8
+                auto htmlBody = static_cast<const Quotient::EventContent::TextContent *>(e->content().get())->body;
+#else
                 auto htmlBody = static_cast<const Quotient::EventContent::TextContent *>(e->content())->body;
+#endif
                 return htmlBody.contains("data-mx-spoiler"_ls);
             }
         }

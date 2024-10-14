@@ -236,7 +236,11 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
     }
 
     if (event.hasTextContent() && event.content()) {
+#if Quotient_VERSION_MINOR > 8
+        body = static_cast<const EventContent::TextContent *>(event.content().get())->body;
+#else
         body = static_cast<const EventContent::TextContent *>(event.content())->body;
+#endif
     } else {
         body = event.plainBody();
     }
@@ -476,7 +480,11 @@ QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageE
 
     QString body;
     if (event.hasTextContent() && event.content()) {
+#if Quotient_VERSION_MINOR > 8
+        body = static_cast<const EventContent::TextContent *>(event.content().get())->body;
+#else
         body = static_cast<const EventContent::TextContent *>(event.content())->body;
+#endif
     } else {
         body = event.plainBody();
     }
