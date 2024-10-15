@@ -704,7 +704,8 @@ QVariantMap EventHandler::getMediaInfoForEvent(const NeoChatRoom *room, const Qu
         }
 
         const EventContent::FileInfo *fileInfo;
-        fileInfo = roomMessageEvent->content()->fileInfo();
+        const auto content = roomMessageEvent->content();
+        fileInfo = content->fileInfo();
         QVariantMap mediaInfo = getMediaInfoFromFileInfo(room, fileInfo, eventId, false, false);
         // if filename isn't specifically given, it is in body
         // https://spec.matrix.org/latest/client-server-api/#mfile
