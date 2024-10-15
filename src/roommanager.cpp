@@ -14,7 +14,6 @@
 #include "urlhelper.h"
 
 #include <KLocalizedString>
-#include <KRuntimePlatform>
 #include <QDesktopServices>
 #include <QQuickTextDocument>
 #include <QStandardPaths>
@@ -41,6 +40,16 @@ RoomManager::RoomManager(QObject *parent)
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
     , m_userListModel(new UserListModel(this))
 {
+#if defined(Q_OS_ANDROID) || defined(Q_OS_IOS) || defined(UBUNTU_TOUCH)
+    m_isMobile = true;
+#else
+    // Mostly for debug purposes and for platforms which are always mobile,
+    // such as Plasma Mobile
+    if (qEnvironmentVariableIsSet("QT_QUICK_CONTROLS_MOBILE")) {
+        m_isMobile = QByteArrayList{"1", "true"}.contains(qgetenv("QT_QUICK_CONTROLS_MOBILE"));
+    }
+#endif
+
     m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
     m_lastSpaceConfig = m_config->group(QStringLiteral("LastOpenSpace"));
     m_directChatsConfig = m_config->group(QStringLiteral("DirectChatsActive"));
@@ -227,8 +236,9 @@ void RoomManager::loadInitialRoom()
         resolveResource(m_arg);
     }
 
-    const auto runtimePlatform = KRuntimePlatform::runtimePlatform();
-    if (runtimePlatform.contains(QStringLiteral("phone")) || runtimePlatform.contains(QStringLiteral("handset"))) {
+    if (m_isMobile) {
+        // We still need to remember the last space on mobile
+        setCurrentSpace(m_lastSpaceConfig.readEntry(m_connection->userId(), QString()), false);
         // We don't want to open a room on startup on mobile
         return;
     }
@@ -464,9 +474,10 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
     if (!setRoom) {
         return;
     }
+
     if (spaceId.length() > 3) {
         resolveResource(spaceId, "no_join"_ls);
-    } else {
+    } else if (!m_isMobile) {
         visitRoom({}, {});
     }
 }
@@ -529,6 +540,11 @@ void RoomManager::setCurrentRoom(const QString &roomId)
         }
     }
     setCurrentSpace({}, false);
+}
+
+void RoomManager::clearCurrentRoom()
+{
+    setCurrentRoom(QString());
 }
 
 QString RoomManager::currentSpace() const

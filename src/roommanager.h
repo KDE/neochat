@@ -253,6 +253,11 @@ public:
     void setConnection(NeoChatConnection *connection);
 
     /**
+     * @brief Clear the current room.
+     */
+    Q_INVOKABLE void clearCurrentRoom();
+
+    /**
      * Closes the current room and space; for situations, where it is unclear which room should be opened.
      */
     void resetState();
@@ -344,6 +349,8 @@ Q_SIGNALS:
     void currentSpaceChanged();
 
 private:
+    bool m_isMobile = false;
+
     void openRoomForActiveConnection();
 
     /** The room currently being shown in the main view (RoomPage.qml). This can be null, if there is no room.

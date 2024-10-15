@@ -18,6 +18,8 @@ Kirigami.ApplicationWindow {
     property NeoChatConnection connection: Controller.activeConnection
     readonly property HoverLinkIndicator hoverLinkIndicator: linkIndicator
 
+    property bool initialized: false
+
 
     title: NeoChatConfig.windowTitleFocus ? activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "") : "NeoChat"
 
@@ -81,6 +83,17 @@ Kirigami.ApplicationWindow {
 
     Connections {
         target: RoomManager
+
+        function onCurrentRoomChanged() {
+            if (RoomManager.currentRoom && pageStack.depth <= 1 && initialized && Kirigami.Settings.isMobile) {
+                let roomPage = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
+                    connection: root.connection
+                });
+                roomPage.backRequested.connect(event => {
+                    RoomManager.clearCurrentRoom();
+                });
+            }
+        }
 
         function onAskJoinRoom(room) {
             Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(root, {
@@ -315,9 +328,14 @@ Kirigami.ApplicationWindow {
     function load() {
         pageStack.replace(roomListComponent);
         RoomManager.loadInitialRoom();
-        let roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
-            connection: root.connection
-        });
-        roomPage.forceActiveFocus();
+
+        if (!Kirigami.Settings.isMobile) {
+            let roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
+                connection: root.connection
+            });
+            roomPage.forceActiveFocus();
+        }
+
+        initialized = true;
     }
 }
