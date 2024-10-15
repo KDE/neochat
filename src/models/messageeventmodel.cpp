@@ -17,6 +17,7 @@
 #include <QGuiApplication>
 #include <QTimeZone>
 
+#include <KFormat>
 #include <KLocalizedString>
 
 #include "enums/delegatetype.h"
@@ -411,7 +412,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return DelegateType::ReadMarker;
         case TimeRole: {
             const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime().toLocalTime();
-            const KFormat format;
+            static const KFormat format;
             return format.formatRelativeDateTime(eventDate, QLocale::ShortFormat);
         }
         case SpecialMarksRole:

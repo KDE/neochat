@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include <KFormat>
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
@@ -118,7 +117,6 @@ private:
     int rowBelowInserted = -1;
     bool resetting = false;
     bool movingEvent = false;
-    KFormat m_format;
 
     std::map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
     std::map<QString, std::unique_ptr<MessageContentModel>> m_contentModels;
