@@ -521,10 +521,18 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
                 auto fileTransferInfo = m_room->cachedFileTransferInfo(event);
 
 #ifndef Q_OS_ANDROID
-                Q_ASSERT(roomMessageEvent->content() != nullptr && roomMessageEvent->content()->fileInfo() != nullptr);
+                Q_ASSERT(roomMessageEvent->content() != nullptr && roomMessageEvent->hasFileContent());
+#if Quotient_VERSION_MINOR > 8
+                const QMimeType mimeType = roomMessageEvent->fileContent()->mimeType;
+#else
                 const QMimeType mimeType = roomMessageEvent->content()->fileInfo()->mimeType;
+#endif
                 if (mimeType.name() == QStringLiteral("text/plain") || mimeType.parentMimeTypes().contains(QStringLiteral("text/plain"))) {
+#if Quotient_VERSION_MINOR > 8
+                    QString originalName = roomMessageEvent->fileContent()->originalName;
+#else
                     QString originalName = roomMessageEvent->content()->fileInfo()->originalName;
+#endif
                     if (originalName.isEmpty()) {
                         originalName = roomMessageEvent->plainBody();
                     }
