@@ -1,0 +1,158 @@
+# SPDX-FileCopyrightText: 2024 Scarlett Moore <sgmoore@kde.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+---
+name: neochat
+base: core22
+adopt-info: neochat
+grade: stable
+confinement: strict
+apps:
+  neochat:
+    extensions:
+      - kde-neon-6
+    command: usr/bin/neochat
+    common-id: org.kde.neochat
+    desktop: usr/share/applications/org.kde.neochat.desktop
+    plugs:
+      - home
+      - removable-media
+      - audio-playback
+      - unity7
+      - network
+      - network-bind
+      - network-manager-observe
+      - password-manager-service
+      - accounts-service
+
+compression: lzo
+
+slots:
+  session-dbus-interface:
+    interface: dbus
+    name: org.kde.neochat
+    bus: session
+
+parts:
+  olm:
+    source: https://gitlab.matrix.org/matrix-org/olm.git
+    source-depth: 1
+    source-tag: '3.2.12'
+    plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_INSTALL_PREFIX=/usr
+    prime:
+      - -usr/include
+      - -usr/lib/*/pkgconfig
+      - -usr/lib/*/cmake
+
+  libsecret:
+    source: https://gitlab.gnome.org/GNOME/libsecret.git
+    source-tag: '0.21.4'
+    source-depth: 1
+    plugin: meson
+    meson-parameters:
+      - --prefix=/usr
+      - -Doptimization=3
+      - -Ddebug=true
+      - -Dmanpage=false
+      - -Dvapi=false
+      - -Dintrospection=false
+      - -Dcrypto=disabled
+      - -Dgtk_doc=false
+    build-packages:
+      - meson
+      - libglib2.0-dev
+      - libgcrypt20-dev
+    prime:
+      - -usr/include
+      - -usr/lib/*/pkgconfig
+
+  qtkeychain:
+    after: [libsecret]
+    source: https://github.com/frankosterfeld/qtkeychain.git
+    source-tag: 0.14.3
+    source-depth: 1
+    plugin: cmake
+    build-environment:
+      - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$PKG_CONFIG_PATH
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TRANSLATIONS=NO
+      - -DBUILD_WITH_QT6=ON
+    prime:
+      - -usr/include
+      - -usr/lib/*/pkgconfig
+      - -usr/lib/*/cmake
+
+  libquotient:
+    after:
+      - olm
+      - qtkeychain
+    source: https://github.com/quotient-im/libQuotient.git
+    source-tag: 0.8.2
+    source-depth: 1
+    plugin: cmake
+    build-packages:
+      - libssl-dev
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+      - -DQuotient_ENABLE_E2EE=ON
+      - -DBUILD_WITH_QT6=ON
+    prime:
+      - -usr/include
+      - -usr/lib/*/pkgconfig
+      - -usr/lib/*/cmake
+
+  kquickimageeditor:
+    source: https://invent.kde.org/libraries/kquickimageeditor.git
+    source-tag: 'v0.3.0'
+    source-depth: 1
+    plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_WITH_QT6=ON
+      - -DBUILD_TESTING=OFF
+    prime:
+      - -usr/include
+      - -usr/lib/*/pkgconfig
+      - -usr/lib/*/cmake
+
+  neochat:
+    after:
+      - qtkeychain
+      - libquotient
+      - kquickimageeditor
+    parse-info:
+      - usr/share/metainfo/org.kde.neochat.appdata.xml
+    source: .
+    source-type: local
+    plugin: cmake
+    build-packages:
+      - cmark
+      - libcmark-dev
+      - libsqlite3-dev
+      - libvulkan-dev
+      - libxkbcommon-dev
+      - libicu-dev
+      - libpulse0
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+    prime:
+      - -usr/share/man
+
+  deps:
+    after: [neochat]
+    plugin: nil
+    stage-packages:
+      - libcmark0.30.2
+    prime:
+      - usr/lib/*/libcmark.so*
+
