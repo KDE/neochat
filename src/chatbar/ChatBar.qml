@@ -405,7 +405,6 @@ QQC2.Control {
             repeatTimer.stop();
             root.currentRoom.markAllMessagesAsRead();
             textField.clear();
-            _private.chatBarCache.clearRelations();
             messageSent();
         }
 

@@ -90,6 +90,21 @@ public:
      */
     QList<Action> &allActions() const;
 
+    /**
+     * @brief Handle special sed style edit action.
+     *
+     * @return True if the message has a sed edit which was actioned. False otherwise.
+     */
+    static bool handleQuickEditAction(NeoChatRoom *room, const QString &messageText);
+
+    /**
+     * @brief Handle any action within the message contained in the given ChatBarCache.
+     *
+     * @return A modified or unmodified string that needs to be sent or an empty string if
+     *         the handled action replaces sending a normal message.
+     */
+    static std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgType>> handleAction(NeoChatRoom *room, ChatBarCache *chatBarCache);
+
 private:
     ActionsModel() = default;
 };
