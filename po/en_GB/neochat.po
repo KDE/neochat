@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:40+0000\n"
-"PO-Revision-Date: 2024-09-15 10:30+0100\n"
+"PO-Revision-Date: 2024-10-18 17:05+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -102,31 +102,30 @@ msgid "Network Error: %1"
 msgstr "Network Error: %1"
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Access token wasn't found"
+msgstr "Access token wasn't found: Maybe it was deleted?"
 
 #: src/controller.cpp:264
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Please allow NeoChat to read the access token"
+msgstr ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
 
 #: src/controller.cpp:267
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
-msgstr "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+msgstr ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
 
 #: src/controller.cpp:270
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Unable to read access token"
+msgstr "Unable to read access token: %1"
 
 #: src/controller.cpp:369
 #, kde-format
@@ -1818,12 +1817,13 @@ msgid ", "
 msgstr ", "
 
 #: src/neochatconnection.cpp:79
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "Contact your matrix server administrator for support."
+msgstr ""
+"File too large to download.<br />Contact your matrix server administrator "
+"for support."
 
 #: src/neochatconnection.cpp:314
 #, kde-format
@@ -4117,16 +4117,15 @@ msgid "Working"
 msgstr "Working"
 
 #: src/roommanager.cpp:146
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 is not a correct Matrix identifier"
+msgstr ""
+"Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 
 #: src/roommanager.cpp:350
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Failed to join room"
+msgstr "Failed to join room<br />%1"
 
 #: src/roommanager.cpp:386
 #, kde-format
@@ -4134,10 +4133,9 @@ msgid "You requested to join '%1'"
 msgstr "You requested to join '%1'"
 
 #: src/roommanager.cpp:390
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Failed to request joining room"
+msgstr "Failed to request joining room<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
