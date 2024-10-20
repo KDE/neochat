@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:40+0000\n"
-"PO-Revision-Date: 2024-09-23 21:29+0900\n"
+"PO-Revision-Date: 2024-10-20 00:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -105,31 +105,28 @@ msgid "Network Error: %1"
 msgstr "網路錯誤：%1"
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "找不到存取權杖"
+msgstr "找不到存取權杖：或許它已被刪除？"
 
 #: src/controller.cpp:264
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "請允許 NeoChat 讀取存取權杖"
+msgstr "鑰匙圈存取被拒絕：請允許 NeoChat 讀取存取權杖"
 
 #: src/controller.cpp:267
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
-msgstr "請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
+msgstr ""
+"沒有可用的鑰匙圈：請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
 
 #: src/controller.cpp:270
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "無法讀取存取權杖"
+msgstr "無法讀取存取權杖：%1"
 
 #: src/controller.cpp:369
 #, kde-format
@@ -1807,12 +1804,11 @@ msgid ", "
 msgstr ", "
 
 #: src/neochatconnection.cpp:79
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "請聯絡您的 matrix 伺服器管理員以求支援。"
+msgstr "檔案超過下載大小上限。請聯絡您的 matrix 伺服器管理員以求支援。"
 
 #: src/neochatconnection.cpp:314
 #, kde-format
@@ -4066,16 +4062,14 @@ msgid "Working"
 msgstr "處理中"
 
 #: src/roommanager.cpp:146
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 不是一個正確的 Matrix ID"
+msgstr "格式不正確或空白的 Matrix ID<br />%1 不是一個正確的 Matrix ID"
 
 #: src/roommanager.cpp:350
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "加入聊天室失敗"
+msgstr "加入聊天室失敗<br />%1"
 
 #: src/roommanager.cpp:386
 #, kde-format
@@ -4083,10 +4077,9 @@ msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
 #: src/roommanager.cpp:390
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "請求加入聊天室失敗"
+msgstr "請求加入聊天室失敗<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
