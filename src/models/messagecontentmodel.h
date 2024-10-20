@@ -31,6 +31,14 @@ class MessageContentModel : public QAbstractListModel
     Q_PROPERTY(bool showAuthor READ showAuthor WRITE setShowAuthor NOTIFY showAuthorChanged)
 
 public:
+    enum MessageState {
+        Unknown, /**< The message state is unknown. */
+        Pending, /**< The message is a new pending message which the server has not yet acknowledged. */
+        Available, /**< The message is available and acknowledged by the server. */
+        UnAvailable, /**< The message can't be retrieved either because it doesn't exist or is blocked. */
+    };
+    Q_ENUM(MessageState)
+
     /**
      * @brief Defines the model roles.
      */
@@ -98,7 +106,6 @@ public:
 
 Q_SIGNALS:
     void showAuthorChanged();
-    void eventUnavailable();
     void eventUpdated();
 
 private:
@@ -107,10 +114,9 @@ private:
     QString m_eventSenderId;
     std::unique_ptr<NeochatRoomMember> m_eventSenderObject = nullptr;
 
-    bool m_isPending;
+    MessageState m_currentState = Unknown;
     bool m_showAuthor = true;
     bool m_isReply;
-    bool m_notFound = false;
 
     void initializeModel();
     void initializeEvent();
