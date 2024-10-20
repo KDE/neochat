@@ -5,5 +5,5 @@
 #include "models/emojimodel.h"
 
 QMultiHash<QString, QVariant> EmojiTones::_tones = {
-#include "emojitones_data.h"
+    // #include "emojitones_data.h"
 };
