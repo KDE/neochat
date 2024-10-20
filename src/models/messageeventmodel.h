@@ -136,7 +136,7 @@ private:
     int refreshEventRoles(const QString &eventId, const QList<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
 
-    void createEventObjects(const Quotient::RoomEvent *event);
+    void createEventObjects(const Quotient::RoomEvent *event, bool isPending = false);
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
     bool m_initialized = false;
 
