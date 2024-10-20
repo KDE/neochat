@@ -570,7 +570,7 @@ public:
      *
      * The result will be nullptr if not found so needs to be managed.
      */
-    const Quotient::RoomEvent *getEvent(const QString &eventId) const;
+    std::pair<const Quotient::RoomEvent *, bool> getEvent(const QString &eventId) const;
 
     /**
      * @brief Returns the event that is being replied to. This includes events that were manually loaded using NeoChatRoom::loadReply.

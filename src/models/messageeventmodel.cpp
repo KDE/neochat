@@ -162,7 +162,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
             m_initialized = true;
-            createEventObjects(event);
+            createEventObjects(event, true);
             beginInsertRows({}, 0, 0);
         });
         connect(m_currentRoom, &Room::pendingEventAdded, this, &MessageEventModel::endInsertRows);
@@ -618,7 +618,7 @@ int MessageEventModel::eventIdToRow(const QString &eventID) const
     return it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
 }
 
-void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
+void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event, bool isPending)
 {
     if (event == nullptr) {
         return;
@@ -641,7 +641,7 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event)
 
     if (!m_contentModels.contains(eventId) && !m_contentModels.contains(event->transactionId())) {
         if (!event->isStateEvent() || event->matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
-            m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_currentRoom, eventId));
+            m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_currentRoom, eventId, false, isPending));
         }
     }
 

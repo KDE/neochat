@@ -1749,25 +1749,31 @@ void NeoChatRoom::downloadEventFromServer(const QString &eventId)
     });
 }
 
-const RoomEvent *NeoChatRoom::getEvent(const QString &eventId) const
+std::pair<const Quotient::RoomEvent *, bool> NeoChatRoom::getEvent(const QString &eventId) const
 {
     if (eventId.isEmpty()) {
-        return nullptr;
+        return {};
     }
     const auto timelineIt = findInTimeline(eventId);
     if (timelineIt != historyEdge()) {
-        return timelineIt->get();
+        return std::make_pair(timelineIt->get(), false);
     }
 
-    const auto pendingIt = findPendingEvent(eventId);
+    auto pendingIt = findPendingEvent(eventId);
     if (pendingIt != pendingEvents().end()) {
-        return pendingIt->event();
+        return std::make_pair(pendingIt->event(), true);
+    }
+    // findPendingEvent() searches by transaction ID, we also need to check event ID.
+    for (const auto &event : pendingEvents()) {
+        if (event->id() == eventId || event->transactionId() == eventId) {
+            return std::make_pair(event.event(), true);
+        }
     }
 
     auto extraIt = std::find_if(m_extraEvents.begin(), m_extraEvents.end(), [eventId](const Quotient::event_ptr_tt<Quotient::RoomEvent> &event) {
         return event->id() == eventId;
     });
-    return extraIt != m_extraEvents.end() ? extraIt->get() : nullptr;
+    return std::make_pair(extraIt != m_extraEvents.end() ? extraIt->get() : nullptr, false);
 }
 
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
