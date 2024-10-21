@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:40+0000\n"
-"PO-Revision-Date: 2024-09-07 19:43+0200\n"
+"PO-Revision-Date: 2024-10-20 15:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -102,32 +102,31 @@ msgid "Network Error: %1"
 msgstr "பிணைய சிக்கல்: %1"
 
 #: src/controller.cpp:260
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "அணுகல் டோக்கன் கண்டுபிடிக்கப்படவில்லை"
+msgstr "அணுகல் டோக்கன் கண்டுபிடிக்கப்படவில்லை: அது நீக்கப்பட்டுள்ளதா?"
 
 #: src/controller.cpp:264
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "அணுகல் டோக்கனை படிக்க நியோச்சாட்டை அனுமதிக்கவும்"
+msgstr ""
+"சாவிக்கொத்தைப் அணுகும் அனுமதி மறுக்கப்பட்டது: அணுகல் டோக்கனை படிக்க நியோச்சாட்டை "
+"அனுமதிக்கவும்"
 
 #: src/controller.cpp:267
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
-"ஓர் சாவிக்கொத்து நிரலை நிறுவுங்கள், எ.கா. லினக்ஸில் KWallet அல்லது GNOME keyring."
+"சாவிக்கொத்து நிரல் கிடைக்கவில்லை: ஓர் சாவிக்கொத்து நிரலை நிறுவவும், எ.கா. (லினக்சில்) "
+"KWallet அல்லது GNOME keyring."
 
 #: src/controller.cpp:270
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
+msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை: %1"
 
 #: src/controller.cpp:369
 #, kde-format
@@ -611,299 +610,241 @@ msgid "a file"
 msgstr "ஒரு கோப்பு"
 
 #: src/eventhandler.cpp:537
-#, fuzzy, kde-format
-#| msgid "sent a message"
+#, kde-format
 msgid "%1 sent a message"
-msgstr "செய்தியை அனுப்பினார்"
+msgstr "%1 செய்தியை அனுப்பினார்"
 
 #: src/eventhandler.cpp:540
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "%1 sent a sticker"
-msgstr "ஒட்டியை அனுப்பினார்"
+msgstr "%1 ஒட்டியை அனுப்பினார்"
 
 #: src/eventhandler.cpp:546
-#, fuzzy, kde-format
-#| msgid "reinvited someone to the room"
+#, kde-format
 msgid "%1 reinvited someone to the room"
-msgstr "ஒருவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
+msgstr "%1 ஒருவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
 
 #: src/eventhandler.cpp:552
-#, fuzzy, kde-format
-#| msgid "joined the room (repeated)"
+#, kde-format
 msgid "%1 joined the room (repeated)"
-msgstr "அரங்கில் சேர்ந்தார் (மறுபடியும்)"
+msgstr "%1 அரங்கில் சேர்ந்தார் (மறுபடியும்)"
 
 #: src/eventhandler.cpp:554
-#, fuzzy, kde-format
-#| msgid "invited someone to the room"
+#, kde-format
 msgid "%1 invited someone to the room"
-msgstr "எவரையே அரங்குக்கு வரவழைத்தார்"
+msgstr "%1 எவரையே அரங்குக்கு வரவழைத்தார்"
 
 #: src/eventhandler.cpp:555
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgid "%1 joined the room"
-msgstr "அரங்கில் சேர்ந்தார்"
+msgstr "%1 அரங்கில் சேர்ந்தார்"
 
 #: src/eventhandler.cpp:581
 #, kde-format
 msgid "%1 set a display name and set an avatar"
-msgstr ""
+msgstr "%1 காட்சிப்பெயரையும் சின்னத்தையும் அமைத்தார்"
 
 #: src/eventhandler.cpp:583
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "updated their avatar"
+#, kde-format
 msgid "%1 set a display name and updated their avatar"
-msgstr "அவருடைய சின்னத்தை மாற்றினார்"
+msgstr "%1 காட்சிப்பெயரை அமைத்து அவரது சின்னத்தை மாற்றினார்"
 
 #: src/eventhandler.cpp:585
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their avatar"
+#, kde-format
 msgid "%1 set a display name and cleared their avatar"
-msgstr "அவருடைய சின்னத்தை காலியாக்கினார்"
+msgstr "%1 காட்சிப்பெயரை அமைத்து அவரது சின்னத்தை காலியாக்கினார்"
 
 #: src/eventhandler.cpp:587
-#, fuzzy, kde-format
-#| msgid "Changes your display name in this room"
+#, kde-format
 msgid "%1 set a display name for this room"
-msgstr "இவ்வரங்கிலுள்ள உங்கள் காட்சிப்பெயரை மாற்றும்"
+msgstr "%1 இவ்வரங்கின் காட்சிப்பெயரை அமைத்தார்"
 
 #: src/eventhandler.cpp:590
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and set an avatar"
-msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
+msgstr "%1 தன் காட்சிப்பெயரை மாற்றி சின்னத்தை அமைத்தார்"
 
 #: src/eventhandler.cpp:592
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and updated their avatar"
-msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
+msgstr "%1 தன் காட்சிப்பெயரை மாற்றி சின்னத்தை மாற்றினார்"
 
 #: src/eventhandler.cpp:594
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and cleared their avatar"
-msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
+msgstr "%1 தன் காட்சிப்பெயரை மாற்றி சின்னத்தை காலியாக்கினார்"
 
 #: src/eventhandler.cpp:596
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name"
+#, kde-format
 msgid "%1 changed their display name"
-msgstr "தன் காட்சிப்பெயரை மாற்றினார்"
+msgstr "%1 தன் காட்சிப்பெயரை மாற்றினார்"
 
 #: src/eventhandler.cpp:599
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and set an avatar"
-msgstr "அவருடைய காட்டப்படும் பெயரை காலியாக்கினார்"
+msgstr "%1 தன் காட்சிப்பெயரை காலியாக்கி சின்னத்தை அமைத்தார்"
 
 #: src/eventhandler.cpp:601
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and updated their avatar"
-msgstr "அவருடைய காட்டப்படும் பெயரை காலியாக்கினார்"
+msgstr "%1 தன் காட்சிப்பெயரை காலியாக்கி சின்னத்தை மாற்றினார்"
 
 #: src/eventhandler.cpp:603
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
-msgstr "அவருடைய காட்டப்படும் பெயரை காலியாக்கினார்"
+msgstr "%1 தன் காட்சிப்பெயரையும் சின்னத்தையும் காலியாக்கினார்"
 
 #: src/eventhandler.cpp:605
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name"
-msgstr "அவருடைய காட்டப்படும் பெயரை காலியாக்கினார்"
+msgstr "%1 தன் காட்சிப்பெயரை காலியாக்கினார்"
 
 #: src/eventhandler.cpp:608
-#, fuzzy, kde-format
-#| msgctxt "<user> changed nothing"
-#| msgid "changed nothing"
+#, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
-msgstr "எதையும் மாற்றவில்லை"
+msgstr "%1 எதையும் மாற்றவில்லை"
 
 #: src/eventhandler.cpp:612
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
+#, kde-format
 msgid "%1 withdrew a user's invitation"
-msgstr "ஒருவருக்கு விடுத்த வரவழைப்பை திரும்பப்பெற்றார்"
+msgstr "%1 ஒருவருக்கு விடுத்த வரவழைப்பை திரும்பப்பெற்றார்"
 
 #: src/eventhandler.cpp:613
-#, fuzzy, kde-format
-#| msgid "rejected the invitation"
+#, kde-format
 msgid "%1 rejected the invitation"
-msgstr "அழைப்பை மறுத்தார்"
+msgstr "%1 வரவழைப்பை மறுத்தார்"
 
 #: src/eventhandler.cpp:617
-#, fuzzy, kde-format
-#| msgid "unbanned a user"
+#, kde-format
 msgid "%1 unbanned a user"
-msgstr "ஒருவர் மீதான தடையை நீக்கினார்"
+msgstr "%1 ஒருவர் மீதான தடையை நீக்கினார்"
 
 #: src/eventhandler.cpp:617
-#, fuzzy, kde-format
-#| msgid "self-unbanned"
+#, kde-format
 msgid "%1 self-unbanned"
-msgstr "தன்மேல் உள்ள தடையை நீக்கினார்"
+msgstr "%1 தன்மேல் உள்ள தடையை நீக்கினார்"
 
 #: src/eventhandler.cpp:619
-#, fuzzy, kde-format
-#| msgid "put a user out of the room"
+#, kde-format
 msgid "%1 put a user out of the room"
-msgstr "ஒருவரை அரங்குகிலிருந்து வெளியே அனுப்பினார்"
+msgstr "%1 ஒருவரை அரங்குகிலிருந்து வெளியே அனுப்பினார்"
 
 #: src/eventhandler.cpp:619
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "%1 left the room"
-msgstr "அரங்கைவிட்டு வெளியேறினார்"
+msgstr "%1 அரங்கைவிட்டு வெளியேறினார்"
 
 #: src/eventhandler.cpp:622
-#, fuzzy, kde-format
-#| msgid "banned a user from the room"
+#, kde-format
 msgid "%1 banned a user from the room"
-msgstr "ஒருவரை அரங்கிலிருந்து தடை செய்தார்"
+msgstr "%1 ஒருவரை அரங்கிலிருந்து தடை செய்தார்"
 
 #: src/eventhandler.cpp:624
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgid "%1 self-banned from the room"
-msgstr "தன்னை அரங்கிலிருந்து தடை செய்தார்"
+msgstr "%1 தன்னை அரங்கிலிருந்து தடை செய்தார்"
 
 #: src/eventhandler.cpp:627
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "%1 requested an invite"
-msgstr "வரவழைப்பு கோரினார்"
+msgstr "%1 வரவழைப்பு கோரினார்"
 
 #: src/eventhandler.cpp:631
-#, fuzzy, kde-format
-#| msgid "made something unknown"
+#, kde-format
 msgid "%1 made something unknown"
-msgstr "எதையோ தெரியாதவாறு செய்தார்"
+msgstr "%1 எதையோ தெரியாதவாறு செய்தார்"
 
 #: src/eventhandler.cpp:634
-#, fuzzy, kde-format
-#| msgid "cleared the room main alias"
+#, kde-format
 msgid "%1 cleared the room main alias"
-msgstr "அரங்கின் பிரதான மாற்றுப்பெயரை காலியாக்கினார்"
+msgstr "%1 அரங்கின் பிரதான மாற்றுப்பெயரை காலியாக்கினார்"
 
 #: src/eventhandler.cpp:634
-#, fuzzy, kde-format
-#| msgid "set the room main alias"
+#, kde-format
 msgid "%1 set the room main alias"
-msgstr "அரங்கின் மாற்றுப்பெயரை அமைத்தார்"
+msgstr "%1 அரங்கின் மாற்றுப்பெயரை அமைத்தார்"
 
 #: src/eventhandler.cpp:637
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "%1 cleared the room name"
-msgstr "அரங்கின் பெயரை காலியாக்கினார்"
+msgstr "%1 அரங்கின் பெயரை காலியாக்கினார்"
 
 #: src/eventhandler.cpp:637
-#, fuzzy, kde-format
-#| msgid "set the room name"
+#, kde-format
 msgid "%1 set the room name"
-msgstr "அரங்கின் பெயரை அமைத்தார்"
+msgstr "%1 அரங்கின் பெயரை அமைத்தார்"
 
 #: src/eventhandler.cpp:640
-#, fuzzy, kde-format
-#| msgid "cleared the topic"
+#, kde-format
 msgid "%1 cleared the topic"
-msgstr "தலைப்பை காலியாக்கினார்"
+msgstr "%1 தலைப்பை காலியாக்கினார்"
 
 #: src/eventhandler.cpp:640
-#, fuzzy, kde-format
-#| msgid "set the topic"
+#, kde-format
 msgid "%1 set the topic"
-msgstr "தலைப்பை அமைத்தார்"
+msgstr "%1 தலைப்பை அமைத்தார்"
 
 #: src/eventhandler.cpp:643
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "%1 changed the room avatar"
-msgstr "அரங்கின் சின்னத்தை மாற்றினார்"
+msgstr "%1 அரங்கின் சின்னத்தை மாற்றினார்"
 
 #: src/eventhandler.cpp:646
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "%1 activated End-to-End Encryption"
-msgstr "தொடக்கத்திலிருந்து முடிவுவரை மறையாக்கம் பயன்படுத்தப்படுவதை இயக்கியுள்ளார்"
+msgstr "%1 தொடக்கத்திலிருந்து முடிவுவரை மறையாக்கம் பயன்படுத்தப்படுவதை இயக்கியுள்ளார்"
 
 #: src/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "upgraded the room version"
+#, kde-format
 msgid "%1 upgraded the room version"
-msgstr "அரங்கின் பதிப்பை மேம்படுத்தினார்"
+msgstr "%1 அரங்கின் பதிப்பை மேம்படுத்தினார்"
 
 #: src/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "created the room"
+#, kde-format
 msgid "%1 created the room"
-msgstr "அரங்கை உருவாக்கினார்"
+msgstr "%1 அரங்கை உருவாக்கினார்"
 
 #: src/eventhandler.cpp:652
-#, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
+#, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
-msgstr "இந்த அரங்கிற்கான அனுமதிகளை மாற்றினார்"
+msgstr "%1 இந்த அரங்கிற்கான அனுமதிகளை மாற்றினார்"
 
 #: src/eventhandler.cpp:655
-#, fuzzy, kde-format
-#| msgid "sent a live location beacon"
+#, kde-format
 msgid "%1 sent a live location beacon"
-msgstr "நேரலை இருப்பிடக் குறியை அனுப்பினார்"
+msgstr "%1 நேரலை இருப்பிடக் குறியை அனுப்பினார்"
 
 #: src/eventhandler.cpp:658
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "%1 changed the server access control lists for this room"
-msgstr "இந்த அரங்கிற்கான சேவையக அணுகல் கட்டுப்பாட்டு பட்டியலை மாற்றியுள்ளார்"
+msgstr "%1 இந்த அரங்கிற்கான சேவையக அணுகல் கட்டுப்பாட்டு பட்டியலை மாற்றியுள்ளார்"
 
 #: src/eventhandler.cpp:662
-#, fuzzy, kde-format
-#| msgid "added a widget"
+#, kde-format
 msgid "%1 added a widget"
-msgstr "ஓர் உட்பொதிநிரலை சேர்த்தார்"
+msgstr "%1 ஓர் உட்பொதிநிரலை சேர்த்தார்"
 
 #: src/eventhandler.cpp:665
-#, fuzzy, kde-format
-#| msgid "removed a widget"
+#, kde-format
 msgid "%1 removed a widget"
-msgstr "ஓர் உட்பொதிநிரலை நீக்கினார்"
+msgstr "%1 ஓர் உட்பொதிநிரலை நீக்கினார்"
 
 #: src/eventhandler.cpp:667
-#, fuzzy, kde-format
-#| msgid "configured a widget"
+#, kde-format
 msgid "%1 configured a widget"
-msgstr "ஓர் உட்பொதிநிரல் மாற்றியமைத்தார்"
+msgstr "%1 ஓர் உட்பொதிநிரல் மாற்றியமைத்தார்"
 
 #: src/eventhandler.cpp:670
-#, fuzzy, kde-format
-#| msgid "updated the state"
+#, kde-format
 msgid "%1 updated the state"
-msgstr "நிலையை புதுப்பித்தார்"
+msgstr "%1 நிலையை புதுப்பித்தார்"
 
 #: src/eventhandler.cpp:673
-#, fuzzy, kde-format
-#| msgid "started a poll"
+#, kde-format
 msgid "%1 started a poll"
-msgstr "கருத்தாய்வை துவக்கினார்"
+msgstr "%1 கருத்தாய்வை துவக்கினார்"
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
@@ -1876,12 +1817,13 @@ msgid ", "
 msgstr ", "
 
 #: src/neochatconnection.cpp:79
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக நிர்வாகியை தொடர்புகொள்ளுங்கள்."
+msgstr ""
+"கோப்பு பதிவிறக்கக்கூடியதைவிட பெரிதாக உள்ளது.<br />உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக "
+"நிர்வாகியை தொடர்புகொள்ளவும்."
 
 #: src/neochatconnection.cpp:314
 #, kde-format
@@ -4156,16 +4098,16 @@ msgid "Working"
 msgstr "வேலை செய்கிறது"
 
 #: src/roommanager.cpp:146
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 ஒரு முறையான Matrix கணக்குப்பெயர் அல்ல"
+msgstr ""
+"முறையற்ற அல்லது காலியான மேட்ரிக்ஸு அடையாளம்<br />%1 ஒரு முறையான மேட்ரிக்ஸு "
+"கணக்குப்பெயர் அல்ல"
 
 #: src/roommanager.cpp:350
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
+msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது<br />%1"
 
 #: src/roommanager.cpp:386
 #, kde-format
@@ -4173,10 +4115,9 @@ msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
 #: src/roommanager.cpp:390
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது"
+msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
