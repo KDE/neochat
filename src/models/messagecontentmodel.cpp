@@ -152,8 +152,8 @@ void MessageContentModel::initializeModel()
     initializeEvent();
     if (m_currentState == Available || m_currentState == Pending) {
         updateReplyModel();
-        resetModel();
     }
+    resetModel();
 }
 
 void MessageContentModel::initializeEvent()
