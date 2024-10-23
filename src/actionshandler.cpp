@@ -72,11 +72,15 @@ bool ActionsHandler::handleQuickEdit(NeoChatRoom *room, const QString &handledTe
 
             for (auto it = room->messageEvents().crbegin(); it != room->messageEvents().crend(); it++) {
                 if (const auto event = eventCast<const RoomMessageEvent>(&**it)) {
+#if Quotient_VERSION_MINOR > 8
+                    if (event->senderId() == room->localMember().id() && event->has<EventContent::TextContent>()) {
+#else
                     if (event->senderId() == room->localMember().id() && event->hasTextContent()) {
+#endif
                         QString originalString;
                         if (event->content()) {
 #if Quotient_VERSION_MINOR > 8
-                            originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content().get())->body;
+                            originalString = event->get<EventContent::TextContent>()->body;
 #else
                             originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content())->body;
 #endif

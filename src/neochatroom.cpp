@@ -74,10 +74,11 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             const auto m_event = evtIt->viewAs<RoomEvent>();
             QString mxcUrl;
             if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-                if (event->hasFileContent()) {
 #if Quotient_VERSION_MINOR > 8
-                    mxcUrl = event->fileContent()->url().toString();
+                if (event->has<EventContent::FileContentBase>()) {
+                    mxcUrl = event->get<EventContent::FileContentBase>()->url().toString();
 #else
+                if (event->hasFileContent()) {
                     mxcUrl = event->content()->fileInfo()->url().toString();
 #endif
                 }
@@ -221,7 +222,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     url.setScheme("file"_ls);
     QFileInfo fileInfo(url.isLocalFile() ? url.toLocalFile() : url.toString());
 #if Quotient_VERSION_MINOR > 8
-    EventContent::Base *content;
+    EventContent::FileContentBase *content;
 #else
     EventContent::TypedBase *content;
 #endif
@@ -240,8 +241,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
 #if Quotient_VERSION_MINOR > 8
-    QString txnId =
-        postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContent>(static_cast<EventContent::FileContent *>(content)));
+    QString txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content));
 #else
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, content);
 #endif
@@ -376,10 +376,11 @@ bool NeoChatRoom::lastEventIsSpoiler() const
 {
     if (auto event = lastEvent()) {
         if (auto e = eventCast<const RoomMessageEvent>(event)) {
-            if (e->hasTextContent() && e->content() && e->mimeType().name() == "text/html"_ls) {
 #if Quotient_VERSION_MINOR > 8
-                auto htmlBody = static_cast<const Quotient::EventContent::TextContent *>(e->content().get())->body;
+            if (e->has<EventContent::TextContent>() && e->content() && e->mimeType().name() == "text/html"_ls) {
+                auto htmlBody = e->get<EventContent::TextContent>()->body;
 #else
+            if (e->hasTextContent() && e->content() && e->mimeType().name() == "text/html"_ls) {
                 auto htmlBody = static_cast<const Quotient::EventContent::TextContent *>(e->content())->body;
 #endif
                 return htmlBody.contains("data-mx-spoiler"_ls);
@@ -1445,7 +1446,11 @@ void NeoChatRoom::openEventMediaExternally(const QString &eventId)
     const auto evtIt = findInTimeline(eventId);
     if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
         const auto event = evtIt->viewAs<RoomMessageEvent>();
+#if Quotient_VERSION_MINOR > 8
+        if (event->has<EventContent::FileContent>()) {
+#else
         if (event->hasFileContent()) {
+#endif
             const auto transferInfo = cachedFileTransferInfo(event);
             if (transferInfo.completed()) {
                 UrlHelper helper;
@@ -1478,7 +1483,11 @@ void NeoChatRoom::copyEventMedia(const QString &eventId)
     const auto evtIt = findInTimeline(eventId);
     if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
         const auto event = evtIt->viewAs<RoomMessageEvent>();
+#if Quotient_VERSION_MINOR > 8
+        if (event->has<EventContent::FileContent>()) {
+#else
         if (event->hasFileContent()) {
+#endif
             const auto transferInfo = fileTransferInfo(eventId);
             if (transferInfo.completed()) {
                 Clipboard clipboard;
@@ -1511,10 +1520,11 @@ FileTransferInfo NeoChatRoom::cachedFileTransferInfo(const Quotient::RoomEvent *
     QString mxcUrl;
     int total = 0;
     if (auto evt = eventCast<const Quotient::RoomMessageEvent>(event)) {
-        if (evt->hasFileContent()) {
 #if Quotient_VERSION_MINOR > 8
-            const auto fileContent = evt->fileContent();
+        if (evt->has<EventContent::FileContent>()) {
+            const auto fileContent = evt->get<EventContent::FileContent>();
 #else
+        if (evt->hasFileContent()) {
             const auto fileContent = evt->content()->fileInfo();
 #endif
 

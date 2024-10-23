@@ -8,6 +8,7 @@
 #include "neochatconfig.h"
 
 #include <Quotient/csapi/rooms.h>
+#include <Quotient/events/eventcontent.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
@@ -504,7 +505,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == ProgressInfoRole) {
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
+#if Quotient_VERSION_MINOR > 8
+            if (e->has<EventContent::FileContent>()) {
+#else
             if (e->hasFileContent()) {
+#endif
                 return QVariant::fromValue(m_currentRoom->cachedFileTransferInfo(&evt));
             }
         }
