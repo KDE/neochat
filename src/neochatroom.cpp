@@ -9,6 +9,7 @@
 #include <QMimeDatabase>
 #include <QTemporaryFile>
 
+#include <Quotient/events/eventcontent.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
 #include <qcoro/qcorosignal.h>
@@ -76,11 +77,16 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             const auto m_event = evtIt->viewAs<RoomEvent>();
             QString mxcUrl;
             if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+#if Quotient_VERSION_MINOR > 8
+                if (event->has<EventContent::FileContentBase>()) {
+                    mxcUrl = event->get<EventContent::FileContentBase>()->url().toString();
+#else
                 if (event->hasFileContent()) {
                     mxcUrl = event->content()->fileInfo()->url().toString();
+#endif
                 }
             } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
-                mxcUrl = event->image().fileInfo()->url().toString();
+                mxcUrl = event->image().url().toString();
             }
             if (mxcUrl.isEmpty()) {
                 return;
@@ -255,7 +261,11 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     auto mime = QMimeDatabase().mimeTypeForUrl(url);
     url.setScheme("file"_ls);
     QFileInfo fileInfo(url.isLocalFile() ? url.toLocalFile() : url.toString());
+#if Quotient_VERSION_MINOR > 8
+    EventContent::FileContentBase *content;
+#else
     EventContent::TypedBase *content;
+#endif
     if (mime.name().startsWith("image/"_ls)) {
         QImage image(url.toLocalFile());
         content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
@@ -270,7 +280,11 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     } else {
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
+#if Quotient_VERSION_MINOR > 8
+    QString txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content));
+#else
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, content);
+#endif
     setHasFileUploading(true);
     connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, FileSourceInfo) {
         if (id == txnId) {
@@ -396,8 +410,13 @@ bool NeoChatRoom::lastEventIsSpoiler() const
 {
     if (auto event = lastEvent()) {
         if (auto e = eventCast<const RoomMessageEvent>(event)) {
+#if Quotient_VERSION_MINOR > 8
+            if (e->has<EventContent::TextContent>() && e->content() && e->mimeType().name() == "text/html"_ls) {
+                auto htmlBody = e->get<EventContent::TextContent>()->body;
+#else
             if (e->hasTextContent() && e->content() && e->mimeType().name() == "text/html"_ls) {
                 auto htmlBody = static_cast<const Quotient::EventContent::TextContent *>(e->content())->body;
+#endif
                 return htmlBody.contains("data-mx-spoiler"_ls);
             }
         }
@@ -1456,7 +1475,11 @@ void NeoChatRoom::openEventMediaExternally(const QString &eventId)
     const auto evtIt = findInTimeline(eventId);
     if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
         const auto event = evtIt->viewAs<RoomMessageEvent>();
+#if Quotient_VERSION_MINOR > 8
+        if (event->has<EventContent::FileContent>()) {
+#else
         if (event->hasFileContent()) {
+#endif
             const auto transferInfo = cachedFileTransferInfo(event);
             if (transferInfo.completed()) {
                 UrlHelper helper;
@@ -1489,7 +1512,11 @@ void NeoChatRoom::copyEventMedia(const QString &eventId)
     const auto evtIt = findInTimeline(eventId);
     if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
         const auto event = evtIt->viewAs<RoomMessageEvent>();
+#if Quotient_VERSION_MINOR > 8
+        if (event->has<EventContent::FileContent>()) {
+#else
         if (event->hasFileContent()) {
+#endif
             const auto transferInfo = fileTransferInfo(eventId);
             if (transferInfo.completed()) {
                 Clipboard clipboard;
@@ -1522,13 +1549,20 @@ FileTransferInfo NeoChatRoom::cachedFileTransferInfo(const Quotient::RoomEvent *
     QString mxcUrl;
     int total = 0;
     if (auto evt = eventCast<const Quotient::RoomMessageEvent>(event)) {
+#if Quotient_VERSION_MINOR > 8
+        if (evt->has<EventContent::FileContent>()) {
+            const auto fileContent = evt->get<EventContent::FileContent>();
+#else
         if (evt->hasFileContent()) {
-            mxcUrl = evt->content()->fileInfo()->url().toString();
-            total = evt->content()->fileInfo()->payloadSize;
+            const auto fileContent = evt->content()->fileInfo();
+#endif
+
+            mxcUrl = fileContent->url().toString();
+            total = fileContent->payloadSize;
         }
     } else if (auto evt = eventCast<const Quotient::StickerEvent>(event)) {
-        mxcUrl = evt->image().fileInfo()->url().toString();
-        total = evt->image().fileInfo()->payloadSize;
+        mxcUrl = evt->image().url().toString();
+        total = evt->image().payloadSize;
     }
 
     FileTransferInfo transferInfo = fileTransferInfo(event->id());

@@ -91,10 +91,18 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, Cha
 
             for (auto it = m_room->messageEvents().crbegin(); it != m_room->messageEvents().crend(); it++) {
                 if (const auto event = eventCast<const RoomMessageEvent>(&**it)) {
+#if Quotient_VERSION_MINOR > 8
+                    if (event->senderId() == m_room->localMember().id() && event->has<EventContent::TextContent>()) {
+#else
                     if (event->senderId() == m_room->localMember().id() && event->hasTextContent()) {
+#endif
                         QString originalString;
                         if (event->content()) {
+#if Quotient_VERSION_MINOR > 8
+                            originalString = event->get<EventContent::TextContent>()->body;
+#else
                             originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content())->body;
+#endif
                         } else {
                             originalString = event->plainBody();
                         }

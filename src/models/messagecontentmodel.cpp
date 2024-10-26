@@ -7,6 +7,7 @@
 
 #include <QImageReader>
 
+#include <Quotient/events/eventcontent.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
@@ -445,10 +446,19 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
                 auto fileTransferInfo = m_room->cachedFileTransferInfo(m_event.get());
 
 #ifndef Q_OS_ANDROID
-                Q_ASSERT(event->content() != nullptr && event->content()->fileInfo() != nullptr);
+#if Quotient_VERSION_MINOR > 8
+                Q_ASSERT(event->content() != nullptr && event->has<EventContent::FileContent>());
+                const QMimeType mimeType = event->get<EventContent::FileContent>()->mimeType;
+#else
+                Q_ASSERT(event->content() != nullptr && event->hasFileContent());
                 const QMimeType mimeType = event->content()->fileInfo()->mimeType;
+#endif
                 if (mimeType.name() == QStringLiteral("text/plain") || mimeType.parentMimeTypes().contains(QStringLiteral("text/plain"))) {
+#if Quotient_VERSION_MINOR > 8
+                    QString originalName = event->get<EventContent::FileContent>()->originalName;
+#else
                     QString originalName = event->content()->fileInfo()->originalName;
+#endif
                     if (originalName.isEmpty()) {
                         originalName = event->plainBody();
                     }
@@ -571,8 +581,12 @@ void MessageContentModel::updateItineraryModel()
     }
 
     if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
+#if Quotient_VERSION_MINOR > 8
+        if (event->has<EventContent::FileContent>()) {
+#else
         if (event->hasFileContent()) {
-            auto filePath = m_room->cachedFileTransferInfo(m_event.get()).localPath;
+#endif
+            auto filePath = m_room->cachedFileTransferInfo(event).localPath;
             if (filePath.isEmpty() && m_itineraryModel != nullptr) {
                 delete m_itineraryModel;
                 m_itineraryModel = nullptr;

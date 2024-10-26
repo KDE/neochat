@@ -339,6 +339,14 @@ private:
     QString getMessageBody(const Quotient::RoomMessageEvent &event, Qt::TextFormat format, bool stripNewlines) const;
 
     QVariantMap getMediaInfoForEvent(const Quotient::RoomEvent *event) const;
-    QVariantMap
-    getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false, bool isSticker = false) const;
+    QVariantMap getMediaInfoFromFileInfo(
+#if Quotient_VERSION_MINOR > 8
+        const Quotient::EventContent::FileContentBase *fileContent,
+#else
+        const Quotient::EventContent::TypedBase *fileContent,
+#endif
+        const QString &eventId,
+        bool isThumbnail = false,
+        bool isSticker = false) const;
+    QVariantMap getMediaInfoFromTumbnail(const Quotient::EventContent::Thumbnail &thumbnail, const QString &eventId) const;
 };

@@ -9,6 +9,8 @@
 
 #include <Quotient/eventitem.h>
 #include <Quotient/events/encryptionevent.h>
+#include <Quotient/events/event.h>
+#include <Quotient/events/eventcontent.h>
 #include <Quotient/events/reactionevent.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roomavatarevent.h>
@@ -234,10 +236,18 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
 {
     QString body;
 
+#if Quotient_VERSION_MINOR > 8
+    if (event.has<EventContent::FileContent>()) {
+#else
     if (event.hasFileContent()) {
+#endif
         // if filename is given or body is equal to filename,
         // then body is a caption
+#if Quotient_VERSION_MINOR > 8
+        QString filename = event.get<EventContent::FileContent>()->originalName;
+#else
         QString filename = event.content()->fileInfo()->originalName;
+#endif
         QString body = event.plainBody();
         if (filename.isEmpty() || filename == body) {
             return QString();
@@ -245,8 +255,13 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
         return body;
     }
 
+#if Quotient_VERSION_MINOR > 8
+    if (event.has<EventContent::TextContent>() && event.content()) {
+        body = event.get<EventContent::TextContent>()->body;
+#else
     if (event.hasTextContent() && event.content()) {
         body = static_cast<const EventContent::TextContent *>(event.content())->body;
+#endif
     } else {
         body = event.plainBody();
     }
@@ -461,11 +476,16 @@ QString EventHandler::getMessageBody(const RoomMessageEvent &event, Qt::TextForm
 {
     TextHandler textHandler;
 
+#if Quotient_VERSION_MINOR > 8
+    if (event.has<EventContent::FileContent>()) {
+        QString fileCaption = event.get<EventContent::FileContent>()->originalName;
+#else
     if (event.hasFileContent()) {
         auto fileCaption = event.content()->fileInfo()->originalName;
+#endif
         if (fileCaption.isEmpty()) {
             fileCaption = event.plainBody();
-        } else if (event.content()->fileInfo()->originalName != event.plainBody()) {
+        } else if (fileCaption != event.plainBody()) {
             fileCaption = event.plainBody() + " | "_ls + fileCaption;
         }
         textHandler.setData(fileCaption);
@@ -473,8 +493,13 @@ QString EventHandler::getMessageBody(const RoomMessageEvent &event, Qt::TextForm
     }
 
     QString body;
+#if Quotient_VERSION_MINOR > 8
+    if (event.has<EventContent::TextContent>() && event.content()) {
+        body = event.get<EventContent::TextContent>()->body;
+#else
     if (event.hasTextContent() && event.content()) {
         body = static_cast<const EventContent::TextContent *>(event.content())->body;
+#endif
     } else {
         body = event.plainBody();
     }
@@ -655,39 +680,65 @@ QVariantMap EventHandler::getMediaInfoForEvent(const Quotient::RoomEvent *event)
     // Get the file info for the event.
     if (event->is<RoomMessageEvent>()) {
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(event);
+#if Quotient_VERSION_MINOR > 8
+        if (!roomMessageEvent->has<EventContent::FileContentBase>()) {
+#else
         if (!roomMessageEvent->hasFileContent()) {
+#endif
             return {};
         }
 
-        const EventContent::FileInfo *fileInfo;
-        fileInfo = roomMessageEvent->content()->fileInfo();
-        QVariantMap mediaInfo = getMediaInfoFromFileInfo(fileInfo, eventId, false, false);
+#if Quotient_VERSION_MINOR > 8
+        const auto content = roomMessageEvent->get<EventContent::FileContentBase>();
+        QVariantMap mediaInfo = getMediaInfoFromFileInfo(content.get(), eventId, false, false);
+#else
+        const auto content = static_cast<const EventContent::FileContent *>(roomMessageEvent->content());
+        QVariantMap mediaInfo = getMediaInfoFromFileInfo(content, eventId, false, false);
+#endif
         // if filename isn't specifically given, it is in body
         // https://spec.matrix.org/latest/client-server-api/#mfile
-        mediaInfo["filename"_ls] = (fileInfo->originalName.isEmpty()) ? roomMessageEvent->plainBody() : fileInfo->originalName;
+#if Quotient_VERSION_MINOR > 8
+        mediaInfo["filename"_ls] = content->commonInfo().originalName.isEmpty() ? roomMessageEvent->plainBody() : content->commonInfo().originalName;
+#else
+        mediaInfo["filename"_ls] = (content->fileInfo()->originalName.isEmpty()) ? roomMessageEvent->plainBody() : content->fileInfo()->originalName;
+#endif
 
         return mediaInfo;
     } else if (event->is<StickerEvent>()) {
-        const EventContent::FileInfo *fileInfo;
-
         auto stickerEvent = eventCast<const StickerEvent>(event);
-        fileInfo = &stickerEvent->image();
+        auto content = &stickerEvent->image();
 
-        return getMediaInfoFromFileInfo(fileInfo, eventId, false, true);
+        return getMediaInfoFromFileInfo(content, eventId, false, true);
     } else {
         return {};
     }
 }
 
-QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail, bool isSticker) const
+QVariantMap EventHandler::getMediaInfoFromFileInfo(
+#if Quotient_VERSION_MINOR > 8
+    const Quotient::EventContent::FileContentBase *fileContent,
+#else
+    const Quotient::EventContent::TypedBase *fileContent,
+#endif
+    const QString &eventId,
+    bool isThumbnail,
+    bool isSticker) const
 {
     QVariantMap mediaInfo;
 
     // Get the mxc URL for the media.
-    if (!fileInfo->url().isValid() || fileInfo->url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
+#if Quotient_VERSION_MINOR > 8
+    if (!fileContent->url().isValid() || fileContent->url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
+#else
+    if (!fileContent->fileInfo()->url().isValid() || fileContent->fileInfo()->url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
+#endif
         mediaInfo["source"_ls] = QUrl();
     } else {
-        QUrl source = m_room->makeMediaUrl(eventId, fileInfo->url());
+#if Quotient_VERSION_MINOR > 8
+        QUrl source = m_room->makeMediaUrl(eventId, fileContent->url());
+#else
+        QUrl source = m_room->makeMediaUrl(eventId, fileContent->fileInfo()->url());
+#endif
 
         if (source.isValid()) {
             mediaInfo["source"_ls] = source;
@@ -696,7 +747,7 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
         }
     }
 
-    auto mimeType = fileInfo->mimeType;
+    auto mimeType = fileContent->type();
     // Add the MIME type for the media if available.
     mediaInfo["mimeType"_ls] = mimeType.name();
 
@@ -704,45 +755,53 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
     mediaInfo["mimeIcon"_ls] = mimeType.iconName();
 
     // Add media size if available.
-    mediaInfo["size"_ls] = fileInfo->payloadSize;
+#if Quotient_VERSION_MINOR > 8
+    mediaInfo["size"_ls] = fileContent->commonInfo().payloadSize;
+#else
+    mediaInfo["size"_ls] = static_cast<const EventContent::FileContent *>(fileContent)->fileInfo()->payloadSize;
+#endif
 
     mediaInfo["isSticker"_ls] = isSticker;
 
     // Add parameter depending on media type.
     if (mimeType.name().contains(QStringLiteral("image"))) {
-        if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileInfo)) {
+        if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileContent)) {
+#if Quotient_VERSION_MINOR > 8
             mediaInfo["width"_ls] = castInfo->imageSize.width();
             mediaInfo["height"_ls] = castInfo->imageSize.height();
+#else
+            const auto imageInfo = static_cast<const EventContent::ImageInfo *>(castInfo->fileInfo());
+            mediaInfo["width"_ls] = imageInfo->imageSize.width();
+            mediaInfo["height"_ls] = imageInfo->imageSize.height();
+#endif
 
             // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
             mediaInfo["animated"_ls] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
 
-            if (!isThumbnail) {
-                QVariantMap tempInfo;
-                auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
-                if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
-                    tempInfo = thumbnailInfo;
+            QVariantMap tempInfo;
+            auto thumbnailInfo = getMediaInfoFromTumbnail(castInfo->thumbnail, eventId);
+            if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
+                tempInfo = thumbnailInfo;
+            } else {
+                QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_ls].toString();
+                if (blurhash.isEmpty()) {
+                    tempInfo["source"_ls] = QUrl();
                 } else {
-                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_ls].toString();
-                    if (blurhash.isEmpty()) {
-                        tempInfo["source"_ls] = QUrl();
-                    } else {
-                        tempInfo["source"_ls] = QUrl("image://blurhash/"_ls + blurhash);
-                    }
+                    tempInfo["source"_ls] = QUrl("image://blurhash/"_ls + blurhash);
                 }
-                mediaInfo["tempInfo"_ls] = tempInfo;
             }
+            mediaInfo["tempInfo"_ls] = tempInfo;
         }
     }
     if (mimeType.name().contains(QStringLiteral("video"))) {
-        if (auto castInfo = static_cast<const EventContent::VideoContent *>(fileInfo)) {
+        if (auto castInfo = static_cast<const EventContent::VideoContent *>(fileContent)) {
             mediaInfo["width"_ls] = castInfo->imageSize.width();
             mediaInfo["height"_ls] = castInfo->imageSize.height();
             mediaInfo["duration"_ls] = castInfo->duration;
 
             if (!isThumbnail) {
                 QVariantMap tempInfo;
-                auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
+                auto thumbnailInfo = getMediaInfoFromTumbnail(castInfo->thumbnail, eventId);
                 if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
                     tempInfo = thumbnailInfo;
                 } else {
@@ -758,12 +817,44 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const EventContent::FileInfo 
         }
     }
     if (mimeType.name().contains(QStringLiteral("audio"))) {
-        if (auto castInfo = static_cast<const EventContent::AudioContent *>(fileInfo)) {
+        if (auto castInfo = static_cast<const EventContent::AudioContent *>(fileContent)) {
             mediaInfo["duration"_ls] = castInfo->duration;
         }
     }
 
     return mediaInfo;
+}
+
+QVariantMap EventHandler::getMediaInfoFromTumbnail(const Quotient::EventContent::Thumbnail &thumbnail, const QString &eventId) const
+{
+    QVariantMap thumbnailInfo;
+
+    if (!thumbnail.url().isValid() || thumbnail.url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
+        thumbnailInfo["source"_ls] = QUrl();
+    } else {
+        QUrl source = m_room->makeMediaUrl(eventId, thumbnail.url());
+
+        if (source.isValid()) {
+            thumbnailInfo["source"_ls] = source;
+        } else {
+            thumbnailInfo["source"_ls] = QUrl();
+        }
+    }
+
+    auto mimeType = thumbnail.mimeType;
+    // Add the MIME type for the media if available.
+    thumbnailInfo["mimeType"_ls] = mimeType.name();
+
+    // Add the MIME type icon if available.
+    thumbnailInfo["mimeIcon"_ls] = mimeType.iconName();
+
+    // Add media size if available.
+    thumbnailInfo["size"_ls] = thumbnail.payloadSize;
+
+    thumbnailInfo["width"_ls] = thumbnail.imageSize.width();
+    thumbnailInfo["height"_ls] = thumbnail.imageSize.height();
+
+    return thumbnailInfo;
 }
 
 bool EventHandler::hasReply() const
