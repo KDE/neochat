@@ -230,9 +230,6 @@ void Controller::invokeLogin()
                             Qt::SingleShotConnection);
                     }
                 });
-                connect(connection, &NeoChatConnection::networkError, this, [this](const QString &error, const QString &, int, int) {
-                    Q_EMIT errorOccured(i18n("Network Error: %1", error));
-                });
 #if Quotient_VERSION_MINOR > 8
                 connection->assumeIdentity(account.userId(), account.deviceId(), accessToken);
 #else
