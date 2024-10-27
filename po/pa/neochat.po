@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -104,36 +104,31 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "ਪਹੁੰਚ ਟੋਕਨ (ਚੋਣਵਾਂ)"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr ""
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Receiving push notifications"
@@ -953,6 +948,11 @@ msgstr "ਸਰੋਤ ਵੇਖੋ"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "ਸੱਦਾ ਭੇਜੋ"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ: %1"
 
 #: src/login.cpp:96
 #, kde-format

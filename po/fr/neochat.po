@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-10-06 18:33+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -94,17 +94,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Réception de notifications de nouveaux messages"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Erreur du réseau : %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Impossible de trouver le jeton d'accès : peut-être a-t-il été effacé ?"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -112,7 +107,7 @@ msgstr ""
 "L'accès au trousseau de clés a été refusé : veuillez autoriser NeoChat à "
 "lire le jeton d'accès."
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -121,12 +116,12 @@ msgstr ""
 "Aucun trousseau de clés disponible : veuillez installer un trousseau de "
 "clés, par exemple, KWallet ou le trousseau de clés de GNOME sous Linux."
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Impossible de lire le jeton d'accès : %1"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Réception des notifications"
@@ -868,6 +863,11 @@ msgstr "Source"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Destination"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Erreur du réseau : %1"
 
 #: src/login.cpp:96
 #, kde-format

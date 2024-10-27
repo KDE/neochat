@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-10-04 17:51+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -97,17 +97,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Recipente notificationes de nove messages"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Error de rete: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Indicio de accesso non esseva trovate: forsan il esseva delite?"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -115,7 +110,7 @@ msgstr ""
 "Accesso a portaclave esseva refusate: Pro favor tu permitte que NeoChat pote "
 "leger le indicio de accesso"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -124,12 +119,12 @@ msgstr ""
 "Necun portaclave disponibile: Pro favor tu installa un portaclave, p.ex. "
 "KWallet o GNOMe keyring sur Linux"
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Incapace a leger indicio de accesso: %1"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Recipente notificationes de push"
@@ -871,6 +866,11 @@ msgstr "Fonte"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Destination"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Error de rete: %1"
 
 #: src/login.cpp:96
 #, kde-format

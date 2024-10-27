@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -96,35 +96,30 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "接收新消息通知"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "网络错误：%1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr ""
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -863,6 +858,11 @@ msgstr "源地址"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "目标文件夹"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "网络错误：%1"
 
 #: src/login.cpp:96
 #, kde-format

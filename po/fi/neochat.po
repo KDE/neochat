@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-04-08 19:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -96,25 +96,20 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Vastaanotetaan ilmoituksia uusista viesteistä"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Verkkovirhe: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, fuzzy, kde-format
 #| msgid "Access token wasn't found"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Pääsymerkkiä ei löytynyt"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, fuzzy, kde-format
 #| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Salli NeoChatin lukea pääsymerkki"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, fuzzy, kde-format
 #| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
@@ -122,13 +117,13 @@ msgid ""
 "keyring on Linux"
 msgstr "Asenna avainrengas, esim. Linuxissa KWallet tai Gnomen avainrengas"
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, fuzzy, kde-format
 #| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "Saantimerkkiä ei voida lukea"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Vastaanotetaan push-ilmoituksia"
@@ -939,6 +934,11 @@ msgstr "Lähde"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Kohde"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Verkkovirhe: %1"
 
 #: src/login.cpp:96
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-10-10 08:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -97,24 +97,19 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "تلقي إخطارات بالرسائل الجديدة"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "خطأ شبكي: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "رمز النفاذ غير موجود: ربما حذفت؟"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 "منع النفاذ إلى حَمَّالَة المَفَاتِيح: الرجاء السماح لنيوتشات بقراءة رمز النفاذ"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -123,12 +118,12 @@ msgstr ""
 "لا يوجد حَمَّالَة المَفَاتِيح. الرجاء تثبيت حَمَّالَة مَفَاتِيح مثل محفظتك من كِيدِي أو غنوم "
 "Keyring على لينكس"
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "غير قادر على قراءة رقم النفاذ: %1"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "تلقي إخطارات"
@@ -873,6 +868,11 @@ msgstr "المصدر"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "المقصد"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "خطأ شبكي: %1"
 
 #: src/login.cpp:96
 #, kde-format

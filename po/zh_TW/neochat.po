@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-10-20 00:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -99,23 +99,18 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "正在接收新訊息的通知"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "網路錯誤：%1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "找不到存取權杖：或許它已被刪除？"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "鑰匙圈存取被拒絕：請允許 NeoChat 讀取存取權杖"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -123,12 +118,12 @@ msgid ""
 msgstr ""
 "沒有可用的鑰匙圈：請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "無法讀取存取權杖：%1"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -867,6 +862,11 @@ msgstr "來源"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "目的地"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "網路錯誤：%1"
 
 #: src/login.cpp:96
 #, kde-format

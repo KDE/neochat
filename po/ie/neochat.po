@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -101,35 +101,30 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Inviar notificationes pri li tippada"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Errore de rete: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, fuzzy, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Li plugin necessi por accesse al files MP3 ne esset trovat"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, fuzzy, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Ne posset acessar «%s»"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Receiving push notifications"
@@ -910,6 +905,11 @@ msgstr "Vider li fonte"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Inviar un invitation"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Errore de rete: %1"
 
 #: src/login.cpp:96
 #, fuzzy, kde-format

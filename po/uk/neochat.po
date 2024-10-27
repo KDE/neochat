@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-10-04 07:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -99,17 +99,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Отримання сповіщень щодо нових повідомлень"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Помилка у мережі: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Не знайдено жетона доступу: можливо, його вилучено?"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -117,7 +112,7 @@ msgstr ""
 "У доступі до ланцюжка ключів відмовлено: будь ласка, дозвольте NeoChat "
 "читання жетона доступу"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -126,12 +121,12 @@ msgstr ""
 "Немає доступного ланцюжка ключів: будь ласка, встановіть засіб керування "
 "ключами, наприклад KWallet або GNOME keyring у Linux"
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Не вдалося прочитати жетон доступу: %1"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Отримання імпульсних сповіщень"
@@ -875,6 +870,11 @@ msgstr "Джерело"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Призначення"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Помилка у мережі: %1"
 
 #: src/login.cpp:96
 #, kde-format

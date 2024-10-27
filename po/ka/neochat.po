@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-10-04 05:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -97,24 +97,19 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "გაფრთხილებების მიღება ახალი შეტყობინებებისთვის"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "ქსელის შეცდომა: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "წვდომის კოდი ვერ ვიპოვე. შეიძლება, წაგეშალათ?"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 "ბრელოკთან წვდომა აკრძალულია. მიეცით უფლება NeoChat-ს, წვდომის კოდი წაიკითხოს"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -123,12 +118,12 @@ msgstr ""
 "ბრელოკი ხელმისაწვდომი არაა. დააყენეთ ბრელოკი, მაგალითად, ლინუქსზე KWallet ან "
 "GNOME Keyring"
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "წვდომის კოდის წაკითხვის შეცდომა: %1"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "პუშ გაფრთხილებების მიღება"
@@ -870,6 +865,11 @@ msgstr "წყარო"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "დანიშნულება"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "ქსელის შეცდომა: %1"
 
 #: src/login.cpp:96
 #, kde-format

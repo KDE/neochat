@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-10-05 12:38+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -99,24 +99,19 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Benachrichtigungen bei neuen Nachrichten erhalten"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Netzwerkfehler: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Zugangs-Token kann nicht gefunden werden: Wurde es gelöscht?"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, fuzzy, kde-format
 #| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Bitte erlauben Sie NeoChat, das Zugangs-Token zu lesen"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, fuzzy, kde-format
 #| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
@@ -126,13 +121,13 @@ msgstr ""
 "Bitte installieren Sie ein Schlüsselbund, z. B. KWallet oder GNOME-"
 "Schlüsselbund unter Linux"
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, fuzzy, kde-format
 #| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -911,6 +906,11 @@ msgstr "Quelle"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Ziel"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Netzwerkfehler: %1"
 
 #: src/login.cpp:96
 #, kde-format

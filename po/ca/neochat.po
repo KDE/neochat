@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-24 00:39+0000\n"
+"POT-Creation-Date: 2024-10-27 00:40+0000\n"
 "PO-Revision-Date: 2024-10-04 10:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -99,17 +99,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Rebre les notificacions dels missatges nous"
 
-#: src/controller.cpp:234 src/login.cpp:88 src/login.cpp:103
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Error de la xarxa: %1"
-
-#: src/controller.cpp:260
+#: src/controller.cpp:257
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "No s'ha trobat el testimoni d'accés: Potser s'ha suprimit?"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:261
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -117,7 +112,7 @@ msgstr ""
 "S'ha denegat l'accés a clauer: Permeteu que el NeoChat llegeixi el testimoni "
 "d'accés"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:264
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -126,12 +121,12 @@ msgstr ""
 "No hi ha cap clauer disponible: Instal·leu un clauer, p. ex. el KWallet o "
 "l'anell de claus del GNOME al Linux"
 
-#: src/controller.cpp:270
+#: src/controller.cpp:267
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "No s'ha pogut llegir el testimoni d'accés: %1"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:366
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Rebre les notificacions «push»"
@@ -875,6 +870,11 @@ msgstr "Font"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Destinació"
+
+#: src/login.cpp:88 src/login.cpp:103
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Error de la xarxa: %1"
 
 #: src/login.cpp:96
 #, kde-format
