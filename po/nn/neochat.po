@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-27 00:40+0000\n"
-"PO-Revision-Date: 2024-09-25 18:46+0200\n"
+"PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -2425,15 +2425,13 @@ msgstr "Fjern"
 #: src/qml/DelegateContextMenu.qml:95 src/qml/DelegateContextMenu.qml:100
 #: src/qml/FileDelegateContextMenu.qml:76
 #: src/qml/FileDelegateContextMenu.qml:81
-#, fuzzy, kde-format
-#| msgid "Remove Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Fjern melding"
 
 #: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:77
-#, fuzzy, kde-format
-#| msgid "Reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Grunngjeving for fjerning av meldinga"
@@ -2452,15 +2450,13 @@ msgid "Report"
 msgstr "Rapporter"
 
 #: src/qml/DelegateContextMenu.qml:125
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Rapporter melding"
 
 #: src/qml/DelegateContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Grunngjeving for rapportering av meldinga"
@@ -2925,43 +2921,37 @@ msgid "Accept"
 msgstr "Godta"
 
 #: src/qml/InviteUserPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Invite a User"
 msgstr "Inviter ein brukar"
 
 #: src/qml/InviteUserPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find a user..."
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find a user…"
 msgstr "Finn brukar …"
 
 #: src/qml/InviteUserPage.qml:24
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No users found"
-msgstr "Fann ingen rom"
+msgstr "Fann ingen brukarar"
 
 #: src/qml/InviteUserPage.qml:31
-#, fuzzy, kde-format
-#| msgid "Invite this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "Inviter brukaren"
 
 #: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
-#, fuzzy, kde-format
-#| msgid "User is either already a member or has been invited"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "Brukaren er alt medlem eller invitert"
 
 #: src/qml/InviteUserPage.qml:75
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Send invitasjon"
@@ -3881,15 +3871,13 @@ msgid "Remove Messages"
 msgstr "Fjern meldingar"
 
 #: src/qml/UserDetailDialog.qml:229
-#, fuzzy, kde-format
-#| msgid "Reason for removing this user's recent messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Grunngjeving for fjerning av brukaren sine nylege meldingar"
 
 #: src/qml/UserDetailDialog.qml:230
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Fjern"
@@ -4163,10 +4151,9 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 er ikkje ein gyldig Matrix-identifikator"
 
 #: src/roommanager.cpp:350
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Klarte ikkje verta med i rommet"
+msgstr "Klarte ikkje verta med i rommet<br />%1"
 
 #: src/roommanager.cpp:386
 #, kde-format
@@ -4174,10 +4161,9 @@ msgid "You requested to join '%1'"
 msgstr "Du har bedt om å få verta med i «%1»"
 
 #: src/roommanager.cpp:390
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Klarte ikkje be om å få verta med i rommet"
+msgstr "Klarte ikkje be om å få verta med i rommet<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -4843,12 +4829,10 @@ msgstr "Nullstill alle innstillingane til standardverdiar"
 
 #: src/settings/NeoChatSecurityPage.qml:19
 #: src/settings/NeoChatSettingsView.qml:51
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@title"
 msgid "Security & Safety"
-msgstr "Tryggleiksnøkkel:"
+msgstr "Tryggleik"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
@@ -4863,12 +4847,10 @@ msgid "Ignored Users"
 msgstr "Ignorerte brukarar"
 
 #: src/settings/NeoChatSecurityPage.qml:44
-#, fuzzy, kde-format
-#| msgctxt "@label:checkbox"
-#| msgid "Hide image and video events by default"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
-msgstr "Gøym som standard bilet- og videohendingar"
+msgstr "Gøym som standard bilete og videoar"
 
 #: src/settings/NeoChatSecurityPage.qml:45
 #, kde-format
@@ -4887,10 +4869,7 @@ msgid "Reject invitations from unknown users"
 msgstr "Avvis invitasjonar frå ukjende brukarar"
 
 #: src/settings/NeoChatSecurityPage.qml:60
-#, fuzzy, kde-format
-#| msgid ""
-#| "If enabled, NeoChat will reject invitations from users you don't share a "
-#| "room with."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will reject invitations from users you don't share a "
@@ -4900,35 +4879,28 @@ msgstr ""
 "brukarar som ikkje er i same rom som deg."
 
 #: src/settings/NeoChatSecurityPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Your server does not support this setting."
+#, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Tenaren din støttar ikkje denne innstillinga."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title"
 msgid "Encryption"
 msgstr "Kryptering"
 
 #: src/settings/NeoChatSecurityPage.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importer nøklar"
 
 #: src/settings/NeoChatSecurityPage.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Import Encryption Keys"
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
-msgstr "Importer krypteringsnøklar"
+msgstr "Importer krypteringsnøklar frå reservekopi."
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
@@ -4937,20 +4909,16 @@ msgid "Keys imported successfully"
 msgstr "Nøklane er no importerte"
 
 #: src/settings/NeoChatSecurityPage.qml:100
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Eksporter nøklar"
 
 #: src/settings/NeoChatSecurityPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Export Encryption Keys"
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
-msgstr "Eksporter krypteringsnøklar"
+msgstr "Eksporter krypteringsnøklane til denne eininga."
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
