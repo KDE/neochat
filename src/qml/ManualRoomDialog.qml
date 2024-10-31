@@ -22,7 +22,7 @@ Kirigami.Dialog {
      */
     signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
-    title: i18nc("@title", "Room ID or Alias")
+    title: i18nc("@title", "Manually Enter a Room")
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
     leftPadding: 0
