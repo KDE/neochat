@@ -123,7 +123,7 @@ SearchPage {
     QtObject {
         id: _private
         function openManualRoomDialog() {
-            let dialog = manualRoomDialog.createObject(applicationWindow().overlay, {
+            let dialog = manualRoomDialog.createObject(root.QQC2.Overlay.overlay, {
                 connection: root.connection
             });
             dialog.parent = root.Window.window.overlay;
