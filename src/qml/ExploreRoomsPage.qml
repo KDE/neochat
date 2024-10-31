@@ -87,13 +87,21 @@ SearchPage {
     }
 
     listHeaderDelegate: Delegates.RoundedItemDelegate {
+        id: delegate
+
         onClicked: _private.openManualRoomDialog()
 
         activeFocusOnTab: false // We handle moving to this item via up/down arrows, otherwise the tab order is wacky
-        text: i18n("Enter a room address")
+        text: i18n("Enter a Room Manually")
         icon.name: "compass"
         icon.width: Kirigami.Units.gridUnit * 2
         icon.height: Kirigami.Units.gridUnit * 2
+
+        contentItem: Kirigami.IconTitleSubtitle {
+            icon: icon.fromControlsIcon(delegate.icon)
+            title: delegate.text
+            subtitle: i18n("If you already know a room's address or alias, and it isn't shown here.")
+        }
     }
 
     listFooterDelegate: QQC2.ProgressBar {
