@@ -5,6 +5,7 @@
 
 #include "chatbarcache.h"
 #include "enums/messagetype.h"
+#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "roommanager.h"
@@ -17,6 +18,7 @@
 
 using Action = ActionsModel::Action;
 using namespace Quotient;
+using namespace Qt::StringLiterals;
 
 QStringList rainbowColors{"#ff2b00"_ls, "#ff5500"_ls, "#ff8000"_ls, "#ffaa00"_ls, "#ffd500"_ls, "#ffff00"_ls, "#d4ff00"_ls, "#aaff00"_ls, "#80ff00"_ls,
                           "#55ff00"_ls, "#2bff00"_ls, "#00ff00"_ls, "#00ff2b"_ls, "#00ff55"_ls, "#00ff80"_ls, "#00ffaa"_ls, "#00ffd5"_ls, "#00ffff"_ls,
@@ -573,4 +575,83 @@ QHash<int, QByteArray> ActionsModel::roleNames() const
 QList<Action> &ActionsModel::allActions() const
 {
     return actions;
+}
+
+bool ActionsModel::handleQuickEditAction(NeoChatRoom *room, const QString &messageText)
+{
+    if (room == nullptr) {
+        return false;
+    }
+
+    if (NeoChatConfig::allowQuickEdit()) {
+        QRegularExpression sed(QStringLiteral("^s/([^/]*)/([^/]*)(/g)?$"));
+        auto match = sed.match(messageText);
+        if (match.hasMatch()) {
+            const QString regex = match.captured(1);
+            const QString replacement = match.captured(2).toHtmlEscaped();
+            const QString flags = match.captured(3);
+
+            for (auto it = room->messageEvents().crbegin(); it != room->messageEvents().crend(); it++) {
+                if (const auto event = eventCast<const RoomMessageEvent>(&**it)) {
+#if Quotient_VERSION_MINOR > 8
+                    if (event->senderId() == room->localMember().id() && event->has<EventContent::TextContent>()) {
+#else
+                    if (event->senderId() == room->localMember().id() && event->hasTextContent()) {
+#endif
+
+                        QString originalString;
+                        if (event->content()) {
+#if Quotient_VERSION_MINOR > 8
+                            originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content().get())->body;
+#else
+                            originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content())->body;
+#endif
+                        } else {
+                            originalString = event->plainBody();
+                        }
+                        if (flags == "/g"_L1) {
+                            room->postHtmlMessage(messageText, originalString.replace(regex, replacement), event->msgtype(), {}, event->id());
+                        } else {
+                            room->postHtmlMessage(messageText,
+                                                  originalString.replace(originalString.indexOf(regex), regex.size(), replacement),
+                                                  event->msgtype(),
+                                                  {},
+                                                  event->id());
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgType>> ActionsModel::handleAction(NeoChatRoom *room, ChatBarCache *chatBarCache)
+{
+    auto sendText = chatBarCache->sendText();
+    const auto edited = handleQuickEditAction(room, sendText);
+    if (edited) {
+        return std::make_pair(std::nullopt, std::nullopt);
+    }
+
+    std::optional<Quotient::RoomMessageEvent::MsgType> messageType = std::nullopt;
+    if (sendText.startsWith(QLatin1Char('/'))) {
+        for (const auto &action : ActionsModel::instance().allActions()) {
+            if (sendText.indexOf(action.prefix) == 1
+                && (sendText.indexOf(" "_ls) == action.prefix.length() + 1 || sendText.length() == action.prefix.length() + 1)) {
+                sendText = action.handle(sendText.mid(action.prefix.length() + 1).trimmed(), room, chatBarCache);
+                if (action.messageType.has_value()) {
+                    messageType = action.messageType;
+                }
+                if (action.messageAction) {
+                    break;
+                } else {
+                    return std::make_pair(std::nullopt, std::nullopt);
+                }
+            }
+        }
+    }
+
+    return std::make_pair(sendText, messageType);
 }

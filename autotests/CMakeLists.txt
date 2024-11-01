@@ -54,12 +54,6 @@ ecm_add_test(
 )
 
 ecm_add_test(
-    actionshandlertest.cpp
-    LINK_LIBRARIES neochat Qt::Test
-    TEST_NAME actionshandlertest
-)
-
-ecm_add_test(
     windowcontrollertest.cpp
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME windowcontrollertest

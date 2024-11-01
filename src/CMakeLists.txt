@@ -10,8 +10,6 @@ endif()
 add_library(neochat STATIC
     controller.cpp
     controller.h
-    actionshandler.cpp
-    actionshandler.h
     models/emojimodel.cpp
     models/emojimodel.h
     emojitones.cpp

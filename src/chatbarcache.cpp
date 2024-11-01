@@ -5,10 +5,11 @@
 
 #include <Quotient/roommember.h>
 
-#include "actionshandler.h"
 #include "chatdocumenthandler.h"
 #include "eventhandler.h"
+#include "models/actionsmodel.h"
 #include "neochatroom.h"
+#include "texthandler.h"
 
 ChatBarCache::ChatBarCache(QObject *parent)
     : QObject(parent)
@@ -27,6 +28,37 @@ void ChatBarCache::setText(const QString &text)
     }
     m_text = text;
     Q_EMIT textChanged();
+}
+
+QString ChatBarCache::sendText() const
+{
+    if (!attachmentPath().isEmpty()) {
+        QUrl url(attachmentPath());
+        auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
+        return text().isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : text();
+    }
+
+    return formatMentions();
+}
+
+QString ChatBarCache::formatMentions() const
+{
+    auto mentions = m_mentions;
+    std::sort(mentions.begin(), mentions.end(), [](const auto &a, const auto &b) {
+        return a.cursor.anchor() > b.cursor.anchor();
+    });
+
+    auto formattedText = text();
+    for (const auto &mention : mentions) {
+        if (mention.text.isEmpty() || mention.id.isEmpty()) {
+            continue;
+        }
+        formattedText = formattedText.replace(mention.cursor.anchor(),
+                                              mention.cursor.position() - mention.cursor.anchor(),
+                                              QStringLiteral("[%1](https://matrix.to/#/%2)").arg(mention.text.toHtmlEscaped(), mention.id));
+    }
+
+    return formattedText;
 }
 
 bool ChatBarCache::isReplying() const
@@ -268,7 +300,35 @@ void ChatBarCache::postMessage()
         return;
     }
 
-    ActionsHandler::handleMessageEvent(room, this);
+    if (!attachmentPath().isEmpty()) {
+        room->uploadFile(QUrl(attachmentPath()), sendText());
+        clearCache();
+        return;
+    }
+
+    const auto result = ActionsModel::handleAction(room, this);
+    if (!result.first.has_value()) {
+        return;
+    }
+
+    TextHandler textHandler;
+    textHandler.setData(*std::get<std::optional<QString>>(result));
+    const auto sendText = textHandler.handleSendText();
+
+    if (sendText.length() == 0) {
+        return;
+    }
+
+    room->postMessage(text(), sendText, *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result), replyId(), editId(), threadId());
+    clearCache();
+}
+
+void ChatBarCache::clearCache()
+{
+    setText({});
+    m_mentions.clear();
+    m_savedText = QString();
+    clearRelations();
 }
 
 #include "moc_chatbarcache.cpp"

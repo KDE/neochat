@@ -153,6 +153,7 @@ public:
     explicit ChatBarCache(QObject *parent = nullptr);
 
     QString text() const;
+    QString sendText() const;
     void setText(const QString &text);
 
     bool isReplying() const;
@@ -215,6 +216,8 @@ Q_SIGNALS:
 
 private:
     QString m_text = QString();
+    QString formatMentions() const;
+
     QString m_relationId = QString();
     RelationType m_relationType = RelationType::None;
     QString m_threadId = QString();
@@ -223,4 +226,6 @@ private:
     QString m_savedText;
 
     QPointer<MessageContentModel> m_relationContentModel;
+
+    void clearCache();
 };
