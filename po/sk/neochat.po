@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:39+0000\n"
 "PO-Revision-Date: 2024-01-23 09:01+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -2914,20 +2914,25 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr ""
 
-#: src/qml/ExploreRoomsPage.qml:93
+#: src/qml/ExploreRoomsPage.qml:95
 #, fuzzy, kde-format
 #| msgctxt "@label Parameter of a command"
 #| msgid "<room-address>"
-msgid "Enter a room address"
+msgid "Enter a Room Manually"
 msgstr "<room-address>"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:103
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:115
 #, fuzzy, kde-format
 #| msgid "Find a room..."
 msgid "Find a room…"
 msgstr "Nájsť miestnosť..."
 
-#: src/qml/ExploreRoomsPage.qml:108
+#: src/qml/ExploreRoomsPage.qml:116
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -3353,11 +3358,10 @@ msgid "Share"
 msgstr "Zdieľať"
 
 #: src/qml/ManualRoomDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgctxt "@title"
-msgid "Room ID or Alias"
-msgstr "Miestnosti"
+msgid "Manually Enter a Room"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -6210,6 +6214,12 @@ msgstr "Zobraziť"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
+
+#, fuzzy
+#~| msgid "Rooms"
+#~ msgctxt "@title"
+#~ msgid "Room ID or Alias"
+#~ msgstr "Miestnosti"
 
 #~ msgid "Maybe it was deleted?"
 #~ msgstr "Možno bol odstránený?"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 21:36+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2630,17 +2630,23 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "Csak terek megjelenítése"
 
-#: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Enter a room address"
+#: src/qml/ExploreRoomsPage.qml:95
+#, fuzzy, kde-format
+#| msgid "Enter a room address"
+msgid "Enter a Room Manually"
 msgstr "Adjon meg egy szobacímet"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:103
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:115
 #, kde-format
 msgid "Find a room…"
 msgstr "Szoba keresése…"
 
-#: src/qml/ExploreRoomsPage.qml:108
+#: src/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -3044,8 +3050,8 @@ msgstr "Megosztás"
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
 msgctxt "@title"
-msgid "Room ID or Alias"
-msgstr "Szobaazonosító vagy álnév"
+msgid "Manually Enter a Room"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -5740,6 +5746,10 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgctxt "@title"
+#~ msgid "Room ID or Alias"
+#~ msgstr "Szobaazonosító vagy álnév"
 
 #~ msgid "Maybe it was deleted?"
 #~ msgstr "Lehet, hogy kitörölték?"

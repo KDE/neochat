@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:39+0000\n"
 "PO-Revision-Date: 2024-10-04 10:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2631,17 +2631,23 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "Mostra només els espais"
 
-#: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Enter a room address"
+#: src/qml/ExploreRoomsPage.qml:95
+#, fuzzy, kde-format
+#| msgid "Enter a room address"
+msgid "Enter a Room Manually"
 msgstr "Introduïu una adreça de sala"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:103
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:115
 #, kde-format
 msgid "Find a room…"
 msgstr "Cerca una sala…"
 
-#: src/qml/ExploreRoomsPage.qml:108
+#: src/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -3045,8 +3051,8 @@ msgstr "Compartició"
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
 msgctxt "@title"
-msgid "Room ID or Alias"
-msgstr "ID de la sala o àlies"
+msgid "Manually Enter a Room"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -5756,6 +5762,10 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgctxt "@title"
+#~ msgid "Room ID or Alias"
+#~ msgstr "ID de la sala o àlies"
 
 #~ msgid "Maybe it was deleted?"
 #~ msgstr "Potser s'ha suprimit?"

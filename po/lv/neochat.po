@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:39+0000\n"
 "PO-Revision-Date: 2024-10-14 21:07+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2625,17 +2625,23 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "Rādīt tikai telpas"
 
-#: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Enter a room address"
+#: src/qml/ExploreRoomsPage.qml:95
+#, fuzzy, kde-format
+#| msgid "Enter a room address"
+msgid "Enter a Room Manually"
 msgstr "Ievadiet istabas adresi"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:103
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:115
 #, kde-format
 msgid "Find a room…"
 msgstr "Atrast istabu..."
 
-#: src/qml/ExploreRoomsPage.qml:108
+#: src/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -3038,8 +3044,8 @@ msgstr "Kopīgot"
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
 msgctxt "@title"
-msgid "Room ID or Alias"
-msgstr "Istabas ID vai aizstājējvārds"
+msgid "Manually Enter a Room"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -5707,6 +5713,10 @@ msgstr "Rādīt"
 #, kde-format
 msgid "Quit"
 msgstr "Iziet"
+
+#~ msgctxt "@title"
+#~ msgid "Room ID or Alias"
+#~ msgstr "Istabas ID vai aizstājējvārds"
 
 #~ msgid "Maybe it was deleted?"
 #~ msgstr "Varbūt tas ir izdzēsts?"

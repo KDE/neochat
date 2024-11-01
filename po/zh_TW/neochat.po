@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:39+0000\n"
 "PO-Revision-Date: 2024-10-20 00:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2600,17 +2600,23 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "只顯示聊天空間"
 
-#: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Enter a room address"
+#: src/qml/ExploreRoomsPage.qml:95
+#, fuzzy, kde-format
+#| msgid "Enter a room address"
+msgid "Enter a Room Manually"
 msgstr "輸入聊天室位址"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:103
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:115
 #, kde-format
 msgid "Find a room…"
 msgstr "尋找聊天室…"
 
-#: src/qml/ExploreRoomsPage.qml:108
+#: src/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -3010,8 +3016,8 @@ msgstr "分享"
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
 msgctxt "@title"
-msgid "Room ID or Alias"
-msgstr "聊天室 ID 或別名"
+msgid "Manually Enter a Room"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -5633,6 +5639,10 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
+
+#~ msgctxt "@title"
+#~ msgid "Room ID or Alias"
+#~ msgstr "聊天室 ID 或別名"
 
 #~ msgid "Maybe it was deleted?"
 #~ msgstr "或許它已被刪除？"

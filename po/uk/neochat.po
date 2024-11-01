@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:39+0000\n"
 "PO-Revision-Date: 2024-10-04 07:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2639,17 +2639,23 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "Показати лише простори"
 
-#: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Enter a room address"
+#: src/qml/ExploreRoomsPage.qml:95
+#, fuzzy, kde-format
+#| msgid "Enter a room address"
+msgid "Enter a Room Manually"
 msgstr "Введіть адресу кімнати"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:103
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:115
 #, kde-format
 msgid "Find a room…"
 msgstr "Знайти кімнату…"
 
-#: src/qml/ExploreRoomsPage.qml:108
+#: src/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -3053,8 +3059,8 @@ msgstr "Оприлюднення"
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
 msgctxt "@title"
-msgid "Room ID or Alias"
-msgstr "Ід. або псевдонім кімнати"
+msgid "Manually Enter a Room"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -5767,6 +5773,10 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgctxt "@title"
+#~ msgid "Room ID or Alias"
+#~ msgstr "Ід. або псевдонім кімнати"
 
 #~ msgid "Maybe it was deleted?"
 #~ msgstr "Можливо, його вилучено?"

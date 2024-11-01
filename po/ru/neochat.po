@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:40+0000\n"
-"PO-Revision-Date: 2024-10-30 17:25+0300\n"
+"POT-Creation-Date: 2024-11-01 00:39+0000\n"
+"PO-Revision-Date: 2024-10-31 10:08+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -264,10 +264,10 @@ msgstr[2] "%1 событий этого типа"
 msgstr[3] "%1 событие этого типа"
 
 #: src/devtools/RoomData.qml:84
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
-msgstr "Информация о сервере"
+msgstr "Информация о событии"
 
 #: src/devtools/ServerData.qml:20
 #, kde-format
@@ -343,12 +343,12 @@ msgid "Admin"
 msgstr "Администратор"
 
 #: src/enums/powerlevel.cpp:16
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mute"
-msgstr "Уведомления отключены"
+msgstr "Без права говорить"
 
 #: src/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "Custom"
 msgstr "Другой"
 
@@ -374,7 +374,7 @@ msgstr "<i>[Сообщение было удалено: %1]</i>"
 #: src/eventhandler.cpp:343
 #, kde-format
 msgid "reinvited %1 to the room"
-msgstr "%1 повторно приглашен(а) в комнату"
+msgstr "повторно пригласил(а) %1 в комнату"
 
 #: src/eventhandler.cpp:345
 #, kde-format
@@ -1197,7 +1197,7 @@ msgstr "Опубликовать ссылку в Matrix"
 #: src/models/actionsmodel.cpp:28
 #, kde-format
 msgid "Leaving this room."
-msgstr "Покинуть эту комнату."
+msgstr "Выход из этой комнаты."
 
 #: src/models/actionsmodel.cpp:35 src/models/actionsmodel.cpp:233
 #: src/models/actionsmodel.cpp:259 src/models/actionsmodel.cpp:289
@@ -1210,7 +1210,7 @@ msgstr "«%1» не соответствует формату идентифик
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Покинуть комнату %1."
+msgstr "Выход из комнаты %1."
 
 #: src/models/actionsmodel.cpp:46
 #, kde-format
@@ -2052,10 +2052,10 @@ msgid "Choose a Room"
 msgstr "Выбор комнаты"
 
 #: src/qml/CodeMaximizeComponent.qml:39
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Copy to clipboard"
-msgstr "Скопировать идентификатор комнаты в буфер обмена"
+msgstr "Скопировать в буфер обмена"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #, kde-format
@@ -2115,10 +2115,10 @@ msgstr "Подтверждение выхода из комнаты"
 #, kde-format
 msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
-msgstr "Выйти из %1?"
+msgstr "Покинуть %1?"
 
 #: src/qml/ConfirmLeaveDialog.qml:28
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room"
 msgstr "Покинуть комнату"
@@ -2135,10 +2135,10 @@ msgid "Are you sure you want to sign out?"
 msgstr "Выйти из учётной записи?"
 
 #: src/qml/ConfirmLogoutDialog.qml:27
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Sign out"
-msgstr "Выход из учётной записи"
+msgstr "Выйти из учётной записи"
 
 #: src/qml/ConfirmUrlDialog.qml:14
 #, kde-format
@@ -2170,7 +2170,7 @@ msgstr ""
 "чтобы ознакомиться с ними."
 
 #: src/qml/ConsentDialog.qml:31
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Открыть"
@@ -2244,7 +2244,7 @@ msgid "Off"
 msgstr "Отключить уведомления"
 
 #: src/qml/ContextMenu.qml:111
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "Параметры комнаты"
@@ -2265,7 +2265,7 @@ msgid "Add to Favourites"
 msgstr "Добавить в избранное"
 
 #: src/qml/ContextMenu.qml:187
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Room Settings"
 msgstr "Параметры комнаты"
@@ -2297,9 +2297,9 @@ msgid "New Room Information"
 msgstr "Сведения о новой комнате"
 
 #: src/qml/CreateRoomDialog.qml:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select type"
-msgstr "Выделить все"
+msgstr "Выбор типа"
 
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
@@ -2590,16 +2590,16 @@ msgid "Rooms"
 msgstr "Комнаты"
 
 #: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
-msgstr "Поиск"
+msgstr "Искать комнаты"
 
 #: src/qml/ExploreComponent.qml:123
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Сменить учётную запись"
+msgstr "Показать меню"
 
 #: src/qml/ExploreComponent.qml:192
 #, kde-format
@@ -2617,7 +2617,7 @@ msgid "Create New"
 msgstr "Создать"
 
 #: src/qml/ExplorerDelegate.qml:72
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr "Пространство"
@@ -2634,17 +2634,23 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "Показать только пространства"
 
-#: src/qml/ExploreRoomsPage.qml:93
-#, kde-format
-msgid "Enter a room address"
+#: src/qml/ExploreRoomsPage.qml:95
+#, fuzzy, kde-format
+#| msgid "Enter a room address"
+msgid "Enter a Room Manually"
 msgstr "Введите адрес комнаты"
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:103
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:115
 #, kde-format
 msgid "Find a room…"
 msgstr "Поиск комнаты…"
 
-#: src/qml/ExploreRoomsPage.qml:108
+#: src/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -3048,8 +3054,8 @@ msgstr "Публикация"
 #: src/qml/ManualRoomDialog.qml:25
 #, kde-format
 msgctxt "@title"
-msgid "Room ID or Alias"
-msgstr "Идентификатор или псевдоним комнаты"
+msgid "Manually Enter a Room"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3111,13 +3117,13 @@ msgstr "Перенаправление сообщения"
 #: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
 msgid "Copy Link"
-msgstr "Копировать ссылку"
+msgstr "Скопировать ссылку"
 
 #: src/qml/MessageSourceSheet.qml:46
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "Редактировать сообщение"
+msgstr "Изменить состояние"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -3370,9 +3376,9 @@ msgid "Search in room directory"
 msgstr "Искать в каталоге комнат"
 
 #: src/qml/RoomListPage.qml:221
-#, fuzzy, kde-format
+#, kde-format
 msgid "Search in friend directory"
-msgstr "Искать в каталоге комнат"
+msgstr "Искать в каталоге друзей"
 
 #: src/qml/RoomMedia.qml:29
 #, kde-format
@@ -3413,9 +3419,9 @@ msgid "Find messages…"
 msgstr "Поиск сообщений…"
 
 #: src/qml/RoomSearchPage.qml:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enter text to start searching"
-msgstr "Введите текст чтобы начать поиск"
+msgstr "Введите текст для начала поиска"
 
 #: src/qml/RoomSearchPage.qml:39
 #, kde-format
@@ -3435,7 +3441,7 @@ msgid "Expand %1"
 msgstr "Развернуть %1"
 
 #: src/qml/SearchPage.qml:136
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Search"
 msgstr "Поиск"
@@ -3562,10 +3568,10 @@ msgid "Friends"
 msgstr "Друзья"
 
 #: src/qml/SpaceDrawer.qml:221
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
-msgstr "Присоединиться"
+msgstr "Присоединиться к %1"
 
 #: src/qml/SpaceDrawer.qml:263
 #, kde-format
@@ -3628,7 +3634,7 @@ msgid "Invite user to space"
 msgstr "Пригласить пользователя в пространство"
 
 #: src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@button"
 msgid "Leave the space"
 msgstr "Покинуть пространство"
@@ -3689,10 +3695,10 @@ msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
 
 #: src/qml/UnlockSSSSDialog.qml:17
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
-msgstr "Отправить зашифрованное сообщение…"
+msgstr "Загрузка зашифрованных сообщений"
 
 #: src/qml/UnlockSSSSDialog.qml:48
 #, kde-format
@@ -3897,7 +3903,7 @@ msgstr "Пригласить в частный чат"
 #: src/qml/UserDetailDialog.qml:258
 #, kde-format
 msgid "Copy link"
-msgstr "Копировать ссылку"
+msgstr "Скопировать ссылку"
 
 #: src/qml/UserInfo.qml:91
 #, kde-format
@@ -4592,7 +4598,7 @@ msgstr "Ключевые слова"
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
-msgstr "Добавить ключевое слово…"
+msgstr "Ключевое слово…"
 
 #: src/settings/GlobalNotificationsPage.qml:116
 #: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
@@ -4606,7 +4612,7 @@ msgid "Invites"
 msgstr "Приглашения"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unknown"
 msgstr "Неизвестное событие"
 
@@ -5054,7 +5060,7 @@ msgid "Enter password"
 msgstr "Ввод пароля"
 
 #: src/settings/PasswordSheet.qml:30
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Пароль:"
@@ -5199,9 +5205,9 @@ msgid "Official Parent Spaces"
 msgstr "Официальные родительские пространства"
 
 #: src/settings/RoomGeneralPage.qml:306
-#, fuzzy, kde-format
+#, kde-format
 msgid "Canonical"
-msgstr "Канонический псевдоним не задан"
+msgstr "Каноничность"
 
 #: src/settings/RoomGeneralPage.qml:313
 #, kde-format
@@ -5313,9 +5319,9 @@ msgid "Anyone in the selected spaces can find and join."
 msgstr "Любой желающий в выбранных пространствах может найти и присоединиться."
 
 #: src/settings/RoomSecurityPage.qml:65
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select spaces"
-msgstr "Выделить все"
+msgstr "Выбор пространств"
 
 #: src/settings/RoomSecurityPage.qml:83
 #, kde-format
@@ -5569,12 +5575,12 @@ msgid "Post message in thread"
 msgstr "Не найдено ни одного сообщения"
 
 #: src/timeline/CodeComponent.qml:159
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copy to clipboard"
-msgstr "Скопировать идентификатор комнаты в буфер обмена"
+msgstr "Скопировать в буфер обмена"
 
 #: src/timeline/CodeComponent.qml:171
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Развернуть"
@@ -5749,6 +5755,10 @@ msgstr "Показать"
 msgid "Quit"
 msgstr "Выход"
 
+#~ msgctxt "@title"
+#~ msgid "Room ID or Alias"
+#~ msgstr "Идентификатор или псевдоним комнаты"
+
 #~ msgid "Maybe it was deleted?"
 #~ msgstr "Возможно, он был удалён."
 
@@ -5767,14 +5777,13 @@ msgstr "Выход"
 #~ msgid "Malformed or empty Matrix id"
 #~ msgstr "Недопустимый или пустой идентификатор Matrix"
 
-#, fuzzy
 #~ msgctxt "%1: What's being done; %2: How often it is done."
 #~ msgid " %1"
 #~ msgid_plural " %1 %2 times"
-#~ msgstr[0] ": %1"
-#~ msgstr[1] ": %1"
-#~ msgstr[2] ": %1"
-#~ msgstr[3] ": %1"
+#~ msgstr[0] " %1 %2 раз"
+#~ msgstr[1] " %1 %2 раза"
+#~ msgstr[2] " %1 %2 раз"
+#~ msgstr[3] " %1"
 
 #~ msgctxt "n users"
 #~ msgid " %1 user "

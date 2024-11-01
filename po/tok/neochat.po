@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-27 00:40+0000\n"
+"POT-Creation-Date: 2024-11-01 00:39+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2737,18 +2737,23 @@ msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr ""
 
-#: src/qml/ExploreRoomsPage.qml:93
+#: src/qml/ExploreRoomsPage.qml:95
 #, kde-format
-msgid "Enter a room address"
+msgid "Enter a Room Manually"
 msgstr ""
 
-#: src/qml/ExploreRoomsPage.qml:107
+#: src/qml/ExploreRoomsPage.qml:103
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/qml/ExploreRoomsPage.qml:115
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Find a room…"
 msgstr "o pana e toki"
 
-#: src/qml/ExploreRoomsPage.qml:108
+#: src/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
@@ -3158,11 +3163,10 @@ msgid "Share"
 msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Room Name"
+#, kde-format
 msgctxt "@title"
-msgid "Room ID or Alias"
-msgstr "nimi tomo"
+msgid "Manually Enter a Room"
+msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:37 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -5886,6 +5890,12 @@ msgstr ""
 #, kde-format
 msgid "Quit"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Room Name"
+#~ msgctxt "@title"
+#~ msgid "Room ID or Alias"
+#~ msgstr "nimi tomo"
 
 #~ msgid "Maybe it was deleted?"
 #~ msgstr "ken la ona li kama ala"
