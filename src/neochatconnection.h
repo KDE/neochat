@@ -10,9 +10,7 @@
 #include <QCoroTask>
 #include <Quotient/connection.h>
 
-#if Quotient_VERSION_MINOR > 8
 #include <Quotient/keyimport.h>
-#endif
 
 #include "enums/messagetype.h"
 #include "linkpreviewer.h"
@@ -160,9 +158,7 @@ public:
      */
     Q_INVOKABLE QString accountDataJsonString(const QString &type) const;
 
-#if Quotient_VERSION_MINOR > 8
     Q_INVOKABLE Quotient::KeyImport::Error exportMegolmSessions(const QString &passphrase, const QString &path);
-#endif
 
     qsizetype directChatNotifications() const;
     bool directChatsHaveHighlightNotifications() const;

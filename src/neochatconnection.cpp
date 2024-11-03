@@ -533,7 +533,6 @@ LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
     return previewer;
 }
 
-#if Quotient_VERSION_MINOR > 8
 KeyImport::Error NeoChatConnection::exportMegolmSessions(const QString &passphrase, const QString &path)
 {
     KeyImport keyImport;
@@ -548,6 +547,5 @@ KeyImport::Error NeoChatConnection::exportMegolmSessions(const QString &passphra
     file.close();
     return KeyImport::Success;
 }
-#endif
 
 #include "moc_neochatconnection.cpp"

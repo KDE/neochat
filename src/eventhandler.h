@@ -290,11 +290,7 @@ private:
 
     static QVariantMap getMediaInfoForEvent(const NeoChatRoom *room, const Quotient::RoomEvent *event);
     QVariantMap static getMediaInfoFromFileInfo(const NeoChatRoom *room,
-#if Quotient_VERSION_MINOR > 8
                                                 const Quotient::EventContent::FileContentBase *fileContent,
-#else
-                                                const Quotient::EventContent::TypedBase *fileContent,
-#endif
                                                 const QString &eventId,
                                                 bool isThumbnail = false,
                                                 bool isSticker = false);

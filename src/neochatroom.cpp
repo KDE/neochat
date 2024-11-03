@@ -74,13 +74,8 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             const auto m_event = evtIt->viewAs<RoomEvent>();
             QString mxcUrl;
             if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-#if Quotient_VERSION_MINOR > 8
                 if (event->has<EventContent::FileContentBase>()) {
                     mxcUrl = event->get<EventContent::FileContentBase>()->url().toString();
-#else
-                if (event->hasFileContent()) {
-                    mxcUrl = event->content()->fileInfo()->url().toString();
-#endif
                 }
             } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
                 mxcUrl = event->image().url().toString();
@@ -221,11 +216,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     auto mime = QMimeDatabase().mimeTypeForUrl(url);
     url.setScheme("file"_ls);
     QFileInfo fileInfo(url.isLocalFile() ? url.toLocalFile() : url.toString());
-#if Quotient_VERSION_MINOR > 8
     EventContent::FileContentBase *content;
-#else
-    EventContent::TypedBase *content;
-#endif
     if (mime.name().startsWith("image/"_ls)) {
         QImage image(url.toLocalFile());
         content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
@@ -240,11 +231,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     } else {
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
-#if Quotient_VERSION_MINOR > 8
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content));
-#else
-    QString txnId = postFile(body.isEmpty() ? url.fileName() : body, content);
-#endif
     setHasFileUploading(true);
     connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, FileSourceInfo) {
         if (id == txnId) {
@@ -376,13 +363,8 @@ bool NeoChatRoom::lastEventIsSpoiler() const
 {
     if (auto event = lastEvent()) {
         if (auto e = eventCast<const RoomMessageEvent>(event)) {
-#if Quotient_VERSION_MINOR > 8
             if (e->has<EventContent::TextContent>() && e->content() && e->mimeType().name() == "text/html"_ls) {
                 auto htmlBody = e->get<EventContent::TextContent>()->body;
-#else
-            if (e->hasTextContent() && e->content() && e->mimeType().name() == "text/html"_ls) {
-                auto htmlBody = static_cast<const Quotient::EventContent::TextContent *>(e->content())->body;
-#endif
                 return htmlBody.contains("data-mx-spoiler"_ls);
             }
         }
@@ -914,11 +896,7 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QStri
     }
     for (const auto &e : events) {
         auto job = connection()->callApi<RedactEventJob>(id(), QString::fromLatin1(QUrl::toPercentEncoding(e)), connection()->generateTxnId(), reason);
-#if Quotient_VERSION_MINOR > 8
         co_await qCoro(job.get(), &BaseJob::finished);
-#else
-        co_await qCoro(job, &BaseJob::finished);
-#endif
         if (job->error() != BaseJob::Success) {
             qWarning() << "Error: \"" << job->error() << "\" while deleting messages. Aborting";
             break;
@@ -1217,11 +1195,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         for (const auto &i : roomRuleArray) {
             QJsonObject roomRule = i.toObject();
             if (roomRule["rule_id"_ls] == id()) {
-#if Quotient_VERSION_MINOR > 8
                 connection()->callApi<DeletePushRuleJob>("room"_ls, id());
-#else
-                connection()->callApi<DeletePushRuleJob>(QLatin1String("global"), "room"_ls, id());
-#endif
             }
         }
     }
@@ -1232,11 +1206,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         for (const auto &i : overrideRuleArray) {
             QJsonObject overrideRule = i.toObject();
             if (overrideRule["rule_id"_ls] == id()) {
-#if Quotient_VERSION_MINOR > 8
                 connection()->callApi<DeletePushRuleJob>("override"_ls, id());
-#else
-                connection()->callApi<DeletePushRuleJob>("global"_ls, "override"_ls, id());
-#endif
             }
         }
     }
@@ -1272,17 +1242,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions = {pushCondition};
 
         // Add new override rule and make sure it's enabled
-#if Quotient_VERSION_MINOR > 8
         auto job = connection()->callApi<SetPushRuleJob>("override"_ls, id(), actions, QString(), QString(), conditions, QString());
-#else
-        auto job = connection()->callApi<SetPushRuleJob>("global"_ls, "override"_ls, id(), actions, QString(), QString(), conditions, QString());
-#endif
         connect(job, &BaseJob::success, this, [this]() {
-#if Quotient_VERSION_MINOR > 8
             auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("override"_ls, id(), true);
-#else
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "override"_ls, id(), true);
-#endif
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1306,17 +1268,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         // No conditions for a room rule
         const QList<PushCondition> conditions;
 
-#if Quotient_VERSION_MINOR > 8
         auto setJob = connection()->callApi<SetPushRuleJob>("room"_ls, id(), actions, QString(), QString(), conditions, QString());
-#else
-        auto setJob = connection()->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
-#endif
         connect(setJob, &BaseJob::success, this, [this]() {
-#if Quotient_VERSION_MINOR > 8
             auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_ls, id(), true);
-#else
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
-#endif
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1345,17 +1299,9 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions;
 
         // Add new room rule and make sure enabled
-#if Quotient_VERSION_MINOR > 8
         auto setJob = connection()->callApi<SetPushRuleJob>("room"_ls, id(), actions, QString(), QString(), conditions, QString());
-#else
-        auto setJob = connection()->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
-#endif
         connect(setJob, &BaseJob::success, this, [this]() {
-#if Quotient_VERSION_MINOR > 8
             auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_ls, id(), true);
-#else
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
-#endif
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1446,11 +1392,7 @@ void NeoChatRoom::openEventMediaExternally(const QString &eventId)
     const auto evtIt = findInTimeline(eventId);
     if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
         const auto event = evtIt->viewAs<RoomMessageEvent>();
-#if Quotient_VERSION_MINOR > 8
         if (event->has<EventContent::FileContent>()) {
-#else
-        if (event->hasFileContent()) {
-#endif
             const auto transferInfo = cachedFileTransferInfo(event);
             if (transferInfo.completed()) {
                 UrlHelper helper;
@@ -1483,11 +1425,7 @@ void NeoChatRoom::copyEventMedia(const QString &eventId)
     const auto evtIt = findInTimeline(eventId);
     if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
         const auto event = evtIt->viewAs<RoomMessageEvent>();
-#if Quotient_VERSION_MINOR > 8
         if (event->has<EventContent::FileContent>()) {
-#else
-        if (event->hasFileContent()) {
-#endif
             const auto transferInfo = fileTransferInfo(eventId);
             if (transferInfo.completed()) {
                 Clipboard clipboard;
@@ -1520,13 +1458,8 @@ FileTransferInfo NeoChatRoom::cachedFileTransferInfo(const Quotient::RoomEvent *
     QString mxcUrl;
     int total = 0;
     if (auto evt = eventCast<const Quotient::RoomMessageEvent>(event)) {
-#if Quotient_VERSION_MINOR > 8
         if (evt->has<EventContent::FileContent>()) {
             const auto fileContent = evt->get<EventContent::FileContent>();
-#else
-        if (evt->hasFileContent()) {
-            const auto fileContent = evt->content()->fileInfo();
-#endif
 
             mxcUrl = fileContent->url().toString();
             total = fileContent->payloadSize;
@@ -1883,14 +1816,5 @@ void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, con
 {
     setState(type, stateKey, QJsonDocument::fromJson(content).object());
 }
-
-#if Quotient_VERSION_MINOR == 8
-QList<RoomMember> NeoChatRoom::otherMembersTyping() const
-{
-    auto memberTyping = membersTyping();
-    memberTyping.removeAll(localMember());
-    return memberTyping;
-}
-#endif
 
 #include "moc_neochatroom.cpp"

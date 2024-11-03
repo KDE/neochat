@@ -225,18 +225,10 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
 {
     QString body;
 
-#if Quotient_VERSION_MINOR > 8
     if (event.has<EventContent::FileContent>()) {
-#else
-    if (event.hasFileContent()) {
-#endif
         // if filename is given or body is equal to filename,
         // then body is a caption
-#if Quotient_VERSION_MINOR > 8
         QString filename = event.get<EventContent::FileContent>()->originalName;
-#else
-        QString filename = event.content()->fileInfo()->originalName;
-#endif
         QString body = event.plainBody();
         if (filename.isEmpty() || filename == body) {
             return QString();
@@ -244,13 +236,8 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
         return body;
     }
 
-#if Quotient_VERSION_MINOR > 8
     if (event.has<EventContent::TextContent>() && event.content()) {
         body = event.get<EventContent::TextContent>()->body;
-#else
-    if (event.hasTextContent() && event.content()) {
-        body = static_cast<const EventContent::TextContent *>(event.content())->body;
-#endif
     } else {
         body = event.plainBody();
     }
@@ -477,13 +464,8 @@ QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageE
 {
     TextHandler textHandler;
 
-#if Quotient_VERSION_MINOR > 8
     if (event.has<EventContent::FileContent>()) {
         QString fileCaption = event.get<EventContent::FileContent>()->originalName;
-#else
-    if (event.hasFileContent()) {
-        QString fileCaption = event.content()->fileInfo()->originalName;
-#endif
         if (fileCaption.isEmpty()) {
             fileCaption = event.plainBody();
         } else if (fileCaption != event.plainBody()) {
@@ -494,13 +476,8 @@ QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageE
     }
 
     QString body;
-#if Quotient_VERSION_MINOR > 8
     if (event.has<EventContent::TextContent>() && event.content()) {
         body = event.get<EventContent::TextContent>()->body;
-#else
-    if (event.hasTextContent() && event.content()) {
-        body = static_cast<const EventContent::TextContent *>(event.content())->body;
-#endif
     } else {
         body = event.plainBody();
     }
@@ -715,28 +692,15 @@ QVariantMap EventHandler::getMediaInfoForEvent(const NeoChatRoom *room, const Qu
     // Get the file info for the event.
     if (event->is<RoomMessageEvent>()) {
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(event);
-#if Quotient_VERSION_MINOR > 8
         if (!roomMessageEvent->has<EventContent::FileContentBase>()) {
-#else
-        if (!roomMessageEvent->hasFileContent()) {
-#endif
             return {};
         }
 
-#if Quotient_VERSION_MINOR > 8
         const auto content = roomMessageEvent->get<EventContent::FileContentBase>();
         QVariantMap mediaInfo = getMediaInfoFromFileInfo(room, content.get(), eventId, false, false);
-#else
-        const auto content = static_cast<const EventContent::FileContent *>(roomMessageEvent->content());
-        QVariantMap mediaInfo = getMediaInfoFromFileInfo(room, content, eventId, false, false);
-#endif
         // if filename isn't specifically given, it is in body
         // https://spec.matrix.org/latest/client-server-api/#mfile
-#if Quotient_VERSION_MINOR > 8
         mediaInfo["filename"_ls] = content->commonInfo().originalName.isEmpty() ? roomMessageEvent->plainBody() : content->commonInfo().originalName;
-#else
-        mediaInfo["filename"_ls] = (content->fileInfo()->originalName.isEmpty()) ? roomMessageEvent->plainBody() : content->fileInfo()->originalName;
-#endif
 
         return mediaInfo;
     } else if (event->is<StickerEvent>()) {
@@ -750,11 +714,7 @@ QVariantMap EventHandler::getMediaInfoForEvent(const NeoChatRoom *room, const Qu
 }
 
 QVariantMap EventHandler::getMediaInfoFromFileInfo(const NeoChatRoom *room,
-#if Quotient_VERSION_MINOR > 8
                                                    const Quotient::EventContent::FileContentBase *fileContent,
-#else
-                                                   const Quotient::EventContent::TypedBase *fileContent,
-#endif
                                                    const QString &eventId,
                                                    bool isThumbnail,
                                                    bool isSticker)
@@ -762,18 +722,10 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const NeoChatRoom *room,
     QVariantMap mediaInfo;
 
     // Get the mxc URL for the media.
-#if Quotient_VERSION_MINOR > 8
     if (!fileContent->url().isValid() || fileContent->url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
-#else
-    if (!fileContent->fileInfo()->url().isValid() || fileContent->fileInfo()->url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
-#endif
         mediaInfo["source"_ls] = QUrl();
     } else {
-#if Quotient_VERSION_MINOR > 8
         QUrl source = room->makeMediaUrl(eventId, fileContent->url());
-#else
-        QUrl source = room->makeMediaUrl(eventId, fileContent->fileInfo()->url());
-#endif
 
         if (source.isValid()) {
             mediaInfo["source"_ls] = source;
@@ -790,25 +742,15 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const NeoChatRoom *room,
     mediaInfo["mimeIcon"_ls] = mimeType.iconName();
 
     // Add media size if available.
-#if Quotient_VERSION_MINOR > 8
     mediaInfo["size"_ls] = fileContent->commonInfo().payloadSize;
-#else
-    mediaInfo["size"_ls] = static_cast<const EventContent::FileContent *>(fileContent)->fileInfo()->payloadSize;
-#endif
 
     mediaInfo["isSticker"_ls] = isSticker;
 
     // Add parameter depending on media type.
     if (mimeType.name().contains(QStringLiteral("image"))) {
         if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileContent)) {
-#if Quotient_VERSION_MINOR > 8
             mediaInfo["width"_ls] = castInfo->imageSize.width();
             mediaInfo["height"_ls] = castInfo->imageSize.height();
-#else
-            const auto imageInfo = static_cast<const EventContent::ImageInfo *>(castInfo->fileInfo());
-            mediaInfo["width"_ls] = imageInfo->imageSize.width();
-            mediaInfo["height"_ls] = imageInfo->imageSize.height();
-#endif
 
             // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
             mediaInfo["animated"_ls] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());

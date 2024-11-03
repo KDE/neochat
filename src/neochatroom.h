@@ -208,10 +208,6 @@ class NeoChatRoom : public Quotient::Room
      */
     Q_PROPERTY(ChatBarCache *threadCache READ threadCache CONSTANT)
 
-#if Quotient_VERSION_MINOR == 8
-    Q_PROPERTY(QList<Quotient::RoomMember> otherMembersTyping READ otherMembersTyping NOTIFY typingChanged)
-#endif
-
 public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
@@ -622,10 +618,6 @@ private:
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
     void cleanupExtraEventRange(Quotient::RoomEventsRange events);
     void cleanupExtraEvent(const QString &eventId);
-
-#if Quotient_VERSION_MINOR == 8
-    QList<Quotient::RoomMember> otherMembersTyping() const;
-#endif
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);

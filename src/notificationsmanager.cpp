@@ -148,11 +148,7 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
 
         QImage avatar_image;
         if (!sender.avatarUrl().isEmpty()) {
-#if Quotient_VERSION_MINOR > 8
             avatar_image = room->member(sender.id()).avatar(128, 128, {});
-#else
-            avatar_image = room->memberAvatar(sender.id()).get(connection, 128, {});
-#endif
         } else {
             avatar_image = room->avatar(128);
         }
@@ -298,11 +294,7 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
 
     QImage avatar_image;
     if (roomMemberEvent && !room->member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
-#if Quotient_VERSION_MINOR > 8
         avatar_image = room->member(roomMemberEvent->senderId()).avatar(128, 128, {});
-#else
-        avatar_image = room->memberAvatar(roomMemberEvent->senderId()).get(room->connection(), 128, [] {});
-#endif
     } else {
         qWarning() << "using this room's avatar";
         avatar_image = room->avatar(128);

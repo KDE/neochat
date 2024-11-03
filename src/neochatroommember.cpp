@@ -73,11 +73,7 @@ QString NeochatRoomMember::displayName() const
     }
 
     const auto memberObject = m_room->member(m_memberId);
-#if Quotient_VERSION_MINOR > 8
     return memberObject.isEmpty() ? id() : memberObject.displayName();
-#else
-    return memberObject.id().isEmpty() ? id() : memberObject.displayName();
-#endif
 }
 
 QString NeochatRoomMember::htmlSafeDisplayName() const
@@ -87,11 +83,7 @@ QString NeochatRoomMember::htmlSafeDisplayName() const
     }
 
     const auto memberObject = m_room->member(m_memberId);
-#if Quotient_VERSION_MINOR > 8
     return memberObject.isEmpty() ? id() : memberObject.htmlSafeDisplayName();
-#else
-    return memberObject.id().isEmpty() ? id() : memberObject.htmlSafeDisplayName();
-#endif
 }
 
 QString NeochatRoomMember::fullName() const
@@ -101,11 +93,7 @@ QString NeochatRoomMember::fullName() const
     }
 
     const auto memberObject = m_room->member(m_memberId);
-#if Quotient_VERSION_MINOR > 8
     return memberObject.isEmpty() ? id() : memberObject.fullName();
-#else
-    return memberObject.id().isEmpty() ? id() : memberObject.fullName();
-#endif
 }
 
 QString NeochatRoomMember::htmlSafeFullName() const
@@ -115,11 +103,7 @@ QString NeochatRoomMember::htmlSafeFullName() const
     }
 
     const auto memberObject = m_room->member(m_memberId);
-#if Quotient_VERSION_MINOR > 8
     return memberObject.isEmpty() ? id() : memberObject.htmlSafeFullName();
-#else
-    return memberObject.id().isEmpty() ? id() : memberObject.htmlSafeFullName();
-#endif
 }
 
 QString NeochatRoomMember::disambiguatedName() const
@@ -129,11 +113,7 @@ QString NeochatRoomMember::disambiguatedName() const
     }
 
     const auto memberObject = m_room->member(m_memberId);
-#if Quotient_VERSION_MINOR > 8
     return memberObject.isEmpty() ? id() : memberObject.disambiguatedName();
-#else
-    return memberObject.id().isEmpty() ? id() : memberObject.disambiguatedName();
-#endif
 }
 
 QString NeochatRoomMember::htmlSafeDisambiguatedName() const
@@ -143,11 +123,7 @@ QString NeochatRoomMember::htmlSafeDisambiguatedName() const
     }
 
     const auto memberObject = m_room->member(m_memberId);
-#if Quotient_VERSION_MINOR > 8
     return memberObject.isEmpty() ? id() : memberObject.htmlSafeDisambiguatedName();
-#else
-    return memberObject.id().isEmpty() ? id() : memberObject.htmlSafeDisambiguatedName();
-#endif
 }
 
 int NeochatRoomMember::hue() const

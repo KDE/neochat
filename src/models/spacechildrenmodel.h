@@ -144,9 +144,5 @@ private:
 
     void refreshModel();
 
-#if Quotient_VERSION_MINOR >= 9
     void insertChildren(std::vector<Quotient::GetSpaceHierarchyJob::SpaceHierarchyRoomsChunk> children, const QModelIndex &parent = QModelIndex());
-#else
-    void insertChildren(std::vector<Quotient::GetSpaceHierarchyJob::ChildRoomsChunk> children, const QModelIndex &parent = QModelIndex());
-#endif
 };

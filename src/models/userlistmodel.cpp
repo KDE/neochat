@@ -87,11 +87,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return memberId;
     }
     if (role == AvatarRole) {
-#if Quotient_VERSION_MINOR > 8
         return m_currentRoom->member(memberId).avatarUrl();
-#else
-        return m_currentRoom->memberAvatar(memberId).url();
-#endif
     }
     if (role == ObjectRole) {
         return QVariant::fromValue(memberId);
@@ -176,11 +172,7 @@ void UserListModel::refreshAllMembers()
 
     if (m_currentRoom != nullptr) {
         m_members = m_currentRoom->joinedMemberIds();
-#if Quotient_VERSION_MINOR > 8
         MemberSorter sorter;
-#else
-        MemberSorter sorter(m_currentRoom);
-#endif
         std::sort(m_members.begin(), m_members.end(), [&sorter, this](const auto &left, const auto &right) {
             const auto leftPl = m_currentRoom->getUserPowerLevel(left);
             const auto rightPl = m_currentRoom->getUserPowerLevel(right);
