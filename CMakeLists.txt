@@ -107,7 +107,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     find_package(KF6DBusAddons ${KF_MIN_VERSION} REQUIRED)
 endif()
 
-find_package(QuotientQt6 0.8.2)
+find_package(QuotientQt6 0.9)
 set_package_properties(QuotientQt6 PROPERTIES
     TYPE REQUIRED
     DESCRIPTION "Qt wrapper around Matrix API"
