@@ -4,10 +4,9 @@
 #pragma once
 
 #include <Quotient/jobs/basejob.h>
-#include <Quotient/omittable.h>
 
 class NeochatAdd3PIdJob : public Quotient::BaseJob
 {
 public:
-    explicit NeochatAdd3PIdJob(const QString &clientSecret, const QString &sid, const Quotient::Omittable<QJsonObject> &auth = {});
+    explicit NeochatAdd3PIdJob(const QString &clientSecret, const QString &sid, const std::optional<QJsonObject> &auth = {});
 };

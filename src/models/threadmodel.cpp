@@ -6,7 +6,6 @@
 #include <Quotient/events/event.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/basejob.h>
-#include <Quotient/omittable.h>
 #include <memory>
 
 #include "chatbarcache.h"

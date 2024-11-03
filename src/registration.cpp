@@ -62,7 +62,7 @@ QString Registration::recaptchaSiteKey() const
 void Registration::registerAccount()
 {
     setStatus(Working);
-    Omittable<QJsonObject> authData;
+    std::optional<QJsonObject> authData;
     if (nextStep() == "m.login.recaptcha"_ls) {
         authData = QJsonObject{
             {"type"_ls, "m.login.recaptcha"_ls},
@@ -182,7 +182,7 @@ void Registration::testHomeserver()
             if (m_testServerJob) {
                 delete m_testServerJob;
             }
-            m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_ls, none, "user"_ls, QString(), QString(), QString(), false);
+            m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_ls, std::nullopt, "user"_ls, QString(), QString(), QString(), false);
 
             connect(m_testServerJob.data(), &BaseJob::finished, this, [this]() {
                 if (m_testServerJob->error() == BaseJob::StatusCode::ContentAccessError) {
@@ -252,12 +252,12 @@ void Registration::setPassword(const QString &password)
 }
 
 NeoChatRegisterJob::NeoChatRegisterJob(const QString &kind,
-                                       const Omittable<QJsonObject> &auth,
+                                       const std::optional<QJsonObject> &auth,
                                        const QString &username,
                                        const QString &password,
                                        const QString &deviceId,
                                        const QString &initialDeviceDisplayName,
-                                       Omittable<bool> inhibitLogin)
+                                       std::optional<bool> inhibitLogin)
     : BaseJob(HttpVerb::Post, "RegisterJob"_ls, QByteArrayLiteral("/_matrix/client/r0/register"), false)
 {
     QJsonObject _data;

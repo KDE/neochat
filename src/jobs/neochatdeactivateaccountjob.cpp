@@ -5,7 +5,7 @@
 
 using namespace Quotient;
 
-NeoChatDeactivateAccountJob::NeoChatDeactivateAccountJob(const Omittable<QJsonObject> &auth)
+NeoChatDeactivateAccountJob::NeoChatDeactivateAccountJob(const std::optional<QJsonObject> &auth)
     : BaseJob(HttpVerb::Post, QStringLiteral("DisableDeviceJob"), "_matrix/client/v3/account/deactivate")
 {
     QJsonObject data;

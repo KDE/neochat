@@ -4,7 +4,6 @@
 #pragma once
 
 #include <Quotient/jobs/basejob.h>
-#include <Quotient/omittable.h>
 
 // TODO: Upstream to libQuotient
 class NeochatGetCommonRoomsJob : public Quotient::BaseJob

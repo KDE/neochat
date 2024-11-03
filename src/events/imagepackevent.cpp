@@ -3,7 +3,6 @@
 
 #include "imagepackevent.h"
 #include <QJsonObject>
-#include <Quotient/omittable.h>
 
 using namespace Quotient;
 
@@ -11,10 +10,10 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
 {
     if (json.contains(QStringLiteral("pack"))) {
         pack = ImagePackEventContent::Pack{
-            fromJson<Omittable<QString>>(json["pack"_ls].toObject()["display_name"_ls]),
-            fromJson<Omittable<QUrl>>(json["pack"_ls].toObject()["avatar_url"_ls]),
-            fromJson<Omittable<QStringList>>(json["pack"_ls].toObject()["usage"_ls]),
-            fromJson<Omittable<QString>>(json["pack"_ls].toObject()["attribution"_ls]),
+            fromJson<std::optional<QString>>(json["pack"_ls].toObject()["display_name"_ls]),
+            fromJson<std::optional<QUrl>>(json["pack"_ls].toObject()["avatar_url"_ls]),
+            fromJson<std::optional<QStringList>>(json["pack"_ls].toObject()["usage"_ls]),
+            fromJson<std::optional<QString>>(json["pack"_ls].toObject()["attribution"_ls]),
         };
     } else {
         pack = std::nullopt;
@@ -31,9 +30,9 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
         images += ImagePackImage{
             k,
             fromJson<QUrl>(json["images"_ls][k]["url"_ls].toString()),
-            fromJson<Omittable<QString>>(json["images"_ls][k]["body"_ls]),
+            fromJson<std::optional<QString>>(json["images"_ls][k]["body"_ls]),
             info,
-            fromJson<Omittable<QStringList>>(json["images"_ls][k]["usage"_ls]),
+            fromJson<std::optional<QStringList>>(json["images"_ls][k]["usage"_ls]),
         };
     }
 }

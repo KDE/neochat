@@ -5,7 +5,7 @@
 
 using namespace Quotient;
 
-NeochatAdd3PIdJob::NeochatAdd3PIdJob(const QString &clientSecret, const QString &sid, const Omittable<QJsonObject> &auth)
+NeochatAdd3PIdJob::NeochatAdd3PIdJob(const QString &clientSecret, const QString &sid, const std::optional<QJsonObject> &auth)
     : BaseJob(HttpVerb::Post, QStringLiteral("Add3PIDJob"), makePath("/_matrix/client/v3", "/account/3pid/add"))
 {
     QJsonObject _dataJson;
