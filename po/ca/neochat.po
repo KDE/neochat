@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:39+0000\n"
+"POT-Creation-Date: 2024-11-04 00:39+0000\n"
 "PO-Revision-Date: 2024-11-01 10:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -91,7 +91,7 @@ msgstr "Emojis"
 msgid "Stickers"
 msgstr "Adhesius"
 
-#: src/controller.cpp:135
+#: src/controller.cpp:131
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -99,12 +99,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Rebre les notificacions dels missatges nous"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:249
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "No s'ha trobat el testimoni d'accés: Potser s'ha suprimit?"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:253
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -112,7 +112,7 @@ msgstr ""
 "S'ha denegat l'accés a clauer: Permeteu que el NeoChat llegeixi el testimoni "
 "d'accés"
 
-#: src/controller.cpp:264
+#: src/controller.cpp:256
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -121,12 +121,12 @@ msgstr ""
 "No hi ha cap clauer disponible: Instal·leu un clauer, p. ex. el KWallet o "
 "l'anell de claus del GNOME al Linux"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:259
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "No s'ha pogut llegir el testimoni d'accés: %1"
 
-#: src/controller.cpp:366
+#: src/controller.cpp:358
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Rebre les notificacions «push»"
@@ -355,7 +355,7 @@ msgid "Custom"
 msgstr "Personalitzats"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:117
+#: src/models/userlistmodel.cpp:113
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -363,486 +363,486 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:309 src/eventhandler.cpp:535
+#: src/eventhandler.cpp:296 src/eventhandler.cpp:512
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Aquest missatge s'ha suprimit]</i>"
 
-#: src/eventhandler.cpp:309
+#: src/eventhandler.cpp:296
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Aquest missatge s'ha suprimit: %1]</i>"
 
-#: src/eventhandler.cpp:343
+#: src/eventhandler.cpp:330
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "s'ha tornat a convidar %1 a la sala"
 
-#: src/eventhandler.cpp:345
+#: src/eventhandler.cpp:332
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:354
+#: src/eventhandler.cpp:341
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "s'ha unit a la sala (repetit)"
 
-#: src/eventhandler.cpp:356
+#: src/eventhandler.cpp:343
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "s'ha convidat %1 a la sala"
 
-#: src/eventhandler.cpp:356
+#: src/eventhandler.cpp:343
 #, kde-format
 msgid "joined the room"
 msgstr "s'ha unit a la sala"
 
-#: src/eventhandler.cpp:360
+#: src/eventhandler.cpp:347
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:367
+#: src/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "ha netejat el seu nom a mostrar"
 
-#: src/eventhandler.cpp:370
+#: src/eventhandler.cpp:357
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "ha canviat el seu nom a mostrar a %1"
 
-#: src/eventhandler.cpp:376
+#: src/eventhandler.cpp:363
 #, kde-format
 msgid " and "
 msgstr " i "
 
-#: src/eventhandler.cpp:379
+#: src/eventhandler.cpp:366
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "ha netejat el seu avatar"
 
-#: src/eventhandler.cpp:381
+#: src/eventhandler.cpp:368
 #, kde-format
 msgid "set an avatar"
 msgstr "ha definit un avatar"
 
-#: src/eventhandler.cpp:383
+#: src/eventhandler.cpp:370
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "ha actualitzat el seu avatar"
 
-#: src/eventhandler.cpp:387
+#: src/eventhandler.cpp:374
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "no ha canviat res"
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:380
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "retira la invitació de %1"
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:380
 #, kde-format
 msgid "rejected the invitation"
 msgstr "ha rebutjat la invitació"
 
-#: src/eventhandler.cpp:397
+#: src/eventhandler.cpp:384
 #, kde-format
 msgid "unbanned %1"
 msgstr "s'ha desbandejat %1"
 
-#: src/eventhandler.cpp:397
+#: src/eventhandler.cpp:384
 #, kde-format
 msgid "self-unbanned"
 msgstr "ell mateix s'ha desbandejat"
 
-#: src/eventhandler.cpp:400
+#: src/eventhandler.cpp:387
 #, kde-format
 msgid "left the room"
 msgstr "ha/n deixat la sala"
 
-#: src/eventhandler.cpp:403
+#: src/eventhandler.cpp:390
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "ha posat %1 fora de la sala: %2"
 
-#: src/eventhandler.cpp:405
+#: src/eventhandler.cpp:392
 #, kde-format
 msgid "has put %1 out of the room"
 msgstr "ha posat %1 fora de la sala"
 
-#: src/eventhandler.cpp:409
+#: src/eventhandler.cpp:396
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "s'ha bandejat %1 de la sala"
 
-#: src/eventhandler.cpp:411
+#: src/eventhandler.cpp:398
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "s'ha bandejat %1 de la sala: %2"
 
-#: src/eventhandler.cpp:414
+#: src/eventhandler.cpp:401
 #, kde-format
 msgid "self-banned from the room"
 msgstr "ell mateix s'ha bandejat de la sala"
 
-#: src/eventhandler.cpp:418
+#: src/eventhandler.cpp:405
 #, kde-format
 msgid "requested an invite"
 msgstr "ha sol·licitat una invitació"
 
-#: src/eventhandler.cpp:418
+#: src/eventhandler.cpp:405
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "ha sol·licitat una invitació amb el motiu: %1"
 
-#: src/eventhandler.cpp:422
+#: src/eventhandler.cpp:409
 #, kde-format
 msgid "made something unknown"
 msgstr "ha fet quelcom desconegut"
 
-#: src/eventhandler.cpp:425
+#: src/eventhandler.cpp:412
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "ha netejat l'àlies principal de la sala"
 
-#: src/eventhandler.cpp:425
+#: src/eventhandler.cpp:412
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ha definit l'àlies principal de la sala a: %1"
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:415
 #, kde-format
 msgid "cleared the room name"
 msgstr "ha netejat el nom de la sala"
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:415
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ha definit el nom de la sala a: %1"
 
-#: src/eventhandler.cpp:431
+#: src/eventhandler.cpp:418
 #, kde-format
 msgid "cleared the topic"
 msgstr "ha netejat el tema"
 
-#: src/eventhandler.cpp:432
+#: src/eventhandler.cpp:419
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ha definit el tema a: %1"
 
-#: src/eventhandler.cpp:438
+#: src/eventhandler.cpp:425
 #, kde-format
 msgid "changed the room avatar"
 msgstr "ha canviat l'avatar de la sala"
 
-#: src/eventhandler.cpp:441
+#: src/eventhandler.cpp:428
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "ha activat l'encriptatge d'extrem a extrem"
 
-#: src/eventhandler.cpp:445
+#: src/eventhandler.cpp:432
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "la sala s'ha actualitzat a la versió %1"
 
-#: src/eventhandler.cpp:446
+#: src/eventhandler.cpp:433
 #, kde-format
 msgid "created the room, version %1"
 msgstr "la sala s'ha creat, versió %1"
 
-#: src/eventhandler.cpp:449
+#: src/eventhandler.cpp:436
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "ha canviat els nivells de permís d'aquesta sala"
 
-#: src/eventhandler.cpp:455
+#: src/eventhandler.cpp:442
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 "ha canviat les llistes de control d'accés del servidor per a aquesta sala"
 
-#: src/eventhandler.cpp:459
+#: src/eventhandler.cpp:446
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "ha afegit el giny %1"
 
-#: src/eventhandler.cpp:462
+#: src/eventhandler.cpp:449
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "ha eliminat el giny %1"
 
-#: src/eventhandler.cpp:464
+#: src/eventhandler.cpp:451
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "ha configurat el giny %1"
 
-#: src/eventhandler.cpp:467
+#: src/eventhandler.cpp:454
 #, kde-format
 msgid "updated %1 state"
 msgstr "ha actualitzat l'estat de %1"
 
-#: src/eventhandler.cpp:468
+#: src/eventhandler.cpp:455
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "ha actualitzat l'estat de %1 per %2"
 
-#: src/eventhandler.cpp:473 src/eventhandler.cpp:682
+#: src/eventhandler.cpp:460 src/eventhandler.cpp:659
 #, kde-format
 msgid "Unknown event"
 msgstr "Esdeveniment desconegut"
 
-#: src/eventhandler.cpp:493
+#: src/eventhandler.cpp:475
 #, kde-format
 msgid "a file"
 msgstr "un fitxer"
 
-#: src/eventhandler.cpp:544
+#: src/eventhandler.cpp:521
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 ha enviat un missatge"
 
-#: src/eventhandler.cpp:547
+#: src/eventhandler.cpp:524
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 ha enviat un adhesiu"
 
-#: src/eventhandler.cpp:553
+#: src/eventhandler.cpp:530
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 ha tornat a convidar algú a la sala"
 
-#: src/eventhandler.cpp:559
+#: src/eventhandler.cpp:536
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 s'ha unit a la sala (repetit)"
 
-#: src/eventhandler.cpp:561
+#: src/eventhandler.cpp:538
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 ha convidat algú a la sala"
 
-#: src/eventhandler.cpp:562
+#: src/eventhandler.cpp:539
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 s'ha unit a la sala"
 
-#: src/eventhandler.cpp:588
+#: src/eventhandler.cpp:565
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 ha definit un nom a mostrar i un avatar"
 
-#: src/eventhandler.cpp:590
+#: src/eventhandler.cpp:567
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 ha definit un nom a mostrar i ha actualitzat el seu avatar"
 
-#: src/eventhandler.cpp:592
+#: src/eventhandler.cpp:569
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 ha definit un nom a mostrar i ha netejat el seu avatar"
 
-#: src/eventhandler.cpp:594
+#: src/eventhandler.cpp:571
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 ha definit un nom a mostrar per a aquesta sala"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:574
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 ha canviat el seu nom a mostrar i ha definit un avatar"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:576
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 ha canviat el seu nom a mostrar i ha actualitzat el seu avatar"
 
-#: src/eventhandler.cpp:601
+#: src/eventhandler.cpp:578
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 ha canviat el seu nom a mostrar i ha netejat el seu avatar"
 
-#: src/eventhandler.cpp:603
+#: src/eventhandler.cpp:580
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 ha canviat el seu nom a mostrar"
 
-#: src/eventhandler.cpp:606
+#: src/eventhandler.cpp:583
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 ha netejat el seu nom a mostrar i ha definit un avatar"
 
-#: src/eventhandler.cpp:608
+#: src/eventhandler.cpp:585
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 ha netejat el seu nom a mostrar i ha actualitzat el seu avatar"
 
-#: src/eventhandler.cpp:610
+#: src/eventhandler.cpp:587
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 ha netejat el seu nom a mostrar i el seu avatar"
 
-#: src/eventhandler.cpp:612
+#: src/eventhandler.cpp:589
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 ha netejat el seu nom a mostrar"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:592
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 no ha canviat res"
 
-#: src/eventhandler.cpp:619
+#: src/eventhandler.cpp:596
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 ha retirat una invitació d'usuari"
 
-#: src/eventhandler.cpp:620
+#: src/eventhandler.cpp:597
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 ha rebutjat la invitació"
 
-#: src/eventhandler.cpp:624
+#: src/eventhandler.cpp:601
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 ha desbandejat un usuari"
 
-#: src/eventhandler.cpp:624
+#: src/eventhandler.cpp:601
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 s'ha desbandejat ell mateix"
 
-#: src/eventhandler.cpp:626
+#: src/eventhandler.cpp:603
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 ha posat un usuari fora de la sala"
 
-#: src/eventhandler.cpp:626
+#: src/eventhandler.cpp:603
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 ha deixat la sala"
 
-#: src/eventhandler.cpp:629
+#: src/eventhandler.cpp:606
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 ha bandejat un usuari de la sala"
 
-#: src/eventhandler.cpp:631
+#: src/eventhandler.cpp:608
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 s'ha bandejat de la sala ell mateix"
 
-#: src/eventhandler.cpp:634
+#: src/eventhandler.cpp:611
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 ha sol·licitat una invitació"
 
-#: src/eventhandler.cpp:638
+#: src/eventhandler.cpp:615
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 ha fet quelcom desconegut"
 
-#: src/eventhandler.cpp:641
+#: src/eventhandler.cpp:618
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 ha netejat l'àlies principal de la sala"
 
-#: src/eventhandler.cpp:641
+#: src/eventhandler.cpp:618
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 ha definit l'àlies principal de la sala"
 
-#: src/eventhandler.cpp:644
+#: src/eventhandler.cpp:621
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 ha netejat el nom de la sala"
 
-#: src/eventhandler.cpp:644
+#: src/eventhandler.cpp:621
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 ha definit el nom de la sala"
 
-#: src/eventhandler.cpp:647
+#: src/eventhandler.cpp:624
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 ha netejat el tema"
 
-#: src/eventhandler.cpp:647
+#: src/eventhandler.cpp:624
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 ha definit el tema"
 
-#: src/eventhandler.cpp:650
+#: src/eventhandler.cpp:627
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 ha canviat l'avatar de la sala"
 
-#: src/eventhandler.cpp:653
+#: src/eventhandler.cpp:630
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 ha activat l'encriptatge d'extrem a extrem"
 
-#: src/eventhandler.cpp:656
+#: src/eventhandler.cpp:633
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 ha actualitzat la versió de la sala"
 
-#: src/eventhandler.cpp:656
+#: src/eventhandler.cpp:633
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 ha creat la sala"
 
-#: src/eventhandler.cpp:659
+#: src/eventhandler.cpp:636
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 ha canviat els nivells de permís d'aquesta sala"
 
-#: src/eventhandler.cpp:662
+#: src/eventhandler.cpp:639
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 ha enviat una balisa d'ubicació en directe"
 
-#: src/eventhandler.cpp:665
+#: src/eventhandler.cpp:642
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr ""
 "%1 ha canviat les llistes de control d'accés del servidor per a aquesta sala"
 
-#: src/eventhandler.cpp:669
+#: src/eventhandler.cpp:646
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 ha afegit un giny"
 
-#: src/eventhandler.cpp:672
+#: src/eventhandler.cpp:649
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 ha eliminat un giny"
 
-#: src/eventhandler.cpp:674
+#: src/eventhandler.cpp:651
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 ha configurat un giny"
 
-#: src/eventhandler.cpp:677
+#: src/eventhandler.cpp:654
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 ha actualitzat l'estat"
 
-#: src/eventhandler.cpp:680
+#: src/eventhandler.cpp:657
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 ha començat una enquesta"
@@ -1852,77 +1852,77 @@ msgstr "Ha fallat la creació de la sala: %1"
 msgid "Space creation failed: %1"
 msgstr "Ha fallat la creació de l'espai: %1"
 
-#: src/neochatroom.cpp:1429
+#: src/neochatroom.cpp:1375
 #, kde-format
 msgid "Report sent successfully."
 msgstr "L'informe s'ha enviat correctament."
 
-#: src/neochatroom.cpp:1774 src/neochatroom.cpp:1782
+#: src/neochatroom.cpp:1707 src/neochatroom.cpp:1715
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat.: %1, lon.: %2"
 
-#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:393
+#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:385
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Missatge encriptat"
 
-#: src/notificationsmanager.cpp:231
+#: src/notificationsmanager.cpp:227
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:237
+#: src/notificationsmanager.cpp:233
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Obre el NeoChat en aquesta sala"
 
-#: src/notificationsmanager.cpp:250 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:247
 #, kde-format
 msgid "Reply..."
 msgstr "Respon..."
 
-#: src/notificationsmanager.cpp:312
+#: src/notificationsmanager.cpp:304
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 us ha convidat a la sala"
 
-#: src/notificationsmanager.cpp:315
+#: src/notificationsmanager.cpp:307
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Obre aquesta invitació en el NeoChat"
 
-#: src/notificationsmanager.cpp:325
+#: src/notificationsmanager.cpp:317
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/notificationsmanager.cpp:326
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rebutja"
 
-#: src/notificationsmanager.cpp:327
+#: src/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Rebutja i ignora l'usuari"
 
-#: src/notificationsmanager.cpp:386
+#: src/notificationsmanager.cpp:378
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:397
+#: src/notificationsmanager.cpp:389
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Obre el NeoChat"
@@ -4154,17 +4154,17 @@ msgstr ""
 "ID de Matrix amb forma incorrecte o buit<br />%1 no és cap identificador "
 "correcte de Matrix"
 
-#: src/roommanager.cpp:350
+#: src/roommanager.cpp:342
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Ha fallat en unir-se a la sala<br />%1"
 
-#: src/roommanager.cpp:386
+#: src/roommanager.cpp:366
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Heu sol·licitat unir-vos a «%1»"
 
-#: src/roommanager.cpp:390
+#: src/roommanager.cpp:370
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Ha fallat en sol·licitar unir-vos a la sala<br />%1"

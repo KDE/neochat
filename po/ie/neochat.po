@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-02 00:39+0000\n"
+"POT-Creation-Date: 2024-11-04 00:39+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -92,7 +92,7 @@ msgstr "Converter smileys a emojis"
 msgid "Stickers"
 msgstr ""
 
-#: src/controller.cpp:135
+#: src/controller.cpp:131
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgctxt ""
@@ -101,30 +101,30 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Inviar notificationes pri li tippada"
 
-#: src/controller.cpp:257
+#: src/controller.cpp:249
 #, fuzzy, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Li plugin necessi por accesse al files MP3 ne esset trovat"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:253
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:264
+#: src/controller.cpp:256
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:267
+#: src/controller.cpp:259
 #, fuzzy, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Ne posset acessar «%s»"
 
-#: src/controller.cpp:366
+#: src/controller.cpp:358
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Receiving push notifications"
@@ -368,7 +368,7 @@ msgid "Custom"
 msgstr "Nonstandard"
 
 #: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:117
+#: src/models/userlistmodel.cpp:113
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -377,501 +377,501 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/eventhandler.cpp:309 src/eventhandler.cpp:535
+#: src/eventhandler.cpp:296 src/eventhandler.cpp:512
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Ti missage esset removet]</i>"
 
-#: src/eventhandler.cpp:309
+#: src/eventhandler.cpp:296
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Ti missage esset removet: %1]</i>"
 
-#: src/eventhandler.cpp:343
+#: src/eventhandler.cpp:330
 #, fuzzy, kde-format
 msgid "reinvited %1 to the room"
 msgstr "Forlassar li chambre"
 
-#: src/eventhandler.cpp:345
+#: src/eventhandler.cpp:332
 #, fuzzy, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr "'%1'"
 
-#: src/eventhandler.cpp:354
+#: src/eventhandler.cpp:341
 #, fuzzy, kde-format
 msgid "joined the room (repeated)"
 msgstr "Adheret"
 
-#: src/eventhandler.cpp:356
+#: src/eventhandler.cpp:343
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "invitat %1 al chambre"
 
-#: src/eventhandler.cpp:356
+#: src/eventhandler.cpp:343
 #, kde-format
 msgid "joined the room"
 msgstr "adheret al chamber"
 
-#: src/eventhandler.cpp:360
+#: src/eventhandler.cpp:347
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:367
+#: src/eventhandler.cpp:354
 #, fuzzy, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "Visibil nómine"
 
-#: src/eventhandler.cpp:370
+#: src/eventhandler.cpp:357
 #, fuzzy, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "Li nómine de computator ha changeat se"
 
-#: src/eventhandler.cpp:376
+#: src/eventhandler.cpp:363
 #, kde-format
 msgid " and "
 msgstr " e "
 
-#: src/eventhandler.cpp:379
+#: src/eventhandler.cpp:366
 #, fuzzy, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "Avatar:"
 
-#: src/eventhandler.cpp:381
+#: src/eventhandler.cpp:368
 #, kde-format
 msgid "set an avatar"
 msgstr "assignat un avatar"
 
-#: src/eventhandler.cpp:383
+#: src/eventhandler.cpp:370
 #, fuzzy, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "Actualisat"
 
-#: src/eventhandler.cpp:387
+#: src/eventhandler.cpp:374
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr ""
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:380
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "revocat li invitation de %1"
 
-#: src/eventhandler.cpp:393
+#: src/eventhandler.cpp:380
 #, kde-format
 msgid "rejected the invitation"
 msgstr "refusat li invitation"
 
-#: src/eventhandler.cpp:397
+#: src/eventhandler.cpp:384
 #, kde-format
 msgid "unbanned %1"
 msgstr "debannit %1"
 
-#: src/eventhandler.cpp:397
+#: src/eventhandler.cpp:384
 #, kde-format
 msgid "self-unbanned"
 msgstr "self-debannit"
 
-#: src/eventhandler.cpp:400
+#: src/eventhandler.cpp:387
 #, kde-format
 msgid "left the room"
 msgstr "forlassat li chambre"
 
-#: src/eventhandler.cpp:403
+#: src/eventhandler.cpp:390
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr ""
 
-#: src/eventhandler.cpp:405
+#: src/eventhandler.cpp:392
 #, fuzzy, kde-format
 #| msgid "Invites the user to this room"
 msgid "has put %1 out of the room"
 msgstr "Invitar li usator al ti chambre"
 
-#: src/eventhandler.cpp:409
+#: src/eventhandler.cpp:396
 #, fuzzy, kde-format
 msgid "banned %1 from the room"
 msgstr "Obtenente %1 de %2…"
 
-#: src/eventhandler.cpp:411
+#: src/eventhandler.cpp:398
 #, fuzzy, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "Obtenente %1 de %2…"
 
-#: src/eventhandler.cpp:414
+#: src/eventhandler.cpp:401
 #, kde-format
 msgid "self-banned from the room"
 msgstr ""
 
-#: src/eventhandler.cpp:418
+#: src/eventhandler.cpp:405
 #, kde-format
 msgid "requested an invite"
 msgstr "demandat un invitation"
 
-#: src/eventhandler.cpp:418
+#: src/eventhandler.cpp:405
 #, fuzzy, kde-format
 #| msgid "requested an invite"
 msgid "requested an invite with reason: %1"
 msgstr "demandat un invitation"
 
-#: src/eventhandler.cpp:422
+#: src/eventhandler.cpp:409
 #, fuzzy, kde-format
 msgid "made something unknown"
 msgstr "ínconosset"
 
-#: src/eventhandler.cpp:425
+#: src/eventhandler.cpp:412
 #, fuzzy, kde-format
 msgid "cleared the room main alias"
 msgstr "[<chambre-pseudonim-o-ID>]"
 
-#: src/eventhandler.cpp:425
+#: src/eventhandler.cpp:412
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr ""
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:415
 #, fuzzy, kde-format
 msgid "cleared the room name"
 msgstr "Nómine del chambre"
 
-#: src/eventhandler.cpp:428
+#: src/eventhandler.cpp:415
 #, fuzzy, kde-format
 msgid "set the room name to: %1"
 msgstr "Nómine del chambre"
 
-#: src/eventhandler.cpp:431
+#: src/eventhandler.cpp:418
 #, kde-format
 msgid "cleared the topic"
 msgstr "vacuat li tema"
 
-#: src/eventhandler.cpp:432
+#: src/eventhandler.cpp:419
 #, fuzzy, kde-format
 msgid "set the topic to: %1"
 msgstr "Sin tema"
 
-#: src/eventhandler.cpp:438
+#: src/eventhandler.cpp:425
 #, fuzzy, kde-format
 msgid "changed the room avatar"
 msgstr "Avatar:"
 
-#: src/eventhandler.cpp:441
+#: src/eventhandler.cpp:428
 #, fuzzy, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "Fine de vive"
 
-#: src/eventhandler.cpp:445
+#: src/eventhandler.cpp:432
 #, fuzzy, kde-format
 msgid "upgraded the room to version %1"
 msgstr "Nov version: %1"
 
-#: src/eventhandler.cpp:446
+#: src/eventhandler.cpp:433
 #, fuzzy, kde-format
 msgid "created the room, version %1"
 msgstr "Version %1"
 
-#: src/eventhandler.cpp:449
+#: src/eventhandler.cpp:436
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr ""
 
-#: src/eventhandler.cpp:455
+#: src/eventhandler.cpp:442
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 
-#: src/eventhandler.cpp:459
+#: src/eventhandler.cpp:446
 #, fuzzy, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "Widget 1"
 
-#: src/eventhandler.cpp:462
+#: src/eventhandler.cpp:449
 #, fuzzy, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "Widget 1"
 
-#: src/eventhandler.cpp:464
+#: src/eventhandler.cpp:451
 #, fuzzy, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "Widget 1"
 
-#: src/eventhandler.cpp:467
+#: src/eventhandler.cpp:454
 #, kde-format
 msgid "updated %1 state"
 msgstr "actualisat %1 statu"
 
-#: src/eventhandler.cpp:468
+#: src/eventhandler.cpp:455
 #, fuzzy, kde-format
 msgid "updated %1 state for %2"
 msgstr "actualisat %1 statu"
 
-#: src/eventhandler.cpp:473 src/eventhandler.cpp:682
+#: src/eventhandler.cpp:460 src/eventhandler.cpp:659
 #, kde-format
 msgid "Unknown event"
 msgstr "Ínconosset eveniment"
 
-#: src/eventhandler.cpp:493
+#: src/eventhandler.cpp:475
 #, kde-format
 msgid "a file"
 msgstr "un file"
 
-#: src/eventhandler.cpp:544
+#: src/eventhandler.cpp:521
 #, fuzzy, kde-format
 msgid "%1 sent a message"
 msgstr "Ne successat inviar un missage D-Bus"
 
-#: src/eventhandler.cpp:547
+#: src/eventhandler.cpp:524
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr ""
 
-#: src/eventhandler.cpp:553
+#: src/eventhandler.cpp:530
 #, fuzzy, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "Forlassar li chambre"
 
-#: src/eventhandler.cpp:559
+#: src/eventhandler.cpp:536
 #, fuzzy, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "Adheret"
 
-#: src/eventhandler.cpp:561
+#: src/eventhandler.cpp:538
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "%1 invited someone to the room"
 msgstr "invitat %1 al chambre"
 
-#: src/eventhandler.cpp:562
+#: src/eventhandler.cpp:539
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgid "%1 joined the room"
 msgstr "adheret al chamber"
 
-#: src/eventhandler.cpp:588
+#: src/eventhandler.cpp:565
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr ""
 
-#: src/eventhandler.cpp:590
+#: src/eventhandler.cpp:567
 #, fuzzy, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "Actualisat"
 
-#: src/eventhandler.cpp:592
+#: src/eventhandler.cpp:569
 #, fuzzy, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "Avatar:"
 
-#: src/eventhandler.cpp:594
+#: src/eventhandler.cpp:571
 #, fuzzy, kde-format
 msgid "%1 set a display name for this room"
 msgstr "Li nómine de computator ha changeat se"
 
-#: src/eventhandler.cpp:597
+#: src/eventhandler.cpp:574
 #, fuzzy, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "Li nómine de computator ha changeat se"
 
-#: src/eventhandler.cpp:599
+#: src/eventhandler.cpp:576
 #, fuzzy, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "Li nómine de computator ha changeat se"
 
-#: src/eventhandler.cpp:601
+#: src/eventhandler.cpp:578
 #, fuzzy, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "Li nómine de computator ha changeat se"
 
-#: src/eventhandler.cpp:603
+#: src/eventhandler.cpp:580
 #, fuzzy, kde-format
 msgid "%1 changed their display name"
 msgstr "Li nómine de computator ha changeat se"
 
-#: src/eventhandler.cpp:606
+#: src/eventhandler.cpp:583
 #, fuzzy, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "Visibil nómine"
 
-#: src/eventhandler.cpp:608
+#: src/eventhandler.cpp:585
 #, fuzzy, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "Visibil nómine"
 
-#: src/eventhandler.cpp:610
+#: src/eventhandler.cpp:587
 #, fuzzy, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "Visibil nómine"
 
-#: src/eventhandler.cpp:612
+#: src/eventhandler.cpp:589
 #, fuzzy, kde-format
 msgid "%1 cleared their display name"
 msgstr "Visibil nómine"
 
-#: src/eventhandler.cpp:615
+#: src/eventhandler.cpp:592
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr ""
 
-#: src/eventhandler.cpp:619
+#: src/eventhandler.cpp:596
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 withdrew a user's invitation"
 msgstr "revocat li invitation de %1"
 
-#: src/eventhandler.cpp:620
+#: src/eventhandler.cpp:597
 #, fuzzy, kde-format
 #| msgid "rejected the invitation"
 msgid "%1 rejected the invitation"
 msgstr "refusat li invitation"
 
-#: src/eventhandler.cpp:624
+#: src/eventhandler.cpp:601
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgid "%1 unbanned a user"
 msgstr "debannit %1"
 
-#: src/eventhandler.cpp:624
+#: src/eventhandler.cpp:601
 #, fuzzy, kde-format
 #| msgid "self-unbanned"
 msgid "%1 self-unbanned"
 msgstr "self-debannit"
 
-#: src/eventhandler.cpp:626
+#: src/eventhandler.cpp:603
 #, fuzzy, kde-format
 #| msgid "Invites the user to this room"
 msgid "%1 put a user out of the room"
 msgstr "Invitar li usator al ti chambre"
 
-#: src/eventhandler.cpp:626
+#: src/eventhandler.cpp:603
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "%1 left the room"
 msgstr "forlassat li chambre"
 
-#: src/eventhandler.cpp:629
+#: src/eventhandler.cpp:606
 #, fuzzy, kde-format
 msgid "%1 banned a user from the room"
 msgstr "Obtenente %1 de %2…"
 
-#: src/eventhandler.cpp:631
+#: src/eventhandler.cpp:608
 #, fuzzy, kde-format
 #| msgctxt "<user> is banned from this room."
 #| msgid "%1 is banned from this room."
 msgid "%1 self-banned from the room"
 msgstr "%1 es bannit de ti chambre."
 
-#: src/eventhandler.cpp:634
+#: src/eventhandler.cpp:611
 #, fuzzy, kde-format
 #| msgid "requested an invite"
 msgid "%1 requested an invite"
 msgstr "demandat un invitation"
 
-#: src/eventhandler.cpp:638
+#: src/eventhandler.cpp:615
 #, fuzzy, kde-format
 msgid "%1 made something unknown"
 msgstr "ínconosset"
 
-#: src/eventhandler.cpp:641
+#: src/eventhandler.cpp:618
 #, fuzzy, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "[<chambre-pseudonim-o-ID>]"
 
-#: src/eventhandler.cpp:641
+#: src/eventhandler.cpp:618
 #, fuzzy, kde-format
 msgid "%1 set the room main alias"
 msgstr "[<chambre-pseudonim-o-ID>]"
 
-#: src/eventhandler.cpp:644
+#: src/eventhandler.cpp:621
 #, fuzzy, kde-format
 msgid "%1 cleared the room name"
 msgstr "Nómine del chambre"
 
-#: src/eventhandler.cpp:644
+#: src/eventhandler.cpp:621
 #, fuzzy, kde-format
 msgid "%1 set the room name"
 msgstr "Nómine del chambre"
 
-#: src/eventhandler.cpp:647
+#: src/eventhandler.cpp:624
 #, fuzzy, kde-format
 #| msgid "cleared the topic"
 msgid "%1 cleared the topic"
 msgstr "vacuat li tema"
 
-#: src/eventhandler.cpp:647
+#: src/eventhandler.cpp:624
 #, fuzzy, kde-format
 msgid "%1 set the topic"
 msgstr "Sin tema"
 
-#: src/eventhandler.cpp:650
+#: src/eventhandler.cpp:627
 #, fuzzy, kde-format
 msgid "%1 changed the room avatar"
 msgstr "Avatar:"
 
-#: src/eventhandler.cpp:653
+#: src/eventhandler.cpp:630
 #, fuzzy, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "Fine de vive"
 
-#: src/eventhandler.cpp:656
+#: src/eventhandler.cpp:633
 #, fuzzy, kde-format
 msgid "%1 upgraded the room version"
 msgstr "Nov version: %1"
 
-#: src/eventhandler.cpp:656
+#: src/eventhandler.cpp:633
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "%1 created the room"
 msgstr "forlassat li chambre"
 
-#: src/eventhandler.cpp:659
+#: src/eventhandler.cpp:636
 #, fuzzy, kde-format
 #| msgid "Invites the user to this room"
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "Invitar li usator al ti chambre"
 
-#: src/eventhandler.cpp:662
+#: src/eventhandler.cpp:639
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr ""
 
-#: src/eventhandler.cpp:665
+#: src/eventhandler.cpp:642
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr ""
 
-#: src/eventhandler.cpp:669
+#: src/eventhandler.cpp:646
 #, fuzzy, kde-format
 msgid "%1 added a widget"
 msgstr "Widget 1"
 
-#: src/eventhandler.cpp:672
+#: src/eventhandler.cpp:649
 #, fuzzy, kde-format
 msgid "%1 removed a widget"
 msgstr "Widget 1"
 
-#: src/eventhandler.cpp:674
+#: src/eventhandler.cpp:651
 #, fuzzy, kde-format
 msgid "%1 configured a widget"
 msgstr "Widget 1"
 
-#: src/eventhandler.cpp:677
+#: src/eventhandler.cpp:654
 #, fuzzy, kde-format
 #| msgid "updated %1 state"
 msgid "%1 updated the state"
 msgstr "actualisat %1 statu"
 
-#: src/eventhandler.cpp:680
+#: src/eventhandler.cpp:657
 #, kde-format
 msgid "%1 started a poll"
 msgstr ""
@@ -1961,79 +1961,79 @@ msgstr "Ne successat crear un contextu OpenGL"
 msgid "Space creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
 
-#: src/neochatroom.cpp:1429
+#: src/neochatroom.cpp:1375
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raport sta inviat successosimen."
 
-#: src/neochatroom.cpp:1774 src/neochatroom.cpp:1782
+#: src/neochatroom.cpp:1707 src/neochatroom.cpp:1715
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
-#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:393
+#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:385
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Ciffrat missage"
 
-#: src/notificationsmanager.cpp:231
+#: src/notificationsmanager.cpp:227
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:237
+#: src/notificationsmanager.cpp:233
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Aperter NeoChat in ti chambre"
 
-#: src/notificationsmanager.cpp:250 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:110
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:247
 #, kde-format
 msgid "Reply..."
 msgstr "Responder..."
 
-#: src/notificationsmanager.cpp:312
+#: src/notificationsmanager.cpp:304
 #, fuzzy, kde-format
 msgid "%1 invited you to a room"
 msgstr "%s invitat vos a(l) %s"
 
-#: src/notificationsmanager.cpp:315
+#: src/notificationsmanager.cpp:307
 #, fuzzy, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Aperter NeoChat in ti chambre"
 
-#: src/notificationsmanager.cpp:325
+#: src/notificationsmanager.cpp:317
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Acceptar"
 
-#: src/notificationsmanager.cpp:326
+#: src/notificationsmanager.cpp:318
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rejecter"
 
-#: src/notificationsmanager.cpp:327
+#: src/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr ""
 
-#: src/notificationsmanager.cpp:386
+#: src/notificationsmanager.cpp:378
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:397
+#: src/notificationsmanager.cpp:389
 #, fuzzy, kde-format
 #| msgid "NeoChat"
 msgid "Open NeoChat"
@@ -4327,17 +4327,17 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "«%1» ne sembla quam un ID de Matrix."
 
-#: src/roommanager.cpp:350
+#: src/roommanager.cpp:342
 #, fuzzy, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Invitar un usator"
 
-#: src/roommanager.cpp:386
+#: src/roommanager.cpp:366
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:390
+#: src/roommanager.cpp:370
 #, fuzzy, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Invitar un usator"
