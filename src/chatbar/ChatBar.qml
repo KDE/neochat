@@ -251,20 +251,22 @@ QQC2.Control {
                         }
                     }
                     Keys.onEnterPressed: event => {
+                        const controlIsPressed = event.modifiers & Qt.ControlModifier;
                         if (completionMenu.visible) {
                             completionMenu.complete();
-                        } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
+                        } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile || NeoChatConfig.sendMessageWith === 1 && !controlIsPressed || NeoChatConfig.sendMessageWith === 0 && controlIsPressed) {
                             textField.insert(cursorPosition, "\n");
-                        } else {
+                        } else if (NeoChatConfig.sendMessageWith === 0 && !controlIsPressed || NeoChatConfig.sendMessageWith === 1 && controlIsPressed) {
                             _private.postMessage();
                         }
                     }
                     Keys.onReturnPressed: event => {
+                        const controlIsPressed = event.modifiers & Qt.ControlModifier;
                         if (completionMenu.visible) {
                             completionMenu.complete();
-                        } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
+                        } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile || NeoChatConfig.sendMessageWith === 1 && !controlIsPressed || NeoChatConfig.sendMessageWith === 0 && controlIsPressed) {
                             textField.insert(cursorPosition, "\n");
-                        } else {
+                        } else if (NeoChatConfig.sendMessageWith === 0 && !controlIsPressed || NeoChatConfig.sendMessageWith === 1 && controlIsPressed) {
                             _private.postMessage();
                         }
                     }

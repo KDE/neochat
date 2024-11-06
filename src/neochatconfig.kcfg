@@ -27,6 +27,18 @@
       <label>Use s/text/replacement syntax to edit your last message.</label>
       <default>false</default>
     </entry>
+    <entry name="SendMessageWith" type="Enum">
+      <label>Key combination to send a message</label>
+      <choices>
+        <choice name="Enter">
+          <label>Enter</label>
+        </choice>
+        <choice name="CtrlEnter">
+          <label>Ctrl+Enter</label>
+        </choice>
+        <default>Enter</default>
+      </choices>
+    </entry>
     <entry name="ShowLocalMessagesOnRight" type="bool">
       <label>"Show your messages on the right</label>
       <default>true</default>
