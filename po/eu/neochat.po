@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:40+0000\n"
+"POT-Creation-Date: 2024-11-07 00:40+0000\n"
 "PO-Revision-Date: 2024-10-05 20:27+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -65,7 +65,7 @@ msgstr "Ezarri eranskin baten epigrafea..."
 msgid "Send a message…"
 msgstr "Bidali mezua bat..."
 
-#: src/chatbar/ChatBar.qml:374
+#: src/chatbar/ChatBar.qml:376
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -170,7 +170,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Erakutsi fokua leihoaren goiburuan"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:246
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:272
 #, kde-format
 msgid "Developer Tools"
 msgstr "Garatzailearen tresnak"
@@ -1949,7 +1949,7 @@ msgstr "Jakinarazpen-ezarpenak"
 msgid "Devices"
 msgstr "Gailuak"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:242
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgid "Open developer tools"
 msgstr "Ireki garatzailearen tresnak"
@@ -4782,33 +4782,46 @@ msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editorea"
 
-#: src/settings/NeoChatGeneralPage.qml:204
+#: src/settings/NeoChatGeneralPage.qml:203
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@option:radio"
+msgid "Send messages with Enter"
+msgstr "Bidali mezua"
+
+#: src/settings/NeoChatGeneralPage.qml:214
+#, kde-format
+msgctxt "@option:radio"
+msgid "Send messages with Ctrl+Enter"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Erabili «s/testua/ordezko sintaxia» zure azken mezua editatzeko"
 
-#: src/settings/NeoChatGeneralPage.qml:218
+#: src/settings/NeoChatGeneralPage.qml:244
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Bidali tekleatze-jakinarazpenak"
 
-#: src/settings/NeoChatGeneralPage.qml:228
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Developer Settings"
 msgstr "Garatzailearen ezarpenak"
 
-#: src/settings/NeoChatGeneralPage.qml:232
+#: src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Gaitu garatzailearen tresnak"
 
-#: src/settings/NeoChatGeneralPage.qml:251
+#: src/settings/NeoChatGeneralPage.qml:277
 #, kde-format
 msgctxt "@title"
 msgid "Default Settings"
 msgstr "Ezarpen lehenetsiak"
 
-#: src/settings/NeoChatGeneralPage.qml:255
+#: src/settings/NeoChatGeneralPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"

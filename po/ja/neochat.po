@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:40+0000\n"
+"POT-Creation-Date: 2024-11-07 00:40+0000\n"
 "PO-Revision-Date: 2020-11-05 23:50-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Send a message…"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:374
+#: src/chatbar/ChatBar.qml:376
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -158,7 +158,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:246
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:272
 #, kde-format
 msgid "Developer Tools"
 msgstr ""
@@ -1920,7 +1920,7 @@ msgstr ""
 msgid "Devices"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:242
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
@@ -4694,33 +4694,45 @@ msgctxt "Chat Editor"
 msgid "Editor"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:204
+#: src/settings/NeoChatGeneralPage.qml:203
+#, kde-format
+msgctxt "@option:radio"
+msgid "Send messages with Enter"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:214
+#, kde-format
+msgctxt "@option:radio"
+msgid "Send messages with Ctrl+Enter"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:218
+#: src/settings/NeoChatGeneralPage.qml:244
 #, kde-format
 msgid "Send typing notifications"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:228
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Developer Settings"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:232
+#: src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgid "Enable developer tools"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:251
+#: src/settings/NeoChatGeneralPage.qml:277
 #, kde-format
 msgctxt "@title"
 msgid "Default Settings"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:255
+#: src/settings/NeoChatGeneralPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"

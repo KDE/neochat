@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:40+0000\n"
+"POT-Creation-Date: 2024-11-07 00:40+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -62,7 +62,7 @@ msgstr "첨부 파일 캡션 설정…"
 msgid "Send a message…"
 msgstr "메시지 보내기…"
 
-#: src/chatbar/ChatBar.qml:374
+#: src/chatbar/ChatBar.qml:376
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -169,7 +169,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:246
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:272
 #, kde-format
 msgid "Developer Tools"
 msgstr "개발자 도구"
@@ -2062,7 +2062,7 @@ msgstr "알림 설정"
 msgid "Devices"
 msgstr "장치"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:242
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgid "Open developer tools"
 msgstr "개발자 도구 열기"
@@ -4967,34 +4967,47 @@ msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "편집기"
 
-#: src/settings/NeoChatGeneralPage.qml:204
+#: src/settings/NeoChatGeneralPage.qml:203
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@option:radio"
+msgid "Send messages with Enter"
+msgstr "메시지 보내기"
+
+#: src/settings/NeoChatGeneralPage.qml:214
+#, kde-format
+msgctxt "@option:radio"
+msgid "Send messages with Ctrl+Enter"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "s/text/replacement 문법으로 마지막 텍스트 메시지 편집"
 
-#: src/settings/NeoChatGeneralPage.qml:218
+#: src/settings/NeoChatGeneralPage.qml:244
 #, kde-format
 msgid "Send typing notifications"
 msgstr "입력 알림 보내기"
 
-#: src/settings/NeoChatGeneralPage.qml:228
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Developer Settings"
 msgstr "개발자 설정"
 
-#: src/settings/NeoChatGeneralPage.qml:232
+#: src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgid "Enable developer tools"
 msgstr "개발자 도구 활성화"
 
-#: src/settings/NeoChatGeneralPage.qml:251
+#: src/settings/NeoChatGeneralPage.qml:277
 #, fuzzy, kde-format
 #| msgid "Developer Settings"
 msgctxt "@title"
 msgid "Default Settings"
 msgstr "개발자 설정"
 
-#: src/settings/NeoChatGeneralPage.qml:255
+#: src/settings/NeoChatGeneralPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"

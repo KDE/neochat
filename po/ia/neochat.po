@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:40+0000\n"
+"POT-Creation-Date: 2024-11-07 00:40+0000\n"
 "PO-Revision-Date: 2024-11-04 17:54+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -63,7 +63,7 @@ msgstr "Assigna un caption de attachamento..."
 msgid "Send a message…"
 msgstr "Invia un message…"
 
-#: src/chatbar/ChatBar.qml:374
+#: src/chatbar/ChatBar.qml:376
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -168,7 +168,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "MOnstra foco incapite de fenestra"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:246
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:272
 #, kde-format
 msgid "Developer Tools"
 msgstr "Instrumentos de disveloppator"
@@ -1949,7 +1949,7 @@ msgstr "Preferentias de notificationes"
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:242
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgid "Open developer tools"
 msgstr "Aperi instrumentos de disveloppator"
@@ -4797,33 +4797,46 @@ msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/settings/NeoChatGeneralPage.qml:204
+#: src/settings/NeoChatGeneralPage.qml:203
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@option:radio"
+msgid "Send messages with Enter"
+msgstr "Invia message"
+
+#: src/settings/NeoChatGeneralPage.qml:214
+#, kde-format
+msgctxt "@option:radio"
+msgid "Send messages with Ctrl+Enter"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Usa syntaxe de s/texto/reimplaciamento per modificar tu ultime message"
 
-#: src/settings/NeoChatGeneralPage.qml:218
+#: src/settings/NeoChatGeneralPage.qml:244
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Invia notificationes de typar"
 
-#: src/settings/NeoChatGeneralPage.qml:228
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Developer Settings"
 msgstr " de disviluppatorPreferentias"
 
-#: src/settings/NeoChatGeneralPage.qml:232
+#: src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Habilita instrumentos de disveloppator"
 
-#: src/settings/NeoChatGeneralPage.qml:251
+#: src/settings/NeoChatGeneralPage.qml:277
 #, kde-format
 msgctxt "@title"
 msgid "Default Settings"
 msgstr "Preferentias predefinite"
 
-#: src/settings/NeoChatGeneralPage.qml:255
+#: src/settings/NeoChatGeneralPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
