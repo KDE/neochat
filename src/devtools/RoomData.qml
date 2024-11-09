@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Window
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -47,7 +48,7 @@ ColumnLayout {
             model: root.room.accountDataEventTypes
             delegate: FormCard.FormButtonDelegate {
                 text: modelData
-                onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+                onClicked: root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                     sourceText: root.room.roomAcountDataJson(text)
                 }, {
                     title: i18n("Event Source"),
@@ -77,7 +78,7 @@ ColumnLayout {
                     if (model.eventCount === 1) {
                         openEventSource(model.type, model.stateKey);
                     } else {
-                        pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'StateKeys'), {
+                        root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'StateKeys'), {
                             room: root.room,
                             eventType: model.type
                         }, {
@@ -89,7 +90,7 @@ ColumnLayout {
         }
     }
     function openEventSource(type: string, stateKey: string): void {
-        onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+        onClicked: root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
             model: stateModel,
             allowEdit: true,
             room: root.room,
