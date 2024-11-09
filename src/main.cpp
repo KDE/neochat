@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
     KAboutData about(QStringLiteral("neochat"),
                      i18n("NeoChat"),
                      QStringLiteral(NEOCHAT_VERSION_STRING),
-                     i18n("Matrix client"),
+                     i18n("Chat on Matrix"),
                      KAboutLicense::GPL_V3,
                      i18n("© 2018-2020 Black Hat, 2020-2024 KDE Community"));
     about.addAuthor(i18n("Carl Schwan"),
