@@ -30,6 +30,7 @@ class PollHandler : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
+    QML_UNCREATABLE("Use NeoChatRoom::poll")
 
     /**
      * @brief The question for the poll.
