@@ -253,7 +253,6 @@ Kirigami.Page {
                 messageComponentType: messageComponentType,
                 plainText: plainText,
                 htmlText: htmlText,
-                isThread: isThread
             });
             contextMenu.open();
         }
@@ -265,7 +264,6 @@ Kirigami.Page {
                 plainText: plainText,
                 mimeType: mimeType,
                 progressInfo: progressInfo,
-                isThread: isThread
             });
             contextMenu.open();
         }
