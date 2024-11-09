@@ -50,6 +50,7 @@ public:
         IconRole,
         AttentionRole, /**< Whether there are any notifications. */
         FavouriteRole, /**< Whether the room is favourited. */
+        RoomTypeRole, /**< The room's type. */
     };
     Q_ENUM(EventRoles)
     explicit RoomTreeModel(QObject *parent = nullptr);

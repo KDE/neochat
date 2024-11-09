@@ -157,6 +157,11 @@ bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex
         return false;
     }
 
+    // Hide rooms with defined types, assuming that data-holding rooms have a defined type
+    if (!sourceModel()->data(index, RoomTreeModel::RoomTypeRole).toString().isEmpty()) {
+        return false;
+    }
+
     static auto config = NeoChatConfig::self();
     if (config->allRoomsInHome() && RoomManager::instance().currentSpace().isEmpty()) {
         return acceptRoom;
