@@ -14,6 +14,8 @@ Components.AbstractMaximizeComponent {
     property color avatarColor
     required property string avatarSource
 
+    onOpened: forceActiveFocus()
+
     Shortcut {
         sequences: [StandardKey.Cancel]
         onActivated: root.close()

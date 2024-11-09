@@ -104,6 +104,8 @@ Components.AlbumMaximizeComponent {
         }
     }
 
+    onOpened: forceActiveFocus()
+
     onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId, root.currentRoom)
 
     onSaveItem: {
