@@ -645,6 +645,7 @@ void MessageContentModel::closeLinkPreview(int row)
         m_removedLinkPreviews += m_components[row].attributes["link"_ls].toUrl();
         m_components.remove(row);
         m_components.squeeze();
+        endResetModel();
         resetContent();
     }
 }
