@@ -160,12 +160,21 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                 refreshLastUserEvents(i);
             }
         });
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 0)
+        connect(m_currentRoom, &Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
+            m_initialized = true;
+            createEventObjects(event, true);
+            beginInsertRows({}, 0, 0);
+            endInsertRows();
+        });
+#else
         connect(m_currentRoom, &Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
             m_initialized = true;
             createEventObjects(event, true);
             beginInsertRows({}, 0, 0);
         });
         connect(m_currentRoom, &Room::pendingEventAdded, this, &MessageEventModel::endInsertRows);
+#endif
         connect(m_currentRoom, &Room::pendingEventAboutToMerge, this, [this](RoomEvent *, int i) {
             Q_EMIT dataChanged(index(i, 0), index(i, 0), {IsPendingRole});
             if (i == 0) {
