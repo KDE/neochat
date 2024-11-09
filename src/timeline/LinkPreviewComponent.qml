@@ -8,6 +8,8 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
+
 /**
  * @brief A component to show a link preview from a message.
  */
@@ -95,7 +97,6 @@ QQC2.Control {
                     }
                     </style>
                     <a href=\"" + root.linkPreviewer.url + "\">" + (maximizeButton.checked ? root.linkPreviewer.title : titleTextMetrics.elidedText).replace("&ndash;", "—") + "</a>"
-                onLinkActivated: RoomManager.resolveResource(link, "join")
 
                 TextMetrics {
                     id: titleTextMetrics
@@ -119,6 +120,11 @@ QQC2.Control {
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
             }
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onTapped: RoomManager.resolveResource(root.linkPreviewer.url, "join")
         }
     }
 
