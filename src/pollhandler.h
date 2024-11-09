@@ -91,7 +91,7 @@ Q_SIGNALS:
     void hasEndedChanged();
 
 private:
-    const Quotient::PollStartEvent *m_pollStartEvent;
+    const Quotient::PollStartEvent *m_pollStartEvent = nullptr;
 
     void updatePoll(Quotient::RoomEventsRange events);
 
