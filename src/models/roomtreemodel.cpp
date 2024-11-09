@@ -286,6 +286,7 @@ QHash<int, QByteArray> RoomTreeModel::roleNames() const
     roles[IconRole] = "icon";
     roles[AttentionRole] = "attention";
     roles[FavouriteRole] = "favourite";
+    roles[RoomTypeRole] = "roomType";
     return roles;
 }
 
@@ -384,6 +385,11 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
     }
     if (role == FavouriteRole) {
         return room->isFavourite();
+    }
+    if (role == RoomTypeRole) {
+        if (room->creation()) {
+            return room->creation()->contentPart<QString>("type"_L1);
+        }
     }
 
     return {};
