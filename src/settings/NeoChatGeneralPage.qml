@@ -93,6 +93,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
             text: i18nc("As in 'sort something based on last activity'", "Activity")
+            description: i18nc("@info", "Rooms with unread notifications will be shown first")
             checked: NeoChatConfig.sortOrder === 1
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
