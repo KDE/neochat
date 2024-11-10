@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:40+0000\n"
+"POT-Creation-Date: 2024-11-10 02:41+0000\n"
 "PO-Revision-Date: 2024-11-08 15:14+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -129,13 +129,13 @@ msgstr "Incapace a leger indicio de accesso: %1"
 msgid "Receiving push notifications"
 msgstr "Recipente notificationes de push"
 
-#: src/devtools/AccountData.qml:19
+#: src/devtools/AccountData.qml:20
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Datos de conto"
 
-#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:47
+#: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
@@ -168,7 +168,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "MOnstra foco incapite de fenestra"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:272
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:273
 #, kde-format
 msgid "Developer Tools"
 msgstr "Instrumentos de disveloppator"
@@ -223,39 +223,39 @@ msgctxt ""
 msgid "Add phone numbers as 3PIDs"
 msgstr "Adde numero de telephono como 3PIDs"
 
-#: src/devtools/RoomData.qml:20
+#: src/devtools/RoomData.qml:21
 #, kde-format
 msgctxt "@title"
 msgid "Choose Room"
 msgstr "Selige Sala"
 
-#: src/devtools/RoomData.qml:25 src/qml/CreateRoomDialog.qml:54
+#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
 #, kde-format
 msgid "Room"
 msgstr "Sala"
 
-#: src/devtools/RoomData.qml:36
+#: src/devtools/RoomData.qml:37
 #, kde-format
 msgid "Room Id: %1"
 msgstr "ID de Sala: %1"
 
-#: src/devtools/RoomData.qml:40
+#: src/devtools/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "Datos de conto de sala"
 
-#: src/devtools/RoomData.qml:53 src/devtools/RoomData.qml:99
+#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Fonte de evento"
 
-#: src/devtools/RoomData.qml:61
+#: src/devtools/RoomData.qml:62
 #, kde-format
 msgid "Room State"
 msgstr "Stato de sala "
 
-#: src/devtools/RoomData.qml:75
+#: src/devtools/RoomData.qml:76
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -263,7 +263,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 evento de iste typo"
 msgstr[1] "%1 eventos de iste typo"
 
-#: src/devtools/RoomData.qml:84
+#: src/devtools/RoomData.qml:85
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -989,7 +989,7 @@ msgid "Password:"
 msgstr "Contrasigno:"
 
 #: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
-#: src/settings/NetworkProxyPage.qml:104
+#: src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "Contrasigno"
@@ -1091,9 +1091,10 @@ msgid "Settings"
 msgstr "Preferentias"
 
 #: src/main.cpp:143
-#, kde-format
-msgid "Matrix client"
-msgstr "Cliente de Matrix"
+#, fuzzy, kde-format
+#| msgid "Share a URL to Matrix"
+msgid "Chat on Matrix"
+msgstr "Comparti un URL a Matrix"
 
 #: src/main.cpp:145
 #, kde-format
@@ -1949,7 +1950,7 @@ msgstr "Preferentias de notificationes"
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:268
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:269
 #, kde-format
 msgid "Open developer tools"
 msgstr "Aperi instrumentos de disveloppator"
@@ -3141,7 +3142,7 @@ msgstr "Modifica le nivello de fortia de usator"
 msgid "New power level"
 msgstr "Assigna le nivello de fortia "
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:414
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:421
 #, kde-format
 msgid "Confirm"
 msgstr "Confirma"
@@ -4206,7 +4207,7 @@ msgstr "Monstra codice QR"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:92
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Salveguarda"
@@ -4755,87 +4756,93 @@ msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Activitate"
 
-#: src/settings/NeoChatGeneralPage.qml:104
+#: src/settings/NeoChatGeneralPage.qml:96
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with unread notifications will be shown first"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:105
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alphabetic"
 
-#: src/settings/NeoChatGeneralPage.qml:114
+#: src/settings/NeoChatGeneralPage.qml:115
 #, kde-format
 msgid "Timeline Events"
 msgstr "Eventos de chronologia"
 
-#: src/settings/NeoChatGeneralPage.qml:119
+#: src/settings/NeoChatGeneralPage.qml:120
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Monstra  messages delite"
 
-#: src/settings/NeoChatGeneralPage.qml:135
+#: src/settings/NeoChatGeneralPage.qml:136
 #, kde-format
 msgid "Show state events"
 msgstr "Monstra eventos de stato"
 
-#: src/settings/NeoChatGeneralPage.qml:153
+#: src/settings/NeoChatGeneralPage.qml:154
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Monstra eventos de lassar e unir"
 
-#: src/settings/NeoChatGeneralPage.qml:171
+#: src/settings/NeoChatGeneralPage.qml:172
 #, kde-format
 msgid "Show name change events"
 msgstr "Monstra eventos de cambio de nomine"
 
-#: src/settings/NeoChatGeneralPage.qml:189
+#: src/settings/NeoChatGeneralPage.qml:190
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Monstra eventos de actualisar de avatar"
 
-#: src/settings/NeoChatGeneralPage.qml:199
+#: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/settings/NeoChatGeneralPage.qml:203
+#: src/settings/NeoChatGeneralPage.qml:204
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Invia messages con Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:214
+#: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Invia messages con Ctrl+Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:230
+#: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Usa syntaxe de s/texto/reimplaciamento per modificar tu ultime message"
 
-#: src/settings/NeoChatGeneralPage.qml:244
+#: src/settings/NeoChatGeneralPage.qml:245
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Invia notificationes de typar"
 
-#: src/settings/NeoChatGeneralPage.qml:254
+#: src/settings/NeoChatGeneralPage.qml:255
 #, kde-format
 msgid "Developer Settings"
 msgstr " de disviluppatorPreferentias"
 
-#: src/settings/NeoChatGeneralPage.qml:258
+#: src/settings/NeoChatGeneralPage.qml:259
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Habilita instrumentos de disveloppator"
 
-#: src/settings/NeoChatGeneralPage.qml:277
+#: src/settings/NeoChatGeneralPage.qml:278
 #, kde-format
 msgctxt "@title"
 msgid "Default Settings"
 msgstr "Preferentias predefinite"
 
-#: src/settings/NeoChatGeneralPage.qml:281
+#: src/settings/NeoChatGeneralPage.qml:282
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
@@ -4955,7 +4962,7 @@ msgstr "Notificationes"
 msgid "Stickers & Emojis"
 msgstr "Etiquettas Gummate (Stickers) & Emoji"
 
-#: src/settings/NeoChatSettingsView.qml:83 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:83
 #, kde-format
 msgid "Network Proxy"
 msgstr "Proxy de rete"
@@ -4977,53 +4984,53 @@ msgstr "Re"
 msgid "About KDE"
 msgstr "A proposito de KDE"
 
-#: src/settings/NetworkProxyPage.qml:15
+#: src/settings/NetworkProxyPage.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr "Proxy"
 
-#: src/settings/NetworkProxyPage.qml:25
+#: src/settings/NetworkProxyPage.qml:23
 #, kde-format
 msgid "System Default"
 msgstr "Predefinite de systema"
 
-#: src/settings/NetworkProxyPage.qml:33
+#: src/settings/NetworkProxyPage.qml:35
 #, kde-format
 msgid "No Proxy"
 msgstr "necun proxy"
 
-#: src/settings/NetworkProxyPage.qml:41
+#: src/settings/NetworkProxyPage.qml:47
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:49
+#: src/settings/NetworkProxyPage.qml:59
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:59
+#: src/settings/NetworkProxyPage.qml:69
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Preferentias de proxy"
 
-#: src/settings/NetworkProxyPage.qml:64
+#: src/settings/NetworkProxyPage.qml:78
 #, kde-format
 msgid "Host"
 msgstr "Hospite"
 
-#: src/settings/NetworkProxyPage.qml:76
+#: src/settings/NetworkProxyPage.qml:91
 #, kde-format
 msgid "Port"
 msgstr "Porto"
 
-#: src/settings/NetworkProxyPage.qml:92
+#: src/settings/NetworkProxyPage.qml:112
 #, kde-format
 msgid "User"
 msgstr "Usator"
 
-#: src/settings/NetworkProxyPage.qml:122
+#: src/settings/NetworkProxyPage.qml:140
 #, kde-format
 msgid "Apply"
 msgstr "Applica"
@@ -5131,143 +5138,143 @@ msgstr "Information de sala"
 msgid "Room name:"
 msgstr "Nomine de Sala:"
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, kde-format
 msgid "Room topic:"
 msgstr "Topico de Sala:"
 
-#: src/settings/RoomGeneralPage.qml:111
+#: src/settings/RoomGeneralPage.qml:118
 #, kde-format
 msgid "Room ID"
 msgstr "ID de Sala"
 
-#: src/settings/RoomGeneralPage.qml:116
+#: src/settings/RoomGeneralPage.qml:123
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Copia ID de sala a area de transferentia"
 
-#: src/settings/RoomGeneralPage.qml:130
+#: src/settings/RoomGeneralPage.qml:137
 #, kde-format
 msgid "Room version"
 msgstr "Version de sala"
 
-#: src/settings/RoomGeneralPage.qml:136
+#: src/settings/RoomGeneralPage.qml:143
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Actualisa sala"
 
-#: src/settings/RoomGeneralPage.qml:155
+#: src/settings/RoomGeneralPage.qml:162
 #, kde-format
 msgid "Aliases"
 msgstr "Aliases"
 
-#: src/settings/RoomGeneralPage.qml:160
+#: src/settings/RoomGeneralPage.qml:167
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Necun Alias canonic fixate"
 
-#: src/settings/RoomGeneralPage.qml:175
+#: src/settings/RoomGeneralPage.qml:182
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Face iste alias le alias canonic de sala"
 
-#: src/settings/RoomGeneralPage.qml:190
+#: src/settings/RoomGeneralPage.qml:197
 #, kde-format
 msgid "Delete alias"
 msgstr "Dele alias"
 
-#: src/settings/RoomGeneralPage.qml:214
+#: src/settings/RoomGeneralPage.qml:221
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/settings/RoomGeneralPage.qml:231
+#: src/settings/RoomGeneralPage.qml:238
 #, kde-format
 msgid "Add new alias"
 msgstr "Adde nove alias"
 
-#: src/settings/RoomGeneralPage.qml:251
+#: src/settings/RoomGeneralPage.qml:258
 #, kde-format
 msgid "URL Previews"
 msgstr "Vistas preliminar de URL"
 
-#: src/settings/RoomGeneralPage.qml:255
+#: src/settings/RoomGeneralPage.qml:262
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "Habilita vistas preliminar de URL predefinite per membros de sala"
 
-#: src/settings/RoomGeneralPage.qml:263
+#: src/settings/RoomGeneralPage.qml:270
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Habilita vista preliminar de URL"
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:272
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "Viste preliminar de URL es habilitate per definition in iste sala"
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:272
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "Viste preliminar de URL es dishabilitate per definition in iste sala"
 
-#: src/settings/RoomGeneralPage.qml:273
+#: src/settings/RoomGeneralPage.qml:280
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Spatio Official de Genitor"
 
-#: src/settings/RoomGeneralPage.qml:306
+#: src/settings/RoomGeneralPage.qml:313
 #, kde-format
 msgid "Canonical"
 msgstr "Canonic"
 
-#: src/settings/RoomGeneralPage.qml:313
+#: src/settings/RoomGeneralPage.qml:320
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Face genitor canonic"
 
-#: src/settings/RoomGeneralPage.qml:325
+#: src/settings/RoomGeneralPage.qml:332
 #, kde-format
 msgid "Remove parent"
 msgstr "Remove  genitor"
 
-#: src/settings/RoomGeneralPage.qml:338
+#: src/settings/RoomGeneralPage.qml:345
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Iste sala ha nulle spatios official de parente."
 
-#: src/settings/RoomGeneralPage.qml:342
+#: src/settings/RoomGeneralPage.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Adde nove genitor official"
 
-#: src/settings/RoomGeneralPage.qml:359 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:366 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Iste sala continua un altere conversation."
 
-#: src/settings/RoomGeneralPage.qml:363 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:370 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Vide messages plus vetere..."
 
-#: src/settings/RoomGeneralPage.qml:375 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:382 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Iste sala ha essite reimplaciate."
 
-#: src/settings/RoomGeneralPage.qml:379 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:386 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Vide nove sala..."
 
-#: src/settings/RoomGeneralPage.qml:402
+#: src/settings/RoomGeneralPage.qml:409
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Actualisa le sala"
 
-#: src/settings/RoomGeneralPage.qml:406
+#: src/settings/RoomGeneralPage.qml:413
 #, kde-format
 msgid "Select new version"
 msgstr "Selige nove version"
@@ -5666,19 +5673,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Invia a  KDE Itinerary"
 
-#: src/timeline/LinkPreviewComponent.qml:129
+#: src/timeline/LinkPreviewComponent.qml:136
 #: src/timeline/LinkPreviewLoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Remove vista preliminar"
 
-#: src/timeline/LinkPreviewComponent.qml:147
+#: src/timeline/LinkPreviewComponent.qml:154
 #, kde-format
 msgid "Shrink preview"
 msgstr "Comprime vista preliminar"
 
-#: src/timeline/LinkPreviewComponent.qml:147
+#: src/timeline/LinkPreviewComponent.qml:154
 #, kde-format
 msgid "Expand preview"
 msgstr "Expande Vista Preliminar"
@@ -5699,14 +5706,14 @@ msgstr "Aperi externemente"
 msgid "%1 started a user verification"
 msgstr "%1 initiava un verification de usator"
 
-#: src/timeline/PollComponent.qml:72
+#: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Basate sur votos per %1 usator"
 msgstr[1] "Basate sur votos per %1 usatores"
 
-#: src/timeline/PollComponent.qml:72
+#: src/timeline/PollComponent.qml:80
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -5764,6 +5771,9 @@ msgstr "Monstra "
 #, kde-format
 msgid "Quit"
 msgstr "Quita"
+
+#~ msgid "Matrix client"
+#~ msgstr "Cliente de Matrix"
 
 #~ msgctxt "@title"
 #~ msgid "Room ID or Alias"
