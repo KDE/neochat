@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-07 00:40+0000\n"
+"POT-Creation-Date: 2024-11-10 00:40+0000\n"
 "PO-Revision-Date: 2024-10-31 10:08+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -128,13 +128,13 @@ msgstr "Не удалось прочитать токен доступа"
 msgid "Receiving push notifications"
 msgstr "Получение push-уведомлений"
 
-#: src/devtools/AccountData.qml:19
+#: src/devtools/AccountData.qml:20
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Данные учётной записи"
 
-#: src/devtools/AccountData.qml:29 src/devtools/StateKeys.qml:47
+#: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
@@ -166,7 +166,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Показывать фокус в заголовке окна"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:272
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:273
 #, kde-format
 msgid "Developer Tools"
 msgstr "Инструменты разработчика"
@@ -221,39 +221,39 @@ msgctxt ""
 msgid "Add phone numbers as 3PIDs"
 msgstr "Добавлять телефонные номера как 3PID (сторонние идентификаторы)"
 
-#: src/devtools/RoomData.qml:20
+#: src/devtools/RoomData.qml:21
 #, kde-format
 msgctxt "@title"
 msgid "Choose Room"
 msgstr "Выбор комнаты"
 
-#: src/devtools/RoomData.qml:25 src/qml/CreateRoomDialog.qml:54
+#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
 #, kde-format
 msgid "Room"
 msgstr "Внутреннее помещение"
 
-#: src/devtools/RoomData.qml:36
+#: src/devtools/RoomData.qml:37
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Идентификатор комнаты: %1"
 
-#: src/devtools/RoomData.qml:40
+#: src/devtools/RoomData.qml:41
 #, kde-format
 msgid "Room Account Data"
 msgstr "Данные учётной записи комнаты"
 
-#: src/devtools/RoomData.qml:53 src/devtools/RoomData.qml:99
+#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Исходный код события"
 
-#: src/devtools/RoomData.qml:61
+#: src/devtools/RoomData.qml:62
 #, kde-format
 msgid "Room State"
 msgstr "Состояние комнаты"
 
-#: src/devtools/RoomData.qml:75
+#: src/devtools/RoomData.qml:76
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -263,7 +263,7 @@ msgstr[1] "%1 события этого типа"
 msgstr[2] "%1 событий этого типа"
 msgstr[3] "%1 событие этого типа"
 
-#: src/devtools/RoomData.qml:84
+#: src/devtools/RoomData.qml:85
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -990,7 +990,7 @@ msgid "Password:"
 msgstr "Пароль:"
 
 #: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
-#: src/settings/NetworkProxyPage.qml:104
+#: src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "Пароль"
@@ -1090,9 +1090,10 @@ msgid "Settings"
 msgstr "Параметры"
 
 #: src/main.cpp:143
-#, kde-format
-msgid "Matrix client"
-msgstr "Клиент Matrix"
+#, fuzzy, kde-format
+#| msgid "Share a URL to Matrix"
+msgid "Chat on Matrix"
+msgstr "Опубликовать ссылку в Matrix"
 
 #: src/main.cpp:145
 #, kde-format
@@ -1955,7 +1956,7 @@ msgstr "Параметры уведомлений"
 msgid "Devices"
 msgstr "Устройства"
 
-#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:268
+#: src/qml/AccountMenu.qml:62 src/settings/NeoChatGeneralPage.qml:269
 #, kde-format
 msgid "Open developer tools"
 msgstr "Открыть инструменты разработчика"
@@ -3152,7 +3153,7 @@ msgstr "Изменение уровня возможностей пользов�
 msgid "New power level"
 msgstr "Новый уровень возможностей пользователя"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:414
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:421
 #, kde-format
 msgid "Confirm"
 msgstr "Подтвердить"
@@ -4200,7 +4201,7 @@ msgstr "Сканировать QR-код"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:92
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Сохранить"
@@ -4747,90 +4748,96 @@ msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
 msgstr "Активность"
 
-#: src/settings/NeoChatGeneralPage.qml:104
+#: src/settings/NeoChatGeneralPage.qml:96
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with unread notifications will be shown first"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:105
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "По алфавиту"
 
-#: src/settings/NeoChatGeneralPage.qml:114
+#: src/settings/NeoChatGeneralPage.qml:115
 #, kde-format
 msgid "Timeline Events"
 msgstr "Лента событий"
 
-#: src/settings/NeoChatGeneralPage.qml:119
+#: src/settings/NeoChatGeneralPage.qml:120
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Показывать удалённые сообщения"
 
-#: src/settings/NeoChatGeneralPage.qml:135
+#: src/settings/NeoChatGeneralPage.qml:136
 #, kde-format
 msgid "Show state events"
 msgstr "Показывать события состояния"
 
-#: src/settings/NeoChatGeneralPage.qml:153
+#: src/settings/NeoChatGeneralPage.qml:154
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Показывать входы и выходы"
 
-#: src/settings/NeoChatGeneralPage.qml:171
+#: src/settings/NeoChatGeneralPage.qml:172
 #, kde-format
 msgid "Show name change events"
 msgstr "Показывать смену имён"
 
-#: src/settings/NeoChatGeneralPage.qml:189
+#: src/settings/NeoChatGeneralPage.qml:190
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Показывать обновления изображений пользователей"
 
-#: src/settings/NeoChatGeneralPage.qml:199
+#: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Редактор"
 
-#: src/settings/NeoChatGeneralPage.qml:203
+#: src/settings/NeoChatGeneralPage.qml:204
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Отправить сообщение"
 
-#: src/settings/NeoChatGeneralPage.qml:214
+#: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:230
+#: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Использовать синтаксис «s/текст/замена» для редактирования последнего "
 "сообщения"
 
-#: src/settings/NeoChatGeneralPage.qml:244
+#: src/settings/NeoChatGeneralPage.qml:245
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Отправлять уведомления о наборе текста"
 
-#: src/settings/NeoChatGeneralPage.qml:254
+#: src/settings/NeoChatGeneralPage.qml:255
 #, kde-format
 msgid "Developer Settings"
 msgstr "Параметры для разработчиков"
 
-#: src/settings/NeoChatGeneralPage.qml:258
+#: src/settings/NeoChatGeneralPage.qml:259
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Включить инструменты для разработчиков"
 
-#: src/settings/NeoChatGeneralPage.qml:277
+#: src/settings/NeoChatGeneralPage.qml:278
 #, fuzzy, kde-format
 msgctxt "@title"
 msgid "Default Settings"
 msgstr "Параметры для разработчиков"
 
-#: src/settings/NeoChatGeneralPage.qml:281
+#: src/settings/NeoChatGeneralPage.qml:282
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
@@ -4952,7 +4959,7 @@ msgstr "Уведомления"
 msgid "Stickers & Emojis"
 msgstr "Стикеры и эмодзи"
 
-#: src/settings/NeoChatSettingsView.qml:83 src/settings/NetworkProxyPage.qml:21
+#: src/settings/NeoChatSettingsView.qml:83
 #, kde-format
 msgid "Network Proxy"
 msgstr "Тип прокси"
@@ -4974,53 +4981,53 @@ msgstr "Сведения"
 msgid "About KDE"
 msgstr "О KDE"
 
-#: src/settings/NetworkProxyPage.qml:15
+#: src/settings/NetworkProxyPage.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
 msgstr "Прокси-сервер"
 
-#: src/settings/NetworkProxyPage.qml:25
+#: src/settings/NetworkProxyPage.qml:23
 #, kde-format
 msgid "System Default"
 msgstr "Заданный в системе"
 
-#: src/settings/NetworkProxyPage.qml:33
+#: src/settings/NetworkProxyPage.qml:35
 #, kde-format
 msgid "No Proxy"
 msgstr "Без прокси"
 
-#: src/settings/NetworkProxyPage.qml:41
+#: src/settings/NetworkProxyPage.qml:47
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/settings/NetworkProxyPage.qml:49
+#: src/settings/NetworkProxyPage.qml:59
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/settings/NetworkProxyPage.qml:59
+#: src/settings/NetworkProxyPage.qml:69
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Параметры прокси"
 
-#: src/settings/NetworkProxyPage.qml:64
+#: src/settings/NetworkProxyPage.qml:78
 #, kde-format
 msgid "Host"
 msgstr "Хост"
 
-#: src/settings/NetworkProxyPage.qml:76
+#: src/settings/NetworkProxyPage.qml:91
 #, kde-format
 msgid "Port"
 msgstr "Порт"
 
-#: src/settings/NetworkProxyPage.qml:92
+#: src/settings/NetworkProxyPage.qml:112
 #, kde-format
 msgid "User"
 msgstr "Пользователь"
 
-#: src/settings/NetworkProxyPage.qml:122
+#: src/settings/NetworkProxyPage.qml:140
 #, kde-format
 msgid "Apply"
 msgstr "Применить"
@@ -5128,147 +5135,147 @@ msgstr "Информация о комнате"
 msgid "Room name:"
 msgstr "Название комнаты:"
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, kde-format
 msgid "Room topic:"
 msgstr "Тема комнаты:"
 
-#: src/settings/RoomGeneralPage.qml:111
+#: src/settings/RoomGeneralPage.qml:118
 #, kde-format
 msgid "Room ID"
 msgstr "Идентификатор комнаты"
 
-#: src/settings/RoomGeneralPage.qml:116
+#: src/settings/RoomGeneralPage.qml:123
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Скопировать идентификатор комнаты в буфер обмена"
 
-#: src/settings/RoomGeneralPage.qml:130
+#: src/settings/RoomGeneralPage.qml:137
 #, kde-format
 msgid "Room version"
 msgstr "Версия комнаты"
 
-#: src/settings/RoomGeneralPage.qml:136
+#: src/settings/RoomGeneralPage.qml:143
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Обновить комнату"
 
-#: src/settings/RoomGeneralPage.qml:155
+#: src/settings/RoomGeneralPage.qml:162
 #, kde-format
 msgid "Aliases"
 msgstr "Псевдонимы"
 
-#: src/settings/RoomGeneralPage.qml:160
+#: src/settings/RoomGeneralPage.qml:167
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Канонический псевдоним не задан"
 
-#: src/settings/RoomGeneralPage.qml:175
+#: src/settings/RoomGeneralPage.qml:182
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Назначить этот псевдоним каноническим псевдонимом комнаты"
 
-#: src/settings/RoomGeneralPage.qml:190
+#: src/settings/RoomGeneralPage.qml:197
 #, kde-format
 msgid "Delete alias"
 msgstr "Удалить псевдоним"
 
-#: src/settings/RoomGeneralPage.qml:214
+#: src/settings/RoomGeneralPage.qml:221
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#новый_псевдоним:server.org"
 
-#: src/settings/RoomGeneralPage.qml:231
+#: src/settings/RoomGeneralPage.qml:238
 #, kde-format
 msgid "Add new alias"
 msgstr "Создать псевдоним"
 
-#: src/settings/RoomGeneralPage.qml:251
+#: src/settings/RoomGeneralPage.qml:258
 #, kde-format
 msgid "URL Previews"
 msgstr "Предпросмотр содержимого по ссылкам"
 
-#: src/settings/RoomGeneralPage.qml:255
+#: src/settings/RoomGeneralPage.qml:262
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 "По умолчанию включить предпросмотр содержимого по ссылкам для участников "
 "комнат"
 
-#: src/settings/RoomGeneralPage.qml:263
+#: src/settings/RoomGeneralPage.qml:270
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Включить предпросмотр содержимого по ссылкам"
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:272
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr ""
 "Для этой комнаты по умолчанию включён предпросмотр содержимого по ссылкам"
 
-#: src/settings/RoomGeneralPage.qml:265
+#: src/settings/RoomGeneralPage.qml:272
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr ""
 "Для этой комнаты по умолчанию отключён предпросмотр содержимого по ссылкам"
 
-#: src/settings/RoomGeneralPage.qml:273
+#: src/settings/RoomGeneralPage.qml:280
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Официальные родительские пространства"
 
-#: src/settings/RoomGeneralPage.qml:306
+#: src/settings/RoomGeneralPage.qml:313
 #, kde-format
 msgid "Canonical"
 msgstr "Каноничность"
 
-#: src/settings/RoomGeneralPage.qml:313
+#: src/settings/RoomGeneralPage.qml:320
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Назначить каноническим родительским пространством"
 
-#: src/settings/RoomGeneralPage.qml:325
+#: src/settings/RoomGeneralPage.qml:332
 #, kde-format
 msgid "Remove parent"
 msgstr "Удалить родительское пространство"
 
-#: src/settings/RoomGeneralPage.qml:338
+#: src/settings/RoomGeneralPage.qml:345
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Для этой комнаты нет официальных родительских пространств."
 
-#: src/settings/RoomGeneralPage.qml:342
+#: src/settings/RoomGeneralPage.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Добавить новое официальное родительское пространство"
 
-#: src/settings/RoomGeneralPage.qml:359 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:366 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "В этой комнате продолжается другой разговор."
 
-#: src/settings/RoomGeneralPage.qml:363 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:370 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Посмотреть более старые сообщения…"
 
-#: src/settings/RoomGeneralPage.qml:375 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:382 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Эта комната была заменена."
 
-#: src/settings/RoomGeneralPage.qml:379 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:386 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Посмотреть новую комнату…"
 
-#: src/settings/RoomGeneralPage.qml:402
+#: src/settings/RoomGeneralPage.qml:409
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Обновление комнаты"
 
-#: src/settings/RoomGeneralPage.qml:406
+#: src/settings/RoomGeneralPage.qml:413
 #, kde-format
 msgid "Select new version"
 msgstr "Выберите новую версию"
@@ -5669,19 +5676,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Передать в KDE Itinerary"
 
-#: src/timeline/LinkPreviewComponent.qml:129
+#: src/timeline/LinkPreviewComponent.qml:136
 #: src/timeline/LinkPreviewLoadComponent.qml:79
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Удалить область предварительного просмотра"
 
-#: src/timeline/LinkPreviewComponent.qml:147
+#: src/timeline/LinkPreviewComponent.qml:154
 #, kde-format
 msgid "Shrink preview"
 msgstr "Уменьшить область предварительного просмотра"
 
-#: src/timeline/LinkPreviewComponent.qml:147
+#: src/timeline/LinkPreviewComponent.qml:154
 #, kde-format
 msgid "Expand preview"
 msgstr "Увеличить область предварительного просмотра"
@@ -5702,7 +5709,7 @@ msgstr "Открывать во внешней программе"
 msgid "%1 started a user verification"
 msgstr "%1 начал(а) проверку пользователя"
 
-#: src/timeline/PollComponent.qml:72
+#: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -5711,7 +5718,7 @@ msgstr[1] "Основано на голосах %1 пользователей"
 msgstr[2] "Основано на голосах %1 пользователей"
 msgstr[3] "Основано на голосе %1 пользователя"
 
-#: src/timeline/PollComponent.qml:72
+#: src/timeline/PollComponent.qml:80
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -5767,6 +5774,9 @@ msgstr "Показать"
 #, kde-format
 msgid "Quit"
 msgstr "Выход"
+
+#~ msgid "Matrix client"
+#~ msgstr "Клиент Matrix"
 
 #~ msgctxt "@title"
 #~ msgid "Room ID or Alias"
