@@ -1,19 +1,19 @@
 # translation of neochat.po to Slovak
-# Roman Paholik <wizzardsk@gmail.com>, 2020, 2022.
+# SPDX-FileCopyrightText: 2020, 2022, 2024 Roman Paholik <wizzardsk@gmail.com>
 # Matej Mrenica <matejm98mthw@gmail.com>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-10 00:40+0000\n"
-"PO-Revision-Date: 2024-01-23 09:01+0100\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
-"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"PO-Revision-Date: 2024-11-10 11:41+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: KDE-SK\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 24.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: src/chatbar/AttachDialog.qml:29
@@ -177,14 +177,13 @@ msgstr ""
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:273
 #, kde-format
 msgid "Developer Tools"
-msgstr ""
+msgstr "Nástroje pre vývojárov"
 
 #: src/devtools/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
-msgstr "Voľby"
+msgstr "Možnosti ladenia"
 
 #: src/devtools/DevtoolsPage.qml:34
 #, fuzzy, kde-format
@@ -194,11 +193,10 @@ msgid "Room Data"
 msgstr "Miestnosti"
 
 #: src/devtools/DevtoolsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
-msgstr "Informácie o miestnosti"
+msgstr "Informácie o serveri"
 
 #: src/devtools/DevtoolsPage.qml:44
 #, fuzzy, kde-format
@@ -217,7 +215,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
-msgstr ""
+msgstr "Vlákna"
 
 #: src/devtools/FeatureFlagPage.qml:26
 #, kde-format
@@ -241,10 +239,9 @@ msgid "Choose Room"
 msgstr "Vybrať miestny súbor"
 
 #: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Miestnosti"
+msgstr "Miestnosť"
 
 #: src/devtools/RoomData.qml:37
 #, fuzzy, kde-format
@@ -289,9 +286,9 @@ msgid "Event Information"
 msgstr "Informácie o miestnosti"
 
 #: src/devtools/ServerData.qml:20
-#, kde-format
+#, fuzzy, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "možnosti servera"
 
 #: src/devtools/ServerData.qml:24
 #, fuzzy, kde-format
@@ -350,10 +347,9 @@ msgid "Spaces"
 msgstr "Medzery"
 
 #: src/enums/powerlevel.cpp:10
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member"
-msgstr "Členovia"
+msgstr "Člen"
 
 #: src/enums/powerlevel.cpp:12
 #, kde-format
@@ -361,16 +357,14 @@ msgid "Moderator"
 msgstr ""
 
 #: src/enums/powerlevel.cpp:14
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgid "Admin"
-msgstr "Správca"
+msgstr "Administrátor"
 
 #: src/enums/powerlevel.cpp:16
-#, fuzzy, kde-format
-#| msgid "Muted"
+#, kde-format
 msgid "Mute"
-msgstr "Stlmený"
+msgstr "Stlmiť"
 
 #: src/enums/powerlevel.cpp:18
 #, kde-format
@@ -934,28 +928,27 @@ msgstr ""
 #| msgid "Download"
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "Stiahnuť"
+msgstr "Sťahovanie"
 
 #: src/filetransferpseudojob.cpp:48
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "Načítava sa…"
+msgstr "Odosielam %1..."
 
 #: src/filetransferpseudojob.cpp:49
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr "Zobraziť zdroj"
+msgstr "Zdroj"
 
 #: src/filetransferpseudojob.cpp:50
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr "Odoslať pozvanie"
+msgstr "Cieľ"
 
 #: src/login.cpp:88 src/login.cpp:103
 #, kde-format
@@ -993,10 +986,9 @@ msgid "Re-send confirmation e-mail"
 msgstr ""
 
 #: src/login/Homeserver.qml:21
-#, fuzzy, kde-format
-#| msgid "Server Address"
+#, kde-format
 msgid "Server Url:"
-msgstr "Adresa servera"
+msgstr "URL servera:"
 
 #: src/login/Homeserver.qml:26
 #, kde-format
@@ -1009,7 +1001,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
-msgstr "Načítava sa…"
+msgstr "Načítavam"
 
 #: src/login/Loading.qml:16
 #, kde-format
@@ -1069,11 +1061,10 @@ msgid "Login"
 msgstr "Prihlásenie"
 
 #: src/login/LoginRegister.qml:31
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgctxt "@action:button"
 msgid "Register"
-msgstr "Registrovať sa"
+msgstr "Registrovať"
 
 #: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
 #: src/settings/DevicesPage.qml:81
@@ -1083,9 +1074,7 @@ msgstr "Heslo:"
 
 #: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:152
 #: src/settings/NetworkProxyPage.qml:122
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgid "Password"
 msgstr "Heslo"
 
@@ -1096,10 +1085,9 @@ msgid "Invalid username or password"
 msgstr "Zadajte svoje heslo"
 
 #: src/login/RegisterPassword.qml:30
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Confirm Password:"
-msgstr "Potvrdiť nové heslo:"
+msgstr "Potvrďte heslo:"
 
 #: src/login/RegisterPassword.qml:33
 #, fuzzy, kde-format
@@ -1135,7 +1123,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Username"
 msgid "Username:"
-msgstr "Používateľské meno"
+msgstr "Užívateľské meno:"
 
 #: src/login/Username.qml:23
 #, fuzzy, kde-format
@@ -1180,17 +1168,17 @@ msgid "Log in or Create a New Account"
 msgstr ""
 
 #: src/login/WelcomePage.qml:240
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Go back"
-msgstr ""
+msgstr "Návrat"
 
 #: src/login/WelcomePage.qml:252
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgctxt "@action:button"
 msgid "Settings"
-msgstr "Nastavenia miestnosti"
+msgstr "Nastavenia"
 
 #: src/main.cpp:143
 #, fuzzy, kde-format
@@ -1212,7 +1200,7 @@ msgstr "Carl Schwan"
 #: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Správca"
 
 #: src/main.cpp:151
 #, kde-format
@@ -1265,7 +1253,7 @@ msgstr ""
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
-msgstr ""
+msgstr "%1 (zostavené pomocou %2)"
 
 #: src/main.cpp:189
 #, kde-format
@@ -1356,7 +1344,7 @@ msgstr "Pridá ( ͡° ͜ʖ ͡°) na začiatok textovej správy"
 #, fuzzy
 #| msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "Pridá ¯\\_(ツ)_/¯ na začiatok textovej správy"
+msgstr "Pridá ( ͡° ͜ʖ ͡°) na začiatok textovej správy"
 
 #: src/models/actionsmodel.cpp:122
 #, fuzzy
@@ -1671,7 +1659,7 @@ msgstr "pozval %1 do miestnosti"
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr ""
+msgstr "História"
 
 #: src/models/emojimodel.cpp:160
 #, kde-format
@@ -1683,50 +1671,49 @@ msgstr ""
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
-msgstr ""
+msgstr "Ľudia"
 
 #: src/models/emojimodel.cpp:170
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
-msgstr ""
+msgstr "Príroda"
 
 #: src/models/emojimodel.cpp:175
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
-msgstr ""
+msgstr "Jedlo"
 
 #: src/models/emojimodel.cpp:180
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
-msgstr ""
+msgstr "Aktivity"
 
 #: src/models/emojimodel.cpp:185
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
-msgstr ""
+msgstr "Cestovanie"
 
 #: src/models/emojimodel.cpp:190
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
-msgstr "Odmietnuť"
+msgstr "Objekty"
 
 #: src/models/emojimodel.cpp:195
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
-msgstr ""
+msgstr "Symboly"
 
 #: src/models/emojimodel.cpp:200
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
-msgstr ""
+msgstr "Vlajky"
 
 #: src/models/emojimodel.cpp:219
 #, fuzzy, kde-format
@@ -2024,12 +2011,12 @@ msgstr[1] "%2 reagovali s %3"
 msgstr[2] "%2 reagovalo s %3"
 
 #: src/models/readmarkermodel.cpp:110
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Používateľ"
+msgstr[1] "%2 (%1 používatelia): %3"
+msgstr[2] "%2 (%1 používateľov): %3"
 
 #: src/models/readmarkermodel.cpp:115
 #, fuzzy, kde-format
@@ -2084,10 +2071,9 @@ msgid "Lat: %1, Lon: %2"
 msgstr ""
 
 #: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:385
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Encrypted Message"
-msgstr "Upraviť správu"
+msgstr "Zašifrovaná správa"
 
 #: src/notificationsmanager.cpp:227
 #, kde-format
@@ -2130,8 +2116,7 @@ msgid "Accept"
 msgstr "Prijať"
 
 #: src/notificationsmanager.cpp:318
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Odmietnuť"
@@ -2157,7 +2142,7 @@ msgstr "NeoChat"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR code"
-msgstr ""
+msgstr "Zobraziť QR kód"
 
 #: src/qml/AccountMenu.qml:39 src/qml/UserInfo.qml:46
 #, kde-format
@@ -2190,11 +2175,10 @@ msgid "Open developer tools"
 msgstr ""
 
 #: src/qml/AccountMenu.qml:68
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
-msgstr "Nastavenia"
+msgstr "Nástroje pre vývojárov"
 
 #: src/qml/AccountMenu.qml:74
 #, kde-format
@@ -2228,11 +2212,10 @@ msgid "Switch Account"
 msgstr "Upraviť účet"
 
 #: src/qml/AccountSwitchDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Add an account"
+#, kde-format
 msgctxt "@button: login to or register a new account."
 msgid "Add Account"
-msgstr "Pridať konto"
+msgstr "Pridať účet"
 
 #: src/qml/AccountSwitchDialog.qml:57
 #, kde-format
@@ -2291,10 +2274,10 @@ msgid "Choose a Room"
 msgstr "Vybrať miestny súbor"
 
 #: src/qml/CodeMaximizeComponent.qml:39
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action"
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopírovať do schránky"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:16
 #, fuzzy, kde-format
@@ -2313,9 +2296,7 @@ msgid ""
 msgstr ""
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "Heslo"
@@ -2359,8 +2340,7 @@ msgid "Do you really want to leave %1?"
 msgstr ""
 
 #: src/qml/ConfirmLeaveDialog.qml:28
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room"
 msgstr "Opustiť miestnosť"
@@ -2383,14 +2363,10 @@ msgid "Sign out"
 msgstr ""
 
 #: src/qml/ConfirmUrlDialog.qml:14
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Open URL"
-msgstr "Otvoriť súbor"
+msgstr "Otvoriť URL"
 
 #: src/qml/ConfirmUrlDialog.qml:15
 #, kde-kuit-format
@@ -2420,21 +2396,18 @@ msgstr ""
 "nižšie."
 
 #: src/qml/ConsentDialog.qml:31
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Otvoriť"
 
 #: src/qml/ContextMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
+#, kde-format
 msgid "Remove from Favorites"
 msgstr "Odstrániť z obľúbených"
 
 #: src/qml/ContextMenu.qml:31
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
+#, kde-format
 msgid "Add to Favorites"
 msgstr "Pridať do obľúbených"
 
@@ -2478,10 +2451,10 @@ msgid "Follow Global Setting"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:76 src/settings/PushNotification.qml:39
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
-msgstr ""
+msgstr "Všetko"
 
 #: src/qml/ContextMenu.qml:87 src/settings/PushNotification.qml:47
 #, kde-format
@@ -2492,10 +2465,10 @@ msgid "@Mentions and Keywords"
 msgstr ""
 
 #: src/qml/ContextMenu.qml:98 src/settings/PushNotification.qml:55
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
-msgstr ""
+msgstr "Vypnuté"
 
 #: src/qml/ContextMenu.qml:111
 #, fuzzy, kde-format
@@ -2538,8 +2511,7 @@ msgstr "Vytvoriť miestnosť"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
 #: src/qml/ExploreComponentMobile.qml:149
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Vytvoriť miestnosť"
@@ -2561,13 +2533,13 @@ msgstr "Informácie o miestnosti"
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Select type"
-msgstr "Vybrať všetko"
+msgstr "Vyberať typ"
 
 #: src/qml/CreateRoomDialog.qml:58
 #, fuzzy, kde-format
 #| msgid "Spaces"
 msgid "Space"
-msgstr "Medzery"
+msgstr "Medzera"
 
 #: src/qml/CreateRoomDialog.qml:77
 #, kde-format
@@ -2575,10 +2547,9 @@ msgid "Name:"
 msgstr "Meno:"
 
 #: src/qml/CreateRoomDialog.qml:87
-#, fuzzy, kde-format
-#| msgid "No Topic"
+#, kde-format
 msgid "Topic:"
-msgstr "Žiadna téma"
+msgstr "Téma:"
 
 #: src/qml/CreateRoomDialog.qml:96 src/qml/CreateRoomDialog.qml:235
 #, kde-format
@@ -2661,8 +2632,7 @@ msgid "View Source"
 msgstr "Zobraziť zdroj"
 
 #: src/qml/DelegateContextMenu.qml:90 src/settings/ThreePIdCard.qml:66
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Odstrániť"
@@ -2684,18 +2654,17 @@ msgid "Reason for removing this message"
 msgstr "Povoliť tomuto používateľovi prístup"
 
 #: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Odstrániť"
 
 #: src/qml/DelegateContextMenu.qml:120 src/qml/DelegateContextMenu.qml:128
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
-msgstr ""
+msgstr "Výkaz"
 
 #: src/qml/DelegateContextMenu.qml:125
 #, fuzzy, kde-format
@@ -2782,13 +2751,13 @@ msgstr "Vybrať všetko"
 #| msgid "Edit device"
 msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
-msgstr "Upraviť zariadenie"
+msgstr "Upraviť stav:"
 
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
 msgid "Revert changes"
-msgstr ""
+msgstr "Vrátiť zmeny"
 
 #: src/qml/EditStateDialog.qml:38
 #, fuzzy, kde-format
@@ -2876,7 +2845,7 @@ msgstr "Hľadať"
 #| msgid "Ban this user"
 msgctxt "@action:button"
 msgid "Show Menu"
-msgstr "Zakázať tomuto používateľovi prístup"
+msgstr "Zobraziť ponuku"
 
 #: src/qml/ExploreComponent.qml:192
 #, fuzzy, kde-format
@@ -2885,22 +2854,22 @@ msgid "Create rooms and chats"
 msgstr "Miestnosti a súkromné chaty:"
 
 #: src/qml/ExploreComponentMobile.qml:31
-#, kde-format
+#, fuzzy, kde-format
 msgid "Search"
-msgstr ""
+msgstr "Hľadať"
 
 #: src/qml/ExploreComponentMobile.qml:76
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create New"
-msgstr "Miestnosti a súkromné chaty:"
+msgstr "Vytvoriť nový"
 
 #: src/qml/ExplorerDelegate.qml:72
 #, fuzzy, kde-format
 #| msgid "Spaces"
 msgctxt "@info:label A matrix space"
 msgid "Space"
-msgstr "Medzery"
+msgstr "Medzera"
 
 #: src/qml/ExploreRoomsPage.qml:52
 #, fuzzy, kde-format
@@ -3057,7 +3026,7 @@ msgstr "Ukončiť režim celej obrazovky"
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
-msgstr ""
+msgstr "Prejsť do režimu celej obrazovky"
 
 #: src/qml/GlobalMenu.qml:93
 #, kde-format
@@ -3073,8 +3042,7 @@ msgid "About Matrix"
 msgstr "O Neochat"
 
 #: src/qml/GlobalMenu.qml:100
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
+#, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "O Neochat"
@@ -3084,7 +3052,7 @@ msgstr "O Neochat"
 #| msgid "About"
 msgctxt "menu"
 msgid "About KDE"
-msgstr "O aplikácii"
+msgstr "Informácie o KDE"
 
 #: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:68
 #, kde-format
@@ -3259,10 +3227,9 @@ msgid "Session Verification"
 msgstr "Zobraziť upozornenia"
 
 #: src/qml/KeyVerificationDialog.qml:98
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgid "Decline"
-msgstr "Časová os:"
+msgstr "Odmietnuť"
 
 #: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
@@ -3313,11 +3280,10 @@ msgid "Re-Center"
 msgstr ""
 
 #: src/qml/LocationChooser.qml:41
-#, fuzzy, kde-format
-#| msgid "Local"
+#, kde-format
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
-msgstr "Lokálne"
+msgstr "Lokalizovať"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, kde-format
@@ -3368,7 +3334,7 @@ msgstr ""
 #: src/qml/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/qml/ManualRoomDialog.qml:81
 #, kde-format
@@ -3386,17 +3352,16 @@ msgid "The input is not a valid room ID or alias"
 msgstr ""
 
 #: src/qml/ManualUserDialog.qml:26
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title"
 msgid "User ID"
-msgstr "Zakázať tomuto používateľovi prístup"
+msgstr "ID užívateľa"
 
 #: src/qml/ManualUserDialog.qml:54
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgid "User ID:"
-msgstr "Zakázať tomuto používateľovi prístup"
+msgstr "ID užívateľa:"
 
 #: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
 #, kde-format
@@ -3409,37 +3374,35 @@ msgid "The input is not a valid user ID"
 msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward"
-msgstr ""
+msgstr "Dopredu"
 
 #: src/qml/MessageDelegateContextMenu.qml:53
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "Upraviť správu"
+msgstr "Preposlať správu"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy Link"
-msgstr "Kopírovať"
+msgstr "Kopírovať odkaz"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
-msgstr "Upraviť správu"
+msgstr "Upraviť stav:"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title"
 msgid "Notifications"
-msgstr "Zobraziť upozornenia"
+msgstr "Oznámenia"
 
 #: src/qml/NotificationsView.qml:34
 #, fuzzy, kde-format
@@ -3448,11 +3411,9 @@ msgid "No Notifications"
 msgstr "Zobraziť upozornenia"
 
 #: src/qml/OpenFileDialog.qml:12
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
+#, kde-format
 msgid "Select a File"
-msgstr "Vybrať všetko"
+msgstr "Vybrať súbor"
 
 #: src/qml/PowerLevelDialog.qml:15
 #, kde-format
@@ -3473,17 +3434,17 @@ msgstr "Potvrdiť"
 #: src/qml/QuickFormatBar.qml:23
 #, kde-format
 msgid "Bold"
-msgstr ""
+msgstr "Tučné"
 
 #: src/qml/QuickFormatBar.qml:42
 #, kde-format
 msgid "Italic"
-msgstr ""
+msgstr "Kurzíva"
 
 #: src/qml/QuickFormatBar.qml:61
 #, kde-format
 msgid "Strikethrough"
-msgstr ""
+msgstr "Prečiarknuté"
 
 #: src/qml/QuickFormatBar.qml:80
 #, kde-format
@@ -3493,12 +3454,12 @@ msgstr ""
 #: src/qml/QuickFormatBar.qml:99
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Citácia"
 
 #: src/qml/QuickFormatBar.qml:118
-#, kde-format
+#, fuzzy, kde-format
 msgid "Insert link"
-msgstr ""
+msgstr "Vložiť odkaz"
 
 #: src/qml/QuickSwitcher.qml:29
 #, fuzzy, kde-format
@@ -3518,18 +3479,17 @@ msgstr "Zrušiť"
 #| msgid "Join"
 msgctxt "@title Join <name of a space>"
 msgid "Join %1"
-msgstr "Pripojiť"
+msgstr "Spojiť"
 
 #: src/qml/RecommendedSpaceDialog.qml:53
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "@action:button"
 msgid "Join"
-msgstr "Pripojiť"
+msgstr "Spojiť"
 
 #: src/qml/RecommendedSpaceDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorovať"
@@ -3575,12 +3535,12 @@ msgstr "Nastavenia miestnosti"
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "Information"
-msgstr "Informácie o miestnosti"
+msgstr "Informácia"
 
 #: src/qml/RoomDrawer.qml:165 src/qml/RoomDrawerPage.qml:90
-#, kde-format
+#, fuzzy, kde-format
 msgid "Media"
-msgstr ""
+msgstr "Média"
 
 #: src/qml/RoomInformation.qml:42
 #, fuzzy, kde-format
@@ -3602,7 +3562,7 @@ msgstr "Informácie o miestnosti"
 #| msgid "Locations"
 msgctxt "Room actions"
 msgid "Actions"
-msgstr "Miesta"
+msgstr "Akcie"
 
 #: src/qml/RoomInformation.qml:80
 #, kde-format
@@ -3669,9 +3629,9 @@ msgstr "pozval %1 do miestnosti"
 #| msgid_plural "%1 Members"
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "%1 Člen"
-msgstr[1] "%1 Členovia"
-msgstr[2] "%1 Členov"
+msgstr[0] "Člen"
+msgstr[1] "Členovia"
+msgstr[2] "Členovia"
 
 #: src/qml/RoomInformation.qml:175
 #, fuzzy, kde-format
@@ -3752,7 +3712,7 @@ msgstr "Priame správy"
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Find messages…"
-msgstr "Odoslať správu"
+msgstr "Nájsť správy"
 
 #: src/qml/RoomSearchPage.qml:38
 #, kde-format
@@ -3766,17 +3726,17 @@ msgid "No messages found"
 msgstr "Žiadne miestnosti neboli nájdené"
 
 #: src/qml/RoomTreeSection.qml:71
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
-msgstr ""
+msgstr "Zbaliť"
 
 #: src/qml/RoomTreeSection.qml:71
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
 msgid "Expand %1"
-msgstr "zrušený zákaz prístupu %1"
+msgstr "Rozbaliť"
 
 #: src/qml/SearchPage.qml:136
 #, fuzzy, kde-format
@@ -3852,10 +3812,10 @@ msgid "Add new server"
 msgstr ""
 
 #: src/qml/ServerComboBox.qml:110
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Add server"
-msgstr ""
+msgstr "Pridať server"
 
 #: src/qml/ServerComboBox.qml:137
 #, kde-format
@@ -3868,10 +3828,9 @@ msgid "This server cannot be resolved or has already been added"
 msgstr ""
 
 #: src/qml/ServerComboBox.qml:152
-#, fuzzy, kde-format
-#| msgid "Server Address"
+#, kde-format
 msgid "Server URL:"
-msgstr "Adresa servera"
+msgstr "URL serveru:"
 
 #: src/qml/ShareAction.qml:23
 #, kde-format
@@ -3900,22 +3859,22 @@ msgid "View notifications"
 msgstr "Zobraziť upozornenia"
 
 #: src/qml/SpaceDrawer.qml:86
-#, kde-format
+#, fuzzy, kde-format
 msgid "Home"
-msgstr ""
+msgstr "Domov"
 
 #: src/qml/SpaceDrawer.qml:132
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
-msgstr ""
+msgstr "Priatelia"
 
 #: src/qml/SpaceDrawer.qml:221
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "Join <name of a space>"
 msgid "Join %1"
-msgstr "Pripojiť"
+msgstr "Spojiť"
 
 #: src/qml/SpaceDrawer.qml:263
 #, fuzzy, kde-format
@@ -3935,9 +3894,9 @@ msgstr ""
 msgctxt "number of room members"
 msgid "%1 member - "
 msgid_plural "%1 members - "
-msgstr[0] "%1 Člen"
-msgstr[1] "%1 Člen"
-msgstr[2] "%1 Člen"
+msgstr[0] "Člen"
+msgstr[1] "Členovia"
+msgstr[2] "Členovia"
 
 #: src/qml/SpaceHierarchyDelegate.qml:102
 #, fuzzy, kde-format
@@ -3946,9 +3905,9 @@ msgstr[2] "%1 Člen"
 msgctxt "number of room members"
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "%1 Člen"
-msgstr[1] "%1 Členovia"
-msgstr[2] "%1 Členov"
+msgstr[0] "Člen"
+msgstr[1] "Členovia"
+msgstr[2] "Členovia"
 
 #: src/qml/SpaceHierarchyDelegate.qml:111 src/qml/SpaceHomePage.qml:60
 #, fuzzy, kde-format
@@ -3958,8 +3917,7 @@ msgid "Add new room"
 msgstr "Zobraziť novú miestnosť..."
 
 #: src/qml/SpaceHierarchyDelegate.qml:122
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Odstrániť"
@@ -4084,7 +4042,7 @@ msgstr "Heslo:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
-msgstr ""
+msgstr "Odomknúť"
 
 #: src/qml/UnlockSSSSDialog.qml:79
 #, kde-format
@@ -4134,12 +4092,10 @@ msgid "Request from other Devices"
 msgstr ""
 
 #: src/qml/UserDetailDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
-msgstr "Podrobnosti konta"
+msgstr "Detaily účtu"
 
 #: src/qml/UserDetailDialog.qml:109
 #, kde-format
@@ -4157,11 +4113,10 @@ msgid "Kick this user"
 msgstr "Vyhodiť tohto používateľa"
 
 #: src/qml/UserDetailDialog.qml:126 src/qml/UserDetailDialog.qml:131
-#, fuzzy, kde-format
-#| msgid "Kick this user"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr "Vyhodiť tohto používateľa"
+msgstr "Vyradiť používateľa"
 
 #: src/qml/UserDetailDialog.qml:127
 #, fuzzy, kde-format
@@ -4174,7 +4129,7 @@ msgstr "Povoliť tomuto používateľovi prístup"
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
-msgstr ""
+msgstr "Vykopnúť"
 
 #: src/qml/UserDetailDialog.qml:147
 #, fuzzy, kde-format
@@ -4188,11 +4143,10 @@ msgid "Ban this user"
 msgstr "Zakázať tomuto používateľovi prístup"
 
 #: src/qml/UserDetailDialog.qml:165 src/qml/UserDetailDialog.qml:170
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
-msgstr "Zakázať tomuto používateľovi prístup"
+msgstr "Zakázať používateľa"
 
 #: src/qml/UserDetailDialog.qml:166
 #, fuzzy, kde-format
@@ -4202,10 +4156,10 @@ msgid "Reason for banning this user"
 msgstr "Povoliť tomuto používateľovi prístup"
 
 #: src/qml/UserDetailDialog.qml:167
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr ""
+msgstr "Baní"
 
 #: src/qml/UserDetailDialog.qml:185
 #, kde-format
@@ -4239,8 +4193,7 @@ msgid "Reason for removing this user's recent messages"
 msgstr "Povoliť tomuto používateľovi prístup"
 
 #: src/qml/UserDetailDialog.qml:230
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Odstrániť"
@@ -4256,7 +4209,7 @@ msgstr "Upraviť správu"
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
-msgstr ""
+msgstr "Rozhovor s %1"
 
 #: src/qml/UserDetailDialog.qml:247
 #, fuzzy, kde-format
@@ -4265,21 +4218,20 @@ msgid "Invite to private chat"
 msgstr "Otvoriť súkromný chat"
 
 #: src/qml/UserDetailDialog.qml:258
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy link"
-msgstr "Kopírovať"
+msgstr "Kopírovať odkaz"
 
 #: src/qml/UserInfo.qml:91
-#, kde-format
+#, fuzzy, kde-format
 msgid "Switch User"
-msgstr ""
+msgstr "Prepnúť používateľa"
 
 #: src/qml/UserInfo.qml:100
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"
-msgstr "Nastavenia"
+msgstr "Otvoriť nastavenia"
 
 #: src/qml/UserSearchPage.qml:33
 #, kde-format
@@ -4304,11 +4256,10 @@ msgid "Enter text to start searching for your friends"
 msgstr ""
 
 #: src/qml/UserSearchPage.qml:93
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
-msgstr "Žiadne miestnosti neboli nájdené"
+msgstr "Nič nenájdené"
 
 #: src/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -4490,16 +4441,14 @@ msgid "This username is not available."
 msgstr "Nie sú k dispozícii žiadni používatelia"
 
 #: src/registration.cpp:322
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
+#, kde-format
 msgid "Continue"
 msgstr "Pokračovať"
 
 #: src/registration.cpp:324
 #, kde-format
 msgid "Working"
-msgstr ""
+msgstr "Pracovný"
 
 #: src/roommanager.cpp:146
 #, fuzzy, kde-format
@@ -4548,10 +4497,9 @@ msgid "User Information"
 msgstr "Informácie o miestnosti"
 
 #: src/settings/AccountEditorPage.qml:106
-#, fuzzy, kde-format
-#| msgid "Displays action"
+#, kde-format
 msgid "Display Name:"
-msgstr "Zobrazí akciu"
+msgstr "Zobrazené meno:"
 
 #: src/settings/AccountEditorPage.qml:112
 #, kde-format
@@ -4561,13 +4509,13 @@ msgstr "Popis:"
 #: src/settings/AccountEditorPage.qml:113
 #, kde-format
 msgid "Work"
-msgstr ""
+msgstr "Práca"
 
 #: src/settings/AccountEditorPage.qml:118
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr ""
+msgstr "Zobraziť QR kód"
 
 #: src/settings/AccountEditorPage.qml:135
 #: src/settings/AccountEditorPage.qml:191
@@ -4610,13 +4558,13 @@ msgstr "Heslá sa nezhodujú"
 #: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Email Addresses"
-msgstr ""
+msgstr "Emailové adresy"
 
 #: src/settings/AccountEditorPage.qml:211
 #, fuzzy, kde-format
 #| msgid "Members"
 msgid "Phone Numbers"
-msgstr "Členovia"
+msgstr "Telefónne čísla"
 
 #: src/settings/AccountEditorPage.qml:216
 #, fuzzy, kde-format
@@ -4625,10 +4573,9 @@ msgid "Identity Server"
 msgstr "Domáci server:"
 
 #: src/settings/AccountEditorPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Server Information"
-msgstr "Informácie o miestnosti"
+msgstr "Informácie o serveri"
 
 #: src/settings/AccountEditorPage.qml:229
 #, fuzzy, kde-format
@@ -4672,10 +4619,9 @@ msgid "Accounts"
 msgstr "Kontá"
 
 #: src/settings/AccountsPage.qml:117
-#, fuzzy, kde-format
-#| msgid "Add an account"
+#, kde-format
 msgid "Add Account"
-msgstr "Pridať konto"
+msgstr "Pridať účet"
 
 #: src/settings/AppearanceSettingsPage.qml:18
 #, fuzzy, kde-format
@@ -4711,10 +4657,9 @@ msgid "Use transparent chat page"
 msgstr "Používať priehľadnú stránku chatu"
 
 #: src/settings/AppearanceSettingsPage.qml:255
-#, fuzzy, kde-format
-#| msgid "Transparency:"
+#, kde-format
 msgid "Transparency"
-msgstr "Priehľadnosť:"
+msgstr "Priehľadnosť"
 
 #: src/settings/AppearanceSettingsPage.qml:274
 #, kde-format
@@ -4750,7 +4695,7 @@ msgstr ""
 #: src/settings/ColorScheme.qml:14
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Farebná téma"
 
 #: src/settings/DeviceDelegate.qml:51
 #, kde-format
@@ -4794,7 +4739,7 @@ msgstr "Upraviť zariadenie"
 #| msgid "Edit device"
 msgctxt "This device is verified"
 msgid "Verified"
-msgstr "Upraviť zariadenie"
+msgstr "Overený"
 
 #: src/settings/DeviceDelegate.qml:135
 #, kde-format
@@ -4835,8 +4780,7 @@ msgid "Remove device"
 msgstr "Odstrániť zariadenie"
 
 #: src/settings/DevicesPage.qml:87
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Odstrániť"
@@ -4880,15 +4824,14 @@ msgid "Emoji"
 msgstr "Vlastné"
 
 #: src/settings/EmoticonEditorPage.qml:59
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "Change Image"
-msgstr "vyčistil názov miestnosti"
+msgstr "Zmeniť obrázok"
 
 #: src/settings/EmoticonEditorPage.qml:59
-#, kde-format
+#, fuzzy, kde-format
 msgid "Set Image"
-msgstr ""
+msgstr "Nastaviť obrázok ..."
 
 #: src/settings/EmoticonEditorPage.qml:98
 #, kde-format
@@ -4896,17 +4839,16 @@ msgid "Shortcode:"
 msgstr ""
 
 #: src/settings/EmoticonEditorPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgid "Description:"
-msgstr "Odoslať pozvanie"
+msgstr "Popis:"
 
 #: src/settings/EmoticonFormCard.qml:71
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
-msgstr "Odoslať pozvanie"
+msgstr "Žiadny popis"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, fuzzy, kde-format
@@ -4960,12 +4902,10 @@ msgid "Keys exported successfully"
 msgstr "Heslo úspešne zmenené"
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
-#, fuzzy, kde-format
-#| msgctxt "Unknown attachment size"
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown error"
-msgstr "Neznáme"
+msgstr "Neznáma chyba"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -5002,9 +4942,9 @@ msgstr "Kľúčové slová"
 
 #: src/settings/GlobalNotificationsPage.qml:97
 #: src/settings/PushNotification.qml:100
-#, kde-format
+#, fuzzy, kde-format
 msgid "Keyword…"
-msgstr ""
+msgstr "Kľúčové slovo"
 
 #: src/settings/GlobalNotificationsPage.qml:116
 #: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
@@ -5084,8 +5024,7 @@ msgid "No ignored users"
 msgstr "Prestať ignorovať tohto požívateľa"
 
 #: src/settings/IgnoredUsersDialog.qml:55
-#, fuzzy, kde-format
-#| msgid "Unignore this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Prestať ignorovať tohto požívateľa"
@@ -5110,10 +5049,10 @@ msgid "Import keys"
 msgstr ""
 
 #: src/settings/ImportKeysDialog.qml:66
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr ""
+msgstr "Neplatné heslo. "
 
 #: src/settings/ImportKeysDialog.qml:70
 #, kde-format
@@ -5132,13 +5071,12 @@ msgstr "Všeobecné"
 #, fuzzy, kde-format
 #| msgid "General settings:"
 msgid "General settings"
-msgstr "Všeobecné nastavenia:"
+msgstr "Všeobecné nastavenie"
 
 #: src/settings/NeoChatGeneralPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
+#, kde-format
 msgid "Show in System Tray"
-msgstr "Zatvoriť do systémovej lišty"
+msgstr "Zobrazovať v systémovej &lište"
 
 #: src/settings/NeoChatGeneralPage.qml:46
 #, kde-format
@@ -5165,7 +5103,7 @@ msgstr "<alias miestnosti alebo jej id>"
 #, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Activity"
-msgstr ""
+msgstr "Aktivita"
 
 #: src/settings/NeoChatGeneralPage.qml:96
 #, kde-format
@@ -5174,10 +5112,10 @@ msgid "Rooms with unread notifications will be shown first"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:105
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alfabeticky"
 
 #: src/settings/NeoChatGeneralPage.qml:115
 #, kde-format
@@ -5214,11 +5152,10 @@ msgid "Show avatar update events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
 #: src/settings/NeoChatGeneralPage.qml:200
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
-msgstr "Upraviť"
+msgstr "Editor"
 
 #: src/settings/NeoChatGeneralPage.qml:204
 #, fuzzy, kde-format
@@ -5256,11 +5193,10 @@ msgid "Enable developer tools"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Default Settings"
-msgstr "Nastavenia"
+msgstr "Štandardné nastavenia"
 
 #: src/settings/NeoChatGeneralPage.qml:282
 #, kde-format
@@ -5329,7 +5265,7 @@ msgstr ""
 #| msgid "activated End-to-End Encryption"
 msgctxt "@title"
 msgid "Encryption"
-msgstr "aktivoval End-to-End šifrovanie"
+msgstr "Šifrovanie"
 
 #: src/settings/NeoChatSecurityPage.qml:77
 #, fuzzy, kde-format
@@ -5381,7 +5317,7 @@ msgstr "Vzhľad"
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Notifications"
-msgstr "Zobraziť upozornenia"
+msgstr "Oznámenia"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5411,56 +5347,54 @@ msgstr "O aplikácii"
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
-msgstr "O aplikácii"
+msgstr "Informácie o KDE"
 
 #: src/settings/NetworkProxyPage.qml:14
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: src/settings/NetworkProxyPage.qml:23
 #, kde-format
 msgid "System Default"
-msgstr ""
+msgstr "Predvolené systémom"
 
 #: src/settings/NetworkProxyPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Network Error"
+#, kde-format
 msgid "No Proxy"
-msgstr "Chyba siete"
+msgstr "Bez &proxy"
 
 #: src/settings/NetworkProxyPage.qml:47
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: src/settings/NetworkProxyPage.qml:59
 #, kde-format
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: src/settings/NetworkProxyPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgid "Proxy Settings"
-msgstr "Nastavenia miestnosti"
+msgstr "Nastavenia proxy"
 
 #: src/settings/NetworkProxyPage.qml:78
-#, kde-format
+#, fuzzy, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Hostiteľ"
 
 #: src/settings/NetworkProxyPage.qml:91
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/settings/NetworkProxyPage.qml:112
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgid "User"
-msgstr "Zakázať tomuto používateľovi prístup"
+msgstr "Používateľ"
 
 #: src/settings/NetworkProxyPage.qml:140
 #, kde-format
@@ -5477,7 +5411,7 @@ msgstr "Zobraziť upozornenia"
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Enable notifications"
-msgstr "Zobraziť upozornenia"
+msgstr "Povoliť oznámenia"
 
 #: src/settings/NotificationRuleItem.qml:92
 #, fuzzy, kde-format
@@ -5515,15 +5449,13 @@ msgid "Delete keyword"
 msgstr "Vymazať"
 
 #: src/settings/PasswordSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Enter password"
-msgstr "Potvrdiť nové heslo:"
+msgstr "Zadajte heslo"
 
 #: src/settings/PasswordSheet.qml:30
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Heslo:"
@@ -5539,9 +5471,9 @@ msgid "Default permissions"
 msgstr ""
 
 #: src/settings/Permissions.qml:273
-#, kde-format
+#, fuzzy, kde-format
 msgid "Basic permissions"
-msgstr ""
+msgstr "Základné oprávnenia"
 
 #: src/settings/Permissions.qml:313
 #, kde-format
@@ -5549,9 +5481,9 @@ msgid "Event permissions"
 msgstr ""
 
 #: src/settings/Permissions.qml:360
-#, kde-format
+#, fuzzy, kde-format
 msgid "Event Type…"
-msgstr ""
+msgstr "Typ udalosti"
 
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
@@ -5755,7 +5687,7 @@ msgstr "Bezpečnosť"
 #| msgid "activated End-to-End Encryption"
 msgctxt "@option:check"
 msgid "Encryption"
-msgstr "aktivoval End-to-End šifrovanie"
+msgstr "Šifrovanie"
 
 #: src/settings/RoomSecurityPage.qml:28
 #, kde-format
@@ -5769,12 +5701,10 @@ msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
 
 #: src/settings/RoomSecurityPage.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access:"
+#, kde-format
 msgctxt "@option:check"
 msgid "Access"
-msgstr "Prístup:"
+msgstr "Prístup"
 
 #: src/settings/RoomSecurityPage.qml:46
 #, kde-format
@@ -5904,15 +5834,15 @@ msgid "Room Settings"
 msgstr "Nastavenia miestnosti"
 
 #: src/settings/RoomSettingsView.qml:62
-#, kde-format
+#, fuzzy, kde-format
 msgid "Permissions"
-msgstr ""
+msgstr "Práva"
 
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide"
-msgstr ""
+msgstr "Skryť"
 
 #: src/settings/ThreePIdCard.qml:61
 #, fuzzy, kde-format
@@ -5926,11 +5856,10 @@ msgstr "Zdieľať"
 #| msgid "Compact"
 msgctxt "@action:button"
 msgid "Complete"
-msgstr "Kompaktné"
+msgstr "Dokončené"
 
 #: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:110
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Zrušiť"
@@ -6004,8 +5933,7 @@ msgid ""
 msgstr ""
 
 #: src/settings/ThreePIdCard.qml:183
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Pridať"
@@ -6053,15 +5981,15 @@ msgid "Post message in thread"
 msgstr "Žiadne miestnosti neboli nájdené"
 
 #: src/timeline/CodeComponent.qml:159
-#, kde-format
+#, fuzzy, kde-format
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopírovať do schránky"
 
 #: src/timeline/CodeComponent.qml:171
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
-msgstr ""
+msgstr "Maximalizovať"
 
 #: src/timeline/EncryptedComponent.qml:21
 #, kde-format
@@ -6099,16 +6027,16 @@ msgid "Stop Download"
 msgstr ""
 
 #: src/timeline/FlightReservationComponent.qml:73
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "flight departure, %1 is airport, %2 is time"
 msgid "Departure from %1"
-msgstr ""
+msgstr "Odchod z %1: %2"
 
 #: src/timeline/FlightReservationComponent.qml:90
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "flight arrival, %1 is airport, %2 is time"
 msgid "Arrival at %1"
-msgstr ""
+msgstr "Príchod v %1: %2"
 
 #: src/timeline/HotelReservationComponent.qml:65
 #, kde-format
@@ -6121,11 +6049,10 @@ msgid "Check-out time: %1"
 msgstr ""
 
 #: src/timeline/ImageComponent.qml:140
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
-msgstr "vyčistil názov miestnosti"
+msgstr "Zobraziť obrázok"
 
 #: src/timeline/ItineraryComponent.qml:57
 #, kde-format
@@ -6157,8 +6084,7 @@ msgid "Loading URL preview"
 msgstr ""
 
 #: src/timeline/LocationComponent.qml:113
-#, fuzzy, kde-format
-#| msgid "Open Externally"
+#, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Otvoriť externe"
@@ -6178,10 +6104,10 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: src/timeline/PollComponent.qml:80
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr ""
+msgstr "ukončené"
 
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
@@ -6198,9 +6124,9 @@ msgstr ""
 
 #: src/timeline/TrainReservationComponent.qml:124
 #: src/timeline/TrainReservationComponent.qml:191
-#, kde-format
+#, fuzzy, kde-format
 msgid "Pl. %1"
-msgstr ""
+msgstr "Pl"
 
 #: src/timeline/VideoComponent.qml:217
 #, kde-format
@@ -6208,22 +6134,21 @@ msgid "Video"
 msgstr "Video"
 
 #: src/timeline/VideoComponent.qml:257
-#, fuzzy, kde-format
-#| msgid "Video"
-msgctxt "@action:button"
-msgid "Show Video"
-msgstr "Video"
-
-#: src/timeline/VideoComponent.qml:298
 #, kde-format
 msgctxt "@action:button"
+msgid "Show Video"
+msgstr "Zobraziť video"
+
+#: src/timeline/VideoComponent.qml:298
+#, fuzzy, kde-format
+msgctxt "@action:button"
 msgid "Volume"
-msgstr ""
+msgstr "Hlasitosť"
 
 #: src/timeline/VideoComponent.qml:382
 #, kde-format
 msgid "Maximize"
-msgstr ""
+msgstr "Maximalizovať"
 
 #: src/trayicon.cpp:19
 #, kde-format
