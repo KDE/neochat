@@ -94,7 +94,7 @@ else()
     set_package_properties(KF6QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME
     )
-    ecm_find_qmlmodule(org.kde.syntaxhighlighting 1.0)
+    ecm_find_qmlmodule(org.kde.syntaxhighlighting 1.0 REQUIRED)
 
     find_package(ICU 61.0 COMPONENTS uc)
     set_package_properties(ICU PROPERTIES
@@ -123,13 +123,12 @@ set_package_properties(cmark PROPERTIES
     PURPOSE "Convert markdown to html"
 )
 
-ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
-ecm_find_qmlmodule(org.kde.kitemmodels 1.0)
-ecm_find_qmlmodule(org.kde.quickcharts 1.0)
-ecm_find_qmlmodule(QtLocation)
-ecm_find_qmlmodule(org.kde.prison)
+ecm_find_qmlmodule(QtLocation REQUIRED)
+ecm_find_qmlmodule(org.kde.kitemmodels 1.0 REQUIRED)
+ecm_find_qmlmodule(org.kde.quickcharts 1.0 REQUIRED)
+ecm_find_qmlmodule(org.kde.prison REQUIRED)
 
-find_package(KQuickImageEditor COMPONENTS)
+find_package(KQuickImageEditor REQUIRED COMPONENTS)
 set_package_properties(KQuickImageEditor PROPERTIES
     TYPE REQUIRED
     DESCRIPTION "Simple image editor for QtQuick applications"
