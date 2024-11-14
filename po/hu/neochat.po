@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-13 00:40+0000\n"
-"PO-Revision-Date: 2024-10-03 21:36+0200\n"
+"PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -99,33 +99,31 @@ msgid "Receiving notifications for new messages"
 msgstr "Új üzenetek értesítéseinek fogadása"
 
 #: src/controller.cpp:249
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "A hozzáférési token nem található"
+msgstr "A hozzáférési token nem található: talán törölték?"
 
 #: src/controller.cpp:253
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Kérjük, engedélyezze a NeoChatnek a hozzáférési token olvasását"
+msgstr ""
+"Hozzáférés a kulcstároló megtagadva: Kérjük, engedélyezze a NeoChatnek a "
+"hozzáférési token olvasását"
 
 #: src/controller.cpp:256
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
-"Kérjük, telepítsen egy kulcstartót, Linuxon például a KWalletet vagy a GNOME "
-"kulcstartót"
+"Nem található kulcstartó: Kérjük, telepítsen egy kulcstartót, Linuxon "
+"például a KWalletet vagy a GNOME kulcstartót"
 
 #: src/controller.cpp:259
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Nem lehet olvasni a hozzáférési tokent"
+msgstr "Nem lehet olvasni a hozzáférési tokent: %1"
 
 #: src/controller.cpp:358
 #, kde-format
@@ -1094,10 +1092,9 @@ msgid "Settings"
 msgstr "Beállítások"
 
 #: src/main.cpp:143
-#, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "URL megosztása Matrixon"
+msgstr "Csevegés Matrixon"
 
 #: src/main.cpp:145
 #, kde-format
@@ -1828,12 +1825,13 @@ msgid ", "
 msgstr ", "
 
 #: src/neochatconnection.cpp:79
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "Támogatásért forduljon a matrix kiszolgáló rendszergazdájához."
+msgstr ""
+"A fájl túl nagy a letöltéshez.<br />Támogatásért forduljon a matrix "
+"kiszolgáló rendszergazdájához."
 
 #: src/neochatconnection.cpp:314
 #, kde-format
@@ -2632,15 +2630,14 @@ msgid "Only show spaces"
 msgstr "Csak terek megjelenítése"
 
 #: src/qml/ExploreRoomsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Enter a room address"
+#, kde-format
 msgid "Enter a Room Manually"
-msgstr "Adjon meg egy szobacímet"
+msgstr "Belépés szobába saját kezűleg"
 
 #: src/qml/ExploreRoomsPage.qml:103
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr ""
+msgstr "Ha már ismeri egy szoba címét vagy álnevét, és az itt nem jelenik meg."
 
 #: src/qml/ExploreRoomsPage.qml:115
 #, kde-format
@@ -3052,7 +3049,7 @@ msgstr "Megosztás"
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
-msgstr ""
+msgstr "Belépés szobába saját kezűleg"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -4136,16 +4133,16 @@ msgid "Working"
 msgstr "Dolgozunk"
 
 #: src/roommanager.cpp:146
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "A(z) %1 nem helyes Matrix azonosító"
+msgstr ""
+"Helytelenül formázott vagy üres Matrix azonosító<br />A(z) %1 nem helyes "
+"Matrix azonosító"
 
 #: src/roommanager.cpp:342
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Nem sikerült csatlakozni a szobához"
+msgstr "Nem sikerült csatlakozni a szobához<br />%1"
 
 #: src/roommanager.cpp:366
 #, kde-format
@@ -4153,10 +4150,9 @@ msgid "You requested to join '%1'"
 msgstr "Csatlakozni kérést küldött ide: „%1”"
 
 #: src/roommanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Nem sikerült csatlakozási kérést küldeni a szobához"
+msgstr "Nem sikerült csatlakozási kérést küldeni a szobához<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -4756,6 +4752,8 @@ msgstr "Tevékenység"
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
 msgstr ""
+"Az olvasatlan értesítésekkel rendelkező szobák kerülnek először "
+"megjelenítésre"
 
 #: src/settings/NeoChatGeneralPage.qml:105
 #, kde-format
@@ -4800,17 +4798,16 @@ msgid "Editor"
 msgstr "Szerkesztő"
 
 #: src/settings/NeoChatGeneralPage.qml:204
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "Üzenet küldése"
+msgstr "Üzenetek küldése Enterrel"
 
 #: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
-msgstr ""
+msgstr "Üzenetek küldése Ctrl+Enterrel"
 
 #: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
