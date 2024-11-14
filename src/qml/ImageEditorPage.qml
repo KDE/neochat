@@ -7,7 +7,6 @@ import QtQuick.Layouts
 import QtCore as Core
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kquickimageeditor as KQuickImageEditor
 
 Kirigami.Page {
@@ -168,10 +167,11 @@ Kirigami.Page {
         }
     }
 
-    footer: KirigamiComponents.Banner {
+    footer: Kirigami.InlineMessage {
         id: msg
         type: Kirigami.MessageType.Error
         showCloseButton: true
         visible: false
+        position: Kirigami.InlineMessage.Position.Header
     }
 }

@@ -8,7 +8,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
 
@@ -21,11 +20,12 @@ FormCard.FormCardPage {
 
     title: i18nc("@title", "Import Keys")
 
-    header: KirigamiComponents.Banner {
+    header: Kirigami.InlineMessage {
         id: banner
         showCloseButton: true
         visible: false
         type: Kirigami.MessageType.Error
+        position: Kirigami.InlineMessage.Position.Header
     }
 
     FormCard.FormCard {
