@@ -44,7 +44,8 @@ FormCard.FormCardPage {
                 let dialog = saveDialog.createObject(root);
                 dialog.accepted.connect(() => {
                     banner.visible = false;
-                    let error = root.connection.exportMegolmSessions(passphraseField.text, dialog.selectedFile);
+                    let text = root.connection.exportKeys(passphraseField.text);
+                    Controller.saveFileContent(dialog.selectedFile, text);
                     passphraseField.text = "";
                     if (error === KeyImport.Success) {
                         banner.text = i18nc("@info", "Keys exported successfully");

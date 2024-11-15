@@ -57,7 +57,7 @@ FormCard.FormCardPage {
             enabled: fileButton.description.length > 0 && passphraseField.text.length > 0
             onClicked: {
                 banner.visible = false;
-                let error = KeyImport.importKeys(Controller.loadFileContent(fileButton.description), passphraseField.text, root.connection);
+                let error = root.connection.importKeys(passphraseField.text, Controller.loadFileContent(fileButton.description));
                 passphraseField.text = "";
                 if (error === KeyImport.Success) {
                     root.success();

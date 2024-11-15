@@ -416,6 +416,15 @@ QString Controller::loadFileContent(const QString &path) const
     return QString::fromLatin1(file.readAll());
 }
 
+void Controller::saveFileContent(const QString &path, const QString &content)
+{
+    QUrl url(path);
+    QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
+    file.open(QFile::WriteOnly);
+    file.write(content.toUtf8());
+    file.close();
+}
+
 void Controller::setTestMode(bool test)
 {
     testMode = test;

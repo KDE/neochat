@@ -98,6 +98,8 @@ public:
 
     Q_INVOKABLE QString loadFileContent(const QString &path) const;
 
+    Q_INVOKABLE void saveFileContent(const QString &path, const QString &content);
+
     Quotient::AccountRegistry &accounts();
 
     static void setTestMode(bool testMode);
