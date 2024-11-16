@@ -62,7 +62,7 @@ ColumnLayout {
                     onClicked: _private.createRoom(root.currentRoom.id)
                 }
                 QQC2.Button {
-                    text: i18nc("@button", "Leave the space")
+                    text: i18nc("@action:button", "Leave this space")
                     icon.name: "go-previous"
                     onClicked: RoomManager.leaveRoom(root.currentRoom)
                 }
