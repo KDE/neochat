@@ -184,8 +184,8 @@ Item {
     MediaSizeHelper {
         id: mediaSizeHelper
         contentMaxWidth: root.maxContentWidth
-        mediaWidth: root?.mediaInfo.width ?? 0
-        mediaHeight: root?.mediaInfo.height ?? 0
+        mediaWidth: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.width ?? 0)
+        mediaHeight: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.height ?? 0)
     }
 
     QtObject {
