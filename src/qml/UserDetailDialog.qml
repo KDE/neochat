@@ -75,6 +75,8 @@ Kirigami.Dialog {
             QQC2.AbstractButton {
                 Layout.minimumHeight: avatar.height * 0.75
                 Layout.maximumHeight: avatar.height * 1.5
+                Layout.maximumWidth: avatar.height * 1.5
+
                 contentItem: Barcode {
                     id: barcode
                     barcodeType: Barcode.QRCode
