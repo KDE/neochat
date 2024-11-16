@@ -102,7 +102,7 @@ Labs.MenuBar {
         }
         Labs.MenuItem {
             text: i18nc("menu", "About KDE")
-            onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDE"))
+            onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"))
         }
     }
 }
