@@ -26,7 +26,7 @@ FormCard.FormCardPage {
         Layout.alignment: Qt.AlignHCenter
         Layout.topMargin: Kirigami.Units.gridUnit
         name: room.name
-        source: room.avatarMediaId ? root.connection.makeMediaUrl("mxc://" + room.avatarMediaId) : ""
+        source: room.avatarMediaUrl
         implicitWidth: Kirigami.Units.iconSizes.enormous
         implicitHeight: Kirigami.Units.iconSizes.enormous
 

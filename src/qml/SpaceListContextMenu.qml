@@ -96,7 +96,7 @@ Loader {
 
                     KirigamiComponents.Avatar {
                         id: avatar
-                        source: room.avatarMediaId ? root.room.connection.makeMediaUrl("mxc://" + room.avatarMediaId) : ""
+                        source: room.avatarMediaUrl
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 3
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3
                         Layout.alignment: Qt.AlignTop

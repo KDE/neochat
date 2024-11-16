@@ -69,9 +69,9 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(bool readMarkerLoaded READ readMarkerLoaded NOTIFY readMarkerLoadedChanged)
 
     /**
-     * @brief The avatar image to be used for the room.
+     * @brief The avatar image to be used for the room, as a mxc:// URL.
      */
-    Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
+    Q_PROPERTY(QUrl avatarMediaUrl READ avatarMediaUrl NOTIFY avatarChanged STORED false)
 
     /**
      * @brief Get a RoomMember object for the other person in a direct chat.
@@ -320,7 +320,7 @@ public:
 
     [[nodiscard]] bool readMarkerLoaded() const;
 
-    [[nodiscard]] QString avatarMediaId() const;
+    [[nodiscard]] QUrl avatarMediaUrl() const;
 
     NeochatRoomMember *directChatRemoteMember();
 

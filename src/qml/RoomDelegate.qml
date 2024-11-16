@@ -21,7 +21,7 @@ Delegates.RoundedItemDelegate {
     required property bool hasHighlightNotifications
     required property NeoChatRoom currentRoom
     required property NeoChatConnection connection
-    required property string avatar
+    required property url avatar
     required property string subtitleText
     required property string displayName
 
@@ -55,7 +55,7 @@ Delegates.RoundedItemDelegate {
         spacing: Kirigami.Units.largeSpacing
 
         AvatarNotification {
-            source: root.avatar ? root.connection.makeMediaUrl("mxc://" + root.avatar) : ""
+            source: root.avatar
             name: root.displayName
             visible: NeoChatConfig.showAvatarInRoomDrawer
             implicitHeight: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
