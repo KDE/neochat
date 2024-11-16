@@ -357,15 +357,30 @@ Loader {
                         id: listViewAction
                         model: root.actions
 
-                        FormCard.FormButtonDelegate {
-                            icon.name: modelData.icon.name
-                            icon.color: modelData.icon.color ?? undefined
-                            enabled: modelData.enabled
-                            visible: modelData.visible
-                            text: modelData.text
-                            onClicked: {
-                                modelData.triggered();
-                                root.item.close();
+                        DelegateChooser {
+                            role: "separator"
+                            DelegateChoice {
+                                roleValue: true
+
+                                FormCard.FormDelegateSeparator {
+                                    visible: modelData.visible
+                                }
+                            }
+
+                            DelegateChoice {
+                                roleValue: false
+
+                                FormCard.FormButtonDelegate {
+                                    icon.name: modelData.icon.name
+                                    icon.color: modelData.icon.color ?? undefined
+                                    enabled: modelData.enabled
+                                    visible: modelData.visible
+                                    text: modelData.text
+                                    onClicked: {
+                                        modelData.triggered();
+                                        root.item.close();
+                                    }
+                                }
                             }
                         }
                     }
