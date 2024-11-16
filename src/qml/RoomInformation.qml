@@ -219,7 +219,7 @@ QQC2.ScrollView {
             required property int index
             required property string name
             required property string userId
-            required property string avatar
+            required property url avatar
             required property int powerLevel
             required property string powerLevelString
 
