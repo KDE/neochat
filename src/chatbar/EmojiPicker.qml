@@ -201,8 +201,13 @@ ColumnLayout {
             width: root.categoryIconSize
             height: width
             checked: stickerModel.packIndex === model.index
+            padding: Kirigami.Units.largeSpacing
+
             contentItem: Image {
                 source: model.avatarUrl
+                fillMode: Image.PreserveAspectFit
+                sourceSize.width: width
+                sourceSize.height: height
             }
             QQC2.ToolTip.text: model.name
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
