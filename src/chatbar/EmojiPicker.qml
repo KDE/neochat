@@ -66,6 +66,7 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.preferredHeight: root.categoryIconSize + QQC2.ScrollBar.horizontal.height
         QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
+        visible: categories.count !== 0
 
         ListView {
             id: categories
