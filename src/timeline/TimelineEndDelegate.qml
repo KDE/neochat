@@ -35,7 +35,7 @@ TimelineDelegate {
                 Layout.preferredHeight: Kirigami.Units.iconSizes.large
 
                 name: root.room ? root.room.displayName : ""
-                source: root.room && root.room.avatarMediaId ? root.room.connection.makeMediaUrl("mxc://" + root.room.avatarMediaId) : ""
+                source: root.room ? root.room.avatarMediaUrl : ""
 
                 Rectangle {
                     visible: room.usesEncryption

@@ -169,7 +169,7 @@ FormCard.FormCardPage {
                             id: userListItem
 
                             required property string userId
-                            required property string avatar
+                            required property url avatar
                             required property string name
                             required property int powerLevel
                             required property string powerLevelString
@@ -180,7 +180,7 @@ FormCard.FormCardPage {
                                 KirigamiComponents.Avatar {
                                     Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                                    source: userListItem.avatar ? root.room.connection.makeMediaUrl(userListItem.avatar) : ""
+                                    source: userListItem.avatar
                                     name: userListItem.name
                                 }
 

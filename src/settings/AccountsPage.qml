@@ -53,7 +53,8 @@ FormCard.FormCardPage {
                 contentItem: RowLayout {
                     KirigamiComponents.Avatar {
                         name: accountDelegate.connection.localUser.displayName
-                        source: accountDelegate.connection.localUser.avatarMediaId ? accountDelegate.connection.makeMediaUrl("mxc://" + accountDelegate.connection.localUser.avatarMediaId) : ""
+                        // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
+                        source: accountDelegate.connection.localUser.avatarUrl.toString().length > 0 ? accountDelegate.connection.makeMediaUrl(accountDelegate.connection.localUser.avatarUrl) : ""
 
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         implicitWidth: Kirigami.Units.iconSizes.medium

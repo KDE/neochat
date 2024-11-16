@@ -109,7 +109,8 @@ Kirigami.Page {
                             Layout.alignment: Qt.AlignHCenter
                             Layout.topMargin: Kirigami.Units.gridUnit
                             name: delegate.text
-                            source: delegate.connection.localUser.avatarMediaId ? delegate.connection.makeMediaUrl("mxc://" + delegate.connection.localUser.avatarMediaId) : ""
+                            // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
+                            source: delegate.connection.localUser.avatarUrl.toString().length > 0 ? delegate.connection.makeMediaUrl(delegate.connection.localUser.avatarUrl) : ""
                             implicitWidth: Kirigami.Units.iconSizes.medium
                             implicitHeight: Kirigami.Units.iconSizes.medium
                         }
