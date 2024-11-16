@@ -75,6 +75,9 @@ DelegateContextMenu {
                 Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId);
             }
         },
+        Kirigami.Action {
+            separator: true
+        },
         DelegateContextMenu.ReportMessageAction {},
         DelegateContextMenu.ShowUserAction {},
         Kirigami.Action {
