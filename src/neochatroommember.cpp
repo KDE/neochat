@@ -153,15 +153,6 @@ QColor NeochatRoomMember::color() const
     return m_room->member(m_memberId).color();
 }
 
-QString NeochatRoomMember::avatarMediaId() const
-{
-    if (m_room == nullptr || m_memberId.isEmpty()) {
-        return {};
-    }
-
-    return m_room->member(m_memberId).avatarMediaId();
-}
-
 QUrl NeochatRoomMember::avatarUrl() const
 {
     if (m_room == nullptr || m_memberId.isEmpty()) {
