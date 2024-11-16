@@ -70,7 +70,6 @@ public:
     int hue() const;
     qreal hueF() const;
     QColor color() const;
-    QString avatarMediaId() const;
     QUrl avatarUrl() const;
 
 Q_SIGNALS:
