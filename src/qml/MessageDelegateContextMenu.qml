@@ -44,7 +44,7 @@ DelegateContextMenu {
         },
         DelegateContextMenu.ReplyMessageAction {},
         Kirigami.Action {
-            text: i18nc("@action:inmenu As in 'Forward this message'", "Forward")
+            text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
             icon.name: "mail-forward-symbolic"
             onTriggered: {
                 let page = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
