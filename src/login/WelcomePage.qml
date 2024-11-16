@@ -7,6 +7,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.settings
@@ -90,10 +91,27 @@ Kirigami.Page {
                     id: loadedAccounts
                     model: AccountRegistry
                     delegate: FormCard.FormButtonDelegate {
-                        text: model.userId
+                        id: delegate
+
+                        required property string userId
+                        required property NeoChatConnection connection
+
+                        text: connection.localUser.displayName
+                        description: connection.localUser.id
+                        leadingPadding: Kirigami.Units.largeSpacing
+
                         onClicked: {
-                            Controller.activeConnection = model.connection;
+                            Controller.activeConnection = delegate.connection;
                             root.connectionChosen();
+                        }
+                        leading: KirigamiComponents.Avatar {
+                            id: avatar
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.topMargin: Kirigami.Units.gridUnit
+                            name: delegate.text
+                            source: delegate.connection.localUser.avatarMediaId ? delegate.connection.makeMediaUrl("mxc://" + delegate.connection.localUser.avatarMediaId) : ""
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
                         }
                     }
                 }
