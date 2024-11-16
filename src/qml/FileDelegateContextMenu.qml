@@ -42,15 +42,19 @@ DelegateContextMenu {
      * Each action will be instantiated as a single line in the menu.
      */
     property list<Kirigami.Action> actions: [
+        DelegateContextMenu.ReplyMessageAction {},
         Kirigami.Action {
-            text: i18n("Open Externally")
+            separator: true
+        },
+        Kirigami.Action {
+            text: i18nc("@action:inmenu", "Open Image")
             icon.name: "document-open"
             onTriggered: {
                 currentRoom.openEventMediaExternally(root.eventId);
             }
         },
         Kirigami.Action {
-            text: i18nc("@action:inmenu", "Save As…")
+            text: i18nc("@action:inmenu", "Save Image…")
             icon.name: "document-save"
             onTriggered: {
                 var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
@@ -58,13 +62,15 @@ DelegateContextMenu {
                 dialog.open();
             }
         },
-        DelegateContextMenu.ReplyMessageAction {},
         Kirigami.Action {
-            text: i18n("Copy")
+            text: i18nc("@action:inmenu", "Copy Image")
             icon.name: "edit-copy"
             onTriggered: {
                 currentRoom.copyEventMedia(root.eventId);
             }
+        },
+        Kirigami.Action {
+            separator: true
         },
         Kirigami.Action {
             visible: author.id === currentRoom.localMember.id || currentRoom.canSendState("redact")
@@ -88,7 +94,13 @@ DelegateContextMenu {
         },
         DelegateContextMenu.ReportMessageAction {},
         DelegateContextMenu.ShowUserAction {},
-        DelegateContextMenu.ViewSourceAction {}
+        Kirigami.Action {
+            separator: true
+            visible: viewSourceAction.visible
+        },
+        DelegateContextMenu.ViewSourceAction {
+            id: viewSourceAction
+        }
     ]
 
     /**

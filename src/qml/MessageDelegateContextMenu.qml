@@ -59,21 +59,30 @@ DelegateContextMenu {
                 });
             }
         },
+        Kirigami.Action {
+            separator: true
+        },
         DelegateContextMenu.RemoveMessageAction {},
         Kirigami.Action {
-            text: i18n("Copy")
+            text: i18nc("@action:inmenu", "Copy Text")
             icon.name: "edit-copy"
             onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.selectedText : root.plainText)
         },
-        DelegateContextMenu.ReportMessageAction {},
-        DelegateContextMenu.ShowUserAction {},
-        DelegateContextMenu.ViewSourceAction {},
         Kirigami.Action {
-            text: i18n("Copy Link")
+            text: i18nc("@action:inmenu", "Copy Message Link")
             icon.name: "edit-copy"
             onTriggered: {
                 Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId);
             }
+        },
+        DelegateContextMenu.ReportMessageAction {},
+        DelegateContextMenu.ShowUserAction {},
+        Kirigami.Action {
+            separator: true
+            visible: viewSourceAction.visible
+        },
+        DelegateContextMenu.ViewSourceAction {
+            id: viewSourceAction
         }
     ]
 }
