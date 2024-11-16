@@ -315,7 +315,9 @@ void RoomManager::visitRoom(Room *r, const QString &eventId)
 
     // It's important that we compare room *objects* here, not just room *ids*, since we need to deal with the object changing when going invite -> joined
     if (m_currentRoom && m_currentRoom == room) {
-        Q_EMIT goToEvent(eventId);
+        if (!eventId.isEmpty()) {
+            Q_EMIT goToEvent(eventId);
+        }
     } else {
         setCurrentRoom(room->id());
     }
