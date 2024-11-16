@@ -85,13 +85,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
             return m_filterModel->data(filterIndex, RoomListModel::CanonicalAliasRole);
         }
         if (role == IconNameRole) {
-            auto mediaId = m_filterModel->data(filterIndex, RoomListModel::AvatarRole).toString();
-            if (mediaId.isEmpty()) {
-                return QVariant();
-            }
-            if (m_room) {
-                return m_room->connection()->makeMediaUrl(QUrl(QStringLiteral("mxc://%1").arg(mediaId)));
-            }
+            return m_filterModel->data(filterIndex, RoomListModel::AvatarRole).toString();
         }
     }
     if (m_autoCompletionType == Emoji) {
