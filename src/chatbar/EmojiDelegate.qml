@@ -43,6 +43,9 @@ QQC2.ItemDelegate {
             anchors.fill: parent
             visible: root.emoji.startsWith("mxc") || root.isImage
             source: visible ? root.emoji : ""
+            fillMode: Image.PreserveAspectFit
+            sourceSize.width: width
+            sourceSize.height: height
         }
     }
 
