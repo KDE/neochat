@@ -32,7 +32,7 @@ Kirigami.Dialog {
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing * 4
                 Avatar {
-                    source: root.connection.makeMediaUrl(SpaceHierarchyCache.recommendedSpaceAvatar)
+                    source: SpaceHierarchyCache.recommendedSpaceAvatar.toString().length > 0 ? root.connection.makeMediaUrl(SpaceHierarchyCache.recommendedSpaceAvatar) : 0
                     name: SpaceHierarchyCache.recommendedSpaceDisplayName
                 }
                 ColumnLayout {
