@@ -99,8 +99,11 @@ Kirigami.OverlayDrawer {
                     Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
 
                     contentItem: RowLayout {
+                        spacing: 0
+
                         Kirigami.Heading {
                             Layout.fillWidth: true
+                            Layout.leftMargin: Kirigami.Units.largeSpacing
                             text: drawerItemLoader.item ? drawerItemLoader.item.title : ""
                         }
 
