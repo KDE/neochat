@@ -20,7 +20,7 @@ KirigamiSettings.ConfigurationView {
         KirigamiSettings.ConfigurationModule {
             moduleId: "general"
             text: i18n("General")
-            icon.name: "org.kde.neochat"
+            icon.name: "org.kde.neochat.tray"
             page: () => Qt.createComponent("org.kde.neochat.settings", "NeoChatGeneralPage")
             initialProperties: () => {
                 return {
