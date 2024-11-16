@@ -50,7 +50,7 @@ DelegateContextMenu {
             }
         },
         Kirigami.Action {
-            text: i18n("Save As")
+            text: i18nc("@action:inmenu", "Save As…")
             icon.name: "document-save"
             onTriggered: {
                 var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
