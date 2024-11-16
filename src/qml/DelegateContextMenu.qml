@@ -5,6 +5,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import Qt.labs.qmlmodels
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -177,10 +178,25 @@ Loader {
 
             Repeater {
                 model: root.actions
-                QQC2.MenuItem {
-                    visible: modelData.visible
-                    action: modelData
-                    onClicked: root.item.close()
+                DelegateChooser {
+                    role: "separator"
+                    DelegateChoice {
+                        roleValue: true
+
+                        QQC2.MenuSeparator {
+                            visible: modelData.visible
+                        }
+                    }
+
+                    DelegateChoice {
+                        roleValue: false
+
+                        QQC2.MenuItem {
+                            visible: modelData.visible
+                            action: modelData
+                            onClicked: root.item.close()
+                        }
+                    }
                 }
             }
             QQC2.Menu {
