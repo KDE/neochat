@@ -16,7 +16,7 @@ FormCard.FormCardPage {
     property bool proxyConfigChanged: false
 
     FormCard.FormCard {
-        Layout.topMargin: Kirigami.Units.largeSpacing
+        Layout.topMargin: Kirigami.Units.largeSpacing * 4
 
         FormCard.FormRadioDelegate {
             id: systemDefault
