@@ -30,7 +30,7 @@ Kirigami.Dialog {
         FormCard.AbstractFormDelegate {
             background: null
             contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing * 4
+                spacing: Kirigami.Units.largeSpacing
                 Avatar {
                     source: SpaceHierarchyCache.recommendedSpaceAvatar.toString().length > 0 ? root.connection.makeMediaUrl(SpaceHierarchyCache.recommendedSpaceAvatar) : 0
                     name: SpaceHierarchyCache.recommendedSpaceDisplayName
@@ -51,6 +51,7 @@ Kirigami.Dialog {
         FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Join")
+            icon.name: "list-add-symbolic"
             onClicked: {
                 SpaceHierarchyCache.recommendedSpaceHidden = true;
                 RoomManager.resolveResource(SpaceHierarchyCache.recommendedSpaceId, "join");
@@ -58,6 +59,7 @@ Kirigami.Dialog {
             }
         }
         FormCard.FormButtonDelegate {
+            icon.name: "mail-thread-ignored-symbolic"
             text: i18nc("@action:button", "Ignore")
             onClicked: {
                 SpaceHierarchyCache.recommendedSpaceHidden = true;
