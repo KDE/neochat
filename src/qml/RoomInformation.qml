@@ -39,7 +39,7 @@ QQC2.ScrollView {
     /**
      * @brief The title that should be displayed for this component if available.
      */
-    readonly property string title: root.room.isSpace ? i18nc("@action:title", "Space Members") : i18nc("@action:title", "Room information")
+    readonly property string title: root.room.isSpace ? i18nc("@action:title", "Space Members") : i18nc("@action:title", "Room Information")
 
     // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
     QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
