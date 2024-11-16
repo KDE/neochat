@@ -169,16 +169,6 @@ public:
     Q_INVOKABLE void activateUserModel();
 
     /**
-     * @brief Resolve the given URI resource.
-     *
-     * @note It's actually Quotient::UriResolverBase::visitResource() but with Q_INVOKABLE
-     *       and the connection grabbed from RoomManager.
-     *
-     * @sa Quotient::UriResolverBase::visitResource()
-     */
-    Q_INVOKABLE UriResolveResult resolveResource(const Uri &uri);
-
-    /**
      * @brief Resolve the given resource.
      *
      * @note It's actually Quotient::UriResolverBase::visitResource() but with Q_INVOKABLE
@@ -187,6 +177,16 @@ public:
      * @sa Quotient::UriResolverBase::visitResource()
      */
     Q_INVOKABLE void resolveResource(const QString &idOrUri, const QString &action = {});
+
+    /**
+     * @brief Resolve the given resource URI.
+     *
+     * @note It's actually Quotient::UriResolverBase::visitResource() but with Q_INVOKABLE
+     *       and the connection grabbed from RoomManager.
+     *
+     * @sa Quotient::UriResolverBase::visitResource()
+     */
+    Q_INVOKABLE void resolveResource(Uri uri, const QString &action = {});
 
     bool hasOpenRoom() const;
 
