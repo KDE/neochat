@@ -28,37 +28,16 @@ Loader {
         id: regularMenu
         QQC2.Menu {
             QQC2.MenuItem {
-                text: room.isFavourite ? i18n("Remove from Favorites") : i18n("Add to Favorites")
-                icon.name: room.isFavourite ? "bookmark-remove" : "bookmark-new"
-                onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
-            }
-
-            QQC2.MenuItem {
-                text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
-                icon.name: room.isLowPriority ? "arrow-up-symbolic" : "arrow-down-symbolic"
-                onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
-            }
-
-            QQC2.MenuItem {
                 text: i18n("Mark as Read")
                 icon.name: "checkmark"
+                enabled: room.notificationCount > 0
                 onTriggered: room.markAllMessagesAsRead()
             }
 
-            QQC2.MenuItem {
-                text: room.isDirectChat() ? i18nc("@action:inmenu", "Copy user's Matrix ID to Clipboard") : i18nc("@action:inmenu", "Copy Address to Clipboard")
-                icon.name: "edit-copy"
-                onTriggered: if (room.isDirectChat()) {
-                    Clipboard.saveText(room.directChatRemoteMember.id);
-                } else if (room.canonicalAlias.length === 0) {
-                    Clipboard.saveText(room.id);
-                } else {
-                    Clipboard.saveText(room.canonicalAlias);
-                }
-            }
+            QQC2.MenuSeparator {}
 
             QQC2.Menu {
-                title: i18n("Notification State")
+                title: i18nc("@action:inmenu", "Notifications")
                 icon.name: "notifications"
 
                 QQC2.MenuItem {
@@ -104,6 +83,32 @@ Loader {
                     onTriggered: {
                         room.pushNotificationState = PushNotificationState.Mute;
                     }
+                }
+            }
+
+            QQC2.MenuItem {
+                text: room.isFavourite ? i18n("Remove from Favorites") : i18n("Add to Favorites")
+                icon.name: room.isFavourite ? "rating" : "rating-unrated"
+                onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
+            }
+
+            QQC2.MenuItem {
+                text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
+                icon.name: room.isLowPriority ? "arrow-up-symbolic" : "arrow-down-symbolic"
+                onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
+            }
+
+            QQC2.MenuSeparator {}
+
+            QQC2.MenuItem {
+                text: room.isDirectChat() ? i18nc("@action:inmenu", "Copy user's Matrix ID to Clipboard") : i18nc("@action:inmenu", "Copy Address to Clipboard")
+                icon.name: "edit-copy"
+                onTriggered: if (room.isDirectChat()) {
+                    Clipboard.saveText(room.directChatRemoteMember.id);
+                } else if (room.canonicalAlias.length === 0) {
+                    Clipboard.saveText(room.id);
+                } else {
+                    Clipboard.saveText(room.canonicalAlias);
                 }
             }
 
